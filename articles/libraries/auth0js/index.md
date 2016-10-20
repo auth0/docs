@@ -3,7 +3,7 @@ description: How to install, initilize and use auth0.js
 url: /libraries/auth0js
 ---
 
-# Using auth0.js
+# Auth0.js Reference
 
 [Auth0](http://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Office365, Google Apps, Salesforce.
 
