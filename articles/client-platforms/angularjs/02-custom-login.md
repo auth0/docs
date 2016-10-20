@@ -38,7 +38,7 @@ Go ahead and update your `login.html` you did in Step 1:
 <div class="jumbotron">
   <h2 class="text-center"><img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
   <h2 class="text-center">Login</h2>
-  <p class="text-center">{{message}}</p>
+  <p class="text-center">{{vm.message}}</p>
 </div>
 
 <div class="container">
@@ -47,17 +47,17 @@ Go ahead and update your `login.html` you did in Step 1:
       <form>
         <fieldset>
           <label for="user">User</label>
-          <input class="form-control" id="user" type="text" name="user" ng-model="user" ng-disabled="loading"/>
+          <input class="form-control" id="user" type="text" name="user" ng-model="vm.user" ng-disabled="vm.loading"/>
           <br>
           <label for="password">Password</label>
-          <input class="form-control" id="password" type="password" name="pass" ng-model="pass" ng-disabled="loading"/>
+          <input class="form-control" id="password" type="password" name="pass" ng-model="vm.pass" ng-disabled="vm.loading"/>
           <br>
-          <button class="btn btn-primary" type="submit" ng-disabled="loading" ng-click="login()">Login</button>
-          <button class="btn btn-primary" type="submit" ng-disabled="loading" ng-click="signup()">Sign Up</button>
+          <button class="btn btn-primary" type="submit" ng-disabled="vm.loading" ng-click="vm.login()">Login</button>
+          <button class="btn btn-primary" type="submit" ng-disabled="vm.loading" ng-click="vm.signup()">Sign Up</button>
         </fieldset>
       </form>
 
-      <a href="" ng-click="googleLogin()">Login with Google</a><br/>
+      <a href="javascript:;" ng-click="vm.googleLogin()">Login with Google</a><br/>
     </div>
   </div>
 </div>
@@ -73,48 +73,48 @@ And `login.controller.js`:
 
   angular
     .module('app')
-    .controller('loginController', loginController);
+    .controller('LoginController', loginController);
 
-  loginController.$inject = ['$scope', 'authService'];
+  loginController.$inject = ['authService'];
 
-  function loginController($scope, authService) {
+  function loginController(authService) {
 
-    // Put the authService on $scope to access
-    // the login method in the view
-    $scope.authService = authService;
+    var vm = this;
 
-    $scope.login = function () {
+   vm.authService = authService;
+
+    vm.login = function () {
       // Show loading indicator
-      $scope.message = 'loading...';
-      $scope.loading = true;
-      authService.login($scope.user, $scope.pass, function (err) {
+      vm.message = 'loading...';
+      vm.loading = true;
+      authService.login(vm.user, vm.pass, function (err) {
         if (err) {
-          $scope.message = "something went wrong: " + err.message;
-          $scope.loading = false;
+          vm.message = "something went wrong: " + err.message;
+          vm.loading = false;
         }
       });
     };
 
-    $scope.signup = function () {
+    vm.signup = function () {
       // Show loading indicator
-      $scope.message = 'loading...';
-      $scope.loading = true;
-      authService.signup($scope.user, $scope.pass, function (err) {
+      vm.message = 'loading...';
+      vm.loading = true;
+      authService.signup(vm.user, vm.pass, function (err) {
         if (err) {
-          $scope.message = "something went wrong: " + err.message;
-          $scope.loading = false;
+          vm.message = "something went wrong: " + err.message;
+          vm.loading = false;
         }
       });
     };
 
-    $scope.googleLogin = function () {
-      $scope.message = 'loading...';
-      $scope.loading = true;
+    vm.googleLogin = function () {
+      vm.message = 'loading...';
+      vm.loading = true;
 
       authService.googleLogin(function (err) {
         if (err) {
-          $scope.message = "something went wrong: " + err.message;
-          $scope.loading = false;
+          vm.message = "something went wrong: " + err.message;
+          vm.loading = false;
         }
       });
     };
