@@ -126,7 +126,7 @@ Add LockActivity to your Manifest, replacing the `{YOUR_AUTH0_DOMAIN}` in the `h
 </activity>
 ```
 
-**Some Restrictions**
+#### Some Restrictions
 
 * For the default WebAuthProvider to work with the phone's browser, be sure to specify in the Manifest that `LockActivity`'s `launchMode` is `singleTask`. If you forget this mode and the code is running on devices with Android version above KITKAT, an error will raise in the console and the Activity won't launch. This is to sort the way Android handles calling an existing Activity with a result. Previous versions of Android are also affected by this issue, but won't get the warning and can crash if it's not properly handled.
 * Also note that for the time being, `LockActivity` can't be launched calling `startActivityForResult`.
@@ -166,7 +166,7 @@ private LockCallback callback = new AuthenticationCallback() {
         //Exception occurred
      }
  };
-```java
+```
 
 The default `scope` used on authentication calls is `openid`. This changed from v1 as the previous included the `offline_access scope`. If you want to specify a different one, use the `Builder` method `.withAuthenticationParameters()` and add a different value for the `scope` key.
 

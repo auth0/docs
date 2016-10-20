@@ -1,5 +1,4 @@
 ---
-toc_title: Refreshing JWT Tokens
 description: Keeping your user logged in
 ---
 

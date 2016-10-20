@@ -20,7 +20,7 @@ Android 4.0 or later & Facebook Android SDK 4.+
 
 ## Github Repository
 
-https://github.com/auth0/Lock-Facebook.Android
+[https://github.com/auth0/Lock-Facebook.Android](https://github.com/auth0/Lock-Facebook.Android)
 
 ## Setup
 

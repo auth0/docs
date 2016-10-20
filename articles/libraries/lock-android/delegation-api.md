@@ -1,5 +1,4 @@
 ---
-toc_title: Delegation API
 description: Integrate with third-party apps with the delegation API.
 ---
 

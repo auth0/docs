@@ -20,7 +20,7 @@ Android 4.0 or later & Google Play Services 9.+
 
 ## Github Repository
 
-https://github.com/auth0/Lock-Google.Android
+[https://github.com/auth0/Lock-Google.Android](https://github.com/auth0/Lock-Google.Android)
 
 ## Setup
 

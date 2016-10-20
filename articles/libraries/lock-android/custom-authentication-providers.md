@@ -1,4 +1,5 @@
 ---
+toc_title: Custom Authentication Providers
 description: Lock for Android - Custom Authentication Providers
 ---
 

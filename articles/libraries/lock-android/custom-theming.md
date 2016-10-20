@@ -1,4 +1,5 @@
 ---
+toc_title: ustom Theming
 description: Lock for Android - Custom Theming
 ---
 

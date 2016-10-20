@@ -1,9 +1,8 @@
 ---
-toc_title: Passwordless with Magic Link
 description: Passwordless with Magic Link with Lock Android
 ---
 
-::: panel-info Version Warning
+::: panel-warning Version Warning
 This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
 :::
 

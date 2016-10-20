@@ -1,4 +1,5 @@
 ---
+toc_title: Migration Notes v1 to v2
 description: Lock for Android - Migration Guide
 ---
 
