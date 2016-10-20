@@ -49,7 +49,7 @@ After adding your Gradle dependency, make sure to remember to sync your Gradle p
 
 ## Dashboard Settings
 
-Go to your [Auth0 Dashboard]() and go to your client's settings. Make sure you have within your "Allowed Callback URLs" list a URL with the following format:
+Go to your [Auth0 Dashboard](https://manage.auth0.com) and go to your client's settings. Make sure you have within your "Allowed Callback URLs" list a URL with the following format:
 
 ```text
 https://{YOUR_AUTH0_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
@@ -126,7 +126,7 @@ Add LockActivity to your Manifest, replacing the `{YOUR_AUTH0_DOMAIN}` in the `h
 </activity>
 ```
 
-**Some Notes**
+**Some Restrictions**
 
 * For the default WebAuthProvider to work with the phone's browser, be sure to specify in the Manifest that `LockActivity`'s `launchMode` is `singleTask`. If you forget this mode and the code is running on devices with Android version above KITKAT, an error will raise in the console and the Activity won't launch. This is to sort the way Android handles calling an existing Activity with a result. Previous versions of Android are also affected by this issue, but won't get the warning and can crash if it's not properly handled.
 * Also note that for the time being, `LockActivity` can't be launched calling `startActivityForResult`.
@@ -316,61 +316,62 @@ By default you should at least use the following files:
 
 As this library depends on `Auth0.Android`, you should keep the files up to date with the proguard rules defined in the [repository](https://github.com/auth0/Auth0.Android).
 
-
-
 ## API
 
-### Lock
+### Lock Configuration Options
 
-#### Options
+These are options that can be used to configure Lock for Android to your project's needs. Note that if you are a user of Lock v1 who is now migrating to Lock v2, you'll want to take note of the options that are new, and of those that have been renamed. Renamed options are noted in their descriptions.
 
-##### UI Options
+#### UI Options
 
-- **[DEPRECATED 10/14/2016] useBrowser {boolean}**: Whether to use the WebView or the Browser to request calls to the `/authorize` endpoint. The default value is to use Browser. Using the Browser has some [restrictions](./../migration-guide.md#some-restrictions).
-
-```java
-public boolean useBrowser();
-public void setUseWebView(boolean useWebView);
-```
-
+- **[DEPRECATED 10/14/2016] useBrowser {boolean}**: Whether to use the WebView or the Browser to request calls to the `/authorize` endpoint. The default value is to use Browser. Using the Browser has some [restrictions](#some-restrictions).
+_Formerly called `shouldUseWebView`_.
 - **closable {boolean}**: Defines if the LockActivity can be closed. By default it's not closable.
+_Formerly called `isClosable`_.
 - **allowedConnections {List<String>}**: Filters the allowed connections from the list configured in the Dashboard. By default if this value is empty, all the connections defined in the dashboard will be available.
+_Formerly called `setConnections`_.
 
 
-##### Authentication Options
+#### Authentication Options
 
 - **withAuthenticationParameters {Map<String, Object>}**: Defines extra authentication parameters to be sent on each log in and sign up call.
+_Formerly called `setAuthenticationParameters`_.
 - **useImplicitGrant {boolean}**: Whether to use the Implicit Grant or Code Grant flow when authenticating. By default it will try to use Code Grant. If the device has an old API level and can't generate the hash because it lacks the required algorithms, it will use the Implicit Grant.
 
 
-##### Database Options
+#### Database Options
 
 - **withUsernameStyle {int}**: Defines if it should ask for email only, username only, or both of them. The accepted values are USERNAME and EMAIL. By default it'll respect the Dashboard configuration of the parameter `requires_username`.
+_Formerly called `shouldUseEmail`_.
 - **loginAfterSignUp {boolean}**: Whether after a SignUp event the user should be logged in automatically. Defaults to `true`.
+_Formerly called `shouldLoginAfterSignUp`_.
 - **initialScreen {int}**: Allows to customize which form will first appear when launching Lock. The accepted values are LOG_IN, SIGN_UP, and FORGOT_PASSWORD. By default LOG_IN is the initial screen.
 - **allowSignUp {boolean}**: Shows the Sign Up form if a Database connection is configured and it's allowed from the Dashboard. Defaults to true.
+_Formerly called `disableSignupAction`_.
 - **allowLogIn {boolean}**: Shows the Log In form if a Database connection is configured. Defaults to true.
 - **allowForgotPassword {boolean}**: Shows the Forgot Password form if a Database connection is configured and it's allowed from the Dashboard. Defaults to true.
+_Formerly called `disableResetAction`_.
 - **setDefaultDatabaseConnection {String}**: Defines which will be the default Database connection. This is useful if your application has many Database connections configured.
-- **withSignUpFields {List<CustomField>}**: Shows a second screen with extra fields for the user to complete after the username/email and password were completed in the sign up screen. Values submitted this way will be attached to the user profile in `user_metadata`. See [this file](./custom-fields.md) for more information.
+_Formerly called `defaultUserPasswordConnection`_.
+- **withSignUpFields {List<CustomField>}**: Shows a second screen with extra fields for the user to complete after the username/email and password were completed in the sign up screen. Values submitted this way will be attached to the user profile in `user_metadata`. See [this file](/libraries/lock-android/custom-fields.md) for more information.
 - **setPrivacyURL {String}**: Allows to customize the Privacy Policy URL. Will default to https://auth0.com/privacy.
 - **setTermsURL {String}**: Allows to customize the Terms of Service URL. Will default to https://auth0.com/terms.
 - **setMustAcceptTerms {boolean}**: Forces the user to accept the Terms&Policy before signing up. Defaults to false.
 
 
-##### OAuth Options
+#### OAuth Options
 
-- **withAuthStyle {String, int}**: Customize the look and feel of a given connection (name) with a specific style. See [this file](./styling/custom-oauth-connections.md) for more information.
-- **withAuthHandlers {AuthHandler...}**: Customize the authentication process by passing an array of AuthHandlers. See [this file](./../authentication/native-providers/native-providers.md) for more information.
+- **withAuthStyle {String, int}**: Customize the look and feel of a given connection (name) with a specific style. See [this document on custom oauth connections](/libraries/lock-android/custom-oauth-connections.md) for more information.
+- **withAuthHandlers {AuthHandler...}**: Customize the authentication process by passing an array of AuthHandlers. See [this document on custom authentication parameters](/libraries/lock-android/custom-authentication-providers.md) for more information.
 - **withAuthButtonSize {int}**: Allows to customize the Style of the Auth buttons. Possible values are SMALL and BIG. If this is not specified, it will default to SMALL when using **ClassicLock** with at least 2 Enterprise or Database connections, or when using **PasswordlessLock** with a Passwordless connection and less than 3 Social connections. On the rest of the cases, it will use BIG.
 - **withConnectionScope(String, String...)**: Allows to specify additional scopes for a given Connection name, which will be request along with the ones defined in the connection settings in the Auth0 dashboard. The scopes are not validated in any way and need to be recognized by the given authentication provider.
 
-##### Passwordless Options
+#### Passwordless Options
 
 - **useCode {}**: Send a code instead of a link via sms/email for Passwordless authentication.
 - **useLink {}**: Send a link instead of a code via sms/email for Passwordless authentication.
 
-#### Methods
+### Lock Methods
 
 ```java
 public void setProvider(String serviceName, IdentityProvider provider);
@@ -382,10 +383,7 @@ public void resetAllProviders();
 ```
 Removes all session information the Identity Provider handlers might have.
 
-### Lock.Builder
-A simple builder to help you create and configure Lock in your  application.
-
-#### Methods
+### Lock.Builder Methods
 
 ```java
 public Builder clientId(String clientId);
