@@ -1,6 +1,6 @@
 ---
 toc_title: Custom Fields at Signup
-description: Lock for Android - Custom Fields
+description: Adding additional fields to signups with Lock for Android
 ---
 
 # Lock for Android Custom Fields at Signup
