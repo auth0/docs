@@ -55,11 +55,14 @@ articles:
       - title: "User Metadata in Rules"
         url: "/rules/metadata-in-rules"
 
-      - title: "Deploy Rules with Github"
+      - title: "Deploy Rules with GitHub"
         url: "/extensions/github-deploy"
 
       - title: "Deploy Rules with Bitbucket"
         url: "/extensions/bitbucket-deploy"
+      
+      - title: "Deploy Rules with GitLab"
+        url: "/extensions/gitlab-deploy"
 
   - title: "API Authorization"
     url: "/api-auth"
