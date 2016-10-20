@@ -14,8 +14,6 @@ budicon: 173
   pkgType: 'replace'
 }) %>
 
-
-
 <%= include('../_includes/_rules-introduction') %>
 
 ## Display the Country in the User Profile
@@ -83,6 +81,26 @@ And finally display the country in the profile view:
   </div>
 </div>
 ```
+
+## Ensure the Country scope is requested
+
+You will also need to ensure that you request the `country` scope. This will ensure that the `country` claim is returned in the `id_token`. Go back to the `Configure` method of the `Startup` class and update the registration of the OIDC middleware to request the `country` scope:
+
+```csharp
+var options = new OpenIdConnectOptions("Auth0")
+{
+    // Code omitted for brevity...
+};
+options.Scope.Clear();
+options.Scope.Add("openid");
+options.Scope.Add("name");
+options.Scope.Add("email");
+options.Scope.Add("picture");
+options.Scope.Add("country");
+app.UseOpenIdConnectAuthentication(options);
+``` 
+
+## Run the application
 
 Now when you run the application you will be able to see the user's country displayed:
 

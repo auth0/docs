@@ -234,41 +234,46 @@ Finally, update the `Configure` method in your `Startup` class to register the O
 In order to do this, handle the `OnRedirectToIdentityProvider` event when registering the OIDC middleware and look at that `Properties` for the requested `connection`. Add the parameter to the OIDC request which is passed along to Auth0. This will ensure that Auth0 invoke the correct social identity provider directly, instead of displaying the Lock widget:
 
 ```csharp
-app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")
+var options = new OpenIdConnectOptions("Auth0")
 {
-  // Set the authority to your Auth0 domain
-  Authority = $"https://{auth0Settings.Value.Domain}",
+    // Set the authority to your Auth0 domain
+    Authority = $"https://{auth0Settings.Value.Domain}",
 
-  // Configure the Auth0 Client ID and Client Secret
-  ClientId = auth0Settings.Value.ClientId,
-  ClientSecret = auth0Settings.Value.ClientSecret,
+    // Configure the Auth0 Client ID and Client Secret
+    ClientId = auth0Settings.Value.ClientId,
+    ClientSecret = auth0Settings.Value.ClientSecret,
 
-  // Do not automatically authenticate and challenge
-  AutomaticAuthenticate = false,
-  AutomaticChallenge = false,
+    // Do not automatically authenticate and challenge
+    AutomaticAuthenticate = false,
+    AutomaticChallenge = false,
 
-  // Set response type to code
-  ResponseType = "code",
+    // Set response type to code
+    ResponseType = "code",
 
-  // Set the callback path, so Auth0 will call back to http://localhost:60856/signin-auth0
-  // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard
-  CallbackPath = new PathString("/signin-auth0"),
+    // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0 
+    // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard 
+    CallbackPath = new PathString("/signin-auth0"),
 
-  // Configure the Claims Issuer to be Auth0
-  ClaimsIssuer = "Auth0",
+    // Configure the Claims Issuer to be Auth0
+    ClaimsIssuer = "Auth0",
 
-  Events = new OpenIdConnectEvents
-  {
-    OnRedirectToIdentityProvider = context =>
+    Events = new OpenIdConnectEvents
     {
-      if (context.Properties.Items.ContainsKey("connection"))
-        context.ProtocolMessage.SetParameter("connection", context.Properties.Items["connection"]);
+        OnRedirectToIdentityProvider = context =>
+        {
+            if (context.Properties.Items.ContainsKey("connection"))
+                context.ProtocolMessage.SetParameter("connection", context.Properties.Items["connection"]);
 
-      return Task.FromResult(0);
+            return Task.FromResult(0);
+        }
     }
-  }
-});
+};
+options.Scope.Clear();
+options.Scope.Add("openid");
+app.UseOpenIdConnectAuthentication(options);
 ```
+
+Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and this can result in a large `id_token` being returned. It is suggested that you be more explicit about the scopes you want returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/05-user-profile). 
 
 ## Adding Login and Logout Links
 

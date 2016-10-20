@@ -197,7 +197,7 @@ For the Login screen you can create a Razor view and embed the code for Lock. Yo
       redirectUrl: '@Model.CallbackUrl',
       responseType: 'code',
       params: {
-        scope: 'openid profile',
+        scope: 'openid',
         state: '@Model.State' ,
         nonce: '@Model.Nonce'
       }
@@ -209,8 +209,6 @@ For the Login screen you can create a Razor view and embed the code for Lock. Yo
 ```
 
 Be sure to set the Client ID, Domain and Callback URL values from the ones supplied by the `LockContext` model. Also be sure to set the correct `state` and `nonce` parameters as shown above, as this is the key to getting everyting to work together.
-
-Also note that the `scope` parameter has been changed to add the `profile` scope. The reason for this is that you want the user's `name` returned so you can set the correct `ClaimTypes.Name` claim. This is discussed in more detail in the [User Profile step](/quickstart/webapp/aspnet-core/05-user-profile)
 
 ## Add Login and Logout links
 
