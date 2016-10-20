@@ -27,3 +27,6 @@ articles:
   - 08-calling-apis
   - 09-mfa
   - 10-customizing-lock
+  - 11-sso
+  - 12-passwordless
+  - 13-api-authorization
