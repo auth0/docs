@@ -35,7 +35,7 @@ description: Basics of Lock for Android
 Android API level 15+ is required in order to use Lock's UI.
 If you'll create your own API and just call Auth0 API via the `com.auth0.android:core:1.13.+`, the minimum required API level is 9.
 
-## Install
+## Installation
 
 Lock is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Lock* add these lines to your `build.gradle` dependencies file:
 
@@ -133,7 +133,7 @@ Add LockActivity to your Manifest, replacing the `{YOUR_AUTH0_DOMAIN}` in the `h
 
 ### Lock Instance 
 
-In the previous version of Lock, you were asked to create a custom `Application` class and initialize the `Lock.Context` there. **Now this is no longer needed**.
+In the previous version of Lock for Android, you were asked to create a custom `Application` class and initialize the `Lock.Context` there. **Now this is no longer needed**.
 
 To create a new `Lock` instance and configure it, you will just use the `Lock.Builder` class.
 
@@ -182,7 +182,7 @@ public class MainActivity extends Activity {
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
-    Auth0 auth0 = new Auth0(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
+    Auth0 auth0 = new Auth0('${account.clientId}','${account.namespace}');
     lock = Lock.newBuilder(auth0, callback)
       // ... Options
       .build(this);
@@ -267,7 +267,7 @@ public class HomeActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // Your own Activity code
-    Auth0 auth0 = new Auth0("YOUR_AUTH0_CLIENT_ID", "YOUR_AUTH0_DOMAIN");
+    Auth0 auth0 = new Auth0('${account.clientId}','${account.namespace}');
     lock = PasswordlessLock.newBuilder(auth0, callback)
       //Customize Lock
       .build(this);
@@ -307,6 +307,7 @@ startActivity(lock.newIntent(this));
 ```
 
 ## Proguard
+
 In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock for Android and its dependencies.
 By default you should at least use the following files:
 * `proguard-okio.pro`
@@ -320,39 +321,30 @@ As this library depends on `Auth0.Android`, you should keep the files up to date
 
 ### Lock Configuration Options
 
-These are options that can be used to configure Lock for Android to your project's needs. Note that if you are a user of Lock v1 who is now migrating to Lock v2, you'll want to take note first of those [options that have been renamed or whose behavior have changed](/libraries/lock-android/migration-guide), and then look over the new list below, which contains quite a few options new to v2.
+These are options that can be used to configure Lock for Android to your project's needs. **Note that if you are a user of Lock v1 who is now migrating to Lock v2**, you'll want to take note first of those [options that have been renamed or whose behavior have changed](/libraries/lock-android/migration-guide), and then look over the new list below, which contains quite a few options new to v2.
 
 #### UI Options
 
 - **[DEPRECATED 10/14/2016] useBrowser {boolean}**: Whether to use the WebView or the Browser to request calls to the `/authorize` endpoint. The default value is to use Browser. Using the Browser has some [restrictions](#some-restrictions).
-_Formerly called `shouldUseWebView`_.
 - **closable {boolean}**: Defines if the LockActivity can be closed. By default it's not closable.
-_Formerly called `isClosable`_.
 - **allowedConnections {List<String>}**: Filters the allowed connections from the list configured in the Dashboard. By default if this value is empty, all the connections defined in the dashboard will be available.
-_Formerly called `setConnections`_.
 
 
 #### Authentication Options
 
 - **withAuthenticationParameters {Map<String, Object>}**: Defines extra authentication parameters to be sent on each log in and sign up call.
-_Formerly called `setAuthenticationParameters`_.
 - **useImplicitGrant {boolean}**: Whether to use the Implicit Grant or Code Grant flow when authenticating. By default it will try to use Code Grant. If the device has an old API level and can't generate the hash because it lacks the required algorithms, it will use the Implicit Grant.
 
 
 #### Database Options
 
 - **withUsernameStyle {int}**: Defines if it should ask for email only, username only, or both of them. The accepted values are USERNAME and EMAIL. By default it'll respect the Dashboard configuration of the parameter `requires_username`.
-_Formerly called `shouldUseEmail`_.
 - **loginAfterSignUp {boolean}**: Whether after a SignUp event the user should be logged in automatically. Defaults to `true`.
-_Formerly called `shouldLoginAfterSignUp`_.
 - **initialScreen {int}**: Allows to customize which form will first appear when launching Lock. The accepted values are LOG_IN, SIGN_UP, and FORGOT_PASSWORD. By default LOG_IN is the initial screen.
 - **allowSignUp {boolean}**: Shows the Sign Up form if a Database connection is configured and it's allowed from the Dashboard. Defaults to true.
-_Formerly called `disableSignupAction`_.
 - **allowLogIn {boolean}**: Shows the Log In form if a Database connection is configured. Defaults to true.
 - **allowForgotPassword {boolean}**: Shows the Forgot Password form if a Database connection is configured and it's allowed from the Dashboard. Defaults to true.
-_Formerly called `disableResetAction`_.
 - **setDefaultDatabaseConnection {String}**: Defines which will be the default Database connection. This is useful if your application has many Database connections configured.
-_Formerly called `defaultUserPasswordConnection`_.
 - **withSignUpFields {List<CustomField>}**: Shows a second screen with extra fields for the user to complete after the username/email and password were completed in the sign up screen. Values submitted this way will be attached to the user profile in `user_metadata`. See [this file](/libraries/lock-android/custom-fields) for more information.
 - **setPrivacyURL {String}**: Allows to customize the Privacy Policy URL. Will default to https://auth0.com/privacy.
 - **setTermsURL {String}**: Allows to customize the Terms of Service URL. Will default to https://auth0.com/terms.

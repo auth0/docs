@@ -4,6 +4,8 @@ description: Lock for Android - Migration Guide
 
 # Lock for Android v1 to v2 Migration Guide
 
+In v1 of Lock for Android, you were asked to create a custom `Application` class and initialize the `Lock.Context` there. **Now this is no longer needed**. In v2, to create a new `Lock` instance and configure it, you will just use the `Lock.Builder` class. The configurable options in v2 have been expanded, allowing more configuration while making the implementation and customization process easier than in v1.
+
 ## Changed Configuration Options
 
 As in the previous version, Lock for Android v2 can be configured with extra options. Check below if the behavior for the option has changed, or if they only got renamed.
