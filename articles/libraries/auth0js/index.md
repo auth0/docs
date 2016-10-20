@@ -7,21 +7,50 @@ url: /libraries/auth0js
 
 [Auth0](http://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Office365, Google Apps, Salesforce.
 
-Auth0.js is a client-side library for [Auth0](http://auth0.com). It allows you to trigger the authentication process and parse the [JWT](http://openid.net/specs/draft-jones-json-web-token-07.html) (JSON web token) with just the Auth0 `clientID`. Once you have the JWT you can use it to authenticate requests to your http API and validate the JWT in your server-side logic with the `clientSecret`.
+Auth0.js is a client-side library for [Auth0](http://auth0.com). It allows you to trigger the authentication process and parse the [JSON Web Token](http://openid.net/specs/draft-jones-json-web-token-07.html) (JWT) with just the Auth0 `clientID`. Once you have the JWT, you can use it to authenticate requests to your HTTP API and validate the JWT in your server-side logic with the `clientSecret`.
 
-## Example
+## Ready-to-Go Example
 
-The example directory has a ready-to-go app. In order to run it you need [node](http://nodejs.org/) installed, download dependencies with `npm install`, then execute `npm run example` from the root of this project.
+The [example directory](https://github.com/auth0/auth0.js/tree/master/example) of the auth0.js library is a ready-to-go app that can help you to quickly and easily try out auth0.js. In order to run it, follow these quick steps:
+1. If you don't have [node](http://nodejs.org/) installed, do that now
+1. Download dependencies by running `npm install` from the root of this project
+1. Finally, execute `npm run example` from the root of this project, and then browse to your app running on the node server, presumably at `http://localhost:3000`.
+
+<img width="600" src="/media/articles/libraries/auth0js/auth0js-example.png" />
+
+It's that easy!
 
 ## Usage
 
-Take `auth0.js` or `auth0.min.js` from the `/build` directory and import it to your page.
+Now, let's get started integrating auth0.js into your project. We'll cover [methods of installation](#installation-options), [how to initialize auth0.js](#initialize), [signup](#signup), [login](#login), [Passwordless](#passwordless-authentication), [accessing user profiles](#user-profile), and more! 
 
-If you are using [browserify](http://browserify.org/) install with `npm i auth0-js --production --save`.
+### Installation Options
 
-> Note: The following examples use jQuery, but auth0.js is not tied to jQuery and any library can be used with it.
+You have a few options for using auth0.js in your project. Pick one of the below depending on your needs:
+
+Install via [npm](https://npmjs.org):
+
+```sh
+npm install auth0-js
+```
+
+Install via [bower](http://bower.io):
+
+```sh
+bower install auth0.js
+```
+
+Include via our CDN:
+
+```html
+<script src="${auth0js_url}"></script>
+```
+
+If you are using [browserify](http://browserify.org/), you will want to install with `npm i auth0-js --production --save`.
 
 ### Initialize
+
+> Note: The following examples use jQuery, but auth0.js is not tied to jQuery and any library can be used with it.
 
 Construct a new instance of the Auth0 client as follows:
 
@@ -34,15 +63,38 @@ Construct a new instance of the Auth0 client as follows:
     callbackURL:  '{YOUR APP URL}',
     responseType: 'token'
   });
+</script>
+```
+### Signup
 
-  //...
+Here is an example of the `signup` method and some sample code for the form.
+
+```html
+<h2>Signup Database Connection</h2>
+<input class="signup-username" />
+<input type="password" class="signup-password" />
+<input type="button" class="signup-db" value="Signup!" />
+<script type="text/javascript">
+    $('.signup-db').click(function (e) {
+        e.preventDefault();
+        auth0.signup({
+            connection: 'Username-Password-Authentication',
+            username: $('.signup-username').val(),
+            password: $('.signup-password').val(),
+            sso: true,
+            popup: true,
+            auto_login: false
+        }, function (err) {
+            if (err) return alert('Something went wrong: ' + err.message);
+            return alert('success signup without login!')
+        });
+    });
 </script>
 ```
 
 ### Login
 
-This method can be called as indifferently as `signin` or `login`.
-Triggers the login on any of your active identity provider as follows:
+This method can be referenced as `signin` or as `login` indifferently. It triggers the login on any of your active identity providers. The following are several examples of calling the `login` method with particular parameters; use the one that makes the most sense for your needs.
 
 ```js
   //trigger login with google
@@ -150,8 +202,7 @@ Passwordless authentication allows users to log in by receiving a one-time passw
 
 #### With Email
 
-Once you have configured a passwordless `email` connection, you can request a link or a code to be sent via email that will allow the receiver to sign in to your application.
-
+One option for Passwordless authentication is using email. Once you have configured a passwordless `email` connection, you can request a link or a code to be sent via email that will allow the receiver to sign in to your application.
 
 ##### Link
 
@@ -222,7 +273,7 @@ auth0.verifyEmailCode({
 
 #### With SMS
 
-First you must activate and configure your passwordless [Twilio](https://twilio.com) connection in our [dashboard](https://manage.auth0.com/#/connections/passwordless).
+You can also do Passwordless authentication via SMS. First you must activate and configure your passwordless [Twilio](https://twilio.com) connection in our [dashboard](https://manage.auth0.com/#/connections/passwordless).
 
 After that you can request a passcode to be sent via SMS to a phone number. Ensure the phone number has the proper [full-length format](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally).
 
@@ -288,8 +339,7 @@ auth0.getProfile(idToken, function (err, profile) {
 });
 ```
 
-
-How do you get hold of the `idToken` depends on the mode you are using to log in. See below for examples for [redirect](#single-page-apps) and [popup](#popup-mode) modes.
+How do you acquire the `idToken` depends on the mode you are using to log in. See below for examples for [redirect](#single-page-apps) and [popup](#popup-mode) modes.
 
 ### Processing the Callback
 
