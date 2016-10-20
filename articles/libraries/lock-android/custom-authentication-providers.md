@@ -45,7 +45,7 @@ public class MyAuthHandler implements AuthHandler {
 }
 ```
 
-Finally on the `Lock.Builder` class you need to set the AuthHandlers to use on that **Lock** instance.
+Finally, on the `Lock.Builder` class you need to set the AuthHandlers to use on that **Lock** instance.
 
 ```java
 builder.withAuthHandlers(Arrays.asList(new MyAuthHandler()));

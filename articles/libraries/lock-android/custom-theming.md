@@ -4,7 +4,7 @@ description: Lock for Android - Custom Theming
 
 # Lock for Android Custom Theming
 
-**Lock.Android** UI is very customizable.
+The **Lock.Android** UI is very customizable.
 
 ## Supported attributes list
 | Name | Type | Description |
