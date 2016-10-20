@@ -1,5 +1,5 @@
 ---
-description: Lock for Android: Custom Oauth Connections
+description: Lock for Android - Custom Oauth Connections
 ---
 
 # Custom OAuth Connections

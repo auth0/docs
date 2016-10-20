@@ -1,5 +1,5 @@
 ---
-description: Lock for Android: Custom Authentication Providers
+description: Lock for Android - Custom Authentication Providers
 ---
 
 # Custom Authentication Providers

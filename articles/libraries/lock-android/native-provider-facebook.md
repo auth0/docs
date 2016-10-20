@@ -1,5 +1,5 @@
 ---
-description: Lock for Android: Google as a Provider
+description: Lock for Android - Google as a Provider
 ---
 
 # Native Provider - Facebook

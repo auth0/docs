@@ -1,5 +1,5 @@
 ---
-description: Lock for Android: Custom Fields
+description: Lock for Android - Custom Fields
 ---
 
 # Lock for Android Custom Fields at Signup

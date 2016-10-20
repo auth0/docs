@@ -1,5 +1,5 @@
 ---
-description: Lock for Android: Custom Theming
+description: Lock for Android - Custom Theming
 ---
 
 # Lock for Android Custom Theming

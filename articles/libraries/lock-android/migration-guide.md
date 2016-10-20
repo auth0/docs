@@ -1,5 +1,5 @@
 ---
-description: Lock for Android: Migration Guide
+description: Lock for Android - Migration Guide
 ---
 
 # Lock for Android v1 to v2 Migration Guide
