@@ -320,7 +320,7 @@ As this library depends on `Auth0.Android`, you should keep the files up to date
 
 ### Lock Configuration Options
 
-These are options that can be used to configure Lock for Android to your project's needs. Note that if you are a user of Lock v1 who is now migrating to Lock v2, you'll want to take note of the options that are new, and of those that have been renamed. Renamed options are noted in their descriptions.
+These are options that can be used to configure Lock for Android to your project's needs. Note that if you are a user of Lock v1 who is now migrating to Lock v2, you'll want to take note first of those [options that have been renamed or whose behavior have changed](/libraries/lock-android/migration-guide), and then look over the new list below, which contains quite a few options new to v2.
 
 #### UI Options
 
@@ -353,7 +353,7 @@ _Formerly called `disableSignupAction`_.
 _Formerly called `disableResetAction`_.
 - **setDefaultDatabaseConnection {String}**: Defines which will be the default Database connection. This is useful if your application has many Database connections configured.
 _Formerly called `defaultUserPasswordConnection`_.
-- **withSignUpFields {List<CustomField>}**: Shows a second screen with extra fields for the user to complete after the username/email and password were completed in the sign up screen. Values submitted this way will be attached to the user profile in `user_metadata`. See [this file](/libraries/lock-android/custom-fields.md) for more information.
+- **withSignUpFields {List<CustomField>}**: Shows a second screen with extra fields for the user to complete after the username/email and password were completed in the sign up screen. Values submitted this way will be attached to the user profile in `user_metadata`. See [this file](/libraries/lock-android/custom-fields) for more information.
 - **setPrivacyURL {String}**: Allows to customize the Privacy Policy URL. Will default to https://auth0.com/privacy.
 - **setTermsURL {String}**: Allows to customize the Terms of Service URL. Will default to https://auth0.com/terms.
 - **setMustAcceptTerms {boolean}**: Forces the user to accept the Terms&Policy before signing up. Defaults to false.
@@ -361,8 +361,8 @@ _Formerly called `defaultUserPasswordConnection`_.
 
 #### OAuth Options
 
-- **withAuthStyle {String, int}**: Customize the look and feel of a given connection (name) with a specific style. See [this document on custom oauth connections](/libraries/lock-android/custom-oauth-connections.md) for more information.
-- **withAuthHandlers {AuthHandler...}**: Customize the authentication process by passing an array of AuthHandlers. See [this document on custom authentication parameters](/libraries/lock-android/custom-authentication-providers.md) for more information.
+- **withAuthStyle {String, int}**: Customize the look and feel of a given connection (name) with a specific style. See [this document on custom oauth connections](/libraries/lock-android/custom-oauth-connections) for more information.
+- **withAuthHandlers {AuthHandler...}**: Customize the authentication process by passing an array of AuthHandlers. See [this document on custom authentication parameters](/libraries/lock-android/custom-authentication-providers) for more information.
 - **withAuthButtonSize {int}**: Allows to customize the Style of the Auth buttons. Possible values are SMALL and BIG. If this is not specified, it will default to SMALL when using **ClassicLock** with at least 2 Enterprise or Database connections, or when using **PasswordlessLock** with a Passwordless connection and less than 3 Social connections. On the rest of the cases, it will use BIG.
 - **withConnectionScope(String, String...)**: Allows to specify additional scopes for a given Connection name, which will be request along with the ones defined in the connection settings in the Auth0 dashboard. The scopes are not validated in any way and need to be recognized by the given authentication provider.
 
@@ -370,92 +370,3 @@ _Formerly called `defaultUserPasswordConnection`_.
 
 - **useCode {}**: Send a code instead of a link via sms/email for Passwordless authentication.
 - **useLink {}**: Send a link instead of a code via sms/email for Passwordless authentication.
-
-### Lock Methods
-
-```java
-public void setProvider(String serviceName, IdentityProvider provider);
-```
-Change the default identity provider handler for Social and Enterprise connections. By default all social/enterprise authentication are done using Web flow with a Browser.
-
-```java
-public void resetAllProviders();
-```
-Removes all session information the Identity Provider handlers might have.
-
-### Lock.Builder Methods
-
-```java
-public Builder clientId(String clientId);
-```
-Set the clientId of your application in Auth0. This value is mandatory.
-
-```java
-public Builder tenant(String tenant);
-```
-Set the tenant name of your application. This value is optional if you supply a domain url.
-
-```java
-public Builder domainUrl(String domain);
-```
-Set the domain Url for Auth0's API. This value is optional if you provide a tenant name, it will default to Auth0 cloud API `https://tenant_name.auth0.com`.
-
-```java
-public Builder configurationUrl(String configuration);
-```
-Set the Url where Lock fetches the App configuration. By default it asks Auth0 for this info.
-
-```java
-public Builder useWebView(boolean useWebView);
-```
-Make Lock use an embedded WebView for Social+Enterprise authentications.
-
-```java
-public Builder closable(boolean closable);
-```
-Allow the user to close Lock's activity by pressing back button.
-
-```java
-public Builder loginAfterSignUp(boolean loginAfterSignUp);
-```
-After a successful sign up of a user, sign him/her in too.
-
-```java
-public Builder authenticationParameters(Map<String, Object> parameters);
-```
-Extra parameters sent to Auth0 Auth API during authentication. By default it has `scope` defined as `openid offline_access` and a device name stored in `device` parameter key.  For more information check out our [Wiki](/libraries/lock-android/sending-authentication-parameters)
-
-```java
-public Builder useEmail(boolean useEmail);
-```
-Lock will ask for an email for authentication, otherwise it will ask for a username. By default is `true`.
-
-```java
-public Builder useConnections(String ...connectionNames);
-```
-Make Lock pick these connections for authentication from all the enabled connections in your app.
-
-```java
-public Builder defaultDatabaseConnection(String name);
-```
-Make Lock use the Database Connection whose name matches the one provided.
-
-```java
-public Builder loadFromApplication(Application application);
-```
-Load ClientID, Tenant name, Domain and configuration URLs from the Android app's metadata (if available).
-These are the values that can be defined and it's keys:
-* __com.auth0.lock.client-id__: Application's clientId in Auth0.
-* __com.auth0.lock.tenant__: Application's owner tenant name. (Optional if you supply Domain and Configuration URLs)
-* __com.auth0.lock.domain-url__: URL where the Auth0 API is available. (Optional if you supply ClientID/Tenant and you use Auth0 in the cloud)
-* __com.auth0.lock.configuration-url__: URL where Auth0 apps information is available. (Optional if you supply ClientID/Tenant and you use Auth0 in the cloud)
-
-```java
-public Builder fullscreen(boolean fullscreen);
-```
-Make Lock's activities fullscreen. Default is `false`
-
-```java
-public Lock build();
-```
-Creates a new instance of `Lock` and configure it with the values passed to the builder.
