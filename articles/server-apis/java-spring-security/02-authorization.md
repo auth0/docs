@@ -43,7 +43,7 @@ What this rule does is add a `roles` property at the `app_metadata`. To customiz
 When you ask for a token you need to add this new property, `roles`, as part of the `scope` parameter. For example, if your front-end is using Lock, the code should look like this:
 
 ```js
-var lock = new Auth0Lock('${clientId}', '${domain}');
+var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 lock.showSignin({
     authParams: {
         scope: 'openid roles'
