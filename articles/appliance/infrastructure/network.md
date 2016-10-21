@@ -33,10 +33,11 @@ Since the Appliance is delivered as a subscription-based managed service, Auth0 
 
 ## DNS Records
 
-DNS records are required for all Appliance instances (development/test *and* production). A standard single-node or cluster deployment requires three DNS entries for the following:
+DNS records are required for all Appliance instances (development/test *and* production). A standard single-node or cluster deployment requires four DNS entries for the following:
 
 * **Management Dashboard**: the Management Dashboard is the web interface that acts as a client for the configuration and application tenants on the Appliance;
 * **Root Tenant Authority**: the tenant on the Appliance that controls Appliance settings, configuration, and local Dashboard Admin users;
+* **webtask**: webtask DNS is used for web extensions and to use Webtasks externally;
 * **App Tenant**: the tenant on the Appliance created for your apps. It manages settings for your apps, user profiles, rules, etc. This is the tenant you will interact with primarily through the Management Dashboard and the API.
 
 Please refer to the [DNS page](/appliance/infrastructure/dns) for additional requirements.
