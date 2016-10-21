@@ -1,39 +1,19 @@
 ---
+toc_title: Getting Started with Lock for Android
 url: /libraries/lock-android
-description: Installation and usage of Lock for Android
+description: Installation, usage, and configuration options guide for Lock for Android
 ---
 
 # Lock for Android
 
-[Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
+Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory. You can also use Lock for Android to provide Passwordless authentication using email or SMS. 
 
-## Key Features
-
-* **Integrates** your Android app with **Auth0**.
-* Provides a **beautiful native UI** to log your users in.
-* Provides support for **Social Providers** (Facebook, Twitter, etc.), **Enterprise Providers** (AD, LDAP, etc.) and **Username & Password**.
-* Passwordless authentication using **SMS or Email**.
-
-## Additional Documents
-
-<ul>
-<% _.forEach(_.sortBy(articles.findByHash('libraries/lock-android').items, 'toc_title'), function(article) { %>
-  <% if (article.toc_title) { %>
-  <li>
-    <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>
-    <% if (article.description) { %>
-      - <%- article.description %>
-    <% } %>
-    </span>
-  </li>
-  <% } %>
-<% }); %>
-</ul>
+Get started using Lock for Android below, or if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Lock for Android!!
 
 ## Requirements
 
 Android API level 15+ is required in order to use Lock's UI.
-If you'll create your own API and just call Auth0 API via the `com.auth0.android:core:1.13.+`, the minimum required API level is 9.
+If you intend to create your own API and just call Auth0 API via the `com.auth0.android:auth0:1.1.0`, the minimum required API level is also 15+.
 
 ## Installation
 
@@ -43,17 +23,19 @@ Lock is available both in [Maven Central](http://search.maven.org) and [JCenter]
 compile 'com.auth0.android:lock:2.0.0'
 ```
 
-_You can check for the latest version on the repository Releases tab or in Maven_
+_You can check for the latest version on the repository [Releases](https://github.com/auth0/Lock.Android/releases) tab or in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock%22%20g%3A%22com.auth0.android%22)_
 
-After adding your Gradle dependency, make sure to remember to sync your Gradle project to update the dependencies.
+After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
 ## Dashboard Settings
 
-Go to your [Auth0 Dashboard](https://manage.auth0.com) and go to your client's settings. Make sure you have within your "Allowed Callback URLs" list a URL with the following format:
+Go to your [Auth0 Dashboard](https://manage.auth0.com) and go to the client's settings, adding the following URL to the client's "Allowed Callback URLs" :
 
 ```text
 https://{YOUR_AUTH0_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
+
+Be sure to modify the URL to add your Auth0 domain and your app package name, of course!
 
 Now take the keystore file you use to sign the application and obtain the SHA256 key hash. The following examples show how to obtain the hashes for the default android keystore.
 
@@ -89,11 +71,13 @@ Certificate fingerprints:
      Version: 3
 ```
 
-Copy the resulting SHA256 value and go to your application's settings. Click "Show Advanced Settings" and in the "Mobile Settings" tab, fill the Android `app package name` with your application's package name, and the key hash with the value you copied before. Don't forget to save the changes.
+Copy the resulting SHA256 value and go to your application's settings. Click "Show Advanced Settings" and in the "Mobile Settings" tab, fill the Android app package name with your application's package name, and the key hash with the value you copied before. Don't forget to save the changes.
 
 If you don't add the callback URL to the whitelist nor the key hash to the settings, the Auth0 server won't return the call result to your application.
 
 ## Implementing Lock (Social, Database, Enterprise)
+
+The following instructions discuss 
 
 ### Configuring AndroidManifest.xml
 
@@ -103,9 +87,9 @@ Add the `android.permission.INTERNET` permission to the Manifest to allow Lock t
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Add LockActivity to your Manifest, replacing the `{YOUR_AUTH0_DOMAIN}` in the `host` attribute with your `tenant.auth0.com` and the `{YOUR_APP_PACKAGE_NAME}` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
+Add LockActivity to your Manifest, replacing the `host` attribute with your `tenant.auth0.com` domain and the `{YOUR_APP_PACKAGE_NAME}` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
 
-```java
+```xml
 <activity
   android:name="com.auth0.android.lock.LockActivity"
   android:label="@string/app_name"
@@ -119,7 +103,7 @@ Add LockActivity to your Manifest, replacing the `{YOUR_AUTH0_DOMAIN}` in the `h
       <category android:name="android.intent.category.BROWSABLE" />
 
       <data
-        android:host="{YOUR_AUTH0_DOMAIN}"
+        android:host="${account.namespace}"
         android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
         android:scheme="https" />
     </intent-filter>
@@ -128,7 +112,7 @@ Add LockActivity to your Manifest, replacing the `{YOUR_AUTH0_DOMAIN}` in the `h
 
 #### Some Restrictions
 
-* For the default WebAuthProvider to work with the phone's browser, be sure to specify in the Manifest that `LockActivity`'s `launchMode` is `singleTask`. If you forget this mode and the code is running on devices with Android version above KITKAT, an error will raise in the console and the Activity won't launch. This is to sort the way Android handles calling an existing Activity with a result. Previous versions of Android are also affected by this issue, but won't get the warning and can crash if it's not properly handled.
+* Make sure the Activity's launchMode is declared as `singleTask` or the result won't come back after the authentication. 
 * Also note that for the time being, `LockActivity` can't be launched calling `startActivityForResult`.
 
 ### Lock Instance 
@@ -167,8 +151,6 @@ private LockCallback callback = new AuthenticationCallback() {
      }
  };
 ```
-
-The default `scope` used on authentication calls is `openid`. This changed from v1 as the previous included the `offline_access scope`. If you want to specify a different one, use the `Builder` method `.withAuthenticationParameters()` and add a different value for the `scope` key.
 
 ### Lock.Builder
 
@@ -218,15 +200,15 @@ public class MainActivity extends Activity {
 }
 ```
 
-Remember to notify the `LockActivity` when the `OnDestroy` method is called on your `Activity`, as it helps to keep the `Lock` state.
+Remember to notify the LockActivity when the `OnDestroy` method is called on your Activity, as it helps to keep the Lock state.
 
 That's it! Lock will handle the rest for you.
 
 ## Implementing Lock Passwordless (Social, Passwordless)
 
-`PasswordlessLockActivity` authenticates users by sending them an Email or SMS (similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS/Email connection enabled and configured in your [Auth0 dashboard](https://manage.auth0.com/#/connections/passwordless).
+`PasswordlessLockActivity` authenticates users by sending them an email or SMS (similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the email/SMS connection enabled and configured in your [Auth0 dashboard](https://manage.auth0.com/#/connections/passwordless).
 
-You'll need to configure `PasswordlessLockActivity` in your `AndroidManifest.xml`, inside the `application` tag:
+You'll need to add the `PasswordlessLockActivity` to your Manifest, inside the `application` tag:
 
 ```xml
 <activity
@@ -259,8 +241,7 @@ Also, you'll need to add *Internet* permission to your application:
 Then in any of your Activities, you need to initialize **PasswordlessLock**
 
 ```java
-// This activity will show Lock
-public class HomeActivity extends Activity {
+public class MainActivity extends Activity {
 
   private PasswordlessLock lock;
 
@@ -308,57 +289,31 @@ startActivity(lock.newIntent(this));
 
 ## Proguard
 
-In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock for Android and its dependencies.
+In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock for Android and its dependencies. This can be used in your release builds to avoid some issues when compiling.
 By default you should at least use the following files:
 * `proguard-okio.pro`
 * `proguard-gson.pro`
 * `proguard-otto.pro`
 * `proguard-lock-2.pro`
 
-As this library depends on `Auth0.Android`, you should keep the files up to date with the proguard rules defined in the [repository](https://github.com/auth0/Auth0.Android).
+As this library depends on `Auth0.Android`, you should keep the files up to date with the proguard rules defined in the [repository](https://github.com/auth0/Lock.Android).
 
-## API
+## Lock Configuration
 
-### Lock Configuration Options
+For a full list of Lock's configuration options, check out the [Lock for Android Configuration Reference](/libraries/lock-android/configuration). Also, for users of v1 migrating to v2, check out the [Migration Guide](/libraries/lock-android/migration-guide) to see what options have changed.
 
-These are options that can be used to configure Lock for Android to your project's needs. **Note that if you are a user of Lock v1 who is now migrating to Lock v2**, you'll want to take note first of those [options that have been renamed or whose behavior have changed](/libraries/lock-android/migration-guide), and then look over the new list below, which contains quite a few options new to v2.
+## Additional Documents
 
-#### UI Options
-
-- **[DEPRECATED 10/14/2016] useBrowser {boolean}**: Whether to use the WebView or the Browser to request calls to the `/authorize` endpoint. The default value is to use Browser. Using the Browser has some [restrictions](#some-restrictions).
-- **closable {boolean}**: Defines if the LockActivity can be closed. By default it's not closable.
-- **allowedConnections {List<String>}**: Filters the allowed connections from the list configured in the Dashboard. By default if this value is empty, all the connections defined in the dashboard will be available.
-
-
-#### Authentication Options
-
-- **withAuthenticationParameters {Map<String, Object>}**: Defines extra authentication parameters to be sent on each log in and sign up call.
-- **useImplicitGrant {boolean}**: Whether to use the Implicit Grant or Code Grant flow when authenticating. By default it will try to use Code Grant. If the device has an old API level and can't generate the hash because it lacks the required algorithms, it will use the Implicit Grant.
-
-
-#### Database Options
-
-- **withUsernameStyle {int}**: Defines if it should ask for email only, username only, or both of them. The accepted values are USERNAME and EMAIL. By default it'll respect the Dashboard configuration of the parameter `requires_username`.
-- **loginAfterSignUp {boolean}**: Whether after a SignUp event the user should be logged in automatically. Defaults to `true`.
-- **initialScreen {int}**: Allows to customize which form will first appear when launching Lock. The accepted values are LOG_IN, SIGN_UP, and FORGOT_PASSWORD. By default LOG_IN is the initial screen.
-- **allowSignUp {boolean}**: Shows the Sign Up form if a Database connection is configured and it's allowed from the Dashboard. Defaults to true.
-- **allowLogIn {boolean}**: Shows the Log In form if a Database connection is configured. Defaults to true.
-- **allowForgotPassword {boolean}**: Shows the Forgot Password form if a Database connection is configured and it's allowed from the Dashboard. Defaults to true.
-- **setDefaultDatabaseConnection {String}**: Defines which will be the default Database connection. This is useful if your application has many Database connections configured.
-- **withSignUpFields {List<CustomField>}**: Shows a second screen with extra fields for the user to complete after the username/email and password were completed in the sign up screen. Values submitted this way will be attached to the user profile in `user_metadata`. See [this file](/libraries/lock-android/custom-fields) for more information.
-- **setPrivacyURL {String}**: Allows to customize the Privacy Policy URL. Will default to https://auth0.com/privacy.
-- **setTermsURL {String}**: Allows to customize the Terms of Service URL. Will default to https://auth0.com/terms.
-- **setMustAcceptTerms {boolean}**: Forces the user to accept the Terms&Policy before signing up. Defaults to false.
-
-
-#### OAuth Options
-
-- **withAuthStyle {String, int}**: Customize the look and feel of a given connection (name) with a specific style. See [this document on custom oauth connections](/libraries/lock-android/custom-oauth-connections) for more information.
-- **withAuthHandlers {AuthHandler...}**: Customize the authentication process by passing an array of AuthHandlers. See [this document on custom authentication parameters](/libraries/lock-android/custom-authentication-providers) for more information.
-- **withAuthButtonSize {int}**: Allows to customize the Style of the Auth buttons. Possible values are SMALL and BIG. If this is not specified, it will default to SMALL when using **ClassicLock** with at least 2 Enterprise or Database connections, or when using **PasswordlessLock** with a Passwordless connection and less than 3 Social connections. On the rest of the cases, it will use BIG.
-- **withConnectionScope(String, String...)**: Allows to specify additional scopes for a given Connection name, which will be request along with the ones defined in the connection settings in the Auth0 dashboard. The scopes are not validated in any way and need to be recognized by the given authentication provider.
-
-#### Passwordless Options
-
-- **useCode {}**: Send a code instead of a link via sms/email for Passwordless authentication.
-- **useLink {}**: Send a link instead of a code via sms/email for Passwordless authentication.
+<ul>
+<% _.forEach(_.sortBy(articles.findByHash('libraries/lock-android').items, 'toc_title'), function(article) { %>
+  <% if (article.toc_title) { %>
+  <li>
+    <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>
+    <% if (article.description) { %>
+      - <%- article.description %>
+    <% } %>
+    </span>
+  </li>
+  <% } %>
+<% }); %>
+</ul>
