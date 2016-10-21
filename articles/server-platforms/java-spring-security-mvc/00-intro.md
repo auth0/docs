@@ -27,7 +27,7 @@ Instead you can choose to follow the samples that are included in each step. Eac
 Let's take some time and explain how our [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) is structured.
 
 
-```
+```text
 - src
 -- main
 ---- java
