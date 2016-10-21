@@ -1,15 +1,5 @@
 ---
 title: Connect Azure Active Directory with Auth0 (Classic Portal)
-connection: Azure Active Directory
-image: /media/connections/azure.png
-alias:
-  - azure-ad
-  - waad
-  - windows-azure-ad
-  - windows-azure-active-directory
-  - microsoft-azure-ad
-  - microsoft-azure-active-directory
-seo_alias: azure-active-directory
 description: How to obtain a ClientId and Client Secret for a Microsoft Azure Active Directory with the Classic Portal.
 ---
 
