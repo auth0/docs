@@ -48,7 +48,7 @@ In your application's `Info.plist` file, register your iOS Bundle Identifer as a
 </array>
 ```
 
-Finally, go to Auth0 Dashboard and go to application's settings. Make sure you have in Allowed Callback URLs a URL with the following format:
+Finally, open the Dashboard and make sure the Allowed Callback URLs for your client contains a URL with the following format:
 
 `{YOUR_BUNDLE_IDENTIFIER}://{YOUR_AUTH0_DOMAIN}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback`
 
