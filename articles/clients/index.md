@@ -4,14 +4,31 @@ description: Explains the basics of creating and using Auth0 Clients.
 
 # Core Concepts: Clients
 
-An Auth0 **client** allows your application to utilize Auth0 for authentication. A fully-configured authentication process will consist of an Auth0 client that possesses information about and is able to communicate with your application (which, conversely, possesses information about and is able to communicate with the Auth0 client.)
+## Overview
 
-A client is a core Auth0 concept, so it's important to know how they:
+An Auth0 **client** maps to your application and allows to use Auth0 for authentication. The term *client* does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server. The term is aligned with the [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749), where a client is defined as *an application making protected resource requests on behalf of the resource owner and with its authorization*.
 
-1. Relate to your applications;
-2. Impact auditing, authorization, and so on.
+## How to configure a Client in Auth0
 
-## Client Settings
+Navigate to the [dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients) menu option on the left. By default, you should have one client named *Default App*. You can either configure this one or create a new one by clicking the **+ Create Client** button.
+
+The *Create Client* windows pops open. Set a descriptive name for your client and select the client type.
+
+![Create Client window](/media/articles/applications/create-client-popup.png)
+
+Select the client type that matches your application:
+
+- **Native**: Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, Ionic or iOS. For a complete listing of the SDKs Auth0 offers for mobile apps refer to: [Native SDKs](/quickstart/native). The OAuth 2.0 flow you can use with this client type is **Implicit Grant**. For more information on how to do so refer to: [API Auth: Implicit Grant](/api-auth/grant/implicit).
+
+- **Single Page Web Applications**: Used for JavaScript front-end apps that run on a browser, like Angular, jQuery or React. For a complete listing of the SDKs Auth0 offers for SPAs refer to: [Single Page App SDKs](/quickstart/spa). The OAuth 2.0 flow you can use with this client type is **Implicit Grant**. For more information on how to do so refer to: [API Auth: Implicit Grant](/api-auth/grant/implicit).
+
+- **Regular Web Applications**: Used for traditional web applications that run on a server, like ASP .NET, Java or Node.js. For a complete listing of the SDKs Auth0 offers for Web Apps refer to: [Web App SDKs](/quickstart/webapp). The OAuth 2.0 flow you can use with this client type is **Authorization Code Grant**. For more information on how to do so refer to: [API Auth: Authorization Code Grant](/api-auth/grant/authorization-code).
+
+- **Non Interactive Clients**: Used for server to server applications like CLIs, daemons or services running on your backend. Typically you would use this option if you have a service that requires access to an API and you want it to request access tokens in order to do so. The OAuth 2.0 flow you can use with this client type is **Client Credentials**. For more information on how to do so refer to [API Auth: Client Credentials Grant](/api-auth/grant/client-credentials) and [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
+
+After you set the name and client type, click **Create**.
+
+
 
 ![](/media/articles/applications/applications-callback-settings.png)
 
@@ -176,7 +193,7 @@ Note that users interacting with the different APIs results in a higher active u
 
 ![](/media/articles/applications/applications-complex-different.png)
 
-### Custom Domain Names
+## Custom Domain Names
 
 The public, multi-tenant cloud service version of Auth0 supports a domain name based off of `auth0.com`. Auth0 assigns Clients deployed using this service a domain name in one of the two formats:
 
@@ -195,8 +212,8 @@ mycompany.au.auth0.com
 
 You may choose to use a custom domain name that obscures the Auth0 reference, such as `mycompany.com`. Using a custom domain name requires a *single-tenant* implementation of Auth0, which can be deployed in one of three locations:
 
-* The Auth0-managed cloud;
-* A customer-managed cloud;
+* The Auth0-managed cloud.
+* A customer-managed cloud.
 * An on-premise installation.
 
 Due to the additional features offered by these three options, these deployment options do come with a higher cost.
