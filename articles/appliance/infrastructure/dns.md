@@ -21,6 +21,10 @@ The following document details the requirements of DNS records used for Applianc
         <td>rta-project.yourdomain.com</td>
     </tr>
     <tr>
+        <th>Webtask</th>
+        <td>webtask.yourdomain.com</td>
+    </tr>
+    <tr>
         <th>App Tenant(s)</th>
         <td>app1-project.yourdomain.com; <br /> app2-project.yourdomain.com <br />...etc.</td>
     </tr>
@@ -36,6 +40,10 @@ For a dev/test non-production Appliance a common practice is to append â€œ-devâ€
     <tr>
         <th>Root Tenant Authority (Dev)</th>
         <td>rta-dev-project.yourdomain.com</td>
+    </tr>
+    <tr>
+        <th>Webtask (Dev)</th>
+        <td>webtask-dev.yourdomain.com</td>
     </tr>
     <tr>
         <th>App Tenant(s) (Dev)</th>
