@@ -25,4 +25,5 @@ The first time the user goes through this flow a consent page will be shown wher
 
  ## Tutorials
 
+  - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
   - [Executing an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant)

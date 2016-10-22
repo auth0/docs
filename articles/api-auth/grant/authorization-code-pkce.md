@@ -22,4 +22,5 @@ To mitigate this attack, the Client creates, for every authorization request, a 
 
  ## Tutorials
 
+  - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
   - [Executing an Authorization Code Grant with PKCE flow](/api-auth/tutorials/authorization-code-grant-pkce)
