@@ -2,11 +2,27 @@
 
 ## Dependences
 
-This quickstart uses the Auth0.swift SDK to help you add authentication and API authorization to your iOS app. You will need to add this dependency to your Podfile.
+This quickstart uses the Auth0.swift SDK to help you add authentication and API authorization to your iOS app. You will need to add this dependency to your project.
+
+#### Carthage
+
+If you are using Carthage, add the following lines to your `Cartfile`:
+
+```ruby
+github "auth0/Auth0.swift" "1.0"
+```
+
+Then, run `carthage bootstrap`.
+
+> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+
+#### Cocoapods
+
+If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
 
 ```ruby
 use_frameworks!
-pod "Auth0", :git => 'https://github.com/auth0/Auth0.swift.git'
+pod 'Auth0', '~> 1.0'
 ```
 
 Then, run `pod install`.
@@ -57,36 +73,30 @@ Finally, open the Dashboard and make sure the Allowed Callback URLs for your cli
 Your Swift application will need to use Auth0.swift to kick off the OAuth flow using the code below:
 
 ```swift
-@IBAction func StartAuthentication( sender: AnyObject? ) {
+@IBAction func startAuthentication(sender: AnyObject?) {
     
-    let params: [String: String] = [
-        "audience":"{YOUR AUDIENCE}",
-        "scope":"{YOUR SCOPES}",
-        "response_type":"code",
-        ]
-    
-    Auth0
-        .webAuth()
-        .parameters(params)
-        .start(authCallback);
-    
-}
+let params = [
+    "audience":"{YOUR AUDIENCE}",
+    "scope":"{YOUR SCOPES}"
+    ]
 
-func authCallback(result:Result<Credentials>) {
-
-    switch result {
-    case .success(let credentials):        
-        DispatchQueue.main.async {
-            // here you have the access token, id token
-            // and (optionally) refresh token available to your app
-            // credentials.accessToken
-            // credentials.idToken
-            // credentials.refreshToken
+Auth0
+    .webAuth()
+    .parameters(params)
+    .start( { result in
+        switch result {
+            case .success(let credentials):
+                DispatchQueue.main.async {
+                    // here you have the access token, id token
+                    // and (optionally) refresh token available to your app
+                    // credentials.accessToken
+                    // credentials.idToken
+                    // credentials.refreshToken
+                }
+        case .failure(let error):
+            print(error)
         }
-    case .failure(let error):
-        print(error)
-    }
-    
+    });
 }
 ```
 
