@@ -29,7 +29,11 @@ After adding your Gradle dependency, make sure to remember to sync your project 
 
 ## Dashboard Settings
 
-Go to your [Auth0 Dashboard](https://manage.auth0.com) and go to the client's settings, adding the following URL to the client's "Allowed Callback URLs" :
+There are a few settings in your [Auth0 Dashboard](https://manage.auth0.com) that will need to be filled out before we get started. 
+
+### Callback URL
+
+Head over to your Auth0 Dashboard and go to the client's settings. Add the following URL to the client's "Allowed Callback URLs"
 
 ```text
 https://{YOUR_AUTH0_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
@@ -37,7 +41,11 @@ https://{YOUR_AUTH0_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
 
 Be sure to modify the URL to add your Auth0 domain and your app package name, of course!
 
-Now take the keystore file you use to sign the application and obtain the SHA256 key hash. The following examples show how to obtain the hashes for the default android keystore.
+### Keystores
+
+You will need a keystore for signing your Android app. If you already have one, you can continue and skip the instructions about acquiring one. During development, you can use the default "debug keystore" to sign your application, and that requires specific values.
+
+The following examples will explain how to generate a keystore using debug values. For a release keystore, replace the name, password, alias, and key password with your own values.
 
 **On Windows:**
 
@@ -71,13 +79,15 @@ Certificate fingerprints:
      Version: 3
 ```
 
-Copy the resulting SHA256 value and go to your application's settings. Click "Show Advanced Settings" and in the "Mobile Settings" tab, fill the Android app package name with your application's package name, and the key hash with the value you copied before. Don't forget to save the changes.
+Once you have your keystore file output, copy the resulting SHA256 value and go to your client's settings in the Auth0 Dashboard. Click "Show Advanced Settings", and in the "Mobile Settings" tab, under "Android", fill the "App Package Name" with your application's package name, and the "Key Hashes" field with the value you copied from your keystore. Don't forget to save the changes.
 
-If you don't add the callback URL to the whitelist nor the key hash to the settings, the Auth0 server won't return the call result to your application.
+::: panel-warning Required Actions
+If you don't add the callback URL to the client settings nor the key hash to the client's mobile settings, the Auth0 server won't return the call result to your application.
+:::
 
 ## Implementing Lock (Social, Database, Enterprise)
 
-The following instructions discuss 
+The following instructions discuss implementing Lock for Android. If you specifically are looking to implement Passwordless lock for Android, take a look now at the [Passwordless Authentication with Lock for Android](/libraries/lock-android/passwordless) page.
 
 ### Configuring AndroidManifest.xml
 
@@ -151,6 +161,24 @@ private LockCallback callback = new AuthenticationCallback() {
      }
  };
 ```
+
+Note that the results of the AuthenticationCallback are in a `credentials` object. The Credentials class contains the following:
+
+```java
+@SerializedName("access_token")
+private String accessToken;
+
+@SerializedName("token_type")
+private String type;
+
+@SerializedName("id_token")
+private String idToken;
+
+@SerializedName("refresh_token")
+private String refreshToken;
+```
+
+So that your returned object `credentials` will contain whichever credentials are required for your operations.
 
 ### Lock.Builder
 
