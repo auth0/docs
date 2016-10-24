@@ -15,6 +15,7 @@ description: Appliance infrastructure information about security
 
 The SSL Certificate:
 
+* must be created by a public certificate authority. They cannot be self-signed.
 * may be a wildcard *or* a multi-domain (SAN) certificate;
 * must contain all required DNS/domain names, including those for the:
     * Management Dashboard;
