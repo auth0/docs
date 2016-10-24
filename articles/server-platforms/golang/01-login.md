@@ -31,77 +31,76 @@ You'll need to create a callback handler that Auth0 will call once it redirects 
 package callback
 
 import (
-  // Don't forget this first import or nothing will work
-  _ "crypto/sha512"
-  "encoding/json"
-  "io/ioutil"
-  "net/http"
-  "os"
-  "golang.org/x/oauth2"
+	_ "crypto/sha512"
+	"encoding/json"
+	"github.com/auth0-samples/auth0-golang-web-app/01-Login/app"
+	"golang.org/x/oauth2"
+	"io/ioutil"
+	"net/http"
+	"os"
 )
 
 func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 
-  domain := "${account.namespace}"
+	domain := os.Getenv("AUTH0_DOMAIN")
 
-  // Instantiating the OAuth2 package to exchange the Code for a Token
-  conf := &oauth2.Config{
-    ClientID:     os.Getenv("AUTH0_CLIENT_ID"),
-    ClientSecret: os.Getenv("AUTH0_CLIENT_SECRET"),
-    RedirectURL:  os.Getenv("AUTH0_CALLBACK_URL"),
-    Scopes:       []string{"openid", "name", "email", "nickname"},
-    Endpoint: oauth2.Endpoint{
-      AuthURL:  "https://" + domain + "/authorize",
-      TokenURL: "https://" + domain + "/oauth/token",
-    },
-  }
+	conf := &oauth2.Config{
+		ClientID:     os.Getenv("AUTH0_CLIENT_ID"),
+		ClientSecret: os.Getenv("AUTH0_CLIENT_SECRET"),
+		RedirectURL:  os.Getenv("AUTH0_CALLBACK_URL"),
+		Scopes:       []string{"openid", "profile"},
+		Endpoint: oauth2.Endpoint{
+			AuthURL:  "https://" + domain + "/authorize",
+			TokenURL: "https://" + domain + "/oauth/token",
+		},
+	}
 
-  // Getting the Code that we got from Auth0
-  code := r.URL.Query().Get("code")
+	code := r.URL.Query().Get("code")
 
-  // Exchanging the code for a token
-  token, err := conf.Exchange(oauth2.NoContext, code)
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
+	token, err := conf.Exchange(oauth2.NoContext, code)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-  // Getting now the User information
-  client := conf.Client(oauth2.NoContext, token)
-  resp, err := client.Get("https://" + domain + "/userinfo")
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
+	// Getting now the userInfo
+	client := conf.Client(oauth2.NoContext, token)
+	resp, err := client.Get("https://" + domain + "/userinfo")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-  // Reading the body
-  raw, err := ioutil.ReadAll(resp.Body)
-  defer resp.Body.Close()
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
+	raw, err := ioutil.ReadAll(resp.Body)
+	defer resp.Body.Close()
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-  // Unmarshalling the JSON of the Profile
-  var profile map[string]interface{}
-  if err := json.Unmarshal(raw, &profile); err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
+	var profile map[string]interface{}
+	if err = json.Unmarshal(raw, &profile); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-  // Saving the information to the session.
-  // We're using https://github.com/astaxie/beego/tree/master/session
-  // The GlobalSessions variable is initialized in another file
-  // Check https://github.com/auth0/auth0-golang/blob/master/examples/regular-web-app/app/app.go
-  session, _ := app.GlobalSessions.SessionStart(w, r)
-  defer session.SessionRelease(w)
+	session, err := app.Store.Get(r, "auth-session")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-  session.Set("id_token", token.Extra("id_token"))
-  session.Set("access_token", token.AccessToken)
-  session.Set("profile", profile)
+	session.Values["id_token"] = token.Extra("id_token")
+	session.Values["access_token"] = token.AccessToken
+	session.Values["profile"] = profile
+	err = session.Save(r, w)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-  // Redirect to logged in page
-  http.Redirect(w, r, "/user", http.StatusMovedPermanently)
+	// Redirect to logged in page
+	http.Redirect(w, r, "/user", http.StatusSeeOther)
 
 }
 ```
@@ -133,13 +132,13 @@ You can access the user information via the `profile` you stored in the session 
 ```go
 func UserHandler(w http.ResponseWriter, r *http.Request) {
 
-  session, _ := app.GlobalSessions.SessionStart(w, r)
-  defer session.SessionRelease(w)
+	session, err := app.Store.Get(r, "auth-session")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-  // Getting the profile from the session
-  profile := session.Get("profile")
-
-  templates.RenderTemplate(w, "user", profile)
+	templates.RenderTemplate(w, "user", session.Values["profile"])
 }
 
 ```
@@ -176,13 +175,17 @@ import (
 
 func IsAuthenticated(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 
-  session, _ := app.GlobalSessions.SessionStart(w, r)
-  defer session.SessionRelease(w)
-  if session.Get("profile") == nil {
-    http.Redirect(w, r, "/", http.StatusMovedPermanently)
-  } else {
-    next(w, r)
-  }
+	session, err := app.Store.Get(r, "auth-session")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	if _, ok := session.Values["profile"]; !ok {
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+	} else {
+		next(w, r)
+	}
 }
 ```
 
