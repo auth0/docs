@@ -141,7 +141,7 @@ Auth0 auth0 = new Auth0('${account.clientId}','${account.namespace}');
 
 ### Authentication Callback
 
-You'll also need a `LockCallback` implementation. We suggest you to extend the `AuthenticationCallback` class and override the `onAuthentication`, `onError` and `onCanceled` methods. Keep in mind that this implementation only notifies you about Authentication events (logins), not User Signups (without login) nor Password Resets.
+You'll also need a `LockCallback` implementation. Here is an example which will notify you about Authentication events (logins).
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
@@ -184,7 +184,7 @@ So that your returned object `credentials` will contain whichever credentials ar
 
 Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options. After you're done, build the Lock instance and use it to start the LockActivity.
 
-This is an example of what your activity should look like:
+This is an example of what your Activity should look like:
 
 ```java
 public class MainActivity extends Activity {
