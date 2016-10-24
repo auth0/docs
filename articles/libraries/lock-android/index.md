@@ -97,7 +97,7 @@ Add the `android.permission.INTERNET` permission to the Manifest to allow Lock t
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Add LockActivity to your Manifest, replacing the `host` attribute with your `tenant.auth0.com` domain and the `{YOUR_APP_PACKAGE_NAME}` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
+Add LockActivity to your Manifest, replacing the `host` attribute with your `${account.namespace}` domain and the `{YOUR_APP_PACKAGE_NAME}` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
 
 ```xml
 <activity
@@ -162,23 +162,7 @@ private LockCallback callback = new AuthenticationCallback() {
  };
 ```
 
-Note that the results of the AuthenticationCallback are in a `credentials` object. The Credentials class contains the following:
-
-```java
-@SerializedName("access_token")
-private String accessToken;
-
-@SerializedName("token_type")
-private String type;
-
-@SerializedName("id_token")
-private String idToken;
-
-@SerializedName("refresh_token")
-private String refreshToken;
-```
-
-So that your returned object `credentials` will contain whichever credentials are required for your operations.
+Note that the results of the AuthenticationCallback are in a `credentials` object. This object contains the tokens that you will require for authentication related operations in your app; see the [Tokens documentation](/tokens) for more specifics.
 
 ### Lock.Builder
 
@@ -205,10 +189,6 @@ public class MainActivity extends Activity {
     super.onDestroy();
   }
 
-  private void performLogin() {
-    startActivity(lock.newIntent(this));
-  }
-
   private LockCallback callback = new AuthenticationCallback() {
        @Override
        public void onAuthentication(Credentials credentials) {
@@ -229,6 +209,12 @@ public class MainActivity extends Activity {
 ```
 
 Remember to notify the LockActivity when the `OnDestroy` method is called on your Activity, as it helps to keep the Lock state.
+
+Then, just start LockActivity from inside your Activity
+
+```java
+startActivity(lock.newIntent(this));
+```
 
 That's it! Lock will handle the rest for you.
 

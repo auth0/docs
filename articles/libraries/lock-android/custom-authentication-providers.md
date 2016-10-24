@@ -10,7 +10,7 @@ description: Implementing custom authentication providers
 ## The AuthProvider class
 Create a class that implements the `AuthProvider` interface and override its methods.
 
-You can also use any _Native_ implementation already provided by Auth0. Currently available are [Google](/libraries/lock-android/native-provider-google) and [Facebook](/libraries/lock-android/native-provider-facebook). Please, refer to each repository _README_ for the detailed setup and configuration.
+You can also use any _Native_ implementation already provided by Auth0. Currently available are [Google](/libraries/lock-android/native-provider-google) and [Facebook](/libraries/lock-android/native-provider-facebook).
 
 ## The AuthHandler class
 **Auth0.Android** includes an interface for you to implement and define which provider to use given a Strategy and Connection name. It has a single method that returns an `AuthProvider` for a given strategy/connection name. If no provider can handle those values, it should return `null`. On **Lock** side, when no provider is returned it will default to `WebAuthProvider`.

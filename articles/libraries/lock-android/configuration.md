@@ -9,7 +9,6 @@ These are options that can be used to configure Lock for Android to your project
 
 ## UI Options
 
-- **[DEPRECATED 10/14/2016] useBrowser {boolean}**: Whether to use the WebView or the Browser to request calls to the `/authorize` endpoint. The default value is to use Browser. Using the Browser has some [restrictions](#some-restrictions).
 - **closable {boolean}**: Defines if the LockActivity can be closed. By default it's not closable.
 - **allowedConnections {List<String>}**: Filters the allowed connections from the list configured in the Dashboard. By default if this value is empty, all the connections defined in the dashboard will be available.
 

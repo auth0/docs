@@ -12,7 +12,7 @@ In v1 of Lock for Android, you were asked to create a custom `Application` class
 As in the previous version, Lock for Android v2 can be configured with extra options. Check below if the behavior for the option has changed, or if they only got renamed.
 
 
-* `shouldUseWebView`: Renamed to `useBrowser` but now **DEPRECATED**. Selects whether to use the WebView or the Browser to request calls to the `/authorize` endpoint. The default value is to use the Browser. Using the Browser has some restrictions.
+* `shouldUseWebView`: `DEPRECATED`. This option was renamed to `useBrowser`, but is now deprecated. Selects whether to use the WebView or the Browser to request calls to the `/authorize` endpoint. The default value is to use the Browser. Using the Browser has some restrictions.
 * `shouldUseEmail`: Renamed to `withUsernameStyle`. Defines if it should ask for email only, username only, or both of them. By default it'll respect the Dashboard configuration of the parameter `requires_username`.
 * `isClosable`: Renamed to `closable`. Defines if the `LockActivity` can be closed. By default it's not closable.
 * `shouldLoginAfterSignUp`: Renamed to `loginAfterSignUp`. Determines whether after a signup the user should be logged in automatically. Defaults to `true`.

@@ -3,7 +3,7 @@ toc_title: Passwordless Authentication with Lock for Android
 description: Guide on implementing Passwordless authentication with Lock for Android
 ---
 
-# Implementing Lock Passwordless (Social, Passwordless)
+# Implementing Lock Passwordless
 
 `PasswordlessLockActivity` authenticates users by sending them an email or SMS (similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the email/SMS connection enabled and configured in your [Auth0 dashboard](https://manage.auth0.com/#/connections/passwordless).
 

@@ -4,32 +4,12 @@ description: Lock for Android - Custom Oauth Connections
 
 # Custom OAuth Connections
 
-## Create the OAuth connection in the dashboard
+## Create the OAuth Connection in the Dashboard
+
 First the user needs to create a new connection by using the `Custom Social Connections` [extension](https://manage.auth0.com/#/extensions), filling every required field before saving the changes.
 
-The server will then send in the client info the connection inside the `oauth2` strategy.
+## Customize the Style in Lock
 
-```json
-{
-  "id": "Owu62gnGsRYhk1v9SfB3c6IUbIJcRIze",
-  "tenant": "mytenant",
-  "strategies": [
-    {
-      "name": "oauth2",
-      "connections": [
-        {
-          "name": "slack",
-          "scope": "identity.basic, identity.email, identity.avatar, identity.team"
-        },
-        //...
-      ]
-    }
-  ],
-  //...
-}
-```
-
-## Customize the style in Lock
 To customize OAuth connections you can call the builder passing both the `connectionName` and the `style` to use.
 
 First create a custom style extending `Lock.Theme.AuthStyle` and define the logo, background color and name of the connection.
