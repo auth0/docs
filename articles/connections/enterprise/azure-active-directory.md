@@ -27,40 +27,40 @@ To allow users to login using a Microsoft Azure Active Directory account, you mu
 
 Login to Microsoft Azure and click on **Active Directory** on the Dashboard.
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-1.png)
+![Select Active Directory](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-1.png)
 
 Then go to **DIRECTORY** -> **CUSTOM CREATE**
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-2.png)
+![Select Custom Create](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-2.png)
 
-Enter a *domain*, e.g.: **${account.tenant}**. This can be any text. (It does not have to match the Auth0 subdomain and it will be used in the next step.) Also enter your country and a friendly name for your organization.
+Enter a *domain*, e.g.: **${account.tenant}**. This can be any text, it does not have to match the Auth0 subdomain and it will be used in the next step. Also enter your country and a friendly name for your organization.
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-3.png)
+![Add Directory Form](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-3.png)
 
 ## 2. Create a new application
 
 Click on **App registrations** under **MANAGE**, then click the **Add** button.
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-2-1.png)
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-2-2.png)
+![Choose App registrations](/media/articles/connections/enterprise/azure-active-directory/azure-ad-2-1.png)
+![Add Button](/media/articles/connections/enterprise/azure-active-directory/azure-ad-2-2.png)
 
 Enter a friendly name for the application, select **WEB APPLICATION AND/OR WEB API**, and for Sign-ON URL enter your application URL (completely arbitrary).
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-2-3.png)
+![Create application form](/media/articles/connections/enterprise/azure-active-directory/azure-ad-2-3.png)
 
 ## 3. Configuring the permissions
 
 Once the application has been created, you will have to configure the permissions. Click on the name of the application to open the **Settings** section, then click **Required permissions**.
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-3-1.png)
+![Choose Required Permissions](/media/articles/connections/enterprise/azure-active-directory/azure-ad-3-1.png)
 
 Then click on **Windows Azure Active Directory** to change the access levels.
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-3-2.png)
+![Required Permissions](/media/articles/connections/enterprise/azure-active-directory/azure-ad-3-2.png)
 
 The next step is to modify permissions so your app can read the directory. Under **DELEGATED PERMISSIONS** check next to **Sign in and read user profile** and **Read directory data**.
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-3-3.png)
+![Check access levels](/media/articles/connections/enterprise/azure-active-directory/azure-ad-3-3.png)
 
 **NOTE:** If you want to enable extended attributes (like *Extended Profile* or *Security Groups*) you will also need to enable the following permissions: **Application Permissions:** *Read directory data*, **Delegated Permissions:** *Access the directory as the signed-in user*.
 
@@ -70,11 +70,11 @@ Click the **SAVE** button at the top to save these changes.
 
 Next you will need to create a key which will be used as the **Client Secret** in the Auth0 connection. Click on **Keys** from the **Settings** menu.
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-1.png)
+![Select Keys](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-1.png)
 
 Enter a name for the key and for the duration of the key select 1 or 2 years.
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2.png)
+![Creating a Key](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2.png)
 
 Click on **Save** and the key will be displayed. Make sure to copy the value of this key before leaving this screen, this is your **Client Secret** used in the next step.
 
@@ -84,7 +84,7 @@ Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > E
 
 For the **Client ID**, this value is stored as the **Application ID** in Azure AD. 
 
-![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-5-1.png)
+![Application ID](/media/articles/connections/enterprise/azure-active-directory/azure-ad-5-1.png)
 
 For the **Client Secret** use the value that was shown for the key when you created it in the previous step.
 
