@@ -9,7 +9,7 @@ This quickstart uses the Auth0.swift SDK to help you add authentication and API 
 If you are using Carthage, add the following lines to your `Cartfile`:
 
 ```ruby
-github "auth0/Auth0.swift" "1.0"
+github "auth0/Auth0.swift" "~> 1.0"
 ```
 
 Then, run `carthage bootstrap`.
@@ -81,7 +81,7 @@ let params = [
     ]
 
 Auth0
-    .webAuth()
+    .webAuth
     .parameters(params)
     .start( { result in
         switch result {
@@ -115,26 +115,23 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 Use the `access_token` to invoke your Resource Server (API):
 
 ```swift
+let accessToken = "{ACCESS_TOKEN}"
 let headers = [
-  "content-type": "application/json",
-  "authentication": "Bearer {ACCESS_TOKEN}"
+    "Content-Type": "application/json",
+    "Authorization": "Bearer \(accessToken)"
 ]
 
-var request = NSMutableURLRequest(URL: NSURL(string: "https://someapi.com/api")!,
-                                        cachePolicy: .UseProtocolCachePolicy,
-                                    timeoutInterval: 10.0)
-request.HTTPMethod = "GET"
+let apiUrl = NSURL(string: "https://someapi.com/api")!
+var request = URLRequest(url: apiUrl, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+request.httpMethod = "POST"
 request.allHTTPHeaderFields = headers
 
-let session = NSURLSession.sharedSession()
-let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-  if (error != nil) {
-    println(error)
-  } else {
-    let httpResponse = response as? NSHTTPURLResponse
-    println(httpResponse)
-  }
-})
+let session = URLSession.shared
+let dataTask = session.dataTask(with: request) { data, response, error in
+    guard error != nil else { return print(error) }
+    guard let httpResponse = response as? HTTPURLResponse else { return }
+    print(httpResponse)
+}
 
 ```
 
