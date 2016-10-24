@@ -1,5 +1,6 @@
 ---
 title: Auth0 id_token
+description: How to obtain, use and renew an id_token.
 ---
 
 # Auth0 `id_token`

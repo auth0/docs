@@ -1,24 +1,20 @@
 ---
 title: Linking Accounts
 description: This tutorial demonstrates how to integrate Auth0 with ReactJS to link accounts.
+budicon: 345
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-react-sample',
-  pkgBranch: 'master',
-  pkgPath: '05-Linking-Accounts',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-react-sample',
+  path: '05-Linking-Accounts'
 }) %>
 
-In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.
-
-In this step, you will modify the application you created in the [User Profile](/quickstart/spa/react/03-user-profile) step to allow users to link or unlink other OAuth providers to their account.
+<%= include('../../_includes/_linking_accounts') %>
 
 ## 1. Show Linked Accounts Information
 
-The user profile contains an array of identities which consists of profile information from all linked providers. You can verify this by accessing the Auth0 [Users page](${manage_url}/#/users), selecting a user and scrolling down to `identities` under **Identity Provider Attributes**. 
+The user profile contains an array of identities which consists of profile information from all linked providers. You can verify this by accessing the Auth0 [Users page](${manage_url}/#/users), selecting a user and scrolling down to `identities` under **Identity Provider Attributes**.
 
 This is how a profile looks after linking to Gmail:
 
@@ -26,7 +22,7 @@ This is how a profile looks after linking to Gmail:
 
 If you fetch a profile containing linked accounts, you will have all this information available.
 
-To display this data, create two new components: `LinkedAccountsList` (to render a list of linked accounts) and `LinkedAccountItem` (to render an html row for each identity). 
+To display this data, create two new components: `LinkedAccountsList` (to render a list of linked accounts) and `LinkedAccountItem` (to render an html row for each identity).
 
 ```javascript
 /* ===== ./src/components/LinkedAccount/LinkedAccountItem.js ===== */
@@ -152,7 +148,7 @@ export class Home extends React.Component {
 export default Home;
 ```
 
-Note that `Home.js` has been updated to render a left column with profile information such as name and avatar, and a **Logout** button. The `LinkedAccountsList` is rendered in right column. 
+Note that `Home.js` has been updated to render a left column with profile information such as name and avatar, and a **Logout** button. The `LinkedAccountsList` is rendered in right column.
 
 If you run the application, you should see the new home page after a successful login. The __Linked Accounts__ list will only show the main account. The next section shows how to add a button to link an account from another provider.
 
@@ -187,10 +183,10 @@ export default class LinkAccountService {
 }
 ```
 
-`AuthService` continues to listen to `authenticated` events, but you will need to determine if a callback was triggered by the regular sign in process or the linking one. 
+`AuthService` continues to listen to `authenticated` events, but you will need to determine if a callback was triggered by the regular sign in process or the linking one.
 
 In the code above, the new `Auth0Lock` instance receives specific options, in this case `auth: {params: {state: 'linking'}}`. (For more information, see:
-[Authentication Options](/libraries/lock/v10/customization#authentication-options).) 
+[Authentication Options](/libraries/lock/v10/customization#authentication-options).)
 
 In the updated `AuthService` class, the `_doAuthentication` callback checks for the `linking` state and calls the `LinkAccount` method if present.
 
@@ -273,7 +269,7 @@ export default class AuthService extends EventEmitter {
 }
 ```
 
-This code also introduces two new methods: `fetchApi` (which constructs a request to the Auth0 API with the required headers and parses the response to JSON) and `linkAccount` (which uses `fetchApi` to send a _POST_ request to create a new identity in the user account, and updates the stored profile after a successful response). 
+This code also introduces two new methods: `fetchApi` (which constructs a request to the Auth0 API with the required headers and parses the response to JSON) and `linkAccount` (which uses `fetchApi` to send a _POST_ request to create a new identity in the user account, and updates the stored profile after a successful response).
 
 **NOTE**: For more details, see the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint documentation.
 
@@ -316,9 +312,9 @@ Now, if you run the application, you will be able to click the __Link Account__ 
 
 ## 3. Un-Linking Accounts
 
-You can dissociate a linked account by calling the [Delete a linked user account](/api/management/v2#!/Users/delete_provider_by_user_id) Auth0 API endpoint. 
+You can dissociate a linked account by calling the [Delete a linked user account](/api/management/v2#!/Users/delete_provider_by_user_id) Auth0 API endpoint.
 
-You will need to include the primary account `user_id`, and the `provider/user_id` of the identity you want to unlink. 
+You will need to include the primary account `user_id`, and the `provider/user_id` of the identity you want to unlink.
 
 Update `AuthService` to provide an `UnlinkAccount` method:
 

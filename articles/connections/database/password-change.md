@@ -34,9 +34,9 @@ To reset a user's password using the Authentication API, make a `POST` call spec
     { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
-		"mimeType": "application/json",
-		"text": "{\"client_id\": \"${account.clientId}\",\"email\": \"\",\"connection\": \"Username-Password-Authentication\"}"
-	}
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"\",\"connection\": \"Username-Password-Authentication\"}"
+  }
 }
 ```
 
@@ -66,16 +66,16 @@ Users will not receive notification that their password has been manually change
 
 ```har
 {
-	"method": "PATCH",
-	"url": "https://${manage_url}/api/v2/users/{id}",
-	"headers": [{
-		"name": "Content-Type",
-		"value": "application/json"
-	}],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{\"password\": \"NEW_PASSWORD\",\"connection\": \"Username-Password-Authentication\"}"
-	}
+  "method": "PATCH",
+  "url": "https://${manage_url}/api/v2/users/{id}",
+  "headers": [{
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"password\": \"NEW_PASSWORD\",\"connection\": \"Username-Password-Authentication\"}"
+  }
 }
 ```
 

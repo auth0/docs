@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: The Auth0 Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service.
 ---
 
 # Auth0 Appliance Overview

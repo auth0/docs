@@ -1,0 +1,8 @@
+added:
+  -
+    title: "New document on GitLab Deployments"
+    tags:
+      - extension
+      - gitlab
+    description: |
+      A new document was created on [GitLab Deployments](/extensions/gitlab-deploy) extension. The [GitLab Deployments](/extensions/gitlab-deploy) extension allows you to deploy Rules, Hosted Pages and Database Connection scripts from GitLab to Auth0.

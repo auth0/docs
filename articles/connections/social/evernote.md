@@ -2,6 +2,7 @@
 connection: Evernote
 image: /media/connections/evernote.png
 seo_alias: evernote
+description: How to obtain a Consumer Key and Consumer Secret for Evernote.
 ---
 
 # Obtain a *Consumer Key* and *Consumer Secret* for Evernote

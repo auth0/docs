@@ -1,16 +1,16 @@
 ---
 title: Multifactor Authentication
 description: This tutorial demonstartes how to add Multifactor Authentication to your Angular 2 app with Auth0.
+budicon: 243
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs2-systemjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '09-MFA',
-  pkgFilePath: '09-MFA/app/auth.config.ts',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs2-systemjs-sample',
+  path: '09-MFA',
+  requirements: [
+    'Angular 2.0.1'
+  ]
 }) %>
 
 <%= include('../_includes/_mfa-introduction') %>

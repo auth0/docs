@@ -18,19 +18,19 @@ First, the user will authenticate to the website using either [Lock](https://git
 
 The following is a sample login using Lock:
 
-```js
+```html
 <script src="${lock_url}"></script>
 <script type="text/javascript">
   function signin() {    
-	  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-	  lock.show({
-	      callbackURL: '${account.callback}'
-	    , responseType: 'code'
-	    , authParams: {
-	      scope: 'openid'
-	    }
-	  });
-	}
+    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+    lock.show({
+        callbackURL: '${account.callback}'
+      , responseType: 'code'
+      , authParams: {
+        scope: 'openid'
+      }
+    });
+  }
 </script>
 <button onclick="signin()">Login</a>
 ```

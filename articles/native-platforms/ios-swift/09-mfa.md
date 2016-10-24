@@ -1,27 +1,16 @@
 ---
 title: MFA
 description: This tutorial will show you how to configure Multi Factor Authentication (MFA) via Google Authenticator in your app.
+budicon: 243
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-- CocoaPods 1.0.0
-- XCode 7.3 (7D175)
-- iPhone 6 - iOS 9.3 (13E230)
-  :::
-
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/09-MFA',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-swift-sample',
-  pkgBranch: 'master',
-  pkgPath: '09-MFA',
-  pkgFilePath: null,
-  pkgType: 'none'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ios-swift-sample',
+  path: '09-MFA'
 }) %>
 
-### 1. Enable MFA in your Client
+## Enable Multifactor Auth in Your Client
 
 First, you have to enable the MFA feature in your account. Go to the [MFA configuration page](${manage_url}/#/multifactor) and turn the **Google Authenticator** switch on, under the *Choose a Provider* section.
 
@@ -47,7 +36,7 @@ if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
 
 Make sure you hit the **save** button.
 
-### 2. Configure the Flags
+## Configure the Flags
 
 To enable multifactor authentication and enrollment in your database connection, you must set the `options.mfa.active` and`options.mfa.return_enroll_settings` flags using the `PATCH /api/v2/connections/:id` endpoint.
 
@@ -102,7 +91,7 @@ Click **TRY** to call the API and effectively set the flags. You should receive 
 }
 ```
 
-### 3. Test your MFA
+## Test Multifactor Auth
 
 Now, you can run the simulator in your project and sign-in to your Auth0 app with MFA.
 
@@ -127,7 +116,3 @@ Now, you can run the simulator in your project and sign-in to your Auth0 app wit
 6. You're in!
 
     ![Simulator](/media/articles/mfa/mfa-native/mfa-native-10.png)
-
-### Done!
-
-You've integrated MFA in your app.

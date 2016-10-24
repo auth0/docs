@@ -18,9 +18,9 @@ Click on the *Settings* tab and set the **Allowed Callback URLs**. This varies b
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://sandbox.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login` |
-| Europe | `https://sandbox-eu.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login` |
-| Australia | `https://sandbox-au.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login` |
+| USA | `https://${account.tenant}.us.webtask.io/auth0-delegated-admin/login` |
+| Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin/login` |
+| Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin/login` |
 
 Copy the **Client ID** value.
 
@@ -117,6 +117,93 @@ Users with the `Delegated Admin - Administrator` role will see a *Configure* opt
 
 ![](/media/articles/extensions/delegated-admin/dashboard-configuration.png)
 
+#### Signature
+
+Hooks always have the following signature:
+
+```js
+function(ctx, callback) {
+  // First do some work
+  ...
+
+  // Done
+  return callback(null, something);
+}
+```
+
+The context object will expose a few helpers and information about the current request. The following methods and properties are available in every hook.
+
+**Logging**
+
+In order to log a message to the Webtask logs (which you can view using the Realtime Webtask Logs extension) you can call the `log` method:
+
+```js
+ctx.log('Hello there', someValue, otherValue);
+```
+
+**Caching**
+
+If at some point you need to cache something (like a long list of departments), you can store this list on the context's `global` object. This object will be available until the Webtask container recycles.
+
+```js
+ctx.global.departments = [ 'IT', 'HR', 'Finance' ];
+```
+
+**Custom Data**
+
+You can also store custom data within the extension. This is currently limited to around 400kb.
+
+```js
+var data = {
+  departments: [ 'IT', 'HR', 'Finance' ]
+};
+
+ctx.write(data)
+  .then(function() {
+    ...
+  })
+  .catch(function(err) {
+    ...
+  });
+```
+
+And then to read the data:
+
+```js
+ctx.read()
+  .then(function(data) {
+    ...
+  })
+  .catch(function(err) {
+    ...
+  });
+```
+
+**Payload and Request**
+
+Every hook exposes the current payload and/or request with specific information. The request will always contain the user that is logged in to the dashboard:
+
+```js
+var currentUser = ctx.request.user;
+```
+
+**Remote Calls**
+
+At some point you might want to call an external service to validate data, to load memberships from a remote location (an API), ... This is possible using the request module:
+
+```js
+function(ctx, callback) {
+  var request = require('request');
+  request('http://api.mycompany.com/departments', function (error, response, body) {
+    if (error) {
+      return callback(error);
+    }
+
+    ...
+  });
+}
+```
+
 #### Filter Hook
 
 By default, users with the `Delegated Admin - User` role will see all users in an Auth0 account. This could be fine if the dashboard is used by your Helpdesk department. But if you want to delegate administration to your departments (Finance, HR, IT, and so forth) or to your customers, your vendors, or your offices you'll want to filter the data users can see. With the **Filter Hook** you can decide how the list of users is filtered.
@@ -124,9 +211,6 @@ By default, users with the `Delegated Admin - User` role will see all users in a
 Hook contract:
 
  - `ctx`: The context object.
-   - `log`: A method that allows you to write something to Webtask logs
-   - `request`: The current request.
-     - `user`: The current logged in user.
  - `callback(error, query)`: The callback to which you can return an error or the [lucene query](/api/management/v2/query-string-syntax) which should be used when filtering the users. The extension will send this query to the [`GET Users` endpoint](/api/management/v2#!/Users/get_users) of the Management API.
 
 Example: If **Kelly** manages the Finance department, she should only see the users that are also part of the Finance department. So we'll filter the users based on the department of the current user.
@@ -144,15 +228,8 @@ function(ctx, callback) {
     return callback();
   }
 
-  // Prevent issues with departments containing a single or a double quote.
-  department = department.replace(/\'/g,'\\\'').replace(/\"/g,'\\\"');
-
-  // Any other department can only see users within their own department.
-  var luceneQuery = 'app_metadata.department:"' + department + '"';
-  ctx.log('Filtering users with:', luceneQuery);
-
   // Return the lucene query.
-  return callback(null, luceneQuery);
+  return callback(null, 'app_metadata.department:"' + department + '"');
 }
 ```
 
@@ -167,9 +244,6 @@ While the **Filter Hook** only applies filtering logic you'll need a second laye
 Hook contract:
 
  - `ctx`: The context object.
-   - `log`: A method that allows you to write something to Webtask logs
-   - `request`: The current request.
-     - `user`: The current logged in user.
    - `payload`: The payload object.
      - `action`: The current action (eg: `delete:user`) that is being executed.
      - `user`: The user on which the action is being executed
@@ -206,6 +280,21 @@ function(ctx, callback) {
 
 If this hook is not configured all users will be accessible.
 
+Supported action names:
+
+ - `read:user`
+ - `delete:user`
+ - `reset:password`
+ - `change:password`
+ - `change:username`
+ - `change:email`
+ - `read:devices`
+ - `read:logs`
+ - `remove:multifactor-provider`
+ - `block:user`
+ - `unblock:user`
+ - `send:verification-email`
+
 #### Create Hook
 
 Whenever new users are created you'll want these users to be assigned to the group/department/vendor/... of the current user. This is what the **Create Hook** allows you to configure.
@@ -213,9 +302,6 @@ Whenever new users are created you'll want these users to be assigned to the gro
 Hook contract:
 
  - `ctx`: The context object.
-   - `log`: A method that allows you to write something to Webtask logs
-   - `request`: The current request.
-     - `user`: The current logged in user.
    - `payload`: The payload object.
      - `memberships`: An array of memberships that were selected in the UI when creating the user.
      - `email`: The email address of the user.
@@ -243,6 +329,7 @@ function(ctx, callback) {
     return callback(new Error('You can only create users within your own department.'));
   }
 
+  // This is the payload that will be sent to API v2. You have full control over how the user is created in API v2.
   return callback(null, {
     email: ctx.payload.email,
     password: ctx.payload.password,
@@ -263,21 +350,13 @@ When creating a new user the UI will show a picklist where you can choose the me
 Hook contract:
 
  - `ctx`: The context object.
-   - `log`: A method that allows you to write something to Webtask logs
-   - `request`: The current request.
-     - `user`: The current logged in user.
-   - `payload`: The payload object.
-     - `memberships`: An array of memberships that were selected in the UI when creating the user.
-     - `email`: The email address of the user.
-     - `password`: The password of the user.
-     - `connection`: The name of the user.
- - `callback(error)`: The callback to which you can return an error and an array containing the list of memberships.
+ - `callback(error, { createMemberships: true/false, memberships: [ ...] })`: The callback to which you can return an error and an object containing the membership configuration.
 
 Example: Users of the IT department should be able to create users in other departments. Users from other departments, should only see their own department.
 
 ```js
 function(ctx, callback) {
-  var currentDepartment = ctx.request.user.app_metadata.department;
+  var currentDepartment = ctx.payload.user.app_metadata.department;
   if (!currentDepartment || !currentDepartment.length) {
     return callback(null, [ ]);
   }
@@ -286,11 +365,27 @@ function(ctx, callback) {
     return callback(null, [ 'IT', 'HR', 'Finance', 'Marketing' ]);
   }
 
-  return callback(null, [ ctx.request.user.app_metadata.department ]);
+  return callback(null, [ ctx.payload.user.app_metadata.department ]);
 }
 ```
 
 > Note: This query is only used in the UI. If assigning users to specific departments needs to be enforced, this will happen in the Create Hook. If only 1 membership is returned, the membership field in the UI will not be displayed.
+
+You can also allow the end user to enter any value they wish for the memberships by setting `createMemberships` to true.
+
+```js
+function(ctx, callback) {
+  var currentDepartment = ctx.payload.user.app_metadata.department;
+  if (!currentDepartment || !currentDepartment.length) {
+    return callback(null, [ ]);
+  }
+
+  return callback(null, {
+    createMemberships: ctx.payload.user.app_metadata.department === 'IT' ? true : false,
+    memberships: [ ctx.payload.user.app_metadata.department ]
+  });
+}
+```
 
 #### Settings Query
 
@@ -299,9 +394,6 @@ The **Settings Query** allows you to customize the look and feel of the extensio
 Hook contract:
 
  - `ctx`: The context object.
-   - `log`: A method that allows you to write something to Webtask logs
-   - `request`: The current request.
-     - `user`: The current logged in user.
  - `callback(error, settings)`: The callback to which you can return an error and a settings object.
 
 Example:

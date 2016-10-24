@@ -1,6 +1,7 @@
 ---
 title: Linking Accounts
 description: This tutorial demonstrates how to integrate Auth0 with NodeJS to link accounts
+budicon: 345
 ---
 
 <%= include('../../_includes/_package2', {
@@ -13,7 +14,7 @@ There may be situations where your users want to log in with multiple accounts t
 
 In this step, we'll modify the application we created in the [Login](/quickstart/server-platforms/nodejs/01-login) step to allow users to link or unlink other OAuth providers to their account.
 
-## 1. Show Linked Accounts Information
+## Show Linked Accounts Information
 
 The user profile contains an array of identities which consists of profile information from all linked providers. You can verify this by accessing the Auth0 [Users page](${manage_url}/#/users), selecting a user and scrolling down to `identities` under **Identity Provider Attributes**.
 
@@ -23,7 +24,7 @@ This is how a profile looks after linking to Gmail:
 
 If you fetch a profile containing linked accounts, you will have all this information available.
 
-## 2. Linking Accounts
+## Linking Accounts
 
 To link accounts, call the [Link a user account](/api/management/v2#!/Users/post_identities) Auth0 API endpoint. To complete the request, you must provide the primary account Auth0 JWT (the token provided when the user logged in), the user id (from the JWT or the profile API) and the JWT of the account you want to link (secondary account).
 

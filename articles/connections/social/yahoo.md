@@ -3,6 +3,7 @@ connection: Yahoo!
 image: /media/connections/yahoo.png
 seo_alias: yahoo
 index: 15
+description: How to obtain a Consumer Key and Consumer Secret for Yahoo!
 ---
 
 # Obtaining a Consumer Key and Consumer Secret for Yahoo!
@@ -20,7 +21,7 @@ Log in to [Yahoo! Developer Network portal](https://developer.yahoo.com/) and cl
 
 Complete the form. For __Access Scopes__ select "This app requires access to private user data." and use this URL for the __Callback Domain__:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 Also make sure to select at least one Yahoo API:
 

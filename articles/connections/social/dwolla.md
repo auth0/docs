@@ -2,6 +2,7 @@
 connection: Dwolla
 image: /media/connections/dwolla.png
 seo_alias: dwolla
+description: How to obtain a Client Id and Client Secret for Dwolla.
 ---
 
 # Obtain a *Client ID* and *Client Secret* for Dwolla
@@ -18,7 +19,7 @@ Log into the Dwolla [Developer portal](https://uat.dwolla.com/applications) and 
 
 Complete the information on this page. Enter the following URL in the **OAuth Redirect URL** field:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/social/dwolla/dwolla-2.png)
 

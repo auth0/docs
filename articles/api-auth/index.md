@@ -29,8 +29,9 @@ Using different grants (or flows), these participants will interact to grant Cli
 #### Supported flows
 
  - Server to Server Applications: [Client Credentials Grant](/api-auth/grant/client-credentials)
- - **Preview**: Client to Server Applications: [Implicit Grant](/api-auth/grant/implicit)
- - **Preview**: Client to Server Applications: [Authorization Code Grant](/api-auth/grant/authorization-code)
+ - Client to Server Applications: [Implicit Grant](/api-auth/grant/implicit)
+ - Client to Server Applications: [Authorization Code Grant](/api-auth/grant/authorization-code)
+ - Public Client to Server Applications: [Authorization Code Grant with PKCE](/api-auth/grant/authorization-code-pkce)
 
 ## Tutorials
 
@@ -41,6 +42,18 @@ See the following tutorial for a step-by-step guide on using Auth0 to implement 
 #### Dependencies
 
  - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
+
+#### Implicit Grant
+
+- [Executing an Implicit Grant flow](/api-auth/tutorials/implicit-grant)
+
+#### Authorization Code
+
+- [Executing an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant)
+
+#### Authorization Code (with PKCE)
+
+- [Executing an Authorization Code Grant with PKCE flow](/api-auth/tutorials/authorization-code-grant-pkce)
 
 #### Client Credentials
 

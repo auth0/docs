@@ -1,40 +1,30 @@
 ---
 title: Calling APIs
-description: This tutorial will show you how to make authenticated API calls.
+description: This tutorial demonstrates how to make authenticated API calls
+budicon: 546
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-javascript-spa',
-  pkgBranch: 'master',
-  pkgPath: '08-Calling-Api',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-javascript-spa',
+  path: '08-Calling-Api'
 }) %>
 
-`Auth0` exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through the `Authorization` header when calling an API. For a detailed description of API tutorials, see the [full documentation](https://auth0.com/docs/quickstart/backend).
+<%= include('../../_includes/_calling_apis') %>
 
 ## Sending Authenticated HTTP Requests
 
-In order to make an authenticated request, you need to add the `Authorization` header to every request.
+To make an authenticated request, add the user's JWT as an `Authorization` header to requests that go to secured endpoints.
 
-```javascript
-/* ===== ./app.js ===== */
+```js
+// app.js
+
 ...
+
 var authenticate_request = function(xhr) {
   var id_token = localStorage.getItem('id_token');
   xhr.setRequestHeader('Authorization', 'Bearer ' + id_token);
 };
+
 ...
 ```
-
-Your requests will have the `Authorization` header added:
-
-`Authorization: Bearer eyJ0eXAiOiJKV1Qi...`
-
-Here, we are fetching the token from `localStorage` stored in the `id_token` key. You can choose a different key name if you’d like.
-
-## Summary
-
-In this guide, we saw how to authenticate requests by reading and using the `id_token` value stored in localStorage along with the use of the XMLHttpRequest.setRequestHeader() method. For a real example of making authenticated API calls, please check our previous guide for [linking accounts](/quickstart/spa/vanillajs/05-linking-accounts).

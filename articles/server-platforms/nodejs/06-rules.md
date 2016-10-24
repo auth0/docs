@@ -1,6 +1,7 @@
 ---
 title: Rules
 description: This tutorial demonstrates how to use Auth0 rules
+budicon: 173
 ---
 
 <%= include('../../_includes/_package2', {
@@ -9,11 +10,11 @@ description: This tutorial demonstrates how to use Auth0 rules
   path: '06-Rules'
 }) %>
 
-## 1. Create a Rule
+## Create a Rule
 
 <%= include('../_includes/_rules-create-section') %>
 
-## 2. Test the Rule Result
+## Test the Rule Result
 
 The following sample is based on the `01-Login` source code. Add the following to the `views/user.jade` template to display the new `country` field:
 

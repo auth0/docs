@@ -2,6 +2,8 @@
 description: Supported parameters that can be used with Lock V9.
 ---
 
+<%= include('../_includes/_lock-version-9') %>
+
 # Lock: Authentication Parameters
 
 You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `'foo'`.
@@ -61,6 +63,8 @@ lock.show({
 ### state {string}
 
 The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [XSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information (such as a return url) that you might need after the authentication process is finished.
+
+[Click here to learn more about how to send/receive the state parameter.](/protocols/oauth-state)
 
 #### Getting the `state` value in a rule
 

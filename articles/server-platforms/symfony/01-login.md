@@ -1,6 +1,8 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 Symfony SDK to add authentication and authorization to your web app.
+default: true
+description: This tutorial demonstrates how to use the Auth0 Symfony SDK to add authentication and authorization to your web app
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {
@@ -19,24 +21,21 @@ This tutorial and seed project have been tested with the following:
 * Symfony 2.8
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate a Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
 
-## Tutorial
-
-### 1. Add HWIOAuthBundle to your composer.json
+## Add HWIOAuthBundle to `composer.json`
 
 ${snippet(meta.snippets.dependencies)}
 
 and run `composer update`
 
-
-### 2. Enable the bundle
+## Enable the Bundle
 
 ${snippet(meta.snippets.setup)}
 
-### 3. Configure the routes
+## Configure the Routes
 
 Add the following routes at the beginning of `app/config/routing.yml`
 
@@ -53,8 +52,7 @@ auth0_login:
     pattern: /auth0/callback
 ```
 
-
-### 4. Configure Auth0
+## Configure Auth0
 
 ${include('../_callbackRegularWebApp')}
 
@@ -64,7 +62,7 @@ In this case, the callbackURL should look something like:
 http://yourUrl/auth0/callback
 ```
 
-### 5. Configure the resource owner
+## Configure the Resource Owner
 
 Add this to your `app/config/config.yml`
 
@@ -79,16 +77,16 @@ hwi_oauth:
             client_secret:       ${account.clientSecret}
 ```
 
-### 6. User provider
+## User Provider
 
 You can create a user provider that implements `OAuthAwareUserProviderInterface` and set it up in step 7, or you
 can use one of the predefined services that `HWIOAuthBundle` provides.
 
-### 7. Configure the oauth firewall
+## Configure the OAuth Firewall
 
 This is where you set the filters to select which pages are protected (aka, needs login). You can read more on how to configure this at the Symfony [security](http://symfony.com/doc/current/book/security.html) docs.
 
-This is a basic example that allows anonymous users and then restricts access to the `/demo/hello/` route. It doesn't store the users in a db.
+This is a basic example that allows anonymous users and then restricts access to the `/demo/hello/` route. It doesn't store the users in a DB.
 
 This file is `app/config/security.yml`:
 
@@ -118,12 +116,12 @@ security:
 
 Notice that we need to identify the user provided selected in step 6 both in the firewall and in the providers.
 
-### 8. Triggering login manually or integrating the Auth0Lock
+## Triggering Login Manually or Integrating Lock
 
-${lockSDK}
+<%= include('../../_includes/_lock-sdk') %>
 
 ### Troubleshooting
 
 #### SSL certificate problem: self signed certificate in certificate chain
 
-There is an issue with CAs database in your computer. Need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem) to c:\cacert.pem for example and point it in php.ini with `openssl.cafile=c:/cacert.pem`.
+There is an issue with CAs database on your computer. Need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem) to c:\cacert.pem for example and point it in php.ini with `openssl.cafile=c:/cacert.pem`.

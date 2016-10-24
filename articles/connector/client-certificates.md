@@ -1,3 +1,7 @@
+---
+description: How to setup authentication using client certificates.
+---
+
 # Client Certificate Support
 
 In addition to Kerberos, the AD/LDAP Connector also allows users to authenticate using __client certificates__. With this, users authenticate with a certificate installed on their machine or device.

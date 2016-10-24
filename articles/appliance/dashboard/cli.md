@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Overview of the Appliance Dashboard CLI page
 ---
 
 # Auth0 Appliance Dashboard: CLI

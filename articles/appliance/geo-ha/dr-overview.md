@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Descriptions of Appliance Geo HA Failure and Disaster Recovery
 ---
 
 # Geographic High-Availability Appliance Failure & Disaster Recovery

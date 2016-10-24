@@ -1,3 +1,7 @@
+---
+description: How to setup Microsoft Office 365 custom provisioning.
+---
+
 # Office 365 Custom Provisioning
 
 The default Office 365 setup will include Active Directory and DirSync/Azure AD Sync Services to synchronize and provision your AD users in Azure AD for SSO. Auth0 will then be configured to be an identity provider which is providing SSO for these users.
@@ -35,7 +39,7 @@ The following rule shows the provisioning process:
  3. Get an access token of the Graph API using the Azure AD Client ID and Key
  4. Create a user in Azure AD
  5. Continue with the login transaction.
- 
+
 The username is generated with the `AAD_USERNAME_GENERATOR` function, which by default generates a username in the format `auth0-c3fb6eec-3afd-4d52-8e0a-d9f357dd19ab@fabrikamcorp.be`. You can change this to whatever you like, just make sure this value is unique for all your users.
 
 In the code you'll also see that the rule will wait about 15 seconds after the user is provisioned. This is because it takes a few seconds before the provisioned user is available for Office 365.
@@ -45,7 +49,7 @@ function (user, context, callback) {
 
   var AUTH0_AD_CONNECTION = 'FabrikamAD';
   var AUTH0_OFFICE365_CLIENTID = 'CLIENT_ID_OF_MY_THIRD_PARTY_APP_IN_AUTH0';
-  
+
   var AAD_CUSTOM_DOMAIN = 'fabrikamcorp.be';
   var AAD_TENANT_NAME = 'fabrikamcorp365.onmicrosoft.com';
   var AAD_CLIENT_ID = 'AZURE_AD_CLIENT_ID';
@@ -54,19 +58,19 @@ function (user, context, callback) {
   var AAD_USAGE_LOCATION = 'US';
   var AAD_USER_CREATE_WAIT = 15000;
   var AAD_USERNAME_GENERATOR = function() {
-    
-    // Will generate something like: 
+
+    // Will generate something like:
     // auth0-c3fb6eec-3afd-4d52-8e0a-d9f357dd19ab@fabrikamcorp.be
     var uuid = require('node-uuid').v4();
     return 'auth0-' + uuid + '@' + AAD_CUSTOM_DOMAIN;
   };
-  
+
   // Skip custom provisioning for AD users.
-  if (context.connection === AUTH0_AD_CONNECTION) { 
+  if (context.connection === AUTH0_AD_CONNECTION) {
     return callback(null, user, context);
   }
 
-  if (context.clientID === AUTH0_OFFICE365_CLIENTID) { 
+  if (context.clientID === AUTH0_OFFICE365_CLIENTID) {
     // Check if the user was already provisioned.
     user.app_metadata = user.app_metadata || {};
     if (user.app_metadata.office365_provisioned) return continue_with_azuread_user();
@@ -139,7 +143,7 @@ function (user, context, callback) {
    */
   function provision_azuread_user(token, context, cb) {
     var options = {
-      url: 'https://graph.windows.net/' + AAD_TENANT_NAME + 
+      url: 'https://graph.windows.net/' + AAD_TENANT_NAME +
               '/users?api-version=1.5',
       headers: {
         'Content-type': 'application/json',
@@ -166,7 +170,7 @@ function (user, context, callback) {
 
     console.log('Creating user in Azure AD:', options.body);
     request.post(options, function(err, res, body) {
-      if(err) { 
+      if(err) {
         console.log('Error creating user in Azure AD.', err);
         return cb(err);
       }
@@ -178,7 +182,7 @@ function (user, context, callback) {
 
       console.log('User created!');
       return cb(null);
-    }); 
+    });
   }
 
   /*
@@ -186,7 +190,7 @@ function (user, context, callback) {
    */
   function get_azuread_token(cb) {
     var options = {
-      url: 'https://login.windows.net/' + AAD_TENANT_NAME + 
+      url: 'https://login.windows.net/' + AAD_TENANT_NAME +
               '/oauth2/token?api-version=1.5',
       headers: {
         'Content-type': 'application/json',
@@ -202,7 +206,7 @@ function (user, context, callback) {
 
     console.log('Getting token for Azure AD...');
     request.post(options, function(err, res, body) {
-      if(err) { 
+      if(err) {
         console.log('Error getting token for Azure AD.', err);
         return cb(err);
       }
@@ -214,7 +218,7 @@ function (user, context, callback) {
 
       console.log('Token received:', body.access_token);
       return cb(null, body.access_token);
-    }); 
+    });
   }
 
   /*
@@ -262,7 +266,7 @@ The easiest way for your external users to authenticate is by using IdP initiate
 You will basically need to redirect your users to the following URL (eg: using a "smart link" like `https://office.fabrikamcorp.com`):
 
 ```
-https://@@account.namespace@@.auth0.com/login?client=CLIENT_ID_OF_THIRD_PARTY_APP&protocol=wsfed&state=&redirect_uri=&
+https://${account.namespace}/login?client=CLIENT_ID_OF_THIRD_PARTY_APP&protocol=wsfed&state=&redirect_uri=&
 ```
 
 > Note: the `CLIENT_ID_OF_THIRD_PARTY_APP` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see an URL in the form of `https://{account}.auth0.com/#/externalapps/{client_id}/settings`. The `{client_id}` is the value you need here.

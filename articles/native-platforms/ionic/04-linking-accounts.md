@@ -1,6 +1,7 @@
 ---
 title: Linking Accounts
-description: This tutorial will show you how to integrate Auth0 with Ionic to link accounts.
+description: This tutorial demonstrates how to integrate Auth0 with Ionic to link accounts
+budicon: 345
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,31 +14,20 @@ description: This tutorial will show you how to integrate Auth0 with Ionic to li
   pkgType: 'replace'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
 
-* Ionic 1.3.1
-:::
 
-<%= include('../../_includes/_signup') %>
-
-In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.
-
-## Linking Accounts
-
-To link accounts, call the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint. You will need the primary account JWT (the `id_token`), the user id (from the JWT or the user profile) and the JWT of the secondary account.
-
-To differentiate the login from the linking login, you will create a second instance of `AuthLock` to obtain the secondary account JWT.
+<%= include('../../_includes/_linking_accounts') %>
 
 ```js
-/* ===== www/components/auth/auth.service.js ===== */
+// www/components/auth/auth.service.js
+
 (function () {
 
-	...
-  
+  ...
+
   function authService($rootScope, lock, authManager, jwtHelper, $http, $q) {
 
-	...
+  ...
 
     function linkAccount() {
       try {
@@ -63,7 +53,7 @@ To differentiate the login from the linking login, you will create a second inst
 
       lockLink.on('authenticated', function (authResult) {
 
-		// do linking accounts
+    // do linking accounts
 
       });
 
@@ -75,9 +65,9 @@ To differentiate the login from the linking login, you will create a second inst
 
     return {
       ...
-	  
+
       linkAccount: linkAccount,
-	  
+
       ...
     }
   }
@@ -87,11 +77,11 @@ To differentiate the login from the linking login, you will create a second inst
 Now that the second login is handled, you will need to actually do the linking.
 
 ```js
-/* ===== www/components/auth/auth.service.js ===== */
+// www/components/auth/auth.service.js
 
 
 lockLink.on('authenticated', function (authResult) {
- 
+
     $http({
       method: 'POST',
       url: 'https://' + AUTH0_DOMAIN + '/api/v2/users/' + profile.user_id + '/identities',
@@ -104,7 +94,7 @@ lockLink.on('authenticated', function (authResult) {
     })
       .then(function () {
         lockLink.hide();
-   
+
         lock.getProfile(token, function (error, profile) {
           if (!error) {
             deferred.resolve(profile);
@@ -112,21 +102,22 @@ lockLink.on('authenticated', function (authResult) {
             deferred.reject(error);
           }
         });
-   
+
       });
 
-});  
+});
 ```
 
-The function posts to the API, passing the `link_with` parameter with the JWT value in the body. Then it fetches the profile on success to check that the accounts are now linked.
+This function posts to the API, passing the `link_with` parameter with the JWT value in the body. It then fetches the profile on success to check that the accounts are linked.
 
-Now to begin the link process, call `linkAccount` method and subscribe on it to update user profile:
+Now to begin the link process, call the `linkAccount` method and update the user's local profile when it resolves.
 
 ```js
-/* ===== www/components/home/home.controller.js ===== */
+// www/components/home/home.controller.js
+
 (function () {
 
-	...
+  ...
   function HomeController($state, authService, $scope) {
     ...
 
@@ -149,20 +140,21 @@ Now to begin the link process, call `linkAccount` method and subscribe on it to 
 
 ## User Profile Linked Accounts Information
 
-The user profile contains an array of identities which includes the profile information from linked providers. 
+The user profile contains an array of identities which includes the profile information from linked providers.
 
-To view a user's identities, access the [Users](${manage_url}/#/users) page on the Auth0 dashboard, select a user, and scroll down to `identities`. 
+To view a user's identities, access the [Users](${manage_url}/#/users) page on the Auth0 dashboard, select a user, and scroll down to `identities`.
 
 This example shows a user with a linked Google account:
 
 ![User identities](/media/articles/users/user-identities-linked.png)
 
-Therefore, if you fetch the profile after linking accounts, this same information will be available. 
+If you fetch the profile after linking accounts, this same information will be available.
 
 You can display this information and provide an **Unlink** button:
 
 ```html
-/* ===== www/components/home/home.html ===== */
+<!-- www/components/home/home.html -->
+
 ...
 
   <div ng-show="isAuthenticated">
@@ -186,13 +178,15 @@ You can display this information and provide an **Unlink** button:
 ...
 ```
 
-This calls the following `refreshIdentities` helper method to filter the primary identity:
+The user's primary identity can be filtered by putting in a function to refresh the identities.
 
 ```js
-/* ===== www/components/home/home.controller.js ===== */
+// www/components/home/home.controller.js
+
 (function () {
 
-	...
+  ...
+
   function HomeController($state, authService, $scope) {
     ...
 
@@ -210,13 +204,14 @@ This calls the following `refreshIdentities` helper method to filter the primary
 
 ## Unlinking Accounts
 
-You can dissociate a linked account by calling the [Unlink a user account](/api/management/v2#!/Users/delete_provider_by_user_id) endpoint using the primary `user_id`, and the `provider` and `user_id` of the identity to unlink:
+You can dissociate a linked account by calling the [unlink a user account](/api/management/v2#!/Users/delete_provider_by_user_id) endpoint using the primary `user_id`, and the `provider` and `user_id` of the identity to unlink.
 
 ```js
-/* ===== www/components/auth/auth.service.js ===== */
+// www/components/auth/auth.service.js
+
 (function () {
 
-	...
+  ...
 
   function authService($rootScope, lock, authManager, jwtHelper, $http, $q) {
 
@@ -257,7 +252,7 @@ You can dissociate a linked account by calling the [Unlink a user account](/api/
 
     return {
       ...
-	  
+
       unLinkAccount: unLinkAccount
     }
   }

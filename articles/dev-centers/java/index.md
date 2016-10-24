@@ -1,6 +1,7 @@
 ---
 title: Java Developer Center
 subtitle: Resources and documentation for Java developers
+description: Resources and documentation for Java developers
 logo: java
 url: /dev-centers/java
 tutorials:

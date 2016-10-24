@@ -1,29 +1,19 @@
 ---
 title: Linking Accounts
 description: This tutorial will show you how to integrate Auth0 with Angular 2 to link accounts.
+budicon: 345
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs2-systemjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '05-Linking-Accounts',
-  pkgFilePath: '05-Linking-Accounts/app/auth.config.ts',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs2-systemjs-sample',
+  path: '05-Linking-Accounts',
+  requirements: [
+    'Angular 2.0.1'
+  ]
 }) %>
 
-There may be situations where your users want to log in with multiple accounts that they own. In these cases, you may want to link these accounts together so that they are all reflected in the user's Auth0 profile. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.
-
-## Linking Accounts
-
-To link accounts, call the [link a user account](/api/management/v2#!/Users/post_identities) endpoint. You will need the primary account JWT (the `id_token`), the user id (from the JWT or the user profile) and the JWT of the secondary account.
-
-To differentiate the login from the linking login, you will create a second instance of `Auth0Lock` to obtain the secondary account JWT.
-
-Since all instances of `Auth0Lock` will receive the `authenticated` event, you will need a way to determine if the login came from the login or the linking login. 
-
-You can use the `auth.params` property of the [options object](https://github.com/auth0/lock#authentication-options) of `Auth0Lock` to add a `state` property with the value `"linking"`:
+<%= include('../../_includes/_linking_accounts') %>
 
 ```typescript
 // app/auth.service.ts
@@ -154,15 +144,15 @@ public linkAccount() {
 
 ## User Profile Linked Accounts Information
 
-The user profile contains an array of identities which includes the profile information from linked providers. 
+The user profile contains an array of identities which includes the profile information from linked providers.
 
-To view a user's identities, access the [Users](${manage_url}/#/users) page on the Auth0 dashboard, select a user, and scroll down to `identities`. 
+To view a user's identities, access the [Users](${manage_url}/#/users) page on the Auth0 dashboard, select a user, and scroll down to `identities`.
 
 This example shows a user with a linked Google account:
 
 ![User identities](/media/articles/users/user-identities-linked.png)
 
-If you fetch the profile after linking accounts, this same information will be available. 
+If you fetch the profile after linking accounts, this same information will be available.
 
 You can display this information and provide an **Unlink** button:
 
@@ -232,5 +222,3 @@ public unLinkAccount(identity) {
     );
 }
 ```
-
-

@@ -8,11 +8,11 @@ When using Auth0's [Lock](/libraries/lock) library, you can define and update th
 
 **NOTE**: For an overview on implementing Lock, see the [JavaScript Quickstart](/quickstart/spa/vanillajs).
 
-## Defining *user_metadata* on Signup
+## Defining User Metadata on Signup
 
 For information on adding `user_metadata` on signup, see the section on Lock [Custom Sign Up Fields](/libraries/lock/v10/new-features#custom-sign-up-fields) 
 
-## Working with *user_metadata*
+## Working with User Metadata
 
 Once you have [implemented the login functionality](/quickstart/spa/vanillajs#3-implement-the-login) for your Lock instance, you can choose to store the newly-created `id_token`. This token is used to retrieve the user's profile from Auth0 or to call APIs.
 
@@ -29,7 +29,7 @@ if (hash) {
 }
 ```
 
-## Reading *user_metadata* Properties
+## Reading User Metadata Properties
 
 You can read the user's `user_metadata` properties the same way you would for any user profile property. This example retrieves the value associated with `user.metadata.hobby`:
 

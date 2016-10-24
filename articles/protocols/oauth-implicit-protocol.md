@@ -1,3 +1,7 @@
+---
+description: How to integrate a mobile app or Javascript app with Auth0.
+---
+
 # Integrating a Mobile or a JavaScript App with Auth0
 
 Auth0 supports the [OpenID Connect / OAuth2 Login implicit profile](http://openid.net/specs/openid-connect-implicit-1_0.html), which is typically used in situations where you can't store the secrets safely. JavaScript running in a browser and mobile devices are two common examples.
@@ -28,7 +32,7 @@ The steps are quite simple though:
 
   Your code would then parse the hash segment of the URL and extract the parameters: `access_token` and `id_token`.
 
-  > The `access_token` can then be used to call Auth0's `userinfo` endpoint to get the attributes of the user. The `id_token` is a [Json Web Token](http://tools.ietf.org/html/draft-jones-json-web-token-08), also commonly used to authenticate API calls. Because it is signed with the app secret, you can use it to call other APIs that trust Auth0. An example of this is Windows Azure Mobile Services or your own Web API. 
+  > The `access_token` can then be used to call Auth0's `userinfo` endpoint to get the attributes of the user.
 
   > It is a good practice to check that the `state` value received and sent are the same. It can serve as a protection against XSRF attacks. Also, to avoid replay token attacks, you should send a nonce in the initial request. The nonce will be part of the Json Web Token and can be checked in your backend API.
 

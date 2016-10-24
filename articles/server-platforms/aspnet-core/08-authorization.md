@@ -1,6 +1,7 @@
 ---
 title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
+budicon: 546
 ---
 
 <%= include('../../_includes/_package', {
@@ -15,9 +16,9 @@ description: This tutorial will show you how assign roles to your users, and use
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/webapp/aspnet-core/07-rules' }) %>
 
-## Restrict an action based on a user's roles
+## Restrict an Action Based on a User's Roles
 
-As mentioned before, the claims returned in the ID Token will automatically be mapped to claims on the `ClaimsIdentity`. ASP.NET Core will also maps roles correctly. 
+As mentioned before, the claims returned in the ID Token will automatically be mapped to claims on the `ClaimsIdentity`. ASP.NET Core will also maps roles correctly.
 
 Specifically, it will look for a "roles" claim on the ID Token, and then for each role inside the array on the "roles" claim, it will add a "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" claim to the `ClaimsIdentity`.
 
@@ -31,7 +32,25 @@ The sample code below will restrict the particular action only to user who have 
 [Authorize(Roles = "admin")]
 public IActionResult Admin()
 {
-    return View();
+  return View();
 }
 ```
 
+## Ensure the Roles scope is requested
+
+You will also need to ensure that you request the `roles` scope. This will ensure that the `roles` claim is returned in the `id_token`. Go back to the `Configure` method of the `Startup` class and update the registration of the OIDC middleware to request the `roles` scope:
+
+```csharp
+var options = new OpenIdConnectOptions("Auth0")
+{
+    // Code omitted for brevity...
+};
+options.Scope.Clear();
+options.Scope.Add("openid");
+options.Scope.Add("name");
+options.Scope.Add("email");
+options.Scope.Add("picture");
+options.Scope.Add("country");
+options.Scope.Add("roles");
+app.UseOpenIdConnectAuthentication(options);
+``` 

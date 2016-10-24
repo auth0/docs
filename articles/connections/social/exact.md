@@ -2,6 +2,7 @@
 connection: Exact
 image: /media/connections/exact.png
 seo_alias: exact
+description: How to obtain a Client Id and Client Secret for Exact.
 ---
 
 # Obtain a *Client Id* and *Client Secret* for Exact

@@ -1,6 +1,7 @@
 ---
 title: Calling APIs
-description: This tutorial will show you how to use angular2-jwt library in Ionic to make authenticated api calls.
+description: This tutorial demonstrates how to make secure calls to an API
+budicon: 546
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,28 +14,21 @@ description: This tutorial will show you how to use angular2-jwt library in Ioni
   pkgType: 'replace'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
 
-* Ionic 1.3.1
-:::
 
-<%= include('../../_includes/_signup') %>
+<%= include('../../_includes/_calling_apis') %>
 
-The reason for implementing authentication in the first place is to protect information. In this case your information is a resource served from a server of any sort. Auth0 provides squad of tools to assist you complete end to end authentication in an application. Auth0 suggests you conform to RFC standard by sending the token through Authorization header (though you are not restricted to that).
+## JWT Interceptor
 
-## Meet JWT Interceptor
-
-You can write a service and inject it like a middleware in your HTTP request or response. That means that this service will need to finish it's business and probably return something before the HTTP request/response can continue. This concept is known as HTTP Interceptor.
-
-We can actually write a service that returns a token and attaches it to all HTTP requests but instead of doing that, we can  make use of what `angular-jwt` already provides. With your app depending on `angular-jwt` you can inject `jwtOptionsProvider` in your `config()` method, configure the provider's `tokenGetter` property with a function that returns a token and then push into the interceptor:
+To attach the user's JWT as an `Authorization` header, we could write a service that returns a token and attaches it to all HTTP requests. However, the **angular-jwt** library already provides this functionality. Ensure that **angular-jwt** is added to your app as a dependency and configure it with `jwtOptionsProvider` in the `config` block. A `tokenGetter` function needs to be provided to inform **angular-jwt** how it should be retrieving the user's JWT.
 
 ```js
-/* ===== www/app.js ===== */
+// www/app.js
+
 (function () {
 
-	...
- 
+  ...
+
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
 
     ...
@@ -56,56 +50,49 @@ We can actually write a service that returns a token and attaches it to all HTTP
 })();
 ```
 
-For CORS you will need to enable Authorization header if required:
+## Not Sending the JWT for Specific Requests
 
-```bash
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization
-```
-With that your request will have Authorization in your request herders:
+This basic example will attach the JWT as an `Authorization` header to all requests. This may not be desired as some requests don't require authentication. You can choose not to send the JWT by specifying `skipAuthorization: true`.
 
-```bash
-Authorization: Bearer eyJ0eXAiOiJKV1Qi...
-```
+```js
+// www/components/home/home.service.js
 
-### Not sending the JWT for specific requests
-Our basic example will attache the JWT to headers of all of our requests which might not be the desired behavior. You can filter:
-
-```js 
-/* ===== www/components/home/home.service.js ===== */
 (function () {
 
-	...
-	
+  ...
+
   function HomeController($state, authService, $scope, $http, $ionicPopup) {
     var vm = this;
 
-	...
-	
+  ...
+
     vm.ping = ping;
 
-	...
+  ...
 
     function ping() {
-	  // This request will NOT send the token as it has skipAuthentication
+    // This request will NOT send the token as it has skipAuthorization
       $http.get(SERVER_PATH + '/ping', { skipAuthorization: true })
         .success(onPingSuccess)
         .error(onPingFail);
     }
 
-	...
+  ...
 
 }());
 ```
 
-### Avoiding Template Requests
-Remember that template requests via `ui-router` or `ng-router` are HTTP requests. This means that Authorization headers will be attached as well and that might not be needed. You can get rid:
+## Avoiding Template Requests
+
+Remember that template requests via `ui-router` or `ng-route` are HTTP requests. This means that `Authorization` headers will be attached as well and that might not be needed. You may provide some configuration to avoid sending the JWT for template requests.
 
 ```js
-/* ===== www/app.js ===== */
+// www/app.js
+
 (function () {
 
-	...
- 
+  ...
+
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
 
     ...
@@ -113,11 +100,11 @@ Remember that template requests via `ui-router` or `ng-router` are HTTP requests
     // Configuration for angular-jwt
     jwtOptionsProvider.config({
       tokenGetter: function(options) {
-		// Skip authentication for any requests ending in .html
-		if (options.url.substr(options.url.length - 5) == '.html') {
-			return null;
-		}
-		
+    // Skip authentication for any requests ending in .html
+    if (options.url.substr(options.url.length - 5) == '.html') {
+      return null;
+    }
+
         return localStorage.getItem('id_token');
       },
       whiteListedDomains: ['localhost'],
@@ -132,15 +119,17 @@ Remember that template requests via `ui-router` or `ng-router` are HTTP requests
 })();
 ```
 
-### Different Tokens Based on URLs
-If for any reason you would want to send different tokens based on different URLs, you can do something like:
+## Different Tokens Based on URLs
+
+If for any reason you would want to send different tokens based on different URLs, you can configure the `tokenGetter` to do so.
 
 ```js
-/* ===== www/app.js ===== */
+// www/app.js
+
 (function () {
 
-	...
- 
+  ...
+
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
 
     ...
@@ -148,12 +137,12 @@ If for any reason you would want to send different tokens based on different URL
     // Configuration for angular-jwt
     jwtOptionsProvider.config({
       tokenGetter: function(options) {
-		 if (options.url.indexOf('http://auth0.com') === 0) {
-			return localStorage.getItem('auth0.id_token');
-		 } else {
-			return localStorage.getItem('id_token');
-		 }
-	  
+        if (options.url.indexOf('http://auth0.com') === 0) {
+          return localStorage.getItem('auth0.id_token');
+        } else {
+          return localStorage.getItem('id_token');
+        }
+
         return localStorage.getItem('id_token');
       },
       whiteListedDomains: ['localhost'],
@@ -167,39 +156,3 @@ If for any reason you would want to send different tokens based on different URL
 
 })();
 ```
-
-### Sending Tokens as URL Params
-You saw in the introduction that sending tokens as a header is just a standard and not compulsory. If you prefer to send via URL parameters, then:
-
-```js
-/* ===== www/app.js ===== */
-(function () {
-
-	...
- 
-  function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
-
-    ...
-
-    // Configuration for angular-jwt
-    jwtOptionsProvider.config({
-	  urlParam: 'token',
-      tokenGetter: function() {
-        return localStorage.getItem('id_token');
-      },
-      whiteListedDomains: ['localhost'],
-      unauthenticatedRedirectPath: '/login'
-    });
-
-    //Push interceptor function to $httpProvider's interceptors
-    $httpProvider.interceptors.push('jwtInterceptor');
-
-  }
-
-})();
-```
-
-## Recap
-- HTTP interceptors
-- JWT HTTP interceptor
-- Different ways to attach tokens to requests

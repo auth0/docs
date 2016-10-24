@@ -1,0 +1,9 @@
+added:
+  -
+    title: "New Tutorial on SSO for Regular Web Apps"
+    tags:
+      - oidc
+      - sso
+      - web app
+    description: |
+      A new architecture scenario was added showing [how to implement SSO for a regular web app using OpenID Connect](/architecture-scenarios/application/web-app-sso).

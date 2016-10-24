@@ -1,6 +1,7 @@
 ---
 title: User Profile
 description: This tutorial demonstrates how to fetch user profile information
+budicon: 292
 ---
 
 <%= include('../../_includes/_package2', {
@@ -9,12 +10,12 @@ description: This tutorial demonstrates how to fetch user profile information
   path: '04-User-Profile'
 }) %>
 
-## 1. User Profile
+## User Profile
 
 Getting the user's profile information is very simple with Auth0. After the user has authenticated, a `user` object
 with the entire profile is attached to every express request.
 
-## 2. Showing the User Profile
+## Showing the User Profile
 
 We can modify the `/user` endpoint to display the user object. Add the following to the `views/user.jade` template:
 

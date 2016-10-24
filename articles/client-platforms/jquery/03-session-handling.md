@@ -1,23 +1,14 @@
 ---
 title: Session Handling
 description: This tutorial demonstrates how to integrate Auth0 with jQuery to add session handling and logout to your web app.
+budicon: 280
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-jquery-samples',
-  pkgBranch: 'master',
-  pkgPath: '03-Session-Handling',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-jquery-samples',
+  path: '03-Session-Handling'
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* jQuery 3.1.0
-:::
 
 In the previous steps of this tutorial, you enabled user login with the `Lock` widget and then with `Auth0.js`.
 
@@ -36,7 +27,7 @@ Once the user is logged in, you will want to create a session for that user. To 
 
 var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
   auth: {
-    params: { 
+    params: {
       scope: 'openid email'
     } //Details: https://auth0.com/docs/scopes
   }

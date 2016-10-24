@@ -8,7 +8,9 @@ $('.btn-login').click(function(e) {
 ```
 
 ```html
-<!-- ... -->
+...
+
 <input type="submit" class="btn-login" />
-<!-- ... -->
+
+...
 ```

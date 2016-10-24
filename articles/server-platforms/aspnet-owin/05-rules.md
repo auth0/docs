@@ -1,16 +1,13 @@
 ---
 title: Rules
-description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
+description: This tutorial demonstrates how to use Auth0 rules to extend what Auth0 has to offer.
+budicon: 173
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnet-owin-mvc-sample',
-  pkgBranch: 'master',
-  pkgPath: '05-Rules',
-  pkgFilePath: '05-Rules/MvcApplication/MvcApplication/web.config',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnet-owin-mvc-sample',
+  path: '05-Rules'
 }) %>
 
 <%= include('../_includes/_rules-introduction') %>

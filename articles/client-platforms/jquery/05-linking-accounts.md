@@ -1,37 +1,18 @@
 ---
 title: Linking Accounts
 description: This tutorial demonstrates how to integrate Auth0 with jQuery to link accounts.
+budicon: 345
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-jquery-samples',
-  pkgBranch: 'master',
-  pkgPath: '05-Linking-Accounts',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-jquery-samples',
+  path: '05-Linking-Accounts'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
+<%= include('../../_includes/_linking_accounts') %>
 
-* jQuery 3.1.0
-:::
-
-In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with an email and password (which provides very little information about the user), you can ask the user to link their account to an `OAuth` provider like Facebook or Google to gain access to their social profile.
-
-## Linking Accounts
-
-To link accounts, call the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint. You will need the `id_token` and `user_id` of the primary account and the `id_token` of the secondary account.
-
-To differentiate the login from the linking login, you will create a second instance of `Auth0Lock` to obtain the `id_token` of the secondary account.
-
-Since all instances of `Auth0Lock` will receive the `authenticated` event, you will need a way to determine if the login came from the login or the linking login.
-
-You can use the `params` sub-property of the `auth` property of the [options object](https://github.com/auth0/lock#authentication-options) of `Auth0Lock` to add a `state` property with the value `"linking"`:
-
-```javascript
+```js
 // app.js
 
 ...

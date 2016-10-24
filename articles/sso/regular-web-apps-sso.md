@@ -1,3 +1,7 @@
+---
+description: Server-side SSO with regular web applications.
+---
+
 # Server-side SSO (Regular Web Apps)
 
 Let's say we have three applications

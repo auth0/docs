@@ -82,7 +82,10 @@ function (user, context, callback) {
     // if (user.user_metadata && user.user_metadata.use_mfa){
       context.multifactor = {
         provider: 'guardian', //required
-        ignoreCookie: true // optional. Force Auth0 MFA when this rule runs. Defaults to false. If accepted by the user the cookie lasts for 30 days (this cannot be changed)
+
+        // optional, defaults to true. Set to false to force MFA authentication every time. 
+        // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
+        allowRememberBrowser: false
       };
     // }
   //}
@@ -97,7 +100,7 @@ More specifically, you will uncomment and populate the following line of the **C
 
 `var CLIENTS_WITH_MFA = ['{REPLACE_WITH_CLIENT_ID}'];'
 
-By setting `ignoreCookie: true`, the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure, especially from untrusted machines.
+By setting `allowRememberBrowser: false`, the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure, especially from untrusted machines. See [here](/articles/multifactor-authentication/custom#change-the-frequency-of-authentication-requests) for details
 
 Once you have finished making your desired changes, click **Save**.
 

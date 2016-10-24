@@ -55,7 +55,7 @@ Click **SAVE**.
 
 ## Set the flags
 
-To enable Multifactor Authentication and enrollment, you must set the `options.mfa.active` and `options.mfa.return_enroll_settings` flags using the `PATCH	/api/v2/connections/{id}` endpoint.
+To enable Multifactor Authentication and enrollment, you must set the `options.mfa.active` and `options.mfa.return_enroll_settings` flags using the `PATCH  /api/v2/connections/{id}` endpoint.
 
 1. Go to [Database Connections](${manage_url}/#/connections/database) and select the database you want to use. 
 
@@ -141,7 +141,7 @@ The Lock for iOS widget calls the [Resource Owner](/api/authentication#!#post--o
 
 ![Resource Owner](/media/articles/mfa/mfa-native/mfa-native-11.png)
 
-If you have set the `options.mfa.return_enroll_settings` flag to true using the `PATCH	/api/v2/connections/{id}` endpoint, the Resource Owner response will include a url to a QR code: 
+If you have set the `options.mfa.return_enroll_settings` flag to true using the `PATCH  /api/v2/connections/{id}` endpoint, the Resource Owner response will include a url to a QR code: 
 
 ```
 {

@@ -1,6 +1,7 @@
 ---
 title: Custom Login
 description: This tutorial demonstrates how to create a custom login page for your web application by using the auth0.js library
+budicon: 448
 ---
 
 <%= include('../../_includes/_package2', {
@@ -9,11 +10,11 @@ description: This tutorial demonstrates how to create a custom login page for yo
   path: '02-Custom-Login'
 }) %>
 
-### 1. auth0.js
+## auth0.js
 
 The previous step explained how to provide a login screen with Auth0's Lock widget. In this tutorial (based on the previous tutorial's source code) we are going to learn how to create a custom login page by using the [auth0.js library](/libraries/auth0js).
 
-### 2. Add the auth0.js Dependency
+## Add the auth0.js Dependency
 
 To begin, we need to add the `auth0.js` library in our `layout` template. The library can be retrieved from Auth0's CDN.
 
@@ -26,12 +27,12 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     // auth0.js
-    script(src="http://cdn.auth0.com/w2/auth0-7.2.js")
+    script(src="<script src="${auth0js_url}"></script>")
   body
     block content
 ```
 
-### 3. Login with Auth0.js
+## Login with Auth0.js
 
 To login with `auth0.js` we first need to create an Auth0 instance which will
 then be used to initiate the login process.
@@ -66,7 +67,7 @@ script.
   }
 ```
 
-### 4. Username and Password Login
+## Username and Password Login
 
 Logging in with a username and password is very similar to the previous case, but we need to pass the user's credentials to the `.signin()` method.
 
@@ -86,7 +87,7 @@ script.
   }
 ```
 
-### 5. Putting it All Together
+## Putting it All Together
 
 We can now add some input fields and buttons to make a complete custom login page.
 

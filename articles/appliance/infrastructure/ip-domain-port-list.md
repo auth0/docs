@@ -1,3 +1,8 @@
+---
+description: Appliance infrastructure information about IP/Domain and Port Usage
+---
+
+
 # Appliance Infrastructure: IP/Domain and Port List
 
 The Appliance requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
@@ -90,7 +95,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Updates</td>
     <td>Outbound</td>
     <td>docker.it.auth0.com (52.9.124.234)</td>
-    <td>5000</td>
+    <td>5000/443</td>
     <td>Provides updates for Appliance Docker Packages</td>
     <td>Yes</td>
   </tr>
@@ -127,7 +132,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>No</td>
   </tr>
   <tr>
-    <td>Healthcheck	</td>
+    <td>Healthcheck  </td>
     <td>Inbound</td>
     <td>Monitoring Endpoint</td>
     <td>9110</td>

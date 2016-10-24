@@ -1,3 +1,7 @@
+---
+description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience. 
+---
+
 # Enterprise Support Guidance
 
 This document outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience.  It's relevant for customers only with enterprise subscription agreements which differ from the standard pay-as-you-go/self-service subscription offerings acquired directly from our website.
@@ -48,27 +52,27 @@ When an issue has been logged correctly:
 To speed resolution, please check the following before logging an issue:
 
 * Is the issue experienced by all users or just a few?
-	* All? - Could be a service or configuration issue
-		* Check status of Auth0 service
-			* Americas: (http://status.auth0.com)
-			* EU Region: (http://status.eu.auth0.com)
-			* APAC Region: (http://status.au.auth0.com)
-			* You can subscribe to updates via the button on those pages
-		* Check authentication services (connections) are up and reachable
-		* Check application components - make sure they are functioning
-		* Check certificates - make sure valid/not expired (cert-related errors)
-		* Check NTP running on Auth0 AD/LDAP connector, IDPs
-		* Check if any Rules have changed recently
-		* Check if any recent changes on IDPs that could cause error
-		* Can users log into other apps that use the same authentication provider?
-	* Few users impacted - usually a user profile or browser/device issue
-		* Have user clear cookies and try again
-		* Make sure user isn’t hitting the ‘back’ button
-		* Make sure user has cookies and javascript turned on in browser
-		* Check user profile in the authentication service
-		* Check if any rules changed recently that impact user profile
-		* Is user device in violation of MDM device policies (if used)
-		* Does it happen consistently and can be repeated?
+  * All? - Could be a service or configuration issue
+    * Check status of Auth0 service
+      * Americas: (http://status.auth0.com)
+      * EU Region: (http://status.eu.auth0.com)
+      * APAC Region: (http://status.au.auth0.com)
+      * You can subscribe to updates via the button on those pages
+    * Check authentication services (connections) are up and reachable
+    * Check application components - make sure they are functioning
+    * Check certificates - make sure valid/not expired (cert-related errors)
+    * Check NTP running on Auth0 AD/LDAP connector, IDPs
+    * Check if any Rules have changed recently
+    * Check if any recent changes on IDPs that could cause error
+    * Can users log into other apps that use the same authentication provider?
+  * Few users impacted - usually a user profile or browser/device issue
+    * Have user clear cookies and try again
+    * Make sure user isn’t hitting the ‘back’ button
+    * Make sure user has cookies and javascript turned on in browser
+    * Check user profile in the authentication service
+    * Check if any rules changed recently that impact user profile
+    * Is user device in violation of MDM device policies (if used)
+    * Does it happen consistently and can be repeated?
 
 
 ### Information to provide when logging an issue

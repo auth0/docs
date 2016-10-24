@@ -1,6 +1,8 @@
 ---
 title: Authentication (RS256)
 name: Shows how to secure your API using the standard JWT middeware
+description: Shows how to secure your API using the standard JWT middeware.
+budicon: 500
 ---
 
 <%= include('../../_includes/_package', {
@@ -23,11 +25,11 @@ To configure the JWT Signature Algorithm, go to the settings for your applicatio
 
 Save your changes.
 
-![Configure JWT Signature Algorithm as RS256](/media/articles/server-apis/aspnet-core-webapi/jwt-signature-rs256.png)   
+![Configure JWT Signature Algorithm as RS256](/media/articles/server-apis/aspnet-core-webapi/jwt-signature-rs256.png)
 
 ## 2. Configure the JWT Middleware
 
-You will need to add the JWT middleware to your application's middleware pipeline. 
+You will need to add the JWT middleware to your application's middleware pipeline.
 
 Go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 Client ID as the `Audience`, and the full path to your Auth0 domain as the `Authority`:
 
@@ -51,7 +53,7 @@ Before we carry on, a quick word about the verification of the JWT, as the confi
 
 The JWT middleware will automatically use the `Authority` to verify the issuer of the JWT, and the `Audience` to verify the audience. These values need match the values in the token exactly, so ensure you specify the trailing backslash (`/`) for the `Authority` as this is a fairly common reason for tokens not verifying correctly.
 
-Next it will seem as though the JWT middleware configuration above is insecure since the signature is not explicitly verified anywhere. This is however not true, as the JWT middleware will go to the `/.well-known/openid-configuration` endpoint at the URL specified in the `Authority` property to discover the JSON Web Key Set (JWK) document. It will then download the JSON Web Key which is used to subsequently verify the token.  
+Next it will seem as though the JWT middleware configuration above is insecure since the signature is not explicitly verified anywhere. This is however not true, as the JWT middleware will go to the `/.well-known/openid-configuration` endpoint at the URL specified in the `Authority` property to discover the JSON Web Key Set (JWK) document. It will then download the JSON Web Key which is used to subsequently verify the token.
 
 This can be confirmed by looking and the Fiddler trace in the screenshot below:
 
@@ -61,7 +63,7 @@ If someone tries to create a JWT with another key set the signature verification
 
 ![Console output with incorrectly signed JWT](/media/articles/server-apis/aspnet-core-webapi/console-output.png)
 
-## 3. Securing an API endpoint 
+## 3. Securing an API endpoint
 
 The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.asp.net/en/latest/security/authentication/index.html) and [Authorization](https://docs.asp.net/en/latest/security/authorization/index.html) mechanisms.
 

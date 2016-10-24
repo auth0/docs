@@ -114,3 +114,5 @@ This is best done by registering the API in Auth0 and obtaining a delegation tok
 ### Account Linking
 
 * [How to link accounts and impact on user profile and tokens](/link-accounts)
+
+### [Understanding the expiration of different token types](/security/token-exp)

@@ -1,0 +1,7 @@
+added:
+  -
+    title: "New document on APIs"
+    tags:
+      - api
+    description: |
+      A new [APIs overview](/apis) document was created, with information on what an API is, its role in authorization flows, how to configure one using the dashboard and the different available signing algorithms.

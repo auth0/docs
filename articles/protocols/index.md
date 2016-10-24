@@ -20,9 +20,16 @@ This protocol is best suited for web sites that need:
 
 Someone using a browser hits a protected resource in your web app (a page that requires users to be authenticated). Your website redirects the user to the Authorization Server (Auth0).  The URL for this is:
 
-    https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+```text
+https://${account.namespace}/authorize/?
+  client_id=${account.clientId}
+  &response_type=code
+  &redirect_uri=${account.callback}
+  &state=OPAQUE_VALUE
+  &connection=YOUR_CONNECTION
+```
 
- `connection` is the only parameter that is Auth0 specific. The rest you will find in the spec. Its purpose is to instruct Auth0 where to send the user to authenticate. If you omit it, the user will be redirected to a hosted login page.
+`connection` is the only parameter that is Auth0 specific. The rest you will find in the spec. Its purpose is to instruct Auth0 where to send the user to authenticate. If you omit it, the user will be redirected to a hosted login page.
 
 > A note on `state`. This is an optional parameter, but we __strongly__ recommend you use it as it mitigates [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
@@ -51,7 +58,11 @@ The common visible part of this process is that the user is redirected to the id
 
 Upon successful authentication, the user will eventually return to your web site with a URL that will look like (steps 3 & 4 in the diagram above):
 
-    ${account.callback}/?code=AUTHORIZATION_CODE&state=OPAQUE_VALUE
+```text
+${account.callback}/?
+  code=AUTHORIZATION_CODE
+  &state=OPAQUE_VALUE
+```
 
 `CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step #1.
 
@@ -59,21 +70,29 @@ Your web site will then call Auth0 again with a request to obtain an "Access Tok
 
 To get an Access Token, you would send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret` (step 5 in the diagram).
 
-	POST /oauth/token
-	Host: ${account.namespace}
-	Content-type: application/x-www-form-urlencoded
+```text
+POST /oauth/token
+Host: ${account.namespace}
+Content-type: application/x-www-form-urlencoded
 
-	client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&client_secret=CLIENT_SECRET&code=AUTHORIZATION_CODE&grant_type=authorization_code
+ client_id=CLIENT_ID
+&redirect_uri=REDIRECT_URI
+&client_secret=CLIENT_SECRET
+&code=AUTHORIZATION_CODE
+&grant_type=authorization_code
+```
 
 If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call Auth0 APIs and get additional information such as the user profile.
 
 ##### Sample Access Token Response:
 
-	{
-       "access_token": ".....Access Token.....",
-       "token_type": "bearer",
-       "id_token": "......The JWT......"
-	}
+```json
+{
+  "access_token": ".....Access Token.....",
+  "token_type": "bearer",
+  "id_token": "......The JWT......"
+}
+```
 
 > Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`). See [scopes](/scopes) for more details.
 
@@ -91,7 +110,16 @@ This protocol is best suited for public clients that require increased security 
 
 The client requests authorization to Auth0 endpoint:
 
-	https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&code_challenge={Base64UrlEncode(SHA256(THE VERIFIER))}&code_challenge_method=S256&connection=YOUR_CONNECTION
+```text
+https://${account.namespace}/authorize/?
+  client_id=${account.clientId}
+  &response_type=code
+  &redirect_uri=${account.callback}
+  &state=OPAQUE_VALUE
+  &code_challenge={Base64UrlEncode(SHA256(THE VERIFIER))}
+  &code_challenge_method=S256
+  &connection=YOUR_CONNECTION
+```
 
 The `redirect_uri` __must__ match one of the addresses defined in your [settings](${manage_url}/#/settings) page.
 
@@ -105,13 +133,16 @@ Auth0 will redirect the user to the identity provider defined in the `connection
 
 Upon successful authentication, Auth0 will return a redirection response with the following URL structure:
 
-	${account.callback}?code={THE CODE}
+```text
+${account.callback}?
+  code={THE CODE}
+```
 
 ### 4. Getting the token
 
 The client then issues a final request to Auth0, to exchange the `code` for a token:
 
-```
+```text
 POST /oauth/token HTTP/1.1
 Host: ${account.namespace}
 Content-type: application-json
@@ -142,7 +173,14 @@ This protocol is available for public clients that might not require the additio
 
 The client requests authorization to Auth0 endpoint:
 
-	https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=token&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+```text
+https://${account.namespace}/authorize/?
+  client_id=${account.clientId}
+  &response_type=token
+  &redirect_uri=${account.callback}
+  &state=OPAQUE_VALUE
+  &connection=YOUR_CONNECTION
+```
 
 > Notice `response_type=token` in this request.
 
@@ -158,11 +196,17 @@ Like described before, Auth0 will redirect the user to the identity provider def
 
 Upon successful authentication, Auth0 will return a redirection response with the following URL structure:
 
-	https://CALLBACK#access_token=ACCESS_TOKEN
+```text
+${account.callback}#access_token=ACCESS_TOKEN
+```
 
 Optionally (if `scope=openid` is added in the authorization request):
 
-	https://CALLBACK#access_token=ACCESS_TOKEN&id_token=JSON_WEB_TOKEN
+```text
+${account.callback}# // Note the hash, not querystring
+  access_token=ACCESS_TOKEN
+  &id_token=JSON_WEB_TOKEN
+```
 
 Clients typically extract the URI fragment with the __Access Token__ and cancel the redirection. The client code will then interact with other endpoints using the token in the fragment.
 
@@ -174,7 +218,7 @@ Once your application has a JWT (returned in the `id_token` part of the hash fra
 The way this is done depends on how your API is implemented, but the most common way (which is used by all Auth0 seed projects) is to use the [Bearer authentication scheme](https://tools.ietf.org/html/rfc6750#section-2.1).
 For example:
 
-```
+```text
 GET /my-secured-endpoint HTTP/1.1
 Host: my-api.example.com
 Authorization: Bearer eyJ...
@@ -183,8 +227,15 @@ Authorization: Bearer eyJ...
 where `eyJ...` is the JWT obtained from Auth0.
 The `curl` equivalent would be as follows:
 
-```
-curl https://my-api.example.com/my-secured-endpoint -H "Authorization: Bearer eyJ..."
+```har
+{
+  "method": "GET",
+  "url": "https://my-api.example.com/my-secured-endpoint",
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer eyJ..."
+  }]
+}
 ```
 
 Note that the header name in this case is `Authorization`, and its value is `Bearer eyJ...` (separated by one space).
@@ -196,13 +247,19 @@ This endpoint is used by clients to obtain an access token (and optionally a [JS
 
 ### 1. Login Request
 
-It receives a `client_id`, `client_secret`, `username`, `password` and `connection`. It validates username and password against the connection (if the connection supports active authentication) and generates an access_token.
+It receives a `client_id`, `username`, `password` and `connection`. It validates username and password against the connection (if the connection supports active authentication) and generates an access_token.
 
-	POST /oauth/ro HTTP/1.1
-	Host: ${account.namespace}
-	Content-Type: application/x-www-form-urlencoded
+```text
+POST /oauth/ro HTTP/1.1
+Host: ${account.namespace}
+Content-Type: application/x-www-form-urlencoded
 
-	grant_type=password&username=johndoe&password=abcdef&client_id=${account.clientId}&connection=YOUR CONNECTION
+grant_type=password
+&username=johndoe
+&password=abcdef
+&client_id=${account.clientId}
+&connection=YOUR CONNECTION
+```
 
 Currently, Auth0 implements the following connections for a resource owner grant:
 
@@ -217,7 +274,16 @@ As optional parameter, you can include <code>scope=openid</code>. It will return
 
 #### Sample Request
 
-	curl --data "grant_type=password&username=johndoe&password=abcdef&client_id=${account.clientId}&connection=<YOUR CONNECTION>&scope=openid" https://${account.namespace}/oauth/ro
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/ro",
+  "postData": {
+    "mimeType": "application/x-www-form-urlencoded",
+    "text": "grant_type=password&username=johndoe&password=abcdef&client_id=${account.clientId}&connection=<YOUR CONNECTION>&scope=openid"
+  }
+}
+```
 
 ### Login Response
 In response to a login request, Auth0 will return either an HTTP 200, if login succeeded, or an HTTP error status code, if login failed.
@@ -228,37 +294,43 @@ A failure response will contain error and error_description fields.
 
 #### Sample Successful Response
 
-	HTTP/1.1 200 OK
-	Server: GFE/1.3
-	Content-Type: application/json
+```text
+HTTP/1.1 200 OK
+Server: GFE/1.3
+Content-Type: application/json
 
-	{
-		"access_token": "3WAvWLgMCHkUvoM6",
-		"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2xvZ2luLmF1dGgwLmNvbTozMDAwLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8c2ViYXN0aWFub3NAZ21haWwuY29tIiwiYXVkIjoia3d0TzhWRFNKZnpDU010YXBldlQ2YW0xTHRScjFGQ28iLCJleHAiOjEzNzUzMTE4ODQsImlhdCI6MTM3NTI3NTg4NH0.IPLi1Prr_q8xohD6QQ2CbbvCXqn_8HR__batWdv-O8o",
-		"token_type": "bearer"
-	}
+{
+  "access_token": "3WAv...",
+  "id_token": "eyJ...",
+  "token_type": "bearer"
+}
+```
 
 #### Sample Response with incorrect Username/Password
 
-	HTTP/1.1 401 Unauthorized
-	Server: GFE/1.3
-	Content-Type: application/json
+```text
+HTTP/1.1 401 Unauthorized
+Server: GFE/1.3
+Content-Type: application/json
 
-	{
-	  "error": "Unauthorized",
-	  "error_description": "BadAuthentication"
-	}
+{
+  "error": "Unauthorized",
+  "error_description": "BadAuthentication"
+}
+```
 
 #### Sample Response for an unsupported connection
 
-	HTTP/1.1 400 BadRequest
-	Server: GFE/1.3
-	Content-Type: application/json
+```text
+HTTP/1.1 400 BadRequest
+Server: GFE/1.3
+Content-Type: application/json
 
-	{
-	  "error": "invalid_request",
-	  "error_description": "specified strategy does not support requested operation (windowslive)"
-	}
+{
+  "error": "invalid_request",
+  "error_description": "specified strategy does not support requested operation (windowslive)"
+}
+```
 
 ## Validating tokens
 
@@ -291,11 +363,15 @@ WS-Federation is supported both for apps (e.g. any WIF based app) and for identi
 ### For apps
 All registered apps in Auth0 get a WS-Fed endpoint of the form:
 
-	https://${account.namespace}/wsfed/${account.clientId}
+```text
+https://${account.namespace}/wsfed/${account.clientId}
+```
 
 The metadata endpoint that you can use to configure the __Relying Party__:
 
-	https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml
+```text
+https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml
+```
 
 All options for WS-Fed are available under the [advanced settings](${manage_url}/#/applications/${account.clientId}/settings) for an App.
 
@@ -307,10 +383,9 @@ The following optional parameters can be used when redirecting to the WS-Fed end
 * `wctx`: Your application's state
 * `whr`: The name of the connection (to skip the login page)
 
-```
+```text
 https://${account.namespace}/wsfed/${account.clientId}?whr=google-oauth2
 ```
-
 
 ### For IdP
 If you are connecting a WS-Fed IdP (e.g. ADFS, Azure ACS and IdentityServer are examples), then the easiest is to use the __ADFS__ connection type. Using this you just enter the server address. Auth0 will probe for the __Federation Metadata__ endpoint and import all the required parameters: certificates, URLs, etc.
@@ -325,16 +400,16 @@ Auth0 allows you to customize and extend the authentication transaction through 
 
 The __Redirect__ protocol allows you to interrupt the normal flow, and send the user to an arbitrary endpoint when a condition is met:
 
-```
+```js
 function(user,context,callback){
 
-	if( someCondition() ){
-		context.redirect = {
-			url: "https://some_location"
-		};
-	}
+  if( someCondition() ){
+    context.redirect = {
+      url: "https://some_location"
+    };
+  }
 
-	callback(null,user,context);
+  callback(null,user,context);
 }
 ```
 
@@ -351,25 +426,26 @@ What happens in that location is up to the developer. Typical uses of this facil
 To resume the transaction, user needs to `POST` or `GET` to the url: `https://${account.namespace}/continue`:
 
 
+```text
+POST /continue&state={the state value} HTTP/1.1
+Host: ${account.namespace}
+Content-Type: application/x-www-form-urlencoded
 
-	POST /continue&state={the state value} HTTP/1.1
-	Host: ${account.namespace}
-	Content-Type: application/x-www-form-urlencoded
-
-	{body}
+{body}
+```
 
 Notice that `state` __must__ match what was sent by Auth0 to the endpoint, if no `state` parameter was received by your endpoint you should set value to an empty string. The `{body}` or other query string parameters are app specific.
 
 Transactions that are resumed can be easily be identified with the `protocol=redirect-callback` property:
 
-```
+```js
 function(user,context,callback){
 
-	if( context.protocol === 'redirect-callback' ){
-		//Resuming from a redirect
-	}
+  if( context.protocol === 'redirect-callback' ){
+    //Resuming from a redirect
+  }
 
-	callback(null,user,context);
+  callback(null,user,context);
 }
 ```
 

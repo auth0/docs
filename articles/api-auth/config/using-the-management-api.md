@@ -27,7 +27,7 @@ The following restrictions that apply for the identifier:
 
 The following example uses _"My Sample API"_ as the name and _"https://my-api-uri"_ as the identifier.
 
-`POST` to `${account.tenant}.auth0.com/api/v2/resource-servers` with payload:
+`POST` to `${account.namespace}.auth0.com/api/v2/resource-servers` with payload:
 
 ```
 {
@@ -63,7 +63,7 @@ Response:
 
 Now that the API and the Client are represented in Auth0, you can create a trust relationship between them.
 
-`POST` to `${account.tenant}.auth0.com/api/v2/client-grants` with payload:
+`POST` to `${account.namespace}.auth0.com/api/v2/client-grants` with payload:
 
 ```
 {

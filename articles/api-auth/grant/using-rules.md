@@ -1,5 +1,9 @@
+---
+description: Describes using rules with Client Credentials Grants.
+---
+
 # Using Rules with Client Credentials Grants
-<%=include('../_preview-warning') %>
+<%=include('../_region-support') %>
 
 You can now add [rules](/rules) into the [client credentials](/api-auth/grant/client-credentials) exchange pipeline where you exchange a `client_id` and `secret` for an `access_token`.
 
@@ -22,10 +26,10 @@ Create a file named `myrule.js`, and enter the following:
 ```js
 module.exports = function(client, scope, audience, context, cb) {
   var access_token = {};
-  access_token['https://foo.com/claim'] = 'bar';  
+  access_token['https://foo.com/claim'] = 'bar';
   access_token.scope = scope;
   access_token.scope.push('extra');
-  cb(null, access_token);  
+  cb(null, access_token);
 };
 ```
 This is a sample rule that will:
@@ -66,9 +70,9 @@ To test your newly-created rule and webtask, make the following `POST` call:
     { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
-		"mimeType": "application/json",
-		"text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"API_IDENTIFIER\",\"grant_type\": \"client_credentials\"}"
-	}
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"API_IDENTIFIER\",\"grant_type\": \"client_credentials\"}"
+  }
 }
 ```
 

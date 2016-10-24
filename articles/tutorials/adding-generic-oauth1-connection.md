@@ -1,3 +1,7 @@
+---
+description: How to add a generic Oauth1 Authorization Server to Auth0.
+---
+
 # Adding a generic OAuth1 Authorization Server to Auth0
 
 The most common [identity providers](identityproviders) are readily available on Auth0's dashboard. However, you can add any __OAuth1 Authorization Server__ to Auth0 as an identity provider.

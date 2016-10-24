@@ -1,6 +1,7 @@
 ---
 title: Rules
-description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
+description: This tutorial demonstrates how to use rules to extend what Auth0 has to offer
+budicon: 173
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,13 +14,7 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   pkgType: 'replace'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
 
-* Ionic 1.3.1
-:::
-
-<%= include('../../_includes/_signup') %>
 
 <%= include('../_includes/_rules-introduction') %>
 
@@ -32,7 +27,8 @@ This tutorial and seed project have been tested with the following:
 <%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/native/ionic/03-user-profile' }) %>
 
 ```html
-/* ===== www/components/home/home.html ===== */
+<!-- www/components/home/home.html -->
+
 <ion-view view-title="Auth0 Ionic Quickstart" ng-controller="HomeController as vm">
   <ion-content class="padding">
     <div ng-hide="isAuthenticated">

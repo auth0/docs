@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Auth0.NET SDK version 3.5 released"
+    tags:
+      - sdk
+      - dotnet
+    description: |
+      Added support for proxies by passing a custom HttpMessageHandler to the constructors of the AuthenticationApiClient and ManagementApiClient classes.

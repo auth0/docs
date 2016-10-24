@@ -1,17 +1,19 @@
 ```html
-  <!-- app/pages/profile/profile.html -->
+<!-- src/pages/profile/profile.html -->
   
-<ion-navbar *navbar>
-  <ion-title>Profile</ion-title>
-</ion-navbar>
+<ion-header>
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content padding *ngIf="!auth.authenticated()">
   
-  <button block (click)="auth.login()">Login</button>
+  <button ion-button block (click)="auth.login()">Login</button>
   
 </ion-content>
 
-<ion-content padding *ngIf="auth.authenticated()">  
+<ion-content padding *ngIf="auth.authenticated()">
   
   <ion-card>
 
@@ -25,7 +27,7 @@
   
   </ion-card>
   
-  <button block (click)="auth.logout()">Logout</button>
+  <button ion-button block (click)="auth.logout()">Logout</button>
   
 </ion-content>
 ```

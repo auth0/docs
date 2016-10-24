@@ -8,17 +8,23 @@ description: How to enable API Authorization on the Auth0 dashboard.
 
 2. Create a new client of type **Non Interactive** for each of the applications that will consume the API you want to generate access tokens for.
 
-    ![](/media/articles/api-auth/create-client.png)
+![](/media/articles/api-auth/create-client.png)
 
-3. Navigate to the API section and create a new API by entering a friendly name and an identifier. Ideally, this identifier should be the public endpoint of the API, but any valid URN is acceptable. This API will be represented by your **Resource Server**.
+3. Navigate to the [API section](${manage_url}/#/apis) and create a new API.
 
-    The selection of the **Signing Algorithm** will dictate how the API will validate the access tokens it receives:
-    * HS256 (symmetric): signed using the resource server's signing secret
-    * RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
+::: panel-info Enable APIs Section
+If you can't see the [API section](${manage_url}/#/apis) in the left hand menu of the dashboard then you will have to enable it. Navigate to your [Account Advanced Settings](${manage_url}/#/account/advanced), scroll down to the *Settings* section and toggle the **Enable APIs Section** switch.
+:::
 
-    ![](/media/articles/api-auth/apis-create.png)
+Enter a friendly name and an identifier. Ideally, this identifier should be the public endpoint of the API, but any valid URN is acceptable. This API will be represented by your **Resource Server**.
 
-    **NOTE:** There will already be an **Auth0 Management API** that represents Auth0's APIv2. You can authorize client applications to request tokens from this API as well.
+The selection of the **Signing Algorithm** will dictate how the API will validate the access tokens it receives:
+* HS256 (symmetric): signed using the resource server's signing secret
+* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
+
+![](/media/articles/api-auth/apis-create.png)
+
+**NOTE:** There will already be an **Auth0 Management API** that represents Auth0's APIv2. You can authorize client applications to request tokens from this API as well.
 
 4. (Optional) Define some scopes by browsing to the **Scopes** tab. A scope is a claim that may be issued as part of the access token. With this information, the API can enforce fine-grained authorization.
 

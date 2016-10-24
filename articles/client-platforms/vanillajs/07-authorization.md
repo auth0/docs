@@ -1,35 +1,37 @@
 ---
 title: Authorization
-description: This tutorial will show you how to assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
+description: This tutorial demonstrates how to assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app
+budicon: 500
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-javascript-spa',
-  pkgBranch: 'master',
-  pkgPath: '07-Authorization',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-javascript-spa',
+  path: '07-Authorization'
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/vanillajs/06-rules' }) %>
 
-### Create a Rule to assign roles
+### Create a Rule to Assign Roles
 
 <%= include('../_includes/_authorization-create-rule') %>
 
-## Restrict a route based on user's roles
+## Restrict a Route Based on User's Roles
 
-In order to restrict access to certain routes, we are going to use a `switch` inside *route* function (executed every time the page is loaded).
+To restrict access to certain routes, create a function that handles conditionally allowing or disallowing access to routes based on the user's `role`.
 
-```javascript
-/* ===== ./app.js ===== */
+```js
+// app.js
+
 ...
+
 var route = function() {
+
   var id_token = localStorage.getItem('id_token');
   var current_location = window.location.pathname;
+
   if (id_token) {
+
     var profile = JSON.parse(localStorage.getItem('profile'));
 
     switch(current_location) {
@@ -80,11 +82,13 @@ route();
 ...
 ```
 
-The route function checks to determine whether the user is authenticated and then checks to see if he/she is an *admin* or *user* by employing the `isAdmin` and `isUser` functions, respectively. This method checks if the `roles` attribute of `app_metadata` added by the rule contains either `admin` or `user`:
+The route function checks to determine whether the user is authenticated and then checks to see if he/she is an `admin` or `user` by employing the `isAdmin` and `isUser` functions, respectively. This method checks if the `roles` attribute of `app_metadata` added by the rule contains either `admin` or `user`.
 
-```javascript
-/* ===== ./app.js ===== */
+```js
+// app.js
+
 ...
+
 var isAdmin = function(profile) {
   if (profile &&
       profile.app_metadata &&
@@ -106,11 +110,8 @@ var isUser = function(profile) {
      return false;
   }
 };
+
 ...
 ```
 
-Now, if a user logs in with an email that contains `@example`, he/she will be allowed to access the `/admin.html` route. Otherwise, the user is just allowed to access `/` and `/user.html` routes.
-
-## Summary
-
-In this guide, we saw how to assign roles to your users through Auth0's management dashboard, as well as how to use those claims to authorize or deny a user to access certain routes in your VanillaJS project.
+Now, if the user logs in with an email that contains `@example.com`, they will be allowed to access the `/admin` route. Otherwise, the user will only be allowed to access `/` and `/user`.

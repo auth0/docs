@@ -1,3 +1,7 @@
+---
+description: How to configure the Connector for OpenLDAP and other directories that are not AD.
+---
+
 # Considerations for OpenLDAP and non-AD directories
 
 The Connector comes by default highly optimized for **Active Directory**. To configure it any other LDAP directories (e.g. OpenLDAP) you will have to customize these settings in the **config.json** file:

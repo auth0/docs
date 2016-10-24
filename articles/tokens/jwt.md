@@ -59,7 +59,7 @@ There are three types of claims: *reserved*, *public*, and *private* claims.
 
 - **Reserved claims**: These is a set of predefined claims which are not mandatory but recommended, to provide a set of useful, interoperable claims. Some of them are: **iss** (issuer), **exp** (expiration time), **sub** (subject), **aud** (audience), and others.
 
-	> Notice that the claim names are only three characters long as JWT is meant to be compact.
+  > Notice that the claim names are only three characters long as JWT is meant to be compact.
 
 - **Public claims**: These can be defined at will by those using JWTs. But to avoid collisions they should be defined in the IANA JSON Web Token Registry or be defined as a URI that contains a collision resistant namespace.
 

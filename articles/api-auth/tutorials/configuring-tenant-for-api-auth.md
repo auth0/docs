@@ -3,6 +3,7 @@ description: How to configure you tenant to enable the new API Authorization Flo
 ---
 
 # Configuring your tenant for the new API Authorization flows
+<%=include('../_region-support') %>
 
 If you want to unlock the new API Authorization scenario, you will need to enable a flag under your [Account Settings](${manage_url}/#/account/advanced). This will allow you to opt-in and out of this feature at any point in time while it remains under preview.
 

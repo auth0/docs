@@ -38,9 +38,10 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Auth0 Logs to Mixpanel](/extensions/mixpanel): export Auth0 logs to Mixpanel.
 - [Real-time Webtask Logs](/extensions/realtime-webtask-logs): allows browser-based access to real-time webtask logs.
 - [Auth0 Logs to Logentries](/extensions/logentries): export Auth0 logs to Logentries.
-- [GitHub Deployments](/extensions/github-deploy): deploy rules and database connections from GitHub to Auth0.
-- [Bitbucket Deployments](/extensions/bitbucket-deploy): deploy rules and database connections from Bitbucket to Auth0.
 - [Delegated Administration](/extensions/delegated-admin): expose the Users dashboard to a group of users, without allowing them access to the dashboard.
+- [GitHub Deployments](/extensions/github-deploy): deploy rules and database connections scripts from GitHub to Auth0.
+- [Bitbucket Deployments](/extensions/bitbucket-deploy): deploy rules and database connection scripts from Bitbucket to Auth0.
+- [GitLab Deployments](/extensions/gitlab-deploy): deploy rules and database connections scripts from GitLab to Auth0.
 
 
 ## Creating Your Own Extension

@@ -14,6 +14,6 @@ snippets:
   setup: client-platforms/angularjs/setup
   use: client-platforms/angularjs/use
 seo_alias: angularjs
-default_article: 01-login
+default_article: dashboard-default
 articles:
   - 01-login

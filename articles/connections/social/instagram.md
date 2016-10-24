@@ -35,7 +35,7 @@ Complete the form. Enter these values in the following fields:
 **Website URL**: `https://${account.namespace}`
 
 **Valid redirect URI**: `https://${account.namespace}/login/callback`
-	
+  
 Click **Register**.
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-3.png)

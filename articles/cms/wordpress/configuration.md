@@ -1,3 +1,7 @@
+---
+description: How to configure WordPress as a client with Auth0.
+---
+
 # WordPress Configuration
 
 To configure the *Auth0 for WordPress* plugin, you will need to copy the *Domain*, *Client Id* and *Client Secret* from the *Settings* page of your app in the Auth0 dashboard to the *Basic* settings page of the Auth0 plugin in WordPress.
@@ -68,24 +72,6 @@ Enable the supported social identity providers you want to allow users to login 
 * **Icon URL:** Sets the Lock display icon.
 * **Enable Gravatar integration:** When user enters their email, their associated gravatar picture is displayed in the Lock header.
 * **Customize the Login Widget CSS:** A valid CSS that will be applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget)
-* **Customize the Login Widget with custom JS:** Allows you to add JavaScript that will customize the Lock widget (to add custom buttons, for example). For more information, see [Adding custom buttons to Lock](/hrd#option-3-adding-custom-buttons-to-lock). The following code adds a *Fabrikam Azure AD* button to the widget:
-
-```js
-// javascript
-lock.once('signin ready', function() {
-    var link = jQuery('<a class="a0-zocial a0-waad" href="#">' +
-        '<span>Login with Fabrikam Azure AD</span></a>');
-    link.on('click', function () {
-        lock.getClient().login({
-            connection: 'fabrikamdirectory.onmicrosoft.com' });
-    });
-
-    var iconList = jQuery('.a0-iconlist');
-    iconList.append(link);
-});
-```
-
-  **NOTE:** The variable `lock` refers to an instance of the Login Widget.
 * **Username style:** Selecting **Email** will require users to enter their email address to login. Set this to *username* if you do not want to force a username to be a valid email address.
 * **Remember last login:** Requests SSO data and enables the *Last time you signed in with[...]* option. For more information,  see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
 * **Translation:** A valid JSON object representing the Lock's dict parameter. The 'dict' parameter can be a string matching any supported language ('en', 'es', 'it', etc...) or an object containing customized label text. If set, this will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).

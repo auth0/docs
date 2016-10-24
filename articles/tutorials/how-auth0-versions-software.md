@@ -1,5 +1,6 @@
 ---
-title: How Auth0 versioning works?
+title: How Auth0 versioning works
+description: This page explains how Auth0 versioning works.
 ---
 
 # Versioning
@@ -24,13 +25,13 @@ Auth0 provides links to our [Content Delivery Network (CDN)](http://en.wikipedia
 
 ```js
 <!-- major release -->
-<script src="http://cdn.auth0.com/js/lock-9.min.js"></script>
+<script src="http://cdn.auth0.com/example/1/library.js"></script>
 
 <!-- minor release -->
-<script src="http://cdn.auth0.com/js/lock-9.0.min.js"></script>
+<script src="http://cdn.auth0.com/example/1.0/library.js"></script>
 
 <!-- patch release (recommended for production) -->
-<script src="http://cdn.auth0.com/js/lock-9.0.1.min.js"></script>
+<script src="http://cdn.auth0.com/example/1.0.1/library.js"></script>
 ```
 
 If you link to the major release (the first script) and we release a new minor, you will get the update as soon as it is released. We encourage this practice for development environments and experimenting with Auth0. 

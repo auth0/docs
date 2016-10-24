@@ -26,10 +26,10 @@
       <a href="/package/${pkgRepo}/${pkgBranch}?org=${pkgOrg}&path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
       <% } else { %>
       <a href="/package/${pkgRepo}/${pkgBranch}?org=${pkgOrg}&path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
-      <a href="https://github.com/${pkgOrg}/${pkgRepo}/tree/master/${pkgPath}" target="_blank" class="btn btn-sm btn-default" rel="nofollow">Fork on Github</a>
+      <a href="https://github.com/${pkgOrg}/${pkgRepo}/tree/master/${pkgPath}" class="btn btn-sm btn-default" rel="nofollow">Fork on Github</a>
       <% } %>
     <% } else if (typeof githubUrl != 'undefined') { %>
-      <a href="${githubUrl}" target="_blank" class="btn btn-sm btn-default" rel="nofollow">Fork on Github</a>
+      <a href="${githubUrl}" class="btn btn-sm btn-default" rel="nofollow">Fork on Github</a>
     <% } %>
     </div>
   </div>

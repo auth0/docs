@@ -1,31 +1,20 @@
 ---
 title: Calling APIs
 description: This tutorial will show you how to manage tokens to make authenticated API calls, using NSURLSession.
+budicon: 546
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-- CocoaPods 1.0.0
-- XCode 7.3 (7D175)
-- iPhone 6 - iOS 9.3 (13E230)
-  :::
-
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/08-Calling-APIs',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-swift-sample',
-  pkgBranch: 'master',
-  pkgPath: '08-Calling-APIs',
-  pkgFilePath: null,
-  pkgType: 'none'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ios-swift-sample',
+  path: '08-Calling-APIs'
 }) %>
 
 The reason for implementing authentication, in the first place, is to protect information. In this case, your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. We recommend that you conform to RFC standards by sending valid authentication tokens through an authorization header.
 
 In this tutorial, you'll learn how to get a token, attach it to a request (using the authorization header), and call any API you need to authenticate with.
 
-### 1. Get a Token
+## Get a Token
 
 In order to make an authenticated request, you first need to obtain a token, against which your API can compare to detect whether or not the request is properly authenticated.
 
@@ -47,7 +36,7 @@ A0Lock.sharedLock().presentLockController(controller, fromController: self)
 
 In order to make authenticated requests, you can use any of the token strings inside that `A0Token` instance you just obtained; which one is up to you.
 
-### 2. Attach the Token
+## Attach the Token
 
 Supposing you have decided to use the `idToken` value, here is what you would do:
 
@@ -64,17 +53,13 @@ let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, res
 
 Notice that how you configure your authorization header should match the standards that you're using in your API; this is just an example of what it could look like.
 
-### 3. Send the Request
+## Send the Request
 
 Don't forget to actually send the request you just created, by executing:
 
 ```swift
 task.resume()
 ```
-
-### Done!
-
-That's just it. 
 
 ### Sample Project Configuration
 

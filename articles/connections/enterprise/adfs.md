@@ -6,6 +6,7 @@ alias:
   - active-directory-federation-services
   - adfs-2
 seo_alias: adfs
+description: How to connect ADFS with Auth0.
 ---
 
 # Connect ADFS with Auth0
@@ -16,6 +17,8 @@ Provide this information to your ADFS administrator:
 * Endpoint: `https://${account.namespace}/login/callback`
 
 **Note:** If you want to use the [/oauth/ro](/auth-api#post--oauth-ro) endpoint you must enable `/adfs/services/trust/13/usernamemixed`.
+
+**Note**: The Federation Metadata file contains information about the ADFS server's certificates. If the Federation Metadata endpoint (`/FederationMetadata/2007-06/FederationMetadata.xml`) is enabled in ADFS, Auth0 can periodically (once a day) look for changes in the configuration, like a new signing certificate added to prepare for a rollover. Because of this, enabling the Federation Metadata endpoint is preferred to providing a standalone metadata file.
 
 ### Scripted setup
 

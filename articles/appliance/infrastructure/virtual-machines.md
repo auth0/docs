@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Appliance infrastructure information about virtual machines
 ---
 
 # Auth0 Appliance Infrastructure Requirements: Virtual Machines
@@ -21,11 +22,11 @@ When provisioning the Appliance from the templates, Auth0 recommends the followi
 * **Memory**: 16 GB RAM (8 GB RAM minimum);
 * **CPU**: 4 vCPU (2 vCPU minimum);
 * **Storage**:
-    * *For Non-Production Nodes*: 40 GB for system/operating system storage and 100 GB for data storage;
+    * *For Non-Production Nodes*: 40 GB for system/operating system storage, 50 GB for data storage, and 50 GB for backup purposes (if you want to test the backup process).
     * *For three-node, high availability Production clusters*:
         * Two of the virtual machines each should be allocated 40 GB for system/operating system storage and 100 GB for data storage;
-        * One virtual machine should be allocated 100 GB for data storage and 100 GB for backup purposes.
-        * Solid state drives (SSD) are required. If you anticipate more than 1 million users, you must have SSD disks with RAID 0 or RAID 10.
+        * One virtual machine should be allocated 40 GB for system/operating system storage, 100 GB for data storage, and 100 GB for backup purposes.
+        * If you anticipate more than 10 million users, please let us know for additional storage requirements and considerations.
         * Drives should be thick provisioned.
 
 > Large installations will require higher IO performance. Auth0 will work with you to determine the required storage performance levels.

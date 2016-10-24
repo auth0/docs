@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to back up the Appliance using its CLI
 ---
 
 # How to Back Up Appliance Instances Using the CLI
@@ -73,4 +74,4 @@ To delete an existing backup, you will use the "backup-delete" message in your l
 
 ## Restoring a Backup
 
-Please work contact Auth0 to work with a Customer Success Engineer to restore a backup.
+Please contact Auth0 to work with a Customer Success Engineer to restore a backup.

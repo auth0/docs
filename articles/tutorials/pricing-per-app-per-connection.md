@@ -1,3 +1,7 @@
+---
+description: This page details Auth0's pricing models.
+---
+
 # Understanding Auth0 Pricing per App and per Connection
 
 ### Introduction

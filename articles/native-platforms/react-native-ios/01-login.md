@@ -1,6 +1,8 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 React Native iOS SDK to add authentication and authorization to your mobile app.
+default: true
+description: This tutorial demonstrates how to use the Auth0 React Native iOS SDK to add authentication and authorization to your mobile app.
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {
@@ -18,11 +20,9 @@ This tutorial and seed project have been tested with the following:
 * NodeJS 4.3
 :::
 
-<%= include('../../_includes/_signup') %>
 
-**Otherwise, if you already have an existing React Native application, please follow the steps below.**
 
-#### CocoaPods
+## CocoaPods
 
 You'll need CocoaPods in order to fetch **Lock** native libraries dependencies for you and link them to your project.
 
@@ -34,7 +34,7 @@ gem install cocoapods
 
 > If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
 
-### 1. Adding Lock to your project
+## Adding Lock
 
 First you need to run the following command to install **react-native-lock**
 
@@ -77,7 +77,7 @@ Another error you might have while trying to run the project, if you are using a
 
 To solve it, click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the flag `-lc++` for **all** configurations .
 
-### 2. Let's implement the login
+## Implement the Login
 
 Now we're ready to implement the Login. First we need to require react-native-lock-ios:
 
@@ -93,7 +93,7 @@ ${snippet(meta.snippets.use)}
 
 On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
 
-### 3. Showing user information
+## Showing User Information
 
 After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
 
@@ -125,8 +125,6 @@ And then inside the method `application:didFinishLaunchingWithOptions` the follo
 ```objc
   [[[A0LockReact sharedInstance] lock] applicationLaunchedWithOptions:launchOptions];
 ```
-
-> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the __step #3__
 
 #### Facebook
 

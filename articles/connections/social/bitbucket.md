@@ -21,7 +21,7 @@ Click on your account icon in the upper right and select **Bitbucket settings**:
 
 ![](/media/articles/connections/social/bitbucket/bitbucket-01.png)
 
-Select **OAuth**	in the left nav:
+Select **OAuth**  in the left nav:
 
 ![](/media/articles/connections/social/bitbucket/bitbucket-02.png)
 

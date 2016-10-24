@@ -1,6 +1,7 @@
 ---
 title: Introduction
 name: Introduction to the Quickstart, and configuring environment
+budicon: 715
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,7 +14,7 @@ name: Introduction to the Quickstart, and configuring environment
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 This quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your Java Spring Security API.
 

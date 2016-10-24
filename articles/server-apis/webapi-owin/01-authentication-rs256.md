@@ -1,6 +1,7 @@
 ---
 title: Authentication (RS256)
 name: Shows how to secure your API using the standard JWT middeware
+budicon: 500
 ---
 
 <%= include('../../_includes/_package', {
@@ -23,13 +24,13 @@ To configure the JWT Signature Algorithm, go to the settings for your applicatio
 
 Save your changes.
 
-![Configure JWT Signature Algorithm as RS256](/media/articles/server-apis/webapi-owin/jwt-signature-rs256.png)   
+![Configure JWT Signature Algorithm as RS256](/media/articles/server-apis/webapi-owin/jwt-signature-rs256.png)
 
 ## 2. Configure the JWT Middleware
 
-You will need to add the Active Directory Services Bearer Token middleware to your application's middleware pipeline. 
+You will need to add the Active Directory Services Bearer Token middleware to your application's middleware pipeline.
 
-Go to the `Configuration` method of your `Startup` class and add a call to `UseActiveDirectoryFederationServicesBearerAuthentication` passing in the configured `ActiveDirectoryFederationServicesBearerAuthenticationOptions`. 
+Go to the `Configuration` method of your `Startup` class and add a call to `UseActiveDirectoryFederationServicesBearerAuthentication` passing in the configured `ActiveDirectoryFederationServicesBearerAuthenticationOptions`.
 
 The `ActiveDirectoryFederationServicesBearerAuthenticationOptions` needs to specify your Auth0 Client ID in the `ValidAudience` property, and the full path to your Auth0 domain as the `ValidIssuer`. You will also need to specify the `MetadataEndpoint` property which will allow the middleware to automatically download the public key from Auth0 in order to verify the signature of the JSON Web Tokens.
 
@@ -52,7 +53,7 @@ public void Configuration(IAppBuilder app)
             // Setting the MetadataEndpoint so the middleware can download the RS256 certificate
             MetadataEndpoint = $"{issuer.TrimEnd('/')}/wsfed/{audience}/FederationMetadata/2007-06/FederationMetadata.xml"
         });
-            
+
 
     // Configure Web API
     WebApiConfig.Configure(app);
@@ -60,10 +61,10 @@ public void Configuration(IAppBuilder app)
 ```
 
 ::: panel-warning Do not forget the trailing backslash
-Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.   
+Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.
 :::
 
-## 3. Securing an API endpoint 
+## 3. Securing an API endpoint
 
 The JWT middleware integrates with the standard ASP.NET Authentication and Authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
 

@@ -1,3 +1,7 @@
+---
+description: How to test a partner connection.
+---
+
 # Testing a partner connection
 
 Testing a connection in Auth0 is very easy: 
@@ -25,7 +29,7 @@ Click on __SAVE CHANGES__.
 
 ## 2. Send your Partner the link to login
 
-	https://${account.namespace}/authorize?response_type=token&scope=openid%20profile&client_id={THE_APP_CLIENT_ID}&redirect_uri=http://jwt.io&connection={THE_CONNECTION_YOU_WANT_TO_TEST}
+  https://${account.namespace}/authorize?response_type=token&scope=openid%20profile&client_id={THE_APP_CLIENT_ID}&redirect_uri=http://jwt.io&connection={THE_CONNECTION_YOU_WANT_TO_TEST}
 
 Make sure you replace these two parameters:
 

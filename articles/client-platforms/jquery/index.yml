@@ -13,7 +13,7 @@ snippets:
   setup: client-platforms/jquery/setup
   use: client-platforms/jquery/use
 seo_alias: jquery
-default_article: 01-login
+default_article: dashboard-default
 articles:
   - 00-intro
   - 01-login
@@ -26,3 +26,4 @@ articles:
   - 08-calling-apis
   - 09-mfa
   - 10-customizing-lock
+  - 11-api-authorization

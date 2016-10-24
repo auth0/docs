@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Overview of the Appliance Dashboard Rate Limiting page
 ---
 
 # Auth0 Appliance Dashboard: Rate Limiting

@@ -1,12 +1,13 @@
 ---
 section: appliance
+description: How to invite additional administrators to your Appliance instances
 ---
 
 # Appliance Administration: Inviting Co-Administrators
 
 You may invite additional users to become co-administrators of your Appliance instances. This is done via the Appliance configuration area of the Management Dashboard.
 
-> Administrators for the Appliance instances are authenticated with the root tenant authority (RTA, the primary tenant, sometimes called the **config** tenant). The Dashboard is represented by the **"Auth0"** app/client in the RTA account. By default the RTA has a DB connection enabled, **"Initial-Connection"**, that is used to authenticate Dashboard users. 
+> Administrators for the Appliance instances are authenticated with the root tenant authority (RTA, the primary tenant, sometimes called the **config** tenant). The Dashboard is represented by the **"Auth0"** app/client in the RTA account. By default the RTA has a DB connection enabled, **"Initial-Connection"**, that is used to authenticate Dashboard users.
 Since that connection has signups disabled, users will be have to be created beforehand.
 
 [![](/media/articles/appliance/admin/invite-co-admins.png)](https://auth0-1.wistia.com/medias/2t8n98qc5j)

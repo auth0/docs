@@ -1,3 +1,7 @@
+---
+description: Lists all the endpoints used by Auth0 public cloud service.
+---
+
 # Endpoints used by Auth0 public cloud service  
 
 The following endpoints are used by Auth0 public cloud service:

@@ -1,3 +1,7 @@
+---
+description: This page explains the differences of the four different deployment models in which Auth0 is offered.
+---
+
 # Auth0 Deployment Models
 
 Auth0 is offered in 4 deployment models:
@@ -107,9 +111,9 @@ The following table describes operational and feature differences between each o
         <tr>
             <th>Extensions</th>
             <td class="success">Yes</td>
-            <td class="danger">No</td>
-            <td class="danger">No</td>
-            <td class="danger">No</td>
+            <td class="success">Yes <sup>*</sup></td>
+            <td class="success">Yes <sup>*</sup></td>
+            <td class="success">Yes <sup>*</sup></td>
         </tr>
         <tr>
             <th>Geolocation</th>
@@ -134,10 +138,12 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Shared Resources Among Multiple Customers</th>
-            <td class>Yes</td>
-            <td class>No</td>
-            <td class>No</td>
-            <td class>No</td>
+            <td class="success">Yes</td>
+            <td class="danger">No</td>
+            <td class="danger">No</td>
+            <td class="danger">No</td>
         </tr>
     </tbody>
 </table>
+
+<sup>*</sup>__NOTE:__ The [Delegated Administration](/extensions/delegated-admin) extension is currently available only for the public cloud.

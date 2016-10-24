@@ -24,7 +24,7 @@ Auth0 supports the following methods of implementing MFA:
 
 ## MFA using Push Notifications (Auth0 Guardian)
 
-![](/media/articles/mfa/guardian-push.png)
+<div class="phone-mockup"><img src="/media/articles/mfa/guardian-push.png" alt="Guardian Push Screenshot"/></div>
 
 Guardian is Auth0's MFA application. It is a frictionless approach to implementing MFA for your apps, and provides a full MFA experience without requiring integration with third-party utilities.
 
@@ -32,7 +32,7 @@ Guardian is Auth0's MFA application. It is a frictionless approach to implementi
 
 ## MFA with SMS
 
-![](/media/articles/mfa/sms-screenshot.png)
+<div class="phone-mockup"><img src="/media/articles/mfa/sms-screenshot.png" alt="MFA SMS Screenshot"/></div>
 
 Auth0 supports sending an SMS with a one-time password code to be used for another step of verification.
 
@@ -40,7 +40,7 @@ Auth0 supports sending an SMS with a one-time password code to be used for anoth
 
 ## MFA Using Google Authenticator
 
-![](/media/articles/mfa/google-auth-screenshot.png)
+<div class="phone-mockup"><img src="/media/articles/mfa/google-auth-screenshot.png" alt="Screenshot of Google Authenticator"/></div>
 
 Google Authenticator is a mobile app that generates 2-step verification codes. This creates a one-time use password that is used as the second factor after your user has attempted to log in with their Google credentials.
 
@@ -48,7 +48,7 @@ Google Authenticator is a mobile app that generates 2-step verification codes. T
 
 ## MFA Using Duo Security
 
-![](/media/articles/mfa/duo-screenshot.png)
+<div class="phone-mockup"><img src="/media/articles/mfa/duo-screenshot.png" alt="DUO Screenshot"/></div>
 
 Duo Security allows you to request either of the following as your second factor once the user has provided their initial login credentials:
 

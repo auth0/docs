@@ -1,27 +1,16 @@
 ---
 title: Custom Login
-description: This tutorial will teach you how to perform Login and Sign Up by using your own View Controllers, without using the Lock widget interface.
+description: This tutorial demonstrates how to perform Login and Sign Up by using your own View Controllers, without using the Lock widget interface.
+budicon: 448
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* CocoaPods 1.0.0
-* XCode 7.3 (7D175)
-* iPhone 6 - iOS 9.3 (13E230)
-  :::
-
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/02-Custom-Login',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-swift-sample',
-  pkgBranch: 'master',
-  pkgPath: '02-Custom-Login',
-  pkgFilePath: null,
-  pkgType: 'none'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ios-swift-sample',
+  path: '02-Custom-Login'
 }) %>
 
-### 1. Implement the Login
+## Implement the Login
 
 First, import the `Auth0` module in the file where you want to present the login dialog:
 
@@ -56,7 +45,7 @@ Basically, `credentials` contains token-related information; you will normally s
 
 > For further reference on the `credentials` and `error` objects, check the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Credentials.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Authentication.swift) files documentation.
 
-### 2. Retrieve the User Profile
+## Retrieve the User Profile
 
 Once you've obtained a `Credentials` object, retrieving a user profile is quite simple. All you have to do is:
 
@@ -84,7 +73,7 @@ memberLabel.text = "You are member since \(profile.createdAt)"
 
 > For further reference on the `profile` and `error` objects, check the [UserProfile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/UserProfile.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Authentication.swift) files documentation.
 
-### 3. Implement a Sign Up
+## Implement a Sign Up
 
 Including a register process in your app is also a piece of cake.
 
@@ -108,8 +97,8 @@ Auth0
     .start { result in
             switch result {
             case .Success(let credentials):
-            	// Registered successfully
-            	// You've got a Credentials object
+              // Registered successfully
+              // You've got a Credentials object
             case .Failure(let error):
                 // You've got an error
             }
@@ -119,9 +108,9 @@ Auth0
 
 Notice that any extra information that you need to add to the user's profile, other than the `email` and `password`, goes within the `userMetadata` dictionary, which is passed as a parameter to this function.
 
-### 4. Perform Social Authentication
+## Perform Social Authentication
 
-First, go to your [Client Dashboard](${uiAppSettingsURL}/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
+First, go to your [Client Dashboard](${manage_url}/#/applications/${account.clientId}/settings/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
 
 ```shell
 {YOUR_APP_BUNDLE_IDENTIFIER}://${account.domain}/ios/{YOUR_APP_BUNDLE_IDENTIFIER}/callback
@@ -179,7 +168,3 @@ Auth0
 ```
 
 Once you get the `credentials` object, upon a successful authentication, you deal with them as usual. For more information on that topic, check out the [login](01-login) and [session handling](session-handling) tutorials.
-
-### Done!
-
-You've just implemented your own Login and Sign Up forms!

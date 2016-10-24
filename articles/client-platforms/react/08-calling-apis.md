@@ -1,17 +1,14 @@
 ---
 title: Calling APIs
 description: This tutorial will show you how to make authenticated api calls with ReactJS.
+budicon: 546
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-react-sample',
-  pkgBranch: 'master',
-  pkgPath: '08-Calling-Api',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-react-sample',
+  path: '08-Calling-Api'
 }) %>
-
 
 Auth0 exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through Authorization header when calling an API.
 
@@ -19,7 +16,7 @@ Auth0 exposes an assortment of API endpoints to assist you with authentication i
 
 In order to make an authorized request, you need to send the `Authorization` header containing the JWT Token. (For more information, see the [JSON Web Tokens](https://jwt.io/introduction/) documentation.) The token will be extracted from the request header and decoded by the server, validating the authenticated user.
 
-To send requests with the correct headers, update `AuthService` by adding a new helper method to wrap the native [`fetch`](https://fetch.spec.whatwg.org/) and add the authorization value:
+To send requests with the correct headers, update `AuthService` by adding a new helper method to wrap the native [fetch](https://fetch.spec.whatwg.org/) and add the authorization value:
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
@@ -66,7 +63,7 @@ The new `fetch` method constructs requests to send to private endpoints. As the 
 
 ## 2. Create a Simple Server
 
-To demonstrate how a server would handle public and private endpoints, you can create a simple `node.js` server based on [`express`](https://expressjs.com/) and [`express-jwt`](https://github.com/auth0/express-jwt) with only two endpoints: `/api/public` and `/api/private`:
+To demonstrate how a server would handle public and private endpoints, you can create a simple `node.js` server based on [express](https://expressjs.com/) and [express-jwt](https://github.com/auth0/express-jwt) with only two endpoints: `/api/public` and `/api/private`:
 
 ```javascript
 /* ===== ./server.js ===== */
@@ -92,7 +89,7 @@ app.listen(3001);
 console.log('Listening on http://localhost:3001');
 ```
 
-Both endpoints send a JSON response with a message attribute, but `/api/private` uses the __authenticate__ callback to validate the token received in the `Authorization` header. `express-jwt` is responsible for parsing and validating the token. (For more details, see the [express-jwt](https://github.com/auth0/express-jwt) documentation). 
+Both endpoints send a JSON response with a message attribute, but `/api/private` uses the __authenticate__ callback to validate the token received in the `Authorization` header. `express-jwt` is responsible for parsing and validating the token. (For more details, see the [express-jwt](https://github.com/auth0/express-jwt) documentation).
 
 Note that the `dotenv` package is used to load `process.env.AUTH0_SECRET` and `process.env.AUTH0_CLIENT_ID` from the `.env` file.
 
@@ -115,7 +112,7 @@ To test the server, run `node server.js`. It should be listening on port 3001 of
 
 ## 3. Add a Proxy and Start the Server
 
-Since you will be calling the server API from the client code and to prevent having to use [`cors`](https://github.com/expressjs/cors), you will need to proxy the calls from the client on port 3000 to the server API on 3001. 
+Since you will be calling the server API from the client code and to prevent having to use [cors](https://github.com/expressjs/cors), you will need to proxy the calls from the client on port 3000 to the server API on 3001.
 
 To create the proxy, add a new setting to [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) in the `webpack.config.js` file:
 
@@ -150,7 +147,7 @@ var config = getConfig({
 ...
 ```
 
-With the proxy ready, update the `start` script to start both `webpack-dev-server` and `server.js` at the same time. As both servers will stay running in development mode, you will need to introduce the [`npm-run-all`](https://github.com/mysticatea/npm-run-all) tool in order to run them in parallel. 
+With the proxy ready, update the `start` script to start both `webpack-dev-server` and `server.js` at the same time. As both servers will stay running in development mode, you will need to introduce the [npm-run-all](https://github.com/mysticatea/npm-run-all) tool in order to run them in parallel.
 
 The updated `scripts` entry in `package.json` looks like:
 
@@ -167,7 +164,7 @@ Now, when you run `npm start`, both servers should be up and the proxy active.
 
 ## 4. Show Public and Private Responses
 
-Now that you have updated `AuthService` to provide a custom `fetch` method for private requests and created a sample server, you are ready to update your ReactJS application to render the server responses. 
+Now that you have updated `AuthService` to provide a custom `fetch` method for private requests and created a sample server, you are ready to update your ReactJS application to render the server responses.
 
 Create a new component named `Messages` in the folder `src/components/Messages`:
 
@@ -225,7 +222,7 @@ Note that both server endpoints will receive requests as soon as the component i
 
 Also note that `auth` is an `AuthService` instance expected as a prop, and that the component renders a `ListGroup` with two `ListGroupItem` to display the server messages.
 
-Lastly, include the `Messages` component in an application view. 
+Lastly, include the `Messages` component in an application view.
 
 To show how this component works in both authenticated and not authenticated situations, do not only include it in `Home` (where the user is already authenticated) but also in `Login`, to demonstrate that the private API requests fails:
 

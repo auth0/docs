@@ -1,18 +1,16 @@
 ---
 title: Custom Login
 description: This tutorial demonstrates how to use the auth0.js library to add custom authentication and authorization to your ReactJS web application
+budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-react-sample',
-  pkgBranch: 'master',
-  pkgPath: '02-Custom-Login',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-react-sample',
+  path: '02-Custom-Login'
 }) %>
 
-The [previous step](/quickstart/spa/react/01-login) shows you how to implement login with the [Lock](/libraries/lock) widget. This is optional, however, and you can build your application with a custom design using Auth0 without Lock by using the [Auth0.js](/libraries/auth0js) library. 
+In the [previous step](/quickstart/spa/react/01-login), we enabled login with the Auth0 Lock widget. You can also build your own custom UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
 
 ## 1. Create the AuthService class
 
@@ -22,7 +20,7 @@ First, you will create the `AuthService` helper class to encapsulate the login f
 
 Inside this class, you will create an `Auth0` instance that receives your Auth0 credentials. Instead of hard-coding your credentials in this class, they are passed from the `AuthService` constructor parameters to the `Auth0` instance.
 
-This class also provides `login` and `signup` methods that simply pass parameters to the equivalent `Auth0` library methods. 
+This class also provides `login` and `signup` methods that simply pass parameters to the equivalent `Auth0` library methods.
 
 Below is the full code for `AuthService.js` file:
 
@@ -84,7 +82,7 @@ export default class AuthService {
 }
 ```
 
-`Auth0` uses [redirect mode](/libraries/auth0js#redirect-mode) by default. Therefore, after a successful login, your app will be redirected to the `callbackURL` set for your client in the [Auth0 dashboard](${manage_url}/#/applications). 
+`Auth0` uses [redirect mode](/libraries/auth0js#redirect-mode) by default. Therefore, after a successful login, your app will be redirected to the `callbackURL` set for your client in the [Auth0 dashboard](${manage_url}/#/applications).
 
 `Auth0` appends authentication data to the callbackURL as hash parameters. The `parseHash` method above extracts this data from the URL hash and saves the user authentication token(`idToken`) to `localStorage`.
 
@@ -133,17 +131,17 @@ export default makeMainRoutes
 ```
 ${snippet(meta.snippets.envFile)}
 
-In the updated `routes.js`, you now have two routes with `onEnter` callbacks assigned. 
+In the updated `routes.js`, you now have two routes with `onEnter` callbacks assigned.
 
 First, `/home` route calls `requireAuth`, which checks if there is an authenticated user, and redirects to `/login` if not.
 
-The other route catches the `access_token=:token` URL format and parses those parameters in `parseAuthHash`. 
+The other route catches the `access_token=:token` URL format and parses those parameters in `parseAuthHash`.
 
 Now you can create the Login component.
 
 ## 3. Create the Login view
 
-Login is a new view component that should be saved in `src/views/Main/Login/`. It is is a React Component that accepts into its props an `auth` object as an instance of `AuthService`. It renders an authentication form that allows users to enter their email and password to sign in. 
+Login is a new view component that should be saved in `src/views/Main/Login/`. It is is a React Component that accepts into its props an `auth` object as an instance of `AuthService`. It renders an authentication form that allows users to enter their email and password to sign in.
 
 The Login component code looks like this:
 
@@ -206,7 +204,7 @@ Now, if you run the application, you will see an error in the Login component be
 
 ## 4. Send `auth` from router to Container children
 
-To fix the Login component's missing dependency, you need to propagate the `auth` parameter from the `Container` component (that receives it from the route) to the container's children. 
+To fix the Login component's missing dependency, you need to propagate the `auth` parameter from the `Container` component (that receives it from the route) to the container's children.
 
 The updated `src/views/Main/Container.js` is:
 
@@ -243,7 +241,7 @@ Now, the Login button should work and the user will be redirected to the home pa
 
 ## 5. Add Sign Up
 
-The simplest way to allow sign up is to add a new button to the login form and call the Auth0 signup API, instead of login. 
+The simplest way to allow sign up is to add a new button to the login form and call the Auth0 signup API, instead of login.
 
 The required changes in the Login component are included below:
 

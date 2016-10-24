@@ -1,6 +1,7 @@
 ---
 title: Authorization
-description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access secure content in the app.
+description: This tutorial demonstrates how to assign roles to your users and use those claims to authorize or deny a user to access secure content in the app
+budicon: 500
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,29 +14,21 @@ description: This tutorial will show you how assign roles to your users, and use
   pkgType: 'replace'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
 
-* Ionic 1.3.1
-:::
-
-<%= include('../../_includes/_signup') %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/native/ionic/05-rules' }) %>
 
-### Create a Rule to assign roles
+## Create a Rule to Assign Roles
 
-<%= include('../_includes/_authorization-create-rule') %>_
+<%= include('../_includes/_authorization-create-rule') %>
 
+## Restrict Access to Secure Content
 
-## Restrict access to secure content
-
-
-In order to restrict access to secure content, this example uses `showAdminContent` method in Home controller
+To restrict secure content to users with a role of `admin`, start by providing a function in any controller which checks the role. The `auth.isAdmin` function in this example will be defined later.
 
 ```js
-/* ===== www/components/home/home.controller.js ===== */
- 
+// www/components/home/home.controller.js
+
 // Restrict access to secure content
 function showAdminContent() {
 
@@ -52,16 +45,12 @@ function showAdminContent() {
   // common content
 
 }
-
-
-
 ```
 
-
-Add `showAdminContent` method to Home controller:
+Add the `showAdminContent` method to `HomeController`.
 
 ```js
-/* ===== www/components/home/home.controller.js ===== */
+// www/components/home/home.controller.js
 
 (function () {
 
@@ -134,10 +123,10 @@ Add `showAdminContent` method to Home controller:
 }());
 ```
 
-Create new `Show Admin Content` item in the `home` template:
+Create a new `Show Admin Content` item in the `home` template:
 
 ```html
-<!-- ===== www/components/home/home.html ===== -->
+<!-- www/components/home/home.html -->
 <ion-view view-title="Auth0 Ionic Quickstart" ng-controller="HomeController as vm">
   <ion-content class="padding">
     <div ng-hide="isAuthenticated">
@@ -164,19 +153,16 @@ Create new `Show Admin Content` item in the `home` template:
     </div>
   </ion-content>
 </ion-view>
-
 ```
 
-
-The `showAdminContent` method checks if the user is an admin using a new `isAdmin` function added to the `authService` service. 
-This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin`:
+The `showAdminContent` method checks if the user is an admin using a new `isAdmin` function added to the `authService`. This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin`.
 
 
 ```js
-/* ===== www/components/auth/auth.service.js ===== */
+// www/components/auth/auth.service.js
 (function() {
 
-	...
+  ...
 
   function authService($rootScope, lock, authManager, jwtHelper, $q) {
 
@@ -189,14 +175,17 @@ This method checks if the `roles` attribute of `app_metadata` added by the rule 
     }
 
     return {
-		...
+
+    ...
+
       isAdmin: isAdmin
+
     }
   }
 })();
 ```
 
-Now, if an user logs in with an email that contains `@example`, they will be see the popup:
+Now if an user logs in with an email that contains `@example`, they will be see a popup informing them that they are authorized.
 
 <div class="phone-mockup">
   <img src="/media/articles/native-platforms/ionic/image_authorization1.png" alt="Mobile example screenshot"/>

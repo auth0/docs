@@ -8,7 +8,6 @@ from flask import Flask, request, jsonify, session, redirect, render_template, s
 # Here we're using the /callback route.
 @app.route('/callback')
 def callback_handling():
-  env = os.environ
   code = request.args.get('code')
 
   json_header = {'content-type': 'application/json'}

@@ -1,19 +1,19 @@
 ---
 title: Customizing Lock
 description: This tutorial demonstrates how to customize Lock.
+budicon: 285
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs2-systemjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '10-Customizing-Lock',
-  pkgFilePath: '10-Customizing-Lock/app/auth.config.ts',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs2-systemjs-sample',
+  path: '10-Customizing-Lock',
+  requirements: [
+    'Angular 2.0.1'
+  ]
 }) %>
 
-Using Lock is easy, but you may want to customize your login UI. There are several options available.
+Using Lock is easy, but you may want to customize your login UI. For that, there are several [customization options](/libraries/lock/v10/customization) available.
 
 ## Lock Options
 
@@ -56,4 +56,3 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
 This is how Lock will appear using a custom logo, color, and title:
 
 ![Custom lock](/media/articles/angularjs2/widget-custom-logo-color.png)
-

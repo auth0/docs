@@ -1,6 +1,7 @@
 ---
 title: Introduction
-description: A simple, multi-step quickstart guide to setup and manage authentication in your VanillaJS app using Auth0.
+description: This is a multi-step quickstart guide that demonstrates how to setup and manage authentication in your JavaScript app using Auth0
+budicon: 715
 ---
 
 This multi-step quickstart guide will walk you through setting up and managing authentication in your vanilla JS apps using Auth0.
@@ -13,23 +14,16 @@ This multi-step quickstart guide will walk you through setting up and managing a
 
 ## 2. Dependencies
 
-To integrate your VanillaJS application with Auth0, you will need to add the following dependency:
+To integrate your JavaScript application with Auth0, add the Lock widget. You can get it from Bower or from the Auth0 CDN.
 
-- [Lock Widget](/libraries/lock) is the default authentication widget provided by Auth0.
+**Bower**
 
-  From [npm](https://www.npmjs.com/package/auth0-lock):
+```bash
+bower install auth0-lock
+```
 
-  `npm install --save auth0-lock`
+**CDN**
 
-  From [bower](http://bower.io):
-
-  `bower install auth0-lock`
-
-  Or the Auth0 CDN:
-
-  `<script src="http://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>`
-
-
-## Summary
-
-In this guide, we saw how to get your application credentials from the `Auth0`'s dashboard, and we also saw different ways for installing the `Lock` widget in your VanillaJS project.
+```html
+<script src="${lock_url}"></script>
+```
