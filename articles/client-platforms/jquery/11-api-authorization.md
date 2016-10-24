@@ -12,7 +12,7 @@ budicon: 500
 
 ### Before Starting
 
-## 1. Enable OAuth2 as a Service
+## 1. Enable OAuth 2.0 API Authorization
 
 <%= include('../../_includes/_configure_oauth2aas') %>
 
