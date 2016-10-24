@@ -2,7 +2,7 @@
 description: Explains the basics of creating and using Auth0 Clients.
 ---
 
-# Core Concepts: Clients
+# Clients
 
 An Auth0 **client** allows your application to utilize Auth0 for authentication. A fully-configured authentication process will consist of an Auth0 client that possesses information about and is able to communicate with your application (which, conversely, possesses information about and is able to communicate with the Auth0 client.)
 
