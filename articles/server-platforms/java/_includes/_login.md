@@ -19,7 +19,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
   <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
   <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="http://cdn.auth0.com/js/lock/10.0.0-rc.2/lock.min.js"></script>
+  <script src="${lock_url}"></script>
   <script src="/js/jquery.growl.js" type="text/javascript"></script>
 </head>
 <body>
