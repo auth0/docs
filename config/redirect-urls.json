@@ -858,7 +858,11 @@
   },
   {
     "from": "/har",
-    "to": "/tutorials/troubleshootings-with-har-files"
+    "to": "/tutorials/troubleshooting-with-har-files"
+  },
+  {
+    "from": "/tutorials/troubleshootings-with-har-files",
+    "to": "/tutorials/troubleshooting-with-har-files"
   },
   {
     "from": "/hrd",
