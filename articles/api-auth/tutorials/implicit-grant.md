@@ -3,7 +3,7 @@ description: How to execute an Implicit Grant flow from a SPA Client application
 ---
 
 # Executing the Implicit Grant Flow
-<%=include('../_preview-warning') %>
+<%=include('../_region-support') %>
 
 In order to execute an Implicit Grant flow you will need to configure your Client application to send the user to the authorization URL:
 
@@ -13,7 +13,8 @@ https://${account.namespace}/authorize?
   scope={SCOPE}&
   response_type={RESPONSE_TYPE}&
   client_id={AUTH0_CLIENT_ID}&
-  redirect_uri={CALLBACK_URL}
+  redirect_uri={CALLBACK_URL}&
+  state={OPAQUE_VALUE}
 ```
 
 Where:
@@ -22,6 +23,7 @@ Where:
 * `scope`: The scopes which you want to request authorization for. These must be separated by a space.
 * `response_type`: The response type. For this flow you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow.
 * `client_id`: Your application's Client ID.
+* `state`: An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks.
 * `redirect_uri`: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your application.
 
 For example:

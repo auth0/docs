@@ -3,7 +3,7 @@ description: Describes using rules with Client Credentials Grants.
 ---
 
 # Using Rules with Client Credentials Grants
-<%=include('../_preview-warning') %>
+<%=include('../_region-support') %>
 
 You can now add [rules](/rules) into the [client credentials](/api-auth/grant/client-credentials) exchange pipeline where you exchange a `client_id` and `secret` for an `access_token`.
 
