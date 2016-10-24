@@ -18,13 +18,13 @@ The *Create Client* windows pops open. Set a descriptive name for your client an
 
 Select the client type that matches your application:
 
-- **Native**: Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, Ionic or iOS. For a complete listing of the SDKs Auth0 offers for mobile apps refer to: [Native SDKs](/quickstart/native). The OAuth 2.0 flow you can use with this client type is **Implicit Grant**. For more information on how to do so refer to: [API Auth: Implicit Grant](/api-auth/grant/implicit).
+- **Native**: Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, Ionic or iOS. For a complete listing of the SDKs Auth0 offers for mobile apps refer to: [Native SDKs](/quickstart/native).
 
-- **Single Page Web Applications**: Used for JavaScript front-end apps that run on a browser, like Angular, jQuery or React. For a complete listing of the SDKs Auth0 offers for SPAs refer to: [Single Page App SDKs](/quickstart/spa). The OAuth 2.0 flow you can use with this client type is **Implicit Grant**. For more information on how to do so refer to: [API Auth: Implicit Grant](/api-auth/grant/implicit).
+- **Single Page Web Applications**: Used for JavaScript front-end apps that run on a browser, like Angular, jQuery or React. For a complete listing of the SDKs Auth0 offers for SPAs refer to: [Single Page App SDKs](/quickstart/spa).
 
-- **Regular Web Applications**: Used for traditional web applications that run on a server, like ASP .NET, Java or Node.js. For a complete listing of the SDKs Auth0 offers for Web Apps refer to: [Web App SDKs](/quickstart/webapp). The OAuth 2.0 flow you can use with this client type is **Authorization Code Grant**. For more information on how to do so refer to: [API Auth: Authorization Code Grant](/api-auth/grant/authorization-code).
+- **Regular Web Applications**: Used for traditional web applications that run on a server, like ASP .NET, Java or Node.js. For a complete listing of the SDKs Auth0 offers for Web Apps refer to: [Web App SDKs](/quickstart/webapp).
 
-- **Non Interactive Clients**: Used for server to server applications like CLIs, daemons or services running on your backend. Typically you would use this option if you have a service that requires access to an API and you want it to request access tokens in order to do so. The OAuth 2.0 flow you can use with this client type is **Client Credentials**. For more information on how to do so refer to [API Auth: Client Credentials Grant](/api-auth/grant/client-credentials) and [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
+- **Non Interactive Clients**: Used for server to server applications like CLIs, daemons or services running on your backend. Typically you would use this option if you have a service that requires access to an API and you want it to request access tokens in order to do so.
 
 After you set the name and client type, click **Create**.
 
