@@ -6,7 +6,6 @@ budicon: 500
 
 <%= include('../../_includes/_api_auth_intro') %>
 
-<%= include('../../api-auth/_preview-warning') %>
 <%= include('../../_includes/_compat_warning') %>
 
 ### Before Starting
