@@ -68,7 +68,53 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 > You can use [Rules](/rules) to further customize the authentication process for your client. Within the context of a rule, you have access to the client the user is authenticating to, which is useful if you want to apply coarse-grained authorization policies for your clients, for example:
 > - Only HR officials can access Client X
 > - Only US-based users can access Client Y
+>
 > For more details on rules and how to use them refer to: [Rules](/rules).
+
+## Sample Clients
+
+The following are high-level overviews of sample Clients using a variety of technologies.
+
+### Regular Web Application
+
+![Example diagram](/media/articles/applications/applications-traditional.png)
+
+For a regular web application, all you need to do is create a new Client in Auth0.
+
+### Mobile Clients, a Single Page Application, and an REST API
+
+![Example diagram](/media/articles/applications/applications-multiple-single-logical.png)
+
+This example is a timesheet application that utilizes:
+
+* A REST API that receives timesheet entries from users.
+* A Single Page Application (SPA) used to log timesheets entries and send them to the REST API.
+* Mobile apps capable of running on several types of devices, used to log timesheets entries and send them to the REST API.
+
+In order to configure this in Auth0 you would create:
+- A client for the SPA.
+- A client for the iOS mobile app.
+- A client for the Android mobile app.
+- A client for the Windows mobile app.
+- An API.
+
+For more details on APIs and how to configure one refer to: [APIs](/apis).
+
+### Multiple Services and APIs
+
+![Example diagram](/media/articles/applications/applications-complex-different.png)
+
+This example is for a Portal (HTML5 SPA) that communicates with four APIs.
+
+In order to configure this in Auth0 you would create:
+- A client for the SPA.
+- An API for the Portal REST API.
+- An API for the Documents API.
+- An API for the Invoices API.
+- An API for the Contacts API.
+
+For more details on APIs and how to configure one refer to: [APIs](/apis).
+
 
 ## Auditing
 
@@ -114,53 +160,6 @@ In the following month, John and Mary start using the company's collaboration ap
 
 ![](/media/articles/applications/applications-multi-app-active-users.png)
 
-## Sample Clients
-
-The following are high-level overviews of sample Clients using a variety of technologies.
-
-> One client is comprised of an ID-secret pair. If multiple clients (for example, one runs on iOS and one runs on Android) share the same Client ID-secret pair, Auth0 considers them to be a single Client.
-
-### Regular Web Application
-
-![](/media/articles/applications/applications-traditional.png)
-
-For a regular web application, all you need to do is create a new Client in Auth0.
-
-### Mobile Clients, a Single Page Application, and an REST API
-
-![](/media/articles/applications/applications-multiple-single-logical.png)
-
-This example is a timesheet application that utilizes:
-
-* A REST API;
-* A Single Page Application (SPA) hosted on a server different from the one hosting the REST API;
-* Mobile apps capable of running on several types of devices.
-
-From a technical standpoint, the above comprises at least three Clients, due to their differing language, deployment model, and so on. However, for Auth0, this is **one** Client application that shares an ID-secret pair.
-
-Doing so simplifies logging/auditing and allows for reuse of Connections across the different Clients implemented.
-
-### Multiple Services and APIs
-
-![](/media/articles/applications/applications-complex-same-app.png)
-
-This is a decomposed Clients with several APIs and services. Depending on the requirements, this might be one or more Client(s) in Auth0. While it is easiest to implement such a scenario as one Client, note that:
-
- * With a single token, you'll be able to access all APIs;
- * The logs will show only that a user has accessed the *Fabrikam Enterprise Portal*, because Auth0 will not be able to distinguish between the various APIs used;
- * You won't be able to write [rules](/rules) to control the flow between the Clients.
-
-Now on the other hand, you could create different applications for the enterprise portal and the backing services. This will allow us to identify the different APIs and services giving you:
-
-However, implementing this using multiple Clients allows for identification of the different APIs and services used, which means that you now have:
-
- * Better auditing;
- * The ability to apply fine-grain authorization for Cpplications through rules (for example, you can limit access to the Invoices API to those in Finance);
- * The ability to control the flow of your Clients (for example, you could configure the Invoices API so that it can only be called by the Documents API.
-
-Note that users interacting with the different APIs results in a higher active user count.
-
-![](/media/articles/applications/applications-complex-different.png)
 
 ## Custom Domain Names
 
