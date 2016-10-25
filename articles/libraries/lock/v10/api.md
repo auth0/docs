@@ -100,6 +100,28 @@ Options should be set when first instantiating Lock `var lock = new Auth0Lock(cl
 Previous users of Lock 9 should note that this is a different behavior from `options` in Lock 9, where all options were set as parameters of `show` and not at instantiation.
 :::
 
+There is an additional option that can be set in the `show` method called `flashMessage`.
+
+#### flashMessage {Object}
+
+This options is _only_ available as an option for the `show` method, not for use in the normal options object when instantiating Lock. The `flashMessage` option shows an error or success flash message when Lock is shown. It has the following parameters:
+
+- **type** {String}: The message type, it should be either `error` or `success`.
+- **text** {String}: The text to show.
+
+An example of usage:
+```js
+lock.show({
+  flashMessage:{
+    type: 'success',
+    text: 'success message'
+  }
+});
+
+```
+
+<img width="300" src="/media/articles/libraries/lock/v10/flashMessage.png" />
+
 ### hide([callback])
 
 The `hide` method closes the widget if it is currently open. The widget closes itself under most circumstances, so this method would primarily be invoked in specific use cases only. For instance, one might wish to listen for the `unrecoverable_error` event and then `hide` the Lock and redirect to their own custom error page. Another example is users who are implementing [popup mode](/libraries/lock/v10/popup-mode), and might need to manually `hide` the widget after the `authenticated` event fires.

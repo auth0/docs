@@ -27,6 +27,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 **Theming Options**:
 - [theme](#theme-object-)
+- [authButtons](#authbuttons-object-)
 - [labeledSubmitButton](#labeledsubmitbutton-boolean-)
 - [logo](#logo-string-)
 - [primaryColor](#primarycolor-string-)
@@ -36,6 +37,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 **Authentication setup**:
 - [auth](#auth-object-)
+- [connectionScopes](connectionscopes-object-)
 - [params](#params-object-)
 - [redirect](#redirect-boolean-)
 - [redirectUrl](#redirecturl-string-)
@@ -95,7 +97,6 @@ Examples of `allowedConnections`:
 
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-social.png" />
-
 
 ### autoclose {Boolean}
 
@@ -200,7 +201,6 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-container.png" />
 
-
 ### language {String}:
 
 Specifies the language of the widget. Defaults to "en". See the [internationalization directory](https://github.com/auth0/lock/blob/master/src/i18n/) for a current list of provided languages.
@@ -263,6 +263,34 @@ var options = {
 ### theme {Object}
 
 Theme options are grouped in the `theme` property of the `options` object.
+
+#### authButtons {Object}
+
+Allows the customization of the custom oauth2 login buttons. Each custom connection whose button you desire to customize should be listed by name, each with their own set of parameters. The customizable parameters are listed below:
+
+- **displayName** {String}: The name to show instead of the connection name.
+- **primaryColor** {String}: The button's background color. Defaults to "#eb5424".
+- **foregroundColor** {String}: The button's text color. Defaults to "#FFFFFF".
+- **icon** {String}: The URL of the icon for this connection. For example: "http://site.com/logo.png".
+
+```js
+var options = {
+  theme: {
+    authButtons: {
+      "testConnection": {
+        displayName: "Test Conn", 
+        primaryColor: "#b7b7b7", 
+        foregroundColor: "#000000", 
+        icon: "http://example.com/icon.png"
+      },
+      "testConnection2": {
+        primaryColor: "#000000", 
+        foregroundColor: "#ffffff", 
+      }
+    }
+  }
+};
+```
 
 #### labeledSubmitButton {Boolean}
 
@@ -385,6 +413,22 @@ var options = {
   }
 };
 ```
+
+#### connectionScopes {Object}
+
+Allows to set scopes to be sent to the oauth2/social connection for authentication.
+
+```js
+var options = {
+  auth: {
+    connectionScopes: {
+      'facebook': ['scope1', 'scope2']
+    }
+  }
+};
+```
+
+A listing of particular scopes for your social connections can be acquired from the provider in question. For example, [Facebook for Developers](https://developers.facebook.com/docs/facebook-login/permissions/) reference has a listing of separate permissions that can be requested for your connection.
 
 #### params {Object}
 
