@@ -43,7 +43,7 @@ https://${account.namespace}/continue?state=THE_ORIGINAL_STATE
 When a user has been redirected to the `/continue` endpoint, all rules will be run again.
 
 ::: panel-danger Caution:
-Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 loose the context of the login transaction.
+Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will lose the context of the login transaction.
 :::
 
 
