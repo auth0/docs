@@ -15,7 +15,13 @@ budicon: 715
   pkgType: 'replace'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
 
+* .NET Core 1.0
+
+This tutorial can be completed with the command line tools and your code editor of choice, or alternatively you can use Microsoft Visual Studio 2015 Update 3. For more details on how to use .NET Core on your platform, please see [the .NET Core Website](https://www.microsoft.com/net/core).
+:::
 
 This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET Core Web API.
 

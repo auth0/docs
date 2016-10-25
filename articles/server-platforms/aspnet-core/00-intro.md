@@ -5,9 +5,15 @@ description: Introduction to the quickstart guide and configuring the environmen
 budicon: 715
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* .NET Core 1.0
+
+This tutorial can be completed with the command line tools and your code editor of choice, or alternatively you can use Microsoft Visual Studio 2015 Update 3. For more details on how to use .NET Core on your platform, please see [the .NET Core Website](https://www.microsoft.com/net/core).
+:::
+
 This quickstart guide will walk you through the various tasks related to integrating Auth0 into your ASP.NET Core MVC application.
-
-
 
 ## Sample Projects
 

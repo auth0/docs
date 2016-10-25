@@ -5,9 +5,14 @@ description: This quickstart guide will walk you through the various tasks relat
 budicon: 715
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Microsoft Visual Studio 2015 Update 3
+* Auth0-ASPNET-Owin NuGet Package v1.0.4
+:::
+
 This quickstart guide will walk you through the various tasks related to integrating Auth0 into your ASP.NET MVC 5 application.
-
-
 
 ## Sample Projects
 

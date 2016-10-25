@@ -16,7 +16,7 @@ description: This tutorial will show you how to use the Auth0 ASP.NET Web API SD
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* MicroSoft Visual Studio 2015
+* Microsoft Visual Studio 2015
 * WebApi.JsonWebToken NuGet Package v0.2.0
 * Auth0-ASPNET NuGet Package v1.4.0
 * Microsoft.AspNet.WebApi.Cors NuGet Package v5.2.3
