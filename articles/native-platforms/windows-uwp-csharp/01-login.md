@@ -5,7 +5,22 @@ description: This tutorial will show you how to use the Auth0 Windows Universal 
 budicon: 448
 ---
 
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0/Auth0.Windows.UWP',
+  pkgOrg: 'auth0',
+  pkgRepo: 'Auth0.Windows.UWP',
+  pkgBranch: 'master',
+  pkgPath: 'samples/LoginClientSample.Cs',
+  pkgFilePath: 'samples/LoginClientSample.Cs/MainPage.xaml.cs',
+  pkgType: 'replace'
+}) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Microsoft Visual Studio 2015
+* Windows 10 SDK (10.0.14393)
+:::
 
 This tutorial explains how to integrate Auth0 login with a Windows UWP (Universal Windows Platform) C# application. The Nuget package `Auth0.Windows.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
