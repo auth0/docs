@@ -1,60 +1,67 @@
-## Step 2: Add Configuration for Your App
+## Add the Module Dependencies and Configure the Service
 
-This guide assumes that you are using Angular Router in your application, but you are free to use UI Router if you wish.
+Add the `auth0.lock`, `angular-jwt` and `ui.router` module dependencies to your Angular app definition and configure the Lock widget by calling the `init` method on `lockProvider`. This is where your Auth0 client ID and domain can be set up.
 
-#### Note About UI Router
+```js
+// app.js
 
-If you are using UI Router in your Angular app, use `lock.interceptHash()` to ensure that the `authenticated` event from Lock is fired.
+(function () {
+
+  'use strict';
+
+  angular
+    .module('app', ['auth0.lock', 'angular-jwt', 'ui.router'])
+    .config(config);
+
+  function config($stateProvider, lockProvider, $urlRouterProvider) {
+
+    $stateProvider
+      .state('home', {
+        url: '/home',
+        controller: 'HomeController',
+        templateUrl: 'components/home/home.html',
+        controllerAs: 'vm'
+      });
+
+    lockProvider.init({
+      clientID: '${account.clientId}',
+      domain: '${account.namespace}'
+    });
+
+    $urlRouterProvider.otherwise('/home');
+  }
+
+})();
+```
+
+Add a call to `authService.registerAuthenticationListener()` and to `lock.interceptHash()` in the `run` block of your application.
 
 ```js
 // app.run.js
 
-(function() {
+(function () {
 
   'use strict';
 
   angular
     .module('app')
-    .run(function($rootScope, authService, authManager, lock) {
+    .run(run);
 
-      // Intercept the hash that comes back from authentication
-      // to ensure the `authenticated` event fires
-      lock.interceptHash();
+  run.$inject = ['$rootScope', 'authService', 'lock'];
 
-      ...
+  function run($rootScope, authService, lock) {
+    // Put the authService on $rootScope so its methods
+    // can be accessed from the nav bar
+    $rootScope.authService = authService;
 
-    });
-})();
-```
+    // Register the authentication listener that is
+    // set up in auth.service.js
+    authService.registerAuthenticationListener();
 
-Inject the modules necessary for the application, including **angular-lock** and **angular-jwt**. Add configuration for an **angular-lock** instance with your application's client ID and domain using the `lockProvider`.
-
-```js
-// app.js
-
-(function() {
-
-  'use strict';
-
-  angular
-    .module('myApp', ['auth0.lock', 'angular-jwt', 'ngRoute'])
-    .config(function($routeProvider, lockProvider) {
-
-      lockProvider.init({
-        clientID: '<%= account.clientId %>',
-        domain: '<%= account.namespace %>'
-      });
-
-      $routeProvider
-        .when( '/', {
-          controller: 'homeController',
-          templateUrl: 'components/home/home.html'
-        })
-        .when( '/login', {
-          controller: 'loginController',
-          templateUrl: 'components/login/login.html'
-        });
-    });    
+    // Register the synchronous hash parser
+    // when using UI Router
+    lock.interceptHash();
+  }
 
 })();
 ```

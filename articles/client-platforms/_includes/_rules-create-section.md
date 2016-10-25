@@ -8,4 +8,6 @@ This rule extracts the `country_name` from the `context` and adds it to the user
 
 ![Add country rule](/media/articles/rules/rule-create-add-country-country.png)
 
-This is just the beginning, as you can edit the rule to meet your business needs. Once complete, click **Save**. The rule will execute any time a user logs in, and the country will be added to the user's profile.
+> **Note:** You can use any of the pre-built rules or create your own to meet your business needs.
+
+Once complete, click **Save**. The rule will execute any time a user logs in, and the country will be added to the user's profile.

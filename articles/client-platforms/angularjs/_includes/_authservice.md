@@ -1,4 +1,4 @@
-## Step 3: Create an Auth Service
+## Create an Auth Service
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application.
 
@@ -9,7 +9,7 @@ The code for this should be kept in the `authService`, but it will be necessary 
 ```js
 // components/auth/auth.service.js
 
-(function() {
+(function () {
 
   'use strict';
 
@@ -17,72 +17,51 @@ The code for this should be kept in the `authService`, but it will be necessary 
     .module('app')
     .service('authService', authService);
 
-  authService.$inject = ['$rootScope', 'lock', 'authManager'];
-
-  function authService($rootScope, lock, authManager) {
-
-    var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
+  function authService(lock, authManager) {
 
     function login() {
       lock.show();
     }
 
-    // Logging out just requires removing the user's
-    // id_token and profile
-    function logout() {
-      localStorage.removeItem('id_token');
-      localStorage.removeItem('profile');
-      authManager.unauthenticate();
-      userProfile = {};
-    }
-
     // Set up the logic for when a user authenticates
     // This method is called from app.run.js
     function registerAuthenticationListener() {
-      lock.on('authenticated', function(authResult) {
+      lock.on('authenticated', function (authResult) {
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
-
-        lock.getProfile(authResult.idToken, function(error, profile) {
-          if (error) {
-            console.log(error);
-          }
-
-          localStorage.setItem('profile', JSON.stringify(profile));
-          $rootScope.$broadcast('userProfileSet', profile);
-        });
       });
     }
 
     return {
-      userProfile: userProfile,
       login: login,
-      logout: logout,
       registerAuthenticationListener: registerAuthenticationListener
     }
   }
 })();
 ```
 
-When the user successfully authenticates, their JWT will be saved in local storage as `id_token` and their profile will be stringified and saved as `profile`. Depending on your setup, you may need to broadcast an event to notify controllers that the user's profile has been returned. This is done in the above example with `$rootScope.$broadcast`.
+When the user successfully authenticates, their JWT will be saved in local storage as `id_token`.
 
 Now the `registerAuthenticationListener` method can be called in the `run` block so that `authenticated` events can be listened for when the app runs.
 
 ```js
 // app.run.js
 
-(function() {
+(function () {
 
   'use strict';
 
   angular
-    .module('myApp')
-    .run(function(authService) {
+    .module('app')
+    .run(run);
 
-      // Put the authService on $rootScope so its methods
-      // can be accessed from the nav bar
-      authService.registerAuthenticationListener();
-    });
+  function run(authService, lock) {
+
+    // Register the authentication listener that is
+    // set up in auth.service.js
+    authService.registerAuthenticationListener();
+    
+  }
 
 })();
 ```
