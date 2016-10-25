@@ -118,16 +118,18 @@ For more details on APIs and how to configure one refer to: [APIs](/apis).
 
 ## Auditing
 
-![](/media/articles/applications/applications-logs-auditing.png)
+Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users.
 
 The logs include many of the actions performed by the user:
 
-* Logging in to a Client;
-* Failing to log in to a Client;
-* Signing up;
-* Requesting a password change;
+* Logging in to a Client.
+* Failing to log in to a Client.
+* Signing up.
+* Requesting a password change.
 
 You can download the event logs using the [Management API](/api/management/v2#!/Logs/get_logs) or view them via the [Management Dashboard](${manage_url}/#/logs)
+
+![Dashboard Logs view](/media/articles/applications/applications-logs-auditing.png)
 
 While the [Management Dashboard](${manage_url}/#/logs) displays the log data in a neatly formatted manner, clicking on the row corresponding to a particular event displays the raw data, which looks something like this:
 
@@ -147,18 +149,9 @@ While the [Management Dashboard](${manage_url}/#/logs) displays the log data in 
 }
 ```
 
-### Sample User Count Calculation
+You can use this data to extract information like the number of active users for an application or the number of failed authentication attempts.
 
-Let's say that we have 3 active social users for the month of February:
-
-![](/media/articles/applications/applications-single-app-active-users.png)
-
-In the following month, John and Mary start using the company's collaboration application. This means that they'll become active users for this second application. All together, this means that there are a total of 5 active social users for the month of March:
-
- * Todo List: 3 active users
- * Collaboration Application: 2 active users
-
-![](/media/articles/applications/applications-multi-app-active-users.png)
+> If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For more details on the extensions and how to configure them refer to: [Extensions](/extensions).
 
 
 ## Custom Domain Names
@@ -168,7 +161,7 @@ The public, multi-tenant cloud service version of Auth0 supports a domain name b
 * `{account-name}.auth0.com`;
 * `{account-name}.{location}.auth0.com`.
 
-For example, if your company is **My Company**, you would receive some or all the following addresses:
+For example, if your company is **My Company**, you would receive some or all of the following addresses:
 
 ```
 mycompany.auth0.com
