@@ -153,7 +153,7 @@ While the [Management Dashboard](${manage_url}/#/logs) displays the log data in 
 You can use this data to extract information like the number of active users for an application or the number of failed authentication attempts.
 
 ::: panel-info Export Auth0 logs
-If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For more details on the extensions and how to configure them refer to: [Extensions](/extensions).
+If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For details on the available extensions and how to configure them refer to: [Extensions](/extensions).
 :::
 
 
@@ -161,8 +161,8 @@ If you use a third-party application for log management, like Sumo Logic, Splunk
 
 The public, multi-tenant cloud service version of Auth0 supports a domain name based off of `auth0.com`. Auth0 assigns Clients deployed using this service a domain name in one of the two formats:
 
-* `{account-name}.auth0.com`;
-* `{account-name}.{location}.auth0.com`.
+* `{account-name}.auth0.com`
+* `{account-name}.{location}.auth0.com`
 
 For example, if your company is **My Company**, you would receive some or all of the following addresses:
 
