@@ -34,9 +34,9 @@ Each client has four available tabs:
 
 - [Settings](${manage_url}/#/clients/${account.clientId}/settings): Lists all the available settings for your client.
 
-- [Addons](${manage_url}/#/clients/${account.clientId}/addons): Addons are extensions associated with clients. They are typically third-party APIs used by the client(s) for which Auth0 generates access tokens. For more details refer to: [Addons](/clients/addons).
+- [Addons](${manage_url}/#/clients/${account.clientId}/addons): Add-ons are extensions associated with clients. They are typically third-party APIs used by the client(s) for which Auth0 generates access tokens. For more details refer to: [Addons](/clients/addons).
 
-- [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different clients.
+- [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different clients. For more details refer to: [Connections](/clients/connections). For a detailed list on the supported Identity Providers refer to: [Identity Providers Supported by Auth0](/identityproviders).
 
 
 Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) tab to review the available settings for your client:
@@ -65,14 +65,6 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
-
-## Connections
-
-![](/media/articles/applications/applications-connections-example.png)
-
-At the Client level, you can choose which Connections, or sources of users, are enabled for a given client. This is useful if you are building different applications for different audiences. For example, you might build a timesheet application that can only be used by employees in addition to a customer-facing application. The former might require only Active Directory authentication, while the latter might support authentication using Google, Facebook, and so on.
-
-Connections may be shared among multiple clients.
 
 ## Rules
 
