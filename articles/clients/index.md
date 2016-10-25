@@ -65,11 +65,12 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
-> You can use [Rules](/rules) to further customize the authentication process for your client. Within the context of a rule, you have access to the client the user is authenticating to, which is useful if you want to apply coarse-grained authorization policies for your clients, for example:
-> - Only HR officials can access Client X
-> - Only US-based users can access Client Y
->
-> For more details on rules and how to use them refer to: [Rules](/rules).
+::: panel-info Auth0 Rules
+You can use [Rules](/rules) to further customize the authentication process for your client. Within the context of a rule, you have access to the client the user is authenticating to, which is useful if you want to apply coarse-grained authorization policies for your clients, for example:
+- Only HR officials can access Client X
+- Only US-based users can access Client Y
+For more details on rules and how to use them refer to: [Rules](/rules).
+:::
 
 ## Sample Clients
 
@@ -151,7 +152,9 @@ While the [Management Dashboard](${manage_url}/#/logs) displays the log data in 
 
 You can use this data to extract information like the number of active users for an application or the number of failed authentication attempts.
 
-> If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For more details on the extensions and how to configure them refer to: [Extensions](/extensions).
+::: panel-info Export Auth0 logs
+If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For more details on the extensions and how to configure them refer to: [Extensions](/extensions).
+:::
 
 
 ## Custom Domain Names
