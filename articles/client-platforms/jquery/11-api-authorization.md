@@ -1,5 +1,5 @@
 ---
-title: OAuth2 API Authorization
+title: OAuth 2.0 API Authorization
 description: This tutorial demonstrates how to use Auth0 to make authorized API calls from your web app.
 budicon: 500
 ---
@@ -12,17 +12,17 @@ budicon: 500
 
 ### Before Starting
 
-## 1. Enable OAuth2 as a Service
+## 1. Enable OAuth 2.0 API Authorization
 
 <%= include('../../_includes/_configure_oauth2aas') %>
 
 ## 2. Create an Application
 
-<%= include('../../_includes/_new_app') %>
+<%= include('../_includes/_new_app_no_sample') %>
 
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
+![App Dashboard](/media/articles/angularjs/spa_client_create.png)
 
-Be sure to register the URL of your app in the Allowed Callback URLs in your Application Settings.
+Be sure to register the URL of your app in the Allowed Callback URLs in your Client Settings.
 
 ## 3. Create a Resource Server (API)
 
