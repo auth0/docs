@@ -51,7 +51,7 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 
 - **Client Type**: The type of client you are implementing. Depending on which you choose, the available settings differ to show you only the settings applicable to your Client Type. You can change this value at any time by selecting one of the following: Native, Non Interactive Client, Regular Web Application, or Single Page Application.
 
-- **First Party Client**: When a First Party client requests authorized against an API with the "Allow Skipping User Consent" flag set, the User Consent dialog will not be shown to the final user. If the hostname of your callbackURL is localhost or 127.0.0.1 the consent dialog will always be displayed.
+- **First Party Client**: When a First Party client requests authorized against an API with the **Allow Skipping User Consent** flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your callbackURL is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
 
 - **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
 
@@ -83,7 +83,7 @@ For a regular web application, all you need to do is create a new Client in Auth
 
 ### Mobile Clients, a Single Page Application, and an REST API
 
-![Example diagram](/media/articles/applications/applications-multiple-single-logical.png)
+![Example diagram](/media/articles/applications/multiple-clients.png)
 
 This example is a timesheet application that utilizes:
 
@@ -102,7 +102,7 @@ For more details on APIs and how to configure one refer to: [APIs](/apis).
 
 ### Multiple Services and APIs
 
-![Example diagram](/media/articles/applications/applications-complex-different.png)
+![Example diagram](/media/articles/applications/multiple-apis.png)
 
 This example is for a Portal (HTML5 SPA) that communicates with four APIs.
 
