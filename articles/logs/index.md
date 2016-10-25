@@ -66,6 +66,7 @@ The following table lists the codes associated with the appropriate log events.
   <tr><td>fcpr</td><td>Failed Change Password Request</td></tr>
   <tr><td>fcpro</td><td>Failed Connector Provisioning</td></tr>
   <tr><td>fcu</td><td>Failed Change Username</td></tr>
+  <tr><td>fd</td><td>Failed Delegation</td></tr>
   <tr><td>fdu</td><td>Failed User Deletion</td></tr>
   <tr><td>feacft</td><td>Failed Exchange</td></tr>
   <tr><td>fn</td><td>Failed Sending Notification</td></tr>
@@ -85,7 +86,9 @@ The following table lists the codes associated with the appropriate log events.
   <tr><td>scpr</td><td>Success Change Password Request</td></tr>
   <tr><td>scu</td><td>Success Change Username</td></tr>
   <tr><td>sdu</td><td>Success User Deletion</td></tr>
+  <tr><td>sd</td><td>Success Delegation</td></tr>
   <tr><td>seacft</td><td>Success Exchange</td></tr>
+  <tr><td>seccft</td><td>Success Exchange</td></tr>
   <tr><td>ss</td><td>Success Signup</td></tr>
   <tr><td>sv</td><td>Success Verification Email</td></tr>
   <tr><td>svr</td><td>Success Verification Email Request</td></tr>
