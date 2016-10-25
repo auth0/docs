@@ -39,7 +39,7 @@ Each client has four available tabs:
 - [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different clients. For more details refer to: [Connections](/clients/connections). For a detailed list on the supported Identity Providers refer to: [Identity Providers Supported by Auth0](/identityproviders).
 
 
-Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) tab to review the available settings for your client:
+Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) tab of your client to review the available settings:
 
 - **Name**: The name of your client. This information is editable and you will see in the portal, emails, logs, and so on.
 
@@ -66,9 +66,9 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
 > You can use [Rules](/rules) to further customize the authentication process for your client. Within the context of a rule, you have access to the client the user is authenticating to, which is useful if you want to apply coarse-grained authorization policies for your clients, for example:
-- Only HR officials can access Client X
-- Only US-based users can access Client Y
-For more details on rules and how to use them refer to: [Rules](/rules).
+> - Only HR officials can access Client X
+> - Only US-based users can access Client Y
+> For more details on rules and how to use them refer to: [Rules](/rules).
 
 ## Auditing
 
