@@ -14,7 +14,14 @@ budicon: 715
   pkgType: 'replace'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
 
+* Microsoft Visual Studio 2015 Update 3
+* System.IdentityModel.Tokens.Jwt NuGet Package v4.0.2
+* Microsoft.Owin.Security.ActiveDirectory NuGet Package v3.0.1
+* Microsoft.Owin.Security.Jwt NuGet Package v3.0.1
+:::
 
 This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET (OWIN) Web API.
 
