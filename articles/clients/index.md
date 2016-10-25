@@ -65,42 +65,10 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
-
-## Rules
-
-![](/media/articles/applications/rules-flow.png)
-
-[Rules](/rules) are code snippets written in JavaScript that are executed as part of the Auth0 authentication process. This happens every time a user authenticates. Rules enable very powerful customizations and extensions to be easily added to Auth0.
-
-Rules enable powerful customizations and allow extensions to be easily added to Auth0.
-
-Within the context of a rule, we have access to the Client the user is authenticating to, which is useful if we want to apply coarse-grained authorization policies for our applications:
-
-* Only HR officials can access Application X
-* Only US-based users can access Application Y
-
-Here's a [sample rule](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md) where only the users in the whitelist are allowed to access the application:
-
-```js
-function (user, context, callback) {
-    //applies to NameOfTheAppWithWhiteList & bypassese for every other app
-    if(context.clientName !== 'NameOfTheAppWithWhiteList'){
-      return callback(null, user, context);
-    }
-
-    var whitelist = [ 'user1@mail.com', 'user2@mail.com' ]; //authorized users
-    var userHasAccess = whitelist.some(
-      function (email) {
-        return email === user.email;
-      });
-
-    if (!userHasAccess) {
-      return callback(new UnauthorizedError('Access denied.'));
-    }
-
-    callback(null, user, context);
-}
-```
+> You can use [Rules](/rules) to further customize the authentication process for your client. Within the context of a rule, you have access to the client the user is authenticating to, which is useful if you want to apply coarse-grained authorization policies for your clients, for example:
+- Only HR officials can access Client X
+- Only US-based users can access Client Y
+For more details on rules and how to use them refer to: [Rules](/rules).
 
 ## Auditing
 
