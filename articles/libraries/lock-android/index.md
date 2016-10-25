@@ -125,12 +125,6 @@ Add LockActivity to your Manifest, replacing the `host` attribute with your `${a
 * Make sure the Activity's launchMode is declared as `singleTask` or the result won't come back after the authentication. 
 * Also note that for the time being, `LockActivity` can't be launched calling `startActivityForResult`.
 
-### Lock Instance 
-
-In the previous version of Lock for Android, you were asked to create a custom `Application` class and initialize the `Lock.Context` there. **Now this is no longer needed**.
-
-To create a new `Lock` instance and configure it, you will just use the `Lock.Builder` class.
-
 ### Auth0
 
 Create an `Auth0` instance to hold your account details, which are the `AUTH0_CLIENT_ID` and the `AUTH0_DOMAIN`.
@@ -166,7 +160,7 @@ Note that the results of the AuthenticationCallback are in a `credentials` objec
 
 ### Lock.Builder
 
-Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options. After you're done, build the Lock instance and use it to start the LockActivity.
+To create a new `Lock` instance and configure it, you will just use the `Lock.Builder` class. Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options as you desire. After you're done, build the Lock instance and use it to start the LockActivity.
 
 This is an example of what your Activity should look like:
 

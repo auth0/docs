@@ -15,7 +15,7 @@ These are options that can be used to configure Lock for Android to your project
 ## Authentication Options
 
 - **withAuthenticationParameters {Map<String, Object>}**: Defines extra authentication parameters to be sent on each log in and sign up call.
-The default `scope` used on authentication calls is `openid`. This changed from v1 as the previous included the `offline_access scope`. If you want to specify a different one, use `withAuthenticationParameters` and add a different value for the `scope` key.
+The default `scope` used on authentication calls is `openid`. If you want to specify a different one, use `withAuthenticationParameters` and add a different value for the `scope` key.
 - **useImplicitGrant {boolean}**: Whether to use the Implicit Grant or Code Grant flow when authenticating. By default it will try to use Code Grant. If the device has an old API level and can't generate the hash because it lacks the required algorithms, it will use the Implicit Grant.
 
 ## Database Options
