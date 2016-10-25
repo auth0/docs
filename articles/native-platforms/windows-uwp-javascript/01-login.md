@@ -5,7 +5,15 @@ description: This tutorial will show you how to use the Auth0 Windows Universal 
 budicon: 448
 ---
 
-
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'Auth0.Windows.UWP',
+  path: 'samples/LoginClientSample.Js',
+  requirements: [
+    'Microsoft Visual Studio 2015',
+    'Windows 10 SDK (10.0.14393)'
+  ]
+}) %>
 
 This tutorial explains how to integrate Auth0 with a Windows UWP application written in JavaScript. `Auth0.Windows.UWP.JavaScript` helps you authenticate users with any [Auth0 supported Identity Provider](/identityproviders).
 
