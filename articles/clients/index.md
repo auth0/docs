@@ -34,7 +34,7 @@ Each client has four available tabs:
 
 - [Settings](${manage_url}/#/clients/${account.clientId}/settings): Lists all the available settings for your client.
 
-- [Addons](${manage_url}/#/clients/${account.clientId}/addons): Addons are plugins associated with a client in Auth0. Usually, they are 3rd party APIs used by the client that Auth0 generates access tokens for (e.g. Salesforce, Azure Service Bus, Azure Mobile Services, SAP, and so forth).
+- [Addons](${manage_url}/#/clients/${account.clientId}/addons): Addons are extensions associated with clients. They are typically third-party APIs used by the client(s) for which Auth0 generates access tokens. For more details refer to: [Addons](/clients/addons).
 
 - [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different clients.
 
@@ -65,17 +65,6 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
-
-## Addons
-
-![](/media/articles/applications/applications-addon-types.png)
-
-Addons are extensions associated with clients. They are typically third-party APIs used by the application(s) for which Auth0 generates access tokens. Some typical scenarios used include:
-
-* **Accessing External APIs**: Using the Delegation endpoint, you can exchange a Client's access token for a third-party service's (such as Salesforce or Amazon) access token
-* **Integrating with Applications Using SAML2/WS-Federation**: Addons allow you to integrate with any custom or SSO integration that does not currently enjoy built-in Auth0 support, since they allow you to configure every aspect of the SAML2/WS-Federation integration.
-
-![](/media/articles/applications/applications-sso-integrations-overview.png)
 
 ## Connections
 
