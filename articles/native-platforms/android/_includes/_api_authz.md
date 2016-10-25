@@ -20,7 +20,6 @@ Next, Syncronize bundle.gradle in Android Studio or run `./gradlew clean assembl
 First, you need to update `AndroidManifest.xml` with the following:
 
 ```xml
-
 ...
 
 <activity android:name=".MainActivity" android:launchMode="singleTask">
@@ -62,12 +61,12 @@ First create an instance of Auth0 with your client information:
 Auth0 account = new Auth0("{YOUR_CLIENT_ID}", "{YOUR_DOMAIN}");
 ```
 
-Next, you need to use the WebAuthProvider to initate the authentication and authorization. You can do this for example inside a button click. You also need to define a constant like `WEB_REQ_CODE` that holds the request code (an `int`), that will be sent back with the intent once the auth is finished in the webview:
+Next, you need to use the WebAuthProvider to initate the authentication and authorization. You also need to define a constant like `WEB_REQ_CODE` that holds the request code (an `int`), that will be sent back with the intent once the auth is finished in the webview:
 
 ```java
 public static final int WEB_REQ_CODE=1234;
 
-public void doAuth(View v) {
+public void startAuth() {
 
     Map<String, Object> params = new HashMap<String, Object>();
     params.put("audience", "{YOUR API IDENTIFIER}");
@@ -103,7 +102,7 @@ private AuthCallback authCallback = new AuthCallback() {
 
 The `audience` parameter should contain your API identifier from the Dashboard. If you don't send this, the runtime will take it from the tenant settings (`tenant.default_audience` or you can set it in the Dashboard). The `scope` parameter should include one or more scopes you defined in the Dashboard for your API, in addition to any of the standard [OpenID scopes](https://auth0.com/docs/scopes).
 
-You also need to add the following method to your Activity to resume the flow once the user has finished in the WebView:
+You also need to override the `onNewIntent` method in your Activity to resume the flow once the user has finished in the WebView:
 
 ```java
 @Override

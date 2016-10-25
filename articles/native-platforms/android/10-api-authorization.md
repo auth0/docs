@@ -17,9 +17,9 @@ At some point, your APIs may need to allow limited access to users, servers, or 
 
 ## Create an Application
 
-<%= include('./_includes/_new_app_no_sample') %>
+<%= include('../_includes/_new_app_no_sample') %>
 
-<!-- ![App Dashboard](/media/articles/native-platforms/native-app-client.png) -->
+![App Dashboard](/media/articles/native-platforms/native-app-client.png)
 
 Be sure to register the URL of your app in the Allowed Callback URLs in your Client Settings.
 
