@@ -40,6 +40,7 @@ Each client has four available tabs:
 
 - [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different clients. For more details refer to: [Connections](/clients/connections). For a detailed list on the supported Identity Providers refer to: [Identity Providers Supported by Auth0](/identityproviders).
 
+### Client Settings
 
 Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) tab of your client to review the available settings:
 
@@ -52,7 +53,7 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 - **Client Secret**: A base64 encoded string used to sign and validate tokens for authentication flows and to gain access to select Auth0 API endpoints. By default, the value is hidden, so check the **Reveal Client Secret** box to see this value.
 
 ::: panel-warning Keep it safe
-While the Client ID is considered public information, the Client Secret **must be kept confidential**. If anyone can access your Client Secret they can issue  tokens and access resources they shouldn't. The sensitivity of this piece of information is the reason why the OAuth flows for applications where the source code can be viewed (like native apps or SPAs) do not use the Client Secret during the authorization process.
+While the Client ID is considered public information, the Client Secret **must be kept confidential**. If anyone can access your Client Secret they can issue  tokens and access resources they shouldn't.
 :::
 
 - **Client Type**: The type of client you are implementing. Depending on which you choose, the available settings differ to show you only the settings applicable to your Client Type. You can change this value at any time by selecting one of the following: Native, Non Interactive Client, Regular Web Application, or Single Page Application.
@@ -75,44 +76,16 @@ While the Client ID is considered public information, the Client Secret **must b
 You can use [Rules](/rules) to further customize the authentication process for your client. Within the context of a rule, you have access to the client the user is authenticating to, which is useful if you want to apply coarse-grained authorization policies for your clients, for example:
 - Only HR officials can access Client X
 - Only US-based users can access Client Y
+
 For more details on rules and how to use them refer to: [Rules](/rules).
 :::
 
 
-## Auditing
+## Client Auditing
 
-Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users.
+Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. The logs include many of the actions performed by the user like failing to login to a client or requesting a password change.
 
-The logs include many of the actions performed by the user:
-
-* Logging in to a Client.
-* Failing to log in to a Client.
-* Signing up.
-* Requesting a password change.
-
-You can download the event logs using the [Management API](/api/management/v2#!/Logs/get_logs) or view them via the [Management Dashboard](${manage_url}/#/logs)
-
-![Dashboard Logs view](/media/articles/applications/applications-logs-auditing.png)
-
-While the [Management Dashboard](${manage_url}/#/logs) displays the log data in a neatly formatted manner, clicking on the row corresponding to a particular event displays the raw data, which looks something like this:
-
-```json
-{
-  "date": "2016-10-04T15:27:38.509Z",
-  "type": "f",
-  "description": "Invalid thumbprint (configured: 634AB4651FCA2F623563BE32EDA32DE565219118. calculated: BDEBFBFBA786C2D97F2125274793E32643358E81)",
-  "connection": "SSOCircle",
-  "connection_id": "con_T60D5poVozRmw77h",
-  "client_id": "UEsQCe4RVHYDSQ2zlLWIAHSqDhpsYyTG",
-  "client_name": "N/A",
-  "ip": "108.248.62.158",
-  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-  "strategy": "samlp",
-  "strategy_type": "enterprise"
-}
-```
-
-You can use this data to extract information like the number of active users for an application or the number of failed authentication attempts.
+For more details refer to: [Logs](/logs).
 
 ::: panel-info Export Auth0 logs
 If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For details on the available extensions and how to configure them refer to: [Extensions](/extensions).
