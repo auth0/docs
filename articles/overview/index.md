@@ -31,7 +31,7 @@ Auth0 ships SDKs for all major platforms (.NET, Java, PHP, Python, node, iOS, an
 Auth0 also supports other common identity protocols, such as WS-Federation and SAML. Applications that are already "claims enabled" can easily connect to Auth0.
 
 ## An Extensible Platform
-You can extend the functionality of Auth0 using any JavaScript or C# code through the use of [rules](/rules). Rules are custom functions that are executed just after successful authentication and before control returns to the app. They can be used for **Access Control**, **Webhooks**, **Profile Enrichment**, **Multi-factor Authentication**, and many other things.
+You can extend the functionality of Auth0 using any JavaScript or C# code through the use of [rules](/rules). Rules are custom functions that are executed just after successful authentication and before control returns to the app. They can be used for Access Control, Webhooks, Profile Enrichment, Multi-factor Authentication, and many other things.
 
 ## Flexible Deployment Models
 Auth0 is a service usually running in the [public cloud](${manage_url}), but it can also be deployed in **Private Instances** (PI). PIs are dedicated installations of Auth0. You may choose to run PIs in Auth0's datacenters (which are separate from those that run the multi-tenant services), in your own cloud hosting environments (e.g. AWS, Azure, Rackspace, DigitalOcean), or even on-premises. Customers often opt for a hybrid model. For example, some use the cloud service for their **development** and **test** environments and a PI for their **production** environment.

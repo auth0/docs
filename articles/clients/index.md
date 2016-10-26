@@ -72,14 +72,6 @@ While the Client ID is considered public information, the Client Secret **must b
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
-::: panel-info Auth0 Rules
-You can use [Rules](/rules) to further customize the authentication process for your client. Within the context of a rule, you have access to the client the user is authenticating to, which is useful if you want to apply coarse-grained authorization policies for your clients, for example:
-- Only HR officials can access Client X
-- Only US-based users can access Client Y
-
-For more details on rules and how to use them refer to: [Rules](/rules).
-:::
-
 
 ## Client Auditing
 
