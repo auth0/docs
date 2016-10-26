@@ -75,7 +75,6 @@ public void startAuth() {
             .withConnection("Username-Password-Authentication")
             .withScope("openid profile {API SCOPES}")
             .withParameters(params)
-            .useCodeGrant(true)
             .start(MainActivity.this, authCallback , WEB_REQ_CODE);
 }
 
@@ -116,7 +115,7 @@ protected void onNewIntent(Intent intent) {
 
 ## Making an Authenticated API Call
 
-Use the `access_token` to invoke your Resource Server (API):
+Use the `access_token` to invoke your Resource Server (API). In this example we are using the [Unirest library for Java](http://unirest.io/java.html):
 
 ```java
 HttpResponse<String> response = Unirest.get("https://someapi.com/api")
