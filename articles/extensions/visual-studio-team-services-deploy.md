@@ -63,7 +63,7 @@ Copy the **Payload URL** and **HTTP headers** values. You will use them in order
 
 ## Configure the Visual Studio Team Services Webhook
 
-Once you have configured your Auth0 Extension, you will need to configure the the Visual Studio Team Services Webhookk to complete the integration.
+Once you have configured your Auth0 Extension, you will need to configure the the Visual Studio Team Services Webhook to complete the integration.
 
 In your Visual Studio Team Services account, go to **Overview** and click on the name the project being used for the integration, then click **Service Hooks**.
 
@@ -143,7 +143,7 @@ For example, if you create the file `rules/set-country.js`, the extension will c
 
 **NOTE**: If you plan to use source control integration for an existing account, first rename your Rules in Auth0 to match the name of the files you will be deploying to this directory.
 
-You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the *Rules Configuration* tab of the **Visual Studio Team Services Integration** page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
+You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the **Rules Configuration** tab of the **Visual Studio Team Services Integration** page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
 
 ![Mark rules as manual](/media/articles/extensions/visual-studio-ts/manual-rule.png)
 
