@@ -30,7 +30,7 @@ The *Create Client* windows pops open. Set a descriptive name for your client an
 
 After you set the name and client type, click **Create**.
 
-Each client has four available tabs:
+A new client will be created and you will be redirected to this client's view that has four tabs:
 
 - [Quick Start](${manage_url}/#/clients/${account.clientId}/quickstart): Lists all available Quick Starts, filtered by your client's type.
 
