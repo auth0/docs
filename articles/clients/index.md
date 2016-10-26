@@ -6,17 +6,11 @@ description: Explains the basics of creating and using Auth0 Clients.
 
 ## Overview
 
-An Auth0 **client** maps to your application and allows to use Auth0 for authentication. The term *client* does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server. The term is aligned with the [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749), where a client is defined as *an application making protected resource requests on behalf of the resource owner and with its authorization*.
+An Auth0 **client** maps to your application and allows to use Auth0 for authentication. The term *client* does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
 
-## How to configure a Client in Auth0
+## Client Types
 
-Navigate to the [dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients) menu option on the left. By default, you should have one client named *Default App*. You can either configure this one or create a new one by clicking the **+ Create Client** button.
-
-The *Create Client* windows pops open. Set a descriptive name for your client and select the client type.
-
-![Create Client window](/media/articles/applications/create-client-popup.png)
-
-The client type should match your application:
+There are four client types in Auth0.
 
 - **Native**: Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, Ionic or iOS. For a complete listing of the SDKs Auth0 offers for mobile apps refer to: [Native SDKs](/quickstart/native).
 
@@ -25,6 +19,14 @@ The client type should match your application:
 - **Regular Web Applications**: Used for traditional web applications that run on a server, like ASP .NET, Java or Node.js. For a complete listing of the SDKs Auth0 offers for Web Apps refer to: [Web App SDKs](/quickstart/webapp).
 
 - **Non Interactive Clients**: Used for server to server applications like CLIs, daemons or services running on your backend. Typically you would use this option if you have a service that requires access to an API and you want it to request access tokens in order to do so.
+
+## How to configure a Client
+
+Navigate to the [dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients) menu option on the left. By default, you should have one client named *Default App*. You can either configure this one or create a new one by clicking the **+ Create Client** button.
+
+The *Create Client* windows pops open. Set a descriptive name for your client and select the client type. The client type should match your application.
+
+![Create Client window](/media/articles/applications/create-client-popup.png)
 
 After you set the name and client type, click **Create**.
 
@@ -49,9 +51,13 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 
 - **Client Secret**: A base64 encoded string used to sign and validate tokens for authentication flows and to gain access to select Auth0 API endpoints. By default, the value is hidden, so check the **Reveal Client Secret** box to see this value.
 
+::: panel-warning Keep it safe
+While the Client ID is considered public information, the Client Secret **must be kept confidential**. If anyone can access your Client Secret they can issue  tokens and access resources they shouldn't. The sensitivity of this piece of information is the reason why the OAuth flows for applications where the source code can be viewed (like native apps or SPAs) do not use the Client Secret during the authorization process.
+:::
+
 - **Client Type**: The type of client you are implementing. Depending on which you choose, the available settings differ to show you only the settings applicable to your Client Type. You can change this value at any time by selecting one of the following: Native, Non Interactive Client, Regular Web Application, or Single Page Application.
 
-- **First Party Client**: When a First Party client requests authorized against an API with the **Allow Skipping User Consent** flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your callbackURL is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
+- **First Party Client**: When a First Party client requests authorized access against an API with the **Allow Skipping User Consent** flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your callbackURL is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
 
 - **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
 
@@ -71,50 +77,6 @@ You can use [Rules](/rules) to further customize the authentication process for 
 - Only US-based users can access Client Y
 For more details on rules and how to use them refer to: [Rules](/rules).
 :::
-
-## Sample Clients
-
-The following are high-level overviews of sample Clients using a variety of technologies.
-
-### Regular Web Application
-
-![Example diagram](/media/articles/applications/applications-traditional.png)
-
-For a regular web application, all you need to do is create a new Client in Auth0.
-
-### Mobile Clients, a Single Page Application, and an REST API
-
-![Example diagram](/media/articles/applications/multiple-clients.png)
-
-This example is a timesheet application that utilizes:
-
-* A REST API that receives timesheet entries from users.
-* A Single Page Application (SPA) used to log timesheets entries and send them to the REST API.
-* Mobile apps capable of running on several types of devices, used to log timesheets entries and send them to the REST API.
-
-In order to configure this in Auth0 you would create:
-- A client for the SPA.
-- A client for the iOS mobile app.
-- A client for the Android mobile app.
-- A client for the Windows mobile app.
-- An API.
-
-For more details on APIs and how to configure one refer to: [APIs](/apis).
-
-### Multiple Services and APIs
-
-![Example diagram](/media/articles/applications/multiple-apis.png)
-
-This example is for a Portal (HTML5 SPA) that communicates with four APIs.
-
-In order to configure this in Auth0 you would create:
-- A client for the SPA.
-- An API for the Portal REST API.
-- An API for the Documents API.
-- An API for the Invoices API.
-- An API for the Contacts API.
-
-For more details on APIs and how to configure one refer to: [APIs](/apis).
 
 
 ## Auditing
