@@ -83,38 +83,6 @@ For more details on rules and how to use them refer to: [Rules](/rules).
 
 ## Client Auditing
 
-Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. The logs include many of the actions performed by the user like failing to login to a client or requesting a password change.
+Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. The logs include many of the actions performed by the user like failing to login to a client or requesting a password change. For more details refer to: [Logs](/logs).
 
-For more details refer to: [Logs](/logs).
-
-::: panel-info Export Auth0 logs
 If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For details on the available extensions and how to configure them refer to: [Extensions](/extensions).
-:::
-
-
-## Custom Domain Names
-
-The public, multi-tenant cloud service version of Auth0 supports a domain name based off of `auth0.com`. Auth0 assigns Clients deployed using this service a domain name in one of the two formats:
-
-* `{account-name}.auth0.com`
-* `{account-name}.{location}.auth0.com`
-
-For example, if your company is **My Company**, you would receive some or all of the following addresses:
-
-```
-mycompany.auth0.com
-mycompany.eu.auth0.com
-mycompany.au.auth0.com
-```
-
-> With the Auth0 public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, *not* user access to your Client.
-
-You may choose to use a custom domain name that obscures the Auth0 reference, such as `mycompany.com`. Using a custom domain name requires a *single-tenant* implementation of Auth0, which can be deployed in one of three locations:
-
-* The Auth0-managed cloud.
-* A customer-managed cloud.
-* An on-premise installation.
-
-Due to the additional features offered by these three options, these deployment options do come with a higher cost.
-
-If you are unable to use a multi-tenant cloud service due to compliance or other policy requirements, please take a look at [the Auth0 appliance](/appliance).
