@@ -20,7 +20,7 @@ Set the following configuration variables:
 * **TFS_INSTANCE**: Your Visual Studio Team Services instance name (without .visualstudio.com).
 * **TFS_COLLECTION**: Your visualstudio collection
 * **TFS_USERNAME**: Your Visual Studio Team Services username
-* **TFS_TOKEN**: Your personal access token for Visual Studio Team Services, for details on how to configure one refer to [Configure a Personal Access Token](configure-a-personal-access-token) below.
+* **TFS_TOKEN**: Your personal access token for Visual Studio Team Services, for details on how to configure one refer to [Configure a Personal Access Token](#configure-a-personal-access-token) below.
 * **SLACK_INCOMING_WEBHOOK**: Webhook URL for Slack used to notify you of successful and failed deployments.
 
 Once you have provided this information, click **Install**.
@@ -77,7 +77,7 @@ Then click the **Next** button, choose the trigger for the event and the filters
 
 ![Configure Web Hook](/media/articles/extensions/visual-studio-ts/configure-web-hook.png)
 
-The only required field **URL** which you should enter the **Payload URL** from the previous step. Enter any of the optional fields, then click **Finish**.
+For the **URL** field, enter the **Payload URL** from the previous step along with the **HTTP headers** field from the previous step. The remaining fields are optional.
 
 ## Deployment
 
@@ -90,8 +90,7 @@ Your project should have a predefined structure:
 
 With each commit you push to your configured Visual Studio Team Services project, the webhook will call the extension to initiate a deployment if changes were made to these predefined directories.
 
-The **Deploy** button on the **Deployments** tab of the extension allows you to manually deploy the Rules, Pages and Database Connection scripts that you already have in your 
-With each commit you push to your configured Visual Studio Team Services project. This is useful if your project already contains items that you want to deploy once you have set up the extension or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your project.
+The **Deploy** button on the **Deployments** tab of the extension allows you to manually deploy the Rules, Pages and Database Connection scripts that you already have in your Visual Studio Team Services project. This is useful if your project already contains items that you want to deploy once you have set up the extension or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your project.
 
 ::: panel-warning Full Deployment
 To maintain a consistent state, the extension will always do a full deployment of the contents of these folders. **Any rules, pages or database connection scripts that exist in Auth0 but not in your Visual Studio Team Services project will be deleted**.
