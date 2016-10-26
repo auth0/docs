@@ -3,6 +3,6 @@ dependencies {
   /*
    * Existing dependencies
    */
-  compile 'com.auth0:auth0-spring-security-api:0.3.1'
+  compile 'com.auth0:auth0-spring-security-api:0.3.2'
 }
 ```
