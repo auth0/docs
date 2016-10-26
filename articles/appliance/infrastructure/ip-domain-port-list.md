@@ -104,7 +104,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
-    <td>Provides update packages for Appliance instances running versions `6868` or earlier</td>
+    <td>Required to run web extensions; Provides update packages for Appliance instances running versions `6868` or earlier</td>
     <td>Yes</td>
   </tr>
   <tr>
