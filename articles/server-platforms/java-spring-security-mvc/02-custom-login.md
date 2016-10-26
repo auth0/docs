@@ -4,14 +4,14 @@ description: This tutorial demonstrates how to use the Auth0 library to add cust
 budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-githubUrl: 'https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/02-Custom-Login',
-pkgOrg: 'auth0-samples',
-pkgRepo: 'auth0-spring-security-mvc-sample',
-pkgBranch: 'master',
-pkgPath: '02-Custom-Login',
-pkgFilePath: '02-Custom-Login/src/main/resources/auth0.properties',
-pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-spring-security-mvc-sample',
+  path: '02-Custom-Login',
+  requirements: [
+    'Java 7 or above',
+    'Maven 3.0.x or above'
+  ]
 }) %>
 
 
@@ -90,5 +90,3 @@ You should see the custom login page, instead of Lock.
 ![Custom Login](/media/articles/java/custom_login_form.png)
 
 Enter the credentials of the user you created earlier to test the login.
-
-
