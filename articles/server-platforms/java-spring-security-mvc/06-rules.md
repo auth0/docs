@@ -4,14 +4,14 @@ description: This tutorial demonstrates how to use Auth0 rules to extend what Au
 budicon: 173
 ---
 
-<%= include('../../_includes/_package', {
-githubUrl: 'https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/06-Rules',
-pkgOrg: 'auth0-samples',
-pkgRepo: 'auth0-spring-security-mvc-sample',
-pkgBranch: 'master',
-pkgPath: '06-Rules',
-pkgFilePath: '06-Rules/src/main/resources/auth0.properties',
-pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-spring-security-mvc-sample',
+  path: '06-Rules',
+  requirements: [
+    'Java 7 or above',
+    'Maven 3.0.x or above'
+  ]
 }) %>
 
 
