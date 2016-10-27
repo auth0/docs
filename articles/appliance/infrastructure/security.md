@@ -20,6 +20,7 @@ The SSL Certificate:
 * must contain all required DNS/domain names, including those for the:
     * Management Dashboard;
     * Configuration Tenant;
+    * webtask;
     * App Tenant(s) (current *and* future) specific to that particular Appliance instance.
 
 Auth0 accepts the following certificate formats:
