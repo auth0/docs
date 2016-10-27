@@ -4,201 +4,77 @@ description: Explains the basics of creating and using Auth0 Clients.
 
 # Clients
 
-An Auth0 **client** allows your application to utilize Auth0 for authentication. A fully-configured authentication process will consist of an Auth0 client that possesses information about and is able to communicate with your application (which, conversely, possesses information about and is able to communicate with the Auth0 client.)
+## Overview
 
-A client is a core Auth0 concept, so it's important to know how they:
+An Auth0 **client** maps to your application and allows to use Auth0 for authentication. The term *client* does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
 
-1. Relate to your applications;
-2. Impact auditing, authorization, and so on.
+## Client Types
 
-## Client Settings
+There are four client types in Auth0.
 
-![](/media/articles/applications/applications-callback-settings.png)
+- **Native**: Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, Ionic or iOS. For a complete listing of the SDKs Auth0 offers for mobile apps refer to: [Native SDKs](/quickstart/native).
 
-When you configure your Auth0 client, you will be asked for or provided (as indicated by a grayed out text box) the following pieces of information:
+- **Single Page Web Applications**: Used for JavaScript front-end apps that run on a browser, like Angular, jQuery or React. For a complete listing of the SDKs Auth0 offers for SPAs refer to: [Single Page App SDKs](/quickstart/spa).
 
-* **Name**: the name of your client (which you'll see in the portal, emails, logs, and so on);
-* **Domain**: the domain name of your client;
-* **Client ID**: the unique identifier for your client (this is the ID you'll use with when configuring authentication with Auth0). By default, the  is hidden, so check the **Reveal Client Secret** box to see this value;
-* **Client Secret**: the key used to sign and validate tokens for authentication flows and to gain access to select Auth0 API endpoints;
-* **Client Type**: the type of client you are implementing (depending on which you choose, the settings available differ);
-* **Token Endpoint Authentication Method**: the requested authentication method for the token endpoint: `None` (public client without a client secret), `Post` (client uses HTTP POST parameters), or `Basic` (client uses HTTP Basic parameters);
-* **Allowed Callback URLs**: the URLs of your application(s) to which Auth0 can redirect the user after authentication.
-* **Allowed Logout URLs**: the URLs that Auth0 can redirect your users to after logging out;
-* **Allowed Origins (CORS)**: the URLs of the applications running your JavaScript code (prevents same-origin policy errors when using Auth0 from within a web browser)
-* **JWT Expiration (Seconds)**: the amount of time before the Auth0 access tokens expires
-* **Use Auth0 instead of the IdP to do Single Sign On**: if enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on)
+- **Regular Web Applications**: Used for traditional web applications that run on a server, like ASP .NET, Java or Node.js. For a complete listing of the SDKs Auth0 offers for Web Apps refer to: [Web App SDKs](/quickstart/webapp).
 
-## Addons
+- **Non Interactive Clients**: Used for server to server applications like CLIs, daemons or services running on your backend. Typically you would use this option if you have a service that requires access to an API.
 
-![](/media/articles/applications/applications-addon-types.png)
+## How to configure a Client
 
-Addons are extensions associated with clients. They are typically third-party APIs used by the application(s) for which Auth0 generates access tokens. Some typical scenarios used include:
+Navigate to the [dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients) menu option on the left. By default, you should have one client named *Default App*. You can either configure this one or create a new one by clicking the **+ Create Client** button.
 
-* **Accessing External APIs**: Using the Delegation endpoint, you can exchange a Client's access token for a third-party service's (such as Salesforce or Amazon) access token
-* **Integrating with Applications Using SAML2/WS-Federation**: Addons allow you to integrate with any custom or SSO integration that does not currently enjoy built-in Auth0 support, since they allow you to configure every aspect of the SAML2/WS-Federation integration.
+The *Create Client* windows pops open. Set a descriptive name for your client and select the client type. The client type should match your application.
 
-![](/media/articles/applications/applications-sso-integrations-overview.png)
+![Create Client window](/media/articles/applications/create-client-popup.png)
 
-## Connections
+After you set the name and client type, click **Create**.
 
-![](/media/articles/applications/applications-connections-example.png)
+A new client will be created and you will be redirected to this client's view that has four tabs:
 
-At the Client level, you can choose which Connections, or sources of users, are enabled for a given client. This is useful if you are building different applications for different audiences. For example, you might build a timesheet application that can only be used by employees in addition to a customer-facing application. The former might require only Active Directory authentication, while the latter might support authentication using Google, Facebook, and so on.
+- [Quick Start](${manage_url}/#/clients/${account.clientId}/quickstart): Lists all available Quick Starts, filtered by your client's type.
 
-Connections may be shared among multiple clients.
+- [Settings](${manage_url}/#/clients/${account.clientId}/settings): Lists all the available settings for your client.
 
-## Rules
+- [Addons](${manage_url}/#/clients/${account.clientId}/addons): Add-ons are extensions associated with clients. They are typically third-party APIs used by the client(s) for which Auth0 generates access tokens. For more details refer to: [Addons](/clients/addons).
 
-![](/media/articles/applications/rules-flow.png)
+- [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different clients. For more details refer to: [Connections](/clients/connections). For a detailed list on the supported Identity Providers refer to: [Identity Providers Supported by Auth0](/identityproviders).
 
-[Rules](/rules) are code snippets written in JavaScript that are executed as part of the Auth0 authentication process. This happens every time a user authenticates. Rules enable very powerful customizations and extensions to be easily added to Auth0.
+### Client Settings
 
-Rules enable powerful customizations and allow extensions to be easily added to Auth0.
+Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) tab of your client to review the available settings:
 
-Within the context of a rule, we have access to the Client the user is authenticating to, which is useful if we want to apply coarse-grained authorization policies for our applications:
+- **Name**: The name of your client. This information is editable and you will see in the portal, emails, logs, and so on.
 
-* Only HR officials can access Application X
-* Only US-based users can access Application Y
+- **Domain**: Your Auth0 account name. Note that the domain name is chosen when you create a new Auth0 account and cannot be changed. If you need a different one you have to register for a new account by selecting *New Account* at the top right menu.
 
-Here's a [sample rule](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md) where only the users in the whitelist are allowed to access the application:
+- **Client ID**: The unique identifier for your client. This is the ID you will use with when configuring authentication with Auth0. It is generated by the system when you create a new client and it cannot be modified.
 
-```js
-function (user, context, callback) {
-    //applies to NameOfTheAppWithWhiteList & bypassese for every other app
-    if(context.clientName !== 'NameOfTheAppWithWhiteList'){
-      return callback(null, user, context);
-    }
+- **Client Secret**: A base64 encoded string used to sign and validate id_tokens for authentication flows and to gain access to select Auth0 API endpoints. By default, the value is hidden, so check the **Reveal Client Secret** box to see this value.
 
-    var whitelist = [ 'user1@mail.com', 'user2@mail.com' ]; //authorized users
-    var userHasAccess = whitelist.some(
-      function (email) {
-        return email === user.email;
-      });
+::: panel-warning Keep it safe
+While the Client ID is considered public information, the Client Secret **must be kept confidential**. If anyone can access your Client Secret they can issue  tokens and access resources they shouldn't.
+:::
 
-    if (!userHasAccess) {
-      return callback(new UnauthorizedError('Access denied.'));
-    }
+- **Client Type**: The type of client you are implementing. Depending on which you choose, the available settings differ to show you only the settings applicable to your Client Type. You can change this value at any time by selecting one of the following: Native, Non Interactive Client, Regular Web Application, or Single Page Application.
 
-    callback(null, user, context);
-}
-```
+- **First Party Client**: When a First Party client requests authorized access against an API with the **Allow Skipping User Consent** flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your callbackURL is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
 
-## Auditing
+- **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
 
-![](/media/articles/applications/applications-logs-auditing.png)
+- **Allowed Callback URLs**: Set of URLs to which Auth0 is allowed to redirect the users after they authenticate. You can specify multiple valid URLs by comma-separating them (typically to handle different environments like QA or testing). You can use the star symbol as a wildcard for subdomains (`*.google.com`). Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases.
 
-The logs include many of the actions performed by the user:
+- **Allowed Logout URLs**: After a user logs out from Auth0 you can redirect them with the `returnTo` query parameter. The URL that you use in `returnTo` must be listed here. You can specify multiple valid URLs by comma-separating them. You can use the star symbol as a wildcard for subdomains (`*.google.com`). Notice that querystrings and hash information are not taking into account when validating these URLs. Read more about this at: [Logout](/logout).
 
-* Logging in to a Client;
-* Failing to log in to a Client;
-* Signing up;
-* Requesting a password change;
+- **Allowed Origins (CORS)**: Set of URLs that will be allowed to make requests from JavaScript to Auth0 API (typically used with CORS). This prevents same-origin policy errors when using Auth0 from within a web browser. By default, all your callback URLs will be allowed. This field allows you to enter other origins if you need to. You can specify multiple valid URLs by comma-separating them. You can use the star symbol as a wildcard for subdomains (`*.google.com`). Notice that querystrings and hash information are not taking into account when validating these URLs.
 
-You can download the event logs using the [Management API](/api/management/v2#!/Logs/get_logs) or view them via the [Management Dashboard](${manage_url}/#/logs)
+- **JWT Expiration (seconds)**: The amount of time (in seconds) before the Auth0 id_token expires. The default value is `36000`, which maps to 10 hours.
 
-While the [Management Dashboard](${manage_url}/#/logs) displays the log data in a neatly formatted manner, clicking on the row corresponding to a particular event displays the raw data, which looks something like this:
+- **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
-```json
-{
-  "date": "2016-10-04T15:27:38.509Z",
-  "type": "f",
-  "description": "Invalid thumbprint (configured: 634AB4651FCA2F623563BE32EDA32DE565219118. calculated: BDEBFBFBA786C2D97F2125274793E32643358E81)",
-  "connection": "SSOCircle",
-  "connection_id": "con_T60D5poVozRmw77h",
-  "client_id": "UEsQCe4RVHYDSQ2zlLWIAHSqDhpsYyTG",
-  "client_name": "N/A",
-  "ip": "108.248.62.158",
-  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-  "strategy": "samlp",
-  "strategy_type": "enterprise"
-}
-```
 
-### Sample User Count Calculation
+## Client Auditing
 
-Let's say that we have 3 active social users for the month of February:
+Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. The logs include many of the actions performed by the user like failing to login to a client or requesting a password change. For more details refer to: [Logs](/logs).
 
-![](/media/articles/applications/applications-single-app-active-users.png)
-
-In the following month, John and Mary start using the company's collaboration application. This means that they'll become active users for this second application. All together, this means that there are a total of 5 active social users for the month of March:
-
- * Todo List: 3 active users
- * Collaboration Application: 2 active users
-
-![](/media/articles/applications/applications-multi-app-active-users.png)
-
-## Sample Clients
-
-The following are high-level overviews of sample Clients using a variety of technologies.
-
-> One client is comprised of an ID-secret pair. If multiple clients (for example, one runs on iOS and one runs on Android) share the same Client ID-secret pair, Auth0 considers them to be a single Client.
-
-### Regular Web Application
-
-![](/media/articles/applications/applications-traditional.png)
-
-For a regular web application, all you need to do is create a new Client in Auth0.
-
-### Mobile Clients, a Single Page Application, and an REST API
-
-![](/media/articles/applications/applications-multiple-single-logical.png)
-
-This example is a timesheet application that utilizes:
-
-* A REST API;
-* A Single Page Application (SPA) hosted on a server different from the one hosting the REST API;
-* Mobile apps capable of running on several types of devices.
-
-From a technical standpoint, the above comprises at least three Clients, due to their differing language, deployment model, and so on. However, for Auth0, this is **one** Client application that shares an ID-secret pair.
-
-Doing so simplifies logging/auditing and allows for reuse of Connections across the different Clients implemented.
-
-### Multiple Services and APIs
-
-![](/media/articles/applications/applications-complex-same-app.png)
-
-This is a decomposed Clients with several APIs and services. Depending on the requirements, this might be one or more Client(s) in Auth0. While it is easiest to implement such a scenario as one Client, note that:
-
- * With a single token, you'll be able to access all APIs;
- * The logs will show only that a user has accessed the *Fabrikam Enterprise Portal*, because Auth0 will not be able to distinguish between the various APIs used;
- * You won't be able to write [rules](/rules) to control the flow between the Clients.
-
-Now on the other hand, you could create different applications for the enterprise portal and the backing services. This will allow us to identify the different APIs and services giving you:
-
-However, implementing this using multiple Clients allows for identification of the different APIs and services used, which means that you now have:
-
- * Better auditing;
- * The ability to apply fine-grain authorization for Cpplications through rules (for example, you can limit access to the Invoices API to those in Finance);
- * The ability to control the flow of your Clients (for example, you could configure the Invoices API so that it can only be called by the Documents API.
-
-Note that users interacting with the different APIs results in a higher active user count.
-
-![](/media/articles/applications/applications-complex-different.png)
-
-### Custom Domain Names
-
-The public, multi-tenant cloud service version of Auth0 supports a domain name based off of `auth0.com`. Auth0 assigns Clients deployed using this service a domain name in one of the two formats:
-
-* `{account-name}.auth0.com`;
-* `{account-name}.{location}.auth0.com`.
-
-For example, if your company is **My Company**, you would receive some or all the following addresses:
-
-```
-mycompany.auth0.com
-mycompany.eu.auth0.com
-mycompany.au.auth0.com
-```
-
-> With the Auth0 public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, *not* user access to your Client.
-
-You may choose to use a custom domain name that obscures the Auth0 reference, such as `mycompany.com`. Using a custom domain name requires a *single-tenant* implementation of Auth0, which can be deployed in one of three locations:
-
-* The Auth0-managed cloud;
-* A customer-managed cloud;
-* An on-premise installation.
-
-Due to the additional features offered by these three options, these deployment options do come with a higher cost.
-
-If you are unable to use a multi-tenant cloud service due to compliance or other policy requirements, please take a look at [the Auth0 appliance](/appliance).
+If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For details on the available extensions and how to configure them refer to: [Extensions](/extensions).
