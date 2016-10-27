@@ -24,7 +24,7 @@ __Table of Contents__
     - [Signing Algorithms](#signing-algorithms)
   - [Configure the Scopes](#configure-the-scopes)
   - [Create the Client](#create-the-client)
-  - [Configure Client's access to the API](#configure-clients-access-to-the-api)
+  - [Configure Client's access to the API](#configure-client-s-access-to-the-api)
 - [Inside the Implementation](#inside-the-implementation)
     - [Implement the API](#implement-the-api)
       - [Define the API endpoints](#define-the-api-endpoints)
@@ -38,13 +38,13 @@ __Table of Contents__
 
 ## The Premise
 
-ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. Most of the employees work from the company’s main office, but there are some teams that work remotely. Additionally, some employees frequently travel to customer locations and work from mobile devices.
+ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. Most of the employees work from the company's main office, but there are some teams that work remotely. Additionally, some employees frequently travel to customer locations and work from mobile devices.
 
 All employees and external contractors are required to fill in their timesheets every week using spreadsheets. The current system is inefficient and the company decided that they need to move to a better and more automated solution.
 
 The company evaluated several of the available timesheets application and concluded that it would be more cost-effective to build their own in-house solution, since they have fairly unique requirements which are not available in other timesheet applications. The ultimate aim is to allow employees and contractors to capture timesheets via a Web Application and also mobile applications for iOS and Android.
 
-ABC Inc’s contractors use an external tool to track their timesheets. A Cron job will be developed which will read the timesheet entries from this external system, and automatically upload those to the timesheet application.
+ABC Inc's contractors use an external tool to track their timesheets. A Cron job will be developed which will read the timesheet entries from this external system, and automatically upload those to the timesheet application.
 
 ### Goals & Requirements
 
@@ -232,7 +232,7 @@ The API will print the JSON, so we can verify the contents and echo back a messa
 In order to secure your endpoints you need to have your API configured in the Auth0 Dashboard. For information on how to do that refer to the [Configure the API](#configure-the-api) paragraph of this document.
 :::
 
-The first step towards securing our API endpoint is to get an access token as part of the Header and validate it. If it’s not valid then we should return a `Missing or invalid token` error message to the calling process.
+The first step towards securing our API endpoint is to get an access token as part of the Header and validate it. If it's not valid then we should return a `Missing or invalid token` error message to the calling process.
 
 **See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#secure-the-api-endpoints)**.
 
@@ -253,7 +253,7 @@ For more information on this refer to: [API Authorization: Asking for Access Tok
 
 #### Check the Client permissions
 
-Now we have secured our API’s endpoint with an access token but we still haven’t ensured that the process calling the API has indeed the rights to post a new timesheet entry.
+Now we have secured our API's endpoint with an access token but we still haven't ensured that the process calling the API has indeed the rights to post a new timesheet entry.
 
 As discussed earlier in this doc, each access token may include a list of the permissions that have been granted to the client. These permissions are defined using the scope request parameter. For more information on how to configure this refer to the [Configure the Scopes](#configure-the-scopes) paragraph.
 
