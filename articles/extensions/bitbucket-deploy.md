@@ -98,7 +98,7 @@ For example, if you create the file `rules/set-country.js`, the extension will c
 
 **NOTE**: If you plan to use source control integration for an existing account, first rename your Rules in Auth0 to match the name of the files you will be deploying to this directory.
 
-You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the Rules Configuration tab of the Bitbucket Integration page. Toggle the Manual Rule switch for the rules you want to mark as manual. Click Update Manual Rules to save your changes.
+You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the **Rules Configuration** tab of the **Bitbucket Integration** page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
 
 ![](/media/articles/extensions/bitbucket-deploy/manual-rules.png)
 

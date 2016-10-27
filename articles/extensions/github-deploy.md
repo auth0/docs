@@ -101,7 +101,7 @@ For example, if you create the file `rules/set-country.js`, then the extension w
 
 __NOTE__: If you plan to use Source Control integration for an existing account, first rename your rules in Auth0 to the same name of the files you will be deploying to this directory.
 
-You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the Rules Configuration tab of the GitHub Integration page. Toggle the Manual Rule switch for the rules you want to mark as manual. Click Update Manual Rules to save your changes.
+You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the **Rules Configuration** tab of the GitHub Integration page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
 
 ![Manual Rules](/media/articles/extensions/github-deploy/manual-rules.png)
 
