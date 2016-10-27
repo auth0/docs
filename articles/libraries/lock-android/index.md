@@ -13,7 +13,7 @@ Get started using Lock for Android below, or if you're looking for a specific do
 ## Requirements
 
 Android API level 15+ is required in order to use Lock's UI.
-If you intend to create your own API and just call Auth0 API via the `com.auth0.android:auth0:1.1.0`, the minimum required API level is also 15+.
+If you intend to create your own UI and just call Auth0 API via the [Auth0.Android library](https://github.com/auth0/Auth0.Android), the minimum required API level is also 15+.
 
 ## Installation
 
@@ -23,7 +23,7 @@ Lock is available both in [Maven Central](http://search.maven.org) and [JCenter]
 compile 'com.auth0.android:lock:2.0.0'
 ```
 
-_You can check for the latest version on the repository [Releases](https://github.com/auth0/Lock.Android/releases) tab or in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock%22%20g%3A%22com.auth0.android%22)_
+_You can check for the latest version on the repository [Releases](https://github.com/auth0/Lock.Android/releases) tab, in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/lock-android/lock)._
 
 After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
