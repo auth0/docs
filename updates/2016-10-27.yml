@@ -1,0 +1,9 @@
+added:
+  -
+    title: "Visual Studio Team Services Deployments"
+    tags:
+      - extension
+      - visual-studio-team-services-deploy
+      - rules
+    description: |
+       A [new document](/extensions/visual-studio-team-services-deploy) was created on how to configure and use the Visual Studio Team Services Deployments extension.
