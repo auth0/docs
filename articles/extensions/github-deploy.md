@@ -70,6 +70,29 @@ If you enabled the migration feature, you will also need to provide the `get_use
 
 You can find an example in [this GitHub repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db).
 
+### Deploy Hosted Pages
+
+The supported hosted pages are:
+- `error_page`
+- `guardian_multifactor`
+- `login`
+- `password_reset`
+
+To deploy a page, you must create an HTML file under the `pages` directory of your GitHub repository. For each HTML page you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, in order to deploy an `error_page`, you would create two files:
+
+```text
+your-github-repo/pages/error_page.html
+your-github-repo/pages/error_page.json
+```
+
+To enable the page the `error_page.json` would contain the following:
+
+```json
+{
+  "enabled": true
+}
+```
+
 ### Deploy rules
 
 In order to deploy a rule, you must first create a JavaScript file under the `rules` directory of your GitHub repository. Each rule must be in its own `.js` file.
@@ -77,6 +100,10 @@ In order to deploy a rule, you must first create a JavaScript file under the `ru
 For example, if you create the file `rules/set-country.js`, then the extension will create a rule in Auth0 with the name `set-country`.
 
 __NOTE__: If you plan to use Source Control integration for an existing account, first rename your rules in Auth0 to the same name of the files you will be deploying to this directory.
+
+You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the Rules Configuration tab of the GitHub Integration page. Toggle the Manual Rule switch for the rules you want to mark as manual. Click Update Manual Rules to save your changes.
+
+![Manual Rules](/media/articles/extensions/github-deploy/manual-rules.png)
 
 You can control the rule order, status (`enabled`/`disabled`) and stage (`login_success`, `login_failure`, `user_registration`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
 
