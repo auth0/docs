@@ -145,4 +145,3 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
 
 * If you are using social providers for logins, the cluster must be able to connect to the social providers' endpoints.
 * The Jump Host IP is stable and provided at the time of setup.
-* You do not need to allow access to `cdn.auth0.com` for Appliance versions after `6868`.
