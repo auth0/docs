@@ -7,6 +7,8 @@ description: Appliance infrastructure information about Networks
 
 This document details the requirements for the network on which the Appliance runs.
 
+> Auth0 Appliance can only be deployed in 1 NIC.
+
 ## IP Addresses
 
 Each Appliance virtual machine (VM) must have its own private static IP address and outbound access. This can be accomplished through:
