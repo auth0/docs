@@ -214,11 +214,11 @@ The API will expect a JSON object as input, containing the timesheet information
 ```json
 {
   'user_type': 'Employee',
-	'user_id': '007',
-	'year': 2016,
-	'week': 24,
-	'project': 'StoreZero',
-	'hours': 40
+  'user_id': '007',
+  'year': 2016,
+  'week': 24,
+  'project': 'StoreZero',
+  'hours': 40
 }
 ```
 
