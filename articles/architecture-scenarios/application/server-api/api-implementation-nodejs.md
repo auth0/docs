@@ -85,7 +85,7 @@ const app = new Express();
 
 // create timesheets API endpoint
 app.post('/timesheet', function(req, res){
-	res.status(201).send({message:”This is the POST /timesheet endpoint”});
+  res.status(201).send({message:”This is the POST /timesheet endpoint”});
 })
 
 // launch the API Server at localhost:8080
@@ -137,9 +137,9 @@ app.use(jwt({
 
 // return error message for unauthorized requests
 app.use(function (err, req, res, next) {
-	if (err.name === 'UnauthorizedError') {
-    	res.status(401).json({message:'Missing or invalid token'});
-  	}
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).json({message:'Missing or invalid token'});
+  }
 });
 
 // create timesheets API endpoint - code omitted
@@ -199,12 +199,11 @@ app.use(bodyParser.urlencoded({
 
 // create timesheets API endpoint
 app.post('/timesheet', function(req, res){
-	//print the posted data
-	console.log(JSON.stringify(req.body, null, 2));
+  //print the posted data
+  console.log(JSON.stringify(req.body, null, 2));
 
-
-	//send the response
-	res.status(201).send({message:"Timesheet created for " + req.body.user_type + ": " + req.body.user_id});
+  //send the response
+  res.status(201).send({message:"Timesheet created for " + req.body.user_type + ": " + req.body.user_id});
 })
 
 // launch the API Server at localhost:8080 - code omitted
