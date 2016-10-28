@@ -124,7 +124,7 @@ Critical Production issues should always be reported via the [Support Center](ht
 Translation from former support plans to new:
 
 - Subscriptions previously known as "Free" map to the current "Free" support classification
-- Subscriptions previously known as "Gold/Silver/Home Grown" and no special support plan map to the current "Standard" support plan. 
+- Subscriptions previously known as "Gold/Silver/Home Grown"  map to the current "Standard" support plan. 
 - Support plans previously known as "Enterprise" and "Premium" support map to the current "Enterprise" support plan.
 - The "Preferred" support plan is a new plan available for purchase as of October 2016.
 
