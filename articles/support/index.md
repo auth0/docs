@@ -87,14 +87,14 @@ Ticket response times will vary based on your support plan (shown below).  Note 
       <td class="success">Support forum, Support Center, chat, web conference</td>
     </tr>
     <tr>
-      <th>[Onboarding Experience](https://auth0.com/docs/onboarding/sprint#sprint-benefits-by-support-plan)</th>
+      <th><a href="https://auth0.com/docs/onboarding/sprint#sprint-benefits-by-support-plan">Onboarding Experience</a></th>
       <td>Self-service in app and email</td>
       <td>Self-service in app and email</td>
       <td>Sprint </td>
       <td>Sprint Preferred </td>
     </tr>
     <tr>
-      <th>[Ongoing Customer Success Engagement](https://auth0.com/docs/onboarding/sprint#what-happens-after-the-sprint-program-finishes-) </th>
+      <th><a href="https://auth0.com/docs/onboarding/sprint#what-happens-after-the-sprint-program-finishes-">Ongoing Customer Success Engagement</a> </th>
       <td>none </td>
       <td>none </td>
       <td>Customer Success Team </td>
