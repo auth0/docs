@@ -9,7 +9,7 @@ description: A selection of videos showing developers how to perform common task
 Below you will find a selection of videos that will introduce you to various topics in the Auth0 platform.
 
 <div style="margin-top: 30px; margin-bottom: 50px;">
-<% _.forEach(_.sortBy(articles.findByHash('videos').items, 'order'), function(article) { %>
+<% _.forEach(_.sortBy(cache.find('videos'), 'order'), function(article) { %>
   <% if (article.id) { %>
   <div class="media">
     <div class="media-left">

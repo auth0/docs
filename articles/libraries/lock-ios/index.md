@@ -9,7 +9,7 @@ description: How to install, include, and use Lock gor iOS.
 
 Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
-Auth0 Lock makes it easy to integrate SSO into your app. Lock's many benefits include:  
+Auth0 Lock makes it easy to integrate SSO into your app. Lock's many benefits include:
 
 * Providing a professional looking login dialog that displays well on any device.
 * Finding the right icons for popular social providers.
@@ -284,7 +284,7 @@ controller.customSignUp = ^ UIViewController *(A0Lock *lock, A0LockEventDelegate
 
   YourCustomSignUpVC *signUpVC = …//your viewController;
   signUpVC.delegate = delegate;
-  signUpVC.lock = lock;  
+  signUpVC.lock = lock;
 
   return signUpVC;
 };
@@ -403,7 +403,7 @@ For more information on Lock for CocoaPods, see the [Lock documentation in Cocoa
 ### Related Documentation
 
 <ul>
-<% _.forEach(_.sortBy(articles.findByHash('libraries/lock-ios').items, 'toc_title'), function(article) { %>
+<% _.forEach(_.sortBy(cache.find('libraries/lock-ios'), 'toc_title'), function(article) { %>
   <% if (article.toc_title) { %>
   <li>
     <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>

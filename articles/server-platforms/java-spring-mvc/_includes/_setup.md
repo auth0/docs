@@ -1,6 +1,6 @@
 ## Create an Application
 
-<%= include('../../_includes/_java_new_app') %>
+<%= include('../../../_includes/_java_new_app') %>
 
 ![App Dashboard](/media/articles/java/app_dashboard.png)
 

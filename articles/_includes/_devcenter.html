@@ -1,12 +1,10 @@
 
-<% var findByHash = articles.findByHash %>
-
 <% if (meta.tutorials && meta.tutorials.length > 0) { %>
  <h2 id="tutorials" class="anchor-heading"><span id="3" class="anchor" href="#tutorials"><i class="icon icon-budicon-345"></i></span>Tutorials</h2>
  <ul class="list-scenarios">
-<% _.forEach(meta.tutorials, function(hash) { %>
-  <% var article = findByHash(hash); %>
-   <li>
+<% _.forEach(meta.tutorials, function(path) {
+  var article = cache.get('articles/' + path); %>
+  <li>
     <a class="scenario" href="/docs${article.url}">
       <div class="content">
         <i class="icon-budicon-754"></i>
@@ -22,9 +20,9 @@
 <% if (meta.scenarios && meta.scenarios.length > 0) { %>
  <h2 id="key-scenarios" class="anchor-heading"><span id="3" class="anchor" href="#key-scenarios"><i class="icon icon-budicon-345"></i></span>Key Scenarios</h2>
  <ul class="list-scenarios">
-<% _.forEach(meta.scenarios, function(hash) { %>
-  <% var article = findByHash(hash); %>
-   <li>
+<% _.forEach(meta.scenarios, function(path) {
+  var article = cache.get('articles/' + path); %>
+  <li>
     <a class="scenario" href="/docs${article.url}">
       <div class="content">
         <i class="icon-budicon-754"></i>
@@ -41,7 +39,7 @@
  <h2 id="other-resources" class="anchor-heading"><span id="3" class="anchor" href="#other-resources"><i class="icon icon-budicon-345"></i></span>Other Resources</h2>
  <ul class="list-scenarios">
 <% _.forEach(meta.resources, function(resource) { %>
-   <li>
+  <li>
     <a class="scenario resource" href="${resource.link}">
       <div class="content">
         <% var iconClass = "icon-budicon-692";

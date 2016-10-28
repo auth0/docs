@@ -1,6 +1,6 @@
 ## Create a Client
 
-<%= include('../../_includes/_java_new_app') %>
+<%= include('../../../_includes/_java_new_app') %>
 
 ![Client Dashboard](/media/articles/java/app_dashboard.png)
 

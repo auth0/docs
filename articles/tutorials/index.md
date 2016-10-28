@@ -5,7 +5,7 @@ url: /tutorials
 # Tutorials
 
 <ul>
-<% _.forEach(_.sortBy(articles.findByHash('tutorials').items, 'title'), function(article) { %>
+<% _.forEach(_.sortBy(cache.find('tutorials'), 'title'), function(article) { %>
   <li>
     <a href="<%- '/docs' + article.url %>"><%- article.title %></a>
     <p><%- article.description %></p>
