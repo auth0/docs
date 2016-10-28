@@ -50,7 +50,7 @@ The following table describes operational and feature differences between each o
             <td>N/A</td>
             <td>High Availibility;<br />High Capacity</td>
             <td>Single Node;<br />High Availibility;<br />High Capacity</td>
-            <td>Single Node;<br />High Availibility;<br />High Capacity</td>
+            <td>Single Node;<br />High Availibility;<br />Geo High Availibility;<br />High Capacity</td>
         </tr>
         <tr>
             <th>Service & Uptime Reporting</th>
