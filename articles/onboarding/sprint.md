@@ -13,7 +13,7 @@ All customer's who subscribe to a qualifying 12 month+ subscription agreement ob
 
 #### Goal
 
-During the onboarding process, the Auth0 Customer Success Team’s goal is to fulfil our obligation to:
+During the onboarding process, the Auth0 Customer Success Team’s goal is to fulfill our obligation to:
 
 * Have your subscription account correctly provisioned and setup in our systems (including the appliance deployment project in the case of on-premise/private-cloud managed service customers)
 * Receive information from you that our Customer Success Managers will use to engage with you, measure success and manage your subscription throughout its various lifecycles
@@ -29,14 +29,14 @@ The outcome of these obligations is a Success Plan that will be co-managed by yo
     <tr>
       <th></th>
       <th>Sprint</th>
-      <th>Sprint Elite</th>
+      <th>Sprint Preferred</th>
     </tr>
   </thead>
   <tbody>
       <tr>
       <th>Qualifying Customers</th>
       <td>Enterprise Support plan</td>
-      <td>Elite Support plan</td>
+      <td>Preferred Support plan</td>
     </tr>
     <tr>
       <th>Customer Success engagement</th>
@@ -90,7 +90,7 @@ The table below outlines the different benefits delivered by the Customer Succes
     <tr>
       <th></th>
       <th>Enterprise Support</th>
-      <th>Elite Support</th>
+      <th>Preferred Support</th>
     </tr>
   </thead>
   <tbody>
