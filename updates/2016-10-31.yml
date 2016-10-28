@@ -1,0 +1,7 @@
+added:
+  -
+    title: "Manage Admins in the Dashboard"
+    tags:
+      - admins
+    description: |
+       A [new document](/tutorials/manage-dashboard-admins) was created on how to add and remove admin users in the Auth0 dashboard.
