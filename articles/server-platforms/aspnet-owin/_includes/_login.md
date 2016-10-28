@@ -63,7 +63,7 @@ For the Login view you can embed the [Auth0 Lock component](/libraries/lock). Yo
 <div id="root" style="width: 320px; margin: 40px auto;">
 </div>
 
-<script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+<script type="text/javascript" src="${lock_url}"></script>
 <script>
     var lock = new Auth0Lock('@ConfigurationManager.AppSettings["auth0:ClientId"]', '@ConfigurationManager.AppSettings["auth0:Domain"]',
         {
