@@ -1,9 +1,8 @@
 ---
-toc_title: Refreshing JWT Tokens
 description: Keeping your user logged in
 ---
 
-::: panel-info Version Warning
+::: panel-warning Version Warning
 This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
 :::
 

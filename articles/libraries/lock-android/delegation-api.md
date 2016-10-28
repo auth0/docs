@@ -1,9 +1,8 @@
 ---
-toc_title: Delegation API
 description: Integrate with third-party apps with the delegation API.
 ---
 
-::: panel-info Version Warning
+::: panel-warning Version Warning
 This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
 :::
 
