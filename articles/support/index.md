@@ -7,11 +7,11 @@ url: /support
 ## Auth0 Status
 The [Auth0 status page](https://status.auth0.com) contains information on current production status and will be updated during an outage.  After an outage, a root-cause analysis is performed and made available via the page. 
 
-Please check the [status page](https://status.auth0.com) before filing a ticket.  If the status page contains a notification about an outage, our team will already be working on restoring service as quickly as possible.  Once the issue is resolved, the status page will be updated to reflect that.  There is a button on the page to subscribe to notifications of any changes.
+Please check the [status page](https://status.auth0.com) before filing a ticket.  If the status page contains a notification about an outage, our team will already be working on restoring service as quickly as possible.  Once the issue is resolved, the status page will be updated to reflect that.  There is a button on the page to subscribe to notifications of any changes.  A root-cause analysis will be published to the status page once an investigation has been done.
 
 ## Public Forum
 
-Auth0 offers support for __all__ subscribers. All customers, even on free accounts, can use our public [discussion forum](https://ask.auth0.com) to search existing questions and receive support from our engineers if their question has not already been asked.
+Auth0's public [discussion forum](https://ask.auth0.com) offers support for __all__ subscribers. All customers, even on free accounts, can use our public [discussion forum](https://ask.auth0.com) to search existing questions and receive support from our engineers if their question has not already been asked.
 
 ## Support Center
 
@@ -87,14 +87,14 @@ Ticket response times will vary based on your support plan (shown below).  Note 
       <td class="success">Support forum, Support Center, chat, web conference</td>
     </tr>
     <tr>
-      <th>Onboarding Experience</th>
+      <th>[Onboarding Experience](https://auth0.com/docs/onboarding/sprint#sprint-benefits-by-support-plan)</th>
       <td>Self-service in app and email</td>
       <td>Self-service in app and email</td>
-      <td>Sprint Onboarding</td>
-      <td>Sprint Premier Onboarding</td>
+      <td>Sprint </td>
+      <td>Sprint Preferred </td>
     </tr>
     <tr>
-      <th>Ongoing Customer Success Engagement </th>
+      <th>[Ongoing Customer Success Engagement](https://auth0.com/docs/onboarding/sprint#what-happens-after-the-sprint-program-finishes-) </th>
       <td>none </td>
       <td>none </td>
       <td>Customer Success Team </td>
@@ -128,6 +128,6 @@ Translation from former support plans to new:
 - Support plans previously known as "Enterprise" and "Premium" support map to the current "Enterprise" support plan.
 - The "Preferred" support plan is a new plan available for purchase as of October 2016.
 
-Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.
+Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.  Response times may also be delayed during periods of heavy ticket volume.
 
 If you have specific support requirements or are interested in the __Enterprise Support__ or __Preferred Support__ option, please [contact sales](https://auth0.com/?contact=true).
