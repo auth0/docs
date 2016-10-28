@@ -15,7 +15,7 @@ All customer's who subscribe to a qualifying 12 month+ subscription agreement ob
 
 During the onboarding process, the Auth0 Customer Success Team’s goal is to fulfill our obligation to:
 
-* Have your subscription account correctly provisioned and setup in our systems (including the [appliance deployment project](https://auth0.com/docs/onboarding/appliance-sprint) in the case of on-premise/private-cloud managed service customers)
+* Have your subscription account correctly provisioned and setup in our systems (including the [appliance deployment project](/onboarding/appliance-sprint) in the case of on-premise/private-cloud managed service customers)
 * Receive information from you that our Customer Success Managers will use to engage with you, measure success and manage your subscription throughout its various lifecycles
 * Provide information to you around accessing and utilizing informational, training and support resources to meet your success goals
 * Offer high level initial technical architecture guidance and plug you in to our Professional Services offerings if deeper guidance or hands-on development/implementation assistance is desired
@@ -83,7 +83,7 @@ At the conclusion of the Sprint program, our Customer Success Management team wi
 
 Aside from engagement with our Customer Success Management team, you’ll have many other resources to move you along the journey as introduced to you in the Sprint program - this includes our support team, customer forums, documentation, videos and webinars.
 
-The table below outlines the different benefits delivered by the Customer Success team based on the [support plan](https://auth0.com/docs/support) included with your subscription.
+The table below outlines the different benefits delivered by the Customer Success team based on the [support plan](/support) included with your subscription.
 
 <table class="table">
   <thead>
