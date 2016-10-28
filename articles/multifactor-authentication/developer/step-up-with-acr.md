@@ -54,12 +54,12 @@ To confirm that a session has had multifactor authentication, the id_token can b
 var decoded = jwt.verify(id_token, new Buffer(AUTH0_CLIENT_SECRET, 'base64'), { algorithms: ['HS256'] });
 
 // Confirm that the acr has the expected value
-if(!Array.isArray(decoded.acr) || decoded.acr.indexOf(mfaAcr) < 0){
+if (Array.isArray(decoded.amr) && decoded.amr.indexOf('mfa') >= 0) {
   throw new Error('Step-up authentication failed');
 }
 
 // We also expect to have the amr claim
-if(decoded.amr !== 'mfa'){
+if(decoded.acr !== 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'){
   throw new Error('Step-up authentication failed');
 }
 ```
