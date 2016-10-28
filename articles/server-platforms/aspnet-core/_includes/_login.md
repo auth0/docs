@@ -154,24 +154,6 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
         </div>
     </div>
 </div>
-<script src="${lock_url}"></script>
-<script>
-
-  var lock = new Auth0Lock('@Model.ClientId', '@Model.Domain', {
-      container: 'root',
-      auth: {
-        redirectUrl: '@Model.CallbackUrl',
-        responseType: 'code',
-        params: {
-            scope: 'openid profile', //Details: https:///scopes
-            state: '@Model.State',
-            nonce: '@Model.Nonce'
-        }
-    }
-  });
-
-  lock.show();
-</script>
 ```
 
 ## Run the Application
