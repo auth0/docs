@@ -15,7 +15,7 @@ All customer's who subscribe to a qualifying 12 month+ subscription agreement ob
 
 During the onboarding process, the Auth0 Customer Success Team’s goal is to fulfill our obligation to:
 
-* Have your subscription account correctly provisioned and setup in our systems (including the appliance deployment project in the case of on-premise/private-cloud managed service customers)
+* Have your subscription account correctly provisioned and setup in our systems (including the [appliance deployment project](https://auth0.com/docs/onboarding/appliance-sprint) in the case of on-premise/private-cloud managed service customers)
 * Receive information from you that our Customer Success Managers will use to engage with you, measure success and manage your subscription throughout its various lifecycles
 * Provide information to you around accessing and utilizing informational, training and support resources to meet your success goals
 * Offer high level initial technical architecture guidance and plug you in to our Professional Services offerings if deeper guidance or hands-on development/implementation assistance is desired
