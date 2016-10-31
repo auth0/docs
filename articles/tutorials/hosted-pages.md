@@ -12,7 +12,7 @@ Auth0 provides you the ability to create beautiful hosted pages to which you can
 
 In your [Auth0 Dashboard](https://manage.auth0.com/#/login_page), you can enable your Hosted Login Page by simply flipping the toggle switch.
 
-<img width="500" src="/media/articles/tutorials/hosted-pages/login.png" />
+<img width="500" src="/media/articles/hosted-pages/login.png" />
 
 If you want to change some of the [configuration options](/libraries/lock/v10/customization) within Lock, you may do so _right on this page_, just make your changes and make sure to remember to hit the "save" button. 
 
@@ -20,19 +20,15 @@ If you want to change some of the [configuration options](/libraries/lock/v10/cu
 
 In your [Auth0 Dashboard](https://manage.auth0.com/#/password_reset), you can enable your Hosted Password Reset Page by simply flipping the toggle switch.
 
-<img width="500" src="/media/articles/tutorials/hosted-pages/password_reset.png" />
+<img width="500" src="/media/articles/hosted-pages/password_reset.png" />
 
 If you want to change some of the options in the Change Password Widget, you may do so _right on this page_, just make your changes and make sure to remember to hit the "save" button. The options have comments to help document their uses.
-
-::: panel-info Lock Version
-Note that by default, the current hosted Login page is using Lock 9. This will be updated to use version 10 as the default in the future.
-:::
 
 ### Guardian Multifactor Login Page
 
 In your [Auth0 Dashboard](https://manage.auth0.com/#/guardian_mfa_page), you can enable your Hosted Guardian Multifactor Login Page by simply flipping the toggle switch.
 
-<img width="500" src="/media/articles/tutorials/hosted-pages/password_reset.png" />
+<img width="500" src="/media/articles/hosted-pages/guardian.png" />
 
 If you want to change some of the options in the Change Password Widget, you may do so _right on this page_, just make your changes and make sure to remember to hit the "save" button. The options have comments to help document their uses.
 
