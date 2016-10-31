@@ -4,7 +4,7 @@ description: How use hosted pages with Auth0
 
 # How to Use Hosted Pages with Auth0
 
-Auth0 provides you the ability to create beautiful hosted pages to which you can redirect to provide functionality for your users. These pages include Login, Password Reset, Guardian Multifactor, and Error pages.
+Auth0 provides you the ability to create beautiful hosted pages to which you can redirect to provide functionality for your users. These pages include [Login](#login-page), [Password Reset](#password-reset-page), [Guardian Multifactor](#guardian-multifactor-login-page), and [Error pages](#error-pages).
 
 ## How to Customize Hosted Pages
 
@@ -16,8 +16,15 @@ In your [Auth0 Dashboard](https://manage.auth0.com/#/login_page), you can enable
 
 If you want to change some of the [configuration options](/libraries/lock/v10/customization) within Lock, you may do so _right on this page_, just make your changes and make sure to remember to hit the "save" button. 
 
-This login page will be a basic login page for your client, and will use Lock to provide your users with a beautiful and smooth authentication process.
+This login page will be a basic login page for your client, and will use Lock to provide your users with a beautiful and smooth authentication process. The hosted login page is both one of your most secure authentication options as well as one of the easiest to implement.
 
+You will be able to access your hosted login page via the following url:
+
+```text
+https://'${account.namespace}'/login?client='${account.clientId}'
+```
+
+And thus will be able to simply redirect login requests to this page, and use the hosted login page to authenticate your users, and then return them to your application.
 ### Password Reset Page
 
 In your [Auth0 Dashboard](https://manage.auth0.com/#/password_reset), you can enable your Hosted Password Reset Page by simply flipping the toggle switch.
@@ -26,7 +33,7 @@ In your [Auth0 Dashboard](https://manage.auth0.com/#/password_reset), you can en
 
 If you want to change some of the options in the Change Password Widget, you may do so _right on this page_, just make your changes and make sure to remember to hit the "save" button. The options have comments to help document their uses.
 
-Using this page for password resets will allow your users to maintain consistency in appearance, if you are already using the hosted login page, and provide them a reliable and stable platform on which to reset passwords and gain access to their account.
+Using this page for password resets will allow your users to maintain consistency in appearance. From the login page, users will simply be able to click the forgot password link, see this easy to use widget, and send themselves a link to begin the password reset process.
 
 ### Guardian Multifactor Login Page
 
@@ -36,7 +43,7 @@ In your [Auth0 Dashboard](https://manage.auth0.com/#/guardian_mfa_page), you can
 
 If you want to change some of the options in the Change Password Widget, you may do so _right on this page_, just make your changes and make sure to remember to hit the "save" button. The options have comments to help document their uses.
 
-This hosted page provides the same type of functionality as the login page, with the added protection of Guardian Multifactor Authentication. Take a look at our documentation on [Guardian MFA](/multifactor-authentication/guardian) for more details!
+The added protection of Guardian Multifactor Authentication is no small matter. It's quite customizable, allowing you to require MFA on logins which meet certain criteria, or just across the board. Take a look at our documentation on [Guardian MFA](/multifactor-authentication/guardian) for more details!
 
 ### Error Pages
 
