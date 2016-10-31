@@ -11,13 +11,19 @@ Only fields in `user_metadata`, `app_metadata` or the [normalized user profile](
 
 ## Exact Matching and Tokenization
 
-Because of the manner in which ElasticSearch handles tokenization, unexpected results can occur when searching by some fields. For example, when searching for a user whose `name` is "jane".
+Because of the manner in which ElasticSearch handles tokenization on `+` and `-`, unexpected results can occur when searching by some fields. For example, when searching for a user whose `name` is "jane".
 
 `name:"jane"`
 
 However, this will return results for both `jane` and `jane-doe` because both of these _contain_ the exact search term that you used. The difference may not affect some searches, but it will affect others, and provide unanticipated results.
 
-If you wish to avoid this, and search for an exact match to your term, an exact string comparison, then for some fields you can use the `raw` subfield, which will be `not_analyzed`.
+### Structured JSON vs Delimited Strings
+
+Using structured JSON in your metadata is the ideal. Using delimited strings can result in security risks and exposure to problems. More information on metadata and how it should be structured can be found in the [metadata documentaton](/metadata).
+
+### Using the 'raw' Subfield
+
+If you wish to avoid the potential pitfalls of analyzed data and search for an exact match to your term - an exact string comparison - then for some fields you can use the `raw` subfield, which will be `not_analyzed`.
 
 So, in the example
 
@@ -37,6 +43,8 @@ The fields which support `raw` subfield queries are as follow:
 * ﻿⁠⁠⁠⁠`username﻿⁠⁠⁠⁠`
 * ﻿⁠⁠⁠⁠`name﻿⁠⁠⁠⁠`
 * ﻿⁠⁠⁠⁠`nickname﻿⁠⁠⁠⁠`
+
+
 
 ## Examples
 
@@ -68,7 +76,7 @@ Search for all users whose email is exactly "john@contoso\.com" or "mary@contoso
 
 `email.raw:("john@contoso.com" OR "mary@contoso.com")`
 
-### Search for sers without verified email
+### Search for users without verified email
 
 `email_verified:false OR _missing_:email_verified`
 
