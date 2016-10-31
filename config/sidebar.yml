@@ -60,7 +60,7 @@ articles:
 
       - title: "Deploy Rules with Bitbucket"
         url: "/extensions/bitbucket-deploy"
-      
+
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
 
@@ -70,6 +70,9 @@ articles:
 
       - title: "Overview"
         url: "/api-auth"
+
+      - title: "Which Flow to Use"
+        url: "/api-auth/which-oauth-flow-to-use"
 
       - title: "Authorization Code Grant"
         url: "/api-auth/grant/authorization-code"
