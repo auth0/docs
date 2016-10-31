@@ -49,7 +49,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 - [additionalSignUpFields](#additionalsignupfields-array-)
 - [allowLogin](#allowlogin-boolean-)
 - [allowForgotPassword](#allowforgotpassword-boolean-)
-- [allowSignup](#allowsignup-boolean-)
+- [allowSignUp](#allowsignup-boolean-)
 - [defaultDatabaseConnection](#defaultdatabaseconnection-string-)
 - [initialScreen](#initialscreen-string-)
 - [loginAfterSignup](#loginaftersignup-boolean-)
