@@ -27,20 +27,20 @@ The user data for `jane` would match, but `jane-doe` would not.
 
 The fields which support `raw` subfield queries are as follow:
 
-⁠⁠⁠⁠- `identities.connection﻿⁠⁠⁠⁠`
-- ﻿⁠⁠⁠⁠`identities.provider﻿⁠⁠⁠⁠`
-- ﻿⁠⁠⁠⁠`identities.user_id ﻿⁠⁠⁠⁠`
-- ﻿⁠⁠⁠⁠`email﻿⁠⁠⁠⁠`
-- ﻿⁠⁠⁠⁠`phone_number﻿⁠⁠⁠⁠`
-- ﻿⁠⁠⁠⁠`family_name﻿⁠⁠⁠⁠`
-- ﻿⁠⁠⁠⁠`given_name﻿⁠⁠⁠⁠`
-- ﻿⁠⁠⁠⁠`username﻿⁠⁠⁠⁠`
-- ﻿⁠⁠⁠⁠`name﻿⁠⁠⁠⁠`
-- ﻿⁠⁠⁠⁠`nickname﻿⁠⁠⁠⁠`
+* `identities.connection﻿⁠⁠⁠⁠`
+* ﻿⁠⁠⁠⁠`identities.provider﻿⁠⁠⁠⁠`
+* ﻿⁠⁠⁠⁠`identities.user_id ﻿⁠⁠⁠⁠`
+* ﻿⁠⁠⁠⁠`email﻿⁠⁠⁠⁠`
+* ﻿⁠⁠⁠⁠`phone_number﻿⁠⁠⁠⁠`
+* ﻿⁠⁠⁠⁠`family_name﻿⁠⁠⁠⁠`
+* ﻿⁠⁠⁠⁠`given_name﻿⁠⁠⁠⁠`
+* ﻿⁠⁠⁠⁠`username﻿⁠⁠⁠⁠`
+* ﻿⁠⁠⁠⁠`name﻿⁠⁠⁠⁠`
+* ﻿⁠⁠⁠⁠`nickname﻿⁠⁠⁠⁠`
 
 ## Examples
 
-Here are some example queries:
+Below are some example queries to illustrate the kinds of queries that are possible using the dashboard or the APIv2. 
 
 ### Cross-field search
 
