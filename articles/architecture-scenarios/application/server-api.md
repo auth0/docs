@@ -75,7 +75,7 @@ It is quite common for access tokens to be implemented as [JSON Web Tokens](/jwt
 :::
 
 ::: panel-info What are Scopes?
-Each access token may include a list of the permissions that have been granted to the client. When a client authenticates with Auth0, it will specify the list of scopes (or permissions) it is requesting. If those scopes are authorized, then the access token will contain a list of authorized scopes. 
+Each access token may include a list of the permissions that have been granted to the client. When a client authenticates with Auth0, it will specify the list of scopes (or permissions) it is requesting. If those scopes are authorized, then the access token will contain a list of authorized scopes.
 
 For example, the timesheet API may accept four different levels of authorization: reading timesheets (scope `read:timesheets`), creating timesheets (scope `create:timesheets`), deleting timesheets (scope `delete:timesheets`) and approving timesheets (scope `approve:timesheets`).
 
@@ -310,3 +310,13 @@ In order to do so we will:
 **See the implementation in [Python](/architecture-scenarios/application/server-api/cron-implementation-python#invoke-the-api).**
 
 ## Conclusion
+
+In this document we covered a simple scenario: an API, used to import timesheet entries in ABC's systems, and a cron job, used by external contractors to send in their timesheets using this API.
+
+We learned about the Client Credentials Grant, what an access token is, how to configure an API in Auth0, how to configure a non interactive client to communicate securely with this API, how to define and secure our API endpoints, how to use the provided libraries to validate the access token and how to retrieve a new one from Auth0.
+
+We started by describing the business case and the requirements and went on explaining how each requirement can be met and the thought process behind each choice that was made.
+
+We used Node.js for the API implementation and Python for the non interactive server process, hopefully though after going through this document you are able to build this using the technologies you prefer.
+
+Don't forget to check back for new business cases and more complex architecture scenarios!
