@@ -1,4 +1,4 @@
 ---
-description: Details on the OpenID Connect protocol and how this is used by Auth0.
+description: What is the OpenID Connect protocol and how it works.
 ---
 # OpenID Connect

@@ -1,5 +1,5 @@
 ---
-description: OAuth 2.0 Authorization Framework.
+description: What is the OAuth 2.0 Authorization Framework and how it works.
 ---
 # OAuth 2.0
 
