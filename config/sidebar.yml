@@ -18,14 +18,26 @@ articles:
       - title: "APIs"
         url: "/apis"
 
-      - title: "Protocols"
-        url: "/protocols"
-
       - title: Developer Videos
         url: /videos
 
       - title: Architecture Scenarios
         url: /architecture-scenarios
+
+  - title: "Protocols"
+    url: "/protocols"
+    children:
+      - title: "OAuth 2.0"
+        url: "/protocols/oauth2"
+
+      - title: "OpenID Connect"
+        url: "/protocols/oidc"
+
+      - title: "SAML"
+        url: "/protocols/saml"
+
+      - title: "WS-Fed"
+        url: "/protocols/ws-fed"
 
   - title: "Lock & Auth0.js"
     url: "/libraries/lock"
@@ -60,7 +72,7 @@ articles:
 
       - title: "Deploy Rules with Bitbucket"
         url: "/extensions/bitbucket-deploy"
-      
+
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
 
