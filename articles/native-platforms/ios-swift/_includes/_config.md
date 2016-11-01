@@ -15,9 +15,9 @@ You can add the following entries in your project's `Info.plist`:
 
 ```xml
 <key>Auth0ClientId</key>
-<string>YOUR_CLIENT_ID</string>
+<string>${account.clientId}</string>
 <key>Auth0Domain</key>
-<string>YOUR_NAMESPACE</string>
+<string>${account.namespace}</string>
 ```
 
 Alternatively you can add your credentials in `Auth0.plist`. You have to create that file if it doesn't already exist:
@@ -27,10 +27,10 @@ Alternatively you can add your credentials in `Auth0.plist`. You have to create 
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>Auth0ClientId</key>
-  <string>YOUR_CLIENT_ID</string>
-  <key>Auth0Domain</key>
-  <string>YOUR_NAMESPACE</string>
+  <key>ClientId</key>
+  <string>${account.clientId}</string>
+  <key>Domain</key>
+  <string>${account.namespace}</string>
 </dict>
 </plist>
 ```
