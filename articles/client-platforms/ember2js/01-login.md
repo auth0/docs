@@ -19,7 +19,7 @@ This tutorial and seed project have been tested with the following:
 * NodeJS 5.11.0
 * Ember 2.5.0
 * jQuery 1.11.3
-* Ember Simple Auth 1.0.0
+* Ember Simple Auth 1.1.0
 :::
 
 ${include('../\_callback')}
