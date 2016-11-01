@@ -42,17 +42,19 @@ ABC Inc. is a consulting startup company. Currently they have approximately 100 
 
 ### Goals & Requirements
 
-Because there are multiple client applications, ABC Inc has decided to develop a single Timesheets API which all of the client applications will use to log time in the timesheet database. The will ensure that a large part of the code and business logic for the application can be shared across the different client applications. This will also allow them to easily add other clients in the future if the need arises.
+ABC wants to build a flexible solution. At the moment only an automated process needs to push timesheet entries but in the future the company plans on launching more clients, like a mobile app to accommodate their sales teams. Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this server process, but by all future clients as well. They want to put in place a security architecture that is flexible enough to accommodate this. ABC Inc. wants to ensure that a large part of the code and business logic for the application can be shared across the different client applications.
 
-It is required that only authorized users and applications are allowed access to the Timesheets API. In order to secure the API ABC Inc has decided to make use of the OAuth 2.0 authorization framework as this will allow them to easily authorize the various types of application which need to communicate with the Timesheets API.
+It is required that only authorized users and applications are allowed access to the Timesheets API.
 
 ## Overview of the Solution
+
+ In order to ensure that only authorized users and applications are allowed access to the Timesheets API, ABC Inc. has decided to make use of the [OAuth 2.0 authorization framework](https://tools.ietf.org/html/rfc6749). The framework provides the flexibility the company wants since the different grants can allow them to easily authorize the various types of application which need to communicate with the Timesheets API.
 
 ### API Authentication and Authorization
 
 An API is a way to expose functionality of your application to other applications. An application can make a request by sending a message to an endpoint on an API and receive information as a response.
 
-It is important to ensure that only authorized users (and applications) can call the endpoints on an API. When a client application wants to access any of these protected endpoints on an API it needs to present an access token as proof that it has the required permissions for make the call to the endpoint.
+An API endpoint can be secured or not. In our case, since the timesheets are sensitive information that affect reviews and payments, it is important to ensure that only authorized users and applications can call the endpoints on our API. When a client application wants to access protected endpoints on an API it needs to present an **access token** as proof that it has the required permissions for make the call to the endpoint.
 
 An access token is obtained by authenticating the user with an Authorization Server and the user can then in turn authorize the application to access the API on their behalf.
 
