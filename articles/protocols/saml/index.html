@@ -12,39 +12,114 @@ classes: topic-page
   </p>
 </div>
 
-<p>
-  Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (OAuth 2.0, OpenID Connect) and in enterprise deployments (SAML, WS-Federation, LDAP).
-</p>
-
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/protocols/oauth2">OAuth 2.0</a>
+    <i class="icon icon-budicon-715"></i><a href="/saml-configuration">SAML Configuration in Auth0</a>
     <p>
-      OAuth 2.0 is an authorization framework that enables a third-party application to obtain limited access to resources the end-user owns. It is about resource access and sharing.
+      This article explains the various configuration options of SAML available with Auth0.
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/protocols/oidc">OpenID Connect</a>
+    <i class="icon icon-budicon-715"></i><a href="/saml-idp-generic">Auth0 as Identity Provider</a>
     <p>
-      OpenID Connect (OIDC) is an identity layer built on top of the OAuth 2.0 framework. It allows third-party applications to verify the identity of the end-user and to obtain basic user profile information. At the core, OIDC is about user authentication.
+      How to configure Auth0 to serve as an Identity Provider in a SAML federation.
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/protocols/saml">SAML</a>
+    <i class="icon icon-budicon-715"></i><a href="/saml-sp-generic">Auth0 as Service Provider</a>
     <p>
-      Security Assertion Markup Language (SAML) is an XML-based framework for authentication and authorization between two entities: a Service Provider and an Identity Provider. The Service Provider agrees to trust the Identity Provider to authenticate users. The Identity Provider authenticates users and provides to Service Providers an Authentication Assertion that indicates a user has been authenticated.
+      How to configure Auth0 to serve as a Service Provider in a SAML federation.
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/protocols/ws-fed">WS-Federation</a>
+    <i class="icon icon-budicon-715"></i><a href="/samlsso-auth0-to-auth0">SAML SSO with Auth0 as Service Provider and as an Identity Provider</a>
     <p>
-      WS-Federation is part of the larger WS-Security framework and an extension to the functionality of WS-Trust. The features of WS-Federation can be used directly by SOAP clients and web services.
+      Learn how to use SAML SSO with Auth0 as both the Service Provider and Identity Provider, using two Auth0 accounts, allowing you to test your Auth0 SAML without configuring another provider to do so!
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/protocols/ldap">LDAP</a>
+    <i class="icon icon-budicon-715"></i><a href="/samlp">SAML Identity Provider Configuration</a>
     <p>
-      Lightweight Directory Access Protocol (LDAP) is an application protocol, used for accessing and maintaining distributed directory information services over an Internet Protocol (IP) network.
+      How to configure a SAML Identity Provider.
+    </p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/samlp-providers">List of SAML-P Identity Providers</a>
+    <p>
+      List of Identity Provider services known to support the SAML protocol.
+    </p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/saml2webapp-tutorial">Using Auth0 in SAML2 Web App</a>
+    <p>
+      How to use Auth0 in a SAML2 web application.
+    </p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/saml-apps">SAML Applications</a>
+    <p>
+      This page lists SAML Configurations for various SSO integrations including Google Apps, Hosted Graphite, Litmos, Cisco Webex, Sprout Video, FreshDesk, Tableau Server, Datadog, Egencia, Workday and Pluralsight.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/protocols/saml/saml-apps/cisco-webex">Cisco WebEx SAML Configuration</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/protocols/saml/saml-apps/datadog">Datadog SAML Configuration</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/protocols/saml/saml-apps/freshdesk">Freshdesk SAML Configuration</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/protocols/saml/saml-apps/heroku-sso">Configuring SSO with Heroku</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/protocols/saml/saml-apps/litmos">Litmos SAML Configuration</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/protocols/saml/saml-apps/sprout-video">Sprout Video SAML Configuration</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2>Identity Providers</h2>
+<p> How to configure Auth0 to use other Identity Providers.</p>
+<ul class="topic-links">
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/protocols/saml/identity-providers/okta">How to configure Okta as an identity provider</a>
+    <p>
+      DESC
+    </p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/protocols/saml/identity-providers/onelogin">How to configure OneLogin as an identity provider</a>
+    <p>
+      DESC
+    </p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/protocols/saml/identity-providers/ping7">How to configure PingFederate 7 as an identity provider</a>
+    <p>
+      DESC
+    </p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/protocols/saml/identity-providers/salesforce">How to configure Auth0 to use SalesForce as an identity provider</a>
+    <p>
+      DESC
+    </p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/protocols/saml/identity-providers/siteminder">How to configure SiteMinder as an identity provider</a>
+    <p>
+      DESC
+    </p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/protocols/saml/identity-providers/ssocircle">SAML SSO with SSOCircle as an Identity Provider</a>
+    <p>
+      DESC
     </p>
   </li>
 </ul>

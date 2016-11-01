@@ -3,7 +3,7 @@ url: /saml-sp-generic
 description: How to configure Auth0 to serve as a Service Provider in a SAML federation.
 ---
 
-# Auth0 as ServiceProvider
+# Auth0 as Service Provider
 
 These instructions explain how to configure Auth0 to serve as a Service Provider in a SAML federation.
 
@@ -172,7 +172,7 @@ We currently support the following algorithms for processing XML Digital Signatu
   * 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha512'
 
 * Digest
-  
+
   * 'http://www.w3.org/2000/09/xmldsig#sha1'
   * 'http://www.w3.org/2001/04/xmlenc#sha256'
   * 'http://www.w3.org/2001/04/xmlenc#sha512'
