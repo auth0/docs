@@ -5,7 +5,7 @@ description: Installation, usage, and configuration options guide for Guardian f
 ---
 
 # Guardian for Android
-Guardian for Android is the Software Development Kit that allows developers to integrate their native Android apps with Guardian functionality, providing easy and secure access to multifactor authentication with push notifications.
+The Guardian for Android Software Development Kit allows developers to integrate their native Android apps with Guardian functionality, providing easy and secure access to multifactor authentication with push notifications.
 
 Get started using Guardian for Android below, or, if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Guardian for Android.
 
@@ -29,11 +29,12 @@ After adding your Gradle dependency, make sure to remember to sync your project 
 
 To enable Guardian Push Notifications for your users, go to the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
 
+![](/media/articles/mfa/guardian-dashboard.png)
+
 ## Using the SDK
 
 
-`Guardian` is the core of the SDK. You'll need to create an instance of this class for your specific
-tenant/url.
+`Guardian` is the core of the SDK. You'll need to create an instance of this class for your specific tenant/url.
 
 ```java
 Uri url = Uri.parse("https://tenant.guardian.auth0.com/");
@@ -53,18 +54,12 @@ Guardian guardian = new Guardian.Builder()
         .build();
 ```
 
-That's all you need to setup your own instance of `Guardian`
 
 ### Enroll
 
-An enrollment is a link between the second factor and an Auth0 account. When an account is enrolled
-you'll need the enrollment data to provide the second factor required to verify the
-identity.
+The link between the second factor (an instance of your app on a device) and an Auth0 account is referred to as an enrollment.
 
-You can create an enrolment using the guardian instance you just created.
-First you'll need to obtain the enrollment info by scanning the Guardian QR code, and then you use
-the `enroll` method like this:
-
+You can create an enrollment using the `Guardian.enroll` function. Obtain the enrollment information by scanning the Guardian QR code, and then use it to enroll the account:
 ```java
 Uri enrollmentUriFromQr = ...; // the URI obtained from a Guardian QR code
 
@@ -73,7 +68,7 @@ Enrollment enrollment = guardian
         .execute();
 ```
 
-or you can also execute the request in a background thread
+Alternatively, you can execute the request in a background thread:
 
 ```java
 guardian
@@ -94,15 +89,11 @@ guardian
 The `deviceName` and `gcmToken` are data that you must provide. The `deviceName` is the name that
 you want for the enrollment. It will be displayed to the user when the second factor is required.
 
-The GCM token is the token for Google's GCM push notification service. In case your app is not yet
-using GCM or you're not familiar with it, you should check their
-[docs](https://developers.google.com/cloud-messaging/android/client#sample-register).
+The GCM token is the token for Google's GCM push notification service. See the [docs](https://developers.google.com/cloud-messaging/android/client#sample-register) for more information about the GCM token.
 
 ### Unenroll
 
-If you want to delete an enrollment in order to disable MFA, you can make the
-following request:
-
+To disable multifactor authentication you can delete the enrollment:
 ```java
 guardian
         .delete(enrollment)
@@ -111,21 +102,16 @@ guardian
 
 ### Allow a login request
 
-Once you have the enrollment in place, you will receive a GCM push notification every time the user
-has to validate his identity with MFA.
+Once you have the enrollment in place, you will receive a GCM push notification every time the user needs multifactor authentication.
 
-Guardian provides a method to parse the `Bundle` received from GCM and return a `Notification`
-instance ready to be used.
+Guardian provides a method to parse the `Bundle` received from GCM and return a `Notification` instance ready to be used.
 
 ```java
 // at the GCM listener you receive a Bundle
 Notification notification = Guardian.parseNotification(bundle);
 ```
 
-Once you have the notification instance, you can easily allow the authentication request by using
-the `allow` method. You'll also need the enrollment that you obtained previously.
-In case you have more than one enrollment, you'll have to find the one that has the same id as the
-notification (you can get the enrollment id with `getEnrollmentId()`.
+Once you have the notification instance, you can easily approve the authentication request by using the `allow` method. You'll also need the enrollment that you obtained previously. If there are multiple enrollments, be sure to use the one that has the same `id` as the notification (the `enrollmentId` property).
 
 ```java
 guardian
@@ -135,8 +121,7 @@ guardian
 
 ### Reject a login request
 
-To deny an authentication request just call `reject` instead. You can also send a reject reason if
-you want. The reject reason will be available in the guardian logs.
+To deny an authentication request, use `reject` instead. You can optionally add a reason for the rejection, which will be available in the guardian logs.
 
 ```java
 guardian
