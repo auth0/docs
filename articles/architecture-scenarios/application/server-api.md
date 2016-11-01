@@ -8,7 +8,7 @@ description: Explains the architecture scenario with server to server communicat
 
 # Server + API
 
-In this scenario we will build a Timesheet API for a fictitious company named ABC Inc. The API is meant to allow various clients (for example, mobile applications, SPAs, cron jobs) to add timesheet entries for an employee or a contractor.
+In this scenario we will build a Timesheet API for a fictitious company named ABC Inc. The API will allow to add timesheet entries for an employee or a contractor.
 
 We will also be building a cron job which will process timesheet entries from an external system to the centralized timesheet database using the API.
 
@@ -38,13 +38,7 @@ __Table of Contents__
 
 ## The Premise
 
-ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. Most of the employees work from the company's main office, but there are some teams that work remotely. Additionally, some employees frequently travel to customer locations and work from mobile devices.
-
-All employees and external contractors are required to fill in their timesheets every week using spreadsheets. The current system is inefficient and the company decided that they need to move to a better and more automated solution.
-
-The company evaluated several of the available timesheets application and concluded that it would be more cost-effective to build their own in-house solution, since they have fairly unique requirements which are not available in other timesheet applications. The ultimate aim is to allow employees and contractors to capture timesheets via a Web Application and also mobile applications for iOS and Android.
-
-ABC Inc's contractors use an external tool to track their timesheets. A Cron job will be developed which will read the timesheet entries from this external system, and automatically upload those to the timesheet application.
+ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. All employees and external contractors are required to fill in their timesheets every week. For this purpose, they built a timesheets application, a scenario we covered in [Single Sign-On for Regular Web Apps](/architecture-scenarios/application/web-app-sso). The internal employees use this web app to fill in their timesheets but some of the external contractors already use another tool to track their timesheets. Hence a solution to avoid the double work is required. It was decided to build a cron job which will read the timesheet entries from this external system, and automatically upload those to ABC's backend using an API.
 
 ### Goals & Requirements
 
@@ -75,7 +69,7 @@ It is quite common for access tokens to be implemented as [JSON Web Tokens](/jwt
 :::
 
 ::: panel-info What are Scopes?
-Each access token may include a list of the permissions that have been granted to the client. When a client authenticates with Auth0, it will specify the list of scopes (or permissions) it is requesting. If those scopes are authorized, then the access token will contain a list of authorized scopes. 
+Each access token may include a list of the permissions that have been granted to the client. When a client authenticates with Auth0, it will specify the list of scopes (or permissions) it is requesting. If those scopes are authorized, then the access token will contain a list of authorized scopes.
 
 For example, the timesheet API may accept four different levels of authorization: reading timesheets (scope `read:timesheets`), creating timesheets (scope `create:timesheets`), deleting timesheets (scope `delete:timesheets`) and approving timesheets (scope `approve:timesheets`).
 
