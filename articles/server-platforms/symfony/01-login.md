@@ -120,6 +120,8 @@ Notice that we need to identify the user provided selected in step 6 both in the
 
 ### 8. Triggering login manually or integrating the Auth0Lock
 
+Set the following in `app/resources/views/base.html.twig`:
+
 ${lockSDK}
 
 ### Troubleshooting
