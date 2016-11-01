@@ -39,6 +39,9 @@ articles:
       - title: "WS-Fed"
         url: "/protocols/ws-fed"
 
+      - title: "LDAP"
+        url: "/protocols/ldap"
+
   - title: "Lock & Auth0.js"
     url: "/libraries/lock"
     children:
