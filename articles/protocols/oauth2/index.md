@@ -68,10 +68,10 @@ We will now have a more detailed look on how the protocol works. As we will see 
 
 The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/html/rfc6749) defines four grant types.
 
-- **Authorization Code**
-- **Implicit**
-- **Resource Owner Password Credentials**
-- **Client Credentials**
+- **Authorization Code**: used by Web Apps executing on a server.
+- **Implicit**: used by JavaScript-centric apps (SPAs) executing on the user's browser.
+- **Resource Owner Password Credentials**: used by trusted apps.
+- **Client Credentials**: used for machine-to-machine communication.
 
 The specification also provides an extensibility mechanism for defining additional types.
 
