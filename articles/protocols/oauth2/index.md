@@ -21,6 +21,10 @@ The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/htm
 
 - **Authorization Server**: the server that authenticates the Resource Owner, and issues access tokens after getting proper authorization. In this case, Auth0.
 
+## Access Token
+
+TO-DO
+
 ## Protocol Flow
 
 We will now have a more detailed look on how the protocol works. As we will see in a while, OAuth has many "flavors" (actually called authorization grant types) that you can use. For now we will have a more generic look into the flow.
@@ -43,10 +47,10 @@ We will now have a more detailed look on how the protocol works. As we will see 
 
 The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/html/rfc6749) defines four grant types.
 
-- Authorization Code
-- Implicit
-- Resource Owner Password Credentials
-- Client Credentials
+- **Authorization Code**
+- **Implicit**
+- **Resource Owner Password Credentials**
+- **Client Credentials**
 
 The specification also provides an extensibility mechanism for defining additional types.
 
