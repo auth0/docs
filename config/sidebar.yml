@@ -68,9 +68,6 @@ articles:
     url: "/api-auth"
     children:
 
-      - title: "Overview"
-        url: "/api-auth/overview"
-
       - title: "Which Flow to Use"
         url: "/api-auth/which-oauth-flow-to-use"
 
