@@ -273,15 +273,21 @@ articles:
       - title: "Customizing Your Emails"
         url: "/email/templates"
 
-  - title: "Error Pages"
-    url: "/error-pages/generic"
+  - title: "Hosted Pages"
+    url: "/tutorials/hosted-pages"
     children:
 
-      - title: "Generic Error Pages"
-        url: "/error-pages/generic"
+      - title: "Hosted Login Page"
+        url: "/hosted-pages/login"
 
-      - title: "Custom Error Pages"
-        url: "/error-pages/custom"
+      - title: "Hosted Password Reset Page"
+        url: "/hosted-pages/password-reset"
+
+      - title: "Hosted Guardian MFA Page"
+        url: "/hosted-pages/guardian"
+
+      - title: "Hosted Error Pages"
+        url: "/hosted-pages/error-pages"
 
   - title: "Protocols"
     url: "/protocols"
