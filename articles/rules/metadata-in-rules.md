@@ -256,7 +256,7 @@ Request: `PATCH /api/v2/client/myclientid123` with body:
 
 **Updating `client_metadata` in the dashboard**
 
-Client metadata can also be updated in the dashboard](${manage_url}/#/clients), by going to **Clients**. Then select the settings(the gear icon) of the client you wish to edit.
+Client metadata can also be updated in [the dashboard](${manage_url}/#/clients), by going to **Clients**. Then select the settings(the gear icon) of the client you wish to edit.
 
 Scroll down and click the link **Show Advanced Settings**. Then you will be in the **Application Metadata** section. For the key value, enter the name of the key you wish to edit. Then enter the new value that you want to update. 
 
@@ -388,7 +388,7 @@ This results in the following JSON representation of the user profile details:
 ```
 ### Deleting `client_metadata` properties and values
 
-`client_metadata` keys can be removed by issuing a PATCH, as described above in the [updating `client_metadata` section](#Updating-client_metadata), but supplying a null for the key value. This behavior matches that of the `user_metadata` and `app_metadata` properties in the `PATCH` [/api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) endpoint.
+`client_metadata` keys can be removed by issuing a PATCH, [as described above](#updating-client_metadata), but supplying a null for the key value. This behavior matches that of the `user_metadata` and `app_metadata` properties in the `PATCH` [/api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) endpoint.
 
 **Deleting`client_metadata` properties and values in the dashboard**
 
