@@ -7,7 +7,11 @@ budicon: 345
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-nodejs-webapp-sample',
-  path: '05-Linking-Accounts'
+  path: '05-Linking-Accounts',
+  requirements: [
+    'NodeJS 4.3 or superior',
+    'Express 4.11'
+  ]
 }) %>
 
 There may be situations where your users want to log in with multiple accounts that they own. In these cases, you may want to link these accounts together so that they are all reflected in the user's Auth0 profile. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.

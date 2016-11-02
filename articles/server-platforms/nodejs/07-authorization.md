@@ -7,7 +7,11 @@ budicon: 500
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-nodejs-webapp-sample',
-  path: '07-Authorization'
+  path: '07-Authorization',
+  requirements: [
+    'NodeJS 4.3 or superior',
+    'Express 4.11'
+  ]
 }) %>
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in the token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider supplies this type of information. Fortunately, Auth0 has an alternative, which is to create a rule for assigning different roles to different users.
