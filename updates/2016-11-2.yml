@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Redirecting Users After Login"
+    tags:
+      - redirect
+      - callback url
+    description: |
+       A [new document](/tutorials/redirecting-users) was created on how to handle returning users after authentication.

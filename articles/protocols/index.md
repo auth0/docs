@@ -31,7 +31,7 @@ https://${account.namespace}/authorize/?
 
 `connection` is the only parameter that is Auth0 specific. The rest you will find in the spec. Its purpose is to instruct Auth0 where to send the user to authenticate. If you omit it, the user will be redirected to a hosted login page.
 
-> A note on `state`. This is an optional parameter, but we __strongly__ recommend you use it as it mitigates [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
+> A note on `state`. This is an optional parameter, but we __strongly__ recommend you use it as it mitigates CSRF attacks. [Click here to learn more.](/protocols/oauth-state)
 
 The `redirect_uri` __must__ match what is defined in your [settings](${manage_url}/#/settings) page. `http://localhost` is a valid address and Auth0 allows you to enter many addresses simultaneously.
 
