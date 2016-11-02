@@ -966,7 +966,7 @@
   },
   {
     "from": "/oauth-web-protocol",
-    "to": "/protocols/oauth-web-protocol"
+    "to": "/protocols/oauth2/oauth-web-protocol"
   },
   {
     "from": "/oauth-implicit-protocol",
