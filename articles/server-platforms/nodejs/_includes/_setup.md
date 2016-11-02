@@ -1,6 +1,4 @@
-## Configure Callback URLs
-
-<%= include('../_includes/_callback-url-introduction') %>
+<%= include('../../_includes/_callback_url') %>
 
 ## Structure
 

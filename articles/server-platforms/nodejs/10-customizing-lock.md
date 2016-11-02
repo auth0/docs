@@ -7,7 +7,11 @@ budicon: 285
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-nodejs-webapp-sample',
-  path: '10-Customizing-Lock'
+  path: '10-Customizing-Lock',
+  requirements: [
+    'NodeJS 4.3 or superior',
+    'Express 4.11'
+  ]
 }) %>
 
 Using the Lock widget is easy, but it might be necessary to customize the UI for it. There are several options available to do so.

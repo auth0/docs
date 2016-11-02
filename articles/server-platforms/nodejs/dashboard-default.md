@@ -7,10 +7,12 @@ description: This tutorial demonstrates how to add authentication to a Node.js a
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-nodejs-webapp-sample',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'NodeJS 4.3 or superior',
+    'Express 4.11'
+  ]
 }) %>
-
-<%= include('_includes/_prerequisite') %>
 
 <%= include('_includes/_setup') %>
 
