@@ -74,13 +74,13 @@ articles:
       - title: "Which Flow to Use"
         url: "/api-auth/which-oauth-flow-to-use"
 
-      - title: "Calling APIs from Server-side Web Apps"
+      - title: "Calling APIs from Server-side Apps"
         url: "/api-auth/grant/authorization-code"
 
       - title: "Calling APIs from Mobile Apps"
         url: "/api-auth/grant/authorization-code-pkce"
 
-      - title: "Calling APIs from Client-side Web Apps"
+      - title: "Calling APIs from Client-side Apps"
         url: "/api-auth/grant/implicit"
 
       - title: "Calling APIs from a Service"
