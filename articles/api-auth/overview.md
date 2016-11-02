@@ -1,6 +1,6 @@
 ---
 title: API Authentication and Authorization
-url: /api-auth
+url: /api-auth/overview
 description: Auth0's API authentication and authorization features allow you to manage the authorization requirements for various scenarios, including user consent, and server-to-server applications.
 ---
 

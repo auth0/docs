@@ -69,21 +69,21 @@ articles:
     children:
 
       - title: "Overview"
-        url: "/api-auth"
+        url: "/api-auth/overview"
 
       - title: "Which Flow to Use"
         url: "/api-auth/which-oauth-flow-to-use"
 
-      - title: "Authorization Code Grant"
+      - title: "Calling APIs from Server-side Web Apps"
         url: "/api-auth/grant/authorization-code"
 
-      - title: "Authorization Code Grant (PKCE)"
+      - title: "Calling APIs from Mobile Apps"
         url: "/api-auth/grant/authorization-code-pkce"
 
-      - title: "Implicit Grant"
+      - title: "Calling APIs from Client-side Web Apps"
         url: "/api-auth/grant/implicit"
 
-      - title: "Client Credentials Grant"
+      - title: "Calling APIs from a Service"
         url: "/api-auth/grant/client-credentials"
 
       - title: "FAQ"
