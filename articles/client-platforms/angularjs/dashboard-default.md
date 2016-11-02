@@ -7,10 +7,13 @@ description: This tutorial demonstrates how to use the Auth0 with Angular 1.x ap
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'Angular 1.5.8'
+  ]
 }) %>
 
-<%= include('_includes/_prerequisite') %>
+<%= include('../../_includes/_callback_url') %>
 
 <%= include('_includes/_dependencies') %>
 
