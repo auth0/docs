@@ -14,6 +14,8 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular 2 to
   ]
 }) %>
 
+<%= include('../../_includes/_callback_url') %>
+
 <%= include('_includes/_dependencies') %>
 
 <%= include('_includes/_login') %>

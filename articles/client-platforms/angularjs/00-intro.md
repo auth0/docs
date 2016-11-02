@@ -17,8 +17,6 @@ Each step in the quickstarts contains a sample project available for download wh
 
 <%= include('../../_includes/_new_app') %>
 
-## Configure Callback URLs
-
-A callback URL is a URL in your application where Auth0 redirects to after the user has authenticated. You can set the callback URL by going to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section of your Auth0 dashboard.
+<%= include('../../_includes/_callback_url') %>
 
 <%= include('_includes/_dependencies') %>
