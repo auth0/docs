@@ -4,7 +4,7 @@ description: How use hosted pages with Auth0
 
 # How to Use Hosted Pages with Auth0
 
-Auth0 provides you the ability to create beautiful hosted pages to which you can redirect to provide functionality for your users. These pages include [Login](#login-page), [Password Reset](#password-reset-page), [Guardian Multifactor](#guardian-multifactor-login-page), and [Error pages](#error-pages).
+Auth0 provides you the ability to create beautiful hosted pages to which you can redirect to provide functionality for your users. These pages include [Login](/hosted-pages/login-page), [Password Reset](/hosted-pages/password-reset-page), [Guardian Multifactor](/hosted-pages/guardian-multifactor-login-page), and [Error pages](/hosted-pages/error-pages).
 
 ## Security Considerations
  

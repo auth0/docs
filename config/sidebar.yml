@@ -274,7 +274,7 @@ articles:
         url: "/email/templates"
 
   - title: "Hosted Pages"
-    url: "/tutorials/hosted-pages"
+    url: "/hosted-pages"
     children:
 
       - title: "Hosted Login Page"
