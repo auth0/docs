@@ -5,7 +5,9 @@ description: Installation, usage, and configuration options guide for Guardian f
 ---
 
 # Guardian for Android
-The Guardian for Android Software Development Kit allows developers to integrate their native Android apps with Guardian functionality, providing easy and secure access to multifactor authentication with push notifications.
+The Guardian for Android Software Development Kit allows developers to create Android apps with Guardian functionality, providing easy and secure access to multifactor authentication with push notifications. For example, this toolkit gives you the power to build a 'white label' version of the Guardian application for your users, using your own look-and-feel.
+
+More information can be found on Guardian [here](/multifactor-authentication/guardian). For general multifactor discussion, read more [here](/multifactor-authentication).
 
 Get started using Guardian for Android below, or, if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Guardian for Android.
 
