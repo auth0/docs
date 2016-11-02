@@ -128,4 +128,4 @@ ${lockSDK}
 
 #### SSL certificate problem: self signed certificate in certificate chain
 
-If there is any issue with CAs database in your computer. Need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem) to c:\cacert.pem for example and point it in php.ini with `openssl.cafile=c:/cacert.pem`.
+If there is any issue with CAs database in your computer. Need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem) to c:\cacert.pem for example, and point it in php.ini with `openssl.cafile=c:/cacert.pem`.
