@@ -23,7 +23,7 @@ Where:
 * `scope`: The scopes which you want to request authorization for. These must be separated by a space.
 * `response_type`: The response type. For this flow, the value must be `code`. This indicates to the Authorization Server that you are performing an Authorization Code flow.
 * `client_id`: Your application's Client ID.
-* `state`: An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks.
+* `state`: An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks, [click here to learn more](/protocols/oauth-state).
 * `redirect_uri`: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The Authorization Code will be available in `code` URL parameter. This URL must be specified as a valid callback URL under the Client Settings of your application.
 
 For example:
