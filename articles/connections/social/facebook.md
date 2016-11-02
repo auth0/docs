@@ -16,10 +16,6 @@ Go to [Facebook Developers](https://developers.facebook.com) and login with your
 
 ![](/media/articles/connections/social/facebook/facebook-1.png)
 
-When asked to select a platform, click **Basic Setup**:
-
-![](/media/articles/connections/social/facebook/facebook-1a.png)
-
 ## 2. Name your application
 
 Provide a **Display Name** and **Contact Email**.
@@ -34,13 +30,17 @@ Complete the **Security Check**.
 
 On the **Product Setup** page that follows, click **Get Started** next to **Facebook Login**:
 
-![](/media/articles/connections/social/facebook/facebook-3.png)
+![Click Get Platform](/media/articles/connections/social/facebook/facebook-3.png)
 
-Scroll down to the **Client OAuth Settings** section and enter the following URL in the **Valid OAuth redirect URIs** field:
+Choose your platform.
+
+![Choose Platform](/media/articles/connections/social/facebook/facebook-3a.png)
+
+On the **Settings** page, scroll down to the **Client OAuth Settings** section and enter the following URL in the **Valid OAuth redirect URIs** field:
 
 `https://${account.namespace}/login/callback`
 
-![](/media/articles/connections/social/facebook/facebook-3a.png)
+![](/media/articles/connections/social/facebook/facebook-3b.png)
 
 Click **Save Changes**.
 
