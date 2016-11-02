@@ -277,6 +277,9 @@ articles:
     url: "/hosted-pages"
     children:
 
+      - title: "Overview"
+        url: "/hosted-pages"
+
       - title: "Hosted Login Page"
         url: "/hosted-pages/login"
 
