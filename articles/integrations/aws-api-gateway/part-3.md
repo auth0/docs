@@ -12,12 +12,10 @@ In this step, you will build a single page, serverless client application using 
 
 For a simple starter app, download this seed project.
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-aws',
-  pkgBranch: 'master',
-  pkgPath: 'examples/api-gateway/client',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'auth0-aws',
+  path: 'examples/api-gateway/client'
 }) %>
 
 Copy the contents of this seed project to a local folder called `pets`, which you will be using for the remainder of this tutorial. Within this folder, update `auth0-variables.js` with your Auth0 Client `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_ID` (this information is available in the [Management Dashboard](${manage_url}/#/clients) for the client in question).

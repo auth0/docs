@@ -13,20 +13,16 @@
 ### Using Auth0 Lock
 
 <% if (language === "objc") { %>
-<%= include('../../_includes/_package', {
-  pkgRepo: 'Mobile-Samples.iOS',
-  pkgBranch: 'master',
-  pkgPath: 'Passwordless-SMS/Lock/ObjC',
-  pkgFilePath: 'Passwordless-SMS/Lock/ObjC/Passwordless-SMS/Info.plist',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'Mobile-Samples.iOS',
+  path: 'Passwordless-SMS/Lock/ObjC'
 }) %>
 <% } else { %>
-<%= include('../../_includes/_package', {
-  pkgRepo: 'Mobile-Samples.iOS',
-  pkgBranch: 'master',
-  pkgPath: 'Passwordless-SMS/Lock/Swift',
-  pkgFilePath: 'Passwordless-SMS/Lock/Swift/Passwordless-SMS/Info.plist',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'Mobile-Samples.iOS',
+  path: 'Passwordless-SMS/Lock/Swift'
 }) %>
 <% } %>
 
