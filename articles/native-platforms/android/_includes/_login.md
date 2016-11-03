@@ -2,6 +2,8 @@
 
 At this point, you're all set to implement the login in any activity you want.
 
+Inside the activity of your project add the following code to the methods indicated below:
+
 First, add the following lines in the `onCreate` method.
 
 ```java
@@ -26,7 +28,7 @@ protected void onDestroy() {
 }
 ```
 
-Third, add the authentication callback, inside your activity.
+Third, add the following lines in the respective methods.
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
