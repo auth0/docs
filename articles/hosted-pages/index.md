@@ -1,5 +1,5 @@
 ---
-description: How use hosted pages with Auth0
+description: Overview of hosted pages with Auth0, and how to use them
 ---
 
 # How to Use Hosted Pages with Auth0
@@ -12,7 +12,7 @@ Using Auth0 hosted pages for your authentication, rather than externally hosting
 
 ## How to Customize Hosted Pages
 
-You can customize your hosted pages from within your [Auth0 Dashboard](https://manage.auth0.com). See the following pages for specific instructions about each type of hosted page:
+You can customize your hosted pages from within your [Auth0 Dashboard](${manage_url}). See the following pages for specific instructions about each type of hosted page:
 
 * [Login Page](/hosted-pages/login)
 * [Password Reset Page](/hosted-pages/password-reset)

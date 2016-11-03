@@ -1,10 +1,14 @@
+---
+description: Guide on how to use the hosted error pages for authorization error events
+---
+
 # Error Pages
 
 ## Generic Error Page
 
 Throughout the authentication process, your users may encounter errors. Auth0 provides you the option of using [custom error pages](/hosted-pages/custom-error-pages), but you may also choose instead to use the generic error page that Auth0 provides to alert the user of said errors.
 
-![](/media/articles/hosted-pages/generic-error-page-settings.png)
+![Hosted Error Page](/media/articles/hosted-pages/error-pages.png)
 
 By going into the Account Settings page of the Management Dashboard, you may customize your Auth0 error page with the following fields:
 
