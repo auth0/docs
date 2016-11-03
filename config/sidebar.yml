@@ -60,7 +60,7 @@ articles:
 
       - title: "Deploy Rules with Bitbucket"
         url: "/extensions/bitbucket-deploy"
-      
+
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
 
@@ -82,6 +82,9 @@ articles:
 
       - title: "Client Credentials Grant"
         url: "/api-auth/grant/client-credentials"
+
+      - title: "Resource Owner Password Grant"
+        url: "/api-auth/grant/password"
 
       - title: "FAQ"
         url: "/api-auth/faq"

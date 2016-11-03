@@ -32,12 +32,11 @@ Using different grants (or flows), these participants will interact to grant Cli
  - Client to Server Applications: [Implicit Grant](/api-auth/grant/implicit)
  - Client to Server Applications: [Authorization Code Grant](/api-auth/grant/authorization-code)
  - Public Client to Server Applications: [Authorization Code Grant with PKCE](/api-auth/grant/authorization-code-pkce)
+ - Highly Trusted Client to Server Applications: [Resource Owner Password Grant](/api-auth/grant/password)
 
 ## Tutorials
 
 See the following tutorial for a step-by-step guide on using Auth0 to implement the OAuth 2.0 authorization framework within your applications to enable the API Authorization scenarios.
-
-<%=include('./_pending-tutorials-notice') %>
 
 #### Dependencies
 

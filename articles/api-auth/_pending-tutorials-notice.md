@@ -1,1 +1,0 @@
-**Note:** At this moment we only have tutorials for the Client Credentials Grant exchange. Tutorials for other grant types are on the making. In the meantime, if you need assistance or more information please contact our [Support Center](https://support.auth0.com).
