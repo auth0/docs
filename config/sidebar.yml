@@ -60,7 +60,7 @@ articles:
 
       - title: "Deploy Rules with Bitbucket"
         url: "/extensions/bitbucket-deploy"
-      
+
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
 
@@ -77,11 +77,14 @@ articles:
       - title: "Authorization Code Grant (PKCE)"
         url: "/api-auth/grant/authorization-code-pkce"
 
+      - title: "Client Credentials Grant"
+        url: "/api-auth/grant/client-credentials"
+
       - title: "Implicit Grant"
         url: "/api-auth/grant/implicit"
 
-      - title: "Client Credentials Grant"
-        url: "/api-auth/grant/client-credentials"
+      - title: "Resource Owner Password Grant"
+        url: "/api-auth/grant/password"
 
       - title: "FAQ"
         url: "/api-auth/faq"
