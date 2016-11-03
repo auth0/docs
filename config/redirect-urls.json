@@ -986,7 +986,7 @@
   },
   {
     "from": "/saml-apps",
-    "to": "/protools/saml-apps"
+    "to": "/protocols/saml-apps"
   },
   {
     "from": "/saml-configuration",
