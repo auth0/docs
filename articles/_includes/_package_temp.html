@@ -19,9 +19,9 @@
   </div>
   <div class="button-area">
     <% if (account.clientId && account.clientId !== 'YOUR_CLIENT_ID') { %>
-    <a href="/package/v2?org=${org}&repo=${repo}&path=${path}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow" target="_blank">Download</a>
+    <a href="/package/v2?org=${org}&repo=${repo}&path=${path}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download</a>
     <% } else { %>
-    <a href="/package/v2?org=${org}&repo=${repo}&path=${path}" class="btn btn-sm btn-success" rel="nofollow" target="_blank">Download</a>
+    <a href="/package/v2?org=${org}&repo=${repo}&path=${path}" class="btn btn-sm btn-success" rel="nofollow" >Download</a>
     <% } %>
     <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/master/${path}" class="github-link" rel="nofollow">Fork on Github</a>
   </div>
