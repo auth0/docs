@@ -77,11 +77,11 @@ articles:
       - title: "Authorization Code Grant (PKCE)"
         url: "/api-auth/grant/authorization-code-pkce"
 
-      - title: "Implicit Grant"
-        url: "/api-auth/grant/implicit"
-
       - title: "Client Credentials Grant"
         url: "/api-auth/grant/client-credentials"
+
+      - title: "Implicit Grant"
+        url: "/api-auth/grant/implicit"
 
       - title: "Resource Owner Password Grant"
         url: "/api-auth/grant/password"

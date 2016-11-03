@@ -5,78 +5,70 @@ description: How to execute a Resource Owner Password Grant
 # Executing the Resource Owner Password Grant
 <%=include('../_region-support') %>
 
-In order to execute an Implicit Grant flow you will need to configure your Client application to send the user to the authorization URL:
+::: panel-danger Warning
+Support for Rules and Refresh Tokens will be available in a future release.
+:::
 
-```text
-https://${account.namespace}/authorize?
-  audience={API_AUDIENCE}&
-  scope={SCOPE}&
-  response_type={RESPONSE_TYPE}&
-  client_id={AUTH0_CLIENT_ID}&
-  redirect_uri={CALLBACK_URL}&
-  state={OPAQUE_VALUE}
+## Configuring your tenant for the Resource Owner Password Grant
+
+The Password Grant relies on a connection capable of authenticating users via username and password. In order to indicate which connection the Password Grant should use you need to set the value of the `default_directory` tenant setting.
+
+1. Open the Management Dashboard and browse to your [Account Settings](${manage_url}/#/account).
+1. Scroll down to the Settings section and locate the "Default Directory" setting.
+1. Enter the name of the connection you would like to use. Keep in mind that only connections capable of authenticating users via username and password can be used (i.e. database connections, AD, LDAP, Windows Azure AD, ADFS)
+
+  ![](/media/articles/api-auth/default-directory-setting.png)
+
+## Executing the flow
+
+In order to execute the flow the client needs to acquire the Resource Owner's credentials, usually this will be through the use of an interactive form. Once the client has the credentials it needs to forward them to Auth0 with a POST to the token endpoint.
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\"}"
+  }
+}
 ```
 
 Where:
 
-* `audience`: The target API for which the Client Application is requesting access on behalf of the user.
-* `scope`: The scopes which you want to request authorization for. These must be separated by a space.
-* `response_type`: The response type. For this flow you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow.
-* `client_id`: Your application's Client ID.
-* `state`: An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks.
-* `redirect_uri`: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your application.
+* `grant_type`: This must be `password`.
+* `username`: Resource Owner's identifier.
+* `password`: Resource Owner's secret.
+* `audience`: API Identifier that the client is requesting access to.
+* `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
 
-For example:
-
-```html
-<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=${account.clientId}&redirect_uri=https://myclientapp.com/callback">
-  Sign In
-</a>
-```
-
-## Extracting the Access Token
-
-After the Authorization Server has redirected back to the Client, you can extract the `access_token` from the hash fragment of the URL:
+The response from `/oauth/token` (if successful) contains an `access_token`, for example:
 
 ```js
-function getParameterByName(name) {
-  var match = RegExp('[#&]' + name + '=([^&]*)').exec(window.location.hash);
-  return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+{
+  "access_token": "eyJz93a...k4laUWw",
+  "token_type": "Bearer"
 }
-
-function getAccessToken() {
-  return getParameterByName('access_token');
-}
-
-function getIdToken() {
-  return getParameterByName('id_token');
-}
-
-$(function () {
-  var access_token = getAccessToken();
-
-  // Optional: an id_token will be returned by Auth0
-  // if your response_type argument contained id_token
-  var id_token = getIdToken();
-
-  // Use the access token to make API calls
-  // ...
-});
 ```
+
+::: panel-info A note about user's claims
+If the client needs the user's claims you can include the scopes `openid profile` to the `scope` value in the POST to the token endpoint. If the audience uses RS256 as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can now send the `access_token` to `https://${account.namespace}/userinfo` to retrieve the user's claims.
+:::
 
 ## Using the Access Token
 
 Once the `access_token` has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
-``` js
-// Use the access token to make API calls
-$('#get-appointments').click(function(e) {
-  e.preventDefault();
-
-  $.ajax({
-    cache: false,
-    url: "http://localhost:7001/api/appointments",
-    headers: { "Authorization": "Bearer " + access_token }
-  });
-});
+```har
+{
+  "method": "GET",
+  "url": "https://someapi.com/api",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer {ACCESS_TOKEN}" }
+  ]
+}
 ```
