@@ -403,7 +403,7 @@ For more information on Lock for CocoaPods, see the [Lock documentation in Cocoa
 ### Related Documentation
 
 <ul>
-<% _.forEach(_.sortBy(cache.find('libraries/lock-ios'), 'toc_title'), function(article) { %>
+<% cache.find('articles/libraries/lock-ios', {sort: 'toc_title'}).forEach(article => { %>
   <% if (article.toc_title) { %>
   <li>
     <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>

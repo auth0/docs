@@ -36,12 +36,12 @@ Auth0 is an identity hub that supports many authentication providers using vario
 
 Auth0 supports the following social providers out of the box. You can also use any [OAuth2 Authorization Server](/connections/social/oauth2).
 
-<% var socialConnections = _.sortBy(cache.find('connections/social'), 'index'); %>
+<% var socialConnections = cache.find('articles/connections/social', {sort: 'index'}); %>
 <%= include('./_connections', { connections: socialConnections }) %>
 
 ## Enterprise
 
-<% var enterpriseConnections = _.sortBy(cache.find('connections/enterprise'), 'index'); %>
+<% var enterpriseConnections = cache.find('articles/connections/enterprise', {sort: 'index'}); %>
 <%= include('./_connections', { connections: enterpriseConnections }) %>
 
 ## Database and Custom Connections
@@ -57,7 +57,7 @@ Full documentation on Passwordless authentication can be found at the links belo
 
 <ul>
 <li><a href="/connections/passwordless">Passwordless Authentication Overview</a></li>
-<% _.forEach(_.sortBy(cache.find('connections/passwordless'), 'connection'), function(article) { %>
+<% cache.find('articles/connections/passwordless', {sort: 'connection'}).forEach(article => { %>
   <% if (article.connection) { %>
     <li>
       <% if (article.public === false) { %>

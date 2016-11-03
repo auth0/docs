@@ -240,7 +240,7 @@ For a full list of Lock's configuration options, check out the [Lock for Android
 ## Additional Documents
 
 <ul>
-<% _.forEach(_.sortBy(articles.findByHash('libraries/lock-android').items, 'toc_title'), function(article) { %>
+<% cache.find('articles/libraries/lock-android', {sort: 'toc_title'}).forEach(article => { %>
   <% if (article.toc_title) { %>
   <li>
     <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>
