@@ -6,14 +6,14 @@ description: Installation, usage, and configuration options guide for Lock for A
 
 # Lock for Android
 
-Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory. You can also use Lock for Android to provide Passwordless authentication using email or SMS. 
+Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory. You can also use Lock for Android to provide Passwordless authentication using email or SMS.
 
 Get started using Lock for Android below, or if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Lock for Android!!
 
 ## Requirements
 
-Android API level 15+ is required in order to use Lock's UI.
-If you intend to create your own UI and just call Auth0 API via the [Auth0.Android library](https://github.com/auth0/Auth0.Android), the minimum required API level is also 15+.
+You need Android API level 15+ to use Lock's UI.
+If you intend to create your own UI and call the Auth0 API via the [Auth0.Android library](https://github.com/auth0/Auth0.Android), the minimum required API level is also 15+.
 
 ## Installation
 
@@ -29,7 +29,7 @@ After adding your Gradle dependency, make sure to remember to sync your project 
 
 ## Dashboard Settings
 
-There are a few settings in your [Auth0 Dashboard](https://manage.auth0.com) that will need to be filled out before we get started. 
+You need to fill in a few settings in your [Auth0 Dashboard](https://manage.auth0.com) before you get started.
 
 ### Callback URL
 
@@ -39,7 +39,7 @@ Head over to your Auth0 Dashboard and go to the client's settings. Add the follo
 https://{YOUR_AUTH0_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
-Be sure to modify the URL to add your Auth0 domain and your app package name, of course!
+Be sure to change the URL to add your Auth0 domain and your app package name of course!
 
 ### Keystores
 
@@ -87,7 +87,7 @@ If you don't add the callback URL to the client settings nor the key hash to the
 
 ## Implementing Lock (Social, Database, Enterprise)
 
-The following instructions discuss implementing Lock for Android. If you specifically are looking to implement Passwordless lock for Android, take a look now at the [Passwordless Authentication with Lock for Android](/libraries/lock-android/passwordless) page.
+The following instructions discuss implementing Lock for Android. If you specifically are looking to implement Passwordless lock for Android, read the [Passwordless Authentication with Lock for Android](/libraries/lock-android/passwordless) page.
 
 ### Configuring AndroidManifest.xml
 
@@ -97,7 +97,7 @@ Add the `android.permission.INTERNET` permission to the Manifest to allow Lock t
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Add LockActivity to your Manifest, replacing the `host` attribute with your `${account.namespace}` domain and the `{YOUR_APP_PACKAGE_NAME}` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
+Add `LockActivity` to your Manifest, replacing the `host` attribute with your `${account.namespace}` domain and the `{YOUR_APP_PACKAGE_NAME}` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
 
 ```xml
 <activity
@@ -122,8 +122,8 @@ Add LockActivity to your Manifest, replacing the `host` attribute with your `${a
 
 #### Some Restrictions
 
-* Make sure the Activity's launchMode is declared as `singleTask` or the result won't come back after the authentication. 
-* Also note that for the time being, `LockActivity` can't be launched calling `startActivityForResult`.
+* Make sure you declare the Activity's `launchMode` as `singleTask` or the result won't come back after the authentication.
+* Also note that for the time being, you can't launch `LockActivity` by calling `startActivityForResult`.
 
 ### Auth0
 
@@ -156,13 +156,13 @@ private LockCallback callback = new AuthenticationCallback() {
  };
 ```
 
-Note that the results of the AuthenticationCallback are in a `credentials` object. This object contains the tokens that you will require for authentication related operations in your app; see the [Tokens documentation](/tokens) for more specifics.
+**Note**: The results of the AuthenticationCallback are in a `credentials` object. This object contains the tokens that you will require for authentication related operations in your app; see the [Tokens documentation](/tokens) for more specifics.
 
 ### Lock.Builder
 
-To create a new `Lock` instance and configure it, you will just use the `Lock.Builder` class. Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options as you desire. After you're done, build the Lock instance and use it to start the LockActivity.
+To create a new `Lock` instance and configure it, use the `Lock.Builder` class. Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options as you need. After you're done, build the Lock instance and use it to start the `LockActivity`.
 
-This is an example of what your Activity should look like:
+This is an example of what your `Activity` should look:
 
 ```java
 public class MainActivity extends Activity {
@@ -202,9 +202,9 @@ public class MainActivity extends Activity {
 }
 ```
 
-Remember to notify the LockActivity when the `OnDestroy` method is called on your Activity, as it helps to keep the Lock state.
+Remember to notify the `LockActivity` when your `Activity` calls the `OnDestroy` method, as it helps to keep the Lock state.
 
-Then, just start LockActivity from inside your Activity
+Then, start `LockActivity` from inside your `Activity`
 
 ```java
 startActivity(lock.newIntent(this));
@@ -218,7 +218,8 @@ For instructions on how to implement Passwordless authentication with Lock for A
 
 ## Proguard
 
-In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock for Android and its dependencies. This can be used in your release builds to avoid some issues when compiling.
+In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock for Android and its dependencies. You can use this in your release builds to avoid issues when compiling.
+
 By default you should at least use the following files:
 * `proguard-okio.pro`
 * `proguard-gson.pro`
@@ -229,7 +230,7 @@ As this library depends on `Auth0.Android`, you should keep the files up to date
 
 ## Lock Configuration
 
-For a full list of Lock's configuration options, check out the [Lock for Android Configuration Reference](/libraries/lock-android/configuration). Also, for users of v1 migrating to v2, check out the [Migration Guide](/libraries/lock-android/migration-guide) to see what options have changed.
+For a full list of Lock's configuration options, check out the [Lock for Android Configuration Reference](/libraries/lock-android/configuration). Also, for users of v1 migrating to v2, read the [Migration Guide](/libraries/lock-android/migration-guide) to see what options have changed.
 
 ## Additional Documents
 
