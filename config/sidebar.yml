@@ -24,24 +24,6 @@ articles:
       - title: Architecture Scenarios
         url: /architecture-scenarios
 
-  - title: "Protocols"
-    url: "/protocols"
-    children:
-      - title: "OAuth 2.0"
-        url: "/protocols/oauth2"
-
-      - title: "OpenID Connect"
-        url: "/protocols/oidc"
-
-      - title: "SAML"
-        url: "/protocols/saml"
-
-      - title: "WS-Fed"
-        url: "/protocols/ws-fed"
-
-      - title: "LDAP"
-        url: "/protocols/ldap"
-
   - title: "Lock & Auth0.js"
     url: "/libraries/lock"
     children:
@@ -282,7 +264,24 @@ articles:
       - title: "Custom Error Pages"
         url: "/error-pages/custom"
 
+  - title: "Protocols"
+    url: "/protocols"
+    children:
+      - title: "OAuth 2.0"
+        url: "/protocols/oauth2"
 
+      - title: "OpenID Connect"
+        url: "/protocols/oidc"
+
+      - title: "SAML"
+        url: "/protocols/saml"
+
+      - title: "WS-Fed"
+        url: "/protocols/ws-fed"
+
+      - title: "LDAP"
+        url: "/protocols/ldap"
+        
   - title: "AD Connector"
     url: "/connector"
     children:
