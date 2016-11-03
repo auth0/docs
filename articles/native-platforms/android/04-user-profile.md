@@ -12,6 +12,7 @@ This tutorial will show you how to use Lock to get the user's profile data in yo
   path: '04-User-Profile',
   requirements: [
     'Android Studio 2.2',
+    'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>
