@@ -397,15 +397,15 @@
   },
   {
     "from": "/okta",
-    "to": "/saml/identity-providers/okta"
+    "to": "/protocols/saml/identity-providers/okta"
   },
   {
     "from": "/onelogin",
-    "to": "/saml/identity-providers/onelogin"
+    "to": "/protocols/saml/identity-providers/onelogin"
   },
   {
     "from": "/ping7",
-    "to": "/saml/identity-providers/ping7"
+    "to": "/protocols/saml/identity-providers/ping7"
   },
   {
     "from": "/passwordless",
@@ -413,11 +413,11 @@
   },
   {
     "from": "/siteminder",
-    "to": "/saml/identity-providers/siteminder"
+    "to": "/protocols/saml/identity-providers/siteminder"
   },
   {
     "from": "/ssocircle",
-    "to": "/saml/identity-providers/ssocircle"
+    "to": "/protocols/saml/identity-providers/ssocircle"
   },
   {
     "from": "/wsfedwebapp-tutorial",
@@ -970,7 +970,11 @@
   },
   {
     "from": "/oauth-implicit-protocol",
-    "to": "/protocols/oauth-implicit-protocol"
+    "to": "/protocols/oauth2/oauth-implicit-protocol"
+  },
+  {
+    "from": "/protocols/oauth-state",
+    "to": "/protocols/oauth2/oauth-state"
   },
   {
     "from": "/metadata/apiv2",
@@ -979,5 +983,37 @@
   {
     "from": "/applications",
     "to": "/clients"
+  },
+  {
+    "from": "/saml-apps",
+    "to": "/protools/saml-apps"
+  },
+  {
+    "from": "/saml-configuration",
+    "to": "/protocols/saml/saml-configuration"
+  },
+  {
+    "from": "/saml-idp-generic",
+    "to": "/protocols/saml/saml-idp-generic"
+  },
+  {
+    "from": "/saml-sp-generic",
+    "to": "/protocols/saml/saml-sp-generic"
+  },
+  {
+    "from": "/saml2webapp-tutorial",
+    "to": "/protocols/saml/saml2webapp-tutorial"
+  },
+  {
+    "from": "/samlp-providers",
+    "to": "/protocols/saml/samlp-providers"
+  },
+  {
+    "from": "/samlp",
+    "to": "/protocols/saml/samlp"
+  },
+  {
+    "from": "/samlsso-auth0-to-auth0",
+    "to": "/protocols/saml/samlsso-auth0-to-auth0"
   }
 ]

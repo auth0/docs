@@ -1,5 +1,4 @@
 ---
-url: /saml-idp-generic
 description: How to configure Auth0 to serve as an Identity Provider in a SAML federation.
 ---
 

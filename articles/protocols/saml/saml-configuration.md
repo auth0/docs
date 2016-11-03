@@ -1,5 +1,4 @@
 ---
-url: /saml-configuration
 title: SAML Configuration in Auth0
 description: This article explains the various configuration options of SAML available with Auth0.
 ---

@@ -1,5 +1,4 @@
 ---
-url: /samlp-providers
 description: List of Identity Provider services known to support the SAML protocol.
 ---
 

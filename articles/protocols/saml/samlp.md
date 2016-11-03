@@ -1,5 +1,4 @@
 ---
-url: /samlp
 title: SAML
 description: SAML Identity Provider Configuration
 ---
@@ -26,9 +25,9 @@ Optionally, assertions can be encrypted. Use this public key to configure the Id
 
 If you want **IdP-Initiated SSO**, please make sure to include the `connection` parameter in the post-back URL: `https://${account.namespace}/login/callback?connection=${connectionName}`
 
-## Metadata 
+## Metadata
 
-Some SAML Identity Providers can accept importing metadata directly with all the required information. You can access the metadata for your connection in Auth0 here: 
+Some SAML Identity Providers can accept importing metadata directly with all the required information. You can access the metadata for your connection in Auth0 here:
 
 ```text
 https://${account.namespace}/samlp/metadata?connection=${connectionName}

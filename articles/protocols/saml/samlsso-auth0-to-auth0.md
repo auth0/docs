@@ -1,5 +1,4 @@
 ---
-url: /samlsso-auth0-to-auth0
 description: Learn how to use SAML SSO with Auth0 as both the Service Provider and Identity Provider, using two Auth0 accounts, allowing you to test your Auth0 SAML without configuring another provider to do so!
 ---
 
