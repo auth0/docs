@@ -50,6 +50,7 @@ Let's see what each attribute means.
 | `auth0.loginCallback` | The URL context path for the login callback endpoint. Should start with `/`. |
 | `auth0.loginRedirectOnSuccess` | The landing page URL context path for a successful authentication. Should start with `/`. |
 | `auth0.loginRedirectOnFail` | The URL context path for the page to redirect to upon failure. Should start with `/`. |
-| `auth0.servletFilterEnabled` | A boolean value that switches having an authentication filter enabled or not. |
+| `auth0.signingAlgorithm` | This is signing algorithm to verify signed JWT token. Use HS256 or RS256. |
+| `auth0.publicKeyPath` | Path location to the public key. Should always be set when using RS256 and is ignored for HS256. |
 
-**NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
+**NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `issuer`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
