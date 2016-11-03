@@ -1,15 +1,19 @@
 ---
-description: Describes the Resource Owner Password Grant.
+description: Describes how to call APIs from highly trusted clients using the Resource Owner Password Grant.
 ---
 
-# API Auth: Resource Owner Password Grant
+# Calling APIs from Highly Trusted Clients
 <%=include('../_region-support') %>
 
-The Resource Owner Password Grant (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an access token an optionally a refresh token. This grant should only be used when there is a high degree of trust between the user and the client and when other authorization flows are not available.
+Highly trusted mobile apps and Client-side web apps can use the **Resource Owner Password Grant** to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is later on sent to the Client and the Authorization Server. It is therefore imperative that the Client is absolutely trusted with this information.
+
+## Overview
+
+The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an access token an optionally a refresh token. This grant should only be used when there is a high degree of trust between the user and the client and when other authorization flows are not available.
 
 This grant type can eliminate the need for the client to store the user credentials for future use, by exchanging the credentials with a long-lived access token or refresh token.
 
-![](/media/articles/api-auth/password-grant.png)
+![Resource Owner Password Grant](/media/articles/api-auth/password-grant.png)
 
  1. The Resource Owner enters the credentials into the client application
  2. The client forwards the Resource Owner's credentials to the Authorization Server
