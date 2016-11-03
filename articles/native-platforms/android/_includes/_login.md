@@ -1,8 +1,6 @@
 ## Implement the Login
 
-At this point, you're all set to implement the login in any activity you want.
-
-First, add the following lines in the `onCreate` method.
+At this point, you're all set to implement the login in any activity you want. Inside the activity, add the `onCreate`, `onDestroy`, and `callback` methods.
 
 ```java
 @Override
@@ -14,8 +12,6 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-Second, add the following lines in the `onDestroy` method.
-
 ```java
 @Override
 protected void onDestroy() {
@@ -25,8 +21,6 @@ protected void onDestroy() {
     lock = null;
 }
 ```
-
-Third, add the authentication callback, inside your activity.
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {

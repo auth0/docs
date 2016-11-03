@@ -10,6 +10,7 @@ description: This tutorial will show you how to integrate Lock v2 in your Androi
   path: '01-Login',
   requirements: [
     'Android Studio 2.2',
+    'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>

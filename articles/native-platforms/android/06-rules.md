@@ -13,6 +13,7 @@ Rules are functions written in JavaScript that are executed in Auth0 as part of 
   path: '06-Rules',
   requirements: [
     'Android Studio 2.2',
+    'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>

@@ -13,6 +13,7 @@ This tutorial demonstrates how to use a previously saved token to authenticate y
   path: '08-Calling-APIs',
   requirements: [
     'Android Studio 2.2',
+    'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>

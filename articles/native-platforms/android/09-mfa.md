@@ -10,6 +10,7 @@ budicon: 243
   path: '09-MFA',
   requirements: [
     'Android Studio 2.2',
+    'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>

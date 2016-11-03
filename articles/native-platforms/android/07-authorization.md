@@ -13,6 +13,7 @@ This step demonstrates how to use Auth0 to create access roles for your users. W
   path: '07-Authorization',
   requirements: [
     'Android Studio 2.2',
+    'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>
