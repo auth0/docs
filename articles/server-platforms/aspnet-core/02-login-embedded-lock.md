@@ -4,17 +4,11 @@ description: This tutorial will show you can host the Lock widget inside your ap
 budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnetcore-sample',
-  pkgBranch: 'master',
-  pkgPath: '02-Login-Embedded-Lock',
-  pkgFilePath: '02-Login-Embedded-Lock/SampleMvcApp/appsettings.json',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnetcore-sample',
+  path: '02-Login-Embedded-Lock'
 }) %>
-
-
 
 ## Background
 

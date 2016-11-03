@@ -4,14 +4,10 @@ description: This tutorial will show you how assign roles to your users, and use
 budicon: 546
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnetcore-sample',
-  pkgBranch: 'master',
-  pkgPath: '08-Authorization',
-  pkgFilePath: '08-Authorization/SampleMvcApp/appsettings.json',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnetcore-sample',
+  path: '08-Authorization'
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/webapp/aspnet-core/07-rules' }) %>
@@ -53,4 +49,4 @@ options.Scope.Add("picture");
 options.Scope.Add("country");
 options.Scope.Add("roles");
 app.UseOpenIdConnectAuthentication(options);
-``` 
+```

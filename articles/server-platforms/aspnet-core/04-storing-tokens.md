@@ -4,17 +4,11 @@ description: This tutorial will show you how store the tokens returned from Auth
 budicon: 280
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnetcore-sample',
-  pkgBranch: 'master',
-  pkgPath: '04-Storing-Tokens',
-  pkgFilePath: '04-Storing-Tokens/SampleMvcApp/appsettings.json',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnetcore-sample',
+  path: '04-Storing-Tokens'
 }) %>
-
-
 
 The OIDC middleware in ASP.NET Core will automatically Decode the ID Token returned from Auth0 and will automatically add the claims contained in the ID Token as claims on the `ClaimsIdentity`.
 
@@ -51,8 +45,8 @@ var options = new OpenIdConnectOptions("Auth0")
     // Set response type to code
     ResponseType = "code",
 
-    // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0 
-    // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard 
+    // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0
+    // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard
     CallbackPath = new PathString("/signin-auth0"),
 
     // Configure the Claims Issuer to be Auth0

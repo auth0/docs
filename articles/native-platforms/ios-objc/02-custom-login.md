@@ -4,20 +4,15 @@ description: This tutorial will teach you how to perform Login and Sign Up by us
 budicon: 448
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* CocoaPods 1.0.0
-* Xcode 7.3 (7D175)
-* Simulator - iPhone 6 - iOS 9.3 (13E230)
-  :::
-
-<%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
-  pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-objc',
-  pkgFilePath: 'iOS/basic-sample-objc/ObjCSample/Info.plist',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'native-mobile-samples',
+  path: 'iOS/basic-sample-objc',
+  requirements: [
+    'CocoaPods 1.0.0 ',
+    'Xcode 7.3 (7D175)',
+    'Simulator - iPhone 6 - iOS 9.3 (13E230)'
+  ]
 }) %>
 
 ### Setting up Auth0

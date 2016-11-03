@@ -4,14 +4,10 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 budicon: 173
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnetcore-sample',
-  pkgBranch: 'master',
-  pkgPath: '07-Rules',
-  pkgFilePath: '07-Rules/SampleMvcApp/appsettings.json',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnetcore-sample',
+  path: '07-Rules'
 }) %>
 
 <%= include('../_includes/_rules-introduction') %>
@@ -98,7 +94,7 @@ options.Scope.Add("email");
 options.Scope.Add("picture");
 options.Scope.Add("country");
 app.UseOpenIdConnectAuthentication(options);
-``` 
+```
 
 ## Run the application
 
