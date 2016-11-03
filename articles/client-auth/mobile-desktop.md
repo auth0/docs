@@ -19,7 +19,7 @@ The OAuth 2.0 Authorization Framework allows for different kinds of authorizatio
 
 The Implicit Grant flow is initiated by redirecting the user in an embedded web browser inside of your application to the Auth0 `/authorize` endpoint. Auth0 will then display the Auth0 Lock dialog, allowing the user to enter their credentials or alternatively sign in with any other configured [Identity Provider](/identityproviders).
 
-After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `id_token` parameter in the hash fragment. This `id_token` is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as Claims - regarding the user, such as the user's name, email address, etc.
+After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `id_token` parameter in the [hash fragment](https://en.wikipedia.org/wiki/Fragment_identifier). The `id_token` is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture etc.
 
 The `id_token` can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
 
@@ -27,7 +27,7 @@ The `id_token` can be decoded to extract the claims and you are free to use thes
 
 ## Registering your Client
 
-The first thing you need to do is to create a new client in Auth0. An Auth0 client maps to your application and allows to use Auth0 for authentication.
+The first thing you need to do is to create a new client in Auth0. An Auth0 client maps to your application and allows it to use Auth0 for authentication.
 
 Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients) menu option on the left. Create a new Client by clicking on the **Create Client** button.
 
@@ -62,9 +62,9 @@ After the user has authenticated, Auth0 will call back to the URL specified in t
 https://${account.namespace}/mobile#id_token=eyJ0...&token_type=Bearer
 ```
 
-The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You can extract both of these values from the URL using basic string manipulation in whatever programming language you are using.
+The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. You can extract both of these values from the URL using basic string manipulation techniques in whatever programming language you are using.
 
-As mentioned, the `id_token` is a JWT, and you will need to decode this token in order to read the claims (i.e. attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
+As mentioned, the `id_token` is a JWT and you will need to decode this token in order to read the claims (i.e. attributes) of the user. The [JWT section of our website](/jwt) contains more information about the structure of a JWT.
 
 You can also refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the `id_token`.
 
@@ -72,7 +72,7 @@ Once the JWT is decoded, you can extract the information about the user from the
 
 ### The `id_token` Payload
 
-An example payload section may look something like this:
+An example payload for an `id_token` may look something like this:
 
 ```json
 {
@@ -94,13 +94,13 @@ The payload above contains the following claims:
 | name | The name of the user which is returned from the Identity Provider. |
 | email | The email address of the user which is returned from the Identity Provider. |
 | picture | The profile picture of the user which is returned from the Identity Provider. |
-| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format {identity provider id}|{unique id in the provider}, e.g. github|1234567890. |
-| iss | From the word _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. This will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| aud | From the word _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. This will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| exp | From the word _expiration_ (time). A number representing a speciﬁc date and time in the format “seconds since epoch” as deﬁned by POSIX6. This claims sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| iat | From _issued at_ (time). A number representing a speciﬁc date and time (in the same format as exp) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format (identity provider)&#124;(unique id in the provider), e.g. github&#124;1234567890. |
+| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued `id_token`, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 
-The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. The **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
+The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an `id_token` issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
 
 ::: panel-info Debugging a JWT
 The [JWT.io website](https://jwt.io) has a handy debugger which will allow you to debug any JSON Web Token. This is useful is you quickly want to decode a JWT to see the information contained in the token.
@@ -108,15 +108,15 @@ The [JWT.io website](https://jwt.io) has a handy debugger which will allow you t
 
 ### Keeping the user logged in
 
-Auth0 will assist you in authenticating a user, but it is up to you to keep track in your application of whether or not a user is logged in. It is suggested that you keep some global variable or a singleton object inside your application which will keep track of whether the user has logged in.
+Auth0 will assist you in authenticating a user, but it is up to you to keep track in your application of whether or not a user is logged in. You can keep a global variable or a singleton object inside your application which will keep track of whether the user has logged in.
 
 You can also use this object to store information about the user (e.g. name, profile image, etc.) and then use those inside of your application to display the user's information or otherwise personalize the user's experience.
 
 ## Examples
 
-### The most basic authentication request
+### A Basic Authentication Request
 
-The following is the simplist request you can make to the `/authorize` endpoint. It will display the Lock screen and allow a user to sign in with any of the configured connections. 
+The following is the most basic request you can make to the `/authorize` endpoint. It will display the Lock screen and allow a user to sign in with any of the configured connections. 
 
 ```text
 https://${account.namespace}/authorize
@@ -125,7 +125,7 @@ https://${account.namespace}/authorize
   &redirect_uri=https://${account.namespace}/mobile
 ```
 
-After the user has authenticated they will be redirected back to the `redirect_uri`:
+After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` and `token_type` passed as parameters in the hash fragment:
 
 ```text
 https://${account.namespace}/mobile
@@ -133,7 +133,7 @@ https://${account.namespace}/mobile
   &token_type=Bearer
 ```
 
-And this is the decoded payload of the `id_token`:
+And this is an example of the decoded payload of the `id_token` which will be returned:
 
 ```json
 {
@@ -145,7 +145,7 @@ And this is the decoded payload of the `id_token`:
 }
 ```
 
-### Requesting a user's name and profile picture
+### Requesting the Name and Profile Picture
 
 You can request a user's name and profile picture by requesting the `name` and `picture` scopes. 
 
@@ -157,7 +157,7 @@ https://${account.namespace}/authorize
   &scope=openid%20name%20picture
 ```
 
-After the user has authenticated they will be redirected back to the `redirect_uri`:
+After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` and `token_type` passed as parameters in the hash fragment:
 
 ```text
 https://${account.namespace}/mobile
@@ -169,7 +169,7 @@ The name and profile picture will be available in the `name` and `picture` claim
 
 ```json
 {
-  "name": "jerrie@j...",
+  "name": "jerrie@...",
   "picture": "https://s.gravatar.com/avatar/6222081fd7dcea7dfb193788d138c457?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fje.png",
   "iss": "https://auth0pnp.auth0.com/",
   "sub": "auth0|581...",
@@ -179,20 +179,20 @@ The name and profile picture will be available in the `name` and `picture` claim
 }
 ```
 
-### Requesting a user sign in with GitHub
+### Requesting a User Log In With GitHub
 
-You can send a user directly to the GitHub login screen by passing the   
+You can send a user directly to the GitHub authentication screen by passing the value of **github** to the `connection` parameter. Note that we also request the `openid`, `name`, `picture` and `email` scopes:
 
 ```text
 https://${account.namespace}/authorize
   ?response_type=token
   &client_id=YOUR_CLIENT_ID
   &redirect_uri=https://${account.namespace}/mobile
-  &scope=openid%20name%20picture
+  &scope=openid%20name%20picture%20email
   &connection=github
 ```
 
-After the user has authenticated they will be redirected back to the `redirect_uri`:
+After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` and `token_type` passed as parameters in the hash fragment:
 
 ```text
 https://${account.namespace}/mobile
@@ -200,12 +200,14 @@ https://${account.namespace}/mobile
   &token_type=Bearer
 ```
 
-Once again the user's name and profile picture will be available in the `name` and `picture` claims of the returned `id_token`:
+The user's name and profile picture and email address will be available in the `name`, `picture` and `email` claims of the returned `id_token`. You will also notice that the `sub` claim contains the User's unique ID returned from GitHub:
 
 ```json
 {
   "name": "Jerrie Pelser",
   "picture": "https://avatars.githubusercontent.com/u/1006420?v=3",
+  "email": "jerrie@...",
+  "email_verified": true,
   "iss": "https://auth0pnp.auth0.com/",
   "sub": "github|100...",
   "aud": "xvt...",
