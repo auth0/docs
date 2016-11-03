@@ -1,12 +1,11 @@
 <div id="package" class="package2" data-swiftype-index="false">
   <div class="info">
     <div class="package-header">Sample Project</div>
-    <!-- <% if (account.userName) { %>
+    <% if (account.userName) { %>
     <p class="configured">Download a sample project configured with your Auth0 API Keys.</p>
     <% } else { %>
     <p>Download a sample project. You will need to login for the sample to be preconfigured.</p>
-    <% } %> -->
-    <p>View the sample project on Github to get started.</p>
+    <% } %>
     <% if (typeof requirements !== 'undefined') { %>
     <div class="package-requirements">
       <div class="package-requirements-header">System Requirements</div>
@@ -19,11 +18,11 @@
     <% } %>
   </div>
   <div class="button-area">
-    <!-- <% if (account.clientId && account.clientId !== 'YOUR_CLIENT_ID') { %>
-    <a href="/package/v2?org=${org}&repo=${repo}&path=${path}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download</a>
+    <% if (account.clientId && account.clientId !== 'YOUR_CLIENT_ID') { %>
+    <a href="/package/v2?org=${org}&repo=${repo}&path=${path}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow" target="_blank">Download</a>
     <% } else { %>
-    <a href="/package/v2?org=${org}&repo=${repo}&path=${path}" class="btn btn-sm btn-success" rel="nofollow">Download</a>
-    <% } %> -->
-    <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/master/${path}" class="btn btn-sm btn-success" rel="nofollow">Fork on Github</a>
+    <a href="/package/v2?org=${org}&repo=${repo}&path=${path}" class="btn btn-sm btn-success" rel="nofollow" target="_blank">Download</a>
+    <% } %>
+    <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/master/${path}" class="github-link" rel="nofollow">Fork on Github</a>
   </div>
 </div>
