@@ -7,14 +7,14 @@ budicon: 173
 
 Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. For more information about Auth0 rules, please refer to [the full documentation](/rules).
 
- <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/06-Rules',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-android-sample',
-  pkgBranch: 'master',
-  pkgPath: '06-Rules',
-  pkgFilePath: '06-Rules/app/src/main/res/values/strings.xml',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-android-sample',
+  path: '06-Rules',
+  requirements: [
+    'Android Studio 2.2',
+    'Emulator - Nexus 5X - Android 6.0'
+  ]
 }) %>
 
 ## Before Starting

@@ -6,14 +6,14 @@ budicon: 280
 
 This tutorial will show you how to use Lock to maintain an active session with Auth0.
 
- <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/03-Session-Handling',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-android-sample',
-  pkgBranch: 'master',
-  pkgPath: '03-Session-Handling',
-  pkgFilePath: '03-Session-Handling/app/src/main/res/values/strings.xml',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-android-sample',
+  path: '03-Session-Handling',
+  requirements: [
+    'Android Studio 2.2',
+    'Emulator - Nexus 5X - Android 6.0'
+  ]
 }) %>
 
 
