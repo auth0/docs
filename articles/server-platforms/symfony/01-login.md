@@ -116,4 +116,4 @@ Notice that we need to identify the user provided selected in step 6 both in the
 
 #### SSL certificate problem: self signed certificate in certificate chain
 
-There is an issue with CAs database on your computer. Need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem) to c:\cacert.pem for example and point it in php.ini with `openssl.cafile=c:/cacert.pem`.
+If there is an issue with CAs database on your computer, you may need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem). To use it on Windows for example, place it in `c:\cacert.pem` and point to it in `php.ini` with `openssl.cafile=c:/cacert.pem`.
