@@ -21,12 +21,6 @@ A brief description:
 - [**Lock**](https://github.com/auth0/Lock.iOS-OSX) is a widget that is easy to present in your app. It contains default templates (that can be customized) for login with email/password, signup, social providers integration, and password recovery.
 - [**Auth0.swift**](https://github.com/auth0/Auth0.swift) is a toolkit that lets you communicate efficiently with many of the basic [Auth0 API](/api/info) functions.
 
-These dependencies are already integrated into each sample project through [Cocoapods](https://cocoapods.org/). We have chosen to use an approach of not git-ignoring them in the samples repo; that way, you don't have to worry about running pod commands— once you've cloned the repo, the samples are ready to be run!
-
-It's recommended that, as a starting point for your project, you download the [seed project](#seed-project) described above, which already includes these dependencies.
-
-Otherwise, if you're starting an empty project on your own, or if you want to add authentication to an existing project of yours, you have to make sure you install them:
-
 #### Carthage
 
 If you are using Carthage, add the following lines to your `Cartfile`:
