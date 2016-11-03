@@ -25,16 +25,19 @@ The following restrictions that apply for the identifier:
 
 **NOTE:** Using your public API endpoint as an identifier is recommended.
 
-The following example uses _"My Sample API"_ as the name and _"https://my-api-uri"_ as the identifier.
+Let's start by creating the Resource Server that will represent your API. The following example uses _"My Sample API"_ as the name and _"https://my-api-uri"_ as the identifier.
 
-`POST` to `${account.namespace}.auth0.com/api/v2/resource-servers` with payload:
-
-```
+```har
 {
-  "name": "My Sample API",
-  "identifier": "https://my-api-urn",
-  "signing_alg": "HS256",
-  "scopes": [{ "value": "sample-scope", "description": "Description for Sample Scope"}]
+  "method": "POST",
+  "url": "https://${account.namespace}.auth0.com/api/v2/resource-servers",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"name\":\"My Sample API\",\"identifier\": \"https://my-api-urn\",\"signing_alg\": \"HS256\",\"scopes\": [{ \"value\": \"sample-scope\", \"description\": \"Description for Sample Scope\"}]}"
+  }
 }
 ```
 
@@ -63,13 +66,17 @@ Response:
 
 Now that the API and the Client are represented in Auth0, you can create a trust relationship between them.
 
-`POST` to `${account.namespace}.auth0.com/api/v2/client-grants` with payload:
-
-```
+```har
 {
-  "client_id": "N99orgWBg8WDHOOfL4p6LXT7wEAliSik",
-  "audience": "https://my-api-urn",
-  "scope": ["sample-scope"]
+  "method": "POST",
+  "url": "https://${account.namespace}.auth0.com/api/v2/client-grants",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"N99orgWBg8WDHOOfL4p6LXT7wEAliSik\",\"audience\": \"https://my-api-urn\",\"scope\":[\"sample-scope\"]}"
+  }
 }
 ```
 
@@ -94,4 +101,4 @@ Next, update your API to parse the token from the request and validate it. You w
 
 Now that all the elements are in place, you can request access tokens for your API from Auth0.
 
-For details on generating access tokens, see: [API Authorization: Asking for Access Tokens](/api-auth#using-the-auth0-dashboard-for-setting-up-an-api-authorization-scenario)
+For details on generating access tokens, see: [API Authorization: Asking for Access Tokens](/api-auth/config/asking-for-access-tokens)

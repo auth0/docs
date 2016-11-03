@@ -5,25 +5,16 @@ description: This tutorial demonstrates how to use the Auth0 Play 2 Scala SDK to
 budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-scala-samples/tree/master/00-Starter-Seed/regular-webapp',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-scala-samples',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed/regular-webapp',
-  pkgFilePath: '00-Starter-Seed/regular-webapp/conf/application.conf',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-scala-samples',
+  path: '00-Starter-Seed',
+  requirements: [
+    'Scala 2.11.7',
+    'Typesafe Activator 1.3.7',
+    'Play framework 2.4.6'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Scala 2.11.7
-* Typesafe Activator 1.3.7
-* Play framework 2.4.6
-:::
-
-
 
 ## Add your Auth0 Configuration Keys
 

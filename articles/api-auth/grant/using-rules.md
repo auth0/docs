@@ -3,7 +3,6 @@ description: Describes using rules with Client Credentials Grants.
 ---
 
 # Using Rules with Client Credentials Grants
-<%=include('../_region-support') %>
 
 You can now add [rules](/rules) into the [client credentials](/api-auth/grant/client-credentials) exchange pipeline where you exchange a `client_id` and `secret` for an `access_token`.
 
@@ -65,7 +64,7 @@ To test your newly-created rule and webtask, make the following `POST` call:
 ```har
 {
   "method": "POST",
-  "url": "https://YOURACCOUNT.auth0.com/oauth/token",
+  "url": "https://${account.namespace}.auth0.com/oauth/token",
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ],

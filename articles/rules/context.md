@@ -8,6 +8,7 @@ When creating [Rules](/rules), the following properties are available for the `c
 
 * `clientID`: the client id of the application the user is logging in to.
 * `clientName`: the name of the application (as defined on the dashboard).
+* `clientMetadata`: is an object, whose keys and values are strings, for holding other client properties.
 * `connection`: the name of the connection used to authenticate the user (e.g.: `twitter` or `some-google-apps-domain`)
 * `connectionStrategy`: the type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), etc.
 * `jwtConfiguration`: an object to configure how Json Web Tokens (JWT) will be generated:

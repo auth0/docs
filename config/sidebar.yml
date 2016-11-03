@@ -83,6 +83,9 @@ articles:
       - title: "Calling APIs from a Service"
         url: "/api-auth/grant/client-credentials"
 
+      - title: "Calling APIs from highly trusted Clients"
+        url: "/api-auth/grant/password"
+
       - title: "FAQ"
         url: "/api-auth/faq"
 

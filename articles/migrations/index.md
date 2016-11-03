@@ -21,7 +21,25 @@ During the grace period, customers are informed via dashboard notifications and 
 If you need help with the migration, create a ticket in our [Support Center](https://support.auth0.com)
 
 ## Current Migrations
-Current migrations are listed below, newest first.
+Current migrations are listed below, newest first. For migrations that have already been enabled see [Past Migrations](#past-migrations).
+
+**There are no current or upcoming migrations**
+
+## Past Migrations
+These are migrations that have already been abled for all customers.
+
+### State Parameter required on redirect from rule
+
+| Severity | Effective Date |
+| --- | --- | --- | --- |
+| High | 2016-11-01 |
+
+When a redirect is done from an Auth0 rule, Auth0 takes care of generating and sending a state parameter in HTTP and Auth0 will check for a valid state parameter when flow returns to the /continue endpoint.  The site to which the redirect goes has to capture the value of the state parameter and return it by adding it as a parameter when returning to the /continue endpoint. 
+
+This is documented [here](/rules/redirect#what-to-do-after-redirecting)
+
+#### Am I affected by the change? 
+You are effected by the change only if you redirect from rules, and do not yet capture and return (to the /continue end point) the state parameter.
 
 ### Delete All Users Endpoint Change
 
@@ -99,7 +117,7 @@ For more information, see: [Emails in Auth0](/email).
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2016-03-22 |  TBD |
+| Medium | 2016-03-22 |  2016-11-01 |
 
 The current password reset flow on Auth0 allows a user to enter their email and a new password. This triggers a confirmation email that is sent to the user asking them to confirm that they requested a password reset. 
 

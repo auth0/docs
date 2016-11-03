@@ -6,14 +6,20 @@ description: How to request tokens for your applications.
 
 To ask Auth0 for tokens for any of your authorized client applications, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
 
-```
+```har
 {
-  audience: "{YOUR_API_IDENTIFIER}",
-  grant_type: "client_credentials",
-  client_id: "{APP_CLIENT_ID}",
-  client_secret: "{APP_CLIENT_SECRET}"
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"{CLIENT_ID}\",\"client_secret\": \"{CLIENT_SECRET}\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+  }
 }
 ```
+
 The response will be a [signed JWT (JSON Web Token)](/jwt#2-body) containing at least the following claims in the body:
 
 ```
@@ -32,7 +38,7 @@ The response will be a [signed JWT (JSON Web Token)](/jwt#2-body) containing at 
 Access tokens will be signed using the signature method configured for the resource server, and must be verified accordingly:
 
 * HS256 (symmetric): signed using the resource server's signing secret
-* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: https://${account.namespace}/.well-known/jwks.json
+* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
 
 For claim verification, use any [recommended JWT library](https://jwt.io/) which validates all the standard claims returned in the token.
 
@@ -46,10 +52,10 @@ To add an authorized app, follow the instructions as described in [API Authoriza
 
 ### Where to Find the IDs
 
-To find the values for the parameters referred to in this sample, go to the [Clients](${manage_url}/#/applications) page in the Dashboard, and select the application you want to use. There you will find these values:
+To find the values for the parameters referred to in this sample, go to the [Clients](${manage_url}/#/clients) page in the Dashboard, and select the application you want to use. There you will find these values:
 
-  * `APP_CLIENT_ID`: This is the value of the **Client ID** field.
-  * `APP_CLIENT_SECRET`: This is the value of the **Client Secret** field.
+  * `CLIENT_ID`: This is the value of the **Client ID** field.
+  * `CLIENT_SECRET`: This is the value of the **Client Secret** field.
 
 Also, go to the [APIs section](${manage_url}/#/apis) of the dashboard and select the API you are working with. There you will find this value:
 

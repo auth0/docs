@@ -29,3 +29,4 @@ articles:
   - 10-customizing-lock
   - 11-sso
   - 12-passwordless
+  - 13-api-authorization

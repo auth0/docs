@@ -97,6 +97,10 @@ The `context` object will be:
 {
   "clientID": "...client_id_of_the_app...",
   "clientName": "my app",
+  "clientMetadata": {
+    "myKey1": "myValue2",
+    "myKey2": "myValue2"
+  }
   "connection": "google-oauth2"
 }
 ```

@@ -7,7 +7,11 @@ budicon: 173
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-nodejs-webapp-sample',
-  path: '06-Rules'
+  path: '06-Rules',
+  requirements: [
+    'NodeJS 4.3 or superior',
+    'Express 4.11'
+  ]
 }) %>
 
 ## Create a Rule

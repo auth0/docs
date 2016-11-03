@@ -10,18 +10,13 @@ You can get started by either downloading the seed project or if you would like 
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-python-web-app',
-  path: '00-Starter-Seed'
+  path: '00-Starter-Seed',
+  requirements: [
+    'Python 2.7, 3.5.1',
+    'Flask 0.10.1 and up',
+    'Requests 2.3.0 and up'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Python 2.7, 3.5.1
-* Flask 0.10.1 and up
-* Requests 2.3.0 and up
-:::
-
-
 
 ## Add the Dependencies
 

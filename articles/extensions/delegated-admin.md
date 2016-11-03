@@ -6,7 +6,7 @@ description: The Delegated Administration extension allows you to expose the Use
 
 The **Delegated Administration** extension allows you to expose the [Users Dashboard](${manage_url}/#/users) to a group of users, without having to provide access to them to the [dashboard](${manage_url}/#/). Instead the [Users Dashboard](${manage_url}/#/users) is exposed as an Auth0 client. Let's see how this is done.
 
-**NOTE**: This extension is currently available only for the public cloud. Extensions are not yet supported in the [appliance](/appliance).
+**NOTE**: This extension is currently available only for the public cloud. It is not yet supported in the [appliance](/appliance).
 
 ## Create A Client
 

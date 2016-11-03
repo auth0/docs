@@ -20,7 +20,7 @@ This tutorial and seed project have been tested with the following:
 * Ember 1.12.0
 * Bower 1.5.3
 * Jquery 1.11.1
-* Ember Simple Auth 0.8.0
+* Ember Simple Auth 1.1.0
 :::
 
 ${include('../\_callback')}
