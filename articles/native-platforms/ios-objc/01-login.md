@@ -5,23 +5,16 @@ description: This tutorial demonstrates how to use the Auth0 iOS Objective-C SDK
 budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
-  pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample',
-  pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ios-objc-sample',
+  path: '01-Login',
+  requirements: [
+    'CocoaPods 0.39.0',
+    'XCode 7.2.1',
+    'Simulator - iOS 9.2 - iPhone 6'
+  ]
 }) %>
-
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* CocoaPods 0.39.0
-* XCode 7.2.1
-* Simulator - iOS 9.2 - iPhone 6
-:::
-
-
 
 ## Initial Setup
 
