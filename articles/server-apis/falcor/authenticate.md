@@ -3,20 +3,14 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 Falcor SDK to add authentication and authorization to your API.
 ---
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'node-auth0',
-  pkgBranch: 'master',
-  pkgPath: 'examples/falcor-api',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'node-auth0',
+  path: 'examples/falcor-api',
+  requirements: [
+    'Node.js 5.6.0'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 5.6.0
-:::
-
-
 
 **Otherwise, Please follow the steps below to configure your existing Falcor app to use it with Auth0.**
 

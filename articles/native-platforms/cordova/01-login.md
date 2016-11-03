@@ -6,23 +6,15 @@ budicon: 448
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
-<%= include('../../_includes/_package', {
-  pkgOrg:'auth0-samples',
-  pkgRepo:'auth0-cordova-samples',
-  githubUrl:'https://github.com/auth0-samples/auth0-cordova-samples/tree/master/00-Starter-Seed/basic-sample',
-  pkgBranch:'master',
-  pkgPath:'00-Starter-Seed/basic-sample',
-  pkgFilePath:'00-Starter-Seed/basic-sample/www/js',
-  pkgType:'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-cordova-samples',
+  path: '00-Starter-Seed/basic-sample',
+  requirements: [
+    'NodeJS 5',
+    'Cordova 5.4 or later'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 5
-* Cordova 5.4 or later
-:::
-
-
 
 ## 1. Setting Up the Callback URL
 

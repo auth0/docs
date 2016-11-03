@@ -4,14 +4,10 @@ description: This tutorial demonstrates how to integrate Auth0 with Ionic to lin
 budicon: 345
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ionic-samples',
-  pkgBranch: 'master',
-  pkgPath: '04-Linking-Accounts',
-  pkgFilePath: '04-Linking-Accounts/www/auth0.variables.js',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ionic-samples',
+  path: '04-Linking-Accounts'
 }) %>
 
 

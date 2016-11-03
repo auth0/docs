@@ -5,21 +5,15 @@ description: This tutorial demonstrates how to use the Auth0 Ruby On Rails SDK t
 budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'omniauth-auth0',
-  pkgBranch: 'master',
-  pkgPath: 'examples/ruby-on-rails-webapp',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'omniauth-auth0',
+  path: 'examples/ruby-on-rails-webapp',
+  requirements: [
+    'Ruby 2.1.8',
+    'Rails 4.2.5.1'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Ruby 2.1.8
-* Rails 4.2.5.1
-:::
-
-
 
 ## Add the Dependencies
 

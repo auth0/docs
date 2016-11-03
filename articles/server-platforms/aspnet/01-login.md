@@ -5,22 +5,15 @@ description: This tutorial demonstrates how to use the Auth0 ASP.NET SDK to add 
 budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-aspnet',
-  pkgBranch: 'master',
-  pkgPath: 'examples/auth0-aspnet-mvc4-sample/',
-  pkgFilePath: 'examples/auth0-aspnet-mvc4-sample/aspnet4-sample1/Web.config',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'auth0-aspnet',
+  path: 'examples/auth0-aspnet-mvc4-sample/',
+  requirements: [
+    'Microsoft Visual Studio 2015',
+    'Auth0-ASPNET v1.4.0'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Microsoft Visual Studio 2015
-* Auth0-ASPNET v1.4.0
-:::
-
-
 
 ## Install Auth0-ASPNET NuGet Package
 

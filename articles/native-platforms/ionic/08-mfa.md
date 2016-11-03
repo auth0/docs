@@ -4,17 +4,11 @@ description: This tutorial demonstrates how to add Multifactor Authentication to
 budicon: 546
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ionic-samples',
-  pkgBranch: 'master',
-  pkgPath: '08-MFA',
-  pkgFilePath: '08-MFA/www/auth0.variables.js',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ionic-samples',
+  path: '08-MFA'
 }) %>
-
-
 
 <%= include('../_includes/_mfa-introduction') %>
 

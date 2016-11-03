@@ -5,14 +5,14 @@ description: Shows how to secure your API using the standard JWT middeware
 budicon: 500
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnetcore-webapi-sample',
-  pkgBranch: 'master',
-  pkgPath: '02-Authentication-HS256',
-  pkgFilePath: '02-Authentication-HS256/appsettings.json',
-  pkgType: 'replace'
+
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnetcore-webapi-sample',
+  path: '02-Authentication-HS256',
+  requirements: [
+    '.NET Core 1.0'
+  ]
 }) %>
 
 Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using HS256.

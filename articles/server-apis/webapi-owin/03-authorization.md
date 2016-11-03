@@ -4,16 +4,11 @@ description: This tutorial will show you how assign roles to your users, and use
 budicon: 500
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnet-owin-webapi-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnet-owin-webapi-sample',
-  pkgBranch: 'master',
-  pkgPath: '03-Authorization/WebApi',
-  pkgFilePath: '03-Authorization/WebApi/WebApi/Web.config',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnet-owin-webapi-sample',
+  path: '03-Authorization/WebApi'
 }) %>
-
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
 

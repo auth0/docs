@@ -3,23 +3,18 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 PHP Symfony SDK to add authentication and authorization to your API.
 ---
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'jwt-auth-bundle',
-  pkgBranch: 'master',
-  pkgPath: 'example',
-  pkgFilePath: 'example/app/config/config.yml',
-  pkgType: 'replace'
+
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'd',
+  path: 'example',
+  requirements: [
+    'PHP 5.3.9',
+    'Symfony 2.8'
+  ]
 }) %>
 
 **Otherwise, please follow the steps below to configure your existing PHP (Symfony) API app to use it with Auth0.**
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* PHP 5.3.9
-* Symfony 2.8
-:::
-
-
 
 This bundle helps you integrate your Symfony WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example of usage [here](https://github.com/auth0/jwt-auth-bundle/tree/master/example)
 

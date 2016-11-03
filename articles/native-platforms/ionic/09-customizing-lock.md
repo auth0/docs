@@ -4,17 +4,11 @@ description: This tutorial demonstrates how to customize the Lock widget
 budicon: 243
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ionic-samples',
-  pkgBranch: 'master',
-  pkgPath: '09-Customizing-Lock',
-  pkgFilePath: '09-Customizing-Lock/www/auth0.variables.js',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ionic-samples',
+  path: '09-Customizing-Lock'
 }) %>
-
-
 
 Using Lock is easy, but you may want to customize your login UI. There are several options available for this.
 

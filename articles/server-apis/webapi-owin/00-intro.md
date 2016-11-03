@@ -4,24 +4,17 @@ name: Introduction to the Quickstart, and configuring environment
 budicon: 715
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnet-owin-webapi-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnet-owin-webapi-sample',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed/WebApi',
-  pkgFilePath: '00-Starter-Seed/WebApi/WebApi/Web.config',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnet-owin-webapi-sample',
+  path: '00-Starter-Seed/WebApi',
+  requirements: [
+    'Microsoft Visual Studio 2015 Update 3',
+    'System.IdentityModel.Tokens.Jwt NuGet Package v4.0.2',
+    'Microsoft.Owin.Security.ActiveDirectory NuGet Package v3.0.1',
+    'Microsoft.Owin.Security.Jwt NuGet Package v3.0.1'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Microsoft Visual Studio 2015 Update 3
-* System.IdentityModel.Tokens.Jwt NuGet Package v4.0.2
-* Microsoft.Owin.Security.ActiveDirectory NuGet Package v3.0.1
-* Microsoft.Owin.Security.Jwt NuGet Package v3.0.1
-:::
 
 This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET (OWIN) Web API.
 

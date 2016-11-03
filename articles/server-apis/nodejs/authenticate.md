@@ -5,22 +5,15 @@ description: This tutorial will show you how to use the Auth0 Node.js Express SD
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'node-auth0',
-  pkgBranch: 'master',
-  pkgPath: 'examples/nodejs-api',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'node-auth0',
+  path: 'examples/nodejs-api',
+  requirements: [
+    'NodeJS 4.3',
+    'Express 4.11'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* NodeJS 4.3
-* Express 4.11
-:::
-
-
 
 **If you have an existing application, please follow the steps below.**
 

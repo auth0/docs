@@ -4,17 +4,11 @@ description: This tutorial will show you how to display get the user's profile a
 budicon: 292
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnetcore-sample',
-  pkgBranch: 'master',
-  pkgPath: '05-User-Profile',
-  pkgFilePath: '05-User-Profile/SampleMvcApp/appsettings.json',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnetcore-sample',
+  path: '05-User-Profile'
 }) %>
-
-
 
 ## Getting the Profile
 
@@ -104,7 +98,7 @@ Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which
 
 A remaining issue is that the `User.Identity.Name` property used in the Navbar snippet above will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user, but hat claim will not be set and the property will therefor be null.
 
-Added to that, none of the user's profile details will be returned in the `id_token` as we a currently only requesting the `openid` scope. Ensure to also request the `name`, `email` and `picture` scopes to ensure that the user's Name, Email address and Profile Image is returned as claims in the `id_token`.  
+Added to that, none of the user's profile details will be returned in the `id_token` as we a currently only requesting the `openid` scope. Ensure to also request the `name`, `email` and `picture` scopes to ensure that the user's Name, Email address and Profile Image is returned as claims in the `id_token`.
 
 Once Auth0 passed back the `name` claim, you will have to retrieve the value of the `name` claim in the `OnTicketReceived` event and add a new claim of type `ClaimTypes.Name` (which resolves to `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`). This will ensure that the user's name is returned when accessing the `User.Identity.Name` property.
 
@@ -125,8 +119,8 @@ var options = new OpenIdConnectOptions("Auth0")
     // Set response type to code
     ResponseType = "code",
 
-    // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0 
-    // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard 
+    // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0
+    // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard
     CallbackPath = new PathString("/signin-auth0"),
 
     // Configure the Claims Issuer to be Auth0

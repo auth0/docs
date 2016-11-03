@@ -5,22 +5,16 @@ description: This tutorial demonstrates how to use the Auth0 React Native Androi
 budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'Mobile-Samples.React',
-  pkgBranch: 'master',
-  pkgPath: 'Classic/Lock',
-  pkgFilePath: 'Classic/Lock/auth0-credentials.js',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'Mobile-Samples.React',
+  path: 'Classic/Lock',
+  requirements: [
+    'NodeJS 6.5.0',
+    'react-native-lock 0.4.0',
+    'rnpm 1.9.0'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 6.5.0
-* react-native-lock 0.4.0
-* rnpm 1.9.0
-:::
-
-
 
 ## Install Lock
 

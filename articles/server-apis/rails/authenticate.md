@@ -3,21 +3,15 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 Ruby on Rails SDK to add authentication and authorization to your API.
 ---
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'ruby-auth0',
-  pkgBranch: 'master',
-  pkgPath: 'examples/ruby-on-rails-api',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'ruby-auth0',
+  path: 'examples/ruby-on-rails-api',
+  requirements: [
+    'Ruby 2.1.8',
+    'Rails 4.2.5.1'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Ruby 2.1.8
-* Rails 4.2.5.1
-:::
-
-
 
 **Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.**
 

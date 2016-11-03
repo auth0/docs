@@ -5,20 +5,16 @@ description: This tutorial will show you how to use the Auth0 Node.js Hapi SDK t
 
 In this tutorial you will learn how to use Auth0 to secure your [Hapi](http://hapijs.com/) API.
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'node-auth0',
-  pkgBranch: 'master',
-  pkgPath: 'examples/hapi-api',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'node-auth0',
+  path: 'examples/hapi-api',
+  requirements: [
+    'Node.js 4.6.0',
+    'Hapi.js 13.5.3',
+    'hapi-auth-jwt 4.0.0'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Node.js 4.6.0
-* Hapi.js 13.5.3
-* hapi-auth-jwt 4.0.0
-:::
 
 ### 1. Add hapi-auth-jwt dependency
 

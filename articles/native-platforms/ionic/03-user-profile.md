@@ -4,16 +4,11 @@ description: This example demonstrates how to display the user's profile
 budicon: 292
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ionic-samples',
-  pkgBranch: 'master',
-  pkgPath: '03-User-Profile',
-  pkgFilePath: '03-User-Profile/www/auth0.variables.js',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ionic-samples',
+  path: '03-User-Profile'
 }) %>
-
 
 
 You can obtain a user's profile from the `getProfile()` method.

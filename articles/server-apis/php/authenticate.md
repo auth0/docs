@@ -3,21 +3,15 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 PHP SDK to add authentication and authorization to your API.
 ---
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-PHP',
-  pkgBranch: 'master',
-  pkgPath: 'examples/basic-api',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0',
+  repo: 'auth0-PHP',
+  path: 'examples/basic-api',
+  requirements: [
+    'PHP 5.6.14',
+    'Composer 1.0-dev'
+  ]
 }) %>
-
-::: panel-info System Requirements​
-This tutorial and seed project have been tested with the following:
-* PHP 5.6.14
-* Composer 1.0-dev
-:::
-
-
 
 **Otherwise, Please follow the steps below to configure your existing PHP app to use it with Auth0.**
 

@@ -6,15 +6,13 @@ description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-laravel-php-web-api',
-  path: '00-Starter-Seed'
+  path: '00-Starter-Seed',
+  requirements: [
+    'Composer 1.0-dev',
+    'PHP 5.6.18',
+    'Laravel 5.1.31'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Composer 1.0-dev
-* PHP 5.6.18
-* Laravel 5.1.31
-:::
 
 ## Laravel Compatibility
 

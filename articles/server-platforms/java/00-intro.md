@@ -20,8 +20,6 @@ __NOTE:__ You can find a listing of all our Java offerings and several sample pr
 
 ## Sample Projects
 
-<%= include('_includes/_prerequisite') %>
-
 There are two options to following along this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) or the samples provided at each page of this quickstart.
 
 The seed is a regular java app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow along the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) and follow along.

@@ -5,24 +5,15 @@ description: This tutorial will show you how to use the Auth0 Phonegap SDK to ad
 budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-cordova-samples',
-  githubUrl: 'https://github.com/auth0-samples/auth0-cordova-samples/tree/master/00-Starter-Seed/phonegap-basic-sample',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed/phonegap-basic-sample',
-  pkgFilePath: '00-Starter-Seed/phonegap-basic-sample/www/js',
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-cordova-samples',
+  path: '00-Starter-Seed/phonegap-basic-sample',
+  requirements: [
+    'NodeJS 4.3',
+    'Phonegap 5.5'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* NodeJS 4.3
-* Phonegap 5.5
-:::
-
-
 
 ### 1. Setting up the callback URL in Auth0
 
