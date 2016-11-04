@@ -169,7 +169,7 @@ The term "client" does not imply any particular implementation characteristics. 
 The main characteristics of a Client in Auth0 are:
 - __Name__: The canonical name of the client. This is used to identify the client at the portal, emails, logs, and more.
 - __Client ID__ (read-only): The unique identifier for the client. This is the ID used in the application when setting up authentication with Auth0. It is an auto-generated alphanumeric string.
-- __Client secret__ (read-only): A base64 encoded string, used to sign and validate tokens which will be used in the different authentication flows. It is auto-generated and it must be kept confidential.
+- __Client secret__ (read-only): A string used to sign and validate tokens which will be used in the different authentication flows. It is auto-generated and it must be kept confidential.
 - __Domain__: The domain name assigned to the Auth0 account. The format of the domain is `{account-name}.auth0.com` or `{account-name}.{location}.auth0.com`, for example `abc.auth0.com`.
 - __Callback URL__: The URL where the user is redirected after they authenticate.
 

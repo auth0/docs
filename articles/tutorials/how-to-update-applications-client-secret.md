@@ -16,11 +16,11 @@ Once you have changed your application's `client_secret` you will need to update
 
 ## How to generate a new client_secret
 
-If your `client_secret` needs to be replaced you will need to generate a new one on your own. It should be a cryptographically strong random string with only base64 characters. There are many ways to do this such as using a library that creates a GUID, a hashing function, etc.
+If your `client_secret` needs to be replaced you will need to generate a new one on your own. It should be a cryptographically strong random string. There are many ways to do this such as using a library that creates a GUID, a hashing function, etc.
 
 Here is an example of a command you can use to generate a random string:
 
-`dd if=/dev/random bs=48 count=1 | base64`
+`dd if=/dev/random bs=48 count=1`
 
 ## Using the Management API to set the new client_secret
 

@@ -135,7 +135,6 @@ Open the `index.html` file located in the root of your `pets` folder to add all 
 <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
 <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
 <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
-<script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
 <script type="text/javascript" src="lib/url-template/url-template.js"></script>
 <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
 <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>

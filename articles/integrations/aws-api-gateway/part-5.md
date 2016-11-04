@@ -90,8 +90,7 @@ Take a look at the logic in `index.js`. You will see logic around line 60 that v
 
 ```js
  if(event.authToken) {
-     var secretBuf = new Buffer(secret, 'base64');
-     jwt.verify(event.authToken, secretBuf, function(err, decoded) {
+     jwt.verify(event.authToken, secret, function(err, decoded) {
          if(err) {
            console.log('failed jwt verify: ', err, 'auth: ', event.authToken);
            context.done('authorization failure', null);

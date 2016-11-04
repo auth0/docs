@@ -18,7 +18,7 @@ You can add step-up authentication to your app with Auth0's extensible multifact
 
 There are three core concepts used when addressing authentication level at Auth0.
 
-* `acr` is used to specify the 'class' of authentication that was performed on the current session. Look to [Authentication Context Class Reference](http://openid.net/specs/openid-connect-core-1_0.html) page for more detail and specific policies. Currently, Auth0 utilizes the 'Multi-Factor Authentication' policy, `http://schemas.openid.net/pape/policies/2007/06/multi-factor`. 
+* `acr` is used to specify the 'class' of authentication that was performed on the current session. Look to [Authentication Context Class Reference](http://openid.net/specs/openid-connect-core-1_0.html) page for more detail and specific policies. Currently, Auth0 utilizes the 'Multi-Factor Authentication' policy, `http://schemas.openid.net/pape/policies/2007/06/multi-factor`.
 
 * `amr` is the list of methods that were used to authenticate the current session. See the [Authentication Methods References](http://openid.net/specs/openid-connect-core-1_0.html) page for more details.
 
@@ -51,7 +51,7 @@ lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 To confirm that a session has had multifactor authentication, the id_token can be checked for its `acr` and `amr` claims.
 ```js
-var decoded = jwt.verify(id_token, new Buffer(AUTH0_CLIENT_SECRET, 'base64'), { algorithms: ['HS256'] });
+var decoded = jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] });
 
 // Confirm that the acr has the expected value
 if (Array.isArray(decoded.amr) && decoded.amr.indexOf('mfa') >= 0) {
