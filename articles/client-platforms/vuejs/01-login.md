@@ -7,13 +7,11 @@ budicon: 448
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-vue-samples',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'Vue.js 1.0.16'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Vue.js 1.0.16
-:::
 
 ${include('../\_callback')}
 

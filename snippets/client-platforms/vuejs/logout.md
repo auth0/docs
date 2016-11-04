@@ -1,17 +1,14 @@
 ```js
 // app.js
 
-...
-
 methods: {
   logout() {
-    var self = this;
+    // To log out, we just need to remove the token and profile
+    // from local storage
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
-    self.authenticated = false;      
-  }
+    this.authenticated = false;
+  },
 }
-
-...
 
 ```
