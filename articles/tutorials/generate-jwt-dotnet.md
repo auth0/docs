@@ -50,10 +50,7 @@ private byte[] Base64UrlDecode(string arg)
     return Convert.FromBase64String(s); // Standard base64 decoder
 }
 
-private long ToUnixTime(DateTime dateTime)
-{
-    return (int)(dateTime.ToUniversalTime().Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-}
+private long ToUnixTime(DateTime dateTime) => new DateTimeOffset(dateTime).ToUnixTimeSeconds();
 ```
 
 > The code for the `Base64UrlDecode` method was taken from the [following StackOverflow answer](http://stackoverflow.com/a/33113820)
