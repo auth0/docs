@@ -31,14 +31,39 @@ articles:
       - title: "Overview"
         url: "/client-auth"
 
-      - title: "Authentication for Mobile & Desktop Apps"
+      - title: "For Mobile & Desktop Apps"
         url: "/client-auth/mobile-desktop"
 
-      - title: "Authentication for Server-side Web Apps"
+      - title: "For Server-side Web Apps"
         url: "/client-auth/server-side-web"
 
-      - title: "Authentication for Client-side Web Apps"
+      - title: "For Client-side Web Apps"
         url: "/client-auth/client-side-web"
+
+  - title: "API Authorization"
+    url: "/api-auth"
+    children:
+
+      - title: "Which Flow to Use"
+        url: "/api-auth/which-oauth-flow-to-use"
+
+      - title: "From Server-side Apps"
+        url: "/api-auth/grant/authorization-code"
+
+      - title: "From Mobile Apps"
+        url: "/api-auth/grant/authorization-code-pkce"
+
+      - title: "From Client-side Apps"
+        url: "/api-auth/grant/implicit"
+
+      - title: "From a Service"
+        url: "/api-auth/grant/client-credentials"
+
+      - title: "From Trusted Clients"
+        url: "/api-auth/grant/password"
+
+      - title: "FAQ"
+        url: "/api-auth/faq"
 
   - title: "Lock & Auth0.js"
     url: "/libraries/lock"
@@ -76,31 +101,6 @@ articles:
 
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
-
-  - title: "API Authorization"
-    url: "/api-auth"
-    children:
-
-      - title: "Which Flow to Use"
-        url: "/api-auth/which-oauth-flow-to-use"
-
-      - title: "Calling APIs from Server-side Apps"
-        url: "/api-auth/grant/authorization-code"
-
-      - title: "Calling APIs from Mobile Apps"
-        url: "/api-auth/grant/authorization-code-pkce"
-
-      - title: "Calling APIs from Client-side Apps"
-        url: "/api-auth/grant/implicit"
-
-      - title: "Calling APIs from a Service"
-        url: "/api-auth/grant/client-credentials"
-
-      - title: "Calling APIs from Trusted Clients"
-        url: "/api-auth/grant/password"
-
-      - title: "FAQ"
-        url: "/api-auth/faq"
 
   - title: "Extensions"
     url: "/extensions"
@@ -309,7 +309,7 @@ articles:
 
       - title: "LDAP"
         url: "/protocols/ldap"
-        
+
   - title: "AD Connector"
     url: "/connector"
     children:
