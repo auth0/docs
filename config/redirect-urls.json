@@ -1015,5 +1015,18 @@
   {
     "from": "/samlsso-auth0-to-auth0",
     "to": "/protocols/saml/samlsso-auth0-to-auth0"
+  },
+  {
+    "from": "/error-pages",
+    "to": "/hosted-pages/error-pages"
+  },
+  {
+    "from": "/error-pages/custom",
+    "to": "/hosted-pages/custom-error-pages"
+  },
+  {
+    "from": "/error-pages/generic",
+    "to": "/hosted-pages/error-pages"
   }
+
 ]

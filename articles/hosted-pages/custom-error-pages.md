@@ -16,7 +16,7 @@ To get to the error page settings:
 2.  Click on your user name/icon
 3.  Choose "Account Settings" in the menu the pops open.
 
-![](/media/articles/error-pages/account-settings.png)
+![Account Settings](/media/articles/error-pages/account-settings.png)
 
 ### The Auth0 Default Error Page
 
@@ -27,7 +27,7 @@ You can choose to display to your users the default Auth0 error page. This page 
 -  Support Email: the email address for your Support team;
 -  Support URL: the URL of your Support team's webpage.
 
-![](/media/articles/error-pages/error-page-settings.png)
+![Error Page Settings](/media/articles/error-pages/error-page-settings.png)
 
 ### Customized Error Pages
 
@@ -44,7 +44,7 @@ To redirect users to a custom error page:
 2.  Select the option "redirect users to your own error page."
 3.  Provide the URL of the error page you would like your users to see.
 
-![](/media/articles/error-pages/redirect-error-page.png)
+![Error Page Redirect Option](/media/articles/error-pages/redirect-error-page.png)
 
 ## Customizing Error Pages via the Management API
 
