@@ -23,7 +23,12 @@ After the user has authenticated, Auth0 will redirect the browser back to the **
 
 The `id_token` can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
 
-!! ADD SOME DIAGRAM HERE :) 
+![](/media/articles/client-auth/mobile-desktop/mobile-desktop-flow.png)
+
+1. The Client initiates the flow and redirects the user to the Authorization Server
+2. The user authenticates
+3. The Authorization Server redirects the user to the `redirect_uri` with an `id_token` in the hash fragment
+4. The Client can now extract the token from the hash fragment.  
 
 ## Registering your Client
 
