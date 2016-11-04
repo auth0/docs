@@ -9,7 +9,7 @@ You can use the Auth0 Authentication API to create server-side web applications 
 
 ## Overview
 
-Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the Callback URL, returning an `authorization_code` in the query string parameters of the Callback URL. This `authorization_code` can then be exchanged for an `id_token` which contains the identity of the user. 
+Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the `redirect_uri` (also referred to as the Callback URL), returning an `authorization_code` in the query string parameters of the Callback URL. This `authorization_code` can then be exchanged for an `id_token` which contains the identity of the user. 
 
 ## The Authentication Flow
 
@@ -17,7 +17,7 @@ The OAuth 2.0 Authorization Framework allows for different kinds of authorizatio
 
 The Authorization Code flow is initiated by redirecting the user in the web browser to the Auth0 `/authorize` endpoint. Auth0 will then display the Auth0 Lock dialog, allowing the user to enter their credentials or alternatively sign in with any other configured [Identity Provider](/identityproviders).
 
-After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `authorization_code` parameter in the query string of the Callback URL. This code can then be exchanged for an `id_token` by making a call to the `/oauth/token` endpoint.
+After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `authorization_code` parameter in the query string of the Callback URL. This code can then be exchanged for an `id_token` by making a request to the `/oauth/token` endpoint.
 
 The `id_token` is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture etc. The `id_token` can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
 
@@ -35,7 +35,7 @@ The first thing you need to do is to create a new client in Auth0. An Auth0 clie
 
 Navigate to the [Auth0 Dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients) menu option on the left. Create a new Client by clicking on the **Create Client** button.
 
-The **Create Client** window will open, allowing you to enter the name of your new application. Choose **Single Page Web Applications** as the **Client Type** and click on the **Create** button to create the new client.
+The **Create Client** window will open, allowing you to enter the name of your new application. Choose **Regular Web Applications** as the **Client Type** and click on the **Create** button to create the new client.
 
 ![](/media/articles/client-auth/server-side-web/create-client.png)
 
@@ -55,7 +55,7 @@ This endpoint supports the following query string parameters:
 |:------------------|:---------|
 | response_type | The response type specifies the Grant Type you want to use. This can be either `code` or `token`. For server-side web applications using the Authorization Code Flow this **must be set** to `code` |
 | client_id | The Client ID of the Client you registered in Auth0. This can be found on the **Settings** tab of your Client in the Auth0 Dashboard |
-| scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a claim of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
+| scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
 | redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, e.g. `https://YOUR_APP/callback`<br><br>**Note:** Be sure to add this URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Client inside the [Auth0 Dashboard](${manage_url}) |
 | connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your client.  |
 | state | The state parameter will be sent back should be used for XSRF and contextual information (like a return url) |
@@ -152,7 +152,7 @@ The following is the most basic request you can make to the `/authorize` endpoin
 https://${account.namespace}/authorize
   ?response_type=code
   &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://${account.namespace}/callback
+  &redirect_uri=https://YOUR_APP/callback
 ```
 
 After the user has authenticated, they will be redirected back to the `redirect_uri` with the `access_code` in the `code` query string parameter:
@@ -181,7 +181,7 @@ You can request a user's name and profile picture by requesting the `name` and `
 https://${account.namespace}/authorize
   ?response_type=code
   &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://${account.namespace}/callback
+  &redirect_uri=https://YOUR_APP/callback
   &scope=openid%20name%20picture
 ```
 
@@ -213,7 +213,7 @@ You can send a user directly to the GitHub authentication screen by passing the 
 https://${account.namespace}/authorize
   ?response_type=code
   &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://${account.namespace}/callback
+  &redirect_uri=https://YOUR_APP/callback
   &scope=openid%20name%20picture%20email
   &connection=github
 ```

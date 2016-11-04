@@ -27,6 +27,22 @@ articles:
       - title: Architecture Scenarios
         url: /architecture-scenarios
 
+  - title: "Client Authentication"
+    url: "/client-auth"
+    children:
+
+      - title: "Overview"
+        url: "/client-auth"
+
+      - title: "Authentication for Mobile & Desktop Apps"
+        url: "/client-auth/mobile-desktop"
+
+      - title: "Authentication for Server-side Web Apps"
+        url: "/client-auth/server-side-web"
+
+      - title: "Authentication for Client-side Web Apps"
+        url: "/client-auth/client-side-web"
+
   - title: "Lock & Auth0.js"
     url: "/libraries/lock"
     children:
@@ -63,22 +79,6 @@ articles:
       
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
-
-  - title: "Client Authentication"
-    url: "/client-auth"
-    children:
-
-      - title: "Overview"
-        url: "/client-auth"
-
-      - title: "Authentication for Mobile & Desktop Apps"
-        url: "/client-auth/mobile-desktop"
-
-      - title: "Authentication for Server-side Web Apps"
-        url: "/client-auth/server-side-web"
-
-      - title: "Authentication for Client-side Web Apps"
-        url: "/client-auth/client-side-web"
 
   - title: "API Authorization"
     url: "/api-auth"

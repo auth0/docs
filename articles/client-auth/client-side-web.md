@@ -54,7 +54,7 @@ This endpoint supports the following query string parameters:
 |:------------------|:---------|
 | response_type | The response type specifies the Grant Type you want to use. This can be either `code` or `token`. For client-side web applications using the Implicit Grant Flow this **must be set** to `token` |
 | client_id | The Client ID of the Client you registered in Auth0. This can be found on the **Settings** tab of your Client in the Auth0 Dashboard |
-| scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a claim of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
+| scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
 | redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, e.g. `https://YOUR_APP/callback`<br><br>**Note:** Be sure to add this URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Client inside the [Auth0 Dashboard](${manage_url}) |
 | connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your client.  |
 | state | The state parameter will be sent back should be used for XSRF and contextual information (like a return url) |
@@ -152,7 +152,7 @@ The following is the most basic request you can make to the `/authorize` endpoin
 https://${account.namespace}/authorize
   ?response_type=token
   &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://${account.namespace}/callback
+  &redirect_uri=https://YOUR_APP/callback
 ```
 
 After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` and `token_type` passed as parameters in the hash fragment:
@@ -183,7 +183,7 @@ You can request a user's name and profile picture by requesting the `name` and `
 https://${account.namespace}/authorize
   ?response_type=token
   &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://${account.namespace}/callback
+  &redirect_uri=https://YOUR_APP/callback
   &scope=openid%20name%20picture
 ```
 
@@ -217,7 +217,7 @@ You can send a user directly to the GitHub authentication screen by passing the 
 https://${account.namespace}/authorize
   ?response_type=token
   &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://${account.namespace}/callback
+  &redirect_uri=https://YOUR_APP/callback
   &scope=openid%20name%20picture%20email
   &connection=github
 ```
