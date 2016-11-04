@@ -27,5 +27,5 @@ This flow is not redirect based but is an API call made by the Client to the Aut
 
 - [Setting up a Client Credentials Grant using Auth0's Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
 - [Using Rules with Client Credential Grants](/api-auth/grant/using-rules).
-- [How to ask the Auth0 for an access token for a Resource Server in a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+- [How to ask Auth0 for an access token for a Resource Server in a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 - [Using Auth0's Management API for setting up Resource Servers and Client Grants](/api-auth/config/using-the-management-api)
