@@ -5,9 +5,31 @@ section: apis
 
 # Users Search
 
-You can search registered users using the [dashboard](${manage_url}/#/users) or the [Management APIv2](/api/v2#!/users/get_users) using [query string syntax](/api/management/v2/query-string-syntax) for the `q` field value.
+As an Auth0 admin you can search different fields of your users using [query string syntax](/api/management/v2/query-string-syntax) with the Users section of the Management API.
 
-Only fields in `user_metadata`, `app_metadata` or the [normalized user profile](/user-profile/normalized) are searchable. Note that users have read/write access to the `user_metadata` field but only read-only access to the `app_metadata` field.
+The `user_metadata`, `app_metadata` or the [normalized user profile](/user-profile/normalized) fields are searchable. Note that users have read/write access to the `user_metadata` field but only read-only access to the `app_metadata` field.
+
+Auth0 User Search uses [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
+
+## In the Dashboard
+
+To search user fields in the [dashboard](${manage_url}/#/users), use the **Search By** drop down to select the field for the search. To use [Lucene Query Syntax](/api/management/v2/query-string-syntax) as shown in the [queries below](#example-queries) select **Lucene Syntax (Advanced)**.
+
+![Select Lucene Syntax](/media/articles/api/user-search-lucene.png)
+
+## Using the Management API
+
+### API Explorer
+
+To search users using the [Management APIv2](/api/v2#!/users/get_users) explorer go to the **Users** section and then select **List or search users**. Click on the scopes for your search. Scroll down to the `q` parameter, this field uses [query string syntax](/api/management/v2/query-string-syntax). In this field enter your query string to search users. [See below](#example-queries) for examples of queries you can run from this field.
+
+### Postman 
+
+To search users in [Postman](https://auth0.com/docs/api/postman). First make sure your [enviroment is configured](https://auth0.com/docs/api/postman#configuring-the-postman-environment). Then select the **Management API** as the enviroment you want to work in. For searching users, the API method is `GET ${account.namespace}/api/v2/users` which is under **Users** -> **List or search users**.
+
+![Select GET users](/media/articles/api/postman/get-users-postman.png)
+
+Then you can run your queries in the **Body** section and click **Send**. [Click here for more information on Postman requests](https://www.getpostman.com/docs/requests)
 
 ## Exact Matching and Tokenization
 
@@ -45,8 +67,7 @@ The fields which support `raw` subfield queries are as follow:
 * ﻿⁠⁠⁠⁠`nickname﻿⁠⁠⁠⁠`
 
 
-
-## Examples
+## Example Queries
 
 Below are some example queries to illustrate the kinds of queries that are possible using the dashboard or the APIv2. 
 
@@ -63,6 +84,16 @@ Search for all users whose name _contains_ exactly "john":
 Search all users whose name _is_ exactly "john":
 
 `name.raw:"john"`
+
+### Wildcard Matching
+
+Search for all user start with "john"
+
+`name:"john*"`
+
+Search for users that start with "john" and ends with "smith"
+
+`name:"john*smith"`
 
 ### Search by email
 
