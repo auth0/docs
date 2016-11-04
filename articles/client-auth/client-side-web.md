@@ -9,7 +9,7 @@ The Auth0 OAuth 2.0 authentication endpoints support Client-side Web Application
 
 ## Overview
 
-Auth0 exposes an OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your JavaScript application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the Callback URL, returning the `id_token` in the hash fragment of the request.
+Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your JavaScript application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the Callback URL, returning the `id_token` in the hash fragment of the request.
 
 ## The Authentication Flow
 
