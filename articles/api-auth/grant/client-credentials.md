@@ -1,12 +1,16 @@
 ---
-description: Describes the Authentication API Client Credentials Grant.
+description: Describes how to call APIs from server processes using the Client Credentials Grant.
 ---
 
-# API Auth: Client Credentials Grant
+# Calling APIs from a Service
 
-With Client Credentials Grant (defined in [RFC 6749, section 4.4](https://tools.ietf.org/html/rfc6749#section-4.4)) a Client can directly request an `access_token` to the Authorization Server by using its Client Credentials (a Client Id and a Client Secret). Instead of identifying a Resource Owner, this token will represent the Client itself.
+The OAuth 2.0 grant that machine-to-machine interfaces utilize in order to access an API, is the **Client Credentials Grant**.
 
-![](/media/articles/api-auth/client-credentials-grant.png)
+## Overview
+
+With **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://tools.ietf.org/html/rfc6749#section-4.4)) a Client can directly request an `access_token` to the Authorization Server by using its Client Credentials (a Client Id and a Client Secret). Instead of identifying a Resource Owner, this token will represent the Client itself.
+
+![Client Credentials Grant Flow](/media/articles/api-auth/client-credentials-grant.png)
 
  1. The Client authenticates with the Authorization Server using its Client Id and Client Secret
  2. The Authorization Server validates this information and returns an `access_token`

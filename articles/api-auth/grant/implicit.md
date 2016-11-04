@@ -1,13 +1,17 @@
 ---
-description: Describes the Authentication API Implicit Grant.
+description: Describes how to call APIs from client-side web apps using the Implicit Grant.
 ---
 
-# API Auth: Implicit Grant
+# Calling APIs from Client-side Web Apps
 <%=include('../_region-support') %>
 
-The Implicit Grant (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is also a redirect-based flow, similar to the Authorization Code Grant, but the main difference is that all of the interactions with the Authorization Server happen through the User Agent (this includes receiving the access token). After receiving the `access_token`, the User Agent will expose this to the Client, allowing it to call the Resource Server on behalf of the Resource Owner.
+The OAuth 2.0 grant that Client-side web apps utilize in order to access an API, is the **Implicit Grant**.
 
-![](/media/articles/api-auth/implicit-grant.png)
+## Overview
+
+The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is also a redirect-based flow, similar to the Authorization Code Grant, but the main difference is that all of the interactions with the Authorization Server happen through the User Agent (this includes receiving the access token). After receiving the `access_token`, the User Agent will expose this to the Client, allowing it to call the Resource Server on behalf of the Resource Owner.
+
+![Implicit Grant](/media/articles/api-auth/implicit-grant.png)
 
  1. The Client initiates the flow and redirects the user to the Authorization Server
  2. The user authenticates
