@@ -986,7 +986,7 @@
   },
   {
     "from": "/saml-apps",
-    "to": "/protocols/saml-apps"
+    "to": "/protocols/saml/saml-apps"
   },
   {
     "from": "/saml-configuration",
@@ -1027,6 +1027,49 @@
   {
     "from": "/error-pages/generic",
     "to": "/hosted-pages/error-pages"
+  },
+  {
+    "from": "/saml/identity-providers/okta",
+    "to": "/protocols/saml/identity-providers/okta"
+  },
+  {
+    "from": "/saml/identity-providers/onelogin",
+    "to": "/protocols/saml/identity-providers/onelogin"
+  },
+  {
+    "from": "/saml/identity-providers/ping7",
+    "to": "/protocols/saml/identity-providers/ping7"
+  },
+  {
+    "from": "/saml/identity-providers/salesforce",
+    "to": "/protocols/saml/identity-providers/salesforce"
+  },
+  {
+    "from": "/saml/identity-providers/siteminder",
+    "to": "/protocols/saml/identity-providers/siteminder"
+  },
+  {
+    "from": "/saml-apps/cisco-webex",
+    "to": "/protocols/saml/saml-apps/cisco-webex"
+  },
+  {
+    "from": "/saml-apps/datadog",
+    "to": "/protocols/saml/saml-apps/datadog"
+  },
+  {
+    "from": "/saml-apps/freshdesk",
+    "to": "/protocols/saml/saml-apps/freshdesk"
+  },
+  {
+    "from": "/saml-apps/heroku-sso",
+    "to": "/protocols/saml/saml-apps/heroku"
+  },
+  {
+    "from": "/saml-apps/litmos",
+    "to": "/protocols/saml/saml-apps/litmos"
+  },
+  {
+    "from": "/saml-apps/sprout-video",
+    "to": "/protocols/saml/saml-apps/sprout-video"
   }
-
 ]
