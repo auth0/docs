@@ -62,40 +62,108 @@ If successful the response is another JSON object, with an `id_token`, and `acce
 
 ## Simple CLI example
 
-This simple project shows how the above would work in a nodejs CLI app. It uses the `opn` module to open a browser to perform the authentication. It expects a simple web app running on the ${account.callback} address that can display the `code` so the user can copy, and enter it in the CLI:
+This simple project shows how the above would work in a nodejs CLI app. It uses the `opn` module to open a browser to perform the authentication. It runs a simple express app on `http://localhost:3000`  that picks up  `code` so it can be passed back to CLI in order to exchange `code` for `to
 
-```js
-var opn = require('opn');
-var request = require('request');
-var crypto = require('crypto');
-var readline = require('readline');
-var dotenv = require('dotenv');
+```es6
+'use strict';
+
+const opn = require('opn');
+const request = require('request');
+const crypto = require('crypto');
+const readline = require('readline');
+const dotenv = require('dotenv');
+const express = require('express');
 
 dotenv.load();
 
-var env = {
-  AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
-  AUTH0_URL: process.env.AUTH0_URL,
-  AUTH0_CALLBACK_URL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000',
-  AUTH0_CONNECTION: process.env.AUTH0_CONNECTION || 'Username-Password-Authentication'
+const env = {
+    AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
+    AUTH0_URL: process.env.AUTH0_URL,
+    AUTH0_CALLBACK_URL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000',
+    AUTH0_CONNECTION: process.env.AUTH0_CONNECTION || 'Username-Password-Authentication'
 };
 
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+var app = express();
+var server = app.listen(3000);
 
 //Generate the verifier, and the corresponding challenge
 var verifier = base64url(crypto.randomBytes(32));
 var verifier_challenge = base64url(crypto.createHash('sha256').update(verifier).digest());
 
-var authorize_url = env.AUTH0_URL + '/authorize?response_type=code&scope=openid%20profile&' + 
-                                    'client_id=' + env.AUTH0_CLIENT_ID + 
-                                    '&redirect_uri=' + env.AUTH0_CALLBACK_URL + 
-                                    '&code_challenge=' + verifier_challenge + '&code_challenge_method=S256' +
-                                    '&connection=' + env.AUTH0_CONNECTION;
+var authorize_url = env.AUTH0_URL + '/authorize?response_type=code&scope=openid%20profile&' +
+    'client_id=' + env.AUTH0_CLIENT_ID +
+    '&redirect_uri=' + env.AUTH0_CALLBACK_URL +
+    '&code_challenge=' + verifier_challenge + '&code_challenge_method=S256' +
+    '&connection=' + env.AUTH0_CONNECTION;
+
+
+//function to accept exchanged token, upon authorization success
+var exchangeToken = function (err, status, body) {
+    if (err) {
+         //handle exchange error here
+        console.error(err);
+        process.exit(-1);
+    }
+
+    let accessToken = body.access_token,
+        idToken = body.id_token;
+
+    //do any work you need with acccessToken here
+
+    console.log('Shutting down express server...');
+    server.close(function () {
+        process.exit(0);
+    });
+};
+
+
+// serve out content
+app.get('/', function (req, res) {
+
+    let body = 'Authorization success!\nPlease continue key exchange process within your terminal',
+        requestUrl = req.url,
+        code = null;
+
+    if (!requestUrl.indexOf('code=') == -1) {
+        body = `GET param 'code' not found. \n Please provide 'code' in HTTP request`;
+        res.status(400);
+        res.send(body);
+        return;
+    }
+
+
+    code = requestUrl.substr(requestUrl.indexOf('code=') + 5);
+
+    res.status(200);
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Length', body.length);
+    res.end(body);
+
+    request.post(env.AUTH0_URL + '/oauth/token', {
+        json: {
+            code: code,
+            code_verifier: verifier,
+            client_id: env.AUTH0_CLIENT_ID,
+            grant_type: 'authorization_code',
+            redirect_uri: env.AUTH0_CALLBACK_URL
+        }
+    }, exchangeToken);
+});
+
 
 //Open a browser and initiate the authentication process with Auth0
+//The callback URL is local express server that will pick up code returned
+//from authorize request
+opn(authorize_url);
+
+
+function base64url(b) {
+    return b.toString('base64')
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
+}
+
 //The callback URL is a simple website that simply displays the OAuth2 authz code
 //User will copy the value and then paste it here for the process to complete.
 opn(authorize_url);
