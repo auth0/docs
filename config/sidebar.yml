@@ -144,6 +144,9 @@ articles:
           - title: "Password Strength"
             url: "/connections/database/password-strength"
 
+          - title: "Password Options"
+            url: "/connections/database/password-options"
+
           - title: "Rate Limits"
             url: "/connections/database/rate-limits"
 
