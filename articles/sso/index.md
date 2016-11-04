@@ -57,3 +57,10 @@ There may be up to three different layers of sessions for a user with SSO.
 * A session maintained by an application
 
 See the [Logout URL docs](/logout) for information on terminating the first two sessions listed above.
+
+## Using Social Identity Providers
+
+Single Sign On works with Social Identity Providers given the following conditions:
+
+1. You need to enable "Use Auth0 instead of the IdP to do Single Sign On" when configuring the Client
+2. Your social connection can not be using the developer keys. You will need to register an app in the relevant social provider and then use that Client ID and Client Secret when configuring the connection. You can read more about the [caveats of using the Auth0 developer keys](/connections/social/devkeys#caveats).
