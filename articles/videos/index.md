@@ -13,10 +13,10 @@ Below you will find a selection of videos that will introduce you to various top
   <% if (article.id) { %>
   <div class="media">
     <div class="media-left">
-      <a href="<%- '/docs' + meta.url %>"> <img style="max-width: 128px;" class="media-object" src="https://embed-ssl.wistia.com/deliveries/${article.asset_id}.jpg?image_crop_resized=640x360"> </a>
+      <a href="${article.url}"> <img style="max-width: 128px;" class="media-object" src="https://embed-ssl.wistia.com/deliveries/${article.asset_id}.jpg?image_crop_resized=640x360"> </a>
     </div>
     <div class="media-body">
-    <h4 class="media-heading"><a href="<%- '/docs' + meta.url %>">${article.short_title}</a></h4>
+    <h4 class="media-heading"><a href="${article.url}">${article.short_title}</a></h4>
       <p>${article.description}</p>
     </div>
   </div>

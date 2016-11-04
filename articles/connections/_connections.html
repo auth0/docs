@@ -10,13 +10,13 @@
             <% if (article.public !== false) { %>
             <div class="connection-image-wrap">
               <a href="<%- '/docs' + article.url %>">
-                <img class="img-responsive" src="<%- '/docs' + article.image %>" />
+                <img class="img-responsive" src="<%- article.image %>" />
               </a>
             </div>
             <h3><a href="<%- '/docs' + article.url %>"><%- article.connection %></a></h3>
             <% } else { %>
             <div class="connection-image-wrap">
-              <img class="img-responsive" src="<%- '/docs' + article.image %>" />
+              <img class="img-responsive" src="<%- article.image %>" />
             </div>
             <h3><%- article.connection %></h3>
             <% } %>
