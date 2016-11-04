@@ -100,3 +100,7 @@ This is a sample `description` error report from a `good` policy with `hello1234
       verified":false
     }
 ```
+
+## Password Options
+
+In addition to the Password Strength feature explained here, the Password Policy settings for a database connection also include various Password Options that can further enhance your connection's password policy and ensure that your users have more secure passwords. Take a look at the [Password Options](/connections/database/password-options) documentation for more information.
