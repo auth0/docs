@@ -15,7 +15,7 @@ The steps are quite simple though:
 
 2. Triggering login manually or integrating the Auth0Lock
 
-<%= include('../_includes/_lock-sdk') %>
+<%= include('../../_includes/_lock-sdk') %>
 
 3. After the user authenticates, your app will be called to this endpoint with a `GET`
 

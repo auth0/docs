@@ -1,5 +1,4 @@
 ---
-url: /saml-configuration
 title: SAML Configuration in Auth0
 description: This article explains the various configuration options of SAML available with Auth0.
 ---
@@ -157,18 +156,18 @@ To prepare a connection for this:
 
 ##### Receiving signed SAML Authentication Requests
 
-When Auth0 is acting as a SAML Identity Provider, it can receive signed Authentication requests. with its private key and the receiving Service Provider will validate the signature with the corresponding public key/certificate.  To do this:
+When Auth0 is acting as a SAML Identity Provider, it can receive signed authentication requests, signed with the Service Provider's private key, and use the Service Provider's public key/certificate to validate the signature.
 
 ##### Sending Signed SAML Authentication Responses/Assertions
 
 When Auth0 is acting as a SAML Identity Provider, it will sign responses or assertions with its private key and the receiving Service Provider will validate the signature with the corresponding public key/certificate.  To do this:
 
-* Apps/APIs -> Settings (gear icon) -> Show Advanced Settings
-* Under **"CERTIFICATE"** use **"DOWNLOAD CERTIFICATE"** to obtain the Identity Provider signing certificate.
+* Go to *Dashboard > Clients > Settings (gear icon) > Show Advanced Settings*.
+* Under **Certificates** use **DOWNLOAD CERTIFICATE** to obtain the Identity Provider signing certificate.
 * Send this certificate to the Service Provider for use in validating the signature.
-* Then go to "Addons" -> "SAML2 WEB APP" -> Settings tab
+* Then go to *Clients > Addons > SAML2 WEB APP > Settings* tab.
 * By default the SAML Assertion will be signed.
-* To sign the SAML Response, uncomment the "signResponse" line and set it to "true"
+* To sign the SAML Response, uncomment the `signResponse` line and set it to `true`.
 
 At present, Auth0 will sign either the assertion **or** the response, but not both simultaneously.
 

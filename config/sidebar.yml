@@ -18,9 +18,6 @@ articles:
       - title: "APIs"
         url: "/apis"
 
-      - title: "Protocols"
-        url: "/protocols"
-
       - title: Developer Videos
         url: /videos
 
@@ -270,7 +267,24 @@ articles:
       - title: "Custom Error Pages"
         url: "/error-pages/custom"
 
+  - title: "Protocols"
+    url: "/protocols"
+    children:
+      - title: "OAuth 2.0"
+        url: "/protocols/oauth2"
 
+      - title: "OpenID Connect"
+        url: "/protocols/oidc"
+
+      - title: "SAML"
+        url: "/protocols/saml"
+
+      - title: "WS-Fed"
+        url: "/protocols/ws-fed"
+
+      - title: "LDAP"
+        url: "/protocols/ldap"
+        
   - title: "AD Connector"
     url: "/connector"
     children:

@@ -1,9 +1,8 @@
 ---
-url: /samlsso-auth0-to-auth0
 description: Learn how to use SAML SSO with Auth0 as both the Service Provider and Identity Provider, using two Auth0 accounts, allowing you to test your Auth0 SAML without configuring another provider to do so!
 ---
 
-# SAML SSO with Auth0 as ServiceProvider and as an Identity Provider
+# SAML SSO with Auth0 as Service Provider and as an Identity Provider
 
 This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO), using one Auth0 account (account 1) as a SAML Service Provider(SP), and authenticating users against a second Auth0 account (account 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML account (account 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
 
