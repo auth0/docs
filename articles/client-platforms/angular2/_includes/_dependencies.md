@@ -10,7 +10,7 @@ To integrate your Angular 2 application with Auth0, you will need to add the fol
 
   Or the Auth0 CDN:
 
-  `<script src="http://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>`
+  `<script src="${lock_url}"></script>`
 
 - [angular2-jwt](https://github.com/auth0/angular2-jwt) is a helper library for working with [JWTs](http://jwt.io/introduction) in your Angular 2 applications.
 
