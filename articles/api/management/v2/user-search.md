@@ -21,7 +21,11 @@ To search user fields in the [dashboard](${manage_url}/#/users), use the **Searc
 
 ### API Explorer
 
-To search users using the [Management APIv2](/api/v2#!/users/get_users) explorer go to the **Users** section and then select **List or search users**. Click on the scopes for your search. Scroll down to the `q` parameter, this field uses [query string syntax](/api/management/v2/query-string-syntax). In this field enter your query string to search users. [See below](#example-queries) for examples of queries you can run from this field.
+To search users using the [Management APIv2](/api/v2#!/users/get_users) explorer go to the **Users** section and then select **List or search users**. Click on the scopes for your search. Scroll down to the `q` parameter, this field uses [query string syntax](/api/management/v2/query-string-syntax). 
+
+![q parameter](/media/articles/api/search-users-api.png)
+
+In this field enter your query string to search users. [See below](#example-queries) for examples of queries you can run from this field.
 
 ### Postman 
 
@@ -29,7 +33,9 @@ To search users in [Postman](https://auth0.com/docs/api/postman). First make sur
 
 ![Select GET users](/media/articles/api/postman/get-users-postman.png)
 
-Then you can run your queries in the **Body** section and click **Send**. [Click here for more information on Postman requests](https://www.getpostman.com/docs/requests)
+Then you can run your queries in the **Body** section and click **Send**. 
+
+[Click here for more information on Postman requests](https://www.getpostman.com/docs/requests)
 
 ## Exact Matching and Tokenization
 
@@ -87,11 +93,11 @@ Search all users whose name _is_ exactly "john":
 
 ### Wildcard Matching
 
-Search for all user start with "john"
+Search for all user names starting with "john"
 
 `name:"john*"`
 
-Search for users that start with "john" and ends with "smith"
+Search for user names that start with "john" and end with "smith"
 
 `name:"john*smith"`
 
