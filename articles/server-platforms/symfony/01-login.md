@@ -71,7 +71,7 @@ hwi_oauth:
 
 ## User Provider
 
-You can create a user provider that implements `OAuthAwareUserProviderInterface` and set it up in step 7, or you
+You can create a user provider that implements `OAuthAwareUserProviderInterface` and set it up in the next step, or you
 can use one of the predefined services that `HWIOAuthBundle` provides.
 
 ## Configure the OAuth Firewall
@@ -106,7 +106,7 @@ security:
         - { path: ^/demo/hello, roles: ROLE_OAUTH_USER }
 ```
 
-Notice that we need to identify the user provided selected in step 6 both in the firewall and in the providers.
+Notice that we need to identify the user provided selected in the step before both in the providers and in the firewall.
 
 ## Triggering Login Manually or Integrating Lock
 
