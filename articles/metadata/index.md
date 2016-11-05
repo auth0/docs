@@ -34,7 +34,7 @@ To read metadata, simply access the correct property. For example, if you want t
 ```js
 console.log(user.email); // "jane.doe@example.com"
 console.log(user.user_metadata.hobby); // "surfing"
-console.log(user.app_metadata.hobby); // "full"
+console.log(user.app_metadata.plan); // "full"
 ```
 
 **NOTE**: With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
