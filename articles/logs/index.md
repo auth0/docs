@@ -69,34 +69,56 @@ The following table lists the codes associated with the appropriate log events.
   <tr><td>fd</td><td>Failed Delegation</td></tr>
   <tr><td>fdu</td><td>Failed User Deletion</td></tr>
   <tr><td>feacft</td><td>Failed Exchange</td></tr>
+  <tr><td>feccft</td><td>Failed Exchange</td></tr>
+  <tr><td>flo</td><td>Failed Logout</td></tr>
   <tr><td>fn</td><td>Failed Sending Notification</td></tr>
-  <tr><td>fp</td><td>Failed Login (Incorrect Password)</td></tr>
+  <tr><td>fp</td><td>Failed Login (wrong password)</td></tr>
   <tr><td>fs</td><td>Failed Signup</td></tr>
-  <tr><td>fu</td><td>Failed Login (Invalid Email/Username)</td></tr>
+  <tr><td>fu</td><td>Failed Login (invalid email/username)</td></tr>
+  <tr><td>fui</td><td>Users import</td></tr>
   <tr><td>fv</td><td>Failed Verification Email</td></tr>
   <tr><td>fvr</td><td>Failed Verification Email Request</td></tr>
+  <tr><td>gd_auth_failed</td><td>OTP Auth failed</td></tr>
+  <tr><td>gd_auth_rejected</td><td>OTP Auth rejected</td></tr>
+  <tr><td>gd_auth_succeed</td><td>OTP Auth success</td></tr>
+  <tr><td>gd_module_switch</td><td>Module switch</td></tr>
+  <tr><td>gd_otp_rate_limit_exceed</td><td>Too many failures</td></tr>
+  <tr><td>gd_recovery_failed</td><td>Recovery failed</td></tr>
+  <tr><td>gd_recovery_rate_limit_exceed</td><td>Too many failures</td></tr>
+  <tr><td>gd_recovery_succeed</td><td>Recovery success</td></tr>
+  <tr><td>gd_send_pn</td><td>Push notification sent</td></tr>
+  <tr><td>gd_send_sms</td><td>SMS Sent</td></tr>
+  <tr><td>gd_start_auth</td><td>Second factor started</td></tr>
+  <tr><td>gd_start_enroll</td><td>Enroll started</td></tr>
+  <tr><td>gd_tenant_update</td><td>Guardian tenant update</td></tr>
+  <tr><td>gd_unenroll</td><td>Unenroll device account</td></tr>
+  <tr><td>gd_update_device_account</td><td>Update device account</td></tr>
+  <tr><td>gd_user_delete</td><td>User delete</td></tr>
+  <tr><td>limit_delegation</td><td>Too Many Calls to /delegation</td></tr>
   <tr><td>limit_mu</td><td>Blocked IP Address</td></tr>
-  <tr><td>limit_ui</td><td>Too Many Calls to /userinfo Endpoint</td></tr>
+  <tr><td>limit_ui</td><td>Too Many Calls to /userinfo</td></tr>
   <tr><td>limit_wc</td><td>Blocked Account</td></tr>
   <tr><td>s</td><td>Success Login</td></tr>
-  <tr><td>sapi</td><td>Success API Operation</td></tr>
+  <tr><td>sapi</td><td>API Operation</td></tr>
   <tr><td>sce</td><td>Success Change Email</td></tr>
   <tr><td>scp</td><td>Success Change Password</td></tr>
   <tr><td>scpn</td><td>Success Change Phone Number</td></tr>
   <tr><td>scpr</td><td>Success Change Password Request</td></tr>
   <tr><td>scu</td><td>Success Change Username</td></tr>
-  <tr><td>sdu</td><td>Success User Deletion</td></tr>
   <tr><td>sd</td><td>Success Delegation</td></tr>
+  <tr><td>sdu</td><td>Successful User Deletion</td></tr>
   <tr><td>seacft</td><td>Success Exchange</td></tr>
   <tr><td>seccft</td><td>Success Exchange</td></tr>
+  <tr><td>slo</td><td>Success Logout</td></tr>
   <tr><td>ss</td><td>Success Signup</td></tr>
+  <tr><td>sui</td><td>Users import</td></tr>
   <tr><td>sv</td><td>Success Verification Email</td></tr>
   <tr><td>svr</td><td>Success Verification Email Request</td></tr>
   <tr><td>sys_os_update_end</td><td>Auth0 OS Update Ended</td></tr>
   <tr><td>sys_os_update_start</td><td>Auth0 OS Update Started</td></tr>
   <tr><td>sys_update_end</td><td>Auth0 Update Ended</td></tr>
   <tr><td>sys_update_start</td><td>Auth0 Update Started</td></tr>
-  <tr><td>w</td><td>Warnings During Login</td></tr>
+  <tr><td>w</td><td>Warning</td></tr>
   </tbody>
 </table>
 
