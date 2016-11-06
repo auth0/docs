@@ -174,3 +174,23 @@ Change the `authService` to sign the user in with the supplied `username` and `p
 ```
 
 Notice that in the `authenticateAndGetProfile` method (which is called when a user successfully authenticates) the `profile` and `token` values are saved to the local storage. These values can be retrieved from the local storage at a later stage, for example when you want to display the user's profile information.
+
+Register the `authenticateAndGetProfile` in `app.run.js` so that authentication results get processed after login.
+
+```js
+// app.run.js
+
+(function () {
+
+  'use strict';
+
+  angular
+    .module('app')
+    .run(function (authService) {
+
+      // Process the auth token if it exists and fetch the profile
+      authService.authenticateAndGetProfile();
+    });
+
+})();
+```
