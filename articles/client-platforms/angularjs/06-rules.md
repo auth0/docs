@@ -17,7 +17,7 @@ description: This tutorial demonstrates how to use Auth0 rules to extend what Au
 
 ## Test the Rule
 
-<%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/angularjs/04-user-profile' }) %>
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/angularjs/04-user-profile' }) %>
 
 ```html
 <!-- components/home/home.html -->

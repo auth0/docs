@@ -3,7 +3,7 @@
   var article = cache.get('articles/' + path);
   %>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/docs${article.url}">${article.title}</a>
+    <i class="icon icon-budicon-715"></i><a href="${article.url}">${article.title}</a>
     <p>
       ${article.description}
     </p>

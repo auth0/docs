@@ -228,6 +228,6 @@ On the result page, you will see a tab for **SDK Generation**. Click the tab and
 Save the downloaded zip file for later use.
 
 <%= include('./_stepnav', {
- prev: ["1. Setup", "/docs/integrations/aws-api-gateway/part-1"],
- next: ["3. Building the Client Application", "/docs/integrations/aws-api-gateway/part-3"]
+ prev: ["1. Setup", "/integrations/aws-api-gateway/part-1"],
+ next: ["3. Building the Client Application", "/integrations/aws-api-gateway/part-3"]
 }) %>

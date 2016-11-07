@@ -1,4 +1,4 @@
-<%= include('../../_includes/_callback_url') %>
+<%= include('../../../_includes/_callback_url') %>
 
 ## Structure
 

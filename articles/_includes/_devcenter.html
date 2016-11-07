@@ -5,7 +5,7 @@
 <% _.forEach(meta.tutorials, function(path) {
   var article = cache.get('articles/' + path); %>
   <li>
-    <a class="scenario" href="/docs${article.url}">
+    <a class="scenario" href="${article.url}">
       <div class="content">
         <i class="icon-budicon-754"></i>
         <div class="title">${article.title}</div>
@@ -23,7 +23,7 @@
 <% _.forEach(meta.scenarios, function(path) {
   var article = cache.get('articles/' + path); %>
   <li>
-    <a class="scenario" href="/docs${article.url}">
+    <a class="scenario" href="${article.url}">
       <div class="content">
         <i class="icon-budicon-754"></i>
         <div class="title">${article.title}</div>

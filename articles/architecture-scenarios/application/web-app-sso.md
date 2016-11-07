@@ -1,7 +1,7 @@
 ---
 order: 04
 title: Single Sign-On for Regular Web Apps
-image: /docs/media/articles/architecture-scenarios/web-oidc.png
+image: /media/articles/architecture-scenarios/web-oidc.png
 extract: Traditional web application which needs to authenticate users using OpenID Connect.
 description: Regular web app scenario which needs to authenticate users using OpenID Connect.
 toc: true

@@ -63,7 +63,7 @@ Full documentation on Passwordless authentication can be found at the links belo
       <% if (article.public === false) { %>
         <%- article.connection %>
       <% } else { %>
-        <a href="<%- '/docs' + article.url %>"><%- article.connection %></a>
+        <a href="<%- article.url %>"><%- article.connection %></a>
       <% } %>
     </li>
   <% } %>

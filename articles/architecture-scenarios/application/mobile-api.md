@@ -1,7 +1,7 @@
 ---
 order: 02
 title: Mobile + API
-image: /docs/media/articles/architecture-scenarios/mobile-api.png
+image: /media/articles/architecture-scenarios/mobile-api.png
 extract: Mobile Application “Client” which talks to an API (“Resource Server”). The application will use OpenID Connect with the Authorization Grant Flow (with the PKCE extension) to authenticate users.
 description: Explains the architecture scenario with a mobile application client communicating with an API.
 ---

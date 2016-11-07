@@ -21,4 +21,4 @@ budicon: 243
 
 ## Login
 
-<%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/spa/angular2/01-login' }) %>
+<%= include('../_includes/_mfa-login', { loginlink: '/quickstart/spa/angular2/01-login' }) %>

@@ -7,7 +7,7 @@ url: /tutorials
 <ul>
 <% cache.find('articles/tutorials', {sort: 'title'}).forEach(article => { %>
   <li>
-    <a href="<%- '/docs' + article.url %>"><%- article.title %></a>
+    <a href="<%- article.url %>"><%- article.title %></a>
     <p><%- article.description %></p>
   </li>
 <% }); %>

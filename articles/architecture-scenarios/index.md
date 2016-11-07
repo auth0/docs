@@ -18,7 +18,7 @@ Click on any scenario to get more information.
     <h5>Application Configurations</h5>
     <p>These scenarios describe the different type of technology architectures you application may use, and how Auth0 can help for each of those</p>
     <% cache.find('articles/architecture-scenarios/application', {sort: 'order'}).forEach(article => { %>
-      <a href="<%- '/docs' + article.url %>" class="architecture-scenarios-card">
+      <a href="<%- article.url %>" class="architecture-scenarios-card">
         <article>
           <header class="architecture-scenarios__img">
               <figure><img src="<%- article.image %>"></figure>
@@ -38,7 +38,7 @@ Click on any scenario to get more information.
     <h5>Business Scenarios</h5>
     <p>These scenarios describe the type of businesses which implement Auth0, and how Auth0 can help in each of those business scenarios</p>
     <% cache.find('articles/architecture-scenarios/business', {sort: 'order'}).forEach(article => { %>
-      <a href="<%- '/docs' + article.url %>" class="architecture-scenarios-card">
+      <a href="<%- article.url %>" class="architecture-scenarios-card">
         <article>
           <header class="architecture-scenarios__img">
               <figure><img src="<%- article.image %>"></figure>

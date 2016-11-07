@@ -9,11 +9,11 @@
           <div class="connection-content">
             <% if (article.public !== false) { %>
             <div class="connection-image-wrap">
-              <a href="<%- '/docs' + article.url %>">
+              <a href="<%- article.url %>">
                 <img class="img-responsive" src="<%- article.image %>" />
               </a>
             </div>
-            <h3><a href="<%- '/docs' + article.url %>"><%- article.connection %></a></h3>
+            <h3><a href="<%- article.url %>"><%- article.connection %></a></h3>
             <% } else { %>
             <div class="connection-image-wrap">
               <img class="img-responsive" src="<%- article.image %>" />

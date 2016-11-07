@@ -13,7 +13,7 @@ budicon: 500
   ]
 }) %>
 
-<%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/native/ionic/05-rules' }) %>
+<%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/native/ionic/05-rules' }) %>
 
 ## Create a Rule to Assign Roles
 

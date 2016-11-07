@@ -19,4 +19,4 @@ This tutorial demonstrates how to enable MFA in the Angular 1.x application you 
 
 ## Login
 
-<%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/spa/angularjs/01-login' }) %>
+<%= include('../_includes/_mfa-login', { loginlink: '/quickstart/spa/angularjs/01-login' }) %>

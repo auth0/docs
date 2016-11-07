@@ -22,7 +22,7 @@ It's that easy!
 
 ## Usage
 
-Now, let's get started integrating auth0.js into your project. We'll cover [methods of installation](#installation-options), [how to initialize auth0.js](#initialize), [signup](#signup), [login](#login), [Passwordless](#passwordless-authentication), [accessing user profiles](#user-profile), and more! 
+Now, let's get started integrating auth0.js into your project. We'll cover [methods of installation](#installation-options), [how to initialize auth0.js](#initialize), [signup](#signup), [login](#login), [Passwordless](#passwordless-authentication), [accessing user profiles](#user-profile), and more!
 
 ### Installation Options
 
@@ -453,7 +453,7 @@ var auth0 = new Auth0({
 
 On successful login, Auth0 will redirect to your `callbackURL` with an appended authorization `code` query parameter. Unlike the SPA scenario, this `code` value should get processed completely server-side.
 
-> Note: Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](https://auth0.com/docs/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
+> Note: Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](https://auth0.com/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
 
 #### Popup Mode
 
@@ -636,7 +636,7 @@ var auth0 = new Auth0({
       }else{
         console.log(resp);
       }
-      
+
     });
   });
 ```

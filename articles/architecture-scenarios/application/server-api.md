@@ -1,7 +1,7 @@
 ---
 order: 03
 title: Server Client + API
-image: /docs/media/articles/architecture-scenarios/server-api.png
+image: /media/articles/architecture-scenarios/server-api.png
 extract: Server to server communication where a server “Client” needs to make secure calls to an API (“Resource Server”), but on behalf of the client vs. a user.
 description: Explains the architecture scenario with server to server communication with secure calls to an API (“Resource Server”), but on behalf of the client vs. a user.
 toc: true
