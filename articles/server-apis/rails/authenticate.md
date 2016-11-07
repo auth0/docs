@@ -4,16 +4,14 @@ description: This tutorial will show you how to use the Auth0 Ruby on Rails SDK 
 ---
 
 <%= include('../../_includes/_package2', {
-  org: 'auth0',
-  repo: 'ruby-auth0',
-  path: 'examples/ruby-on-rails-api',
+  org: 'auth0-samples',
+  repo: 'auth0-rubyonrails-api-sample',
+  path: '',
   requirements: [
     'Ruby 2.1.8',
     'Rails 4.2.5.1'
   ]
 }) %>
-
-**Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.**
 
 ### 1. Setup the knock gem
 
