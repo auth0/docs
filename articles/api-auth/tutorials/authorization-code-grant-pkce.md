@@ -103,7 +103,7 @@ https://${account.namespace}/authorize?
     response_type=code&
     client_id={AUTH0_CLIENT_ID}&
     code_challenge={CODE_CHALLENGE}&
-    code_challente_method=S256&
+    code_challenge_method=S256&
     redirect_uri={CALLBACK_URL}
 ```
 
@@ -115,7 +115,7 @@ Where:
 * `client_id`: Your application's Client ID.
 * `redirect_uri`: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The Authorization Code will be available in the hash fragment of this URL (via the `code` param). This URL must be specified as a valid callback URL under the Client Settings of your application.
 * `code_challenge`: Generated challenge from the `code_verifier`.
-* `code_challente_method`: Method used to generate the challenge.
+* `code_challenge_method`: Method used to generate the challenge.
 
 ::: panel-warning A Note About code_challenge_method
 The PKCE spec defines two methods, `S256` and `plain`, the former is used in this example and is the **only** one supported by Auth0 since the latter is discouraged.
