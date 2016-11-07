@@ -40,7 +40,7 @@ There are different values supported for scope:
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
 ::: panel-info Connection Scopes
-The `connection_scopes` parameter will soon be supported for Lock 10, which will enable you to dynamically specify scopes on any connection. This will be useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request the user for extra permissions or attributes.
+There is also a `connectionScopes` configuration option for Lock 10, which allows you to specify scopes on any connection. This will be useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request additional permissions or attributes. Read more about it on the [Lock Configuration Options](/libraries/lock/v10/customization#connectionscopes-object-) page.
 :::
 
 #### Example: retrieve a token with the profile data
