@@ -39,10 +39,6 @@ There are different values supported for scope:
 * `scope: 'openid profile'`: (not recommended): will return all the user attributes in the token. This can cause problems when sending or receiving tokens in URLs (e.g. when using response_type=token) and will likely create an unnecessarily large token(especially with Azure AD which returns a fairly long JWT). Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
-::: panel-info Connection Scopes
-There is also a `connectionScopes` configuration option for Lock 10, which allows you to specify scopes on any connection. This will be useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request additional permissions or attributes. Read more about it on the [Lock Configuration Options](/libraries/lock/v10/customization#connectionscopes-object-) page.
-:::
-
 #### Example: retrieve a token with the profile data
 
 If you want to do this using Lock widget version 10, you should add the `scope` parameter. For example in AngularJS you would use the initializing method of `authProvider`:
@@ -68,4 +64,8 @@ The `state` parameter is an arbitrary state value that will be mantained across 
 [Click here to learn more about how to send/receive the state parameter.](/protocols/oauth-state)
 
 <%= include('../_includes/_lock-toc') %>
+
+::: panel-info Connection Scopes
+There is also a `connectionScopes` configuration option for Lock 10, which allows you to specify scopes on any connection. This will be useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request additional permissions or attributes. Read more about it on the [Lock Configuration Options](/libraries/lock/v10/customization#connectionscopes-object-) page.
+:::
 
