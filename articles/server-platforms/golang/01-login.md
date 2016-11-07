@@ -7,13 +7,11 @@ budicon: 448
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-golang-web-app',
-  path: '01-Login'
+  path: '01-Login',
+	requirements: [
+		'Go 1.5.3 and up'
+	]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Go 1.5.3 and up
-:::
 
 ## Add Dependencies
 
