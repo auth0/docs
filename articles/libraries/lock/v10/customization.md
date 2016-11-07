@@ -749,8 +749,6 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-usernamestyle.png" />
-
 ---
 
 ## Enterprise Options
