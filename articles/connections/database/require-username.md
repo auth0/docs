@@ -18,6 +18,11 @@ For database connections, you can have your users sign in with a username instea
 
 You can see how the this will affect the login screen by clicking on **Try Connection**. You can see that once **Requires Username** is enabled, new users will have to enter a username and their email address to sign up. 
 
-![](/media/articles/connections/database/username-lock.png)
+<img width="300" src="/media/articles/connections/database/lock-usernamestyle.png" />
 
 Users can then login with either their username or their email address. For users who registered while **Requires Username** was disabled, there will be no Username field stored for them and they will have to login with their email.
+
+### Username length limitations
+The default allowed length for usernames is between 1 and 15 characters. However, using the dashboard or via API v2, you can modify the length minimum and maximum (up to a maximum length of 128 characters).
+
+![](/media/articles/connections/database/username-length.png)
