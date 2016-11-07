@@ -24,9 +24,9 @@ You can customize your hosted pages from within your [Auth0 Dashboard](${manage_
 It is possible to use version control software to manage the source code of the hosted pages discussed here. Auth0 provides extensions for the following tools which can be used to manage the source of your hosted pages:
 
 * [GitLab Extension](/extensions/gitlab-deploy#deploy-hosted-pages)
-* [GitHub Extension](/extensions/github-deploy)
-* [BitBucket Extension](/extensions/bitbucket-deploy)
-* [Visual Studio Team Services Extension](/extensions/visual-studio-team-services-deploy)
+* [GitHub Extension](/extensions/github-deploy#deploy-hosted-pages)
+* [BitBucket Extension](/extensions/bitbucket-deploy#deploy-hosted-pages)
+* [Visual Studio Team Services Extension](/extensions/visual-studio-team-services-deploy#deploy-hosted-pages)
 
 You should take a look at the documentation for the extension that you would like to use, to learn the details about implementing source control for your hosted pages with that specific extension. However, in general, deploying hosted pages with these tools will require just a few steps:
 
