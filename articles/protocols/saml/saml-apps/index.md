@@ -193,7 +193,6 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 
 ---
 
-
 ## Egencia
 
 ```json
@@ -214,6 +213,7 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 
 **Callback URL**: `https://www.egencia.com/auth/v1/artifactConsumer`
 
+---
 
 ## Workday
 
@@ -237,6 +237,7 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 
 **Callback URL**: `https://impl.workday.com/<tenant>/fx/home.flex`
 
+---
 
 ## Pluralsight
 
@@ -261,3 +262,32 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 ```
 
 **Callback URL**: `https://prod-pf.pluralsight.com/sp/ACS.saml2`
+
+---
+
+## Eloqua
+
+```
+{ 
+"audience": "<Service Provider Entity Url from within Eloqua>",
+ "recipient": "https://login.eloqua.com/auth/saml2/acs",
+   "mappings": {
+    "user_id": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+    "email": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+    "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+   },
+ "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+ "nameIdentifierProbes": [
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
+        ],
+ "destination": "https://login.eloqua.com/auth/saml2/acs"
+  }
+
+```
+
+**Callback URL**: `https://prod-pf.pluralsight.com/sp/ACS.saml2`
+
+Note: the Service Provider Entity URL copied from within the IDP settings in Eloqua to set the audience restriction within Auth0.
+
+---
+
