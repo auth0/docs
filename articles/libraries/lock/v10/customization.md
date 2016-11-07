@@ -37,7 +37,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 **Authentication setup**:
 - [auth](#auth-object-)
-- [connectionScopes](connectionscopes-object-)
+- [connectionScopes](#connectionscopes-object-)
 - [params](#params-object-)
 - [redirect](#redirect-boolean-)
 - [redirectUrl](#redirecturl-string-)
@@ -416,7 +416,7 @@ var options = {
 
 #### connectionScopes {Object}
 
-Allows to set scopes to be sent to the oauth2/social connection for authentication.
+This option allows you to set scopes to be sent to the oauth2/social connection for authentication.
 
 ```js
 var options = {
@@ -432,12 +432,15 @@ A listing of particular scopes for your social connections can be acquired from 
 
 #### params {Object}
 
-You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo`. [Read here][authparams-link] to learn more about what `authParams` can be set.
+You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo` and also adds a `scope` parameter (which includes the scope, and then the requested attributes). [Read here][authparams-link] to learn more about what `authParams` can be set.
 
 ```js
 var options = {
   auth: {
-    params: {state: "foo"},
+    params: {
+      state: 'foo',
+      scope: 'openid email user_metadata app_metadata picture'
+    },
   }
 };  
 ```
