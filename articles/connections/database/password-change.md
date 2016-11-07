@@ -9,7 +9,7 @@ This information applies to those using *Change Password flow v2*. If you are us
 
 To determine the flow version you are using, navigate to [Dashboard > Account Settings > Advanced](${manage_url}/#/account/advanced) to check if the *Change Password flow v2* toggle is enabled. If it is, use Lock version 9/10. If not, use an older version of Lock to trigger the old Change Password flow.
 
-We strongly encourage you to enable *Change Password flow v2* and upgrade to Lock version 9 and above. To learn more about migrating Lock, please see [Vulnerable Password Flow.](/migrations#vulnerable-password-flow)
+We strongly encourage you to enable *Change Password flow v2* and upgrade to Lock version 9 and above. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow.](/migrations#vulnerable-password-flow). To learn more about migrating to Lock 10, please take a look at the [Lock 10 Migration Guide](/libraries/lock/v10/migration-guide).
 :::
 
 
