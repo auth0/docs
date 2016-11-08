@@ -183,7 +183,7 @@ Once the `access_token` has been obtained it can be used to make calls to the Re
   "url": "https://someapi.com/api",
   "headers": [
     { "name": "Content-Type", "value": "application/json" },
-    { "name": "Authentication", "value": "Bearer {ACCESS_TOKEN}" }
+    { "name": "Authorization", "value": "Bearer {ACCESS_TOKEN}" }
   ]
 }
 ```
