@@ -20,7 +20,7 @@ Auth0 API requires an `access_token`. You can get one by authenticating with you
 
 ```text
 POST /oauth/token
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "client_id": "",
   "client_secret": "",
@@ -165,7 +165,7 @@ Creates a user. The body of the request must include the `email`, the `password`
 ```text
 POST /api/users/
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "email":          "",
   "password":       "",
@@ -197,7 +197,7 @@ Generates change password ticket. The body of the request must include the `newP
 ```text
 POST /api/users/{user_id}/change_password_ticket
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "newPassword":    "",
   "resultUrl":      "" // optional
@@ -213,7 +213,7 @@ Generates verification account ticket. Optionally, you can include the `resultUr
 ```text
 POST /api/users/{user_id}/verification_ticket
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "resultUrl":      "" // optional
 }
@@ -229,7 +229,7 @@ Saves user public key for specified device.
 ```text
 POST /api/users//publickey
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "device":     "",
   "public_key": ""
@@ -246,7 +246,7 @@ Update user email. The body of the request must include the new `email`.
 ```text
 PUT /api/users/{user_id}/email
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "email":   "",
   "verify":  truefalse // if false, it won't send an email for verification
@@ -263,7 +263,7 @@ Update user metadata. The body of the request must include a `json` object with 
 ```text
 PUT /api/users/{user_id}/metadata
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "Policy": "1238907654",
   "Customer Id": "1234"
@@ -280,7 +280,7 @@ Update user password. The body of the request must include the new `password`.
 ```text
 PUT /api/users/{user_id}/password
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "password":   "",
   "verify":     truefalse, // if false, it won't send an email for confirmation
@@ -297,7 +297,7 @@ Update user password. The body of the request must include the `email`, `connect
 ```text
 PUT /api/users/{email}/password
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "email":      "",
   "password":   "",
@@ -317,7 +317,7 @@ Patch user metadata. The body of the request must include a `json` object with m
 ```text
 PATCH /api/users/{user_id}/metadata
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "Policy": "1238907654",
   "Customer Id": "1234"
@@ -409,7 +409,7 @@ Creates a connection. The body of the request must include the `name`, the authe
 ```text
 POST /api/connections
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "name":     ""
   "strategy": "waad|google-apps|adfs|PingFederate|samlp|auth0|etc",
@@ -444,7 +444,7 @@ The request's body depends on the strategy that was used to create the connectio
 ```text
 PUT /api/connections/{connection-name}
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "options":   {
     "tenant_domain":
@@ -486,7 +486,7 @@ Create a client. The body of the request can include the `name` and `callbacks` 
 ```text
 POST /api/clients
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "name":      "",
   "callbacks": "" // You can specify multiple valid URLs by comma-separating them.
@@ -509,7 +509,7 @@ WARNING! Changing the `signingKey` for the globalClient will change it for all c
 ```text
 PATCH /api/clients/{client-id}
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "name":      "",
   "callbacks": "" // You can specify multiple valid URLs by comma-separating them.
@@ -540,7 +540,7 @@ Create a rule. The body of the request must include the `name`, `status` and `sc
 ```text
 POST /api/rules/
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "name":     "",
   "status":   true|false,
@@ -560,7 +560,7 @@ Update a rule. The body of the request must include the `status` and `script` pa
 ```text
 PUT /api/rules/{rule-name}
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "status":   true|false,
   "script":   "function (user, context, callback) { user.foo = 'bar'; callback(null, user, context);}"
@@ -613,7 +613,7 @@ Creates an email template. The body of the request must include the `template` n
 ```text
 POST /api/emails/
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "template": "template_name",
   "disabled": true|false,
@@ -642,7 +642,7 @@ Updates an email template.
 ```text
 PUT /api/emails/{email-template-name}
 Authorization: Bearer {token}
-Content-Type: 'application/json'
+Content-Type: "application/json"
 {
   "disabled": true|false,
   "from": "",
