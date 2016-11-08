@@ -36,12 +36,12 @@ The steps are quite simple though:
     &code=AUTHORIZATION_CODE
     &grant_type=authorization_code</code></pre>
 
-5. The response of the server will look like this
+5. The response from the server will look like this
 
   <pre style="word-wrap:break-word"><code>{
      "access_token":"2YotnF..........1zCsicMWpAA",
-     "id_token": "......Json Web Token......"
-     "token_type":"bearer",
+     "id_token": "......JSON Web Token......"
+     "token_type": "Bearer",
   }</code></pre>
 
   > The `access_token` can then be used to call Auth0's `userinfo` endpoint to get the attributes of the user.
@@ -50,26 +50,17 @@ The steps are quite simple though:
 
   <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/userinfo/?access_token=2YotnF..........1zCsicMWpAA</code></pre>
 
-  The `userinfo` endpoint will return something like this
+  The `userinfo` endpoint will return something like this:
 
   <pre><code>{
-    "user_id": "google-oauth2|103547991597142817347",
+    "sub": "google-oauth2|123",
     "email": "johnfoo@gmail.com",
     "family_name": "Foo",
     "gender": "male",
     "given_name": "John",
-    "identities": [
-      {
-        "access_token": "ya29.AsaS6ZQgRHlCHqzZ3....sFFBpQYpVVieSWur-7tmZbzEtwMkA",
-        "provider": "google-oauth2",
-        "user_id": "103547991597142817347",
-        "connection": "google-oauth2",
-        "isSocial": true
-      }
-    ],
     "locale": "en",
     "name": "John Foo",
-    "nickname": "matiasw",
+    "nickname": "johnfoo",
     "picture": "https://lh4.googleusercontent.com/-OdsbOXom9qE/AAAAAAAAAAI/AAAAAAAAADU/_j8SzYTOJ4I/photo.jpg"
   }</code></pre>
 
