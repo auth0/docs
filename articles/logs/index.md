@@ -1,5 +1,5 @@
 ---
-description: How to view log data.
+description: How to view log data, lists log event types.
 url: /logs
 ---
 
@@ -47,12 +47,33 @@ You can use the Management API v2 retrieve your logs. There are the two availabl
 The following table lists the codes associated with the appropriate log events.
 
 <table>
-  <thead><tr><th>Event Code</th><th>Event</th></tr></thead>
+  <thead>
+    <tr>
+      <th><strong>Event Code</strong></th>
+      <th><strong>Event</strong></th>
+      <th><strong>Event Description</strong></th>
+      <th><strong>Additional Info</strong></th>
+    </tr>
+  </thead>
   <tbody>
-  <tr><td>admin_update_launch</td><td>Auth0 Update Launched</td></tr>
-  <tr><td>api_limit</td><td>Rate Limit On API</td></tr>
-  <tr><td>cls</td><td>Code/Link Sent</td></tr>
-  <tr><td>coff</td><td>Connector Offline</td></tr>
+  <tr>
+    <td>`admin_update_launch`</td>
+    <td>Auth0 Update Launched</td>
+  </tr>
+  <tr>
+    <td>api_limit</td>
+    <td>Rate Limit On API</td>
+    <td>The maximum number of requests to the API in given time.</td>
+    <td>[API Rate Limit Policy](/policies/rate-limits)</td>
+  </tr>
+  <tr>
+    <td>cls</td>
+    <td>Code/Link Sent</td>
+  </tr>
+  <tr>
+    <td>coff</td>
+    <td>Connector Offline</td>
+  </tr>
   <tr><td>con</td><td>Connector Online</td></tr>
   <tr><td>cs</td><td>Code Sent</td></tr>
   <tr><td>du</td><td>Deleted User</td></tr>
