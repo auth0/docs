@@ -4,6 +4,42 @@ title: Single Sign-On for Regular Web Apps
 image: /docs/media/articles/architecture-scenarios/web-oidc.png
 extract: Traditional web application which needs to authenticate users using OpenID Connect.
 description: Regular web app scenario which needs to authenticate users using OpenID Connect.
+toc:
+  -
+    name: The premise
+    children:
+      -
+        name: Goals & Requirements
+        id: goals-requirements
+  -
+    name: Overview of the Solution
+    children:
+      -
+        name: Identity Management
+      -
+        name: Which protocol to use
+      -
+        name: Authentication Flow
+  -
+    name: Auth0 Configuration
+    children:
+      -
+        name: Client
+      -
+        name: Connections
+  -
+    name: Inside the Implementation
+    children:
+      -
+        name: User Login
+      -
+        name: Session Management
+      -
+        name: User Logout
+      -
+        name: Access Control
+  -
+    name: Conclusion
 ---
 
 # Single Sign-On for Regular Web Apps
@@ -13,30 +49,6 @@ In this scenario we will build a web application for a fictitious company named 
 ::: panel-info NOTE
 By _Regular Web App_, we mean an app that uses primarily server side, page `GET`, `POST`, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single Page App), that heavily relies on client side JavaScript code calling an API.
 :::
-
-__Table of Contents__
-- [The Premise](#the-premise)
-  - [Goals & Requirements](#goals-requirements)
-- [Overview of the Solution](#overview-of-the-solution)
-  - [Identity Management](#identity-management)
-  - [Which protocol to use](#which-protocol-to-use)
-  - [Authentication Flow](#authentication-flow)
-    - [How to validate an ID Token](#how-to-validate-an-id-token)
-- [Auth0 Configuration](#auth0-configuration)
-  - [Client](#client)
-    - [Create a Client](#create-a-client)
-    - [Configure Callback URLs](#configure-callback-urls)
-  - [Connections](#connections)
-    - [Create a database connection](#create-a-database-connection)
-    - [Create an Active Directory / LDAP Connection](#create-an-active-directory-ldap-connection)
-- [Inside the Implementation](#inside-the-implementation)
-  - [User Login](#user-login)
-    - [Automate Home Realm Discovery (HRD)](#automate-home-realm-discovery-hrd-)
-  - [Session Management](#session-management)
-  - [User Logout](#user-logout)
-  - [Access Control](#access-control)
-    - [Install the Authorization Extension](#install-the-authorization-extension)
-- [Conclusion](#conclusion)
 
 ## The Premise
 
