@@ -52,5 +52,6 @@ if(decodedString == auth0-authorize) {
 ## Further Reading:
 
 [Protecting against other common threats.](/security/common-threats)
+
 [Using the `state` paramter for redirecting users.](/tutorials/redirecting-users#using-the-state-parameter)
 
