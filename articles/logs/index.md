@@ -57,14 +57,14 @@ The following table lists the codes associated with the appropriate log events.
   </thead>
   <tbody>
   <tr>
-    <td>`admin_update_launch`</td>
+    <td><code>admin_update_launch</code></td>
     <td>Auth0 Update Launched</td>
   </tr>
   <tr>
-    <td>api_limit</td>
+    <td><code>api_limit</code></td>
     <td>Rate Limit On API</td>
     <td>The maximum number of requests to the API in given time.</td>
-    <td>[API Rate Limit Policy](/policies/rate-limits)</td>
+    <td><a href="/docs/policies/rate-limits">Rate Limit Policy</a></td>
   </tr>
   <tr>
     <td>cls</td>
