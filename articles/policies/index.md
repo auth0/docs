@@ -13,3 +13,4 @@ Auth0 has established the following operational policies.
 -  [Load Testing](/policies/load-testing)
 -  [Rate Limits](/policies/rate-limits)
 -  [Endpoints](/policies/endpoints)
+-  [Billing](/policies/billing)
