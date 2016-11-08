@@ -114,13 +114,32 @@ An example of usage:
 lock.show({
   flashMessage:{
     type: 'success',
-    text: 'success message'
+    text: 'Amazing Success!!'
   }
 });
 
 ```
 
-<img width="300" src="/media/articles/libraries/lock/v10/flashMessage.png" />
+![Lock - Flash Message](/media/articles/libraries/lock/v10/flashmessage.png)
+
+A practical application of the `flashMessage` option is to handle authorization errors. The `flashMessage` can be populated with error description text. 
+
+```js
+lock.on('authorization_error', function(error) {
+  lock.show({
+    flashMessage: {
+      type: 'error',
+      text: error.error_description
+    }
+  });
+});
+```
+
+So, if `tester@example.com` were now to try to sign in, being a user who is blocked, the user will be shown Lock again, and receive the following error message:
+
+![Lock - Flash Message](/media/articles/libraries/lock/v10/flashmessage2.png)
+
+Rather than simply failing to login, and Lock closing.
 
 ### hide([callback])
 
