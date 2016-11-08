@@ -60,13 +60,13 @@ Click **SAVE**.
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-5.png)
 
-## 6 Enable the Connection
+## 6. Enable the Connection
 
 Go to the **Apps** tab of the Instagram connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-6.png)
 
-## 7 Test the connection
+## 7. Test the connection
 
 Close the **Settings** window to return to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard.
 
@@ -83,3 +83,5 @@ Click **Authorize** to allow your app access.
 If you have configured everything correctly, you will see the **It works!!!** page:
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-7b.png)
+
+[Click here to learn more about authentication with Instagram](https://www.instagram.com/developer/authentication/)
