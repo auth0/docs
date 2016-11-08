@@ -39,7 +39,7 @@ The **Create Client** window will open, allowing you to enter the name of your n
 
 ![](/media/articles/client-auth/server-side-web/create-client.png)
 
-!!!Once the client has been created you can navigate to the **Settings** tab of the client and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, e.g. `https://YOUR_APP/callback`. 
+Once the client has been created you can navigate to the **Settings** tab of the client and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, e.g. `https://YOUR_APP/callback`. 
 
 This URL must be part of your application, as your application will need to retrieve the `code` and exchange it for the `id_token`.
 
