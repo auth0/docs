@@ -142,6 +142,9 @@ Guardian
 ## Additional Documents
 
 <ul>
+<li>
+<span><a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html">Getting Started with Apple Push Notification Service</a></span>
+</li>
 <% _.forEach(_.sortBy(articles.findByHash('multifactor-authentication/developer/libraries/android').items, 'toc_title'), function(article) { %>
   <% if (article.toc_title) { %>
   <li>

@@ -136,6 +136,9 @@ guardian
 ## Additional Documents
 
 <ul>
+<li>
+<span><a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html">Getting Started with Google Cloud Messaging for Android</a></span>
+</li>
 <% _.forEach(_.sortBy(articles.findByHash('multifactor-authentication/developer/libraries/android').items, 'toc_title'), function(article) { %>
   <% if (article.toc_title) { %>
   <li>
