@@ -7,9 +7,10 @@ budicon: 448
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'Ionic 1.3.1'
+  ]
 }) %>
-
-
 
 <%= include('_includes/_login') %>

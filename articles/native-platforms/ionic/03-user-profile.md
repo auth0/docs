@@ -7,7 +7,10 @@ budicon: 292
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
-  path: '03-User-Profile'
+  path: '03-User-Profile',
+  requirements: [
+    'Ionic 1.3.1'
+  ]
 }) %>
 
 
@@ -21,20 +24,14 @@ At any given time, you can call `getProfile` on `lock` passing in a token and ca
 // www/components/auth/auth.service.js
 
 (function() {
-
-    ...
-
+  ...
   function authService($rootScope, lock, authManager, jwtHelper) {
-
     ...
-
     // Set up the logic for when a user authenticates
     // This method is called from app.run.js
     function registerAuthenticationListener() {
       lock.on('authenticated', function(authResult) {
-
-    ...
-
+        ...
         lock.getProfile(authResult.idToken, function(error, profile) {
           if (error) {
             console.log(error);
@@ -43,15 +40,10 @@ At any given time, you can call `getProfile` on `lock` passing in a token and ca
           localStorage.setItem('profile', JSON.stringify(profile));
 
         });
-
-    ...
-
+        ...
       });
     }
-
     ...
-
-
   }
 })();
 
@@ -108,9 +100,7 @@ The user's profile is retrieved using the `getProfileDeferred()` method which is
 // www/components/auth/auth.service.js
 
 (function() {
-
   ...
-
   function authService($rootScope, lock, authManager, jwtHelper, $q) {
 
     var userProfile = JSON.parse(localStorage.getItem('profile')) || null;
@@ -160,9 +150,7 @@ The user's profile is retrieved using the `getProfileDeferred()` method which is
     function getProfileDeferred() {
       return deferredProfile.promise;
     }
-
     ...
-
     return {
       userProfile: userProfile,
       login: login,

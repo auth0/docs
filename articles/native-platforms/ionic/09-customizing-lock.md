@@ -7,7 +7,10 @@ budicon: 243
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
-  path: '09-Customizing-Lock'
+  path: '09-Customizing-Lock',
+  requirements: [
+    'Ionic 1.3.1'
+  ]
 }) %>
 
 Using Lock is easy, but you may want to customize your login UI. There are several options available for this.
@@ -24,13 +27,9 @@ You can set custom theme properties, such as a different logo or primary color, 
 // www/app.js
 
 (function () {
-
   ...
-
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider) {
-
     ...
-
     lockProvider.init({
       clientID: AUTH0_CLIENT_ID,
       domain: AUTH0_DOMAIN,
@@ -48,9 +47,8 @@ You can set custom theme properties, such as a different logo or primary color, 
         }
       }
     });
-
+  });
   ...
-
 })();
 ```
 
@@ -64,13 +62,9 @@ You can also customize the text that `Lock` will display with the `languageDicti
 // www/app.js
 
 (function () {
-
   ...
-
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider) {
-
     ...
-
     lockProvider.init({
       clientID: AUTH0_CLIENT_ID,
       domain: AUTH0_DOMAIN,
@@ -87,9 +81,8 @@ You can also customize the text that `Lock` will display with the `languageDicti
         }
       }
     });
-
+  });
   ...
-
 })();
 ```
 

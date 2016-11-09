@@ -7,7 +7,10 @@ description: This tutorial demonstrates how to use the Auth0 Ionic SDK to add au
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'Ionic 1.3.1'
+  ]
 }) %>
 
 <%= include('_includes/_setup') %>

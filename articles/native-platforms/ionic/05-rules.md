@@ -7,7 +7,10 @@ budicon: 173
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
-  path: '05-Rules'
+  path: '05-Rules',
+  requirements: [
+    'Ionic 1.3.1'
+  ]
 }) %>
 
 
@@ -46,7 +49,6 @@ budicon: 173
     </div>
   </ion-content>
 </ion-view>
-
 ```
 
 <div class="phone-mockup">

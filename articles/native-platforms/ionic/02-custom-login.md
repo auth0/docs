@@ -7,7 +7,10 @@ budicon: 448
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
-  path: '02-Custom-Login'
+  path: '02-Custom-Login',
+  requirements: [
+    'Ionic 1.3.1'
+  ]
 }) %>
 
 The previous step explained how you can log users into your application using the Lock Widget. You do not need to use Lock, and can instead create a custom login page and UI if you wish.
@@ -45,6 +48,7 @@ For the login view, you must display fields for **Username** and **Password**, a
       </label>
     </div>
     <button class="button button-block button-calm" ng-click="vm.login()">Login</button>
+    <button class="button button-block button-calm" ng-click="vm.signup()">Signup</button>
     <button class="button button-block button-google icon ion-social-googleplus-outline" ng-click="vm.loginWithGoogle()">
       Login with Google
     </button>
@@ -70,11 +74,16 @@ This view is calling a `login` and `loginWithGoogle` which should be defined in 
     var vm = this;
 
     vm.login = login;
-    vm.loginWithGoogle = authService.loginWithGoogle;
+    vm.signup = signup;
+    vm.loginWithGoogle = authService.loginWithGoogle;    
 
     // Log in with username and password
     function login() {
       authService.login(vm.username, vm.password);
+    }
+
+    function signup() {
+      authService.signup(vm.username, vm.password);
     }
 
   }
@@ -105,6 +114,7 @@ The `AuthService` needs to be adjusted to accept the supplied `username` and `pa
       angularAuth0.login({
         connection: 'Username-Password-Authentication',
         responseType: 'token',
+        ppopup: true,
         email: username,
         password: password
       }, onAuthenticated, null);
@@ -114,9 +124,10 @@ The `AuthService` needs to be adjusted to accept the supplied `username` and `pa
       angularAuth0.signup({
         connection: 'Username-Password-Authentication',
         responseType: 'token',
+        popup: true,
         email: username,
         password: password
-      }, callback);
+      }, onAuthenticated, null);
     }
 
     function loginWithGoogle() {
@@ -151,7 +162,7 @@ The `AuthService` needs to be adjusted to accept the supplied `username` and `pa
       if (error) {
         return $ionicPopup.alert({
           title: 'Login failed!',
-          template: 'Please check your credentials!'
+          template: error
         });
       }
 
@@ -191,6 +202,54 @@ The `AuthService` needs to be adjusted to accept the supplied `username` and `pa
     }
   }
 })();
+
 ```
 
 Notice that in the `onAuthenticated` method, which is called when a user successfully authenticates, the `profile` and `token` values are saved to the local storage. These values can be retrieved from local storage at a later stage, such as when you want to display the user's profile information.
+
+The `authenticateAndGetProfile` method should be called in the application's `run` block so that it is triggered when the user logs in or signs up.
+
+```js
+// www/app.run.js
+
+(function () {
+
+  'use strict';
+
+  angular
+    .module('app')
+    .run(run);
+
+  run.$inject = ['$ionicPlatform', 'authService'];
+
+  function run($ionicPlatform, authService) {
+
+    $ionicPlatform.ready(function () {
+      if (window.t && window.cordova && window.cordova.plugins.Keyboard) {
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        // for form inputs)
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+
+        // Don't remove this line unless you know what you are doing. It stops the viewport
+        // from snapping when text inputs are focused. Ionic handles this internally for
+        // a much nicer keyboard experience.
+        cordova.plugins.Keyboard.disableScroll(true);
+      }
+      if (window.StatusBar) {
+        StatusBar.styleDefault();
+      }
+
+      // Use the authManager from angular-jwt to check for
+      // the user's authentication state when the page is
+      // refreshed and maintain authentication
+      authService.checkAuthOnRefresh();
+
+      // Process the auth token if it exists and fetch the profile
+      authService.authenticateAndGetProfile();
+
+    });
+
+  }
+
+})();
+```
