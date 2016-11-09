@@ -4,6 +4,7 @@ title: Server Client + API
 image: /docs/media/articles/architecture-scenarios/server-api.png
 extract: Server to server communication where a server “Client” needs to make secure calls to an API (“Resource Server”), but on behalf of the client vs. a user.
 description: Explains the architecture scenario with server to server communication with secure calls to an API (“Resource Server”), but on behalf of the client vs. a user.
+toc: true
 ---
 
 # Server + API
@@ -11,30 +12,6 @@ description: Explains the architecture scenario with server to server communicat
 In this scenario we will build a Timesheet API for a fictitious company named ABC Inc. The API will allow to add timesheet entries for an employee or a contractor.
 
 We will also be building a cron job which will process timesheet entries from an external system to the centralized timesheet database using the API.
-
-__Table of Contents__
-- [The Premise](#the-premise)
-  - [Goals & Requirements](#goals-requirements)
-- [Overview of the Solution](#overview-of-the-solution)
-  - [API Authentication and Authorization](#api-authentication-and-authorization)
-    - [Participants](#participants)
-  - [Client Credentials Grant](#client-credentials-grant)
-- [Auth0 Configuration](#auth0-configuration)
-  - [Configure the API](#configure-the-api)
-    - [Signing Algorithms](#signing-algorithms)
-  - [Configure the Scopes](#configure-the-scopes)
-  - [Create the Client](#create-the-client)
-  - [Configure Client's access to the API](#configure-client-s-access-to-the-api)
-- [Inside the Implementation](#inside-the-implementation)
-    - [Implement the API](#implement-the-api)
-      - [Define the API endpoints](#define-the-api-endpoints)
-      - [Secure the API endpoints](#secure-the-api-endpoints)
-        - [Get an Access Token](#get-an-access-token)
-      - [Check the Client permissions](#check-the-client-permissions)
-    - [Implement the Non Interactive Client](#implement-the-non-interactive-client)
-      - [Get an Access Token](#get-an-access-token)
-      - [Invoke the API](#invoke-the-api)
-- [Conclusion](#conclusion)
 
 ## The Premise
 
