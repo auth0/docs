@@ -7,7 +7,10 @@ budicon: 546
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
-  path: '08-MFA'
+  path: '08-MFA',
+  requirements: [
+    'Ionic 1.3.1'
+  ]
 }) %>
 
 <%= include('../_includes/_mfa-introduction') %>

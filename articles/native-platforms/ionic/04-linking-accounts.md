@@ -7,7 +7,10 @@ budicon: 345
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
-  path: '04-Linking-Accounts'
+  path: '04-Linking-Accounts',
+  requirements: [
+    'Ionic 1.3.1'
+  ]
 }) %>
 
 
@@ -18,13 +21,9 @@ budicon: 345
 // www/components/auth/auth.service.js
 
 (function () {
-
   ...
-
   function authService($rootScope, lock, authManager, jwtHelper, $http, $q) {
-
   ...
-
     function linkAccount() {
       try {
         var profile = JSON.parse(localStorage.getItem('profile'));
@@ -49,7 +48,7 @@ budicon: 345
 
       lockLink.on('authenticated', function (authResult) {
 
-    // do linking accounts
+      // do linking accounts
 
       });
 
@@ -61,9 +60,7 @@ budicon: 345
 
     return {
       ...
-
       linkAccount: linkAccount,
-
       ...
     }
   }
@@ -112,22 +109,18 @@ Now to begin the link process, call the `linkAccount` method and update the user
 // www/components/home/home.controller.js
 
 (function () {
-
   ...
   function HomeController($state, authService, $scope) {
     ...
-
     function linkAccount() {
       authService.linkAccount()
         .then(function (profile) {
           vm.profile = profile;
           localStorage.setItem('profile', JSON.stringify(profile));
           refreshIdentities();
-        })
+        });
     }
-
     ...
-
   }
 
 }());
@@ -151,13 +144,9 @@ You can display this information and provide an **Unlink** button:
 ```html
 <!-- www/components/home/home.html -->
 
-...
-
   <div ng-show="isAuthenticated">
     <div class="list card">
-
       ...
-
       <div class="item item-avatar item-button-right assertive" ng-repeat="identity in vm.identities">
         <img src="{{identity.profileData.picture }}">
         <h2>{{ identity.profileData.name || identity.profileData.email }}</h2>
@@ -165,13 +154,9 @@ You can display this information and provide an **Unlink** button:
           <i class="icon ion-android-delete" ></i>
         </button>
       </div>
-
       ...
-
     </div>
   </div>
-
-...
 ```
 
 The user's primary identity can be filtered by putting in a function to refresh the identities.
@@ -180,19 +165,14 @@ The user's primary identity can be filtered by putting in a function to refresh 
 // www/components/home/home.controller.js
 
 (function () {
-
   ...
-
   function HomeController($state, authService, $scope) {
     ...
-
     function refreshIdentities() {
       vm.profile.identities.shift();
       vm.identities = vm.profile.identities;
     }
-
     ...
-
   }
 
 }());
@@ -206,13 +186,9 @@ You can dissociate a linked account by calling the [unlink a user account](/api/
 // www/components/auth/auth.service.js
 
 (function () {
-
   ...
-
   function authService($rootScope, lock, authManager, jwtHelper, $http, $q) {
-
     ...
-
     function unLinkAccount(identity) {
       try {
         var profile = JSON.parse(localStorage.getItem('profile'));
@@ -230,17 +206,17 @@ You can dissociate a linked account by calling the [unlink a user account](/api/
           Authorization: 'Bearer ' + token
         }
       })
-        .then(function () {
+      .then(function () {
 
-          lock.getProfile(token, function (error, profile) {
-            if (!error) {
-              deferred.resolve(profile);
-            } else {
-              deferred.reject(error);
-            }
-          });
-
+        lock.getProfile(token, function (error, profile) {
+          if (!error) {
+            deferred.resolve(profile);
+          } else {
+            deferred.reject(error);
+          }
         });
+
+      });
 
       return deferred.promise;
 
@@ -248,7 +224,6 @@ You can dissociate a linked account by calling the [unlink a user account](/api/
 
     return {
       ...
-
       unLinkAccount: unLinkAccount
     }
   }

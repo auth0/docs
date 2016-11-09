@@ -7,7 +7,10 @@ budicon: 546
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
-  path: '07-Calling-Api'
+  path: '07-Calling-Api',
+  requirements: [
+    'Ionic 1.3.1'
+  ]
 }) %>
 
 
@@ -21,13 +24,9 @@ To attach the user's JWT as an `Authorization` header, we could write a service 
 // www/app.js
 
 (function () {
-
   ...
-
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
-
     ...
-
     // Configuration for angular-jwt
     jwtOptionsProvider.config({
       tokenGetter: function() {
@@ -53,27 +52,19 @@ This basic example will attach the JWT as an `Authorization` header to all reque
 // www/components/home/home.service.js
 
 (function () {
-
   ...
-
   function HomeController($state, authService, $scope, $http, $ionicPopup) {
     var vm = this;
-
-  ...
-
+    ...
     vm.ping = ping;
-
-  ...
-
+    ...
     function ping() {
     // This request will NOT send the token as it has skipAuthorization
       $http.get(SERVER_PATH + '/ping', { skipAuthorization: true })
         .success(onPingSuccess)
         .error(onPingFail);
     }
-
-  ...
-
+    ...
 }());
 ```
 
@@ -85,13 +76,9 @@ Remember that template requests via `ui-router` or `ng-route` are HTTP requests.
 // www/app.js
 
 (function () {
-
   ...
-
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
-
     ...
-
     // Configuration for angular-jwt
     jwtOptionsProvider.config({
       tokenGetter: function(options) {
@@ -122,13 +109,9 @@ If for any reason you would want to send different tokens based on different URL
 // www/app.js
 
 (function () {
-
   ...
-
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
-
     ...
-
     // Configuration for angular-jwt
     jwtOptionsProvider.config({
       tokenGetter: function(options) {

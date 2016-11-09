@@ -7,7 +7,10 @@ budicon: 500
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
-  path: '06-Authorization'
+  path: '06-Authorization',
+  requirements: [
+    'Ionic 1.3.1'
+  ]
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/native/ionic/05-rules' }) %>
@@ -155,13 +158,9 @@ The `showAdminContent` method checks if the user is an admin using a new `isAdmi
 ```js
 // www/components/auth/auth.service.js
 (function() {
-
   ...
-
   function authService($rootScope, lock, authManager, jwtHelper, $q) {
-
     ...
-
     function isAdmin() {
       return userProfile && userProfile.app_metadata
         && userProfile.app_metadata.roles
@@ -169,11 +168,8 @@ The `showAdminContent` method checks if the user is an admin using a new `isAdmi
     }
 
     return {
-
-    ...
-
+      ...
       isAdmin: isAdmin
-
     }
   }
 })();
