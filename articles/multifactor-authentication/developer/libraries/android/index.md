@@ -39,7 +39,7 @@ To enable Guardian Push Notifications for your users, go to the [Multifactor Aut
 `Guardian` is the core of the SDK. You'll need to create an instance of this class for your specific tenant/url.
 
 ```java
-Uri url = Uri.parse("https://tenant.guardian.auth0.com/");
+Uri url = Uri.parse("https://${account.guardianNamespace}");
 
 Guardian guardian = new Guardian.Builder()
         .url(url)
@@ -49,7 +49,7 @@ Guardian guardian = new Guardian.Builder()
 or
 
 ```java
-String domain = "tenant.guardian.auth0.com";
+String domain = "${account.guardianNamespace}";
 
 Guardian guardian = new Guardian.Builder()
         .domain(domain)
