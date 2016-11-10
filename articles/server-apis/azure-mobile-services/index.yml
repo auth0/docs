@@ -1,5 +1,5 @@
 title: Azure Mobile Services
-thirdParty: true
+thirdParty: false
 image: /media/platforms/azure.png
 snippets:
   use: server-apis/azure-mobile-services/use
