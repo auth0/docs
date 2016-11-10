@@ -37,7 +37,7 @@ As a secondary point of escalation, Appliance customers can also send an email t
 5. For **What can we help you with?** select `Auth0 Service Issue`.
 6. For **Severity** select `Urgent`
 
-  > **Note**: if you don't select `Urgent`, the issue will not be treated as critical.
+  > **Note**: if you don't select `Urgent`, the issue will not be treated as critical. You will not be able to change the severity of the ticket once it is created so if, for example, you set Severity to `High` but later realize that the situation is critical, you need to create a new ticket with `Severity` set to Urgent.
   
 7. Complete an appropriate **Subject** title.
 8. Describe the problem as completely as possible. *The more information you can provide about the issue you are having, the better we can provide quick and valuable support.*
