@@ -33,6 +33,9 @@ To enable Guardian Push Notifications for your users, go to the [Multifactor Aut
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
+## SNS configuration
+
+For your native application to receive push notifications from Guardian, you will need to override the default SNS settings. Follow the instructions [here](/multifactor-authentication/developer/sns-configuration).
 ## Using the SDK
 
 
@@ -135,19 +138,5 @@ guardian
 
 ## Additional Documents
 
-<ul>
-<li>
-<span><a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html">Getting Started with Google Cloud Messaging for Android</a></span>
-</li>
-<% _.forEach(_.sortBy(articles.findByHash('multifactor-authentication/developer/libraries/android').items, 'toc_title'), function(article) { %>
-  <% if (article.toc_title) { %>
-  <li>
-    <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>
-    <% if (article.description) { %>
-      - <%- article.description %>
-    <% } %>
-    </span>
-  </li>
-  <% } %>
-<% }); %>
-</ul>
+* [Configuring Amazon SNS with Guardian](/multifactor-authentication/developer/sns-configuration)
+* [Getting Started with Google Cloud Messaging for Android](https://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html)
