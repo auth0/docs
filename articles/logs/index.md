@@ -59,6 +59,8 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>admin_update_launch</code></td>
     <td>Auth0 Update Launched</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>api_limit</code></td>
@@ -69,10 +71,14 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>cls</code></td>
     <td>Code/Link Sent</td>
+    <td></td>
+    <td></td>
   </tr>
     <tr>
     <td><code>cs</code></td>
     <td>Code Sent</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>coff</code></td>
@@ -100,10 +106,14 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>f</code></td>
     <td>Failed Login</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>fapi</code></td>
     <td>Failed API Operation</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>fce</code></td>
@@ -114,6 +124,8 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>fco</code></td>
     <td>Failed by CORS</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>fcp</code></td>
@@ -178,26 +190,38 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>slo</code></td>
     <td>Success Logout</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>flo</code></td>
     <td>Failed Logout</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>fn</code></td>
     <td>Failed Sending Notification</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>fp</code></td>
     <td>Failed Login (Incorrect Password)</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>fs</code></td>
     <td>Failed Signup</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>fu</code></td>
     <td>Failed Login (Invalid Email/Username)</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>fui</code></td>
@@ -226,93 +250,97 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>gd_auth_failed</code></td>
     <td>OTP Auth failed</td>
-    <td>One-time password authentication failed.<td>
+    <td>One-time password authentication failed.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
   </tr>
   <tr>
     <td><code>gd_auth_rejected</code></td>
     <td>OTP Auth rejected</td>
-    <td>One-time password authentication rejected.<td>
+    <td>One-time password authentication rejected.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
   </tr>
   <tr>
     <td><code>gd_auth_succeed</code></td>
     <td>OTP Auth success</td>
-    <td>One-time password authentication success.<td>
+    <td>One-time password authentication success.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
   </tr>
   <tr>
     <td><code>gd_module_switch</code></td>
     <td>Module switch</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>gd_otp_rate_limit_exceed</code></td>
     <td>Too many failures</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>gd_recovery_failed</code></td>
     <td>Recovery failed</td>
-    <td>Multifactor recovery code failed.<td>
+    <td>Multifactor recovery code failed.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
   </tr>
   <tr>
     <td><code>gd_recovery_rate_limit_exceed</code></td>
     <td>Too many failures</td>
-    <td>Multifactor recovery code has failed too many times.<td>
+    <td>Multifactor recovery code has failed too many times.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
   </tr>
   <tr>
     <td><code>gd_recovery_succeed</code></td>
     <td>Recovery success</td>
-    <td>Multifactor recovery code succeeded authorization.<td>
+    <td>Multifactor recovery code succeeded authorization.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
   </tr>
   <tr>
     <td><code>gd_send_pn</code></td>
     <td>Push notification sent</td>
-    <td>Push notification for MFA sent successfully sent with Guardian.<td>
+    <td>Push notification for MFA sent successfully sent with Guardian.</td>
     <td><a href="/multifactor-authentication/guardian">Auth0 Guardian</a></td>
   </tr>
   <tr>
     <td><code>gd_send_sms</code></td>
     <td>SMS Sent</td>
-    <td>SMS for MFA sent successfully sent.<td>
+    <td>SMS for MFA sent successfully sent.</td>
     <td><a href="/multifactor-authentication/guardian/admin-guide#support-for-sms">Using SMS for MFA</a></td>
   </tr>
   <tr>
     <td><code>gd_start_auth</code></td>
     <td>Second factor started</td>
-    <td>Second factor authentication event started for MFA.<td>
+    <td>Second factor authentication event started for MFA.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
   </tr>
   <tr>
     <td><code>gd_start_enroll</code></td>
     <td>Enroll started</td>
-    <td>Multifactor authentication enroll has started.<td>
+    <td>Multifactor authentication enroll has started.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
   </tr>
   <tr>
     <td><code>gd_tenant_update</code></td>
     <td>Guardian tenant update</td>
-    <td><td>
+    <td></td>
     <td><a href="/multifactor-authentication/guardian">Auth0 Guardian</a></td>
   </tr>
   <tr>
     <td><code>gd_unenroll</code></td>
     <td>Unenroll device account</td>
-    <td>Device used for second factor authentication has been unenrolled.<td>
+    <td>Device used for second factor authentication has been unenrolled.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
   </tr>
   <tr>
     <td><code>gd_update_device_account</code></td>
     <td>Update device account</td>
-    <td>Device used for second factor authentication has been updated.<td>
+    <td>Device used for second factor authentication has been updated.</td>
     <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
   </tr>
   <tr>
     <td><code>gd_user_delete</code></td>
     <td>User delete</td>
-    <td>Deleted multifactor user account.<td>
+    <td>Deleted multifactor user account.</td>
     <td><a href="/user-profile">User Profile</a></td>
   </tr>
   <tr>
@@ -329,6 +357,7 @@ The following table lists the codes associated with the appropriate log events.
   </tr>
   <tr>
     <td><code>limit_ui</code></td>
+    <td>Too Many Calls to /userinfo</td>
     <td>Rate limit exceeded to <code>/limit_ui</code> endpoint</td>
     <td><a href="/policies/rate-limits">API Rate Limit Policy</a></td>  </tr>
   <tr>
@@ -341,10 +370,13 @@ The following table lists the codes associated with the appropriate log events.
     <td><code>s</code></td>
     <td>Success Login</td>
     <td>Successful login event.</td>
+    <td></td>
   </tr>
   <tr>
     <td><code>sapi</code></td>
     <td>Success API Operation</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>sce</code></td>
@@ -355,18 +387,26 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>scp</code></td>
     <td>Success Change Password</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>scpr</code></td>
     <td>Success Change Password Request</td>
+    <td></td>
+    <td></td>
   </tr>
     <tr>
     <td><code>scpn</code></td>
     <td>Success Change Phone Number</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>scu</code></td>
     <td>Success Change Username</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>sd</code></td>
@@ -389,34 +429,50 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>ss</code></td>
     <td>Success Signup</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>sv</code></td>
     <td>Success Verification Email</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>svr</code></td>
     <td>Success Verification Email Request</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>sys_os_update_end</code></td>
     <td>Auth0 OS Update Ended</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>sys_os_update_start</code></td>
     <td>Auth0 OS Update Started</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>sys_update_end</code></td>
     <td>Auth0 Update Ended</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>sys_update_start</code></td>
     <td>Auth0 Update Started</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>w</code></td>
     <td>Warnings During Login</td>
+    <td></td>
+    <td></td>
   </tr>
   </tbody>
 </table>
