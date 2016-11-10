@@ -52,7 +52,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 - [allowSignUp](#allowsignup-boolean-)
 - [defaultDatabaseConnection](#defaultdatabaseconnection-string-)
 - [initialScreen](#initialscreen-string-)
-- [loginAfterSignup](#loginaftersignup-boolean-)
+- [loginAfterSignUp](#loginaftersignup-boolean-)
 - [forgotPasswordLink](#forgotpasswordlink-string-)
 - [mustAcceptTerms](#mustacceptterms-boolean-)
 - [prefill](#prefill-object-)
@@ -676,13 +676,13 @@ var options = {
 };
 ```
 
-### loginAfterSignup {Boolean}
+### loginAfterSignUp {Boolean}
 
 Determines whether or not the user will be automatically signed in after a successful sign up. Defaults to `true`.
 
 ```js
 var option = {
-  loginAfterSignup: false
+  loginAfterSignUp: false
 };
 ```
 
