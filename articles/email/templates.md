@@ -117,8 +117,10 @@ Liquid syntax is the currently supported templating syntax to use when accessing
 * `nickname`
 * `given_name`
 * `family_name`
-* `app_metadata`
-* `user_metadata`
+* `app_metadata` - stores user attributes (such as user preferences) that do not impact a user's core functionality
+* `user_metadata` - stores information (such as a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
+
+[Learn more about `app_metadata` and `user_metadata`](/metadata)
 
 For example, you can refer to attributes in the template to control flow as follows:
 
