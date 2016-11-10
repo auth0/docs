@@ -17,3 +17,6 @@ Please note that the customers who created tenants via the Heroku hosting platfo
 
 ## Why is my credit card failing?
 The only way to determine the reason for the failure is for the customer to contact their credit card company by calling the number on the back. This can be triggered by a credit card reaching the limit or simply being rejected by the bank, for example.
+
+## How can I cancel my subscription?
+Please proceed by downgrading your subscription to free or by cancelling your subscription via the Auth0 Dashboard.  
