@@ -21,7 +21,15 @@ Authorization: Bearer {API-TOKEN}
 }
 ```
 
-Substitute the appropriate values for your particular configuration. More details can be found below.
+Substitute the appropriate values for your particular configuration. For instance, with Curl this could be accomplished with:
+
+```curl
+curl -X PUT \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {API-TOKEN}" \
+  -d '{"aws_access_key_id":"{YOUR-AWS-ACCESSKEY}","aws_secret_access_key":"{YOUR-AWS-SECRET}","aws_region":"{YOUR-AWS-REGION}","sns_apns_platform_application_arn":"{YOUR-SNS-APNS-ARN}","sns_gcm_platform_application_arn":"{YOUR-SNS-GCM-ARN}"}' \
+  https://${account.namespace}/api/v2/guardian/factors/push-notification/providers/sns
+```
 
 ## Further reading
 
