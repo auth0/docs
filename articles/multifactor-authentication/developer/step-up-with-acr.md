@@ -26,6 +26,8 @@ There are three core concepts used when addressing authentication level at Auth0
 
 `acr` and `amr` are both available on the `id_token` of the current session, when appropriate. The `acr_values` field is added to the request for authentication.
 
+See [here](/tokens/id_token) for more information about extracting and using the `id_token`.
+
 ## Example
 To request that Auth0 require a multifactor authentication, add the field `acr_values` to the authentication along with the `acr` level desired. For example, with [Auth0.js](/libraries/auth0js) it would work like the following code snippet.
 ```js
@@ -51,15 +53,13 @@ lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 To confirm that a session has had multifactor authentication, the id_token can be checked for its `acr` and `amr` claims.
 ```js
-var decoded = jwt.verify(id_token, new Buffer(AUTH0_CLIENT_SECRET, 'base64'), { algorithms: ['HS256'] });
-
 // Confirm that the acr has the expected value
-if (Array.isArray(decoded.amr) && decoded.amr.indexOf('mfa') >= 0) {
+if (Array.isArray(id_token.amr) && id_token.amr.indexOf('mfa') >= 0) {
   throw new Error('Step-up authentication failed');
 }
 
 // We also expect to have the amr claim
-if(decoded.acr !== 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'){
+if(id_token.acr !== 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'){
   throw new Error('Step-up authentication failed');
 }
 ```

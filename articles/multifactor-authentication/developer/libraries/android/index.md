@@ -43,7 +43,7 @@ Auth0 For your native application to receive push notifications from Guardian, y
 `Guardian` is the core of the SDK. You'll need to create an instance of this class for your specific tenant/url.
 
 ```java
-Uri url = Uri.parse("https://${account.guardianNamespace}");
+Uri url = Uri.parse("https://tenant.guardian.auth0.com/");
 
 Guardian guardian = new Guardian.Builder()
         .url(url)
@@ -53,7 +53,7 @@ Guardian guardian = new Guardian.Builder()
 or
 
 ```java
-String domain = "${account.guardianNamespace}";
+String domain = "tenant.guardian.auth0.com";
 
 Guardian guardian = new Guardian.Builder()
         .domain(domain)
