@@ -12,21 +12,39 @@ Appliance customers must have [Premium Enterprise Support](/enterprise-support#p
 
 Below are special procedures Appliance customers should follow for Critical Support Issues.  All other information as outlined in the [Enterprise Support Guidance document](/enterprise-support) is still valid and should be followed.
 
+## What is a Critical Issue
+
+A Critical Issue is defined as an Auth0 issue severely impacting your live or in-production systems where:
+
+- major business processes and functions are severely impaired or stopped;
+- the majority of users are adversely impacted;
+- there is no workaround
+
 ## Special procedures for critical issues impacting production applications for Appliance customers
 
-**To Log a Critical Support Issue**
+Appliance customers should use the [Auth0 Support Center](https://support.auth0.com) as a primary method of logging a critical support issue. As part of the onboarding procedure a cloud account should be created that gives administrators the possibility to log in to Support Center and create new tickets. Set the ticket severity to **Urgent** if you need an immediate response.
 
-Appliance customers should email productionoutage@auth0.com to log a critical support issue.
+> **Important**: using Support Center requires a cloud account setup. If you are unsure about this, please try logging in at https://support.auth0.com or check with your Auth0 Customer Success Manager.
 
-As a secondary point of escalation, Appliance customers can also call our support number on +1 (425) 559-9554 and leave a detailed support message. *Note that this should only be a secondary escalation point, and an email to productionoutage@auth0.com will always yield the fastest and most efficient response.*
+As a secondary point of escalation, Appliance customers can also send an email to productionoutage@auth0.com to log a critical support issue. *Note that this should only be a secondary escalation point, as a ticket created in Support Center provides a more reliable way to identify the customer having the problem and interact with the user.* 
 
-Appliance customers may also use the [Auth0 Support Center](https://support.auth0.com) as a primary method of logging a critical support issue, or as a secondary point of escalation.  However, one current limitation of the Auth0 Support Center is customers must have an account with Auth0's cloud service to login to Support Center.  As creating a cloud account is not currently mandatory for Appliance customers, this could be a blocking factor in logging a ticket during a critical outage, and so the recommendation is to use the email option instead.
+### To log a critical support issue in Support Center
 
-![](/media/articles/onboarding/critical-support.png)
+1. Go to https://support.auth0.com and log in with your credentials.
+2. Click on the [New Ticket](https://support.auth0.com/tickets/new) button.
+3. Select the affected service. **Note that even if you only see your cloud account, you will be getting support for your Appliance installation.**
+4. In **Environment** indicate the specific installation having the problem (i.e. Production, QA).
+5. For **What can we help you with?** select `Auth0 Service Issue`.
+6. For **Severity** select `Urgent`
 
-### Information to provide when logging an issue
+  > **Note**: if you don't select `Urgent`, the issue will not be treated as critical.
+  
+7. Complete an appropriate **Subject** title.
+8. Describe the problem as completely as possible. *The more information you can provide about the issue you are having, the better we can provide quick and valuable support.*
 
-To speed resolution, please provide the following when logging an issue via email (in addition to other information listed in the [Enterprise Support Guidance document](/enterprise-support):
+### Information to provide when logging an issue by email
+
+To speed resolution, please provide the following when logging an issue via email (in addition to other information listed in the [Enterprise Support Guidance document](/enterprise-support)):
 
 * Your Company Name and specific project name (some customers have more than one instance of Auth0)
 * Your contact details and the contact details of relevant colleagues such as IT operations staff, including email address and phone numbers with relevant country and area codes.
