@@ -8,8 +8,8 @@ The following policy governs requests for billing mechanisms within the Auth0 da
 
 ## Change of billing email address
 
-It is possible to change the billing email address, but for security reasons the request must be done from a Dashboard administrator. 
-The request should be performed by a Dashboard administrator. It should file a new ticket in our Support Center. A member of our support team will contact you in that same ticket with steps on how this request will proceed.
+It is possible to change the billing email address, but for security reasons the request should be performed by a Dashboard administrator by filing a new ticket through our [Support Center](https://support.auth0.com). A member of our support team will then contact you in that same ticket with steps on how the request will proceed.
+Please note that if you are not a Dashboard administrator, we will not process this request.
 
 ### Special case
 
@@ -22,5 +22,12 @@ The only way to determine the reason for the failure is for the customer to cont
 If your credit card fails, this will not affect the service. So if you are having issues with the service, it is not due to the credit card failing.
 
 ## How can I cancel my subscription?
-Please proceed by downgrading your subscription to free or by cancelling your subscription via the Auth0 Dashboard.  
+Please proceed by downgrading your subscription to free or by cancelling your subscription via the Auth0 Dashboard. 
+
+1. Login to the Auth0 management dashboard
+2. Click on your username in the top right corner to bring up the associated dropdown box.
+3. Select `Account Settings`.
+4. On the `Account Settings` page, click on the `Subscription` tab.
+5. On the `Subscription` tab, scroll down to the box associated with the `Free plan` and click `Checkout`.
+6. To confirm your subscription change, click `Subscribe` Now.
 
