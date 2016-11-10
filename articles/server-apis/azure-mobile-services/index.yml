@@ -1,8 +1,6 @@
 title: Azure Mobile Services
 thirdParty: true
 image: /media/platforms/azure.png
-tags:
-  - quickstart
 snippets:
   use: server-apis/azure-mobile-services/use
 alias:
