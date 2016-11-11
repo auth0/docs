@@ -5,7 +5,7 @@ description: Installation, usage, and configuration options guide for Guardian f
 ---
 
 # Guardian for Android
-The Guardian for Android Software Development Kit allows developers to create Android apps with Guardian functionality, providing easy and secure access to multifactor authentication with push notifications. For example, this toolkit gives you the power to build a 'white label' version of the Guardian application for your users, using your own look-and-feel.
+The [Guardian for Android Software Development Kit](https://github.com/auth0/Guardian.Android) allows developers to create Android apps with Guardian functionality, providing easy and secure access to multifactor authentication with push notifications. For example, this toolkit gives you the power to build a 'white label' version of the Guardian application for your users, using your own look-and-feel.
 
 More information can be found on Guardian [here](/multifactor-authentication/guardian). For general multifactor discussion, read more [here](/multifactor-authentication).
 
@@ -43,7 +43,7 @@ Auth0 For your native application to receive push notifications from Guardian, y
 `Guardian` is the core of the SDK. You'll need to create an instance of this class for your specific tenant/url.
 
 ```java
-Uri url = Uri.parse("https://${account.guardianNamespace}");
+Uri url = Uri.parse("https://tenant.guardian.auth0.com/");
 
 Guardian guardian = new Guardian.Builder()
         .url(url)
@@ -53,7 +53,7 @@ Guardian guardian = new Guardian.Builder()
 or
 
 ```java
-String domain = "${account.guardianNamespace}";
+String domain = "tenant.guardian.auth0.com";
 
 Guardian guardian = new Guardian.Builder()
         .domain(domain)
