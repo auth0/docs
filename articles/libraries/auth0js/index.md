@@ -225,7 +225,7 @@ This method will redirect the user to an Auth0-hosted page that says "OK". You m
   });
 ```
 
-You must whitelist the **Logout URL** for your app at either the account level or the app level. To whitelist a logout URL for your entire account, provide it in your [advanced settings](https://manage.auth0.com/#/account/advanced). To whitelist for the application only, provide the logout URL in your [application settings](https://manage.auth0.com/#/clients).
+You must whitelist the **Logout URL** for your app at either the account level or the app level. To whitelist a logout URL for your entire account, provide it in your [advanced settings](${manage_url}/#/account/advanced). To whitelist for the application only, provide the logout URL in your [application settings](${manage_url}/#/clients).
 
 If you whitelist the logout URL at the application level, pass the `client_id` for your app in the query object.
 
@@ -314,7 +314,7 @@ auth0.verifyEmailCode({
 
 #### With SMS
 
-You can also do Passwordless authentication via SMS. First you must activate and configure your passwordless [Twilio](https://twilio.com) connection in our [dashboard](https://manage.auth0.com/#/connections/passwordless).
+You can also do Passwordless authentication via SMS. First you must activate and configure your passwordless [Twilio](https://twilio.com) connection in our [dashboard](${manage_url}/#/connections/passwordless).
 
 After that you can request a passcode to be sent via SMS to a phone number. Ensure the phone number has the proper [full-length format](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally).
 
