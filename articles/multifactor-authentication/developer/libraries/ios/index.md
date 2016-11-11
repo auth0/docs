@@ -5,7 +5,7 @@ description: Installation, usage, and configuration options guide for Guardian f
 ---
 
 # Guardian for iOS
-The Guardian for iOS Software Development Kit allows developers to create iOS apps with Guardian functionality, providing easy and secure access to multifactor authentication with push notifications. For example, this toolkit gives you the power to build a 'white label' version of the Guardian application for your users, using your own look-and-feel.
+The [Guardian for iOS Software Development Kit](https://github.com/auth0/GuardianSDK.iOS) allows developers to create iOS apps with Guardian functionality, providing easy and secure access to multifactor authentication with push notifications. For example, this toolkit gives you the power to build a 'white label' version of the Guardian application for your users, using your own look-and-feel.
 
 More information can be found on Guardian [here](/multifactor-authentication/guardian). For general multifactor discussion, read more [here](/multifactor-authentication).
 
