@@ -18,7 +18,7 @@ budicon: 173
 
 ## Test the Rule
 
-<%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/vanillajs/04-user-profile' }) %>
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/vanillajs/04-user-profile' }) %>
 
 ```html
 <!-- index.html -->

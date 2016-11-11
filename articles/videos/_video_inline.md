@@ -2,7 +2,7 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">Video Content</div>
-  <% var article = _.find(articles.findByHash('videos').items, { hash: hash }); %>
+  <% var article = _.find(cache.get('videos'), { hash: hash }); %>
   <div class="panel-body">
     <div class="media">
       <div class="media-left">

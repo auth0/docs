@@ -313,6 +313,6 @@ Leaving the Response Body blank, click **Test**. You should receive a Response B
 At this point, the AWS Lambda functions and the Amazon API Gateway methods are defined with no security.
 
 <%= include('./_stepnav', {
- prev: ["0. Introduction", "/docs/integrations/aws-api-gateway"],
- next: ["2. Securing and Deploying", "/docs/integrations/aws-api-gateway/part-2"]
+ prev: ["0. Introduction", "/integrations/aws-api-gateway"],
+ next: ["2. Securing and Deploying", "/integrations/aws-api-gateway/part-2"]
 }) %>

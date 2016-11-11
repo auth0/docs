@@ -22,7 +22,7 @@ budicon: 173
 
 ## Test the Rule
 
-<%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/native/ionic/03-user-profile' }) %>
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/native/ionic/03-user-profile' }) %>
 
 ```html
 <!-- www/components/home/home.html -->

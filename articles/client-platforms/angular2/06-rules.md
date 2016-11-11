@@ -21,7 +21,7 @@ budicon: 173
 
 ## Test the Rule
 
-<%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/angular2/04-user-profile' }) %>
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/angular2/04-user-profile' }) %>
 
 ```html
   <!-- ./profile_show.template.html -->

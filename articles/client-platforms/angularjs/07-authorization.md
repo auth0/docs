@@ -9,7 +9,7 @@ description: This tutorial demonstrates how to assign roles to your users, and u
   path: '07-Authorization'
 }) %>
 
-<%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/angularjs/06-rules' }) %>
+<%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/angularjs/06-rules' }) %>
 
 ## Create a Rule to Assign Roles
 
@@ -31,7 +31,7 @@ To restrict secure content to users with a role of `admin`, subscribe to the `$s
     .service('authService', authService);
 
   function authService($rootScope, lock, authManager) {
-	
+
     $rootScope.$on('$stateChangeStart', function(event, nextRoute) {
       if (nextRoute.controller === 'AdminController') {
         if (!isAdmin()) {

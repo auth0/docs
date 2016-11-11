@@ -234,6 +234,6 @@ The `getSecureApiClient` function provided for you retrieves the AWS token from 
 ```
 
 <%= include('./_stepnav', {
- prev: ["2. Securing and Deploying", "/docs/integrations/aws-api-gateway/part-2"],
- next: ["4. Using Multiple Roles", "/docs/integrations/aws-api-gateway/part-4"]
+ prev: ["2. Securing and Deploying", "/integrations/aws-api-gateway/part-2"],
+ next: ["4. Using Multiple Roles", "/integrations/aws-api-gateway/part-4"]
 }) %>
