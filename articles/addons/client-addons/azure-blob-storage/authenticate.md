@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the Auth0 to authenticate an
 ---
 
 
-${include('../_thirdPartyApi')}
+
 
 ### Additional Information
 
