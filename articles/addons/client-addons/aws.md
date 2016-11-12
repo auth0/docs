@@ -1,8 +1,12 @@
 ---
-title: Authenticate
-description: This tutorial will show you how to use the Auth0 to authenticate and authorize Amazon Web Services.
+addon: Amazon Web Services
+image: /media/addons/aws.svg
+alias:
+  - aws
+  - amazon-web-services
+seo_alias: amazon
+description: How to configure the AWS Client Addon.
 ---
-
 
 ${include('../_thirdPartyApi')}
 
