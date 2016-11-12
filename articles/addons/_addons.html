@@ -1,5 +1,5 @@
 <% var terminated = false; %>
-<% var i=0; _.forEach(connections, function(article) { %>
+<% var i=0; _.forEach(addons, function(article) { %>
   <% if (article.addon) { %>
     <% if (i === 0) { terminated = false; %>
     <div class="row">
@@ -31,4 +31,4 @@
 <% if (terminated === false) { terminated = true; %>
     </div>
 <% } %>
-<% connections = []; %>
+<% addons = []; %>
