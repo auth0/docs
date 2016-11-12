@@ -10,7 +10,7 @@ budicon: 500
   path: '07-Authorization'
 }) %>
 
-<%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/vanillajs/06-rules' }) %>
+<%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/vanillajs/06-rules' }) %>
 
 ### Create a Rule to Assign Roles
 

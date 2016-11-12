@@ -4,7 +4,7 @@
 
 For this quickstart tutorial, our examples will use the Jade templating engine, although this is not a requirement. It is assumed that your NodeJS project has dependencies such as Jade, Express, etc. already installed, so we won't cover those. We will focus on the steps necessary to take your existing NodeJS Express app and enable Auth0's API Authorization features with it using the [auth0.js library](/libraries/auth0js).
 
-Run the following commands to install the required dependencies: 
+Run the following commands to install the required dependencies:
 
 ```bash
 # Authentication middleware
@@ -184,7 +184,7 @@ block content
       clientID:    '#{env.AUTH0_CLIENT_ID}',
       callbackURL: '#{env.AUTH0_CALLBACK_URL}',
     });
-    
+
     // this function will be called when a user clicks the login button
     function signIn() {
       auth0.login({
@@ -230,6 +230,6 @@ request(options, function(error, response, body) {
 
 ```
 
-The Resource Server (API) should be configured to verify the JWT and any claims contained within it. Because the Resource Server is utilizing the RS256 signature method, tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: https://${account.namespace}/.well-known/jwks.json. You can use any [recommended JWT library](https://jwt.io) to validate the standard claims returned in the token. These details are outside the scope of this quickstart tutorial. More information can be found [in our Backend/API Quickstart documentation](https://auth0.com/docs/quickstart/backend).
+The Resource Server (API) should be configured to verify the JWT and any claims contained within it. Because the Resource Server is utilizing the RS256 signature method, tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: https://${account.namespace}/.well-known/jwks.json. You can use any [recommended JWT library](https://jwt.io) to validate the standard claims returned in the token. These details are outside the scope of this quickstart tutorial. More information can be found [in our Backend/API Quickstart documentation](https://auth0.com/quickstart/backend).
 .
 

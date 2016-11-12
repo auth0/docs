@@ -18,7 +18,7 @@ budicon: 173
 
 ## 2. Test the Rule Result
 
-<%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/react/04-user-profile' }) %>
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/react/04-user-profile' }) %>
 
 ```javascript
 /* ===== ./src/components/Profile/ProfileDetails.js ===== */

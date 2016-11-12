@@ -12,5 +12,5 @@ budicon: 243
 
 ## Login
 
-<%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/webapp/nodejs/01-login' }) %>
+<%= include('../_includes/_mfa-login', { loginlink: '/quickstart/webapp/nodejs/01-login' }) %>
 

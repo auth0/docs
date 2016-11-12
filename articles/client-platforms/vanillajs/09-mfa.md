@@ -18,4 +18,4 @@ budicon: 243
 
 ## Login
 
-<%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/spa/vanillajs/01-login' }) %>
+<%= include('../_includes/_mfa-login', { loginlink: '/quickstart/spa/vanillajs/01-login' }) %>

@@ -1,6 +1,6 @@
 ## Configure Callback URLs
 
-<%= include('../../client-platforms/_includes/_callback-url-introduction') %>
+<%= include('../../../client-platforms/_includes/_callback-url-introduction') %>
 
 > If you wish to only use DB connections, skip this point.
 

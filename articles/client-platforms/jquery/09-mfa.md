@@ -20,7 +20,7 @@ In this tutorial, you will learn how to enable MFA in the jQuery application you
 
 ## Login
 
-<%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/spa/jquery/01-login' }) %>
+<%= include('../_includes/_mfa-login', { loginlink: '/quickstart/spa/jquery/01-login' }) %>
 
 # Summary
 

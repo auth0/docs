@@ -23,4 +23,4 @@ In this tutorial, you will learn how to enable MFA in the Ionic application you 
 
 ## Login
 
-<%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/native/ionic/01-login' }) %>
+<%= include('../_includes/_mfa-login', { loginlink: '/quickstart/native/ionic/01-login' }) %>

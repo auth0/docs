@@ -2,7 +2,7 @@
 public: false
 ---
 
-# ${title}
+# ${meta.title}
 
 ## SAML Configuration
 

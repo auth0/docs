@@ -10,7 +10,7 @@ budicon: 500
   path: '07-Authorization'
 }) %>
 
-<%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/react/06-rules' }) %>_
+<%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/react/06-rules' }) %>_
 
 ## 1. Create a Rule to Assign Roles
 

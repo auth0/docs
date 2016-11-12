@@ -10,7 +10,7 @@ budicon: 546
   path: '08-Authorization'
 }) %>
 
-<%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/webapp/aspnet-core/07-rules' }) %>
+<%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/webapp/aspnet-core/07-rules' }) %>
 
 ## Restrict an Action Based on a User's Roles
 

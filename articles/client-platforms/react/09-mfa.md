@@ -21,5 +21,5 @@ In this tutorial, you will learn how to enable MFA in the ReactJS application cr
 
 ## 2. Login
 
-<%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/spa/react/01-login' }) %>
+<%= include('../_includes/_mfa-login', { loginlink: '/quickstart/spa/react/01-login' }) %>
 

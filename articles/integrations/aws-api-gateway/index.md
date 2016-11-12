@@ -27,5 +27,5 @@ You will be taken through the following steps:
 * [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5)
 
 <%= include('./_stepnav', {
- next: ["1. Setup", "/docs/integrations/aws-api-gateway/part-1"]
+ next: ["1. Setup", "/integrations/aws-api-gateway/part-1"]
 }) %>
