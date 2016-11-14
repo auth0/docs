@@ -1,5 +1,5 @@
 ---
-description: How to install, initilize and use Auth0.Swift
+description: How to install, initialize and use Auth0.Swift
 url: /libraries/auth0-swift
 ---
 
@@ -25,7 +25,7 @@ Auth0.swift is available through [CocoaPods](http://cocoapods.org).
 To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod "Auth0", '1.0.0'
+pod 'Auth0', '~> 1.0'
 ```
 
 ### Carthage
@@ -33,7 +33,7 @@ pod "Auth0", '1.0.0'
 In your Cartfile add this line
 
 ```
-github "auth0/Auth0.swift" "1.0.0"
+github "auth0/Auth0.swift" ~> 1.0
 ```
 
 ## Usage
