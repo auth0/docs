@@ -230,6 +230,8 @@ var options = {
 
 ![Lock - Language Dictionary](/media/articles/libraries/lock/v10/customization/lock-languagedictionary.png)
 
+Additionally, check out the [Customizing Error Messages](/libraries/lock/v10/customizing-error-messages) page or the [Internationalization](/libraries/lock/v10/i18n) page for more information about the use of the `languageDictionary` option.
+
 
 ### popupOptions {Object}
 
