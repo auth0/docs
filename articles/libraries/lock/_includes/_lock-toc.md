@@ -7,4 +7,5 @@
 * [Lock With auth0.js](/libraries/lock/v10/auth0js) - How to use Lock alongside `auth0.js`
 * [Lock 9 to 10 Migration Guide](/libraries/lock/v10/migration-guide) - What existing customers need to know to migrate from Lock v9 to v10
 * [Language Support and Custom Text](/libraries/lock/v10/i18n) - Languages supported and customization of text fields
+* [Customizing Error Messages](/libraries/lock/v10/customizing-error-messages) - Customizing error messages that are shown in Lock
 * [Advanced Use Case: Popup Mode](/libraries/lock/v10/popup-mode) - An alternate Lock mode, not recommended in most use cases
