@@ -27,3 +27,5 @@ When using the Auth0 developer keys, there are a few caveats you need to be awar
 3. [Redirecting users from Rules](/rules/redirect) will not function properly. This is because redirect rules are resumed on the endpoint `https://${account.namespace}/continue`. When using Auth0's developer keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error.
 
 4. [Federated Logout](/logout#log-out-a-user) does not work. When using the Auth0 developer keys, calling `/v2/logout?federated` will sign the user out of Auth0, but not out of the Social Identity Provider.
+
+5. `prompt=none` won't work on the [/authorize](/api/authentication#!#get--authorize_social) endpoint. [Auth0.js' `silentAuthentication` method](https://github.com/auth0/auth0.js#silent-authentication) uses `prompt=none` internally, so that won't work either.
