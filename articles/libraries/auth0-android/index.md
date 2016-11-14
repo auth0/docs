@@ -1,17 +1,17 @@
 ---
-description: How to install, initilize and use Auth0.Android
+description: How to install, initialize and use Auth0.Android
 url: /libraries/auth0-android
 ---
 
 # Auth0.Android
 
+Auth0.Android is a client-side library for [Auth0](http://auth0.com).
+
 ## Requirements
 
 Android API version 15 or newer
 
-## Usage
-
-### Installation
+## Installation
 
 Auth0.android is available through [Gradle](https://gradle.org/). To install it, simply add the following line to your `build.gradle` file:
 
@@ -20,6 +20,8 @@ dependencies {
     compile "com.auth0.android:auth0:1.1.0"
 }
 ```
+
+## Usage
 
 ### Permissions 
 
