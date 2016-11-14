@@ -1,10 +1,18 @@
+---
+description: How to install, initilize and use Auth0.Swift
+---
+
 # Auth0.swift
+
+Auth0.swift is a client-side library for [Auth0](http://auth0.com).
 
 ## Requirements
 
 iOS 9+ and Xcode 8 (Swift 3.0)
 
-> For Swift 2.3 you need to use [v1@swift-2.3](https://github.com/auth0/Auth0.swift/tree/v1@swift-2.3) branch
+::: panel-info Swift 2.3
+For Swift 2.3 you need to use [v1@swift-2.3](https://github.com/auth0/Auth0.swift/tree/v1@swift-2.3) branch.
+:::
 
 If using CocoaPods we recommend version 1.1.0 or later.
 
@@ -39,16 +47,16 @@ To avoid specifying clientId & domain you can add a `Auth0.plist` file to your m
 <plist version="1.0">
 <dict>
    <key>ClientId</key>
-   <string>{YOUR_CLIENT_ID}</string>
+   <string>${account.clientId}</string>
    <key>Domain</key>
-   <string>{YOUR_DOMAIN}</string>
+   <string>${account.namespace}</string>
 </dict>
 </plist>
 ```
 
 ::: panel-info Note
 Note that this will load clientId & domain in authentication API & OAuth2 methods, and only domain for management API methods.
-:::T
+:::
 
 ### Authentication API
 
@@ -107,7 +115,6 @@ Auth0
    }
 ```
 
-
 #### Sign Up with database connection
 
 ```swift
@@ -127,7 +134,6 @@ Auth0
        }
    }
 ```
-
 
 #### Get user information
 
@@ -184,7 +190,7 @@ Auth0
 First go to [Auth0 Dashboard](https://manage.auth0.com/#/applications) and go to application's settings. Make sure you have in *Allowed Callback URLs* a URL with the following format:
 
 ```
-{YOUR_BUNDLE_IDENTIFIER}://{YOUR_AUTH0_DOMAIN}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback
+{YOUR_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback
 ```
 
 In your application's `Info.plist` file register your iOS Bundle Identifier as a custom scheme like this:
