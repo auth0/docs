@@ -7,7 +7,7 @@ budicon: 173
 
 Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. For more information about Auth0 rules, please refer to [the full documentation](/rules).
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
   path: '06-Rules',

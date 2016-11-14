@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to integrate Auth0 with jQuery to au
 budicon: 292
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
   path: '04-User-Profile'

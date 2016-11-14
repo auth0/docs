@@ -5,7 +5,7 @@ description: This tutorial will show you how to use the Auth0 Windows Universal 
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'Auth0.Windows.UWP',
   path: 'samples/LoginClientSample.Js',

@@ -3,7 +3,7 @@ title: User Profile
 description: This tutorial demonstrates how to display the user's profile
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
   path: '04-User-Profile'

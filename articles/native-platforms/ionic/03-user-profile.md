@@ -4,7 +4,7 @@ description: This example demonstrates how to display the user's profile
 budicon: 292
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
   path: '03-User-Profile',

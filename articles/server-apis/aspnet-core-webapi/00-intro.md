@@ -5,7 +5,7 @@ description: This Quickstart will guide you through the various tasks related to
 budicon: 715
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-webapi-sample',
   path: '00-Starter-Seed',

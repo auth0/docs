@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to add Multifactor Authentication to
 budicon: 243
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-spring-security-mvc-sample',
   path: '09-MFA',

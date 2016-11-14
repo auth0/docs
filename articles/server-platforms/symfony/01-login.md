@@ -5,7 +5,7 @@ description: This tutorial demonstrates how to use the Auth0 Symfony SDK to add 
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-symfony-php-web-app',
   path: '00-Starter-Seed',

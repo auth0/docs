@@ -5,7 +5,7 @@ description: This tutorial demonstrates how to use the Auth0 React Native iOS SD
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'Mobile-Samples.React',
   path: 'Classic/Lock'

@@ -4,7 +4,7 @@ description: This tutorial demonstrates how assign roles to your users, and use 
 budicon: 500
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-mvc-sample',
   path: '06-Authorization'

@@ -5,7 +5,7 @@ description: This tutorial demonstrates how to use the Auth0 ASP.NET SDK to add 
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'auth0-aspnet',
   path: 'examples/auth0-aspnet-mvc4-sample/',

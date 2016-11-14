@@ -5,7 +5,7 @@ description: This tutorial demonstrates how to use the Auth0 Ruby On Rails SDK t
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'omniauth-auth0',
   path: 'examples/ruby-on-rails-webapp',

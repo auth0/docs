@@ -3,7 +3,7 @@ title: Single Sign-On
 description: This tutorial demonstrates how to use single sign on in Angular 1.x applications
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
   path: '11-SSO'

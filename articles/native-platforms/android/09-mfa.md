@@ -4,7 +4,7 @@ description: This tutorial will show you how to configure Multifactor Authentica
 budicon: 243
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
   path: '09-MFA',

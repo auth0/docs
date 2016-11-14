@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to perform Login and Sign Up by usin
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
   path: '02-Custom-Login'

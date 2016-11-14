@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to assign roles to your users, and u
 budicon: 500
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-javascript-spa',
   path: '07-Authorization'

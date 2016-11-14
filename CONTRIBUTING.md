@@ -446,7 +446,7 @@ In the case of things like iOS and Android samples, we should build with multipl
 3. No need to write code or specialized guide for mobile until we allow users to enroll mfa from mobile apps. Currently is web only
 
 ### Seed Projects
-Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package2` include.
+Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
 
 The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
 
@@ -475,7 +475,7 @@ AUTH0_CLIENT_SECRET={CLIENT_SECRET}
 ##### Include Code
 
 ```
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'node-auth0',
   path: 'examples/nodejs-regular-webapp',

@@ -7,7 +7,7 @@ budicon: 546
 
 This tutorial demonstrates how to use a previously saved token to authenticate your API calls.
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
   path: '08-Calling-APIs',

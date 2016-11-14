@@ -5,7 +5,7 @@ description: This tutorial will show you how to use the Auth0 WPF and Winforms S
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-winformsWPF-samples',
   path: '00-Starter-Seed'

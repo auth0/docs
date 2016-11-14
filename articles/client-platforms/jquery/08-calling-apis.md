@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to use $.ajaxSetup() to make authent
 budicon: 546
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
   path: '08-Calling-Api'

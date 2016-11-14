@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the Auth0 library to add cus
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs2-systemjs-sample',
   path: '02-Custom-Login',

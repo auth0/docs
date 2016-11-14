@@ -13,13 +13,13 @@
 ### Using Auth0 Lock
 
 <% if (language === "objc") { %>
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'Mobile-Samples.iOS',
   path: 'Passwordless-SMS/Lock/ObjC'
 }) %>
 <% } else { %>
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'Mobile-Samples.iOS',
   path: 'Passwordless-SMS/Lock/Swift'

@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the Auth0 PHP Symfony SDK to
 ---
 
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'jwt-auth-bundle',
   path: 'example',

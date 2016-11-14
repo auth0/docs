@@ -3,7 +3,7 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 PHP SDK to add authentication and authorization to your API.
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'auth0-PHP',
   path: 'examples/basic-api',

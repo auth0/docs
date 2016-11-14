@@ -19,13 +19,13 @@ The private key is stored in the keystore of the device. Each time a user initia
 ### Using the Auth0 Lock
 
 <% if (language === "objc") { %>
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'Mobile-Samples.iOS',
   path: 'Passwordless-TouchID/Lock/ObjC'
 }) %>
 <% } else { %>
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'Mobile-Samples.iOS',
   path: 'Passwordless-TouchID/Lock/Swift'

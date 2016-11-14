@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to use Auth0 rules to extend what Au
 budicon: 173
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
   path: '06-Rules'

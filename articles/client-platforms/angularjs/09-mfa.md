@@ -3,7 +3,7 @@ title: Multifactor Authentication
 description: This tutorial demonstrates how to add Multifactor Authentication to your Angular 1.x app
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
   path: '09-MFA'

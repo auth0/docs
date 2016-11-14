@@ -3,7 +3,7 @@ title: OAuth 2.0 API Authorization
 description: This tutorial demonstrates how to use API authorization
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
   path: '13-OAuth2-Authorization'

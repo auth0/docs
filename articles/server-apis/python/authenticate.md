@@ -6,7 +6,7 @@ description: This tutorial will show you how to use the Auth0 Python SDK to add 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'auth0-python',
   path: 'examples/flask-api',

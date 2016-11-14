@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to fetch user profile information
 budicon: 292
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-nodejs-webapp-sample',
   path: '04-User-Profile',
