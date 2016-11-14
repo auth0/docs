@@ -46,3 +46,5 @@ Or you can update a `client_secret` by creating your own request to the API:
   }
 }
 ```
+
+**Note:** If the client uses a Base64-encoded client secret, then the updated one has to be encoded as well.
