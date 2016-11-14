@@ -45,7 +45,7 @@ public void Configuration(IAppBuilder app)
 {
     var issuer = $"https://{ConfigurationManager.AppSettings["Auth0Domain"]}/";
     var audience = ConfigurationManager.AppSettings["Auth0ClientID"];
-    var secret = ConfigurationManager.AppSettings["Auth0ClientSecret"];
+    var secret = Encoding.UTF8.GetBytes(ConfigurationManager.AppSettings["Auth0ClientSecret"]);
 
     // Api controllers with an [Authorize] attribute will be validated with JWT
     app.UseJwtBearerAuthentication(
