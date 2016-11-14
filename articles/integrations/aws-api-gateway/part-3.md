@@ -12,7 +12,7 @@ In this step, you will build a single page, serverless client application using 
 
 For a simple starter app, download this seed project.
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'auth0-aws',
   path: 'examples/api-gateway/client'

@@ -7,7 +7,7 @@ budicon: 500
 
 This step demonstrates how to use Auth0 to create access roles for your users. With access roles, you can authorize or deny content to different users based on the level of access they have.
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
   path: '07-Authorization',

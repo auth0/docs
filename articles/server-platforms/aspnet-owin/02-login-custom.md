@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to create a custom login page for yo
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-mvc-sample',
   path: '02-Login-Custom'

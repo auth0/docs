@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to integrate Lock in your iOS Swift 
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
   path: '01-Login'

@@ -5,7 +5,7 @@ description: This tutorial demonstrates how to use the Auth0 Play 2 Scala SDK to
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-scala-samples',
   path: '00-Starter-Seed',

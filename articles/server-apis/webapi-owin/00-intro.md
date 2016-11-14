@@ -4,7 +4,7 @@ name: Introduction to the Quickstart, and configuring environment
 budicon: 715
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-webapi-sample',
   path: '00-Starter-Seed/WebApi',

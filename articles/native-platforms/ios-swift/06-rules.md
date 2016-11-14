@@ -4,7 +4,7 @@ description: This tutorial will show you how to create a basic rule that you can
 budicon: 173
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
   path: '06-Rules'

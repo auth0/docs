@@ -5,7 +5,7 @@ description: This tutorial demonstrates how to use the Auth0 PHP Laravel SDK to 
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-laravel-php-web-app',
   path: '00-Starter-Seed'

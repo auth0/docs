@@ -6,7 +6,7 @@ budicon: 448
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-cordova-samples',
   path: '00-Starter-Seed/basic-sample',

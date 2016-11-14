@@ -4,7 +4,7 @@ description: This tutorial will teach you how to perform Login and Sign Up by us
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'native-mobile-samples',
   path: 'iOS/basic-sample-objc',

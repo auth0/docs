@@ -5,7 +5,7 @@ description: This tutorial demonstrates how to add authentication and authorizat
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ionic2-samples',
   path: '01-Login'

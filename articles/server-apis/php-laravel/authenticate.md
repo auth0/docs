@@ -3,7 +3,7 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to add authentication and authorization to your API.
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-laravel-php-web-api',
   path: '00-Starter-Seed',

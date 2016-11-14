@@ -16,7 +16,7 @@ title: Using Passwordless Authentication in SPA with SMS
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-passwordless-sample',
   path: ''
@@ -64,7 +64,7 @@ If the code is correct, the user will be authenticated. This will call the callb
 
 ### Use your own UI
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-passwordless-sample',
   path: ''

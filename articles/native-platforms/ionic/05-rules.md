@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to use rules to extend what Auth0 ha
 budicon: 173
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
   path: '05-Rules',

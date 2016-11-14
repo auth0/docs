@@ -7,7 +7,7 @@ budicon: 448
 
 This quickstart will show you how to add Auth0 login capabilities while using a customized login screen.
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
   path: '02-Custom-Login',

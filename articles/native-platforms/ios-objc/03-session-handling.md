@@ -4,7 +4,7 @@ description: This tutorial will show you how to handle sessions in your app, wit
 budicon: 280
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'native-mobile-samples',
   path: 'iOS/basic-sample-objc',

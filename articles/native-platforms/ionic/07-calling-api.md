@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to make secure calls to an API
 budicon: 546
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
   path: '07-Calling-Api',

@@ -3,7 +3,7 @@ title: Passwordless
 description: This tutorial demonstrates how to use passwordless authentication
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
   path: '12-Passwordless'

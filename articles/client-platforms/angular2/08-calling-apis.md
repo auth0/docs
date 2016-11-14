@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to use angular2-jwt in Angular 2 app
 budicon: 546
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs2-systemjs-sample',
   path: '08-Calling-Api',

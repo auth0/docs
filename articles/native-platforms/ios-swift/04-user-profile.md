@@ -4,7 +4,7 @@ description: This tutorial will show you how to access the user profile from wit
 budicon: 292
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
   path: '04-User-Profile'

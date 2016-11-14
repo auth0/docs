@@ -6,7 +6,7 @@ budicon: 292
 
 This tutorial will show you how to use Lock to get the user's profile data in your Android apps with Auth0.
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
   path: '04-User-Profile',

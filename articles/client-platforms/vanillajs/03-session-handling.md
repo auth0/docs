@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to add session handling and logout t
 budicon: 280
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-javascript-spa',
   path: '03-Session-Handling'

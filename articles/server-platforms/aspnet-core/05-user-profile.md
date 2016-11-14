@@ -4,7 +4,7 @@ description: This tutorial will show you how to display get the user's profile a
 budicon: 292
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-sample',
   path: '05-User-Profile'

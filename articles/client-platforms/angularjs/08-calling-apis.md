@@ -3,7 +3,7 @@ title: Calling APIs
 description: This tutorial demonstrates how to make secure calls to an API
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
   path: '08-Calling-Api'

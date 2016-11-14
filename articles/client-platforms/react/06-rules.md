@@ -4,7 +4,7 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 budicon: 173
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-react-sample',
   path: '06-Rules'

@@ -5,7 +5,7 @@ description: This tutorial will show you how to use the Auth0 Node.js Hapi SDK t
 
 In this tutorial you will learn how to use Auth0 to secure your [Hapi](http://hapijs.com/) API.
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'node-auth0',
   path: 'examples/hapi-api',

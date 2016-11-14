@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to use the Auth0 Socket.io SDK to ad
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-socket.io-samples',
   path: '00-Starter-Seed',

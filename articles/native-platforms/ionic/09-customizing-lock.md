@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to customize the Lock widget
 budicon: 243
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ionic-samples',
   path: '09-Customizing-Lock',

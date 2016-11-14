@@ -6,7 +6,7 @@ budicon: 345
 
 This tutorial will show you how to use Lock within your Android project to link two different accounts for the same user.
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
   path: '05-Linking-Accounts',

@@ -4,7 +4,7 @@ description: This tutorial will show you how to link multiple accounts within th
 budicon: 345
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
   path: '05-Linking-Accounts'

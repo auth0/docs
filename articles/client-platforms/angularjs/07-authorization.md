@@ -3,7 +3,7 @@ title: Authorization
 description: This tutorial demonstrates how to assign roles to your users, and use those claims to authorize or deny a user to access secure content in the app
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
   path: '07-Authorization'

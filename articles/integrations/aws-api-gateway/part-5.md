@@ -59,7 +59,7 @@ Because the AWS Lambda console has access to a limited number of Node modules th
 
 The following seed project contains the code you'll need for your updated AWS Lambda function.
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'auth0-aws',
   path: 'examples/api-gateway/lambda'

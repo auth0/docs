@@ -4,7 +4,7 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
 budicon: 292
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs2-systemjs-sample',
   path: '04-User-Profile',

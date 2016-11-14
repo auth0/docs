@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the Auth0 Electron SDK to ad
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-electron-samples',
   path: '01-Login'

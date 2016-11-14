@@ -4,7 +4,7 @@ description: This tutorial will demonstrates how to use the Auth0 Go SDK to add 
 budicon: 448
 ---
 
-<%= include('../../_includes/_package2', {
+<%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-golang-web-app',
   path: '01-Login',
