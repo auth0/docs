@@ -1,5 +1,5 @@
 ---
-description: How to view log data.
+description: How to view log data, lists log event types.
 url: /logs
 ---
 
@@ -47,56 +47,433 @@ You can use the Management API v2 retrieve your logs. There are the two availabl
 The following table lists the codes associated with the appropriate log events.
 
 <table>
-  <thead><tr><th>Event Code</th><th>Event</th></tr></thead>
+  <thead>
+    <tr>
+      <th><strong>Event Code</strong></th>
+      <th><strong>Event</strong></th>
+      <th><strong>Event Description</strong></th>
+      <th><strong>Additional Info</strong></th>
+    </tr>
+  </thead>
   <tbody>
-  <tr><td>admin_update_launch</td><td>Auth0 Update Launched</td></tr>
-  <tr><td>api_limit</td><td>Rate Limit On API</td></tr>
-  <tr><td>cls</td><td>Code/Link Sent</td></tr>
-  <tr><td>coff</td><td>Connector Offline</td></tr>
-  <tr><td>con</td><td>Connector Online</td></tr>
-  <tr><td>cs</td><td>Code Sent</td></tr>
-  <tr><td>du</td><td>Deleted User</td></tr>
-  <tr><td>f</td><td>Failed Login</td></tr>
-  <tr><td>fapi</td><td>Failed API Operation</td></tr>
-  <tr><td>fc</td><td>Failed by Connector</td></tr>
-  <tr><td>fce</td><td>Failed Change Email</td></tr>
-  <tr><td>fco</td><td>Failed by CORS</td></tr>
-  <tr><td>fcp</td><td>Failed Change Password</td></tr>
-  <tr><td>fcpn</td><td>Failed Change Phone Number</td></tr>
-  <tr><td>fcpr</td><td>Failed Change Password Request</td></tr>
-  <tr><td>fcpro</td><td>Failed Connector Provisioning</td></tr>
-  <tr><td>fcu</td><td>Failed Change Username</td></tr>
-  <tr><td>fd</td><td>Failed Delegation</td></tr>
-  <tr><td>fdu</td><td>Failed User Deletion</td></tr>
-  <tr><td>feacft</td><td>Failed Exchange</td></tr>
-  <tr><td>fn</td><td>Failed Sending Notification</td></tr>
-  <tr><td>fp</td><td>Failed Login (Incorrect Password)</td></tr>
-  <tr><td>fs</td><td>Failed Signup</td></tr>
-  <tr><td>fu</td><td>Failed Login (Invalid Email/Username)</td></tr>
-  <tr><td>fv</td><td>Failed Verification Email</td></tr>
-  <tr><td>fvr</td><td>Failed Verification Email Request</td></tr>
-  <tr><td>limit_mu</td><td>Blocked IP Address</td></tr>
-  <tr><td>limit_ui</td><td>Too Many Calls to /userinfo Endpoint</td></tr>
-  <tr><td>limit_wc</td><td>Blocked Account</td></tr>
-  <tr><td>s</td><td>Success Login</td></tr>
-  <tr><td>sapi</td><td>Success API Operation</td></tr>
-  <tr><td>sce</td><td>Success Change Email</td></tr>
-  <tr><td>scp</td><td>Success Change Password</td></tr>
-  <tr><td>scpn</td><td>Success Change Phone Number</td></tr>
-  <tr><td>scpr</td><td>Success Change Password Request</td></tr>
-  <tr><td>scu</td><td>Success Change Username</td></tr>
-  <tr><td>sdu</td><td>Success User Deletion</td></tr>
-  <tr><td>sd</td><td>Success Delegation</td></tr>
-  <tr><td>seacft</td><td>Success Exchange</td></tr>
-  <tr><td>seccft</td><td>Success Exchange</td></tr>
-  <tr><td>ss</td><td>Success Signup</td></tr>
-  <tr><td>sv</td><td>Success Verification Email</td></tr>
-  <tr><td>svr</td><td>Success Verification Email Request</td></tr>
-  <tr><td>sys_os_update_end</td><td>Auth0 OS Update Ended</td></tr>
-  <tr><td>sys_os_update_start</td><td>Auth0 OS Update Started</td></tr>
-  <tr><td>sys_update_end</td><td>Auth0 Update Ended</td></tr>
-  <tr><td>sys_update_start</td><td>Auth0 Update Started</td></tr>
-  <tr><td>w</td><td>Warnings During Login</td></tr>
+  <tr>
+    <td><code>admin_update_launch</code></td>
+    <td>Auth0 Update Launched</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>api_limit</code></td>
+    <td>Rate Limit On API</td>
+    <td>The maximum number of requests to the API in given time.</td>
+    <td><a href="/policies/rate-limits">Rate Limit Policy</a></td>
+  </tr>
+  <tr>
+    <td><code>cls</code></td>
+    <td>Code/Link Sent</td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td><code>cs</code></td>
+    <td>Code Sent</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>coff</code></td>
+    <td>Connector Offline</td>
+    <td></td>
+    <td><a href="/connector">Active Directory/LDAP Connector</a></td>
+  </tr>
+  <tr>
+    <td><code>con</code></td>
+    <td>Connector Online</td>
+    <td></td>
+    <td><a href="/connector">Active Directory/LDAP Connector</a></td>
+  </tr>
+    <td><code>fc</code></td>
+    <td>Failed by Connector</td>
+    <td></td>
+    <td><a href="/connector">Active Directory/LDAP Connector</a></td>
+  </tr>
+  <tr>
+    <td><code>du</code></td>
+    <td>Deleted User</td>
+    <td>User has been deleted.</td>
+    <td><a href="/user-profile">User Profile</a></td>
+  </tr>
+  <tr>
+    <td><code>f</code></td>
+    <td>Failed Login</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fapi</code></td>
+    <td>Failed API Operation</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fce</code></td>
+    <td>Failed Change Email</td>
+    <td></td>
+    <td><a href="/user-profile">User Profile</a></td>
+  </tr>
+  <tr>
+    <td><code>fco</code></td>
+    <td>Failed by CORS</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fcp</code></td>
+    <td>Failed Change Password</td>
+    <td></td>
+    <td><a href="/connections/database/password-change">Changing a User's Password</a></td>
+  </tr>
+  <tr>
+    <td><code>fcpn</code></td>
+    <td>Failed Change Phone Number</td>
+    <td></td>
+    <td><a href="/user-profile">User Profile</a></td>
+  </tr>
+  <tr>
+    <td><code>fcpr</code></td>
+    <td>Failed Change Password Request</td>
+    <td></td>
+    <td><a href="/connections/database/password-change">Changing a User's Password</a></td>
+  </tr>
+  <tr>
+    <td><code>fcpro</code></td>
+    <td>Failed Connector Provisioning</td>
+    <td></td>
+    <td><a href="/connector">Active Directory/LDAP Connector</a></td>
+  </tr>
+  <tr>
+    <td><code>fcu</code></td>
+    <td>Failed Change Username</td>
+    <td></td>
+    <td><a href="/user-profile">User Profile</a></td>
+  </tr>
+  <tr>
+    <td><code>fd</code></td>
+    <td>Failed Delegation</td>
+    <td></td>
+    <td><a href="/tokens/delegation">Delegation Tokens</a></td>
+  </tr>
+  <tr>
+    <td><code>fdu</code></td>
+    <td>Failed User Deletion</td>
+    <td></td>
+    <td><a href="/user-profile">User Profile</a></td>
+  </tr>
+  <tr>
+    <td><code>sdu</code></td>
+    <td>Success User Deletion</td>
+    <td></td>
+    <td><a href="/user-profile">User Profile</a></td>
+  </tr>
+  <tr>
+    <td><code>feacft</code></td>
+    <td>Failed Exchange</td>
+    <td>Failed exchange of authorization code for Access Token</td>
+    <td><a href="/api-auth/tutorials/authorization-code-grant">Authorization Code Grant Flow</a></td>
+  </tr>
+  <tr>
+    <td><code>feccft</code></td>
+    <td>Failed Exchange</td>
+    <td>Failed exchange of Access Token for a Client Credentials Grant</td>
+    <td><a href="/api-auth/config/asking-for-access-tokens">Asking for Access Tokens for a Client Credentials Grant</a></td>
+  </tr>
+  <tr>
+    <td><code>slo</code></td>
+    <td>Success Logout</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>flo</code></td>
+    <td>Failed Logout</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fn</code></td>
+    <td>Failed Sending Notification</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fp</code></td>
+    <td>Failed Login (Incorrect Password)</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fs</code></td>
+    <td>Failed Signup</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fu</code></td>
+    <td>Failed Login (Invalid Email/Username)</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>fui</code></td>
+    <td>Users import</td>
+    <td>Failed user import</td>
+    <td><a href="/extensions/user-import-export">User Import/Export</a></td>
+  </tr>
+    <tr>
+    <td><code>sui</code></td>
+    <td>Users import</td>
+    <td>Successful user import</td>
+    <td><a href="/extensions/user-import-export">User Import/Export</a></td>
+  </tr>
+  <tr>
+    <td><code>fv</code></td>
+    <td>Failed Verification Email</td>
+    <td></td>
+    <td><a href="/email/custom#verification-email">Verification Email</a></td>
+  </tr>
+  <tr>
+    <td><code>fvr</code></td>
+    <td>Failed Verification Email Request</td>
+    <td></td>
+    <td><a href="/email/custom#verification-email">Verification Email</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_auth_failed</code></td>
+    <td>OTP Auth failed</td>
+    <td>One-time password authentication failed.</td>
+    <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_auth_rejected</code></td>
+    <td>OTP Auth rejected</td>
+    <td>One-time password authentication rejected.</td>
+    <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_auth_succeed</code></td>
+    <td>OTP Auth success</td>
+    <td>One-time password authentication success.</td>
+    <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_module_switch</code></td>
+    <td>Module switch</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>gd_otp_rate_limit_exceed</code></td>
+    <td>Too many failures</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>gd_recovery_failed</code></td>
+    <td>Recovery failed</td>
+    <td>Multifactor recovery code failed.</td>
+    <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_recovery_rate_limit_exceed</code></td>
+    <td>Too many failures</td>
+    <td>Multifactor recovery code has failed too many times.</td>
+    <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_recovery_succeed</code></td>
+    <td>Recovery success</td>
+    <td>Multifactor recovery code succeeded authorization.</td>
+    <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_send_pn</code></td>
+    <td>Push notification sent</td>
+    <td>Push notification for MFA sent successfully sent with Guardian.</td>
+    <td><a href="/multifactor-authentication/guardian">Auth0 Guardian</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_send_sms</code></td>
+    <td>SMS Sent</td>
+    <td>SMS for MFA sent successfully sent.</td>
+    <td><a href="/multifactor-authentication/guardian/admin-guide#support-for-sms">Using SMS for MFA</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_start_auth</code></td>
+    <td>Second factor started</td>
+    <td>Second factor authentication event started for MFA.</td>
+    <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_start_enroll</code></td>
+    <td>Enroll started</td>
+    <td>Multifactor authentication enroll has started.</td>
+    <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_tenant_update</code></td>
+    <td>Guardian tenant update</td>
+    <td></td>
+    <td><a href="/multifactor-authentication/guardian">Auth0 Guardian</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_unenroll</code></td>
+    <td>Unenroll device account</td>
+    <td>Device used for second factor authentication has been unenrolled.</td>
+    <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_update_device_account</code></td>
+    <td>Update device account</td>
+    <td>Device used for second factor authentication has been updated.</td>
+    <td><a href="/multifactor-authentication">Multifactor Authentication</a></td>
+  </tr>
+  <tr>
+    <td><code>gd_user_delete</code></td>
+    <td>User delete</td>
+    <td>Deleted multifactor user account.</td>
+    <td><a href="/user-profile">User Profile</a></td>
+  </tr>
+  <tr>
+    <td><code>limit_delegation</code></td>
+    <td>Too Many Calls to /delegation</td>
+    <td>Rate limit exceeded to <code>/delegation</code> endpoint</td>
+    <td><a href="/policies/rate-limits">API Rate Limit Policy</a></td>
+  </tr>
+  <tr>
+    <td><code>limit_mu</code></td>
+    <td>Blocked IP Address</td>
+    <td>An IP address is blocked with 10 failed login attempts into a single account from the same IP address.</td>
+    <td><a href="/anomaly-detection">Anomaly Detection</a></td>
+  </tr>
+  <tr>
+    <td><code>limit_ui</code></td>
+    <td>Too Many Calls to /userinfo</td>
+    <td>Rate limit exceeded to <code>/limit_ui</code> endpoint</td>
+    <td><a href="/policies/rate-limits">API Rate Limit Policy</a></td>  </tr>
+  <tr>
+    <td><code>limit_wc</code></td>
+    <td>Blocked Account</td>
+    <td></td>
+    <td><a href="/anomaly-detection">Anomaly Detection</a></td>
+  </tr>
+  <tr>
+    <td><code>s</code></td>
+    <td>Success Login</td>
+    <td>Successful login event.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sapi</code></td>
+    <td>Success API Operation</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sce</code></td>
+    <td>Success Change Email</td>
+    <td></td>
+    <td><a href="/email">Emails in Auth0</a></td>
+  </tr>
+  <tr>
+    <td><code>scp</code></td>
+    <td>Success Change Password</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>scpr</code></td>
+    <td>Success Change Password Request</td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td><code>scpn</code></td>
+    <td>Success Change Phone Number</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>scu</code></td>
+    <td>Success Change Username</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sd</code></td>
+    <td>Success Delegation</td>
+    <td></td>
+    <td><a href="/tokens/delegation">Delegation Tokens</a></td>
+  </tr>
+  <tr>
+    <td><code>seacft</code></td>
+    <td>Success Exchange</td>
+    <td>Successful exchange of authorization code for Access Token</td>
+    <td><a href="/api-auth/tutorials/authorization-code-grant">Authorization Code Grant Flow</a></td>
+  </tr>
+  <tr>
+    <td><code>seccft</code></td>
+    <td>Success Exchange</td>
+    <td>Successful exchange of Access Token for a Client Credentials Grant</td>
+    <td><a href="/api-auth/config/asking-for-access-tokens">Asking for Access Tokens for a Client Credentials Grant</a></td>
+  </tr>
+  <tr>
+    <td><code>ss</code></td>
+    <td>Success Signup</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sv</code></td>
+    <td>Success Verification Email</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>svr</code></td>
+    <td>Success Verification Email Request</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sys_os_update_end</code></td>
+    <td>Auth0 OS Update Ended</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sys_os_update_start</code></td>
+    <td>Auth0 OS Update Started</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sys_update_end</code></td>
+    <td>Auth0 Update Ended</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>sys_update_start</code></td>
+    <td>Auth0 Update Started</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>w</code></td>
+    <td>Warnings During Login</td>
+    <td></td>
+    <td></td>
+  </tr>
   </tbody>
 </table>
 
