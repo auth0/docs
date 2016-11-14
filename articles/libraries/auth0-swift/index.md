@@ -1,5 +1,6 @@
 ---
 description: How to install, initilize and use Auth0.Swift
+url: /libraries/auth0-swift
 ---
 
 # Auth0.swift
@@ -66,7 +67,7 @@ Note that this will load clientId & domain in authentication API & OAuth2 method
 Auth0
    .authentication()
    .login(
-       emailOrUsername: "support@auth0.com", 
+       usernameOrEmail: "support@auth0.com", 
        password: "a secret password", 
        connection: "Username-Password-Authentication"
        )
@@ -101,7 +102,7 @@ Auth0
 Auth0
    .authentication()
    .login(
-       emailOrUsername: "support@auth0.com", 
+       usernameOrEmail: "support@auth0.com", 
        password: "email OTP", 
        connection: "email"
        )
