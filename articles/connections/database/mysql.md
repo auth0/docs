@@ -72,6 +72,10 @@ function login (email, password, callback) {
 
 This script connects to a **MySQL** database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. You can tweak this script in the editor to adjust it to your own requirements.
 
+::: panel-info User Profile Schema
+For more information on Auth0 user profile schema and the fields that are expected, as well as additional ones that are available, take a look at the [Auth0 Normalized User Profile](/user-profile/normalized) documentation.
+:::
+
 ## 4. Add configuration parameters
 
 You can securely store the credentials needed to connect to your database in the **Settings** section at the bottom of the page.
