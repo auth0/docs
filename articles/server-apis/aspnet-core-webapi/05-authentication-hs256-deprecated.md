@@ -49,8 +49,8 @@ Go to the `Configure` method of your `Startup` class and add a call to `UseJwtBe
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 {
-    var secret = Convert.FromBase64String(Configuration["auth0:clientSecret"]);
-
+    var secret = Encoding.UTF8.GetBytes(Configuration["auth0:clientSecret"]);
+    
     var options = new JwtBearerOptions
     {
         TokenValidationParameters =
