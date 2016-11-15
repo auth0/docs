@@ -1,6 +1,7 @@
 ---
 title: "Server Client + API: Python Implementation for the Cron Job"
 description: The Python implementation of the server cron job for the Server Client + API architecture scenario
+url: /architecture-scenarios/application/server-api/cron-implementation-python
 ---
 
 # Server Client + API: Python Implementation for the Cron Job
