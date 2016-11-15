@@ -8,7 +8,7 @@ description: Explains the architecture scenario with a Single Page Web Applicati
 
 # SPA + API
 
-![SPA + API Flow](/media/articles/architecture-scenarios/spa-api.png)
+![Diagram for SPA + API scenario](/media/articles/architecture-scenarios/spa-api.png)
 
 In this scenario you have a Single Page Web Application ("Client") which talks to an API ("Resource Server"). The application will use **OpenID Connect** with the **Implicit Grant Flow** to authenticate users with Auth0. Note that this flow can only be used for Clients whose type is **Single Page Application** in the [Dashboard](${manage_url}).
 
