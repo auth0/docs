@@ -30,6 +30,6 @@ description:
 
 # Addons Supported by Auth0
 
-<% var clientAddons = _.sortBy(articles.findByHash('addons/client-addons').items, 'index'); %>
+<% var clientAddons = cache.find('articles/addons/client-addons', {sort: 'index'}); %>
 <%= include('./_addons', { addons: clientAddons }) %>
 
