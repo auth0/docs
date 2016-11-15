@@ -1083,5 +1083,9 @@
   {
     "from": "/libraries/lock-android/native-social-authentication",
     "to": "/libraries/lock-android/custom-authentication-providers"
+  },
+  {
+    "from": "/tokens/id_token",
+    "to": "/tokens/id-token"
   }
 ]
