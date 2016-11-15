@@ -32,9 +32,9 @@ description:
 
 Addons are plugins associated with a Client in Auth0. Usually, they are 3rd party APIs used by the client that Auth0 generates access tokens for (e.g. Salesforce, Azure Service Bus, Azure Mobile Services, SAP, etc).
 
-Here are the general steps to configuring an Auth0 addon:
+## Configure an Addon
 
-### 1. Select the Addon
+### Select the Addon
 
 <% if (account.clientId) { %>
 Go to <a href="${manage_url}/#/applications/${account.clientId}/addons">Application Addons</a> page and select the add-on.
@@ -42,17 +42,18 @@ Go to <a href="${manage_url}/#/applications/${account.clientId}/addons">Applicat
 Go to <a href="${manage_url}/#/applications/">Application Addons</a> page and select the add-on.
 <% } %>
 
-![](/media/articles/server-apis/addons.png)
+![](/media/addons/manage-addons.png) 
 
-Each integration is different and requires different parameters and configuration. Once the addon is activated, you will see tailored instructions with details on how to integrate with it.
+### Setup
 
-### 2. Use it
+Each integration is different and requires different parameters and configuration. Once the addon is activated, you will see tailored instructions with details on how to integrate with it in the dashboard.
 
-The key to this integration is the Delegation endpoint in Auth0. Check the documentation of any of our FrontEnd or Mobile SDKs to learn how to call [this endpoint](/auth-api#delegated). You can download your favorite library from any of the [Quickstarts](/).
+The key to this integration is the [/delegation endpoint](/auth-api#delegated) in Auth0. 
 
-### 3. You are done!
-
-Congrats! You've implemented Delegation for the your addon. 
+See the Delegation documentation to learn more about how to call this endpoint:
+[Delegation Tokens](/tokens/delegation)
+[Lock Android: Delegation API](/libraries/lock-android/delegation-api)
+[Lock iOS: Delegation API](/libraries/lock-ios/delegation-api) 
 
 ## Additional Information for Specific Addons:
 
