@@ -55,10 +55,6 @@ To avoid specifying clientId & domain you can add a `Auth0.plist` file to your m
 </plist>
 ```
 
-::: panel-info Note
-Note that this will load clientId & domain in authentication API & OAuth2 methods, and only domain for management API methods.
-:::
-
 ### Authentication API
 
 #### Login with database connection
