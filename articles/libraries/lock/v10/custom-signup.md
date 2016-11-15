@@ -12,6 +12,18 @@ Lock 10 supports [custom fields signup](/libraries/lock/v10/customization#additi
 
 ![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
 
+Lock's `additionalSignupFields` option will only work with database signups. For signups using social identity providers, collecting these fields in the same manner is not possible with Lock, but there are two other options to allow social IDP signups with Lock while still collecting additional custom fields.
+
+### Redirect Rules
+
+One way to use social IDP signups with Lock and collect custom fields is to use [redirect rules](/rules/redirect) to redirect the user to another page (Ideally, a [webtask](https://webtask.io/docs) or a custom page hosted by you) where you ask for extra information,  and then redirect back to finish the authentication transaction.
+
+### Progressive Profiling
+
+Another way to collect custom field data when signing users up with social providers is via progressive profiling. Progressive profiling is a way by which you can slowly build up user profiles over time. You collect the bare minimum details upon signup, but when a user later interacts with your app, you collect a small amount of data (perhaps one question) each time until their profile is complete. This allows for collecting the desired information, but with less friction at signup, since the goal of using a social IDP for signup is, at least in part, making it more effortless and streamlined for the user.
+
+For further reference, here is our [documentation on progressive profiling](/user-profile/progressive-profiling) as well as an Auth0 [blog post on progressive profiling](https://auth0.com/blog/progressive-profiling/).
+
 ## Using the API
 
 ### 1. Create a Sign Up form to capture custom fields
