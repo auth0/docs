@@ -1,7 +1,3 @@
----
-public: false
----
-
 ### Before Starting
 
 <div class="setup-callback">

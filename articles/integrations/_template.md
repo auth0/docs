@@ -1,7 +1,3 @@
----
-public: false
----
-
 ## ${meta.title} integration
 
 In this tutorial, you will learn how to add Single Sign On (SSO) to ${meta.title} using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders#social) (Facebook, Twitter, Github, etc.), [Enterprise Identity Providers](/identityproviders#enterprise) (LDAP, Active Directory, ADFS, etc.) or with a username and password.
@@ -25,5 +21,3 @@ Now you will be directed to a tutorial for this integration containing informati
 ### 4. Configuration complete
 
 You have successfully configured ${meta.title} to use Auth0 as the SSO broker.
-
-

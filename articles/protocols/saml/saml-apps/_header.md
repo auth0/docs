@@ -1,7 +1,3 @@
----
-public: false
----
-
 # ${meta.title}
 
 ## SAML Configuration
