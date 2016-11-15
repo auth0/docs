@@ -28,7 +28,7 @@ description:
 }
 </style>
 
-## Auth0 Client Addons
+# Auth0 Client Addons
 
 Addons are plugins associated with a Client in Auth0. Usually, they are 3rd party APIs used by the client that Auth0 generates access tokens for (e.g. Salesforce, Azure Service Bus, Azure Mobile Services, SAP, etc).
 

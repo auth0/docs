@@ -9,14 +9,14 @@
           <div class="addon-content">
             <% if (article.public !== false) { %>
             <div class="addon-image-wrap">
-              <a href="<%- '/docs' + article.url %>">
-                <img class="img-responsive" src="<%- '/docs' + article.image %>" />
+              <a href="<%- article.url %>">
+                <img class="img-responsive" src="<%- article.image %>" />
               </a>
             </div>
-            <h3><a href="<%- '/docs' + article.url %>"><%- article.addon %></a></h3>
+            <h3><a href="<%- article.url %>"><%- article.addon %></a></h3>
             <% } else { %>
             <div class="addon-image-wrap">
-              <img class="img-responsive" src="<%- '/docs' + article.image %>" />
+              <img class="img-responsive" src="<%- article.image %>" />
             </div>
             <h3><%- article.addon %></h3>
             <% } %>
