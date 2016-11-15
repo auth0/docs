@@ -14,3 +14,4 @@ Auth0 has established the following operational policies.
 -  [Rate Limits](/policies/rate-limits)
 -  [Endpoints](/policies/endpoints)
 -  [Billing](/policies/billing)
+-  [Data Export](policies/data-export)
