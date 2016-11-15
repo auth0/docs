@@ -54,7 +54,7 @@ The key to this integration is the Delegation endpoint in Auth0. Check the docum
 
 Congrats! You've implemented Delegation for the your addon. 
 
-## Additional Information for Specific Addons
+## Additional Information for Specific Addons:
 
 <% var clientAddons = cache.find('articles/addons/client-addons', {sort: 'index'}); %>
 <%= include('./_addons', { addons: clientAddons }) %>
