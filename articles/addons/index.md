@@ -51,8 +51,11 @@ Each integration is different and requires different parameters and configuratio
 The key to this integration is the [/delegation endpoint](/auth-api#delegated) in Auth0. 
 
 See the Delegation documentation to learn more about how to call this endpoint:
+
 [Delegation Tokens](/tokens/delegation)
+
 [Lock Android: Delegation API](/libraries/lock-android/delegation-api)
+
 [Lock iOS: Delegation API](/libraries/lock-ios/delegation-api) 
 
 ## Additional Information for Specific Addons:
