@@ -9,9 +9,7 @@ seo_alias: amazon
 description: How to configure the AWS Client Addon.
 ---
 
-${include('../_thirdPartyApi')}
-
-### Additional Information
+# Amazon Web Services Addon
 
 * You can find more details about how to obtain AWS Tokens to securely call AWS APIs and resources in [this how-to article](/aws-api-setup).
 * Check out how to use delegation with the AWS API Gateway with delegation in the tutorial [AWS API Gateway Tutorial](/integrations/aws-api-gateway).

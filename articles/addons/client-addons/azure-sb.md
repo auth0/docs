@@ -9,13 +9,10 @@ tags:
   - quickstart
 articles:
   - authenticate
-
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Service Bus.
 ---
 
-${include('../_thirdPartyApi')}
-
-### Additional Information
+# Azure Service Bus Addon
 
 Here's a sample call to the delegation endpoint to get the SAS:
 

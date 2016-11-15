@@ -13,9 +13,7 @@ articles:
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Blob Storage.
 ---
 
-${include('../_thirdPartyApi')}
-
-### Additional Information
+# Azure Blob Storage Addon
 
 Here's a sample call to the delegation endpoint to get the SAS:
 

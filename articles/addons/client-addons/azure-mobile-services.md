@@ -15,9 +15,7 @@ alias:
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Mobile Services.
 ---
 
-${include('../_thirdPartyApi')}
-
-### Additional Information
+# Azure Mobile Services Addon
 
 #### 1. Create a client for the application
 

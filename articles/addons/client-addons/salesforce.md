@@ -8,9 +8,7 @@ image: /media/addons/salesforce.svg
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize your Salesforce services.
 ---
 
-${include('../_thirdPartyApi')}
-
-### Additional information
+# Salesforce Addon
 
 Auth0 supports both the __production__ connection to Salesforce and the __Sandbox__, the only difference being the endpoints hosted by Salesforce: `https://login.salesforce.com` and `https://test.salesforce.com` respectively.
 
