@@ -1,7 +1,21 @@
 ---
-title: Authenticate
+addon: Azure Mobile Services
+thirdParty: true
+url: /addons/azure-mobile-services
+image: /media/platforms/azure.png
+snippets:
+  use: server-apis/azure-mobile-services/use
+alias:
+  - windows-azure
+  - microsoft-azure
+  - windows-azure-websites
+  - windows-azure-vm
+  - azure-websites
+  - azure-vm
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Mobile Services.
 ---
+
+${include('../_thirdPartyApi')}
 
 ### Additional Information
 

@@ -1,9 +1,0 @@
-title: Azure Service Bus
-thirdParty: true
-alias:
-  - Azure Service Bus
-image: /media/platforms/azure.png
-tags:
-  - quickstart
-articles:
-  - authenticate

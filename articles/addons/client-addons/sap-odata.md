@@ -1,12 +1,14 @@
 ---
-title: Authenticate
+addon: SAP OData
+alias:
+  - sap
+url: /addons/sap-odata  
+image: /media/addons/sap_api.svg
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize your SAP OData services.
 ---
 > This integration is in __experimental mode__. Contact us if you have questions.
 
-
-
-
+${include('../_thirdPartyApi')}
 
 ### Additional Information
 

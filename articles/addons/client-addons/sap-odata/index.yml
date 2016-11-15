@@ -1,9 +1,0 @@
-title: SAP OData
-alias:
-  - sap
-thirdParty: true
-image: /media/addons/sap_api.svg
-tags:
-  - quickstart
-articles:
-  - authenticate

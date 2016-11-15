@@ -1,10 +1,14 @@
 ---
-title: Authenticate
+addon: Salesforce (sandbox)
+thirdParty: true
+url: /addons/salesforce-sandbox
+alias:
+  - salesforce
+image: /media/addons/salesforce_sandbox_api.svg
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize your Salesforce (Sandbox) services.
 ---
 
-
-
+${include('../_thirdPartyApi')}
 
 ### Additional Information
 
