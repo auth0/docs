@@ -63,38 +63,56 @@ The Auth0 Management APIv2 token is used to call v2 of the Auth0 Management API.
 
 ## Additional Reading and References
 
-- Authenticating a user:
-  * [Authentication with Lock widget](/libraries/lock).
-  * [Authentication with Auth0.js library](https://github.com/auth0/auth0.js).
+### Authenticating a user
 
-- Getting User Profile info from Auth0:
-  * [User profile overview](/user-profile).
-  * [Getting user profile with Lock widget](/libraries/lock).
-  * [Getting user profile with Auth0.js library](https://github.com/auth0/auth0.js).
-  * See the `/authorize`, `/userinfo` and `/tokeninfo` endpoints within the [Auth0 Authentication API](/auth-api).
-  * [List of tutorials for other languages](/tutorials).
-  * [Management APIv2 - User endpoints](/api/v2).
+* [Authentication with Lock widget](/libraries/lock)
+* [Authentication with Auth0.js library](https://github.com/auth0/auth0.js)
+* [List of tutorials for other languages](/tutorials)
 
-- Getting User Profile info from other providers:
-  * Some basic user profile information from third party providers is made available in the Auth0 user profile object: [User profile overview](/user-profile).
+### Getting User Profile info from Auth0
 
-- Calling the Auth0 Management APIv2: The Auth0 Management APIv2 can be called from a web application (not a Single Page Application) by embedding the application’s client id and client secret in the calls to the Auth0 Management APIv2 endpoints.
-  * [Management APIv2 Explorer page](/api/v2)
-  * [Management APIv2 vs APIv1 and some discussion of authorization and scopes](/api/v2/changes)
+* [User profile overview](/user-profile)
+* [Getting user profile with Lock widget](/libraries/lock)
+* [Getting user profile with Auth0.js library](https://github.com/auth0/auth0.js)
+* See the `/authorize`, `/userinfo` and `/tokeninfo` endpoints within the [Auth0 Authentication API](/auth-api)
+* [List of tutorials for other languages](/tutorials)
+* [Management APIv2 - User endpoints](/api/v2)
 
-- Calling the Auth0 Authentication API endpoints: The Auth0 Authentication API endpoints provide a rich set of features for authenticating users, retrieving tokens, refreshing tokens, and obtaining tokens with which to call other APIs. This API provides the /authorize, /userinfo, /tokeninfo, /delegation, and  impersonation endpoints.
-  * [Auth0 authentication API](/auth-api)
+### Getting User Profile info from other providers
 
-- Calling the API of the social provider through which the user authenticated:
-  * [Sample of what to do once the user is logged in](/what-to-do-once-the-user-is-logged-in)
+Some basic user profile information from third party providers is made available in the Auth0 user profile object.
 
-- Calling an API developed by a customer: This is best done by registering the API in Auth0 and obtaining a delegation token with which to call the API.
-  * [Sequence Diagrams illustrating flow](/sequence-diagrams)
+* [User profile overview](/user-profile)
 
-- Logout:
-  * [Discussion of clearing cookies set by Auth0, use of the `returnTo` param](/logout)
+### Calling the Auth0 Management APIv2
 
-- Account Linking
-  * [How to link accounts and impact on user profile and tokens](/link-accounts)
+The Auth0 Management APIv2 can be called from a web application (not a Single Page Application) by embedding the application’s client id and client secret in the calls to the Auth0 Management APIv2 endpoints.
 
-- [Understanding the expiration of different token types](/security/token-exp)
+* [Management APIv2 Explorer page](/api/v2)
+* [Management APIv2 vs APIv1 and some discussion of authorization and scopes](/api/v2/changes)
+
+### Calling the Auth0 Authentication API endpoints
+
+The Auth0 Authentication API endpoints provide a rich set of features for authenticating users, retrieving tokens, refreshing tokens, and obtaining tokens with which to call other APIs. This API provides the /authorize, /userinfo, /tokeninfo, /delegation, and  impersonation endpoints.
+
+* [Auth0 authentication API](/auth-api)
+
+### Calling the API of the social provider through which the user authenticated
+
+* [Sample of what to do once the user is logged in](/what-to-do-once-the-user-is-logged-in)
+
+### Calling an API developed by a customer
+
+This is best done by registering the API in Auth0 and obtaining a delegation token with which to call the API.
+
+* [Sequence Diagrams illustrating flow](/sequence-diagrams)
+
+### Logout
+
+* [Discussion of clearing cookies set by auth0, use of the returnTo parm](/logout)
+
+### Account Linking
+
+* [How to link accounts and impact on user profile and tokens](/link-accounts)
+
+### [Understanding the expiration of different token types](/security/token-exp)
