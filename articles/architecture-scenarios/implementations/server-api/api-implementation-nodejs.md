@@ -1,6 +1,7 @@
 ---
 title: "Server Client + API: Node.js Implementation for the API"
 description: The Node.js implementation of the API for the Server Client + API architecture scenario
+url: /architecture-scenarios/application/server-api/api-implementation-nodejs
 ---
 
 # Server Client + API: Node.js Implementation for the API
