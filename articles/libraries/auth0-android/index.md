@@ -33,13 +33,19 @@ Open your app's `AndroidManifest.xml` file and add the following permission.
 
 ### Initializing Auth0
 
-First create an instance of `Auth0` with your client information
+You can set up your Auth0 credentials and initiate Auth0 in one of two ways:
+
+#### 1) Client Information In-Line
+
+Method one is to simply create an instance of `Auth0` with your client information.
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 ```
 
-Alternatively, you can save your client information in the `strings.xml` file using the following names:
+#### 2) Client Information Read from XML
+
+Method two is to save your client information in the `strings.xml` file using the following names:
  
 ```xml
 <resources>
@@ -49,7 +55,7 @@ Alternatively, you can save your client information in the `strings.xml` file us
 
 ```
 
-And then create a new Auth0 instance by passing an Android Context:
+And then create your new Auth0 instance by passing an Android Context:
 
 ```java
 Auth0 account = new Auth0(context);
@@ -57,15 +63,15 @@ Auth0 account = new Auth0(context);
 
 ### Using the Authentication API
 
-The client provides methods to authenticate the user against Auth0 server.
- 
-Create a new instance by passing the account:
+The Authentication Client provides methods to authenticate the user against Auth0 server. Create a new instance by passing in the Auth0 object created in the previous step.
  
 ```java
 AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 ```
 
 #### Login with database connection
+
+Logging in with a database connection merely requires calling `login` with the user's email, password, and the name of the connection you wish to authenticate with. The response will be a Credentials object.
 
 ```java
 authentication
@@ -89,7 +95,11 @@ Note that the default scope used is `openid`
 
 #### Passwordless Login
 
+Logging in with a Passwordless is slightly different, and requires two steps - requestion the code, and then inputting the code for verification.
+
 **Step 1:** Request the code
+
+In this example, requesting the code is done by calling `passwordlessWithEmail` with the user's email, `PasswordlessType.CODE`, and the name of the connection as parameters. On success, you'll probably display a notice to the user that their code is on the way, and perhaps route them to a view to input that code.
 
 ```java
 authentication
@@ -112,6 +122,8 @@ Note that the default scope used is `openid`
 :::
 
 **Step 2:** Input the code
+
+Once the user has a code, they can input it. Call the `loginWithEmail` method, and pass in the user's email, the code they received, and the name of the connection in question. Upon success, you will receive a Credentials object in the response.
 
 ```java
 authentication
@@ -170,7 +182,7 @@ authentication
 
 ### Using the Management API (Users)
 
-The client provides methods to link and unlink users account.
+The client provides methods to link and unlink user accounts.
 
 Create a new instance by passing the account and the token:
 
@@ -251,7 +263,7 @@ Open your app's `AndroidManifest.xml` file and add the following permission.
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Also register the intent filters inside your activity's tag, so you can receive the call in your activity. Note that you will have to specify the callback url inside the `data` tag.
+Also register the intent filters inside your activity's tag, so you can receive the call in your activity. **Note that you will have to specify the callback url inside the `data` tag**.
 
 ```xml
     <application android:theme="@style/AppTheme">
@@ -281,7 +293,7 @@ Also register the intent filters inside your activity's tag, so you can receive 
     </application>
 ```
 
-In your `Activity` class define a constant like `WEB_REQ_CODE` that holds the request code (an `int`), that will be sent back with the intent once the auth is finished in the browser/webview. To capture the response, override the `OnActivityResult` and the `onNewIntent` methods and call `WebAuthProvider.resume()` with the received parameters:
+In your `Activity` class, define a constant such as `WEB_REQ_CODE` that holds the request code (an `int`), that will be sent back with the intent once the auth is finished in the browser/webview. To capture the response, override the `OnActivityResult` and the `onNewIntent` methods and call `WebAuthProvider.resume()` with the received parameters.
 
 ```java
 public class MyActivity extends Activity {
@@ -313,6 +325,8 @@ public class MyActivity extends Activity {
 
 #### Authenticate with a specific Auth0 connection
 
+The `withConnection` option allows you to specify a connection that you wish to authenticate with.
+
 ```java
 WebAuthProvider.init(account)
                 .withConnection("twitter")
@@ -321,7 +335,7 @@ WebAuthProvider.init(account)
 
 #### Authenticate using a code grant with PKCE
 
-Before you can use `Code Grant` in Android, make sure to go to your [client's section](${manage_url}/#/applications) in dashboard and check in the Settings that `Client Type` is `Native`.
+Before you can use `Code Grant` in Android, make sure to go to your [client's section](${manage_url}/#/applications) in dashboard and check in the Settings that `Client Type` is `Native`. If you have not used code grants before, you might want to take a look at our [tutorial on executing an authorization code grant flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce) before proceeding.
 
 
 ```java
@@ -331,6 +345,8 @@ WebAuthProvider.init(account)
 ```
 
 #### Authenticate using a specific scope
+
+Using scopes can allow you to return specific claims for specfic fields in your request. Adding parameters to `withScope` will allow you to add more scopes. The default scope is `openid`, and you should read our [documentation on scopes](/scopes) for further details about them.
 
 ```java
 WebAuthProvider.init(account)
@@ -342,7 +358,9 @@ WebAuthProvider.init(account)
 Note that the default scope used is `openid`
 :::
 
-#### Authenticate using a specific connection scope
+#### Authenticate using specific connection scopes
+
+There may be times when you need to authenticate with particular connection scopes, or permissions, from the IDP in question. Auth0 has [documentation on setting up connection scopes for external IDPs](/tutorials/adding-scopes-for-an-external-idp), but if you need specific access for a particular situation in your app, you can do so by passing parameters to `withConnectionScope`. A full listing of available parameters can be found in that connection's settings in your dashboard, or from the IDP's documentation.
 
 ```java
 WebAuthProvider.init(account)
