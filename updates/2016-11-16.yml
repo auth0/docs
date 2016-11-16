@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Configure Auth0 as Identity Provider for Oracle Eloqua"
+    tags:
+      - saml
+      - eloqua
+    description: |
+       A [new document](https://auth0.com/docs/protocols/saml/saml-idp-eloqua) was created on how to configure Auth0 to serve as an Identity Provider for Oracle Eloqua Marketing Cloud.
