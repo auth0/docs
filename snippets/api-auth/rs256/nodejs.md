@@ -6,15 +6,20 @@ title: Node.js
 var express = require('express');
 var app = express();
 var jwt = require('express-jwt');
-var rsaValidation = require('auth0-api-jwt-rsa-validation');
+var jwks = require('jwks-rsa');
 
 var port = process.env.PORT || 8080;
 
 var jwtCheck = jwt({
-  secret: rsaValidation(),
-  algorithms: ['RS256'],
-  issuer: "https://${'<%= tenantDomain %>'}/",
-  audience: '${ "<%= api.identifier %>" }'
+    secret: jwks.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri: "https://${'<%=tenantDomain%>'}/.well-known/jwks.json"
+    }),
+    audience: '${ "<%= api.identifier %>" }',
+    issuer: "https://${'<%= tenantDomain %>'}/",
+    algorithms: ['RS256']
 });
 
 app.use(jwtCheck);
