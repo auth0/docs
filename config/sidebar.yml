@@ -341,6 +341,9 @@ articles:
         forceFullReload: true
         external: true
 
+  - title: "Client Addons"
+    url: "/addons"
+
 apis:
 
   - title: "Overview"
