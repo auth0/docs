@@ -10,9 +10,9 @@ var jwt = require('express-jwt');
 var port = process.env.PORT || 8080;
 
 var jwtCheck = jwt({
-  secret: '${ "<%= api.signing_secret %>" }',
-  audience: '${ "<%= api.identifier %>" }',
-  issuer: "${'https://<%= tenantDomain %>'}/"
+  secret: '<%= api.signing_secret %>',
+  audience: '<%= api.identifier %>',
+  issuer: 'https://<%= tenantDomain %>'
 });
 
 // enforce on all endpoints
