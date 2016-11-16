@@ -5,7 +5,7 @@ description: What is the OpenID Connect protocol and how it works.
 
 **OpenID Connect (OIDC)** is an authentication protocol, based on the OAuth 2.0 family of specifications. It uses simple [JSON identity tokens (JWT)](/jwt) delivered via the OAuth 2.0 protocol.
 
-While OAuth 2.0 is about resource access and sharing, OIDC is all about user authentication. Its purpose is to give you one login for multiple sites. Each time you need to log in to a website using OIDC, you are redirected to your OpenID site where you login, and then taken back to the website. For example, if you chose to sing in to Auth0 using your Google account then you used OIDC. Once you successfully authenticate with Google and authorize Auth0 to access your information, Google will send back to Auth0 information about the user and the authentication performed. This information is returned in a [JSON Web Token (JWT)](/jwt) called an **ID Token**.
+While OAuth 2.0 is about resource access and sharing, OIDC is all about user authentication. Its purpose is to give you one login for multiple sites. Each time you need to log in to a website using OIDC, you are redirected to your OpenID site where you login, and then taken back to the website. For example, if you chose to sign in to Auth0 using your Google account then you used OIDC. Once you successfully authenticate with Google and authorize Auth0 to access your information, Google will send back to Auth0 information about the user and the authentication performed. This information is returned in a [JSON Web Token (JWT)](/jwt) called an **ID Token**.
 
 
 ## ID Token
@@ -43,7 +43,7 @@ All we have to do now is specify this new metadata as part of the `scope` reques
 
 ## How the protocol works
 
-Let's use the example we mentioned earlier, signing to Auth0 using your Google account, for a high level overview on how the flow works:
+Let's use the example we mentioned earlier, signing into Auth0 using your Google account, for a high level overview on how the flow works:
 
 1. When you choose to sign in to Auth0 using your Google account, Auth0 sends an **Authorization Request** to Google.
 1. Google authenticates your credentials or asks you to login if you are not already signed in, and asks for your authorization (lists all the permissions that Auth0 wants, for example read your email address, and asks you if you are ok with that).
