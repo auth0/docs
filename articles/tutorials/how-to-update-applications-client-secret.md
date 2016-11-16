@@ -37,7 +37,7 @@ Or you can update a `client_secret` by creating your own request to the API:
 ```har
 {
   "method": "PATCH",
-  "url": "https://${account.namespace}.auth0.com/api/v2/clients/${account.clientId}",
+  "url": "https://${account.namespace}/api/v2/clients/${account.clientId}",
   "headers": [{
     "name": "Content-Type",
     "value": "application/json"
