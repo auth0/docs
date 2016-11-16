@@ -27,7 +27,7 @@ From this page, you will need to save the following attributes (you will use the
 
 ![HTTP Redirect URL for Log Out](/media/articles/saml/identity-providers/ssocircle/metadata-snippet2.png)
 
-[Download](https://idp.ssocircle.com/sso/hoscert/pki/SSOCircleCACertificate.cer) and save the SSOCircle CA Certificate. You will also use this in Step 2.
+[Download](http://www.ssocircle.com/en/idp-tips-tricks/public-idp-configuration) and save the SSOCircle CA Certificate. You will also use this in Step 2.
 
 ## 2. Configuring Auth0
 
