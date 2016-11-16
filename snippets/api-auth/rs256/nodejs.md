@@ -13,8 +13,8 @@ var port = process.env.PORT || 8080;
 var jwtCheck = jwt({
   secret: rsaValidation(),
   algorithms: ['RS256'],
-  issuer: "https://${'<%= tenantDomain %>'}/",
-  audience: '${ "<%= api.identifier %>" }'
+  issuer: 'https://<%= tenantDomain %>',
+  audience: '<%= api.identifier %>'
 });
 
 app.use(jwtCheck);
