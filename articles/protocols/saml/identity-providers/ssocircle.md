@@ -157,7 +157,7 @@ Create an HTML file with the following HTML and JavaScript:
 
     <script src="http://cdn.auth0.com/js/lock/10.4.0/lock.min.js"></script>
     <script type="text/javascript">
-      var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '${account.namespace}');
+      var lock = new Auth0Lock('YOUR_CLIENT_ID', '${account.namespace}');
 
       function signin() {
         lock.show({
@@ -176,7 +176,7 @@ Create an HTML file with the following HTML and JavaScript:
 </HTML>
 ```
 
-Be sure to replace `{YOUR-APP-CLIENT-ID}` with the actual value for the [Client you created](#4-create-an-auth0-client-to-test-the-connection).
+Be sure to replace `YOUR_CLIENT_ID` with the actual value for the [Client you created](#4-create-an-auth0-client-to-test-the-connection).
 
 The Client ID can be found in the **Auth0 Dashboard** by going to **Clients** and clicking the **Settings** icon to the right of your Client name.
 
