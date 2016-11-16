@@ -6,7 +6,7 @@ description: How to configure Auth0 to serve as an Identity Provider for Oracle 
 
 These instructions explain how to configure Auth0 to serve as an Identity Provider for [Oracle Eloqua Marketing Cloud](http://www.oracle.com/partners/en/products/applications/eloqua-marketing-cloud-service/get-started/index.html).
 
-## 1. Configure the Addon: SAML2 Web App
+## Configure the Addon: SAML2 Web App
 
 Login to [Auth0 dashboard](${manage_url}) and create a new [Client](${manage_url}/#/clients).
 
@@ -50,7 +50,7 @@ Go to the *Usage* tab and download the Identity Provider metadata. This IDP meta
 
 ![Download Identity Provider Metadata](/media/articles/protocols/saml/eloqua/download-idp-metadata.png)
 
-## 2. Configure Oracle Eloqua
+## Configure Oracle Eloqua
 
 Login as Admin on Eloqua and click on *Settings > Users > Single Sign-On > Identity Provider Settings*.
 
@@ -71,13 +71,13 @@ Edit the newly added identity provider and complete the following steps:
 - Within ELOQUA IDP settings, if this is the default IDP, mark this IDP as default.
 
 
-## 3. Update the Audience Restriction
+## Update the Audience Restriction
 
 We will now use the **Service Provider Entity URL** copied from within the IDP settings in Eloqua to set the `audience` restriction within Auth0.
 
 Navigate to *Dashboard > Clients > select your client > Addons > SAML2 Web App > Settings* and set the `audience` to the value you copied.
 
-## 4. Test
+## Test
 
 Login to Eloqua with Auth0 should be enabled now. You can sign in to Eloqua with both IDP initiated login and SP initiated login.
 
