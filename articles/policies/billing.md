@@ -24,8 +24,8 @@ If your credit card fails, this will not affect the service. So if you are havin
 ## How can I cancel my subscription?
 Please proceed by downgrading your subscription to free or by cancelling your subscription via the Auth0 Dashboard. 
 
-1. Login to the Auth0 management dashboard
-2. Click on your username in the top right corner to bring up the associated dropdown box.
+1. Login to the Dashboard.
+2. Click on your account name in the top right corner to bring up the associated dropdown box.
 3. Select `Account Settings`.
 4. On the `Account Settings` page, click on the `Subscription` tab.
 5. On the `Subscription` tab, scroll down to the box associated with the `Free plan` and click `Checkout`.
