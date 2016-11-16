@@ -33,8 +33,10 @@ Please proceed by downgrading your subscription to free or by cancelling your su
 
 ## I signed up for a paid plan but haven't used my account since then, can I get a refund?
 
-In Auth0, we want our customers to pay for what they use. If you have a subscription plan, but you have not been using our service, and would like to get a refund, you should [downgrade](/articles/tutorials/cancel-paid-subscriptions#downgrade-a-paid-subscription-to-a-free-subscription) your account to use a Free Plan. 
+We understand that sometimes developers create accounts for demo or testing purposes. So if you have a subscription plan, but you have not been using our service in a while and you would like to get a refund, you should [downgrade](/articles/tutorials/cancel-paid-subscriptions#downgrade-a-paid-subscription-to-a-free-subscription) your account to use a Free Plan. Notice that we do not provide refunds for when a plan is downgraded to another paid one that has less features. 
 
-If you have done this, please explain the situation in our [Support Center](https://support.auth0.com), and provide information about why the account has not been used and for how long. 
+If you have already downgraded, please explain the situation by filing a ticket trough our [Support Center](https://support.auth0.com), and provide information about why the account has not been used and for how long. Please note that this request must come from a Dashboard Administrator. 
 
-This request must come from a Dashboard Administrator. We will evaluate the case and verify that the account has not been used in the aforementioned period in order to process the refund. Please note that if we consider the usage of the account not to be minimal, we reserve the right to not refund your card.
+We will evaluate the case and verify that the account has not been used in the aforementioned period in order to process the refund. Consider that if we consider the usage of the account not to be minimal, we reserve the right to not refund your card. 
+
+
