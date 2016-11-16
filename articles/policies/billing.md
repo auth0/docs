@@ -31,3 +31,10 @@ Please proceed by downgrading your subscription to free or by cancelling your su
 5. On the `Subscription` tab, scroll down to the box associated with the `Free plan` and click `Checkout`.
 6. To confirm your subscription change, click `Subscribe` Now.
 
+## I signed up for a paid plan but haven't used my account since then, can I get a refund?
+
+In Auth0, we want our customers to pay for what they use. If you have a subscription plan, but you have not been using our service, and would like to get a refund, you should [downgrade](/articles/tutorials/cancel-paid-subscriptions#downgrade-a-paid-subscription-to-a-free-subscription) your account to use a Free Plan. 
+
+If you have done this, please explain the situation in our [Support Center](https://support.auth0.com), and provide information about why the account has not been used and for how long. 
+
+This request must come from a Dashboard Administrator. We will evaluate the case and verify that the account has not been used in the aforementioned period in order to process the refund. Please note that if we consider the usage of the account not to be minimal, we reserve the right to not refund your card.
