@@ -265,7 +265,7 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 
 ---
 
-## Eloqua
+## Eloqua (Oracle Eloqua Marketing Cloud)
 
 ```
 { 
@@ -285,7 +285,7 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 
 ```
 
-**Callback URL**: `https://prod-pf.pluralsight.com/sp/ACS.saml2`
+**Callback URL**: `https://login.eloqua.com/auth/saml2/acs`
 
 Note: the Service Provider Entity URL copied from within the IDP settings in Eloqua to set the audience restriction within Auth0.
 
