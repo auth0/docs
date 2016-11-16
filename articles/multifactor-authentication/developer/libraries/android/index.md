@@ -35,7 +35,7 @@ To enable Guardian Push Notifications for your users, go to the [Multifactor Aut
 
 ## SNS configuration
 
-Auth0 For your native application to receive push notifications from Guardian, you will need to override the default SNS settings. Follow the instructions [here](/multifactor-authentication/developer/sns-configuration).
+For your native application to receive push notifications from Guardian, you will need to override the default SNS settings. Follow the instructions [here](/multifactor-authentication/developer/sns-configuration).
 
 ## Using the SDK
 
