@@ -1,6 +1,7 @@
 ---
 title: Authentication for Client-side Web Apps
 description: Explains how to authenticate users in a Client-side Web application. 
+toc: true
 ---
 
 # Authentication for Client-side Web Apps
