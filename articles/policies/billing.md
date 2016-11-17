@@ -19,7 +19,11 @@ Please note that the customers who created tenants via the Heroku hosting platfo
 The only way to determine the reason for the failure is for the customer to contact their credit card company by calling the number on the back. This can be triggered by a credit card reaching the limit or simply being rejected by the bank, for example.
 
 ### My credit card is failing and some features are not available anymore
-If your credit card fails, this will not affect the service. So if you are having issues with the service, it is not due to the credit card failing.
+If your credit card fails to be charged, we automatically retry to charge it up to 4 times. If you fix the issue before the fourth failure (by entering new card information or by solving the issue with the bank), then the charge will go through and everything will work as expected.
+
+However, if the problem is not fixed prior to the fourth failure, all past due invoices will be manually initiated by Auth0. This means that you may be charged in an unexpected date. 
+
+*Please note the following:* If you are having issues with the service, it is not due to the credit card failing.
 
 ## How can I cancel my subscription?
 Please proceed by downgrading your subscription to free or by cancelling your subscription via the Auth0 Dashboard. 
