@@ -32,7 +32,7 @@ In order to execute the flow the client needs to acquire the Resource Owner's cr
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\"}"
+    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"XyD....23S\"}"
   }
 }
 ```
@@ -43,6 +43,7 @@ Where:
 * `username`: Resource Owner's identifier.
 * `password`: Resource Owner's secret.
 * `audience`: API Identifier that the client is requesting access to.
+* `client_id`: Client ID of the client making the request
 * `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
 
 The response from `/oauth/token` (if successful) contains an `access_token`, for example:
