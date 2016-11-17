@@ -216,7 +216,7 @@ articles:
         children:
 
           - title: "For Administrators"
-            url: "/multifactor-authentication/guardian/admin-guide"
+            url: "/multifactor-authentication/administrator"
 
           - title: "For Developers"
             url: "/multifactor-authentication/developer"
