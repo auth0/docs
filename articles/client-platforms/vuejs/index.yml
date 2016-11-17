@@ -1,4 +1,4 @@
-title: Vue.js
+title: Vue
 language:
   - Javascript
 framework:
@@ -18,6 +18,7 @@ snippets:
 alias:
   - vue
   - vuejs
+  - vue.js
 seo_alias: vuejs
 default_article: 01-login
 articles:

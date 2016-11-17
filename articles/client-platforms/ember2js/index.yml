@@ -1,15 +1,15 @@
-title: EmberJS 2
+title: Ember 2
 alias:
   - ember 2
   - emberjs 2
 language:
   - Javascript
 framework:
-  - EmberJS 2
+  - Ember 2
 image: /media/platforms/emberjs.png
 tags:
   - quickstart
-seo_alias: ember2js
+seo_alias: emberjs 2
 default_article: 01-login
 articles:
   - 01-login
