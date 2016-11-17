@@ -34,7 +34,7 @@ The Refesh Token will be available in `req.user.extraParams.refresh_token`.
 
 If you invoke your API and you get a `401` response, this tells you that you might need to refresh your Access Token since it is expired. 
 
-In order to renew your Access Token, you must send a request to the `/oauth/token` endpoint to obtain a renewed access token. 
+In order to renew your Access Token, you must send a request to the `/oauth/token` endpoint to obtain a renewed access token. Note that this quickstart assumes that the *Token Endpoint Authentication Method* setting for your Client is set to `POST`. 
 
 ```js
 
@@ -47,8 +47,7 @@ var options = { method: 'POST',
     grant_type: 'refresh_token',
     client_id: '{env.AUTH0_CLIENT_ID}',
     client_secret: '{env.AUTH0_CLIENT_SECRET}',
-    refresh_token: 'req.user.extraParams.refresh_token',
-    redirect_uri: '{env.AUTH0_CALLBACK_URL}'
+    refresh_token: req.user.extraParams.refresh_token
   }, 
   json: true 
 };
@@ -58,7 +57,8 @@ request(options, function (error, response, body) {
   // use this renewed access token to invoke your API
 });
 
-}
 ```
+
+You can optionally include the `scope` parameter, including any or all of the scopes that were originally requested. If you ask for scopes for which the user did not already provide consent, the returned `access_token` will not include them. If you specified the `openid` scope, you will also get back an `id_token`. 
 
 The renewed Access Token has an expiration time equal to the `Token Expiration (Seconds)` setting for your API.
