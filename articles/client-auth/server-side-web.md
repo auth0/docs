@@ -1,6 +1,7 @@
 ---
 title: Authentication for Server-side Web Apps
 description: Explains how to authenticate users in a Server-side Web application. 
+toc: true
 ---
 
 # Authentication for Server-side Web Apps
