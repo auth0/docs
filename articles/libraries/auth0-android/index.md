@@ -93,7 +93,7 @@ Note that the default scope used is `openid`
 
 ### Passwordless Login
 
-Logging in with a Passwordless is slightly different, and requires two steps - requesting the code, and then inputting the code for verification.
+Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification.
 
 **Step 1:** Request the code
 
@@ -125,7 +125,7 @@ Once the user has a code, they can input it. Call the `loginWithEmail` method, a
 
 ```java
 authentication
-    .loginWithEmail("info@auth0.com", "a secret password", "my-passwordless-connection")
+    .loginWithEmail("info@auth0.com", "123456", "my-passwordless-connection")
     .start(new BaseCallback<Credentials>() {
         @Override
         public void onSuccess(Credentials payload) {
@@ -141,7 +141,7 @@ authentication
 
 ### Signing up with database connection
 
-Signing up with a database connection is similarly easy. Using the `signUp` method, you pass it the user's given email, chosen password, and the connection name to initiate the signup process.
+Signing up with a database connection is similarly easy. Call the `signUp` method passing the user's given email, chosen password, and the connection name to initiate the signup process.
 
 ```java
 authentication
@@ -161,7 +161,7 @@ authentication
 
 ### Getting user information
 
-In order to retrieve a user's information, you call the `tokenInfo` method and pass it the user's token.
+In order to retrieve a user's profile, you call the `tokenInfo` method and pass it the user's token.
 
 ```java
 authentication
@@ -180,24 +180,22 @@ authentication
 ```
 
 
-## Using the Management API (Users)
+## Using the Management API
 
-The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile. It also allows you to update user metadata.
+The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
-To get started, create a new `UsersAPIClient` instance by passing it the `account` and the api token.
+To get started, create a new `UsersAPIClient` instance by passing it the `account` and the token for the primary identity. In the case of linking users, this primary identity is the user profile that you want to "keep" the data for, and which you plan to link other identities to.
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
-UsersAPIClient users = new UsersAPIClient(account, "api token");
+UsersAPIClient users = new UsersAPIClient(account, "token");
 ```
  
 ### Linking users
 
-The Users Client provides methods to link and unlink user accounts. You can check out this documentation to learn more about [Linking Accounts](/link-accounts) with Auth0. 
-
 Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
 
-The `link` method accepts two parameters, the primary user id and the secondary user token (the token obtained after login with this identity).
+The `link` method accepts two parameters, the primary user id and the secondary user token (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe.
 
 ```java
 users
@@ -236,7 +234,7 @@ users
 ```
 
 ::: panel-info Unlinking - Metadata
-Note that any metadata stored in the primary user account will not be in the secondary account when unlinked. When accounts are linked, the secondary account's metadata is not linked; thus, when unlinked and the secondary account becomes separated again, it will have no metadata.
+Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
 :::
 
 ### Updating user metadata
@@ -307,24 +305,10 @@ Also register the intent filters inside your activity's tag, so you can receive 
     </application>
 ```
 
-In your `Activity` class, define a constant such as `WEB_REQ_CODE` that holds the request code (an `int`), that will be sent back with the intent once the auth is finished in the browser/webview. To capture the response, override the `OnActivityResult` and the `onNewIntent` methods and call `WebAuthProvider.resume()` with the received parameters.
+To capture the response, override the `onNewIntent` method and call `WebAuthProvider.resume()` with the received parameters.
 
 ```java
 public class MyActivity extends Activity {
-
-    private static final int WEB_REQ_CODE = 110;
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case WEB_REQ_CODE:
-                lockView.showProgress(false);
-                WebAuthProvider.resume(requestCode, resultCode, data);
-                break;
-            default:
-                super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
     
     @Override
     protected void onNewIntent(Intent intent) {
@@ -339,7 +323,7 @@ public class MyActivity extends Activity {
 
 ### Authenticate with a specific Auth0 connection
 
-The `withConnection` option allows you to specify a connection that you wish to authenticate with.
+The `withConnection` option allows you to specify a connection that you wish to authenticate with. If no connection is specified here, the browser will show the Hosted Login page, with all of the connections which are enabled for this client.
 
 ```java
 WebAuthProvider.init(account)
@@ -348,6 +332,8 @@ WebAuthProvider.init(account)
 ```
 
 ### Authenticate using a code grant with PKCE
+
+Code grant is the default mode, and will always be used unless calling `useCodeGrant` with `false`, or unless the device doesn't support the signing/hashing algorithms. 
 
 Before you can use `Code Grant` in Android, make sure to go to your [client's section](${manage_url}/#/applications) in dashboard and check in the Settings that `Client Type` is `Native`. If you have not used code grants before, you might want to take a look at our [tutorial on executing an authorization code grant flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce) before proceeding.
 
@@ -383,6 +369,8 @@ WebAuthProvider.init(account)
 ```
 
 ### Authenticate with Auth0 hosted login page
+
+If no connection name is specified, using the Auth0 [Hosted Login Page](hosted-pages/login) is the default behavior.
 
 ```java
 WebAuthProvider.init(account)
