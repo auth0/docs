@@ -117,7 +117,7 @@ For more information, see: [Emails in Auth0](/email).
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Medium | 2016-03-22 |  2016-11-01 |
+| Medium | 2016-03-22 |  2017-02-01 |
 
 The current password reset flow on Auth0 allows a user to enter their email and a new password. This triggers a confirmation email that is sent to the user asking them to confirm that they requested a password reset. 
 
