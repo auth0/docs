@@ -5,15 +5,15 @@ url: /libraries/auth0-android
 
 # Auth0.Android
 
-Auth0.Android is a client-side library for [Auth0](http://auth0.com).
+Auth0.Android is a client-side library for [Auth0](http://auth0.com). Using it with your Android native app development should simplify your interactions with Auth0.
 
 ## Requirements
 
-Android API version 15 or newer
+Android API version 15 or newer is required.
 
 ## Installation
 
-Auth0.android is available through [Gradle](https://gradle.org/). To install it, simply add the following line to your `build.gradle` file:
+Auth0.Android is available through [Gradle](https://gradle.org/). To install it, simply add the following line to your `build.gradle` file:
 
 ```gradle
 dependencies {
@@ -21,9 +21,7 @@ dependencies {
 }
 ```
 
-## Usage
-
-### Permissions 
+## Permissions 
 
 Open your app's `AndroidManifest.xml` file and add the following permission.
 
@@ -31,11 +29,11 @@ Open your app's `AndroidManifest.xml` file and add the following permission.
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-### Initializing Auth0
+## Initializing Auth0
 
 You can set up your Auth0 credentials and initiate Auth0 in one of two ways:
 
-#### 1) Client Information In-Line
+### 1) Client Information In-Line
 
 Method one is to simply create an instance of `Auth0` with your client information.
 
@@ -43,7 +41,7 @@ Method one is to simply create an instance of `Auth0` with your client informati
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 ```
 
-#### 2) Client Information Read from XML
+### 2) Client Information Read from XML
 
 Method two is to save your client information in the `strings.xml` file using the following names:
  
@@ -61,7 +59,7 @@ And then create your new Auth0 instance by passing an Android Context:
 Auth0 account = new Auth0(context);
 ```
 
-### Using the Authentication API
+## Using the Authentication API
 
 The Authentication Client provides methods to authenticate the user against Auth0 server. Create a new instance by passing in the Auth0 object created in the previous step.
  
@@ -69,7 +67,7 @@ The Authentication Client provides methods to authenticate the user against Auth
 AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 ```
 
-#### Login with database connection
+### Login with database connection
 
 Logging in with a database connection merely requires calling `login` with the user's email, password, and the name of the connection you wish to authenticate with. The response will be a Credentials object.
 
@@ -93,7 +91,7 @@ authentication
 Note that the default scope used is `openid`
 :::
 
-#### Passwordless Login
+### Passwordless Login
 
 Logging in with a Passwordless is slightly different, and requires two steps - requesting the code, and then inputting the code for verification.
 
@@ -141,7 +139,7 @@ authentication
     });
 ```
 
-#### Signing up with database connection
+### Signing up with database connection
 
 Signing up with a database connection is similarly easy. Using the `signUp` method, you pass it the user's given email, chosen password, and the connection name to initiate the signup process.
 
@@ -161,7 +159,7 @@ authentication
     });
 ```
 
-#### Getting user information
+### Getting user information
 
 In order to retrieve a user's information, you call the `tokenInfo` method and pass it the user's token.
 
@@ -182,16 +180,24 @@ authentication
 ```
 
 
-### Using the Management API (Users)
+## Using the Management API (Users)
 
-The Users Client provides methods to link and unlink user accounts. Create a new instance by passing it the account and the api token.
+The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile. It also allows you to update user metadata.
+
+To get started, create a new `UsersAPIClient` instance by passing it the `account` and the api token.
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 UsersAPIClient users = new UsersAPIClient(account, "api token");
 ```
  
-#### Linking users
+### Linking users
+
+The Users Client provides methods to link and unlink user accounts. You can check out this documentation to learn more about [Linking Accounts](/link-accounts) with Auth0. 
+
+Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
+
+The `link` method accepts two parameters, the primary user id and the secondary user token (the token obtained after login with this identity).
 
 ```java
 users
@@ -209,7 +215,9 @@ users
     });
 ```
 
-#### Unlinking users
+### Unlinking users
+
+Unlinking users is a similar provess to the linking of users. The `unlink` method takes three parameters, though: the primary user id, the secondary user id, and the secondary provider (of the secondary user).
 
 ```java
 users
@@ -227,7 +235,13 @@ users
     });
 ```
 
+::: panel-info Unlinking - Metadata
+Note that any metadata stored in the primary user account will not be in the secondary account when unlinked. When accounts are linked, the secondary account's metadata is not linked; thus, when unlinked and the secondary account becomes separated again, it will have no metadata.
+:::
+
 ### Updating user metadata
+
+When updating user metadata, you will create a `metadata` object, and then call the `updateMetadata` method, passing it the user id and the `metadata` object. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata.
 
 ```java
 Map<String, Object> metadata = new HashMap<>();
@@ -249,7 +263,7 @@ users
     });
 ```
 
-### Implementing web-based auth
+## Implementing web-based auth
 
 First go to [Auth0 Dashboard](${manage_url}/#/clients) and go to your client's settings. Make sure you have in *Allowed Callback URLs* a URL with the following format:
 
@@ -323,7 +337,7 @@ public class MyActivity extends Activity {
 
 ```
 
-#### Authenticate with a specific Auth0 connection
+### Authenticate with a specific Auth0 connection
 
 The `withConnection` option allows you to specify a connection that you wish to authenticate with.
 
@@ -333,7 +347,7 @@ WebAuthProvider.init(account)
                 .start(MainActivity.this, authCallback, WEB_REQ_CODE);
 ```
 
-#### Authenticate using a code grant with PKCE
+### Authenticate using a code grant with PKCE
 
 Before you can use `Code Grant` in Android, make sure to go to your [client's section](${manage_url}/#/applications) in dashboard and check in the Settings that `Client Type` is `Native`. If you have not used code grants before, you might want to take a look at our [tutorial on executing an authorization code grant flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce) before proceeding.
 
@@ -344,7 +358,7 @@ WebAuthProvider.init(account)
                 .start(MainActivity.this, authCallback, WEB_REQ_CODE);
 ```
 
-#### Authenticate using a specific scope
+### Authenticate using a specific scope
 
 Using scopes can allow you to return specific claims for specfic fields in your request. Adding parameters to `withScope` will allow you to add more scopes. The default scope is `openid`, and you should read our [documentation on scopes](/scopes) for further details about them.
 
@@ -358,7 +372,7 @@ WebAuthProvider.init(account)
 Note that the default scope used is `openid`
 :::
 
-#### Authenticate using specific connection scopes
+### Authenticate using specific connection scopes
 
 There may be times when you need to authenticate with particular connection scopes, or permissions, from the IDP in question. Auth0 has [documentation on setting up connection scopes for external IDPs](/tutorials/adding-scopes-for-an-external-idp), but if you need specific access for a particular situation in your app, you can do so by passing parameters to `withConnectionScope`. A full listing of available parameters can be found in that connection's settings in your dashboard, or from the IDP's documentation.
 
@@ -368,7 +382,7 @@ WebAuthProvider.init(account)
                 .start(MainActivity.this, authCallback, WEB_REQ_CODE);
 ```
 
-#### Authenticate with Auth0 hosted login page
+### Authenticate with Auth0 hosted login page
 
 ```java
 WebAuthProvider.init(account)
