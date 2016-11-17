@@ -36,6 +36,7 @@ To install this add-on and its dependencies, `cd` to your project directory and 
 ember install ember-simple-auth
 ember install auth0/auth0-ember-simple-auth
 ember generate scaffold-auth0
+bower install auth0-lock#9.2.3 jsrsasign#5.0.1 --save
 ```
 
 __Note:__ If you are not already using ember-cli, see [ember-cli migration](http://www.ember-cli.com/user-guide/#migrating-an-existing-project-that-doesnt-yet-use-ember-cli).
