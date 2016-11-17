@@ -95,7 +95,7 @@ Note that the default scope used is `openid`
 
 #### Passwordless Login
 
-Logging in with a Passwordless is slightly different, and requires two steps - requestion the code, and then inputting the code for verification.
+Logging in with a Passwordless is slightly different, and requires two steps - requesting the code, and then inputting the code for verification.
 
 **Step 1:** Request the code
 
@@ -141,8 +141,9 @@ authentication
     });
 ```
 
-
 #### Signing up with database connection
+
+Signing up with a database connection is similarly easy. Using the `signUp` method, you pass it the user's given email, chosen password, and the connection name to initiate the signup process.
 
 ```java
 authentication
@@ -160,8 +161,9 @@ authentication
     });
 ```
 
-
 #### Getting user information
+
+In order to retrieve a user's information, you call the `tokenInfo` method and pass it the user's token.
 
 ```java
 authentication
@@ -182,9 +184,7 @@ authentication
 
 ### Using the Management API (Users)
 
-The client provides methods to link and unlink user accounts.
-
-Create a new instance by passing the account and the token:
+The Users Client provides methods to link and unlink user accounts. Create a new instance by passing it the account and the api token.
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
