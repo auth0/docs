@@ -12,6 +12,7 @@ For information for your users on Guardian, how to download the app, and common 
 
 ## Guardian Basics
 * [Guardian Push Notifications](/multifactor-authentication/administrator/push-notifications)
+  * [Supported Devices for Guardian Push](/multifactor-authentication/administrator/push-supported-devices)
 * [Guardian SMS Notifications](/multifactor-authentication/administrator/sms-notifications)
   * [Configuring your Twilio Account](/multifactor-authentication/administrator/twilio-configuration)
 * [Turning off Guardian](/multifactor-authentication/administrator/disabling-mfa)
