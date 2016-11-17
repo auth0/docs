@@ -10,6 +10,9 @@ __Development__, __Test__, __Q&A__ environments are easy to setup in Auth0. Simp
 
 The example above uses a simple naming convention to distinguish each environment.
 
+> Note: if you have a paying subscription, you will not be charged for any additional accounts created for related environments. These accounts will have the same features as the "master" account.
+Please create a ticket in [Support Center](https://support.auth0.com) if you need to link different accounts to a master paying account.
+
 ## Migration
 
 Through the [Management API v2](/api/management/v2), you can automate the migration of assets (e.g. rules, database connections, etc.) between accounts.
