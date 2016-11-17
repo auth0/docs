@@ -122,13 +122,8 @@ Add `LockActivity` to your Manifest, replacing the `host` attribute with your `$
 
 #### Some Restrictions
 
-<<<<<<< d3f698a39ba9187bd454385cbd66d6a9458f410f
-* Make sure you declare the Activity's `launchMode` as `singleTask` or the result won't come back after the authentication.
-* Also note that for the time being, you can't launch `LockActivity` by calling `startActivityForResult`.
-=======
 * Make sure the Activity's launchMode is declared as `singleTask` or the result won't come back after the authentication.
-* Also note that for the time being, `LockActivity` can't be launched calling `startActivityForResult`.
->>>>>>> Syntactic changes, etc. to support new compiler pipeline
+* Also note that for the time being, `LockActivity` can't be launched by calling `startActivityForResult`.
 
 ### Auth0
 
