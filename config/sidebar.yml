@@ -384,7 +384,14 @@ appliance:
 
   - title: "Introduction"
     url: "/appliance"
-
+  - title: "Support"
+    url: "/appliance/critical-issue"
+    expanded: true
+    children:
+      - title: Enterprise Support
+        url: /onboarding/enterprise-support
+      - title: Critical Issue
+        url: /appliance/critical-issue
   - title: Appliance Planning
     url: /appliance/appliance-overview
     expanded: true
