@@ -789,6 +789,10 @@
     "to": "/tokens/refresh-token"
   },
   {
+    "from": "/tokens/access_token",
+    "to": "/tokens/access-token"
+  },
+  {
     "from": "/salesforce-community",
     "to": "/connections/social/salesforce"
   },
