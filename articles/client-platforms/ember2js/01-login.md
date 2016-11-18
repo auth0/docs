@@ -39,7 +39,7 @@ ember generate scaffold-auth0
 bower install auth0-lock#9.2.3 jsrsasign#5.0.1 --save
 ```
 
-__Note:__ If you are not already using ember-cli, see [ember-cli migration](http://www.ember-cli.com/user-guide/#migrating-an-existing-project-that-doesnt-yet-use-ember-cli).
+__Note:__ If you are not already using ember-cli, see [ember-cli migration](https://ember-cli.com/user-guide/#migrating-an-existing-ember-project-that-doesnt-use-ember-cli).
 
 ## 2. Configure the add-on
 
