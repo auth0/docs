@@ -215,13 +215,13 @@ articles:
         url: "/multifactor-authentication/guardian"
         children:
 
-          - title: "Admin Guide"
-            url: "/multifactor-authentication/guardian/admin-guide"
+          - title: "For Administrators"
+            url: "/multifactor-authentication/administrator"
 
-          - title: "Dev Guide"
-            url: "/multifactor-authentication/guardian/dev-guide"
+          - title: "For Developers"
+            url: "/multifactor-authentication/developer"
 
-          - title: "User Guide"
+          - title: "For Users"
             url: "/multifactor-authentication/guardian/user-guide"
 
       - title: "SMS"
@@ -384,6 +384,7 @@ appliance:
 
   - title: "Introduction"
     url: "/appliance"
+
   - title: "Support"
     url: "/appliance/critical-issue"
     expanded: true
@@ -392,6 +393,7 @@ appliance:
         url: /onboarding/enterprise-support
       - title: Critical Issue
         url: /appliance/critical-issue
+
   - title: Appliance Planning
     url: /appliance/appliance-overview
     expanded: true
