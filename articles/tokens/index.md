@@ -17,7 +17,7 @@ First there are a couple different categories of tokens:
 There are six primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation:
 
 - [Auth0 `id_token` (JWT)](#auth0-id_token-jwt-)
-- [Auth0 `access_token`](#auth0-access_token)
+- [Access Token](#access-token)
 - [Identity Provider Access Tokens](#identity-provider-access-tokens)
 - [Auth0 `refresh_token`](#auth0-refresh_token)
 - [Delegation Tokens](#delegation-tokens)
@@ -29,11 +29,11 @@ The Auth0 `id_token` is a token in JSON Web Token (JWT) format, which provides a
 
 [More information](/tokens/id_token)
 
-## Auth0 `access_token`
+## Access Token
 
-The Auth0 access token is a random, opaque string and was used to call portions of the Auth0 Management API (API v1) and the `/userinfo` endpoint within the Auth0 Authentication API.
+The Access Token, commonly referred to as `access_token`, is a credential that can be used by a client to access an API. Auth0 uses access tokens to protect access to the Auth0 Management API.
 
-[More information](/tokens/access_token)
+For more information refer to: [Access Token](/tokens/access-token).
 
 ## Identity Provider Access Tokens
 
