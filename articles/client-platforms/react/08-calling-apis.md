@@ -7,7 +7,10 @@ budicon: 546
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-react-sample',
-  path: '08-Calling-Api'
+  path: '08-Calling-Api',
+  requirements: [
+    'React 15.3'
+  ]
 }) %>
 
 Auth0 exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through Authorization header when calling an API.
@@ -19,14 +22,14 @@ In order to make an authorized request, you need to send the `Authorization` hea
 To send requests with the correct headers, update `AuthService` by adding a new helper method to wrap the native [fetch](https://fetch.spec.whatwg.org/) and add the authorization value:
 
 ```javascript
-/* ===== ./src/utils/AuthService.js ===== */
+// src/utils/AuthService.js
+
 import { EventEmitter } from 'events'
 import { isTokenExpired } from './jwtHelper'
 import Auth0Lock from 'auth0-lock'
 
 export default class AuthService extends EventEmitter {
-  ... // omitting some code
-
+  // ...
   _checkStatus(response) {
     // raises an error in case response status is not a success
     if (response.status >= 200 && response.status < 300) {
@@ -38,14 +41,14 @@ export default class AuthService extends EventEmitter {
     }
   }
 
-  fetch(url, options){
+  fetch(url, options) {
     // performs api calls sending the required authentication headers
     const headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     }
     // if logged in, includes the authorization header
-    if (this.loggedIn()){
+    if (this.loggedIn()) {
       headers['Authorization'] = 'Bearer ' + this.getToken()
     }
 
@@ -66,7 +69,8 @@ The new `fetch` method constructs requests to send to private endpoints. As the 
 To demonstrate how a server would handle public and private endpoints, you can create a simple `node.js` server based on [express](https://expressjs.com/) and [express-jwt](https://github.com/auth0/express-jwt) with only two endpoints: `/api/public` and `/api/private`:
 
 ```javascript
-/* ===== ./server.js ===== */
+// server.js
+
 var express = require('express');
 var app = express();
 var jwt = require('express-jwt');
@@ -91,24 +95,9 @@ console.log('Listening on http://localhost:3001');
 
 Both endpoints send a JSON response with a message attribute, but `/api/private` uses the __authenticate__ callback to validate the token received in the `Authorization` header. `express-jwt` is responsible for parsing and validating the token. (For more details, see the [express-jwt](https://github.com/auth0/express-jwt) documentation).
 
-Note that the `dotenv` package is used to load `process.env.AUTH0_SECRET` and `process.env.AUTH0_CLIENT_ID` from the `.env` file.
-
-<% if (account.userName) { %>
-If you don't have a `.env` file in your project you can create your own using the following command:
-
-```bash
-echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'\nAUTH0_SECRET='${account.clientSecret}'" > .env
-```
-<% } else { %>
-If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [dashboard](${manage_url}).
-
-```bash
-cp .env.example .env
-```
-<% } %>
+> **Note:** The **client ID** and **secret** for your application are passed to the `jwt` middleware in the above snippet. These values should be provided to a `.env` file in your project.
 
 To test the server, run `node server.js`. It should be listening on port 3001 of `localhost`.
-
 
 ## 3. Add a Proxy and Start the Server
 
@@ -117,8 +106,8 @@ Since you will be calling the server API from the client code and to prevent hav
 To create the proxy, add a new setting to [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) in the `webpack.config.js` file:
 
 ```javascript
-/* ===== ./webpack.config.js ===== */
-...
+// webpack.config.js
+
 var config = getConfig({
   isDev: isDev,
   in: join(src, 'app.js'),
@@ -144,7 +133,6 @@ var config = getConfig({
     }
   }
 });
-...
 ```
 
 With the proxy ready, update the `start` script to start both `webpack-dev-server` and `server.js` at the same time. As both servers will stay running in development mode, you will need to introduce the [npm-run-all](https://github.com/mysticatea/npm-run-all) tool in order to run them in parallel.
@@ -152,12 +140,12 @@ With the proxy ready, update the `start` script to start both `webpack-dev-serve
 The updated `scripts` entry in `package.json` looks like:
 
 ```javascript
-/* ===== ./package.json ===== */
 "scripts": {
     "start": "npm-run-all --parallel dev-server server-api",
     "dev-server": "NODE_ENV=development cross-env hjs-dev-server",
     "server-api": "node server.js",
-    ...
+    // ...
+}
 ```
 
 Now, when you run `npm start`, both servers should be up and the proxy active.
@@ -169,7 +157,8 @@ Now that you have updated `AuthService` to provide a custom `fetch` method for p
 Create a new component named `Messages` in the folder `src/components/Messages`:
 
 ```javascript
-/* ===== ./src/components/Messages/Messages.js ===== */
+// src/components/Messages/Messages.js
+
 import React, { PropTypes as T } from 'react'
 import {ListGroup, ListGroupItem} from 'react-bootstrap'
 import AuthService from 'utils/AuthService'
@@ -189,7 +178,7 @@ export class Messages extends React.Component {
     this.callApis()
   }
 
-  callApis(){
+  callApis() {
     const { auth } = this.props
     // public http request
     fetch('/api/public')
@@ -201,7 +190,7 @@ export class Messages extends React.Component {
       .catch(error => this.setState({privateMsg: "" + error}))
   }
 
-  render(){
+  render() {
     return (
       <ListGroup className={styles.root}>
         <ListGroupItem header="/api/public response">
@@ -227,11 +216,11 @@ Lastly, include the `Messages` component in an application view.
 To show how this component works in both authenticated and not authenticated situations, do not only include it in `Home` (where the user is already authenticated) but also in `Login`, to demonstrate that the private API requests fails:
 
 ```javascript
-/* ===== ./src/views/Main/Home/Home.js ===== */
-...
+// src/views/Main/Home/Home.js
+
 export class Home extends React.Component {
-  ...
-  render(){
+  // ...
+  render() {
     const { profile } = this.state
     return (
       <div className={styles.root}>
@@ -248,10 +237,10 @@ export default Home;
 ```
 
 ```javascript
-/* ===== ./src/views/Main/Login/Login.js ===== */
-...
+// src/views/Main/Login/Login.js
+
 export class Login extends React.Component {
-  ...
+  // ...
   render() {
     const { auth } = this.props
     return (

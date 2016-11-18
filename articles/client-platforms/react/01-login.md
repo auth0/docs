@@ -7,7 +7,10 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-react-sample',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'React 15.3'
+  ]
 }) %>
 
 <%= include('_includes/_login') %>

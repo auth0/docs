@@ -6,16 +6,7 @@ budicon: 715
 
 This quickstart guide contains individual sections which demonstrate how to use various Auth0 features in your React applications. Each section has its own sample project which can be downloaded directly from the doc or forked on Github. If you are logged in to your Auth0 account, the samples will have your Auth0 credentials pre-populated for you.
 
-::: panel-info System Requirements
-Thess tutorials and seed projects have been tested with the following:
-* Node 5.2.0
-* NPM 3.3.12
-* React 15.3.1
-:::
-
 ## 1. Create an Application
-
-
 
 <%= include('../../_includes/_new_app') %>
 
