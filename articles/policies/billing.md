@@ -43,4 +43,13 @@ If you have already downgraded, please explain the situation by filing a ticket 
 
 We will evaluate the case and verify that the account has not been used in the aforementioned period in order to process the refund. Consider that if we consider the usage of the account not to be minimal, we reserve the right to not refund your card. 
 
+## How can I get a receipt from my payment?
+
+The way to do this is by filing a ticket trough our [Support Center](https://support.auth0.com). 
+
+Please note that you have to be a Dashboard admin to do this request. 
+
+Also, more than often the email which receives the receipt is the one that created the Auth0 account. Please make sure that you are in touch with the owner of that email. That person can also forward you the receipt of the payment. If you want to change this setting, please let us know through our [Support Center](https://support.auth0.com).
+
+
 
