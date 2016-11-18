@@ -13,7 +13,7 @@ Please note that if you are not a Dashboard administrator, we will not process t
 
 ### Special case
 
-Please note that the customers who created tenants via the Heroku hosting platform or Azure Marketplace have to change the billing email address (or any other billing details) in those platforms. We cannot edit any billing information if you have used one of those services.
+Please note that the customers who created tenants via the Heroku hosting platform have to change the billing email address (or any other billing details) in those platforms. We cannot edit any billing information if you have used one of those services.
 
 ## Why is my credit card failing?
 The only way to determine the reason for the failure is for the customer to contact their credit card company by calling the number on the back. This can be triggered by a credit card reaching the limit or simply being rejected by the bank, for example.
