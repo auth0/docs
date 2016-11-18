@@ -45,7 +45,7 @@ We will evaluate the case and verify that the account has not been used in the a
 
 ## Where can I get a copy of an invoice?
 
-Invoices can be seen directly in the Dashboard by going to the account settings and clicking on the Payments Tab. There, you will be able to see all your Payment History, and you can get the invoices by clicking on the corresponding month. Note that only Full Dashboard Administrators can see the invoices. 
+Invoices can be seen directly in the Dashboard by going to the account settings and clicking on the Payments Tab. There, you will be able to see all your Payment History, and you can get the invoices by clicking on the corresponding month. Please note that only Dashboard administrators can see the invoices. 
 
 ## How can I get a receipt from my payment?
 
