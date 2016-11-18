@@ -7,7 +7,10 @@ budicon: 173
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-react-sample',
-  path: '06-Rules'
+  path: '06-Rules',
+  requirements: [
+    'React 15.3'
+  ]
 }) %>
 
 <%= include('../_includes/_rules-introduction') %>
@@ -21,7 +24,8 @@ budicon: 173
 <%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/react/04-user-profile' }) %>
 
 ```javascript
-/* ===== ./src/components/Profile/ProfileDetails.js ===== */
+// src/components/Profile/ProfileDetails.js
+
 import React, { PropTypes as T } from 'react'
 import {Row, Col, Image} from 'react-bootstrap'
 import s from './styles.module.css'
@@ -31,7 +35,7 @@ export class ProfileDetails extends React.Component {
     profile: T.object
   }
 
-  render(){
+  render() {
     const { profile } = this.props
     return (
       <Row className={s.root}>

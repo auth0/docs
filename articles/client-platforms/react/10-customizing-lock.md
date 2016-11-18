@@ -7,7 +7,10 @@ budicon: 285
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-react-sample',
-  path: '10-Customizing-Lock'
+  path: '10-Customizing-Lock',
+  requirements: [
+    'React 15.3'
+  ]
 }) %>
 
 Using Lock is easy, but you may want to customize your login UI. For that, there are several [customization options](/libraries/lock/v10/customization) available.
@@ -23,8 +26,8 @@ You can set custom theme properties, such as a different logo or primary color, 
 Modify `AuthService.js` to apply a custom theme:
 
 ```javascript
-/* ===== ./src/utils/AuthService.js ===== */
-... //omitting some code
+// src/utils/AuthService.js
+
 import LogoImg from 'images/test-icon.png';
 
 export default class AuthService extends EventEmitter {
@@ -35,11 +38,15 @@ export default class AuthService extends EventEmitter {
       theme: {
         logo: LogoImg,
         primaryColor: "#b81b1c"
+      },
+      auth: {
+        redirectUrl: 'http://localhost:3000/login',
+        responseType: 'token'
       }
     })
-    ... //omitting some code
+    // ...
   }
-  ... //omitting some code
+  // ...
 }
 ```
 
@@ -49,8 +56,7 @@ You can also customize the text that `Lock` will display with the `languageDicti
  For more information, see: [Language Dictionary Specification](/libraries/lock/v10/customization#languagedictionary-object-).
 
 ```javascript
-/* ===== ./src/utils/AuthService.js ===== */
-... //omitting some code
+// src/utils/AuthService.js
 
 export default class AuthService extends EventEmitter {
   constructor(clientId, domain) {
@@ -61,9 +67,9 @@ export default class AuthService extends EventEmitter {
         title: "My Company"
       }
     })
-    ... //omitting some code
+    // ...
   }
-  ... //omitting some code
+  // ...
 }
 ```
 

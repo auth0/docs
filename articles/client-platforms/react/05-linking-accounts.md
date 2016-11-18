@@ -7,7 +7,10 @@ budicon: 345
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-react-sample',
-  path: '05-Linking-Accounts'
+  path: '05-Linking-Accounts',
+  requirements: [
+    'React 15.3'
+  ]
 }) %>
 
 <%= include('../../_includes/_linking_accounts') %>
@@ -25,7 +28,8 @@ If you fetch a profile containing linked accounts, you will have all this inform
 To display this data, create two new components: `LinkedAccountsList` (to render a list of linked accounts) and `LinkedAccountItem` (to render an html row for each identity).
 
 ```javascript
-/* ===== ./src/components/LinkedAccount/LinkedAccountItem.js ===== */
+// src/components/LinkedAccount/LinkedAccountItem.js
+
 import React, { PropTypes as T } from 'react'
 import {ListGroupItem, Button} from 'react-bootstrap'
 import AuthService from 'utils/AuthService'
@@ -38,7 +42,7 @@ export class LinkedAccountItem extends React.Component {
     identity: T.object
   }
 
-  render(){
+  render() {
     const { identity } = this.props
     const profileName = identity.profileData ? identity.profileData.name : 'Main'
 
@@ -54,7 +58,8 @@ export default LinkedAccountItem;
 ```
 
 ```javascript
-/* ===== ./src/components/LinkedAccount/LinkedAccountsList.js ===== */
+// src/components/LinkedAccount/LinkedAccountsList.js
+
 import React, { PropTypes as T } from 'react'
 import {ListGroup, Button} from 'react-bootstrap'
 import LinkedAccountItem from './LinkedAccountItem'
@@ -67,7 +72,7 @@ export class LinkedAccountsList extends React.Component {
     profile: T.object
   }
 
-  render(){
+  render() {
     const { profile, auth } = this.props
     let items = []
     if (profile && profile.identities) {
@@ -91,7 +96,8 @@ export default LinkedAccountsList;
 `LinkedAccountsList` renders a container and one `LinkedAccountItem` for each identity in the user profile. It's expecting `profile` and `auth` as props, which will be sent by its parent, the `Home` component:
 
 ```javascript
-/* ===== ./src/views/Main/Home/Home.js ===== */
+// src/views/Main/Home/Home.js
+
 import React, { PropTypes as T } from 'react'
 import {Row, Col, Thumbnail, Button} from 'react-bootstrap'
 import AuthService from 'utils/AuthService'
@@ -117,12 +123,12 @@ export class Home extends React.Component {
     })
   }
 
-  logout(){
+  logout() {
     this.props.auth.logout()
     this.context.router.push('/login');
   }
 
-  render(){
+  render() {
     const { profile } = this.state
     return (
       <div>
@@ -159,7 +165,8 @@ To link accounts, call the [Link a user account](/api/management/v2#!/Users/post
 Since you need to do a second login to get the secondary account JWT, you will need a second `Auth0Lock` instance managed by a new helper class  created in `src/utils/LinkAccountService.js`:
 
 ```javascript
-/* ===== ./src/utils/LinkAccountService.js ===== */
+// src/utils/LinkAccountService.js
+
 import Auth0Lock from 'auth0-lock'
 
 export default class LinkAccountService {
@@ -176,7 +183,7 @@ export default class LinkAccountService {
     this.link = this.link.bind(this)
   }
 
-  link(){
+  link() {
     // Call the show method to display the authentication window.
     this.lock.show()
   }
@@ -191,9 +198,11 @@ In the code above, the new `Auth0Lock` instance receives specific options, in th
 In the updated `AuthService` class, the `_doAuthentication` callback checks for the `linking` state and calls the `LinkAccount` method if present.
 
 ```javascript
-/* ===== ./src/utils/AuthService.js ===== */
+// src/utils/AuthService.js
+
 import { EventEmitter } from 'events'
 import Auth0Lock from 'auth0-lock'
+import { browserHistory } from 'react-router'
 
 export default class AuthService extends EventEmitter {
   constructor(clientId, domain) {
@@ -201,7 +210,12 @@ export default class AuthService extends EventEmitter {
     this.clientId = clientId
     this.domain = domain
     // Configure Auth0
-    this.lock = new Auth0Lock(clientId, domain)
+    this.lock = new Auth0Lock(clientId, domain, {
+      auth: {
+        redirectUrl: 'http://localhost:3000/login',
+        responseType: 'token'
+      }
+    })
     // Add callback for lock `authenticated` event
     this.lock.on('authenticated', this._doAuthentication.bind(this))
     // Add callback for lock `authorization_error` event
@@ -210,13 +224,15 @@ export default class AuthService extends EventEmitter {
     this.login = this.login.bind(this)
   }
 
-  _doAuthentication(authResult){
+  _doAuthentication(authResult) {
     authResult.state = authResult.state || '' //making sure state exists
-    if (authResult.state.includes('linking')){
+    if (authResult.state.includes('linking')) {
       this.linkAccount(authResult.idToken) // linkAccount when state is linking
     } else {
       // Otherwise saves the user token
       this.setToken(authResult.idToken)
+      // navigate to the home route
+      browserHistory.replace('/home')
       // Async loads the user profile data
       this.lock.getProfile(authResult.idToken, (error, profile) => {
         if (error) {
@@ -228,9 +244,9 @@ export default class AuthService extends EventEmitter {
     }
   }
 
-  ... // omitting methods
+  // ...
 
-  fetchApi(url, options){
+  fetchApi(url, options) {
     // performs api calls sending the required authentication headers
     const headers = {
       'Accept': 'application/json',
@@ -246,7 +262,7 @@ export default class AuthService extends EventEmitter {
     .then(response => response.json())
   }
 
-  linkAccount(token){
+  linkAccount(token) {
     // prepares api request body data
     const data = {
       link_with: token
@@ -258,7 +274,7 @@ export default class AuthService extends EventEmitter {
     })
     .then(response => {
       const profile = this.getProfile()
-      if (response.error){
+      if (response.error) {
         alert(response.message)
       } else {
         // updates profile identities
@@ -276,15 +292,14 @@ This code also introduces two new methods: `fetchApi` (which constructs a reques
 Now you can update the `LinkedAccountsList` component to render a __Link Account__ button using the `LinkAccountService.link` method:
 
 ```javascript
-/* ===== ./src/components/LinkedAccount/LinkedAccountsList.js ===== */
+// src/components/LinkedAccount/LinkedAccountsList.js
+
 import React, { PropTypes as T } from 'react'
 import LinkAccountService from 'utils/LinkAccountService'
-...
 
 export class LinkedAccountsList extends React.Component {
-  ... //omitting some code
 
-  render(){
+  render() {
     const { profile, auth } = this.props
     const linker = new LinkAccountService(auth) // initializing the new helper
     let items = []
@@ -319,20 +334,21 @@ You will need to include the primary account `user_id`, and the `provider/user_i
 Update `AuthService` to provide an `UnlinkAccount` method:
 
 ```javascript
-/* ===== ./src/utils/AuthService.js ===== */
+// src/utils/AuthService.js
+
 import { EventEmitter } from 'events'
 import Auth0Lock from 'auth0-lock'
 
 export default class AuthService extends EventEmitter {
-  ... //omitting some code
-  unlinkAccount(identity){
+  // ...
+  unlinkAccount(identity) {
     // sends a delete request to unlink the account identity
     this.fetchApi(`<%= "identities/${identity.provider}/${identity.user_id}" %>`, {
       method: 'DELETE'
     })
     .then(response => {
       const profile = this.getProfile()
-      if (response.error){
+      if (response.error) {
         alert(response.message)
       } else {
         // updates profile identities
@@ -348,26 +364,25 @@ The `unlinkAccount` method takes an identity object, sends a `DELETE` request to
 Lastly, update the `LinkedAccountItem` component to include an __unlink__ button:
 
 ```javascript
-/* ===== ./src/components/LinkedAccount/LinkedAccountItem.js ===== */
+// src/components/LinkedAccount/LinkedAccountItem.js
 import React, { PropTypes as T } from 'react'
 import {ListGroupItem, Button} from 'react-bootstrap'
 import AuthService from 'utils/AuthService'
 import styles from './styles.module.css'
 
 export class LinkedAccountItem extends React.Component {
-  ...
-
-  unlink(identity){
+  // ...
+  unlink(identity) {
     // shows a basic confirmation window, and calls auth0 unlink api
     if (window.confirm(`Are you sure you want to unlink <%= "${identity.connection}" %>?`)) {
       this.props.auth.unlinkAccount(identity)
     }
   }
 
-  renderUnlink(){
+  renderUnlink() {
     // renders the unlink button, excluding the main identify row, which cannot be removed
     const { profile, identity } = this.props
-    if (profile.user_id != identity.provider + '|' + identity.user_id){
+    if (profile.user_id != identity.provider + '|' + identity.user_id) {
       return (
         <Button
             onClick={this.unlink.bind(this, identity)}
@@ -378,7 +393,7 @@ export class LinkedAccountItem extends React.Component {
     }
   }
 
-  render(){
+  render() {
     const { identity } = this.props
     const profileName = identity.profileData ? identity.profileData.name : 'Main'
 

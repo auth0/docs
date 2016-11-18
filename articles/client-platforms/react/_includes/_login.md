@@ -6,26 +6,34 @@ First, create an `AuthService` helper class to encapsulate the login functionali
 
 Inside this class, create an `Auth0Lock` class that receives your Auth0 credentials and an options object. (For a list of  available options, see: [Lock: User configurable options](/libraries/lock/v10/customization)). Instead of hard-coding your credentials in this class, they are passed from the `AuthService` constructor parameters to the `Auth0Lock` instance.
 
-With the `Auth0Lock` instance, you can hook a callback for the `authenticated` event. This event will be triggered after every successful login, passing the user authentication token (`idToken`) as a parameter. The `setToken` method stores the `idToken` value in `localStorage`.
+With the `Auth0Lock` instance, you can hook a callback for the `authenticated` event. This event will be triggered after every successful login, passing the user authentication token (`idToken`) as a parameter. The `setToken` method stores the `idToken` value in local storage.
 
 ```js
-// ./src/utils/AuthService.js
+// src/utils/AuthService.js
 
 import Auth0Lock from 'auth0-lock'
+import { browserHistory } from 'react-router'
 
 export default class AuthService {
   constructor(clientId, domain) {
     // Configure Auth0
-    this.lock = new Auth0Lock(clientId, domain, {})
+    this.lock = new Auth0Lock(clientId, domain, {
+      auth: {
+        redirectUrl: 'http://localhost:3000/login',
+        responseType: 'token'
+      }
+    })
     // Add callback for lock `authenticated` event
     this.lock.on('authenticated', this._doAuthentication.bind(this))
     // binds login functions to keep this context
     this.login = this.login.bind(this)
   }
 
-  _doAuthentication(authResult){
+  _doAuthentication(authResult) {
     // Saves the user token
     this.setToken(authResult.idToken)
+    // navigate to the home route
+    browserHistory.replace('/home')
   }
 
   login() {
@@ -33,36 +41,36 @@ export default class AuthService {
     this.lock.show()
   }
 
-  loggedIn(){
+  loggedIn() {
     // Checks if there is a saved token and it's still valid
     return !!this.getToken()
   }
 
-  setToken(idToken){
-    // Saves user token to localStorage
+  setToken(idToken) {
+    // Saves user token to local storage
     localStorage.setItem('id_token', idToken)
   }
 
-  getToken(){
-    // Retrieves the user token from localStorage
+  getToken() {
+    // Retrieves the user token from local storage
     return localStorage.getItem('id_token')
   }
 
-  logout(){
-    // Clear user token and profile data from localStorage
+  logout() {
+    // Clear user token and profile data from local storage
     localStorage.removeItem('id_token');
   }
 }
 ```
 
-The other helper methods shown above include: `login` (to call `lock.show()` and display the login widget), `logout` (to remove the `localStorage` data), and `loggedIn` (that checks if an `idToken` exists and returns a boolean).
+The other helper methods shown above include: `login` (to call `lock.show()` and display the login widget), `logout` (to remove the local storage data), and `loggedIn` (that checks if an `idToken` exists and returns a boolean).
 
 ## 2. Use the AuthService to Protect Private Routes
 
 To use the new class to protect routes, import `AuthService` in `src/views/Main/routes.js` and create a new instance.
 
 ```js
-// ./src/views/Main/routes.js
+// src/views/Main/routes.js
 
 import React from 'react'
 import {Route, IndexRedirect} from 'react-router'
@@ -71,7 +79,7 @@ import Container from './Container'
 import Home from './Home/Home'
 import Login from './Login/Login'
 
-const auth = new AuthService(__AUTH0_CLIENT_ID__, __AUTH0_DOMAIN__);
+const auth = new AuthService('${account.clientId}', '${account.namespace}');
 
 // validate authentication for private routes
 const requireAuth = (nextState, replace) => {
@@ -92,7 +100,8 @@ export const makeMainRoutes = () => {
 
 export default makeMainRoutes
 ```
-${snippet(meta.snippets.envFile)}
+
+<%= include('_env-note') %>
 
 In `routes.js`, there is now an `onEnter` callback assigned to the `/home` route. This calls `requireAuth`, which checks whether the user is authenticated, and redirects to `/login` if they are not.
 
@@ -101,7 +110,7 @@ In `routes.js`, there is now an `onEnter` callback assigned to the `/home` route
 Create a new `Login` component and save it in `src/views/Main/Login/`. This React component should accept an `auth` object (which is an instance of the `AuthServce`) as a prop.
 
 ```js
-// ./src/views/Main/Login/Login.js
+// src/views/Main/Login/Login.js
 
 import React, { PropTypes as T } from 'react'
 import {ButtonToolbar, Button} from 'react-bootstrap'
@@ -139,7 +148,7 @@ For this to work, `auth` needs to be included as a prop, which can be done from 
 To use the `auth` parameter in various child components, it needs to be propagated down from from the `Container` component. 
 
 ```javascript
-// ./src/views/Main/Container.js
+// src/views/Main/Container.js
 
 import React, { PropTypes as T } from 'react'
 import { Jumbotron } from 'react-bootstrap'
