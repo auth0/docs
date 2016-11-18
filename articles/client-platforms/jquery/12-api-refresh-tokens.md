@@ -31,4 +31,4 @@ auth0.silentAuthentication({
 
 This by default will use the callback url defined in the constructor. If you want to use a different one, you can send the new callbackURL in the options param. An error will be returned if the end user is not already authenticated.
 
-Note that you should include the same scopes in the `silentAuthentication` call that you included in your `login` call with auth0.js. The renewed Access Token has an expiration time equal to the `Token Expiration (Seconds)` setting for your API.
+You should include the `scope` parameter, including any or all of the scopes that were originally requested. If you ask for scopes for which the user did not already provide consent, the returned `access_token` will not include them. By including `id_token` in the response_type, you will also get back an `id_token`. Also note that the renewed Access Token has an expiration time equal to the `Token Expiration (Seconds)` setting for your API.
