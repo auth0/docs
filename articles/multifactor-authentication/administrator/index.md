@@ -17,11 +17,11 @@ For information for your users on Guardian, how to download the app, and common 
   * [Configuring your Twilio Account](/multifactor-authentication/administrator/twilio-configuration)
 * [Turning off Guardian](/multifactor-authentication/administrator/disabling-mfa)
 
-## Managing Guardian
+## Managing Users
+* [Resetting Guardian Credentials](/multifactor-authentication/administrator/reset-user)
+* [Guardian logs](/multifactor-authentication/administrator/guardian-logs)
 * [Guardian for Select Users](/multifactor-authentication/administrator/guardian-for-select-users)
 * [Guardian for Select Clients](/multifactor-authentication/administrator/guardian-for-select-clients)
-* [Guardian logs](/multifactor-authentication/administrator/guardian-logs)
-* [Resetting User's Guardian](/multifactor-authentication/administrator/reset-user)
 
 ## Customization
 * [Customize the Guardian Widget](/multifactor-authentication/administrator/customizing-widget)
