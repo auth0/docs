@@ -89,12 +89,8 @@ module.exports = cb => {
 Afterwards, create a webtask profile using `wt-cli`, if you don't already have one.
 
 ```bash
-wt init --container "YOUR_TENANT_NAME" --url "https://sandbox.it.auth0.com" --token "eyJhbGci..." -p "a``YOUR_TENANT_NAME-default"
+wt init --container "YOUR_TENANT_NAME" --url "WEBTASK_URL" --token "eyJhbGci..." -p "a``YOUR_TENANT_NAME-default"
 ```
-
-::: panel-info wt init
-This is the very first command you will run once you install `wt-cli`. It is used to create and update webtask profiles. It also provisions a webtask token if you don't have one already. Each webtask profile has a name, a URL and a container. In order to configure a webtask profile you need to provide an email or phone number. You will receive a verification code there which you will have to input to the terminal. For more details you can use the wt built-in help: `wt init -h`.
-:::
 
 Now you are ready to register your webtask, using the `wt create` command. This command receives as input a path or URL of the webtasks's code and provides as output the URL where the webtask is available.
 
