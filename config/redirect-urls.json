@@ -17,7 +17,19 @@
   },
   {
     "from": "/nodejs-tutorial",
-    "to": "/server-platforms/nodejs"
+    "to": "/quickstart/webapp/nodejs"
+  },
+  {
+    "from": "/server-platforms/nodejs",
+    "to": "/quickstart/webapp/nodejs"
+  },
+  {
+    "from": "/client-platforms/react",
+    "to": "/quickstart/spa/react"
+  },
+  {
+    "from": "/server-platforms/golang",
+    "to": "/quickstart/webapp/golang"
   },
   {
     "from": "/phpapi-tutorial",
@@ -65,7 +77,15 @@
   },
   {
     "from": "/php-tutorial",
-    "to": "/server-platforms/php"
+    "to": "/quickstart/webapp/php"
+  },
+  {
+    "from": "/server-platforms/php",
+    "to": "/quickstart/webapp/php"
+  },
+  {
+    "from": "/server-apis/ruby",
+    "to": "/quickstart/backend/ruby"
   },
   {
     "from": "/java-tutorial",
@@ -297,11 +317,23 @@
   },
   {
     "from": "/android-tutorial",
-    "to": "/native-platforms/android"
+    "to": "/quickstart/native/android"
+  },
+  {
+    "from": "/native-platforms/android",
+    "to": "/quickstart/native/android"
   },
   {
     "from": "/angular-tutorial",
-    "to": "/client-platforms/angularjs"
+    "to": "/quickstart/spa/angularjs"
+  },
+  {
+    "from": "/client-platforms/angularjs",
+    "to": "/quickstart/spa/angularjs"
+  },
+  {
+    "from": "/client-platforms/angular2",
+    "to": "/quickstart/spa/angular2"
   },
   {
     "from": "/aspnetwebapi-owin-tutorial",
@@ -313,11 +345,19 @@
   },
   {
     "from": "/ember-tutorial",
-    "to": "/client-platforms/emberjs"
+    "to": "/quickstart/spa/emberjs"
+  },
+  {
+    "from": "/client-platforms/emberjs",
+    "to": "/quickstart/spa/emberjs"
   },
   {
     "from": "/ios-tutorial",
-    "to": "/native-platforms/ios-objc"
+    "to": "/quickstart/native/ios-objc"
+  },
+  {
+    "from": "/native-platforms/ios-objc",
+    "to": "/quickstart/native/ios-objc"
   },
   {
     "from": "/java-tutorial",
@@ -337,7 +377,11 @@
   },
   {
     "from": "/singlepageapp-tutorial",
-    "to": "/client-platforms/vanillajs"
+    "to": "/quickstart/spa/vanillajs"
+  },
+  {
+    "from": "/client-platforms/vanillajs",
+    "to": "/quickstart/spa/vanillajs"
   },
   {
     "from": "/wcf-tutorial",
