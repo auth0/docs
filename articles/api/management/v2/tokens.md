@@ -15,7 +15,7 @@ The Auth0 Management APIv2 token is required to call v2 of the Auth0 Management 
 
 1. **Create a Non Interactive Client**
 
-A Non Interactive Client is a client that interacts with an API where there is no user involved. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because can't meet the necessary security requirements for executing this type of flow.
+A Non Interactive Client is a client that interacts with an API where there is no user involved. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow.
 
 To create a new Non Interactive Client, go to the [Clients section](${manage_url}/#/clients) of the dashboard then click the **CREATE CLIENT** button.
 
