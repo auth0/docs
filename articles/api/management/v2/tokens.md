@@ -13,7 +13,7 @@ The Auth0 Management APIv2 token is required to call v2 of the Auth0 Management 
 
 ### Using the Client Credentials Flow
 
-1. **Create a Non Interactive Client**
+**Create a Non Interactive Client**
 
 A Non Interactive Client is a client that interacts with an API where there is no user involved. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow.
 
@@ -23,7 +23,7 @@ Enter a name for your new client, select **Non Interactive Clients** and then cl
 
 ![](/media/articles/api/tokens/noninteractive-client.png)
 
-2. **Authorize the Client**
+**Authorize the Client**
 
 After creating the new client, you will be brought to it's **Quick Start** section. Select **Auth0 Management API** from the dropdown. You will then see a message that the client is not authorized, click **NAVIGATE TO THE API AND AUTHORIZE**.
 
@@ -35,13 +35,13 @@ This will bring you to the [APIs section](${manage_url}/#/apis) under **Auth0 Ma
 
 Toggle the slider to authorize your client.
 
-3. **Choose the scopes**
+**Choose the scopes**
 
 You will see the available scopes that you can be granted for this client (which can be revoked at any time). Choose the desired scopes and then click the **UPDATE** button.
 
 ![](/media/articles/api/tokens/choose-scopes.png)
 
-4. **Getting the token**
+**Getting the token**
 
 To test the client interaction with the API, go to the **Test** section under **Auth0 Management API**.
 
