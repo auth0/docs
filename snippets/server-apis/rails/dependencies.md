@@ -1,3 +1,3 @@
 ```ruby
-gem 'knock', '~> 1.4.2'
+gem 'knock', '~> 2.0'
 ```
