@@ -5,7 +5,7 @@ url: /libraries/auth0-swift
 
 # Auth0.swift
 
-Auth0.swift is a client-side library for [Auth0](http://auth0.com).
+Auth0.swift is a client-side library for [Auth0](http://auth0.com). Using it with your Swift  app development should simplify your interactions with Auth0.
 
 ## Requirements
 
@@ -15,11 +15,11 @@ iOS 9+ and Xcode 8 (Swift 3.0)
 For Swift 2.3 you need to use [v1@swift-2.3](https://github.com/auth0/Auth0.swift/tree/v1@swift-2.3) branch.
 :::
 
-If using CocoaPods we recommend version 1.1.0 or later.
+If using CocoaPods, we recommend version 1.1.0 or later.
 
 ## Installation
 
-### CocoaPods
+### Using CocoaPods
 
 Auth0.swift is available through [CocoaPods](http://cocoapods.org). 
 To install it, simply add the following line to your Podfile:
@@ -28,7 +28,7 @@ To install it, simply add the following line to your Podfile:
 pod 'Auth0', '~> 1.0'
 ```
 
-### Carthage
+### Using Carthage
 
 In your Cartfile add this line
 
@@ -36,11 +36,9 @@ In your Cartfile add this line
 github "auth0/Auth0.swift" ~> 1.0
 ```
 
-## Usage
+## Auth0.plist
 
-### Auth0.plist
-
-To avoid specifying clientId & domain you can add a `Auth0.plist` file to your main bundle. Here is an example of the file contents:
+To avoid specifying your clientId and domain in-line you should add an `Auth0.plist` file to your main bundle. Here is an example of the file contents:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -55,9 +53,13 @@ To avoid specifying clientId & domain you can add a `Auth0.plist` file to your m
 </plist>
 ```
 
-### Authentication API
+## Using the Authentication API
 
-#### Login with database connection
+The Authentication API provides methods to authenticate the user against Auth0 server. 
+
+### Login with database connection
+
+Logging in with a database connection merely requires calling `login` with the user's username/email, password, and the name of the connection you wish to authenticate with. The response will be a Credentials object.
 
 ```swift
 Auth0
@@ -77,7 +79,30 @@ Auth0
    }
 ```
 
-#### Passwordless Login
+### Passwordless Login
+
+Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. 
+
+#### Passwordless Parameters
+
+As you can see, Passwordless authentication can be started with a variety of different parameters. 
+
+```
+.startPasswordless(email/phoneNumber: String, type: String, connection: String)
+```
+
+- **Parameter One** - Either the parameter `email` or `phoneNumber`, depending on which you intend to use. The value of either should be a string.
+- **Parameter Two** - The parameter `type`, its value should be either `.Code` or `.iOSLink`. The default is `.Code` (a code is sent to ther user, then they input it in a secondary screen), but if you have iOS Universal Links configured, you can use `.iOSLink`.
+- **Parameter Three** - The parameter `connection`, its value should be the name of the connection, defaults to `sms`.
+
+
+#### How Passwordless Works
+
+Passwordless requires two steps, at the heart of things. Requesting the code, and inputting the code. When using links, this is slightly different, because the user does not have to input a code themselves - but the code is just included in the URL.
+
+**Step 1:** Request the code
+
+In this example, requesting the code is done by calling `startPasswordless` with the user's email, and the type of connection. The `type` parameter will default to `Code`. On success, you'll probably display a notice to the user that their code is on the way, and perhaps route them to a view to input that code.
 
 ```swift
 Auth0
@@ -93,13 +118,16 @@ Auth0
    }
 ```
 
+**Step 2:** Input the code
+
+Once the user has a code, they can input it. Call the `login` method, and pass in the user's email, the code they received, and the name of the connection in question. Upon success, you will receive a Credentials object in the response.
 
 ```swift
 Auth0
    .authentication()
    .login(
        usernameOrEmail: "support@auth0.com", 
-       password: "email OTP", 
+       password: "123456", 
        connection: "email"
        )
    .start { result in
@@ -112,14 +140,16 @@ Auth0
    }
 ```
 
-#### Sign Up with database connection
+### Signing Up with database connection
+
+Signing up with a database connection is similarly easy. Call the `signUp` method passing the user's given email, chosen password, and the connection name to initiate the signup process.
 
 ```swift
 Auth0
    .authentication()
    .signUp(
        email: "support@auth0.com", 
-       password: "a secret password", 
+       password: "password123", 
        connection: "Username-Password-Authentication"
        )
    .start { result in
@@ -132,12 +162,14 @@ Auth0
    }
 ```
 
-#### Get user information
+### Getting user information
+
+In order to retrieve a user's profile, you call the `tokenInfo` method and pass it the user's token.
 
 ```swift
 Auth0
    .authentication()
-   .tokenInfo(token: "user id_token")
+   .tokenInfo(token: "user token")
    .start { result in
        switch result {
        case .success(let profile):
@@ -148,25 +180,15 @@ Auth0
    }
 ```
 
-### Management API (Users)
+### Using the Management API
 
-#### Update user_metadata
+The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
-```swift
-Auth0
-    .users(token: "user token")
-    .patch("user identifier", userMetadata: ["first_name": "John", "last_name": "Doe"])
-    .start { result in
-        switch result {
-        case .success(let userInfo):
-            print("user: \(userInfo)")
-        case .failure(let error):
-            print(error)
-        }
-    }
-```
+#### Linking users
 
-#### Link users
+Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
+
+The `link` method accepts two parameters, the primary user id and the secondary user token (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe.
 
 ```swift
 Auth0
@@ -182,9 +204,50 @@ Auth0
    }
 ```
 
+#### Unlinking users
+
+Unlinking users is a similar provess to the linking of users. The `unlink` method takes three parameters, though: the secondary user id, and the secondary provider (the provider of the secondary user), and the primary user id.
+The parameters read, essentially: "Unlink this **secondary user** (with this **provider**) from this **primary user**".
+
+```swift
+Auth0
+   .users(token: "user token")
+   .unlink(identityId: identifier, provider: provider, fromUserId:userId)
+   .start { result in
+      switch result {
+      case .success(let userInfo):
+         print("user: \(userInfo)")
+      case .failure(let error):
+         print(error)
+      }
+   }
+```
+
+::: panel-info Unlinking - Metadata
+Note that when accounts are linked, the secondary account's metadata is not merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
+:::
+
+#### Update user_metadata
+
+When updating user metadata, you will create a `userMetadata` object, and then call the `patch` method, passing it the user id and the `userMetadata` object. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata.
+
+```swift
+Auth0
+    .users(token: "user token")
+    .patch("user identifier", userMetadata: ["first_name": "John", "last_name": "Doe"])
+    .start { result in
+        switch result {
+        case .success(let userInfo):
+            print("user: \(userInfo)")
+        case .failure(let error):
+            print(error)
+        }
+    }
+```
+
 ### Web-based Auth (iOS Only)
 
-First go to [Auth0 Dashboard](https://manage.auth0.com/#/applications) and go to application's settings. Make sure you have in *Allowed Callback URLs* a URL with the following format:
+First go to [Auth0 Dashboard](${manage_url}/#/applications) and go to application's settings. Make sure you have in *Allowed Callback URLs* a URL with the following format:
 
 ```
 {YOUR_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback
@@ -218,7 +281,9 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 }
 ```
 
-#### Authenticate with any Auth0 connection
+#### Authenticate with a specific Auth0 connection
+
+The `connection` option allows you to specify a connection that you wish to authenticate with. If no connection is specified here, the browser will show the Hosted Login page, with all of the connections which are enabled for this client.
 
 ```swift
 Auth0
@@ -234,7 +299,9 @@ Auth0
     }
 ```
 
-#### Specify scope
+#### Authenticate using a specific scope
+
+Using scopes can allow you to return specific claims for specfic fields in your request. Adding parameters to `scope` will allow you to add more scopes. The default scope is `openid`, and you should read our [documentation on scopes](/scopes) for further details about them.
 
 ```swift
 Auth0
@@ -253,6 +320,8 @@ Auth0
 
 #### Authenticate with Auth0 hosted login page
 
+If no connection name is specified, using the Auth0 [Hosted Login Page](/hosted-pages/login) is the default behavior.
+
 ```swift
 Auth0
     .webAuth()
@@ -265,39 +334,4 @@ Auth0
         }
     }
 ```
-
-### Logging
-
-To enable Auth0.swift to log HTTP request and OAuth2 flow for debugging you can call the following method in either `WebAuth`, `Authentication` or `Users` object:
-
-```swift
-var auth0 = Auth0.authentication()
-auth0.logging(enabled: true)
-```
-
-Then for a OAuth2 authentication you'll see in the console:
-
-```
-Safari: https://samples.auth0.com/authorize?.....
-URL: com.auth0.myapp://samples.auth0.com/ios/com.auth0.MyApp/callback?...
-POST https://samples.auth0.com/oauth/token HTTP/1.1
-Content-Type: application/json
-
-{"code":"...","client_id":"...","grant_type":"authorization_code","redirect_uri":"com.auth0.MyApp:\/\/samples.auth0.com\/ios\/com.auth0.MyApp\/callback","code_verifier":"..."}
-
-HTTP/1.1 200
-Pragma: no-cache
-Content-Type: application/json
-Strict-Transport-Security: max-age=3600
-Date: Thu, 09 Jun 2016 19:04:39 GMT
-Content-Length: 57
-Cache-Control: no-cache
-Connection: keep-alive
-
-{"access_token":"...","token_type":"Bearer"}
-```
-
-::: panel-info Debug Flag Only
-Only set this flag for **DEBUG** only or you'll be leaking user's credentials in the device log.
-:::
 
