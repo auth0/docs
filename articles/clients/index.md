@@ -72,6 +72,13 @@ While the Client ID is considered public information, the Client Secret **must b
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
+## How to Delete a Client
+
+Navigate to the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) and scroll to the end of the page. Under the *Danger Zone* section you can find the **Delete Client** button. This operation cannot be undone.
+
+Once you click on the button a pop-up window will ask you to confirm the action. Click **Yes, delete client** to permanently remove the client.
+
+**Note**: You can also delete a client using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
 
 ## Client Auditing
 
