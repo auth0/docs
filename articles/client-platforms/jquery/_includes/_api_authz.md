@@ -1,6 +1,6 @@
 ## Configuring Your Application
 
-## 1. Initialize
+## Initialize
 
 First, add Auth0's JavaScript SDK to your jQuery application.
 
@@ -20,7 +20,7 @@ var auth0 = new Auth0({
 
 Note that the `callbackURL` must be defined in Dashboard for your client.
 
-## 2. Login
+## Login
 
 Within your application's HTML, create an element with id `btn-login`. Then trigger the login on any of your enabled `Connections` with the following code. This will direct the user to the /authorize URL, which is the first step in the Implicit Grant OAuth flow. You can read more about API Authorization [here](../../../api-auth/grant/implicit).
 
@@ -37,7 +37,7 @@ $('#btn-login').click(function(e) {
 
 The `audience` parameter should contain your API identifier from the Dashboard. If you don't send this, the runtime will take it from the tenant settings (`tenant.default_audience` or you can set it in the Dashboard). The `scope` parameter should include one or more scopes (separated by a space) you defined in the Dashboard for your API, in addition to any of the standard [OpenID scopes](https://auth0.com/docs/scopes).
 
-## 3. Processing the Callback
+## Process the Callback
 
 Once you have succesfully authenticated, Auth0 will redirect to the `callbackURL` parameter defined in the constructor. Auth0 will append a few extra parameters after a hash on the URL. These include an `access_token` and an `id_token`, both JSON Web Tokens (JWTs). You can parse the hash and grab the tokens as follows:
 
@@ -60,7 +60,7 @@ if (result && result.idToken) {
 
 The `access_token` will be used to make an Authenticated API call. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](https://auth0.com/docs/api/authentication#!#get--userinfo).
 
-## 4. Making an Authenticated API Call
+## Make an Authenticated API Call
 
 Use the `access_token` to invoke your Resource Server (API):
 
@@ -85,9 +85,9 @@ fetch('{API URL}', {
 });
 ```
 
-The Resource Server (API) should be configured to verify the JWT and any claims contained within it. Because the Resource Server is utilizing the RS256 signature method, tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: [https://${account.namespace}/.well-known/jwks.json]. You can use any [recommended JWT library](https://jwt.io) to validate the standard claims returned in the token. These details are outside the scope of this quickstart tutorial. More information can be found [in our documentation](https://auth0.com/docs/api-auth/config/asking-for-access-tokens).
+<%= include('../../../_includes/_create_resource_server') %>
 
-## 5. Log Out
+## Log Out
 
 In this implementation, a logout involves simply deleting the saved tokens from `localStorage` and redirecting the user to the home page:
 
