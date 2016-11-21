@@ -78,6 +78,8 @@ Navigate to the [Client Settings](${manage_url}/#/clients/${account.clientId}/se
 
 Once you click on the button a pop-up window will ask you to confirm the action. Click **Yes, delete client** to permanently remove the client.
 
+**Note**: You can also delete a client using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
+
 ## Client Auditing
 
 Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. The logs include many of the actions performed by the user like failing to login to a client or requesting a password change. For more details refer to: [Logs](/logs).
