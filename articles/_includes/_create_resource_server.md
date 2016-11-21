@@ -1,4 +1,4 @@
-## Create a Resource Server
+## Create the API
 
 Your resource server (API) needs to be configured to verify the `access_token` and any claims contained within it. When you create a resource server in your Auth0 dashboard, it utilizes the RS256 signature method by default, meaning that access tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key. You can read more about the [JSON Web Key Set (JWKS)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) standard and also view the [public key](https://${account.namespace}/.well-known/jwks.json) for your Auth0 account (https://${account.namespace}/.well-known/jwks.json).
 
