@@ -143,7 +143,7 @@ With SSO enabled in both applications, the user can log into one of them and the
 
 ## Log Out from Auth0
 
-To log the user out of their SSO session completely, call `logout` from `auth0.js`. You may optionally pass a `returnTo` key so that the user is token back to the app once logout is complete. Your logout domain needs to be whitelisted in your [Auth0 settings](https://manage.auth0.com/#/account/advanced).
+To log the user out of their SSO session completely, call `logout` from `auth0.js`. You may optionally pass a `returnTo` key so that the user is taken back to the app once logout is complete. Your logout domain needs to be whitelisted in your application [settings](${manage_url}/#/clients/${account.clientId}/settings). Be sure to pass the client ID for the appropriate application as a `client_id` key in the `logout` method.
 
 Note that you will also likely need to call the existing `logout` method from the `authService` that was created in the earlier steps so that the user's token and profile are removed from local storage for the app being used.
 
@@ -161,7 +161,10 @@ Note that you will also likely need to call the existing `logout` method from th
   function HomeController(authService, angularAuth0) {
 
     vm.logoutFromAuth0 = function() {
-      angularAuth0.logout({returnTo: 'http://localhost:3000/'});
+      angularAuth0.logout({ 
+        returnTo: 'http://localhost:3000/',
+        client_id: ${account.clientId} 
+      });
       authService.logout();
     }
 
