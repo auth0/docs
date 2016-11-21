@@ -65,24 +65,6 @@ articles:
       - title: "FAQ"
         url: "/api-auth/faq"
 
-  - title: "Lock & Auth0.js"
-    url: "/libraries/lock"
-    children:
-      - title: "Lock for Web"
-        url: "/libraries/lock"
-
-      - title: "Lock for iOS"
-        url: "/libraries/lock-ios"
-
-      - title: "Lock for Android"
-        url: "/libraries/lock-android"
-
-      - title: "Lock vs. Custom UI"
-        url: "/libraries/when-to-use-lock"
-
-      - title: "Auth0.js"
-        url: "/libraries/auth0js"
-
   - title: "Rules"
     url: "/rules"
     children:
@@ -379,6 +361,60 @@ apis:
         url: "/api/management/v2/"
         forceFullReload: true
         external: true
+
+libraries:
+
+  - title: "Overview"
+    url: "/libraries"
+
+  - title: "Lock for Web"
+    url: "/libraries/lock"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/lock"
+
+      - title: "Configuration Options"
+        url: "/libraries/lock/v10/customization"  
+
+      - title: "API Reference"
+        url: "/libraries/lock/v10/api"  
+
+      - title: "UI Customization"
+        url: "/libraries/lock/v10/ui-customization"  
+
+      - title: "Migration Guide v9 to v10"
+        url: "/libraries/lock/v10/migration-guide"  
+
+      - title: "Language Support & Custom Text"
+        url: "/libraries/lock/v10/i18n"  
+
+      - title: "Customizing Error Messages"
+        url: "/libraries/lock/v10/customizing-error-messages"  
+
+      - title: "Using Lock with auth0.js"
+        url: "/libraries/lock/v10/auth0js"  
+        
+      - title: "Popup Mode"
+        url: "/libraries/lock/v10/popup-mode"                      
+
+  - title: "Lock for iOS"
+    url: "/libraries/lock-ios"
+
+  - title: "Lock for Android"
+    url: "/libraries/lock-android"
+
+  - title: "Lock vs. Custom UI"
+    url: "/libraries/when-to-use-lock"
+
+  - title: "Auth0.js"
+    url: "/libraries/auth0js"
+
+  - title: "Auth0.Android"
+    url: "/libraries/auth0-android"
+  
+  - title: "Auth0.swift"
+    url: "/libraries/auth0-swift"
 
 appliance:
 
