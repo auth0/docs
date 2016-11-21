@@ -13,7 +13,7 @@ Get started using Guardian for iOS below, or, if you're looking for a specific d
 
 ## Requirements
 
-The Guardian iOS SDK requires iOS 9.3+ or Swift 3.
+The Guardian iOS SDK requires iOS 9.3+ and Swift 3.
 
 ## Installation
 
@@ -50,13 +50,21 @@ let domain = "tenant.guardian.auth0.com"
 
 The link between the second factor (an instance of your app on a device) and an Auth0 account is referred to as an enrollment.
 
-You can create an enrollment using the `Guardian.enroll` function. Obtain the enrollment information by scanning the Guardian QR code, and then use it to enroll the account:
+You can create an enrollment using the `Guardian.enroll` function, but first you'll have to create a new pair of RSA keys for it. The private key will be used to sign the requests to allow or reject a login. The public key will be sent during the enroll process so the server can later verify the request's signature.
+
+```swift
+let rsaKeyPair = RSAKeyPair.new(usingPublicTag: "com.auth0.guardian.enroll.public",
+                                privateTag: "com.auth0.guardian.enroll.private")
+``` 
+
+Next, obtain the enrollment information by scanning the Guardian QR code, and use it to enroll the account:
+
 ```swift
 let enrollmentUriFromQr: String = ... // the URI obtained from a Guardian QR code
 let apnsToken: String = ... // the APNS token of this device, where notifications will be sent
 
 Guardian
-        .enroll(forDomain: domain, usingUri: enrollmentUriFromQr, notificationToken: apnsToken)
+        .enroll(forDomain: domain, usingUri: enrollmentUriFromQr, notificationToken: apnsToken, keyPair: rsaKeyPair)
         .start { result in
             switch result {
             case .success(let enrollment): 
@@ -67,13 +75,14 @@ Guardian
         }
 ```
 
-You must provide the `notificationToken`. This is the token required to send push notifications to the device using the Apple Push Notification service (APNs). Refrence their [docs](https://developer.apple.com/go/?id=push-notifications) for more information.
+You must provide the `notificationToken`. This is the token required to send push notifications to the device using the Apple Push Notification service (APNs). Reference their [docs](https://developer.apple.com/go/?id=push-notifications) for more information.
 
-The notification token MUST be a String containing the 64 bytes (expressed in hexadecimal format) received on `application(:didRegisterForRemoteNotificationsWithDeviceToken)`
+The notification token MUST be a String containing the 64 bytes (expressed in hexadecimal format) as received on `application(:didRegisterForRemoteNotificationsWithDeviceToken)`
 
 ### Unenroll
 
 To disable multifactor authentication you can delete the enrollment:
+
 ```swift
 Guardian
         .api(forDomain: domain)
@@ -98,7 +107,7 @@ Guardian provides a method to parse the data received from APNs and return a `No
 For example, your `AppDelegate` might have something like this:
 
 ```swift
-func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
     // when the app is open and we receive a push notification
 
     if let notification = Guardian.notification(from: userInfo) {
@@ -116,7 +125,7 @@ Guardian
         .start { result in
             switch result {
             case .success: 
-                // success, the enrollment was deleted
+                // the auth request was successfuly allowed
             case .failure(let cause):
                 // something failed, check cause to see what went wrong
             }
@@ -135,7 +144,7 @@ Guardian
         .start { result in
             switch result {
             case .success: 
-                // success, the enrollment was deleted
+                // the auth request was successfuly rejected
             case .failure(let cause):
                 // something failed, check cause to see what went wrong
             }

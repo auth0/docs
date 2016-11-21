@@ -65,12 +65,23 @@ Guardian guardian = new Guardian.Builder()
 
 The link between the second factor (an instance of your app on a device) and an Auth0 account is referred to as an enrollment.
 
-You can create an enrollment using the `Guardian.enroll` function. Obtain the enrollment information by scanning the Guardian QR code, and then use it to enroll the account:
+You can create an enrollment using the `Guardian.enroll` function, but first you'll have to create a new pair of RSA keys for it. The private key will be used to sign the requests to allow or reject a login. The public key will be sent during the enroll process so the server can later verify the request's signature.
+
+```java
+KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+keyPairGenerator.initialize(2048); // you MUST use at least 2048 bit keys
+KeyPair keyPair = keyPairGenerator.generateKeyPair();
+```
+
+Next, obtain the enrollment information by scanning the Guardian QR code, and use it to enroll the account:
+
 ```java
 Uri enrollmentUriFromQr = ...; // the URI obtained from a Guardian QR code
 
+CurrentDevice device = new CurrentDevice(context, "gcmToken", "deviceName");
+
 Enrollment enrollment = guardian
-        .enroll(enrollmentUriFromQr, "deviceName", "gcmToken")
+        .enroll(enrollmentUriFromQr, device, keyPair)
         .execute();
 ```
 
@@ -78,7 +89,7 @@ Alternatively, you can execute the request in a background thread:
 
 ```java
 guardian
-        .enroll(enrollmentUriFromQr, "deviceName", "gcmToken")
+        .enroll(enrollmentUriFromQr, device, keyPair)
         .start(new Callback<Enrollment> {
             @Override
             void onSuccess(Enrollment enrollment) {
@@ -92,14 +103,15 @@ guardian
         });
 ```
 
-The `deviceName` and `gcmToken` are data that you must provide. The `deviceName` is the name that
-you want for the enrollment. It will be displayed to the user when the second factor is required.
+The `deviceName` and `gcmToken` are data that you must provide:
 
-The GCM token is the token for Google's GCM push notification service. See the [docs](https://developers.google.com/cloud-messaging/android/client#sample-register) for more information about the GCM token.
+- The `deviceName` is the name that you want for the enrollment. It will be displayed to the user when the second factor is required.
+- The `gcmToken` is the token for Google's GCM push notification service. See the [docs](https://developers.google.com/cloud-messaging/android/client#sample-register) for more information about the GCM token.
 
 ### Unenroll
 
 To disable multifactor authentication you can delete the enrollment:
+
 ```java
 guardian
         .delete(enrollment)
@@ -114,7 +126,17 @@ Guardian provides a method to parse the `Bundle` received from GCM and return a 
 
 ```java
 // at the GCM listener you receive a Bundle
-Notification notification = Guardian.parseNotification(bundle);
+@Override
+public void onMessageReceived(String from, Bundle data) {
+    Notification notification = Guardian.parseNotification(data);
+    if (notification != null) {
+        // you received a Guardian notification, handle it
+        handleGuardianNotification(notification);
+        return;
+    }
+
+    /* handle other push notifications you might be using ... */
+}
 ```
 
 Once you have the notification instance, you can easily approve the authentication request by using the `allow` method. You'll also need the enrollment that you obtained previously. If there are multiple enrollments, be sure to use the one that has the same `id` as the notification (the `enrollmentId` property).
