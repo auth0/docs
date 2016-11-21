@@ -5,7 +5,7 @@ url: /libraries/auth0-swift
 
 # Auth0.swift
 
-Auth0.swift is a client-side library for [Auth0](http://auth0.com). Using it with your Swift  app development should simplify your interactions with Auth0.
+Auth0.swift is a client-side library for [Auth0](http://auth0.com).
 
 ## Requirements
 
@@ -36,9 +36,9 @@ In your Cartfile add this line
 github "auth0/Auth0.swift" ~> 1.0
 ```
 
-## Auth0.plist
+## Credentials
 
-To avoid specifying your clientId and domain in-line you should add an `Auth0.plist` file to your main bundle. Here is an example of the file contents:
+You will need to add an `Auth0.plist` file, containing your Auth0 client id and domain, to your main bundle. Here is an example of the file contents:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -59,7 +59,7 @@ The Authentication API provides methods to authenticate the user against Auth0 s
 
 ### Login with database connection
 
-Logging in with a database connection merely requires calling `login` with the user's username/email, password, and the name of the connection you wish to authenticate with. The response will be a Credentials object.
+Logging in with a database connection requires calling `login` with the user's username/email, password, and the name of the connection (such as "Username-Password-Authentication") you wish to authenticate with. The response will be a Credentials object.
 
 ```swift
 Auth0
@@ -81,24 +81,11 @@ Auth0
 
 ### Passwordless Login
 
-Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. 
-
-#### Passwordless Parameters
-
-As you can see, Passwordless authentication can be started with a variety of different parameters. 
-
-```
-.startPasswordless(email/phoneNumber: String, type: String, connection: String)
-```
-
-- **Parameter One** - Either the parameter `email` or `phoneNumber`, depending on which you intend to use. The value of either should be a string.
-- **Parameter Two** - The parameter `type`, its value should be either `.Code` or `.iOSLink`. The default is `.Code` (a code is sent to the user, then they input it in a secondary screen), but if you have iOS Universal Links configured, you can use `.iOSLink`.
-- **Parameter Three** - The parameter `connection`, its value should be the name of the connection, defaults to `sms`.
-
+Logging in with Passwordless is slightly different. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. 
 
 #### How Passwordless Works
 
-Passwordless requires two steps, at the heart of things. Requesting the code, and inputting the code. When using links, this is slightly different, because the user does not have to input a code themselves - but the code is just included in the URL.
+Passwordless requires two steps. Requesting the code, and inputting the code. When using links, this is slightly different, because the user does not have to input a code themselves - but the code is just included in the URL.
 
 **Step 1:** Request the code
 
@@ -140,9 +127,27 @@ Auth0
    }
 ```
 
+#### Passwordless Parameters
+
+As you can see, Passwordless authentication can be started with a variety of different parameters. 
+
+```
+.startPasswordless(email: String, type: String, connection: String)
+```
+
+or
+
+```
+.startPasswordless(phoneNumber: String, type: String, connection: String)
+```
+
+- **Parameter One** - Either the parameter `email` or `phoneNumber`, depending on which you intend to use. The value of either should be a string.
+- **Parameter Two** - The parameter `type`, its value should be either `.Code` or `.iOSLink`. The default is `.Code` (a code is sent to the user, then they input it in a secondary screen), but if you have [iOS Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) configured, you can use `.iOSLink`.
+- **Parameter Three** - The parameter `connection`, its value should be the name of the connection, defaults to `sms`.
+
 ### Signing Up with database connection
 
-Signing up with a database connection is similarly easy. Call the `signUp` method passing the user's given email, chosen password, and the connection name to initiate the signup process.
+Signing up requires calling the  `signUp` method, passing the user's given email, chosen password, and the connection name to initiate the signup process.
 
 ```swift
 Auth0
@@ -335,3 +340,37 @@ Auth0
     }
 ```
 
+### Logging
+
+To enable Auth0.swift to log HTTP request and OAuth2 flow for debugging you can call the following method in either `WebAuth`, `Authentication` or `Users` object:
+
+```swift
+var auth0 = Auth0.authentication()
+auth0.logging(enabled: true)
+```
+
+Then for a OAuth2 authentication you'll see in the console:
+
+```
+Safari: https://samples.auth0.com/authorize?.....
+URL: com.auth0.myapp://samples.auth0.com/ios/com.auth0.MyApp/callback?...
+POST https://samples.auth0.com/oauth/token HTTP/1.1
+Content-Type: application/json
+
+{"code":"...","client_id":"...","grant_type":"authorization_code","redirect_uri":"com.auth0.MyApp:\/\/samples.auth0.com\/ios\/com.auth0.MyApp\/callback","code_verifier":"..."}
+
+HTTP/1.1 200
+Pragma: no-cache
+Content-Type: application/json
+Strict-Transport-Security: max-age=3600
+Date: Thu, 09 Jun 2016 19:04:39 GMT
+Content-Length: 57
+Cache-Control: no-cache
+Connection: keep-alive
+
+{"access_token":"...","token_type":"Bearer"}
+```
+
+::: panel-info Debug Flag Only
+Only set this flag for **DEBUG** only or you'll be leaking user's credentials in the device log.
+:::
