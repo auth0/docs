@@ -21,7 +21,7 @@ To create a new Non Interactive Client, go to the [Clients section](${manage_url
 
 Enter a name for your new client, select **Non Interactive Clients** and then click the **CREATE** button.
 
-![](/media/articles/api/tokens/noninteractive-client.png)
+![Create New Client](/media/articles/api/tokens/noninteractive-client.png)
 
 **Authorize the Client**
 
@@ -29,9 +29,9 @@ After creating the new client, you will be brought to it's **Quick Start** secti
 
 ![](/media/articles/api/tokens/navigate-button.png)
 
-This will bring you to the [APIs section](${manage_url}/#/apis) under **Auth0 Management API** in the **Non Interactive Clients** section.
+This will bring you to the [APIs section](${manage_url}/#/apis) under **Auth0 Management API** in the **Non Interactive Clients** section. (To enable the APIs section of the sidebar, go to Account Settings > Advanced > Enable APIs Section)
 
-![](/media/articles/api/tokens/authorize-noninteractive.png)
+![Authorize Client](/media/articles/api/tokens/authorize-noninteractive.png)
 
 Toggle the slider to authorize your client.
 
@@ -39,13 +39,13 @@ Toggle the slider to authorize your client.
 
 You will see the available scopes that you can be granted for this client (which can be revoked at any time). Choose the desired scopes and then click the **UPDATE** button.
 
-![](/media/articles/api/tokens/choose-scopes.png)
+![Choose authorized scopes](/media/articles/api/tokens/choose-scopes.png)
 
 **Getting the token**
 
 To test the client interaction with the API, go to the **Test** section under **Auth0 Management API**.
 
-![](/media/articles/api/tokens/test-client.png)
+![Test Client](/media/articles/api/tokens/test-client.png)
 
 This page will give you code snippets on how to form a request to get a token.
 
