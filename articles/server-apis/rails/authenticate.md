@@ -40,7 +40,7 @@ Then include the `Knock::Authenticable` module in your `ApplicationController`
 
 ${snippet(meta.snippets.setup)}
 
-You can now protect your resources by adding the `authenticate` before_action
+You can now protect your resources by adding the `authenticate_user` before_action
 to your controllers like this:
 
 ${snippet(meta.snippets.use)}
@@ -56,16 +56,16 @@ If a token is given, Knock makes two assumptions by default:
 1. Your app defines a `User` model with an `id` field.
 2. The 'sub' claim in the token payload contains the user id.
 
-So we try to retrieve the current user like this:
+To retrieve the current user you should implement within your entity model a class method from_token_payload that takes the payload in argument:
 
 ```ruby
-User.find claims['sub']
-```
-
-You can easily configure this behavior by changing the following line in the `config/initializer/knock.rb`:
-
-```ruby
-config.current_user_from_token = -> (claims) { User.find claims['sub'] }
+class User < ActiveRecord::Base
+  def self.from_token_payload payload
+    # Returns a valid user, `nil` or raise
+    # e.g.
+    #   self.find payload["sub"]
+  end
+end
 ```
 
 ### 2. Add your Auth0 account information to secrets.yml
@@ -96,14 +96,7 @@ config.token_audience = -> { Rails.application.secrets.auth0_client_id }
 ```
 
 ```ruby
-require 'base64'
-
-# extracted from original [method](http://www.rubydoc.info/github/jwt/ruby-jwt/JWT.base64url_decode)
-config.token_secret_signature_key = -> {
-    secret = Rails.application.secrets.auth0_client_secret
-    secret += '=' * (4 - secret.length.modulo(4))
-    Base64.decode64(secret.tr('-_', '+/'))
-  }
+config.token_secret_signature_key = -> { JWT.base64url_decode Rails.application.secrets.auth0_client_secret }
 ```
 
 ### 4. Call Your API
