@@ -92,7 +92,7 @@ As you can see, Passwordless authentication can be started with a variety of dif
 ```
 
 - **Parameter One** - Either the parameter `email` or `phoneNumber`, depending on which you intend to use. The value of either should be a string.
-- **Parameter Two** - The parameter `type`, its value should be either `.Code` or `.iOSLink`. The default is `.Code` (a code is sent to ther user, then they input it in a secondary screen), but if you have iOS Universal Links configured, you can use `.iOSLink`.
+- **Parameter Two** - The parameter `type`, its value should be either `.Code` or `.iOSLink`. The default is `.Code` (a code is sent to the user, then they input it in a secondary screen), but if you have iOS Universal Links configured, you can use `.iOSLink`.
 - **Parameter Three** - The parameter `connection`, its value should be the name of the connection, defaults to `sms`.
 
 
@@ -227,7 +227,7 @@ Auth0
 Note that when accounts are linked, the secondary account's metadata is not merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
 :::
 
-#### Update user_metadata
+#### Update user metadata
 
 When updating user metadata, you will create a `userMetadata` object, and then call the `patch` method, passing it the user id and the `userMetadata` object. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata.
 
@@ -273,7 +273,7 @@ In your application's `Info.plist` file register your iOS Bundle Identifier as a
 
 > **Auth0.swift** will only handle URLs with your Auth0 domain as host, e.g. `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
 
-and add the following method in your application's `AppDelegate`
+And add the following method in your application's `AppDelegate`:
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
