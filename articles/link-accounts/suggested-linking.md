@@ -141,7 +141,7 @@ router.post('/link-accounts/:targetUserId', ensureLoggedIn, (req,res,next) => {
 
 In the example above, the email is verified again because the `targetUserId` could have been tampered with on the client side.
 
-In the following example, the `user_metada` and `app_metadata` from the secondary account are merged into the primary account using the [node Auth0 SDK for API V2](https://github.com/auth0/node-auth0/tree/v2) for updating the metadata on the primary profile.
+In the following example, the `user_metadata` and `app_metadata` from the secondary account are merged into the primary account using the [node Auth0 SDK for API V2](https://github.com/auth0/node-auth0/tree/v2) for updating the metadata on the primary profile.
 
 ```js
 const _ = require('lodash');
