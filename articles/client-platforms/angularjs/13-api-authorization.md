@@ -15,7 +15,7 @@ description: This tutorial demonstrates how to use API authorization
 
 <%= include('../../_includes/_compat_warning') %>
 
-# Before Starting
+### Before Starting
 
 ## Enable OAuth 2.0 API Authorization
 
