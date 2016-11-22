@@ -339,38 +339,3 @@ Auth0
         }
     }
 ```
-
-### Logging
-
-To enable Auth0.swift to log HTTP request and OAuth2 flow for debugging you can call the following method in either `WebAuth`, `Authentication` or `Users` object:
-
-```swift
-var auth0 = Auth0.authentication()
-auth0.logging(enabled: true)
-```
-
-Then for a OAuth2 authentication you'll see in the console:
-
-```
-Safari: https://samples.auth0.com/authorize?.....
-URL: com.auth0.myapp://samples.auth0.com/ios/com.auth0.MyApp/callback?...
-POST https://samples.auth0.com/oauth/token HTTP/1.1
-Content-Type: application/json
-
-{"code":"...","client_id":"...","grant_type":"authorization_code","redirect_uri":"com.auth0.MyApp:\/\/samples.auth0.com\/ios\/com.auth0.MyApp\/callback","code_verifier":"..."}
-
-HTTP/1.1 200
-Pragma: no-cache
-Content-Type: application/json
-Strict-Transport-Security: max-age=3600
-Date: Thu, 09 Jun 2016 19:04:39 GMT
-Content-Length: 57
-Cache-Control: no-cache
-Connection: keep-alive
-
-{"access_token":"...","token_type":"Bearer"}
-```
-
-::: panel-info Debug Flag Only
-Only set this flag for **DEBUG** only or you'll be leaking user's credentials in the device log.
-:::
