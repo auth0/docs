@@ -1,5 +1,5 @@
 ---
-title: Authentication (HS256)
+title: Authentication (HS256) - API Auth
 name: Shows how to secure your API using the standard JWT middeware
 description: Shows how to secure your API using the standard JWT middeware
 budicon: 500

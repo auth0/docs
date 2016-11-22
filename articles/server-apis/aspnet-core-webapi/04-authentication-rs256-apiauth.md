@@ -1,5 +1,5 @@
 ---
-title: Authentication (RS256) - OAuth 2.0 API Authorization
+title: Authentication (RS256) - API Auth
 name: Shows how to secure your API using the standard JWT middeware
 description: Shows how to secure your API using the standard JWT middeware.
 budicon: 500
