@@ -252,7 +252,7 @@ Auth0
 
 ### Web-based Auth (iOS Only)
 
-First go to [Auth0 Dashboard](${manage_url}/#/applications) and go to application's settings. Make sure you have in *Allowed Callback URLs* a URL with the following format:
+First go to [Auth0 Dashboard](${manage_url}/#/clients) and go to client's settings. Make sure you have in *Allowed Callback URLs* a URL with the following format:
 
 ```
 {YOUR_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback
