@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: Lock for Android - Google as a Provider
 ---
 

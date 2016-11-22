@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: Lock V9 doc on the different types of authentication modes.
 ---
 

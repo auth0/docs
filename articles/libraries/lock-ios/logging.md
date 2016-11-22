@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: Logging
 description: Learn how to debug Lock by enabling logging.
 ---

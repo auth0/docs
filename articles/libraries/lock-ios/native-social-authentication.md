@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: Native Social Authentication
 description: How to enable native login for some the supported social social connections.
 ---

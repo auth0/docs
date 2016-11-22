@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: How to use Lock V10 with auth0.js
 ---
 

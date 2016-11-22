@@ -1,7 +1,10 @@
 ---
+section: libraries
+toc: true
 toc_title: Getting Started with Lock for Android
+title: Lock for Android
 url: /libraries/lock-android
-description: Installation, usage, and configuration options guide for Lock for Android
+description: A widget that provides a frictionless login and signup experience for your native Android apps.
 ---
 
 # Lock for Android

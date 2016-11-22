@@ -383,16 +383,16 @@ libraries:
       - title: "UI Customization"
         url: "/libraries/lock/v10/ui-customization"  
 
-      - title: "Migration Guide v9 to v10"
+      - title: "v10 Migration Guide"
         url: "/libraries/lock/v10/migration-guide"  
 
-      - title: "Language Support & Custom Text"
+      - title: "Internationalization"
         url: "/libraries/lock/v10/i18n"  
 
-      - title: "Customizing Error Messages"
+      - title: "Customizing Errors"
         url: "/libraries/lock/v10/customizing-error-messages"  
 
-      - title: "Using Lock with auth0.js"
+      - title: "Lock with auth0.js"
         url: "/libraries/lock/v10/auth0js"  
         
       - title: "Popup Mode"
@@ -400,9 +400,74 @@ libraries:
 
   - title: "Lock for iOS"
     url: "/libraries/lock-ios"
+    children: 
+
+      - title: "Overview"
+        url: "/libraries/lock-ios"
+
+      - title: "Customization"
+        url: "/libraries/lock-ios/customization"
+
+      - title: "Delegation API"
+        url: "/libraries/lock-ios/delegation-api"
+
+      - title: "Logging"
+        url: "/libraries/lock-ios/logging"
+
+      - title: "Objective-C API"
+        url: "/libraries/lock-ios/lock-ios-api"
+
+      - title: "Native Social Auth"
+        url: "/libraries/lock-ios/native-social-authentication"
+
+      - title: "Password Reset"
+        url: "/libraries/lock-ios/password-reset-ios"
+
+      - title: "Save/Refresh JWTs"
+        url: "/libraries/lock-ios/save-and-refresh-jwt-tokens"
+
+      - title: "Sending Auth Params"
+        url: "/libraries/lock-ios/sending-authentication-parameters"
+
+      - title: "SMS in Lock iOS"
+        url: "/libraries/lock-ios/sms-lock-ios"
+
+      - title: "SSO on Mobile Apps"
+        url: "/libraries/lock-ios/sso-on-mobile-apps"
+
+      - title: "Using Lock with Swift"
+        url: "/libraries/lock-ios/swift"
+
+      - title: "TouchID Authentication"
+        url: "/libraries/lock-ios/touchid-authentication"
+
+      - title: "Build Your Own UI"
+        url: "/libraries/lock-ios/use-your-own-ui"
 
   - title: "Lock for Android"
     url: "/libraries/lock-android"
+    children: 
+
+      - title: "Overview"
+        url: "/libraries/lock-android"
+
+      - title: "Configuration Options"
+        url: "/libraries/lock-android/configuration"
+
+      - title: "Custom Auth Providers"
+        url: "/libraries/lock-android/custom-authentication-providers"
+
+      - title: "Custom Signup Fields"
+        url: "/libraries/lock-android/custom-fields"
+
+      - title: "Custom Theming"
+        url: "/libraries/lock-android/custom-theming"
+
+      - title: "Migration v1 to v2"
+        url: "/libraries/lock-android/migration-guide"
+
+      - title: "Passwordless Auth"
+        url: "/libraries/lock-android/passwordless"
 
   - title: "Lock vs. Custom UI"
     url: "/libraries/when-to-use-lock"

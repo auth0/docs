@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: Lock Objective-C API
 description: Description of the Lock Objective-C API
 ---

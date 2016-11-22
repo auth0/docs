@@ -1,10 +1,11 @@
 ---
+section: libraries
 description: When adding Auth0 to your apps, you have the option to implement either the Lock login widget, or a custom UI. This page will help you choose.
 ---
 
 # Lock vs. a Custom UI
 
-When adding Auth0 to your apps, you have the option to implement either:
+When adding Auth0 to your web apps, you have the option to implement either:
 
 * [Lock](/libraries/lock)
 * A custom user interface that you have created in conjunction with the [auth0.js](/libraries/auth0js) library or the [Authentication API](/auth-api)
