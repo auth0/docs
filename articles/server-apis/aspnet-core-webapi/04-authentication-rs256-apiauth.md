@@ -104,7 +104,7 @@ Once you have obtained an `access_token` you can pass that along in the `Authori
 Here is a sample RAW request:
 
 ```text
-GET /ping/secure HTTP/1.1
+GET /api/ping/secure HTTP/1.1
 Host: localhost:5000
 Authorization: Bearer <your access_token>
 ```
@@ -112,7 +112,7 @@ Authorization: Bearer <your access_token>
 Or using [RestSharp](http://restsharp.org/):
 
 ```csharp
-var client = new RestClient("http://localhost:5000/ping/secure");
+var client = new RestClient("http://localhost:5000/api/ping/secure");
 var request = new RestRequest(Method.GET);
 request.AddHeader("authorization", "Bearer <your access_token>");
 IRestResponse response = client.Execute(request);
