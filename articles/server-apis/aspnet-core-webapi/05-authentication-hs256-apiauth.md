@@ -1,14 +1,14 @@
 ---
-title: Authentication (RS256) - OAuth 2.0 API Authorization
+title: Authentication (HS256)
 name: Shows how to secure your API using the standard JWT middeware
-description: Shows how to secure your API using the standard JWT middeware.
+description: Shows how to secure your API using the standard JWT middeware
 budicon: 500
 ---
 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-webapi-sample',
-  path: '04-Authentication-RS256-ApiAuth',
+  path: '05-Authentication-HS256-ApiAuth',
   requirements: [
     '.NET Core 1.0',
     'Visual Studio 2015 Update 3 (Optional)',
@@ -20,9 +20,9 @@ budicon: 500
 
 <%= include('../../api-auth/_region-support') %>
 
-Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using RS256.
+Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using HS256.
 
-> If you want to use HS256 then please go to the [Authentication using HS256](/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-apiauth) tutorial.
+> If you want to use RS256 then please go to the [Authentication using RS256](/quickstart/backend/aspnet-core-webapi/04-authentication-rs256-apiauth) tutorial.
 
 ## 1. Enable OAuth 2.0 API Authorization
 
@@ -30,17 +30,31 @@ Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an 
 
 ## 2. Create a Resource Server (API)
 
-In the [APIs section]("${manage_url}/#/apis) of the Auth0 Dashboard, click the **Create API** button. Provide a **Name** and **Identifier** for your API. Be sure to choose the RS256 signing algorithm.
+In the [APIs section]("${manage_url}/#/apis) of the Auth0 Dashboard, click the **Create API** button. Provide a **Name** and **Identifier** for your API. Be sure to choose the HS256 signing algorithm.
 
-![Create API](/media/articles/server-apis/aspnet-core-webapi/create-api-rs256.png)
+![Create API](/media/articles/server-apis/aspnet-core-webapi/create-api-hs256.png)
 
-Take note of the API Identifier you defined when creating the API, as it will be used later when registering the JWT middleware.
+After you have created the API, navigate to the **Settings** tab of the API, and take note of the **API Identifier** and **Signing Secret**, as it will be used configuring the JWT middleware.
 
-## 3. Configure the JWT Middleware
+## 3. Update your settings
+
+When using HS256, you will need your API's **Signing Secret** when configuring the JWT middleware, so be sure update the `appsettings.json` file included in the seed project to also add an **ApiSecret** attribute with the value of the **Signing Secret**, and be sure to set the correct values for the **Domain** and **ApiIdentifier** attributes:
+
+```json
+{
+  "Auth0": {
+    "Domain": "${account.namespace}",
+    "ApiIdentifier": "YOUR_API_IDENTIFIER",
+    "ApiSecret": "YOUR_API_SECRET"
+  }
+}
+```
+
+## 4. Configure the JWT Middleware
 
 You will need to add the JWT middleware to your application's middleware pipeline.
 
-Go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 API Identifier as the `Audience`, and the full path to your Auth0 domain as the `Authority`:
+Go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 Domain as the `ValidIssuer`, the API Identifier as the `ValidAudience`, and the Signing Secret as the `IssuerSigningKey`:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -50,8 +64,12 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
     var options = new JwtBearerOptions
     {
-        Audience = Configuration["Auth0:ApiIdentifier"],
-        Authority = $"https://{Configuration["Auth0:Domain"]}/"
+        TokenValidationParameters =
+        {
+            ValidIssuer = $"https://{Configuration["Auth0:Domain"]}/",
+            ValidAudience = Configuration["Auth0:ApiIdentifier"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Auth0:ApiSecret"]))
+        }
     };
     app.UseJwtBearerAuthentication(options);
 
@@ -59,23 +77,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-### Signature Validation
+::: panel-warning Do not forget the trailing backslash
+Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.
+:::
 
-Before we carry on, a quick word about the verification of the JWT, as the configuration above may af first glance seem very simplistic.
-
-The JWT middleware will automatically use the `Authority` to verify the issuer of the JWT, and the `Audience` to verify the audience. These values need match the values in the token exactly, so ensure you specify the trailing backslash (`/`) for the `Authority` as this is a fairly common reason for tokens not verifying correctly.
-
-Next, it will seem as though the JWT middleware configuration above is insecure since the signature is not explicitly verified anywhere. This is however not true, as the JWT middleware will interrogate the `/.well-known/openid-configuration` endpoint at the URL specified in the `Authority` property to discover the JSON Web Key Set (JWKS) document. It will then download the JSON Web Key which is used to subsequently verify the token.
-
-This can be confirmed by looking at the Fiddler trace in the screenshot below. Notice that the first time a call is made to the API, that the JWT middleware downloads the JWKS document:
-
-![Fiddler trace of retrieval of JWK](/media/articles/server-apis/aspnet-core-webapi/fiddler.png)
-
-If someone tries to create a JWT with another key set the signature verification will fail:
-
-![Console output with incorrectly signed JWT](/media/articles/server-apis/aspnet-core-webapi/console-output.png)
-
-## 4. Securing an API endpoint
+## 5. Securing an API endpoint
 
 The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms.
 
@@ -95,7 +101,7 @@ public class PingController : Controller
 }
 ```
 
-## 5. Using your API
+## 6. Using your API
 
 In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application your are building. These are referred to as authorization grant flows. Please see the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your application.
 
@@ -118,7 +124,7 @@ request.AddHeader("authorization", "Bearer <your access_token>");
 IRestResponse response = client.Execute(request);
 ```
 
-## 6. Testing your API in Postman
+## 7. Testing your API in Postman
 
 During development you may want to test your API with Postman.
 

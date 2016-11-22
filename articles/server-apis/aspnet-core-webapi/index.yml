@@ -18,3 +18,4 @@ articles:
   - 02-authentication-hs256
   - 03-authorization
   - 04-authentication-rs256-apiauth
+  - 05-authentication-hs256-apiauth
