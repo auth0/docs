@@ -11,6 +11,52 @@ The Auth0 Management APIv2 token is required to call v2 of the Auth0 Management 
 
 ## How to get a Management APIv2 Token
 
+### Using the Client Credentials Flow
+
+**Create a Non Interactive Client**
+
+A Non Interactive Client is a client that interacts with an API where there is no user involved. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow.
+
+To create a new Non Interactive Client, go to the [Clients section](${manage_url}/#/clients) of the dashboard then click the **CREATE CLIENT** button.
+
+Enter a name for your new client, select **Non Interactive Clients** and then click the **CREATE** button.
+
+![Create New Client](/media/articles/api/tokens/noninteractive-client.png)
+
+**Authorize the Client**
+
+After creating the new client, you will be brought to it's **Quick Start** section. Select **Auth0 Management API** from the dropdown. You will then see a message that the client is not authorized, click **NAVIGATE TO THE API AND AUTHORIZE**.
+
+![](/media/articles/api/tokens/navigate-button.png)
+
+This will bring you to the [APIs section](${manage_url}/#/apis) under **Auth0 Management API** in the **Non Interactive Clients** section. (To enable the APIs section of the sidebar, go to Account Settings > Advanced > Enable APIs Section)
+
+![Authorize Client](/media/articles/api/tokens/authorize-noninteractive.png)
+
+Toggle the slider to authorize your client.
+
+**Choose the scopes**
+
+You will see the available scopes that you can be granted for this client (which can be revoked at any time). Choose the desired scopes and then click the **UPDATE** button.
+
+![Choose authorized scopes](/media/articles/api/tokens/choose-scopes.png)
+
+**Getting the token**
+
+To test the client interaction with the API, go to the **Test** section under **Auth0 Management API**.
+
+![Test Client](/media/articles/api/tokens/test-client.png)
+
+This page will give you code snippets on how to form a request to get a token.
+
+You should be able to scroll down to see your `access_token` property from the token which can be used to make authorized requests to your API.
+
+### Using the Auth0 Management APIv2 Explorer (deprecated)
+
+::: panel-warning This feature will be deprecated
+Generating tokens through the Management APIv2 explorer will soon be deprecated in favor of the more secure Client Credentials flow.
+:::
+
 An Auth0 Management APIv2 token can be generated on the [Auth0 Management APIv2 explorer](/api/v2) page or it can be created programmatically by building the JWT, including the desired scopes, and signing it with the tenant API key/secret.  You will need to use your Global Client Id and Global Client Secret to generate an API Token.
 
 The [Auth0 Management APIv2 explorer page](/api/v2) is very useful to experiment with Auth0 Management APIv2. Each endpoint shows its required scopes. By clicking the scope, it is automatically added to the token. For example, to make a call to the “List or search users” endpoint, one would click on the `read:users` scope to generate the token before invoking it:
