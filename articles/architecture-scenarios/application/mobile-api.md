@@ -10,7 +10,7 @@ description: Explains the architecture scenario with a mobile application client
 
 ![Mobile + API Flow](/media/articles/architecture-scenarios/mobile-api.png)
 
-In this scenario you have a mobile application ("Client") which talks to an API ("Resource Server"). The application will use OpenID Connect with the **Authorization Code Grant using Proof Key for Code Exchange (PKCE)** to authenticate users. Note that this flow can only be used for Clients whose type is **Native** in the [Dashboard](${manage_url}).
+In this scenario you have a mobile application ("Client") which talks to an API ("Resource Server"). The application will use **OpenID Connect** with the **Authorization Code Grant using Proof Key for Code Exchange (PKCE)** to authenticate users. Note that this flow can only be used for Clients whose type is **Native** in the [Dashboard](${manage_url}).
 
 When a user logs in, Auth0 will return to the application an `access_token`, an `id_token`, and optionally a `refresh_token`:
 
