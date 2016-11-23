@@ -8,7 +8,7 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-webapi-sample',
-  path: '01-Authentication-RS256',
+  path: '04-Authentication-RS256-Deprecated',
   requirements: [
     '.NET Core 1.0'
   ]
@@ -16,7 +16,7 @@ budicon: 500
 
 Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using RS256.
 
-> If you want to use HS256 then please go to the [Authentication using HS256](/quickstart/backend/aspnet-core-webapi/02-authentication-hs256) tutorial.
+> If you want to use HS256 then please go to the [Authentication using HS256](/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-deprecated) tutorial.
 
 ## 1. Configure JSON Web Token Signature Algorithm
 
@@ -118,7 +118,3 @@ As mentioned in the previous step, you will need to pass along an `id_token` in 
 Now you can use the `id_token` and pass it along in the Authorization header as a Bearer token:
 
 ![Authorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-authorized.png)
-
-## Next Step
-
-To learn how to allow only users in a certain role to access a particular endpoint, please continue with the [Authorization](/quickstart/backend/aspnet-core-webapi/03-authorization) tutorial.

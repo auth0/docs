@@ -10,19 +10,17 @@ budicon: 715
   repo: 'auth0-aspnetcore-webapi-sample',
   path: '00-Starter-Seed',
   requirements: [
-    '.NET Core 1.0'
+    '.NET Core 1.0',
+    'Visual Studio 2015 Update 3 (Optional)',
+    'Visual Studio Code (Optional)'
   ]
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
+<%= include('../../_includes/_api_auth_intro') %>
 
-* .NET Core 1.0
+<%= include('../../api-auth/_region-support') %>
 
-This tutorial can be completed with the command line tools and your code editor of choice, or alternatively you can use Microsoft Visual Studio 2015 Update 3. For more details on how to use .NET Core on your platform, please see [the .NET Core Website](https://www.microsoft.com/net/core).
-:::
-
-This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET Core Web API.
+This Quickstart will guide you through the various tasks related to using Auth0-issued Access Tokens to secure your ASP.NET Core Web API.
 
 ## Seed & Samples
 
@@ -30,19 +28,23 @@ If you would like to follow along with this Quickstart you can download the [see
 
 The final project after each of the steps is also available in the [Sample repository](https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample). You can find the final result for each step in the relevant folder inside the repository.
 
-## Create an Application
+## 1. Enable OAuth 2.0 API Authorization
 
-<%= include('../../_includes/_new_app') %>_
+<%= include('../../_includes/_configure_oauth2aas') %>
 
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
+## 2. Create a Resource Server (API)
 
-Be sure to update the `appsettings.json` file in the seed project with the correct values for your application.
+In the [APIs section]("${manage_url}/#/apis) of the Auth0 Dashboard, click the **Create API** button. Provide a **Name** and **Identifier** for your API. Be sure to choose the RS256 signing algorithm.
 
-## Dependencies
+![Create API](/media/articles/server-apis/aspnet-core-webapi/create-api-rs256.png)
 
-To use Auth0 JSON Web Tokens with ASP.NET Core you will use the JWT Middleware. Add the `Microsoft.AspNetCore.Authentication.Jwt` package to your application.
+Be sure to update the `appsettings.json` file in the seed project with the correct values for your API.
 
-```bash
+## 3. Install Dependencies
+
+To use Auth0 Access Tokens with ASP.NET Core you will use the JWT Middleware. Add the `Microsoft.AspNetCore.Authentication.Jwt` package to your application.
+
+```text
 Install-Package Microsoft.AspNetCore.Authentication.Jwt
 ```
 
@@ -50,4 +52,4 @@ This was already done for you in the seed project, so no need to add it if you a
 
 That's all you need to start working with Auth0 in your Web API!
 
-Please continue with the [Authentication](/quickstart/backend/aspnet-core-webapi/01-authentication-rs256) tutorial to secure your Web API.
+Please continue with the [Authentication](/quickstart/backend/aspnet-core-webapi/01-authentication) tutorial to secure your Web API.

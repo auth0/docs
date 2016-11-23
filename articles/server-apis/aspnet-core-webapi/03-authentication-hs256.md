@@ -8,17 +8,13 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-webapi-sample',
-  path: '05-Authentication-HS256-ApiAuth',
+  path: '03-Authentication-HS256',
   requirements: [
     '.NET Core 1.0',
     'Visual Studio 2015 Update 3 (Optional)',
     'Visual Studio Code (Optional)'
   ]
 }) %>
-
-<%= include('../../_includes/_api_auth_intro') %>
-
-<%= include('../../api-auth/_region-support') %>
 
 ::: panel-info Signing Algorithm
 Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This document demonstrates how to use tokens signed with the HS256 Algorithm. 

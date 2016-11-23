@@ -8,7 +8,7 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-webapi-sample',
-  path: '04-Authentication-RS256-ApiAuth',
+  path: '01-Authentication',
   requirements: [
     '.NET Core 1.0',
     'Visual Studio 2015 Update 3 (Optional)',
@@ -16,29 +16,13 @@ budicon: 500
   ]
 }) %>
 
-<%= include('../../_includes/_api_auth_intro') %>
-
-<%= include('../../api-auth/_region-support') %>
-
 ::: panel-info Signing Algorithm
 Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). It is recommended that you use RS256 and that is what is demonstrated in this quickstart. 
 
 If however you want to use HS256, then please go to the [Authentication using HS256](/quickstart/backend/aspnet-core-webapi/03-authentication-hs256) tutorial.
 :::
 
-## 1. Enable OAuth 2.0 API Authorization
-
-<%= include('../../_includes/_configure_oauth2aas') %>
-
-## 2. Create a Resource Server (API)
-
-In the [APIs section]("${manage_url}/#/apis) of the Auth0 Dashboard, click the **Create API** button. Provide a **Name** and **Identifier** for your API. Be sure to choose the RS256 signing algorithm.
-
-![Create API](/media/articles/server-apis/aspnet-core-webapi/create-api-rs256.png)
-
-Take note of the API Identifier you defined when creating the API, as it will be used later when registering the JWT middleware.
-
-## 3. Configure the JWT Middleware
+## 1. Configure the JWT Middleware
 
 You will need to add the JWT middleware to your application's middleware pipeline.
 
@@ -77,7 +61,7 @@ If someone tries to create a JWT with another key set the signature verification
 
 ![Console output with incorrectly signed JWT](/media/articles/server-apis/aspnet-core-webapi/console-output.png)
 
-## 4. Securing an API endpoint
+## 2. Securing an API endpoint
 
 The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms.
 
@@ -97,7 +81,7 @@ public class PingController : Controller
 }
 ```
 
-## 5. Using your API
+## 3. Using your API
 
 In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application your are building. These are referred to as authorization grant flows. Please see the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your application.
 
@@ -120,7 +104,7 @@ request.AddHeader("authorization", "Bearer <your access_token>");
 IRestResponse response = client.Execute(request);
 ```
 
-## 6. Testing your API in Postman
+## 4. Testing your API in Postman
 
 During development you may want to test your API with Postman.
 
@@ -135,3 +119,7 @@ As mentioned in the previous step, you will need to pass along an `access_token`
 You can then use the `access_token` and pass it along in the Authorization header as a Bearer token:
 
 ![Authorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-authorized.png)
+
+## Next Step
+
+To learn how to allow only clients who were granted a certain `scope` access to a particular API endpoint, please continue with the [Authorization](/quickstart/backend/aspnet-core-webapi/02-authorization) tutorial.

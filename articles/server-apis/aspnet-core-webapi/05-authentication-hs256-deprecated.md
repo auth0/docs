@@ -8,7 +8,7 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-webapi-sample',
-  path: '02-Authentication-HS256',
+  path: '05-Authentication-HS256-Deprecated',
   requirements: [
     '.NET Core 1.0'
   ]

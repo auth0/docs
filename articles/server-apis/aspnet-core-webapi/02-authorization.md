@@ -7,9 +7,11 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-webapi-sample',
-  path: '03-Authorization',
+  path: '02-Authorization',
   requirements: [
-    '.NET Core 1.0'
+    '.NET Core 1.0',
+    'Visual Studio 2015 Update 3 (Optional)',
+    'Visual Studio Code (Optional)'
   ]
 }) %>
 
