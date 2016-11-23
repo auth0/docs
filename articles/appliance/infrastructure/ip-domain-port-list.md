@@ -76,6 +76,22 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <th>Required?</th>
   </tr>
   <tr>
+    <td>All</td>
+    <td>Inbound</td>
+    <td>Your load balancer IP address (often on internal network)</td>
+    <td>80/(443 or 4443)</td>
+    <td>For clusters with more than one node, a load balancer is required for resiliency and performance</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Webtask</td>
+    <td>Outbound</td>
+    <td>Your load balancer IP address (often on internal network)</td>
+    <td>443</td>
+    <td>Allows rules, webtasks, and extensions to call back to Auth0 endpoints</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
     <td>Command Line Interface</td>
     <td>Inbound</td>
     <td>CLI Clients (often on the internal network)</td>
