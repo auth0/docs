@@ -8,7 +8,7 @@ You can get started by either downloading the seed project or if you would like 
 <%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'node-auth0',
-  path: 'examples/hapi-api',
+  path: 'examples/relay-api',
   requirements: [
     'NodeJS 4.3',
     'React 0.14.0-rc1',
