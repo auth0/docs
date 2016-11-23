@@ -10,7 +10,6 @@ This page contains information on how to enable and configure Guardian as an adm
 
 ## Guardian Basics
 * [Guardian Push Notifications](/multifactor-authentication/administrator/push-notifications)
-  * [Supported Devices for Guardian Push](/multifactor-authentication/administrator/push-supported-devices)
 * [Guardian SMS Notifications](/multifactor-authentication/administrator/sms-notifications)
   * [Configuring your Twilio Account](/multifactor-authentication/administrator/twilio-configuration)
 * [Turning off Guardian](/multifactor-authentication/administrator/disabling-mfa)

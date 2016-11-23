@@ -1,5 +1,5 @@
 ---
-description: Guardian for Select Users
+description: Guardian for Select Client
 ---
 ## Customize MFA for Select Clients
 
