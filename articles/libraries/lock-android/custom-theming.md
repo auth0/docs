@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: Custom Theming
 description: Customizing the Lock for Android UI
 ---

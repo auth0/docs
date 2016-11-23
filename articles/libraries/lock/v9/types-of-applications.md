@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: Explains the types of applications that can be used with Lock.
 ---
 

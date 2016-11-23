@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: Integrate with third-party apps with the delegation API.
 ---
 

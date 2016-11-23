@@ -854,7 +854,7 @@
   },
   {
     "from": "/custom-signup",
-    "to": "/libraries/lock/v10/custom-signup"
+    "to": "/libraries/custom-signup"
   },
   {
     "from": "/custom-error-pages",
@@ -1131,5 +1131,9 @@
   {
     "from": "/onboarding/appliance-outage",
     "to": "/appliance/critical-issue"
+  },
+  {
+    "from": "/libraries/lock/v10/custom-signup",
+    "to": "/libraries/custom-signup"
   }
 ]

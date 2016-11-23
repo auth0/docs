@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: Guide to migrate from Auth0 Widget to Auth0 Lock.
 ---
 

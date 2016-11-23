@@ -1,11 +1,14 @@
 ---
+section: libraries
+toc: true
 url: /libraries/lock-ios
+title: Lock for iOS and macOS
 snippets:
   dependencies: native-platforms/ios-objc/dependencies
-description: How to install, include, and use Lock gor iOS.
+description: A widget that provides a frictionless login and signup experience for your native iOS and macOS apps.
 ---
 
-# Lock for iOS and OS X
+# Lock for iOS and macOS
 
 Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
