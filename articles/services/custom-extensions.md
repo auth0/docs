@@ -1,5 +1,5 @@
 ---
-description: Project to help customers analyze common design patterns.
+description: A project to develop or customize components that extend Auth0's out-of-the-box functionality.
 ---
 
 # Advisory Hours: Custom Extensions
