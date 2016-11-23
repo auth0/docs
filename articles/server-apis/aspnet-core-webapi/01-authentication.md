@@ -1,5 +1,5 @@
 ---
-title: Authentication (RS256) - API Auth
+title: Authentication
 name: Shows how to secure your API using the standard JWT middeware
 description: Shows how to secure your API using the standard JWT middeware.
 budicon: 500
@@ -20,9 +20,11 @@ budicon: 500
 
 <%= include('../../api-auth/_region-support') %>
 
-Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using RS256.
+::: panel-info Signing Algorithm
+Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). It is recommended that you use RS256 and that is what is demonstrated in this quickstart. 
 
-> If you want to use HS256 then please go to the [Authentication using HS256](/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-apiauth) tutorial.
+If however you want to use HS256, then please go to the [Authentication using HS256](/quickstart/backend/aspnet-core-webapi/03-authentication-hs256) tutorial.
+:::
 
 ## 1. Enable OAuth 2.0 API Authorization
 
