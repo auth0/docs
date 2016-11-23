@@ -17,6 +17,7 @@ This page contains information on how to enable and configure Guardian as an adm
 
 ## Managing Users
 * [Applying Guardian to Specific Users](/multifactor-authentication/administrator/guardian-for-select-users)
+* [Send Guardian Enrollment Email](multifactor-authentication/administrator/guardian-enrollment-email)
 * [Resetting Guardian Credentials](/multifactor-authentication/administrator/reset-user)
 * [Guardian logs](/multifactor-authentication/administrator/guardian-logs)
 

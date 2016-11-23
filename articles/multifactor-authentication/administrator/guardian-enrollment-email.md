@@ -1,17 +1,16 @@
 ---
-description: Send enrollment email
+description: Send enrollment email (Guardian)
 ---
-## Resetting a Usei r's multifactor account
+## Sending a guardian enrollment email to a User.
 
-If a user has lost their mobile device they can use their recovery code to log in. If they do not have recovery code, they will need their account administrator to reset their multifactor.
+This allows an administrator to send an email to a particular user with a link that leads to the guardian enrollment step. This step is when a user registers a device with Guardian MFA.  
 
-To reset a user's multifactor authentication:
+To send this email:
 
 1. Find and select the user in the [Users](${manage_url}/#/users) section of the dashboard.
 2. Once you have selected the affected user, click on the **Actions** button on the top right of the screen. 
-3. Select **Reset Multifactor (Auth0)** from the dropdown.
-4. There will be a pop up box to confirm your decision.  Click **YES, RESET IT** to reset the user's MFA.
+3. Select **Send Enrollment Email (Guardian)** from the dropdown.
 
- ![](/media/articles/mfa/reset-mfa.png)
+ ![](/media/articles/mfa/guardian-send-enrollment-email.png)
 
-The next time the user logs in they will need to setup their MFA just like a new user.
+That will send an email to the user registered email.
