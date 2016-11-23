@@ -28,11 +28,9 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Validate JWT token
 
-You need to validate the [JWT](/jwt)s to make sure the user is authenticated. For that, in a filter or in a middleware processor that runs before your actions, you should write the following code:
+You need to validate the [JWT](/jwt)s to make sure the user is authenticated. For that, you can use the following code:
 
 ${snippet(meta.snippets.use)}
-
-__Note:__ If you are using Sinatra, instead of using `authorization = request.headers['Authorization']`, you should use `authorization = env['HTTP_AUTHORIZATION']`.
 
 ### 3. Call Your API
 You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
