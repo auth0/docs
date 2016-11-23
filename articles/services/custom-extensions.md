@@ -20,4 +20,4 @@ A project to develop or customize components that extend Auth0's out-of-the-box 
 
 ## Deliverables
 
-* Technical document: code review findings, sample code and recommended configuration.
+* Code one Custom Extension artifact, how-to deploy document, session explaining the code and the features.
