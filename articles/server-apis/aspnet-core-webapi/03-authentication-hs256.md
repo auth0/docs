@@ -16,7 +16,7 @@ budicon: 500
   ]
 }) %>
 
-::: panel-info Signing Algorithm
+::: panel-warning Signing Algorithm
 Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This document demonstrates how to use tokens signed with the HS256 Algorithm. 
 
 It is however recommended that you [rather use RS256](/quickstart/backend/aspnet-core-webapi/01-authentication) tutorial.
@@ -124,9 +124,7 @@ IRestResponse response = client.Execute(request);
 
 ## 7. Testing your API in Postman
 
-During development you may want to test your API with Postman.
-
-If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
+During development you may want to test your API with Postman. If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 

@@ -16,6 +16,7 @@ articles:
   - 00-intro
   - 01-authentication
   - 02-authorization
+  - 03-authentication-hs256
   - 04-authentication-rs256-deprecated
   - 05-authentication-hs256-deprecated
   - 06-authorization-deprecated

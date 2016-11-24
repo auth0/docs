@@ -16,15 +16,9 @@ budicon: 500
   ]
 }) %>
 
-::: panel-info Signing Algorithm
-Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). It is recommended that you use RS256 and that is what is demonstrated in this quickstart. 
-
-If however you want to use HS256, then please go to the [Authentication using HS256](/quickstart/backend/aspnet-core-webapi/03-authentication-hs256) tutorial.
-:::
-
 ## 1. Configure the JWT Middleware
 
-You will need to add the JWT middleware to your application's middleware pipeline.
+Add the JWT middleware to your application's middleware pipeline in order to enable authentication with a JSON Web Token.
 
 Go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 API Identifier as the `Audience`, and the full path to your Auth0 domain as the `Authority`:
 
@@ -51,13 +45,13 @@ Before we carry on, a quick word about the verification of the JWT, as the confi
 
 The JWT middleware will automatically use the `Authority` to verify the issuer of the JWT, and the `Audience` to verify the audience. These values need match the values in the token exactly, so ensure you specify the trailing backslash (`/`) for the `Authority` as this is a fairly common reason for tokens not verifying correctly.
 
-Next, it will seem as though the JWT middleware configuration above is insecure since the signature is not explicitly verified anywhere. This is however not true, as the JWT middleware will interrogate the `/.well-known/openid-configuration` endpoint at the URL specified in the `Authority` property to discover the JSON Web Key Set (JWKS) document. It will then download the JSON Web Key which is used to subsequently verify the token.
+Next, it will seem as though the JWT middleware configuration above is insecure since the signature is not explicitly verified anywhere. This is however not true, as the JWT middleware will interrogate the `/.well-known/openid-configuration` endpoint at the URL specified in the `Authority` property to discover the JSON Web Key Set (JWKS) document. It will then download the JSON Web Key which is subsequently used to verify the token.
 
 This can be confirmed by looking at the Fiddler trace in the screenshot below. Notice that the first time a call is made to the API, that the JWT middleware downloads the JWKS document:
 
 ![Fiddler trace of retrieval of JWK](/media/articles/server-apis/aspnet-core-webapi/fiddler.png)
 
-If someone tries to create a JWT with another key set the signature verification will fail:
+If someone tries to create a JWT with another key, the signature verification will fail:
 
 ![Console output with incorrectly signed JWT](/media/articles/server-apis/aspnet-core-webapi/console-output.png)
 
@@ -83,7 +77,7 @@ public class PingController : Controller
 
 ## 3. Using your API
 
-In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application your are building. These are referred to as authorization grant flows. Please see the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your application.
+In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application your are building. These are referred to as authorization grant flows, and you can refer to the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your client application.
 
 Once you have obtained an `access_token` you can pass that along in the `Authorization` header of requests to your API as a Bearer token.
 
@@ -106,9 +100,7 @@ IRestResponse response = client.Execute(request);
 
 ## 4. Testing your API in Postman
 
-During development you may want to test your API with Postman.
-
-If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
+During development you may want to test your API with Postman. If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 

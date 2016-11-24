@@ -19,9 +19,7 @@ An API can enforce fine grained control over who can access the various endpoint
 
 When a user authorizes a client application, the application can also indicate which permissions it requires. The user is allowed to review and grant these permissions. These permissions are then included in the `access_token` as part of the `scope` claim.
 
-Subsequently when the client passes along the `access_token` when making requests to the API, the API can query the `scope` claim to ensure that the required permissions were granted in order to call the particular API endpoint
-
-In your ASP.NET Core Web API, you can query the `scope` claim to ensure that the token contains the correct scope required by a particular API endpoint. The `scope` claim will contain the list of scopes separated by a space, as can be seen in the example JWT payload below:
+Subsequently when the client passes along the `access_token` when making requests to the API, the API can query the `scope` claim to ensure that the required permissions were granted in order to call the particular API endpoint. The `scope` claim will contain the list of scopes separated by a space, as can be seen in the example JWT payload below:
 
 ```json
 {
@@ -46,9 +44,13 @@ Once you have created the list of scopes, go to the __Non Interactive Clients__ 
 
 ## 2. Enforcing scopes in your ASP.NET Core API 
 
-To ensure that a correct `scope` is present in order to execute a particular API endpoint, you can make use of the new Policy Based Authorization in ASP.NET Core. For a better understanding of the code which follows, it is suggested that you read the ASP.NET Core documentation on [Policy Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies).
+To ensure that a correct `scope` is present in order to execute a particular API endpoint, you can make use of the new Policy Based Authorization in ASP.NET Core. 
 
-Create a new Authorization Requirement called `HasScopeRequirement`. This requirement will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope. If it does then the Authorization Requirement is met. Otherwise it will fail. 
+::: panel-info ASP.NET Core Policy Based Authorization
+For a better understanding of the code which follows, it is suggested that you read the ASP.NET Core documentation on [Policy Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies).
+:::
+
+Create a new Authorization Requirement called `HasScopeRequirement`. This requirement will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope. If it does then the Authorization Requirement is met. 
 
 ```csharp
 public class HasScopeRequirement : AuthorizationHandler<HasScopeRequirement>, IAuthorizationRequirement
@@ -69,7 +71,7 @@ public class HasScopeRequirement : AuthorizationHandler<HasScopeRequirement>, IA
             return Task.CompletedTask;
 
         // Split the scopes string into an array
-        var scopes = context.User.FindFirst(c => c.Type == "scope").Value.Split(' ');
+        var scopes = context.User.FindFirst(c => c.Type == "scope" && c.Issuer == issuer).Value.Split(' ');
 
         // Succeed if the scope array contains the required scope
         if (scopes.Any(s => s == scope))

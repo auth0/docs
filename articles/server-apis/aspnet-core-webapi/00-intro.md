@@ -38,7 +38,16 @@ In the [APIs section]("${manage_url}/#/apis) of the Auth0 Dashboard, click the *
 
 ![Create API](/media/articles/server-apis/aspnet-core-webapi/create-api-rs256.png)
 
-Be sure to update the `appsettings.json` file in the seed project with the correct values for your API.
+Also update the `appsettings.json` file in your project with the correct **Domain** and **API Identifier** for your API, e.g.
+
+```json
+{
+  "Auth0": {
+    "Domain": "${account.namespace}",
+    "ApiIdentifier": "YOUR_API_IDENTIFIER"
+  }
+}
+```
 
 ## 3. Install Dependencies
 
