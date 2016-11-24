@@ -1,13 +1,10 @@
-# TokenInfo
+# Get User Info
 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/tokeninfo
-Content-Type: 'application/json'
-{
-  "id_token": ""
-}
+GET https://${account.namespace}/userinfo
+Authorization: 'Bearer {access_token}'
 ```
 
 ```shell
@@ -22,7 +19,7 @@ python
 csharp
 ```
 
-This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
+Given the Auth0 `access token` obtained during login, this endpoint returns a user's profile.
 
 <aside class="notice">
 For more information, see: <a href="/user-profile/user-profile-details#api">User Profile: In-Depth Details - API</a>.
@@ -45,4 +42,4 @@ For more information, see: <a href="/user-profile/user-profile-details#api">User
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
-| `id_token`       | object     |  |
+| `access_token`    | string     | the Auth0 `access_token` obtained during login |
