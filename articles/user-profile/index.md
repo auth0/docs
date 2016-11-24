@@ -47,7 +47,7 @@ The User Details page has links for five tabs:
 The Details tab contains three sections that provide a high-level overview of the information in the user's profile: 
 
 1. **User Identity** provides at-a-glance details about the user, including their email address, associated Connections, and access rights.
-2. **Metadata** displays the information available via the `app_metadata` and `user_metadata` attributes. Click the "Edit" button in this section to edit the user's `user_metadata` attributes. Note that all `app_data` attributes are read-only.
+2. **Metadata** displays the information available via the `app_metadata` and `user_metadata` attributes. Click the "Edit" button in this section to edit the user's `user_metadata` attributes. Note that all `app_metadata` attributes are read-only.
 3. **Identity Provider Attributes** displays the information retrieved from the authentication provider. Note that Identity Provider Attributes are read-only.
 
 #### User Details: Devices
