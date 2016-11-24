@@ -1,5 +1,5 @@
 ---
-title: Authorization
+title: Authorization (Deprecated)
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain API endpoints.
 budicon: 500
 ---
@@ -7,7 +7,12 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-webapi-sample',
-  path: '03-Authorization/WebApi'
+  path: '06-Authorization-Deprecated/WebApi',
+  requirements: [
+    'Microsoft Visual Studio 2015 Update 3',
+    'Microsoft.Owin.Security.ActiveDirectory V3.0.1',
+    'System.IdentityModel.Tokens.Jwt NuGet Package v4.0.2'
+  ]
 }) %>
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.

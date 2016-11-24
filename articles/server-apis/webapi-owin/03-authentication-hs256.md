@@ -1,5 +1,5 @@
 ---
-title: Authentication (HS256) - API Auth
+title: Authentication with HS256
 name: Shows how to secure your API using the standard JWT middeware
 budicon: 500
 ---
@@ -7,16 +7,19 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-webapi-sample',
-  path: '05-Authentication-HS256-ApiAuth/WebApi'
+  path: '03-Authentication-HS256/WebApi',
+  requirements: [
+    'Microsoft Visual Studio 2015 Update 3',
+    'Microsoft.Owin.Security.Jwt NuGet Package V3.0.1',
+    'System.IdentityModel.Tokens.Jwt NuGet Package v4.0.2'
+  ]
 }) %>
 
-<%= include('../../_includes/_api_auth_intro') %>
+::: panel-warning Signing Algorithm
+Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This document demonstrates how to use tokens signed with the HS256 Algorithm. 
 
-<%= include('../../api-auth/_region-support') %>
-
-Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using HS256.
-
-> If you want to use RS256 then please go to the [Authentication using RS256](/quickstart/backend/webapi-owin/04-authentication-rs256-apiauth) tutorial.
+It is however recommended that you [rather use RS256](/quickstart/backend/webapi-owin/01-authentication) tutorial.
+:::
 
 ## 1. Enable OAuth 2.0 API Authorization
 
@@ -34,7 +37,7 @@ After you have created the API, navigate to the **Settings** tab of the API, and
 
 When using HS256, you will need your API's **Signing Secret** when configuring the JWT middleware, so be sure update the `web.config` file included in the seed project to also add a **Auth0ApiSecret** key with the value of the Signing Secret. Be sure to set the correct values for the **Auth0Domain** and **Auth0ApiIdentifier** elements as well:
 
-```json
+```xml
 <appSettings>
     <add key="Auth0Domain" value="${account.namespace}" />
     <add key="Auth0ApiIdentifier" value="YOUR_API_IDENTIFIER" />
@@ -123,9 +126,7 @@ IRestResponse response = client.Execute(request);
 
 ## 7. Testing your API in Postman
 
-During development you may want to test your API with Postman.
-
-If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
+During development you may want to test your API with Postman. If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
 ![Unauthorized request in Postman](/media/articles/server-apis/webapi-owin/postman-not-authorized.png)
 

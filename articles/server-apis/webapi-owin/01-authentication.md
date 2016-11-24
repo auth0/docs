@@ -1,5 +1,5 @@
 ---
-title: Authentication (RS256) - API Auth
+title: Authentication
 name: Shows how to secure your API using the standard JWT middeware
 budicon: 500
 ---
@@ -7,30 +7,16 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-webapi-sample',
-  path: '04-Authentication-RS256-ApiAuth/WebApi'
+  path: '01-Authentication/WebApi',
+  requirements: [
+    'Microsoft Visual Studio 2015 Update 3',
+    'Microsoft.Owin.Security.Jwt NuGet Package V3.0.1',
+    'System.IdentityModel.Tokens.Jwt NuGet Package v4.0.2',
+    'Auth0.OpenIdConnectSigningKeyResolver NuGet Package v1.0.0'
+  ]
 }) %>
 
-<%= include('../../_includes/_api_auth_intro') %>
-
-<%= include('../../api-auth/_region-support') %>
-
-Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using RS256.
-
-> If you want to use HS256 then please go to the [Authentication using HS256](/quickstart/backend/webapi-owin/05-authentication-hs256-apiauth) tutorial.
-
-## 1. Enable OAuth 2.0 API Authorization
-
-<%= include('../../_includes/_configure_oauth2aas') %>
-
-## 2. Create a Resource Server (API)
-
-In the [APIs section]("${manage_url}/#/apis) of the Auth0 Dashboard, click the **Create API** button. Provide a **Name** and **Identifier** for your API. Be sure to choose the RS256 signing algorithm.
-
-![Create API](/media/articles/server-apis/webapi-owin/create-api-rs256.png)
-
-Take note of the API Identifier you defined when creating the API, as it will be used later when registering the JWT middleware
-
-## 3. Configure the JWT Middleware
+## 1. Configure the JWT Middleware
 
 To assist in verifying the signature of RS256 tokens you will need to install the `Auth0.OpenIdConnectSigningKeyResolver` NuGet package:
 
@@ -72,7 +58,7 @@ public void Configuration(IAppBuilder app)
 Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.
 :::
 
-## 4. Securing an API endpoint
+## 2. Securing an API endpoint
 
 The JWT middleware integrates with the standard ASP.NET Authentication and Authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
 
@@ -94,7 +80,7 @@ public class PingController : ApiController
 }
 ```
 
-## 5. Using your API
+## 3. Using your API
 
 In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application your are building. These are referred to as authorization grant flows. Please see the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your application.
 
@@ -117,11 +103,9 @@ request.AddHeader("authorization", "Bearer <your access_token>");
 IRestResponse response = client.Execute(request);
 ```
 
-## 6. Testing your API in Postman
+## 4. Testing your API in Postman
 
-During development you may want to test your API with Postman.
-
-If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
+During development you may want to test your API with Postman. If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
 ![Unauthorized request in Postman](/media/articles/server-apis/webapi-owin/postman-not-authorized.png)
 
