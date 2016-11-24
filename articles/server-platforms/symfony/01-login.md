@@ -110,6 +110,8 @@ Notice that we need to identify the user provided selected in the step before bo
 
 ## Triggering Login Manually or Integrating Lock
 
+Set the following in `app/resources/views/base.html.twig`
+
 <%= include('../../_includes/_lock-sdk') %>
 
 ### Troubleshooting
