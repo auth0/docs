@@ -18,6 +18,8 @@ To integrate Auth0 in a Chrome extension, you can use the `auth0-chrome` package
 
 ## Configure Your Auth0 Application
 
+Chrome extensions are packaged as `.crx` files for distribution but may be loaded "unpacked" for development. For more information on how to load an unpacked extension, see the [Chrome extension docs](https://developer.chrome.com/extensions/getstarted#unpacked).
+
 When loading your application as an unpacked extension, a unique ID will be generated for it. In your [application settings](${manage_url}/#/applications/${account.clientId}/settings), you must whitelist your callback URL (the URL that Auth0 will return to once authentication is complete) and the allowed origin URL.
 
 In the **Allowed Callback URLs** section, whitelist your callback URL.
