@@ -1,3 +1,3 @@
-```ruby
-gem 'knock', '~> 2.0'
+```js
+gem 'jwt'
 ```

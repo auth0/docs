@@ -12,7 +12,7 @@ tags:
   - quickstart
 snippets:
   dependencies: server-apis/rails/dependencies
-  setup: server-apis/rails/setup
-  use: server-apis/rails/use
 articles:
-  - authenticate
+  - 00-intro
+  - 01-authentication-rs256
+  - 02-Authentication-hs256
