@@ -3,9 +3,9 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/logout?
+GET https://${account.namespace}/v2/logout?
   returnTo=
-  &client_id=	{client-id}
+  &client_id=	${account.client_id}
 ```
 
 ```shell
@@ -16,28 +16,16 @@ shell
 javascript
 ```
 
-```csharp
-csharp
-```
+Logout the user from the identity provider. If you specify a `returnTo` parameter, we will redirect to the URL specified after the logout. This URL should be included in any of the `Allowed Logout URLs` list. There is a list at the application level (you need to use the `client_id` parameter to select the desired application's `Allowed Logout URLs` list) and a list at the Account level. For more information, see: [Logout](/logout).
 
-This endpoint will logout a user from the identity provider that they logged in with.
 
-<aside class="notice">
-For more information, see: <a href="/logout"> Logout</a>.
-</aside>
-
-### Query Parameters
+The query parameters are:
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
-| `returnTo `      | string     | an `Allowed Logout URL` (optional)|
-| `client_id`      | string     | the `client_id` of your app (optional) |
+| `returnTo `      | string     | An `Allowed Logout URL` (optional)|
+| `client_id`      | string     | The `client_id` of your app (optional) |
 
-### Remarks
-
-* If the `returnTo` parameter is specified, the user will be redirected to that URL after logout.
-
-* If the `client_id` parameter is included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the app level (see [Setting Allowed Logout URLs at the App Level](/logout#setting-allowed-logout-urls-at-the-app-level)).
-
-* If the `client_id` parameter is NOT included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the account level (see
-[Setting Allowed Logout URLs at the Account Level](/logout#setting-allowed-logout-urls-at-the-account-level)).
+Note the following:
+- If the `client_id` parameter is included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the client level (see [Setting Allowed Logout URLs at the App Level](/logout#setting-allowed-logout-urls-at-the-app-level)).
+- If the `client_id` parameter is NOT included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the account level (see [Setting Allowed Logout URLs at the Account Level](/logout#setting-allowed-logout-urls-at-the-account-level)).

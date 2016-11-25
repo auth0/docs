@@ -9,7 +9,7 @@ GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
   "response_type": {code or token},
-  "client_id": "{client_id}",
+  "client_id": "${account.client_id}",
   "connection": "",
   "redirect_uri": "http://localhost/callback",
   "state": "",
@@ -51,7 +51,7 @@ Additional parameters can be sent that will be passthrough to the provider. For 
 POST https://${account.namespace}/oauth/access_token
 Content-Type: 'application/json'
 {
-  "client_id":    "{client_id}",
+  "client_id":    "${account.client_id}",
   "access_token": "",
   "connection":   "",
   "scope":        "",
@@ -108,7 +108,7 @@ GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
   "response_type": {code or token},
-  "client_id": "{client_id}",
+  "client_id": "${account.client_id}",
   "connection": "",
   "redirect_uri": "http://localhost/callback",
   "state": "",
@@ -146,7 +146,7 @@ If `response_type=token`, after the user authenticates, it will redirect to your
 POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
-  "client_id": "{client_id}",
+  "client_id": "${account.client_id}",
   "username": "",
   "password": "",
   "id_token": "",
@@ -180,11 +180,13 @@ The query parameters are:
 | `scope`          | string     |  |
 | `device`         | string     |  |
 
-This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
+This endpoint only works for database connections, ss connections, Active Directory/LDAP, Windows Azure AD and ADFS.
+
+For the error code reference for this endpoint refer to [Error Codes for /oauth/ro](#error-codes-for-oauth-ro).
 
 ## Passwordless
 
-Passwordless connections do not require the user to remember a password. Instead, another mechanism is used to prove identity, such as a one-time password sent every time the user logs in through email or SMS.
+Passwordless connections do not require the user to remember a password. Instead, another mechanism is used to prove identity, such as a one-time code sent through email or SMS, every time the user logs in.
 
 ### Get Verification Code
 
@@ -195,9 +197,10 @@ POST https://${account.namespace}/passwordless/start
 Content-Type: 'application/json'
 {
   "client_id":   "{client-id}",
-  "connection":  "email",
-  "email":       "",
-  "send":        "",
+  "connection":  "email or sms",
+  "email": "", //set for connection=email
+  "phone_number": "". //set for connection=sms
+  "send": "link or code", //if left null defaults to link
   "authParams":
 }
 ```
@@ -210,88 +213,30 @@ shell
 javascript
 ```
 
-You have three options for passwordless authentication. Each option comes with some differences in the query parameters.
-- To send a verification code by email, set `send=code` and `email` to the user's email address.
-- To send a URL by email, set `send=link` and `email` to the user's email address.
-- To send a verification code by SMS, set `phone_number` to the user's phone number.
+You have three options for [passwordless authentication](/connections/passwordless):
+- Send a verification code using email.
+- Send a link using email.
+- Send a verification code using SMS.
 
-Passwordless authentication by email is done by calling the `passwordless/start` endpoint as shown here. Upon calling this endpoint, Auth0 will send an email to the provided address with a code or a link to click to complete the authorization process. More information can be found on in our [documentation](/docs/connections/passwordless/email).
-
-#### Query Parameters
+Depending on the method you choose some query parameters vary:
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your app |
-| `connection`     | string     | the name of an identity provider configured to your app |
-| `email`          | string     | the user's email address |
-| `send`           | string     | `link` (default) to send a URL or `code` to send a verification code |
+| `client_id`      | string     | The `client_id` of your app. |
+| `connection`     | string     | `email` or `sms` |
+| `email`          | string     | The user's email address. Applicable when `connection=email`. |
+| `phone_number`   | string     | The user's phone number. Applicable when `connection=sms`. |
+| `send`           | string     | `link` (default) to send a link or `code` to send a verification code |
 | `authParams`     | object     | |
 
-#### Remarks
+Note the following:
+- When you are sending a link using email, you can append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`, etc.) using the `authParams` object.
+- If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the `/oauth/ro` endpoint, using `email` or `phone_number` as the `username`, and the verification code as the `password`.
 
-Given a user's email address, this endpoint will send an email containing either:
-
-* A link (default, "send":"link"). You can then authenticate this user and they will be automatically logged in to your application. Optionally, you can append or override the link parameters (like scope, redirect_uri, protocol, response_type, etc.) using the `authParams` object.
-
-* A verification code ("send":"code"). You can then authenticate this user using the [`/oauth/ro`](#ro) endpoint by specifying `email` as the `username` and `code` as the `password`.
-
-### Get Verification Code 2
-
-<h5 class="code-snippet-title">Examples</h5>
-
-```http
-POST https://${account.namespace}/passwordless/start
-Content-Type: 'application/json'
-{
-  "client_id":   "{client-id}",
-  "connection":  "sms",
-  "phone_number":       "",
-}
-```
-
-```shell
-shell
-```
-
-```javascript
-javascript
-```
-
-```csharp
-csharp
-```
-
-Given the user's `phone_number`, this endpoint will send an SMS message containing a verification code. You can then authenticate this user using the [`/oauth/ro`](#ro) endpoint by specifying `phone_number` as the `username` and `code` as the `password`.
-
-#### Query Parameters
-
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your app |
-| `connection`     | string     | the name of an identity provider configured to your app |
-| `phone_number`          | string     | the user's phone number |
-
-#### Error Codes
-
-HTTP 400
-
-| Error            | Code       |
-|:-----------------|:-----------|
-| Invalid tenant | {"error":"bad.tenant","error\_description":"error in tenant - tenant validation failed: invalid\_tenant"} |
-| Missing client_id | {"error":"bad.client\_id","error\_description":"Missing required property: client_id"} |
-| Missing connection | {"error":"bad.connection","error_description":"Missing required property: connection"} |
-| Connection does not exist | {"error":"bad.connection","error_description":"Connection does not exist"} |
-| Disabled&nbsp;connection | {"error":"bad.connection","error_description":"Connection is disabled"} |
-| Invalid connection | {"error":"bad.connection","error_description":"Invalid connection strategy. It must either be a passwordless connection"} |
-| Invalid authParams | {"error":"bad.authParams","error_description":"error in authParams - invalid type: string (expected object)"} |
-| Invalid paramaters | {"error":"bad.request","error\_description":"the following properties are not allowed: <INVALID_PARAMETER_VALUE>"} |
-| Missing phone_number | {"error":"bad.phone\_number","error\_description":"Missing required property: phone_number"} |
-| Invalid phone_number format | {"error":"bad.phone\_number","error_description":"String does not match pattern: ^\\+[0-9]{1,15}$"} |
-| SMS Provider errors | {"error":"sms\_provider\_error","error\_description":"<SPECIFIC_PROVIDER_MESSAGE> (Code: <SPECIFIC_PROVIDER_CODE>)"} |
+For the error code reference for this endpoint refer to [Error Codes for /passwordless/start](#error-codes-for-passwordless-start).
 
 
-
-### Authorize User
+### Authenticate User
 
 <h5 class="code-snippet-title">Examples</h5>
 
@@ -299,11 +244,11 @@ HTTP 400
 POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
-  "client_id":   "{client_id}",
-  "connection":  "sms",
+  "client_id":   "${account.client_id}",
+  "connection":  "email or sms",
   "grant_type":  "password",
-  "username":    "",
-  "password":    "",
+  "username":    "", //email or phone number
+  "password":    "", //the verification code
   "scope":       ""
 }
 ```
@@ -316,13 +261,9 @@ shell
 javascript
 ```
 
-```csharp
-csharp
-```
+Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
 
-Login a user with their phone number and verification code (active authentication).
-
-> This command returns a JSON object in this format:
+> {TO-BE-REMOVED} This command returns a JSON object in this format:
 
 ```json
 [
@@ -335,16 +276,59 @@ Login a user with their phone number and verification code (active authenticatio
 ]
 ```
 
-#### Query Parameters
+Depending on the method you choose to get the verification code, some query parameters vary:
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your app |
-| `connection`     | string     | `sms` |
+| `client_id`      | string     | The `client_id` of your client. |
+| `connection`     | string     | `sms` or `email` |
 | `grant_type`     | string     | `password` |
-| `username`      | string     | the user's phone number |
-| `password`      | string     | the user's verification code  |
+| `username`      | string     | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
+| `password`      | string     | The user's verification code.  |
 | `scope`          | string     | `openid or openid name email` |
+
+## Enterprise (SAML and Others)
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://${account.namespace}/authorize
+Content-Type: 'application/json'
+{
+  "response_type": {code or token},
+  "client_id": "${account.client_id}",
+  "connection": "",
+  "redirect_uri": "http://localhost/callback",
+  "state": "",
+  "additional-parameter": ""
+}
+```
+
+```shell
+
+```
+
+```javascript
+
+```
+
+Use the endpoint `GET https://${account.namespace}/authorize` for passive authentication. The user will be redirected (`302` redirect) to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
+
+The query parameters are:
+
+| Parameter        | Type       | Description |
+|:-----------------|:-----------|:------------|
+| `response_type`  | string     | `code` for server side flows, `token` for client side flows |
+| `client_id`      | string     | The `client_id` of your client |
+| `connection`     | string     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `redirect_uri`   | string     | `http://localhost/callback` |
+| `state`          | string     | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
+
+Note the following:
+- If no `connection` is specified, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget.
+- If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
+- Additional parameters can be sent that will be passthrough to the provider.
+- The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url).
 
 ## SAML
 
@@ -353,7 +337,7 @@ Login a user with their phone number and verification code (active authenticatio
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/{client_id}?connection=
+GET https://${account.namespace}/${account.client_id}?connection=
 ```
 
 ```shell
@@ -388,34 +372,6 @@ All the parameters of the SAML response can be modified with <a href='/rules'>ru
 * This endpoint optionally accepts a `connection` parameter to login with the specified provider. If no connection is specified, the [Auth0 Login Page](/login_page) is shown.
 
 * The SAML request `AssertionConsumerServiceURL` will be used to `POST` back the assertion. It must match the application's `callback_URL`.
-
-### Get Metadata
-
-<h5 class="code-snippet-title">Examples</h5>
-
-```http
-GET https://${account.namespace}/samlp/metadata/{client_id}
-```
-
-```shell
-shell
-```
-
-```javascript
-javascript
-```
-
-```csharp
-csharp
-```
-
-This endpoint returns the SAML 2.0 metadata.
-
-#### Query Parameters
-
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your app |
 
 
 ### Callback
@@ -498,25 +454,3 @@ All the parameters of the SAML assertion can be modified through <a href='/rules
   * `urn:clientID` (e.g. urn:{client-id})
   * If this parameter does not begin with a urn, the `client.clientAliases` array is used for look-up. (This can only be set with the [/api/v2/clients](/api/management/v2#!/Clients/get_clients) Management API)
 * The `whr` parameter is mapped to the connection like this: `urn:{connection_name}`. For example, `urn:google-oauth2` indicates login with Google. If there is no `whr` parameter included, the user will be directed to the [Auth0 Login Page](/login_page).
-
-### Get Metadata
-
-<h5 class="code-snippet-title">Examples</h5>
-
-```http
-GET https://${account.namespace}/wsfed/{client-id}/FederationMetadata/2007-06/FederationMetadata.xml
-```
-
-```shell
-shell
-```
-
-```javascript
-javascript
-```
-
-```csharp
-csharp
-```
-
-This endpoint returns the WS-Federation metadata.
