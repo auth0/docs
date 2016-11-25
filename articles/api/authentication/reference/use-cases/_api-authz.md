@@ -1,6 +1,4 @@
-# OAuth 2.0
-
-Call these endpoints to generate access tokens.
+# API Authorization
 
 ## Authorize
 
@@ -69,7 +67,7 @@ You must configure a <code>callback URL</code> in the management portal for your
 
 [Link Accounts](#link-accounts)
 
-### Offline Access (Refresh Tokens)
+## Offline Access (Refresh Tokens)
 
 This endpoint will trigger the login flow to request a refresh token. This will return a 302 redirect to the `connection` specifying an extra scope (`offline_access`) and a `device` id that can be used to identify the refresh token in the dashboard. This extra scope will return the usual response plus a refresh token that can be used to obtain a new JSON Web Token. The refresh token can be [revoked](/api/management/v1#!#delete--api-users--user_id--refresh_tokens--refresh_token-)).
 
@@ -78,27 +76,67 @@ This endpoint will trigger the login flow to request a refresh token. This will 
 For more information, see: <a href="/refresh-token">Refresh Tokens</a>.
 </aside>
 
-#### Additional Parameters
+### Additional Parameters
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
 | `device`         | string     | an id for identifying the refresh token |
 | `scope`          | string     | `openid offline_access` |
 
-
-## Access Token
+## Token
 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/access_token
+`POST https://${account.namespace}/oauth/token`
+```
+
+```shell
+curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials"
+```
+
+```javascript
+python
+```
+
+```csharp
+csharp
+```
+
+An `access_token` is required to call the Auth0 API. You can generate one by authenticating with your global `client_id` and `client_secret`. The token will be valid for 24 hours.
+
+<aside class="notice">
+For more information, see: <a href="/tokens/access_token">Auth0 access_token</a>.
+</aside>
+
+> This command returns a JSON with a body in this format:
+
+```JSON
+{
+  "access_token": "TOKEN",
+  "token_type": "bearer"
+}
+```
+
+### Query Parameters
+
+| Parameter        | Type       | Description |
+|:-----------------|:-----------|:------------|
+| `client_id`      | string     | your global `client_id` |
+| `client_secret`  | string     | your global `client_secret` |
+| `grant_type`     | string     | `client_credentials` |
+| `type`     | string     | `web_server` (optional) |
+| `audience`       | string     | the URL of your API endpoint (optional) |
+
+## Token Info (to-be-deprecated)
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+POST https://${account.namespace}/tokeninfo
 Content-Type: 'application/json'
 {
-  "client_id":    "{client_id}",
-  "access_token": "",
-  "connection":   "",
-  "scope":        "",
-  ""
+  "id_token": ""
 }
 ```
 
@@ -110,14 +148,10 @@ ruby
 python
 ```
 
-```csharp
-csharp
-```
-
-Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
+This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
 
 <aside class="notice">
-For more information, see: <a href="/tokens/id_token">Auth0 id_token</a>.
+For more information, see: <a href="/user-profile/user-profile-details#api">User Profile: In-Depth Details - API</a>.
 </aside>
 
 > This command returns a JSON object in this format:
@@ -137,12 +171,9 @@ For more information, see: <a href="/tokens/id_token">Auth0 id_token</a>.
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your app |
-| `access_token`   | string     | the social provider's `access_token` |
-| `connection`     | string     | the name of an identity provider configured to your app |
-| `scope`          | string     | `openid` or `openid name email` |
+| `id_token`       | object     |  |
 
-## Resource Owner
+## Resource Owner (to-be-deprecated)
 
 <h5 class="code-snippet-title">Examples</h5>
 
@@ -208,48 +239,3 @@ This endpoint only works for database connections, passwordless connections, Act
 | `scope`         | string     | `openid or openid name email or openid offline_access` |
 | `id_token`       | string     |  |
 | `device`         | string     |  |
-
-## Token
-
-<h5 class="code-snippet-title">Examples</h5>
-
-```http
-`POST https://${account.namespace}/oauth/token`
-```
-
-```shell
-curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials"
-```
-
-```javascript
-python
-```
-
-```csharp
-csharp
-```
-
-An `access_token` is required to call the Auth0 API. You can generate one by authenticating with your global `client_id` and `client_secret`. The token will be valid for 24 hours.
-
-<aside class="notice">
-For more information, see: <a href="/tokens/access_token">Auth0 access_token</a>.
-</aside>
-
-> This command returns a JSON with a body in this format:
-
-```JSON
-{
-  "access_token": "TOKEN",
-  "token_type": "bearer"
-}
-```
-
-### Query Parameters
-
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | your global `client_id` |
-| `client_secret`  | string     | your global `client_secret` |
-| `grant_type`     | string     | `client_credentials` |
-| `type`     | string     | `web_server` (optional) |
-| `audience`       | string     | the URL of your API endpoint (optional) |
