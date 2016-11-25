@@ -719,7 +719,7 @@ Allows to set the initial value for the email and/or username inputs. When omitt
 ```js
 //
 var options = {
-  prefill: '{prefill: {email: "someone@auth0.com", username: "someone"}}'
+  prefill: {email: "someone@auth0.com", username: "someone"}
 };
 ```
 
