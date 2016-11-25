@@ -36,6 +36,18 @@ title: Authorization API Explorer
 </div>
 
 <div class="api-section" data-section="use-cases">
+  <%= include('./use-cases/_api-authz') %>
+</div>
+
+<div class="api-section" data-section="use-cases">
+  <%= include('./use-cases/_saml-sso') %>
+</div>
+
+<div class="api-section" data-section="use-cases">
+  <%= include('./use-cases/_wsfed-req') %>
+</div>
+
+<div class="api-section" data-section="use-cases">
   <%= include('./use-cases/_impersonation') %>
 </div>
 
@@ -45,8 +57,4 @@ title: Authorization API Explorer
 
 <div class="api-section" data-section="use-cases">
   <%= include('./use-cases/_delegation') %>
-</div>
-
-<div class="api-section" data-section="use-cases">
-  <%= include('./use-cases/_api-authz') %>
 </div>
