@@ -205,7 +205,7 @@ Two functions are provided to handle the scenarios described above. The `renderP
 
 The `main` function takes the `authResult` object saved in local storage and renders the profile view if the user's `id_token` is unexpired, or the default view if it is expired.
 
-![popup](/media/articles/native-platforms/chrome-extension/01-popup.png)
+![popup](/media/articles/native-platforms/chrome/01-popup.png)
 
 ## Initiate the Authentication Flow
 
@@ -255,7 +255,7 @@ When the `authenticate` message is received, an `Auth0Chrome` instance is create
 
 The `Auth0Chrome` constructor takes the **domain** and **client ID** for your application, and the `authenticate` method takes an `options` object which allows you to customize the authentication flow. The `authenticate` method returns a promise and the result from the authentication process can be retrieved when it resolves. In this example, the result is saved in local storage immediately for future use and a Chrome notification is created to let the user know they have successfully logged in.
 
-![hosted-lock](/media/articles/native-platforms/chrome-extension/02-hosted-lock.png)
+![hosted-lock](/media/articles/native-platforms/chrome/02-hosted-lock.png)
 
 ## Further Reading
 
