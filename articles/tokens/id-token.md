@@ -30,8 +30,6 @@ The attributes included in the issued `id_token` are controlled by the use of a 
 - If `scope` is set to `openid`, then the `id_token` will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
 - If `scope` is set to `openid name email`, then the `id_token` will contain additionally the `name` and `email` claims.
 
-__NOTE:__ The `id_token` claims are attributes within the user profile. You can add any attribute as part of the `app_metadata` or `user_metadata` and get its value once you decode the `id_token` in your app.
-
 If you are using Lock, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v10/customization#auth-object-) as follows:
 
 ```js
