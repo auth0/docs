@@ -1,0 +1,18 @@
+title: Chrome Extension
+language:
+  - JavaScript
+framework:
+  - Chrome Extension
+tags:
+  - quickstart
+snippets:
+  dependencies: native-platforms/chrome-extension/dependencies
+  setup: native-platforms/chrome-extension/setup
+  use: native-platforms/chrome-extension/use
+alias:
+  - chrome
+  - chrome-extension
+seo_alias: chrome-extension
+default_article: 01-login
+articles:
+  - 01-login
