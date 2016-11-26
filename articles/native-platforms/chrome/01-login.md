@@ -76,8 +76,8 @@ The **client ID** and **domain** for your application are used to connect to Aut
 // env.js
 
 window.env = {
-  AUTH0_DOMAIN: '<%= account.clientId %>',
-  AUTH0_CLIENT_ID: '<%= account.namespace %>',
+  AUTH0_DOMAIN: '<%= account.namespace %>',
+  AUTH0_CLIENT_ID: '<%= account.clientId %>',
 };
 ```
 
