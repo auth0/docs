@@ -330,7 +330,7 @@ The `withConnection` option allows you to specify a connection that you wish to 
 ```java
 WebAuthProvider.init(account)
                 .withConnection("twitter")
-                .start(MainActivity.this, authCallback, WEB_REQ_CODE);
+                .start(MainActivity.this, authCallback);
 ```
 
 ### Authenticate using a code grant with PKCE
@@ -343,7 +343,7 @@ Before you can use `Code Grant` in Android, make sure to go to your [client's se
 ```java
 WebAuthProvider.init(account)
                 .useCodeGrant(true)
-                .start(MainActivity.this, authCallback, WEB_REQ_CODE);
+                .start(MainActivity.this, authCallback);
 ```
 
 ### Authenticate using a specific scope
@@ -353,7 +353,7 @@ Using scopes can allow you to return specific claims for specfic fields in your 
 ```java
 WebAuthProvider.init(account)
                 .withScope("user openid")
-                .start(MainActivity.this, authCallback, WEB_REQ_CODE);
+                .start(MainActivity.this, authCallback);
 ```
 
 ::: panel-info Scope
@@ -367,7 +367,7 @@ There may be times when you need to authenticate with particular connection scop
 ```java
 WebAuthProvider.init(account)
                 .withConnectionScope("email", "profile", "calendar:read")
-                .start(MainActivity.this, authCallback, WEB_REQ_CODE);
+                .start(MainActivity.this, authCallback);
 ```
 
 ### Authenticate with Auth0 hosted login page
@@ -376,5 +376,5 @@ If no connection name is specified, using the Auth0 [Hosted Login Page](hosted-p
 
 ```java
 WebAuthProvider.init(account)
-                .start(MainActivity.this, authCallback, WEB_REQ_CODE);
+                .start(MainActivity.this, authCallback);
 ```
