@@ -7,11 +7,13 @@ description: How to obtain, use and renew an id_token.
 
 ## Overview
 
-The ID token, usually referred to as `id_token` in code samples, is a [JSON Web Token (JWT)](/jwt) that contains user profile attributes represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature (which was generated with the Auth0 client's _Client Secret_). The `id_token` is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
+The ID token, usually referred to as `id_token` in code samples, is a [JSON Web Token (JWT)](/jwt) that contains user profile attributes represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature, which is generated with the Auth0 app's Client Secret in the case of `HS256`. In case the client uses `RS256` encryption then the `id_token` will be signed with a private key and verified with a public key.
+
+The `id_token` is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
 
 The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contains three parts: a header, a body and a signature.
 - The header contains the type of token and the hash algorithm used on the contents of the token.  
-- The body, also called the payload, contains identity claims about a user.  There are some claims with registered names, for things like the issuer of the token, the subject of the token (who the claims are about), and the time of issuance.  Any number of additional claims with other names can be added, though care must be taken to keep the JWT within the browser size limitations for URLs.  
+- The body, also called the payload, contains identity claims about a user.  There are some claims with registered names, for things like the issuer of the token, the subject of the token (who the claims are about), and the time of issuance.  Any number of additional claims with other names can be added. For the cases where the `id_token` is returned in URLs, care must be taken to keep the JWT within the browser size limitations for URLs.
 - The signature which is used by the recipient of a JWT to validate the integrity of the information conveyed in the JWT.
 
 ## How to get an ID token
@@ -28,7 +30,8 @@ If you are not using *OAuth2 as a Service*, then you should use `code` for serve
 
 The attributes included in the issued `id_token` are controlled by the use of a [parameter called `scope`](/scopes).
 - If `scope` is set to `openid`, then the `id_token` will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
-- If `scope` is set to `openid name email`, then the `id_token` will contain additionally the `name` and `email` claims.
+- If `scope` is set to `openid email`, then the `id_token` will contain additionally the `email` and `email_verified` claims.
+- If `scope` is set to `openid profile`, then the `id_token` will contain all default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
 
 If you are using Lock, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v10/customization#auth-object-) as follows:
 
@@ -36,7 +39,7 @@ If you are using Lock, the `options` object used in Lock’s instantiation can s
 var options = {
   auth: {
     responseType: 'id_token',
-    params: {scope: 'openid name email'}
+    params: {scope: 'openid email'}
   }
 };
 
@@ -49,7 +52,7 @@ var lock = new Auth0Lock(
 lock.show();
 ```
 
-Again, the `responseType` must be set to `id_token` in order to get one back. The `id_token` will contain only the claims specified as the value of the `scope` parameter (in this example, `openid name email`).
+The `id_token` will contain only the claims specified as the value of the `scope` parameter.
 
 **NOTE:** You can also add claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-custom/claim'] = 'some-value'`.
 
@@ -60,6 +63,16 @@ The `id_token` is valid for 10 hours (36000 seconds) by default.  The value can 
 There are cases where you might want to renew your `id_token`. The most common case is that you want to refresh the claims contained in the `id_token` and see that they are still valid. For example, the `id_token` may contain the user's authorization claims and you want to check that their rights are valid before allowing sensitive operations.
 
 In order to renew the `id_token` you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
+
+If you are using auth0.js then you can fetch a new token using:
+
+```js
+auth0.silentAuthentication({}, function(err, result){
+  // Get here the new result.id_token
+})
+```
+
+For more information refer to [Silent Authentication](https://github.com/auth0/auth0.js#silent-authentication).
 
 When performing the initial authorization flow, you can ask for a `refresh_token`, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The `refresh_token` is stored in session, alongside with the `id_token`. Then when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the `refresh_token` on the backend to obtain a new `id_token`, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
 
