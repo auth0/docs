@@ -7,9 +7,9 @@ You can get started by either downloading the seed project or if you would like 
 
 
 <%= include('../../_includes/_package', {
-  org: 'auth0',
-  repo: 'auth0-python',
-  path: 'examples/flask-api',
+  org: 'auth0-samples',
+  repo: 'auth0-python-api-samples',
+  path: '00-Starter-Seed',
   requirements: [
     'Python 2.7',
     'Flask 0.10.1',
