@@ -8,7 +8,7 @@ A workshop designed to provide IT organizations with core concepts on availabili
 
 ## Duration
 
-8 hours. 
+8 hours.
 
 > Auth0 Professional Services are delivered in 40 hs. "blocks".
 
@@ -19,3 +19,5 @@ A workshop designed to provide IT organizations with core concepts on availabili
 ## Topics covered
 
 Operations and Administration Tasks, Roles & Responsibilities, complete Dashboard review, review Support procedures, and operational best practices.
+
+<%= include('../_includes/_contact-sales') %>

@@ -1,5 +1,5 @@
 ---
-description: Project to establish a foundational set up of Auth0 platform architecture. 
+description: Project to establish a foundational set up of Auth0 platform architecture.
 ---
 
 # Architectural Design Sessions
@@ -8,7 +8,7 @@ This is a fixed scope project designed to establish a foundational set up of Aut
 
 ## Estimated effort
 
-Between 40 - 120 hours. 
+Between 40 - 120 hours.
 
 > Auth0 Professional Services are delivered in 40 hs. "blocks".
 
@@ -23,3 +23,4 @@ Between 40 - 120 hours.
 * Solution Design memo
 * First Integration Working Prototype
 
+<%= include('../_includes/_contact-sales') %>

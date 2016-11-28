@@ -1,5 +1,5 @@
 ---
-description: A project to assist with design and deployment of a Private SaaS Auth0 environment. 
+description: A project to assist with design and deployment of a Private SaaS Auth0 environment.
 ---
 
 # Advisory Hours: Private SaaS reconfiguration
@@ -8,7 +8,7 @@ A project to assist with the design, and deployment of a Private SaaS Auth0 envi
 
 ## Estimated effort
 
-40 hours. 
+40 hours.
 
 > Auth0 Professional Services are delivered in 40 hs. "blocks".
 
@@ -23,3 +23,4 @@ A project to assist with the design, and deployment of a Private SaaS Auth0 envi
 * Deployment checklist.
 * Assist with deployment.
 
+<%= include('../_includes/_contact-sales') %>

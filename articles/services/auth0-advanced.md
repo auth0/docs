@@ -9,7 +9,7 @@ A training for advanced development on the Auth0 platform. Target audience is de
 
 ## Duration
 
-8 hours. 
+8 hours.
 
 
 ## Level
@@ -19,3 +19,5 @@ A training for advanced development on the Auth0 platform. Target audience is de
 ## Topics covered
 
 Deep dive on architecture, extensibility points, proven practices for high performance, scalability, and high availability.
+
+<%= include('../_includes/_contact-sales') %>

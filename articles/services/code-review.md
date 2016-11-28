@@ -8,7 +8,7 @@ An offering to analyze common design patterns and review customer's code flows a
 
 ## Estimated effort
 
-40 hours. 
+40 hours.
 
 > Auth0 Professional Services are delivered in 40 hs. "blocks".
 
@@ -19,3 +19,5 @@ An offering to analyze common design patterns and review customer's code flows a
 ## Deliverables
 
 * Technical document: code review findings, sample code and recommended configuration.
+
+<%= include('../_includes/_contact-sales') %>

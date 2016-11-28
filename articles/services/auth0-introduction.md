@@ -8,7 +8,7 @@ A training covering fundamentals of the Auth0 service. Audience is Developers, S
 
 ## Duration
 
-8 hours. 
+8 hours.
 
 
 ## Level
@@ -20,6 +20,8 @@ A training covering fundamentals of the Auth0 service. Audience is Developers, S
 * Auth0 Architecture
 * Deployment Models
 * Architecture Scenarios
-* Features 
+* Features
 * Platform extensibility points
 * Proven practices around identity providers, AD/LDAP Connector, API Authentication and Authorization, Anomaly Detection, SSO, Multifactor Authentication.
+
+<%= include('../_includes/_contact-sales') %>

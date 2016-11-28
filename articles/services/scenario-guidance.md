@@ -8,7 +8,7 @@ An offering to help customers address specific requirements related to a current
 
 ## Estimated effort
 
-20 hours. 
+20 hours.
 
 ## Typical work-streams
 
@@ -17,3 +17,5 @@ An offering to help customers address specific requirements related to a current
 ## Deliverables
 
 * Technical document: infrastructure decisions, requirements, setup details, processes, simulation details.
+
+<%= include('../_includes/_contact-sales') %>

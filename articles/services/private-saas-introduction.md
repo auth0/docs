@@ -1,5 +1,5 @@
 ---
-description: A hands-on training to learn fundamentals of the Auth0 Private SaaS offering. 
+description: A hands-on training to learn fundamentals of the Auth0 Private SaaS offering.
 ---
 
 # Training: Private SaaS Introduction
@@ -8,7 +8,7 @@ Training to learn fundamentals of the Auth0 Private SaaS offering, including pre
 
 ## Duration
 
-4 hours. 
+4 hours.
 
 ## Level
 
@@ -17,3 +17,5 @@ Training to learn fundamentals of the Auth0 Private SaaS offering, including pre
 ## Topics covered
 
 Overall functionality, comparison with Public SaaS version, features, overview of deployment options, configuration, telemetry, updates and configuration management. It includes and Hands-on-Lab.
+
+<%= include('../_includes/_contact-sales') %>

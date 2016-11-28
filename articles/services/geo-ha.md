@@ -8,7 +8,7 @@ An offering to assist customers with design and deployment for Geo-distributed H
 
 ## Estimated effort
 
-40 hours. 
+40 hours.
 
 > Auth0 Professional Services are delivered in 40 hs. "blocks".
 
@@ -21,3 +21,5 @@ An offering to assist customers with design and deployment for Geo-distributed H
 ## Deliverables
 
 * Technical document: infrastructure decisions, requirements, setup details, processes, simulation details.
+
+<%= include('../_includes/_contact-sales') %>
