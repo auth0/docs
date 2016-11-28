@@ -695,7 +695,6 @@ var option = {
 Set the URL for a page that allows the user to reset her password. When set to a non-empty string, the user will be sent to the provided URL when clicking the "Don't remember your password?" link in the login screen.
 
 ```js
-//
 var options = {
   forgotPasswordLink: 'https://yoursite.com/reset-password'
 };
@@ -706,7 +705,6 @@ var options = {
 When set to `true` displays a checkbox input alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified via the `languageDictionary` option. This option will only take effect for users signing up with database connections. Defaults to `false`.
 
 ```js
-//
 var options = {
   mustAcceptTerms: true
 };
@@ -717,9 +715,11 @@ var options = {
 Allows to set the initial value for the email and/or username inputs. When omitted, no initial value will be provided.
 
 ```js
-//
 var options = {
-  prefill: '{prefill: {email: "someone@auth0.com", username: "someone"}}'
+  prefill: {
+    email: "someone@auth0.com", 
+    username: "someone"
+  }
 };
 ```
 
@@ -732,7 +732,6 @@ When set to a non empty string, this option forces `allowSignUp` to `true`.
 :::
 
 ```js
-//
 var options = {
   signUpLink: 'https://yoursite.com/signup'
 };
