@@ -1,4 +1,5 @@
 ---
+section: services
 description: A hands-on training to learn fundamentals of the Auth0 Private SaaS offering.
 ---
 

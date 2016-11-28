@@ -1,4 +1,5 @@
 ---
+section: services
 description: Project to establish a foundational set up of Auth0 platform architecture.
 ---
 

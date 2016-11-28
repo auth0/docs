@@ -1,4 +1,5 @@
 ---
+section: services
 description: A workshop designed to provide IT organizations with core Auth0 Private SaaS management concepts.
 ---
 
