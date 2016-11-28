@@ -30,15 +30,17 @@ The steps are quite simple though:
         &state=VALUE_THAT_SURVIVES_REDIRECTS</code></pre>
 
 
-  Your code would then parse the hash segment of the URL and extract the parameters: `access_token` and `id_token`. The `access_token` can then be used to call Auth0's `userinfo` endpoint to get the attributes of the user.
+  Your code would then parse the hash segment of the URL and extract the parameters: `access_token` and `id_token`. The `access_token` can then be used to call Auth0's [/userinfo](/api/authentication#!#get--userinfo) endpoint to get the attributes of the user.
 
   > It is a good practice to check that the `state` value received and sent are the same. It can serve as a protection against XSRF attacks. Also, to avoid replay token attacks, you should send a nonce in the initial request. The nonce will be part of the Json Web Token and can be checked in your backend API.
 
-3. Finally, you can get the user profile by calling
+3. Finally, you can get the user profile by calling:
 
   <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/userinfo?access_token=2YotnF..........1zCsicMWpAA</code></pre>
 
-6. The `userinfo` endpoint will return something like this
+  Note, that you can use the `access_token` to call [/userinfo](/api/authentication#!#get--userinfo) only if the `openid` scope was requested and approved.
+
+6. The [/userinfo](/api/authentication#!#get--userinfo) endpoint will return something like this:
 
   <pre><code>{
     "user_id": "google-oauth2|103547991597142817347",
@@ -61,4 +63,4 @@ The steps are quite simple though:
     "picture": "https://lh4.googleusercontent.com/-OdsbOXom9qE/AAAAAAAAAAI/AAAAAAAAADU/_j8SzYTOJ4I/photo.jpg"
   }</code></pre>
 
-For more details on Auth0's normalized user profile, see [here](/user-profile).
+For more details on Auth0's normalized user profile, see [User Profile](/user-profile).
