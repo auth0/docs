@@ -1,6 +1,7 @@
 ---
 section: libraries
 classes: topic-page
+title: Auth0 Libraries
 description: Auth0 Libraries - helping you implement Auth0 with simple efficiency
 url: /libraries
 ---
