@@ -23,8 +23,6 @@ To restrict access to certain routes, create a function that handles conditional
 ```js
 // app.js
 
-...
-
 var route = function() {
 
   var id_token = localStorage.getItem('id_token');
@@ -68,7 +66,7 @@ var route = function() {
   }
 };
 
-...
+// ...
 
 var hide = function(element) {
   element.style.display = "none";
@@ -79,15 +77,12 @@ var show = function(element) {
 };
 
 route();
-...
 ```
 
 The route function checks to determine whether the user is authenticated and then checks to see if he/she is an `admin` or `user` by employing the `isAdmin` and `isUser` functions, respectively. This method checks if the `roles` attribute of `app_metadata` added by the rule contains either `admin` or `user`.
 
 ```js
 // app.js
-
-...
 
 var isAdmin = function(profile) {
   if (profile &&
@@ -110,8 +105,6 @@ var isUser = function(profile) {
      return false;
   }
 };
-
-...
 ```
 
 Now, if the user logs in with an email that contains `@example.com`, they will be allowed to access the `/admin` route. Otherwise, the user will only be allowed to access `/` and `/user`.

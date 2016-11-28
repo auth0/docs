@@ -92,3 +92,5 @@ Add the following snippet before the `</body>` on `index.html`
 ```
 
 No URL is specified when doing `var socket = io();`, because the default behaviour is to connect to the host that serves the page.
+
+<%= include('../_includes/_persisting_state') %>

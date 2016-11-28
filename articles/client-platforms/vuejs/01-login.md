@@ -68,3 +68,5 @@ The `canActivate` lifecycle hook is used to determine whether the route can be n
 An HTTP interceptor can be used to define custom actions for any unauthorized requests. In many cases, an `HTTP 401` will be returned when the user's JWT is expired or otherwise invalid. When this happens, you will likely want to invalidate the user's `authenticated` state on the front end and redirect them to the home or login route.
 
 ${snippet(meta.snippets.interceptors)}
+
+<%= include('../_includes/_persisting_state') %>

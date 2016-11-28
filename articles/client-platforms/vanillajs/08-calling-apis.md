@@ -19,12 +19,8 @@ To make an authenticated request, add the user's JWT as an `Authorization` heade
 ```js
 // app.js
 
-...
-
 var authenticate_request = function(xhr) {
   var id_token = localStorage.getItem('id_token');
   xhr.setRequestHeader('Authorization', 'Bearer ' + id_token);
 };
-
-...
 ```

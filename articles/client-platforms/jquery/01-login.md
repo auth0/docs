@@ -58,3 +58,5 @@ localStorage.removeItem('id_token');
 userProfile = null;
 window.location.href = "/";
 ```
+
+<%= include('../_includes/_persisting_state') %>
