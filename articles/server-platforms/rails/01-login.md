@@ -158,7 +158,7 @@ Rails.application.config.session_store :cache_store
 2. Go to `/config/enviroments/development.rb` and add the following
 
 ```ruby
-config.cachestore = :memorystore
+config.cachestore = :memory_store
 ```
 
 For production, we recommend using another memory store like MemCached or something similar
