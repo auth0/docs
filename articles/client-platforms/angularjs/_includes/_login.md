@@ -99,3 +99,5 @@ Remember to also add a **Log Out** button which calls this function. In our exam
   <button ng-click="vm.authService.logout()">Log Out</button>
 </div>
 ```
+
+<%= include('../../_includes/_persisting_state') %>

@@ -19,3 +19,5 @@ ${include('../\_callback')}
 <%= include('_includes/_configuration') %>
 
 <%= include('_includes/_login') %>
+
+<%= include('../_includes/_persisting_state') %>

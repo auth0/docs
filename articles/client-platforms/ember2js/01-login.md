@@ -160,6 +160,8 @@ fetch('/api/foo', {
 });
 ```
 
+<%= include('../_includes/_persisting_state') %>
+
 ### Additional Information
 
 For Additional information on how to use this SDK, see [Auth0 Ember simple auth](http://github.com/auth0/auth0-ember-simple-auth/blob/master/README.md).

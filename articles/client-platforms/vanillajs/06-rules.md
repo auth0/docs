@@ -23,8 +23,6 @@ budicon: 173
 ```html
 <!-- index.html -->
 
-...
-
 <div id="logged" class="row" style="display: none;">
   <h4>You are logged in</h4>
   <div class="row">
@@ -37,22 +35,14 @@ budicon: 173
   </div>
   <button type="button" class="btn btn-default" id="btn-logout">Logout</button>
 </div>
-
-...
 ```
 
 ```js
 // app.js
 
-...
-
 var showUserProfile = function(profile) {
-
-  ...
-
+  // ...
   document.getElementById('country').textContent = profile.country;
 
 };
-
-...
 ```

@@ -108,3 +108,5 @@ export class AppModule {}
 ```
 
 The Lock widget will be displayed when the **Login** button is clicked.
+
+<%= include('../../_includes/_persisting_state') %>

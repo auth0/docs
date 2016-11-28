@@ -10,18 +10,14 @@ You can get started by either downloading the seed project or if you would like 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-emberjs-spa',
-  path: '00-Starter-Seed'
+  path: '00-Starter-Seed',
+  requirements: [
+    'NodeJS 0.12.7',
+    'Ember 1.12.0',
+    'jQuery 1.11.1',
+    'Ember Simple Auth 1.1.0'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* NodeJS 0.12.7
-* Ember 1.12.0
-* Bower 1.5.3
-* Jquery 1.11.1
-* Ember Simple Auth 1.1.0
-:::
 
 ${include('../\_callback')}
 
@@ -160,6 +156,8 @@ fetch('/api/foo', {
   // use response
 });
 ```
+
+<%= include('../_includes/_persisting_state') %>
 
 ### Additional information
 

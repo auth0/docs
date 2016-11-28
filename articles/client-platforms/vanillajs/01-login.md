@@ -24,8 +24,6 @@ Use the `id_token` to retrieve the user profile and display the user's nickname:
 ```js
 // app.js
 
-...
-
 var retrieve_profile = function() {
   var id_token = localStorage.getItem('id_token');
   if (id_token) {
@@ -48,20 +46,15 @@ var show_profile_info = function(profile) {
   btn_logout.style.display = "block";
 };
 
-...
-
+// ...
 retrieve_profile();
 ```
 
 ```html
 <!-- index.html -->
 
-...
-
 <img alt="avatar" id="avatar" style="display:none;">
 <p>Welcome <span id="nickname"></span></p>
-
-...
 ```
 
 To discover all of the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
@@ -73,12 +66,10 @@ In this implementation, a logout involves simply deleting the saved token from `
 ```js
 // app.js
 
-...
-
 var logout = function() {
   localStorage.removeItem('id_token');
   window.location.href = "/";
 };
-
-...
 ```
+
+<%= include('../_includes/_persisting_state') %>

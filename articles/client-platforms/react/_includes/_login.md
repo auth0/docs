@@ -176,3 +176,5 @@ export class Container extends React.Component {
 
 export default Container;
 ```
+
+<%= include('../../_includes/_persisting_state') %>
