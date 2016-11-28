@@ -1,5 +1,5 @@
 ---
-title: Authentication (RS256)
+title: Authentication (Deprecated)
 name: Shows how to secure your API using the standard JWT middeware
 budicon: 500
 ---
@@ -7,7 +7,12 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-webapi-sample',
-  path: '01-Authentication-RS256/WebApi'
+  path: '04-Authentication-RS256-Deprecated/WebApi',
+  requirements: [
+    'Microsoft Visual Studio 2015 Update 3',
+    'Microsoft.Owin.Security.ActiveDirectory V3.0.1',
+    'System.IdentityModel.Tokens.Jwt NuGet Package v4.0.2'
+  ]
 }) %>
 
 Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using RS256.
