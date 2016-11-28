@@ -27,3 +27,7 @@
 - id: "appliance"
   title: "Appliance"
   url: "/appliance"
+
+- id: "services"
+  title: "Services"
+  url: "/services"

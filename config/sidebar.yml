@@ -375,32 +375,32 @@ libraries:
         url: "/libraries/lock"
 
       - title: "Configuration Options"
-        url: "/libraries/lock/v10/customization"  
+        url: "/libraries/lock/v10/customization"
 
       - title: "API Reference"
-        url: "/libraries/lock/v10/api"  
+        url: "/libraries/lock/v10/api"
 
       - title: "UI Customization"
-        url: "/libraries/lock/v10/ui-customization"  
+        url: "/libraries/lock/v10/ui-customization"
 
       - title: "v10 Migration Guide"
-        url: "/libraries/lock/v10/migration-guide"  
+        url: "/libraries/lock/v10/migration-guide"
 
       - title: "Internationalization"
-        url: "/libraries/lock/v10/i18n"  
+        url: "/libraries/lock/v10/i18n"
 
       - title: "Customizing Errors"
-        url: "/libraries/lock/v10/customizing-error-messages"  
+        url: "/libraries/lock/v10/customizing-error-messages"
 
       - title: "Lock with auth0.js"
-        url: "/libraries/lock/v10/auth0js"  
-        
+        url: "/libraries/lock/v10/auth0js"
+
       - title: "Popup Mode"
-        url: "/libraries/lock/v10/popup-mode"                      
+        url: "/libraries/lock/v10/popup-mode"
 
   - title: "Lock for iOS"
     url: "/libraries/lock-ios"
-    children: 
+    children:
 
       - title: "Overview"
         url: "/libraries/lock-ios"
@@ -446,7 +446,7 @@ libraries:
 
   - title: "Lock for Android"
     url: "/libraries/lock-android"
-    children: 
+    children:
 
       - title: "Overview"
         url: "/libraries/lock-android"
@@ -477,7 +477,7 @@ libraries:
 
   - title: "Auth0.Android"
     url: "/libraries/auth0-android"
-  
+
   - title: "Auth0.swift"
     url: "/libraries/auth0-swift"
 
@@ -534,3 +534,44 @@ appliance:
         url: https://auth0.com/changelog/appliance
         external: true
         forceFullReload: true
+
+services:
+
+  - title: "Overview"
+    url: "/services"
+
+  - title: "Architectural Design Sessions"
+    url: "/services/architectural-design"
+
+  - title: "Performance and Scalability"
+    url: "/services/performance-scalability"
+
+  - title: "Geo High Availability"
+    url: "/services/geo-ha"
+
+  - title: "Scenario guidance"
+    url: "/services/scenario-guidance"
+
+  - title: "Code Review"
+    url: "/services/code-review"
+
+  - title: "Pair Programming"
+    url: "/services/pair-programming"
+
+  - title: "Private SaaS reconfiguration"
+    url: "/services/private-saas-configuration"
+
+  - title: "Custom Extensions"
+    url: "/services/custom-extensions"
+
+  - title: "Auth0 Introduction"
+    url: "/services/auth0-introduction"
+
+  - title: "Auth0 Advanced Topics"
+    url: "/services/auth0-advanced"
+
+  - title: "Private SaaS Introduction"
+    url: "/services/private-saas-introduction"
+
+  - title: "Private SaaS Management Workshop"
+    url: "/services/private-saas-management"
