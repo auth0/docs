@@ -58,6 +58,7 @@ Some existing options suffered changes, in addition to the beforementioned remov
 
 ### Authentication Options
   - The `authParams` option was renamed to [params](/libraries/lock/v10/customization#params-object-) and namespaced under `auth`. Now you use it like this `auth: {params: {myparam: "myvalue"}}`.
+  - The `connection_scopes` parameter under `authParams` is now `connectionScopes` (under the `auth` option) `auth: {connectionScopes: {'facebook': ['scope1', 'scope2']}}`.
   - The `popup` option was replaced by [redirect](/libraries/lock/v10/customization#redirect-boolean-) which is namespaced under `auth`. If you previously used `popup: true` now you need to provide `auth: {redirect: false}`.
   - The `callbackURL` option was renamed to [redirectUrl](/libraries/lock/v10/customization#redirecturl-string-) and namespaced under `auth`. Now you use it like this `auth: {redirectUrl: "https://example.com/callback"}`.
   - The [responseType](/libraries/lock/v10/customization#responsetype-string-) option was namespaced under `auth`.  Now you use it like this `auth: {responseType: "code"}`.
