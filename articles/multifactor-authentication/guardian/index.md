@@ -1,7 +1,6 @@
 ---
 title: Auth0 Guardian
 description: Links to Guardian documentation for each type of Guardian user role.
-url: /multifactor-authentication/guardian
 ---
 
 # Auth0 Guardian
