@@ -1,0 +1,8 @@
+added:
+  -
+  title: "Added rails API quickstarts"
+  tags:
+    - rails
+    - quickstart
+  description: |
+    Added  [rails API quickstarts](https://auth0.com/docs/quickstart/backend/rails)

@@ -1,0 +1,8 @@
+added:
+  -
+  title: "Added session handling to rails quickstart"
+  tags:
+    - rails
+    - quickstart
+  description: |
+    Added section 03 "Session Handling" to [rails quickstart](https://auth0.com/docs/quickstart/webapp/rails)
