@@ -1,13 +1,15 @@
 ---
-title: Login
+title: Custom Login
 description: Learn how to login using the Authentication API SDK instead of OmniAuth.
 budicon: 448
 ---
 
+The [login](/quickstart/webapp/rails/01-login) step explains how to log user in using Lock and OmniAuth. You may also want to design your own custom user interface for authentication. In this step, you'll learn how to create a custom login form using the Auth0 Ruby SDK.
+
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-rubyonrails-sample',
-  path: '01-Login',
+  path: '02-Custom-Login',
   requirements: [
     'Ruby 2.3.1',
     'Rails 5.0.0'
@@ -87,7 +89,7 @@ def signup
 end
 ```
 
-## Add an SDK Client Instance
+## Add an SDK Client Instance in the Application Controller
 
 To call the API methods using the Auth0 Ruby SDK, you need to initialize an auth0 client instance. Add the following code in your Application Controller (`controllers/application_controller.rb`):
 
@@ -133,7 +135,7 @@ end
 
 This way, if a user attempts to access the routes governed by the `DashboardController` actions, it will be redirected to `/`.
 
-### 6. Login with Google
+## Login with Google
 
 For your users to login using a Social Connection without using neither Lock nor OmniAuth, follow these steps:
 
@@ -200,7 +202,7 @@ def callback
 end
 ```
 
-### Additional considerations
+## Additional Considerations
 
 For the sake of simplicity, this sample does not go into details such as creating a user model and combining a custom login and the Lock widget. [OmniAuth documentation](https://github.com/intridea/omniauth#integrating-omniauth-into-your-application) suggests using a `SessionsController`, such as the one displayed below. Combining authentication mechanisms could be achieved by having several User model creation methods.
 
