@@ -17,11 +17,13 @@ Content-Type: 'application/json'
 ```
 
 ```shell
-shell
+curl --request GET \
+  --url 'https://${account.namespace}/authorize' \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "access_token":""}'
 ```
 
 ```javascript
-javascript
 ```
 
 Call this endpoint when a user wants to link a second authentication method (e.g user/password + facebook).
@@ -54,11 +56,13 @@ Content-Type: 'application/json'
 ```
 
 ```shell
-shell
+curl --request POST \
+  --url 'https://${account.namespace}/login/unlink' \
+  --header 'content-type: application/json' \
+  --data '{"access_token":"", "user_id":""}'
 ```
 
 ```javascript
-javascript
 ```
 
 Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink a user's account from the identity provider.

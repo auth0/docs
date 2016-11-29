@@ -11,6 +11,10 @@ GET https://${account.namespace}/${account.client_id}?connection={connection}
 ```
 
 ```shell
+curl --request GET \
+  --url 'https://${account.namespace}/${account.client_id}' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data '"connection"=""'
 ```
 
 ```javascript
@@ -45,7 +49,10 @@ Content-Type: 'application/x-www-form-urlencoded'
 ```
 
 ```shell
-
+curl --request GET \
+  --url 'https://${account.namespace}/login/callback' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data '"SAMLResponse"="PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM..."'
 ```
 
 ```javascript

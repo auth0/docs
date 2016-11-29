@@ -17,7 +17,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url https://${account.namespace}/dbconnections/change_password \
   --header 'content-type: application/json' \
-  --data '{"client_id": "${account.clientId}","email": "","connection": ""}'
+  --data '{"client_id": "${account.clientId}","email": "", "password": "", "connection": ""}'
 ```
 
 ```javascript
