@@ -55,15 +55,17 @@ Please note that you have to be a Dashboard admin to do this request.
 
 Also, more than often the email which receives the receipt is the one that created the Auth0 account. Please make sure that you are in touch with the owner of that email. That person can also forward you the receipt of the payment. If you want to change this setting, please let us know through our [Support Center](https://support.auth0.com).
 
-## In our pricing, what’s the difference between internal and external users? Are they different technically?
+## In our pricing, what is the difference between internal and external users? Are they different technically?
 
-An active user is a user that has authenticated with username/password, passwordless connection or any social provider in the last 30 days, counted per application (client in the dashboard). 
+An active user is a user that has authenticated with username/password, a passwordless connection or any social provider in the last 30 days, counted per application (client in the Dashboard). 
 
 For example, if a person logs in to Client 1 through Facebook, then logs in to Client 2 through Google and then logs in to Client 2 using username/password, that would count as 3 active users, even if it's just one individual.
 
 You will find that for certain plans, you have the ability to select between being charged for external users or for internal users. There are no technical differences between these types of users, they simply refer to whether someone is external to your company, or an internal employee. 
 
-External users are most likely not going to be using Auth0 on a daily basis, and therefore this plan uses the active users criteria to calculate the price. On the other hand, internal users have to login everyday to their different tools and platforms in order to get the work done, so for this case you would pay a flat rate per user, rather than per active user/per app. 
+External users are most likely not going to be using Auth0 on a daily basis, and therefore this plan uses the active users criteria to calculate the price. 
+
+On the other hand, internal users have to login everyday to their different tools and platforms in order to get the work done, so for this case you would pay a flat rate per user, rather than per active user/per app. 
 
 
 
