@@ -1,0 +1,25 @@
+added:
+  -
+    title: "Auth0 Professional Services"
+    tags:
+      - Services
+      - Code Review
+      - Scenario guidance
+      - Geo High Availability
+      - Pair Programming
+      - Private SaaS
+      - Training
+    description: |
+       Added documentation on [Auth0 Professional Services](https://auth0.com/docs/services):
+         - Architectural Design Sessions
+         - Performance and Scalability
+         - Geo High Availability
+         - Advisory Hours: Scenario guidance
+         - Advisory Hours: Code Review
+         - Advisory Hours: Pair Programming
+         - Advisory Hours: Private SaaS reconfiguration
+         - Advisory Hours: Custom Extensions
+         - Training: Auth0 Introduction
+         - Training: Auth0 Advanced Topics
+         - Training: Private SaaS Introduction
+         - Training: Private SaaS Management Workshop

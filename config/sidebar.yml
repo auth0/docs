@@ -100,6 +100,9 @@ articles:
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension"
 
+  - title: "Professional Services"
+    url: "/services"
+
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
 
@@ -375,32 +378,32 @@ libraries:
         url: "/libraries/lock"
 
       - title: "Configuration Options"
-        url: "/libraries/lock/v10/customization"  
+        url: "/libraries/lock/v10/customization"
 
       - title: "API Reference"
-        url: "/libraries/lock/v10/api"  
+        url: "/libraries/lock/v10/api"
 
       - title: "UI Customization"
-        url: "/libraries/lock/v10/ui-customization"  
+        url: "/libraries/lock/v10/ui-customization"
 
       - title: "v10 Migration Guide"
-        url: "/libraries/lock/v10/migration-guide"  
+        url: "/libraries/lock/v10/migration-guide"
 
       - title: "Internationalization"
-        url: "/libraries/lock/v10/i18n"  
+        url: "/libraries/lock/v10/i18n"
 
       - title: "Customizing Errors"
-        url: "/libraries/lock/v10/customizing-error-messages"  
+        url: "/libraries/lock/v10/customizing-error-messages"
 
       - title: "Lock with auth0.js"
-        url: "/libraries/lock/v10/auth0js"  
-        
+        url: "/libraries/lock/v10/auth0js"
+
       - title: "Popup Mode"
-        url: "/libraries/lock/v10/popup-mode"                      
+        url: "/libraries/lock/v10/popup-mode"
 
   - title: "Lock for iOS"
     url: "/libraries/lock-ios"
-    children: 
+    children:
 
       - title: "Overview"
         url: "/libraries/lock-ios"
@@ -446,7 +449,7 @@ libraries:
 
   - title: "Lock for Android"
     url: "/libraries/lock-android"
-    children: 
+    children:
 
       - title: "Overview"
         url: "/libraries/lock-android"
@@ -477,7 +480,7 @@ libraries:
 
   - title: "Auth0.Android"
     url: "/libraries/auth0-android"
-  
+
   - title: "Auth0.swift"
     url: "/libraries/auth0-swift"
 
