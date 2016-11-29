@@ -15,19 +15,14 @@ Authorization:  'Bearer {access_token}'
 ```
 
 ```shell
-curl https://${account.namespace}/users/{user_id}/impersonate
-	-H "Authorization: Bearer {access_token}"
-	-H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8"
-	--data
-		"protocol={protocol-to-use}
-		&impersonator_id={impersonator-id}
-		&client_id=${account.client_id}
-		&additionalParameters[response_type]=code
-		&additionalParameters[state]="
+curl --request POST \
+  --url 'https://${account.namespace}/users/{user_id}/impersonate' \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
+  --data '{"protocol":"", "impersonator_id":"", "client_id":"${account.client_id}", "additionalParameters": {"response_type": "code", "state": ""}}'
 ```
 
 ```javascript
-javascript
 ```
 
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.

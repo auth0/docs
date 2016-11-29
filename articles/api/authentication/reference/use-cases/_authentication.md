@@ -18,7 +18,10 @@ Content-Type: 'application/json'
 ```
 
 ```shell
-
+curl --request GET \
+  --url 'https://${account.namespace}/authorize' \
+  --header 'content-type: application/json' \
+  --data '{"response_type":"code or token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
 ```
 
 ```javascript
@@ -54,17 +57,19 @@ Content-Type: 'application/json'
   "client_id":    "${account.client_id}",
   "access_token": "",
   "connection":   "",
-  "scope":        "",
-  ""
+  "scope":        ""
 }
 ```
 
 ```shell
-ruby
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/access_token' \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"${account.client_id}", "access_token":"", "connection":"", "scope":""}'
 ```
 
 ```javascript
-python
+
 ```
 
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
@@ -93,7 +98,7 @@ The query parameters are:
 | `client_id`      | string     | the `client_id` of your app |
 | `access_token`   | string     | the social provider's `access_token` |
 | `connection`     | string     | the name of an identity provider configured to your app |
-| `scope`          | string     | `openid` or `openid name email` |
+| `scope`          | string     | `openid` or `openid profile email` |
 
 ## Database / Active Directory / LDAP
 
@@ -117,7 +122,10 @@ Content-Type: 'application/json'
 ```
 
 ```shell
-
+curl --request GET \
+  --url 'https://${account.namespace}/authorize' \
+  --header 'content-type: application/json' \
+  --data '{"response_type":"code or token", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
 ```
 
 ```javascript
@@ -158,6 +166,10 @@ Content-Type: 'application/json'
 ```
 
 ```shell
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/ro' \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"", "username":"", "password":"", "id_token":"", "connection":"", "grant_type":"password", "scope":"openid", "device":""}'
 
 ```
 
@@ -180,7 +192,7 @@ The query parameters are:
 | `scope`          | string     |  |
 | `device`         | string     |  |
 
-This endpoint only works for database connections, ss connections, Active Directory/LDAP, Windows Azure AD and ADFS.
+This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
 
 For the error code reference for this endpoint refer to [Error Codes for /oauth/ro](#error-codes-for-oauth-ro).
 
@@ -196,7 +208,7 @@ Passwordless connections do not require the user to remember a password. Instead
 POST https://${account.namespace}/passwordless/start
 Content-Type: 'application/json'
 {
-  "client_id":   "{client-id}",
+  "client_id":   "${account.clientId}",
   "connection":  "email or sms",
   "email": "", //set for connection=email
   "phone_number": "". //set for connection=sms
@@ -206,11 +218,14 @@ Content-Type: 'application/json'
 ```
 
 ```shell
-shell
+curl --request POST \
+  --url 'https://${account.namespace}/passwordless/start' \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"${account.clientId}", "connection":"email or sms", "email":"", "phone_number":"", "send":"link or code", "authParams":""}'
 ```
 
 ```javascript
-javascript
+
 ```
 
 You have three options for [passwordless authentication](/connections/passwordless):
@@ -254,11 +269,14 @@ Content-Type: 'application/json'
 ```
 
 ```shell
-shell
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/ro' \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"${account.client_id}", "connection":"email or sms", "grant_type":"password", "username":"", "password":"", "scope":""}'
 ```
 
 ```javascript
-javascript
+
 ```
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
@@ -285,7 +303,7 @@ Depending on the method you choose to get the verification code, some query para
 | `grant_type`     | string     | `password` |
 | `username`      | string     | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
 | `password`      | string     | The user's verification code.  |
-| `scope`          | string     | `openid or openid name email` |
+| `scope`          | string     | `openid or openid profile email` |
 
 ## Enterprise (SAML and Others)
 
@@ -305,7 +323,10 @@ Content-Type: 'application/json'
 ```
 
 ```shell
-
+curl --request POST \
+  --url 'https://${account.namespace}/authorize' \
+  --header 'content-type: application/json' \
+  --data '{"response_type":"code or token", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
 ```
 
 ```javascript

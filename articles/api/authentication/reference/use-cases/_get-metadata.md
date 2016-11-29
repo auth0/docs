@@ -10,7 +10,7 @@ GET https://${account.namespace}/samlp/metadata/${account.client_id}
 
 ```shell
 curl --request GET \
-  --url https://${account.namespace}/samlp/metadata/${account.client_id}
+  --url 'https://${account.namespace}/samlp/metadata/${account.client_id}'
 ```
 
 ```javascript
@@ -34,7 +34,7 @@ GET https://${account.namespace}/wsfed/{client-id}/FederationMetadata/2007-06/Fe
 
 ```shell
 curl --request GET \
-  --url https://${account.namespace}/wsfed/{client-id}/FederationMetadata/2007-06/FederationMetadata.xml
+  --url 'https://${account.namespace}/wsfed/{client-id}/FederationMetadata/2007-06/FederationMetadata.xml'
 ```
 
 ```javascript

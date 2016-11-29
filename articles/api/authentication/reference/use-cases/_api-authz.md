@@ -4,30 +4,27 @@
 
 <h5 class="code-snippet-title">Examples</h5>
 
-```shell
-curl "GET http://${account.namespace}/api/authorize"
-  -H "Authorization:"
-```
-
 ```http
 GET https://${account.namespace}/authorize
-      ?response_type=
-      &client_id=
-      &connection=
-      &redirect_uri=
-      &state=
+Content-Type: 'application/json'
+{
+  "response_type": "",
+  "client_id": "${account.client_id}",
+  "connection": "",
+  "redirect_uri": "",
+  "state": ""
+}
 ```
 
 ```shell
-shell
-```
-
-```csharp
-csharp
+curl --request POST \
+  --url 'https://${account.namespace}/authorize' \
+  --header 'content-type: application/json' \
+  --data '{"response_type":"", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"", "state":""}'
 ```
 
 ```javascript
-javascript
+
 ```
 
 > This request will return a 302 redirect to the login page.
@@ -88,19 +85,26 @@ For more information, see: <a href="/refresh-token">Refresh Tokens</a>.
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-`POST https://${account.namespace}/oauth/token`
+POST https://${account.namespace}/oauth/token
+Content-Type: 'application/json'
+{
+  "client_id": "${account.client_id}",
+  "client_secret": "${account.client_secret}",
+  "grant_type": "client_credentials",
+  "type": "web_server",
+  "audience": ""
+}
 ```
 
 ```shell
-curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials"
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/token' \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"${account.clientId}", "client_secret":"${account.clientSecret}", "type":"web_server", "grant_type":"client_credentials", "audience": ""}'
 ```
 
 ```javascript
-python
-```
 
-```csharp
-csharp
 ```
 
 An `access_token` is required to call the Auth0 API. You can generate one by authenticating with your global `client_id` and `client_secret`. The token will be valid for 24 hours.

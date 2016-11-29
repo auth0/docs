@@ -14,11 +14,16 @@ Content-Type: 'application/json'
 ```
 
 ```shell
-
+curl --request POST \
+  --url 'https://${account.namespace}/dbconnections/signup' \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"${account.client_id}", "email":"", "password":"", "connection":""}'
 ```
 
 ```javascript
 ```
+
+> This endpoint returns a JSON with a body in this format:
 
 ```json
 {

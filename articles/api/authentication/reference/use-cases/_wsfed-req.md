@@ -7,6 +7,8 @@ GET https://${account.namespace}/wsfed/${account.client_id}
 ```
 
 ```shell
+curl --request GET \
+  --url 'https://${account.namespace}/wsfed/${account.client_id}'
 ```
 
 ```javascript

@@ -9,7 +9,7 @@ Authorization: 'Bearer {access_token}'
 
 ```shell
 curl --request GET \
-  --url https://${account.namespace}/userinfo \
+  --url 'https://${account.namespace}/userinfo' \
   --header 'authorization: Bearer {access_token}' \
   --header 'content-type: application/json'
 ```
