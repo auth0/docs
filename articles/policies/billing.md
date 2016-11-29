@@ -58,6 +58,7 @@ Also, more than often the email which receives the receipt is the one that creat
 ## In our pricing, what’s the difference between internal and external users? Are they different technically?
 
 An active user is a user that has authenticated with username/password, passwordless connection or any social provider in the last 30 days, counted per application (client in the dashboard). 
+
 For example, if a person logs in to Client 1 through Facebook, then logs in to Client 2 through Google and then logs in to Client 2 using username/password, that would count as 3 active users, even if it's just one individual.
 
 You will find that for certain plans, you have the ability to select between being charged for external users or for internal users. There are no technical differences between these types of users, they simply refer to whether someone is external to your company, or an internal employee. 
