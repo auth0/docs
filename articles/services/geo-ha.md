@@ -1,5 +1,4 @@
 ---
-section: services
 description: Project to assist customers with Geo distributed High Availability.
 ---
 

@@ -1,5 +1,4 @@
 ---
-section: services
 description: Project to co-develop integration points with Auth0.
 ---
 

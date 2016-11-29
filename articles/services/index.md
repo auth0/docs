@@ -1,5 +1,4 @@
 ---
-section: services
 url: /services
 classes: topic-page
 title: Auth0 Professional Services

@@ -1,5 +1,4 @@
 ---
-section: services
 description: A project to develop or customize components that extend Auth0's out-of-the-box functionality.
 ---
 

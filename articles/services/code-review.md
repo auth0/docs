@@ -1,5 +1,4 @@
 ---
-section: services
 description: Project to help customers analyze common design patterns.
 ---
 

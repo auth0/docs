@@ -1,5 +1,4 @@
 ---
-section: services
 description: Training covering fundamentals of the Auth0 service.
 ---
 

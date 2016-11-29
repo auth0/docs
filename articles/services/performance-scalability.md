@@ -1,5 +1,4 @@
 ---
-section: services
 description: Project to assist customers with common performance testing needs, including a correct planning, and test automation guidance.
 ---
 

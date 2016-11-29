@@ -1,5 +1,4 @@
 ---
-section: services
 description: A project to assist with design and deployment of a Private SaaS Auth0 environment.
 ---
 
