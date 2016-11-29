@@ -47,7 +47,7 @@ We will evaluate the case and verify that the account has not been used in the a
 
 Invoices can be seen directly in the Dashboard by going to the account settings and clicking on the Payments Tab. There, you will be able to see all your Payment History, and you can get the invoices by clicking on the corresponding month. Please note that only Dashboard administrators can see the invoices. 
 
-## How can I get a receipt from my payment?
+## How can I get a receipt for my payment?
 
 The way to do this is by filing a ticket trough our [Support Center](https://support.auth0.com). 
 
