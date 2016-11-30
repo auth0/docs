@@ -2,6 +2,9 @@ title: Ruby On Rails
 image: /media/platforms/rails.png
 tags:
   - quickstart
+  - ruby
+  - rails
+  - ruby on rails
 snippets:
   dependencies: server-platforms/rails/dependencies
   setup: server-platforms/rails/setup
