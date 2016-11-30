@@ -78,7 +78,7 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 For more information, see: <a href="/tokens/id_token">Auth0 id_token</a>.
 </aside>
 
-> This command returns a JSON object in this format:
+> Response Sample:
 
 ```json
 [
@@ -281,7 +281,7 @@ curl --request POST \
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
 
-> {TO-BE-REMOVED} This command returns a JSON object in this format:
+> Response Sample:
 
 ```json
 [

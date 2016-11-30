@@ -1,4 +1,4 @@
-# Ws-Fed Request
+# WS-Federation Request
 
 <h5 class="code-snippet-title">Examples</h5>
 
@@ -14,7 +14,7 @@ curl --request GET \
 ```javascript
 ```
 
-This endpoint accepts a WS-Fed request to initiate a login.
+This endpoint accepts a WS-Federation request to initiate a login.
 
 **Query Parameters**
 
@@ -27,7 +27,6 @@ This endpoint accepts a WS-Fed request to initiate a login.
 | `wreply`           |            | the callback URL (optional) |
 
 Note the following:
-- All the parameters of the SAML assertion can be modified through [Rules](/rules).
 - The `wtrealm` parameter must be in one of these formats:
   - `urn:clientID` (e.g. urn:${account.client_id})
   - If this parameter does not begin with a urn, the `client.clientAliases` array is used for look-up. (This can only be set with the [/api/v2/clients](/api/management/v2#!/Clients/get_clients) Management API)

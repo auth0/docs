@@ -191,7 +191,7 @@ curl --request POST \
 ```javascript
 ```
 
-> The response is a JSON with a body in this format:
+> Response Sample:
 
 ```JSON
 {
@@ -243,7 +243,7 @@ curl --request POST \
 ```javascript
 ```
 
-> The response is a JSON with a body in this format:
+> Response Sample:
 
 ```JSON
 {
@@ -295,7 +295,7 @@ curl --request POST \
 ```javascript
 ```
 
-> The response is a JSON with a body in this format:
+> Response Sample:
 
 ```JSON
 {
@@ -345,7 +345,7 @@ curl --request POST \
 ```javascript
 ```
 
-> The response is a JSON with a body in this format:
+> Response Sample:
 
 ```JSON
 {
@@ -402,7 +402,7 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 For more information, see: <a href="/user-profile/user-profile-details#api">User Profile: In-Depth Details - API</a>.
 </aside>
 
-> This command returns a JSON object in this format:
+> Response Sample:
 
 ```json
 [
@@ -459,7 +459,7 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS. For more information, see: [Calling APIs from Highly Trusted Clients](/api-auth/grant/password).
 
-> This command returns a JSON object in this format:
+> Response Sample:
 
 ```json
 [

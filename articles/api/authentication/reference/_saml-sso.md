@@ -1,4 +1,4 @@
-# SAML SSO
+# SAML Single sign-on
 
 The SAML protocol is used for 3rd party SaaS applications mostly, like Salesforce and Box. Auth0 supports SP and IDP Initiated Sign On. For more information refer to: [SAML](/protocols/saml).
 
