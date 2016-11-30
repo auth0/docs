@@ -287,6 +287,7 @@ Also register the intent filters inside your activity's tag, so you can receive 
         <activity
             android:name="com.mycompany.MainActivity"
             android:theme="@style/MyAppTheme">
+            android:launchMode="singleTask">
             
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -307,7 +308,9 @@ Also register the intent filters inside your activity's tag, so you can receive 
     </application>
 ```
 
-To capture the response, override the `onNewIntent` method and call `WebAuthProvider.resume()` with the received parameters.
+Make sure the Activity's `launchMode` is declared as `singleTask` or the result won't come back after the authentication.
+
+When you launch the WebAuthProvider you'll expect a result back. To capture the response override the `onNewIntent` method and call `WebAuthProvider.resume()` with the received parameters:
 
 ```java
 public class MyActivity extends Activity {
