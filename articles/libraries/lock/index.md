@@ -48,7 +48,7 @@ Include via our CDN:
 
 ### Mobile
 
-If you are targeting mobile audiences, Auth0 recommendeds that you add the following meta tag to your application's `head`:
+If you are targeting mobile audiences, Auth0 recommends that you add the following meta tag to your application's `head`:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
