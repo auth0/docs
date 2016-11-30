@@ -2,6 +2,9 @@ title: Ruby On Rails
 image: /media/platforms/rails.png
 tags:
   - quickstart
+  - ruby
+  - rails
+  - ruby on rails
 snippets:
   dependencies: server-platforms/rails/dependencies
   setup: server-platforms/rails/setup
@@ -13,4 +16,13 @@ alias:
 seo_alias: rails
 default_article: 01-login
 articles:
+  - 00-introduction
   - 01-login
+  - 02-custom-login
+  - 03-session-handling
+  - 04-user-profile
+  - 05-linking-accounts
+  - 06-rules
+  - 07-authorization
+  - 08-mfa
+  - 09-customizing-lock
