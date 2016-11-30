@@ -51,10 +51,10 @@ Also update the `appsettings.json` file in your project with the correct **Domai
 
 ## 3. Install Dependencies
 
-To use Auth0 Access Tokens with ASP.NET Core you will use the JWT Middleware. Add the `Microsoft.AspNetCore.Authentication.Jwt` package to your application.
+To use Auth0 Access Tokens with ASP.NET Core you will use the JWT Middleware. Add the `Microsoft.AspNetCore.Authentication.JwtBearer` package to your application.
 
 ```text
-Install-Package Microsoft.AspNetCore.Authentication.Jwt
+Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
 This was already done for you in the seed project, so no need to add it if you are using the seed project as a starting point.
