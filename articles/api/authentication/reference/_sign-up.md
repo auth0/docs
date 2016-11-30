@@ -23,7 +23,7 @@ curl --request POST \
 ```javascript
 ```
 
-> This endpoint returns a JSON with a body in this format:
+> Response Sample:
 
 ```json
 {
