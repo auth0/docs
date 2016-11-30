@@ -30,7 +30,7 @@ Delegated authentication is used when an entity wants to call another entity on 
 
 Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API or across different APIs that are secured with different secrets. For more information, see: [Delegation Tokens](/tokens/delegation).
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|

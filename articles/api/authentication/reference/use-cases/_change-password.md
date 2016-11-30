@@ -27,7 +27,7 @@ This endpoint only works for database connections.
 
 Given a user's `email` address and a `connection`, Auth0 will send a change password email.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|

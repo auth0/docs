@@ -16,7 +16,7 @@ curl --request GET \
 
 This endpoint accepts a WS-Fed request to initiate a login.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|

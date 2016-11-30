@@ -32,7 +32,7 @@ Use the endpoint `GET https://${account.namespace}/authorize` to authenticate a 
 
 Social connections only support browser-based (passive) authentication because most social providers don't allow a username and password to be entered into applications that they don't own. Therefore, the user will be redirected to the provider's sign in page.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
@@ -91,7 +91,7 @@ For more information, see: <a href="/tokens/id_token">Auth0 id_token</a>.
 ]
 ```
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
@@ -134,7 +134,7 @@ curl --request GET \
 
 Use the endpoint `GET https://${account.namespace}/authorize` for passive authentication. It returns a `302` redirect to [Auth0 Login Page](https://auth0.com/#/login_page) that will show the Login Widget where the user can login with email and password.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
@@ -179,7 +179,7 @@ curl --request POST \
 
 Use the endpoint `POST https://${account.namespace}/oauth/ro` for active authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
@@ -335,7 +335,7 @@ curl --request POST \
 
 Use the endpoint `GET https://${account.namespace}/authorize` for passive authentication. The user will be redirected (`302` redirect) to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|

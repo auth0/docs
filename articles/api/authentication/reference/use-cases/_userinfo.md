@@ -19,7 +19,7 @@ curl --request GET \
 
 Given the Auth0 `access token` obtained during login, this endpoint returns a user's profile.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
