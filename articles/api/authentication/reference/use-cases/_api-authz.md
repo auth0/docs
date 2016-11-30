@@ -1,6 +1,6 @@
 # API Authorization
 
-## Authorize
+## Authorize Client
 
 <h5 class="code-snippet-title">Examples</h5>
 
@@ -8,9 +8,10 @@
 GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
+  "audience": "",
+  "scope": "",
   "response_type": "",
   "client_id": "${account.client_id}",
-  "connection": "",
   "redirect_uri": "",
   "state": ""
 }
@@ -20,67 +21,51 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"response_type":"", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"", "state":""}'
+  --data '{"audience": "", "scope": "", "response_type": "", "client_id": "${account.client_id}", "redirect_uri": "", "state": ""}'
 ```
 
 ```javascript
 
 ```
 
-> This request will return a 302 redirect to the login page.
+To begin an OAuth 2.0 Authorization flow, your Client application should first send the user to the authorization URL.
 
-Returns a redirect to the login page of the specified provider (passive authentication).
+The purpose of this call is to obtain consent from the user to invoke the Resource Server (specified in `audience`) to do certain things (specified in `scope`) on behalf of the user. The Authorization Server will authenticate the user and obtain consent, unless consent has been previously given.
+
+Note that if you alter the value in `scope`, the Authorization Server will require consent to be given again.
+
 
 **Query Parameters**
 
+Most of the parameters are the same regardless of the OAuth 2.0 flow you are implementing:
+- [Authorization Code Grant](/api-auth/grant/authorization-code)
+- [Authorization Code Grant using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce): requires the `code_challenge` and `code_challenge_method` parameters.
+- [Implicit Grant](/api-auth/grant/implicit): requires the `nonce` parameter
+
+To determine which flow is best suited for your case refer to: [Which OAuth 2.0 flow should I use?
+](/api-auth/which-oauth-flow-to-use).
+
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
-| `response_type`  | string     | `code` (server-side) or `token` (client -side) |
-| `client_id`      | string     | the `client_id` of your app |
-| `connection`     | string     | the name of an identity provider configured to your app |
-| `redirect_uri`   | URL        | the URL the user will be redirected to upon successful authentication |
-| `state`          | string     | provided in the return |
+| `audience`       | string     | The target API for which the Client Application is requesting access on behalf of the user. Used for all flows. |
+| `scope`          | string     | The scopes which you want to request authorization for. These must be separated by a space. Used for all flows. |
+| `response_type`  | string     | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow, and `token` or `id_token token` for Implicit Grant. This will specify the type of token you will receive at the end of the flow. Used for all flows. |
+| `client_id`      | string     | Your application's Client ID. Used for all flows. |
+| `state`          | string     | An opaque value the client adds to the initial request that the Authorization Server (Auth0) includes when redirecting the back to the client. Used to prevent CSRF attacks. Used for all flows. |
+| `redirect_uri`   | string     | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. Used for all flows. |
+| `code_challenge_method` | Method used to generate the challenge. Used only for [Authorization Code Grant Flow with PKCE](/api-auth/grant/authorization-code-pkce) flow. |
+| `code_challenge` | string     | Generated challenge from the `code_verifier`. Used only for [Authorization Code Grant Flow with PKCE](/api-auth/grant/authorization-code-pkce) flow. |
+| `nonce` | string  | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. Used only for [Implicit Grant Flow](/api-auth/grant/implicit). |
 
-<aside class="warning">
-You must configure a <code>callback URL</code> in the management portal for your client application.
-</aside>
 
-**Remarks**
-
-* If no `connection` is specified, this will redirect to [Auth0 Login Page](${manage_url}/#/login_page) and show the Login widget using the first database connection.
+Note the following:
+* The [Resource Owner Password Grant](/api-auth/grant/password) and [Client Credentials](/api-auth/grant/client-credentials) are the only OAuth 2.0 flows that do not use this endpoint since there is no user authorization. Instead they invoke directly the `POST /oauth/token` endpoint to retrieve an access token.
 * If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and on Native Mobile SDKs.
 * Additional parameters can be sent that will be passed through to the provider, e.g. `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode).
 * The `state` parameter will be returned and can be used for XSRF and contextual information (like a return url).
 
-**Use Cases**
 
-[Social Authentication](#social-authentication)
-
-[Database & Active Directory / LDAP Authentication](#database-amp-active-directory-ldap-authentication)
-
-[Enterprise Authentication (SAML and Others)](#enterprise-authentication-saml-and-others)
-
-[Offline Access (Refresh Tokens)](#offline-access-refresh-tokens)
-
-[Link Accounts](#link-accounts)
-
-## Offline Access (Refresh Tokens)
-
-This endpoint will trigger the login flow to request a refresh token. This will return a 302 redirect to the `connection` specifying an extra scope (`offline_access`) and a `device` id that can be used to identify the refresh token in the dashboard. This extra scope will return the usual response plus a refresh token that can be used to obtain a new JSON Web Token. The refresh token can be [revoked](/api/management/v1#!#delete--api-users--user_id--refresh_tokens--refresh_token-)).
-
-
-<aside class="notice">
-For more information, see: <a href="/refresh-token">Refresh Tokens</a>.
-</aside>
-
-**Additional Parameters**
-
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `device`         | string     | an id for identifying the refresh token |
-| `scope`          | string     | `openid offline_access` |
-
-## Token
+## Get Tokens
 
 <h5 class="code-snippet-title">Examples</h5>
 
@@ -109,9 +94,10 @@ curl --request POST \
 
 An `access_token` is required to call the Auth0 API. You can generate one by authenticating with your global `client_id` and `client_secret`. The token will be valid for 24 hours.
 
-<aside class="notice">
-For more information, see: <a href="/tokens/access_token">Auth0 access_token</a>.
-</aside>
+The only OAuth 2.0 flows that can retrieve a refresh token are:
+- Authorization Code Grant
+- Authorization Code Grant Flow with PKCE
+- Resource Owner Password Grant
 
 > This command returns a JSON with a body in this format:
 
@@ -132,7 +118,7 @@ For more information, see: <a href="/tokens/access_token">Auth0 access_token</a>
 | `type`     | string     | `web_server` (optional) |
 | `audience`       | string     | the URL of your API endpoint (optional) |
 
-## Token Info
+## Get Token Info
 
 <h5 class="code-snippet-title">Examples</h5>
 
