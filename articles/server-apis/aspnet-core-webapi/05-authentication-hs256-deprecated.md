@@ -49,16 +49,15 @@ Go to the `Configure` method of your `Startup` class and add a call to `UseJwtBe
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 {
-    var keyAsBase64 = Configuration["auth0:clientSecret"].Replace('_', '/').Replace('-', '+');
-    var keyAsBytes = Convert.FromBase64String(keyAsBase64);
-
+    var secret = Encoding.UTF8.GetBytes(Configuration["auth0:clientSecret"]);
+    
     var options = new JwtBearerOptions
     {
         TokenValidationParameters =
         {
             ValidIssuer = $"https://{Configuration["auth0:domain"]}/",
             ValidAudience = Configuration["auth0:clientId"],
-            IssuerSigningKey = new SymmetricSecurityKey(keyAsBytes)
+            IssuerSigningKey = new SymmetricSecurityKey(secret)
         }
     };
     app.UseJwtBearerAuthentication(options);
