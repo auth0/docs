@@ -31,7 +31,7 @@ curl --request POST \
 
 Returns a redirect to the login page of the specified provider (passive authentication).
 
-### Query Parameters
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
@@ -45,14 +45,14 @@ Returns a redirect to the login page of the specified provider (passive authenti
 You must configure a <code>callback URL</code> in the management portal for your client application.
 </aside>
 
-### Remarks
+**Remarks**
 
 * If no `connection` is specified, this will redirect to [Auth0 Login Page](${manage_url}/#/login_page) and show the Login widget using the first database connection.
 * If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and on Native Mobile SDKs.
 * Additional parameters can be sent that will be passed through to the provider, e.g. `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode).
 * The `state` parameter will be returned and can be used for XSRF and contextual information (like a return url).
 
-### Use Cases
+**Use Cases**
 
 [Social Authentication](#social-authentication)
 
@@ -73,7 +73,7 @@ This endpoint will trigger the login flow to request a refresh token. This will 
 For more information, see: <a href="/refresh-token">Refresh Tokens</a>.
 </aside>
 
-### Additional Parameters
+**Additional Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
@@ -122,7 +122,7 @@ For more information, see: <a href="/tokens/access_token">Auth0 access_token</a>
 }
 ```
 
-### Query Parameters
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
@@ -132,7 +132,7 @@ For more information, see: <a href="/tokens/access_token">Auth0 access_token</a>
 | `type`     | string     | `web_server` (optional) |
 | `audience`       | string     | the URL of your API endpoint (optional) |
 
-## Token Info (to-be-deprecated)
+## Token Info
 
 <h5 class="code-snippet-title">Examples</h5>
 
@@ -145,12 +145,19 @@ Content-Type: 'application/json'
 ```
 
 ```shell
-ruby
+curl --request POST \
+  --url 'https://${account.namespace}/tokeninfo' \
+  --header 'content-type: application/json' \
+  --data '{"id_token":""}'
 ```
 
 ```javascript
-python
+
 ```
+
+::: panel-warning Depreciation Notice
+This endpoint will soon be depreciated. The `/userinfo` endpoint should be used instead to obtain user information.
+:::
 
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
 
@@ -171,13 +178,13 @@ For more information, see: <a href="/user-profile/user-profile-details#api">User
 ]
 ```
 
-### Query Parameters
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
-| `id_token`       | object     |  |
+| `id_token`       | object     | the `id_token` to use |
 
-## Resource Owner (to-be-deprecated)
+## Resource Owner
 
 <h5 class="code-snippet-title">Examples</h5>
 
@@ -205,17 +212,16 @@ curl --request POST \
 ```
 
 ```javascript
-python
 ```
 
-```csharp
-csharp
-```
+::: panel-warning Depreciation Notice
+This endpoint will soon be depreciated. The `/oauth/token { grant_type: password }` should be used instead.
+:::
 
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
 
 <aside class="notice">
-This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS. For more information, see: <a href="/protocols#oauth-resource-owner-password-credentials-grant">OAuth Resource Owner Password Credentials Grant</a>.
+This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS. For more information, see: [Calling APIs from Highly Trusted Clients](/api-auth/grant/password).
 </aside>
 
 > This command returns a JSON object in this format:
@@ -231,15 +237,15 @@ This endpoint only works for database connections, passwordless connections, Act
 ]
 ```
 
-### Query Parameters
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your app |
-| `connection`     | string     | the name of the AD connection configured to your app |
+| `client_id`      | string     | the `client_id` of your client |
+| `connection`     | string     | the name of the connection configured to your client |
 | `grant_type`     | string     | `password` |
 | `username`       | string     | the user's username |
 | `password`       | string     | the user's password |
-| `scope`         | string     | `openid or openid name email or openid offline_access` |
+| `scope`          | string     | `openid` or `openid profile email` or `openid offline_access` |
 | `id_token`       | string     |  |
 | `device`         | string     |  |

@@ -18,7 +18,7 @@ curl --request GET \
 
 This endpoint returns the SAML 2.0 metadata.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|

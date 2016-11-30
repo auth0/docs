@@ -27,7 +27,7 @@ curl --request POST \
 
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|

@@ -26,11 +26,15 @@ curl --request GET \
 ```javascript
 ```
 
+::: panel-warning Depreciation Notice
+This endpoint will soon be depreciated. The [POST	/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead.
+:::
+
 Call this endpoint when a user wants to link a second authentication method (e.g user/password + facebook).
 
 This endpoint will trigger the login flow to link an existing account with a new one. This will return a 302 redirect to the `connection` that the current user wants to add. The user is identified by the `access_token` that was returned on login success.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
@@ -65,9 +69,13 @@ curl --request POST \
 ```javascript
 ```
 
+::: panel-warning Depreciation Notice
+This endpoint will soon be depreciated. The [DELETE	/api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) should be used instead.
+:::
+
 Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink a user's account from the identity provider.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|

@@ -37,7 +37,7 @@ This endpoint only works for database connections.
 
 Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication.
 
-The query parameters are:
+**Query Parameters**
 
 | Parameter        | Type       | Description |
 |:-----------------|:-----------|:------------|
