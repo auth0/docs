@@ -49,6 +49,8 @@ This endpoint will trigger the login flow to link an existing account with a new
 **More Information**
 
 - [Linking Accounts](/link-accounts)
+- [User Initiated Account Linking](/link-accounts/user-initiated-linking)
+- [Account Linking from Server Side Code](/link-accounts/suggested-linking)
 
 
 ## Unlink
@@ -59,8 +61,8 @@ This endpoint will trigger the login flow to link an existing account with a new
 POST https://${account.namespace}/login/unlink
 Content-Type: 'application/json'
 {
-  "access_token": "",
-  "user_id":      ""
+  "access_token": "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity access_token
+  "user_id": "LINKED_USER_ID" // (provider|id)
 }
 ```
 
@@ -68,7 +70,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/login/unlink' \
   --header 'content-type: application/json' \
-  --data '{"access_token":"", "user_id":""}'
+  --data '{"access_token": "LOGGED_IN_USER_ACCESS_TOKEN", "user_id": "LINKED_USER_ID"}'
 ```
 
 ```javascript
@@ -91,4 +93,4 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 **More Information**
 
-- [Unlinking Accounts](/link-accounts/auth-api#unlinking-accounts)
+- [Unlinking Accounts](/link-accounts#unlinking-accounts)

@@ -37,5 +37,4 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 
 **More Information**
-
-- [WS-Federation Protocol](/protocols#ws-federation)
+- [WS-Federation](/protocols/ws-fed)

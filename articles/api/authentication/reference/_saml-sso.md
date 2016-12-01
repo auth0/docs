@@ -38,6 +38,9 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 - All the parameters of the SAML response can be modified with [Rules](/rules).
 - The SAML request `AssertionConsumerServiceURL` will be used to `POST` back the assertion. It must match the application's `callback_URL`.
 
+**More Information**
+- [SAML](/protocols/saml)
+
 
 ## IdP-Initiated SSO Flow
 
@@ -71,3 +74,6 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 |:-----------------|:------------|
 | `connection`     | the name of an identity provider configured to your client |
 | `SAMLResponse`   | an IdP-Initiated Sign On SAML Response |
+
+**More Information**
+- [SAML](/protocols/saml)

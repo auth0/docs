@@ -50,6 +50,11 @@ Social connections only support browser-based (passive) authentication because m
 - Additional parameters can be sent that will be passthrough to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode).
 
 
+**More Information**
+
+- [Custom Social Connections](/connections/social/oauth2)
+
+
 ### Use Social Provider's Access Token
 
 <h5 class="code-snippet-title">Examples</h5>
@@ -73,7 +78,6 @@ curl --request POST \
 ```
 
 ```javascript
-
 ```
 
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
@@ -88,10 +92,15 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 | `connection`     | the name of an identity provider configured to your app |
 | `scope`          | `openid` or `openid profile email` |
 
+**More Information**
+- [Identity Provider Access Tokens](/tokens/idp)
+- [Call an Identity Provider API](/tutorials/calling-an-external-idp-api)
+- [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp)
 
-## Database / Active Directory / LDAP
 
-Database, Active Directory and LDAP connections support browser based (passive) authentication and API-based (active) authentication. The main difference between passive and active authentication is that the former happens in the browser through the [Login Page](https://auth0.com/#/login_page) and the latter can be invoked from anywhere (a script, server to server, etc.).
+## Database & Active Directory/LDAP
+
+Database and Active Directory/LDAP connections support browser based (passive) authentication and API-based (active) authentication. The main difference between passive and active authentication is that the former happens in the browser through the [Login Page](https://auth0.com/#/login_page) and the latter can be invoked from anywhere (a script, server to server, etc.).
 
 ### Passive
 
@@ -138,6 +147,11 @@ Use the endpoint `GET https://${account.namespace}/authorize` for passive authen
 
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 
+
+**More Information**
+- [Database Identity Providers](/connections/database)
+- [Rate Limits on User/Password Authentication](/connections/database/rate-limits)
+- [Active Directory/LDAP Connector](/connector)
 
 ### Active
 
@@ -194,6 +208,12 @@ Use the endpoint `POST https://${account.namespace}/oauth/ro` for active authent
 **Error Codes**
 
 For the complete error code reference for this endpoint refer to [Error Codes for /oauth/ro](#error-codes-for-oauth-ro).
+
+
+**More Information**
+- [Database Identity Providers](/connections/database)
+- [Rate Limits on User/Password Authentication](/connections/database/rate-limits)
+- [Active Directory/LDAP Connector](/connector)
 
 
 ## Passwordless
@@ -257,6 +277,15 @@ You have three options for [passwordless authentication](/connections/passwordle
 For the complete error code reference for this endpoint refer to [Error Codes for /passwordless/start](#error-codes-for-passwordless-start).
 
 
+**More Information**
+
+- [Passwordless Authentication](/connections/passwordless)
+- [Authenticate users with using Passwordless Authentication via Email](/connections/passwordless/email)
+- [Authenticate users with a one-time code via SMS](/connections/passwordless/sms)
+- [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)
+- [Passwordless FAQ](/connections/passwordless/faq)
+
+
 ### Authenticate User
 
 <h5 class="code-snippet-title">Examples</h5>
@@ -299,6 +328,13 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `password`      | The user's verification code.  |
 | `scope`          | `openid or openid profile email` |
 
+
+**More Information**
+- [Passwordless Authentication](/connections/passwordless)
+- [Authenticate users with using Passwordless Authentication via Email](/connections/passwordless/email)
+- [Authenticate users with a one-time code via SMS](/connections/passwordless/sms)
+- [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)
+- [Passwordless FAQ](/connections/passwordless/faq)
 
 ## Enterprise (SAML and Others)
 
@@ -348,3 +384,7 @@ Use the endpoint `GET https://${account.namespace}/authorize` for passive authen
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 - Additional parameters can be sent that will be passthrough to the provider.
 - The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url).
+
+**More Information**
+- [SAML](/protocols/saml)
+- [Obtain a ClientId and Client Secret for Microsoft Azure Active Directory](/connections/enterprise/azure-active-directory)
