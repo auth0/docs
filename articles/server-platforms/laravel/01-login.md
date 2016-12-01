@@ -41,7 +41,7 @@ Optionally, if you want to use the [facade](http://laravel.com/docs/facades) cal
 ```php
 'aliases' => array(
     // ...
-    'Auth0' => 'Auth0\Login\Facade\Auth0::class'
+    'Auth0' => Auth0\Login\Facade\Auth0::class
 );
 ```
 
