@@ -26,10 +26,10 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your client |
-| `connection`     | string     | the name of an identity provider configured to your client (optional) |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id`      | the `client_id` of your client |
+| `connection`     | the name of an identity provider configured to your client (optional) |
 
 Note the following:
 - All the parameters of the SAML response can be modified with [Rules](/rules).
@@ -63,7 +63,7 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `connection`     | string     | the name of an identity provider configured to your client |
-| `SAMLResponse`   | string     | an IdP-Initiated Sign On SAML Response |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `connection`     | the name of an identity provider configured to your client |
+| `SAMLResponse`   | an IdP-Initiated Sign On SAML Response |

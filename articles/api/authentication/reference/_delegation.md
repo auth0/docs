@@ -32,11 +32,11 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your client |
-| `grant_type`     | string     |             |
-| `id_token` or `refresh_token` | object |      |
-| `target `        | string     | the target `client_id` |
-| `scope `         | string     | `openid` or `openid name email` |
-| `api_type`       | string     |             |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id`      | the `client_id` of your client |
+| `grant_type`     | |
+| `id_token` or `refresh_token` | |
+| `target `        | the target `client_id` |
+| `scope `         | `openid` or `openid profile email` |
+| `api_type`       | |

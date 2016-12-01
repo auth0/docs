@@ -29,12 +29,12 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `protocol`       | string     | the connection protocol to use: oauth2, samlp, wsfed, wsfed-rms |
-| `impersonator_id` | string    | the `user_id` of the impersonator |
-| `client_id`  | string     | the  `client_id` of your client |
-| `additionalParameters` | object | "response_type": "code", "state": "" |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `protocol`       | the connection protocol to use: `oauth2`, `samlp`, `wsfed`, `wsfed-rms` |
+| `impersonator_id`| the `user_id` of the impersonator |
+| `client_id` | the  `client_id` of your client |
+| `additionalParameters` | "response_type": "code", "state": "" |
 
 Note the following:
 - This endpoint can only be used with **Global Client** credentials.

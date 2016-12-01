@@ -18,13 +18,13 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client-id`      | string     | the `client-id` of your client (optional) |
-| `wtrealm`        | string     | can be used in place of `client-id` |
-| `whr`         |            | the name of the connection (to skip the login page, optional) |
-| `wctx`             |            | your application's state (optional) |
-| `wreply`           |            | the callback URL (optional) |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client-id`      | the `client-id` of your client (optional) |
+| `wtrealm`        | can be used in place of `client-id` |
+| `whr`            | the name of the connection (to skip the login page, optional) |
+| `wctx`           | your application's state (optional) |
+| `wreply`         | the callback URL (optional) |
 
 Note the following:
 - The `wtrealm` parameter must be in one of these formats:

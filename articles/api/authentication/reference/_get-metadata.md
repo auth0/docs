@@ -20,11 +20,11 @@ This endpoint returns the SAML 2.0 metadata.
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your app |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id`      | the `client_id` of your app |
 
-## Ws-Fed
+## WS-Federation
 
 <h5 class="code-snippet-title">Examples</h5>
 

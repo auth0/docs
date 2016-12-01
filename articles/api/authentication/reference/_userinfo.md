@@ -21,8 +21,8 @@ Given the Auth0 `access token` obtained during login, this endpoint returns a us
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `access_token`    | string     | the Auth0 `access_token` obtained during login |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `access_token`   | the Auth0 `access_token` obtained during login |
 
 For more information, see: [User Profile: In-Depth Details - API](/user-profile/user-profile-details#api).

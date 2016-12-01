@@ -39,9 +39,9 @@ Given a user's credentials, and a `connection`, this endpoint will create a new 
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your client |
-| `email`          | string     | the user's email address |
-| `password `      | string     | the user's desired password |
-| `connection`     | string     | the name of the database configured to your client |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id`      | the `client_id` of your client |
+| `email`          | the user's email address |
+| `password `      | the user's desired password |
+| `connection`     | the name of the database configured to your client |

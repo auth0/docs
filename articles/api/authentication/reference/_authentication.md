@@ -34,13 +34,13 @@ Social connections only support browser-based (passive) authentication because m
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `response_type`  | string     | `code` for server side flows, `token` for client side flows |
-| `client_id`      | string     | the `client_id` of your client |
-| `connection`     | string     | The name of an identity provider configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
-| `redirect_uri`   | string     | `http://localhost/callback` |
-| `state`          | string     | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `response_type`  | `code` for server side flows, `token` for client side flows |
+| `client_id`      | the `client_id` of your client |
+| `connection`     | The name of an identity provider configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
+| `redirect_uri`   | `http://localhost/callback` |
+| `state`          | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
 
 If `response_type=token`, after the user authenticates on the provider, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 
@@ -93,12 +93,12 @@ For more information, see: <a href="/tokens/id_token">Auth0 id_token</a>.
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your app |
-| `access_token`   | string     | the social provider's `access_token` |
-| `connection`     | string     | the name of an identity provider configured to your app |
-| `scope`          | string     | `openid` or `openid profile email` |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id`      | the `client_id` of your app |
+| `access_token`   | the social provider's `access_token` |
+| `connection`     | the name of an identity provider configured to your app |
+| `scope`          | `openid` or `openid profile email` |
 
 ## Database / Active Directory / LDAP
 
@@ -136,13 +136,13 @@ Use the endpoint `GET https://${account.namespace}/authorize` for passive authen
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `response_type`  | string     | `code` for server side flows, `token` for client side flows |
-| `client_id`      | string     | The `client_id` of your client |
-| `connection`     | string     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | string     | `http://localhost/callback` |
-| `state`          | string     | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `response_type`  | `code` for server side flows, `token` for client side flows |
+| `client_id`      | The `client_id` of your client |
+| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `redirect_uri`   | `http://localhost/callback` |
+| `state`          | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
 
 If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 
@@ -181,16 +181,16 @@ Use the endpoint `POST https://${account.namespace}/oauth/ro` for active authent
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your client |
-| `username`       | string     |  |
-| `password`       | string     |  |
-| `id_token`       | string     |  |
-| `connection`     | string     | the name of the connection configured to your client |
-| `grant_type`     | string     |  |
-| `scope`          | string     |  |
-| `device`         | string     |  |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id`      | the `client_id` of your client |
+| `username`       | |
+| `password`       | |
+| `id_token`       | |
+| `connection`     | the name of the connection configured to your client |
+| `grant_type`     | |
+| `scope`          | |
+| `device`         | |
 
 This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
 
@@ -233,16 +233,16 @@ You have three options for [passwordless authentication](/connections/passwordle
 - Send a link using email.
 - Send a verification code using SMS.
 
-Depending on the method you choose some query parameters vary:
+**Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | The `client_id` of your app. |
-| `connection`     | string     | `email` or `sms` |
-| `email`          | string     | The user's email address. Applicable when `connection=email`. |
-| `phone_number`   | string     | The user's phone number. Applicable when `connection=sms`. |
-| `send`           | string     | `link` (default) to send a link or `code` to send a verification code |
-| `authParams`     | object     | |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id`      | The `client_id` of your app. |
+| `connection`     | `email` or `sms` |
+| `email`          | The user's email address. Applicable when `connection=email`. |
+| `phone_number`   | The user's phone number. Applicable when `connection=sms`. |
+| `send`           | `link` (default) to send a link or `code` to send a verification code |
+| `authParams`     | |
 
 Note the following:
 - When you are sending a link using email, you can append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`, etc.) using the `authParams` object.
@@ -294,16 +294,18 @@ Once you have a verification code, use this endpoint to login the user with thei
 ]
 ```
 
-Depending on the method you choose to get the verification code, some query parameters vary:
+**Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | The `client_id` of your client. |
-| `connection`     | string     | `sms` or `email` |
-| `grant_type`     | string     | `password` |
-| `username`      | string     | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
-| `password`      | string     | The user's verification code.  |
-| `scope`          | string     | `openid or openid profile email` |
+Depending on the method you choose to get the verification code, some query parameters vary.
+
+| Parameter        |Description |
+|:-----------------|:------------|
+| `client_id`      | The `client_id` of your client. |
+| `connection`     | `sms` or `email` |
+| `grant_type`     | `password` |
+| `username`      | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
+| `password`      | The user's verification code.  |
+| `scope`          | `openid or openid profile email` |
 
 ## Enterprise (SAML and Others)
 
@@ -337,13 +339,13 @@ Use the endpoint `GET https://${account.namespace}/authorize` for passive authen
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `response_type`  | string     | `code` for server side flows, `token` for client side flows |
-| `client_id`      | string     | The `client_id` of your client |
-| `connection`     | string     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | string     | `http://localhost/callback` |
-| `state`          | string     | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `response_type`  | `code` for server side flows, `token` for client side flows |
+| `client_id`      | The `client_id` of your client |
+| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `redirect_uri`   | `http://localhost/callback` |
+| `state`          | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
 
 Note the following:
 - If no `connection` is specified, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget.
