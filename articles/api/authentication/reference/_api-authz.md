@@ -426,7 +426,24 @@ curl --request POST \
 ```
 
 ```javascript
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    callbackURL:  '{YOUR APP URL}',
+    responseType: 'token'
+  });
+</script>
 
+auth0.getProfile(idToken, function (err, profile) {
+  if(err) {
+    // handle error
+    return;
+  }
+
+  alert('hello ' + profile.name);
+});
 ```
 
 ::: panel-warning Depreciation Notice

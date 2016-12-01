@@ -20,7 +20,37 @@ curl --request POST \
   --data '{"client_id":"${account.client_id}", "email":"", "password":"", "connection":""}'
 ```
 
-```javascript
+```html
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    callbackURL:  '{YOUR APP URL}',
+    responseType: 'token'
+  });
+</script>
+
+<h2>Signup Database Connection</h2>
+<input class="signup-username" />
+<input type="password" class="signup-password" />
+<input type="button" class="signup-db" value="Signup!" />
+<script type="text/javascript">
+    $('.signup-db').click(function (e) {
+        e.preventDefault();
+        auth0.signup({
+            connection: 'Username-Password-Authentication',
+            username: $('.signup-username').val(),
+            password: $('.signup-password').val(),
+            sso: true,
+            popup: true,
+            auto_login: false
+        }, function (err) {
+            if (err) return alert('Something went wrong: ' + err.message);
+            return alert('success signup without login!')
+        });
+    });
+</script>
 ```
 
 > RESPONSE SAMPLE:
