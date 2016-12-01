@@ -24,8 +24,65 @@ curl --request GET \
   --data '{"response_type":"code or token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
 ```
 
-```javascript
+```js
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    callbackURL:  '{YOUR APP URL}',
+    responseType: 'token'
+  });
+</script>
 
+//trigger login with google
+$('.login-google').click(function () {
+  auth0.login({
+    connection: 'google-oauth2'
+  });
+});
+
+//trigger login with github
+$('.login-github').click(function () {
+  auth0.login({
+    connection: 'github'
+  });
+});
+
+//trigger login popup with google
+$('.login-google-popup').click(function (e) {
+  e.preventDefault();
+  auth0.login({
+    connection: 'google-oauth2',
+    popup: true,
+    popupOptions: {
+      width: 450,
+      height: 800
+    }
+  }, function(err, result) {
+    if (err) {
+      alert("something went wrong: " + err.message);
+      return;
+    }
+    alert('Hello!');
+  });
+});
+
+//trigger login requesting additional scopes with google
+$('.login-google').click(function () {
+  auth0.login({
+    connection: 'google-oauth2',
+    connection_scope: ['https://www.googleapis.com/auth/orkut', 'https://picasaweb.google.com/data/']
+  });
+});
+
+// alternatively a comma separated list also works
+$('.login-google').click(function () {
+  auth0.login({
+    connection: 'google-oauth2',
+    connection_scope: 'https://www.googleapis.com/auth/orkut,https://picasaweb.google.com/data/'
+  });
+});
 ```
 
 Use the endpoint `GET https://${account.namespace}/authorize` to authenticate a user with a social provider. This endpoint will return a `302` redirect to the social provider specified in `connection`.
@@ -127,7 +184,50 @@ curl --request GET \
 ```
 
 ```javascript
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    callbackURL:  '{YOUR APP URL}',
+    responseType: 'token'
+  });
+</script>
 
+//trigger login with a db connection
+$('.login-dbconn').click(function () {
+  auth0.login({
+    connection: 'db-conn',
+    username:   $('.username').val(),
+    password:   $('.password').val(),
+  });
+});
+
+//trigger login with a db connection and avoid the redirect
+$('.login-dbconn').click(function () {
+  auth0.login({
+    connection: 'db-conn',
+    username:   $('.username').val(),
+    password:   $('.password').val(),
+  },
+  function (err, result) {
+    // store in cookies
+  });
+});
+
+//trigger login with offline mode support to get the refresh_token
+$('.login-dbconn').click(function () {
+  auth0.login({
+    connection: 'db-conn',
+    username:   $('.username').val(),
+    password:   $('.password').val(),
+    scope: 'openid offline_access'
+  },
+  function (err, result) {
+    // store in cookies
+    // result.refreshToken is sent because offline_access is set as a scope
+  });
+});
 ```
 
 Use the endpoint `GET https://${account.namespace}/authorize` for passive authentication. It returns a `302` redirect to [Auth0 Login Page](https://auth0.com/#/login_page) that will show the Login Widget where the user can login with email and password.
@@ -181,7 +281,36 @@ curl --request POST \
 ```
 
 ```javascript
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    callbackURL:  '{YOUR APP URL}',
+    responseType: 'token'
+  });
+</script>
 
+//trigger login with a db connection
+$('.login-dbconn').click(function () {
+  auth0.login({
+    connection: 'db-conn',
+    username:   $('.username').val(),
+    password:   $('.password').val(),
+  });
+});
+
+//trigger login with a db connection and avoid the redirect
+$('.login-dbconn').click(function () {
+  auth0.login({
+    connection: 'db-conn',
+    username:   $('.username').val(),
+    password:   $('.password').val(),
+  },
+  function (err, result) {
+    // store in cookies
+  });
+});
 ```
 
 Use the endpoint `POST https://${account.namespace}/oauth/ro` for active authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
@@ -220,7 +349,7 @@ For the complete error code reference for this endpoint refer to [Error Codes fo
 
 Passwordless connections do not require the user to remember a password. Instead, another mechanism is used to prove identity, such as a one-time code sent through email or SMS, every time the user logs in.
 
-### Get Verification Code
+### Get Code or Link
 
 <h5 class="code-snippet-title">Examples</h5>
 
@@ -245,7 +374,62 @@ curl --request POST \
 ```
 
 ```javascript
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    callbackURL:  '{YOUR APP URL}',
+    responseType: 'token'
+  });
+</script>
 
+//EMAIL: request a link to be sent via email
+$('.request-email-link').click(function (ev) {
+  ev.preventDefault();
+  auth0.requestMagicLink({
+    email: $('.email-input').val()
+  }, function (err) {
+    if (err) {
+      alert(err.error_description);
+      return;
+    }
+    // the request was successful and you should receive
+    // an email with the link at the specified address
+  });
+});
+
+//EMAIL: request a code to be sent via email
+$('.request-email-code').click(function (ev) {
+  ev.preventDefault();
+
+  auth0.requestEmailCode({
+    email: $('.email-input').val()
+  }, function (err) {
+    if (err) {
+      alert(err.error_description);
+      return;
+    }
+    // the request was successful and you should receive
+    // an email with the code at the specified address
+  });
+});
+
+//SMS: request a code to be sent via SMS
+$('.request-sms-code').click(function (ev) {
+  ev.preventDefault();
+
+  auth0.requestSMSCode({
+    phoneNumber: $('.phone-input').val()
+  }, function (err) {
+    if (err) {
+      alert(err.error_description);
+      return;
+    }
+    // the request was successful and you should receive
+    // a SMS with the code at the specified phone number
+  });
+});
 ```
 
 You have three options for [passwordless authentication](/connections/passwordless):
@@ -311,7 +495,39 @@ curl --request POST \
 ```
 
 ```javascript
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    callbackURL:  '{YOUR APP URL}',
+    responseType: 'token'
+  });
+</script>
 
+//EMAIL: authenticate the user when you get the code, using email and code
+auth0.verifyEmailCode({
+  email: $('.email-input').val(),
+  code: $('.email-code-input').val()
+}, function (err, result) {
+  if (err) {
+    alert("something went wrong: " + err.error_description);
+    return;
+  }
+  alert('Hello');
+});
+
+//SMS: authenticate the user when you get the code, using phoneNumber and code
+auth0.verifySMSCode({
+  phoneNumber: $('.phone-input').val(),
+  code: $('.sms-code-input').val()
+}, function (err, result) {
+  if (err) {
+    alert("something went wrong: " + err.error_description);
+    return;
+  }
+  alert("Hello");
+});
 ```
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
@@ -361,7 +577,22 @@ curl --request POST \
 ```
 
 ```javascript
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    callbackURL:  '{YOUR APP URL}',
+    responseType: 'token'
+  });
+</script>
 
+//trigger login with an enterprise connection
+$('.login-microsoft').click(function () {
+  auth0.login({
+    connection: 'contoso.com'
+  });
+});
 ```
 
 Use the endpoint `GET https://${account.namespace}/authorize` for passive authentication. The user will be redirected (`302` redirect) to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.

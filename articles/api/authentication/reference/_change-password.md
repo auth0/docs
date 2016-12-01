@@ -21,6 +21,29 @@ curl --request POST \
 ```
 
 ```javascript
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    callbackURL:  '{YOUR APP URL}',
+    responseType: 'token'
+  });
+</script>
+
+$('.change_password').click(function () {
+  auth0.changePassword({
+    connection: 'db-conn',
+    email:   'foo@bar.com'
+  }, function (err, resp) {
+    if(err){
+      console.log(err.message);
+    }else{
+      console.log(resp);
+    }
+
+  });
+});
 ```
 
 Given a user's `email` address and a `connection`, Auth0 will send a change password email.

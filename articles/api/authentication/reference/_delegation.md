@@ -24,6 +24,37 @@ curl --request POST \
 ```
 
 ```javascript
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
+    callbackURL:  '{YOUR APP URL}',
+    responseType: 'token'
+  });
+</script>
+
+//get a delegation token
+var options = {
+  id_token: "your id token", // The id_token you have now
+  api: 'firebase', // This defaults to the first active addon if any or you can specify this
+  "scope": "openid profile"         // default: openid
+};
+
+auth0.getDelegationToken(options, function (err, delegationResult) {
+    // Call your API using delegationResult.id_token
+});
+
+//get the token for another API or App
+var options = {
+  id_token: "your id token", // The id_token you have now
+  api: 'auth0' // This is default when calling another app that doesn't have an addon
+  targetClientId: 'The other client id'
+};
+
+auth0.getDelegationToken(options, function (err, delegationResult) {
+  // Call your API using delegationResult.id_token
+});
 ```
 
 Delegated authentication is used when an entity wants to call another entity on behalf of the user. For example, a user logs into an application and then calls an API. The application exchanges the token of the logged in user with a token that is signed with the API secret to call the API.

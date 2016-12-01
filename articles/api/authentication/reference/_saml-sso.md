@@ -62,7 +62,6 @@ curl --request GET \
 ```
 
 ```javascript
-
 ```
 
 This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
