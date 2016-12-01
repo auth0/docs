@@ -1,4 +1,4 @@
-# SAML Single sign-on
+# SAML Single Sign-On
 
 The SAML protocol is used for 3rd party SaaS applications mostly, like Salesforce and Box. Auth0 supports SP and IDP Initiated Sign On. For more information refer to: [SAML](/protocols/saml).
 
@@ -24,6 +24,7 @@ Use this endpoint to accept a SAML request to initiate a login.
 
 Optionally, it accepts a connection parameter to login with a specific provider. If no connection is specified, the [Auth0 Login Page](/login_page) will be shown.
 
+
 **Query Parameters**
 
 | Parameter        | Description |
@@ -31,7 +32,9 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 | `client_id`      | the `client_id` of your client |
 | `connection`     | the name of an identity provider configured to your client (optional) |
 
-Note the following:
+
+**Remarks**
+
 - All the parameters of the SAML response can be modified with [Rules](/rules).
 - The SAML request `AssertionConsumerServiceURL` will be used to `POST` back the assertion. It must match the application's `callback_URL`.
 
@@ -60,6 +63,7 @@ curl --request GET \
 ```
 
 This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
+
 
 **Query Parameters**
 
