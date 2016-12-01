@@ -1,4 +1,4 @@
-## 1. Create an AuthService Class
+## Create an AuthService Class
 
 The best way to have authentication utilities available across your application is to create a helper class. With the class in place, you can share an instance of it by passing it as a prop.
 
@@ -65,7 +65,7 @@ export default class AuthService {
 
 The other helper methods shown above include: `login` (to call `lock.show()` and display the login widget), `logout` (to remove the local storage data), and `loggedIn` (that checks if an `idToken` exists and returns a boolean).
 
-## 2. Use the AuthService to Protect Private Routes
+## Use the AuthService to Protect Private Routes
 
 To use the new class to protect routes, import `AuthService` in `src/views/Main/routes.js` and create a new instance.
 
@@ -105,7 +105,7 @@ export default makeMainRoutes
 
 In `routes.js`, there is now an `onEnter` callback assigned to the `/home` route. This calls `requireAuth`, which checks whether the user is authenticated, and redirects to `/login` if they are not.
 
-## 3. Create the Login View
+## Create the Login View
 
 Create a new `Login` component and save it in `src/views/Main/Login/`. This React component should accept an `auth` object (which is an instance of the `AuthServce`) as a prop.
 
@@ -143,7 +143,7 @@ The **Login** button `onClick` event calls `login` to show the Auth0 Lock widget
 
 For this to work, `auth` needs to be included as a prop, which can be done from another component called `Container`.
 
-## 4. Send `auth` from Router to Container Children
+## Send `auth` from Router to Container Children
 
 To use the `auth` parameter in various child components, it needs to be propagated down from from the `Container` component. 
 

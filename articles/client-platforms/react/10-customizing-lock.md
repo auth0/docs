@@ -19,7 +19,7 @@ Using Lock is easy, but you may want to customize your login UI. For that, there
 
 Some UI customization can be done via the `options` parameter when creating a `Lock` instance.
 
-### Theme options
+## Theme options
 
 You can set custom theme properties, such as a different logo or primary color, by adding a `theme` property with custom values when initializing the auth0 Lock widget. For more information, see: [Theming Options](/libraries/lock/v10/customization#theming-options).
 
@@ -50,7 +50,7 @@ export default class AuthService extends EventEmitter {
 }
 ```
 
-### Language Dictionary Specification
+## Language Dictionary Specification
 
 You can also customize the text that `Lock` will display with the `languageDictionary` option parameter.
  For more information, see: [Language Dictionary Specification](/libraries/lock/v10/customization#languagedictionary-object-).
@@ -73,7 +73,7 @@ export default class AuthService extends EventEmitter {
 }
 ```
 
-### Results
+## Results
 
 This is how Lock will appear using a custom logo, color, and title:
 
