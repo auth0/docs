@@ -24,7 +24,7 @@ curl --request GET \
   --data '{"response_type":"code or token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
 ```
 
-```js
+```javascript
 <script src="${auth0js_url}"></script>
 <script type="text/javascript">
   var auth0 = new Auth0({
