@@ -435,18 +435,6 @@ This endpoint will soon be depreciated. The `/userinfo` endpoint should be used 
 
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
 
-> RESPONSE SAMPLE:
-
-```json
-[
-  {
-    "id": 1
-  },
-  {
-    "id": 2
-  }
-]
-```
 
 **Query Parameters**
 
@@ -496,18 +484,6 @@ This endpoint will soon be depreciated. The `/oauth/token { grant_type: password
 
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
 
-> RESPONSE SAMPLE:
-
-```json
-[
-  {
-    "id": 1
-  },
-  {
-    "id": 2
-  }
-]
-```
 
 **Query Parameters**
 
