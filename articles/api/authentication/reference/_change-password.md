@@ -29,12 +29,12 @@ Given a user's `email` address and a `connection`, Auth0 will send a change pass
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your client |
-| `email`          | string     | the user's email address |
-| `password `      | string     | the new password (optional) |
-| `connection`     | string     | the name of the database connection configured to your client |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id`      | the `client_id` of your client |
+| `email`          | the user's email address |
+| `password `      | the new password (optional) |
+| `connection`     | the name of the database connection configured to your client |
 
 Note the following:
 - If a password is provided, when the user clicks on the confirm password change link, the new password specified in this POST will be set for this user.

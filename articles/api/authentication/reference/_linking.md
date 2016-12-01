@@ -36,13 +36,13 @@ This endpoint will trigger the login flow to link an existing account with a new
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `response_type`  | string     | `code` for server side flows, `token` for client side flows |
-| `client_id`      | string     | The `client_id` of your client |
-| `connection`     | string     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | string     | `http://localhost/callback` |
-| `access_token`   | object     | the logged-in user's access token |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `response_type`  | `code` for server side flows, `token` for client side flows |
+| `client_id`      | The `client_id` of your client |
+| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `redirect_uri`   | `http://localhost/callback` |
+| `access_token`   | the logged-in user's access token |
 
 For more information, see: [Linking Accounts](/link-accounts).
 
@@ -77,9 +77,9 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `access_token`   | object     | the logged-in user's `access token` |
-| `user_id`        | string     | the logged-in user's `user_id` |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `access_token`   | the logged-in user's `access token` |
+| `user_id`        | the logged-in user's `user_id` |
 
 For more information, see: [Unlinking Accounts](/link-accounts/auth-api#unlinking-accounts).

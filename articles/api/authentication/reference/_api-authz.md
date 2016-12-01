@@ -417,9 +417,9 @@ For more information, see: <a href="/user-profile/user-profile-details#api">User
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `id_token`       | object     | the `id_token` to use |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `id_token`       | the `id_token` to use |
 
 ## Resource Owner
 
@@ -474,13 +474,13 @@ This endpoint only works for database connections, passwordless connections, Act
 
 **Query Parameters**
 
-| Parameter        | Type       | Description |
-|:-----------------|:-----------|:------------|
-| `client_id`      | string     | the `client_id` of your client |
-| `connection`     | string     | the name of the connection configured to your client |
-| `grant_type`     | string     | `password` |
-| `username`       | string     | the user's username |
-| `password`       | string     | the user's password |
-| `scope`          | string     | `openid` or `openid profile email` or `openid offline_access` |
-| `id_token`       | string     |  |
-| `device`         | string     |  |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `client_id`      | the `client_id` of your client |
+| `connection`     | the name of the connection configured to your client |
+| `grant_type`     | `password` |
+| `username`       | the user's username |
+| `password`       | the user's password |
+| `scope`          | `openid` or `openid profile email` or `openid offline_access` |
+| `id_token`       | |
+| `device`         | |
