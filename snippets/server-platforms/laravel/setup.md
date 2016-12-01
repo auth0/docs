@@ -1,6 +1,6 @@
 ```php
 'providers' => array(
     // ...
-    'Auth0\Login\LoginServiceProvider',
+    Auth0\Login\LoginServiceProvider::class,
 );
 ```
