@@ -47,9 +47,7 @@ curl --request POST \
 
 ```
 
-This is the OAuth 2.0 grant that regular web apps utilize in order to access an API. For details refer to:
-- [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
-- [Executing an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
+This is the OAuth 2.0 grant that regular web apps utilize in order to access an API.
 
 **Query Parameters**
 
@@ -62,6 +60,10 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `state`          | An opaque value the client adds to the initial request that the Authorization Server (Auth0) includes when redirecting the back to the client. Used to prevent CSRF attacks. |
 | `redirect_uri`   | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. |
 
+**More Information**
+
+- [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
+- [Executing an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
 
 ### Authorization Code Grant using Proof Key for Code Exchange (PKCE)
 
@@ -92,9 +94,8 @@ curl --request POST \
 
 ```
 
-This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. Before starting with this flow, you need to generate and store a `code_verifier`, and using that, generate a `code_challenge` that will be sent in the authorization request. For details refer to:
-- [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
-- [Executing an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
+This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. Before starting with this flow, you need to generate and store a `code_verifier`, and using that, generate a `code_challenge` that will be sent in the authorization request.
+
 
 **Query Parameters**
 
@@ -107,6 +108,12 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `redirect_uri`   | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. |
 | `code_challenge_method` | Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
 | `code_challenge` | Generated challenge from the `code_verifier`. |
+
+
+**More Information**
+
+- [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
+- [Executing an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
 
 
 ### Implicit Grant
@@ -138,9 +145,8 @@ curl --request POST \
 
 ```
 
-This is the OAuth 2.0 grant that Client-side web apps utilize in order to access an API. For details refer to:
-- [Calling APIs from Client-side Web Apps](/api-auth/grant/implicit)
-- [Executing the Implicit Grant Flow](/api-auth/tutorials/implicit-grant)
+This is the OAuth 2.0 grant that Client-side web apps utilize in order to access an API.
+
 
 **Query Parameters**
 
@@ -154,7 +160,17 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 | `redirect_uri`   | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. |
 | `nonce` | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
 
-If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and on Native Mobile SDKs.
+
+**Remarks**
+
+- If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and on Native Mobile SDKs.
+
+
+**More Information**
+
+- [Calling APIs from Client-side Web Apps](/api-auth/grant/implicit)
+- [Executing the Implicit Grant Flow](/api-auth/tutorials/implicit-grant)
+
 
 ## Get Token
 
@@ -191,7 +207,7 @@ curl --request POST \
 ```javascript
 ```
 
-> Response Sample:
+> RESPONSE SAMPLE:
 
 ```JSON
 {
@@ -202,9 +218,7 @@ curl --request POST \
 }
 ```
 
-This is the OAuth 2.0 grant that regular web apps utilize in order to access an API. For details refer to:
-- [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
-- [Executing an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
+This is the OAuth 2.0 grant that regular web apps utilize in order to access an API.
 
 
 **Query Parameters**
@@ -216,6 +230,13 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `client_secret`  | Your application's Client Secret. |
 | `code`  | The Authorization Code received from the initial `/authorize` call. |
 | `redirect_uri`  | The URL must match exactly the `redirect_uri` passed to `/authorize`. |
+
+
+**More Information**
+
+- [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
+- [Executing an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
+
 
 ### Authorization Code (PKCE)
 
@@ -243,7 +264,7 @@ curl --request POST \
 ```javascript
 ```
 
-> Response Sample:
+> RESPONSE SAMPLE:
 
 ```JSON
 {
@@ -254,9 +275,8 @@ curl --request POST \
 }
 ```
 
-This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. For details refer to:
-- [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
-- [Executing an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
+This is the OAuth 2.0 grant that mobile apps utilize in order to access an API.
+
 
 
 **Query Parameters**
@@ -268,6 +288,12 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `code`  | The Authorization Code received from the initial `/authorize` call. |
 | `code_verifier` | Cryptographically random key that was used to generate the `code_challenge` passed to `/authorize`. |
 | `redirect_uri`  | The URL must match exactly the `redirect_uri` passed to `/authorize`. |
+
+
+**More Information**
+
+- [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
+- [Executing an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
 
 
 ### Client Credentials
@@ -295,7 +321,7 @@ curl --request POST \
 ```javascript
 ```
 
-> Response Sample:
+> RESPONSE SAMPLE:
 
 ```JSON
 {
@@ -304,10 +330,7 @@ curl --request POST \
 }
 ```
 
-This is the OAuth 2.0 grant that server processes utilize in order to access an API. For details refer to:
-- [Calling APIs from a Service](/api-auth/grant/client-credentials)
-- [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
-- [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+This is the OAuth 2.0 grant that server processes utilize in order to access an API.
 
 **Query Parameters**
 
@@ -317,6 +340,14 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 | `client_id`      | Your application's Client ID. |
 | `client_secret`  | Your application's Client Secret. |
 | `audience` | API Identifier that the client is requesting access to. |
+
+
+**More Information**
+
+- [Calling APIs from a Service](/api-auth/grant/client-credentials)
+- [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
+- [Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+
 
 ### Resource Owner Password
 
@@ -345,7 +376,7 @@ curl --request POST \
 ```javascript
 ```
 
-> Response Sample:
+> RESPONSE SAMPLE:
 
 ```JSON
 {
@@ -354,9 +385,8 @@ curl --request POST \
 }
 ```
 
-This is the OAuth 2.0 grant that highly trusted apps utilize in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is later on sent to the Client and the Authorization Server. It is therefore imperative that the Client is absolutely trusted with this information. For details refer to:
-- [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
-- [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+This is the OAuth 2.0 grant that highly trusted apps utilize in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is later on sent to the Client and the Authorization Server. It is therefore imperative that the Client is absolutely trusted with this information.
+
 
 **Query Parameters**
 
@@ -368,6 +398,13 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 | `username` | Resource Owner's identifier. |
 | `password` | Resource Owner's secret. |
 | `scope` | String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
+
+
+**More Information**
+
+- [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
+- [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+
 
 ## Get Token Info
 
@@ -398,11 +435,7 @@ This endpoint will soon be depreciated. The `/userinfo` endpoint should be used 
 
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
 
-<aside class="notice">
-For more information, see: <a href="/user-profile/user-profile-details#api">User Profile: In-Depth Details - API</a>.
-</aside>
-
-> Response Sample:
+> RESPONSE SAMPLE:
 
 ```json
 [
@@ -420,6 +453,12 @@ For more information, see: <a href="/user-profile/user-profile-details#api">User
 | Parameter        | Description |
 |:-----------------|:------------|
 | `id_token`       | the `id_token` to use |
+
+
+**More Information**
+
+- [User Profile: In-Depth Details - API](/user-profile/user-profile-details#api)
+
 
 ## Resource Owner
 
@@ -457,9 +496,7 @@ This endpoint will soon be depreciated. The `/oauth/token { grant_type: password
 
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
 
-This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS. For more information, see: [Calling APIs from Highly Trusted Clients](/api-auth/grant/password).
-
-> Response Sample:
+> RESPONSE SAMPLE:
 
 ```json
 [
@@ -484,3 +521,13 @@ This endpoint only works for database connections, passwordless connections, Act
 | `scope`          | `openid` or `openid profile email` or `openid offline_access` |
 | `id_token`       | |
 | `device`         | |
+
+
+**Remarks**
+
+- This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
+
+
+**More Information**
+
+- [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)

@@ -23,7 +23,7 @@ curl --request POST \
 ```javascript
 ```
 
-> Response Sample:
+> RESPONSE SAMPLE:
 
 ```json
 {
@@ -33,9 +33,8 @@ curl --request POST \
 }
 ```
 
-This endpoint only works for database connections.
+Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication. This endpoint only works for database connections.
 
-Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication.
 
 **Query Parameters**
 

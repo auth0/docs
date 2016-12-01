@@ -32,6 +32,7 @@ Use the endpoint `GET https://${account.namespace}/authorize` to authenticate a 
 
 Social connections only support browser-based (passive) authentication because most social providers don't allow a username and password to be entered into applications that they don't own. Therefore, the user will be redirected to the provider's sign in page.
 
+
 **Query Parameters**
 
 | Parameter        | Description |
@@ -42,9 +43,12 @@ Social connections only support browser-based (passive) authentication because m
 | `redirect_uri`   | `http://localhost/callback` |
 | `state`          | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
 
-If `response_type=token`, after the user authenticates on the provider, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 
-Additional parameters can be sent that will be passthrough to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode).
+**Remarks**
+
+- If `response_type=token`, after the user authenticates on the provider, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
+- Additional parameters can be sent that will be passthrough to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode).
+
 
 ### Use Social Provider's Access Token
 
@@ -74,22 +78,6 @@ curl --request POST \
 
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
 
-<aside class="notice">
-For more information, see: <a href="/tokens/id_token">Auth0 id_token</a>.
-</aside>
-
-> Response Sample:
-
-```json
-[
-  {
-    "id": 1
-  },
-  {
-    "id": 2
-  }
-]
-```
 
 **Query Parameters**
 
@@ -99,6 +87,7 @@ For more information, see: <a href="/tokens/id_token">Auth0 id_token</a>.
 | `access_token`   | the social provider's `access_token` |
 | `connection`     | the name of an identity provider configured to your app |
 | `scope`          | `openid` or `openid profile email` |
+
 
 ## Database / Active Directory / LDAP
 
@@ -144,7 +133,11 @@ Use the endpoint `GET https://${account.namespace}/authorize` for passive authen
 | `redirect_uri`   | `http://localhost/callback` |
 | `state`          | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
 
-If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
+
+**Remarks**
+
+- If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
+
 
 ### Active
 
@@ -192,9 +185,16 @@ Use the endpoint `POST https://${account.namespace}/oauth/ro` for active authent
 | `scope`          | |
 | `device`         | |
 
-This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
 
-For the error code reference for this endpoint refer to [Error Codes for /oauth/ro](#error-codes-for-oauth-ro).
+**Remarks**
+
+- This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
+
+
+**Error Codes**
+
+For the complete error code reference for this endpoint refer to [Error Codes for /oauth/ro](#error-codes-for-oauth-ro).
+
 
 ## Passwordless
 
@@ -233,6 +233,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 - Send a link using email.
 - Send a verification code using SMS.
 
+
 **Query Parameters**
 
 | Parameter        | Description |
@@ -244,11 +245,16 @@ You have three options for [passwordless authentication](/connections/passwordle
 | `send`           | `link` (default) to send a link or `code` to send a verification code |
 | `authParams`     | |
 
-Note the following:
+
+**Remarks**
+
 - When you are sending a link using email, you can append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`, etc.) using the `authParams` object.
 - If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the `/oauth/ro` endpoint, using `email` or `phone_number` as the `username`, and the verification code as the `password`.
 
-For the error code reference for this endpoint refer to [Error Codes for /passwordless/start](#error-codes-for-passwordless-start).
+
+**Error Codes**
+
+For the complete error code reference for this endpoint refer to [Error Codes for /passwordless/start](#error-codes-for-passwordless-start).
 
 
 ### Authenticate User
@@ -281,22 +287,8 @@ curl --request POST \
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
 
-> Response Sample:
-
-```json
-[
-  {
-    "id": 1
-  },
-  {
-    "id": 2
-  }
-]
-```
 
 **Query Parameters**
-
-Depending on the method you choose to get the verification code, some query parameters vary.
 
 | Parameter        |Description |
 |:-----------------|:------------|
@@ -306,6 +298,7 @@ Depending on the method you choose to get the verification code, some query para
 | `username`      | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
 | `password`      | The user's verification code.  |
 | `scope`          | `openid or openid profile email` |
+
 
 ## Enterprise (SAML and Others)
 
@@ -337,6 +330,7 @@ curl --request POST \
 
 Use the endpoint `GET https://${account.namespace}/authorize` for passive authentication. The user will be redirected (`302` redirect) to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
 
+
 **Query Parameters**
 
 | Parameter        | Description |
@@ -347,7 +341,9 @@ Use the endpoint `GET https://${account.namespace}/authorize` for passive authen
 | `redirect_uri`   | `http://localhost/callback` |
 | `state`          | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
 
-Note the following:
+
+**Remarks**
+
 - If no `connection` is specified, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget.
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 - Additional parameters can be sent that will be passthrough to the provider.
