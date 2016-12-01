@@ -44,3 +44,10 @@ Given a user's credentials, and a `connection`, this endpoint will create a new 
 | `email`          | the user's email address |
 | `password `      | the user's desired password |
 | `connection`     | the name of the database configured to your client |
+
+
+**More Information**
+
+- [Password Strength in Auth0 Database Connections](/connections/database/password-strength)
+- [Password Options in Auth0 Database Connections](/connections/database/password-options)
+- [Adding Username for Database Connections](/connections/database/require-username)

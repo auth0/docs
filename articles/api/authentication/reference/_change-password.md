@@ -45,3 +45,5 @@ Given a user's `email` address and a `connection`, Auth0 will send a change pass
 **More Information**
 
 - [Changing a User's Password](/connections/database/password-change)
+- [Password Strength in Auth0 Database Connections](/connections/database/password-strength)
+- [Password Options in Auth0 Database Connections](/connections/database/password-options)

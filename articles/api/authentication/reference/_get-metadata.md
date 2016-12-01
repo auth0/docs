@@ -24,6 +24,9 @@ This endpoint returns the SAML 2.0 metadata.
 |:-----------------|:------------|
 | `client_id`      | the `client_id` of your app |
 
+**More Information**
+- [SAML](/protocols/saml)
+
 ## WS-Federation
 
 <h5 class="code-snippet-title">Examples</h5>
@@ -41,3 +44,6 @@ curl --request GET \
 ```
 
 This endpoint returns the WS-Federation metadata.
+
+**More Information**
+- [WS-Federation](/protocols/ws-fed)
