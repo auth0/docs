@@ -46,30 +46,36 @@ Although you cannot alter Lock's behavior, you can configure several [basic opti
 Consider using **Lock** if:
 
 * You like structure, look, and feel of **Lock**
-* You prefer an easier implementation
-* Your process includes many of the use cases that **Lock** handles out of the box, such as Enterprise logins, databases with password policies, sign up and password reset, authentication with social providers, and avatars
+* You prefer a quicker and easier implementation of Auth0 and a ready-made responsive UI
+* Your process includes many of the use cases that **Lock** handles out of the box:
+  * Enterprise logins
+  * Databases with password policies
+  * User signup and password reset
+  * Authentication using social providers
+  * Avatars
 * You want a login form that can be reused in multiple areas
 
 ## Custom User Interface
 
-If the requirements of your app cannot be met by the standardized behavior of **Lock**, or if you have a complex custom authentication process, a custom user interface is needed.
+If the requirements of your app cannot be met by the standardized behavior of **Lock**, or if you have a complex custom authentication process, a custom user interface is needed. You also might prefer this option if you already have a user interface which you would prefer to keep.
 
-With Auth0's library for [Web](/libraries/auth0js), or with native libraries for [iOS](/libraries/auth0-swift) or [Android](/libraries/auth0-android), you can customize the behavior and flow of the process used to trigger signup and authentication. You an also go directly to the [Authentication API](/auth-api), without any wrapper at all.
+With Auth0's library for [Web](/libraries/auth0js), or with native libraries for [iOS](/libraries/auth0-swift) or [Android](/libraries/auth0-android), you can customize the behavior and flow of the process used to trigger signup and authentication. You an also directly use the [Authentication API](/auth-api), without any wrapper at all, if you so choose.
 
 ![](/media/articles/libraries/lock-vs-customui/customui.png)
 
-Unlike with **Lock**, neither of these options includes a user interface. You will have complete control over the user experience for sign up and authentication flow, and for the UI aspects of layout, look and feel, branding, internationalization, RTL support, and more.
+Unlike with **Lock**, neither of these options includes a user interface. You will have complete control over the user experience for signup and authentication flow, and for the UI aspects of layout, look and feel, branding, internationalization, RTL support, and more.
 
 ### When to Use a Custom User Interface
 
 Consider implementing a custom user interface in conjunction with an Auth0 library or the Authentication API for your app if:
 
 * You have strict requirements for the appearance of the user interface
-* You are comfortable with HTML, CSS, and JavaScript
+* You have strict requirements for file sizes - the Auth0 libraries are significantly smaller than Lock, and if you instead choose to deal with the API directly, that would require add no additional weight.
+* You are comfortable with HTML, CSS, and JavaScript - you'll be creating your own UI
 * You only need to handle username/password and social provider authentication
 * You have multiple database or Active Directory Connections
 
-## See also
+## See Also
 
 * [What is SSO](/sso)
 * [Single Sign On with username/password logins](/sso/sso-username-password)
