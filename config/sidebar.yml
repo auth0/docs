@@ -531,6 +531,8 @@ appliance:
         url: /appliance/modules
       - title: Webtasks
         url: /appliance/webtasks
+      - title: Extensions
+        url: /appliance/extensions
       - title: Disaster Recovery
         url: /appliance/geo-ha/disaster-recovery
       - title: Release Notes
