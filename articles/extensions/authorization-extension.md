@@ -238,6 +238,8 @@ function (user, context, callback) {
 }
 ```
 
+> Note: For this to work you must enable "Roles" under the "Token Contents" section and publish the rule. Then add this rule after the generated "auth0-authorization-extension" rule.
+
 ## Import/Export Authorization Data
 
 You can import new data or export exisiting authorization data with a JSON file. This can be useful when moving over an environment, but remember roles and permissions are linked to specific clients, so you will need to update to the correct **applicationId** when moving environments.
