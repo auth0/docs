@@ -28,7 +28,7 @@ curl --request POST \
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.
 
 
-**Query Parameters**
+### Query Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -38,13 +38,13 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 | `additionalParameters` | "response_type": "code", "state": "" |
 
 
-**Remarks**
+### Remarks
 
 - This endpoint can only be used with **Global Client** credentials.
 - To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional impersonated and impersonator properties. For example:
 `"impersonated": true, "impersonator": {"user_id": "auth0|...", "email": "admin@example.com"}`
 
 
-**More Information**
+### More Information
 
 - [Impersonation](/user-profile/user-impersonation)

@@ -38,7 +38,7 @@ auth0.getUserInfo(access_token, function (err, profile) {
 Given the Auth0 `access token` obtained during login, this endpoint returns a user's profile.
 
 
-**Query Parameters**
+### Query Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|

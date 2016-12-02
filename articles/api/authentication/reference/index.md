@@ -7,11 +7,15 @@ title: Authorization API Explorer
 </div>
 
 <div class="api-section" data-section="none">
-  <%= include('./_authentication') %>
+  <%= include('./_login') %>
 </div>
 
 <div class="api-section" data-section="none">
   <%= include('./_logout') %>
+</div>
+
+<div class="api-section" data-section="none">
+  <%= include('./_passwordless') %>
 </div>
 
 <div class="api-section" data-section="none">
@@ -23,15 +27,7 @@ title: Authorization API Explorer
 </div>
 
 <div class="api-section" data-section="none">
-  <%= include('./_get-metadata') %>
-</div>
-
-<div class="api-section" data-section="none">
   <%= include('./_userinfo') %>
-</div>
-
-<div class="api-section" data-section="none">
-  <%= include('./_api-authz') %>
 </div>
 
 <div class="api-section" data-section="none">
@@ -54,6 +50,27 @@ title: Authorization API Explorer
   <%= include('./_delegation') %>
 </div>
 
-<div class="api-section" data-section="none">
-  <%= include('./_errors') %>
+<span data-section-label="api-authz">API Authorization</span>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_authz-client') %>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_get-token') %>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_get-token-info') %>
+</div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_resource-owner') %>
+</div>
+
+<span data-section-label="errors">Errors</span>
+<div class="api-section" data-section="errors">
+ <%= include('./errors/_errors') %>
+</div>
+<div class="api-section" data-section="errors">
+ <%= include('./errors/_oauth-ro') %>
+</div>
+<div class="api-section" data-section="errors">
+ <%= include('./errors/_passwordless-start') %>
 </div>
