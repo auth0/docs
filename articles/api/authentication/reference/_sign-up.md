@@ -66,7 +66,7 @@ curl --request POST \
 Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication. This endpoint only works for database connections.
 
 
-**Query Parameters**
+### Query Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -76,7 +76,7 @@ Given a user's credentials, and a `connection`, this endpoint will create a new 
 | `connection`     | the name of the database configured to your client |
 
 
-**More Information**
+### More Information
 
 - [Password Strength in Auth0 Database Connections](/connections/database/password-strength)
 - [Password Options in Auth0 Database Connections](/connections/database/password-options)

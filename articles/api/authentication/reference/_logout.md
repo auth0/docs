@@ -47,7 +47,7 @@ $('.logout-dbconn').click(function() {
 Logout the user from the identity provider. If you specify a `returnTo` parameter, we will redirect to the URL specified after the logout. This URL should be included in any of the `Allowed Logout URLs` list. There is a list at the application level (you need to use the `client_id` parameter to select the desired application's `Allowed Logout URLs` list) and a list at the Account level.
 
 
-**Query Parameters**
+### Query Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -55,11 +55,11 @@ Logout the user from the identity provider. If you specify a `returnTo` paramete
 | `client_id`      | The `client_id` of your app (optional) |
 
 
-**Remarks**
+### Remarks
 
 - If the `client_id` parameter is included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the client level (see [Setting Allowed Logout URLs at the App Level](/logout#setting-allowed-logout-urls-at-the-app-level)).
 - If the `client_id` parameter is NOT included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the account level (see [Setting Allowed Logout URLs at the Account Level](/logout#setting-allowed-logout-urls-at-the-account-level)).
 - Although this is not common practice, you can force the user to also log out of their identity provider. To do this add a `federated` querystring parameter to the logout URL: `https://${account.namespace}/v2/logout?federated`
 
-**More Information**
+### More Information
 - [Logout](/logout)

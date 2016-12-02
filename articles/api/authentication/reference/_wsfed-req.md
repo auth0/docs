@@ -1,5 +1,7 @@
 # WS-Federation Request
 
+## Accept Request
+
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
@@ -17,7 +19,7 @@ curl --request GET \
 This endpoint accepts a WS-Federation request to initiate a login.
 
 
-**Query Parameters**
+### Query Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -28,13 +30,34 @@ This endpoint accepts a WS-Federation request to initiate a login.
 | `wreply`         | the callback URL (optional) |
 
 
-**Remarks**
+### Remarks
 
 - The `wtrealm` parameter must be in one of these formats:
   - `urn:clientID` (e.g. urn:${account.client_id})
-  - If this parameter does not begin with a urn, the `client.clientAliases` array is used for look-up. (This can only be set with the [/api/v2/clients](/api/management/v2#!/Clients/get_clients) Management API)
+  - If this parameter does not begin with a urn, the `client.clientAliases` array is used for look-up. This can only be set with the [/api/v2/clients](/api/management/v2#!/Clients/get_clients) Management API.
 - The `whr` parameter is mapped to the connection like this: `urn:{connection_name}`. For example, `urn:google-oauth2` indicates login with Google. If there is no `whr` parameter included, the user will be directed to the [Auth0 Login Page](/login_page).
 
 
-**More Information**
+### More Information
+- [WS-Federation](/protocols/ws-fed)
+
+## Get Metadata
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://${account.namespace}/wsfed/{client-id}/FederationMetadata/2007-06/FederationMetadata.xml
+```
+
+```shell
+curl --request GET \
+  --url 'https://${account.namespace}/wsfed/{client-id}/FederationMetadata/2007-06/FederationMetadata.xml'
+```
+
+```javascript
+```
+
+This endpoint returns the WS-Federation metadata.
+
+### More Information
 - [WS-Federation](/protocols/ws-fed)
