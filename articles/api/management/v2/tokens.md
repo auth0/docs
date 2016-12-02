@@ -57,8 +57,6 @@ You should be able to scroll down to see your `access_token` property from the t
 Generating tokens through the Management APIv2 explorer will soon be deprecated in favor of the more secure Client Credentials flow.
 :::
 
-An Auth0 Management APIv2 token can be generated on the [Auth0 Management APIv2 explorer](/api/v2) page or it can be created programmatically by building the JWT, including the desired scopes, and signing it with the tenant API key/secret.  You will need to use your Global Client Id and Global Client Secret to generate an API Token.
-
 The [Auth0 Management APIv2 explorer page](/api/v2) is very useful to experiment with Auth0 Management APIv2. Each endpoint shows its required scopes. By clicking the scope, it is automatically added to the token. For example, to make a call to the “List or search users” endpoint, one would click on the `read:users` scope to generate the token before invoking it:
 
 ![](/media/articles/api/tokens/endpoint-scope.png)
