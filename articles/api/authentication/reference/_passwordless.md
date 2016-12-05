@@ -15,7 +15,7 @@ Content-Type: 'application/json'
   "email": "", //set for connection=email
   "phone_number": "". //set for connection=sms
   "send": "link or code", //if left null defaults to link
-  "authParams":
+  "authParams": ""
 }
 ```
 
