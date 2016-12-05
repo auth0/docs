@@ -72,7 +72,7 @@ Click on the *Settings* tab of your [API](${manage_url}/#/apis) to review the av
 
 - **Token Expiration (Seconds)**: The amount of time (in seconds) before the Auth0 `access_token` expires.
 
-- **Allow Skipping User Consent**: When a First Party client requests authorized access against an API with the *Allow Skipping User Consent* flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your Client's **callbackURL** is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
+- **Allow Skipping User Consent**: When a first party client requests authorized access against an API with the *Allow Skipping User Consent* flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your Client's **callbackURL** is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
 
 - **Allow Offline Access**: If this setting is enabled, Auth0 will allow clients to ask for Refresh Tokens for this API.
 
