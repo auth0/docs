@@ -6,24 +6,14 @@ budicon: 715
 
 This quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your Java Spring Security API.
 
-::: panel-info System Requirements
-These tutorials and seed projects have been tested with the following:
-- Java 7 or above
-- Maven 3.0.x or above
-:::
 
-## Seed & Samples
+## Seed and Samples
 
 If you prefer to follow along with this quickstart you can download the [seed project](https://github.com/auth0-samples/auth0-spring-security-api-sample/tree/master/00-Starter-Seed). The seed project is just a basic Spring Security API.
 
 The final project after each of the steps is also available in the [Sample repository](https://github.com/auth0-samples/auth0-spring-security-api-sample). You can find the final result for each step in the relevant folder inside the repository.
 
-## Create a Client
-
-<%= include('../../_includes/_new_app') %>_
-
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
-
+<%= include('../../_includes/_new_app') %>
 
 ## Setup dependencies
 

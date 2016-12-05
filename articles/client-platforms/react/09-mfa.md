@@ -18,11 +18,11 @@ budicon: 243
 
 In this tutorial, you will learn how to enable MFA in the ReactJS application created in previous steps, such as [Login](/quickstart/spa/react/01-login).
 
-## 1. Enable Multifactor Authentication in Your Account
+## Enable Multifactor Authentication in Your Account
 
 <%= include('../_includes/_mfa-enable') %>
 
-## 2. Login
+## Login
 
 <%= include('../_includes/_mfa-login', { loginlink: '/quickstart/spa/react/01-login' }) %>
 

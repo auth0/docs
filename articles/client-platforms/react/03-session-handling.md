@@ -17,7 +17,7 @@ The previous steps of this tutorial explain how to implement login using either 
 
 Usually, when a user logs in, you will want to create a session for that user and also allow the user to logout. The following steps show you how to implement this.
 
-## 1. Create a Session
+## Create a Session
 
 Once the user is logged in, you can create a session for that user by storing the `idToken` attribute, which is passed as a Lock `authenticated` event callback parameter.
 
@@ -82,7 +82,7 @@ In the code, you see the `login` method using `Lock` to show the sign in window,
 
 However, just checking if there is a stored token is not enough to validate the session because the returned [JSON Web Token](/jwt) has an expiration date. The next section explains how to properly validate the session.
 
-## 2. Check if the Session is Valid
+## Check if the Session is Valid
 
 In order to know if a user is authenticated, you need to make sure the `idToken` is stored and still valid. A token is valid if its expiration date has not passed.
 
@@ -139,7 +139,7 @@ export default class AuthService {
 }
 ```
 
-## 3. Logout Button
+## Logout Button
 
 In Home view, you may want to show a logout button that destroys the user session and redirects to the `/login` page. Since the `AuthService` helper class already includes a `logout` function, you can simply hook it to a logout button.
 

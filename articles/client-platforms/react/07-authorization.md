@@ -15,11 +15,11 @@ budicon: 500
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/react/06-rules' }) %>_
 
-## 1. Create a Rule to Assign Roles
+## Create a Rule to Assign Roles
 
 <%= include('../_includes/_authorization-create-rule') %>_
 
-## 2. Check if a User's Role is Present
+## Check if a User's Role is Present
 
 After creating the new rule, update the `AuthService` helper class with a new `isAdmin` method. This method will be useful in other parts of your application. It returns `true` for admin users and `false` otherwise.
 
@@ -108,7 +108,7 @@ export default makeMainRoutes
 
 Another feature introduced in the above code is correct redirection after a successful login. Now the current URL is stored as a local storage item before the user is directed to the login page. Later, the value is retrieved in the `redirectAfterLogin` method.
 
-## 4. Admin and Unauthorized Views
+## Admin and Unauthorized Views
 
 As a final step, add View Components for the two new routes: `Admin` and `Unauthorized` as shown below:
 

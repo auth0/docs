@@ -20,10 +20,6 @@ If you would like to follow along with this quickstart, you can download a blank
 
 Each of the steps in this guide contains a sample project download that shows the completion of the step. These projects can also be downloaded from the [sample repository](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample) where you can find the final result for each step in the relevant folder.
 
-## Create an Application
-
 <%= include('../../_includes/_new_app') %>
-
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 <%= include('_includes/_setup') %>

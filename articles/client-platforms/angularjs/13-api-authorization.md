@@ -21,8 +21,6 @@ description: This tutorial demonstrates how to use API authorization
 
 <%= include('../../_includes/_configure_oauth2aas') %>
 
-## Create an Application
-
 <%= include('../../_includes/_new_app_no_sample') %>
 
 ![App Dashboard](/media/articles/angularjs/spa_client_create.png)
