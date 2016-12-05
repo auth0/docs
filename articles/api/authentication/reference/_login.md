@@ -8,12 +8,17 @@
 GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
-  "response_type": {code or token},
+  "response_type": "code OR token",
   "client_id": "${account.client_id}",
   "connection": "",
   "redirect_uri": "http://localhost/callback",
   "state": "",
-  "additional-parameter": ""
+  "additional-parameter": [
+         {
+            "parameter-1" : "value-1",
+            "parameter-2" : "value-2"
+         }
+  ]
 }
 ```
 
@@ -21,7 +26,7 @@ Content-Type: 'application/json'
 curl --request GET \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"response_type":"code or token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
+  --data '{"response_type":"code OR token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":"{"parameter-1":"value-1","parameter-2":"value-2"}"}'
 ```
 
 ```javascript
@@ -31,7 +36,7 @@ curl --request GET \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
     callbackURL:  '{YOUR APP URL}',
-    responseType: 'token'
+    responseType: 'code OR token'
   });
 </script>
 
@@ -94,17 +99,17 @@ Social connections only support browser-based (passive) authentication because m
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`  | `code` for server side flows, `token` for client side flows |
-| `client_id`      | the `client_id` of your client |
+| `response_type`  | Use `code` for server side flows and `token` for client side flows |
+| `client_id`      | The `client_id` of your client |
 | `connection`     | The name of an identity provider configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
 | `redirect_uri`   | `http://localhost/callback` |
 | `state`          | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
+| `additional-parameter`  | Sent additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
 
 
 ### Remarks
 
 - If `response_type=token`, after the user authenticates on the provider, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
-- Additional parameters can be sent that will be passthrough to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode).
 
 
 ### More Information
@@ -144,9 +149,9 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your app |
-| `access_token`   | the social provider's `access_token` |
-| `connection`     | the name of an identity provider configured to your app |
+| `client_id`      | The `client_id` of your client |
+| `access_token`   | The social provider's `access_token` |
+| `connection`     | The name of an identity provider configured to your app |
 | `scope`          | `openid` or `openid profile email` |
 
 
@@ -170,7 +175,7 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
-  "response_type": {code or token},
+  "response_type": "code OR token",
   "client_id": "${account.client_id}",
   "connection": "",
   "redirect_uri": "http://localhost/callback",
@@ -183,7 +188,7 @@ Content-Type: 'application/json'
 curl --request GET \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"response_type":"code or token", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
+  --data '{"response_type":"code OR token", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
 ```
 
 ```javascript
@@ -233,13 +238,29 @@ $('.login-dbconn').click(function () {
 });
 ```
 
+> RESPONSE SAMPLE:
+
+```json
+//for response_type=token
+{
+  "access_token": "uBqd...",
+  "expires_in": "86400",
+  "token_type": "Bearer"
+}
+
+//for response_type=code
+{
+  "code": "sqJ0QsKIDijvSloK"
+}
+```
+
 Use this endpoint `GET https://${account.namespace}/authorize` for browser based (passive) authentication. It returns a `302` redirect to [Auth0 Login Page](https://auth0.com/#/login_page) that will show the Login Widget where the user can login with email and password.
 
 ### Query Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`  | `code` for server side flows, `token` for client side flows |
+| `response_type`  | Use `code` for server side flows and `token` for client side flows |
 | `client_id`      | The `client_id` of your client |
 | `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
 | `redirect_uri`   | `http://localhost/callback` |
