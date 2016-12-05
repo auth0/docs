@@ -58,8 +58,6 @@ While the Client ID is considered public information, the Client Secret **must b
 
 - **Client Type**: The type of client you are implementing. Depending on which you choose, the available settings differ to show you only the settings applicable to your Client Type. You can change this value at any time by selecting one of the following: Native, Non Interactive Client, Regular Web Application, or Single Page Application.
 
-- **First Party Client**: When a First Party client requests authorized access against an API with the **Allow Skipping User Consent** flag set, the User Consent dialog will not be shown to the final user. Note that if the hostname of your callbackURL is `localhost` or `127.0.0.1` the consent dialog will always be displayed.
-
 - **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
 
 - **Allowed Callback URLs**: Set of URLs to which Auth0 is allowed to redirect the users after they authenticate. You can specify multiple valid URLs by comma-separating them (typically to handle different environments like QA or testing). You can use the star symbol as a wildcard for subdomains (`*.google.com`). Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases.
