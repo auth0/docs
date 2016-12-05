@@ -31,6 +31,24 @@ curl --request POST \
 ```
 
 ```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/json' },
+  body:
+   { grant_type: 'authorization_code',
+     client_id: '${account.clientId}',
+     client_secret: '${account.clientSecret}',
+     code: 'YOUR_AUTHORIZATION_CODE',
+     redirect_uri: 'https://myclientapp.com/callback' },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
 ```
 
 > RESPONSE SAMPLE:
@@ -44,14 +62,14 @@ curl --request POST \
 }
 ```
 
-This is the OAuth 2.0 grant that regular web apps utilize in order to access an API.
+This is the OAuth 2.0 grant that regular web apps utilize in order to access an API. Use this endpoint to exchange an Authorization Code for a Token.
 
 
 ### Query Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | Denotes the flow you are using: `authorization_code`, `client_credentials` or `password`. |
+| `grant_type`     | Denotes the flow you are using. For Authorization Code use  `authorization_code`. |
 | `client_id`      | Your application's Client ID. |
 | `client_secret`  | Your application's Client Secret. |
 | `code`  | The Authorization Code received from the initial `/authorize` call. |
@@ -88,6 +106,18 @@ curl --request POST \
 ```
 
 ```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/json' },
+  body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback", }' };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
 ```
 
 > RESPONSE SAMPLE:
@@ -101,7 +131,7 @@ curl --request POST \
 }
 ```
 
-This is the OAuth 2.0 grant that mobile apps utilize in order to access an API.
+This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. Use this endpoint to exchange an Authorization Code for a Token.
 
 
 
@@ -109,7 +139,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | Denotes the flow you are using: `authorization_code`, `client_credentials` or `password`. |
+| `grant_type`     | Denotes the flow you are using. For Authorization Code (PKCE) use  `authorization_code`. |
 | `client_id`      | Your application's Client ID. |
 | `code`  | The Authorization Code received from the initial `/authorize` call. |
 | `code_verifier` | Cryptographically random key that was used to generate the `code_challenge` passed to `/authorize`. |
@@ -145,6 +175,23 @@ curl --request POST \
 ```
 
 ```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/json' },
+  body:
+   { client_id: '${account.clientId}',
+     client_secret: '${account.clientSecret}',
+     audience: 'API_IDENTIFIER',
+     grant_type: 'client_credentials' },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
 ```
 
 > RESPONSE SAMPLE:
@@ -156,13 +203,13 @@ curl --request POST \
 }
 ```
 
-This is the OAuth 2.0 grant that server processes utilize in order to access an API.
+This is the OAuth 2.0 grant that server processes utilize in order to access an API. Use this endpoint to directly request an `access_token` by using the Client Credentials (a Client Id and a Client Secret).
 
 ### Query Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | Denotes the flow you are using: `authorization_code`, `client_credentials` or `password`. |
+| `grant_type`     | Denotes the flow you are using. For Client Credentials use `client_credentials`. |
 | `client_id`      | Your application's Client ID. |
 | `client_secret`  | Your application's Client Secret. |
 | `audience` | API Identifier that the client is requesting access to. |
@@ -200,6 +247,25 @@ curl --request POST \
 ```
 
 ```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/json' },
+  body:
+   { grant_type: 'password',
+     username: 'user@example.com',
+     password: 'pwd',
+     audience: 'https://someapi.com/api',
+     scope: 'read:sample',
+     client_id: '${account.clientId}' },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
 ```
 
 > RESPONSE SAMPLE:
@@ -218,7 +284,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | Denotes the flow you are using: `authorization_code`, `client_credentials` or `password`. |
+| `grant_type`     | Denotes the flow you are using. For Resource Owner Password use  `password`. |
 | `client_id`      | Your application's Client ID. |
 | `audience` | API Identifier that the client is requesting access to. |
 | `username` | Resource Owner's identifier. |
