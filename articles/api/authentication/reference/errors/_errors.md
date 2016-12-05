@@ -1,6 +1,6 @@
 # Standard Error Responses
 
-The Authentication API may return the following error codes:
+The Authentication API may return the following HTTP Status Codes:
 
 Error Code | Description
 ---------- | -------
