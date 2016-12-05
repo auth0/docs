@@ -28,6 +28,12 @@ curl --request POST \
 ```javascript
 ```
 
+> RESPONSE SAMPLE:
+
+```json
+https://mpaktiti.auth0.com/users/IMPERSONATOR_ID/impersonate?&bewit=WFh0MUtm...
+```
+
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.
 
 
