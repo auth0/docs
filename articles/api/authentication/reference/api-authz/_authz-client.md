@@ -25,12 +25,12 @@ Based on the OAuth 2.0 flow you are implementing, the parameters slightly change
 GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
-  "audience": {API_AUDIENCE},
-  "scope": {SCOPE},
+  "audience": "API_AUDIENCE",
+  "scope": "SCOPE",
   "response_type": "code",
   "client_id": "${account.client_id}",
-  "redirect_uri": {CALLBACK_URL},
-  "state": {OPAQUE_VALUE}
+  "redirect_uri": "CALLBACK_URL",
+  "state": "OPAQUE_VALUE"
 }
 ```
 
@@ -38,7 +38,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"audience":{API_AUDIENCE},"scope":{SCOPE},"response_type":"code","client_id": "${account.client_id}","redirect_uri":{CALLBACK_URL},"state":{OPAQUE_VALUE}}'
+  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"code","client_id": "${account.client_id}","redirect_uri":"CALLBACK_URL","state":"OPAQUE_VALUE"}'
 ```
 
 ```javascript
@@ -71,13 +71,13 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
-  "audience": {API_AUDIENCE},
-  "scope": {SCOPE},
+  "audience": "API_AUDIENCE",
+  "scope": "SCOPE",
   "response_type": "code",
   "client_id": "${account.client_id}",
-  "code_challenge": {CODE_CHALLENGE},
+  "code_challenge": "CODE_CHALLENGE",
   "code_challenge_method": "S256",
-  "redirect_uri": {CALLBACK_URL}
+  "redirect_uri": "CALLBACK_URL"
 }
 ```
 
@@ -85,7 +85,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"audience":{API_AUDIENCE},"scope":{SCOPE},"response_type":"code","client_id": "${account.client_id}","code_challenge":{CODE_CHALLENGE},"code_challenge_method":"S256","redirect_uri":{CALLBACK_URL}}'
+  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"code","client_id": "${account.client_id}","code_challenge":"CODE_CHALLENGE","code_challenge_method":"S256","redirect_uri":"CALLBACK_URL"}'
 ```
 
 ```javascript
@@ -122,13 +122,13 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
-  "audience": {API_AUDIENCE},
-  "scope": {SCOPE},
-  "response_type": {token or id_token token},
+  "audience": "API_AUDIENCE",
+  "scope": "SCOPE",
+  "response_type": "token OR id_token token",
   "client_id": "${account.client_id}",
-  "redirect_uri": {CALLBACK_URL},
-  "state": {OPAQUE_VALUE},
-  "nonce": {CRYPTOGRAPHIC_NONCE}
+  "redirect_uri": "CALLBACK_URL",
+  "state": "OPAQUE_VALUE",
+  "nonce": "CRYPTOGRAPHIC_NONCE"
 }
 ```
 
@@ -136,7 +136,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"audience":{API_AUDIENCE},"scope":{SCOPE},"response_type":"token or id_token token","client_id": "${account.client_id}","redirect_uri":{CALLBACK_URL},"state":{OPAQUE_VALUE},"nonce":{CRYPTOGRAPHIC_NONCE}}'
+  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"token OR id_token token","client_id": "${account.client_id}","redirect_uri":"CALLBACK_URL","state":"OPAQUE_VALUE","nonce":"CRYPTOGRAPHIC_NONCE"}'
 ```
 
 ```javascript

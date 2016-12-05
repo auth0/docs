@@ -396,7 +396,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
-  "response_type": {code or token},
+  "response_type": "code OR token",
   "client_id": "${account.client_id}",
   "connection": "",
   "redirect_uri": "http://localhost/callback",
@@ -409,7 +409,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"response_type":"code or token", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
+  --data '{"response_type":"code OR token", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
 ```
 
 ```javascript
@@ -419,7 +419,7 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
     callbackURL:  '{YOUR APP URL}',
-    responseType: 'token'
+    responseType: 'code OR token'
   });
 </script>
 

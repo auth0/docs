@@ -8,9 +8,12 @@ Content-Type:   'application/json'
 Authorization:  'Bearer {access_token}'
 {
   protocol:             "",
-  impersonator_id:      "github|11715799", // Maria Paktiti
+  impersonator_id:      "",
   client_id:            "",
-  additionalParameters: "response_type": "code", "state": ""
+  additionalParameters: [
+    "response_type": "code",
+    "state": ""
+  ]
 }
 ```
 

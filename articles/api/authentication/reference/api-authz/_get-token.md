@@ -130,7 +130,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API.
 POST https://${account.namespace}/oauth/token
 Content-Type: 'application/json'
 {
-  audience: "{YOUR_API_IDENTIFIER}",
+  audience: "YOUR_API_IDENTIFIER",
   grant_type: "client_credentials",
   client_id: "${account.clientId}",
   client_secret: "${account.clientSecret}"
@@ -141,7 +141,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"audience":"{YOUR_API_IDENTIFIER}", "grant_type":"client_credentials", "client_id":"${account.clientId}", "client_secret":"${account.clientSecret}"}'
+  --data '{"audience":"YOUR_API_IDENTIFIER", "grant_type":"client_credentials", "client_id":"${account.clientId}", "client_secret":"${account.clientSecret}"}'
 ```
 
 ```javascript
@@ -184,10 +184,10 @@ POST https://${account.namespace}/oauth/token
 Content-Type: 'application/json'
 {
   "grant_type":"password",
-  "username":{RESOURCE_OWNER_USERNAME},
-  "password":{RESOURCE_OWNER_PASSWORD},
-  "audience":{YOUR_API_IDENTIFIER},
-  "scope":{SCOPES},
+  "username":"RESOURCE_OWNER_USERNAME",
+  "password":"RESOURCE_OWNER_PASSWORD",
+  "audience":"YOUR_API_IDENTIFIER",
+  "scope":"SCOPES",
   "client_id": ${account.clientId}
 }
 ```
@@ -196,7 +196,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url '${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"password", "username":{RESOURCE_OWNER_USERNAME}, "password":{RESOURCE_OWNER_PASSWORD}, "audience":{YOUR_API_IDENTIFIER}, "scope":{SCOPES}, "client_id": ${account.clientId}}'
+  --data '{"grant_type":"password", "username":"RESOURCE_OWNER_USERNAME", "password":"RESOURCE_OWNER_PASSWORD", "audience":"YOUR_API_IDENTIFIER", "scope":"SCOPES", "client_id": ${account.clientId}}'
 ```
 
 ```javascript
