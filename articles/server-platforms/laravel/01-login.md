@@ -183,7 +183,7 @@ public function register()
 
     $this->app->bind(
         '\Auth0\Login\Contract\Auth0UserRepository',
-        '\App\Repository\MyCustomUserRepository');
+        \App\Repository\MyCustomUserRepository::class);
 
 }
 
