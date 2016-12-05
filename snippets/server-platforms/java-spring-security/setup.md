@@ -8,7 +8,7 @@ auth0.securedRoute: /portal/*
 auth0.loginCallback: /callback
 auth0.loginRedirectOnSuccess: /portal/home
 auth0.loginRedirectOnFail: /login
-auth0.base64EncodedSecret: true
+auth0.base64EncodedSecret: false
 auth0.authorityStrategy: ROLES
 auth0.servletFilterEnabled: false
 auth0.defaultAuth0WebSecurityEnabled: false

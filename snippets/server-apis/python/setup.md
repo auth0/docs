@@ -1,6 +1,5 @@
 ```python
 import jwt
-import base64
 import os
 
 from functools import wraps
@@ -40,7 +39,7 @@ def requires_auth(f):
     try:
         payload = jwt.decode(
             token,
-            base64.b64decode('${account.clientSecret}'.replace("_","/").replace("-","+")),
+            '${account.clientSecret}',
             audience='${account.clientId}'
         )
     except jwt.ExpiredSignature:
