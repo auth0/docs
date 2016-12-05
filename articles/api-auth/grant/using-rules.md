@@ -64,7 +64,7 @@ To test your newly-created rule and webtask, make the following `POST` call:
 ```har
 {
   "method": "POST",
-  "url": "https://${account.namespace}.auth0.com/oauth/token",
+  "url": "https://${account.namespace}/oauth/token",
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ],
