@@ -29,7 +29,7 @@ For some API endpoints, the rate limits are defined per bucket, so the origins o
 
 ### Management API v2
 
-Please note that there is a 50 requests per second limit on all [Management API v2](https://auth0.com/docs/api/management/v2) calls per tenant. The limit is set by tenant and not by endpoint.
+Please note that there is a 50 requests per second limit on all [Management API v2](/api/management/v2) calls per tenant. The limit is set by tenant and not by endpoint.
 
 ## Exceeding the Rate Limit
 
