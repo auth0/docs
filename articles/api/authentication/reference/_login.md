@@ -90,6 +90,22 @@ $('.login-google').click(function () {
 });
 ```
 
+> RESPONSE SAMPLE:
+
+```json
+//for response_type=token
+{
+  "access_token": "uBqd...",
+  "expires_in": "86400",
+  "token_type": "Bearer"
+}
+
+//for response_type=code
+{
+  "code": "7bhYf..."
+}
+```
+
 Use the endpoint `GET https://${account.namespace}/authorize` to authenticate a user with a social provider. This endpoint will return a `302` redirect to the social provider specified in `connection`.
 
 Social connections only support browser-based (passive) authentication because most social providers don't allow a username and password to be entered into applications that they don't own. Therefore, the user will be redirected to the provider's sign in page.
@@ -140,6 +156,16 @@ curl --request POST \
 ```
 
 ```javascript
+```
+
+> RESPONSE SAMPLE:
+
+```JSON
+{
+  "id_token": "eyJ0eXAiOiJKV1Qi...",
+  "access_token": "A9CvPwFojaBI...",
+  "token_type": "bearer"
+}
 ```
 
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
@@ -429,6 +455,16 @@ $('.login-microsoft').click(function () {
     connection: 'contoso.com'
   });
 });
+```
+
+> RESPONSE SAMPLE:
+
+```json
+{
+  "id_token": "eyJ0eXAiOiJKV1Qi...",
+  "access_token": "sMjTAT...",
+  "token_type": "bearer"
+}
 ```
 
 Use the endpoint `GET https://${account.namespace}/authorize` for passive authentication. The user will be redirected (`302` redirect) to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
