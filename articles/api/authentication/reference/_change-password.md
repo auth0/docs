@@ -48,23 +48,29 @@ $('.change_password').click(function () {
 
 **POST** `https://${account.namespace}/dbconnections/change_password`
 
+> RESPONSE SAMPLE:
+
+```JSON
+"We've just sent you an email to reset your password."
+```
+
 Given a user's `email` address and a `connection`, Auth0 will send a change password email.
 
 ### Query Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your client |
-| `email`          | the user's email address |
-| `password `      | the new password (optional) |
-| `connection`     | the name of the database connection configured to your client |
+| `client_id`      | The `client_id` of your client |
+| `email`          | The user's email address |
+| `password `      | The new password. See the next paragraph for the case when a password can be set. |
+| `connection`     | The name of the database connection configured to your client |
 
 ### Remarks
 
 - This endpoint only works for database connections.
+- If you are using Lock version 9 and above, **do not set the password field** or you will receive a *password is not allowed* error. You can only set the password if you are using Lock version 8.
 - If a password is provided, when the user clicks on the confirm password change link, the new password specified in this POST will be set for this user.
 - If a password is NOT provided, when the user clicks on the password change link they will be redirected to a page asking them for a new password.
-- If you are using Lock version 9 and above, do not set the password field, or you will receive a *password is not allowed* error. You can only set the password if you are using Lock version 8.
 
 
 ### More Information

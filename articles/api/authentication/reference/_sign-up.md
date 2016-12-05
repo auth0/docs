@@ -57,9 +57,9 @@ curl --request POST \
 
 ```json
 {
-  "_id": "",
+  "_id": "58457fe6b27...",
   "email_verified": false,
-  "email": ""
+  "email": "test.account@signup.com"
 }
 ```
 

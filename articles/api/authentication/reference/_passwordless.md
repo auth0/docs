@@ -85,6 +85,17 @@ $('.request-sms-code').click(function (ev) {
 });
 ```
 
+> RESPONSE SAMPLE:
+
+```JSON
+//for connection=email
+{
+  "_id": "5845818fe...",
+  "email": "test.account@passwordless.com",
+  "email_verified": false
+}
+```
+
 You have three options for [passwordless authentication](/connections/passwordless):
 - Send a verification code using email.
 - Send a link using email.
