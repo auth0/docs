@@ -198,6 +198,12 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `scope`          | `openid or openid profile email` |
 
 
+### Remarks
+
+- The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
+- The `email` scope value requests access to the `email` and `email_verified` Claims.
+
+
 ### More Information
 - [Passwordless Authentication](/connections/passwordless)
 - [Authenticate users with using Passwordless Authentication via Email](/connections/passwordless/email)

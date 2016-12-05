@@ -149,6 +149,13 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 | `connection`     | the name of an identity provider configured to your app |
 | `scope`          | `openid` or `openid profile email` |
 
+
+### Remarks
+
+- The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
+- The `email` scope value requests access to the `email` and `email_verified` Claims.
+
+
 ### More Information
 - [Identity Provider Access Tokens](/tokens/idp)
 - [Call an Identity Provider API](/tutorials/calling-an-external-idp-api)

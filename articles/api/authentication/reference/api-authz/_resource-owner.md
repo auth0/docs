@@ -52,6 +52,8 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 ### Remarks
 
 - This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
+- The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
+- The `email` scope value requests access to the `email` and `email_verified` Claims.
 
 
 ### More Information
