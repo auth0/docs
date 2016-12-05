@@ -38,10 +38,6 @@ The purpose of this call is to obtain consent from the user to invoke the Resour
 
 Note that if you alter the value in `scope`, the Authorization Server will require consent to be given again.
 
-::: panel-warning A Note About Consent
-If your client is configured as a First Party Client and the "Allow Skipping User Consent" flag on the Resource Server (API) is checked in Dashboard, the user will not be prompted for consent. In this case, consent is technically being provided in the Dashboard by the tenant admin.
-:::
-
 ## Exchanging the Authorization Code for an Access Token
 
 Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to POST to the OAuth Token URL:
