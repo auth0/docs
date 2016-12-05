@@ -20,4 +20,4 @@ Then you can enable the available extensions [in the dashboard](${manage_url}/#/
 
 ## Available Extensions in Appliance
 
-The **Delegated Administration Extension** and **Authorization Extension** and **not** available in the appliance. The other extensions are available to use as you would in the cloud.
+The **Delegated Administration Extension** and **Authorization Extension** are **not** available in the appliance. The other extensions are available to use as you would in the cloud.
