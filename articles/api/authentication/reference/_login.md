@@ -317,7 +317,21 @@ $('.login-dbconn').click(function () {
 });
 ```
 
+> RESPONSE SAMPLE:
+
+```json
+{
+  "id_token": "eyJ0eXAiOiJKV1Qi...",
+  "access_token": "sMjTAT...",
+  "token_type": "bearer"
+}
+```
+
 **POST https://${account.namespace}/oauth/ro**
+
+::: panel-warning Depreciation Notice
+This endpoint will soon be depreciated. The `/oauth/token { grant_type: password }` should be used instead.
+:::
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
 
@@ -326,12 +340,12 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id`      | the `client_id` of your client |
-| `username`       | |
-| `password`       | |
+| `username`       | username/email of the user to login |
+| `password`       | password of the user to login |
 | `id_token`       | |
-| `connection`     | the name of the connection configured to your client |
-| `grant_type`     | |
-| `scope`          | |
+| `connection`     | The name of the connection configured to your client |
+| `grant_type`     | Set to `password` |
+| `scope`          | Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
 | `device`         | |
 
 
