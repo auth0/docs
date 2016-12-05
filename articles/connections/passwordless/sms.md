@@ -18,8 +18,8 @@ seo_alias: sms
 
 ## Web Tutorials
 
- - [Single-page Applications](spa-sms)
- - [Regular Web Applications](regular-web-app-sms)
+- [Single-page Applications](/connections/passwordless/spa-sms)
+- [Regular Web Applications](/connections/passwordless/regular-web-app-sms)
 
 ## Mobile Tutorials
 
