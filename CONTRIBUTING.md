@@ -77,23 +77,25 @@ Additionally, you can send variables to the included document:
 Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec. Additionally, there are a few custom markdown features available as described below.
 
 ### Headings
-One common mistake with formatting of headings is to not include a space between the hashes and the text. Some markdown processors allow this, but we do not. You must put a space as shown below.
-
-INVALID: `#My Heading`
+A common mistake using headings is avoiding the separation space between the hashes and the text. The following examples show our accepted format.
 
 VALID: `# My Heading`
 
+INVALID: `#My Heading`
+
+
 ### Warning banner
-You can add a warning banner to the top of a page to notify that a page is deprecated or other similar messages.
+To notify a deprecated page or other similar message, it is a good practice to add a warning banner in the top section of the page. The following example shows how to do it.
 
 ```
 ::: warning-banner
-You message here
+Your message here
 :::
 ```
 
 ### Panels
-Panels can be useful to separate information from the main body of a document.
+Panels are useful to separate different blocks of information from the main body of the document like we did in the following examples.
+
 
 ```
 ::: panel-primary This is a panel
@@ -118,9 +120,9 @@ Panel content
 ```
 
 ### HTTP Request Snippets
-You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
+It is possible to add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an  HTTP request example availible in different languages. This action generates a tab view showing the HTTP request in the selected languages.
 
-**NOTE:** You need to set the language type to `har` for this to work. View this raw markdown document for an example.
+**NOTE:** To accomplish this, you must set the language tipe to `har` as shown in the lines bellow.
 
 
 ```har
@@ -155,7 +157,7 @@ You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spe
 * comment [string, optional] (new in 1.2) - A comment provided by the user or the application.
 
 #### Escaping Strings
-Occasionally you will need to use strings that contain the characters that are used for template replacement. The examples of this are `${example}`, `<% example %>` and `<%= example %>`. If you try to include these in your doc or a code snippet the document will fail to render because our template engine will try to replace your variable, i.e. `example`. However, you can include these by escaping them as shown below.
+Occasionally, there will be strings that contain template replacement characters, such as `${example}`, `<% example %>` and `<%= example %>`. To avoid the variables replacement used by our engine. Having this in mind, the correct strings writing should contain scape character such like in the following examples.
 
 Change `${example}` to `<%= "${example}" %>`.
 
@@ -164,41 +166,41 @@ Change `<%= example %>` to `${ "<%= example %>" }`.
 Change `<% example %>` to `${ "<% example %>" }`.
 
 ### Screenshots
-On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, taking into account the following:
+In Mac OSX, the Auth0 interface screenshots must be taken using Chrome considering the following browser facts:
 
- 1. The browser cannot show any plugins, customizations, or bookmarks.
- 1. The browser cannot be in incognito mode.
- 1. The browser should have only one tab open, the one in the screenshot.
- 1. The browser needs to be resized to the standard size. Using the below script:
+ 1. It cannot run any plugins, customizations, or showing bookmarks,
+ 2. Avoid the incognito mode,
+ 3. Only the screenshot tab must be open.
+ 4. The browser needs to be resized to the standard size using the following script:
 
   ```bash
   osascript -e 'tell application "Chrome" to set the bounds of the front window to {100, 150, 1200, 900}'
   ```
- 1. Auth0 screenshots should capture the complete browser window (**Command + Shift + 4**, then press **Space**).
- 1. Use color **#0099CC** for highlights.
- 1. Resize image to a maximum 900px width.
+ 5. Auth0 screenshots must capture the complete browser window (**Command + Shift + 4**, then press **Space**).
+ 6. Use color **#0099CC** for highlights.
+ 7. Resize image to a maximum 900px width.
 
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
 
- **NOTE**: When you use the `Command + Shift + 4 + Space bar` shortcut Mac adds a drop shadow to your screenshot. This is normal and you don't have to remove it.
+ **NOTE**: When you use the `Command + Shift + 4 + Space bar` shortcut, Mac adds a drop shadow to your screenshot. This is normal and you don't have to remove it.
 
 #### Mobile Screenshots
 For mobile screenshots you should use the [Phone Mockup](http://styleguide.auth0.com/#phone-mockup) component from styleguide.
 
 #### Close-ups
-The exception to showing the full browser window is for highlighting a detail as part of a tutorial, for example, to show a field requiring input.
+Browser window close ups are only allowed in those cases where showing a particular section of the screen is neded for instance, in a tutorial to show requiring input field.  
 
-It is often best to shrink the screenshot slightly to avoid having the image of the UI be mistaken for the actual UI.
+As a good practice, it is often better to shrink the screenshot slightly to avoid confusing the UI image with actual UI.
 
 #### Borders
-For close-ups and other screenshots that do not include the browser window, apply a 1px centered border (**select all > edit > stroke**) of color **#cccccc** to keep the image from blending with the background and appearing to float.
+For close-ups and other screenshots that do not include the browser window, apply a 1px centered border (**select all > edit > stroke**) using the  **#cccccc** color to keep the image from blending with the background and appearing to float.
 
 ### Front Matter
-You can set various properties of articles in the front matter of the document. Each document should have the `title` and `description` properties set. You can set other variables depending on the document.
+Every document must have at least the `title` and `description` properties set. The variables must be set in the front matter of the document as shown in the following example:
 
-Example front matter:
+
 ```
 ---
 title: My Document
@@ -207,9 +209,9 @@ description: This is a document
 ```
 
 #### URLs
-Document urls are by default in the same format as the forlder structure after the `articles` folder. So for example if you document is stored at `articles/my-folder/document.md`, the url would be `/docs/my-folder/document`.
+By default, URLs and folder structure after the `articles` folder have the same format. If a document is saved in `articles/my-folder/document.md` its equivalent URL is /docs/my-folder/document`.
 
-If you create a folder that will have multiple articles, the best practice is to set the default document as `index.md`. However, the url must be set in that document to a friendly url. For example, if you have a document `/articles/my-folder/index.md`, you should set the url to be `/my-folder`.
+If you create a folder that will contain several articles, the best practice is to set the default document as `index.md`. However, the url must be set in that document to a friendly url. For example, if you have a document at `/articles/my-folder/index.md`, you should set the url as `/my-folder`.
 
 URL Front Matter
 ```
