@@ -8,7 +8,7 @@
 GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
-  "response_type": {code or token},
+  "response_type": "code OR token",
   "client_id": "${account.client_id}",
   "connection": "",
   "redirect_uri": "http://localhost/callback",
@@ -20,7 +20,7 @@ Content-Type: 'application/json'
 curl --request GET \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "access_token":""}'
+  --data '{"response_type": "code OR token", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "access_token":""}'
 ```
 
 ```javascript

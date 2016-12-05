@@ -20,7 +20,7 @@ curl --request POST \
   --data '{"client_id":"${account.client_id}", "email":"", "password":"", "connection":""}'
 ```
 
-```html
+```javascript
 <script src="${auth0js_url}"></script>
 <script type="text/javascript">
   var auth0 = new Auth0({
