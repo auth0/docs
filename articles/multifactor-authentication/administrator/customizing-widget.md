@@ -44,5 +44,5 @@ The `primaryColor` property defines the primary color of the _mfa-widget_. This 
 
 This hosted page uses [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) syntax for templating, you can use this, combined with exposed parameter values to rendered your landing page. 
 The following parameters are also available: **userData.email**, **userData.friendlyUserId**, **userData.tenant**, **userData.tenantFriendlyName**, **iconUrl**.
-Most of the parameters that are used in MFA-Widget nees to be passed to guardian as shown in the default template provided in the customization area.
+Most of the parameters that are used in MFA-Widget need to be passed to guardian as shown in the default template provided in the customization area.
 If you need a higher level of customization you could use [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js/tree/master/example).
