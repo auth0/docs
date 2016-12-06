@@ -16,7 +16,7 @@ snippets:
 seo_alias: react
 default_article: dashboard-default
 articles:
-  - 00-intro
+  - 00-getting-started
   - 01-login
   - 02-custom-login
   - 03-session-handling

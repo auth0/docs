@@ -15,7 +15,7 @@ budicon: 546
 
 Auth0 exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through Authorization header when calling an API.
 
-## 1. Add the Authorization Header to Requests
+## Add the Authorization Header to Requests
 
 In order to make an authorized request, you need to send the `Authorization` header containing the JWT Token. (For more information, see the [JSON Web Tokens](https://jwt.io/introduction/) documentation.) The token will be extracted from the request header and decoded by the server, validating the authenticated user.
 
@@ -64,7 +64,7 @@ export default class AuthService extends EventEmitter {
 
 The new `fetch` method constructs requests to send to private endpoints. As the native `fetch` always resolves the returned promise, even for the 401 (unauthorized) response status, this code also adds a method to the promise stack that throws an `Error` for the `_checkStatus` case.
 
-## 2. Create a Simple Server
+## Create a Simple Server
 
 To demonstrate how a server would handle public and private endpoints, you can create a simple `node.js` server based on [express](https://expressjs.com/) and [express-jwt](https://github.com/auth0/express-jwt) with only two endpoints: `/api/public` and `/api/private`:
 
@@ -99,7 +99,7 @@ Both endpoints send a JSON response with a message attribute, but `/api/private`
 
 To test the server, run `node server.js`. It should be listening on port 3001 of `localhost`.
 
-## 3. Add a Proxy and Start the Server
+## Add a Proxy and Start the Server
 
 Since you will be calling the server API from the client code and to prevent having to use [cors](https://github.com/expressjs/cors), you will need to proxy the calls from the client on port 3000 to the server API on 3001.
 
@@ -150,7 +150,7 @@ The updated `scripts` entry in `package.json` looks like:
 
 Now, when you run `npm start`, both servers should be up and the proxy active.
 
-## 4. Show Public and Private Responses
+## Show Public and Private Responses
 
 Now that you have updated `AuthService` to provide a custom `fetch` method for private requests and created a sample server, you are ready to update your ReactJS application to render the server responses.
 

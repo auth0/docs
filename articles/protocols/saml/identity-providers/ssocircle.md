@@ -155,7 +155,7 @@ Create an HTML file with the following HTML and JavaScript:
   <BODY>
     <p> Click on the button to log in </p>
 
-    <script src="http://cdn.auth0.com/js/lock/10.4.0/lock.min.js"></script>
+    <script src="${lock_url}"></script>
     <script type="text/javascript">
       var lock = new Auth0Lock('YOUR_CLIENT_ID', '${account.namespace}');
 

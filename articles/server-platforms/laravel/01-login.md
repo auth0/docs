@@ -20,7 +20,7 @@ budicon: 448
 
 ## Laravel Compatibility
 
-The lastest version (4.x) targets Laravel 5.3 compatibility.
+The latest version (4.x) targets Laravel 5.3 compatibility.
 
 If you are working with an older version (Laravel 4.x) you need to point to composer.json to the version 1.0.*
 
@@ -32,7 +32,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Enable it in Laravel
 
-Add the following in the list of the services providers, located in `config/app.php`
+Add the following to the list of service providers, located in `config/app.php`
 
 ${snippet(meta.snippets.setup)}
 
@@ -77,7 +77,7 @@ php artisan vendor:publish
 
 ## Setup the Callback Action
 
-The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.3/authentication), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
+The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.3/authentication), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hook up the callback uri.
 
 In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${manage_url}/#/applications) and also, add it as a route in Laravel
 
@@ -111,9 +111,10 @@ To enable this driver, you need to change the following line in `/config/auth.ph
 ...
 ```
 
-If you need to implement a more advanced custom solution, you can always extend the Auth0UserRepository (or implement your own) in order to get and update the user data on your database and event more advaced validations.
+If you need a more advanced custom solution, you can extend the `Auth0UserRepository` class.
 
-For example, if you want to use the default `User` model and store the user profile in your database, you can use the following Repository:
+For example, you may want to expose CRUD operations on the application `User` model. In the following
+example custom `read` methods are added and user profile data is stored locally.
 
 ```php
 <?php
@@ -182,7 +183,7 @@ public function register()
 
     $this->app->bind(
         '\Auth0\Login\Contract\Auth0UserRepository',
-        '\App\Repository\MyCustomUserRepository');
+        \App\Repository\MyCustomUserRepository::class);
 
 }
 
