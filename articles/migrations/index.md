@@ -28,6 +28,22 @@ Current migrations are listed below, newest first. For migrations that have alre
 ## Past Migrations
 These are migrations that have already been abled for all customers.
 
+### Patch and Post endpoints no longer accept secret_encoded flag
+
+| Severity | Effective Date |
+| --- | --- | --- | --- |
+| High | 2016-12-06 |
+
+The `jwt_configuration.secret_encoded` configuration is no longer accepted by the PATCH and POST clients endpoints.
+
+In order to further comply with the OIDC specification, Auth0 will no longer generate or accept base64 encoded client secrets for new clients.
+
+Existing clients with encoded secrets stored will remain intact and unchanged, but *new* clients will no longer use base64 encoding. The `secret_encoded` flag is no longer accepted or necessary, as a result.
+
+#### Am I affected by the change? 
+
+You are affected by this change only if you interact with these endpoints directly.
+
 ### State Parameter required on redirect from rule
 
 | Severity | Effective Date |
