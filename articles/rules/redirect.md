@@ -86,7 +86,7 @@ function(user, context, callback) {
           audience: clientId,
           issuer: issuer
         };
-        return jwt.sign(user, new Buffer(clientSecret, "base64"), options);
+        return jwt.sign(user, clientSecret, options);
       }
       var token = createToken(
         configuration.CLIENT_ID,
@@ -106,7 +106,7 @@ function(user, context, callback) {
     function verifyToken(clientId, clientSecret, issuer, token, cb) {
       jwt.verify(
         token,
-        new Buffer(clientSecret, "base64").toString("binary"), {
+        clientSecret, {
           audience: clientId,
           issuer: issuer
         },
@@ -140,5 +140,4 @@ function(user, context, callback) {
 
 Redirect rules won't work for the [Resource Owner endpoint](/auth-api#!#post--oauth-ro) authentication endpoint. This is because the endpoint returns a JSON result. __Redirect__ rules work with browser based protocols.
 
-Also, if you are using any social network as a connection, make sure you register your own account (vs. using Auth0's Dev Keys). This is because redirect rules are resumed on the endpoint: `https://${account.namespace}/continue`. When using Auth0's Dev Keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error. 
- 
+Also, if you are using any social network as a connection, make sure you register your own account (vs. using Auth0's Dev Keys). This is because redirect rules are resumed on the endpoint: `https://${account.namespace}/continue`. When using Auth0's Dev Keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error.
