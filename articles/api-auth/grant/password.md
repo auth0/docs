@@ -9,7 +9,7 @@ Highly trusted mobile apps and Client-side web apps can use the **Resource Owner
 
 ## Overview
 
-The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an access token an optionally a refresh token. This grant should only be used when there is a high degree of trust between the user and the client and when other authorization flows are not available.
+The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an access token and optionally a refresh token. This grant should only be used when there is a high degree of trust between the user and the client and when other authorization flows are not available.
 
 This grant type can eliminate the need for the client to store the user credentials for future use, by exchanging the credentials with a long-lived access token or refresh token.
 
@@ -29,3 +29,4 @@ This grant type can eliminate the need for the client to store the user credenti
 
  - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
  - [Executing a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+ - [Using Rules with Resource Owner Password Grant](/api-auth/using-rules/password)

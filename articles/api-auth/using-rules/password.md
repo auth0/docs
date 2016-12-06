@@ -1,10 +1,10 @@
 ---
-description: Describes using rules with Client Credentials Grant.
+description: Describes using rules with Resource Owner Password Grant.
 ---
 
-# Using Rules with Client Credentials Grants
+# Using Rules with Resource Owner Password Grant
 
-You can now add [rules](/rules) into the [client credentials](/api-auth/grant/client-credentials) exchange pipeline where you exchange a `client_id` and `secret` for an `access_token`.
+You can now add [rules](/rules) into the [Resource Owner Password Grant](/api-auth/grant/password) exchange pipeline where you exchange a `username` and `password` for an `access_token`, and optionally a `refresh_token`.
 
 ## Prior to Beginning Your Configuration
 
@@ -40,9 +40,9 @@ This is a sample rule that will:
 
 Create the Webtask. You will need to set the following static metadata fields for the Webtask:
 
-* `wt-compiler = auth0-ext-compilers/client-credentials-exchange`
+* `wt-compiler = auth0-ext-compilers/password-exchange`
 * `auth0-extension = runtime`
-* `auth0-extension-name = credentials-exchange`
+* `auth0-extension-name = password-exchange`
 * `auth0-extension-secret = {random_secret}`
 
 The same `{random_secret}` value provided to the `auth0-extension-secret` metadata property must also be provided to the webtask code as an `auth0-extension-secret` secret parameter. This prevents unauthorized calls to this webtask. A secret may be conveniently created using `openssl` tool if your platform has it available:
@@ -50,9 +50,9 @@ The same `{random_secret}` value provided to the `auth0-extension-secret` metada
 ```
 SECRET=$(openssl rand 32 -base64) && \
 wt create myrule.js \
-  --meta wt-compiler=auth0-ext-compilers/client-credentials-exchange \
+  --meta wt-compiler=auth0-ext-compilers/password-exchange \
   --meta auth0-extension=runtime \
-  --meta auth0-extension-name=credentials-exchange \
+  --meta auth0-extension-name=password-exchange \
   --meta auth0-extension-secret=$SECRET \
   --secret auth0-extension-secret=$SECRET
 ```
@@ -70,10 +70,17 @@ To test your newly-created rule and webtask, make the following `POST` call:
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"audience\": \"API_IDENTIFIER\",\"grant_type\": \"client_credentials\"}"
+    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\"}"
   }
 }
 ```
+
+Before you make the `POST` call you must replace the following values:
+* `username`: Resource Owner's identifier.
+* `password`: Resource Owner's secret.
+* `audience`: API Identifier that the client is requesting access to.
+* `client_id`: Client ID of the client making the request.
+* `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
 
 If all is well, you will receive a JWT `access_token` that looks like this:
 
@@ -95,7 +102,7 @@ If all is well, you will receive a JWT `access_token` that looks like this:
 
 The input parameters for the rule, including sample snippets:
 
-* **client** - `object` - the client asking for the token, including the `client` metadata (a key-value pair that can be set by client)
+* **client** (`object`): the client asking for the token, including the `client` metadata (a key-value pair that can be set by client)
 
     ```json
     {
@@ -108,9 +115,9 @@ The input parameters for the rule, including sample snippets:
     }
     ```
 
-* **scope** - `string array` - the scopes available on the API that you have defined
-* **audience** - `string` - the API identifier available via the API settings page
-* **context** - `object` - the contextual information about the request
+* **scope** (`string array`): the scopes available on the API that you have defined
+* **audience** (`string`): the API identifier available via the API settings page
+* **context** (`object`): the contextual information about the request
 
     ```json
     {
