@@ -56,6 +56,11 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
 
 
+### Error Codes
+
+For the complete error code reference for this endpoint refer to [Errors > POST /oauth/ro](#post-oauth-ro).
+
+
 ### More Information
 
 - [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
