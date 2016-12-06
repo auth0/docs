@@ -82,7 +82,16 @@ Before you make the `POST` call you must replace the following values:
 * `client_id`: Client ID of the client making the request.
 * `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
 
-If all is well, you will receive a JWT `access_token` that looks like this:
+A successful response contains an `access_token`:
+
+```js
+{
+  "access_token": "eyJz93a...k4laUWw",
+  "token_type": "Bearer"
+}
+```
+
+The contents of the decoded `access_token` look like this:
 
 ```json
 {
@@ -95,6 +104,8 @@ If all is well, you will receive a JWT `access_token` that looks like this:
   "https://foo.com/claim": "bar"
 }
 ```
+
+**Note:** You can use [JWT.IO](https://jwt.io/) to decode, verify and generate JWT.
 
 ## Implementation Notes
 
