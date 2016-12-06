@@ -219,6 +219,11 @@ Once you have a verification code, use this endpoint to login the user with thei
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
 
 
+### Error Codes
+
+For the complete error code reference for this endpoint refer to [Errors > POST /oauth/ro](#post-oauth-ro).
+
+
 ### More Information
 - [Passwordless Authentication](/connections/passwordless)
 - [Authenticate users with using Passwordless Authentication via Email](/connections/passwordless/email)
