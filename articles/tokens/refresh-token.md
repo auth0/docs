@@ -5,21 +5,19 @@ description: What is a Refresh Token and what you can do with it.
 
 # Refresh Token
 
-A **refresh token** is a special kind of [JWT](/jwt) that contains the information required to obtain a new `access_token` or `id_token`.
+A **refresh token** is a special kind of token that contains the information required to obtain a new `access_token` or `id_token`.
 
 > An `id_token` is used by the client that receives it in order to identify the user. An `access_token` is used by a client to access an API. For more information refer to: [Tokens](/tokens).
 
 Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time.
 
-Refresh tokens are subject to strict storage requirements to ensure that they are not leaked. Refresh tokens can also be blacklisted by the authorization server.
+Refresh tokens are subject to strict storage requirements to ensure that they are not leaked. Also, [Refresh tokens can be revoked](#revoke-a-refresh-token) by the Authorization Server.
 
 ## Overview
 
 The response of an [authentication request](/protocols) can result in an `access_token` and/or an `id_token` being issued by Auth0. The  `access_token` is used to make authenticated calls to a secured API, while the `id_token` contains user profile attributes represented in the form of _claims_. Both JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing).
 
 A refresh token allows the application to request Auth0 to issue a new `access_token` or `id_token` directly, without needing to re-authenticate the user. This will work as long as the refresh token has not been revoked.
-
-Refresh tokens can be issued for each combination of app, user and device. Once the Auth0 refresh token is issued, the values of the client, user, and device set during its creation cannot be changed.
 
 ::: panel-warning Secure Storage
 Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
