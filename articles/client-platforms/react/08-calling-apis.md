@@ -77,7 +77,7 @@ var jwt = require('express-jwt');
 require('dotenv').config();
 
 var authenticate = jwt({
-  secret: new Buffer(process.env.AUTH0_SECRET, 'base64'),
+  secret: process.env.AUTH0_SECRET,
   audience: process.env.AUTH0_CLIENT_ID
 });
 

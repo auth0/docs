@@ -5,7 +5,7 @@ var server = new Hapi.Server();
 server.register(require('hapi-auth-jwt'), function (err) {
 
   server.auth.strategy('token', 'jwt', {
-    key: new Buffer('<%= account.clientSecret %>', 'base64'),
+    key: '<%= account.clientSecret %>',
     verifyOptions: {
       algorithms: [ 'HS256' ],
       audience: '<%= account.clientId %>'
