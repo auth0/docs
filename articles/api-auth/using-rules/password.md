@@ -23,7 +23,7 @@ Please ensure that:
 Create a file named `myrule.js`, and enter the following:
 
 ```js
-module.exports = function(client, scope, audience, context, cb) {
+module.exports = function(user, client, scope, audience, context, cb) {
   var access_token = {};
   access_token['https://foo.com/claim'] = 'bar';
   access_token.scope = scope;
@@ -100,7 +100,7 @@ The contents of the decoded `access_token` look like this:
   "aud": "API_IDENTIFIER",
   "exp": 1472832994,
   "iat": 1472746594,
-  "scope": "test extra",
+  "scope": "read:sample extra",
   "https://foo.com/claim": "bar"
 }
 ```
@@ -113,7 +113,24 @@ The contents of the decoded `access_token` look like this:
 
 The input parameters for the rule, including sample snippets:
 
-* **client** (`object`): the client asking for the token, including the `client` metadata (a key-value pair that can be set by client)
+* **user** (`object`): The authenticated user:
+
+```json
+{
+    "tenant": "tenant_name",
+    "id": "user_id",
+    "displayName": "user_name",
+    "email": "email",
+    "user_metadata": {
+         "some_user_metadata": "value"
+    },
+    "app_metadata": {
+         "some_app_metadata": "another value"
+    }
+}
+```
+
+* **client** (`object`): The client asking for the token, including the `client` metadata (a key-value pair that can be set by client):
 
     ```json
     {
@@ -126,9 +143,11 @@ The input parameters for the rule, including sample snippets:
     }
     ```
 
-* **scope** (`string array`): the scopes available on the API that you have defined
-* **audience** (`string`): the API identifier available via the API settings page
-* **context** (`object`): the contextual information about the request
+* **scope** (`string array`): The scopes available on the API that you have defined.
+
+* **audience** (`string`): The API identifier available via the API settings page.
+
+* **context** (`object`): The contextual information about the request:
 
     ```json
     {
