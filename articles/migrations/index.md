@@ -36,7 +36,7 @@ These are migrations that have already been abled for all customers.
 
 The `jwt_configuration.secret_encoded` configuration is no longer accepted by the PATCH and POST clients endpoints.
 
-In order to enable dynamic client registration, compliant with the OpenIDConnect specification, we need to make a change to store client secrets without base64 encoding. 
+In order to further comply with the OIDC specification, Auth0 will no longer generate or accept base64 encoded client secrets for new clients.
 
 Existing clients with encoded secrets stored will remain intact and unchanged, but *new* clients will no longer use base64 encoding. The `secret_encoded` flag is no longer accepted or necessary, as a result.
 
