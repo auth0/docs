@@ -10,11 +10,11 @@ import (
 func main() {
   jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Options{
     ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
-      decoded, err := base64.URLEncoding.DecodeString("${account.clientSecret}")
+      token, err := "${account.clientSecret}"
       if err != nil {
         return nil, err
       }
-      return decoded, nil
+      return token, nil
     },
   })
 }
