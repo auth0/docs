@@ -16,11 +16,11 @@ The Auth0 Authorization Extension provides user authorization support in Auth0. 
 
 To install the Authorization extension, click on the "Auth0 Authorization" box on the main Extensions page of the Management Portal. You will be prompted to install the app.
 
-![Install Authorization Extension](/media/articles/extensions/authorization/app-install.png)
+![Install Authorization Extension](/media/articles/extensions/authorization/app-install-v2.png)
 
 Once installed, you will see the app listed under "Installed Extensions".
 
-![Installed Extensions](/media/articles/extensions/authorization/installed-extensions.png)
+![Installed Extensions](/media/articles/extensions/authorization/installed-extensions-v2.png)
 
 When you click on the link to open the extension for the first time, you will be prompted to provide permission for the extension to access your Auth0 account. Then you will be redirected to the Authorization Dashboard.
 
@@ -76,7 +76,7 @@ The Groups that you will create are dependent on the needs of your business proc
         * Finance IT Support
     * Management
 
-To create nested Groups, you must first create all of the individual groups via the CREATE button on the Groups page of the Authorization Dashboard.
+To create nested Groups, you must first create all of the individual groups via the **CREATE** button on the Groups page of the Authorization Dashboard.
 
 ![Add Nested Groups](/media/articles/extensions/authorization/add-nested-groups-v2.png)
 
@@ -113,7 +113,7 @@ You can create different types of Roles such as: Expense Admins, Expense Manager
 
 ![Roles](/media/articles/extensions/authorization/roles.png)
 
-To add a role, click the **CREATE ROLE** button from the **Roles** section of the dashboard. Then choose the application this Role applys to (such as Expense Management Tool) and then add a name of the role (such as Expense Admins) and a description of the role. Then select the permissions you wish to grant to this role. If you haven't yet created your permissions you can add them later to an exisiting Role.
+To add a role, click the **CREATE ROLE** button from the **Roles** section of the dashboard. Then choose the application this Role applies to (such as Expense Management Tool) and then add a name of the role (such as Expense Admins) and a description of the role. Then select the permissions you wish to grant to this role. If you haven't yet created your permissions you can add them later to an exisiting Role.
 
 ![Add a New Role](/media/articles/extensions/authorization/add-role.png)
 
