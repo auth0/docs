@@ -40,9 +40,12 @@ The `primaryColor` property defines the primary color of the _mfa-widget_. This 
       },
 ```
 
+### Rendering in Enrollment vs. Authentication Scenarios
+There are two different possible scenarios in which the page is rendered. If a user has been directed to this page for enrollment, for instance, from an email, then the property **ticket** will be available. Otherwise, the property **requestToken** will be available.
+
 ### HTML + Liquid syntax
 
 The hosted page uses [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) syntax for templating. 
 The following parameters are available to assist in rendering your page: **userData.email**, **userData.friendlyUserId**, **userData.tenant**, **userData.tenantFriendlyName**, **iconUrl**.
-Most of the parameters that are used in MFA-Widget need to be passed to guardian as shown in the default template provided in the customization area.
+Most of the parameters that are used in MFA-Widget need to be passed to Guardian as shown in the default template provided in the customization area.
 If you need a higher level of customization you could use [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js/tree/master/example).
