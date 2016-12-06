@@ -3,7 +3,7 @@ description: Send an enrollment email (Guardian)
 ---
 ## Sending a Guardian Enrollment Email to a User.
 
-This allows an administrator to send an email to a particular user with a link that leads to the guardian enrollment step in order to have the user register a device with Guardian.
+With this, an administrator can send an email to a user with a link for registering their device with Guardian.
 
 To send this email:
 

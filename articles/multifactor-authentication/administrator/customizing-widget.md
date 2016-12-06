@@ -14,7 +14,7 @@ You may change the logo and the friendly name that is displayed to your users. T
 
 ### Activate the Hosted Page
 
-Customizing the content of the Guardian widget page is done via the [Guardian Multifactor Hosted Page](${manage_url}/#/guardian_mfa_page). This is done under **Hosted Pages** in the **Guardian Multifactor** tab by toggling _Customize Guardian Page_. 
+Customizing the content of the Guardian widget page is possible in the [Guardian Multifactor Hosted Page](${manage_url}/#/guardian_mfa_page) by toggling _Customize Guardian Page_. 
 
 ![](/media/articles/mfa/guardian-mfa-hosted-page.png)
 
@@ -42,7 +42,7 @@ The `primaryColor` property defines the primary color of the _mfa-widget_. This 
 
 ### HTML + Liquid syntax
 
-This hosted page uses [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) syntax for templating, you can use this, combined with exposed parameter values to rendered your landing page. 
-The following parameters are also available: **userData.email**, **userData.friendlyUserId**, **userData.tenant**, **userData.tenantFriendlyName**, **iconUrl**.
+The hosted page uses [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) syntax for templating. 
+The following parameters are available to assist in rendering your page: **userData.email**, **userData.friendlyUserId**, **userData.tenant**, **userData.tenantFriendlyName**, **iconUrl**.
 Most of the parameters that are used in MFA-Widget need to be passed to guardian as shown in the default template provided in the customization area.
 If you need a higher level of customization you could use [auth0-guardian.js](https://github.com/auth0/auth0-guardian.js/tree/master/example).
