@@ -186,7 +186,23 @@ curl --request POST \
 ```
 
 ```javascript
+var url = 'https://' + ${account.namespace} + '/authorize';
+var params = '';
+audience=API_AUDIENCE&scope=SCOPE&response_type=RESPONSE_TYPE&client_id= ${account.client_id}&redirect_uri=CALLBACK_URL&state=OPAQUE_VALUE&nonce=CRYPTOGRAPHIC_NONCE
 
+var xhr = new XMLHttpRequest();
+xhr.open('GET', url);
+xhr.setRequestHeader('Content-Type', 'application/json');
+
+xhr.onload = function() {
+  if (xhr.status == 200) {
+    fetchProfile();
+  } else {
+    alert("Request failed: " + xhr.statusText);
+  }
+};
+
+xhr.send(params);
 ```
 
 <%= include('../../../../_includes/_http-method', {
