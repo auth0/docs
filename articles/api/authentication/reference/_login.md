@@ -405,8 +405,8 @@ $('.login-dbconn').click(function () {
   "link": "#database-ad-ldap-active-"
 }) %>
 
-::: panel-warning Depreciation Notice
-This endpoint will soon be depreciated. The `/oauth/token { grant_type: password }` should be used instead.
+::: panel-warning Deprecation Notice
+This endpoint will soon be deprecated. The `/oauth/token { grant_type: password }` should be used instead.
 :::
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.

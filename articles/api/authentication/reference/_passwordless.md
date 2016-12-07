@@ -206,8 +206,8 @@ auth0.verifySMSCode({
   "link": "#authenticate-user"
 }) %>
 
-::: panel-warning Depreciation Notice
-This endpoint will soon be depreciated. The `/oauth/token { grant_type: password }` should be used instead.
+::: panel-warning Deprecation Notice
+This endpoint will soon be deprecated. The `/oauth/token { grant_type: password }` should be used instead.
 :::
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.

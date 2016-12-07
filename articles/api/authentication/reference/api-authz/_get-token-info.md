@@ -44,8 +44,8 @@ auth0.getProfile(idToken, function (err, profile) {
   "link": "#get-token-info"
 }) %>
 
-::: panel-warning Depreciation Notice
-This endpoint will soon be depreciated. The `/userinfo` endpoint should be used instead to obtain user information.
+::: panel-warning Deprecation Notice
+This endpoint will soon be deprecated. The `/userinfo` endpoint should be used instead to obtain user information.
 :::
 
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
