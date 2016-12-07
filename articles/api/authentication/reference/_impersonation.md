@@ -36,7 +36,7 @@ https://mpaktiti.auth0.com/users/IMPERSONATOR_ID/impersonate?&bewit=WFh0MUtm...
 
 <%= include('../../../_includes/_http-method', {
   "http_method": "POST",
-  "path": "/users/{user_id}/impersonate",
+  "path": "/users/USER_ID/impersonate",
   "link": "#impersonation"
 }) %>
 
