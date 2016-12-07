@@ -26,6 +26,27 @@ curl --request POST \
 ```
 
 ```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/ro',
+  headers: { 'content-type': 'application/json', 'accept': 'application/json' },
+  body:
+   { connection: 'CONNECTION',
+     grant_type: '',
+     username: '',
+     client_id: '${account.client_id}',
+     password: '',
+     scope: '',
+     id_token: '',
+     device: ''},
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
 ```
 
 > RESPONSE SAMPLE:
