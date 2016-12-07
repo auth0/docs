@@ -65,6 +65,16 @@ articles:
       - title: "FAQ"
         url: "/api-auth/faq"
 
+  - title: "Development Lifecycle"
+    url: "/dev-lifecycle"
+    children:
+
+      - title: "Setting Up Environments"
+        url: "/dev-lifecycle/setting-up-env"
+
+      - title: "Running and Developing Locally"
+        url: "/dev-lifecycle/local-testing-and-development"    
+
   - title: "Rules"
     url: "/rules"
     children:
