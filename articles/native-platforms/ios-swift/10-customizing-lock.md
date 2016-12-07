@@ -7,12 +7,17 @@ budicon: 285
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
-  path: '10-Customizing-Lock'
+  path: '10-Customizing-Lock',
+  requirements: [
+    'CocoaPods 1.0.0',
+    'XCode 7.3 (7D175)',
+    'iPhone 6 - iOS 9.3 (13E230)'
+  ]
 }) %>
 
 ## Before Starting
 
-You need the [Lock](https://github.com/auth0/Lock.iOS-OSX) library integrated in your project. Make sure you've followed the [login tutorial](01-login) and you know how to present the login dialog.
+You need the [Lock](https://github.com/auth0/Lock.iOS-OSX) library integrated in your project. Make sure you've followed the [login tutorial](/quickstart/native/ios-swift/01-login) and you know how to present the login dialog.
 
 ## Create a Theme
 

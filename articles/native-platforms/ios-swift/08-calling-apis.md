@@ -7,7 +7,12 @@ budicon: 546
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
-  path: '08-Calling-APIs'
+  path: '08-Calling-APIs',
+  requirements: [
+    'CocoaPods 1.0.0',
+    'XCode 7.3 (7D175)',
+    'iPhone 6 - iOS 9.3 (13E230)'
+  ]
 }) %>
 
 The reason for implementing authentication, in the first place, is to protect information. In this case, your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. We recommend that you conform to RFC standards by sending valid authentication tokens through an authorization header.
@@ -18,7 +23,7 @@ In this tutorial, you'll learn how to get a token, attach it to a request (using
 
 In order to make an authenticated request, you first need to obtain a token, against which your API can compare to detect whether or not the request is properly authenticated.
 
-You should already know how to get an [A0Token](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0Token.h) instance from the [login tutorial](01-login). Anyway, here's a quick recap:
+You should already know how to get an [A0Token](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0Token.h) instance from the [login tutorial](/quickstart/native/ios-swift/01-login). Anyway, here's a quick recap:
 
 ```swift
 import Lock
