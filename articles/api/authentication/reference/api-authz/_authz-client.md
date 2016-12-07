@@ -42,7 +42,25 @@ curl --request POST \
 ```
 
 ```javascript
+var request = require("request");
 
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/authorize',
+  headers: { 'content-type': 'application/json' },
+  body:
+   { audience: 'API_AUDIENCE',
+     scope: 'SCOPE',
+     response_type: 'code',
+     client_id: '${account.client_id}',
+     redirect_uri: 'CALLBACK_URL',
+     state: 'OPAQUE_VALUE'},
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
 ```
 
 <%= include('../../../../_includes/_http-method', {
