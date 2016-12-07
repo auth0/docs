@@ -60,12 +60,6 @@ auth0.getUserInfo(access_token, function (err, profile) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
-  "http_method": "GET",
-  "path": "/userinfo",
-  "link": "#get-user-info"
-}) %>
-
 Given the Auth0 `access token` obtained during login, this endpoint returns a user's profile.
 
 This endpoint will work only if `openid` was granted as a scope for the `access_token`.

@@ -26,12 +26,6 @@ curl --request GET \
 ```javascript
 ```
 
-<%= include('../../../_includes/_http-method', {
-  "http_method": "GET",
-  "path": "/authorize",
-  "link": "#link"
-}) %>
-
 ::: panel-warning Depreciation Notice
 This endpoint will soon be depreciated. The [POST	/api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead.
 :::
@@ -81,12 +75,6 @@ curl --request POST \
 
 ```javascript
 ```
-
-<%= include('../../../_includes/_http-method', {
-  "http_method": "POST",
-  "path": "/login/unlink",
-  "link": "#unlink"
-}) %>
 
 ::: panel-warning Depreciation Notice
 This endpoint will soon be depreciated. The [DELETE	/api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) should be used instead.

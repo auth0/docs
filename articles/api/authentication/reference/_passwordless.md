@@ -96,12 +96,6 @@ $('.request-sms-code').click(function (ev) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
-  "http_method": "POST",
-  "path": "/passwordless/start",
-  "link": "#get-code-or-link"
-}) %>
-
 You have three options for [passwordless authentication](/connections/passwordless):
 - Send a verification code using email.
 - Send a link using email.
@@ -199,12 +193,6 @@ auth0.verifySMSCode({
   alert("Hello");
 });
 ```
-
-<%= include('../../../_includes/_http-method', {
-  "http_method": "POST",
-  "path": "/oauth/ro",
-  "link": "#authenticate-user"
-}) %>
 
 ::: panel-warning Depreciation Notice
 This endpoint will soon be depreciated. The `/oauth/token { grant_type: password }` should be used instead.
