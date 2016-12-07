@@ -22,7 +22,7 @@ curl --request GET \
 
 <%= include('../../../_includes/_http-method', {
   "http_method": "GET",
-  "path": "/?connection={connection}",
+  "path": "/connection={connection}",
   "link": "#accept-request"
 }) %>
 
@@ -105,7 +105,7 @@ curl --request GET \
 
 <%= include('../../../_includes/_http-method', {
   "http_method": "POST",
-  "path": "/login/callback?connection={connection}",
+  "path": "/login/callback",
   "link": "#idp-initiated-sso-flow"
 }) %>
 
