@@ -34,8 +34,8 @@ curl --request POST \
   "link": "#resource-owner"
 }) %>
 
-::: panel-warning Depreciation Notice
-This endpoint will soon be depreciated. The `/oauth/token { grant_type: password }` should be used instead.
+::: panel-warning Deprecation Notice
+This endpoint will soon be deprecated. The `/oauth/token { grant_type: password }` should be used instead.
 :::
 
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
