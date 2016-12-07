@@ -21,25 +21,25 @@ Single Sign On usually makes use of a *Central Service* which orchestrates the s
 
 In the case of SSO with Auth0, the *Central Service* is the Auth0 Authorization Server. 
 
-Let's look at how the SSO flow looks when using Auth0 in your web application. 
+Let's look at how the SSO flow looks when using Auth0 and a user visits your application for the first time: 
 
 ![]()
 
-1. Your application will redirect the user to the Auth0 Hosted Lock page where they can sign in. 
+1. Your application will redirect the user to the Auth0 Hosted Lock page where they can log in. 
 2. Auth0 will check to see whether there is an existing SSO cookie.
-3. Because this is the first time the user visits this Hosted Lock page, they may be presented with username and password field and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
+3. Because this is the first time the user visits this Hosted Lock page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
 4. Once the user has logged in, Auth0 will set an SSO cookie
-5. Auth0 will also return back to your web application and will return an `id_token` containing the identity of the user.
+5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
-Now let's look at flow when the user wants to log in a second time.
+Now let's look at flow when the user returns to your website for a subsequent visit:
 
 ![]()
 
 1. Your application will redirect the user to the Auth0 Hosted Lock page where they can sign in. 
 2. Auth0 will check to see whether there is an existing SSO cookie.
-3. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen, it will display a Lock screen which indicated that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
+3. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
 4. Auth0 will update the SSO cookie if required
-5. Auth0 will also return back to your web application and will return an `id_token` containing the identity of the user.
+5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
 If an SSO cookie is present you can also sign the user in silently, i.e. without even displaying Lock so they can enter their credentials. This is covered in more detail in the next section.
 
@@ -57,7 +57,7 @@ Near the bottom of the *Settings* page, toggle **Use Auth0 instead of the IdP to
 
 ![](/media/articles/sso/single-sign-on/sso-flag.png)
 
-You can set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+Alternatively you can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 
 Once you have set the SSO flag for your Client in the Auth0 Dashboard, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the [`getSSOData`](https://auth0.com/docs/libraries/auth0js#sso) function in the [auth0.js library](https://auth0.com/docs/libraries/auth0js).  
 

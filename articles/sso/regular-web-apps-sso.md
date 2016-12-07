@@ -8,7 +8,7 @@ To log a user in silently (i.e. without displaying the Lock screen) the followin
 
 1. The Client needs to be configured to **Use Auth0 instead of the IdP to do Single Sign On** in the [Clients section of the Auth0 Management Dashboard](${manage_url}/#/clients)
 2. An SSO cookie must exist for the tenant's domain. In other words the user must have signed in previously, and the SSO cookie which was saved is still valid.
-3. When calling the Auth0 authentication endpoint, the connection name is passed along for which the user must be signed in. This connection name as specified in the SSO cookie. You can pass the connection name along either as a parameter when calling the `signin` function of the [**auth0.js** Library](https://auth0.com/docs/libraries/auth0js), or by passing the `connection` query string parameter when calling the `/authorize` endpoint of the [Authentication API](/api/authentication)
+3. When calling the Auth0 authentication endpoint, the connection name is passed along for which the user must be signed in. This connection name is the same as the one specified in the SSO cookie. You can pass the connection name along either as a parameter when calling the `signin` function of the [**auth0.js** Library](https://auth0.com/docs/libraries/auth0js), or by passing the `connection` query string parameter when calling the `/authorize` endpoint of the [Authentication API](/api/authentication)
 
 ## The SSO scenario
 
@@ -18,7 +18,7 @@ In our SSO scenario, let's say we have 3 applications
 * App 2: app2.com (Single Page App)
 * App 3: app3.com (Regular Web app)
 
-It a user signs in to any of these applications, and then subsequently navigates from this application to any of the other applications, we would want the user to be signed in automatically. 
+If a user logs in to any of these applications, and then subsequently navigates from this application to any of the other applications, we would want the user to be logged in automatically. 
 
 In this document we will be looking specifically how to achieve this in a Regular Web Application
 
