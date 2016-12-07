@@ -28,7 +28,7 @@ curl --request POST \
 ```javascript
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/ro",
   "link": "#resource-owner"

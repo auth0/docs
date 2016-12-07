@@ -62,7 +62,7 @@ request(options, function (error, response, body) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/token",
   "link": "#authorization-code"
@@ -137,7 +137,7 @@ request(options, function (error, response, body) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/token",
   "link": "#authorization-code-pkce-"
@@ -215,7 +215,7 @@ request(options, function (error, response, body) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/token",
   "link": "#client-credentials"
@@ -295,7 +295,7 @@ request(options, function (error, response, body) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/token",
   "link": "#resource-owner-password"
