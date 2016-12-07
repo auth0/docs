@@ -40,8 +40,8 @@ The `primaryColor` property defines the primary color of the _mfa-widget_. This 
       },
 ```
 
-### Rendering in Enrollment vs. Authentication Scenarios
-There are two different possible scenarios in which the page is rendered. If a user has been directed to this page for enrollment, for instance, from an email, then the property **ticket** will be available. Otherwise, the property **requestToken** will be available.
+### Rendering "Invited Enrollments" vs. Standard Scenarios
+There are two different possible scenarios in which the page is rendered. If a user has been directed to this page specifically for enrollment, for instance, from an email with an enrollment link, then the property **ticket** will be available. Otherwise, the property **requestToken** will be available.
 
 ### HTML + Liquid syntax
 
