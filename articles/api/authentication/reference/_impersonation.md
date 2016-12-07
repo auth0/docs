@@ -34,12 +34,6 @@ curl --request POST \
 https://mpaktiti.auth0.com/users/IMPERSONATOR_ID/impersonate?&bewit=WFh0MUtm...
 ```
 
-<%= include('../../../_includes/_http-method', {
-  "http_method": "POST",
-  "path": "/users/{user_id}/impersonate",
-  "link": "#impersonation"
-}) %>
-
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.
 
 

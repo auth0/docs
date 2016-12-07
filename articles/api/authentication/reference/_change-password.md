@@ -54,12 +54,6 @@ $('.change_password').click(function () {
 "We've just sent you an email to reset your password."
 ```
 
-<%= include('../../../_includes/_http-method', {
-  "http_method": "POST",
-  "path": "/dbconnections/change_password",
-  "link": "#change-password"
-}) %>
-
 Given a user's `email` address and a `connection`, Auth0 will send a change password email.
 
 ### Query Parameters
