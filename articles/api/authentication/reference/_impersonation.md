@@ -26,6 +26,24 @@ curl --request POST \
 ```
 
 ```javascript
+var url = 'https://' + ${account.namespace} + '/users/' + localStorage.getItem('user_id') + '/impersonate';
+var params = 'protocol=PROTOCOL&impersonator_id=IMPERSONATOR_ID&client_id=CLIENT_ID';
+
+var xhr = new XMLHttpRequest();
+
+xhr.open('POST', url);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
+
+xhr.onload = function() {
+  if (xhr.status == 200) {
+    fetchProfile();
+  } else {
+    alert("Request failed: " + xhr.statusText);
+  }
+};
+
+xhr.send(params);
 ```
 
 > RESPONSE SAMPLE:

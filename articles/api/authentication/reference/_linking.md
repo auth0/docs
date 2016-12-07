@@ -24,6 +24,22 @@ curl --request GET \
 ```
 
 ```javascript
+var url = 'https://' + ${account.namespace} + '/authorize';
+var params = 'response_type=RESPONSE_TYPE&client_id=CLIENT_ID&connection=CONNECTION&redirect_uri=http://localhost/callback&access_token=LOGGED_IN_USER_ACCESS_TOKEN';
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', url);
+xhr.setRequestHeader('Content-Type', 'application/json');
+
+xhr.onload = function() {
+  if (xhr.status == 200) {
+    fetchProfile();
+  } else {
+    alert("Request failed: " + xhr.statusText);
+  }
+};
+
+xhr.send(params);
 ```
 
 <%= include('../../../_includes/_http-method', {
@@ -80,6 +96,22 @@ curl --request POST \
 ```
 
 ```javascript
+var url = 'https://' + ${account.namespace} + '/login/unlink';
+var params = 'access_token=LOGGED_IN_USER_ACCESS_TOKEN&user_id=' + localStorage.getItem('user_id');
+
+var xhr = new XMLHttpRequest();
+xhr.open('POST', url);
+xhr.setRequestHeader('Content-Type', 'application/json');
+
+xhr.onload = function() {
+  if (xhr.status == 200) {
+    fetchProfile();
+  } else {
+    alert("Request failed: " + xhr.statusText);
+  }
+};
+
+xhr.send(params);
 ```
 
 <%= include('../../../_includes/_http-method', {
