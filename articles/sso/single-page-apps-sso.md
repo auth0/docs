@@ -4,11 +4,25 @@ description: Client-side SSO with single page applications.
 
 # Client-side SSO (Single Page Apps)
 
-Let's say you have three applications:
+To log a user in silently (i.e. without displaying the Lock screen) the following conditions need to be met:
+
+1. The Client needs to be configured to **Use Auth0 instead of the IdP to do Single Sign On** in the [Clients section of the Auth0 Management Dashboard](${manage_url}/#/clients)
+2. An SSO cookie must exist for the tenant's domain. In other words the user must have signed in previously, and the SSO cookie which was saved is still valid.
+3. When calling the Auth0 authentication endpoint, the connection name is passed along for which the user must be signed in. This connection name as specified in the SSO cookie. You can pass the connection name along either as a parameter when calling the `signin` function of the [**auth0.js** Library](https://auth0.com/docs/libraries/auth0js), or by passing the `connection` query string parameter when calling the `/authorize` endpoint of the [Authentication API](/api/authentication)
+
+## The SSO scenario
+
+In our SSO scenario, let's say we have 3 applications
 
 * App 1: app1.com (Single Page App)
 * App 2: app2.com (Single Page App)
 * App 3: app3.com (Regular Web app)
+
+It a user signs in to any of these applications, and then subsequently navigates from this application to any of the other applications, we would want the user to be signed in automatically. 
+
+In this document we will be looking specifically how to achieve this in a Single Page (JavaScript) Application
+
+## Obtaining the SSO cookie information  
 
 If a users logs in to any of the applications and then subsequently tries to log in to any of the other applications, you can check to see whether an SSO session is active for that user by making use of the `getSSOData` function in the [auth0.js library](https://auth0.com/docs/libraries/auth0js#sso).
 
@@ -36,6 +50,8 @@ This function will return an `ssoData` method which will indicate whether an act
 }
 ```
 
+## Passing the Connection Name when logging the user in
+
 You can then use this information to call the `signin` function to log the user in. When you call the `signin` function you pass along the name of the connection used in the active SSO session as the `connection` parameter. This will log the user directly without displaying the Lock user interface. 
 
 
@@ -55,8 +71,11 @@ auth0.getSSOData(function (err, ssoData) {
 });
 ```
 
+## Full SSO Sample Code
 
-Below is a full code sample of how you can implement this in a SPA application using jQuery to either show or hide the Login button or user information depending on whether a user is logged in or not. The full code sample for both the SPA applications as well as the normal web application can be found in [this github repository](https://github.com/auth0/auth0-sso-sample/tree/master/app1.com)
+Below is the relevant code sample of how you can implement this in a SPA application using jQuery to either show or hide the Login button or user information depending on whether a user is logged in or not. 
+
+The full code sample for both the SPA applications as well as the normal web application can be found in [this github repository](https://github.com/auth0/auth0-sso-sample/tree/master/app1.com)
 
 ```html
 <script type="text/javascript">
@@ -133,23 +152,20 @@ Below is a full code sample of how you can implement this in a SPA application u
 
 <!-- Regular login -->
 <body>
-  <button onclick="lock.show()">Login</button>
+  <button class="btn-login">Login</button>
 </body>
 ```
 
-If the single sign on happens against app3.com (a regular web app), then you have to redirect to `app3.com/sso?targetUrl=/foo/bar`. Read more about this on [Single Sign On with Regular Web Apps](/sso/regular-web-apps-sso).
-
 ## Single Logout
 
-If the user logged out from app1.com, then we want to clean up the token on app2.com (and app3.com). Read more about [Single Log Out](/logout).
+If the user logged out from app1.com, then we want to clean up the token on app2.com (and app3.com). Read more about [Single Log Out](/logout). 
 
-To do that, you have to check every X amount of time whether the SSO session is still alive in Auth0. If it is not, then remove the token from storage for the app.
+To do that, you have to check every X amount of time whether the SSO session is still alive in Auth0. If it is not, then remove the token from Local Storage for the application. This will ensure that the user's local session is cleared.
 
 ```js
 setInterval(function() {
   // if the token is not in local storage, there is nothing to check (i.e. the user is already logged out)
   if (!localStorage.getItem('userToken')) return;
-
 
   auth0.getSSOData(function (err, data) {
     // if there is still a session, do nothing
