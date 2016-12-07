@@ -7,16 +7,21 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
-  path: '07-Authorization'
+  path: '07-Authorization',
+  requirements: [
+    'CocoaPods 1.0.0',
+    'XCode 7.3 (7D175)',
+    'iPhone 6 - iOS 9.3 (13E230)'
+  ]
 }) %>
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
 
-> This tutorial assumes that you've already read the [rules tutorial](06-rules) and you know how to implement a basic rule in your app.
+> This tutorial assumes that you've already read the [rules tutorial](/quickstart/native/ios-swift/06-rules) and you know how to implement a basic rule in your app.
 
 ## Before Starting
 
-It's required that you've got [Lock](https://github.com/auth0/Lock.iOS-OSX) integrated in your project. You can check out the [login tutorial](01-login) for more information about it.
+It's required that you've got [Lock](https://github.com/auth0/Lock.iOS-OSX) integrated in your project. You can check out the [login tutorial](/quickstart/native/ios-swift/01-login) for more information about it.
 
 ## Create a Rule to Assign Roles
 
@@ -34,7 +39,7 @@ By default, it says that if a user email contains `@example.com`, that user will
 
 To test the rule, use the following code snippet once you've gotten the user profile.
 
-> Check out the [login](01-login) and [user profile](04-user-profile) tutorials for more information on how to get the user profile.
+> Check out the [login](/quickstart/native/ios-swift/01-login) and [user profile](/quickstart/native/ios-swift/04-user-profile) tutorials for more information on how to get the user profile.
 
 ```swift
 import Lock
