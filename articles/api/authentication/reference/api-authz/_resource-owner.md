@@ -28,6 +28,16 @@ curl --request POST \
 ```javascript
 ```
 
+> RESPONSE SAMPLE:
+
+```JSON
+{
+  "access_token": "eyJz93a...",
+  "id_token": "eyJ0XAi...",
+  "token_type": "Bearer"
+}
+```
+
 <%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/ro",
@@ -35,7 +45,7 @@ curl --request POST \
 }) %>
 
 ::: panel-warning Deprecation Notice
-This endpoint will soon be deprecated. The `/oauth/token { grant_type: password }` should be used instead.
+This endpoint will be deprecated soon. The `/oauth/token { grant_type: password }` should be used instead.
 :::
 
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
