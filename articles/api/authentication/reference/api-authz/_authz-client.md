@@ -63,6 +63,14 @@ request(options, function (error, response, body) {
 });
 ```
 
+> RESPONSE SAMPLE
+
+```json
+{
+  "code": "7bhYf..."
+}
+```
+
 <%= include('../../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
@@ -114,6 +122,14 @@ curl --request POST \
 
 ```javascript
 
+```
+
+> RESPONSE SAMPLE
+
+```json
+{
+  "code": "7bhYf..."
+}
 ```
 
 <%= include('../../../../_includes/_http-method', {
