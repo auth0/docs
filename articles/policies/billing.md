@@ -69,11 +69,11 @@ On the other hand, internal users have to login everyday to their different tool
 
 ## Can we scale the number of users as needed each month? 
 
-Definitely. In the Dashboard, you can do this by going to the upper right corner, `Account Settings`. Then in the `Subscriptions` tab you can select them depending on your needs. More explanation about it can be found there or in our [Pricing page](https://auth0.com/pricing/).
+Definitely. In the Dashboard, you can do this by going to the upper right corner, `Account Settings`. Then in the `Subscriptions` tab you can select them depending on your needs. More information about it can be found there or in our [Pricing page](https://auth0.com/pricing/).
 
 ## How can I convert my account from a free trial to any other version?
 
-You can do this by heading to the upper right corner of the Dashboard, `Account Settings`. Then in the `Subscriptions` tab you can select the plan that best suits your needs. More explanation about this can be found there or in our [Pricing page](https://auth0.com/pricing/).
+You can do this by heading to the upper right corner of the Dashboard, `Account Settings`. Then in the `Subscriptions` tab you can select the plan that best suits your needs. More information about this can be found there or in our [Pricing page](https://auth0.com/pricing/).
 
 
 
