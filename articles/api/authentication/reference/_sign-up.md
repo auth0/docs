@@ -63,6 +63,12 @@ curl --request POST \
 }
 ```
 
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/dbconnections/signup",
+  "link": "#signup"
+}) %>
+
 Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication. This endpoint only works for database connections.
 
 
