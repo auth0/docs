@@ -109,7 +109,7 @@ $('.login-google').click(function () {
 <%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
-  "link": "#"
+  "link": "#social"
 }) %>
 
 Use the endpoint `GET https://${account.namespace}/authorize` to authenticate a user with a social provider. This endpoint will return a `302` redirect to the social provider specified in `connection`.
