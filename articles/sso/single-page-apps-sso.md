@@ -6,13 +6,57 @@ description: Client-side SSO with single page applications.
 
 Let's say you have three applications:
 
-* App 1: app1.com (single page app)
-* App 2: app2.com (single page app)
-* App 3: app3.com (regular web app)
+* App 1: app1.com (Single Page App)
+* App 2: app2.com (Single Page App)
+* App 3: app3.com (Regular Web app)
 
-> You can see an example of a SPA configured to use SSO in [this github repository](https://github.com/auth0/auth0-sso-sample/tree/master/app1.com)
+If a users logs in to any of the applications and then subsequently tries to log in to any of the other applications, you can check to see whether an SSO session is active for that user by making use of the `getSSOData` function in the [auth0.js library](https://auth0.com/docs/libraries/auth0js#sso).
 
-The user logs in on app1.com and tries to access app2.com. Since app2.com is a Single Page App you need to have some code like the following to do SSO. This code should be on every SPA you have (In this case App1 and App2).:
+```js
+auth0.getSSOData(function (err, ssoData) {
+  if (err) return console.log(err.message);
+  expect(ssoData.sso).to.exist;
+});
+```
+
+This function will return an `ssoData` method which will indicate whether an active SSO session exist. The `ssoData` object will contain the fields as per the following example:
+
+```json
+{
+  sso: true,
+  sessionClients: [
+    "jGMow0KO3WDJELW8XIxolqb1XIitjkYL"
+  ],
+  lastUsedClientID: "jGMow0KO3WDJELW8XIxolqb1XIitjkYL",
+  lastUsedUsername: "alice@example.com",
+  lastUsedConnection: {
+    name: "Username-Password-Authentication",
+    strategy: "auth0"
+  }
+}
+```
+
+You can then use this information to call the `signin` function to log the user in. When you call the `signin` function you pass along the name of the connection used in the active SSO session as the `connection` parameter. This will log the user directly without displaying the Lock user interface. 
+
+
+```js
+auth0.getSSOData(function (err, ssoData) {
+  if (!err && ssoData.sso) {
+    auth0.signin({
+      connection: ssoData.lastUsedConnection.name,
+      scope: 'openid name picture',
+      params: {
+        state: getQueryParameter('targetUrl')
+      }
+    });
+  } else {
+    // Display regular login option, e.g. a Login button which will invoke Lock
+  }
+});
+```
+
+
+Below is a full code sample of how you can implement this in a SPA application using jQuery to either show or hide the Login button or user information depending on whether a user is logged in or not. The full code sample for both the SPA applications as well as the normal web application can be found in [this github repository](https://github.com/auth0/auth0-sso-sample/tree/master/app1.com)
 
 ```html
 <script type="text/javascript">
