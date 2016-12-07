@@ -44,6 +44,12 @@ $('.logout-dbconn').click(function() {
 });
 ```
 
+<%= include('../../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": "/v2/logout",
+  "link": "#logout"
+}) %>
+
 Logout the user from the identity provider. If you specify a `returnTo` parameter, we will redirect to the URL specified after the logout. This URL should be included in any of the `Allowed Logout URLs` list. There is a list at the application level (you need to use the `client_id` parameter to select the desired application's `Allowed Logout URLs` list) and a list at the Account level.
 
 

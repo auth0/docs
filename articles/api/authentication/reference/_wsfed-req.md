@@ -16,6 +16,12 @@ curl --request GET \
 ```javascript
 ```
 
+<%= include('../../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": "/wsfed",
+  "link": "#accept-request20"
+}) %>
+
 This endpoint accepts a WS-Federation request to initiate a login.
 
 
@@ -46,16 +52,22 @@ This endpoint accepts a WS-Federation request to initiate a login.
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/wsfed/{client-id}/FederationMetadata/2007-06/FederationMetadata.xml
+GET https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml
 ```
 
 ```shell
 curl --request GET \
-  --url 'https://${account.namespace}/wsfed/{client-id}/FederationMetadata/2007-06/FederationMetadata.xml'
+  --url 'https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml'
 ```
 
 ```javascript
 ```
+
+<%= include('../../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": "/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml",
+  "link": "#get-metadata21"
+}) %>
 
 This endpoint returns the WS-Federation metadata.
 

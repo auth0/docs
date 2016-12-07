@@ -174,6 +174,12 @@ curl --request POST \
 }
 ```
 
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/access_token",
+  "link": "#social-with-provider-s-access-token"
+}) %>
+
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
 
 
@@ -286,7 +292,13 @@ $('.login-dbconn').click(function () {
 }
 ```
 
-Use this endpoint `GET https://${account.namespace}/authorize` for browser based (passive) authentication. It returns a `302` redirect to [Auth0 Login Page](https://auth0.com/#/login_page) that will show the Login Widget where the user can login with email and password.
+<%= include('../../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": "/authorize",
+  "link": "#database-ad-ldap-passive-"
+}) %>
+
+Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to [Auth0 Login Page](https://auth0.com/#/login_page) that will show the Login Widget where the user can login with email and password.
 
 ### Query Parameters
 
@@ -380,7 +392,11 @@ $('.login-dbconn').click(function () {
 }
 ```
 
-**POST https://${account.namespace}/oauth/ro**
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/ro",
+  "link": "#database-ad-ldap-active-"
+}) %>
 
 ::: panel-warning Depreciation Notice
 This endpoint will soon be depreciated. The `/oauth/token { grant_type: password }` should be used instead.
@@ -473,7 +489,13 @@ $('.login-microsoft').click(function () {
 }
 ```
 
-Use the endpoint `GET https://${account.namespace}/authorize` for passive authentication. The user will be redirected (`302` redirect) to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
+<%= include('../../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": "/authorize",
+  "link": "#enterprise-saml-and-others-"
+}) %>
+
+Use this endpoint for passive authentication. The user will be redirected (`302` redirect) to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
 
 
 ### Query Parameters
