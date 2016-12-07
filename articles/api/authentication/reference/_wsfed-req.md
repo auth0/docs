@@ -65,7 +65,7 @@ curl --request GET \
 
 <%= include('../../../_includes/_http-method', {
   "http_method": "GET",
-  "path": "/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml",
+  "path": "/wsfed/{client-id}/FederationMetadata/2007-06/FederationMetadata.xml",
   "link": "#get-metadata21"
 }) %>
 
