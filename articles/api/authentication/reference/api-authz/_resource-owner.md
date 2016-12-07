@@ -28,6 +28,12 @@ curl --request POST \
 ```javascript
 ```
 
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/ro",
+  "link": "#resource-owner"
+}) %>
+
 ::: panel-warning Depreciation Notice
 This endpoint will soon be depreciated. The `/oauth/token { grant_type: password }` should be used instead.
 :::

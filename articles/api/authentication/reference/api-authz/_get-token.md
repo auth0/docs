@@ -62,6 +62,12 @@ request(options, function (error, response, body) {
 }
 ```
 
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#authorization-code"
+}) %>
+
 This is the OAuth 2.0 grant that regular web apps utilize in order to access an API. Use this endpoint to exchange an Authorization Code for a Token.
 
 
@@ -130,6 +136,12 @@ request(options, function (error, response, body) {
   "token_type": "Bearer"
 }
 ```
+
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#authorization-code-pkce-"
+}) %>
 
 This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. Use this endpoint to exchange an Authorization Code for a Token.
 
@@ -202,6 +214,12 @@ request(options, function (error, response, body) {
   "token_type": "Bearer"
 }
 ```
+
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#client-credentials"
+}) %>
 
 This is the OAuth 2.0 grant that server processes utilize in order to access an API. Use this endpoint to directly request an `access_token` by using the Client Credentials (a Client Id and a Client Secret).
 
@@ -276,6 +294,12 @@ request(options, function (error, response, body) {
   "token_type": "Bearer"
 }
 ```
+
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#resource-owner-password"
+}) %>
 
 This is the OAuth 2.0 grant that highly trusted apps utilize in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is later on sent to the Client and the Authorization Server. It is therefore imperative that the Client is absolutely trusted with this information.
 

@@ -38,6 +38,12 @@ auth0.getProfile(idToken, function (err, profile) {
 });
 ```
 
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/tokeninfo",
+  "link": "#get-token-info"
+}) %>
+
 ::: panel-warning Depreciation Notice
 This endpoint will soon be depreciated. The `/userinfo` endpoint should be used instead to obtain user information.
 :::
