@@ -17,9 +17,6 @@ curl --request GET \
   --data '"connection"=""'
 ```
 
-```javascript
-```
-
 Use this endpoint to accept a SAML request to initiate a login.
 
 Optionally, it accepts a connection parameter to login with a specific provider. If no connection is specified, the [Auth0 Login Page](/login_page) will be shown.
@@ -54,9 +51,6 @@ curl --request GET \
   --url 'https://${account.namespace}/samlp/metadata/${account.client_id}'
 ```
 
-```javascript
-```
-
 This endpoint returns the SAML 2.0 metadata.
 
 ### Query Parameters
@@ -86,9 +80,6 @@ curl --request GET \
   --url 'https://${account.namespace}/login/callback' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data '"SAMLResponse"="PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM..."'
-```
-
-```javascript
 ```
 
 This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
