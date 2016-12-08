@@ -17,6 +17,14 @@ curl --request GET \
   --data '"connection"=""'
 ```
 
+<% var acceptReqPath = '/{CLIENT_ID}?connection={CONNECTION}'; %>
+<%=
+include('../../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": acceptReqPath,
+  "link": "#accept-request"
+}) %>
+
 Use this endpoint to accept a SAML request to initiate a login.
 
 Optionally, it accepts a connection parameter to login with a specific provider. If no connection is specified, the [Auth0 Login Page](/login_page) will be shown.
