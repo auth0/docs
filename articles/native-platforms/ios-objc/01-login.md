@@ -76,12 +76,38 @@ A0Lock *lock = [[MyApplication sharedInstance] lock];
 }
 ```
 
-**NOTE:** If you need Facebook or Twitter native authentication, continue reading to learn how to configure these. Otherwise, skip to [Implement the login](#implement-the-login).
-
 ::: panel-info Configuration
 Before continuing to configure either Facebook or Twitter integration, check that you have enabled and correctly configured the social connection with your credentials in the [Dashboard](${manage_url}/#/connections/social).
 :::
 
+#### Important: Google Connections
+
+Google recently announced they will no longer support web-views, it is *highly recommended* you update your code to use Safari for web based authentication.
+
+##### Podfile
+
+Update your Podfile to include:
+
+```ruby
+pod 'Lock/Safari'
+```
+
+You should add the following code before you present Lock to the user. If you have multiple connections you wish to
+use with Safari you will need to specify each one manually as above.
+
+To use Safari for the default Google social connection, add the following:
+
+```objc
+#import <Lock/A0SafariAuthenticator.h>
+```
+
+```objc
+A0Lock *lock = [A0Lock sharedLock];
+A0SafariAuthenticator *safari = [[A0SafariAuthenticator alloc] initWithLock:lock connectionName:@"google-oauth2"];
+[lock registerAuthenticators:@[safari]];   
+```
+
+**NOTE:** If you need Facebook or Twitter native authentication, continue reading to learn how to configure these. Otherwise, skip to [Implement the login](#implement-the-login).
 
 ### Facebook
 

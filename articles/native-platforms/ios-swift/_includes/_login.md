@@ -43,3 +43,26 @@ MyApplication.sharedInstance.accessToken = token.accessToken
 ### Optional: Log In with Social Connections
 
 In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [connections dashboard](${manage_url}/#/connections/social). Every social connection you switch on there, will appear in the Login screen of your app. That's pretty much it!
+
+#### Important: Google Connections
+
+Google recently announced they will no longer support web-views, it is *highly recommended* you update your code to use Safari for web based authentication.
+
+##### Podfile
+
+Update your Podfile to include:
+
+```ruby
+pod 'Lock/Safari'
+```
+
+You should add the following code before you present Lock to the user. If you have multiple connections you wish to
+use with Safari you will need to specify each one manually as above.
+
+To use Safari for the default Google social connection, add the following:
+
+```swift
+let lock = A0Lock.shared()
+let safari = A0SafariAuthenticator(lock: lock, connectionName: "google-oauth2")
+lock.registerAuthenticators([safari])    
+```
