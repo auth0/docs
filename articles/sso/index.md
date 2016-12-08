@@ -21,23 +21,25 @@ Single Sign On usually makes use of a *Central Service* which orchestrates the s
 
 In the case of SSO with Auth0, the *Central Service* is the Auth0 Authorization Server. 
 
-Let's look at how the SSO flow looks when using Auth0 and a user visits your application for the first time: 
-
-![]()
+Let's look at how the SSO flow looks when using Auth0 and a user visits your application for the first time:
 
 1. Your application will redirect the user to the Auth0 Hosted Lock page where they can log in. 
 2. Auth0 will check to see whether there is an existing SSO cookie.
 3. Because this is the first time the user visits this Hosted Lock page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
+
+    ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
+
 4. Once the user has logged in, Auth0 will set an SSO cookie
 5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
-![]()
-
 1. Your application will redirect the user to the Auth0 Hosted Lock page where they can sign in. 
 2. Auth0 will check to see whether there is an existing SSO cookie.
 3. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
+
+    ![](/media/articles/sso/single-sign-on/lock-sso-cookie.png)
+
 4. Auth0 will update the SSO cookie if required
 5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
 
