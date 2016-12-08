@@ -2,7 +2,7 @@
 description: Use multiple Auth0 accounts to manage various environments.
 ---
 
-# Development Lifecycle in Auth0
+# Setting Up Multiple Environments
 
 __Development__, __Test__, __Q&A__ environments are easy to setup in Auth0. Simply create a new account for each to guarantee the maximum isolation between these environments. You can easily switch between accounts using the account chooser from the top right menu on the dashboard. You can also configure different administrators for each.
 
