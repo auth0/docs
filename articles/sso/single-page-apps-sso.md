@@ -8,7 +8,7 @@ To log a user in silently (i.e. without displaying the Lock screen) the followin
 
 1. The Client needs to be configured to **Use Auth0 instead of the IdP to do Single Sign On** in the [Clients section of the Auth0 Management Dashboard](${manage_url}/#/clients)
 2. An SSO cookie must exist for the tenant's domain. In other words the user must have signed in previously, and the SSO cookie which was saved is still valid.
-3. When calling the Auth0 authentication endpoint, the connection name is passed along for which the user must be signed in. This connection name is the same as the one specified in the SSO cookie. You can pass the connection name along either as a parameter when calling the `signin` function of the [**auth0.js** Library](https://auth0.com/docs/libraries/auth0js), or by passing the `connection` query string parameter when calling the `/authorize` endpoint of the [Authentication API](/api/authentication)
+3. When calling the Auth0 authentication endpoint, the connection name is passed along for which the user must be signed in. This connection name is the same as the one specified in the SSO cookie. You can pass the connection name along either as a parameter when calling the `signin` function of the [**auth0.js** Library](/libraries/auth0js), or by passing the `connection` query string parameter when calling the `/authorize` endpoint of the [Authentication API](/api/authentication)
 
 ## The SSO scenario
 
@@ -24,7 +24,7 @@ In this document we will be looking specifically how to achieve this in a Single
 
 ## Obtaining the SSO cookie information  
 
-If a users logs in to any of the applications and then subsequently tries to log in to any of the other applications, you can check to see whether an SSO session is active for that user by making use of the `getSSOData` function in the [auth0.js library](https://auth0.com/docs/libraries/auth0js#sso).
+If a users logs in to any of the applications and then subsequently tries to log in to any of the other applications, you can check to see whether an SSO session is active for that user by making use of the `getSSOData` function in the [auth0.js library](/libraries/auth0js#sso).
 
 ```js
 auth0.getSSOData(function (err, ssoData) {

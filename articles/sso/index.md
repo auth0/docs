@@ -61,7 +61,7 @@ Near the bottom of the *Settings* page, toggle **Use Auth0 instead of the IdP to
 
 Alternatively you can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 
-Once you have set the SSO flag for your Client in the Auth0 Dashboard, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the [`getSSOData`](https://auth0.com/docs/libraries/auth0js#sso) function in the [auth0.js library](https://auth0.com/docs/libraries/auth0js).  
+Once you have set the SSO flag for your Client in the Auth0 Dashboard, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the [`getSSOData`](/libraries/auth0js#sso) function in the [auth0.js library](/libraries/auth0js).  
 
 The result of this function will indicate whether an SSO cookie is present, and if so it will return the SSO data of the user which can then subsequently be used to log the user in silently without even displaying Lock.
 
