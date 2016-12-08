@@ -112,9 +112,9 @@ $('.login-google').click(function () {
   "link": "#social"
 }) %>
 
-Use this endpoint to authenticate a user with a social provider. This endpoint will return a `302` redirect to the social provider specified in `connection`.
+Use this endpoint to authenticate a user with a social provider. It will return a `302` redirect to the social provider specified in `connection`.
 
-Social connections only support browser-based (passive) authentication because most social providers don't allow a username and password to be entered into applications that they don't own. Therefore, the user will be redirected to the provider's sign in page.
+**NOTE:** Social connections only support browser-based (passive) authentication because most social providers don't allow a username and password to be entered into applications that they don't own. Therefore, the user will be redirected to the provider's sign in page.
 
 
 ### Query Parameters
@@ -125,7 +125,7 @@ Social connections only support browser-based (passive) authentication because m
 | `client_id`      | The `client_id` of your client |
 | `connection`     | The name of an identity provider configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
 | `redirect_uri`   | `http://localhost/callback` |
-| `state`          | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
+| `state`          | Its value will be sent back. It should be used for XSRF and contextual information (like a return url). |
 | `additional-parameter`  | Sent additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
 
 
@@ -162,6 +162,23 @@ curl --request POST \
 ```
 
 ```javascript
+var url = 'https://' + ${account.namespace} + '/oauth/access_token';
+var params = 'client_id=${account.client_id}&access_token={access_token}&connection={connection}&scope={scope}';
+
+var xhr = new XMLHttpRequest();
+
+xhr.open('POST', url);
+xhr.setRequestHeader('Content-Type', 'application/json');
+
+xhr.onload = function() {
+  if (xhr.status == 200) {
+    fetchProfile();
+  } else {
+    alert("Request failed: " + xhr.statusText);
+  }
+};
+
+xhr.send(params);
 ```
 
 > RESPONSE SAMPLE:
@@ -495,7 +512,7 @@ $('.login-microsoft').click(function () {
   "link": "#enterprise-saml-and-others-"
 }) %>
 
-Use this endpoint for passive authentication. The user will be redirected (`302` redirect) to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
+Use this endpoint for passive authentication. It returns a `302` redirect to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
 
 
 ### Query Parameters
