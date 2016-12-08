@@ -17,7 +17,7 @@ curl --request GET \
   --data '"connection"=""'
 ```
 
-<% var acceptReqPath = '/${account.client_id}?connection={CONNECTION}'; %>
+<% var acceptReqPath = '/{client_id}?connection={connection}'; %>
 <%=
 include('../../../_includes/_http-method', {
   "http_method": "GET",
@@ -59,6 +59,14 @@ curl --request GET \
   --url 'https://${account.namespace}/samlp/metadata/${account.client_id}'
 ```
 
+<% var getMetadataPath = '/samlp/metadata/{client_id}'; %>
+<%=
+include('../../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": getMetadataPath,
+  "link": "#get-metadata"
+}) %>
+
 This endpoint returns the SAML 2.0 metadata.
 
 ### Query Parameters
@@ -89,6 +97,14 @@ curl --request GET \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data '"SAMLResponse"="PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM..."'
 ```
+
+<% var idpInitPath = '/login/callback?connection={connection}'; %>
+<%=
+include('../../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": idpInitPath,
+  "link": "#idp-initiated-sso-flow"
+}) %>
 
 This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
 
