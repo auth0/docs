@@ -145,12 +145,11 @@ articles:
       - title: "Overview"
         url: "/sso"
 
-      - title: "Server-side (Regular Web Apps)"
-        url: "/sso/regular-web-apps-sso"
-
       - title: "Client-side (Single Page Apps)"
         url: "/sso/single-page-apps-sso"
 
+      - title: "Server-side (Regular Web Apps)"
+        url: "/sso/regular-web-apps-sso"
 
   - title: "User Profile"
     url: "/user-profile"
