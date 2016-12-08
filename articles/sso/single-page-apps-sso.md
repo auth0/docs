@@ -83,10 +83,16 @@ The full code sample for both the SPA applications as well as the normal web app
   document.body.style.display = 'none';
 
   // instantiate Lock
-  var lock = new Auth0Lock(''${account.clientId}', ''${account.namespace}');
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+    auth: {
+      params: {
+        scope: 'openid name picture'
+      }
+    }
+  });
   var auth0 = new Auth0({
-    domain: ''${account.namespace}',
-    clientID: ''${account.clientId}',
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
     callbackOnLocationHash: true
   });
 
@@ -139,13 +145,7 @@ The full code sample for both the SPA applications as well as the normal web app
   // Showing Login
   $('.btn-login').click(function (e) {
     e.preventDefault();
-    lock.show({
-      auth: {
-        params: {
-          scope: 'openid name picture'
-        }
-      }
-    });
+    lock.show();
   });
 
 </script>
