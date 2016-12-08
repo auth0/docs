@@ -98,8 +98,8 @@ If the Identity Provider supports uploading a metadata file, you can simply prov
 
 If the Identity Provider does not support uploading a metadata file, you can configure it manually as follows:
 
-The Identity Provider will need to know where to send the SAML assertions after it has authenticated a user.  This is the Assertion Consumer Service URL in Auth0.  
-The Identity Provider may call this any of the following
+The Identity Provider will need to know where to send the SAML assertions after it has authenticated a user.  This is the Assertion Consumer Service URL in Auth0. The Identity Provider may call this any of the following:
+
 * Assertion Consumer Service URL
 * Application Callback URL
 
@@ -112,8 +112,7 @@ If the Identity Provider has a field called "Audience" or "Entity ID", you shoul
 
 If the Identity Provider provides a choice for bindings, you should select HTTP-Redirect for Authentication Requests.
 
-If the Identity Provider provides a choice for bindings, you should select HTTP-Redirect for Authentication Requests.
-
+**Signing Logout Requests**: When configuring the Identity Provider, make sure that SAML Logout Requests sent to the Service Provider are signed.
 
 ## 4. Test the connection from Service Provider to Identity Provider
 
