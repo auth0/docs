@@ -46,4 +46,4 @@ As you can see in the seed project, there are many customizable attributes in th
 | `auth0.public_key_path` | Path location to the public key. Should always be set when using RS256 and is ignored for HS256. |
 
 
-**NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `issuer`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
+**NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `issuer`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case, you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
