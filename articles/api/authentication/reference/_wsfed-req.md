@@ -13,9 +13,6 @@ curl --request GET \
   --url 'https://${account.namespace}/wsfed/${account.client_id}'
 ```
 
-```javascript
-```
-
 <%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/wsfed",
@@ -60,8 +57,13 @@ curl --request GET \
   --url 'https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml'
 ```
 
-```javascript
-```
+<% var getMetadataPath = '/wsfed/{client_id}/FederationMetadata/2007-06/FederationMetadata.xml'; %>
+<%=
+include('../../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": getMetadataPath,
+  "link": "#get-metadata21"
+}) %>
 
 This endpoint returns the WS-Federation metadata.
 
