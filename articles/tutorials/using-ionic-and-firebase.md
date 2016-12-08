@@ -46,7 +46,7 @@ In your Firebase dashboard, go to **Project Settings** and select the **Service 
 
 This will generate a JSON file which will contain the `private_key_id`, `private_key` and `client_email` fields to be entered into the Addon Settings on the Auth0 dashboard. Click **SAVE** when you are finished.
 
-![Enter Fields]((/media/articles/tutorials/enter-firebase-settings.png))
+![Enter Fields](/media/articles/tutorials/enter-firebase-settings.png)
 
 ### 3. Adding the needed dependencies
 
