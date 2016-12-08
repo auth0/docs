@@ -17,7 +17,7 @@ curl --request GET \
   --data '"connection"=""'
 ```
 
-<% var acceptReqPath = '/{CLIENT_ID}?connection={CONNECTION}'; %>
+<% var acceptReqPath = '/${account.client_id}?connection={CONNECTION}'; %>
 <%=
 include('../../../_includes/_http-method', {
   "http_method": "GET",
