@@ -57,6 +57,16 @@ auth0.getDelegationToken(options, function (err, delegationResult) {
 });
 ```
 
+> RESPONSE SAMPLE:
+
+```json
+{
+  "token_type": "Bearer",
+  "expires_in": 36000,
+  "id_token": "eyJ0eXAi..."
+}
+```
+
 <%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/delegation",
