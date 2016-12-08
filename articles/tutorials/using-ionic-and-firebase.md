@@ -28,10 +28,25 @@ You can either download the sample project, or follow the instructions below.
 
 You need to add your Firebase account information to Auth0. Once the user logs in to the App, Auth0 will use this information to issue a Firebase authentication token.
 
-Go to [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) and click on Addons. In there, turn on the __Firebase Addon__ and enter your Firebase secret.
+Go to [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) and click on Addons. In there, turn on the __Firebase Addon__.
 
-![Firebase secret](/media/articles/tutorials/firebase-config.gif)
+Under **Settings**, use the **Use SDK v3+ tokens** slider to select the SDK version you are using. 
 
+**SDK Version 2:**
+If you are using an older version, you will only need to enter your **Firebase Secret** which you can get from your Firebase dashboard under **Project Settings** then **Service Accounts** then **Database Secrets**.
+
+![Firebase Secret](/media/articles/tutorials/firebase-secret-sdkv2.png)
+
+**SDK Version 3+:**
+For SDKv3 and later, you will need the **Private Key** and **Client Email**. The **Private Key Id** and **Token Expiration** fields are optional.
+
+In your Firebase dashboard, go to **Project Settings** and select the **Service Accounts** tab. Then under Firebase Admin SDK, scroll down and click on **GENERATE NEW PRIVATE KEY**.
+
+![Generate a Firebase Key](/media/articles/tutorials/firebase-generate-key.png)
+
+This will generate a JSON file which will contain the `private_key_id`, `private_key` and `client_email` fields to be entered into the Addon Settings on the Auth0 dashboard. Click **SAVE** when you are finished.
+
+![Enter Fields]((/media/articles/tutorials/enter-firebase-settings.png))
 
 ### 3. Adding the needed dependencies
 
