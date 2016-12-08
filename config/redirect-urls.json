@@ -521,7 +521,11 @@
   },
   {
     "from": "/auth-api",
-    "to": "/api/authentication"
+    "to": "/api/authentication/reference"
+  },
+  {
+    "from": "/api/authentication",
+    "to": "/api/authentication/reference"
   },
   {
     "from": "/oauth2",
