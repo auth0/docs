@@ -1,7 +1,7 @@
 ---
 description: Send an enrollment email (Guardian)
 ---
-## Sending a Guardian Enrollment Email to a User.
+## Sending a Guardian Enrollment Email to a User
 
 With this, an administrator can send an email to a user with a link for registering their device with Guardian.
 
