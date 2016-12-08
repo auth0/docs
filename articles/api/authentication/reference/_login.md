@@ -139,13 +139,6 @@ Social connections only support browser-based (passive) authentication because m
 - [Custom Social Connections](/connections/social/oauth2)
 
 
-### Test this endpoint
-
-<%= include('../../../_includes/_test-endpoint', {
-  buttonUrl: "https://auth0.com/docs",
-  textUrl: "TRY"
-}) %>
-
 ## Social with Provider's Access Token
 
 <h5 class="code-snippet-title">Examples</h5>
