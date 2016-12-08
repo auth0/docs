@@ -38,6 +38,31 @@ auth0.getProfile(idToken, function (err, profile) {
 });
 ```
 
+> RESPONSE SAMPLE:
+
+```json
+{
+  "email_verified": false,
+  "email": "foo@bar.com",
+  "clientID": "q2hnj2iug0...",
+  "updated_at": "2016-12-08T14:26:59.923Z",
+  "name": "foo@bar.com",
+  "picture": "https://s.gravatar.com/avatar/foobar.png",
+  "user_id": "auth0|58454...",
+  "nickname": "foo.bar",
+  "identities": [
+    {
+      "user_id": "58454...",
+      "provider": "auth0",
+      "connection": "Username-Password-Authentication",
+      "isSocial": false
+    }
+  ],
+  "created_at": "2016-12-05T11:16:59.640Z",
+  "global_client_id": "dfas76s..."
+}
+```
+
 <%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/tokeninfo",
