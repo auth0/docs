@@ -69,7 +69,9 @@ curl --request POST \
   "link": "#signup"
 }) %>
 
-Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication. This endpoint only works for database connections.
+Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication.
+
+This endpoint only works for database connections.
 
 
 ### Query Parameters

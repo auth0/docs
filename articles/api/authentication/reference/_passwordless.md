@@ -123,7 +123,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 ### Remarks
 
 - When you are sending a link using email, you can append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`, etc.) using the `authParams` object.
-- If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the `/oauth/ro` endpoint, using `email` or `phone_number` as the `username`, and the verification code as the `password`.
+- If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the [/oauth/ro endpoint](#authenticate-user), using `email` or `phone_number` as the `username`, and the verification code as the `password`.
 
 
 ### Error Codes

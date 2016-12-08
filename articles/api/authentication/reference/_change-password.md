@@ -60,6 +60,8 @@ $('.change_password').click(function () {
 
 Given a user's `email` address and a `connection`, Auth0 will send a change password email.
 
+This endpoint only works for database connections.
+
 ### Query Parameters
 
 | Parameter        | Description |
@@ -71,7 +73,6 @@ Given a user's `email` address and a `connection`, Auth0 will send a change pass
 
 ### Remarks
 
-- This endpoint only works for database connections.
 - If you are using Lock version 9 and above, **do not set the password field** or you will receive a *password is not allowed* error. You can only set the password if you are using Lock version 8.
 - If a password is provided, when the user clicks on the confirm password change link, the new password specified in this POST will be set for this user.
 - If a password is NOT provided, when the user clicks on the password change link they will be redirected to a page asking them for a new password.
