@@ -120,10 +120,6 @@ curl --request POST \
   --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"code","client_id": "${account.client_id}","code_challenge":"CODE_CHALLENGE","code_challenge_method":"S256","redirect_uri":"CALLBACK_URL"}'
 ```
 
-```javascript
-
-```
-
 > RESPONSE SAMPLE
 
 ```json
