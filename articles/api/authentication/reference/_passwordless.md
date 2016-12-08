@@ -200,6 +200,16 @@ auth0.verifySMSCode({
 });
 ```
 
+> RESPONSE SAMPLE:
+
+```json
+{
+  "id_token": "eyJ0eXA...",
+  "access_token": "5CB7...",
+  "token_type": "bearer"
+}
+```
+
 <%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/ro",
