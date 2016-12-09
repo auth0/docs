@@ -22,7 +22,7 @@ You can now add [rules](/rules) into the [Resource Owner Password Grant](/api-au
 
 ### 2. Create the Webtask to Use Your Rule
 
-<%= include('./_includes/_create-rule', {
+<%= include('./_includes/_create-webtask', {
 	  grant: 'password-exchange'
 }) %>
 
@@ -52,28 +52,9 @@ Before you make the `POST` call you must replace the following values:
 * `client_secret`: Client Secret of the client making the request. This parameter is only required when the **Token Endpoint Authentication Method** of your Non Interactive Client is set to `Post`. If it is `None` you do not need this parameter. To check the value navigate to [Dashboard Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 * `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
 
-A successful response contains an `access_token`:
-
-```js
-{
-  "access_token": "eyJz93a...k4laUWw",
-  "token_type": "Bearer"
-}
-```
-
-The contents of the decoded `access_token` look like this:
-
-```json
-{
-  "iss": "${account.namespace}/",
-  "sub": "${account.clientId}@clients",
-  "aud": "API_IDENTIFIER",
-  "exp": 1472832994,
-  "iat": 1472746594,
-  "scope": "read:sample extra",
-  "https://foo.com/claim": "bar"
-}
-```
+<%= include('./_includes/_response', {
+	  scope: 'read:sample extra'
+}) %>
 
 **Note:** You can use [JWT.IO](https://jwt.io/) to decode, verify and generate JWT.
 
@@ -100,48 +81,12 @@ The input parameters for the rule, including sample snippets:
 }
 ```
 
-* **client** (`object`): The client asking for the token, including the `client` metadata (a key-value pair that can be set by client):
-
-    ```json
-    {
-      "tenant":  "tenant_name",
-      "id": "tenant_id",
-      "name": "test_client",
-      "metadata": {
-        "some_metadata": "value"
-      }
-    }
-    ```
-
-* **scope** (`string array`): The scopes available on the API that you have defined.
-
-* **audience** (`string`): The API identifier available via the API settings page.
-
-* **context** (`object`): The contextual information about the request:
-
-    ```json
-    {
-      "ip": "123.123.123.123",
-      "userAgent": "...",
-      "webtask": {
-        "secrets": { "FOO": "bar" }
-      }
-    }
-    ```
+<%= include('./_includes/_input-params') %>
 
 ### Auth0 Runtime Expectation
 
-The Auth0 Runtime expects you to return an `access_token` that looks like the following:
-
-```json
-{
-  "https://anything.com/foo": "bar",
-  "scope": [ "scope1", "scope2" ]
-}
-```
-
-If you decide not to issue the token, you can return `Error (cb(new Error('access denied')))`.
+<%= include('./_includes/_runtime') %>
 
 ### Logs
 
-You can use `wt logs` to see realtime logs. For additional information on reading the output, please consult [Webtask Streaming Logs](https://webtask.io/docs/api_logs).
+<%= include('./_includes/_logs') %>

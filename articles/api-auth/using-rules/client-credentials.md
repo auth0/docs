@@ -22,7 +22,7 @@ You can now add [rules](/rules) into the [client credentials](/api-auth/grant/cl
 
 ### 2. Create the Webtask to Use Your Rule
 
-<%= include('./_includes/_create-rule', {
+<%= include('./_includes/_create-webtask', {
 	  grant: 'credentials-exchange'
 }) %>
 
@@ -44,19 +44,9 @@ To test your newly-created rule and webtask, make the following `POST` call:
 }
 ```
 
-If all is well, you will receive a JWT `access_token` that looks like this:
-
-```json
-{
-  "iss": "${account.namespace}/",
-  "sub": "${account.clientId}@clients",
-  "aud": "API_IDENTIFIER",
-  "exp": 1472832994,
-  "iat": 1472746594,
-  "scope": "test extra",
-  "https://foo.com/claim": "bar"
-}
-```
+<%= include('./_includes/_response', {
+	  scope: 'test extra'
+}) %>
 
 ## Implementation Notes
 
@@ -64,46 +54,12 @@ If all is well, you will receive a JWT `access_token` that looks like this:
 
 The input parameters for the rule, including sample snippets:
 
-* **client** - `object` - the client asking for the token, including the `client` metadata (a key-value pair that can be set by client)
-
-    ```json
-    {
-      "tenant":  "tenant_name",
-      "id": "tenant_id",
-      "name": "test_client",
-      "metadata": {
-        "some_metadata": "value"
-      }
-    }
-    ```
-
-* **scope** - `string array` - the scopes available on the API that you have defined
-* **audience** - `string` - the API identifier available via the API settings page
-* **context** - `object` - the contextual information about the request
-
-    ```json
-    {
-      "ip": "123.123.123.123",
-      "userAgent": "...",
-      "webtask": {
-        "secrets": { "FOO": "bar" }
-      }
-    }
-    ```
+<%= include('./_includes/_input-params') %>
 
 ### Auth0 Runtime Expectation
 
-The Auth0 Runtime expects you to return an `access_token` that looks like the following:
-
-```json
-{
-  "https://anything.com/foo": "bar",
-  "scope": [ "scope1", "scope2" ]
-}
-```
-
-If you decide not to issue the token, you can return `Error (cb(new Error('access denied')))`.
+<%= include('./_includes/_runtime') %>
 
 ### Logs
 
-You can use `wt logs` to see realtime logs. For additional information on reading the output, please consult [Webtask Streaming Logs](https://webtask.io/docs/api_logs).
+<%= include('./_includes/_logs') %>
