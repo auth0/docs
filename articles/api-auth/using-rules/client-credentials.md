@@ -44,6 +44,11 @@ To test your newly-created rule and webtask, make the following `POST` call:
 }
 ```
 
+Before you make the `POST` call you must replace the following values:
+* `audience`: API Identifier that the client is requesting access to.
+* `client_id`: Client ID of the client making the request.
+* `client_secret`: Client Secret of the client making the request. This parameter is only required when the **Token Endpoint Authentication Method** of your Non Interactive Client is set to `Post`. If it is `None` you do not need this parameter. To check the value navigate to [Dashboard Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
 <%= include('./_includes/_response', {
 	  scope: 'test extra'
 }) %>
