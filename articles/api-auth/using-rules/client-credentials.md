@@ -20,42 +20,11 @@ You can now add [rules](/rules) into the [client credentials](/api-auth/grant/cl
 	  args: 'client, scope, audience, context, cb'
 }) %>
 
-Create a file named `myrule.js`, and enter the following:
-
-```js
-module.exports = function(client, scope, audience, context, cb) {
-  var access_token = {};
-  access_token['https://foo.com/claim'] = 'bar';
-  access_token.scope = scope;
-  access_token.scope.push('extra');
-  cb(null, access_token);
-};
-```
-This is a sample rule that will:
-
-* Add an arbitrary claim (`https://foo.com/claim`) to the `access_token`.
-* Add an extra scope to the default scopes configured on your [API](${manage_url}/#/apis).
-
 ### 2. Create the Webtask to Use Your Rule
 
-Create the Webtask. You will need to set the following static metadata fields for the Webtask:
-
-* `wt-compiler = auth0-ext-compilers/client-credentials-exchange`
-* `auth0-extension = runtime`
-* `auth0-extension-name = credentials-exchange`
-* `auth0-extension-secret = {random_secret}`
-
-The same `{random_secret}` value provided to the `auth0-extension-secret` metadata property must also be provided to the webtask code as an `auth0-extension-secret` secret parameter. This prevents unauthorized calls to this webtask. A secret may be conveniently created using `openssl` tool if your platform has it available:
-
-```
-SECRET=$(openssl rand 32 -base64) && \
-wt create myrule.js \
-  --meta wt-compiler=auth0-ext-compilers/client-credentials-exchange \
-  --meta auth0-extension=runtime \
-  --meta auth0-extension-name=credentials-exchange \
-  --meta auth0-extension-secret=$SECRET \
-  --secret auth0-extension-secret=$SECRET
-```
+<%= include('./_includes/_create-rule', {
+	  grant: 'credentials-exchange'
+}) %>
 
 ### 3. Test Your Setup
 
