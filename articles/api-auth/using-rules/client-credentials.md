@@ -8,7 +8,7 @@ You can now add [rules](/rules) into the [client credentials](/api-auth/grant/cl
 
 ## Prior to Beginning Your Configuration
 
-<%= include('./prerequisites.md') %>
+<%= include('./_includes/_prerequisites.md') %>
 
 ## Creating the Rule
 
