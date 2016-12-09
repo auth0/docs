@@ -169,28 +169,20 @@ The following Auth0 Authenticaion API endpoints return rate limit-related header
       <th><strong>Endpoint</strong></th>
       <th><strong>GET</strong></th>
       <th><strong>POST</strong></th>
-      <th><strong>DELETE</strong></th>
-      <th><strong>PATCH</strong></th>
   </tr>
   <tr>
       <td>User Profile</td>
       <td>/userinfo</td>
       <td>/tokeninfo</td>
-      <td></td>
-      <td></td>
   </tr>
   <tr>
       <td>Delegated Authentication</td>
       <td></td>
       <td>/delegation</td>
-      <td></td>
-      <td></td>
   </tr>
     <tr>
       <td>Database and Active Directory / LDAP Authentication</td>
       <td></td>
       <td>/dbconnections/change_password</td>
-      <td></td>
-      <td></td>
   </tr>
 </table>
