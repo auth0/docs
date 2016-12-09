@@ -56,8 +56,6 @@ Before you make the `POST` call you must replace the following values:
 	  scope: 'read:sample extra'
 }) %>
 
-**Note:** You can use [JWT.IO](https://jwt.io/) to decode, verify and generate JWT.
-
 ## Implementation Notes
 
 ### Input Parameters
@@ -66,20 +64,20 @@ The input parameters for the rule, including sample snippets:
 
 * **user** (`object`): The authenticated user:
 
-```json
-{
-    "tenant": "tenant_name",
-    "id": "user_id",
-    "displayName": "user_name",
-    "email": "email",
-    "user_metadata": {
-         "some_user_metadata": "value"
-    },
-    "app_metadata": {
-         "some_app_metadata": "another value"
+    ```json
+    {
+        "tenant": "tenant_name",
+        "id": "user_id",
+        "displayName": "user_name",
+        "email": "email",
+        "user_metadata": {
+             "some_user_metadata": "value"
+        },
+        "app_metadata": {
+             "some_app_metadata": "another value"
+        }
     }
-}
-```
+    ```
 
 <%= include('./_includes/_input-params') %>
 
