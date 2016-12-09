@@ -1137,6 +1137,14 @@
     "to": "/libraries/custom-signup"
   },
   {
+    "from": "/tutorials/local-testing-and-development",
+    "to": "/dev-lifecycle/local-testing-and-development"
+  },
+  {
+    "from": "/tutorials/development-lifecycle-with-auth0",
+    "to": "/dev-lifecycle/setting-up-env"
+  },
+  {
     "from": "/api-auth/grant/using-rules",
     "to": "/api-auth/using-rules/using-rules/client-credentials"
   }
