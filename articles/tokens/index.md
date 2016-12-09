@@ -9,10 +9,10 @@ description: Learn about the numerous types of tokens referenced in Auth0 docume
 
 This document is designed to clarify and disambiguate the numerous types of tokens referenced in Auth0 documentation, what each is used for and how to use it.
 
-First there are a couple different categories of tokens:
+Auth0 uses two types of tokens:
 
-* JSON Web Tokens (JWT) - These are tokens that conform to the [JSON Web Token standard](/jwt) and contain information about an identity in the form of claims.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
-* Opaque tokens - Opaque tokens are tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
+* **JSON Web Tokens (JWT)**: These are tokens that conform to the [JSON Web Token standard](/jwt) and contain information about an identity in the form of claims.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
+* **Opaque tokens**: Opaque tokens are tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
 
 There are six primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation:
 

@@ -14,8 +14,6 @@ By default, Auth0 generates access tokens in JSON Web Token (JWT) format, an ind
 - The set of claims contains verifiable security statements such as the identity of the user and the permissions they are allowed.
 - The signature is used to validate that the token is trustworthy and has not been tampered with.
 
-It should be noted that other token formats are also available. For example, Auth0 Management API v1 (which has been deprecated) uses an opaque token format in which claims are referenced in a separate database, rather than directly in the token. Simple Web Token is an example of another token format, although it has not seen widespread adoption. Support for future tokens formats will be implemented if and when industry consensus develops around them.
-
 ## How to get an access token
 
 Access tokens are issued via [Auth0's OAuth 2.0 endpoints](/api/authentication): `/authorize` and `/oauth/token`. You can use any OAuth 2.0-compatible library to obtain access tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many language and frameworks that work seamlessly with our endpoints.
@@ -47,11 +45,11 @@ In some cases, consent can also be pre-configured administratively. This typical
 
 ### Server-to-server interactions
 
-Access tokens can also be issued directly to applications, permitting access to APIs that don't provide user-specific data. Such scenarios involve server-to-server interactions.
+Access tokens can also be issued directly to applications. Such scenarios involve server-to-server interactions. In this case the user does not need to authenticate.
 
 For example, a reverse geocoding API that accepts a latitude, longitude coordinate and returns a readable place name does not access user-owned data. In such cases a backend server needs to call the geocoding API in order to perform the translation.
 
-Server-to-server access tokens can be obtained using the `client_credentials` flow, exchanging the client's credentials for an API access token.
+Server-to-server access tokens can be obtained using the [Client Credentials flow](/api-auth/grant/client-credentials). In order to get a token using this flow, the Client has to provide its credentials (`client_id`, `client_secret`).
 
 ```
 POST /oauth/token
@@ -73,12 +71,15 @@ Content-Type: application/json
 {
   "access_token":"ey...",
   "token_type":"Bearer",
-  "expires_in":86400,
-  "example_parameter":"example_value"
+  "expires_in":86400
 }
 ```
 
 In order to obtain this access token, the client must first have been granted permission to access the geocoding API. This is typically done by requesting access from the administrator of the geocoding API.
+
+For details on how to set up a Client Credentials Grant in Auth0 refer to [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
+
+
 
 ## Authorize access tokens
 
@@ -95,7 +96,7 @@ The token in this example decodes to the following claims:
 
 ```json
 {
-  "alg": "HS256",
+  "alg": "RS256",
   "typ": "JWT"
 }
 .
@@ -114,6 +115,7 @@ Before permitting access to the API using this token, the API must do the follow
 1. Ensure that the token is intended to be used at the API by checking that the value of `aud` is identical to the API's identifier.
 1. Ensure that the token has not expired by comparing the value of `exp` to the current time.
 1. Ensure that the token was issued by a trusted authorization server. In this case, Auth0 is the trusted authorization server and a secret, `keyboardcat`, is known only to Auth0 and the API. The signature of the token is validated using this secret.
+1. Ensure that the token has the correct scopes to perform the requested operation.
 
 If any of these check fail, the token is invalid and the request should be rejected.
 
