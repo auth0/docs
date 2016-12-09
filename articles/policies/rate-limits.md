@@ -27,10 +27,6 @@ For example, the above states that, for the given bucket, there is a maximum req
 
 For some API endpoints, the rate limits are defined per bucket, so the origins of the call do not influence the rate limit changes. For other buckets, the rate limits are defined using different keys, so the originating IP address is considered when counting the number of received API calls.
 
-### Management API v2
-
-Please note that there is a 50 requests per second limit on all [Management API v2](/api/management/v2) calls per tenant. The limit is set by tenant and not by endpoint.
-
 ## Exceeding the Rate Limit
 
 If you exceed the provided rate limit for a given API endpoint, you will receive the [429 Too Many Requests](http://tools.ietf.org/html/rfc6585#section-4) response with the following message:
@@ -53,17 +49,23 @@ API requests to selected Authentication or Management API endpoints will return 
 * **X-RateLimit-Remaining**: Requests available for the current time frame
 * **X-RateLimit-Reset**: Time until the rate limit resets (in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time))
 
-The following Auth0 API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
+## Endpoints with Rate Limits
 
 > If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, please see the page on [Anomaly Detection](/anomaly-detection) for additional information.
 
+### Management API v2
+
+Please note that there is a 50 requests per second limit on all [Management API v2](/api/management/v2) calls per tenant. The limit is set by tenant and not by endpoint.
+
+The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
+
 <table class="table">
   <tr>
-      <th>Endpoint</th>
-      <th>GET</th>
-      <th>POST</th>
-      <th>DELETE</th>
-      <th>PATCH</th>
+      <th><strong>Endpoint</strong></th>
+      <th><strong>GET</strong></th>
+      <th><strong>POST</strong></th>
+      <th><strong>DELETE</strong></th>
+      <th><strong>PATCH</strong></th>
   </tr>
   <tr>
       <td>Client Grants</td>
@@ -155,5 +157,40 @@ The following Auth0 API endpoints return rate limit-related headers. For additio
       <td></td>
       <td></td>
       <td>/tenants/settings</td>
+  </tr>
+</table>
+
+### Authentication API
+
+The following Auth0 Authenticaion API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Authentication API docs](/api/authentication).
+
+<table class="table">
+  <tr>
+      <th><strong>Endpoint</strong></th>
+      <th><strong>GET</strong></th>
+      <th><strong>POST</strong></th>
+      <th><strong>DELETE</strong></th>
+      <th><strong>PATCH</strong></th>
+  </tr>
+  <tr>
+      <td>User Profile</td>
+      <td>/userinfo</td>
+      <td>/tokeninfo</td>
+      <td></td>
+      <td></td>
+  </tr>
+  <tr>
+      <td>Delegated Authentication</td>
+      <td></td>
+      <td>/delegation</td>
+      <td></td>
+      <td></td>
+  </tr>
+    <tr>
+      <td>Database and Active Directory / LDAP Authentication</td>
+      <td></td>
+      <td>/dbconnections/change_password</td>
+      <td></td>
+      <td></td>
   </tr>
 </table>
