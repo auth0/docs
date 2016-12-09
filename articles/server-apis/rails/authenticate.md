@@ -32,7 +32,7 @@ rails generate knock:install
 ```
 
 It will create the following initializer `config/initializers/knock.rb`.
-This file contains all the informations about the existing configuration options.
+This file contains all the information about the existing configuration options.
 
 #### Usage
 
