@@ -13,7 +13,7 @@ If you follow our seed project or the samples based on it, the values you must c
 
 To integrate your Java application with Auth0 you need to add the following dependencies:
 
-- [auth0-servlet](https://github.com/auth0/auth0-servlet): is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It validates the [JWT](/jwt) from Auth0 in every API call to assert authentication according to configuration.
+- [auth0-servlet](https://github.com/auth0/auth0-servlet): is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It validates the [JWT](/jwt) from Auth0 in every API call to assert authentication according to the configuration.
 
 If you are using maven, add the dependency to your `pom.xml`:
 
