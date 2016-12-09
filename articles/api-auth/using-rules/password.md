@@ -70,7 +70,7 @@ To test your newly-created rule and webtask, make the following `POST` call:
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\"}"
+    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\"}"
   }
 }
 ```
@@ -80,6 +80,7 @@ Before you make the `POST` call you must replace the following values:
 * `password`: Resource Owner's secret.
 * `audience`: API Identifier that the client is requesting access to.
 * `client_id`: Client ID of the client making the request.
+* `client_secret`: Client Secret of the client making the request. This parameter is only required when the **Token Endpoint Authentication Method** of your Non Interactive Client is set to `Post`. If it is `None` you do not need this parameter. To check the value navigate to [Dashboard Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 * `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
 
 A successful response contains an `access_token`:
