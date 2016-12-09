@@ -8,7 +8,7 @@ You can now add [rules](/rules) into the [Resource Owner Password Grant](/api-au
 
 ## Prior to Beginning Your Configuration
 
-<%= include('./prerequisites.md') %>
+<%= include('./_includes/prerequisites.md') %>
 
 ## Creating the Rule
 
