@@ -16,6 +16,10 @@ You can now add [rules](/rules) into the [Resource Owner Password Grant](/api-au
 
 ### 1. Create the Rule For Use with Webtasks
 
+<%= include('./_includes/_create-rule', {
+	  args: 'user, client, scope, audience, context, cb'
+}) %>
+
 Create a file named `myrule.js`, and enter the following:
 
 ```js
