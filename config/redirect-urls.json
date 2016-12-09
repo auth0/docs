@@ -1133,6 +1133,10 @@
     "to": "/appliance/critical-issue"
   },
   {
+    "from": "/api-auth/grant/using-rules",
+    "to": "/api-auth/using-rules/using-rules/client-credentials"
+  },
+  {
     "from": "/libraries/lock/v10/custom-signup",
     "to": "/libraries/custom-signup"
   },
@@ -1143,9 +1147,5 @@
   {
     "from": "/tutorials/development-lifecycle-with-auth0",
     "to": "/dev-lifecycle/setting-up-env"
-  },
-  {
-    "from": "/api-auth/grant/using-rules",
-    "to": "/api-auth/using-rules/using-rules/client-credentials"
   }
 ]
