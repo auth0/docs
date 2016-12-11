@@ -44,6 +44,15 @@ Auth0 supports the following social providers out of the box. You can also use a
 <% var enterpriseConnections = cache.find('articles/connections/enterprise', {sort: 'index'}); %>
 <%= include('./_connections', { connections: enterpriseConnections }) %>
 
+## Legal identities
+
+Through our partner Grean we offer a growing range of government and bank identities tied to
+legal persons. 
+<% var greanConnections = cache.find('articles/connections/grean', {sort: 'index'}); %>
+<%= include('./_connections', { connections: greanConnections }) %>
+
+If the one you need isn't found here we suggest getting in touch with [Grean](https://grean.com).
+
 ## Database and Custom Connections
 
 If you want to create your own user store, instead of using external identity providers like Google or Facebook, you can use a Database Connection. This way you can can authenticate users with an email or username and a password. The credentials can be securely stored either in the Auth0 user store, or in your own database.
