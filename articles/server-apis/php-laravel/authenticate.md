@@ -16,7 +16,7 @@ description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to
 
 ## Laravel Compatibility
 
-The lastest version (4.x) targets Laravel 5.3 compatibility.
+The latest version (4.x) targets Laravel 5.3 compatibility.
 
 If you are working with an older version (Laravel 4.x) you need to point to composer.json to the version 1.0.*
 
@@ -27,7 +27,7 @@ ${snippet(meta.snippets.dependencies)}
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
 ### 2. Enable it in Laravel
-Add the following in the list of the services providers, located in `config/app.php`
+Add the following to the list of service providers, located in `config/app.php`
 
 ${snippet(meta.snippets.setup)}
 
@@ -99,7 +99,7 @@ To enable this driver, you need to change the following line in `/config/auth.ph
 ...
 ```
 
-If you need to implement a more advanced custom solution, you can always extend the `Auth0UserRepository` (or implement your own) in order to get and update the user data on your database and event more advaced validations.
+If you need a more advanced custom solution, you can always extend the `Auth0UserRepository` class.
 
 For example, if you want to use the default `User` model and store the user profile in your database, you can use the following Repository:
 
