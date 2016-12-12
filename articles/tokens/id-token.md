@@ -68,9 +68,7 @@ The `id_token` will contain only the claims specified as the value of the `scope
 
 The `id_token` is valid for 10 hours (36000 seconds) by default.  The value can be changed in the [Dashboard > Clients > Settings](${manage_url}/#/clients/${account.clientId}/settings) screen using the `JWT Expiration (seconds)` field.
 
-There are cases where you might want to renew your `id_token`. The most common case is that you want to refresh the claims contained in the `id_token` and see that they are still valid. For example, the `id_token` may contain the user's authorization claims and you want to check that their rights are valid before allowing sensitive operations.
-
-In order to renew the `id_token` you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
+There are cases where you might want to renew your `id_token`. In order to do so, you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
 
 If you are using auth0.js then you can fetch a new token using:
 
