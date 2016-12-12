@@ -26,7 +26,7 @@ The way to validate an ID token depends on the hash algorithm used by your Clien
 - If you used `HS256` then the token is signed with the Client Secret, using the HMAC algorithm. You can verify the signature using the Client Secret value, which you can find at the _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings)_ page.
 - If you used `RS256` then the token is signed with a public/private key pair, using RSA. You can verify the signature using the Public Key or Certificate, which you can find at the _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > Certificates_ page.
 
-To check or update the algorithm your Client uses go to _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm_.
+To check or update the algorithm your Client uses go to _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm_. The most secure practice, and our recommendation, is to use `RS256`.
 
 ## How to control the contents of an ID token
 
