@@ -1,5 +1,5 @@
 ---
-description: This page details Auth0 User Profiles, such as sources of profile data, normalized user profiles, caching, profile structure and custom profiles. 
+description: This page details Auth0 User Profiles, such as sources of profile data, normalized user profiles, caching, profile structure and custom profiles.
 ---
 
 # User Profile: In-Depth Details
@@ -91,7 +91,7 @@ Finally, there is the Authentication API specifically used for authentication fl
 
 In the authentication flows described above, Auth0 returns a set of tokens in lieu of a full User Profile.
 
-One of the returned tokens is the `id_token`, which is a [JSON Web Token](/jwt) (or JWT) that contains User Profile attributes represented in the form of *claims*. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature (which was generated with the Auth0 app's Client Secret). The app can then use the JWT to securely call other APIs as long as those APIs can verify the JWT's signature and trust and use the contained claims.
+One of the returned tokens is the `id_token`, which is a [JSON Web Token](/jwt) (or JWT) that contains User Profile attributes represented in the form of *claims*. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature, which is generated with the Auth0 app's Client Secret in the case of `HS256`. In case the client uses `RS256` encryption then the `id_token` will be signed with a private key and verified with a public key. The app can then decode the JWT and get the user information contained in its payload, like the user's name, email, and so forth, typically used for UI display.
 
 The claims within a JWT generally contain a subset of the information available on the User Profile in order to minimize the overall size. For further information on controlling the claims returned in a JWT, see the [Scopes](#scopes) section below.
 
