@@ -83,7 +83,7 @@ RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
 The [Laravel authentication system](https://laravel.com/docs/5.3/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `app/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
-The plugin comes with an authentication driver called `auth0`. This driver defines a user structure that wraps the [Normalized User Profile](/user-profile) defined by Auth0, and it doesn't actually persist the object, it just stores it in the session for future calls.
+The plugin comes with an authentication driver called `auth0`. This driver defines a user structure that wraps the [Normalized User Profile](https://auth0.com/docs/user-profile/normalized) defined by Auth0, and it doesn't actually persist the object, it just stores it in the session for future calls.
 
 This works fine for basic testing or if you don't really need to persist the user. At any point you can call `Auth::check()` to see if there is a user logged in and `Auth::user()` to get the wrapper with the user information.
 
