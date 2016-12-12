@@ -33,8 +33,6 @@ If this block is triggered, it can be cleared the following ways:
 * The User clicks on the "unblock" link provided in the email sent when the block went into effect;
 * The User changes their password.
 
-### 2nd Level Brute Force Protection
-
 **Triggers:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. 50 sign ups attempts per minute from the same IP address.
 
 **Actions:**
@@ -49,8 +47,8 @@ Auth0 does email the dashboard owner when this block is triggered. Within this e
 
 Both of these anomaly types depend on the IP address of the user. Because of this, the following use cases are not supported:
 
-1.  Using the [Resource Owner](/api/authentication/reference#resource-owner) from the backend of the application. Using this call does not get the IP address of the user.
-2. Authenticating many users from the same IP address.  If this is an issue for you, disable the **2nd level brute force protection** shield.
+1. Using the [Resource Owner](/api/authentication/reference#resource-owner) from the backend of the application. Using this call does not get the IP address of the user.
+2. Authenticating many users from the same IP address. Users that are behind a proxy are more likely to reach these limits and trigger the associated protection. It is possible to configure a whitelist for the proxy's IP and CIDR range and avoid erroneously triggering the protection.
 
 ### Breached Password Detection
 
@@ -74,8 +72,19 @@ To customize the **actions** that get taken from the **triggers**, go to the [An
 
 You can use the toggle to disable all the actions of a certain shield. Or to enable/disable certain actions, click on the shield that has the action in it that you wish to change.
 
-![](/media/articles/anomaly-detection/changing-actions.png)
+### Brute-force
 
-Then you can use the toggle to enable/disable an action.
+You can use the toggle to enable/disable an action. Also could configure the IP/CIDR range whitelist for the specific trigger, this is very helpful if you are behind a proxy.
+
+![](/media/articles/anomaly-detection/changing-actions-brute-force.png)
 
 Click **Save** when you have finished.
+
+### Breached password 
+
+You can use the toggle to enable/disable an action.
+
+![](/media/articles/anomaly-detection/changing-actions-stolen-credentials.png)
+
+Click **Save** when you have finished.
+
