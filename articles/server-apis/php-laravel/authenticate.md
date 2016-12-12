@@ -181,7 +181,7 @@ public function register()
 
 If you don't want to use Laravel Passport, you can use the Middlewares provided by this package.
 
-To register the middlewares, you need to go to `app/Http/Kernel.php` and add this lines to the `routeMiddleware` collection:
+To register the middlewares, you need to go to `app/Http/Kernel.php` and add these lines to the `routeMiddleware` collection:
 
 ```php
 protected $routeMiddleware = [
@@ -203,7 +203,7 @@ This middleware with extract the token from the request headers, decode and veri
 
 `ForceAuthMiddleware` will check if there is a user set up, if there is not it will reject the login with an HTTP 401 code.
 
-The idea of using this middlewares if to be able to set `Auth0OptionalJWTMiddleware` to all your API routes and for those that should be secured, you can add `ForceAuthMiddleware`.
+The idea of using these middlewares is to be able to set `Auth0OptionalJWTMiddleware` to all your API routes and for those that should be secured, you can add `ForceAuthMiddleware`.
 
 ### 5. Use it & Run it
 
