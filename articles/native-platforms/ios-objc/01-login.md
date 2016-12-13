@@ -135,7 +135,7 @@ A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWit
 
 1. Add Lock Twitter's Pod
 
-`pod 'Lock-Twitter', '~> 1.1'`
+`pod 'Lock-Twitter', '~> 2.0'`
 
 2. Add to the import:
 
@@ -144,10 +144,29 @@ A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWit
 3. Configure Auth0 Twitter authenticator after you initialize `A0Lock`:
 
 ```objc
-NSString *twitterApiKey = ... //Remember to obfuscate your api key
-NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
-A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticatorWithKey:twitterApiKey andSecret:twitterApiSecret];
-[lock registerAuthenticators:@[twitter]];
+NSString *twitterApiKey = ...
+A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticationWithConsumerKey:twitterApiKey];
+
+// ...
+
+let twitterApiKey = ... //Remember to obfuscate your api key
+let twitter = A0TwitterAuthenticator.newAuthentication(withConsumerKey: twitterApiKey)
+```
+
+Register the `A0TwitterAuthenticator` instance with your `A0Lock` instance if native integration is available. Lock-Twitter does not default to an OAuth flow, so a check should be made to determine if native authentication is available. If it is, the integration can be registered.
+
+```objc
+A0Lock *lock = ... // Get your instance of A0Lock
+if ([A0TwitterAuthenticator canUseNativeTwitterAuthentication]) {
+    [lock registerAuthenticators:@[twitter]];
+}
+
+// ...
+
+let lock = ... //Get your instance of A0Lock
+if A0TwitterAuthenticator.canUseNativeTwitterAuthentication() {
+    lock.registerAuthenticators([twitter])
+}
 ```
 
 **NOTE:** For more information on configuring your app for Twitter, see: [Connect your app to Twitter](/connections/social/twitter).
