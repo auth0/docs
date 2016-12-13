@@ -137,11 +137,11 @@ A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWit
 
 `pod 'Lock-Twitter', '~> 2.0'`
 
-2. Add to the import:
+2. Add to the Import
 
 `#import <Lock-Twitter/A0TwitterAuthenticator.h>`
 
-3. Configure Auth0 Twitter authenticator after you initialize `A0Lock`:
+3. Configure Auth0 Twitter Authenticator
 
 ```objc
 NSString *twitterApiKey = ...
@@ -171,7 +171,7 @@ if A0TwitterAuthenticator.canUseNativeTwitterAuthentication() {
 
 **NOTE:** For more information on configuring your app for Twitter, see: [Connect your app to Twitter](/connections/social/twitter).
 
-## Implement the login
+## Implement the Login
 
 Now you are ready to implement the Login using Lock. You only need to instantiate and present it from any of your `UIViewControllers`, like this:
 
