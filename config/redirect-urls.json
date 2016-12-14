@@ -826,7 +826,7 @@
   },
   {
     "from": "/step-up-authentication",
-    "to": "/tutorials/setup-up-authentication"
+    "to": "/tutorials/step-up-authentication"
   },
   {
     "from": "/refresh-token",
