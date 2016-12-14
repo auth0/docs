@@ -82,7 +82,7 @@ public class HasScopeRequirement : AuthorizationHandler<HasScopeRequirement>, IA
 }
 ``` 
 
-Next you can define a policy for each of the scopes in your application in the `ConfigureServices` method of your `Startup` class: 
+Next, you can define a policy for each of the scopes in your application in the `ConfigureServices` method of your `Startup` class: 
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
