@@ -14,7 +14,7 @@ For information on adding `user_metadata` on signup, see the section on Lock [Cu
 
 ## Working with User Metadata
 
-Once you have [implemented the login functionality](/quickstart/spa/vanillajs#3-implement-the-login) for your Lock instance, you can choose to store the newly-created `id_token`. This token is used to retrieve the user's profile from Auth0.
+Once you have [implemented the login functionality](/quickstart/spa/vanillajs#3-implement-the-login) for your Lock instance, you can choose to store the newly-created `id_token`. 
 
 ```js
 var hash = lock.parseHash(window.location.hash);

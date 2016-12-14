@@ -32,10 +32,6 @@ To check or update the algorithm your Client uses go to _[Client Settings](${man
 
 In order to retrieve an `id_token` the `responseType` should be set to `id_token`, both for client-side and server-side authentication flows.
 
-::: panel-warning OAuth2 as a Service
-If you are not using *OAuth2 as a Service*, then you should use `code` for server side flows and `token` for client side flows.
-:::
-
 The attributes included in the issued `id_token` are controlled by the use of a [parameter called `scope`](/scopes).
 - If `scope` is set to `openid`, then the `id_token` will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
 - If `scope` is set to `openid email`, then the `id_token` will contain additionally the `email` and `email_verified` claims.
@@ -62,7 +58,9 @@ lock.show();
 
 The `id_token` will contain only the claims specified as the value of the `scope` parameter.
 
-**NOTE:** You can also add claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-custom/claim'] = 'some-value'`.
+::: panel-warning Add claims using Rules
+If you are using [OAuth 2.0 API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth), you can add claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-custom/claim'] = 'some-value'`.
+:::
 
 ## Lifetime
 
