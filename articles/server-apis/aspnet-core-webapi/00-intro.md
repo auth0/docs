@@ -38,7 +38,7 @@ In the [APIs section]("${manage_url}/#/apis) of the Auth0 Dashboard, click the *
 
 ![Create API](/media/articles/server-apis/aspnet-core-webapi/create-api-rs256.png)
 
-Also update the `appsettings.json` file in your project with the correct **Domain** and **API Identifier** for your API, e.g.
+Also, update the `appsettings.json` file in your project with the correct **Domain** and **API Identifier** for your API, e.g.
 
 ```json
 {
