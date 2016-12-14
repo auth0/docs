@@ -10,11 +10,11 @@ When using Auth0's [Lock](/libraries/lock) library, you can define and update th
 
 ## Defining User Metadata on Signup
 
-For information on adding `user_metadata` on signup, see the section on Lock [Custom Sign Up Fields](/libraries/lock/v10/new-features#custom-sign-up-fields) 
+For information on adding `user_metadata` on signup, see the section on Lock [Custom Sign Up Fields](/libraries/lock/v10/new-features#custom-sign-up-fields)
 
 ## Working with User Metadata
 
-Once you have [implemented the login functionality](/quickstart/spa/vanillajs#3-implement-the-login) for your Lock instance, you can choose to store the newly-created `id_token`. This token is used to retrieve the user's profile from Auth0 or to call APIs.
+Once you have [implemented the login functionality](/quickstart/spa/vanillajs#3-implement-the-login) for your Lock instance, you can choose to store the newly-created `id_token`. 
 
 ```js
 var hash = lock.parseHash(window.location.hash);
@@ -49,7 +49,7 @@ if (id_token) {
 
 You can [update the metadata properties](/metadata/apiv2#update-user-metadata) with calls to the Auth0 Management API.
 
-By including the user's `id_token` in the `Authorization` header, you can make the appropriate `PATCH` call to the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint. 
+By including the user's `id_token` in the `Authorization` header, you can make the appropriate `PATCH` call to the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint.
 
 Here is what a sample request might look like:
 
