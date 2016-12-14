@@ -30,7 +30,7 @@ Open the **WebApiConfig.cs** file located in the **App_Start** folder and add th
 using YOUR_WEBAPI_PROJECT_NAME.App_Start;
 using System.Web.Configuration;
 ```
-Remember to replace the placeholder for your project name in the first `using` statement.
+Remember to replace the placeholder with your project name in the first `using` statement.
 
 Add the following code snippet inside the `Register` method.
 
@@ -46,7 +46,7 @@ ${snippet(meta.snippets.setup)}
 Set the respective values.
 
 ### 4. Securing your API
-All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify that users are authenticated.
+All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify if users are authenticated.
 
 ### 5. Call Your API
 You can now make requests against your secure API by providing the Authorization header in your requests with a valid `id_token` ([See our id_token documentation](/tokens/id_token) for more information on how to obtain an `id_token`).
@@ -63,7 +63,7 @@ You can now make requests against your secure API by providing the Authorization
 
 ### 6. You're done!
 
-Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
+Now you have both your frontend and backend configured to use Auth0. Congrats, you're awesome!
 
 ### Optional Steps
 
