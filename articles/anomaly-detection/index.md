@@ -15,7 +15,8 @@ A **trigger** is a suspicious event that is detected when someone is trying to l
 
 ## Shields
 
-### Brute Force Protection
+### Brute-Force Protection
+There are two different triggers for the brute-force protection shield, for two slightly different attack scenarios.
 
 **Trigger:** *10* failed login attempts into a single account from the same IP address.
 
@@ -33,9 +34,8 @@ If this block is triggered, it can be cleared the following ways:
 * The User clicks on the "unblock" link provided in the email sent when the block went into effect;
 * The User changes their password.
 
-### 2nd Level Brute Force Protection
 
-**Triggers:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. 50 sign ups attempts per minute from the same IP address.
+**Trigger:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. 50 sign ups attempts per minute from the same IP address.
 
 **Actions:**
 * Notify dashboard owners
@@ -45,12 +45,12 @@ If this block is triggered, additional access attempts are released one at a tim
 
 Auth0 does email the dashboard owner when this block is triggered. Within this email there's a link the owner can click on to remove the block.
 
-#### Restrictions Regarding Brute Force Protection
+#### Restrictions Regarding Brute-Force Protection
 
 Both of these anomaly types depend on the IP address of the user. Because of this, the following use cases are not supported:
 
 1.  Using the [Resource Owner](/auth-api#!#post--oauth-ro) from the backend of the application. Using this call does not get the IP address of the user.
-2. Authenticating many users from the same IP address.  If this is an issue for you, disable the **2nd level brute force protection** shield.
+2.  Authenticating many users from the same IP address. For instance, users that are behind a proxy are more likely to reach these limits and trigger the associated protection. It is possible to configure a whitelist for the proxy's IP and CIDR range and avoid erroneously triggering the protection.
 
 ### Breached Password Detection
 
