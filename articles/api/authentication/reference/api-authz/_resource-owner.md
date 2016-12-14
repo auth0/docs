@@ -8,7 +8,7 @@ Content-Type: 'application/json'
 {
   "client_id":   "${account.clientId}",
   "connection":  "",
-  "grant_type":  "",
+  "grant_type":  "password",
   "username":    "",
   "password":    "",
   "scope":       "",
@@ -22,7 +22,7 @@ curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'accept: application/json' \
   --header 'content-type: application/json' \
-  --data '{ "client_id": "${account.clientId}", "connection": "", "grant_type": "", "username": "", "password": "", "scope": "", "id_token": "", "device": "" }'
+  --data '{ "client_id": "${account.clientId}", "connection": "", "grant_type": "password", "username": "", "password": "", "scope": "", "id_token": "", "device": "" }'
 ```
 
 ```javascript
@@ -33,7 +33,7 @@ var options = { method: 'POST',
   headers: { 'content-type': 'application/json', 'accept': 'application/json' },
   body:
    { connection: 'CONNECTION',
-     grant_type: '',
+     grant_type: 'password',
      username: '',
      client_id: '${account.client_id}',
      password: '',

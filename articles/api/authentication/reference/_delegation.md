@@ -11,8 +11,7 @@ Content-Type: 'application/json'
   "id_token" or "refresh_token" : "",
   "target":     "",
   "scope":      "",
-  "api_type":   "",
-  ""
+  "api_type":   ""
 }
 ```
 
@@ -38,7 +37,7 @@ curl --request POST \
 var options = {
   id_token: "your id token", // The id_token you have now
   api: 'firebase', // This defaults to the first active addon if any or you can specify this
-  "scope": "openid profile"         // default: openid
+  scope: "openid profile" // default: openid
 };
 
 auth0.getDelegationToken(options, function (err, delegationResult) {
@@ -81,10 +80,10 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your client |
-| `grant_type`     | |
+| `client_id`      | Τhe `client_id` of your client |
+| `grant_type`     | Use `urn:ietf:params:oauth:grant-type:jwt-bearer`|
 | `id_token` or `refresh_token` | |
-| `target `        | the target `client_id` |
+| `target `        | The target `client_id` |
 | `scope `         | `openid` or `openid profile email` |
 | `api_type`       | |
 
