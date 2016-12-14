@@ -90,6 +90,10 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `state`          | An opaque value the client adds to the initial request that the Authorization Server (Auth0) includes when redirecting the back to the client. Used to prevent CSRF attacks. |
 | `redirect_uri`   | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. |
 
+### Remarks
+
+- Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code).
+
 ### More Information
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
@@ -148,6 +152,11 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `redirect_uri`   | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. |
 | `code_challenge_method` | Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
 | `code_challenge` | Generated challenge from the `code_verifier`. |
+
+
+### Remarks
+
+- Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code-pkce-).
 
 
 ### More Information
@@ -226,6 +235,8 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 ### Remarks
 
 - If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and on Native Mobile SDKs.
+
+- The Implicit Grant does not support the issuance of refresh tokens.
 
 
 ### More Information
