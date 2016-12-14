@@ -7,12 +7,12 @@ The SAML protocol is used for 3rd party SaaS applications mostly, like Salesforc
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/${account.client_id}?connection={connection}
+GET https://${account.namespace}/${account.clientId}?connection={connection}
 ```
 
 ```shell
 curl --request GET \
-  --url 'https://${account.namespace}/${account.client_id}' \
+  --url 'https://${account.namespace}/${account.clientId}' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data '"connection"=""'
 ```
@@ -51,12 +51,12 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/samlp/metadata/${account.client_id}
+GET https://${account.namespace}/samlp/metadata/${account.clientId}
 ```
 
 ```shell
 curl --request GET \
-  --url 'https://${account.namespace}/samlp/metadata/${account.client_id}'
+  --url 'https://${account.namespace}/samlp/metadata/${account.clientId}'
 ```
 
 <% var getMetadataPath = '/samlp/metadata/{client_id}'; %>

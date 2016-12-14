@@ -5,12 +5,12 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/wsfed/${account.client_id}
+GET https://${account.namespace}/wsfed/${account.clientId}
 ```
 
 ```shell
 curl --request GET \
-  --url 'https://${account.namespace}/wsfed/${account.client_id}'
+  --url 'https://${account.namespace}/wsfed/${account.clientId}'
 ```
 
 <%= include('../../../_includes/_http-method', {
@@ -36,7 +36,7 @@ This endpoint accepts a WS-Federation request to initiate a login.
 ### Remarks
 
 - The `wtrealm` parameter must be in one of these formats:
-  - `urn:clientID` (e.g. urn:${account.client_id})
+  - `urn:clientID` (e.g. urn:${account.clientId})
   - If this parameter does not begin with a urn, the `client.clientAliases` array is used for look-up. This can only be set with the [/api/v2/clients](/api/management/v2#!/Clients/get_clients) Management API.
 - The `whr` parameter is mapped to the connection like this: `urn:{connection_name}`. For example, `urn:google-oauth2` indicates login with Google. If there is no `whr` parameter included, the user will be directed to the [Auth0 Login Page](/login_page).
 

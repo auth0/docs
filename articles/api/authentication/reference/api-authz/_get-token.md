@@ -16,7 +16,7 @@ POST https://${account.namespace}/oauth/token
 Content-Type: 'application/json'
 {
   "grant_type": "authorization_code",
-  "client_id": "${account.client_id}",
+  "client_id": "${account.clientId}",
   "client_secret": "${account.client_secret}",
   "code": "YOUR_AUTHORIZATION_CODE",
   "redirect_uri": "https://myclientapp.com/callback"
@@ -97,7 +97,7 @@ POST https://${account.namespace}/oauth/token
 Content-Type: 'application/json'
 {
   "grant_type": "authorization_code",
-  "client_id": "${account.client_id}",
+  "client_id": "${account.clientId}",
   "code_verifier": "YOUR_GENERATED_CODE_VERIFIER",
   "code": "YOUR_AUTHORIZATION_CODE",
   "redirect_uri": "com.myclientapp://myclientapp.com/callback"

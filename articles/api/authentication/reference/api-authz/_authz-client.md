@@ -28,7 +28,7 @@ Content-Type: 'application/json'
   "audience": "API_AUDIENCE",
   "scope": "SCOPE",
   "response_type": "code",
-  "client_id": "${account.client_id}",
+  "client_id": "${account.clientId}",
   "redirect_uri": "CALLBACK_URL",
   "state": "OPAQUE_VALUE"
 }
@@ -38,7 +38,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"code","client_id": "${account.client_id}","redirect_uri":"CALLBACK_URL","state":"OPAQUE_VALUE"}'
+  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"code","client_id": "${account.clientId}","redirect_uri":"CALLBACK_URL","state":"OPAQUE_VALUE"}'
 ```
 
 ```javascript
@@ -51,7 +51,7 @@ var options = { method: 'POST',
    { audience: 'API_AUDIENCE',
      scope: 'SCOPE',
      response_type: 'code',
-     client_id: '${account.client_id}',
+     client_id: '${account.clientId}',
      redirect_uri: 'CALLBACK_URL',
      state: 'OPAQUE_VALUE'},
   json: true };
@@ -110,7 +110,7 @@ Content-Type: 'application/json'
   "audience": "API_AUDIENCE",
   "scope": "SCOPE",
   "response_type": "code",
-  "client_id": "${account.client_id}",
+  "client_id": "${account.clientId}",
   "code_challenge": "CODE_CHALLENGE",
   "code_challenge_method": "S256",
   "redirect_uri": "CALLBACK_URL"
@@ -121,7 +121,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"code","client_id": "${account.client_id}","code_challenge":"CODE_CHALLENGE","code_challenge_method":"S256","redirect_uri":"CALLBACK_URL"}'
+  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"code","client_id": "${account.clientId}","code_challenge":"CODE_CHALLENGE","code_challenge_method":"S256","redirect_uri":"CALLBACK_URL"}'
 ```
 
 > RESPONSE SAMPLE
@@ -176,7 +176,7 @@ Content-Type: 'application/json'
   "audience": "API_AUDIENCE",
   "scope": "SCOPE",
   "response_type": "token OR id_token token",
-  "client_id": "${account.client_id}",
+  "client_id": "${account.clientId}",
   "redirect_uri": "CALLBACK_URL",
   "state": "OPAQUE_VALUE",
   "nonce": "CRYPTOGRAPHIC_NONCE"
@@ -187,13 +187,13 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"token OR id_token token","client_id": "${account.client_id}","redirect_uri":"CALLBACK_URL","state":"OPAQUE_VALUE","nonce":"CRYPTOGRAPHIC_NONCE"}'
+  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"token OR id_token token","client_id": "${account.clientId}","redirect_uri":"CALLBACK_URL","state":"OPAQUE_VALUE","nonce":"CRYPTOGRAPHIC_NONCE"}'
 ```
 
 ```javascript
 var url = 'https://' + ${account.namespace} + '/authorize';
 var params = '';
-audience=API_AUDIENCE&scope=SCOPE&response_type=RESPONSE_TYPE&client_id= ${account.client_id}&redirect_uri=CALLBACK_URL&state=OPAQUE_VALUE&nonce=CRYPTOGRAPHIC_NONCE
+audience=API_AUDIENCE&scope=SCOPE&response_type=RESPONSE_TYPE&client_id= ${account.clientId}&redirect_uri=CALLBACK_URL&state=OPAQUE_VALUE&nonce=CRYPTOGRAPHIC_NONCE
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', url);

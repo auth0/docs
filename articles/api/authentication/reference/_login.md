@@ -9,7 +9,7 @@ GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
   "response_type": "code OR token",
-  "client_id": "${account.client_id}",
+  "client_id": "${account.clientId}",
   "connection": "",
   "redirect_uri": "http://localhost/callback",
   "state": "",
@@ -147,7 +147,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 POST https://${account.namespace}/oauth/access_token
 Content-Type: 'application/json'
 {
-  "client_id":    "${account.client_id}",
+  "client_id":    "${account.clientId}",
   "access_token": "",
   "connection":   "",
   "scope":        ""
@@ -158,12 +158,12 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/oauth/access_token' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.client_id}", "access_token":"", "connection":"", "scope":""}'
+  --data '{"client_id":"${account.clientId}", "access_token":"", "connection":"", "scope":""}'
 ```
 
 ```javascript
 var url = 'https://' + ${account.namespace} + '/oauth/access_token';
-var params = 'client_id=${account.client_id}&access_token={access_token}&connection={connection}&scope={scope}';
+var params = 'client_id=${account.clientId}&access_token={access_token}&connection={connection}&scope={scope}';
 
 var xhr = new XMLHttpRequest();
 
@@ -231,7 +231,7 @@ GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
   "response_type": "code OR token",
-  "client_id": "${account.client_id}",
+  "client_id": "${account.clientId}",
   "connection": "",
   "redirect_uri": "http://localhost/callback",
   "state": "",
@@ -243,7 +243,7 @@ Content-Type: 'application/json'
 curl --request GET \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"response_type":"code OR token", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
+  --data '{"response_type":"code OR token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
 ```
 
 ```javascript
@@ -347,7 +347,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
-  "client_id": "${account.client_id}",
+  "client_id": "${account.clientId}",
   "username": "",
   "password": "",
   "id_token": "",
@@ -462,7 +462,7 @@ GET https://${account.namespace}/authorize
 Content-Type: 'application/json'
 {
   "response_type": "code OR token",
-  "client_id": "${account.client_id}",
+  "client_id": "${account.clientId}",
   "connection": "",
   "redirect_uri": "http://localhost/callback",
   "state": "",
@@ -474,7 +474,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/authorize' \
   --header 'content-type: application/json' \
-  --data '{"response_type":"code OR token", "client_id":"${account.client_id}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
+  --data '{"response_type":"code OR token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
 ```
 
 ```javascript

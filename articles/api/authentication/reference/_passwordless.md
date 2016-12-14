@@ -148,7 +148,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
-  "client_id":   "${account.client_id}",
+  "client_id":   "${account.clientId}",
   "connection":  "email or sms",
   "grant_type":  "password",
   "username":    "", //email or phone number
@@ -161,7 +161,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.client_id}", "connection":"email or sms", "grant_type":"password", "username":"", "password":"", "scope":""}'
+  --data '{"client_id":"${account.clientId}", "connection":"email or sms", "grant_type":"password", "username":"", "password":"", "scope":""}'
 ```
 
 ```javascript

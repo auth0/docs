@@ -6,7 +6,7 @@
 POST https://${account.namespace}/delegation
 Content-Type: 'application/json'
 {
-  "client_id":  "${account.client_id}",
+  "client_id":  "${account.clientId}",
   "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
   "id_token" or "refresh_token" : "",
   "target":     "",
@@ -19,7 +19,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/delegation' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.client_id}", "grant_type":"urn:ietf:params:oauth:grant-type:jwt-bearer", "id_token or refresh_token":"", "target":"", "scope":"", "api_type":""}'
+  --data '{"client_id":"${account.clientId}", "grant_type":"urn:ietf:params:oauth:grant-type:jwt-bearer", "id_token or refresh_token":"", "target":"", "scope":"", "api_type":""}'
 ```
 
 ```javascript

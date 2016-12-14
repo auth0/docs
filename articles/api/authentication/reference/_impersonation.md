@@ -22,7 +22,7 @@ curl --request POST \
   --url 'https://${account.namespace}/users/{user_id}/impersonate' \
   --header 'Authorization: Bearer {access_token}' \
   --header 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
-  --data '{"protocol":"", "impersonator_id":"", "client_id":"${account.client_id}", "additionalParameters": {"response_type": "code", "state": ""}}'
+  --data '{"protocol":"", "impersonator_id":"", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": ""}}'
 ```
 
 ```javascript

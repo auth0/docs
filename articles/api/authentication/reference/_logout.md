@@ -6,7 +6,7 @@
 GET https://${account.namespace}/v2/logout
 Content-Type: 'application/json'
 {
-  "client_id": "${account.client_id}",
+  "client_id": "${account.clientId}",
   "returnTo": ""
 }
 ```
@@ -15,7 +15,7 @@ Content-Type: 'application/json'
 curl --request GET \
   --url 'https://${account.namespace}/v2/logout' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.client_id}", "returnTo":""}'
+  --data '{"client_id":"${account.clientId}", "returnTo":""}'
 ```
 
 ```javascript

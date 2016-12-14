@@ -6,7 +6,7 @@
 POST https://${account.namespace}/dbconnections/signup
 Content-Type: 'application/json'
 {
-  "client_id":   "${account.client_id}",
+  "client_id":   "${account.clientId}",
   "email":       "",
   "password":    "",
   "connection":  "",
@@ -17,7 +17,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/dbconnections/signup' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.client_id}", "email":"", "password":"", "connection":""}'
+  --data '{"client_id":"${account.clientId}", "email":"", "password":"", "connection":""}'
 ```
 
 ```javascript
