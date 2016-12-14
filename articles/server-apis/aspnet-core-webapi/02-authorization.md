@@ -38,16 +38,16 @@ You will need to define to list of scopes available in your application. In the 
 
 ![Configure Scopes](/media/articles/server-apis/aspnet-core-webapi/create-api-scopes.png)
 
-Once you have created the list of scopes, go to the __Non Interactive Clients__ tab. For each client which is able to access your API, ensure that you have Authorized the client and selected the Scopes which can be granted to the Client. Be sure the click the **Update** button once you have configure the Client:
+Once you have created the list of scopes, go to the __Non Interactive Clients__ tab. For each client which is able to access your API, ensure that you have Authorized the client and selected the Scopes which can be granted to the Client. Be sure the click the **Update** button once you have configured the Client:
 
 ![Configure Client](/media/articles/server-apis/aspnet-core-webapi/configure-api-client-scopes.png)
 
 ## 2. Enforcing scopes in your ASP.NET Core API 
 
-To ensure that a correct `scope` is present in order to execute a particular API endpoint, you can make use of the new Policy Based Authorization in ASP.NET Core. 
+To ensure that a correct `scope` is present in order to execute a particular API endpoint, you can make use of the new Policy-Based Authorization in ASP.NET Core. 
 
-::: panel-info ASP.NET Core Policy Based Authorization
-For a better understanding of the code which follows, it is suggested that you read the ASP.NET Core documentation on [Policy Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies).
+::: panel-info ASP.NET Core Policy-Based Authorization
+For a better understanding of the code which follows, it is suggested that you read the ASP.NET Core documentation on [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies).
 :::
 
 Create a new Authorization Requirement called `HasScopeRequirement`. This requirement will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope. If it does then the Authorization Requirement is met. 
