@@ -32,9 +32,9 @@ Now, you need to validate the [JWT](/jwt). For that, we'll create a filter that 
 
 ${snippet(meta.snippets.setup)}
 
-### 3. Create a /secured route that will use this filter
+### 3. Create a `/secured` route that will use this filter
 
-Now, you can just create routes under /secured route which will check the JWT
+Now, you can just create routes under `/secured` route which will check the JWT
 
 ${snippet(meta.snippets.use)}
 
