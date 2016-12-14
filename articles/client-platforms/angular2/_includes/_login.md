@@ -38,18 +38,18 @@ export class Auth {
   public login() {
     // Call the show method to display the widget.
     this.lock.show();
-  };
+  }
 
   public authenticated() {
     // Check if there's an unexpired JWT
     // This searches for an item in localStorage with key == 'id_token'
     return tokenNotExpired();
-  };
+  }
 
   public logout() {
     // Remove token from localStorage
     localStorage.removeItem('id_token');
-  };
+  }
 }
 ```
 
@@ -90,19 +90,19 @@ import { routing,
          appRoutingProviders } from './app.routes';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent
-    ],
-    providers: [
-        appRoutingProviders,
-        AUTH_PROVIDERS
-    ],
-    imports: [
-        BrowserModule,
-        routing
-    ],
-    bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent
+  ],
+  providers: [
+    appRoutingProviders,
+    AUTH_PROVIDERS
+  ],
+  imports: [
+    BrowserModule,
+    routing
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
 ```

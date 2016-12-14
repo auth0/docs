@@ -26,8 +26,6 @@ Once the user is authenticated, we need to create a client-side session for them
 ```typescript
 // auth.service.ts
 
-...
-
 @Injectable()
 export class Auth {
   // Configure Auth0
@@ -39,8 +37,7 @@ export class Auth {
       localStorage.setItem('id_token', authResult.idToken);
     });
   }
-
-  ...
+  // ...
 }
 ```
 
@@ -53,8 +50,7 @@ To check if a user is authenticated, we can use `tokenNotExpired` from [angular2
 
 import { tokenNotExpired } from 'angular2-jwt';
 
-...
-
+// ...
 public authenticated() {
   // Check if there's an unexpired JWT
   // It searches for an item in localStorage with key == 'id_token' by default
@@ -75,7 +71,7 @@ To use this service, inject `Auth` into your component:
 
 export class AppComponent {
   constructor(private auth: Auth) {}
-};
+}
 ```
 
 and then use it in your component's template:
@@ -96,12 +92,9 @@ Since authentication with JWT is stateless, the only thing necessary for logging
 ```typescript
 // auth.service.ts
 
-...
-
+// ...
 public logout() {
   // Remove token from localStorage
   localStorage.removeItem('id_token');
 }
-
-...
 ```

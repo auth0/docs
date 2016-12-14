@@ -49,7 +49,7 @@ Set the respective values.
 All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify that users are authenticated.
 
 ### 5. Call Your API
-You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid `id_token` ([See our id_token documentation](/tokens/id_token) for more information on how to obtain an `id_token`).
 
 ```har
 {
@@ -65,8 +65,8 @@ You can now make requests against your secure API by providing the Authorization
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
 
-
 ### Optional Steps
+
 #### Configuring CORS
 
 One of the requirements is package Microsoft.AspNet.WebApi.Cors. You can use the following command from VS2013 Package Manager Console:

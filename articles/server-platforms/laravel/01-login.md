@@ -8,15 +8,13 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-laravel-php-web-app',
-  path: '00-Starter-Seed'
+  path: '00-Starter-Seed',
+  requirements: [
+    'Composer 1.0-dev',
+    'PHP 5.5.12',
+    'Laravel 5.2.15'
+  ]
 }) %>
-
-::: panel-info System Requirements
- This tutorial and seed project have been tested with the following:
-* Composer 1.0-dev
-* PHP 5.5.12
-* Laravel 5.2.15
-:::
 
 ## Laravel Compatibility
 

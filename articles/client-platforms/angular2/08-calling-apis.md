@@ -22,7 +22,8 @@ To make an authenticated request, [angular2-jwt](https://github.com/auth0/angula
 First, add `AUTH_PROVIDERS` from `angular2-jwt`:
 
 ```typescript
-/* ===== app/app.module.ts ===== */
+// app/app.module.ts
+
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent } from './app.component';
 
@@ -31,12 +32,12 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   providers: [
-    ...
+    // ...
     AUTH_PROVIDERS,
-    ...
+    // ...
   ],
   imports: [
-      ...
+    // ...
   ],
   bootstrap: [AppComponent]
 })
@@ -112,7 +113,5 @@ export class Ping {
         error => this.message = error._body
       );
   }
-
-  ...
 }
 ```

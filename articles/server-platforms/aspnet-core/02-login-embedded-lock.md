@@ -82,7 +82,7 @@ First be sure to change the signature of your `Configure` method to accept a par
 
 Next register the Cookie middleware by making a call to the `UseCookieAuthentication` method. Then register the OIDC middleware by making a call to the `UseOpenIdConnectAuthentication` method, passing along the value of the `oidcOptions` parameter which was injected by the DI framework.
 
-Both these middleware should be registered before your MVC middleware in order for your controllers to be protected:
+Both these middleware should be registered before your MVC middleware in order for your controllers to be protected. The OIDC middleware is required in order to authenticate the user with Auth0. Once the user has authenticated they will be signed in to the Cookie middleware which will be used to authenticate all subsequent requests.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<OpenIdConnectOptions> oidcOptions)

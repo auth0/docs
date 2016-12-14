@@ -20,11 +20,11 @@ __NOTE:__ You can find a listing of all our Java offerings and several sample pr
 
 ## Sample Projects
 
-There are two options to following along this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) or the samples provided at each page of this quickstart.
+There are two options to follow this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) or the samples provided at each page of this quickstart.
 
-The seed is a regular java app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow along the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) and follow along.
+The seed is a regular java app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) and follow along.
 
-Instead you can choose to follow the samples that are included in each step. Each sample uses the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) as a starting point and applies to it the configuration of each step, so for example the Login sample would be the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) plus the configuration required to implement login functionality. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
+Instead, you can choose to follow the samples that are included in each step. Each sample uses the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) as a starting point and applies to it the configuration of each step. So, for example, the Login sample would be the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) plus the configuration required to implement login functionality. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
 
 ### Seed Project Structure
 

@@ -830,7 +830,7 @@
   },
   {
     "from": "/step-up-authentication",
-    "to": "/tutorials/setup-up-authentication"
+    "to": "/tutorials/step-up-authentication"
   },
   {
     "from": "/refresh-token",
@@ -1139,6 +1139,18 @@
   {
     "from": "/libraries/lock/v10/custom-signup",
     "to": "/libraries/custom-signup"
+  },
+  {
+    "from": "/tutorials/local-testing-and-development",
+    "to": "/dev-lifecycle/local-testing-and-development"
+  },
+  {
+    "from": "/tutorials/development-lifecycle-with-auth0",
+    "to": "/dev-lifecycle/setting-up-env"
+  },
+  {
+    "from": "/tokens/id_token",
+    "to": "/tokens/id-token"
   },
   {
     "from": "/api/authentication#!#get--authorize_social",

@@ -65,6 +65,16 @@ articles:
       - title: "FAQ"
         url: "/api-auth/faq"
 
+  - title: "Development Lifecycle"
+    url: "/dev-lifecycle"
+    children:
+
+      - title: "Setting Up Environments"
+        url: "/dev-lifecycle/setting-up-env"
+
+      - title: "Running and Developing Locally"
+        url: "/dev-lifecycle/local-testing-and-development"    
+
   - title: "Rules"
     url: "/rules"
     children:
@@ -474,14 +484,14 @@ libraries:
   - title: "Lock vs. Custom UI"
     url: "/libraries/when-to-use-lock"
 
-  - title: "Auth0.js"
+  - title: "Auth0 SDK for Web"
     url: "/libraries/auth0js"
-
-  - title: "Auth0.Android"
-    url: "/libraries/auth0-android"
-
-  - title: "Auth0.swift"
+  
+  - title: "Auth0 SDK for iOS"
     url: "/libraries/auth0-swift"
+
+  - title: "Auth0 SDK for Android"
+    url: "/libraries/auth0-android"
 
 appliance:
 

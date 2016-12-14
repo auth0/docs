@@ -15,6 +15,8 @@ To send this email:
 
 The user will receive an enrollment email at their registered email address.
 
+ ![](/media/articles/mfa/enrollment-email.png)
+
 Administrators can also [customize the email template](/email/templates) for the enrollment emails.
 
 ## Restricting user-initiated enrollments

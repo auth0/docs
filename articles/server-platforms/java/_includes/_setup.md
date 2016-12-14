@@ -13,7 +13,7 @@ If you follow our seed project or the samples based on it, the values you must c
 
 To integrate your Java application with Auth0 you need to add the following dependencies:
 
-- [auth0-servlet](https://github.com/auth0/auth0-servlet): is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It validates the [JWT](/jwt) from Auth0 in every API call to assert authentication according to configuration.
+- [auth0-servlet](https://github.com/auth0/auth0-servlet): is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It validates the [JWT](/jwt) from Auth0 in every API call to assert authentication according to the configuration.
 
 If you are using maven, add the dependency to your `pom.xml`:
 
@@ -46,4 +46,4 @@ As you can see in the seed project, there are many customizable attributes in th
 | `auth0.public_key_path` | Path location to the public key. Should always be set when using RS256 and is ignored for HS256. |
 
 
-**NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `issuer`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
+**NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `issuer`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case, you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
