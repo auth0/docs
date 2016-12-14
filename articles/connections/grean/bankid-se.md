@@ -1,7 +1,7 @@
 ---
 title: Connect Swedish BankID with Auth0 through Grean easyID
 connection: Swedish BankID
-image: /media/articles/connections/grean/bankid-se.svg
+image: /media/articles/connections/grean/bankid-se.png
 seo_alias: bankid
 description: Connecting Swedish BankID with Auth0 through Grean's easyID service
 ---
