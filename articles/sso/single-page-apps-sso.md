@@ -61,9 +61,7 @@ auth0.getSSOData(function (err, ssoData) {
     auth0.signin({
       connection: ssoData.lastUsedConnection.name,
       scope: 'openid name picture',
-      params: {
-        state: getQueryParameter('targetUrl')
-      }
+      state: getQueryParameter('targetUrl')
     });
   } else {
     // Display regular login option, e.g. a Login button which will invoke Lock
@@ -131,9 +129,7 @@ The full code sample for both the SPA applications as well as the normal web app
         auth0.signin({
           connection: data.lastUsedConnection.name,
           scope: 'openid name picture',
-          params: {
-            state: getQueryParameter('targetUrl')
-          }
+          state: getQueryParameter('targetUrl')
         });
       } else {
         // regular login
