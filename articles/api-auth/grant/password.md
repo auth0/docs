@@ -9,7 +9,7 @@ Highly trusted mobile apps and Client-side web apps can use the **Resource Owner
 
 ## Overview
 
-The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an access token an optionally a refresh token. This grant should only be used when there is a high degree of trust between the user and the client and when other authorization flows are not available.
+The **Resource Owner Password Grant** (defined in [RFC 6749, section 4.3](https://tools.ietf.org/html/rfc6749#section-4.3)) can be used directly as an authorization grant to obtain an access token, and optionally a refresh token. This grant should only be used when there is a high degree of trust between the user and the client and when other authorization flows are not available.
 
 This grant type can eliminate the need for the client to store the user credentials for future use, by exchanging the credentials with a long-lived access token or refresh token.
 
@@ -17,8 +17,16 @@ This grant type can eliminate the need for the client to store the user credenti
 
  1. The Resource Owner enters the credentials into the client application
  2. The client forwards the Resource Owner's credentials to the Authorization Server
- 3. The Authorization server validates the information and returns an `access_token` and optionally a `refresh_token`
+ 3. The Authorization server validates the information and returns an `access_token`, and optionally a `refresh_token`
  4. The Client can use the `access_token` to call the Resource Server on behalf of the Resource Owner
+
+### Realm Support
+
+A extension grant that offers similar functionality with the **Resource Owner Password Grant**, including the ability to indicate a specific realm, is the `password-realm`.
+
+Realms allow you to keep separate user directories and specify which one to use to the token endpoint. For example, you may have an application where both employees and customers can log in but their credentials are kept in separate user directories. You can present a user interface with a dropdown containing "Employees" or "Customers" as realms. The realm value, along with the username and password credentials, will be submitted to the token endpoint. Auth0 will use the realm value to determine which directory to use when verifying the password.
+
+For more information on how to implement this extension grant refer to [Executing a Resource Owner Password Grant > Realm Support](/api-auth/tutorials/password-grant#realm-support).
 
 ## Use Case
 
