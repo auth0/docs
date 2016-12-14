@@ -1,7 +1,7 @@
 ---
 title: Connect Danish NemID with Auth0 through Grean easyID
 connection: Danish NemID
-image: /media/connections/nemid_black.png
+image: /media/articles/connections/grean/nemid_black.png
 seo_alias: nemid
 description: Connecting Danish NemID with Auth0 through Grean's easyID service
 ---

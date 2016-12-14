@@ -1,7 +1,7 @@
 ---
 title: Connect Norwegian BankID with Auth0 through Grean easyID
 connection: Norwegian BankID
-image: /media/connections/bankid-no.svg
+image: /media/articles/connections/grean/bankid-no.svg
 seo_alias: bankid
 description: Connecting Norwegian BankID with Auth0 through Grean's easyID service
 ---
