@@ -1,6 +1,6 @@
 ## Authenticate the User
 
-You can use the `Auth0CallbackHandler` provided by the SDK to authenticate the user. This should work as-is based on the configuration you setup in `web.xml`.
+You can use the `Auth0CallbackHandler` provided by the SDK to authenticate the user. This should work as-is based on the configuration you set up in `web.xml`.
 
 For more fine-grained control, you can inherit the library version of `Auth0CallbackHandler` to override methods for tailored behavior. See the [Auth0 Servlet ReadMe](https://github.com/auth0/auth0-servlet) on GitHub for details.
 
@@ -164,4 +164,4 @@ Once you login you are redirected to the home page that displays your profile pi
 
 ![Display user information](/media/articles/java/display-user-info.png)
 
-Logout by clicking the **Logout** button at the top right of the home page.
+Log out by clicking the **Logout** button at the top right of the home page.

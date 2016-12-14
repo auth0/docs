@@ -22,7 +22,7 @@ To fetch user profile information, call the `lock.getProfile` function, specifyi
 Once the user profile is retrieved, we can store it in `localStorage` (or another form of storage if you prefer) and assign it to a `userProfile` attribute so you can access it later.
 
 ```typescript
-// ./auth.service.ts
+// auth.service.ts
 
 import {Injectable} from '@angular/core';
 import {tokenNotExpired} from 'angular2-jwt';
@@ -58,16 +58,14 @@ export class Auth {
         this.userProfile = profile;
       });
     });
-  };
-
-  ...
+  }
 
   public logout() {
     // Remove token and profile from localStorage
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
     this.userProfile = undefined;
-  };
+  }
 }
 ```
 
@@ -114,8 +112,6 @@ You can add additional input fields to Lock's sign up form by adding `additional
 ```typescript
 // auth.service.ts
 
-...
-
   // Configure Auth0
   lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     additionalSignUpFields: [{
@@ -128,8 +124,6 @@ You can add additional input fields to Lock's sign up form by adding `additional
       }
     }]
   });
-
-...
 ```
 
 Each `additionalSignUpFields` value is saved to the profile in the `user_metadata` attribute of the user's Auth0 profile.
@@ -152,7 +146,8 @@ To call the endpoint, you can use the [AuthHttp](https://github.com/auth0/angula
 First, add `AUTH_PROVIDERS` from `angular2-jwt`:
 
 ```typescript
-/* ===== app/app.module.ts ===== */
+// app/app.module.ts
+
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent } from './app.component';
 
@@ -161,12 +156,12 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   providers: [
-    ...
+    // ...
     AUTH_PROVIDERS,
-    ...
+    // ...
   ],
   imports: [
-    ...
+    // ...
   ],
   bootstrap: [AppComponent]
 })
@@ -200,7 +195,7 @@ export class ProfileEdit {
     var headers: any = {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
-    };
+    }
 
     var data: any = JSON.stringify({
       user_metadata: {

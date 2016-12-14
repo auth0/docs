@@ -10,11 +10,11 @@ import (
 func main() {
   jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Options{
     ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
-      token, err := "${account.clientSecret}"
-      if err != nil {
-        return nil, err
+      secret := os.Getenv("AUTH0_CLIENT_SECRET")			
+      if secret != "" {
+        return nil, errors.New("AUTH0_CLIENT_SECRET is not set")
       }
-      return token, nil
+      return secret, nil
     },
   })
 }

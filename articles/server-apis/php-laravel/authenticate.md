@@ -16,7 +16,7 @@ description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to
 
 ## Laravel Compatibility
 
-The lastest version (4.x) targets Laravel 5.3 compatibility.
+The latest version (4.x) targets Laravel 5.3 compatibility.
 
 If you are working with an older version (Laravel 4.x) you need to point to composer.json to the version 1.0.*
 
@@ -27,7 +27,7 @@ ${snippet(meta.snippets.dependencies)}
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
 ### 2. Enable it in Laravel
-Add the following in the list of the services providers, located in `config/app.php`
+Add the following to the list of service providers, located in `config/app.php`
 
 ${snippet(meta.snippets.setup)}
 
@@ -83,7 +83,7 @@ RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
 The [Laravel authentication system](https://laravel.com/docs/5.3/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `app/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
-The plugin comes with an authentication driver called `auth0`. This driver defines a user structure that wraps the [Normalized User Profile](/user-profile) defined by Auth0, and it doesn't actually persist the object, it just stores it in the session for future calls.
+The plugin comes with an authentication driver called `auth0`. This driver defines a user structure that wraps the [Normalized User Profile](https://auth0.com/docs/user-profile/normalized) defined by Auth0, and it doesn't actually persist the object, it just stores it in the session for future calls.
 
 This works fine for basic testing or if you don't really need to persist the user. At any point you can call `Auth::check()` to see if there is a user logged in and `Auth::user()` to get the wrapper with the user information.
 
@@ -99,7 +99,7 @@ To enable this driver, you need to change the following line in `/config/auth.ph
 ...
 ```
 
-If you need to implement a more advanced custom solution, you can always extend the `Auth0UserRepository` (or implement your own) in order to get and update the user data on your database and event more advaced validations.
+If you need a more advanced custom solution, you can always extend the `Auth0UserRepository` class.
 
 For example, if you want to use the default `User` model and store the user profile in your database, you can use the following Repository:
 
@@ -181,7 +181,7 @@ public function register()
 
 If you don't want to use Laravel Passport, you can use the Middlewares provided by this package.
 
-To register the middlewares, you need to go to `app/Http/Kernel.php` and add this lines to the `routeMiddleware` collection:
+To register the middlewares, you need to go to `app/Http/Kernel.php` and add these lines to the `routeMiddleware` collection:
 
 ```php
 protected $routeMiddleware = [
@@ -203,7 +203,7 @@ This middleware with extract the token from the request headers, decode and veri
 
 `ForceAuthMiddleware` will check if there is a user set up, if there is not it will reject the login with an HTTP 401 code.
 
-The idea of using this middlewares if to be able to set `Auth0OptionalJWTMiddleware` to all your API routes and for those that should be secured, you can add `ForceAuthMiddleware`.
+The idea of using these middlewares is to be able to set `Auth0OptionalJWTMiddleware` to all your API routes and for those that should be secured, you can add `ForceAuthMiddleware`.
 
 ### 5. Use it & Run it
 
