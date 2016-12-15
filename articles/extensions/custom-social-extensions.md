@@ -66,16 +66,16 @@ Once you have enabled/disabled the appropriate apps, click **Save**.
 You can use [auth0.js](/libraries/auth0js) or a direct link to log a user in with the new connection.
 
 A direct link would look like this:
-            
+
 `https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION`
 
-For more details, see the [documentation for the `/authorize` authentication API endpoint](/api/authentication#!#get--authorize_social).
+For more details, see the [documentation for the `/authorize` authentication API endpoint](/api/authentication/reference#social).
 
 Lock does not currently support displaying buttons for custom social connections.
 
 ## Optional: Set up Basic Authentication
 
-By default, when invoking the __Token URL__ to exchange the authentication code for an access_token, Auth0 will provide the `client ID` and `client secret` as part of the body of the POST. Some identity providers require [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication), which involves providing those same credentials in a HTTP header. 
+By default, when invoking the __Token URL__ to exchange the authentication code for an access_token, Auth0 will provide the `client ID` and `client secret` as part of the body of the POST. Some identity providers require [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication), which involves providing those same credentials in a HTTP header.
 
 If the identity provider requires Basic Authentication, you can be use the __Custom Headers__ setting with a JSON object like this:
 

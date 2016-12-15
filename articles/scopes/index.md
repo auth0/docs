@@ -4,7 +4,7 @@ description: Overview of scopes with a client-side authorization transaction.
 
 # Scopes
 
-When initiating a [client-side authorization transaction](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) through the [`/authorize` endpoint](/auth-api#!#get--authorize_social),
+When initiating a [client-side authorization transaction](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) through the [`/authorize` endpoint](/api/authentication/reference#social),
 only an opaque `access_token` will be returned by default.
 To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
 

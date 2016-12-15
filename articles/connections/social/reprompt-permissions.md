@@ -1,5 +1,5 @@
 ---
-description: How to handly declinded authorization permissions and how to reprompt for this permissions.
+description: How to handle declined authorization permissions and how to reprompt for these permissions.
 ---
 
 # Handling Declined Authorization Permissions
@@ -8,11 +8,11 @@ When your users are authorizing your application some providers such as Facebook
 
 ## How to Reprompt for Permissions
 
-By setting the `prompt=consent` parameter for [/authorize](/api/authentication#!#get--authorize_social) in the [Authorization API](/api/authentication), your user will be prompted to grant permissions for your application again.
+By setting the `prompt=consent` parameter for [/authorize](/api/authentication/reference#social) in the [Authorization API](/api/authentication), your user will be prompted to grant permissions for your application again.
 
 This parameter can also be set using [Lock](/libraries/lock) as an [Authentication Parameter](/libraries/lock/sending-authentication-parameters) with `prompt: 'consent'`.
 
-Or it can be set with [Auth0.js](https://github.com/auth0/auth0.js), with `prompt: 'consent'`.
+Alternatively it can be set with [Auth0.js](https://github.com/auth0/auth0.js), with `prompt: 'consent'`.
 
 ## Learn More
 [Click here to learn more about handling declined Facebook permissions.](https://developers.facebook.com/docs/facebook-login/handling-declined-permissions)
