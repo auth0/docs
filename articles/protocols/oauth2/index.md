@@ -63,7 +63,7 @@ We will now have a more detailed look on how the protocol works. As we will see 
 1. Provided that the access token is valid, the Resource Server serves the Client's request.
 
 
-## Authorization Grant Types
+## Authorization Grant Type Flows
 
 The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/html/rfc6749) defines four flows to get an access token. These flows are called **grant types**. Deciding which one is suited for your case depends mostly on the type of your client.
 
@@ -82,5 +82,26 @@ For details on how each grant type works and when it should be used refer to [AP
 OAuth 2.0 utilizes two endpoints: the **Authorization** endpoint and the **Token** endpoint.
 
 ### Authorization Endpoint
+
+The Authorization endpoint is used to interact with the resource owner (end-user) and get the authorization to access the protected resource. To better understand this, imagine that you want to log in to a service using your Google account. First the service will redirect you to Google in order to authenticate (if you are not already logged in) and then you will get a consent screen, where you will be asked to authorize the service to access some of your data (protected resources), for example your email address and your list of contacts.
+
+This endpoint is used by the **Authorization Code** and the **Implicit** [grant type flows](#authorization-grant-type-flows). The authorization server needs to know which of these is the desired grant type, since it affects the kind of credential it will issue: for **Authorization Code** grant it issues an authorization code  (which later can be exchanged with an access token), while for **Implicit** grant it issues an **access token**.
+
+::: panel-info Authorization Code vs Access Token
+An authorization code is an opaque string, meant to be exchanged with an access token at the [token endpoint](#token-endpoint). An access token is a [JWT](/jwt) that contains the list of authorized permissions.
+:::
+
+In order to inform the client which of these two is the desired grant type the `response_type` request parameter is used:
+
+- For **Authorization Code** grant set `response_type=code`. This way the response will include an authorization code.
+
+- For **Implicit** grant set `response_type=token`. This way the response will include an access token. An alternative is to set `response_type=id_token token`. In this case the response will include both an access token and an ID token.
+
+::: panel-info ID Token
+The ID Token is a JWT that contains information about the logged in user. It was introduced by **OpenID Connect**.
+
+For more information refer to [OpenID Connect](/protocols/oidc) and [ID Token](/tokens/id-token).
+:::
+
 
 ### Token Endpoint
