@@ -426,16 +426,6 @@ $('.login-microsoft').click(function () {
 });
 ```
 
-> RESPONSE SAMPLE:
-
-```json
-{
-  "id_token": "eyJ0eXAiOiJKV1Qi...",
-  "access_token": "sMjTAT...",
-  "token_type": "bearer"
-}
-```
-
 <%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",

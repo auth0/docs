@@ -3,14 +3,11 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/users/{user_id}/impersonate
-  protocol:             "",
-  impersonator_id:      "",
-  client_id:            "",
-  additionalParameters: [
-    "response_type": "code",
-    "state": ""
-  ]
+POST https://${account.namespace}/users/{user_id}/impersonate?
+  protocol=PROTOCOL&
+  impersonator_id=IMPERSONATOR_ID&
+  client_id=${account.clientId}&
+  additionalParameters=YOUR_ADDITIONAL_PARAMETERS
 ```
 
 ```shell
