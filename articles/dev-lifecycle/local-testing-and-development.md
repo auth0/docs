@@ -19,7 +19,7 @@ There are mainly three approaches to obtaining JWTs for testing:
    If you omit the `exp` claim from a token, most JWT libraries will interpret it as a token which never expires, though it's possible some libraries might reject it.
    The benefit of this approach is that it does not require Internet access or intervention from Auth0 at all.
 
-2. Create a dummy user in a database connection, and programatically log in with this user through the [resource owner endpoint](/auth-api#!#post--oauth-ro).
+2. Create a dummy user in a database connection, and programatically log in with this user through the [resource owner endpoint](/api/authentication/reference#resource-owner).
    In order to get a JWT back, [make sure to set the correct `scope` value](/scopes).
    The benefit of this approach is that it will [execute any rules](/rules) that you have configured on your Auth0 account.
 
@@ -29,7 +29,7 @@ There are mainly three approaches to obtaining JWTs for testing:
 ## Server-side applications and sessions
 
 Unless your server-side application provides a way to generate "fake" sessions for testing, you will need to perform an actual login through Auth0.
-The easiest way to do this is through the [resource owner endpoint](/auth-api#!#post--oauth-ro).
+The easiest way to do this is through the [resource owner endpoint](/api/authentication/reference#resource-owner).
 
 ## Logging in as any user for testing
 

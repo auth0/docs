@@ -84,7 +84,7 @@ If the token is not specified you will get the following JSON as response.
 }
 ```
 
-A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication#!#post--oauth-ro):
+A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication/reference#resource-owner):
 
 ![Obtain a JWT](/media/articles/server-apis/java-spring-security/request-jwt.png)
 

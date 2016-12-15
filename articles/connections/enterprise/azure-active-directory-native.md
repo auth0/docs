@@ -52,7 +52,7 @@ After creating both applications in Azure Active Directory, the Auth0 connection
 
 ## 4. Test the connection
 
-To test the complete setup, you can use the [Resource Owner endpoint](/auth-api#!#post--oauth-ro). Enter the username and password of a user and choose the connection. Click **Try Me!** to sign in as that user.
+To test the complete setup, you can use the [Resource Owner endpoint](/api/authentication/reference#resource-owner). Enter the username and password of a user and choose the connection. Click **Try Me!** to sign in as that user.
 
 ![](/media/articles/connections/enterprise/azure-active-directory/azure-active-directory-login.png)
 

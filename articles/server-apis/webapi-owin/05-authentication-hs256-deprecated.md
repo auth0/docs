@@ -124,7 +124,7 @@ If you make a request to the `/api/ping/secure` endpoint you will notice that th
 
 ![Unauthorized request in Postman](/media/articles/server-apis/webapi-owin/postman-not-authorized.png)
 
-As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication#!#post--oauth-ro):
+As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication/reference#resource-owner):
 
 ![Obtain a JWT](/media/articles/server-apis/webapi-owin/request-jwt.png)
 
