@@ -33,7 +33,7 @@ The easiest way to do this is through the [resource owner endpoint](/api/authent
 
 ## Logging in as any user for testing
 
-If you need to simulate a user logging in to your application but don't have access to their credentials, you can use the [impersonation endpoint](auth-api#!#post--users--user_id--impersonate) to generate a link which will log you in as any given user to your application.
+If you need to simulate a user logging in to your application but don't have access to their credentials, you can use the [impersonation endpoint](/api/authentication/reference#impersonation) to generate a link which will log you in as any given user to your application.
 
 ## Auth0 and `localhost`
 

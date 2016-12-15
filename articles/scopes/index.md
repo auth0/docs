@@ -60,5 +60,5 @@ Keep in mind that JWTs are sent on every API request, so it is desirable to keep
 ## Further reading
 
 * [Sending a `scope` parameter with Lock](/libraries/lock/sending-authentication-parameters#scope-string-)
-* [Retrieving the full user profile with an `access_token`](/auth-api#!#get--userinfo)
-* [Validating a JWT and obtaining the full user profile](/auth-api#!#post--tokeninfo)
+* [Retrieving the full user profile with an `access_token`](/api/authentication/reference#get-user-info)
+* [Validating a JWT and obtaining the full user profile](/api/authentication/reference#get-token-info)

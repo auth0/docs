@@ -179,7 +179,7 @@ Provide a control for the user to log in which calls the `login` method on the `
 </div>
 ```
 
-The `access_token` retrieved from the authentication process can be used to make authenticated API calls. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](https://auth0.com/docs/api/authentication#!#get--userinfo).
+The `access_token` retrieved from the authentication process can be used to make authenticated API calls. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](/api/authentication/reference#get-user-info).
 
 ## Making an Authenticated API Call
 
@@ -208,7 +208,7 @@ To attach the user's JWT as an `Authorization` header, we could write a service 
       }],
       whiteListedDomains: ['localhost']
     });
-	
+
     // Add the jwtInterceptor to the array of HTTP interceptors
     // so that JWTs are attached as Authorization headers
     $httpProvider.interceptors.push('jwtInterceptor');

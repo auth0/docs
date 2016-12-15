@@ -30,7 +30,7 @@ The steps are quite simple though:
         &state=VALUE_THAT_SURVIVES_REDIRECTS</code></pre>
 
 
-  Your code would then parse the hash segment of the URL and extract the parameters: `access_token` and `id_token`. The `access_token` can then be used to call Auth0's [/userinfo](/api/authentication#!#get--userinfo) endpoint to get the attributes of the user.
+  Your code would then parse the hash segment of the URL and extract the parameters: `access_token` and `id_token`. The `access_token` can then be used to call Auth0's [/userinfo](/api/authentication/reference#get-user-info) endpoint to get the attributes of the user.
 
   > It is a good practice to check that the `state` value received and sent are the same. It can serve as a protection against XSRF attacks. Also, to avoid replay token attacks, you should send a nonce in the initial request. The nonce will be part of the Json Web Token and can be checked in your backend API.
 
@@ -38,9 +38,9 @@ The steps are quite simple though:
 
   <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/userinfo?access_token=2YotnF..........1zCsicMWpAA</code></pre>
 
-  Note, that you can use the `access_token` to call [/userinfo](/api/authentication#!#get--userinfo) only if the `openid` scope was requested and approved.
+  Note, that you can use the `access_token` to call [/userinfo](/api/authentication/reference#get-user-info) only if the `openid` scope was requested and approved.
 
-6. The [/userinfo](/api/authentication#!#get--userinfo) endpoint will return something like this:
+6. The [/userinfo](/api/authentication/reference#get-user-info) endpoint will return something like this:
 
   <pre><code>{
     "user_id": "google-oauth2|103547991597142817347",
