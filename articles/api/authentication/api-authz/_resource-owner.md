@@ -63,7 +63,7 @@ request(options, function (error, response, body) {
 }) %>
 
 ::: panel-warning Deprecation Notice
-This endpoint will be deprecated soon. The `/oauth/token { grant_type: password }` should be used instead.
+This endpoint will be deprecated. Customers will be notified and given ample time to migrate once an official deprecation notice is posted. The `/oauth/token { grant_type: password }` should be used instead.
 :::
 
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.

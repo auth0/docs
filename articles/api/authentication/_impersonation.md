@@ -41,7 +41,7 @@ xhr.send(params);
 
 > RESPONSE SAMPLE:
 
-```http
+```text
 https:/YOUR_DOMAIN/users/IMPERSONATOR_ID/impersonate?&bewit=WFh0MUtm...
 ```
 

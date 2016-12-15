@@ -211,7 +211,7 @@ auth0.verifySMSCode({
 }) %>
 
 ::: panel-warning Deprecation Notice
-This endpoint will soon be deprecated. The [POST /oauth/token { grant_type: password }](#resource-owner-password) should be used instead.
+This endpoint will be deprecated. Customers will be notified and given ample time to migrate once an official deprecation notice is posted. The [POST /oauth/token { grant_type: password }](#resource-owner-password) should be used instead.
 :::
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
