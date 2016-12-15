@@ -82,7 +82,7 @@ public class PingController : ApiController
 
 ## 3. Using your API
 
-In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application your are building. These are referred to as authorization grant flows. Please see the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your application.
+In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application you are building. These are referred to as authorization grant flows. Please see the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your application.
 
 Once you have obtained an `access_token` you can pass that along in the `Authorization` header of requests to your API as a Bearer token.
 
@@ -105,7 +105,7 @@ IRestResponse response = client.Execute(request);
 
 ## 4. Testing your API in Postman
 
-During development you may want to test your API with Postman. If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
+During development, you may want to test your API with Postman. If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
 ![Unauthorized request in Postman](/media/articles/server-apis/webapi-owin/postman-not-authorized.png)
 
