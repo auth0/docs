@@ -5,41 +5,12 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/authorize
-Content-Type: 'application/json'
-{
-  "response_type": "code OR token",
-  "client_id": "${account.clientId}",
-  "connection": "",
-  "redirect_uri": "http://localhost/callback",
-  "access_token": "" //logged-in user access_token
-}
-```
-
-```shell
-curl --request GET \
-  --url 'https://${account.namespace}/authorize' \
-  --header 'content-type: application/json' \
-  --data '{"response_type": "code OR token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "access_token":""}'
-```
-
-```javascript
-var url = 'https://' + ${account.namespace} + '/authorize';
-var params = 'response_type=RESPONSE_TYPE&client_id=CLIENT_ID&connection=CONNECTION&redirect_uri=http://localhost/callback&access_token=LOGGED_IN_USER_ACCESS_TOKEN';
-
-var xhr = new XMLHttpRequest();
-xhr.open('GET', url);
-xhr.setRequestHeader('Content-Type', 'application/json');
-
-xhr.onload = function() {
-  if (xhr.status == 200) {
-    fetchProfile();
-  } else {
-    alert("Request failed: " + xhr.statusText);
-  }
-};
-
-xhr.send(params);
+GET https://${account.namespace}/authorize?
+  &response_type=code|token,
+  &client_id=${account.clientId}
+  &connection=
+  &redirect_uri=http://localhost/callback
+  &access_token=" //logged-in user access_token
 ```
 
 <%= include('../../_includes/_http-method', {

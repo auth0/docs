@@ -5,28 +5,13 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/authorize
-Content-Type: 'application/json'
-{
-  "response_type": "code OR token",
-  "client_id": "${account.clientId}",
-  "connection": "",
-  "redirect_uri": "http://localhost/callback",
-  "state": "",
-  "additional-parameter": [
-         {
-            "parameter-1" : "value-1",
-            "parameter-2" : "value-2"
-         }
-  ]
-}
-```
-
-```shell
-curl --request GET \
-  --url 'https://${account.namespace}/authorize' \
-  --header 'content-type: application/json' \
-  --data '{"response_type":"code OR token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":"{"parameter-1":"value-1","parameter-2":"value-2"}"}'
+GET https://${account.namespace}/authorize?
+  response_type=code|token
+  client_id=${account.clientId}
+  connection=YOUR_CONNECTION
+  redirect_uri=http://localhost/callback
+  state=YOUR_STATE
+  additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -227,23 +212,13 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/authorize
-Content-Type: 'application/json'
-{
-  "response_type": "code OR token",
-  "client_id": "${account.clientId}",
-  "connection": "",
-  "redirect_uri": "http://localhost/callback",
-  "state": "",
-  "additional-parameter": ""
-}
-```
-
-```shell
-curl --request GET \
-  --url 'https://${account.namespace}/authorize' \
-  --header 'content-type: application/json' \
-  --data '{"response_type":"code OR token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
+GET https://${account.namespace}/authorize?
+  response_type=code|token
+  client_id=${account.clientId}
+  connection=YOUR_CONNECTION
+  redirect_uri=http://localhost/callback
+  state=YOUR_STATE
+  additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -459,22 +434,12 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 
 ```http
 GET https://${account.namespace}/authorize
-Content-Type: 'application/json'
-{
-  "response_type": "code OR token",
-  "client_id": "${account.clientId}",
-  "connection": "",
-  "redirect_uri": "http://localhost/callback",
-  "state": "",
-  "additional-parameter": ""
-}
-```
-
-```shell
-curl --request POST \
-  --url 'https://${account.namespace}/authorize' \
-  --header 'content-type: application/json' \
-  --data '{"response_type":"code OR token", "client_id":"${account.clientId}", "connection":"", "redirect_uri":"http://localhost/callback", "state":"", "additional-parameter":""}'
+  ?response_type=code|token
+  &client_id=${account.clientId}
+  &connection=YOUR_CONNECTION
+  &redirect_uri=http://localhost/callback
+  &state=YOUR_STATE
+  &additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -483,7 +448,7 @@ curl --request POST \
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  '{YOUR APP URL}',
+    callbackURL:  'https://YOUR_APP_URL/callback',
     responseType: 'code OR token'
   });
 </script>

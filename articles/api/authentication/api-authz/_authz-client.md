@@ -23,22 +23,14 @@ Based on the OAuth 2.0 flow you are implementing, the parameters slightly change
 
 ```http
 GET https://${account.namespace}/authorize
-Content-Type: 'application/json'
-{
-  "audience": "API_AUDIENCE",
-  "scope": "SCOPE",
-  "response_type": "code",
-  "client_id": "${account.clientId}",
-  "redirect_uri": "CALLBACK_URL",
-  "state": "OPAQUE_VALUE"
-}
-```
-
-```shell
-curl --request POST \
-  --url 'https://${account.namespace}/authorize' \
-  --header 'content-type: application/json' \
-  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"code","client_id": "${account.clientId}","redirect_uri":"CALLBACK_URL","state":"OPAQUE_VALUE"}'
+  ?audience=API_AUDIENCE
+  &scope=SCOPE"
+  &response_type=code
+  &client_id=${account.clientId}
+  &connection=YOUR_CONNECTION
+  &redirect_uri=http://localhost/callback
+  &state=OPAQUE_VALUE
+  &additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -52,7 +44,7 @@ var options = { method: 'POST',
      scope: 'SCOPE',
      response_type: 'code',
      client_id: '${account.clientId}',
-     redirect_uri: 'CALLBACK_URL',
+     redirect_uri: 'https://YOUR_APP_URL/callback',
      state: 'OPAQUE_VALUE'},
   json: true };
 
@@ -65,10 +57,8 @@ request(options, function (error, response, body) {
 
 > RESPONSE SAMPLE
 
-```json
-{
-  "code": "7bhYf..."
-}
+```http
+https://YOUR_APP_URL/callback?code=RESPONSE_CODE
 ```
 
 <%= include('../../../_includes/_http-method', {

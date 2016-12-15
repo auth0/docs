@@ -48,8 +48,8 @@ xhr.send(params);
 
 > RESPONSE SAMPLE:
 
-```json
-https://mpaktiti.auth0.com/users/IMPERSONATOR_ID/impersonate?&bewit=WFh0MUtm...
+```http
+https:/YOUR_DOMAIN/users/IMPERSONATOR_ID/impersonate?&bewit=WFh0MUtm...
 ```
 
 <% var path = '/users/{user_id}/impersonate'; %>
