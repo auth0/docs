@@ -7,15 +7,16 @@ budicon: 345
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
-  path: '05-Linking-Accounts'
+  path: '05-Linking-Accounts',
+  requirements: [
+    'jQuery 3.1.0'
+  ]
 }) %>
 
 <%= include('../../_includes/_linking_accounts') %>
 
 ```js
 // app.js
-
-...
 
 // Lock instance to launch a login to obtain the secondary id_token
 var lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
@@ -25,16 +26,12 @@ var lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     title: "Link with:"
   }
 });
-
-...
 ```
 
 Then, when setting the callback for the `authenticated` event with the `on` method, you can determine which login was executed by checking the value of the `authResult.state` attribute:
 
 ```javascript
 // app.js
-
-...
 
 lock.on("authenticated", function(authResult) {
   // Every lock instance listen to the same event, so we have to check if
@@ -62,7 +59,6 @@ lockLink.on("authenticated", function(authResult) {
     linkAccount(authResult.idToken);
   }
 });
-...
 ```
 
 Now that the second login is handled, you will need to actually do the linking.
@@ -72,8 +68,6 @@ Before doing the linking we need to configure AJAX to send an `Authorization` he
 ```javascript
 // app.js
 
-...
-
 $.ajaxSetup({
   'beforeSend': function(xhr) {
     if (localStorage.getItem('id_token')) {
@@ -82,16 +76,12 @@ $.ajaxSetup({
     }
   }
 });
-
-...
 ```
 
 After that we are good to go and can link the accounts:
 
 ```javascript
 // app.js
-
-...
 
 var linkAccount = function(id_token) {
   // Get user_id value stored at login step
@@ -108,9 +98,7 @@ var linkAccount = function(id_token) {
   }).fail(function(jqXHR, textStatus) {
     alert("Request failed: " + textStatus);
   });
-};
-
-...
+}
 ```
 
 The function takes the `id_token` of the account to link with and posts to the API, passing the `link_with` parameter with the `id_token` value in the body. Then it fetches the profile on success to check that the accounts are now linked.
@@ -120,21 +108,13 @@ Now to begin the linking process, call the `show` method on `lockLink` instance:
 ```javascript
 // app.js
 
-...
-
 $('#btn-link-account').on('click', function() {
   lockLink.show();
 });
-
-...
 ```
 
 ```html
-  ...
-
-  <button type="button" class="btn btn-default" id="btn-link-account">Link Account</button>
-
-  ...
+<button type="button" class="btn btn-default" id="btn-link-account">Link Account</button>
 ```
 
 ## User Profile Linked Accounts Information
@@ -154,19 +134,13 @@ You can display this information and provide an **Unlink** button:
 ```html
 <!-- index.html -->
 
-...
-
 <h3>Linked accounts</h3>
 <ul id="linked-accounts-list">
 </ul>
-
-...
 ```
 
 ```javascript
 // app.js
-
-...
 
 var showUserIdentities = function(profile) {
   var linked_accounts = '';
@@ -180,9 +154,7 @@ var showUserIdentities = function(profile) {
     }
   })
   $('#linked-accounts-list').html(linked_accounts);
-};
-
-...
+}
 ```
 
 ## Unlinking Accounts
@@ -191,8 +163,6 @@ You can disassociate a linked account by calling the [Unlink a user account](/ap
 
 ```javascript
 // app.js
-
-...
 
 var unlinkAccount = function(identity) {
   // Get user_id value stored at login step
@@ -207,7 +177,5 @@ var unlinkAccount = function(identity) {
   }).fail(function(jqXHR, textStatus) {
     alert("Request failed: " + textStatus);
   });
-};
-
-...
+}
 ```

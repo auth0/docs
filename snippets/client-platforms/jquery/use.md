@@ -1,4 +1,6 @@
 ```js
+// app.js
+
 var userProfile;
 
 $('.btn-login').click(function(e) {
@@ -8,9 +10,7 @@ $('.btn-login').click(function(e) {
 ```
 
 ```html
-...
+<!-- index.html -->
 
 <input type="submit" class="btn-login" />
-
-...
 ```

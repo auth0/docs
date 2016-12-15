@@ -7,7 +7,10 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
-  path: '07-Authorization'
+  path: '07-Authorization',
+  requirements: [
+    'jQuery 3.1.0'
+  ]
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/jquery/06-rules' }) %>
@@ -22,8 +25,6 @@ In order to restrict access to certain routes, we are going to use a `switch` in
 
 ```javascript
 // app.js
-
-...
 
 var route = function() {
   var id_token = localStorage.getItem('id_token');
@@ -66,15 +67,12 @@ var route = function() {
 };
 
 route();
-...
 ```
 
 The route function checks if the user is authenticated then checks if he/she is an *admin* or *user* using `isAdmin` and `isUser` functions, respectively. This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin` or `user`:
 
 ```javascript
 // app.js
-
-...
 
 var isAdmin = function(profile) {
   if (profile &&
@@ -96,8 +94,7 @@ var isUser = function(profile) {
   } else {
      return false;
   }
-};
-...
+}
 ```
 
 Now, if a user logs in with an email that contains `@example`, he/she will be allowed to access the `/admin.html` route. Otherwise, the user is just allowed to access `/` and `/user.html` routes.
