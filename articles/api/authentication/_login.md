@@ -6,11 +6,11 @@
 
 ```http
 GET https://${account.namespace}/authorize?
-  response_type=code|token
-  client_id=${account.clientId}
-  connection=YOUR_CONNECTION
-  redirect_uri=http://localhost/callback
-  state=YOUR_STATE
+  response_type=code|token&
+  client_id=${account.clientId}&
+  connection=YOUR_CONNECTION&
+  redirect_uri=http://YOUR_APP_URL/callback&
+  state=YOUR_STATE&
   additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
@@ -113,14 +113,11 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/access_token
-Content-Type: 'application/json'
-{
-  "client_id":    "${account.clientId}",
-  "access_token": "",
-  "connection":   "",
-  "scope":        ""
-}
+POST https://${account.namespace}/oauth/access_token?
+  client_id=${account.clientId}&
+  access_token=TOKEN&
+  connection=YOUR_CONNECTION&
+  scope=YOUR_SCOPE
 ```
 
 ```shell

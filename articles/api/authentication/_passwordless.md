@@ -7,23 +7,20 @@ Passwordless connections do not require the user to remember a password. Instead
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/passwordless/start
-Content-Type: 'application/json'
-{
-  "client_id":   "${account.clientId}",
-  "connection":  "email or sms",
-  "email": "", //set for connection=email
-  "phone_number": "". //set for connection=sms
-  "send": "link or code", //if left null defaults to link
-  "authParams": ""
-}
+POST https://${account.namespace}/passwordless/start?
+  client_id=${account.clientId}&
+  connection=email|sms&
+  email=EMAIL&
+  phone_number=PHONE_NUMBER&
+  send=link|code&
+  authParams=PARAMS
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/passwordless/start' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "connection":"email or sms", "email":"", "phone_number":"", "send":"link or code", "authParams":""}'
+  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "email":"", "phone_number":"", "send":"link|code", "authParams":""}'
 ```
 
 ```javascript
@@ -145,16 +142,13 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/ro
-Content-Type: 'application/json'
-{
-  "client_id":   "${account.clientId}",
-  "connection":  "email or sms",
-  "grant_type":  "password",
-  "username":    "", //email or phone number
-  "password":    "", //the verification code
-  "scope":       ""
-}
+POST https://${account.namespace}/oauth/ro?
+  client_id=${account.clientId}&
+  connection=email|sms&
+  grant_type=password&
+  username=EMAIL_OR_PHONE&
+  password=VERIFICATION_CODE&
+  scope=YOUR_SCOPE
 ```
 
 ```shell

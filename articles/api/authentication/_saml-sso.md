@@ -84,21 +84,19 @@ This endpoint returns the SAML 2.0 metadata.
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/login/callback?connection={connection}
-Content-Type: 'application/x-www-form-urlencoded'
-{
-  SAMLResponse=PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM...
-}
+POST https://${account.namespace}/login/callback?
+  connection=CONNECTION&
+  SAMLResponse=SAML_RESPONSE
 ```
 
 ```shell
 curl --request GET \
   --url 'https://${account.namespace}/login/callback' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data '"SAMLResponse"="PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM..."'
+  --data '"connection":"CONNECTION", "SAMLResponse":"SAML_RESPONSE"'
 ```
 
-<% var idpInitPath = '/login/callback?connection={connection}'; %>
+<% var idpInitPath = '/login/callback'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_method": "GET",

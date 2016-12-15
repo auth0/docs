@@ -3,19 +3,16 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/v2/logout
-Content-Type: 'application/json'
-{
-  "client_id": "${account.clientId}",
-  "returnTo": ""
-}
+GET https://${account.namespace}/v2/logout?
+  client_id={account.clientId}&
+  returnTo=LOGOUT_URL
 ```
 
 ```shell
 curl --request GET \
   --url 'https://${account.namespace}/v2/logout' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "returnTo":""}'
+  --data '{"client_id":"${account.clientId}", "returnTo":"LOGOUT_URL"}'
 ```
 
 ```javascript
@@ -36,11 +33,11 @@ $('.logout-dbconn').click(function() {
   //log the user out from Auth0
   auth0.logout();
 
-  //log the user out from Auth0 and redirect to tenant-level whitelisted URL http://localhost:3000
-  auth0.logout({ returnTo: 'http://localhost:3000' }, { version: 'v2' });
+  //log the user out from Auth0 and redirect to tenant-level whitelisted URL LOGOUT_URL
+  auth0.logout({ returnTo: 'LOGOUT_URL' }, { version: 'v2' });
 
-  //log the user out from Auth0 and redirect to client-level whitelisted URL http://localhost:3000
-  auth0.logout({ returnTo: 'http://localhost:3000', client_id: ${account.clientId} }, { version: 'v2' });
+  //log the user out from Auth0 and redirect to client-level whitelisted URL LOGOUT_URL
+  auth0.logout({ returnTo: 'LOGOUT_URL', client_id: ${account.clientId} }, { version: 'v2' });
 });
 ```
 
