@@ -1,5 +1,6 @@
 ---
 title: Authorization API Explorer
+fullWidth: true
 ---
 
 <div class="api-section" data-section="none">
