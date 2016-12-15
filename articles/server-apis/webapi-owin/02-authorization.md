@@ -35,7 +35,7 @@ Subsequently when the client passes along the `access_token` when making request
 
 ## 1. Define scopes
 
-You will need to define to list of scopes available in your application. In the [APIs section]("${manage_url}/#/apis) of the Auth0 Dashboard, select your API and then go to the __Scopes__ tab of the API. Configure the list of Scopes available in your API:
+You will need to define to list of scopes available in your application. In the [APIs section](https://manage.auth0.com/#/apis) of the Auth0 Dashboard, select your API and then go to the __Scopes__ tab of the API. Configure the list of Scopes available in your API:
 
 ![Configure Scopes](/media/articles/server-apis/webapi-owin/create-api-scopes.png)
 
