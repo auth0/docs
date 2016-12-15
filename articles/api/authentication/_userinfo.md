@@ -1,4 +1,4 @@
-# Get User Info
+# User Profile
 
 ## Get User Info
 
