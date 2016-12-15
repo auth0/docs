@@ -4,9 +4,6 @@
 
 ```http
 POST https://${account.namespace}/users/{user_id}/impersonate
-Content-Type:   'application/json'
-Authorization:  'Bearer {access_token}'
-{
   protocol:             "",
   impersonator_id:      "",
   client_id:            "",
@@ -14,7 +11,6 @@ Authorization:  'Bearer {access_token}'
     "response_type": "code",
     "state": ""
   ]
-}
 ```
 
 ```shell

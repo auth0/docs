@@ -6,11 +6,11 @@
 
 ```http
 GET https://${account.namespace}/authorize?
-  &response_type=code|token,
-  &client_id=${account.clientId}
-  &connection=
-  &redirect_uri=http://localhost/callback
-  &access_token=" //logged-in user access_token
+  response_type=code|token&
+  client_id=${account.clientId}&
+  connection=YOUR_CONNECTION&
+  redirect_uri=http://YOUR_APP_URL/callback&
+  access_token=TOKEN
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -51,12 +51,9 @@ This endpoint will trigger the login flow to link an existing account with a new
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/login/unlink
-Content-Type: 'application/json'
-{
-  "access_token": "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity access_token
-  "user_id": "LINKED_USER_ID" // (provider|id)
-}
+POST https://${account.namespace}/login/unlink?
+  access_token=LOGGED_IN_USER_ACCESS_TOKEN&
+  user_id=LINKED_USER_ID
 ```
 
 ```shell

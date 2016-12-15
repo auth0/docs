@@ -24,7 +24,7 @@ curl --request GET \
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  '{YOUR APP URL}',
+    callbackURL:  'https://YOUR_APP_URL/callback',
     responseType: 'token'
   });
 </script>
