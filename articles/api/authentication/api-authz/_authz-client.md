@@ -36,7 +36,8 @@ GET https://${account.namespace}/authorize?
 > RESPONSE SAMPLE
 
 ```http
-https://YOUR_APP_URL/callback?code=RESPONSE_CODE
+HTTP/1.1 302 Found
+Location: https://YOUR_APP_URL/callback?code=RESPONSE_CODE&state=YOUR_STATE
 ```
 
 <%= include('../../../_includes/_http-method', {
@@ -85,7 +86,8 @@ GET https://${account.namespace}/authorize?
 > RESPONSE SAMPLE
 
 ```http
-https://YOUR_APP_URL/callback?code=RESPONSE_CODE
+HTTP/1.1 302 Found
+Location: https://YOUR_APP_URL/callback?code=RESPONSE_CODE
 ```
 
 <%= include('../../../_includes/_http-method', {
@@ -139,7 +141,8 @@ GET https://${account.namespace}/authorize?
 > RESPONSE SAMPLE
 
 ```http
-http://YOUR_APP_URL/callback#access_token=TOKEN&state=STATE&token_type=TYPE&expires_in=SECONDS
+HTTP/1.1 302 Found
+Location: http://YOUR_APP_URL/callback#access_token=TOKEN&state=STATE&token_type=TYPE&expires_in=SECONDS
 ```
 
 <%= include('../../../_includes/_http-method', {
