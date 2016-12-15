@@ -142,7 +142,7 @@ auth0.getProfile(idToken, function (err, profile) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/tokeninfo",
   "link": "#get-token-info"
