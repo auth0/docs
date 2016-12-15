@@ -391,7 +391,7 @@ $('.login-dbconn').click(function () {
 }) %>
 
 ::: panel-warning Deprecation Notice
-This endpoint will soon be deprecated. The [POST /oauth/token { grant_type: password }](#resource-owner-password) should be used instead.
+This endpoint will deprecated in the future. Customers will be given ample time to migrate once an official deprecation notice is posted. The [POST /oauth/token { grant_type: password }](#resource-owner-password) should be used instead.
 :::
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
