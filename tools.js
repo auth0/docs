@@ -4,7 +4,7 @@ var path = require('path');
 var Imagemin = require('imagemin');
 var imageminOptipng = require('imagemin-optipng');
 
-var redirectFilePath = './redirect-urls.json';
+var redirectFilePath = './config/redirect-urls.json';
 var addRedirect = function(oldUrl, newUrl, callback) {
   fs.readFile(redirectFilePath, function(err, json) {
     if (err) { return callback(err); }
