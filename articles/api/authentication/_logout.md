@@ -44,7 +44,7 @@ $('.logout-dbconn').click(function() {
 });
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/v2/logout",
   "link": "#logout"

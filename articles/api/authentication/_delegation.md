@@ -66,7 +66,7 @@ auth0.getDelegationToken(options, function (err, delegationResult) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/delegation",
   "link": "#delegation"

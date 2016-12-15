@@ -106,7 +106,7 @@ $('.login-google').click(function () {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#social"
@@ -191,7 +191,7 @@ xhr.send(params);
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/access_token",
   "link": "#social-with-provider-s-access-token"
@@ -309,7 +309,7 @@ $('.login-dbconn').click(function () {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#database-ad-ldap-passive-"
@@ -409,7 +409,7 @@ $('.login-dbconn').click(function () {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/ro",
   "link": "#database-ad-ldap-active-"
@@ -506,7 +506,7 @@ $('.login-microsoft').click(function () {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#enterprise-saml-and-others-"

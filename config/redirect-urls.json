@@ -524,8 +524,8 @@
     "to": "/api/authentication"
   },
   {
-    "from": "/api/authentication",
-    "to": "/api/authentication/reference"
+    "from": "/api/authentication/reference",
+    "to": "/api/authentication"
   },
   {
     "from": "/oauth2",

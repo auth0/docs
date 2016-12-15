@@ -71,7 +71,7 @@ request(options, function (error, response, body) {
 }
 ```
 
-<%= include('../../../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#authorization-code-grant"
@@ -132,7 +132,7 @@ curl --request POST \
 }
 ```
 
-<%= include('../../../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#authorization-code-grant-pkce-"
@@ -210,7 +210,7 @@ xhr.onload = function() {
 xhr.send(params);
 ```
 
-<%= include('../../../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#implicit-grant"

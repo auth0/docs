@@ -19,7 +19,7 @@ curl --request GET \
 
 <% var acceptReqPath = '/{client_id}?connection={connection}'; %>
 <%=
-include('../../../_includes/_http-method', {
+include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": acceptReqPath,
   "link": "#accept-request"
@@ -61,7 +61,7 @@ curl --request GET \
 
 <% var getMetadataPath = '/samlp/metadata/{client_id}'; %>
 <%=
-include('../../../_includes/_http-method', {
+include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": getMetadataPath,
   "link": "#get-metadata"
@@ -100,7 +100,7 @@ curl --request GET \
 
 <% var idpInitPath = '/login/callback?connection={connection}'; %>
 <%=
-include('../../../_includes/_http-method', {
+include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": idpInitPath,
   "link": "#idp-initiated-sso-flow"

@@ -46,7 +46,7 @@ $('.change_password').click(function () {
 });
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/dbconnections/change_password",
   "link": "#change-password"

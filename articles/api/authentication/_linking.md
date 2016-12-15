@@ -42,7 +42,7 @@ xhr.onload = function() {
 xhr.send(params);
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#link"
@@ -114,7 +114,7 @@ xhr.onload = function() {
 xhr.send(params);
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/login/unlink",
   "link": "#unlink"

@@ -60,7 +60,7 @@ auth0.getUserInfo(access_token, function (err, profile) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/userinfo",
   "link": "#get-user-info"

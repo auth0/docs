@@ -96,7 +96,7 @@ $('.request-sms-code').click(function (ev) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/passwordless/start",
   "link": "#get-code-or-link"
@@ -210,7 +210,7 @@ auth0.verifySMSCode({
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/ro",
   "link": "#authenticate-user"

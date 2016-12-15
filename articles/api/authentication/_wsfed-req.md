@@ -13,7 +13,7 @@ curl --request GET \
   --url 'https://${account.namespace}/wsfed/${account.clientId}'
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/wsfed",
   "link": "#accept-request20"
@@ -59,7 +59,7 @@ curl --request GET \
 
 <% var getMetadataPath = '/wsfed/{client_id}/FederationMetadata/2007-06/FederationMetadata.xml'; %>
 <%=
-include('../../../_includes/_http-method', {
+include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": getMetadataPath,
   "link": "#get-metadata21"
