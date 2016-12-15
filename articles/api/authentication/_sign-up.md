@@ -3,14 +3,11 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/dbconnections/signup
-Content-Type: 'application/json'
-{
-  "client_id":   "${account.clientId}",
-  "email":       "",
-  "password":    "",
-  "connection":  "",
-}
+POST https://${account.namespace}/dbconnections/signup?
+  client_id=${account.clientId}&
+  email=EMAIL&
+  password=PASSWORD&
+  connection=CONNECTION
 ```
 
 ```shell
@@ -26,7 +23,7 @@ curl --request POST \
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  '{YOUR APP URL}',
+    callbackURL:  'https://YOUR_APP_URL/callback',
     responseType: 'token'
   });
 </script>

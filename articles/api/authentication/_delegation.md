@@ -3,23 +3,20 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/delegation
-Content-Type: 'application/json'
-{
-  "client_id":  "${account.clientId}",
-  "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
-  "id_token" or "refresh_token" : "",
-  "target":     "",
-  "scope":      "",
-  "api_type":   ""
-}
+POST https://${account.namespace}/delegation?
+  client_id=${account.clientId}&
+  grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&
+  id_token|refresh_token=TOKEN&
+  target=TARGET_CLIENT_ID&
+  scope=openid&
+  api_type=API_TYPE
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/delegation' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "grant_type":"urn:ietf:params:oauth:grant-type:jwt-bearer", "id_token or refresh_token":"", "target":"", "scope":"", "api_type":""}'
+  --data '{"client_id":"${account.clientId}", "grant_type":"urn:ietf:params:oauth:grant-type:jwt-bearer", "id_token|refresh_token":"TOKEN", "target":"TARGET_CLIENT_ID", "scope":"openid", "api_type":"API_TYPE"}'
 ```
 
 ```javascript
@@ -28,7 +25,7 @@ curl --request POST \
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  '{YOUR APP URL}',
+    callbackURL:  'https://YOUR_APP_URL/callback',
     responseType: 'token'
   });
 </script>

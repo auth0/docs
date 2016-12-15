@@ -13,21 +13,18 @@ The only OAuth 2.0 flows that can retrieve a refresh token are:
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
-{
-  "grant_type": "authorization_code",
-  "client_id": "${account.clientId}",
-  "client_secret": "${account.client_secret}",
-  "code": "YOUR_AUTHORIZATION_CODE",
-  "redirect_uri": "https://myclientapp.com/callback"
-}
+  grant_type=authorization_code&
+  client_id=${account.clientId}&
+  client_secret=${account.client_secret}&
+  code=YOUR_AUTHORIZATION_CODE&
+  redirect_uri=https://YOUR_APP_URL/callback
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","client_secret": "${account.clientSecret}","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "https://myclientapp.com/callback"}'
+  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","client_secret": "${account.clientSecret}","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "https://YOUR_APP_URL/callback"}'
 ```
 
 ```javascript
@@ -41,7 +38,7 @@ var options = { method: 'POST',
      client_id: '${account.clientId}',
      client_secret: '${account.clientSecret}',
      code: 'YOUR_AUTHORIZATION_CODE',
-     redirect_uri: 'https://myclientapp.com/callback' },
+     redirect_uri: 'https://YOUR_APP_URL/callback' },
   json: true };
 
 request(options, function (error, response, body) {
@@ -94,21 +91,18 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ```http
 POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
-{
-  "grant_type": "authorization_code",
-  "client_id": "${account.clientId}",
-  "code_verifier": "YOUR_GENERATED_CODE_VERIFIER",
-  "code": "YOUR_AUTHORIZATION_CODE",
-  "redirect_uri": "com.myclientapp://myclientapp.com/callback"
-}
+  grant_type=authorization_code&
+  client_id=${account.clientId}&
+  code_verifier=YOUR_GENERATED_CODE_VERIFIER&
+  code=YOUR_AUTHORIZATION_CODE&
+  redirect_uri=com.YOUR_APP://YOUR_APP_URL/callback
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback"}'
+  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.YOUR_APP://YOUR_APP_URL/callback"}'
 ```
 
 ```javascript
@@ -117,7 +111,7 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/json' },
-  body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback", }' };
+  body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.YOUR_APP://YOUR_APP_URL/callback", }' };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -169,14 +163,11 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
-{
-  audience: "YOUR_API_IDENTIFIER",
-  grant_type: "client_credentials",
-  client_id: "${account.clientId}",
-  client_secret: "${account.clientSecret}"
-}
+POST https://${account.namespace}/oauth/token?
+  audience=YOUR_API_IDENTIFIER&
+  grant_type=client_credentials&
+  client_id=${account.clientId}&
+  client_secret=${account.clientSecret}
 ```
 
 ```shell
@@ -245,16 +236,13 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
-{
-  "grant_type":"password",
-  "username":"RESOURCE_OWNER_USERNAME",
-  "password":"RESOURCE_OWNER_PASSWORD",
-  "audience":"YOUR_API_IDENTIFIER",
-  "scope":"SCOPES",
-  "client_id": ${account.clientId}
-}
+POST https://${account.namespace}/oauth/token?
+  grant_type=password&
+  username=RESOURCE_OWNER_USERNAME&
+  password=RESOURCE_OWNER_PASSWORD&
+  audience=YOUR_API_IDENTIFIER&
+  scope=YOUR_SCOPE&
+  client_id=${account.clientId}
 ```
 
 ```shell

@@ -6,11 +6,11 @@
 
 ```http
 GET https://${account.namespace}/authorize?
-  response_type=code|token
-  client_id=${account.clientId}
-  connection=YOUR_CONNECTION
-  redirect_uri=http://localhost/callback
-  state=YOUR_STATE
+  response_type=code|token&
+  client_id=${account.clientId}&
+  connection=YOUR_CONNECTION&
+  redirect_uri=http://YOUR_APP_URL/callback&
+  state=YOUR_STATE&
   additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
@@ -20,7 +20,7 @@ GET https://${account.namespace}/authorize?
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  '{YOUR APP URL}',
+    callbackURL:  'https://YOUR_APP_URL/callback',
     responseType: 'code OR token'
   });
 </script>
@@ -75,22 +75,6 @@ $('.login-google').click(function () {
 });
 ```
 
-> RESPONSE SAMPLE:
-
-```json
-//for response_type=token
-{
-  "access_token": "uBqd...",
-  "expires_in": "86400",
-  "token_type": "Bearer"
-}
-
-//for response_type=code
-{
-  "code": "7bhYf..."
-}
-```
-
 <%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
@@ -129,14 +113,11 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/access_token
-Content-Type: 'application/json'
-{
-  "client_id":    "${account.clientId}",
-  "access_token": "",
-  "connection":   "",
-  "scope":        ""
-}
+POST https://${account.namespace}/oauth/access_token?
+  client_id=${account.clientId}&
+  access_token=TOKEN&
+  connection=YOUR_CONNECTION&
+  scope=YOUR_SCOPE
 ```
 
 ```shell
@@ -213,11 +194,11 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 
 ```http
 GET https://${account.namespace}/authorize?
-  response_type=code|token
-  client_id=${account.clientId}
-  connection=YOUR_CONNECTION
-  redirect_uri=http://localhost/callback
-  state=YOUR_STATE
+  response_type=code|token&
+  client_id=${account.clientId}&
+  connection=YOUR_CONNECTION&
+  redirect_uri=http://YOUR_APP_URL/callback&
+  state=YOUR_STATE&
   additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
@@ -227,8 +208,8 @@ GET https://${account.namespace}/authorize?
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  '{YOUR APP URL}',
-    responseType: 'token'
+    callbackURL:  'https://YOUR_APP_URL/callback',
+    responseType: 'code|token'
   });
 </script>
 
@@ -268,22 +249,6 @@ $('.login-dbconn').click(function () {
 });
 ```
 
-> RESPONSE SAMPLE:
-
-```json
-//for response_type=token
-{
-  "access_token": "uBqd...",
-  "expires_in": "86400",
-  "token_type": "Bearer"
-}
-
-//for response_type=code
-{
-  "code": "sqJ0QsKIDijvSloK"
-}
-```
-
 <%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
@@ -319,18 +284,15 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/ro
-Content-Type: 'application/json'
-{
-  "client_id": "${account.clientId}",
-  "username": "",
-  "password": "",
-  "id_token": "",
-  "connection": "",
-  "grant_type": "password",
-  "scope": "openid",
-  "device": ""
-}
+POST https://${account.namespace}/oauth/ro?
+  client_id=${account.clientId}&
+  username=YOUR_USERNAME&
+  password=YOUR_PASSWORD&
+  id_token=TOKEN&
+  connection=YOUR_CONNECTION&
+  grant_type=password&
+  scope=openid&
+  device=YOUR_DEVICE
 ```
 
 ```shell
@@ -347,7 +309,7 @@ curl --request POST \
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  '{YOUR APP URL}',
+    callbackURL:  'https://YOUR_APP_URL/callback',
     responseType: 'token'
   });
 </script>
@@ -433,13 +395,13 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/authorize
-  ?response_type=code|token
-  &client_id=${account.clientId}
-  &connection=YOUR_CONNECTION
-  &redirect_uri=http://localhost/callback
-  &state=YOUR_STATE
-  &additional-parameter=YOUR_ADDITIONAL_PARAMETERS
+GET https://${account.namespace}/authorize?
+  response_type=code|token&
+  client_id=${account.clientId}&
+  connection=YOUR_CONNECTION&
+  redirect_uri=http://YOUR_APP_URL/callback&
+  state=YOUR_STATE&
+  additional-parameter=YOUR_ADDITIONAL_PARAMETERS&
 ```
 
 ```javascript
@@ -449,7 +411,7 @@ GET https://${account.namespace}/authorize
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
     callbackURL:  'https://YOUR_APP_URL/callback',
-    responseType: 'code OR token'
+    responseType: 'code|token'
   });
 </script>
 
@@ -459,16 +421,6 @@ $('.login-microsoft').click(function () {
     connection: 'contoso.com'
   });
 });
-```
-
-> RESPONSE SAMPLE:
-
-```json
-{
-  "id_token": "eyJ0eXAiOiJKV1Qi...",
-  "access_token": "sMjTAT...",
-  "token_type": "bearer"
-}
 ```
 
 <%= include('../../_includes/_http-method', {

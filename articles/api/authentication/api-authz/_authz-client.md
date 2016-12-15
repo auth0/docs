@@ -22,43 +22,22 @@ Based on the OAuth 2.0 flow you are implementing, the parameters slightly change
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/authorize
-  ?audience=API_AUDIENCE
-  &scope=SCOPE"
-  &response_type=code
-  &client_id=${account.clientId}
-  &connection=YOUR_CONNECTION
-  &redirect_uri=http://localhost/callback
-  &state=OPAQUE_VALUE
-  &additional-parameter=YOUR_ADDITIONAL_PARAMETERS
-```
-
-```javascript
-var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://${account.namespace}/authorize',
-  headers: { 'content-type': 'application/json' },
-  body:
-   { audience: 'API_AUDIENCE',
-     scope: 'SCOPE',
-     response_type: 'code',
-     client_id: '${account.clientId}',
-     redirect_uri: 'https://YOUR_APP_URL/callback',
-     state: 'OPAQUE_VALUE'},
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
+GET https://${account.namespace}/authorize?
+  audience=YOUR_API_AUDIENCE&
+  scope=YOUR_SCOPE&
+  response_type=code&
+  client_id=${account.clientId}&
+  connection=YOUR_CONNECTION&
+  redirect_uri=http://YOUR_APP_URL/callback&
+  state=YOUR_STATE&
+  additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
 > RESPONSE SAMPLE
 
 ```http
-https://YOUR_APP_URL/callback?code=RESPONSE_CODE
+HTTP/1.1 302 Found
+Location: https://YOUR_APP_URL/callback?code=RESPONSE_CODE&state=YOUR_STATE
 ```
 
 <%= include('../../../_includes/_http-method', {
@@ -94,32 +73,21 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/authorize
-Content-Type: 'application/json'
-{
-  "audience": "API_AUDIENCE",
-  "scope": "SCOPE",
-  "response_type": "code",
-  "client_id": "${account.clientId}",
-  "code_challenge": "CODE_CHALLENGE",
-  "code_challenge_method": "S256",
-  "redirect_uri": "CALLBACK_URL"
-}
-```
-
-```shell
-curl --request POST \
-  --url 'https://${account.namespace}/authorize' \
-  --header 'content-type: application/json' \
-  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"code","client_id": "${account.clientId}","code_challenge":"CODE_CHALLENGE","code_challenge_method":"S256","redirect_uri":"CALLBACK_URL"}'
+GET https://${account.namespace}/authorize?
+  audience=YOUR_API_AUDIENCE&
+  scope=YOUR_SCOPE&
+  response_type=code&
+  client_id=${account.clientId}&
+  redirect_uri=http://YOUR_APP_URL/callback&
+  code_challenge=YOUR_CODE_CHALLENGE&
+  code_challenge_method=S256
 ```
 
 > RESPONSE SAMPLE
 
-```json
-{
-  "code": "7bhYf..."
-}
+```http
+HTTP/1.1 302 Found
+Location: https://YOUR_APP_URL/callback?code=RESPONSE_CODE
 ```
 
 <%= include('../../../_includes/_http-method', {
@@ -160,44 +128,21 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/authorize
-Content-Type: 'application/json'
-{
-  "audience": "API_AUDIENCE",
-  "scope": "SCOPE",
-  "response_type": "token OR id_token token",
-  "client_id": "${account.clientId}",
-  "redirect_uri": "CALLBACK_URL",
-  "state": "OPAQUE_VALUE",
-  "nonce": "CRYPTOGRAPHIC_NONCE"
-}
+GET https://${account.namespace}/authorize?
+  audience=YOUR_API_AUDIENCE&
+  scope=YOUR_SCOPE&
+  response_type=token|id_token token&
+  client_id=${account.clientId}&
+  redirect_uri=http://YOUR_APP_URL/callback&
+  state=YOUR_STATE&
+  nonce=YOUR_NONCE
 ```
 
-```shell
-curl --request POST \
-  --url 'https://${account.namespace}/authorize' \
-  --header 'content-type: application/json' \
-  --data '{"audience":"API_AUDIENCE","scope":"SCOPE","response_type":"token OR id_token token","client_id": "${account.clientId}","redirect_uri":"CALLBACK_URL","state":"OPAQUE_VALUE","nonce":"CRYPTOGRAPHIC_NONCE"}'
-```
+> RESPONSE SAMPLE
 
-```javascript
-var url = 'https://' + ${account.namespace} + '/authorize';
-var params = '';
-audience=API_AUDIENCE&scope=SCOPE&response_type=RESPONSE_TYPE&client_id= ${account.clientId}&redirect_uri=CALLBACK_URL&state=OPAQUE_VALUE&nonce=CRYPTOGRAPHIC_NONCE
-
-var xhr = new XMLHttpRequest();
-xhr.open('GET', url);
-xhr.setRequestHeader('Content-Type', 'application/json');
-
-xhr.onload = function() {
-  if (xhr.status == 200) {
-    fetchProfile();
-  } else {
-    alert("Request failed: " + xhr.statusText);
-  }
-};
-
-xhr.send(params);
+```http
+HTTP/1.1 302 Found
+Location: http://YOUR_APP_URL/callback#access_token=TOKEN&state=STATE&token_type=TYPE&expires_in=SECONDS
 ```
 
 <%= include('../../../_includes/_http-method', {

@@ -59,9 +59,6 @@ fullWidth: true
   <%= include('./api-authz/_get-token') %>
 </div>
 <div class="api-section" data-section="api-authz">
-  <%= include('./api-authz/_get-token-info') %>
-</div>
-<div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_resource-owner') %>
 </div>
 
