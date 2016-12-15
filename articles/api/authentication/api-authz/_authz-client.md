@@ -35,7 +35,7 @@ GET https://${account.namespace}/authorize?
 
 > RESPONSE SAMPLE
 
-```http
+```text
 HTTP/1.1 302 Found
 Location: https://YOUR_APP_URL/callback?code=RESPONSE_CODE&state=YOUR_STATE
 ```
@@ -85,7 +85,7 @@ GET https://${account.namespace}/authorize?
 
 > RESPONSE SAMPLE
 
-```http
+```text
 HTTP/1.1 302 Found
 Location: https://YOUR_APP_URL/callback?code=RESPONSE_CODE
 ```
@@ -140,7 +140,7 @@ GET https://${account.namespace}/authorize?
 
 > RESPONSE SAMPLE
 
-```http
+```text
 HTTP/1.1 302 Found
 Location: http://YOUR_APP_URL/callback#access_token=TOKEN&state=STATE&token_type=TYPE&expires_in=SECONDS
 ```
