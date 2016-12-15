@@ -6,7 +6,7 @@ You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basi
 
 In the Dashboard under [Connections > Passwordless](${manage_url}/#/connections/passwordless), set the SMS slider to the right to enable the SMS Passwordless feature.
 
-Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields. 
+Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
 
 **NOTE**: For information on obtaining a Twilio SID and Auth Token, see: [How to create an Application SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and [Auth Tokens and how to change them](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it).
 
@@ -28,7 +28,7 @@ Click **SAVE**.
 
 The Message area supports usage of multiple languages.
 
-By making a call to the [/passwordless/start](/api/authentication#!#post--with_sms) authentication endpoint, you can set the value of an 'x-request-language' header to the language of your choice. If the value of this header is not set, the language will be extracted from the value in the 'accept-language' header that is automatically set by the browser.
+By making a call to the [/passwordless/start](/api/authentication/reference#get-code-or-link) authentication endpoint, you can set the value of an 'x-request-language' header to the language of your choice. If the value of this header is not set, the language will be extracted from the value in the 'accept-language' header that is automatically set by the browser.
 
 The Message area accepts Liquid syntax. You can use this syntax, combined with exposed parameter values, to programmatically construct elements of the message. For example, you can reference the `request_language` parameter to change the language of the message:
 

@@ -28,7 +28,7 @@ They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token
 
 ## Obtain a Refresh Token
 
-To obtain a refresh token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/auth-api#!#get--offline-access) endpoint.
+To obtain a refresh token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
 
 For example:
 
@@ -61,7 +61,7 @@ The refresh token is returned as part of the URL, in the form of an opaque strin
 
 ## Use a Refresh Token
 
-To obtain a new `id_token`, call the [delegation](/auth-api#!#post--delegation) endpoint in the Authentication API:
+To obtain a new `id_token`, call the [delegation](/api/authentication/reference#delegation) endpoint in the Authentication API:
 
 ```text
 POST https://${account.namespace}/delegation

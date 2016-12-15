@@ -95,7 +95,7 @@ Similarly you can log the user out from Auth0 by making a call to the `SignOutAs
 await HttpContext.Authentication.SignOutAsync("Auth0");
 ```
 
-For the above to work you will however also need to add extra configuration when registering the OIDC middleware by handling the `OnRedirectToIdentityProviderForSignOut` event. Inside the event you will need to redirect to the [Auth0 logout endpoint](/api/authentication#!#get--v2-logout) which will clear the Auth0 cookie.
+For the above to work you will however also need to add extra configuration when registering the OIDC middleware by handling the `OnRedirectToIdentityProviderForSignOut` event. Inside the event you will need to redirect to the [Auth0 logout endpoint](/api/authentication/reference#logout) which will clear the Auth0 cookie.
 
 ```csharp
 app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")

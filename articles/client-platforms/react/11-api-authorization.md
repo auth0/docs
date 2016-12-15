@@ -84,7 +84,7 @@ The `Auth0` instance is provided with the `clientId` and `domain` for your appli
 
 The `login` method redirects the user to Auth0's hosted login page and the `parseHash` method retrieves the authentication information for the user after they are redirected back to your application. If authentication was successful, an `access_token` and `id_token` will be returned and these values can be stored in local storage for later use.
 
-The `access_token` retrieved from the authentication process can be used to make authenticated API calls. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](https://auth0.com/docs/api/authentication#!#get--userinfo).
+The `access_token` retrieved from the authentication process can be used to make authenticated API calls. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](/api/authentication/reference#get-user-info).
 
 ## Trigger the Login
 
@@ -114,7 +114,7 @@ export default Login;
 
 ## Making an Authenticated API Call
 
-To make authenticated API calls, the user's `access_token` should be attached as an `Authorization` header using the `Bearer` scheme. One way to accomplish this is to extend the `fetch` API to include the header. 
+To make authenticated API calls, the user's `access_token` should be attached as an `Authorization` header using the `Bearer` scheme. One way to accomplish this is to extend the `fetch` API to include the header.
 
 ```js
 // src/util/AuthService.js
@@ -163,7 +163,7 @@ The API call can now be made from the appropriate location in your app.
 // ...
 componentDidMount(){
   const { auth } = this.props
-  
+
   // using auth to send an http request with authorization header
   auth.fetch('{API URL}')
     .then(response => console.log(response))

@@ -48,7 +48,7 @@ if (result && result.idToken) {
     // keep these in localStorage to use later
     localStorage.setItem('access_token', result.accessToken);
     localStorage.setItem('id_token', result.idToken);
-    
+
     auth0.getProfile(result.idToken, function (err, profile) {
         alert('hello ' + profile.name);
     });
@@ -58,7 +58,7 @@ if (result && result.idToken) {
 }
 ```
 
-The `access_token` will be used to make an Authenticated API call. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](https://auth0.com/docs/api/authentication#!#get--userinfo).
+The `access_token` will be used to make an Authenticated API call. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](/api/authentication/reference#get-user-info).
 
 ## Make an Authenticated API Call
 

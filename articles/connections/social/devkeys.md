@@ -4,9 +4,9 @@ description: Caveats you need to be aware of when using Auth0 Dev Keys for socia
 
 # Using the Auth0 Developer Keys with Social Connections
 
-When using any of the Social Identity Providers, you need to register your application with the relevant Identity Provider in order to obtain a Client ID and Client Secret. 
+When using any of the Social Identity Providers, you need to register your application with the relevant Identity Provider in order to obtain a Client ID and Client Secret.
 
-Auth0 allows you to enable any Social Identity Provider without specifying your own Client ID and Client Secret. In this instance Auth0 will use its own developer keys when authorizing the user with these providers. This allows you to quickly enable and test a specific Social Identity Provider, but it should definitely not be used in production. 
+Auth0 allows you to enable any Social Identity Provider without specifying your own Client ID and Client Secret. In this instance Auth0 will use its own developer keys when authorizing the user with these providers. This allows you to quickly enable and test a specific Social Identity Provider, but it should definitely not be used in production.
 
 ::: panel-info Client ID and Client Secret
 The exact terminology of Client ID / Client Secret may differ between various Identity Providers. For example, Twitter refers to these as a Consumer Key / Consumer Secret and LinkedIn refers to an API Key / Secret Key.
@@ -28,4 +28,4 @@ When using the Auth0 developer keys, there are a few caveats you need to be awar
 
 4. [Federated Logout](/logout#log-out-a-user) does not work. When using the Auth0 developer keys, calling `/v2/logout?federated` will sign the user out of Auth0, but not out of the Social Identity Provider.
 
-5. `prompt=none` won't work on the [/authorize](/api/authentication#!#get--authorize_social) endpoint. [Auth0.js' `silentAuthentication` method](https://github.com/auth0/auth0.js#silent-authentication) uses `prompt=none` internally, so that won't work either.
+5. `prompt=none` won't work on the [/authorize](/api/authentication/reference#social) endpoint. [Auth0.js' `silentAuthentication` method](https://github.com/auth0/auth0.js#silent-authentication) uses `prompt=none` internally, so that won't work either.

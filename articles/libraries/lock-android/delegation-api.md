@@ -9,7 +9,7 @@ This document is not yet updated to use [Lock for Android](https://github.com/au
 
 # Lock Android: Delegation API
 
-After a successful authentication, you can request credentials to access third party apps like Firebase or AWS that are configured in your Auth0 App's Add-On section. In order to do that you need to make a request to our [Delegation API](/auth-api#!#post--delegation) using a valid JWT.
+After a successful authentication, you can request credentials to access third party apps like Firebase or AWS that are configured in your Auth0 App's Add-On section. In order to do that you need to make a request to our [Delegation API](/api/authentication/reference#delegation) using a valid JWT.
 
 Here's an example
 ```java

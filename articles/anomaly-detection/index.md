@@ -49,7 +49,7 @@ Auth0 does email the dashboard owner when this block is triggered. Within this e
 
 Both of these anomaly types depend on the IP address of the user. Because of this, the following use cases are not supported:
 
-1.  Using the [Resource Owner](/auth-api#!#post--oauth-ro) from the backend of the application. Using this call does not get the IP address of the user.
+1.  Using the [Resource Owner](/api/authentication/reference#resource-owner) from the backend of the application. Using this call does not get the IP address of the user.
 2. Authenticating many users from the same IP address.  If this is an issue for you, disable the **2nd level brute force protection** shield.
 
 ### Breached Password Detection

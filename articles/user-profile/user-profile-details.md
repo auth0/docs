@@ -85,7 +85,7 @@ Auth0 provides a REST API that allows applications and services to access and ma
 
 The [API Explorer](/api/v2) allows users to interactively explore the Management API, view the API calls available, the information required for each call, and the information returned by each call. The explorer allows users to try out each endpoint in the explorer UI or via a CuRL command on the command line. To try out one of the Management API commands, select the access required under **Scopes** within that command, such as `update:users`, and then click on "TRY".
 
-Finally, there is the Authentication API specifically used for authentication flows. The documentation for these Authentication API calls can be found [here](/auth-api). Typically, most of these endpoints are used by the various Auth0 SDKs, not your own code. However, one endpoint that is particularly important for User Profile is [`/userinfo`](/auth-api#!#get--userinfo), which will be discussed later in this article.
+Finally, there is the Authentication API specifically used for authentication flows. The documentation for these Authentication API calls can be found [here](/auth-api). Typically, most of these endpoints are used by the various Auth0 SDKs, not your own code. However, one endpoint that is particularly important for User Profile is [`/userinfo`](/api/authentication/reference#get-user-info), which will be discussed later in this article.
 
 ## User Profile vs Tokens
 
@@ -138,9 +138,9 @@ There is also [an endpoint](/api/v2#!/Users/get_users_by_id) to retrieve informa
 
 In addition, two other endpoints are available to retrieve User Profile information based on either the Auth0 `access_token` or the Auth0 `id_token`.
 
-The [`/userinfo`](/auth-api#!#get--userinfo) endpoint takes as input the Auth0 `access_token` and returns User Profile information. This endpoint will include the results of any rules that may have altered the User Profile during the authentication transaction, but the resulting User Profile will not be filtered by any [Scoping](#scopes).
+The [`/userinfo`](/api/authentication/reference#get-user-info) endpoint takes as input the Auth0 `access_token` and returns User Profile information. This endpoint will include the results of any rules that may have altered the User Profile during the authentication transaction, but the resulting User Profile will not be filtered by any [Scoping](#scopes).
 
-The [`/tokeninfo`](/auth-api#!#post--tokeninfo) endpoint takes as input the Auth0 `id_token` and returns User Profile information. This endpoint will return a result that does not include the results of any rules that alter the User Profile.
+The [`/tokeninfo`](/api/authentication/reference#get-token-info) endpoint takes as input the Auth0 `id_token` and returns User Profile information. This endpoint will return a result that does not include the results of any rules that alter the User Profile.
 
 ### Creating Users in a Custom Database
 
@@ -179,9 +179,9 @@ More info:
 
 ### Rules and their Usage
 
-The impact of rules which alter User Profile information will be visible in some situations but not in others. The results of rules will be visible when the profile is viewed or accessed in the context of a user's login transaction. If a client application calls an Auth0 library in the context of a user session, the SDK call will return the User Profile including any modifications made within rules. This also holds true for use of the [`/userinfo`](/auth-api#!#get--userinfo) authentication endpoint.
+The impact of rules which alter User Profile information will be visible in some situations but not in others. The results of rules will be visible when the profile is viewed or accessed in the context of a user's login transaction. If a client application calls an Auth0 library in the context of a user session, the SDK call will return the User Profile including any modifications made within rules. This also holds true for use of the [`/userinfo`](/api/authentication/reference#get-user-info) authentication endpoint.
 
-When the profile is viewed outside the context of the user login transaction, the results of rules will not be included. This is the case when using the [`/tokeninfo`](/auth-api#!#post--tokeninfo) authentication endpoint, or the Auth0 Dashboard.
+When the profile is viewed outside the context of the user login transaction, the results of rules will not be included. This is the case when using the [`/tokeninfo`](/api/authentication/reference#get-token-info) authentication endpoint, or the Auth0 Dashboard.
 
 ## Mapping User Profile Attributes in AD/LDAP Connector
 

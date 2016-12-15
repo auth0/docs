@@ -250,7 +250,7 @@ By default, Lock will display all the connections available for login. Selecting
 
 You may however want to avoid that first step, where the user needs to choose the Identity Provider (IdP), and have the system identify it instead of asking every time. Lock offers you the following options:
 
-- __Identify the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](https://auth0.com/docs/api/authentication#!#get--authorize_db) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`.
+- __Identify the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](/api/authentication/reference#database-ad-ldap-passive-) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`.
 
   There are multiple practical ways of getting the `connection` value. One of them is to use __vanity URLs__: for example, company employees will use `https://internal.yoursite.com`, while external contractors will use `https://external.yoursite.com`.
 
