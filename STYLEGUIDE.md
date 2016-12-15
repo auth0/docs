@@ -91,27 +91,13 @@ Use `code_formatting` to refer to parameters and values.
 
 ### Links
 
-The text of a link to additional information should be the title of the destination page, so the reader has some idea of the content being linked to. For more information, see: [Auth0 Style Guide](styleguide.md).
+The text of a link to additional information should be the title of the destination page, so the reader has some idea of the content being linked to.
 
-## Specific examples
-
-### Click
-
-Use "Click on" when referring to text links in a webpage or UI, "Click" when referring to a button.
-
-For example: Click **Save**. Click on **This link**.
-
-### Login
-
-You can use **login** as a verb: Login to the dashboard.
+## Words to use
 
 ### Access
 
 Depending on the situation, the reader can "gain access", "grant access", or "allow access".
-
-### Email
-
-Use the un-hyphenated "email" to refer to an email address.
 
 ### The user
 
@@ -121,8 +107,6 @@ Refer to the developer's customer as the "user". Be sure to keep the idea of the
 
 The [Auth0 management console](${manage_url}) is referred to as the "dashboard".
 
+### More
 
-
-
-
-
+For more information refer to [WORDS](WORDS.md).
