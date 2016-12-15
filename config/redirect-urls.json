@@ -521,7 +521,11 @@
   },
   {
     "from": "/auth-api",
-    "to": "/api/authentication"
+    "to": "/api/authentication/reference"
+  },
+  {
+    "from": "/api/authentication",
+    "to": "/api/authentication/reference"
   },
   {
     "from": "/oauth2",
@@ -1147,5 +1151,65 @@
   {
     "from": "/tokens/id_token",
     "to": "/tokens/id-token"
+  },
+  {
+    "from": "/api/authentication#!#get--authorize_social",
+    "to": "/api/authentication/reference#social"
+  },
+  {
+    "from": "/api/authentication#!#get--authorize_db",
+    "to": "/api/authentication/reference#database-ad-ldap-passive-"
+  },
+  {
+    "from": "/api/authentication#!#post--oauth-ro",
+    "to": "/api/authentication/reference#resource-owner"
+  },
+  {
+    "from": "/api/authentication#!#post--dbconnections-signup",
+    "to": "/api/authentication/reference#signup"
+  },
+  {
+    "from": "/api/authentication#!#post--dbconnections-change_password",
+    "to": "/api/authentication/reference#change-password"
+  },
+  {
+    "from": "/api/authentication#!#post--with_email",
+    "to": "/api/authentication/reference#get-code-or-link"
+  },
+  {
+    "from": "/api/authentication#!#post--with_sms",
+    "to": "/api/authentication/reference#get-code-or-link"
+  },
+  {
+    "from": "/api/authentication#!#get--userinfo",
+    "to": "/api/authentication/reference#get-user-info"
+  },
+  {
+    "from": "/api/authentication#!#post--tokeninfo",
+    "to": "/api/authentication/reference#get-token-info"
+  },
+  {
+    "from": "/api/authentication#!#post--oauth-token",
+    "to": "/api/authentication/reference#get-token"
+  },
+  {
+    "from": "/api/authentication#!#post--delegation",
+    "to": "/api/authentication/reference#delegation"
+  },
+  {
+    "from": "/api/authentication#!#get--offline-access",
+    "to": "/api/authentication/reference#get-token"
+  },
+  {
+    "from": "/api/authentication#!#post--users--user_id--impersonate",
+    "to": "/api/authentication/reference#impersonation"
+  },
+  {
+    "from": "/api/authentication#!#get--link",
+    "to": "/api/authentication/reference#link"
+  },
+  {
+    "from": "/api/authentication#!#get--v2-logout",
+    "to": "/api/authentication/reference#logout"
   }
 ]
