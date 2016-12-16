@@ -7,17 +7,18 @@ The SAML protocol is used for 3rd party SaaS applications mostly, like Salesforc
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/${account.clientId}?connection=CONNECTION
+GET https://${account.namespace}/samlp/${account.clientId}?
+  connection=CONNECTION
 ```
 
 ```shell
 curl --request GET \
-  --url 'https://${account.namespace}/${account.clientId}' \
+  --url 'https://${account.namespace}/samlp/${account.clientId}' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data '"connection"="CONNECTION"'
 ```
 
-<% var acceptReqPath = '/{client_id}?connection={connection}'; %>
+<% var acceptReqPath = '/samlp/{client_id}'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_method": "GET",
