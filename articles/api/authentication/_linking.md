@@ -41,7 +41,7 @@ This endpoint will trigger the login flow to link an existing account with a new
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/$(account.clientId)/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 
 ### More Information

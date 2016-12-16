@@ -62,7 +62,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 ### Remarks
 
 - Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code).
-- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/$(account.clientId)/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 ### More Information
 
@@ -117,7 +117,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 ### Remarks
 
 - Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code-pkce-).
-- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/$(account.clientId)/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 
 ### More Information
@@ -172,7 +172,7 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 
 ### Remarks
 
-- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/$(account.clientId)/settings).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and on Native Mobile SDKs.
 - The Implicit Grant does not support the issuance of refresh tokens.
 
