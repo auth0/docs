@@ -28,7 +28,7 @@ GET https://${account.namespace}/authorize?
   response_type=code&
   client_id=${account.clientId}&
   connection=YOUR_CONNECTION&
-  redirect_uri=http://YOUR_APP_URL/callback&
+  redirect_uri=${account.callback}&
   state=OPAQUE_VALUE&
   additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
@@ -57,11 +57,12 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `response_type`  | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
 | `client_id`      | Your application's Client ID. |
 | `state`          | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `redirect_uri`   | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. |
+| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 
 ### Remarks
 
 - Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/$(account.clientId)/settings).
 
 ### More Information
 
@@ -79,7 +80,7 @@ GET https://${account.namespace}/authorize?
   scope=YOUR_SCOPE&
   response_type=code&
   client_id=${account.clientId}&
-  redirect_uri=http://YOUR_APP_URL/callback&
+  redirect_uri=${account.callback}&
   code_challenge=YOUR_CODE_CHALLENGE&
   code_challenge_method=S256
 ```
@@ -108,7 +109,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `scope`          | The scopes which you want to request authorization for. These must be separated by a space. |
 | `response_type`  | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
 | `client_id`      | Your application's Client ID. |
-| `redirect_uri`   | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. |
+| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `code_challenge_method` | Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
 | `code_challenge` | Generated challenge from the `code_verifier`. |
 
@@ -116,6 +117,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 ### Remarks
 
 - Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code-pkce-).
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/$(account.clientId)/settings).
 
 
 ### More Information
@@ -134,7 +136,7 @@ GET https://${account.namespace}/authorize?
   scope=YOUR_SCOPE&
   response_type=token|id_token token&
   client_id=${account.clientId}&
-  redirect_uri=http://YOUR_APP_URL/callback&
+  redirect_uri=${account.callback}&
   state=OPAQUE_VALUE&
   nonce=YOUR_NONCE
 ```
@@ -164,14 +166,14 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 | `response_type`  | This will specify the type of token you will receive at the end of the flow. Use `id_token token` to get an `id_token`, or `token` to get both an `id_token` and an `access_token`. |
 | `client_id`      | Your application's Client ID. |
 | `state`          | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `redirect_uri`   | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. |
+| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `nonce` | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
 
 
 ### Remarks
 
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/$(account.clientId)/settings).
 - If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and on Native Mobile SDKs.
-
 - The Implicit Grant does not support the issuance of refresh tokens.
 
 

@@ -17,14 +17,14 @@ POST https://${account.namespace}/oauth/token
   client_id=${account.clientId}&
   client_secret=${account.client_secret}&
   code=YOUR_AUTHORIZATION_CODE&
-  redirect_uri=https://YOUR_APP_URL/callback
+  redirect_uri=${account.callback}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","client_secret": "${account.clientSecret}","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "https://YOUR_APP_URL/callback"}'
+  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","client_secret": "${account.clientSecret}","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "${account.callback}"}'
 ```
 
 ```javascript
@@ -38,7 +38,7 @@ var options = { method: 'POST',
      client_id: '${account.clientId}',
      client_secret: '${account.clientSecret}',
      code: 'YOUR_AUTHORIZATION_CODE',
-     redirect_uri: 'https://YOUR_APP_URL/callback' },
+     redirect_uri: '${account.callback}' },
   json: true };
 
 request(options, function (error, response, body) {
@@ -76,7 +76,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `client_id`      | Your application's Client ID. |
 | `client_secret`  | Your application's Client Secret. |
 | `code`  | The Authorization Code received from the initial `/authorize` call. |
-| `redirect_uri`  | The URL must match exactly the `redirect_uri` passed to `/authorize`. |
+| `redirect_uri`  | The URL must match exactly the `redirect_uri` passed to [GET /authorize](#authorization-code-grant). |
 
 
 ### More Information
@@ -95,14 +95,14 @@ POST https://${account.namespace}/oauth/token
   client_id=${account.clientId}&
   code_verifier=YOUR_GENERATED_CODE_VERIFIER&
   code=YOUR_AUTHORIZATION_CODE&
-  redirect_uri=com.YOUR_APP://YOUR_APP_URL/callback
+  redirect_uri=com.myclientapp://myclientapp.com/callback
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.YOUR_APP://YOUR_APP_URL/callback"}'
+  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback"}'
 ```
 
 ```javascript
@@ -111,7 +111,7 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/json' },
-  body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.YOUR_APP://YOUR_APP_URL/callback", }' };
+  body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback", }' };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -149,7 +149,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `client_id`      | Your application's Client ID. |
 | `code`  | The Authorization Code received from the initial `/authorize` call. |
 | `code_verifier` | Cryptographically random key that was used to generate the `code_challenge` passed to `/authorize`. |
-| `redirect_uri`  | The URL must match exactly the `redirect_uri` passed to `/authorize`. |
+| `redirect_uri`  | The URL must match exactly the `redirect_uri` passed to [GET /authorize](#authorization-code-grant-pkce-). |
 
 
 ### More Information

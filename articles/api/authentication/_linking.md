@@ -9,7 +9,7 @@ GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
   connection=YOUR_CONNECTION&
-  redirect_uri=http://YOUR_APP_URL/callback&
+  redirect_uri=${account.callback}&
   access_token=TOKEN
 ```
 
@@ -35,8 +35,13 @@ This endpoint will trigger the login flow to link an existing account with a new
 | `response_type`  | `code` for server side flows, `token` for client side flows |
 | `client_id`      | The `client_id` of your client |
 | `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | `http://localhost/callback` |
+| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `access_token`   | the logged-in user's access token |
+
+
+### Remarks
+
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/$(account.clientId)/settings).
 
 
 ### More Information
