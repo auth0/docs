@@ -16,11 +16,11 @@ budicon: 500
   ]
 }) %>
 
-An API can enforce fine grained control over who can access the various endpoints exposed by the API. These permissions are expressed as scopes.
+An API can enforce fine-grained control over who can access the various endpoints exposed by the API. These permissions are expressed as scopes.
 
 When a user authorizes a client application, the application can also indicate which permissions it requires. The user is allowed to review and grant these permissions. These permissions are then included in the `access_token` as part of the `scope` claim.
 
-Subsequently when the client passes along the `access_token` when making requests to the API, the API can query the `scope` claim to ensure that the required permissions were granted in order to call the particular API endpoint. The `scope` claim will contain the list of scopes separated by a space, as can be seen in the example JWT payload below:
+Subsequently, when the client passes along the `access_token` when making requests to the API, the API can query the `scope` claim to ensure that the required permissions were granted in order to call the particular API endpoint. The `scope` claim will contain the list of scopes separated by a space, as can be seen in the example JWT payload below:
 
 ```json
 {
@@ -39,7 +39,7 @@ You will need to define to list of scopes available in your application. In the 
 
 ![Configure Scopes](/media/articles/server-apis/webapi-owin/create-api-scopes.png)
 
-Once you have created the list of scopes, go to the __Non Interactive Clients__ tab. For each client which is able to access your API, ensure that you have Authorized the client and selected the Scopes which can be granted to the Client. Be sure the click the **Update** button once you have configure the Client:
+Once you have created the list of scopes, go to the __Non-Interactive Clients__ tab. For each client which is able to access your API, ensure that you have Authorized the client and selected the Scopes which can be granted to the Client. Be sure to click the **Update** button once you have configured the Client:
 
 ![Configure Client](/media/articles/server-apis/webapi-scopes/configure-api-client-scopes.png)
 
