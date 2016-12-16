@@ -53,6 +53,10 @@ include('../../_includes/_http-method', {
   "link": "#impersonation"
 }) %>
 
+::: panel-warning Advanced Feature
+Impersonation functionality may be disabled by default for your tenant, but can be enabled by [contacting support](https://support.auth0.com/).
+:::
+
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.
 
 
