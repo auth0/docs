@@ -1,4 +1,4 @@
-# WS-Federation Request
+# WS-Federation
 
 ## Accept Request
 
