@@ -186,7 +186,7 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 
 ### Error Codes
 
-For the complete error code reference for this endpoint refer to [Errors > POST /oauth/access_token](#post-oauth-access-token).
+For the complete error code reference for this endpoint refer to [Errors > POST /oauth/access_token](#post-oauth-access_token).
 
 
 ### More Information
