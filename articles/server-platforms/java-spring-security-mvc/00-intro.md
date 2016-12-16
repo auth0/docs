@@ -21,11 +21,11 @@ __NOTE:__ You can find a listing of all our Java offerings and several sample pr
 
 ## Sample Projects
 
-There are two options to follow along this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) or the samples provided at each page of this quickstart.
+There are two options to follow along with this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) or the samples provided at each page of this quickstart.
 
-The seed is a regular Java Spring Security app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow along the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) and follow along.
+The seed project is a regular Java Spring Security app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) and follow along.
 
-Instead you can choose to follow the samples that are included in each step. Each sample uses the [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) as a starting point and applies to it the configuration of each step, so for example the Login sample would be the [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) plus the configuration required to implement login functionality. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
+Instead, you can choose to follow the samples that are included in each step. Each sample uses the [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) as a starting point and applies to it the configuration of each step, so, for example, the Login sample would be the [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) plus the configuration required to implement login functionality. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
 
 
 ### Seed project Structure
@@ -58,11 +58,11 @@ Let's take some time and explain how our [seed project](https://github.com/auth0
 - pom.xml
 ```
 
-The project contains two JSP: the `login.jsp` that will handle the user login, and the `home.jsp` which will display user information after a successful login and provide the option to logout.
+The project contains two JSP: the `login.jsp` that will handle the user login, and the `home.jsp` which will display user information after a successful login and provide the option to log out.
 
 The project contains also the following files:
-- `application.properties`: Configuration file that holds information such as the port your app will use, the logging level, etc.
-- `auth0.properties`: Configuration file that holds Auth0 related information, like the client id, client secret, etc. You can find more detailed information in the [Configure your Java Spring app](#configure-your-java-spring-app) section of this document.
+- `application.properties`: The configuration file that holds information such as the port your app will use, the logging level, etc.
+- `auth0.properties`: The configuration file that holds Auth0 related information, like the client id, client secret, etc. You can find more detailed information in the [Configure your Java Spring app](#configure-your-java-spring-app) section of this document.
 - `App.java`: A Java class that uses Spring Boot’s `SpringApplication.run()` method to launch the application.
 - `AppConfig.java`: The security configuration class. By subclassing, and overriding `authorizeRequests` method, you can define the endpoint security configuration (authentication and authorization) suitable for your own needs.
 - `ErrorController.java`: The controller that handles the errors.
