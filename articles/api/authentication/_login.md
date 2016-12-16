@@ -9,7 +9,7 @@ GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
   connection=YOUR_CONNECTION&
-  redirect_uri=http://YOUR_APP_URL/callback&
+  redirect_uri=${account.callback}&
   state=OPAQUE_VALUE&
   additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
@@ -20,7 +20,7 @@ GET https://${account.namespace}/authorize?
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  'https://YOUR_APP_URL/callback',
+    callbackURL:  '${account.callback}',
     responseType: 'code|token'
   });
 </script>
@@ -93,13 +93,14 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 | `response_type`  | Use `code` for server side flows and `token` for client side flows |
 | `client_id`      | The `client_id` of your client |
 | `connection`     | The name of a social identity provider configured to your client, for example `google-oauth2` or `facebook`. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
-| `redirect_uri`   | `http://YOUR_APP_URL/callback` |
-| `state`          | An opaque string value that will be sent back after the authorization. It should be used for XSRF and contextual information (like a return url). |
+| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `state`          | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `additional-parameter`  | Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
 
 
 ### Remarks
 
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates on the provider, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 
 
@@ -107,6 +108,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 - [Supported Social Identity Providers](/identityproviders#social)
 - [Custom Social Connections](/connections/social/oauth2)
+- [Using the State Parameter](/protocols/oauth2/oauth-state)
 
 
 ## Social with Provider's Access Token
@@ -125,7 +127,7 @@ POST https://${account.namespace}/oauth/access_token?
 curl --request POST \
   --url 'https://${account.namespace}/oauth/access_token' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "access_token":"", "connection":"", "scope":""}'
+  --data '{"client_id":"${account.clientId}", "access_token":"TOKEN", "connection":"YOUR_CONNECTION", "scope":"YOUR_SCOPE"}'
 ```
 
 ```javascript
@@ -151,7 +153,6 @@ xhr.send(params);
 > RESPONSE SAMPLE:
 
 ```JSON
-HTTP/1.1 200 OK
 {
   "id_token": "eyJ0eXAiOiJKV1Qi...",
   "access_token": "A9CvPwFojaBI...",
@@ -204,8 +205,8 @@ GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
   connection=YOUR_CONNECTION&
-  redirect_uri=http://YOUR_APP_URL/callback&
-  state=YOUR_STATE&
+  redirect_uri=${account.callback}&
+  state=OPAQUE_VALUE&
   additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
@@ -215,7 +216,7 @@ GET https://${account.namespace}/authorize?
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  'https://YOUR_APP_URL/callback',
+    callbackURL:  '${account.callback}',
     responseType: 'code|token'
   });
 </script>
@@ -256,6 +257,13 @@ $('.login-dbconn').click(function () {
 });
 ```
 
+> RESPONSE SAMPLE
+
+```text
+HTTP/1.1 302 Found
+Location: https://auth0.com/#/login_page&state=OPAQUE_VALUE
+```
+
 <%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
@@ -271,20 +279,23 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 | `response_type`  | Use `code` for server side flows and `token` for client side flows |
 | `client_id`      | The `client_id` of your client |
 | `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | `http://localhost/callback` |
-| `state`          | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
+| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `state`          | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
 
 ### Remarks
 
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
-- The main difference between passive and active authentication is that the former happens in the browser through the [Login Page](https://auth0.com/#/login_page) and the latter can be invoked from anywhere (a script, server to server, etc.).
+- The main difference between passive and active authentication is that the former happens in the browser through the [Login Page](https://auth0.com/#/login_page) and the latter can be invoked from anywhere (a script, server to server, and so forth).
 
 
 ### More Information
 - [Database Identity Providers](/connections/database)
 - [Rate Limits on User/Password Authentication](/connections/database/rate-limits)
 - [Active Directory/LDAP Connector](/connector)
+- [Using the State Parameter](/protocols/oauth2/oauth-state)
+
 
 ## Database/AD/LDAP (Active)
 
@@ -295,18 +306,15 @@ POST https://${account.namespace}/oauth/ro?
   client_id=${account.clientId}&
   username=YOUR_USERNAME&
   password=YOUR_PASSWORD&
-  id_token=TOKEN&
   connection=YOUR_CONNECTION&
-  grant_type=password&
   scope=openid&
-  device=YOUR_DEVICE
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"", "username":"", "password":"", "id_token":"", "connection":"", "grant_type":"password", "scope":"openid", "device":""}'
+  --data '{"client_id":"${account.clientId}", "username":"YOUR_USERNAME", "password":"YOUR_PASSWORD", "connection":"YOUR_CONNECTION", "scope":"openid"}'
 
 ```
 
@@ -316,7 +324,7 @@ curl --request POST \
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  'https://YOUR_APP_URL/callback',
+    callbackURL:  '${account.callback}',
     responseType: 'token'
   });
 </script>
@@ -369,20 +377,18 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your client |
-| `username`       | username/email of the user to login |
-| `password`       | password of the user to login |
-| `id_token`       | |
-| `connection`     | The name of the connection configured to your client |
-| `grant_type`     | Set to `password` |
+| `client_id`      | The `client_id` of your client |
+| `username`       | Username/email of the user to login |
+| `password`       | Password of the user to login |
+| `connection`     | The name of the connection to use for login |
+| `grant_type`     | Set to `password`
 | `scope`          | Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
-| `device`         | |
 
 
 ### Remarks
 
 - This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
-- The main difference between passive and active authentication is that the former happens in the browser through the [Login Page](https://auth0.com/#/login_page) and the latter can be invoked from anywhere (a script, server to server, etc.).
+- The main difference between passive and active authentication is that the former happens in the browser through the [Login Page](https://auth0.com/#/login_page) and the latter can be invoked from anywhere (a script, server to server, and so forth).
 
 
 ### Error Codes
@@ -406,8 +412,8 @@ GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
   connection=YOUR_CONNECTION&
-  redirect_uri=http://YOUR_APP_URL/callback&
-  state=YOUR_STATE&
+  redirect_uri=${account.callback}&
+  state=OPAQUE_VALUE&
   additional-parameter=YOUR_ADDITIONAL_PARAMETERS&
 ```
 
@@ -417,7 +423,7 @@ GET https://${account.namespace}/authorize?
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  'https://YOUR_APP_URL/callback',
+    callbackURL:  '${account.callback}',
     responseType: 'code|token'
   });
 </script>
@@ -446,17 +452,19 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 | `response_type`  | `code` for server side flows, `token` for client side flows |
 | `client_id`      | The `client_id` of your client |
 | `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | `http://localhost/callback` |
-| `state`          | The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url). |
+| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `state`          | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
 
 ### Remarks
 
 - If no `connection` is specified, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget.
+- The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
-- Additional parameters can be sent that will be passthrough to the provider.
-- The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url).
+- Additional parameters can be sent that will be passed to the provider.
 
 ### More Information
+
 - [SAML](/protocols/saml)
 - [Obtain a ClientId and Client Secret for Microsoft Azure Active Directory](/connections/enterprise/azure-active-directory)
+- [Using the State Parameter](/protocols/oauth2/oauth-state)

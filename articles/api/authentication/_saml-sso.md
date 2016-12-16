@@ -7,17 +7,18 @@ The SAML protocol is used for 3rd party SaaS applications mostly, like Salesforc
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-GET https://${account.namespace}/${account.clientId}?connection={connection}
+GET https://${account.namespace}/samlp/${account.clientId}?
+  connection=CONNECTION
 ```
 
 ```shell
 curl --request GET \
-  --url 'https://${account.namespace}/${account.clientId}' \
+  --url 'https://${account.namespace}/samlp/${account.clientId}' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data '"connection"=""'
+  --data '"connection"="CONNECTION"'
 ```
 
-<% var acceptReqPath = '/{client_id}?connection={connection}'; %>
+<% var acceptReqPath = '/samlp/{client_id}'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_method": "GET",
@@ -34,8 +35,8 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your client |
-| `connection`     | the name of an identity provider configured to your client (optional) |
+| `client_id`      | The `client_id` of your client |
+| `connection`     | The connection to use (optional) |
 
 
 ### Remarks
@@ -90,7 +91,7 @@ POST https://${account.namespace}/login/callback?
 ```
 
 ```shell
-curl --request GET \
+curl --request POST \
   --url 'https://${account.namespace}/login/callback' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data '"connection":"CONNECTION", "SAMLResponse":"SAML_RESPONSE"'
@@ -99,7 +100,7 @@ curl --request GET \
 <% var idpInitPath = '/login/callback'; %>
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "GET",
+  "http_method": "POST",
   "path": idpInitPath,
   "link": "#idp-initiated-sso-flow"
 }) %>
@@ -111,8 +112,8 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `connection`     | the name of an identity provider configured to your client |
-| `SAMLResponse`   | an IdP-Initiated Sign On SAML Response |
+| `connection`     | The name of an identity provider configured to your client |
+| `SAMLResponse`   | An IdP-Initiated Sign On SAML Response |
 
 ### More Information
 - [SAML](/protocols/saml)
