@@ -10,7 +10,7 @@ GET https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   connection=YOUR_CONNECTION&
   redirect_uri=http://YOUR_APP_URL/callback&
-  state=YOUR_STATE&
+  state=OPAQUE_VALUE&
   additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
@@ -21,7 +21,7 @@ GET https://${account.namespace}/authorize?
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
     callbackURL:  'https://YOUR_APP_URL/callback',
-    responseType: 'code OR token'
+    responseType: 'code|token'
   });
 </script>
 
@@ -92,10 +92,10 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 |:-----------------|:------------|
 | `response_type`  | Use `code` for server side flows and `token` for client side flows |
 | `client_id`      | The `client_id` of your client |
-| `connection`     | The name of an identity provider configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
-| `redirect_uri`   | `http://localhost/callback` |
-| `state`          | Its value will be sent back. It should be used for XSRF and contextual information (like a return url). |
-| `additional-parameter`  | Sent additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
+| `connection`     | The name of a social identity provider configured to your client, for example `google-oauth2` or `facebook`. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
+| `redirect_uri`   | `http://YOUR_APP_URL/callback` |
+| `state`          | An opaque string value that will be sent back after the authorization. It should be used for XSRF and contextual information (like a return url). |
+| `additional-parameter`  | Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
 
 
 ### Remarks
@@ -105,6 +105,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 ### More Information
 
+- [Supported Social Identity Providers](/identityproviders#social)
 - [Custom Social Connections](/connections/social/oauth2)
 
 
@@ -150,6 +151,7 @@ xhr.send(params);
 > RESPONSE SAMPLE:
 
 ```JSON
+HTTP/1.1 200 OK
 {
   "id_token": "eyJ0eXAiOiJKV1Qi...",
   "access_token": "A9CvPwFojaBI...",
@@ -163,7 +165,7 @@ xhr.send(params);
   "link": "#social-with-provider-s-access-token"
 }) %>
 
-Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
+Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
 
 
 ### Query Parameters
@@ -173,7 +175,7 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 | `client_id`      | The `client_id` of your client |
 | `access_token`   | The social provider's `access_token` |
 | `connection`     | The name of an identity provider configured to your app |
-| `scope`          | `openid` or `openid profile email` |
+| `scope`          | Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `access_token` will be returned. |
 
 
 ### Remarks
@@ -182,9 +184,14 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
 
 
+### Error Codes
+
+For the complete error code reference for this endpoint refer to [Errors > POST /oauth/access_token](#post-oauth-access_token).
+
+
 ### More Information
-- [Identity Provider Access Tokens](/tokens/idp)
 - [Call an Identity Provider API](/tutorials/calling-an-external-idp-api)
+- [Identity Provider Access Tokens](/tokens/idp)
 - [Add scopes/permissions to call Identity Provider's APIs](/tutorials/adding-scopes-for-an-external-idp)
 
 
