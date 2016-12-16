@@ -20,7 +20,7 @@ GET https://${account.namespace}/authorize?
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  'https://YOUR_APP_URL/callback',
+    callbackURL:  '${account.callback}',
     responseType: 'code|token'
   });
 </script>
@@ -216,7 +216,7 @@ GET https://${account.namespace}/authorize?
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  'https://YOUR_APP_URL/callback',
+    callbackURL:  '${account.callback}',
     responseType: 'code|token'
   });
 </script>
@@ -306,18 +306,15 @@ POST https://${account.namespace}/oauth/ro?
   client_id=${account.clientId}&
   username=YOUR_USERNAME&
   password=YOUR_PASSWORD&
-  id_token=TOKEN&
   connection=YOUR_CONNECTION&
-  grant_type=password&
   scope=openid&
-  device=YOUR_DEVICE
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"", "username":"", "password":"", "id_token":"", "connection":"", "grant_type":"password", "scope":"openid", "device":""}'
+  --data '{"client_id":"${account.clientId}", "username":"YOUR_USERNAME", "password":"YOUR_PASSWORD", "connection":"YOUR_CONNECTION", "scope":"openid"}'
 
 ```
 
@@ -327,7 +324,7 @@ curl --request POST \
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  'https://YOUR_APP_URL/callback',
+    callbackURL:  '${account.callback}',
     responseType: 'token'
   });
 </script>
@@ -383,11 +380,8 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 | `client_id`      | the `client_id` of your client |
 | `username`       | username/email of the user to login |
 | `password`       | password of the user to login |
-| `id_token`       | |
 | `connection`     | The name of the connection configured to your client |
-| `grant_type`     | Set to `password` |
 | `scope`          | Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
-| `device`         | |
 
 
 ### Remarks
@@ -428,7 +422,7 @@ GET https://${account.namespace}/authorize?
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  'https://YOUR_APP_URL/callback',
+    callbackURL:  '${account.callback}',
     responseType: 'code|token'
   });
 </script>

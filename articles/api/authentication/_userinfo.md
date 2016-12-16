@@ -22,7 +22,7 @@ curl --request GET \
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  'https://YOUR_APP_URL/callback',
+    callbackURL:  '${account.callback}',
     responseType: 'token'
   });
 </script>
@@ -102,7 +102,7 @@ curl --request POST \
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  'https://YOUR_APP_URL/callback',
+    callbackURL:  '${account.callback}',
     responseType: 'token'
   });
 </script>
