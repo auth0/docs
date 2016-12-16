@@ -22,7 +22,7 @@ Rules are one of the cool features of Auth0. The reason is their flexibility, wh
 
 To create a rule go to the [Create Rule page](${manage_url}/#/rules/new). You can create it from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks.
 
-Let's create a rule to implement some basic role-based authorization. If the user logs in using a `@gmail.com` or a `@auth0.com` email, the user will be assigned the `ROLE_ADMIN` role, otherwise the user will be assigned the `ROLE_USER` role. We will print some text on screen to see how this works.
+Let's create a rule to implement some basic role-based authorization. If the user logs in using a `@gmail.com` or a `@auth0.com` email, the user will be assigned the `ROLE_ADMIN` role, otherwise, the user will be assigned the `ROLE_USER` role. We will print some text on the screen to see how this works.
 
 The template you can use for this example is called `Set roles to a user`.
 
@@ -38,7 +38,7 @@ Once you are done, save the rule.
 
 The web app will read this information from the `UserProfile` and apply the granted authorities when checking authorization access to secured endpoints configured with Role based permissions.
 
-To do thi, edit the `/src/main/java/com/auth0/example/AppConfig.java` by replacing this:
+To do this, edit the `/src/main/java/com/auth0/example/AppConfig.java` by replacing this:
 
 ```java
 .antMatchers("/portal/**").hasAuthority("ROLE_ADMIN")
@@ -64,7 +64,7 @@ That's all the changes we need. Let's test this!
 
 ## Test the Rule
 
-Once you login, depending on the email you used, you should see one of the two texts we configured.
+Once you log in, depending on the email you used, you should see one of the two texts we configured.
 
 ![Role rule sample](/media/articles/java/rule-role.png)
 
