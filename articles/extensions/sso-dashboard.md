@@ -1,12 +1,12 @@
 ---
-description: This page explains how to configure and utilize the SSO Dashboard Extension
+description: This page explains how to configure and utilize the SSO Dashboard Extension.
 ---
 
 # Auth0 Extension: Single Sign-On (SSO) Dashboard
 
 The **SSO Dashboard** extension allows you to create a dashboard with multiple enterprise applications that can be enabled for single sign-on for your users for login.
 
-The SSO dashboard supports two type of users: 
+The SSO dashboard supports two types of users: 
 **Users**- who will login to the dashboard to then select an application to sign into with SSO. 
 **Admins**- can login to configure the applications that are visible to the users. This guide is intended for Dashboard Admins.
 
@@ -32,9 +32,9 @@ The login URL for **Users**:
 
 | Location | Allowed Callback URL |
 | --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-sso-dashboard/users/login` |
-| Europe | `https://${account.tenant}.eu.webtask.io/auth0-sso-dashboard/users/login` |
-| Australia | `https://${account.tenant}.au.webtask.io/auth0-sso-dashboard/users/login` |
+| USA | `https://${account.tenant}.us.webtask.io/auth0-sso-dashboard/login` |
+| Europe | `https://${account.tenant}.eu.webtask.io/auth0-sso-dashboard/login` |
+| Australia | `https://${account.tenant}.au.webtask.io/auth0-sso-dashboard/login` |
 
 Copy the **Client ID** value.
 
@@ -48,11 +48,11 @@ Save your changes.
 
 ### Client Connections
 
-By default all the connections types are enabled for users to be able to login into the SSO Dashbboard. If you would like to change this, navigate to the *Connections* tab for the Client.
+By default all the connection types are enabled for users to be able to login into the SSO Dashbboard. If you would like to change this, navigate to the *Connections* tab for the Client.
 
 ## Install the Extension
 
-We are now ready to setup our new extension. Before we do so head back to your new Client and copy the **Client ID** value.
+We are now ready to setup our new extension. But first, head back to your newly created Client and copy the **Client ID** value.
 
 To install and configure this extension, click on the **SSO Dashboard** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the dashboard. The **Install Extension** window will open.
 
@@ -90,7 +90,7 @@ For **Admins**:
 
 For **Users**:
 
-`https://${account.tenant}.<REGION>.webtask.io/auth0-sso-dashboard/users/login`
+`https://${account.tenant}.<REGION>.webtask.io/auth0-sso-dashboard/login`
 
 ### Add a new application
 
@@ -107,7 +107,7 @@ You will then need to enter the following fields for the new application:
 **Name**: The name of the new application you are adding.
 **Logo**: Enter the url of the logo you wish to user as an icon for the application.
 **Callback**: This is one of the **Allowed Callback URLs** under your [Client Settings](${manage_url}/#/clients) of the application.
-**Connection** *Optional*: Select the connection type from the dropdown. You can add/edit your available connection types in the [Connections section of the Auth0 Management dashboard](${manage_url}/#/co.nnections/database).  If a connection is not set and the user is not logged, the user will see the Auth0 Login page.
+**Connection** *Optional*: Select the connection type from the dropdown. You can add/edit your available connection types in the [Connections section of the Auth0 Management dashboard](${manage_url}/#/connections/database).  If a connection is not set and the user is not logged, the user will see the Auth0 Login page.
 **Enabled**: Select this checkbox for this application to be visible (published) to your users.
 
 ![Create a new application](/media/articles/extensions/sso-dashboard/new-app.png)
@@ -132,6 +132,6 @@ To update an application's settings, click the gear icon.
 
 ![Change Application Settings](/media/articles/extensions/sso-dashboard/change-settings.png)
 
-Here you can change any of your application settings, or also delete the application.
+Here you can change any of your application settings, or delete an application.
 
 
