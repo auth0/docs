@@ -13,9 +13,10 @@ curl --request GET \
   --url 'https://${account.namespace}/wsfed/${account.clientId}'
 ```
 
+<% var acceptWSReqPath = '/wsfed/{client_id}'; %>
 <%= include('../../_includes/_http-method', {
   "http_method": "GET",
-  "path": "/wsfed",
+  "path": acceptWSReqPath,
   "link": "#accept-request20"
 }) %>
 
@@ -26,11 +27,11 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client-id`      | the `client-id` of your client (optional) |
-| `wtrealm`        | can be used in place of `client-id` |
-| `whr`            | the name of the connection (to skip the login page, optional) |
-| `wctx`           | your application's state (optional) |
-| `wreply`         | the callback URL (optional) |
+| `client-id`      | The `client-id` of your client (optional) |
+| `wtrealm`        | Can be used in place of `client-id` |
+| `whr`            | The name of the connection (to skip the login page, optional) |
+| `wctx`           | Your application's state (optional) |
+| `wreply`         | The callback URL (optional) |
 
 
 ### Remarks
