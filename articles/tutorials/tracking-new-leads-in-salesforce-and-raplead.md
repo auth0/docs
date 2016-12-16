@@ -15,7 +15,7 @@ Implementing this with Auth0 is very easy. You just need 2 [Rules](/rules) in yo
 
 ### 1. Augment __User Profile__ with RapLeaf:
 
-The 1st step is to obtain more information about this user using his email address. __RapLeaf__ provides an API to retrieve public information about a user using the email as input that is extremely easy to use. 
+The 1st step is to obtain more information about this user using their email address. __RapLeaf__ provides an API to retrieve public information about a user using the email as input that is extremely easy to use. 
 
 Once the call to RapLeaf completes, we store this additional information in a property called `rapLeafData`:
 

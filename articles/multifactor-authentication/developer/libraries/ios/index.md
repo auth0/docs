@@ -108,7 +108,7 @@ let rsaKeyPair = RSAKeyPair.new(
 
 ### Allow a login request
 
-Once you have the enrollment in place, you will receive a push notification every time the user has to validate his identity with MFA.
+Once you have the enrollment in place, you will receive a push notification every time the user has to validate their identity with MFA.
 
 Guardian provides a method to parse the data received from APNs and return a `Notification` instance ready to be used.
 

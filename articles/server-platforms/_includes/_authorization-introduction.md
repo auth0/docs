@@ -12,4 +12,4 @@ if (user.email.indexOf('@example.com') > -1)
 
 to match the condition that fits your needs. Notice that you can also set more roles other than `admin` and `user`, or customize the whole rule as you please.
 
-By default, it says that if the user email contains `@example.com` he will be given an `admin` role, otherwise a regular `user` role.
+By default, it says that if the user email contains `@example.com` they will be given an `admin` role, otherwise a regular `user` role.

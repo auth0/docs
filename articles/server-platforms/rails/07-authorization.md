@@ -48,7 +48,7 @@ ${' <%= link_to "Back to Home", dashboard_path %> '}
 
 ## Create the Admin Controller
 
-In the Admin Controller, add a ```before_action``` to check if the user has the admin role. Redirect her to the unauthorized page if she does not have the admin role:
+In the Admin Controller, add a ```before_action``` to check if the user has the admin role. If not, redirect the user to the unauthorized page:
 
 ```ruby
 class AdminController < ApplicationController
