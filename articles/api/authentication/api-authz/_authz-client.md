@@ -29,7 +29,7 @@ GET https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   connection=YOUR_CONNECTION&
   redirect_uri=http://YOUR_APP_URL/callback&
-  state=YOUR_STATE&
+  state=OPAQUE_VALUE&
   additional-parameter=YOUR_ADDITIONAL_PARAMETERS
 ```
 
@@ -37,7 +37,7 @@ GET https://${account.namespace}/authorize?
 
 ```text
 HTTP/1.1 302 Found
-Location: https://YOUR_APP_URL/callback?code=RESPONSE_CODE&state=YOUR_STATE
+Location: https://YOUR_APP_URL/callback?code=RESPONSE_CODE&state=OPAQUE_VALUE
 ```
 
 <%= include('../../../_includes/_http-method', {
@@ -56,7 +56,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `scope`          | The scopes which you want to request authorization for. These must be separated by a space. |
 | `response_type`  | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
 | `client_id`      | Your application's Client ID. |
-| `state`          | An opaque value the client adds to the initial request that the Authorization Server (Auth0) includes when redirecting the back to the client. Used to prevent CSRF attacks. |
+| `state`          | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri`   | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. |
 
 ### Remarks
@@ -67,6 +67,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
 - [Executing an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
+- [Using the State Parameter](/protocols/oauth2/oauth-state)
 
 ## Authorization Code Grant (PKCE)
 
@@ -134,7 +135,7 @@ GET https://${account.namespace}/authorize?
   response_type=token|id_token token&
   client_id=${account.clientId}&
   redirect_uri=http://YOUR_APP_URL/callback&
-  state=YOUR_STATE&
+  state=OPAQUE_VALUE&
   nonce=YOUR_NONCE
 ```
 
@@ -142,7 +143,7 @@ GET https://${account.namespace}/authorize?
 
 ```text
 HTTP/1.1 302 Found
-Location: http://YOUR_APP_URL/callback#access_token=TOKEN&state=STATE&token_type=TYPE&expires_in=SECONDS
+Location: http://YOUR_APP_URL/callback#access_token=TOKEN&state=OPAQUE_VALUE&token_type=TYPE&expires_in=SECONDS
 ```
 
 <%= include('../../../_includes/_http-method', {
@@ -162,7 +163,7 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 | `scope`          | The scopes which you want to request authorization for. These must be separated by a space. |
 | `response_type`  | This will specify the type of token you will receive at the end of the flow. Use `id_token token` to get an `id_token`, or `token` to get both an `id_token` and an `access_token`. |
 | `client_id`      | Your application's Client ID. |
-| `state`          | An opaque value the client adds to the initial request that the Authorization Server (Auth0) includes when redirecting the back to the client. Used to prevent CSRF attacks. |
+| `state`          | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri`   | The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. |
 | `nonce` | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
 
@@ -178,3 +179,4 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 
 - [Calling APIs from Client-side Web Apps](/api-auth/grant/implicit)
 - [Executing the Implicit Grant Flow](/api-auth/tutorials/implicit-grant)
+- [Using the State Parameter](/protocols/oauth2/oauth-state)
