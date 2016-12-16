@@ -16,13 +16,13 @@ budicon: 448
 
 
 
-The previous step explains how to login but with the [Lock](/libraries/lock) widget. Lock is completely optional so you can build an application with Auth0 using your custom design without having to include it. You just need to use the [Auth0.js library](https://github.com/auth0/auth0.js). Let's see how.
+The previous step explains how to log in but with the [Lock](/libraries/lock) widget. Lock is completely optional so you can build an application with Auth0 using your custom design without having to include it. You just need to use the [Auth0.js library](https://github.com/auth0/auth0.js). Let's see how.
 
-In our example we will configure a custom database connection to use with our custom login. We will also keep on building on our previous example, the one using Lock. We will add a flag that when set the custom login will be used, while when unset Lock will be used. This is completely optional of course, you can configure your own web app to use only custom login if this is what you want.
+In our example, we will configure a custom database connection to use with our custom login. We will also keep on building on our previous example, the one using Lock. We will add a flag that will be used when the custom login is set, while when unset Lock will be used. This is completely optional of course, you can configure your own web app to use only custom login if this is what you want.
 
 ## Create a Database Connection
 
-First we will create a new database connection and we will name it `custom-login-DB`. We will use Auth0 database infrastructure to store our users.
+First, we will create a new database connection and we will name it `custom-login-DB`. We will use Auth0 database infrastructure to store our users.
 
 **NOTE:** If you have an existing user store, or wish to store user credentials on your own server, see the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure it.
 
