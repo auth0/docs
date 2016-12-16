@@ -20,7 +20,7 @@ POST https://${account.namespace}/passwordless/start?
 curl --request POST \
   --url 'https://${account.namespace}/passwordless/start' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "email":"", "phone_number":"", "send":"link|code", "authParams":""}'
+  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "email":"EMAIL", "phone_number":"PHONE_NUMBER", "send":"link|code", "authParams":"PARAMS"}'
 ```
 
 ```javascript
@@ -109,17 +109,16 @@ You have three options for [passwordless authentication](/connections/passwordle
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your app. |
-| `connection`     | `email` or `sms` |
-| `email`          | The user's email address. Applicable when `connection=email`. |
-| `phone_number`   | The user's phone number. Applicable when `connection=sms`. |
-| `send`           | `link` (default) to send a link or `code` to send a verification code |
-| `authParams`     | |
+| `client_id`      | The `client_id` of your client. |
+| `connection`     | How to send the code/link to the user. Use `email` to send the code/link using email, or `sms` to use SMS. |
+| `email`          | The user's email address. Set this when `connection=email`. |
+| `phone_number`   | The user's phone number. Set this when `connection=sms`. |
+| `send`           | Use `link` to send a link or `code` to send a verification code. If null, a link will be sent. |
+| `authParams`     | Use this to append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`), when you send a link using email. |
 
 
 ### Remarks
 
-- When you are sending a link using email, you can append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`, etc.) using the `authParams` object.
 - If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the [/oauth/ro endpoint](#authenticate-user), using `email` or `phone_number` as the `username`, and the verification code as the `password`.
 
 
@@ -146,7 +145,7 @@ POST https://${account.namespace}/oauth/ro?
   client_id=${account.clientId}&
   connection=email|sms&
   grant_type=password&
-  username=EMAIL_OR_PHONE&
+  username=EMAIL|PHONE&
   password=VERIFICATION_CODE&
   scope=YOUR_SCOPE
 ```
@@ -155,7 +154,7 @@ POST https://${account.namespace}/oauth/ro?
 curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "connection":"email or sms", "grant_type":"password", "username":"", "password":"", "scope":""}'
+  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "grant_type":"password", "username":"EMAIL|PHONE", "password":"VERIFICATION_CODE", "scope":"YOUR_SCOPE"}'
 ```
 
 ```javascript
@@ -222,11 +221,11 @@ Once you have a verification code, use this endpoint to login the user with thei
 | Parameter        |Description |
 |:-----------------|:------------|
 | `client_id`      | The `client_id` of your client. |
-| `connection`     | `sms` or `email` |
-| `grant_type`     | `password` |
+| `connection`     | Use `sms` or `email` (should be the same as [POST /passwordless/start](#get-code-or-link)) |
+| `grant_type`     | Use `password` |
 | `username`      | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
 | `password`      | The user's verification code.  |
-| `scope`          | `openid or openid profile email` |
+| `scope`          | Use `openid` to get an `id_token`, or `openid profile email` to include also user profile information in the `id_token`. |
 
 
 ### Remarks

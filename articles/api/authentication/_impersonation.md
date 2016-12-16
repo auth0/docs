@@ -15,7 +15,7 @@ curl --request POST \
   --url 'https://${account.namespace}/users/{user_id}/impersonate' \
   --header 'Authorization: Bearer {access_token}' \
   --header 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
-  --data '{"protocol":"", "impersonator_id":"", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": ""}}'
+  --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "OPAQUE_VALUE"}}'
 ```
 
 ```javascript
@@ -64,10 +64,10 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `protocol`       | the connection protocol to use: `oauth2`, `samlp`, `wsfed`, `wsfed-rms` |
-| `impersonator_id`| the `user_id` of the impersonator |
-| `client_id` | the  `client_id` of your client |
-| `additionalParameters` | "response_type": "code", "state": "" |
+| `protocol`       | The connection protocol to use: `oauth2`, `samlp`, `wsfed`, `wsfed-rms` |
+| `impersonator_id`| The `user_id` of the impersonator |
+| `client_id` | The  `client_id` of your client |
+| `additionalParameters` | You can use this to set additional parameters, like `response_type=code`, and `state=OPAQUE_VALUE` |
 
 
 ### Remarks

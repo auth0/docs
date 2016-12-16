@@ -127,7 +127,7 @@ POST https://${account.namespace}/oauth/access_token?
 curl --request POST \
   --url 'https://${account.namespace}/oauth/access_token' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "access_token":"", "connection":"", "scope":""}'
+  --data '{"client_id":"${account.clientId}", "access_token":"TOKEN", "connection":"YOUR_CONNECTION", "scope":"YOUR_SCOPE"}'
 ```
 
 ```javascript
@@ -377,17 +377,18 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your client |
-| `username`       | username/email of the user to login |
-| `password`       | password of the user to login |
-| `connection`     | The name of the connection configured to your client |
+| `client_id`      | The `client_id` of your client |
+| `username`       | Username/email of the user to login |
+| `password`       | Password of the user to login |
+| `connection`     | The name of the connection to use for login |
+| `grant_type`     | Set to `password`
 | `scope`          | Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
 
 
 ### Remarks
 
 - This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
-- The main difference between passive and active authentication is that the former happens in the browser through the [Login Page](https://auth0.com/#/login_page) and the latter can be invoked from anywhere (a script, server to server, etc.).
+- The main difference between passive and active authentication is that the former happens in the browser through the [Login Page](https://auth0.com/#/login_page) and the latter can be invoked from anywhere (a script, server to server, and so forth).
 
 
 ### Error Codes
@@ -412,7 +413,7 @@ GET https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   connection=YOUR_CONNECTION&
   redirect_uri=${account.callback}&
-  state=YOUR_STATE&
+  state=OPAQUE_VALUE&
   additional-parameter=YOUR_ADDITIONAL_PARAMETERS&
 ```
 
@@ -460,10 +461,10 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 - If no `connection` is specified, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget.
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
-- Additional parameters can be sent that will be passthrough to the provider.
-- The `state` parameter will be sent back should be used for XSRF and contextual information (like a return url).
+- Additional parameters can be sent that will be passed to the provider.
 
 ### More Information
+
 - [SAML](/protocols/saml)
 - [Obtain a ClientId and Client Secret for Microsoft Azure Active Directory](/connections/enterprise/azure-active-directory)
 - [Using the State Parameter](/protocols/oauth2/oauth-state)

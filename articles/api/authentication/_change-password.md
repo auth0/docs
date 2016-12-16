@@ -14,7 +14,7 @@ POST https://${account.namespace}/dbconnections/change_password?
 curl --request POST \
   --url https://${account.namespace}/dbconnections/change_password \
   --header 'content-type: application/json' \
-  --data '{"client_id": "${account.clientId}","email": "", "password": "", "connection": ""}'
+  --data '{"client_id": "${account.clientId}","email": "EMAIL", "password": "", "connection": "CONNECTION"}'
 ```
 
 ```javascript
@@ -63,10 +63,10 @@ This endpoint only works for database connections.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client |
-| `email`          | The user's email address |
+| `client_id`      | The `client_id` of your client. |
+| `email`          | The user's email address. |
 | `password `      | The new password. See the next paragraph for the case when a password can be set. |
-| `connection`     | The name of the database connection configured to your client |
+| `connection`     | The name of the database connection configured to your client. |
 
 ### Remarks
 
