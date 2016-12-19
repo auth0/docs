@@ -41,7 +41,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 ### Signature Validation
 
-Before we carry on, a quick word about the verification of the JWT, as the configuration above may af first glance seem very simplistic.
+Before we carry on, a quick word about the verification of the JWT, as the configuration above may at first glance seem very simplistic.
 
 The JWT middleware will automatically use the `Authority` to verify the issuer of the JWT, and the `Audience` to verify the audience. These values need match the values in the token exactly, so ensure you specify the trailing backslash (`/`) for the `Authority` as this is a fairly common reason for tokens not verifying correctly.
 
@@ -77,7 +77,7 @@ public class PingController : Controller
 
 ## 3. Using your API
 
-In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application your are building. These are referred to as authorization grant flows, and you can refer to the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your client application.
+In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application you are building. These are referred to as authorization grant flows, and you can refer to the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your client application.
 
 Once you have obtained an `access_token` you can pass that along in the `Authorization` header of requests to your API as a Bearer token.
 
@@ -100,7 +100,7 @@ IRestResponse response = client.Execute(request);
 
 ## 4. Testing your API in Postman
 
-During development you may want to test your API with Postman. If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
+During development, you may want to test your API with Postman. If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 
