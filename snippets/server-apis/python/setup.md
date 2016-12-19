@@ -8,10 +8,10 @@ from werkzeug.local import LocalProxy
 from flask.ext.cors import cross_origin
 
 app = Flask(__name__)
-# Authentication annotation
+# Authentication 
 current_user = LocalProxy(lambda: _request_ctx_stack.top.current_user)
 
-# Authentication attribute/annotation
+# Authentication attribute
 def authenticate(error):
   resp = jsonify(error)
 
