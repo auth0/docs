@@ -98,6 +98,12 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 | `additional-parameter`  | Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-endpoint', {
+  buttonUrl: "https://${account.tenant}.us.webtask.io/auth0-authentication-api-debugger",
+}) %>
+
 ### Remarks
 
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
