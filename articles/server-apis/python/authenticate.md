@@ -55,7 +55,7 @@ You can now make requests against your secure API by providing the Authorization
 
 ### 5. You're done!
 
-Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
+Now you have both your frontend and backend configured to use Auth0. Congrats, you're awesome!
 
 ### Note for Python 2.7
 
