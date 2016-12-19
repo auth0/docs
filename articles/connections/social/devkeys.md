@@ -29,3 +29,5 @@ When using the Auth0 developer keys, there are a few caveats you need to be awar
 4. [Federated Logout](/logout#log-out-a-user) does not work. When using the Auth0 developer keys, calling `/v2/logout?federated` will sign the user out of Auth0, but not out of the Social Identity Provider.
 
 5. `prompt=none` won't work on the [/authorize](/api/authentication/reference#social) endpoint. [Auth0.js' `silentAuthentication` method](https://github.com/auth0/auth0.js#silent-authentication) uses `prompt=none` internally, so that won't work either.
+
+6. If Auth0 is acting as a SAML Identity Provider and you use a social connection with the Auth0 developer keys, the generated SAML response will have some errors, like a missing `InResponseTo` attribute or an empty `AudienceRestriction` element.
