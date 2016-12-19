@@ -3,7 +3,7 @@ language:
   - Javascript
 framework:
   - Vue.js
-image:
+image: /media/platforms/vue.png
 tags:
   - quickstart
 snippets:
