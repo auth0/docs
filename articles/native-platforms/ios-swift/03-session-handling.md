@@ -87,7 +87,7 @@ To do so, first, we retrieve its value from the `id_token` key we used above, fr
 ```swift
 let keychain = A0SimpleKeychain(service: "Auth0")
 guard let idToken = keychain.stringForKey("id_token") else {
-    // idToken doesn't exist, user has to enter his credentials to log in
+    // idToken doesn't exist, user has to enter their credentials to log in
     // Present A0Lock Login
     return
 }
@@ -175,7 +175,7 @@ client.fetchNewIdTokenWithRefreshToken(refreshToken,
             // refreshToken is no longer valid (e.g. it has been revoked)
             // Cleaning stored values since they are no longer valid
             keychain.clearAll()
-            // ⛔️ At this point, you should ask the user to enter his credentials again!
+            // ⛔️ At this point, you should ask the user to enter their credentials again!
         })
 ```
 

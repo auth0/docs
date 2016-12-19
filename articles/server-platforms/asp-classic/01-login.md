@@ -26,7 +26,7 @@ After logging in with any provider, Auth0 will redirect the user to `/callback.a
 
 For parsing JSON response, we'll download [json2.js](http://cdnjs.cloudflare.com/ajax/libs/json2/20130526/json2.js) and put it in project directory.
 
-We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll create the `callback.asp` file.
+We need to add the handler for the Auth0 callback so that we can authenticate the user and get their information. For that, we'll create the `callback.asp` file.
 
 It will implement the basic OAuth 2 flow:
 

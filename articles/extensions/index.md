@@ -43,6 +43,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Bitbucket Deployments](/extensions/bitbucket-deploy): deploy rules and database connection scripts from Bitbucket to Auth0.
 - [GitLab Deployments](/extensions/gitlab-deploy): deploy rules and database connections scripts from GitLab to Auth0.
 - [Visual Studio Team Services Deployments](/extensions/visual-studio-team-services-deploy): deploy rules and database connections scripts from Visual Studio Team Services to Auth0.
+- [SSO Dashboard](extensions/sso-dashboard): create a dashboard with multiple enterprise applications that can be enabled for single sign-on for your users.
 
 
 ## Creating Your Own Extension

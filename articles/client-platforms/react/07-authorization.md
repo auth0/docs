@@ -31,7 +31,7 @@ Included this snippet in the `AuthService.js` file:
 export default class AuthService extends EventEmitter {
   // ...
   isAdmin() {
-    // Checks if user have `admin` role in his profile app_metadata
+    // Checks if the user has an `admin` role in the profile app_metadata
     const profile = this.getProfile();
     const { roles } = profile.app_metadata || {};
     return !!roles && roles.indexOf('admin') > -1;

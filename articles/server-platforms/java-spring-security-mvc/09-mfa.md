@@ -18,7 +18,7 @@ budicon: 243
 
 <%= include('../_includes/_mfa-introduction') %>
 
-In this tutorial you will learn how to enable MFA in the Spring Security application you created in the previous steps.
+In this tutorial, you will learn how to enable MFA in the Spring Security application you created in the previous steps.
 
 ## Enable Multifactor Authentication in Your Account
 

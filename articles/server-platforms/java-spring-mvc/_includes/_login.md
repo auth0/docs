@@ -1,6 +1,6 @@
 ## Authenticate the User
 
-You need to add the handler for the Auth0 callback so that you can authenticate the user and get his information. For that, we will use the `Auth0CallbackHandler` provided by the SDK.
+You need to add the handler for the Auth0 callback so that you can authenticate the user and get their information. For that, we will use the `Auth0CallbackHandler` provided by the SDK.
 
 Define a new Controller, configure it to use the `auth0.loginCallback` endpoint, and inherit from `Auth0CallbackHandler`.
 

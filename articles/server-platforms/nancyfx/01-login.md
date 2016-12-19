@@ -27,11 +27,11 @@ In your Nancy self hosted application add the following to your BootStrapper:
 
 ${snippet(meta.snippets.setup)}
 
-The `RedirectOnLoginFailed` specifies the view that should be shown to an authenticated user when he tries to access a restricted view.
+The `RedirectOnLoginFailed` specifies the view that should be shown to an authenticated user when they try to access a restricted view.
 
 The `CookieName` allows you to set the name of the cookie that will be used to save the User information.
 
-The `UserIdentifier` lets you set an identifier for the user. This are the fields that are available to use right now:
+The `UserIdentifier` lets you set an identifier for the user. Currently, here are the fields that are available:
 
   * `userid`
   * `email`
@@ -71,7 +71,7 @@ public class SecurePage : NancyModule
 
 ## Add Auth0 Callback Handler
 
-We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. We also need to add an endpoint to let users Login and Logout
+We need to add the handler for the Auth0 callback so that we can authenticate the user and get their information. We also need to add an endpoint to let users Login and Logout.
 
 ```cs
 public class Authentication : NancyModule
