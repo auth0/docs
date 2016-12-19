@@ -93,7 +93,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 POST https://${account.namespace}/oauth/token
   grant_type=authorization_code&
   client_id=${account.clientId}&
-  code_verifier=YOUR_GENERATED_CODE_VERIFIER&
+  code_verifier=YOUR_CODE_VERIFIER&
   code=YOUR_AUTHORIZATION_CODE&
   redirect_uri=com.myclientapp://myclientapp.com/callback
 ```
@@ -102,7 +102,7 @@ POST https://${account.namespace}/oauth/token
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback"}'
+  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback"}'
 ```
 
 ```javascript
@@ -111,7 +111,7 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/json' },
-  body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback", }' };
+  body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback", }' };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -164,7 +164,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 ```http
 POST https://${account.namespace}/oauth/token?
-  audience=YOUR_API_IDENTIFIER&
+  audience=YOUR_API_AUDIENCE&
   grant_type=client_credentials&
   client_id=${account.clientId}&
   client_secret=${account.clientSecret}
@@ -174,7 +174,7 @@ POST https://${account.namespace}/oauth/token?
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"audience":"YOUR_API_IDENTIFIER", "grant_type":"client_credentials", "client_id":"${account.clientId}", "client_secret":"${account.clientSecret}"}'
+  --data '{"audience":"YOUR_API_AUDIENCE", "grant_type":"client_credentials", "client_id":"${account.clientId}", "client_secret":"${account.clientSecret}"}'
 ```
 
 ```javascript
@@ -238,9 +238,9 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 ```http
 POST https://${account.namespace}/oauth/token?
   grant_type=password&
-  username=RESOURCE_OWNER_USERNAME&
-  password=RESOURCE_OWNER_PASSWORD&
-  audience=YOUR_API_IDENTIFIER&
+  username=USERNAME&
+  password=PASSWORD&
+  audience=YOUR_API_AUDIENCE&
   scope=YOUR_SCOPE&
   client_id=${account.clientId}
 ```
@@ -249,7 +249,7 @@ POST https://${account.namespace}/oauth/token?
 curl --request POST \
   --url '${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"password", "username":"RESOURCE_OWNER_USERNAME", "password":"RESOURCE_OWNER_PASSWORD", "audience":"YOUR_API_IDENTIFIER", "scope":"SCOPES", "client_id": ${account.clientId}}'
+  --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"YOUR_API_AUDIENCE", "scope":"YOUR_SCOPE", "client_id": ${account.clientId}}'
 ```
 
 ```javascript
@@ -260,10 +260,10 @@ var options = { method: 'POST',
   headers: { 'content-type': 'application/json' },
   body:
    { grant_type: 'password',
-     username: 'user@example.com',
-     password: 'pwd',
-     audience: 'https://someapi.com/api',
-     scope: 'read:sample',
+     username: 'USERNAME',
+     password: 'PASSWORD',
+     audience: 'YOUR_API_AUDIENCE',
+     scope: 'YOUR_SCOPE',
      client_id: '${account.clientId}' },
   json: true };
 

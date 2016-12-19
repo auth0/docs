@@ -10,7 +10,7 @@ POST https://${account.namespace}/oauth/ro?
   username=YOUR_USERNAME&
   password=YOUR_PASSWORD&
   scope=YOUR_SCOPE&
-  id_token=TOKEN&
+  id_token=YOUR_TOKEN&
   device=YOUR_DEVICE
 ```
 
@@ -19,7 +19,7 @@ curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'accept: application/json' \
   --header 'content-type: application/json' \
-  --data '{ "client_id": "${account.clientId}", "connection": "", "grant_type": "password", "username": "", "password": "", "scope": "", "id_token": "", "device": "" }'
+  --data '{ "client_id": "${account.clientId}", "connection": "YOUR_CONNECTION", "grant_type": "password", "username": "YOUR_USERNAME", "password": "YOUR_PASSWORD", "scope": "YOUR_SCOPE", "id_token": "YOUR_TOKEN", "device": "YOUR_DEVICE" }'
 ```
 
 ```javascript
@@ -29,14 +29,14 @@ var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/ro',
   headers: { 'content-type': 'application/json', 'accept': 'application/json' },
   body:
-   { connection: 'CONNECTION',
-     grant_type: 'password',
-     username: '',
+   { connection: 'YOUR_CONNECTION',
+     grant_type: 'YOUR_PASSWORD',
+     username: 'YOUR_USERNAME',
      client_id: '${account.clientId}',
-     password: '',
-     scope: '',
-     id_token: '',
-     device: ''},
+     password: 'YOUR_PASSWORD',
+     scope: 'YOUR_SCOPE',
+     id_token: 'YOUR_TOKEN',
+     device: 'YOUR_DEVICE'},
   json: true };
 
 request(options, function (error, response, body) {
@@ -73,11 +73,11 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your client |
-| `connection`     | the name of the connection configured to your client |
-| `grant_type`     | `password` |
-| `username`       | the user's username |
-| `password`       | the user's password |
+| `client_id`      | The `client_id` of your client |
+| `connection`     | The name of the connection configured to your client |
+| `grant_type`     | Use the value `password` |
+| `username`       | The user's username |
+| `password`       | The user's password |
 | `scope`          | `openid` or `openid profile email` or `openid offline_access` |
 | `id_token`       | |
 | `device`         | |

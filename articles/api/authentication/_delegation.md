@@ -6,17 +6,17 @@
 POST https://${account.namespace}/delegation?
   client_id=${account.clientId}&
   grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&
-  id_token|refresh_token=TOKEN&
-  target=TARGET_CLIENT_ID&
+  id_token|refresh_token=YOUR_TOKEN&
+  target=YOUR_TARGET_CLIENT_ID&
   scope=openid&
-  api_type=API_TYPE
+  api_type=YOUR_API_TYPE
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/delegation' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "grant_type":"urn:ietf:params:oauth:grant-type:jwt-bearer", "id_token|refresh_token":"TOKEN", "target":"TARGET_CLIENT_ID", "scope":"openid", "api_type":"API_TYPE"}'
+  --data '{"client_id":"${account.clientId}", "grant_type":"urn:ietf:params:oauth:grant-type:jwt-bearer", "id_token|refresh_token":"YOUR_TOKEN", "target":"YOUR_TARGET_CLIENT_ID", "scope":"openid", "api_type":"YOUR_API_TYPE"}'
 ```
 
 ```javascript
@@ -32,8 +32,8 @@ curl --request POST \
 
 //get a delegation token
 var options = {
-  id_token: "your id token", // The id_token you have now
-  api: 'firebase', // This defaults to the first active addon if any or you can specify this
+  id_token: "YOUR_TOKEN", // The id_token you have now
+  api: 'YOUR_API_TYPE', // This defaults to the first active addon if any or you can specify this
   scope: "openid profile" // default: openid
 };
 
@@ -43,9 +43,9 @@ auth0.getDelegationToken(options, function (err, delegationResult) {
 
 //get the token for another API or App
 var options = {
-  id_token: "your id token", // The id_token you have now
+  id_token: "YOUR_TOKEN", // The id_token you have now
   api: 'auth0' // This is default when calling another app that doesn't have an addon
-  targetClientId: 'The other client id'
+  targetClientId: 'YOUR_TARGET_CLIENT_ID'
 };
 
 auth0.getDelegationToken(options, function (err, delegationResult) {

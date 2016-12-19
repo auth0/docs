@@ -37,7 +37,7 @@ GET https://${account.namespace}/authorize?
 
 ```text
 HTTP/1.1 302 Found
-Location: https://YOUR_APP_URL/callback?code=RESPONSE_CODE&state=OPAQUE_VALUE
+Location: https://YOUR_APP_URL/callback?code=AUTHORIZATION_CODE&state=OPAQUE_VALUE
 ```
 
 <%= include('../../../_includes/_http-method', {
@@ -89,7 +89,7 @@ GET https://${account.namespace}/authorize?
 
 ```text
 HTTP/1.1 302 Found
-Location: https://YOUR_APP_URL/callback?code=RESPONSE_CODE
+Location: ${account.callback}?code=AUTHORIZATION_CODE
 ```
 
 <%= include('../../../_includes/_http-method', {
@@ -145,7 +145,7 @@ GET https://${account.namespace}/authorize?
 
 ```text
 HTTP/1.1 302 Found
-Location: http://YOUR_APP_URL/callback#access_token=TOKEN&state=OPAQUE_VALUE&token_type=TYPE&expires_in=SECONDS
+Location: ${account.callback}#access_token=TOKEN&state=OPAQUE_VALUE&token_type=TYPE&expires_in=SECONDS
 ```
 
 <%= include('../../../_includes/_http-method', {
