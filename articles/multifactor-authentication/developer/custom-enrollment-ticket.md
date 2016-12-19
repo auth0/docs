@@ -10,7 +10,7 @@ This API will return an 'enrollment ticket' containing a `ticket_id` and a `tick
 
 The `ticket_url` can be delivered to the user -- for instance, via email -- and used to kick off the enrollment process.
 
-Alternatively, the `ticket_id` can be leveraged inside the Guardian [Hosted Page](${manage_url}/#/guardian_mfa_page) to customize the Guardian widget's appearance: 
+Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${manage_url}/#/guardian_mfa_page) to customize the Guardian widget's appearance: 
 
 ```html
 <!DOCTYPE html>
@@ -103,6 +103,18 @@ Alternatively, the `ticket_id` can be leveraged inside the Guardian [Hosted Page
 </body>
 </html>
 ```
+
+Since this hosted page is used for displaying the Guardian widget in both enrollment and standard multifactor login scenarios, it's important to note that the existence of the `ticket` variable can be used to determine which scenario is being used, and to control the content accordingly.
+
+For example, the following code could be used to used to alter the message:
+```html
+{% if ticket %}
+<h4 class="message">Welcome, {{ userData.email }}, enroll your device below</h4>
+{% else %}
+<h4 class="message">Welcome back, {{ userData.email }}, authenticate below</h4>
+{% endif %}
+````
+Note that this conditional logic around the existence of the `ticket` variable is also used in the initialization of the `Auth0MFAWidget` above.
 
 ## Further reading
 
