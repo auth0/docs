@@ -100,11 +100,13 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 ### Test this endpoint
 
-<% if(account.tenant.indexOf('.') !== -1){ %>
-   var debugURL = 'https://' + account.tenant + '.webtask.io/auth0-authentication-api-debugger';
- <% } else{ %>  
-   var debugURL = 'https://' + account.tenant + '.us.webtask.io/auth0-authentication-api-debugger';
-<% } %>
+<%
+  if(account.tenant.indexOf('.') !== -1){
+    var debugURL = 'https://' + account.tenant + '.webtask.io/auth0-authentication-api-debugger';
+  } else {
+    var debugURL = 'https://' + account.tenant + '.us.webtask.io/auth0-authentication-api-debugger';
+  }
+%>
 
 <%= include('../../_includes/_test-endpoint', {
   buttonUrl: debugURL
