@@ -124,8 +124,8 @@ angular.module('starter', ['ionic',
     templateUrl: 'templates/dashboard.html',
     data: {
       // This tells Auth0 that this state requires the user to be logged in.
-      // If the user isn't logged in and he tries to access this state
-      // he'll be redirected to the login page
+      // If a user isn't logged in and tries to access this state
+      // they will be redirected to the login page
       requiresLogin: true
     }
   })
@@ -241,7 +241,7 @@ friends.$add({name: 'Hey John'});
 After the user has logged in, you can get the `profile` property from the `auth` service. You can access all logged-in user properties:
 
 ```html
-<span>His name is {{auth.profile.nickname}}</span>
+<span>User's name is {{auth.profile.nickname}}</span>
 ```
 
 ```js

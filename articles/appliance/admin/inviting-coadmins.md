@@ -22,6 +22,6 @@ Since that connection has signups disabled, users will be have to be created bef
 
 5. Click "Add" to add the user as an administrator. You will be asked to provide the user's email address and to set the Applications over which they will have administrative rights. When finished, click "Send Invite".
 
-At this point, if you have SMTP configured on the Appliance, the user will receive an email inviting them to log in as an administrator. He will have to user the email and password used in step 1.
+At this point, if you have SMTP configured on the Appliance, the user will receive an email inviting them to log in as an administrator. They will need to use the email and password used in step 1.
 
 If you do not have SMTP configured, hover over the "pending" link next to the user's name, copy the link, and forward it, along with the new username/password, to the user. The user will be able to use the link and credentials to log in as an administrator.

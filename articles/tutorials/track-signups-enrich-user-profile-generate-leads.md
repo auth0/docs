@@ -16,7 +16,7 @@ Implementing this with Auth0 is very easy. You just need 3 [Rules](/rules) in yo
 
 ### 1. Recording a __SignUp__ in MixPanel:
 
-This first rule checks whether the user has already signed up before or not. If he has, it simply skips everything. If not, it calls __MixPanel__ to record the event. In the example below we are simply using a property `application` that you can then use in MixPanel to filter information. But the full `context` and `user` properties are available as sources of more information (e.g. IP addresses, agent, etc.).
+This first rule checks whether the user has already signed up. If they have, it simply skips everything. If not, it calls __MixPanel__ to record the event. In the example below we are simply using a property `application` that you can then use in MixPanel to filter information. But the full `context` and `user` properties are available as sources of more information (e.g. IP addresses, agent, etc.).
 
 We also call this event `Sign Up`:
 
@@ -47,7 +47,7 @@ function (user, context, callback) {
 
 ### 2.Augment __User Profile__ with FullContact:
 
-The 2nd step is to obtain more information about this user using his email address. __FullContact__ provides an API to retrieve public information about a user using the email as input. We store this additional information in a property called `fullContactInfo`:
+The 2nd step is to obtain more information about this user using their email address. __FullContact__ provides an API to retrieve public information about a user using the email as input. We store this additional information in a property called `fullContactInfo`:
 
 >Note we are ignoring certain conditions that exist in the API and only doing this when there's a successful call (`statusCode=200`).
 

@@ -175,7 +175,7 @@ If you are going to let the user sign in, you'll probably need to let the user t
                 // Something went wrong, let the user know
             } else {
                 // You signed up correctly, and you have the Credentials,
-                // so no need to make the user login. He's already in.
+                // so no need to make the user login. They are already in.
             }
         });
 }];

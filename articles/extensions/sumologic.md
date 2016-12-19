@@ -43,7 +43,7 @@ In order to configure a new system for Auth0 logs and acquire the *SUMOLOGIC_URL
 
 ![](/media/articles/extensions/sumologic/sumologic-http-source.png)
 
-7. Now head back to the Auth0 Dashboard and set he value you copied as the value for **SUMOLOGIC_URL**.
+7. Now head back to the Auth0 Dashboard and set the value you copied as the value for **SUMOLOGIC_URL**.
 
 ## Using Your Installed Extension
 

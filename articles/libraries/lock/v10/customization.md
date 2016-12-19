@@ -692,7 +692,7 @@ var option = {
 
 ### forgotPasswordLink {String}
 
-Set the URL for a page that allows the user to reset her password. When set to a non-empty string, the user will be sent to the provided URL when clicking the "Don't remember your password?" link in the login screen.
+Set the URL for a page that allows the user to reset their password. When set to a non-empty string, the user will be sent to the provided URL when clicking the "Don't remember your password?" link in the login screen.
 
 ```js
 var options = {

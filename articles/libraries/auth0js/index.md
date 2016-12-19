@@ -696,7 +696,7 @@ auth0.refreshToken(refresh_token, function (err, delegationResult) {
 
 ### Validate User
 
-You can validate a user of a specific connection with his username and password:
+You can validate a user of a specific connection using username and password:
 
 ```js
 auth0.validateUser({

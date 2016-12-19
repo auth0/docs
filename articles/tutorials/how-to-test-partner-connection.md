@@ -40,7 +40,7 @@ Make sure you replace these two parameters:
 
 ## 3. Test it!
 
-When your partner follows the link above, she will be redirected to their configured Identity Provider (the __connection__). After successful authentication, she will be sent back to __[http://jwt.io](http://jwt.io)__ where all user properties will be decoded from the token. 
+When your partner follows the link above, they will be redirected to their configured Identity Provider (the __connection__). After successful authentication, they will be sent back to __[http://jwt.io](http://jwt.io)__ where all user properties will be decoded from the token. 
 
 > Notice that the test app is not a _real_ app. __jwt.io__ is just a testing website that is able to decode tokens sent on a URL fragment.
 
