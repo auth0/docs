@@ -28,7 +28,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Create the JWT Validation filter
 
-Now, you need to validate the [JWT](/jwt). For that, we'll create a filter that will run in the routes we need.
+Now, you need to validate the [JWT](/jwt). For that, we'll create a filter that will run on the routes we need.
 
 ${snippet(meta.snippets.setup)}
 
@@ -52,7 +52,7 @@ You can now make requests against your secure API by providing the Authorization
 
 ### 5. You're done!
 
-Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
+Now you have both your frontend and backend configured to use Auth0. Congrats, you're awesome!
 
 ### Optional Steps
 #### Configure CORS
