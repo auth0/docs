@@ -101,7 +101,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 ### Test this endpoint
 
 <%= include('../../_includes/_test-endpoint', {
-  buttonUrl: "https://${account.tenant}.us.webtask.io/auth0-authentication-api-debugger",
+  buttonUrl: "https://${account.tenant}.us.webtask.io/auth0-authentication-api-debugger"
 }) %>
 
 ### Remarks
