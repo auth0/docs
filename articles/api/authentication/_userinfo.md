@@ -6,13 +6,13 @@
 
 ```http
 GET https://${account.namespace}/userinfo
-Authorization: 'Bearer {access_token}'
+Authorization: 'Bearer {ACCESS_TOKEN}'
 ```
 
 ```shell
 curl --request GET \
   --url 'https://${account.namespace}/userinfo' \
-  --header 'authorization: Bearer {access_token}' \
+  --header 'authorization: Bearer {ACCESS_TOKEN}' \
   --header 'content-type: application/json'
 ```
 

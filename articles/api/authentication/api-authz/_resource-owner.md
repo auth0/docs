@@ -7,13 +7,13 @@ POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
   "client_id": "${account.clientId}",
-  "connection": "YOUR_CONNECTION",
+  "connection": "CONNECTION",
   "grant_type": "password",
-  "username": "YOUR_USERNAME",
-  "password": "YOUR_PASSWORD",
-  "scope": "YOUR_SCOPE",
-  "id_token": "YOUR_TOKEN",
-  "device": "YOUR_DEVICE"
+  "username": "USERNAME",
+  "password": "PASSWORD",
+  "scope": "SCOPE",
+  "id_token": "ID_TOKEN",
+  "device": "DEVICE"
 }
 ```
 
@@ -22,7 +22,7 @@ curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'accept: application/json' \
   --header 'content-type: application/json' \
-  --data '{ "client_id": "${account.clientId}", "connection": "YOUR_CONNECTION", "grant_type": "password", "username": "YOUR_USERNAME", "password": "YOUR_PASSWORD", "scope": "YOUR_SCOPE", "id_token": "YOUR_TOKEN", "device": "YOUR_DEVICE" }'
+  --data '{ "client_id": "${account.clientId}", "connection": "CONNECTION", "grant_type": "password", "username": "USERNAME", "password": "PASSWORD", "scope": "SCOPE", "id_token": "ID_TOKEN", "device": "DEVICE" }'
 ```
 
 ```javascript
@@ -32,14 +32,14 @@ var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/ro',
   headers: { 'content-type': 'application/json', 'accept': 'application/json' },
   body:
-   { connection: 'YOUR_CONNECTION',
-     grant_type: 'YOUR_PASSWORD',
-     username: 'YOUR_USERNAME',
+   { connection: 'CONNECTION',
+     grant_type: 'PASSWORD',
+     username: 'USERNAME',
      client_id: '${account.clientId}',
-     password: 'YOUR_PASSWORD',
-     scope: 'YOUR_SCOPE',
-     id_token: 'YOUR_TOKEN',
-     device: 'YOUR_DEVICE'},
+     password: 'PASSWORD',
+     scope: 'SCOPE',
+     id_token: 'ID_TOKEN',
+     device: 'DEVICE'},
   json: true };
 
 request(options, function (error, response, body) {

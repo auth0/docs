@@ -7,9 +7,9 @@ POST https://${account.namespace}/dbconnections/change_password
 Content-Type: 'application/json'
 {
   "client_id": "${account.clientId}",
-  "email": "YOUR_EMAIL",
+  "email": "EMAIL",
   "password": "",
-  "connection": "YOUR_CONNECTION",
+  "connection": "CONNECTION",
 }
 ```
 
@@ -17,7 +17,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url https://${account.namespace}/dbconnections/change_password \
   --header 'content-type: application/json' \
-  --data '{"client_id": "${account.clientId}","email": "YOUR_EMAIL", "password": "", "connection": "YOUR_CONNECTION"}'
+  --data '{"client_id": "${account.clientId}","email": "EMAIL", "password": "", "connection": "CONNECTION"}'
 ```
 
 ```javascript
@@ -33,8 +33,8 @@ curl --request POST \
 
 $('.change_password').click(function () {
   auth0.changePassword({
-    connection: 'YOUR_CONNECTION',
-    email:   'YOUR_EMAIL'
+    connection: 'CONNECTION',
+    email:   'EMAIL'
   }, function (err, resp) {
     if(err){
       console.log(err.message);

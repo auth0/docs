@@ -17,7 +17,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/dbconnections/signup' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "email":"", "password":"", "connection":""}'
+  --data '{"client_id":"${account.clientId}", "email":"EMAIL", "password":"PASSWORD", "connection":"CONNECTION"}'
 ```
 
 ```javascript
@@ -78,10 +78,10 @@ This endpoint only works for database connections.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your client |
-| `email`          | the user's email address |
-| `password `      | the user's desired password |
-| `connection`     | the name of the database configured to your client |
+| `client_id`      | The `client_id` of your client |
+| `email`          | The user's email address |
+| `password `      | The user's desired password |
+| `connection`     | The name of the database configured to your client |
 
 
 ### More Information

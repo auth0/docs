@@ -8,10 +8,10 @@
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=OPAQUE_VALUE&
-  additional-parameter=YOUR_ADDITIONAL_PARAMETERS
+  state=STATE&
+  additional-parameter=ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -121,8 +121,8 @@ Content-Type: 'application/json'
 {
   "client_id": "${account.clientId}",
   "access_token": "ACCESS_TOKEN",
-  "connection": "YOUR_CONNECTION",
-  "scope": "YOUR_SCOPE"
+  "connection": "CONNECTION",
+  "scope": "SCOPE"
 }
 ```
 
@@ -130,12 +130,12 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/oauth/access_token' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "access_token":"TOKEN", "connection":"YOUR_CONNECTION", "scope":"YOUR_SCOPE"}'
+  --data '{"client_id":"${account.clientId}", "access_token":"ACCESS_TOKEN", "connection":"CONNECTION", "scope":"SCOPE"}'
 ```
 
 ```javascript
 var url = 'https://' + ${account.namespace} + '/oauth/access_token';
-var params = 'client_id=${account.clientId}&access_token={access_token}&connection={connection}&scope={scope}';
+var params = 'client_id=${account.clientId}&access_token={ACCESS_TOKEN}&connection={CONNECTION}&scope={SCOPE}';
 
 var xhr = new XMLHttpRequest();
 
@@ -207,10 +207,10 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=OPAQUE_VALUE&
-  additional-parameter=YOUR_ADDITIONAL_PARAMETERS
+  state=STATE&
+  additional-parameter=ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -264,7 +264,7 @@ $('.login-dbconn').click(function () {
 
 ```text
 HTTP/1.1 302 Found
-Location: https://auth0.com/#/login_page&state=OPAQUE_VALUE
+Location: https://auth0.com/#/login_page&state=STATE
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -309,9 +309,9 @@ POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
   "client_id": "${account.clientId}",
-  "username": "YOUR_USERNAME",
-  "password": "YOUR_PASSWORD",
-  "connection": "YOUR_CONNECTION",
+  "username": "USERNAME",
+  "password": "PASSWORD",
+  "connection": "CONNECTION",
   "scope": "openid",
 }
 ```
@@ -320,7 +320,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "username":"YOUR_USERNAME", "password":"YOUR_PASSWORD", "connection":"YOUR_CONNECTION", "scope":"openid"}'
+  --data '{"client_id":"${account.clientId}", "username":"USERNAME", "password":"PASSWORD", "connection":"CONNECTION", "scope":"openid"}'
 
 ```
 
@@ -417,10 +417,10 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=OPAQUE_VALUE&
-  additional-parameter=YOUR_ADDITIONAL_PARAMETERS&
+  state=STATE&
+  additional-parameter=ADDITIONAL_PARAMETERS
 ```
 
 ```javascript

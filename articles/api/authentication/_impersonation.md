@@ -12,7 +12,7 @@ Authorization:  'Bearer {ACCESS_TOKEN}'
   client_id: "${account.clientId}",
   additionalParameters: [
     "response_type": "code",
-    "state": ""
+    "state": "STATE"
   ]
 }
 ```
@@ -22,12 +22,12 @@ curl --request POST \
   --url 'https://${account.namespace}/users/{user_id}/impersonate' \
   --header 'Authorization: Bearer {ACCESS_TOKEN}' \
   --header 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
-  --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "OPAQUE_VALUE"}}'
+  --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "STATE"}}'
 ```
 
 ```javascript
 var url = 'https://' + ${account.namespace} + '/users/' + localStorage.getItem('user_id') + '/impersonate';
-var params = 'protocol=PROTOCOL&impersonator_id=IMPERSONATOR_ID&client_id=CLIENT_ID';
+var params = 'protocol=PROTOCOL&impersonator_id=IMPERSONATOR_ID&client_id=${account.clientId}';
 
 var xhr = new XMLHttpRequest();
 
@@ -74,7 +74,7 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 | `protocol`       | The connection protocol to use: `oauth2`, `samlp`, `wsfed`, `wsfed-rms` |
 | `impersonator_id`| The `user_id` of the impersonator |
 | `client_id` | The  `client_id` of your client |
-| `additionalParameters` | You can use this to set additional parameters, like `response_type=code`, and `state=OPAQUE_VALUE` |
+| `additionalParameters` | You can use this to set additional parameters, like `response_type=code`, and `state=STATE` |
 
 
 ### Remarks

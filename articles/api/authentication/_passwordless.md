@@ -152,7 +152,7 @@ Content-Type: 'application/json'
   "grant_type": "password",
   "username": "EMAIL|PHONE", //email or phone number
   "password": "VERIFICATION_CODE", //the verification code
-  "scope": "YOUR_SCOPE"
+  "scope": "SCOPE"
 }
 ```
 
@@ -160,7 +160,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "grant_type":"password", "username":"EMAIL|PHONE", "password":"VERIFICATION_CODE", "scope":"YOUR_SCOPE"}'
+  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "grant_type":"password", "username":"EMAIL|PHONE", "password":"VERIFICATION_CODE", "scope":"SCOPE"}'
 ```
 
 ```javascript

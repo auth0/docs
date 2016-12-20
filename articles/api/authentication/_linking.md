@@ -8,9 +8,9 @@
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  access_token=TOKEN
+  access_token=LOGGED_IN_USER_ACCESS_TOKEN
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -23,7 +23,7 @@ GET https://${account.namespace}/authorize?
 This endpoint is deprecated. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead.
 :::
 
-Call this endpoint when a user wants to link a second authentication method (e.g user/password + facebook).
+Call this endpoint when a user wants to link a second authentication method (for example, a user/password database connection, with Facebook).
 
 This endpoint will trigger the login flow to link an existing account with a new one. This will return a 302 redirect to the `connection` that the current user wants to add. The user is identified by the `access_token` that was returned on login success.
 
@@ -36,7 +36,7 @@ This endpoint will trigger the login flow to link an existing account with a new
 | `client_id`      | The `client_id` of your client |
 | `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
 | `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `access_token`   | the logged-in user's access token |
+| `access_token`   | The logged-in user's access token |
 
 
 ### Remarks
