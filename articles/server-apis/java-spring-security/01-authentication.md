@@ -36,7 +36,7 @@ auth0.signingAlgorithm: RS256
 auth0.publicKeyPath: certificate/cert.pem
 ```
 
-The [library](https://github.com/auth0/auth0-spring-security-api) uses the `signingAlgorithm` attribute to determine which algorithm to use. The `publicKeyPath` attribute specifies the location of the certificate.
+The [library](https://github.com/auth0/auth0-spring-security-api) uses the `signingAlgorithm` property to determine which algorithm to use. The `publicKeyPath` property specifies the location of the certificate.
 
 ## 2. Configure the endpoints
 
