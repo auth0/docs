@@ -23,7 +23,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Configure Auth0
 
-In your Nancy self hosted application add the following to your BootStrapper:
+In your Nancy self-hosted application add the following to your BootStrapper:
 
 ${snippet(meta.snippets.setup)}
 
