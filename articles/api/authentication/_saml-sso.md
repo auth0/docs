@@ -87,9 +87,7 @@ This endpoint returns the SAML 2.0 metadata.
 ```http
 POST https://${account.namespace}/login/callback?connection={CONNECTION}
 Content-Type: 'application/x-www-form-urlencoded'
-{
   SAMLResponse=SAML_RESPONSE
-}
 ```
 
 ```shell
