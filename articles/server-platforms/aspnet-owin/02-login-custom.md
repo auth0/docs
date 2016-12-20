@@ -22,7 +22,7 @@ Install-package Auth0.AuthenticationApi
 
 You need to create a Login form which will capture the user's email address and password and then use the Authentication SDK to sign the user it.
 
-First create a `ViewModels` folder in your project and add a class called `LoginViewModel` to bind the values in the form to:
+First, create a `ViewModels` folder in your project and add a class called `LoginViewModel` to bind the values in the form to:
 
 ```csharp
 public class LoginViewModel
@@ -170,7 +170,7 @@ This code does the following:
 
 ## Add Login and Logout links
 
-Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
+Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
 ```html
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -206,4 +206,4 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
 
 You can now run your application. When you click on the Login link you will be taken to the new Login page where you can sign in with your email address and password.
 
-Next up, you can move on to the [Storing Tokens step](/quickstart/webapp/aspnet-owin/03-storing-tokens) which will demonstrate how you can can store the tokens returned by Auth0.
+Next up, you can move on to the [Storing Tokens step](/quickstart/webapp/aspnet-owin/03-storing-tokens) which will demonstrate how you can store the tokens returned by Auth0.
