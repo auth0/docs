@@ -34,7 +34,7 @@ The final project after each of the steps is also available in the [Sample repos
 
 ## 2. Create a Resource Server (API)
 
-In the [APIs section]("${manage_url}/#/apis) of the Auth0 Dashboard, click the **Create API** button. Provide a **Name** and **Identifier** for your API. Be sure to choose the RS256 signing algorithm.
+In the [APIs section](${manage_url}/#/apis) of the Auth0 Dashboard, click the **Create API** button. Provide a **Name** and **Identifier** for your API. Be sure to choose the RS256 signing algorithm.
 
 ![Create API](/media/articles/server-apis/aspnet-core-webapi/create-api-rs256.png)
 
