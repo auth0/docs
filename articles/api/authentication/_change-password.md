@@ -59,7 +59,7 @@ Given a user's `email` address and a `connection`, Auth0 will send a change pass
 
 This endpoint only works for database connections.
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|

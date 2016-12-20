@@ -48,7 +48,7 @@ Location: https://YOUR_APP_URL/callback?code=AUTHORIZATION_CODE&state=OPAQUE_VAL
 
 This is the OAuth 2.0 grant that regular web apps utilize in order to access an API.
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -101,7 +101,7 @@ Location: ${account.callback}?code=AUTHORIZATION_CODE
 This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. Before starting with this flow, you need to generate and store a `code_verifier`, and using that, generate a `code_challenge` that will be sent in the authorization request.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -157,7 +157,7 @@ Location: ${account.callback}#access_token=TOKEN&state=OPAQUE_VALUE&token_type=T
 This is the OAuth 2.0 grant that Client-side web apps utilize in order to access an API.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|

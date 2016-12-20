@@ -71,7 +71,7 @@ Given a user's credentials, and a `connection`, this endpoint will create a new 
 This endpoint only works for database connections.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|

@@ -105,7 +105,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 - Send a verification code using SMS.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -216,7 +216,7 @@ This endpoint will be deprecated. Customers will be notified and given ample tim
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        |Description |
 |:-----------------|:------------|

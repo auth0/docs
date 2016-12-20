@@ -73,7 +73,7 @@ Given the Auth0 `access token` obtained during login, this endpoint returns a us
 This endpoint will work only if `openid` was granted as a scope for the `access_token`.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -155,7 +155,7 @@ This endpoint will be deprecated. Customers will be notified and given ample tim
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|

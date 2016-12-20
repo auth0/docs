@@ -28,7 +28,7 @@ Call this endpoint when a user wants to link a second authentication method (e.g
 This endpoint will trigger the login flow to link an existing account with a new one. This will return a 302 redirect to the `connection` that the current user wants to add. The user is identified by the `access_token` that was returned on login success.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -100,7 +100,7 @@ This endpoint is deprecated. The [DELETE /api/v2/users/{id}/identities/{provider
 Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink a user's account from the identity provider.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|

@@ -60,7 +60,7 @@ Impersonation functionality may be disabled by default for your tenant, but can 
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
