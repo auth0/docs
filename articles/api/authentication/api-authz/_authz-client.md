@@ -37,7 +37,7 @@ GET https://${account.namespace}/authorize?
 
 ```text
 HTTP/1.1 302 Found
-Location: https://YOUR_APP_URL/callback?code=AUTHORIZATION_CODE&state=STATE
+Location: ${account.callback}?code=AUTHORIZATION_CODE&state=STATE
 ```
 
 <%= include('../../../_includes/_http-method', {
