@@ -85,9 +85,11 @@ This endpoint returns the SAML 2.0 metadata.
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/login/callback?
-  connection=CONNECTION&
+POST https://${account.namespace}/login/callback?connection={CONNECTION}
+Content-Type: 'application/x-www-form-urlencoded'
+{
   SAMLResponse=SAML_RESPONSE
+}
 ```
 
 ```shell

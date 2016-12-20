@@ -7,13 +7,16 @@ Passwordless connections do not require the user to remember a password. Instead
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/passwordless/start?
-  client_id=${account.clientId}&
-  connection=email|sms&
-  email=EMAIL&
-  phone_number=PHONE_NUMBER&
-  send=link|code&
-  authParams=PARAMS
+POST https://${account.namespace}/passwordless/start
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "connection": "email|sms",
+  "email": "EMAIL", //set for connection=email
+  "phone_number": "PHONE_NUMBER", //set for connection=sms
+  "send": "link|code", //if left null defaults to link
+  "authParams": "PARAMS"
+}
 ```
 
 ```shell
@@ -141,13 +144,16 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/ro?
-  client_id=${account.clientId}&
-  connection=email|sms&
-  grant_type=password&
-  username=EMAIL|PHONE&
-  password=VERIFICATION_CODE&
-  scope=YOUR_SCOPE
+POST https://${account.namespace}/oauth/ro
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "connection": "email|sms",
+  "grant_type": "password",
+  "username": "EMAIL|PHONE", //email or phone number
+  "password": "VERIFICATION_CODE", //the verification code
+  "scope": "YOUR_SCOPE"
+}
 ```
 
 ```shell

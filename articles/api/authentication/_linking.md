@@ -56,9 +56,12 @@ This endpoint will trigger the login flow to link an existing account with a new
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/login/unlink?
-  access_token=LOGGED_IN_USER_ACCESS_TOKEN&
-  user_id=LINKED_USER_ID
+POST https://${account.namespace}/login/unlink
+Content-Type: 'application/json'
+{
+  "access_token": "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity access_token
+  "user_id": "LINKED_USER_ID" // (provider|id)
+}
 ```
 
 ```shell
@@ -104,8 +107,8 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token`   | the logged-in user's `access token` |
-| `user_id`        | the logged-in user's `user_id` |
+| `access_token`   | The logged-in user's `access token` |
+| `user_id`        | The logged-in user's `user_id` |
 
 
 ### More Information

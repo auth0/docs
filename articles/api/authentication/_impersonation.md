@@ -3,17 +3,24 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/users/{user_id}/impersonate?
-  protocol=PROTOCOL&
-  impersonator_id=IMPERSONATOR_ID&
-  client_id=${account.clientId}&
-  additionalParameters=YOUR_ADDITIONAL_PARAMETERS
+POST https://${account.namespace}/users/{user_id}/impersonate
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+{
+  protocol: "PROTOCOL",
+  impersonator_id: "IMPERSONATOR_ID",
+  client_id: "${account.clientId}",
+  additionalParameters: [
+    "response_type": "code",
+    "state": ""
+  ]
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/users/{user_id}/impersonate' \
-  --header 'Authorization: Bearer {access_token}' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
   --header 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
   --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "OPAQUE_VALUE"}}'
 ```

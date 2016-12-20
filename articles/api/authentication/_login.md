@@ -116,11 +116,14 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/access_token?
-  client_id=${account.clientId}&
-  access_token=TOKEN&
-  connection=YOUR_CONNECTION&
-  scope=YOUR_SCOPE
+POST https://${account.namespace}/oauth/access_token
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "access_token": "ACCESS_TOKEN",
+  "connection": "YOUR_CONNECTION",
+  "scope": "YOUR_SCOPE"
+}
 ```
 
 ```shell
@@ -302,12 +305,15 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/ro?
-  client_id=${account.clientId}&
-  username=YOUR_USERNAME&
-  password=YOUR_PASSWORD&
-  connection=YOUR_CONNECTION&
-  scope=openid&
+POST https://${account.namespace}/oauth/ro
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "username": "YOUR_USERNAME",
+  "password": "YOUR_PASSWORD",
+  "connection": "YOUR_CONNECTION",
+  "scope": "openid",
+}
 ```
 
 ```shell

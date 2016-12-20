@@ -3,15 +3,18 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/ro?
-  client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
-  grant_type=password&
-  username=YOUR_USERNAME&
-  password=YOUR_PASSWORD&
-  scope=YOUR_SCOPE&
-  id_token=YOUR_TOKEN&
-  device=YOUR_DEVICE
+POST https://${account.namespace}/oauth/ro
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "connection": "YOUR_CONNECTION",
+  "grant_type": "password",
+  "username": "YOUR_USERNAME",
+  "password": "YOUR_PASSWORD",
+  "scope": "YOUR_SCOPE",
+  "id_token": "YOUR_TOKEN",
+  "device": "YOUR_DEVICE"
+}
 ```
 
 ```shell

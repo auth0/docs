@@ -85,8 +85,11 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/tokeninfo?
-  id_token=TOKEN
+POST https://${account.namespace}/tokeninfo
+Content-Type: 'application/json'
+{
+  "id_token": "ID_TOKEN"
+}
 ```
 
 ```shell

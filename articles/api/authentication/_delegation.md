@@ -3,13 +3,16 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/delegation?
-  client_id=${account.clientId}&
-  grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&
-  id_token|refresh_token=YOUR_TOKEN&
-  target=YOUR_TARGET_CLIENT_ID&
-  scope=openid&
-  api_type=YOUR_API_TYPE
+POST https://${account.namespace}/delegation
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+  "id_token" or "refresh_token" : "YOUR_TOKEN",
+  "target": "YOUR_TARGET_CLIENT_ID",
+  "scope": "openid",
+  "api_type": "YOUR_API_TYPE"
+}
 ```
 
 ```shell

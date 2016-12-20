@@ -3,11 +3,14 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/dbconnections/signup?
-  client_id=${account.clientId}&
-  email=EMAIL&
-  password=PASSWORD&
-  connection=CONNECTION
+POST https://${account.namespace}/dbconnections/signup
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "email": "EMAIL",
+  "password": "PASSWORD",
+  "connection": "CONNECTION",
+}
 ```
 
 ```shell
