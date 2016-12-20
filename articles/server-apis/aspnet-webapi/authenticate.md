@@ -45,7 +45,7 @@ ${snippet(meta.snippets.setup)}
 
 Set the respective values.
 
-### 4. Securing your API
+### 4. Secure your API
 All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify if users are authenticated.
 
 ### 5. Call Your API
