@@ -3,24 +3,31 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/users/{user_id}/impersonate?
-  protocol=PROTOCOL&
-  impersonator_id=IMPERSONATOR_ID&
-  client_id=${account.clientId}&
-  additionalParameters=YOUR_ADDITIONAL_PARAMETERS
+POST https://${account.namespace}/users/{user_id}/impersonate
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+{
+  protocol: "PROTOCOL",
+  impersonator_id: "IMPERSONATOR_ID",
+  client_id: "${account.clientId}",
+  additionalParameters: [
+    "response_type": "code",
+    "state": "STATE"
+  ]
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/users/{user_id}/impersonate' \
-  --header 'Authorization: Bearer {access_token}' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
   --header 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
-  --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "OPAQUE_VALUE"}}'
+  --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "STATE"}}'
 ```
 
 ```javascript
 var url = 'https://' + ${account.namespace} + '/users/' + localStorage.getItem('user_id') + '/impersonate';
-var params = 'protocol=PROTOCOL&impersonator_id=IMPERSONATOR_ID&client_id=CLIENT_ID';
+var params = 'protocol=PROTOCOL&impersonator_id=IMPERSONATOR_ID&client_id=${account.clientId}';
 
 var xhr = new XMLHttpRequest();
 
@@ -60,14 +67,14 @@ Impersonation functionality may be disabled by default for your tenant, but can 
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `protocol`       | The connection protocol to use: `oauth2`, `samlp`, `wsfed`, `wsfed-rms` |
 | `impersonator_id`| The `user_id` of the impersonator |
 | `client_id` | The  `client_id` of your client |
-| `additionalParameters` | You can use this to set additional parameters, like `response_type=code`, and `state=OPAQUE_VALUE` |
+| `additionalParameters` | You can use this to set additional parameters, like `response_type=code`, and `state=STATE` |
 
 
 ### Remarks

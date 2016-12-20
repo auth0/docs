@@ -8,10 +8,10 @@
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=OPAQUE_VALUE&
-  additional-parameter=YOUR_ADDITIONAL_PARAMETERS
+  state=STATE&
+  additional-parameter=ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -86,7 +86,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 **NOTE:** Social connections only support browser-based (passive) authentication because most social providers don't allow a username and password to be entered into applications that they don't own. Therefore, the user will be redirected to the provider's sign in page.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -116,23 +116,26 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/access_token?
-  client_id=${account.clientId}&
-  access_token=TOKEN&
-  connection=YOUR_CONNECTION&
-  scope=YOUR_SCOPE
+POST https://${account.namespace}/oauth/access_token
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "access_token": "ACCESS_TOKEN",
+  "connection": "CONNECTION",
+  "scope": "SCOPE"
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/access_token' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "access_token":"TOKEN", "connection":"YOUR_CONNECTION", "scope":"YOUR_SCOPE"}'
+  --data '{"client_id":"${account.clientId}", "access_token":"ACCESS_TOKEN", "connection":"CONNECTION", "scope":"SCOPE"}'
 ```
 
 ```javascript
 var url = 'https://' + ${account.namespace} + '/oauth/access_token';
-var params = 'client_id=${account.clientId}&access_token={access_token}&connection={connection}&scope={scope}';
+var params = 'client_id=${account.clientId}&access_token={ACCESS_TOKEN}&connection={CONNECTION}&scope={SCOPE}';
 
 var xhr = new XMLHttpRequest();
 
@@ -169,7 +172,7 @@ xhr.send(params);
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -204,10 +207,10 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=OPAQUE_VALUE&
-  additional-parameter=YOUR_ADDITIONAL_PARAMETERS
+  state=STATE&
+  additional-parameter=ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -261,7 +264,7 @@ $('.login-dbconn').click(function () {
 
 ```text
 HTTP/1.1 302 Found
-Location: https://auth0.com/#/login_page&state=OPAQUE_VALUE
+Location: https://auth0.com/#/login_page&state=STATE
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -272,7 +275,7 @@ Location: https://auth0.com/#/login_page&state=OPAQUE_VALUE
 
 Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to [Auth0 Login Page](https://auth0.com/#/login_page) that will show the Login Widget where the user can login with email and password.
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -302,19 +305,22 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/ro?
-  client_id=${account.clientId}&
-  username=YOUR_USERNAME&
-  password=YOUR_PASSWORD&
-  connection=YOUR_CONNECTION&
-  scope=openid&
+POST https://${account.namespace}/oauth/ro
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "username": "USERNAME",
+  "password": "PASSWORD",
+  "connection": "CONNECTION",
+  "scope": "openid",
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "username":"YOUR_USERNAME", "password":"YOUR_PASSWORD", "connection":"YOUR_CONNECTION", "scope":"openid"}'
+  --data '{"client_id":"${account.clientId}", "username":"USERNAME", "password":"PASSWORD", "connection":"CONNECTION", "scope":"openid"}'
 
 ```
 
@@ -373,7 +379,7 @@ This endpoint will be deprecated. Customers will be notified and given ample tim
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -411,10 +417,10 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=OPAQUE_VALUE&
-  additional-parameter=YOUR_ADDITIONAL_PARAMETERS&
+  state=STATE&
+  additional-parameter=ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -445,7 +451,7 @@ $('.login-microsoft').click(function () {
 Use this endpoint for passive authentication. It returns a `302` redirect to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|

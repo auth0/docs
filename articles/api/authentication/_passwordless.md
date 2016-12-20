@@ -7,13 +7,16 @@ Passwordless connections do not require the user to remember a password. Instead
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/passwordless/start?
-  client_id=${account.clientId}&
-  connection=email|sms&
-  email=EMAIL&
-  phone_number=PHONE_NUMBER&
-  send=link|code&
-  authParams=PARAMS
+POST https://${account.namespace}/passwordless/start
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "connection": "email|sms",
+  "email": "EMAIL", //set for connection=email
+  "phone_number": "PHONE_NUMBER", //set for connection=sms
+  "send": "link|code", //if left null defaults to link
+  "authParams": "PARAMS"
+}
 ```
 
 ```shell
@@ -105,7 +108,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 - Send a verification code using SMS.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -141,20 +144,23 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/ro?
-  client_id=${account.clientId}&
-  connection=email|sms&
-  grant_type=password&
-  username=EMAIL|PHONE&
-  password=VERIFICATION_CODE&
-  scope=YOUR_SCOPE
+POST https://${account.namespace}/oauth/ro
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "connection": "email|sms",
+  "grant_type": "password",
+  "username": "EMAIL|PHONE", //email or phone number
+  "password": "VERIFICATION_CODE", //the verification code
+  "scope": "SCOPE"
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "grant_type":"password", "username":"EMAIL|PHONE", "password":"VERIFICATION_CODE", "scope":"YOUR_SCOPE"}'
+  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "grant_type":"password", "username":"EMAIL|PHONE", "password":"VERIFICATION_CODE", "scope":"SCOPE"}'
 ```
 
 ```javascript
@@ -216,7 +222,7 @@ This endpoint will be deprecated. Customers will be notified and given ample tim
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        |Description |
 |:-----------------|:------------|

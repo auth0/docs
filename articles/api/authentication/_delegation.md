@@ -3,13 +3,16 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/delegation?
-  client_id=${account.clientId}&
-  grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&
-  id_token|refresh_token=TOKEN&
-  target=TARGET_CLIENT_ID&
-  scope=openid&
-  api_type=API_TYPE
+POST https://${account.namespace}/delegation
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+  "id_token" or "refresh_token" : "TOKEN",
+  "target": "TARGET_CLIENT_ID",
+  "scope": "openid",
+  "api_type": "API_TYPE"
+}
 ```
 
 ```shell
@@ -32,8 +35,8 @@ curl --request POST \
 
 //get a delegation token
 var options = {
-  id_token: "your id token", // The id_token you have now
-  api: 'firebase', // This defaults to the first active addon if any or you can specify this
+  id_token: "TOKEN", // The id_token you have now
+  api: 'API_TYPE', // This defaults to the first active addon if any or you can specify this
   scope: "openid profile" // default: openid
 };
 
@@ -43,9 +46,9 @@ auth0.getDelegationToken(options, function (err, delegationResult) {
 
 //get the token for another API or App
 var options = {
-  id_token: "your id token", // The id_token you have now
+  id_token: "TOKEN", // The id_token you have now
   api: 'auth0' // This is default when calling another app that doesn't have an addon
-  targetClientId: 'The other client id'
+  targetClientId: 'TARGET_CLIENT_ID'
 };
 
 auth0.getDelegationToken(options, function (err, delegationResult) {
@@ -73,7 +76,7 @@ Delegated authentication is used when an entity wants to call another entity on 
 
 Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API or across different APIs that are secured with different secrets.
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|

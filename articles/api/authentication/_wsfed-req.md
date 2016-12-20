@@ -23,7 +23,7 @@ curl --request GET \
 This endpoint accepts a WS-Federation request to initiate a login.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|

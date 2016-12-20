@@ -3,11 +3,14 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/dbconnections/change_password?
-  client_id=${account.clientId}&
-  email=EMAIL&
-  password=&
-  connection=CONNECTION
+POST https://${account.namespace}/dbconnections/change_password
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "email": "EMAIL",
+  "password": "",
+  "connection": "CONNECTION",
+}
 ```
 
 ```shell
@@ -30,8 +33,8 @@ curl --request POST \
 
 $('.change_password').click(function () {
   auth0.changePassword({
-    connection: 'db-conn',
-    email:   'foo@bar.com'
+    connection: 'CONNECTION',
+    email:   'EMAIL'
   }, function (err, resp) {
     if(err){
       console.log(err.message);
@@ -59,7 +62,7 @@ Given a user's `email` address and a `connection`, Auth0 will send a change pass
 
 This endpoint only works for database connections.
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|

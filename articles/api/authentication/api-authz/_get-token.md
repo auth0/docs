@@ -13,18 +13,21 @@ The only OAuth 2.0 flows that can retrieve a refresh token are:
 
 ```http
 POST https://${account.namespace}/oauth/token
-  grant_type=authorization_code&
-  client_id=${account.clientId}&
-  client_secret=${account.client_secret}&
-  code=YOUR_AUTHORIZATION_CODE&
-  redirect_uri=${account.callback}
+Content-Type: 'application/json'
+{
+  "grant_type": "authorization_code",
+  "client_id": "${account.clientId}",
+  "client_secret": "${account.client_secret}",
+  "code": "AUTHORIZATION_CODE",
+  "redirect_uri": ${account.callback}
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","client_secret": "${account.clientSecret}","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "${account.callback}"}'
+  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","client_secret": "${account.clientSecret}","code": "AUTHORIZATION_CODE","redirect_uri": "${account.callback}"}'
 ```
 
 ```javascript
@@ -37,7 +40,7 @@ var options = { method: 'POST',
    { grant_type: 'authorization_code',
      client_id: '${account.clientId}',
      client_secret: '${account.clientSecret}',
-     code: 'YOUR_AUTHORIZATION_CODE',
+     code: 'AUTHORIZATION_CODE',
      redirect_uri: '${account.callback}' },
   json: true };
 
@@ -68,7 +71,7 @@ request(options, function (error, response, body) {
 This is the OAuth 2.0 grant that regular web apps utilize in order to access an API. Use this endpoint to exchange an Authorization Code for a Token.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -91,18 +94,21 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ```http
 POST https://${account.namespace}/oauth/token
-  grant_type=authorization_code&
-  client_id=${account.clientId}&
-  code_verifier=YOUR_GENERATED_CODE_VERIFIER&
-  code=YOUR_AUTHORIZATION_CODE&
-  redirect_uri=com.myclientapp://myclientapp.com/callback
+Content-Type: 'application/json'
+{
+  "grant_type": "authorization_code",
+  "client_id": "${account.clientId}",
+  "code_verifier": "CODE_VERIFIER",
+  "code": "AUTHORIZATION_CODE",
+  "redirect_uri": "com.myclientapp://myclientapp.com/callback"
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback"}'
+  --data '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "CODE_VERIFIER","code": "AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback"}'
 ```
 
 ```javascript
@@ -111,7 +117,7 @@ var request = require("request");
 var options = { method: 'POST',
   url: 'https://${account.namespace}/oauth/token',
   headers: { 'content-type': 'application/json' },
-  body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "YOUR_GENERATED_CODE_VERIFIER","code": "YOUR_AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback", }' };
+  body: '{"grant_type":"authorization_code","client_id": "${account.clientId}","code_verifier": "CODE_VERIFIER","code": "AUTHORIZATION_CODE","redirect_uri": "com.myclientapp://myclientapp.com/callback", }' };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -141,7 +147,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -163,18 +169,21 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/token?
-  audience=YOUR_API_IDENTIFIER&
-  grant_type=client_credentials&
-  client_id=${account.clientId}&
-  client_secret=${account.clientSecret}
+POST https://${account.namespace}/oauth/token
+Content-Type: 'application/json'
+{
+  audience: "API_IDENTIFIER",
+  grant_type: "client_credentials",
+  client_id: "${account.clientId}",
+  client_secret: "${account.clientSecret}"
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"audience":"YOUR_API_IDENTIFIER", "grant_type":"client_credentials", "client_id":"${account.clientId}", "client_secret":"${account.clientSecret}"}'
+  --data '{"audience":"API_IDENTIFIER", "grant_type":"client_credentials", "client_id":"${account.clientId}", "client_secret":"${account.clientSecret}"}'
 ```
 
 ```javascript
@@ -214,14 +223,14 @@ request(options, function (error, response, body) {
 
 This is the OAuth 2.0 grant that server processes utilize in order to access an API. Use this endpoint to directly request an `access_token` by using the Client Credentials (a Client Id and a Client Secret).
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `grant_type`     | Denotes the flow you are using. For Client Credentials use `client_credentials`. |
 | `client_id`      | Your application's Client ID. |
 | `client_secret`  | Your application's Client Secret. |
-| `audience` | API Identifier that the client is requesting access to. |
+| `audience` | The unique identifier of the target API you want to access. |
 
 
 ### More Information
@@ -236,20 +245,23 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/token?
-  grant_type=password&
-  username=RESOURCE_OWNER_USERNAME&
-  password=RESOURCE_OWNER_PASSWORD&
-  audience=YOUR_API_IDENTIFIER&
-  scope=YOUR_SCOPE&
-  client_id=${account.clientId}
+POST https://${account.namespace}/oauth/token
+Content-Type: 'application/json'
+{
+  "grant_type": "password",
+  "username": "USERNAME",
+  "password": "PASSWORD",
+  "audience": "API_IDENTIFIER",
+  "scope": "SCOPE",
+  "client_id": ${account.clientId}
+}
 ```
 
 ```shell
 curl --request POST \
   --url '${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"password", "username":"RESOURCE_OWNER_USERNAME", "password":"RESOURCE_OWNER_PASSWORD", "audience":"YOUR_API_IDENTIFIER", "scope":"SCOPES", "client_id": ${account.clientId}}'
+  --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"SCOPE", "client_id": ${account.clientId}}'
 ```
 
 ```javascript
@@ -260,10 +272,10 @@ var options = { method: 'POST',
   headers: { 'content-type': 'application/json' },
   body:
    { grant_type: 'password',
-     username: 'user@example.com',
-     password: 'pwd',
-     audience: 'https://someapi.com/api',
-     scope: 'read:sample',
+     username: 'USERNAME',
+     password: 'PASSWORD',
+     audience: 'API_IDENTIFIER',
+     scope: 'SCOPE',
      client_id: '${account.clientId}' },
   json: true };
 
@@ -292,13 +304,13 @@ request(options, function (error, response, body) {
 This is the OAuth 2.0 grant that highly trusted apps utilize in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is later on sent to the Client and the Authorization Server. It is therefore imperative that the Client is absolutely trusted with this information.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `grant_type`     | Denotes the flow you are using. For Resource Owner Password use  `password`. |
 | `client_id`      | Your application's Client ID. |
-| `audience` | API Identifier that the client is requesting access to. |
+| `audience` | The unique identifier of the target API you want to access. |
 | `username` | Resource Owner's identifier. |
 | `password` | Resource Owner's secret. |
 | `scope` | String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
