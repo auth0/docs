@@ -14,7 +14,7 @@ Create a new Auth0 client instance as follows:
 var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  '{YOUR APP URL}'
+    callbackURL:  '${account.callback}'
 });
 ```
 
@@ -22,7 +22,7 @@ Note that the `callbackURL` must be defined in Dashboard for your client.
 
 ## Login
 
-Within your application's HTML, create an element with id `btn-login`. Then trigger the login on any of your enabled `Connections` with the following code. This will direct the user to the /authorize URL, which is the first step in the Implicit Grant OAuth flow. You can read more about API Authorization [here](../../../api-auth/grant/implicit).
+Within your application's HTML, create an element with id `btn-login`. Then trigger the login on any of your enabled `Connections` with the following code. This will direct the user to the /authorize URL, which is the first step in the Implicit Grant OAuth flow. You can read more about API Authorization [here](/api-auth/grant/implicit).
 
 ```js
 // trigger login to Auth0 when the Login button is clicked
@@ -35,7 +35,7 @@ $('#btn-login').click(function(e) {
 });
 ```
 
-The `audience` parameter should contain your API identifier from the Dashboard. If you don't send this, the runtime will take it from the tenant settings (`tenant.default_audience` or you can set it in the Dashboard). The `scope` parameter should include one or more scopes (separated by a space) you defined in the Dashboard for your API, in addition to any of the standard [OpenID scopes](https://auth0.com/docs/scopes).
+The `audience` parameter should contain your API identifier from the Dashboard. If you don't send this, the runtime will take it from the tenant settings (`tenant.default_audience` or you can set it in the Dashboard). The `scope` parameter should include one or more scopes (separated by a space) you defined in the Dashboard for your API, in addition to any of the standard [OpenID scopes](/scopes).
 
 ## Process the Callback
 
