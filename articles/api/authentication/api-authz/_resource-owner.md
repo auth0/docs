@@ -76,8 +76,8 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client |
-| `connection`     | The name of the connection configured to your client |
+| `client_id`      | REQUIRED. The `client_id` of your client |
+| `connection`     | REQUIRED. The name of the connection configured to your client |
 | `grant_type`     | Use the value `password` |
 | `username`       | The user's username |
 | `password`       | The user's password |

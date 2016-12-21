@@ -75,11 +75,11 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | Denotes the flow you are using. For Authorization Code use  `authorization_code`. |
-| `client_id`      | Your application's Client ID. |
-| `client_secret`  | Your application's Client Secret. |
-| `code`  | The Authorization Code received from the initial `/authorize` call. |
-| `redirect_uri`  | The URL must match exactly the `redirect_uri` passed to [GET /authorize](#authorization-code-grant). |
+| `grant_type`     | REQUIRED. Denotes the flow you are using. For Authorization Code use  `authorization_code`. |
+| `client_id`      | REQUIRED. Your application's Client ID. |
+| `client_secret`  | REQUIRED. Your application's Client Secret. |
+| `code`  | REQUIRED. The Authorization Code received from the initial `/authorize` call. |
+| `redirect_uri`  | REQUIRED, if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values must match. |
 
 
 ### More Information
@@ -151,11 +151,11 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | Denotes the flow you are using. For Authorization Code (PKCE) use  `authorization_code`. |
-| `client_id`      | Your application's Client ID. |
-| `code`  | The Authorization Code received from the initial `/authorize` call. |
-| `code_verifier` | Cryptographically random key that was used to generate the `code_challenge` passed to `/authorize`. |
-| `redirect_uri`  | The URL must match exactly the `redirect_uri` passed to [GET /authorize](#authorization-code-grant-pkce-). |
+| `grant_type`     | REQUIRED. Denotes the flow you are using. For Authorization Code (PKCE) use  `authorization_code`. |
+| `client_id`      | REQUIRED. Your application's Client ID. |
+| `code`  | REQUIRED. The Authorization Code received from the initial `/authorize` call. |
+| `code_verifier` | REQUIRED. Cryptographically random key that was used to generate the `code_challenge` passed to `/authorize`. |
+| `redirect_uri`  | REQUIRED, if it was set at the [GET /authorize](#authorization-code-grant-pkce-) endpoint. The values must match. |
 
 
 ### More Information
@@ -227,10 +227,10 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | Denotes the flow you are using. For Client Credentials use `client_credentials`. |
-| `client_id`      | Your application's Client ID. |
-| `client_secret`  | Your application's Client Secret. |
-| `audience` | The unique identifier of the target API you want to access. |
+| `grant_type`     | REQUIRED. Denotes the flow you are using. For Client Credentials use `client_credentials`. |
+| `client_id`      | REQUIRED. Your application's Client ID. |
+| `client_secret`  | REQUIRED. Your application's Client Secret. |
+| `audience` | REQUIRED. The unique identifier of the target API you want to access. |
 
 
 ### More Information
@@ -308,12 +308,12 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | Denotes the flow you are using. For Resource Owner Password use  `password`. |
-| `client_id`      | Your application's Client ID. |
-| `audience` | The unique identifier of the target API you want to access. |
-| `username` | Resource Owner's identifier. |
-| `password` | Resource Owner's secret. |
-| `scope` | String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
+| `grant_type`     | REQUIRED. Denotes the flow you are using. For Resource Owner Password use  `password`. |
+| `client_id`      | REQUIRED. Your application's Client ID. |
+| `audience` | REQUIRED. The unique identifier of the target API you want to access. |
+| `username` | REQUIRED. Resource Owner's identifier. |
+| `password` | REQUIRED. Resource Owner's secret. |
+| `scope` | OPTIONAL. String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
 
 
 ### More Information
