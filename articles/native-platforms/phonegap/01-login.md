@@ -18,7 +18,7 @@ budicon: 448
 ### 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 
@@ -98,7 +98,7 @@ This means you need to install `cordova-plugin-whitelist` by running following c
 ionic plugin add cordova-plugin-whitelist
 ```
 
-After that configure your `config.xml` by adding or overriding following instructions:
+After that, configure your `config.xml` by adding or overriding following instructions:
 
 ```
 <allow-navigation href="*.auth0.com" />
