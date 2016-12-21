@@ -50,14 +50,14 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ### Request Parameters
 
-| Parameter        | Requirement | Description |
-|:-----------------|:------------|:------------|
-| `audience`       | Required | The unique identifier of the target API you want to access. |
-| `scope`          | Optional | The scopes which you want to request authorization for. These must be separated by a space. |
-| `response_type`  | Required | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
-| `client_id`      | Required | Your application's Client ID. |
-| `state`          | Recommended | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `redirect_uri`   | Optional | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `audience`       | Required. The unique identifier of the target API you want to access. |
+| `scope`          | Optional. The scopes which you want to request authorization for. These must be separated by a space. |
+| `response_type`  | Required. Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
+| `client_id`      | Required. Your application's Client ID. |
+| `state`          | Recommended. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `redirect_uri`   | Optional. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 
 ### Remarks
 
@@ -105,14 +105,14 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 | Parameter        | Requirement | Description |
 |:-----------------|:------------|:------------|
-| `audience`       | Required | The unique identifier of the target API you want to access. |
-| `scope`          | Optional | The scopes which you want to request authorization for. These must be separated by a space. |
-| `response_type`  | Required | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
-| `client_id`      | Required | Your application's Client ID. |
-| `state`          | Recommended | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `redirect_uri`   | Optional | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `code_challenge_method` | Required | Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
-| `code_challenge` | Required | Generated challenge from the `code_verifier`. |
+| `audience`       | REQUIRED. The unique identifier of the target API you want to access. |
+| `scope`          | OPTIONAL. The scopes which you want to request authorization for. These must be separated by a space. |
+| `response_type`  | REQUIRED. Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
+| `client_id`      | REQUIRED. Your application's Client ID. |
+| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `redirect_uri`   | OPTIONAL. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `code_challenge_method` | REQUIRED. Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
+| `code_challenge` | REQUIRED. Generated challenge from the `code_verifier`. |
 
 
 ### Remarks
