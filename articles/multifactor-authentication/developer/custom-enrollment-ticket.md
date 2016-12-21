@@ -4,9 +4,9 @@ description: Describes how to create an enrollment ticket from api
 
 ## Custom Enrollment 
 
-In addition to [directly sending emails to enroll users](/multifactor-authentication/administrator/guardian-enrollment-email), it is also possible to directly managing users' enrollment by creating 'enrollment tickets' via the API found [here](/api/management/v2#!/Guardian/post_ticket). 
+In addition to [directly sending emails to enroll users](/multifactor-authentication/administrator/guardian-enrollment-email), it is also possible to directly managing users' enrollment by creating _enrollment tickets_ via the [post_ticket API](/api/management/v2#!/Guardian/post_ticket). 
 
-This API will return an 'enrollment ticket' containing a `ticket_id` and a `ticket_url`, which can be used to enroll a user.
+This API will return an _enrollment ticket_ containing a `ticket_id` and a `ticket_url`, which can be used to enroll a user.
 
 The `ticket_url` can be delivered to the user -- for instance, via email -- and used to kick off the enrollment process.
 
