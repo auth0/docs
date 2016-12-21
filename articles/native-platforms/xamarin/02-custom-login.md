@@ -264,4 +264,4 @@ The `Auth0User` has the following properties:
 
 ## Download Samples
 
-Android and iOS samples are available on GitHub at: [Xamarin.Auth0Client](https://github.com/auth0/Xamarin.Auth0Client/tree/master/samples).
+Android and iOS samples for authenticating a Xamarin Forms app with Auth0 are available on [GitHub](https://github.com/auth0-samples/auth0-xamarin-samples).
