@@ -52,12 +52,12 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `audience`       | Required. The unique identifier of the target API you want to access. |
-| `scope`          | Optional. The scopes which you want to request authorization for. These must be separated by a space. |
-| `response_type`  | Required. Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
-| `client_id`      | Required. Your application's Client ID. |
-| `state`          | Recommended. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `redirect_uri`   | Optional. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `audience`       | REQUIRED. The unique identifier of the target API you want to access. |
+| `scope`          | OPTIONAL. The scopes which you want to request authorization for. These must be separated by a space. |
+| `response_type`  | REQUIRED. Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
+| `client_id`      | REQUIRED. Your application's Client ID. |
+| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `redirect_uri`   | OPTIONAL. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 
 ### Remarks
 
@@ -103,8 +103,8 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 ### Request Parameters
 
-| Parameter        | Requirement | Description |
-|:-----------------|:------------|:------------|
+| Parameter        | Description |
+|:-----------------|:------------|
 | `audience`       | REQUIRED. The unique identifier of the target API you want to access. |
 | `scope`          | OPTIONAL. The scopes which you want to request authorization for. These must be separated by a space. |
 | `response_type`  | REQUIRED. Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
@@ -160,15 +160,15 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 
 ### Request Parameters
 
-| Parameter        | Requirement | Description |
-|:-----------------|:------------|:------------|
-| `audience`       | Required | The unique identifier of the target API you want to access. |
-| `scope`          | Optional | The scopes which you want to request authorization for. These must be separated by a space. |
-| `response_type`  | Required | This will specify the type of token you will receive at the end of the flow. Use `id_token token` to get an `id_token`, or `token` to get both an `id_token` and an `access_token`. |
-| `client_id`      | Required | Your application's Client ID. |
-| `state`          | Recommended | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `redirect_uri`   | Optional | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `nonce` | Recommended | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
+| Parameter        | Description |
+|:-----------------|:------------|
+| `audience`       | REQUIRED. The unique identifier of the target API you want to access. |
+| `scope`          | OPTIONAL. The scopes which you want to request authorization for. These must be separated by a space. |
+| `response_type`  | REQUIRED. This will specify the type of token you will receive at the end of the flow. Use `id_token token` to get an `id_token`, or `token` to get both an `id_token` and an `access_token`. |
+| `client_id`      | REQUIRED. Your application's Client ID. |
+| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `redirect_uri`   | OPTIONAL. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `nonce` | RECOMMENDED. A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
 
 
 ### Remarks
