@@ -191,4 +191,4 @@ Once you login you are redirected to the home page that displays your profile pi
 
 ![Display user information](/media/articles/java/display-user-info.png)
 
-Logout by clicking the **Logout** button at the top right of the home page.
+Log out by clicking the **Logout** button at the top right of the home page.
