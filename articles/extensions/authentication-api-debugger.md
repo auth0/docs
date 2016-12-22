@@ -2,11 +2,11 @@
 description: This page explains how to use the Authentication API Debugger
 ---
 
-# Auth0 Extension: Authentication API Debugger
+# Authentication API Debugger Extension
 
-The Authentication API Debugger allows you to test various endpoints of the [Auth0 Authentication API](/api/authentication).
+The Authentication API Debugger extension allows you to test various endpoints of the [Auth0 Authentication API](/api/authentication).
 
-## Authorizing the Extension
+## Authorize the Extension
 
 When you launch the extension you will be asked to log in to your Auth0 account. Once logged in, you will be presented with a consent dialog which will prompt you for permissions to access the Management API on your behalf. The extension will communicate to the Management API on your behalf to retrieve details about the Clients which you have configured in your Auth0 Dashboard.
 
@@ -26,7 +26,7 @@ The basic configuration for all the possible flows can be found on the _Configur
 * **State**: Optional state information which can be sent with the authentication flow.
 * **Connection**: Specify the name of the connection which you want to use to log in. You can use this parameter to bypass the main Login screen and go directly for the login screen of the relevant Identity Provider.
 
-## Executing the Flows
+## Execute the Flows
 
 Once you have specified the basic configuration, you can switch to the _OAuth2 / OIDC_ tab to execute any of the flows. For some of the flows you may need to specify more settings which can be found by scrolling down the page.
 
