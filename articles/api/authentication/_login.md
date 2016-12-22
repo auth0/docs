@@ -100,6 +100,8 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 ### Test this endpoint
 
+Your can use our [Authentication API Debugger extension](/extensions/authentication-api-debugger) to test this endpoint. Click on **Try** to go to the article that explains how to set it up (you only have to do this once).
+
 <%
   if(account.tenant.indexOf('.') !== -1){
     var debugURL = 'https://' + account.tenant + '.webtask.io/auth0-authentication-api-debugger';
@@ -109,8 +111,10 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 %>
 
 <%= include('../../_includes/_test-endpoint', {
-  buttonUrl: debugURL
+  buttonUrl: "/extensions/authentication-api-debugger"
 }) %>
+
+If you have already installed the extension, skip to the [Authentication API Debugger](debugURL).
 
 ### Remarks
 
