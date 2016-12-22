@@ -77,7 +77,7 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token`   | the Auth0 `access_token` obtained during login |
+| `access_token`   | REQUIRED. The Auth0 `access_token` obtained during login. |
 
 
 ## Get Token Info
@@ -162,7 +162,7 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `id_token`       | the `id_token` to use |
+| `id_token`       | REQUIRED. The `id_token` to use. |
 
 
 ### More Information
