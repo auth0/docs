@@ -29,7 +29,7 @@ ${snippet(meta.snippets.dependencies)}
 ## Set up the Auth0 Callback URL
 
 <div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
+<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Clients Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 </div>
@@ -38,9 +38,9 @@ ${snippet(meta.snippets.dependencies)}
 
 There are three options to do the integration:
 
-1. Using [Auth0 Lock](/lock) inside a Web View (this is the simplest with only a few lines of code required).
+1. Using [Auth0 Lock](/lock) inside a Web View (this is the simplest way with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
-3. Using specific user name and password.
+3. Using specific username and password.
 
 ### Option 1: Auth0 Lock
 
@@ -69,7 +69,7 @@ If you know which identity provider you want to use, you can add a `connection` 
 var user = await auth0.LoginAsync(this, "auth0waadtests.onmicrosoft.com") // connection name here
 ```
 
-> connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
+> connection names can be found on Auth0 dashboard. E.g.: `facebook`, `LinkedIn`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
 
 ### Option 3: Specific Username and Password
 
@@ -86,4 +86,4 @@ The `Auth0User` has the following properties:
 
 * `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://components.xamarin.com/view/json.net/)) containing all available user attributes (e.g.: `user.Profile["email"].ToString()`).
 * `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
-* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](/link-accounts).
+* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this, for example, to [link user accounts](/link-accounts).
