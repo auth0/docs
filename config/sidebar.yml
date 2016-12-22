@@ -481,6 +481,9 @@ libraries:
       - title: "Passwordless Auth"
         url: "/libraries/lock-android/passwordless"
 
+      - title: "Internationalization"
+        url: "/libraries/lock-android/internationalization"
+
   - title: "Lock vs. Custom UI"
     url: "/libraries/when-to-use-lock"
 
