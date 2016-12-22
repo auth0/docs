@@ -18,13 +18,13 @@ budicon: 448
 
 ## Install Lock
 
-First you need to run the following command to install **react-native-lock**
+First, you need to run the following command to install **react-native-lock**
 
 ```bash
 npm install --save react-native-lock
 ```
 
-Then install [rnpm](https://github.com/rnpm/rnpm)
+Then, install [rnpm](https://github.com/rnpm/rnpm)
 
 ```bash
 npm install rnpm -g
@@ -36,7 +36,7 @@ After that, link **react-native-lock** with your Android project:
 rnpm link react-native-lock
 ```
 
-Open the file `android/app/build.gradle` and inside add the following inside the `android {}` section
+Open the file `android/app/build.gradle` and inside add the following into the `android {}` section
 
 ```gradle
 packagingOptions {
@@ -45,7 +45,7 @@ packagingOptions {
 }
 ```
 
-Then check in `AndroidManifest.xml` that the application requests the `android.permission.INTERNET` permission. If not already there, add it inside the `<manifest>` tag:
+Then, check in `AndroidManifest.xml` that the application requests the `android.permission.INTERNET` permission. If is not already there, add it inside the `<manifest>` tag:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -90,7 +90,7 @@ Now we're ready to implement the Login. First we need to require react-native-lo
 
 ${snippet(meta.snippets.setup)}
 
-Then we can show **Lock**:
+Then, we can show **Lock**:
 
 ${snippet(meta.snippets.use)}
 
