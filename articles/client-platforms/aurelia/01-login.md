@@ -8,15 +8,13 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aurelia-samples',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'NodeJS 5.0.0',
+    'JSPM 0.16.27',
+    'Aurelia-framework 1.0.0-beta.1.1.0'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 5.0.0
-* JSPM 0.16.27
-* Aurelia-framework 1.0.0-beta.1.1.0
-:::
 
 ${include('../\_callback')}
 
