@@ -36,9 +36,9 @@ ${snippet(meta.snippets.dependencies)}
 
 > **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using the `<plugin name="cordova-plugin-inappbrowser" />` tag between the `<widget>` tags inside your __config.xml__ file. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-config)
 
-### 3. Follow the guide specific to the FrontEnd technology you're using
+### 3. Follow the guide specific to the frontend technology you're using
 
-Now, you can just follow the tutorial for the FrontEnd technology that you're using. We currently support applications using [jQuery](/client-platforms/jquery), [AngularJS](/client-platforms/angularjs) and [Vanilla JS](/client-platforms/vanillajs).
+Now, you can just follow the tutorial for the frontend technology that you're using. We currently support applications using [jQuery](/client-platforms/jquery), [AngularJS](/client-platforms/angularjs) and [Vanilla JS](/client-platforms/vanillajs).
 
 > **Warning**: Phonegap doesn't support getting dependencies from a CDN, so you're going to have to download the JS and CSS dependencies locally and then point to the downloaded files.
 
