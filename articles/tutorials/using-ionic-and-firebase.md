@@ -6,13 +6,11 @@ description: A tutorial for using Ionic Framework and Firebase.
 
 You can either download the sample project, or follow the instructions below.
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="http://cdn.auth0.com/auth0-ionic-firebase-sample.zip" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a sample project</span>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-ionic-firebase',
+  path: ''
+}) %>
 
 ### 1. Setting up the callback URL in Auth0
 
