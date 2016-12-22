@@ -114,7 +114,7 @@ Your can use our [Authentication API Debugger extension](/extensions/authenticat
   buttonUrl: "/extensions/authentication-api-debugger"
 }) %>
 
-If you have already installed the extension, skip to the [Authentication API Debugger](debugURL).
+If you have already installed the extension, skip to the [Authentication API Debugger](${debugURL}).
 
 ### Remarks
 
