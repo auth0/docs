@@ -30,7 +30,7 @@ You need to add your Firebase account information to Auth0. Once the user logs i
 
 Go to [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) and click on Addons. In there, turn on the __Firebase Addon__.
 
-Under **Settings**, use the **Use SDK v3+ tokens** slider to select the SDK version you are using. 
+Under **Settings**, use the **Use SDK v3+ tokens** slider to select the SDK version you are using.
 
 **SDK Version 2:**
 If you are using an older version, you will only need to enter your **Firebase Secret** which you can get from your Firebase dashboard under **Project Settings** then **Service Accounts** then **Database Secrets**.
@@ -158,7 +158,7 @@ After a successful login, you will:
 2. Save the __token__ and __[refresh token](/refresh-token)__
 3. Call Auth0 to issue a __Firebase token__ and save it as well.
 
-> All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](/auth-api#delegated).
+> All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](/api/authentication#delegation).
 
 ```js
 // LoginCtrl.js
