@@ -32,11 +32,11 @@ This endpoint will trigger the login flow to link an existing account with a new
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`  | `code` for server side flows, `token` for client side flows |
-| `client_id`      | The `client_id` of your client |
-| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `access_token`   | The logged-in user's access token |
+| `response_type`  | REQUIRED. `code` for server side flows, `token` for client side flows |
+| `client_id`      | REQUIRED. The `client_id` of your client |
+| `connection`     | OPTIONAL. The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `redirect_uri`   | REQUIRED. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `access_token`   | REQUIRED. The logged-in user's access token |
 
 
 ### Remarks
@@ -107,8 +107,8 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token`   | The logged-in user's `access token` |
-| `user_id`        | The logged-in user's `user_id` |
+| `access_token`   | REQUIRED. The logged-in user's `access token` |
+| `user_id`        | REQUIRED. The logged-in user's `user_id` |
 
 
 ### More Information

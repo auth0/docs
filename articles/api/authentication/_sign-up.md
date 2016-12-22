@@ -78,10 +78,10 @@ This endpoint only works for database connections.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client |
-| `email`          | The user's email address |
-| `password `      | The user's desired password |
-| `connection`     | The name of the database configured to your client |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
+| `email`          | REQUIRED. The user's email address. |
+| `password `      | REQUIRED. The user's desired password. |
+| `connection`     | REQUIRED. The name of the database configured to your client. |
 
 
 ### More Information

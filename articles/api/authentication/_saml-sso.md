@@ -35,8 +35,8 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client |
-| `connection`     | The connection to use (optional) |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
+| `connection`     | OPTIONAL. The connection to use. |
 
 
 ### Remarks
@@ -74,7 +74,7 @@ This endpoint returns the SAML 2.0 metadata.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your app |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
 
 ### More Information
 - [SAML](/protocols/saml)
@@ -112,8 +112,8 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `connection`     | The name of an identity provider configured to your client |
-| `SAMLResponse`   | An IdP-Initiated Sign On SAML Response |
+| `connection`     | REQUIRED. The name of an identity provider configured to your client. |
+| `SAMLResponse`   | REQUIRED. An IdP-Initiated Sign On SAML Response. |
 
 ### More Information
 - [SAML](/protocols/saml)

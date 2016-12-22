@@ -112,12 +112,12 @@ You have three options for [passwordless authentication](/connections/passwordle
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client. |
-| `connection`     | How to send the code/link to the user. Use `email` to send the code/link using email, or `sms` to use SMS. |
-| `email`          | The user's email address. Set this when `connection=email`. |
-| `phone_number`   | The user's phone number. Set this when `connection=sms`. |
-| `send`           | Use `link` to send a link or `code` to send a verification code. If null, a link will be sent. |
-| `authParams`     | Use this to append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`), when you send a link using email. |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
+| `connection`     | REQUIRED. How to send the code/link to the user. Use `email` to send the code/link using email, or `sms` to use SMS. |
+| `email`          | REQUIRED, when `connection=email`. Set this to the user's email address. |
+| `phone_number`   | REQUIRED, when `connection=sms`. Set this to the user's phone number. |
+| `send`           | OPTIONAL. Use `link` to send a link or `code` to send a verification code. If null, a link will be sent. |
+| `authParams`     | OPTIONAL. Use this to append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`), when you send a link using email. |
 
 
 ### Remarks
@@ -226,12 +226,12 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 | Parameter        |Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client. |
-| `connection`     | Use `sms` or `email` (should be the same as [POST /passwordless/start](#get-code-or-link)) |
-| `grant_type`     | Use `password` |
-| `username`      | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
-| `password`      | The user's verification code.  |
-| `scope`          | Use `openid` to get an `id_token`, or `openid profile email` to include also user profile information in the `id_token`. |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
+| `connection`     | REQUIRED. Use `sms` or `email` (should be the same as [POST /passwordless/start](#get-code-or-link)) |
+| `grant_type`     | REQUIRED. Use `password` |
+| `username`      | REQUIRED. The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
+| `password`      | REQUIRED. The user's verification code.  |
+| `scope`          | OPTIONAL. Use `openid` to get an `id_token`, or `openid profile email` to include also user profile information in the `id_token`. |
 
 
 ### Remarks

@@ -71,10 +71,10 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `protocol`       | The connection protocol to use: `oauth2`, `samlp`, `wsfed`, `wsfed-rms` |
-| `impersonator_id`| The `user_id` of the impersonator |
-| `client_id` | The  `client_id` of your client |
-| `additionalParameters` | You can use this to set additional parameters, like `response_type=code`, and `state=STATE` |
+| `protocol`       | REQUIRED. The protocol to use against the identity provider: `oauth2`, `samlp`, `wsfed`, `wsfed-rms`. |
+| `impersonator_id`| REQUIRED. The `user_id` of the impersonator. |
+| `client_id` | REQUIRED. The  `client_id` of the client that is generating the impersonation link.|
+| `additionalParameters` | OPTIONAL. This is a JSON object. You can use this to set additional parameters, like `response_type`, `scope` and `state`. |
 
 
 ### Remarks
@@ -82,6 +82,7 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 - This endpoint can only be used with **Global Client** credentials.
 - To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional impersonated and impersonator properties. For example:
 `"impersonated": true, "impersonator": {"user_id": "auth0|...", "email": "admin@example.com"}`
+- For a regular web app, you should set the `additionalParameters`: set the `response_type` to be `code`, the `callback_url` to be the callback url to which Auth0 will redirect with the authorization code, and the `scope` to be the JWT claims that you want included in the JWT.
 
 
 ### More Information
