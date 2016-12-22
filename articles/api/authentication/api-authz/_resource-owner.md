@@ -78,12 +78,12 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 |:-----------------|:------------|
 | `client_id`      | REQUIRED. The `client_id` of your client |
 | `connection`     | REQUIRED. The name of the connection configured to your client |
-| `grant_type`     | Use the value `password` |
-| `username`       | The user's username |
-| `password`       | The user's password |
-| `scope`          | `openid` or `openid profile email` or `openid offline_access` |
-| `id_token`       | |
-| `device`         | |
+| `grant_type`     | OPTIONAL. Use the value `password` |
+| `username`       | REQUIRED. The user's username |
+| `password`       | REQUIRED. The user's password |
+| `scope`          | OPTIONAL. Use `openid` to get an `id_token`, `openid profile email` to get an `id_token` and the user profile, or `openid offline_access` to get an `id_token` and a `refresh_token`. |
+| `id_token`       | OPTIONAL. |
+| `device`         | OPTIONAL. |
 
 
 ### Remarks
