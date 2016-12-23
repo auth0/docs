@@ -61,13 +61,13 @@ If the client needs the user's claims you can include the scopes `openid profile
 
 ### Realm Support
 
-A extension grant that offers similar functionality with the **Resource Owner Password Grant**, including the ability to indicate a specific realm, is the `password-realm`.
+A extension grant that offers similar functionality with the **Resource Owner Password Grant**, including the ability to indicate a specific realm, is the `http://auth0.com/oauth/grant-type/password-realm`.
 
 Realms allow you to keep separate user directories and specify which one to use to the token endpoint.
 
 To use this variation you will have to change the following request parameters:
-* Set the `grant_type` to `password-realm`.
-* Set the new request parameter `realm` to the realm the user belongs, for example `employees`.
+* Set the `grant_type` to `http://auth0.com/oauth/grant-type/password-realm`.
+* Set the new request parameter `realm` to the realm the user belongs. This maps to a connection in Auth0. For example, if you have configured a database connection for your internal employees and you have named the connection `employees`, then use this value.
 
 ```har
 {
@@ -78,10 +78,14 @@ To use this variation you will have to change the following request parameters:
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"password-realm\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"XyD....23S\", \"realm\": \"employees\"}"
+    "text": "{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"XyD....23S\", \"realm\": \"employees\"}"
   }
 }
 ```
+
+::: panel-info Auth0 Connections as Realms
+You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), [Passwordless](/connections/passwordless), [Active Directory/LDAP](/connections/enterprise/active-directory), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
+:::
 
 ## Using the Access Token
 
