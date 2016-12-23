@@ -1,4 +1,4 @@
-Your can use our **Authentication API Debugger** extension to test this endpoint. Click on **Install Debugger** to go to the article that explains how to install it (you only have to do this once).
+Your can use our **Authentication API Debugger** extension to test this endpoint. Click on **Install Debugger** to go to the article that explains how (you only have to do this once).
 
 <%
   if(account.tenant.indexOf('.') !== -1){
