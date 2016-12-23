@@ -8,8 +8,8 @@ Your can use our **Authentication API Debugger** extension to test this endpoint
   }
 %>
 
-<%= include('./_test-endpoint', {
-  buttonUrl: "/extensions/authentication-api-debugger"
-}) %>
+<div class="test-endpoint-box">
+  <a href="/extensions/authentication-api-debugger" class="btn btn-primary">Try</a>
+</div>
 
 If you have already installed the extension, skip to the [Authentication API Debugger](${debugURL}).
