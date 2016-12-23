@@ -8,7 +8,7 @@ Your can use our **Authentication API Debugger** extension to test this endpoint
   }
 %>
 
-<%= include('../../_includes/_test-endpoint', {
+<%= include('./_test-endpoint', {
   buttonUrl: "/extensions/authentication-api-debugger"
 }) %>
 
