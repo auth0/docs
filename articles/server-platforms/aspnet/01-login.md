@@ -26,7 +26,7 @@ ${snippet(meta.snippets.dependencies)}
 ## Configure Callback URLs
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section on Auth0 Admin app.</p>
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your website. For security purposes, you have to register this URL on the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section on Auth0 Admin app.</p>
 
 <pre><code>http://localhost:PORT/LoginCallback.ashx</pre></code>
 </div>
@@ -126,7 +126,7 @@ ${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
 
 ### Flow the Identity to a WCF Service
 
-If you want to flow the identity of the user logged in to a web site, to a WCF service or an API, you have to use the `responseType: 'token'` parameter on the login widget constructor. When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. [Read more about this](/server-apis/wcf-service).
+If you want to flow the identity of the user logged in to a website, to a WCF service or an API, you have to use the `responseType: 'token'` parameter on the login widget constructor. When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. [Read more about this](/server-apis/wcf-service).
 
 ### Manage Environments: Dev, Test, Production
 

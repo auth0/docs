@@ -4,6 +4,10 @@ description: This page explains how to impersonate a user, often used for testin
 
 # User Impersonation
 
+::: panel-warning Advanced Feature
+Impersonation functionality may be disabled by default for your tenant, but can be enabled by [contacting support](https://support.auth0.com/).
+:::
+
 Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation the administrators can login to an app as a specific user, see everything exactly as that user sees it, and do everything exactly as that user does it.
 
 Auth0 provides a _Sign in As_ feature for user impersonation, and provides the following:

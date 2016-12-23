@@ -829,12 +829,16 @@
     "to": "/tutorials/generic-oauth2-connection-examples"
   },
   {
-    "from": "/step-up-authentication",
+    "from": "/tutorials/setup-up-authentication",
     "to": "/tutorials/step-up-authentication"
   },
   {
     "from": "/refresh-token",
     "to": "/tokens/refresh-token"
+  },
+  {
+    "from": "/tokens/access_token",
+    "to": "/tokens/access-token"
   },
   {
     "from": "/salesforce-community",
@@ -1151,5 +1155,9 @@
   {
     "from": "/tokens/id_token",
     "to": "/tokens/id-token"
+  },
+  {
+    "from": "/connections",
+    "to": "/identityproviders"
   }
 ]

@@ -6,13 +6,13 @@
 
 ```http
 GET https://${account.namespace}/userinfo
-Authorization: 'Bearer {access_token}'
+Authorization: 'Bearer {ACCESS_TOKEN}'
 ```
 
 ```shell
 curl --request GET \
   --url 'https://${account.namespace}/userinfo' \
-  --header 'authorization: Bearer {access_token}' \
+  --header 'authorization: Bearer {ACCESS_TOKEN}' \
   --header 'content-type: application/json'
 ```
 
@@ -73,11 +73,11 @@ Given the Auth0 `access token` obtained during login, this endpoint returns a us
 This endpoint will work only if `openid` was granted as a scope for the `access_token`.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token`   | the Auth0 `access_token` obtained during login |
+| `access_token`   | REQUIRED. The Auth0 `access_token` obtained during login. |
 
 
 ### Test this endpoint
@@ -90,8 +90,11 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/tokeninfo?
-  id_token=TOKEN
+POST https://${account.namespace}/tokeninfo
+Content-Type: 'application/json'
+{
+  "id_token": "ID_TOKEN"
+}
 ```
 
 ```shell
@@ -160,11 +163,11 @@ This endpoint will be deprecated. Customers will be notified and given ample tim
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `id_token`       | the `id_token` to use |
+| `id_token`       | REQUIRED. The `id_token` to use. |
 
 
 ### Test this endpoint

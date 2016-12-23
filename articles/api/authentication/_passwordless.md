@@ -7,13 +7,16 @@ Passwordless connections do not require the user to remember a password. Instead
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/passwordless/start?
-  client_id=${account.clientId}&
-  connection=email|sms&
-  email=EMAIL&
-  phone_number=PHONE_NUMBER&
-  send=link|code&
-  authParams=PARAMS
+POST https://${account.namespace}/passwordless/start
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "connection": "email|sms",
+  "email": "EMAIL", //set for connection=email
+  "phone_number": "PHONE_NUMBER", //set for connection=sms
+  "send": "link|code", //if left null defaults to link
+  "authParams": "PARAMS"
+}
 ```
 
 ```shell
@@ -105,16 +108,16 @@ You have three options for [passwordless authentication](/connections/passwordle
 - Send a verification code using SMS.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client. |
-| `connection`     | How to send the code/link to the user. Use `email` to send the code/link using email, or `sms` to use SMS. |
-| `email`          | The user's email address. Set this when `connection=email`. |
-| `phone_number`   | The user's phone number. Set this when `connection=sms`. |
-| `send`           | Use `link` to send a link or `code` to send a verification code. If null, a link will be sent. |
-| `authParams`     | Use this to append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`), when you send a link using email. |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
+| `connection`     | REQUIRED. How to send the code/link to the user. Use `email` to send the code/link using email, or `sms` to use SMS. |
+| `email`          | REQUIRED, when `connection=email`. Set this to the user's email address. |
+| `phone_number`   | REQUIRED, when `connection=sms`. Set this to the user's phone number. |
+| `send`           | OPTIONAL. Use `link` to send a link or `code` to send a verification code. If null, a link will be sent. |
+| `authParams`     | OPTIONAL. Use this to append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`), when you send a link using email. |
 
 
 ### Test this endpoint
@@ -146,20 +149,23 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/ro?
-  client_id=${account.clientId}&
-  connection=email|sms&
-  grant_type=password&
-  username=EMAIL|PHONE&
-  password=VERIFICATION_CODE&
-  scope=YOUR_SCOPE
+POST https://${account.namespace}/oauth/ro
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "connection": "email|sms",
+  "grant_type": "password",
+  "username": "EMAIL|PHONE", //email or phone number
+  "password": "VERIFICATION_CODE", //the verification code
+  "scope": "SCOPE"
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "grant_type":"password", "username":"EMAIL|PHONE", "password":"VERIFICATION_CODE", "scope":"YOUR_SCOPE"}'
+  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "grant_type":"password", "username":"EMAIL|PHONE", "password":"VERIFICATION_CODE", "scope":"SCOPE"}'
 ```
 
 ```javascript
@@ -221,16 +227,16 @@ This endpoint will be deprecated. Customers will be notified and given ample tim
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        |Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client. |
-| `connection`     | Use `sms` or `email` (should be the same as [POST /passwordless/start](#get-code-or-link)) |
-| `grant_type`     | Use `password` |
-| `username`      | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
-| `password`      | The user's verification code.  |
-| `scope`          | Use `openid` to get an `id_token`, or `openid profile email` to include also user profile information in the `id_token`. |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
+| `connection`     | REQUIRED. Use `sms` or `email` (should be the same as [POST /passwordless/start](#get-code-or-link)) |
+| `grant_type`     | REQUIRED. Use `password` |
+| `username`      | REQUIRED. The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
+| `password`      | REQUIRED. The user's verification code.  |
+| `scope`          | OPTIONAL. Use `openid` to get an `id_token`, or `openid profile email` to include also user profile information in the `id_token`. |
 
 
 ### Test this endpoint

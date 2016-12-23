@@ -8,10 +8,10 @@
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=OPAQUE_VALUE&
-  additional-parameter=YOUR_ADDITIONAL_PARAMETERS
+  state=STATE&
+  additional-parameter=ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -86,16 +86,16 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 **NOTE:** Social connections only support browser-based (passive) authentication because most social providers don't allow a username and password to be entered into applications that they don't own. Therefore, the user will be redirected to the provider's sign in page.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`  | Use `code` for server side flows and `token` for client side flows |
-| `client_id`      | The `client_id` of your client |
-| `connection`     | The name of a social identity provider configured to your client, for example `google-oauth2` or `facebook`. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
-| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `state`          | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `additional-parameter`  | Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
+| `response_type`  | REQUIRED. Use `code` for server side flows and `token` for client side flows |
+| `client_id`      | REQUIRED. The `client_id` of your client |
+| `connection`     | OPTIONAL. The name of a social identity provider configured to your client, for example `google-oauth2` or `facebook`. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
+| `redirect_uri`   | REQUIRED. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `additional-parameter`  | OPTIONAL. Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
 
 
 ### Test this endpoint
@@ -120,23 +120,26 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/access_token?
-  client_id=${account.clientId}&
-  access_token=TOKEN&
-  connection=YOUR_CONNECTION&
-  scope=YOUR_SCOPE
+POST https://${account.namespace}/oauth/access_token
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "access_token": "ACCESS_TOKEN",
+  "connection": "CONNECTION",
+  "scope": "SCOPE"
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/access_token' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "access_token":"TOKEN", "connection":"YOUR_CONNECTION", "scope":"YOUR_SCOPE"}'
+  --data '{"client_id":"${account.clientId}", "access_token":"ACCESS_TOKEN", "connection":"CONNECTION", "scope":"SCOPE"}'
 ```
 
 ```javascript
 var url = 'https://' + ${account.namespace} + '/oauth/access_token';
-var params = 'client_id=${account.clientId}&access_token={access_token}&connection={connection}&scope={scope}';
+var params = 'client_id=${account.clientId}&access_token={ACCESS_TOKEN}&connection={CONNECTION}&scope={SCOPE}';
 
 var xhr = new XMLHttpRequest();
 
@@ -173,14 +176,14 @@ xhr.send(params);
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client |
-| `access_token`   | The social provider's `access_token` |
-| `connection`     | The name of an identity provider configured to your app |
-| `scope`          | Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `access_token` will be returned. |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
+| `access_token`   | REQUIRED. The social provider's `access_token`. |
+| `connection`     | REQUIRED. The name of an identity provider configured to your app. |
+| `scope`          | OPTIONAL. Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `access_token` will be returned. |
 
 
 ### Test this endpoint
@@ -213,10 +216,10 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=OPAQUE_VALUE&
-  additional-parameter=YOUR_ADDITIONAL_PARAMETERS
+  state=STATE&
+  additional-parameter=ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -270,7 +273,7 @@ $('.login-dbconn').click(function () {
 
 ```text
 HTTP/1.1 302 Found
-Location: https://auth0.com/#/login_page&state=OPAQUE_VALUE
+Location: https://auth0.com/#/login_page&state=STATE
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -281,15 +284,15 @@ Location: https://auth0.com/#/login_page&state=OPAQUE_VALUE
 
 Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to [Auth0 Login Page](https://auth0.com/#/login_page) that will show the Login Widget where the user can login with email and password.
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`  | Use `code` for server side flows and `token` for client side flows |
-| `client_id`      | The `client_id` of your client |
-| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `state`          | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `response_type`  | REQUIRED. Use `code` for server side flows and `token` for client side flows. |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
+| `connection`     | OPTIONAL. The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `redirect_uri`   | REQUIRED. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
 
 ### Remarks
@@ -311,19 +314,22 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/ro?
-  client_id=${account.clientId}&
-  username=YOUR_USERNAME&
-  password=YOUR_PASSWORD&
-  connection=YOUR_CONNECTION&
-  scope=openid&
+POST https://${account.namespace}/oauth/ro
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "username": "USERNAME",
+  "password": "PASSWORD",
+  "connection": "CONNECTION",
+  "scope": "openid",
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "username":"YOUR_USERNAME", "password":"YOUR_PASSWORD", "connection":"YOUR_CONNECTION", "scope":"openid"}'
+  --data '{"client_id":"${account.clientId}", "username":"USERNAME", "password":"PASSWORD", "connection":"CONNECTION", "scope":"openid"}'
 
 ```
 
@@ -382,16 +388,16 @@ This endpoint will be deprecated. Customers will be notified and given ample tim
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client |
-| `username`       | Username/email of the user to login |
-| `password`       | Password of the user to login |
-| `connection`     | The name of the connection to use for login |
-| `grant_type`     | Set to `password`
-| `scope`          | Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
+| `client_id`      | REQUIRED. The `client_id` of your client |
+| `username`       | REQUIRED. Username/email of the user to login |
+| `password`       | REQUIRED. Password of the user to login |
+| `connection`     | REQUIRED. The name of the connection to use for login |
+| `grant_type`     | REQUIRED. Set to `password`
+| `scope`          | OPTIONAL. Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
 
 
 ### Test this endpoint
@@ -425,10 +431,10 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=OPAQUE_VALUE&
-  additional-parameter=YOUR_ADDITIONAL_PARAMETERS&
+  state=STATE&
+  additional-parameter=ADDITIONAL_PARAMETERS
 ```
 
 ```javascript
@@ -459,15 +465,15 @@ $('.login-microsoft').click(function () {
 Use this endpoint for passive authentication. It returns a `302` redirect to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`  | `code` for server side flows, `token` for client side flows |
-| `client_id`      | The `client_id` of your client |
-| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `state`          | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `response_type`  | REQUIRED. `code` for server side flows, `token` for client side flows. |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
+| `connection`     | OPTIONAL. The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `redirect_uri`   | REQUIRED. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
 
 ### Remarks

@@ -3,24 +3,31 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/users/{user_id}/impersonate?
-  protocol=PROTOCOL&
-  impersonator_id=IMPERSONATOR_ID&
-  client_id=${account.clientId}&
-  additionalParameters=YOUR_ADDITIONAL_PARAMETERS
+POST https://${account.namespace}/users/{user_id}/impersonate
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+{
+  protocol: "PROTOCOL",
+  impersonator_id: "IMPERSONATOR_ID",
+  client_id: "${account.clientId}",
+  additionalParameters: [
+    "response_type": "code",
+    "state": "STATE"
+  ]
+}
 ```
 
 ```shell
 curl --request POST \
   --url 'https://${account.namespace}/users/{user_id}/impersonate' \
-  --header 'Authorization: Bearer {access_token}' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
   --header 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
-  --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "OPAQUE_VALUE"}}'
+  --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "STATE"}}'
 ```
 
 ```javascript
 var url = 'https://' + ${account.namespace} + '/users/' + localStorage.getItem('user_id') + '/impersonate';
-var params = 'protocol=PROTOCOL&impersonator_id=IMPERSONATOR_ID&client_id=CLIENT_ID';
+var params = 'protocol=PROTOCOL&impersonator_id=IMPERSONATOR_ID&client_id=${account.clientId}';
 
 var xhr = new XMLHttpRequest();
 
@@ -60,14 +67,14 @@ Impersonation functionality may be disabled by default for your tenant, but can 
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `protocol`       | The connection protocol to use: `oauth2`, `samlp`, `wsfed`, `wsfed-rms` |
-| `impersonator_id`| The `user_id` of the impersonator |
-| `client_id` | The  `client_id` of your client |
-| `additionalParameters` | You can use this to set additional parameters, like `response_type=code`, and `state=OPAQUE_VALUE` |
+| `protocol`       | REQUIRED. The protocol to use against the identity provider: `oauth2`, `samlp`, `wsfed`, `wsfed-rms`. |
+| `impersonator_id`| REQUIRED. The `user_id` of the impersonator. |
+| `client_id` | REQUIRED. The  `client_id` of the client that is generating the impersonation link.|
+| `additionalParameters` | OPTIONAL. This is a JSON object. You can use this to set additional parameters, like `response_type`, `scope` and `state`. |
 
 
 ### Remarks
@@ -75,6 +82,7 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 - This endpoint can only be used with **Global Client** credentials.
 - To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional impersonated and impersonator properties. For example:
 `"impersonated": true, "impersonator": {"user_id": "auth0|...", "email": "admin@example.com"}`
+- For a regular web app, you should set the `additionalParameters`: set the `response_type` to be `code`, the `callback_url` to be the callback url to which Auth0 will redirect with the authorization code, and the `scope` to be the JWT claims that you want included in the JWT.
 
 
 ### More Information

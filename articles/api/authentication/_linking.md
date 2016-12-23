@@ -8,9 +8,9 @@
 GET https://${account.namespace}/authorize?
   response_type=code|token&
   client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
+  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  access_token=TOKEN
+  access_token=LOGGED_IN_USER_ACCESS_TOKEN
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -23,20 +23,20 @@ GET https://${account.namespace}/authorize?
 This endpoint is deprecated. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead.
 :::
 
-Call this endpoint when a user wants to link a second authentication method (e.g user/password + facebook).
+Call this endpoint when a user wants to link a second authentication method (for example, a user/password database connection, with Facebook).
 
 This endpoint will trigger the login flow to link an existing account with a new one. This will return a 302 redirect to the `connection` that the current user wants to add. The user is identified by the `access_token` that was returned on login success.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`  | `code` for server side flows, `token` for client side flows |
-| `client_id`      | The `client_id` of your client |
-| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `access_token`   | the logged-in user's access token |
+| `response_type`  | REQUIRED. `code` for server side flows, `token` for client side flows |
+| `client_id`      | REQUIRED. The `client_id` of your client |
+| `connection`     | OPTIONAL. The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `redirect_uri`   | REQUIRED. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `access_token`   | REQUIRED. The logged-in user's access token |
 
 
 ### Remarks
@@ -56,9 +56,12 @@ This endpoint will trigger the login flow to link an existing account with a new
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/login/unlink?
-  access_token=LOGGED_IN_USER_ACCESS_TOKEN&
-  user_id=LINKED_USER_ID
+POST https://${account.namespace}/login/unlink
+Content-Type: 'application/json'
+{
+  "access_token": "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity access_token
+  "user_id": "LINKED_USER_ID" // (provider|id)
+}
 ```
 
 ```shell
@@ -100,12 +103,12 @@ This endpoint is deprecated. The [DELETE /api/v2/users/{id}/identities/{provider
 Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink a user's account from the identity provider.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `access_token`   | the logged-in user's `access token` |
-| `user_id`        | the logged-in user's `user_id` |
+| `access_token`   | REQUIRED. The logged-in user's `access token` |
+| `user_id`        | REQUIRED. The logged-in user's `user_id` |
 
 
 ### Test this endpoint

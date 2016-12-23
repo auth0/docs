@@ -1,6 +1,6 @@
 ---
 url: /addons
-description: 
+description:
 ---
 
 <style>
@@ -42,13 +42,13 @@ Go to <a href="${manage_url}/#/applications/${account.clientId}/addons">Applicat
 Go to <a href="${manage_url}/#/applications/">Application Addons</a> page and select the add-on.
 <% } %>
 
-![](/media/addons/manage-addons.png) 
+![](/media/addons/manage-addons.png)
 
 ### Setup
 
 Each integration is different and requires different parameters and configuration. Once the addon is activated, you will see tailored instructions with details on how to integrate with it in the dashboard.
 
-The key to this integration is the [/delegation endpoint](/auth-api#delegated) in Auth0. 
+The key to this integration is the [/delegation endpoint](/api/authentication#delegation) in Auth0. 
 
 See the Delegation documentation to learn more about how to call this endpoint:
 
@@ -56,10 +56,9 @@ See the Delegation documentation to learn more about how to call this endpoint:
 
 [Lock Android: Delegation API](/libraries/lock-android/delegation-api)
 
-[Lock iOS: Delegation API](/libraries/lock-ios/delegation-api) 
+[Lock iOS: Delegation API](/libraries/lock-ios/delegation-api)
 
 ## Additional Information for Specific Addons:
 
 <% var clientAddons = cache.find('articles/addons/client-addons', {sort: 'index'}); %>
 <%= include('./_addons', { addons: clientAddons }) %>
-

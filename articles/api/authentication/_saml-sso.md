@@ -31,12 +31,12 @@ Use this endpoint to accept a SAML request to initiate a login.
 Optionally, it accepts a connection parameter to login with a specific provider. If no connection is specified, the [Auth0 Login Page](/login_page) will be shown.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | The `client_id` of your client |
-| `connection`     | The connection to use (optional) |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
+| `connection`     | OPTIONAL. The connection to use. |
 
 
 ### Test this endpoint
@@ -75,11 +75,11 @@ include('../../_includes/_http-method', {
 
 This endpoint returns the SAML 2.0 metadata.
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your app |
+| `client_id`      | REQUIRED. The `client_id` of your client. |
 
 
 ### Test this endpoint
@@ -96,8 +96,8 @@ This endpoint returns the SAML 2.0 metadata.
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/login/callback?
-  connection=CONNECTION&
+POST https://${account.namespace}/login/callback?connection={CONNECTION}
+Content-Type: 'application/x-www-form-urlencoded'
   SAMLResponse=SAML_RESPONSE
 ```
 
@@ -119,12 +119,12 @@ include('../../_includes/_http-method', {
 This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `connection`     | The name of an identity provider configured to your client |
-| `SAMLResponse`   | An IdP-Initiated Sign On SAML Response |
+| `connection`     | REQUIRED. The name of an identity provider configured to your client. |
+| `SAMLResponse`   | REQUIRED. An IdP-Initiated Sign On SAML Response. |
 
 ### More Information
 - [SAML](/protocols/saml)

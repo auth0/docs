@@ -3,15 +3,18 @@
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/ro?
-  client_id=${account.clientId}&
-  connection=YOUR_CONNECTION&
-  grant_type=password&
-  username=YOUR_USERNAME&
-  password=YOUR_PASSWORD&
-  scope=YOUR_SCOPE&
-  id_token=TOKEN&
-  device=YOUR_DEVICE
+POST https://${account.namespace}/oauth/ro
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "connection": "CONNECTION",
+  "grant_type": "password",
+  "username": "USERNAME",
+  "password": "PASSWORD",
+  "scope": "SCOPE",
+  "id_token": "ID_TOKEN",
+  "device": "DEVICE"
+}
 ```
 
 ```shell
@@ -19,7 +22,7 @@ curl --request POST \
   --url 'https://${account.namespace}/oauth/ro' \
   --header 'accept: application/json' \
   --header 'content-type: application/json' \
-  --data '{ "client_id": "${account.clientId}", "connection": "", "grant_type": "password", "username": "", "password": "", "scope": "", "id_token": "", "device": "" }'
+  --data '{ "client_id": "${account.clientId}", "connection": "CONNECTION", "grant_type": "password", "username": "USERNAME", "password": "PASSWORD", "scope": "SCOPE", "id_token": "ID_TOKEN", "device": "DEVICE" }'
 ```
 
 ```javascript
@@ -30,13 +33,13 @@ var options = { method: 'POST',
   headers: { 'content-type': 'application/json', 'accept': 'application/json' },
   body:
    { connection: 'CONNECTION',
-     grant_type: 'password',
-     username: '',
+     grant_type: 'PASSWORD',
+     username: 'USERNAME',
      client_id: '${account.clientId}',
-     password: '',
-     scope: '',
-     id_token: '',
-     device: ''},
+     password: 'PASSWORD',
+     scope: 'SCOPE',
+     id_token: 'ID_TOKEN',
+     device: 'DEVICE'},
   json: true };
 
 request(options, function (error, response, body) {
@@ -69,18 +72,18 @@ This endpoint will be deprecated. Customers will be notified and given ample tim
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
 
 
-### Query Parameters
+### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | the `client_id` of your client |
-| `connection`     | the name of the connection configured to your client |
-| `grant_type`     | `password` |
-| `username`       | the user's username |
-| `password`       | the user's password |
-| `scope`          | `openid` or `openid profile email` or `openid offline_access` |
-| `id_token`       | |
-| `device`         | |
+| `client_id`      | REQUIRED. The `client_id` of your client |
+| `connection`     | REQUIRED. The name of the connection configured to your client |
+| `grant_type`     | OPTIONAL. Use the value `password` |
+| `username`       | REQUIRED. The user's username |
+| `password`       | REQUIRED. The user's password |
+| `scope`          | OPTIONAL. Use `openid` to get an `id_token`, `openid profile email` to get an `id_token` and the user profile, or `openid offline_access` to get an `id_token` and a `refresh_token`. |
+| `id_token`       | OPTIONAL. Used to authenticate using a token instead of username/password, in [TouchID](/libraries/lock-ios/touchid-authentication) scenarios. |
+| `device`         | OPTIONAL. You should set this to a string, if you are requesting a refresh token (`scope=offline_access`). |
 
 
 ### Test this endpoint
