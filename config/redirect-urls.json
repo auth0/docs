@@ -1155,5 +1155,9 @@
   {
     "from": "/tokens/id_token",
     "to": "/tokens/id-token"
+  },
+  {
+    "from": "/connections",
+    "to": "/identityproviders"
   }
 ]
