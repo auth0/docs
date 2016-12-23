@@ -60,6 +60,11 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 | `client_id`      | OPTIONAL. The `client_id` of your client. |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+
 ### Remarks
 
 - Although this is not common practice, you can force the user to also log out of their identity provider. To do this add a `federated` querystring parameter to the logout URL: `https://${account.namespace}/v2/logout?federated`
