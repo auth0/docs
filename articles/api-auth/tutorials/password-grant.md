@@ -59,6 +59,34 @@ The response from `/oauth/token` (if successful) contains an `access_token`, for
 If the client needs the user's claims you can include the scopes `openid profile` to the `scope` value in the POST to the token endpoint. If the audience uses RS256 as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can now send the `access_token` to `https://${account.namespace}/userinfo` to retrieve the user's claims.
 :::
 
+### Realm Support
+
+A extension grant that offers similar functionality with the **Resource Owner Password Grant**, including the ability to indicate a specific realm, is the `http://auth0.com/oauth/grant-type/password-realm`.
+
+Realms allow you to keep separate user directories and specify which one to use to the token endpoint.
+
+To use this variation you will have to change the following request parameters:
+* Set the `grant_type` to `http://auth0.com/oauth/grant-type/password-realm`.
+* Set the new request parameter `realm` to the realm the user belongs. This maps to a connection in Auth0. For example, if you have configured a database connection for your internal employees and you have named the connection `employees`, then use this value.
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"XyD....23S\", \"realm\": \"employees\"}"
+  }
+}
+```
+
+::: panel-info Auth0 Connections as Realms
+You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), [Passwordless](/connections/passwordless), [Active Directory/LDAP](/connections/enterprise/active-directory), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
+:::
+
 ## Using the Access Token
 
 Once the `access_token` has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
