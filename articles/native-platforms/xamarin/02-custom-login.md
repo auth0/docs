@@ -34,6 +34,8 @@ There are two options for implementing custom username and password authenticati
 
 Both of these options allow you to use a custom user interface and our recommendation is to use the SDK unless you absolutley need full control over the the call.
 
+![](/media/articles/native-platforms/xamarin/xamarin.custom.ui.png)
+
 ### Option 1: Auth0 SDK
 
 You will first need to instantiate the Auth0 Client library. Here is a snippet of code to paste into your project:
@@ -260,7 +262,7 @@ The `Auth0User` has the following properties:
 `Xamarin.Auth0Client` is built on top of the `WebRedirectAuthenticator` in the Xamarin.Auth component. All rules for standard authenticators apply regarding how the UI will be displayed.
 :::
 
-![](/media/articles/native-platforms/xamarin/xamarin.auth0client.png)
+![](/media/articles/native-platforms/xamarin/xamarin.auth0client.custom.png)
 
 ## Download Samples
 
