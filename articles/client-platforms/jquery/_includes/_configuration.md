@@ -1,7 +1,10 @@
-## 2. Configure Lock
+## Configure auth0.js
 
-Configure Lock with your `clientID` and `domain`:
+Create an instance of the `WebAuth` module from **auth0.js** and configure it with the client ID and domain for your application.
 
-All of the available options for `Auth0Lock` can be viewed in the [Lock customization documentation](/libraries/lock/customization).
-
-${snippet(meta.snippets.setup)}
+```js
+var auth = new auth0.WebAuth({
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}'
+});
+```

@@ -1,5 +1,7 @@
-## 1. Add the Lock Widget and Set the Viewport
+## Add the auth0.js Library
 
-To get started, add Auth0's Lock widget and set the viewport so that it displays correctly on all devices.
+To get started, add the **auth0.js** library to your project.
 
-${snippet(meta.snippets.dependencies)}
+```html
+<script src="bower_components/auth0.js/build/auth0.js"></script>
+```

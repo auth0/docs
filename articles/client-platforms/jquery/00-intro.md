@@ -10,16 +10,16 @@ This multistep quickstart guide will walk you through setting up and managing au
 
 ## Dependencies
 
-To integrate your jQuery application with Auth0, add the Lock widget. You can get it from Bower or from the Auth0 CDN.
+To integrate your jQuery application with Auth0, add the **auth0.js** library. You can get it from Bower or from the Auth0 CDN.
 
 **Bower**
 
 ```bash
-bower install auth0-lock
+bower install auth0-js#8.0.0-beta.1
 ```
 
 **CDN**
 
 ```html
-<script src="${lock_url}"></script>
+<script src="https://cdn.auth0.com/w2/auth0-8.0.0.js"></script>
 ```
