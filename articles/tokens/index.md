@@ -9,15 +9,15 @@ description: Learn about the numerous types of tokens referenced in Auth0 docume
 
 This document is designed to clarify and disambiguate the numerous types of tokens referenced in Auth0 documentation, what each is used for and how to use it.
 
-First there are a couple different categories of tokens:
+Auth0 uses two types of tokens:
 
-* JSON Web Tokens (JWT) - These are tokens that conform to the [JSON Web Token standard](/jwt) and contain information about an identity in the form of claims.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
-* Opaque tokens - Opaque tokens are tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
+* **JSON Web Tokens (JWT)**: These are tokens that conform to the [JSON Web Token standard](/jwt) and contain information about an identity in the form of claims.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
+* **Opaque tokens**: Opaque tokens are tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
 
 There are six primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation:
 
 - [ID Token](#id-token)
-- [Auth0 `access_token`](#auth0-access_token)
+- [Access Token](#access-token)
 - [Identity Provider Access Tokens](#identity-provider-access-tokens)
 - [Auth0 `refresh_token`](#auth0-refresh_token)
 - [Delegation Tokens](#delegation-tokens)
@@ -29,11 +29,11 @@ The ID token, usually referred to as `id_token` in code samples, is a [JSON Web 
 
 For more information refer to [ID Token](/tokens/id-token).
 
-## Auth0 `access_token`
+## Access Token
 
-The Auth0 access token is a random, opaque string and was used to call portions of the Auth0 Management API (API v1) and the `/userinfo` endpoint within the Auth0 Authentication API.
+The Access Token, commonly referred to as `access_token`, is a credential that can be used by a client to access an API. Auth0 uses access tokens to protect access to the Auth0 Management API.
 
-[More information](/tokens/access_token)
+For more information refer to: [Access Token](/tokens/access-token).
 
 ## Identity Provider Access Tokens
 
