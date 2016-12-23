@@ -20,7 +20,7 @@ The [Auth0 Management API v1](/api/management/v1) (which has been deprecated) us
 
 ## How to get an access token
 
-Access tokens are issued via [Auth0's OAuth 2.0 endpoints](/api/authentication): `/authorize` and `/oauth/token`. You can use any OAuth 2.0-compatible library to obtain access tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many languages and frameworks that work seamlessly with our endpoints.
+Access tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/authentication#authorize-client) and [/oauth/token](/api/authentication#get-token). You can use any OAuth 2.0-compatible library to obtain access tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many languages and frameworks that work seamlessly with our endpoints.
 
 * Calls to the Lock widget will return an `access_token` as shown in the [Lock documentation](/libraries/lock).
 * [Examples using auth0.js](https://github.com/auth0/auth0.js).
