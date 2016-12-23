@@ -81,6 +81,11 @@ This endpoint only works for database connections.
 | `connection`     | the name of the database configured to your client |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+
 ### More Information
 
 - [Password Strength in Auth0 Database Connections](/connections/database/password-strength)

@@ -117,6 +117,11 @@ You have three options for [passwordless authentication](/connections/passwordle
 | `authParams`     | Use this to append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`), when you send a link using email. |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+
 ### Remarks
 
 - If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the [/oauth/ro endpoint](#authenticate-user), using `email` or `phone_number` as the `username`, and the verification code as the `password`.
@@ -226,6 +231,11 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `username`      | The user's phone number if `connection=sms`, or the user's email if `connection=email`. |
 | `password`      | The user's verification code.  |
 | `scope`          | Use `openid` to get an `id_token`, or `openid profile email` to include also user profile information in the `id_token`. |
+
+
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
 
 
 ### Remarks

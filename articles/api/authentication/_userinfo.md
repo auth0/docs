@@ -80,6 +80,11 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 | `access_token`   | the Auth0 `access_token` obtained during login |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+
 ## Get Token Info
 
 <h5 class="code-snippet-title">Examples</h5>
@@ -160,6 +165,11 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `id_token`       | the `id_token` to use |
+
+
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
 
 
 ### More Information

@@ -34,6 +34,11 @@ This endpoint accepts a WS-Federation request to initiate a login.
 | `wreply`         | The callback URL (optional) |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+
 ### Remarks
 
 - The `wtrealm` parameter must be in one of these formats:
@@ -44,6 +49,7 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 ### More Information
 - [WS-Federation](/protocols/ws-fed)
+
 
 ## Get Metadata
 
@@ -68,5 +74,12 @@ include('../../_includes/_http-method', {
 
 This endpoint returns the WS-Federation metadata.
 
+
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+
 ### More Information
+
 - [WS-Federation](/protocols/ws-fed)

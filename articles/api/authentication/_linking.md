@@ -108,6 +108,11 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 | `user_id`        | the logged-in user's `user_id` |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+
 ### More Information
 
 - [Unlinking Accounts](/link-accounts#unlinking-accounts)

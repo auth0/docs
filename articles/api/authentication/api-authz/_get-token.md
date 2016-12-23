@@ -12,7 +12,7 @@ The only OAuth 2.0 flows that can retrieve a refresh token are:
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/token
+POST https://${account.namespace}/oauth/token?
   grant_type=authorization_code&
   client_id=${account.clientId}&
   client_secret=${account.client_secret}&
@@ -79,6 +79,11 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `redirect_uri`  | The URL must match exactly the `redirect_uri` passed to [GET /authorize](#authorization-code-grant). |
 
 
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+
 ### More Information
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
@@ -90,7 +95,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/token
+POST https://${account.namespace}/oauth/token?
   grant_type=authorization_code&
   client_id=${account.clientId}&
   code_verifier=YOUR_GENERATED_CODE_VERIFIER&
@@ -150,6 +155,11 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `code`  | The Authorization Code received from the initial `/authorize` call. |
 | `code_verifier` | Cryptographically random key that was used to generate the `code_challenge` passed to `/authorize`. |
 | `redirect_uri`  | The URL must match exactly the `redirect_uri` passed to [GET /authorize](#authorization-code-grant-pkce-). |
+
+
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 
 ### More Information
@@ -222,6 +232,11 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 | `client_id`      | Your application's Client ID. |
 | `client_secret`  | Your application's Client Secret. |
 | `audience` | API Identifier that the client is requesting access to. |
+
+
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 
 ### More Information
@@ -302,6 +317,11 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 | `username` | Resource Owner's identifier. |
 | `password` | Resource Owner's secret. |
 | `scope` | String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
+
+
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 
 ### More Information

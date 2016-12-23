@@ -183,6 +183,11 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 | `scope`          | Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `access_token` will be returned. |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+
 ### Remarks
 
 - The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
@@ -387,6 +392,11 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 | `connection`     | The name of the connection to use for login |
 | `grant_type`     | Set to `password`
 | `scope`          | Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
+
+
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
 
 
 ### Remarks

@@ -59,6 +59,7 @@ Given a user's `email` address and a `connection`, Auth0 will send a change pass
 
 This endpoint only works for database connections.
 
+
 ### Query Parameters
 
 | Parameter        | Description |
@@ -67,6 +68,12 @@ This endpoint only works for database connections.
 | `email`          | The user's email address. |
 | `password `      | The new password. See the next paragraph for the case when a password can be set. |
 | `connection`     | The name of the database connection configured to your client. |
+
+
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
 
 ### Remarks
 

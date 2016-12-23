@@ -83,6 +83,11 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 | `device`         | |
 
 
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+
 ### Remarks
 
 - This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.

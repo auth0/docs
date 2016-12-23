@@ -39,6 +39,11 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 | `connection`     | The connection to use (optional) |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+
 ### Remarks
 
 - All the parameters of the SAML response can be modified with [Rules](/rules).
@@ -75,6 +80,12 @@ This endpoint returns the SAML 2.0 metadata.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id`      | the `client_id` of your app |
+
+
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
 
 ### More Information
 - [SAML](/protocols/saml)
