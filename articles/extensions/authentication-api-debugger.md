@@ -6,17 +6,25 @@ description: This page explains how to use the Authentication API Debugger
 
 The Authentication API Debugger extension allows you to test various endpoints of the [Auth0 Authentication API](/api/authentication).
 
+## Install the Extension
+
+To install the extension navigate to the [Extensions dashboard](${manage_url}/#/extensions) and click on **Auth0 Authentication API Debugger**. Click **Install** on the pop-up window.
+
 ## Authorize the Extension
 
-When you launch the extension you will be asked to log in to your Auth0 account. Once logged in, you will be presented with a consent dialog which will prompt you for permissions to access the Management API on your behalf. The extension will communicate to the Management API on your behalf to retrieve details about the Clients which you have configured in your Auth0 Dashboard.
+Once you install the extension, you will be navigated to the [Installed Extensions](${manage_url}/#/extensions) view. Click on **Auth0 Authentication API Debugger** to launch the extension.
+
+At that point, a consent dialog will be displayed, requesting access to your account.
 
 ![Consent Screen for Extension](/media/articles/extensions/authentication-api-debugger/consent.png)
 
-The Client ID and Client Secret for a Client will subsequently be used to call Authentication API endpoints which require that information. 
+**NOTE**: The extension will communicate to the Management API on your behalf to retrieve details about the Clients which you have configured in your Auth0 Dashboard, and use this information to call the Authentication API endpoints. 
+
+Once you accept, you will be navigated to the extension's views.
 
 ## Basic Configuration
 
-The basic configuration for all the possible flows can be found on the _Configuration_ tab.
+The basic configuration for all flows can be found on the _Configuration_ tab.
 
 ![Extension Configuration Screen](/media/articles/extensions/authentication-api-debugger/configuration.png)
 
