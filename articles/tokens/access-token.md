@@ -9,14 +9,18 @@ description: This page explains an overview about Auth0 access tokens.
 
 The Access Token, commonly referred to as `access_token` in code samples, is a credential that can be used by a client to access an API. The `access_token` should be used as a `Bearer` credential and transmitted in an HTTP `Authorization` header to the API. Auth0 uses access tokens to protect access to the Auth0 Management API.
 
-By default, Auth0 generates access tokens in JSON Web Token (JWT) format, an industry standard. JWTs contain three parts: a header, a set of claims, and a signature:
+Auth0 generates access tokens in [JSON Web Token (JWT)](/jwt) format, an industry standard. JWTs contain three parts: a header, a set of claims, and a signature:
 - The header contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
 - The set of claims contains verifiable security statements such as the identity of the user and the permissions they are allowed.
 - The signature is used to validate that the token is trustworthy and has not been tampered with.
 
+::: panel-info Opaque token format
+The [Auth0 Management API v1](/api/management/v1) (which has been deprecated) uses an opaque token format in which claims are referenced in a separate database, rather than directly in the token.
+:::
+
 ## How to get an access token
 
-Access tokens are issued via [Auth0's OAuth 2.0 endpoints](/api/authentication): `/authorize` and `/oauth/token`. You can use any OAuth 2.0-compatible library to obtain access tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many language and frameworks that work seamlessly with our endpoints.
+Access tokens are issued via [Auth0's OAuth 2.0 endpoints](/api/authentication): `/authorize` and `/oauth/token`. You can use any OAuth 2.0-compatible library to obtain access tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many languages and frameworks that work seamlessly with our endpoints.
 
 * Calls to the Lock widget will return an `access_token` as shown in the [Lock documentation](/libraries/lock).
 * [Examples using auth0.js](https://github.com/auth0/auth0.js).
@@ -24,20 +28,22 @@ Access tokens are issued via [Auth0's OAuth 2.0 endpoints](/api/authentication):
 
 ## How to use an access token
 
-Access tokens are typically obtained in order to access user-owned resources. For example, a Calendar application on a mobile phone needs access to a Calendar API in the cloud in order to read the user's scheduled events and create new events.
+Access tokens are typically obtained in order to access user-owned resources. For example, a Calendar client needs access to a Calendar API in the cloud in order to read the user's scheduled events and create new events.
 
-Such access is requested by the application and granted by the user. For example, when using Lock, access to read and write the user's calendar can be requested by calling `show()`:
+Such access is requested by the client and granted by the user, using the [Authorize endpoint](/api/authentication#authorize-client).
 
-```js
-lock.show({
-  responseType: 'token',
-  authParams: {
-    scope: 'read write'
-  }
-});
+```text
+https://${account.namespace}/authorize?
+  audience=api.calendar&
+  scope=read write&
+  response_type=token&
+  client_id={account.clientId}&
+  redirect_uri=${account.callback}&
+  nonce={CRYPTOGRAPHIC_NONCE}
+  state={OPAQUE_VALUE}
 ```
 
-In this case the user will be prompted to permit read and write access. If allowed, an access token will be issued to the client, which the client can then use when making requests to the Calendar API. If consent has already been granted by the user, no consent dialog will be displayed and the access token will be issued without additional prompts.
+In this case the user will be prompted to permit read and write access (`scope=read write`). If allowed, an access token will be issued to the client, which the client can then use when making requests to the Calendar API. If consent has already been granted by the user, no consent dialog will be displayed and the access token will be issued without additional prompts.
 
 Also, the consent dialog might be displayed again if the access level changes. For example, if the user has granted read access but the functionality changes so write access is required as well, the user will have to use the consent dialog to grant the additional access.
 
@@ -45,21 +51,24 @@ In some cases, consent can also be pre-configured administratively. This typical
 
 ### Server-to-server interactions
 
-Access tokens can also be issued directly to applications. Such scenarios involve server-to-server interactions. In this case the user does not need to authenticate.
+Access tokens can also be issued directly to clients. Such scenarios involve server-to-server interactions. In this case the user does not need to authenticate.
 
-For example, a reverse geocoding API that accepts a latitude, longitude coordinate and returns a readable place name does not access user-owned data. In such cases a backend server needs to call the geocoding API in order to perform the translation.
+For example, a reverse geocoding API that accepts latitude/longitude coordinates and returns a readable place name does not access user-owned data. In such cases a backend server needs to call the geocoding API in order to perform the translation.
 
-Server-to-server access tokens can be obtained using the [Client Credentials flow](/api-auth/grant/client-credentials). In order to get a token using this flow, the Client has to provide its credentials (`client_id`, `client_secret`).
+Server-to-server access tokens can be obtained using the [Client Credentials flow](/api-auth/grant/client-credentials). In order to get a token using this flow, the client has to provide its credentials (`client_id`, `client_secret`).
 
-```
-POST /oauth/token
-Host​: {tenant}.auth0.com
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=client_credentials&
-client_id={CLIENT_ID}&
-client_secret={CLIENT_SECRET}
-audience=https://api.example.com/geocoding/v1/
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"audience\": \"https://api.example.com/geocoding/v1/\"}"
+  }
+}
 ```
 
 The result will be an access token that can be used to make requests to the geocoding API.
@@ -67,18 +76,16 @@ The result will be an access token that can be used to make requests to the geoc
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-
 {
-  "access_token":"ey...",
+  "access_token": "eyJz93a...k4laUWw",
   "token_type":"Bearer",
   "expires_in":86400
 }
 ```
 
-In order to obtain this access token, the client must first have been granted permission to access the geocoding API. This is typically done by requesting access from the administrator of the geocoding API.
+In order to obtain this access token, the client must first have permission to access the geocoding API. This is typically done by requesting access from the administrator of the geocoding API.
 
 For details on how to set up a Client Credentials Grant in Auth0 refer to [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
-
 
 
 ## Authorize access tokens
@@ -129,7 +136,9 @@ The API can now process the request, allowing the application to read and write 
 
 ## Lifetime
 
-By default, access tokens are valid for 24 hours. The token lifetime can be controlled on a per-API basis. The validity period can be increased or decreased based on the security requirements of each API.
+The token lifetime can be controlled on a per-API basis. The validity period can be increased or decreased based on the security requirements of each API.
+
+To configure the amount of time a token lives, use the **Token Expiration (Seconds)** field for your API at the [APIs dashboard](${manage_url}/#/apis). The default value is `24` hours (`86400` seconds).
 
 Once expired, an access token can no longer be used to access an API. In order to obtain access again, a new access token needs to be obtained. This can be done by repeating the OAuth flow used to obtain the initial access token.
 
@@ -139,6 +148,6 @@ A refresh token is issued from the OAuth 2.0 endpoints along with the access tok
 
 For more information on refresh tokens and how to use them refer to: [Refresh Token](/tokens/refresh-token).
 
-## Revoke access
+## Revoke access token
 
-Revoking access is not supported at the moment.
+Revoking access tokens is not supported at the moment. The best way to control this is to set the validity period of the token, according to the security requirements of the API. For example, an access token that accesses a banking API should probably expire much faster than one that accesses a ToDo API.
