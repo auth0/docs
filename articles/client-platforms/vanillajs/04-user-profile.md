@@ -22,8 +22,6 @@ Once you retrieve the user profile, you can store it in `localStorage`.
 window.addEventListener('load', function() {
   var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>');
 
-  ...
-
   lock.on("authenticated", function(authResult) {
     lock.getProfile(authResult.idToken, function (err, profile) {
       if (err) {
@@ -47,15 +45,13 @@ window.addEventListener('load', function() {
     });
   });
 
-  ...
+  // ...
 
   var logout = function() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
     window.location.href = "/";
   };
-
-  ...
 });
 ```
 
@@ -64,32 +60,22 @@ With the user's profile saved, attributes from it can be displayed on the page.
 ```js
 // app.js
 
-...
-
 var showUserProfile = function(profile) {
 
   // Used for editing
   var user_id = profile.user_id;
-
-  ...
-
+  // ...
   document.getElementById('avatar').src = profile.picture;
   document.getElementById('name').textContent = profile.name;
   document.getElementById('email').textContent = profile.email;
   document.getElementById('nickname').textContent = profile.nickname;
   document.getElementById('created_at').textContent = profile.created_at;
   document.getElementById('updated_at').textContent = profile.updated_at;
-
-  ...
 };
-
-...
 ```
 
 ```html
 <!-- index.html -->
-
-...
 
 <div id="login" class="row">
   <h4>You are not logged in</h4>
@@ -111,8 +97,6 @@ var showUserProfile = function(profile) {
   </div>
   <button type="button" class="btn btn-default" id="btn-logout">Logout</button>
 </div>
-
-...
 ```
 
 ## Custom Sign Up Fields
@@ -126,8 +110,6 @@ You can add input fields to the sign up form by adding `additionalSignUpFields` 
 ```js
 // app.js
 
-...
-
 var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', {
   additionalSignUpFields: [{
     name: "address",                              // required
@@ -139,8 +121,6 @@ var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', 
     }
   }]
 });
-
-...
 ```
 
 Each `additionalSignUpFields` value is saved to the profile in the `user_metadata` attribute.
@@ -150,31 +130,19 @@ To display this data, read it from the profile's `user_metadata`.
 ```js
 // app.js
 
-...
-
 var showUserProfile = function(profile) {
-
-  ...
 
   if (profile.hasOwnProperty('user_metadata')) {
     document.getElementById('address').textContent = profile.user_metadata.address;
-
-    ...
-
+    // ...
   }
 }
-
-...
 ```
 
 ```html
 <!-- index.html -->
 
-...
-
 <strong>Address: </strong> <span id="address"></span>
-
-...
 ```
 
 ## Update the User Profile
@@ -185,8 +153,6 @@ To successfully call the endpoint, add the user's JWT to the request as an `Auth
 
 ```js
 // app.js
-
-...
 
 document.getElementById('btn-edit-submit').addEventListener('click', function() {
 
@@ -211,15 +177,12 @@ document.getElementById('btn-edit-submit').addEventListener('click', function() 
 
   xhr.send(data);
 });
-...
 ```
 
 Create a simple form to add/update the `address` attribute.
 
 ```html
 <!--  index.html -->
-
-...
 
 <div id="edit_profile" class="row" style="display: none;">
   <div class="col-md-6">
@@ -234,6 +197,4 @@ Create a simple form to add/update the `address` attribute.
     </form>
   </div>
 </div>
-
-...
 ```

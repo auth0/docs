@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: Customizing how Lock with CSS and Javascript
 ---
 

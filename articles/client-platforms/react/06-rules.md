@@ -15,11 +15,11 @@ budicon: 173
 
 <%= include('../_includes/_rules-introduction') %>
 
-## 1. Create a Rule
+## Create a Rule
 
 <%= include('../_includes/_rules-create-section') %>
 
-## 2. Test the Rule Result
+## Test the Rule Result
 
 <%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/react/04-user-profile' }) %>
 

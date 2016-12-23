@@ -15,7 +15,7 @@ budicon: 345
 
 <%= include('../../_includes/_linking_accounts') %>
 
-## 1. Show Linked Accounts Information
+## Show Linked Accounts Information
 
 The user profile contains an array of identities which consists of profile information from all linked providers. You can verify this by accessing the Auth0 [Users page](${manage_url}/#/users), selecting a user and scrolling down to `identities` under **Identity Provider Attributes**.
 
@@ -158,7 +158,7 @@ Note that `Home.js` has been updated to render a left column with profile inform
 
 If you run the application, you should see the new home page after a successful login. The __Linked Accounts__ list will only show the main account. The next section shows how to add a button to link an account from another provider.
 
-## 2. Linking Accounts
+## Linking Accounts
 
 To link accounts, call the [Link a user account](/api/management/v2#!/Users/post_identities) Auth0 API endpoint. To complete the request, you must provide the primary account Auth0 JWT (the token provided when the user logged in), the user id (from the JWT or the profile API) and the JWT of the account you want to link (secondary account).
 
@@ -325,7 +325,7 @@ export default LinkedAccountsList;
 
 Now, if you run the application, you will be able to click the __Link Account__ button on the user home page to link a Facebook or Google account. After a successful link, the new identity will be displayed in the __Linked Accounts__ list.
 
-## 3. Un-Linking Accounts
+## Un-Linking Accounts
 
 You can dissociate a linked account by calling the [Delete a linked user account](/api/management/v2#!/Users/delete_provider_by_user_id) Auth0 API endpoint.
 

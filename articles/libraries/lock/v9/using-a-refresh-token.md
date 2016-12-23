@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: Getting and using a refresh token with Lock.
 ---
 

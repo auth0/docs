@@ -9,15 +9,41 @@ SSO (Single Sign On) occurs when a user logs in to one Client and is then signed
 
 Google's implementation of login for their products, such as Gmail, YouTube, Google Analytics, and so on, is an example of SSO. Any user that is logged in to one of Google's products are automatically logged in to their other products as well.
 
-## How SSO Works
-
-SSO works by means of a *central service*. In the case of Google, this central service is [Google Accounts](https://accounts.google.com). When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
+Single Sign On usually makes use of a *Central Service* which orchestrates the single sign on between multiple clients. In the example of Google, this central service is [Google Accounts](https://accounts.google.com). When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
 
 1. The user accesses the first Google product.
 2. The user receives a Google Accounts-generated cookie.
 3. The user navigates to another Google product.
 4. The user is redirected again to Google Accounts.
 5. Google Accounts sees that the user already has an authentication-related cookie, so it redirects the user to the requested product.
+
+## An overview of how SSO works with Auth0
+
+In the case of SSO with Auth0, the *Central Service* is the Auth0 Authorization Server. 
+
+Let's look at how the SSO flow looks when using Auth0 and a user visits your application for the first time:
+
+1. Your application will redirect the user to the Auth0 Hosted Lock page where they can log in. 
+2. Auth0 will check to see whether there is an existing SSO cookie.
+3. Because this is the first time the user visits this Hosted Lock page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
+
+    ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
+
+4. Once the user has logged in, Auth0 will set an SSO cookie
+5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
+
+Now let's look at flow when the user returns to your website for a subsequent visit:
+
+1. Your application will redirect the user to the Auth0 Hosted Lock page where they can sign in. 
+2. Auth0 will check to see whether there is an existing SSO cookie.
+3. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
+
+    ![](/media/articles/sso/single-sign-on/lock-sso-cookie.png)
+
+4. Auth0 will update the SSO cookie if required
+5. Auth0 will also redirect back to your web application and will return an `id_token` containing the identity of the user.
+
+If an SSO cookie is present you can also sign the user in silently, i.e. without even displaying Lock so they can enter their credentials. This is covered in more detail in the next section.
 
 ## How to Implement SSO with Auth0
 
@@ -33,9 +59,13 @@ Near the bottom of the *Settings* page, toggle **Use Auth0 instead of the IdP to
 
 ![](/media/articles/sso/single-sign-on/sso-flag.png)
 
-You can set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
+Alternatively you can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 
-Once you have set the SSO flag in Auth0, you must add logic to your Client to check the user's SSO status. This logic can be implemented either client-side (using JavaScript) or server-side:
+Once you have set the SSO flag for your Client in the Auth0 Dashboard, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the [`getSSOData`](/libraries/auth0js#sso) function in the [auth0.js library](/libraries/auth0js).  
+
+The result of this function will indicate whether an SSO cookie is present, and if so it will return the SSO data of the user which can then subsequently be used to log the user in silently without even displaying Lock.
+
+For more detailed information on how to implement this, please refer to the following documents:
 
 * [Client-Side SSO (Single Page Apps)](/sso/single-page-apps-sso)
 * [Server-Side SSO (Regular Web Apps)](/sso/regular-web-apps-sso)

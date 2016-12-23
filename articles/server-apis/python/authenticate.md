@@ -7,9 +7,9 @@ You can get started by either downloading the seed project or if you would like 
 
 
 <%= include('../../_includes/_package', {
-  org: 'auth0',
-  repo: 'auth0-python',
-  path: 'examples/flask-api',
+  org: 'auth0-samples',
+  repo: 'auth0-python-api-samples',
+  path: '00-Starter-Seed',
   requirements: [
     'Python 2.7',
     'Flask 0.10.1',
@@ -27,15 +27,15 @@ In this example, we'll be using Flask and we'll be validating the JWT. For that,
 
 ${snippet(meta.snippets.dependencies)}
 
-### 2. Create the JWT Validation annotation
+### 2. Create the JWT Validation decorator
 
-Now, you need to validate the [JWT](/jwt). For that, we'll create a custom annotation.
+Now, you need to validate the [JWT](/jwt). For that, we'll create a custom decorator.
 
 ${snippet(meta.snippets.setup)}
 
-### 3. Use this annotation in your methods
+### 3. Use this decorator in your methods
 
-Now, you can just use this annotation in your methods
+Now, you can just decorate any route's method that requires authentication
 
 ${snippet(meta.snippets.use)}
 
@@ -55,7 +55,7 @@ You can now make requests against your secure API by providing the Authorization
 
 ### 5. You're done!
 
-Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
+Now you have both your frontend and backend configured to use Auth0. Congrats, you're awesome!
 
 ### Note for Python 2.7
 

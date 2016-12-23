@@ -6,15 +6,9 @@ budicon: 715
 
 This multistep quickstart guide will walk you through setting up and managing authentication in your jQuery apps using Auth0.
 
-<%= include('_includes/_prerequisite') %>
+<%= include('../../_includes/_new_app') %>
 
-## 1. Create an Application
-
-<%= include('../../_includes/_new_app') %>_
-
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
-
-## 2. Dependencies
+## Dependencies
 
 To integrate your jQuery application with Auth0, add the Lock widget. You can get it from Bower or from the Auth0 CDN.
 

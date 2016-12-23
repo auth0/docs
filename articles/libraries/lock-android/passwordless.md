@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: Passwordless Authentication with Lock for Android
 description: Guide on implementing Passwordless authentication with Lock for Android
 ---

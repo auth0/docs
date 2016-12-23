@@ -12,8 +12,6 @@ Auth0 provides wrappers for using the [Lock widget](https://auth0.com/lock) and 
 
 If you want to follow along with these quickstart guides, download the [seed project](https://github.com/auth0-samples/auth0-ionic-samples/tree/master/00-Starter-Seed) as a starting point. The seed project is just a basic, blank Ionic application with all the Bower dependencies included and the required references added to the `index.html` file. You can also download the source code for each quickstart step from these docs.
 
-## Create an Application
-
 <%= include('../../_includes/_new_app') %>
 
 <%= include('_includes/_setup') %>

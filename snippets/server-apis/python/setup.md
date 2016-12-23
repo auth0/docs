@@ -1,6 +1,5 @@
 ```python
 import jwt
-import base64
 import os
 
 from functools import wraps
@@ -9,10 +8,10 @@ from werkzeug.local import LocalProxy
 from flask.ext.cors import cross_origin
 
 app = Flask(__name__)
-# Authentication annotation
+# Authentication 
 current_user = LocalProxy(lambda: _request_ctx_stack.top.current_user)
 
-# Authentication attribute/annotation
+# Authentication attribute
 def authenticate(error):
   resp = jsonify(error)
 
@@ -40,7 +39,7 @@ def requires_auth(f):
     try:
         payload = jwt.decode(
             token,
-            base64.b64decode('${account.clientSecret}'.replace("_","/").replace("-","+")),
+            '${account.clientSecret}',
             audience='${account.clientId}'
         )
     except jwt.ExpiredSignature:

@@ -146,7 +146,7 @@ The term "client" does not imply any particular implementation characteristics. 
 The main characteristics of a Client in Auth0 are:
 - __Name__: The canonical name of the client. This is used to identify the client at the portal, emails, logs, and more.
 - __Client ID__ (read-only): The unique identifier for the client. This is the ID used in the application when setting up authentication with Auth0. It is an auto-generated alphanumeric string.
-- __Client secret__ (read-only): A base64 encoded string, used to sign and validate tokens which will be used in the different authentication flows. It is auto-generated and it must be kept confidential.
+- __Client secret__ (read-only): A string used to sign and validate tokens which will be used in the different authentication flows. It is auto-generated and it must be kept confidential.
 - __Domain__: The domain name assigned to the Auth0 account. The format of the domain is `{account-name}.auth0.com` or `{account-name}.{location}.auth0.com`, for example `abc.auth0.com`.
 - __Callback URL__: The URL where the user is redirected after they authenticate.
 
@@ -250,7 +250,7 @@ By default, Lock will display all the connections available for login. Selecting
 
 You may however want to avoid that first step, where the user needs to choose the Identity Provider (IdP), and have the system identify it instead of asking every time. Lock offers you the following options:
 
-- __Identify the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](https://auth0.com/docs/api/authentication#!#get--authorize_db) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`.
+- __Identify the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](/api/authentication/reference#database-ad-ldap-passive-) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`.
 
   There are multiple practical ways of getting the `connection` value. One of them is to use __vanity URLs__: for example, company employees will use `https://internal.yoursite.com`, while external contractors will use `https://external.yoursite.com`.
 

@@ -4,7 +4,8 @@
   "description": "This is the repository for the Auth0 documentation.",
   "author": "Auth0 Inc.",
   "scripts": {
-    "heroku-prebuild": "bash heroku.sh"
+    "heroku-prebuild": "bash prebuild.sh",
+    "heroku-postbuild": "bash postbuild.sh"
   },
   "engines": {
     "node": "4.5"

@@ -22,7 +22,7 @@ This bundle helps you integrate your Symfony WebApp with [Auth0](https://auth0.c
 
 ### 1. Install dependencies
 
-We need to add **jwt-auth-bundle** dependency to your composer.json.
+We need to add the **jwt-auth-bundle** dependency to your composer.json.
 
 Once that's done, just run the following:
 

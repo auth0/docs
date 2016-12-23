@@ -30,7 +30,7 @@ By default, it says that if the user email contains `@example.com` he will be gi
 
 As with the country property which was added in the previous step, you will also need to manually extract the roles from the user in the `OnAuthenticated` event and add the appropriate claims. For each role you can add a role of the type `ClaimTypes.Role`.
 
-This will ensure proper integration with the existing role based authorization in ASP.NET MVC and allow you to restrict access to a controller by simply decorating your controller actions with the `[Authorize(Roles = ?)]` attribute
+This will ensure proper integration with the existing role-based authorization in ASP.NET MVC and allow you to restrict access to a controller by simply decorating your controller actions with the `[Authorize(Roles = ?)]` attribute
 
 So change the existing middleware registration in the `Startup` class to extract the roles and add the claims:
 
@@ -74,7 +74,7 @@ app.UseAuth0Authentication(options);
 
 Now you can add a new action to your controller and restrict it by decorating your controller actions with the `[Authorize(Roles = ?)]` attribute.
 
-The sample code below will restrict the particular action only to user who have the "admin" role:
+The sample code below will restrict the particular action only to the user who have the "admin" role:
 
 ```csharp
 [Authorize(Roles = "admin")]

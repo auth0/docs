@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: Custom Authentication Providers
 description: Implementing custom authentication providers
 ---

@@ -90,7 +90,7 @@ Auth0Mosca.prototype.authenticateWithJWT = function(){
 
     // console.log('Passsord:'+password);
 
-    jwt.verify(password, new Buffer(self.clientSecret, 'base64'), function(err,profile){
+    jwt.verify(password, self.clientSecret, function(err,profile){
           if( err ) { return callback("Error getting UserInfo", false); }
           console.log("Authenticated client " + profile.user_id);
           console.log(profile.topics);
@@ -130,7 +130,7 @@ Auth0Mosca.prototype.authenticateWithCredentials = function(){
 
         if( r.error ) { return callback( r, false); }
 
-        jwt.verify(r.id_token, new Buffer(self.clientSecret, 'base64'), function(err,profile){
+        jwt.verify(r.id_token, self.clientSecret, function(err,profile){
           if( err ) { return callback("Error getting UserInfo", false); }
           client.deviceProfile = profile;
           return callback(null, true);

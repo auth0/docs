@@ -14,7 +14,7 @@ You can get started by either downloading the seed project or if you would like 
 }) %>
 
 ::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
+This tutorial and seed project have to be tested with the following:
 * Bower 1.7.7
 * NodeJS 5.11.0
 * Ember 2.5.0
@@ -22,9 +22,9 @@ This tutorial and seed project have been tested with the following:
 * Ember Simple Auth 1.1.0
 :::
 
-${include('../\_callback')}
-
 __Note:__ This quickstart and seed project are for Ember >= 2.x.x.
+
+${include('../\_callback')}
 
 ## 1. Install the add-on
 
@@ -36,9 +36,10 @@ To install this add-on and its dependencies, `cd` to your project directory and 
 ember install ember-simple-auth
 ember install auth0/auth0-ember-simple-auth
 ember generate scaffold-auth0
+bower install auth0-lock#9.2.3 jsrsasign#5.0.1 --save
 ```
 
-__Note:__ If you are not already using ember-cli, see [ember-cli migration](http://www.ember-cli.com/user-guide/#migrating-an-existing-project-that-doesnt-yet-use-ember-cli).
+__Note:__ If you are not already using ember-cli, see [ember-cli migration](https://ember-cli.com/user-guide/#migrating-an-existing-ember-project-that-doesnt-use-ember-cli).
 
 ## 2. Configure the add-on
 
@@ -56,7 +57,7 @@ ENV['auth0-ember-simple-auth'] = {
 }
 ```
 
-If using a content security policy, add
+If you are using a content security policy, add
 `https://cdn.auth0.com` to both the `font-src` and `script-src` contentSecurityPolicy entries and `<%= account.namespace %>` to the `connect-src` entry:
 
 ```js
@@ -158,6 +159,8 @@ fetch('/api/foo', {
   // use response
 });
 ```
+
+<%= include('../_includes/_persisting_state') %>
 
 ### Additional Information
 

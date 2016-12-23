@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: Lock V9 document on the display modes, overlay and embedded mode
 ---
 

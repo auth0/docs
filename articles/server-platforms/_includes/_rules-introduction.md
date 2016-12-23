@@ -12,4 +12,4 @@ This rule simply gets the `country_name` from the context and adds it as a new `
 
 ![Add country rule](/media/articles/rules/rule-create-add-country-country.png)
 
-This is just a starting template, and you can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever a user log in, the rule will be executed, and the country will be added to the user's profile.
+This is just a starting template, and you can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever a user logs in, the rule will be executed, and the country will be added to the user's profile.

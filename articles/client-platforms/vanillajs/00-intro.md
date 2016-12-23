@@ -6,13 +6,9 @@ budicon: 715
 
 This multi-step quickstart guide will walk you through setting up and managing authentication in your vanilla JS apps using Auth0.
 
-## 1. Create an Application
-
 <%= include('../../_includes/_new_app') %>
 
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
-
-## 2. Dependencies
+## Dependencies
 
 To integrate your JavaScript application with Auth0, add the Lock widget. You can get it from Bower or from the Auth0 CDN.
 

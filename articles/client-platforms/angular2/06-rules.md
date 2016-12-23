@@ -24,12 +24,13 @@ budicon: 173
 <%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/angular2/04-user-profile' }) %>
 
 ```html
-  <!-- ./profile_show.template.html -->
+  <!-- profile_show.template.html -->
+
   <div *ngIf="auth.authenticated() && auth.userProfile">
     <div class="row">
       <div class="col-md-6">
         <h3>Profile</h3>
-        ...
+        <!-- ... -->
         <p><strong>Country (added by rule): </strong> {{auth.userProfile.country}}</p>
       </div>
     </div>

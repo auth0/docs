@@ -18,11 +18,10 @@ Each Appliance virtual machine (VM) must have its own private static IP address 
 
 For **multi-node** clusters, all virtual machines must be:
 * on the same segment of the internal network;
-* able to communicate between each other via ports `7777` and `27017`.
+* able to communicate between each other via ports `7777`, `27017`, `8721`, and `8701`.
+* able to reach the load balancer via port `443`.
 
 > Production and non-Production (test/development) must be on completely isolated networks.
-
-For **Webtasks**, ports `8721` and `8701` need to be open from cross-Virtual Machine communication.
 
 For a full list of IP addresses, domains, and ports used by the Appliance clusters, as well as what they are used for, please see [Appliance Infrastructure: IP/Domain and Port List](/appliance/infrastructure/ip-domain-port-list).
 

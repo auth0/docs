@@ -7,7 +7,10 @@ budicon: 280
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
-  path: '03-Session-Handling'
+  path: '03-Session-Handling',
+  requirements: [
+    'jQuery 3.1.0'
+  ]
 }) %>
 
 In the previous steps of this tutorial, you enabled user login with the `Lock` widget and then with `Auth0.js`.
@@ -23,8 +26,6 @@ Once the user is logged in, you will want to create a session for that user. To 
 ```javascript
 // app.js
 
-...
-
 var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
   auth: {
     params: {
@@ -36,8 +37,6 @@ var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
 lock.on("authenticated", function(authResult) {
   localStorage.setItem('id_token', authResult.idToken);
 });
-
-...
 ```
 
 ## Check Session
@@ -46,8 +45,6 @@ To check if a user is authenticated, we read the `id_token` value from localStor
 
 ```javascript
 // app.js
-
-...
 
 var id_token = localStorage.getItem('id_token');
 
@@ -60,7 +57,6 @@ if (null != id_token) {
     } // else: user is authenticated
   });
 }
-...
 ```
 
 ## Logout
@@ -70,26 +66,19 @@ To log out a user, remove the token from `localStorage`:
 ```javascript
 // app.js
 
-...
-
 var logout = function() {
   localStorage.removeItem('id_token');
   window.location.href = "/";
-};
-
-...
+}
 ```
 
 Then create the buttons for login and logout:
 
 ```html
-  <!-- index.html -->
-  ...
+<!-- index.html -->
 
-  <button class="btn btn-primary btn-margin" id="btn-login">Log In</button>
-  <button class="btn btn-primary btn-margin" id="btn-logout">Log Out</button>
-
-  ...
+<button class="btn btn-primary btn-margin" id="btn-login">Log In</button>
+<button class="btn btn-primary btn-margin" id="btn-logout">Log Out</button>
 ```
 
 And add their functionality:
@@ -97,12 +86,8 @@ And add their functionality:
 ```javascript
 // app.js
 
-...
-
 var btn_login = $('#btn-login');
 var btn_logout = $('#btn-logout');
-
-...
 
 btn_login.click(function(e) {
   e.preventDefault();
@@ -113,7 +98,6 @@ btn_logout.click(function(e) {
   e.preventDefault();
   logout();
 });
-...
 ```
 
 ## Session handling example using [Lockr](https://github.com/tsironis/lockr) storage library
@@ -123,14 +107,9 @@ btn_logout.click(function(e) {
 
 // Create session
 
-...
-
 lock.on("authenticated", function(authResult) {
   Lockr.set('id_token', authResult.idToken);
 });
-
-// Check session
-...
 
 var id_token = Lockr.get('id_token');
 if (null != id_token) {
@@ -142,15 +121,11 @@ if (null != id_token) {
     } // else: user is authenticated
   });
 }
-...
 
 // Logout
-
-...
 
 var logout = function() {
   Lockr.rm('id_token');
   window.location.href = "/";
-};
-...
+}
 ```

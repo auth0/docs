@@ -6,7 +6,7 @@ var falcorExpress = require('falcor-express');
 var Router        = require('falcor-router');
 
 var authenticate = jwt({
-  secret: new Buffer('<%= account.clientSecret %>', 'base64'),
+  secret: '<%= account.clientSecret %>',
   audience: '<%= account.clientId %>'
 });
 ```

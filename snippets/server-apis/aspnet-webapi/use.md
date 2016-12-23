@@ -5,6 +5,7 @@ var clientSecret = WebConfigurationManager.AppSettings["auth0:ClientSecret"];
 config.MessageHandlers.Add(new JsonWebTokenValidationHandler()
 {
     Audience = clientID,
-    SymmetricKey = clientSecret
+    SymmetricKey = clientSecret,
+    IsSecretBase64Encoded = false
 });
 ```

@@ -16,7 +16,7 @@ This functionality can be achieved using an Enterprise Connection where you fede
 
 The invite-only flow will be setup as follows: 
 
-1. The tenant admnistrator will create new users in his subscription from within the application. 
+1. The tenant admnistrator will create new users in their subscription from within the application. 
 2. The application will call the Auth0 Management API to create these new users in a database connection. 
 3. The application will send out activation emails to these users. 
 4. When users click the activation link, they will be redirected to Auth0 where their email address will be set to validated. 

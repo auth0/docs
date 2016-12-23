@@ -4,7 +4,7 @@ description: How to authenticate and authorize a Tessel device with Auth0.
 
 # Authenticating & Authorizing a Tessel device with Auth0
 
-[Tessel](https://tessel.io) is an amazing board. Not only it has a great hardware spec and a great extensibility story, you can program it Javascript! When it was announced on Kickstarter we immediately supported it and waited long weeks to get hold of one.
+[Tessel](https://tessel.io) is an amazing board. Not only it has a great hardware spec and a great extensibility story, you can program it in Javascript! When it was announced on Kickstarter we immediately supported it and waited long weeks to get hold of one.
 
 ![](/media/articles/scenarios/tessel/TM-00-04-ports.png)
 
@@ -43,7 +43,7 @@ tessel.syncClock(function () {
   });
 
   function getDeviceProfile(token, done){
-    request('eugeniopace.auth0.com',
+    request('${account.namespace}',
           '/userinfo',
           'GET',
           {
@@ -59,14 +59,14 @@ tessel.syncClock(function () {
 
   function authenticate(device_id, password, done)
   {
-    request('eugeniopace.auth0.com',
+    request('${account.namespace}',
           '/oauth/ro',
           'POST',
           {
           "Content-type": "application/json",
         },
         JSON.stringify({
-            client_id:   'YOUR CLIENT ID IN AUTH0', // {client-name}
+            client_id:   '${account.clientId}',
             username:    device_id,
             password:    password,
             connection:  'devices',

@@ -5,10 +5,10 @@
 ## ------------------------------------------------------------
 
 appTypes:
-  - title: Mobile App
+  - title: Mobile / Native App
     name: native
-    description: "Mobile, desktop, and hybrid apps"
-    example: "eg: iOS, Android"
+    description: "Native and hybrid mobile, desktop"
+    example: "eg: iOS, Android, Chrome"
     question: "Select a native SDK"
     budicon: 243
     slug: native-platforms
@@ -29,7 +29,7 @@ appTypes:
     budicon: 349
     slug: server-platforms
 
-  - title: Backend/API
+  - title: Backend / API
     name: backend
     description: "An API or service that does JWT validation"
     example: "eg: Hapi.js API, ASP.NET API"

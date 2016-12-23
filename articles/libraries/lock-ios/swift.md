@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: Using Lock with Swift
 description: How to use Swift with Lock iOS.
 ---

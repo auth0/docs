@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: Lock for Android Configuration Options
 description: Altering the appearance and behavior of Lock for Android
 ---

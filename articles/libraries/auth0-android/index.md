@@ -1,4 +1,6 @@
 ---
+section: libraries
+toc: true
 description: How to install, initialize and use Auth0.Android
 url: /libraries/auth0-android
 ---
@@ -285,6 +287,7 @@ Also register the intent filters inside your activity's tag, so you can receive 
         <activity
             android:name="com.mycompany.MainActivity"
             android:theme="@style/MyAppTheme">
+            android:launchMode="singleTask">
             
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -305,7 +308,9 @@ Also register the intent filters inside your activity's tag, so you can receive 
     </application>
 ```
 
-To capture the response, override the `onNewIntent` method and call `WebAuthProvider.resume()` with the received parameters.
+Make sure the Activity's `launchMode` is declared as `singleTask` or the result won't come back after the authentication.
+
+When you launch the WebAuthProvider you'll expect a result back. To capture the response override the `onNewIntent` method and call `WebAuthProvider.resume()` with the received parameters:
 
 ```java
 public class MyActivity extends Activity {
@@ -328,7 +333,7 @@ The `withConnection` option allows you to specify a connection that you wish to 
 ```java
 WebAuthProvider.init(account)
                 .withConnection("twitter")
-                .start(MainActivity.this, authCallback, WEB_REQ_CODE);
+                .start(MainActivity.this, authCallback);
 ```
 
 ### Authenticate using a code grant with PKCE
@@ -341,7 +346,7 @@ Before you can use `Code Grant` in Android, make sure to go to your [client's se
 ```java
 WebAuthProvider.init(account)
                 .useCodeGrant(true)
-                .start(MainActivity.this, authCallback, WEB_REQ_CODE);
+                .start(MainActivity.this, authCallback);
 ```
 
 ### Authenticate using a specific scope
@@ -351,7 +356,7 @@ Using scopes can allow you to return specific claims for specfic fields in your 
 ```java
 WebAuthProvider.init(account)
                 .withScope("user openid")
-                .start(MainActivity.this, authCallback, WEB_REQ_CODE);
+                .start(MainActivity.this, authCallback);
 ```
 
 ::: panel-info Scope
@@ -365,7 +370,7 @@ There may be times when you need to authenticate with particular connection scop
 ```java
 WebAuthProvider.init(account)
                 .withConnectionScope("email", "profile", "calendar:read")
-                .start(MainActivity.this, authCallback, WEB_REQ_CODE);
+                .start(MainActivity.this, authCallback);
 ```
 
 ### Authenticate with Auth0 hosted login page
@@ -374,5 +379,5 @@ If no connection name is specified, using the Auth0 [Hosted Login Page](hosted-p
 
 ```java
 WebAuthProvider.init(account)
-                .start(MainActivity.this, authCallback, WEB_REQ_CODE);
+                .start(MainActivity.this, authCallback);
 ```

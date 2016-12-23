@@ -22,11 +22,7 @@ First, add the `auth0.js` library to your application:
 ```typescript
 // index.html
 
-...
-
 <script src="${auth0js_url}"></script>
-
-...
 ```
 
 You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL` and set `responseType: 'token'`:
@@ -57,7 +53,7 @@ public login(username, password) {
   }, function(err) {
     if (err) alert("something went wrong: " + err.message);
   });
-};
+}
 ```
 
 Since the `auth0.js` library uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login.
@@ -68,8 +64,6 @@ Inside the `Auth` service constructor, check for `hash` information using  Auth0
 
 ```typescript
 // app/auth.service.ts
-
-...
 
 export class Auth {
   constructor(private router: Router) {
@@ -82,7 +76,8 @@ export class Auth {
       alert('error: ' + result.error);
     }
   }
- ...
+  // ...
+}
 ```
 
 Now, add a form to call the login:
@@ -119,18 +114,15 @@ public signUp(username, password) {
   }, function(err) {
     if (err) alert("something went wrong: " + err.message);
   });
-};
+}
 ```
 
 and add a **Sign Up** button to call this method:
 
 ```html
   <!-- app/login.template.html -->
-  ...
 
   <button type="submit" class="btn btn-default" (click)="auth.signUp(username.value, password.value)">Sign Up</button>
-
-  ...
 ```
 
 ## Social login
@@ -146,12 +138,13 @@ public googleLogin() {
   }, function(err) {
     if (err) alert("something went wrong: " + err.message);
   });
-};
+}
 ```
 
 and add a button to call this method:
 
 ```html
   <!--  app/login.template.html -->
+
   <button type="submit" class="btn btn-default btn-primary" (click)="auth.googleLogin()">Login with Google</button>
 ```

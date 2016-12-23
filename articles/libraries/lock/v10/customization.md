@@ -1,10 +1,12 @@
 ---
+section: libraries
+toc: true
 description: Lock 10 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
 ---
 
 <%= include('../_includes/_lock-version') %>
 
-# Lock: User configurable options
+# Lock: Configurable Options
 The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the Lock widget behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
 
 ```js
@@ -13,58 +15,79 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 ## Index of Configurable Options
 
-**Display Options**:
-- [allowedConnections](#allowedconnections-array-)
-- [autoclose](#autoclose-boolean-)
-- [autofocus](#autofocus-boolean-)
-- [avatar](#avatar-object-)
-- [closable](#closable-boolean-)
-- [container](#container-string-)
-- [language](#language-string-)
-- [languageDictionary](#languagedictionary-object-)
-- [popupOptions](#popupoptions-object-)
-- [rememberLastLogin](#rememberlastlogin-boolean-)
+### Display Options
 
-**Theming Options**:
-- [theme](#theme-object-)
-- [authButtons](#authbuttons-object-)
-- [labeledSubmitButton](#labeledsubmitbutton-boolean-)
-- [logo](#logo-string-)
-- [primaryColor](#primarycolor-string-)
+| Option | Description |
+| --- | --- |
+| [allowedConnections](#allowedconnections-array-) | limit the client connections shown in Lock to a particular set |
+| [autoclose](#autoclose-boolean-) | Whether or not Lock auto closes after a login |
+| [autofocus](#autofocus-boolean-) | Whether or not focus is set on first input field |
+| [avatar](#avatar-object-) | Obtain avatar from a non gravatar source |
+| [closable](#closable-boolean-) | Whether or not Lock is closable |
+| [container](#container-string-) | Embed Lock in a container |
+| [language](#language-string-) | Change the language of Lock |
+| [languageDictionary](#languagedictionary-object-) | Change text in particular sections of Lock |
+| [popupOptions](#popupoptions-object-) | Customize the location of the popup |
+| [rememberLastLogin](#rememberlastlogin-boolean-) | Whether to remember the last login option chosen |
 
-**Social Options**:
-- [socialButtonStyle](#socialbuttonstyle-string-)
+### Theming Options
 
-**Authentication setup**:
-- [auth](#auth-object-)
-- [connectionScopes](#connectionscopes-object-)
-- [params](#params-object-)
-- [redirect](#redirect-boolean-)
-- [redirectUrl](#redirecturl-string-)
-- [responseMode](#responsemode-string-)
-- [responseType](#responsetype-string-)
-- [sso](#sso-boolean-)
+| Option | Description |
+| --- | --- |
+| [theme](#theme-object-) | The theme object contains the below theming options |
+| [authButtons](#authbuttons-object-) | Customize the appearance of specific connection buttons |
+| [labeledSubmitButton](#labeledsubmitbutton-boolean-) | whether or not the submit button has text |
+| [logo](#logo-string-) | What logo should be used |
+| [primaryColor](#primarycolor-string-) | Color of the primary button on the widget |
 
-**Database Options**:
-- [additionalSignUpFields](#additionalsignupfields-array-)
-- [allowLogin](#allowlogin-boolean-)
-- [allowForgotPassword](#allowforgotpassword-boolean-)
-- [allowSignUp](#allowsignup-boolean-)
-- [defaultDatabaseConnection](#defaultdatabaseconnection-string-)
-- [initialScreen](#initialscreen-string-)
-- [loginAfterSignUp](#loginaftersignup-boolean-)
-- [forgotPasswordLink](#forgotpasswordlink-string-)
-- [mustAcceptTerms](#mustacceptterms-boolean-)
-- [prefill](#prefill-object-)
-- [signUpLink](#signuplink-string-)
-- [usernameStyle](#usernamestyle-string-)
+### Social Options
 
-**Enterprise Options**:
-- [defaultEnterpriseConnection](#defaultenterpriseconnection-string-)
+| Option | Description |
+| --- | --- |
+| [socialButtonStyle](#socialbuttonstyle-string-) | Force small or large social connection buttons |
 
-**Other Options**:
-- [clientBaseUrl](#clientbaseurl-string-)
-- [languageBaseUrl](#languagebaseurl-string-) 
+### Authentication Setup
+
+| Option | Description |
+| --- | --- |
+| [auth](#auth-object-) | The auth object contains the below auth options |
+| [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
+| [params](#params-object-) | Option to send parameters at login |
+| [redirect](#redirect-boolean-) | Whether or not to use redirect mode |
+| [redirectUrl](#redirecturl-string-) | The URL to redirect to after auth |
+| [responseMode](#responsemode-string-) | Option to send response as POST |
+| [responseType](#responsetype-string-) | Response as a code or token |
+| [sso](#sso-boolean-) | Whether or not to attempt to fetch SSO data and set cookie |
+
+### Database Options
+
+| Option | Description |
+| --- | --- |
+| [additionalSignUpFields](#additionalsignupfields-array-) | Additional fields collected at signup |
+| [allowLogin](#allowlogin-boolean-) | Whether or not to allow login on widget |
+| [allowForgotPassword](#allowforgotpassword-boolean-) | Whether or not to allow forgot password on widget |
+| [allowSignUp](#allowsignup-boolean-) | Whether or not to allow signup on widget |
+| [defaultDatabaseConnection](#defaultdatabaseconnection-string-) | Default shown DB connection |
+| [initialScreen](#initialscreen-string-) | Which screen to show when the widget is opened |
+| [loginAfterSignUp](#loginaftersignup-boolean-) | After signup, whether or not to auto login |
+| [forgotPasswordLink](#forgotpasswordlink-string-) | Link to a custom forgot password page |
+| [mustAcceptTerms](#mustacceptterms-boolean-) | Whether or not terms must be accepted (checkbox) |
+| [prefill](#prefill-object-) | Prefill values for email/username fields |
+| [signUpLink](#signuplink-string-) | Set a custom url to fire when clicking "sign up" |
+| [usernameStyle](#usernamestyle-string-) | Toggle "username", "password" or "username and password" |
+
+### Enterprise Options
+
+| Option | Description |
+| --- | --- |
+| [defaultEnterpriseConnection](#defaultenterpriseconnection-string-) | Specifies a connection if more than one present |
+
+### Other Options
+
+| Option | Description |
+| --- | --- |
+| [clientBaseUrl](#clientbaseurl-string-) | Override your client's base URL |
+| [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
 
 ---
 
@@ -449,10 +472,10 @@ For more details about supported parameters check the [Authentication Parameters
 
 #### redirect {Boolean}
 
-Defaults to true. When set to true, redirect mode will be used. If set to false, popup mode is chosen. 
+Defaults to true. When set to true, redirect mode will be used. If set to false, [popup mode](/libraries/lock/v10/popup-mode) is chosen.
 
 ::: panel-warning Popup mode
-WARNING: There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. See more info here.
+WARNING: There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. See more info [here](https://ask.auth0.com/t/popup-login-window-is-not-closed-after-authentication/2843).
 :::
 
 ```js
@@ -690,10 +713,9 @@ var option = {
 
 ### forgotPasswordLink {String}
 
-Set the URL for a page that allows the user to reset her password. When set to a non-empty string, the user will be sent to the provided URL when clicking the "Don't remember your password?" link in the login screen.
+Set the URL for a page that allows the user to reset their password. When set to a non-empty string, the user will be sent to the provided URL when clicking the "Don't remember your password?" link in the login screen.
 
 ```js
-//
 var options = {
   forgotPasswordLink: 'https://yoursite.com/reset-password'
 };
@@ -704,7 +726,6 @@ var options = {
 When set to `true` displays a checkbox input alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified via the `languageDictionary` option. This option will only take effect for users signing up with database connections. Defaults to `false`.
 
 ```js
-//
 var options = {
   mustAcceptTerms: true
 };
@@ -715,9 +736,11 @@ var options = {
 Allows to set the initial value for the email and/or username inputs. When omitted, no initial value will be provided.
 
 ```js
-//
 var options = {
-  prefill: '{prefill: {email: "someone@auth0.com", username: "someone"}}'
+  prefill: {
+    email: "someone@auth0.com", 
+    username: "someone"
+  }
 };
 ```
 
@@ -730,7 +753,6 @@ When set to a non empty string, this option forces `allowSignUp` to `true`.
 :::
 
 ```js
-//
 var options = {
   signUpLink: 'https://yoursite.com/signup'
 };
@@ -789,7 +811,7 @@ var options = {
 
 ### clientBaseUrl {String}
 
-This option can overr URL to override client settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your client not use the default behavior.
+This option can provide a URL to override the client settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your client not use the default behavior.
 
 ```js
 var options = {

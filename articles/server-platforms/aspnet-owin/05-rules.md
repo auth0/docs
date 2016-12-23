@@ -14,7 +14,7 @@ budicon: 173
 
 ## Add the country as a claim
 
-The Auth0 OAuth2 middleware will not add the country as a claim, so you will need to do this manually. You can alter the middleware registration in the `Startup` class to pass in a `Auth0AuthenticationOptions`, and then add a `OnAuthenticated` event handler which extracts the country from the `User` object and add it as a claim:
+The Auth0 OAuth2 middleware will not add the country as a claim, so you will need to do this manually. You can alter the middleware registration in the `Startup` class to pass in an `Auth0AuthenticationOptions`, and then add an `OnAuthenticated` event handler which extracts the country from the `User` object and add it as a claim:
 
 ```csharp
 var options = new Auth0AuthenticationOptions

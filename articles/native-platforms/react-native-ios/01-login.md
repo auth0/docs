@@ -8,17 +8,13 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0',
   repo: 'Mobile-Samples.React',
-  path: 'Classic/Lock'
+  path: 'Classic/Lock',
+  requirements: [
+    'React Native 0.26.0',
+    'CocoaPods 1.0.0',
+    'NodeJS 4.3'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* React Native 0.26.0
-* CocoaPods 1.0.0
-* NodeJS 4.3
-:::
-
-
 
 ## CocoaPods
 
@@ -101,116 +97,3 @@ After the user has logged in, we can use the `profile` object which has all the 
 ```
 
 > You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
-
-### Optional: Twitter & Facebook Native Login
-
-To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following methods to your `AppDelegate` class.
-
-```objc
-#import "A0LockReact.h"
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  return [[[A0LockReact sharedInstance] lock] handleURL:url sourceApplication:sourceApplication];
-}
-
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
-  return [[[A0LockReact sharedInstance] lock] continueUserActivity:userActivity restorationHandler:restorationHandler];
-}
-```
-
-And then inside the method `application:didFinishLaunchingWithOptions` the following line
-
-```objc
-  [[[A0LockReact sharedInstance] lock] applicationLaunchedWithOptions:launchOptions];
-```
-
-#### Facebook
-
-Lock uses the native Facebook SDK to obtain the user's access token so you'll need to configure it using your Facebook App info:
-
-First, add the following entries to the `Info.plist`:
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Key</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tr>
-    <td>FacebookAppID</td>
-    <td>YOUR_FACEBOOK_APP_ID</td>
-  </tr>
-  <tr>
-    <td>FacebookDisplayName</td>
-    <td>YOUR_FACEBOOK_DISPLAY_NAME</td>
-  </tr>
-</table>
-
-Then, register a custom URL Type with the format `fb<FacebookAppID>`.
-
-> For more information on how to configure this, please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
-
-> **Note:** The Facebook app should be the same as the one set in Facebook's Connection settings on your Auth0 account
-
-Here's an example of how the entries should look like:
-
-![FB plist](/media/articles/libraries/lock-ios/fb-plist.png)
-
-If you need have iOS 9 support for your app, then make sure to add the `LSApplicationQueriesSchemes` key to your Info.plist file and add the `fbauth2` value to it.
-
-Here's how the entries for `LSApplicationQueriesSchemes` should look like:
-
-![FB LSApplicationQueriesSchemes](/media/articles/native-platforms/reactnative-ios/FB-LSApplicationQueriesSchemes.png)
-
-Then add Lock Facebook's Pod in `ios/Podfile` file and run `pod install --project-directory=ios`
-
-```ruby
-pod 'Lock-Facebook', '~> 2.2'
-```
-
-Finally, you need to register Auth0 Facebook integration when creating `Auth0Lock` :
-
-```js
-var lock = new Auth0Lock({
-  //Other Lock config options
-  integrations: {
-    facebook: {}
-  }
-});
-```
-
-If you need to use other permissions besides the default:
-
-```js
-var lock = new Auth0Lock({
-  //Other Lock config options
-  integrations: {
-    facebook: {
-      permissions: "public_profile"
-    }
-  }
-});
-```
-
-#### Twitter
-
-First add Lock Twitter's Pod in `ios/Podfile` file and run `pod install --project-directory=ios`
-
-```ruby
-pod 'Lock-Twitter', '~> 1.1'
-```
-
-Finally, you need to register Auth0 Twitter integration when creating `Auth0Lock` :
-
-```js
-var lock = new Auth0Lock({
-  //Other Lock config options
-  integrations: {
-    twitter: {
-      api_key: "YOUR TWITTER API KEY",
-      api_secret: "YOUR TWITTER API SECRET"
-    }
-  }
-});
-```
