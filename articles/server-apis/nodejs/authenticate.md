@@ -29,6 +29,7 @@ ${snippet(meta.snippets.dependencies)}
 
 You need to set the ClientID and ClientSecret in `express-jwt`'s configuration so that it can validate and sign [JWT](/jwt)s for you.
 
+> Make sure to base64 encode your secret: `new Buffer('your_auth0_secret', 'base64')`
 ${snippet(meta.snippets.setup)}
 
 ### 3. Secure your API
