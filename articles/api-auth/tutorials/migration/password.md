@@ -1,12 +1,14 @@
 ---
-description: OIDC-conformant Authorization Code grant
+title: OIDC-conformant Resource Owner Password Credentials exchange
 ---
 
-# Authorization Code grant
+# Resource Owner Password Credentials exchange
 
 <%= include('./_about.md') %>
 
-The [Authorization Code grant](/api-auth/grant/authorization-code) is used by server-side clients that are capable of securely storing secrets, or by [native clients through PKCE](/api-auth/grant/authorization-code-pkce).
+The [Resource Owner Password Credentials exchange](/api-auth/grant/password) is used by highly-trusted clients to provide active authentication.
+Unlike the authorization code and implicit grants, this authentication mechanism does not redirect users to Auth0.
+It authenticates users with a single request, exchanging their password credentials for a token.
 This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
 
 ## Authentication request
@@ -20,27 +22,37 @@ This document describes the differences of this flow between the legacy and OIDC
   </div>
   <div class="tab-content">
     <div id="request-legacy" class="tab-pane active">
-      <pre class="text hljs"><code>GET /authorize?
-    response_type=code
-    &scope=openid email favorite_color offline_access
-    &client_id=123
-    &state=af0ifjsldkj
-    &redirect_uri=https://app.example.com/callback
-    &device=my-device-name</code></pre>
+      <pre class="text hljs"><code>POST /oauth/ro HTTP 1.1
+Content-Type: application/json
+{
+  "grant_type": "password",
+  "client_id": "123",
+  "username": "alice",
+  "password": "A3ddj3w",
+  "connection": "my-database-connection",
+  "scope": "openid email favorite_color offline_access",
+  "device": "my-device-name"
+}</code></pre>
     <ul>
         <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a refresh token</a> by passing the <code>offline_access</code> scope.</li>
     </ul>
     </div>
     <div id="request-oidc" class="tab-pane">
-      <pre class="text hljs"><code>GET /authorize?
-    response_type=code
-    &scope=openid email offline_access
-    &client_id=123
-    &state=af0ifjsldkj
-    &redirect_uri=https://app.example.com/callback
-    &audience=https://api.example.com </code></pre>
+      <pre class="text hljs"><code>POST /oauth/token HTTP 1.1
+Content-Type: application/json
+{
+  "grant_type": "http://auth0.com/oauth/grant-type/password-realm",
+  "client_id": "123",
+  "username": "alice",
+  "password": "A3ddj3w",
+  "realm": "my-database-connection",
+  "scope": "openid email offline_access",
+  "audience": "https://api.example.com"
+}</code></pre>
     <ul>
-        <li><code>favorite_color</code> is no longer a valid scope value.</li>
+        <li>The endpoint to execute token exchanges is <code>/oauth/token</code>.</li>
+        <li><a href="/api-auth/tutorials/password-grant#realm-support">Auth0's own grant type</a> is used to authenticate users from a specific connection (<code>realm</code>).</li>
+        <li><code>favorite_color</code> is no longer a valid scope.</li>
         <li>The <code>device</code> parameter is removed.</li>
         <li>The <code>audience</code> parameter is optional.</li>
     </ul>
@@ -50,43 +62,15 @@ This document describes the differences of this flow between the legacy and OIDC
 
 ## Authentication response
 
-The response from Auth0 is identical in both pipelines:
-
-```text
-HTTP/1.1 302 Found
-Location: https://app.example.com/callback?
-    code=SplxlOBeZQQYbYS6WxSbIA
-    &state=af0ifjsldkj
-```
-
-
-## Code exchange request
-
-An authorization code can be exchanged in the same way in both pipelines:
-
-```text
-POST /oauth/token HTTP/1.1
-Content-Type: application/json
-{
-    "grant_type": "authorization_code",
-    "client_id": "123",
-    "client_secret": "...",
-    "code": "SplxlOBeZQQYbYS6WxSbIA",
-    "redirect_uri": "https://app.example.com/callback"
-}
-```
-
-## Code exchange response
-
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
-      <li><a href="#exchange-legacy" data-toggle="tab">Legacy</a></li>
-      <li><a href="#exchange-oidc" data-toggle="tab">OIDC-conformant</a></li>
+      <li><a href="#response-legacy" data-toggle="tab">Legacy</a></li>
+      <li><a href="#response-oidc" data-toggle="tab">OIDC-conformant</a></li>
     </ul>
   </div>
   <div class="tab-content">
-    <div id="exchange-legacy" class="tab-pane active">
+    <div id="response-legacy" class="tab-pane active">
       <pre class="text hljs"><code>HTTP/1.1 200 OK
 Content-Type: application/json
 Cache-Control: no-store
@@ -103,7 +87,7 @@ Pragma: no-cache
         <li>A refresh token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>
-    <div id="exchange-oidc" class="tab-pane">
+    <div id="response-oidc" class="tab-pane">
       <pre class="text hljs"><code>HTTP/1.1 200 OK
 Content-Type: application/json
 Cache-Control: no-store
@@ -115,13 +99,14 @@ Pragma: no-cache
     "expires_in": 3600,
     "id_token": "eyJ..."
 }</code></pre>
-        <ul>
-            <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> and optionally the resource server specified by the <code>audience</code> parameter.</li>
-            <li>A refresh token will be returned only if the <code>offline_access</code> scope was granted.</li>
-        </ul>
+    <ul>
+        <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> and optionally the resource server specified by the <code>audience</code> parameter.</li>
+        <li>A refresh token will be returned only if the <code>offline_access</code> scope was granted.</li>
+    </ul>
     </div>
   </div>
 </div>
+
 
 ## ID token structure
 

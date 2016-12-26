@@ -1,12 +1,12 @@
 ---
-description: OIDC-conformant Authorization Code grant
+title: OIDC-conformant Implicit grant
 ---
 
-# Authorization Code grant
+# Implicit grant
 
 <%= include('./_about.md') %>
 
-The [Authorization Code grant](/api-auth/grant/authorization-code) is used by server-side clients that are capable of securely storing secrets, or by [native clients through PKCE](/api-auth/grant/authorization-code-pkce).
+The [Implicit grant](/api-auth/grant/implicit) is used by clients that are incapable of securely storing secrets, such as single-page JavaScript applications.
 This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
 
 ## Authentication request
@@ -21,11 +21,11 @@ This document describes the differences of this flow between the legacy and OIDC
   <div class="tab-content">
     <div id="request-legacy" class="tab-pane active">
       <pre class="text hljs"><code>GET /authorize?
-    response_type=code
+    response_type=token
     &scope=openid email favorite_color offline_access
     &client_id=123
     &state=af0ifjsldkj
-    &redirect_uri=https://app.example.com/callback
+    &redirect_uri=https://app.example.com
     &device=my-device-name</code></pre>
     <ul>
         <li>The <code>device</code> parameter is only needed if <a href="/tokens/refresh-token">requesting a refresh token</a> by passing the <code>offline_access</code> scope.</li>
@@ -33,16 +33,19 @@ This document describes the differences of this flow between the legacy and OIDC
     </div>
     <div id="request-oidc" class="tab-pane">
       <pre class="text hljs"><code>GET /authorize?
-    response_type=code
-    &scope=openid email offline_access
+    response_type=token id_token
+    &scope=openid email
     &client_id=123
     &state=af0ifjsldkj
-    &redirect_uri=https://app.example.com/callback
+    &nonce=jxdlsjfi0fa
+    &redirect_uri=https://app.example.com
     &audience=https://api.example.com </code></pre>
     <ul>
-        <li><code>favorite_color</code> is no longer a valid scope value.</li>
-        <li>The <code>device</code> parameter is removed.</li>
+        <li>This <code>response_type</code> parameter indicates that we want to receive both an access token and ID token.</li>
+        <li>Refresh tokens are not allowed in the implicit grant. <a href="/api-auth/tutorials/silent-authentication">Use <code>prompt=none</code> instead</a>.</li>
+        <li><code>favorite_color</code> is no longer a valid scope.</li>
         <li>The <code>audience</code> parameter is optional.</li>
+        <li>The <code>nonce</code> parameter must be a <a href="/api-auth/tutorials/nonce">cryptographically secure random string</a>.</li>
     </ul>
     </div>
   </div>
@@ -50,78 +53,45 @@ This document describes the differences of this flow between the legacy and OIDC
 
 ## Authentication response
 
-The response from Auth0 is identical in both pipelines:
-
-```text
-HTTP/1.1 302 Found
-Location: https://app.example.com/callback?
-    code=SplxlOBeZQQYbYS6WxSbIA
-    &state=af0ifjsldkj
-```
-
-
-## Code exchange request
-
-An authorization code can be exchanged in the same way in both pipelines:
-
-```text
-POST /oauth/token HTTP/1.1
-Content-Type: application/json
-{
-    "grant_type": "authorization_code",
-    "client_id": "123",
-    "client_secret": "...",
-    "code": "SplxlOBeZQQYbYS6WxSbIA",
-    "redirect_uri": "https://app.example.com/callback"
-}
-```
-
-## Code exchange response
-
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
-      <li><a href="#exchange-legacy" data-toggle="tab">Legacy</a></li>
-      <li><a href="#exchange-oidc" data-toggle="tab">OIDC-conformant</a></li>
+      <li><a href="#response-legacy" data-toggle="tab">Legacy</a></li>
+      <li><a href="#response-oidc" data-toggle="tab">OIDC-conformant</a></li>
     </ul>
   </div>
   <div class="tab-content">
-    <div id="exchange-legacy" class="tab-pane active">
-      <pre class="text hljs"><code>HTTP/1.1 200 OK
-Content-Type: application/json
-Cache-Control: no-store
-Pragma: no-cache
-{
-    "access_token": "SlAV32hkKG",
-    "token_type": "Bearer",
-    "refresh_token": "8xLOxBtZp8",
-    "expires_in": 3600,
-    "id_token": "eyJ..."
-}</code></pre>
+    <div id="response-legacy" class="tab-pane active">
+      <pre class="text hljs"><code>HTTP/1.1 302 Found
+Location: https://app.example.com/#
+    access_token=SlAV32hkKG
+    &expires_in=86400
+    &state=af0ifjsldk
+    &id_token=eyJ...
+    &refresh_token=8xLOxBtZp8
+    &token_type=Bearer</code></pre>
     <ul>
         <li>The returned access token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
         <li>A refresh token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>
-    <div id="exchange-oidc" class="tab-pane">
-      <pre class="text hljs"><code>HTTP/1.1 200 OK
-Content-Type: application/json
-Cache-Control: no-store
-Pragma: no-cache
-{
-    "access_token": "eyJ...",
-    "token_type": "Bearer",
-    "refresh_token": "8xLOxBtZp8",
-    "expires_in": 3600,
-    "id_token": "eyJ..."
-}</code></pre>
-        <ul>
-            <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> and optionally the resource server specified by the <code>audience</code> parameter.</li>
-            <li>A refresh token will be returned only if the <code>offline_access</code> scope was granted.</li>
-        </ul>
+    <div id="response-oidc" class="tab-pane">
+      <pre class="text hljs"><code>HTTP/1.1 302 Found
+Location: https://app.example.com/#
+    access_token=eyJ...
+    &expires_in=86400
+    &state=af0ifjsldk
+    &id_token=eyJ...
+    &token_type=Bearer</code></pre>
+    <ul>
+        <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> and optionally the resource server specified by the <code>audience</code> parameter.</li>
+        <li>If using <code>response_type=token</code> or <code>response_type=id_token</code>, Auth0 will only return an access token or ID token respectively.</li>
+        <li>Refresh tokens are not allowed in the implicit grant. <a href="/api-auth/tutorials/silent-authentication">Use <code>prompt=none</code> instead</a>.</li>
+    </ul>
     </div>
   </div>
 </div>
+
 
 ## ID token structure
 
@@ -154,10 +124,12 @@ Pragma: no-cache
     "iat": 1482773609,
     "email": "alice@example.com",
     "email_verified": true,
-    "https://app.example.com/favorite_color": "blue"
+    "https://app.example.com/favorite_color": "blue",
+    "nonce": "jxdlsjfi0fa"
 }</code></pre>
         <ul>
             <li>The <code>favorite_color</code> claim must be namespaced and added through a rule.</li>
+            <li>After validating the ID token, the client must <a href="/api-auth/tutorials/nonce">validate the nonce to mitigate replay attacks</a>.</li>
         </ul>
     </div>
   </div>
