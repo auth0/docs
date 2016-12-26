@@ -21,8 +21,3 @@ articles:
   - 03-user-sessions
   - 04-calling-apis
   - 05-authorization
-  - 05-linking-accounts
-  - 06-rules
-  - 09-mfa
-  - 10-customizing-lock
-  - 11-api-authorization

@@ -13,142 +13,173 @@ budicon: 448
   ]
 }) %>
 
-In the [previous step](/quickstart/spa/jquery/01-login), we enabled login with the Auth0 Lock widget. You can also build your own custom UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
+Auth0's hosted Lock widget provides a quick and easy way to get up and running with authentication. For those cases where a custom login form is necessary, you may supply your own form and use **auth0.js** to make the appropriate authentication calls. This step demonstrates how to add a custom login form to a jQuery application.
 
-## Custom Login
+<%= include('_includes/_dependencies') %>
 
-First, you must add the `Auth0.js` library to your application:
+<%= include('_includes/_configuration') %>
 
-```html
-<!-- index.html -->
+## Provide a Login Form
 
-<script src="${auth0js_url}"></script>
-```
+The focus of this step is on how to allow users to log into a jQuery application using a custom form, but it will also show how to allow sign up and social authentication using the same form.
 
-You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL` and set `responseType: 'token'`:
-
-```javascript
-// app.js
-
-$(document).ready(function() {
-  var auth0 = null;
-  // Configure Auth0
-  auth0 = new Auth0({
-    domain: '${account.namespace}',
-    clientID: '${account.clientId}',
-    responseType: 'token',
-    callbackURL: '${account.callback}'
-  });
-});
-```
-
-In the `login` method, call the `login` function on the `Auth0` instance, setting `connection` to `Username-Password-Authentication` and `responseType` to `token`:
-
-```javascript
-// app.js
-
-$('#btn-login').on('click', function(ev) {
-  ev.preventDefault();
-  var username = $('#username').val();
-  var password = $('#password').val();
-  auth0.login({
-    connection: 'Username-Password-Authentication',
-    responseType: 'token',
-    email: username,
-    password: password,
-  }, function(err) {
-    if (err) alert("something went wrong: " + err.message);
-  });
-});
-```
-
-Since `Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login.
-
-With `responseType: 'token'`, the result will be appended to the URL.
-
-Check for `hash` information using  Auth0's `parseHash` method, which will extract the `id_token`. Save it to `localStorage`:
-
-```javascript
-// ./app.js
-
-var parseHash = function() {
-  var result = auth0.parseHash(window.location.hash);
-  if (result && result.idToken) {
-    localStorage.setItem('id_token', result.idToken);
-  } else if (result && result.error) {
-    alert('error: ' + result.error);
-  }
-};
-
-parseHash();
-```
-
-Now, add a form to call the login:
+Provide a form with `input` elements for the user's email address and password.
 
 ```html
 <!-- index.html -->
 
-<form class="form-signin">
-  <h2 class="form-signin-heading">Please sign in</h2>
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="text" id="username" class="form-control" placeholder="Email address" autofocus required>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="password" class="form-control" placeholder="Password" required>
-  <button class="btn btn-lg btn-default" type="button" id="btn-login">Sign In</button>
+<div id="log-in-message">
+  <h3>Welcome, please log in!</h3>
+</div>
+
+<div id="logged-in-message">
+  <h3>Thank you for logging in!</h3>
+  <button class="btn btn-default" type="button" id="btn-logout">Log Out</button>
+</div>
+
+<form class="login-form">
+
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="text" id="email" class="form-control" placeholder="Email Address" autofocus required>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" class="form-control" placeholder="Password" required>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary" id="btn-login">Log In</button>
+    <button class="btn btn-primary" id="btn-signup">Sign Up</button>
+  </div>
+
+  <div class="form-group">        
+    <button class="btn btn-danger" type="button" id="btn-google">Log In with Google</button>
+  </div>
+
 </form>
 ```
 
-## Sign up
+The form also has buttons for **Log In** and **Sign Up**. These buttons will trigger events which have callbacks to handle those actions. A **Log In with Google** button is supplied and will trigger an authentication transaction with Google.
 
-To allow users to sign up, provide a `signUp` method:
+![custom login form](/media/articles/jquery/custom-login.png)
 
-```javascript
+## Provide Login and Signup Event Listeners
+
+The **Log In** and **Sign Up** buttons should trigger calls to the appropriate **auth0.js** methods to handle those actions.
+
+```js
 // app.js
 
-$('#btn-register').on('click', function(ev) {
-  ev.preventDefault();
-  var username = $('#username').val();
+var btnLogin = $('#btn-login');
+var btnSignup = $('#btn-signup');
+
+btnLogin.on('click', function(e) {
+  e.preventDefault();
+  var email = $('#email').val();
   var password = $('#password').val();
-  auth0.signup({
+
+  auth.login({
     connection: 'Username-Password-Authentication',
-    responseType: 'token',
-    email: username,
+    responseType: 'token id_token',
+    redirectUri: window.location.href,
+    email: email,
     password: password,
   }, function(err) {
-    if (err) alert("something went wrong: " + err.message);
+    if (err) {
+      alert(err.description);
+    }
+  });
+});
+
+btnSignup.on('click', function(e) {
+  e.preventDefault();
+  var email = $('#email').val();
+  var password = $('#password').val();
+
+  auth.signup({
+    connection: 'Username-Password-Authentication',
+    responseType: 'token id_token',
+    redirectUri: window.location.href,
+    email: email,
+    password: password
+  }, function(err, user) {
+    if (err) {
+      alert(err.description);
+      return;
+    }
+    console.log(user);
   });
 });
 ```
 
-and add a **Sign Up** button to call this method.
+When the buttons are clicked, the values from the `email` and `password` input elements are supplied to calls to the `login` and `signup` methods from **auth0.js** respectively. These calls are also configured to specify that the user should be redirected to the URI from which the call was initiated, which is determined using `window.location.href` in this case. When the user sucessfully authenticates, their access token and ID token will be returned in the URL hash. Much like the previous step, the `parseHash` method from **auth0.js** can be used to handle this.
 
-```html
-  <!-- index.html -->
+## Parse the Hash and Save The User's Tokens
 
-  <button class="btn btn-lg btn-primary" type="button" id="btn-register">Sign Up</button>
-```
+When the user successfully authenticates, their access token and ID token will be included in the URL hash. These values can be parsed and saved in local storage for later use.
 
-## Social login
-
-To log in using a social connection, set the `connection` property of the `login` method to the identity provider you want to use:
-
-```typescript
+```js
 // app.js
 
-$('#btn-google').on('click', function(ev) {
-  ev.preventDefault();
-  auth0.login({
-    connection: 'google-oauth2'
+var authResult = auth.parseHash(window.location.hash);
+
+if (authResult && authResult.accessToken && authResult.idToken) {
+  window.location.hash = '';
+  localStorage.setItem('access_token', authResult.accessToken);
+  localStorage.setItem('id_token', authResult.idToken);
+  userIsAuthenticated();
+} else {
+  userIsNotAuthenticated();
+}
+```
+
+The `userIsAuthenticated` and `userIsNotAuthenticated` functions exist as helpers to conditionally hide or display various UI elements. In this example, the form itself and the associated messages can be shown or hidden depending on the whether or not the user's authentication action was successful.
+
+```js
+// app.js
+
+function userIsAuthenticated() {
+  $('.login-form').hide();
+  $('#logged-in-message').show();
+  $('#log-in-message').hide();
+}
+
+function userIsNotAuthenticated() {
+  $('.login-form').show();
+  $('#logged-in-message').hide();
+  $('#log-in-message').show();
+}
+```
+
+Now when the user logs in or signs up, their access token and ID token will be stored in local storage and the UI will be updated to reflect the fact that they have logged in.
+
+## Social Authentication
+
+For social authentication with a custom form, the only required UI element is a button for each social provider you wish to include. In this example, Google will be used as one such provider.
+
+The form snippet above includes a button for allowing users to log in with their Google account. With that button in place, listen for a click event on it and trigger authentication with **auth0.js**.
+
+```js
+// app.js
+
+var btnGoogle = $('#btn-google');
+
+btnGoogle.on('click', function(e) {
+  e.preventDefault();
+  auth.login({
+    connection: 'google-oauth2',
+    responseType: 'token id_token',
+    redirectUri: window.location.href,
   }, function(err) {
-    if (err) alert("something went wrong: " + err.message);
+    if (err) {
+      alert(err.description);
+    }
   });
 });
 ```
 
-and add a button to call this method:
+In the callback for this listener, the `login` method from **auth0.js** is called and a `connection` of `google-oauth2` is specified. This will trigger a redirect to Google where the user can supply their credentials. If authentication is successful, the user will be redirected to the jQuery application and the `parseHash` method will find the access token and ID token, saving them in local storage.
 
-```html
-<!-- index.html -->
-
-<button class="btn btn-lg btn-danger" type="button" id="btn-google">Google</button>
-```
+<%= include('_includes/_logout') %>

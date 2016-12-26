@@ -32,7 +32,7 @@ $('.btn-login').click(function(e) {
 
 When the **Log In** button is clicked, the user will be redirected to Auth0's hosted login page where they can enter their credentials.
 
-![](/media/articles/jquery/hosted-lock.png)
+![hosted lock](/media/articles/jquery/hosted-lock.png)
 
 > **Note:** The hosted Lock widget can be fully customized in the [Hosted Pages](${manage_url}/#/login_page) section of your Auth0 dashbaord. For details about how to customize Lock, see the [documentation](/lock).
 

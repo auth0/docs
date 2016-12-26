@@ -25,6 +25,8 @@ This function can now be called when the user clicks a **Log Out** button.
 ```
 
 ```js
+// app.js
+
 $('.btn-logout').click(function(e) {
   e.preventDefault();
   logout();
