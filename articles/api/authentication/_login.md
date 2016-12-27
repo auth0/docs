@@ -102,9 +102,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
-#### Instructions for Debugger
-
-1. At *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
+1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 
 1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
@@ -192,11 +190,6 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 | `access_token`   | REQUIRED. The social provider's `access_token`. |
 | `connection`     | REQUIRED. The name of an identity provider configured to your app. |
 | `scope`          | OPTIONAL. Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `access_token` will be returned. |
-
-
-### Test this endpoint
-
-<%= include('../../_includes/_test-this-endpoint') %>
 
 
 ### Remarks
