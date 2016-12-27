@@ -8,7 +8,11 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-WindowsPhone-samples',
-  path: '00-Starter-Seed/WindowsPhoneSilverlight'
+  path: '00-Starter-Seed/WindowsPhoneSilverlight',
+  requirements: [
+    'Microsoft Visual Studio 2015',
+    'Auth0.WindowsPhone 1.4.1'
+  ]
 }) %>
 
 
