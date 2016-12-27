@@ -72,11 +72,6 @@ This endpoint only works for database connections.
 | `connection`     | REQUIRED. The name of the database connection configured to your client. |
 
 
-### Test this endpoint
-
-<%= include('../../_includes/_test-this-endpoint') %>
-
-
 ### Remarks
 
 - If you are using Lock version 9 and above, **do not set the password field** or you will receive a *password is not allowed* error. You can only set the password if you are using Lock version 8.
