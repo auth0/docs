@@ -38,6 +38,12 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
+1. At the *Configuration* tab, set the field **Client** (select the client you want to use for the test) and **Connection** (the name of the configured identity provider).
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *Other Flows* tab, click **WS-Federation**.
+
 
 ### Remarks
 
@@ -73,11 +79,6 @@ include('../../_includes/_http-method', {
 }) %>
 
 This endpoint returns the WS-Federation metadata.
-
-
-### Test this endpoint
-
-<%= include('../../_includes/_test-this-endpoint') %>
 
 
 ### More Information
