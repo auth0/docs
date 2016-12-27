@@ -11,7 +11,7 @@ budicon: 448
   path: '00-Starter-Seed',
   requirements: [
     'Composer 1.0-dev',
-    'PHP 5.5.12',
+    'PHP 5.6.4',
     'Laravel 5.2.15'
   ]
 }) %>
