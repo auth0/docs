@@ -120,11 +120,6 @@ You have three options for [passwordless authentication](/connections/passwordle
 | `authParams`     | OPTIONAL. Use this to append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`), when you send a link using email. |
 
 
-### Test this endpoint
-
-<%= include('../../_includes/_test-this-endpoint') %>
-
-
 ### Remarks
 
 - If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the [/oauth/ro endpoint](#authenticate-user), using `email` or `phone_number` as the `username`, and the verification code as the `password`.
@@ -242,6 +237,12 @@ Once you have a verification code, use this endpoint to login the user with thei
 ### Test this endpoint
 
 <%= include('../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (use `sms` or `email`).
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
 
 
 ### Remarks
