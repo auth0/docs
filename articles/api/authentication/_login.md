@@ -90,7 +90,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`<br/><span class="label label-danger">Required</span>  | REQUIRED. Use `code` for server side flows and `token` for client side flows |
+| `response_type`  | REQUIRED. Use `code` for server side flows and `token` for client side flows |
 | `client_id`      | REQUIRED. The `client_id` of your client |
 | `connection`     | OPTIONAL. The name of a social identity provider configured to your client, for example `google-oauth2` or `facebook`. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
 | `redirect_uri`   | REQUIRED. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
