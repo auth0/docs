@@ -2,7 +2,7 @@
 description: Describes how to call APIs from client-side web apps using the Implicit Grant.
 ---
 
-# Calling APIs from Client-side Web Apps
+# Call APIs from Client-side Web Apps
 <%=include('../_region-support') %>
 
 The OAuth 2.0 grant that Client-side web apps utilize in order to access an API, is the **Implicit Grant**.
@@ -31,3 +31,4 @@ The first time the user goes through this flow a consent page will be shown wher
  - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
  - [Executing an Implicit Grant flow](/api-auth/tutorials/implicit-grant)
  - [Protecting against replay attacks](/api-auth/tutorials/nonce)
+ - [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)
