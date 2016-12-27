@@ -59,6 +59,18 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri`   | OPTIONAL. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the fields **Audience** (to the unique identifier of the API you want to access), **Response Type** (set to `code`) and enable the **Audience** switch.
+
+1. Click **OAuth / OIDC Login**. You will be redirected to the same page and the URL will contain the authorization code. Note, that the code will be set at the **Authorization Code** field so you can proceed with exchanging it for an access token.
+
 ### Remarks
 
 - Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code).

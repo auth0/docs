@@ -92,6 +92,12 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the fields **ID Token**, **Refresh Token** and **Target Client ID**. Click **Delegation**.
+
 
 ### Remarks
 
