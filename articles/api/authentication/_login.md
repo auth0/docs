@@ -102,6 +102,14 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
+#### Instructions for Debugger
+
+1. At *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
+
 ### Remarks
 
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
