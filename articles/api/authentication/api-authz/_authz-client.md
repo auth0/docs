@@ -53,11 +53,23 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `audience`       | REQUIRED. The unique identifier of the target API you want to access. |
-| `scope`          | OPTIONAL. The scopes which you want to request authorization for. These must be separated by a space. |
+| `scope`          | OPTIONAL. The scopes which you want to request authorization for. These must be separated by a space. Include `offline_access` to get a refresh token. |
 | `response_type`  | REQUIRED. Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
 | `client_id`      | REQUIRED. Your application's Client ID. |
 | `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri`   | OPTIONAL. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the fields **Audience** (to the unique identifier of the API you want to access), **Response Type** (set to `code`) and enable the **Audience** switch.
+
+1. Click **OAuth / OIDC Login**. Following the redirect, the URL will contain the authorization code. Note, that the code will be set at the **Authorization Code** field so you can proceed with exchanging it for an access token.
 
 ### Remarks
 
@@ -69,6 +81,8 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
 - [Executing an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
 - [Using the State Parameter](/protocols/oauth2/oauth-state)
+
+
 
 ## Authorization Code Grant (PKCE)
 
@@ -113,6 +127,19 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `redirect_uri`   | OPTIONAL. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `code_challenge_method` | REQUIRED. Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
 | `code_challenge` | REQUIRED. Generated challenge from the `code_verifier`. |
+
+
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the fields **Audience** (to the unique identifier of the API you want to access), **Response Type** (set to `code`) and enable the **Audience** and **PKCE** switches.
+
+1. Click **OAuth / OIDC Login**. Following the redirect, the URL will contain the authorization code. Note, that the code will be set at the **Authorization Code** field, and the **Code Verifier** will be automatically set as well, so you can proceed with exchanging the code for an access token.
 
 
 ### Remarks
@@ -169,6 +196,19 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 | `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri`   | OPTIONAL. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `nonce` | RECOMMENDED. A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
+
+
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the fields **Audience** (to the unique identifier of the API you want to access), **Response Type** (set to `token`) and enable the **Audience** switch.
+
+1. Click **OAuth / OIDC Login**.
 
 
 ### Remarks

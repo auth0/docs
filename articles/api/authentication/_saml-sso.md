@@ -76,6 +76,7 @@ This endpoint returns the SAML 2.0 metadata.
 |:-----------------|:------------|
 | `client_id`      | REQUIRED. The `client_id` of your client. |
 
+
 ### More Information
 - [SAML](/protocols/saml)
 
@@ -114,6 +115,18 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 |:-----------------|:------------|
 | `connection`     | REQUIRED. The name of an identity provider configured to your client. |
 | `SAMLResponse`   | REQUIRED. An IdP-Initiated Sign On SAML Response. |
+
+
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the field **Client** (select the client you want to use for the test) and **Connection** (the name of the configured identity provider).
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *Other Flows* tab, click **SAML**.
+
 
 ### More Information
 - [SAML](/protocols/saml)

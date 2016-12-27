@@ -82,6 +82,19 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `redirect_uri`  | REQUIRED, if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values must match. |
 
 
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+If you have just executed the [Authorization Code Grant](#authorization-code-grant) you should already have a code set at the **Authorization Code** field of the *OAuth2 / OIDC* tab. If so, click **OAuth2 Code Exchange**, otherwise follow the instructions.
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant). Click **OAuth2 Code Exchange**.
+
+
 ### More Information
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
@@ -158,6 +171,19 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `redirect_uri`  | REQUIRED, if it was set at the [GET /authorize](#authorization-code-grant-pkce-) endpoint. The values must match. |
 
 
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+If you have just executed the [Authorization Code Grant (PKCE)](#authorization-code-grant-pkce-) you should already have the **Authorization Code** and **Code Verifier** fields, of the *OAuth2 / OIDC* tab, set. If so, click **OAuth2 Code Exchange**, otherwise follow the instructions.
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant-pkce-), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
+
+
 ### More Information
 
 - [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
@@ -211,6 +237,7 @@ request(options, function (error, response, body) {
 ```JSON
 {
   "access_token": "eyJz93a...k4laUWw",
+  "expires_in": 36000,
   "token_type": "Bearer"
 }
 ```
@@ -231,6 +258,17 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 | `client_id`      | REQUIRED. Your application's Client ID. |
 | `client_secret`  | REQUIRED. Your application's Client Secret. |
 | `audience` | REQUIRED. The unique identifier of the target API you want to access. |
+
+
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, click **OAuth2 Client Credentials**.
 
 
 ### More Information
@@ -314,6 +352,17 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 | `username` | REQUIRED. Resource Owner's identifier. |
 | `password` | REQUIRED. Resource Owner's secret. |
 | `scope` | OPTIONAL. String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
+
+
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Password Grant**.
 
 
 ### More Information

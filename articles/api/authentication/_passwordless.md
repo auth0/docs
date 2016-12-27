@@ -234,6 +234,17 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `scope`          | OPTIONAL. Use `openid` to get an `id_token`, or `openid profile email` to include also user profile information in the `id_token`. |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (use `sms` or `email`).
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set **Username** to the user's phone number if `connection=sms`, or the user's email if `connection=email`, and **Password** to the user's verification code. Click **Resource Owner Endpoint**.
+
+
 ### Remarks
 
 - The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.

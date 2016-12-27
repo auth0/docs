@@ -98,6 +98,16 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 | `additional-parameter`  | OPTIONAL. Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
+
 ### Remarks
 
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
@@ -286,6 +296,17 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 | `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
+
+
 ### Remarks
 
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
@@ -391,6 +412,17 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 | `scope`          | OPTIONAL. Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
 
 
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set **Username** and **Password**. Click **Resource Owner Endpoint**.
+
+
 ### Remarks
 
 - This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
@@ -460,6 +492,17 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 | `connection`     | OPTIONAL. The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
 | `redirect_uri`   | REQUIRED. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+
+
+### Test this endpoint
+
+<%= include('../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, click **OAuth2 / OIDC Login**.
 
 
 ### Remarks
