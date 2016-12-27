@@ -86,6 +86,14 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
+If you have just executed the [Authorization Code Grant](#authorization-code-grant) you should already have a code set at the **Authorization Code** field of the *OAuth2 / OIDC* tab. If so, click **OAuth2 Code Exchange**, otherwise follow the instructions.
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant). Click **OAuth2 Code Exchange**.
+
 
 ### More Information
 
@@ -167,6 +175,14 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
+If you have just executed the [Authorization Code Grant (PKCE)](#authorization-code-grant-pkce-) you should already have the **Authorization Code** and **Code Verifier** fields, of the *OAuth2 / OIDC* tab, set. If so, click **OAuth2 Code Exchange**, otherwise follow the instructions.
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant-pkce-), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
+
 
 ### More Information
 
@@ -221,6 +237,7 @@ request(options, function (error, response, body) {
 ```JSON
 {
   "access_token": "eyJz93a...k4laUWw",
+  "expires_in": 36000,
   "token_type": "Bearer"
 }
 ```
@@ -246,6 +263,12 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 ### Test this endpoint
 
 <%= include('../../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, click **OAuth2 Client Credentials**.
 
 
 ### More Information
@@ -334,6 +357,12 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 ### Test this endpoint
 
 <%= include('../../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Password Grant**.
 
 
 ### More Information

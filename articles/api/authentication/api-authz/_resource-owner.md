@@ -90,6 +90,12 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test, and **Connection** to the name of the connection to use.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Resource Owner Endpoint**.
+
 
 ### Remarks
 
