@@ -101,6 +101,7 @@ Pragma: no-cache
 }</code></pre>
     <ul>
         <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> and optionally the resource server specified by the <code>audience</code> parameter.</li>
+        <li>The ID token will be forcibly signed using RS256 if requested by a <a href="/api-auth/client-types">public client</a>.</li>
         <li>A refresh token will be returned only if the <code>offline_access</code> scope was granted.</li>
     </ul>
     </div>
@@ -142,6 +143,7 @@ Pragma: no-cache
     "https://app.example.com/favorite_color": "blue"
 }</code></pre>
         <ul>
+            <li>The ID token will be forcibly signed using RS256 if requested by a <a href="/api-auth/client-types">public client</a>.</li>
             <li>The <code>favorite_color</code> claim must be namespaced and added through a rule.</li>
         </ul>
     </div>
