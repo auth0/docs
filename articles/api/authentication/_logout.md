@@ -56,8 +56,8 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `returnTo `      | OPTIONAL. URL to redirect the user after the logout. |
-| `client_id`      | OPTIONAL. The `client_id` of your client. |
+| `returnTo `      | URL to redirect the user after the logout. |
+| `client_id`      | The `client_id` of your client. |
 
 
 ### Test this endpoint

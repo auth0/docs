@@ -27,11 +27,11 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client-id`      | OPTIONAL. The `client-id` of your client. |
-| `wtrealm`        | OPTIONAL. Can be used in place of `client-id`. |
-| `whr`            | OPTIONAL. The name of the connection (used to skip the login page). |
-| `wctx`           | OPTIONAL. Your application's state. |
-| `wreply`         | OPTIONAL. The callback URL. |
+| `client-id`      | The `client-id` of your client. |
+| `wtrealm`        | Can be used in place of `client-id`. |
+| `whr`            | The name of the connection (used to skip the login page). |
+| `wctx`           | Your application's state. |
+| `wreply`         | The callback URL. |
 
 
 ### Test this endpoint

@@ -78,11 +78,11 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | REQUIRED. Denotes the flow you are using. For Authorization Code use  `authorization_code`. |
-| `client_id`      | REQUIRED. Your application's Client ID. |
-| `client_secret`  | REQUIRED. Your application's Client Secret. |
-| `code`  | REQUIRED. The Authorization Code received from the initial `/authorize` call. |
-| `redirect_uri`  | REQUIRED, if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values must match. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Authorization Code use  `authorization_code`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. |
+| `code` <br/><span class="label label-danger">Required</span> | The Authorization Code received from the initial `/authorize` call. |
+| `redirect_uri`| This is required only if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values must match. |
 
 
 ### Test this endpoint
@@ -170,11 +170,11 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | REQUIRED. Denotes the flow you are using. For Authorization Code (PKCE) use  `authorization_code`. |
-| `client_id`      | REQUIRED. Your application's Client ID. |
-| `code`  | REQUIRED. The Authorization Code received from the initial `/authorize` call. |
-| `code_verifier` | REQUIRED. Cryptographically random key that was used to generate the `code_challenge` passed to `/authorize`. |
-| `redirect_uri`  | REQUIRED, if it was set at the [GET /authorize](#authorization-code-grant-pkce-) endpoint. The values must match. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Authorization Code (PKCE) use  `authorization_code`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `code` <br/><span class="label label-danger">Required</span> | The Authorization Code received from the initial `/authorize` call. |
+| `code_verifier` <br/><span class="label label-danger">Required</span> | Cryptographically random key that was used to generate the `code_challenge` passed to `/authorize`. |
+| `redirect_uri` | This is required only if it was set at the [GET /authorize](#authorization-code-grant-pkce-) endpoint. The values must match. |
 
 
 ### Test this endpoint
@@ -262,10 +262,10 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | REQUIRED. Denotes the flow you are using. For Client Credentials use `client_credentials`. |
-| `client_id`      | REQUIRED. Your application's Client ID. |
-| `client_secret`  | REQUIRED. Your application's Client Secret. |
-| `audience` | REQUIRED. The unique identifier of the target API you want to access. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Client Credentials use `client_credentials`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. |
+| `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
 
 
 ### Test this endpoint
@@ -357,12 +357,12 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type`     | REQUIRED. Denotes the flow you are using. For Resource Owner Password use  `password`. |
-| `client_id`      | REQUIRED. Your application's Client ID. |
-| `audience` | REQUIRED. The unique identifier of the target API you want to access. |
-| `username` | REQUIRED. Resource Owner's identifier. |
-| `password` | REQUIRED. Resource Owner's secret. |
-| `scope` | OPTIONAL. String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Resource Owner Password use  `password`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
+| `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
+| `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
+| `scope` | String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
 
 
 ### Test this endpoint
