@@ -2,14 +2,14 @@
 description: How to execute a Resource Owner Password Grant
 ---
 
-# Executing the Resource Owner Password Grant
+# Execute the Resource Owner Password Grant
 <%=include('../_region-support') %>
 
 ::: panel-danger Warning
 Support for Rules and Refresh Tokens will be available in a future release.
 :::
 
-## Configuring your tenant for the Resource Owner Password Grant
+## Configure your tenant for the Resource Owner Password Grant
 
 The Password Grant relies on a connection capable of authenticating users via username and password. In order to indicate which connection the Password Grant should use you need to set the value of the `default_directory` tenant setting.
 
@@ -19,7 +19,7 @@ The Password Grant relies on a connection capable of authenticating users via us
 
   ![](/media/articles/api-auth/default-directory-setting.png)
 
-## Executing the flow
+## Execute the flow
 
 In order to execute the flow the client needs to acquire the Resource Owner's credentials, usually this will be through the use of an interactive form. Once the client has the credentials it needs to forward them to Auth0 with a POST to the token endpoint.
 
@@ -87,7 +87,7 @@ To use this variation you will have to change the following request parameters:
 You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), [Passwordless](/connections/passwordless), [Active Directory/LDAP](/connections/enterprise/active-directory), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
 :::
 
-## Using the Access Token
+## Use the Access Token
 
 Once the `access_token` has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
