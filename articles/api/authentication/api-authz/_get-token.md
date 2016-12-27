@@ -54,11 +54,14 @@ request(options, function (error, response, body) {
 > RESPONSE SAMPLE:
 
 ```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
 {
-  "access_token": "eyJz93a...k4laUWw",
-  "refresh_token": "GEbRxBN...edjnXbL",
-  "id_token": "eyJ0XAi...4faeEoQ",
-  "token_type": "Bearer"
+  "access_token":"eyJz93a...k4laUWw",
+  "refresh_token":"GEbRxBN...edjnXbL",
+  "id_token":"eyJ0XAi...4faeEoQ",
+  "token_type":"Bearer",
+  "expires_in":86400
 }
 ```
 
@@ -142,11 +145,14 @@ request(options, function (error, response, body) {
 > RESPONSE SAMPLE:
 
 ```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
 {
-  "access_token": "eyJz93a...k4laUWw",
-  "refresh_token": "GEbRxBN...edjnXbL",
-  "id_token": "eyJ0XAi...4faeEoQ",
-  "token_type": "Bearer"
+  "access_token":"eyJz93a...k4laUWw",
+  "refresh_token":"GEbRxBN...edjnXbL",
+  "id_token":"eyJ0XAi...4faeEoQ",
+  "token_type":"Bearer",
+  "expires_in":86400
 }
 ```
 
@@ -235,10 +241,12 @@ request(options, function (error, response, body) {
 > RESPONSE SAMPLE:
 
 ```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
 {
-  "access_token": "eyJz93a...k4laUWw",
-  "expires_in": 36000,
-  "token_type": "Bearer"
+  "access_token":"eyJz93a...k4laUWw",
+  "token_type":"Bearer",
+  "expires_in":86400
 }
 ```
 
@@ -327,9 +335,12 @@ request(options, function (error, response, body) {
 > RESPONSE SAMPLE:
 
 ```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
 {
-  "access_token": "eyJz93a...k4laUWw",
-  "token_type": "Bearer"
+  "access_token":"eyJz93a...k4laUWw",
+  "token_type":"Bearer",
+  "expires_in":86400
 }
 ```
 
