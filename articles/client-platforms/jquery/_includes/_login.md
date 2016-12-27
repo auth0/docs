@@ -8,7 +8,8 @@ To trigger authentication with **auth0.js**, call its `login` method. Pass a `re
 function login() {
   auth.login({
     responseType: 'token id_token',
-    redirectUri: window.location.href
+    redirectUri: window.location.href,
+    audience: 'https://${account.namespace}/userinfo'
   });
 }
 ```

@@ -21,4 +21,6 @@ ${include('../\_callback')}
 
 <%= include('_includes/_login') %>
 
-<%= include('../_includes/_persisting_state') %>
+<%= include('_includes/_store_tokens') %>
+
+<%= include('_includes/_logout') %>

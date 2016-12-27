@@ -7,7 +7,7 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
-  path: '07-Authorization',
+  path: '05-Authorization',
   requirements: [
     'jQuery 3.1.0'
   ]
