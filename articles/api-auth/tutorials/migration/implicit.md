@@ -85,7 +85,7 @@ Location: https://app.example.com/#
     &token_type=Bearer</code></pre>
     <ul>
         <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> and optionally the resource server specified by the <code>audience</code> parameter.</li>
-        <li>If using <code>response_type=token</code> or <code>response_type=id_token</code>, Auth0 will only return an access token or ID token respectively.</li>
+        <li>If using <code>response_type=id_token</code>, Auth0 will only return an ID token.</li>
         <li>Refresh tokens are not allowed in the implicit grant. <a href="/api-auth/tutorials/silent-authentication">Use <code>prompt=none</code> instead</a>.</li>
     </ul>
     </div>
