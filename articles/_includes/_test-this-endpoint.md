@@ -12,4 +12,4 @@ Your can use our **Authentication API Debugger** extension to test this endpoint
   <a href="/extensions/authentication-api-debugger" class="btn btn-primary" target="_blank">Install Debugger</a>
 </div>
 
-**If you have already installed the extension, skip to the [Authentication API Debugger](${debugURL}).**
+**If you have already installed the extension, skip to the <a href="${debugURL}" target="_blank">Authentication API Debugger</a>.**
