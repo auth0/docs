@@ -68,7 +68,7 @@ $(function () {
 
 ## Use the Access Token
 
-Once you have the the `access_token` you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+Once you have the `access_token` you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ``` js
 // Use the access token to make API calls
