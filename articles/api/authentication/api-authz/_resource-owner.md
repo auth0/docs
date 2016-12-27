@@ -76,14 +76,14 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | REQUIRED. The `client_id` of your client |
-| `connection`     | REQUIRED. The name of the connection configured to your client |
-| `grant_type`     | OPTIONAL. Use the value `password` |
-| `username`       | REQUIRED. The user's username |
-| `password`       | REQUIRED. The user's password |
-| `scope`          | OPTIONAL. Use `openid` to get an `id_token`, `openid profile email` to get an `id_token` and the user profile, or `openid offline_access` to get an `id_token` and a `refresh_token`. |
-| `id_token`       | OPTIONAL. Used to authenticate using a token instead of username/password, in [TouchID](/libraries/lock-ios/touchid-authentication) scenarios. |
-| `device`         | OPTIONAL. You should set this to a string, if you are requesting a refresh token (`scope=offline_access`). |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client |
+| `connection` <br/><span class="label label-danger">Required</span> | The name of the connection configured to your client |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Use the value `password` |
+| `username` <br/><span class="label label-danger">Required</span> | The user's username |
+| `password` <br/><span class="label label-danger">Required</span> | The user's password |
+| `scope` | Use `openid` to get an `id_token`, `openid profile email` to get an `id_token` and the user profile, or `openid offline_access` to get an `id_token` and a `refresh_token`. |
+| `id_token` | Used to authenticate using a token instead of username/password, in [TouchID](/libraries/lock-ios/touchid-authentication) scenarios. |
+| `device` | You should set this to a string, if you are requesting a refresh token (`scope=offline_access`). |
 
 
 ### Test this endpoint

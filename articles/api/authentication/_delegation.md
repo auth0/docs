@@ -80,12 +80,12 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | REQUIRED. Τhe `client_id` of your client |
-| `grant_type`     | REQUIRED. Use `urn:ietf:params:oauth:grant-type:jwt-bearer`|
-| `id_token` or `refresh_token` | REQUIRED. The existing token of the user. |
-| `target `        | OPTIONAL. The target `client_id` |
-| `scope `         | OPTIONAL. Use `openid` or `openid profile email` |
-| `api_type`       | OPTIONAL. The API to be called. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Τhe `client_id` of your client |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Use `urn:ietf:params:oauth:grant-type:jwt-bearer`|
+| `id_token` or `refresh_token` <br/><span class="label label-danger">Required</span> | The existing token of the user. |
+| `target `        | The target `client_id` |
+| `scope `         | Use `openid` or `openid profile email` |
+| `api_type`       | The API to be called. |
 
 
 ### Test this endpoint

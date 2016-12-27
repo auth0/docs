@@ -71,10 +71,10 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `protocol`       | REQUIRED. The protocol to use against the identity provider: `oauth2`, `samlp`, `wsfed`, `wsfed-rms`. |
-| `impersonator_id`| REQUIRED. The `user_id` of the impersonator. |
-| `client_id` | REQUIRED. The  `client_id` of the client that is generating the impersonation link.|
-| `additionalParameters` | OPTIONAL. This is a JSON object. You can use this to set additional parameters, like `response_type`, `scope` and `state`. |
+| `protocol` <br/><span class="label label-danger">Required</span> | The protocol to use against the identity provider: `oauth2`, `samlp`, `wsfed`, `wsfed-rms`. |
+| `impersonator_id` <br/><span class="label label-danger">Required</span> | The `user_id` of the impersonator. |
+| `client_id` <br/><span class="label label-danger">Required</span> | The  `client_id` of the client that is generating the impersonation link.|
+| `additionalParameters` | This is a JSON object. You can use this to set additional parameters, like `response_type`, `scope` and `state`. |
 
 
 ### Remarks

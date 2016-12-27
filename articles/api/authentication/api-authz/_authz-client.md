@@ -52,12 +52,12 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `audience`       | REQUIRED. The unique identifier of the target API you want to access. |
-| `scope`          | OPTIONAL. The scopes which you want to request authorization for. These must be separated by a space. Include `offline_access` to get a refresh token. |
-| `response_type`  | REQUIRED. Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
-| `client_id`      | REQUIRED. Your application's Client ID. |
-| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `redirect_uri`   | OPTIONAL. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `audience` <br/><span class="label label-danger">Required</span> | REQUIRED. The unique identifier of the target API you want to access. |
+| `scope` | The scopes which you want to request authorization for. These must be separated by a space. Include `offline_access` to get a refresh token. |
+| `response_type` <br/><span class="label label-danger">Required</span> | REQUIRED. Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
+| `client_id` <br/><span class="label label-danger">Required</span> | REQUIRED. Your application's Client ID. |
+| `state` <br/><span class="label label-danger">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 
 ### Test this endpoint
 
@@ -119,14 +119,14 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `audience`       | REQUIRED. The unique identifier of the target API you want to access. |
-| `scope`          | OPTIONAL. The scopes which you want to request authorization for. These must be separated by a space. |
-| `response_type`  | REQUIRED. Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
-| `client_id`      | REQUIRED. Your application's Client ID. |
-| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `redirect_uri`   | OPTIONAL. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `code_challenge_method` | REQUIRED. Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
-| `code_challenge` | REQUIRED. Generated challenge from the `code_verifier`. |
+| `audience` <br/><span class="label label-danger">Required</span> | REQUIRED. The unique identifier of the target API you want to access. |
+| `scope` | The scopes which you want to request authorization for. These must be separated by a space. |
+| `response_type` <br/><span class="label label-danger">Required</span> | REQUIRED. Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
+| `client_id` <br/><span class="label label-danger">Required</span> | REQUIRED. Your application's Client ID. |
+| `state` <br/><span class="label label-danger">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `code_challenge_method` <br/><span class="label label-danger">Required</span> | REQUIRED. Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
+| `code_challenge` <br/><span class="label label-danger">Required</span> | REQUIRED. Generated challenge from the `code_verifier`. |
 
 
 ### Test this endpoint
@@ -189,13 +189,13 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `audience`       | REQUIRED. The unique identifier of the target API you want to access. |
-| `scope`          | OPTIONAL. The scopes which you want to request authorization for. These must be separated by a space. |
-| `response_type`  | REQUIRED. This will specify the type of token you will receive at the end of the flow. Use `id_token token` to get an `id_token`, or `token` to get both an `id_token` and an `access_token`. |
-| `client_id`      | REQUIRED. Your application's Client ID. |
-| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `redirect_uri`   | OPTIONAL. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `nonce` | RECOMMENDED. A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
+| `audience` <br/><span class="label label-danger">Required</span> | REQUIRED. The unique identifier of the target API you want to access. |
+| `scope` | The scopes which you want to request authorization for. These must be separated by a space. |
+| `response_type` <br/><span class="label label-danger">Required</span> | REQUIRED. This will specify the type of token you will receive at the end of the flow. Use `id_token token` to get an `id_token`, or `token` to get both an `id_token` and an `access_token`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | REQUIRED. Your application's Client ID. |
+| `state` <br/><span class="label label-danger">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `nonce` <br/><span class="label label-danger">Recommended</span> | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
 
 
 ### Test this endpoint

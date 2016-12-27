@@ -90,12 +90,12 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`  | REQUIRED. Use `code` for server side flows and `token` for client side flows |
-| `client_id`      | REQUIRED. The `client_id` of your client |
-| `connection`     | OPTIONAL. The name of a social identity provider configured to your client, for example `google-oauth2` or `facebook`. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
-| `redirect_uri`   | REQUIRED. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `additional-parameter`  | OPTIONAL. Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
+| `response_type` <br/><span class="label label-danger">Required</span> | Use `code` for server side flows and `token` for client side flows |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client |
+| `connection`     | The name of a social identity provider configured to your client, for example `google-oauth2` or `facebook`. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget. |
+| `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `state` <br/><span class="label label-danger">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `additional-parameter` | Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
 
 
 ### Test this endpoint
@@ -186,10 +186,10 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | REQUIRED. The `client_id` of your client. |
-| `access_token`   | REQUIRED. The social provider's `access_token`. |
-| `connection`     | REQUIRED. The name of an identity provider configured to your app. |
-| `scope`          | OPTIONAL. Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `access_token` will be returned. |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
+| `access_token` <br/><span class="label label-danger">Required</span> | The social provider's `access_token`. |
+| `connection` <br/><span class="label label-danger">Required</span> | The name of an identity provider configured to your app. |
+| `scope` | Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `access_token` will be returned. |
 
 
 ### Remarks
@@ -289,11 +289,11 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`  | REQUIRED. Use `code` for server side flows and `token` for client side flows. |
-| `client_id`      | REQUIRED. The `client_id` of your client. |
-| `connection`     | OPTIONAL. The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | REQUIRED. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `response_type` <br/><span class="label label-danger">Required</span> | Use `code` for server side flows and `token` for client side flows. |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
+| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `state` <br/><span class="label label-danger">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
 
 ### Test this endpoint
@@ -404,12 +404,12 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id`      | REQUIRED. The `client_id` of your client |
-| `username`       | REQUIRED. Username/email of the user to login |
-| `password`       | REQUIRED. Password of the user to login |
-| `connection`     | REQUIRED. The name of the connection to use for login |
-| `grant_type`     | REQUIRED. Set to `password`
-| `scope`          | OPTIONAL. Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client |
+| `username` <br/><span class="label label-danger">Required</span> | Username/email of the user to login |
+| `password` <br/><span class="label label-danger">Required</span> | Password of the user to login |
+| `connection` <br/><span class="label label-danger">Required</span> | The name of the connection to use for login |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Set to `password`
+| `scope` | Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
 
 
 ### Test this endpoint
@@ -487,11 +487,11 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `response_type`  | REQUIRED. `code` for server side flows, `token` for client side flows. |
-| `client_id`      | REQUIRED. The `client_id` of your client. |
-| `connection`     | OPTIONAL. The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
-| `redirect_uri`   | REQUIRED. The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `state`          | RECOMMENDED. An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `response_type` <br/><span class="label label-danger">Required</span> | Use `code` for server side flows, `token` for client side flows. |
+| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
+| `connection` | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
+| `state` <br/><span class="label label-danger">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
 
 ### Test this endpoint
