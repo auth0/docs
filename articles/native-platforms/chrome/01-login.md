@@ -9,9 +9,8 @@ budicon: 448
   repo: 'auth0-chrome-sample',
   path: '00-Starter-Seed',
   requirements: [
-    'NPM 3.10.9',
-    'Auth0-chrome 0.1.2',
-    'Jwt-decode 2.1.0
+    'auth0-chrome 0.1.2',
+    'jwt-decode 2.1.0
   ]
 }) %>
 
