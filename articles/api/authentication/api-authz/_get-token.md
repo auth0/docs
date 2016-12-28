@@ -299,7 +299,8 @@ Content-Type: 'application/json'
   "password": "PASSWORD",
   "audience": "API_IDENTIFIER",
   "scope": "SCOPE",
-  "client_id": ${account.clientId}
+  "client_id": "${account.clientId}",
+  "client_secret": "${account.clientSecret}"
 }
 ```
 
@@ -307,7 +308,8 @@ Content-Type: 'application/json'
 curl --request POST \
   --url '${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"SCOPE", "client_id": ${account.clientId}}'
+  --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"SCOPE", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"
+ }'
 ```
 
 ```javascript
@@ -322,7 +324,8 @@ var options = { method: 'POST',
      password: 'PASSWORD',
      audience: 'API_IDENTIFIER',
      scope: 'SCOPE',
-     client_id: '${account.clientId}' },
+     client_id: '${account.clientId}',
+     client_secret: '${account.clientSecret}' },
   json: true };
 
 request(options, function (error, response, body) {
@@ -359,6 +362,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Resource Owner Password use  `password`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `client_secret` | Your application's Client Secret (only if it is a confidential client). |
 | `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
