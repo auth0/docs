@@ -10,7 +10,7 @@ budicon: 448
   path: '00-Starter-Seed',
   requirements: [
     'auth0-chrome 0.1.2',
-    'jwt-decode 2.1.0
+    'jwt-decode 2.1.0'
   ]
 }) %>
 
