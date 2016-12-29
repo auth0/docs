@@ -1,5 +1,5 @@
 * [Calling your APIs with Auth0 tokens](/api-auth/tutorials/migration/api-tokens)
-* [User consent and third-party clients](/api-auth/user-consent.md)
+* [User consent and third-party clients](/api-auth/user-consent)
 * [Custom user profile claims and `scope`](/api-auth/tutorials/migration/scope-custom-claims)
 * Initiating authentication flows:
   - [Authorization Code grant](/api-auth/tutorials/migration/authorization-code)
@@ -7,3 +7,7 @@
     * [Silent authentication](/api-auth/tutorials/silent-authentication) (replaces refresh tokens for single-page applications)
   - [Resource Owner Password Credentials exchange](/api-auth/tutorials/migration/password)
   - [Client Credentials exchange](/api-auth/tutorials/migration/client-credentials) (only available in new pipeline)
+* [Refresh tokens](/api-auth/tutorials/migration/refresh-tokens)
+* [Delegation (deprecated)](/api-auth/tutorials/migration/delegation)
+* [Passwordless authentication (unsupported)](/api-auth/passwordless)
+* [List of breaking changes for OIDC-conformant clients](/api-auth/tutorials/migration/oidc-conformant)
