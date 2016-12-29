@@ -32,7 +32,7 @@ In order to execute the flow the client needs to acquire the Resource Owner's cr
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"XyD....23S\", \"client_secret\": \"zce...FWC\"}"
+    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\"}"
   }
 }
 ```
@@ -82,7 +82,7 @@ To use this variation you will have to change the following request parameters:
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"XyD....23S\", \"realm\": \"employees\"}"
+    "text": "{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"realm\": \"employees\"}"
   }
 }
 ```
