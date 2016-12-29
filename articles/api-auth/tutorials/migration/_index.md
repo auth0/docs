@@ -1,4 +1,5 @@
 * [Calling your APIs with Auth0 tokens](/api-auth/tutorials/migration/api-tokens)
+* [User consent and third-party clients](/api-auth/user-consent.md)
 * [Custom user profile claims and `scope`](/api-auth/tutorials/migration/scope-custom-claims)
 * Initiating authentication flows:
   - [Authorization Code grant](/api-auth/tutorials/migration/authorization-code)
