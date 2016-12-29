@@ -233,7 +233,9 @@ function(ctx, callback) {
 }
 ```
 
-**NOTE**: Please do not use single or double quotes, or any other special characters such as `+` or `-` in your department or group name on which you'll want to filter since this might cause issues with the Lucene query, resulting in unexpected behavior.
+::: panel-warning Quotes may lead to errors
+Do not use single or double quotes, or any other special characters such as `+` or `-` in your department or group name, on which you'll want to filter. This might cause issues with the Lucene query, resulting in unexpected behavior.
+:::
 
 If this hook is not configured, **all users** will be returned.
 
