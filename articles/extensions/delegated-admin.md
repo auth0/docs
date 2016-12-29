@@ -233,9 +233,9 @@ function(ctx, callback) {
 }
 ```
 
-> Note: Please do not use single or double quotes, or any other special characters such as `+` or `-` in your department or group name on which you'll want to filter since this might cause issues with the Lucene query, resulting in unexpected behavior.
+**NOTE**: Please do not use single or double quotes, or any other special characters such as `+` or `-` in your department or group name on which you'll want to filter since this might cause issues with the Lucene query, resulting in unexpected behavior.
 
-If this hook is not configure, **all users** will be returned.
+If this hook is not configured, **all users** will be returned.
 
 #### Access Hook
 
@@ -341,7 +341,7 @@ function(ctx, callback) {
 }
 ```
 
-> Note: Creating users is only supported in Database Connections
+**NOTE**: Creating users is only supported in Database Connections
 
 #### Memberships Query
 
@@ -369,7 +369,7 @@ function(ctx, callback) {
 }
 ```
 
-> Note: This query is only used in the UI. If assigning users to specific departments needs to be enforced, this will happen in the Create Hook. If only 1 membership is returned, the membership field in the UI will not be displayed.
+**NOTE**: This query is only used in the UI. If assigning users to specific departments needs to be enforced, this will happen in the Create Hook. If only 1 membership is returned, the membership field in the UI will not be displayed.
 
 You can also allow the end user to enter any value they wish for the memberships by setting `createMemberships` to true.
 
