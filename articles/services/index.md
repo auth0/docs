@@ -44,5 +44,5 @@ description: Professional Services offered by Auth0.
 ## Jumpstart
 
 <%= include('../_includes/_topic-links', { links: [
-  'services/auth0-jumpstart'
+  'services/jumpstart'
 ] }) %>
