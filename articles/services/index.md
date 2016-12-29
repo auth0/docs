@@ -40,3 +40,9 @@ description: Professional Services offered by Auth0.
   'services/private-saas-introduction',
   'services/private-saas-management'
 ] }) %>
+
+## Jumpstart
+
+<%= include('../_includes/_topic-links', { links: [
+  'services/auth0-jumpstart'
+] }) %>
