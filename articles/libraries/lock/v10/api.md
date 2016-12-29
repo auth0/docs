@@ -10,10 +10,10 @@ description: Details on the Lock V10 API.
 
 Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-event-callback-) method section!
 
-* [new Auth0Lock](#new-auth0lock-clientid-domain-options-) - Instantiating Lock
-* [getProfile()](#getprofile-token-callback-) - Obtaining the profile of a logged in user
-* [show()](#show-options-) - Showing the Lock widget
-* [on()](#on-event-callback-) - Listening for events
+* [new Auth0Lock](#auth0lock) - Instantiating Lock
+* [getProfile()](#getprofile-) - Obtaining the profile of a logged in user
+* [show()](#show-) - Showing the Lock widget
+* [on()](#on-) - Listening for events
 
 ## Auth0Lock
 
