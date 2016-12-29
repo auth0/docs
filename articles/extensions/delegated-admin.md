@@ -1,5 +1,6 @@
 ---
 description: The Delegated Administration extension allows you to expose the Users dashboard to a group of users, without allowing them access to the dashboard.
+toc: true
 ---
 
 # Delegated Administration - v2
@@ -8,19 +9,23 @@ The **Delegated Administration** extension allows you to expose the [Users Dashb
 
 **NOTE**: This extension is currently available only for the public cloud. It is not yet supported in the [appliance](/appliance).
 
-## Create A Client
+## Create a Client
 
-Let's start with creating a new client application. Navigate to [Clients](${manage_url}/#/applications) and click on the **+Create Client** button. Set a name (we will name ours *Users Dashboard*) and choose *Single Page Web Applications* as client type. Click on **Create**.
+Let's start with creating a new client application. Navigate to [Clients](${manage_url}/#/clients) and click on the **+Create Client** button. Set a name (we will name ours *Users Dashboard*) and choose *Single Page Web Applications* as client type. Click on **Create**.
 
-![](/media/articles/extensions/delegated-admin/create-client.png)
+![Create a Client](/media/articles/extensions/delegated-admin/create-client.png)
 
-Click on the *Settings* tab and set the **Allowed Callback URLs**. This varies based on your location.
+<%
+  if(account.tenant.slice(-3) === '.eu'){
+    var callbackURL = 'https://' + account.tenant + '.eu.webtask.io/auth0-delegated-admin/login';
+  } else if(account.tenant.slice(-3) === '.au') {
+    var callbackURL = 'https://' + account.tenant + '.au.webtask.io/auth0-delegated-admin/login';
+  }else {
+    var callbackURL = 'https://' + account.tenant + '.us.webtask.io/auth0-delegated-admin/login';
+  }
+%>
 
-| Location | Allowed Callback URL |
-| --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-delegated-admin/login` |
-| Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin/login` |
-| Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin/login` |
+Click on the *Settings* tab and set the **Allowed Callback URLs** to `${callbackURL}`.
 
 Copy the **Client ID** value.
 
@@ -28,7 +33,7 @@ Navigate to *Settings > Show Advanced Settings > OAuth* and paste the **Client I
 
 Set the **JsonWebToken Signature Algorithm** to *RS256*.
 
-![](/media/articles/extensions/delegated-admin/set-rs256.png)
+![Change JsonWebToken Signature Algorithm](/media/articles/extensions/delegated-admin/set-rs256.png)
 
 Save your changes.
 
@@ -40,11 +45,11 @@ Navigate to the *Connections* tab and disable all the connections using the swit
 
 Following that, navigate to [Database Connections](${manage_url}/#/connections/database) and click on **+Create DB Connection**. Set a name for your connection, we will name ours *Helpdesk*.
 
-![](/media/articles/extensions/delegated-admin/create-connection.png)
+![Create DB Connection](/media/articles/extensions/delegated-admin/create-connection.png)
 
 Navigate to the *Settings* tab of the new connection and enable the **Disable Sign Ups** option. This way we avoid another security concern: if some malicious user gets hold of the link, signing up will not be possible.
 
-![](/media/articles/extensions/delegated-admin/disable-signup.png)
+![Disable Sign Ups](/media/articles/extensions/delegated-admin/disable-signup.png)
 
 Enable this new connection for your client (*Users Dashboard* in our case) and add at least one user.
 
@@ -83,7 +88,7 @@ We are now ready to setup our new extension. Before we do so head back to your n
 
 To install and configure this extension, click on the **Delegated Administration** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the dashboard. The **Install Extension** window will open.
 
-![](/media/articles/extensions/delegated-admin/install-extension.png)
+![Install Extension](/media/articles/extensions/delegated-admin/install-extension.png)
 
 Set the following configuration variables:
 
