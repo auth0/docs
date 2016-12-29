@@ -134,7 +134,7 @@ lock.show({
 
 ```
 
-![Lock - Flash Message](/media/articles/libraries/lock/v10/flashmessage.png)
+![Lock - Flash Message](/media/articles/libraries/lock/v10/flashMessage.png)
 
 A practical application of the `flashMessage` option is to handle authorization errors. The `flashMessage` can be populated with error description text. 
 
