@@ -17,7 +17,7 @@ Content-Type: 'application/json'
 {
   "grant_type": "authorization_code",
   "client_id": "${account.clientId}",
-  "client_secret": "${account.client_secret}",
+  "client_secret": "${account.clientSecret}",
   "code": "AUTHORIZATION_CODE",
   "redirect_uri": ${account.callback}
 }
@@ -362,7 +362,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Resource Owner Password use  `password`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret (only if it is a confidential client). |
+| `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. Do not set this parameter if your client is not highly trusted. You can make this parameter optional for SPAs and native apps, by setting the **Token Endpoint Authentication Method** at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) to `None`. |
 | `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
@@ -379,6 +379,10 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Password Grant**.
 
+
+### Remarks
+
+- The scopes issued to the client may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
 
 ### More Information
 
