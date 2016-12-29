@@ -8,7 +8,7 @@ This offering consists of 3 blocks of 4 hours, each covering the following.
 
 ## Scenario Guidance
 
-A lighter weight version of [full Scenario Guidance offering](/scenario-guidance), this activity is designed to help you assess your requirements, and jointly draft a solution to address these.
+A lighter weight version of [full Scenario Guidance offering](/services/scenario-guidance), this activity is designed to help you assess your requirements, and jointly draft a solution to address these.
 
 We recommend completing this activity during the first 60 days of your subscription.
 
