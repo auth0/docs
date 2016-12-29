@@ -52,7 +52,8 @@ The response from `/oauth/token` (if successful) contains an `access_token`, for
 ```js
 {
   "access_token": "eyJz93a...k4laUWw",
-  "token_type": "Bearer"
+  "token_type": "Bearer",
+  "expires_in": 36000
 }
 ```
 
