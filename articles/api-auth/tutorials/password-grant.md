@@ -44,7 +44,7 @@ Where:
 * `password`: Resource Owner's secret.
 * `audience`: API Identifier that the client is requesting access to.
 * `client_id`: Client ID of the client making the request.
-* `client_secret: Client Secret of the client making the request. This should be set only for highly trusted clients. You can make this parameter optional for SPAs and native apps, by setting the **Token Endpoint Authentication Method** at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) to `None`.
+* `client_secret`: Client Secret of the client making the request. This should be set only for highly trusted clients. You can make this parameter optional for SPAs and native apps, by setting the **Token Endpoint Authentication Method** at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) to `None`.
 * `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
 
 The response from `/oauth/token` (if successful) contains an `access_token`, for example:
