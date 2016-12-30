@@ -16,12 +16,12 @@ Let's start with creating a new client application. Navigate to [Clients](${mana
 ![Create a Client](/media/articles/extensions/delegated-admin/create-client.png)
 
 <%
-  if(account.tenant.slice(-3) === '.eu'){
-    var callbackURL = 'https://' + account.tenant + '.eu.webtask.io/auth0-delegated-admin/login';
-  } else if(account.tenant.slice(-3) === '.au') {
-    var callbackURL = 'https://' + account.tenant + '.au.webtask.io/auth0-delegated-admin/login';
-  }else {
-    var callbackURL = 'https://' + account.tenant + '.us.webtask.io/auth0-delegated-admin/login';
+  var tenantWithLoc = account.namespace.slice(8, account.namespace.length - 10).toString();
+  
+  if(tenantWithLoc.indexOf('.') !== -1){
+    var callbackURL = 'https://' + tenantWithLoc + '.webtask.io/auth0-delegated-admin/login';
+  } else {
+    var callbackURL = 'https://' + tenantWithLoc + '.us.webtask.io/auth0-delegated-admin/login';
   }
 %>
 
