@@ -1,10 +1,10 @@
 Your can use our **Authentication API Debugger** extension to test this endpoint. Click on **Install Debugger** to go to the article that explains how (you only have to do this once).
 
 <%
-  if(account.namespace.indexOf('.') !== -1){
-    var debugURL = 'https://' + account.namespace + '.webtask.io/auth0-authentication-api-debugger';
+  if(account.namespace.slice(8, account.namespace.length - 10).indexOf('.') !== -1){
+    var debugURL = 'https://' + account.tenant + '.webtask.io/auth0-authentication-api-debugger';
   } else {
-    var debugURL = 'https://' + account.namespace + '.us.webtask.io/auth0-authentication-api-debugger';
+    var debugURL = 'https://' + account.tenant + '.us.webtask.io/auth0-authentication-api-debugger';
   }
 %>
 
