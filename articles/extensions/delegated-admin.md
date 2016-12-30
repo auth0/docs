@@ -16,7 +16,7 @@ Let's start with creating a new client application. Navigate to [Clients](${mana
 ![Create a Client](/media/articles/extensions/delegated-admin/create-client.png)
 
 <%
-  var tenantWithLoc = account.namespace.slice(8, account.namespace.length - 10);
+  var tenantWithLoc = account.namespace.slice(8, account.namespace.length - 10).toString();
   
   if(tenantWithLoc.indexOf('.') !== -1){
     var callbackURL = 'https://' + tenantWithLoc + '.webtask.io/auth0-delegated-admin/login';
