@@ -1,8 +1,7 @@
 Your can use our **Authentication API Debugger** extension to test this endpoint. Click on **Install Debugger** to go to the article that explains how (you only have to do this once).
 
 <%
-  var tenantLen = account.namespace.length - 10;
-  var tenantWithLoc = account.namespace.slice(8, tenantLen);
+  var tenantWithLoc = account.namespace.slice(8, 10);
   
   if(account.namespace.indexOf('.') !== -1){
     var debugURL = 'https://' + account.namespace + '.webtask.io/auth0-authentication-api-debugger';
