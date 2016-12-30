@@ -35,7 +35,7 @@ block content
   pre #{userProfile}
 ```
 
-To have full access to the user profile on  `userProfile`, we need to strigify the `user` object. Modify the `/` endpoint in `views/user.js` to include `userProfile`.
+To have full access to the user profile on  `userProfile`, we need to stringify the `user` object. Modify the `/` endpoint in `views/user.js` to include `userProfile`.
 
 ```js
 // views/user.js

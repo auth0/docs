@@ -28,6 +28,8 @@ Once that's done, just run the following:
 
 ${snippet(meta.snippets.dependencies)}
 
+> v2.x.x provides compatibility with Symfony 3, for Symfony 2.x, stick to v1 branch.
+
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
 ### 2. Add the bundle to your AppKernel.php file

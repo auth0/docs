@@ -53,7 +53,7 @@ The issue is that the confirmation link may be inadvertently clicked by a user, 
 
 Lock version 9 and above uses the [new password reset flow](/connections/database/password-change) exclusively. Lock 8 and below does not handle the new password reset flow. We strongly recommend upgrading to Lock 9 or greater as soon as possible.
 
-**NOTE**: Even if you are not using Lock, the vulnerable reset flow can be accessed directly through the API. (See the [DbConnections/Change_password](/auth-api#!#post--dbconnections-change_password) endpoint for details.) We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
+**NOTE**: Even if you are not using Lock, the vulnerable reset flow can be accessed directly through the API. (See the [/dbconnections/change_password](/api/authentication/reference#change-password) endpoint for details.) We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
 
 
 ## Past Migrations
@@ -79,7 +79,7 @@ For more information, see: [Emails in Auth0](/email).
 | --- | --- |
 | Low | 2016-06-01 |
 
-When calling the [TokenInfo](/api/authentication#!#post--tokeninfo) endpoint, the URL of the API call (e.g. `https://${account.namespace}/`) must match the value of the `iss` attribute of the `id_token` being validated.
+When calling the [TokenInfo](/api/authentication/reference#get-token-info) endpoint, the URL of the API call (e.g. `https://${account.namespace}/`) must match the value of the `iss` attribute of the `id_token` being validated.
 
 If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
@@ -165,5 +165,3 @@ Existing clients with encoded secrets stored will remain intact and unchanged, b
 #### Am I affected by the change?
 
 You are affected by this change only if you interact with these endpoints directly.
-
-

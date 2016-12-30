@@ -171,7 +171,7 @@ controller.signupDisclaimerView = view;
 ```objc
 @property (assign, nonatomic) BOOL useWebView;
 ```
-When the authentication requires to open a web login, for example Linkedin, it will use an embedded UIWebView instead of Safari if it's `YES`. We recommend using Safari for Authentication since it will always save the User session. This means that if he's already signed in, for example in Linkedin, and he clicks in the Linkedin button, it will just work. Default values is `NO`
+When the authentication requires to open a web login, for example Linkedin, it will use an embedded UIWebView instead of Safari if it's `YES`. We recommend using Safari for Authentication since it will always save the User session. This means that if the user is already signed in, for example in Linkedin, and they click on the Linkedin button, it will just work. Default values is `NO`
 ```objc
 controller.useWebView = YES
 ```

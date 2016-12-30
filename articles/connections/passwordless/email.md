@@ -1,8 +1,6 @@
 ---
 title: Email Passwordless Authentication
 connection: Email
-url: /connections/passwordless/email
-image:
 alias:
   - email
 seo_alias: email
@@ -18,15 +16,15 @@ seo_alias: email
 
 ## Single-page Application Tutorials
 
- - [Authenticate users with a one-time code via e-mail](spa-email-code)
- - [Authenticate users with a magic link via e-mail](spa-email-link)
+ - [Authenticate users with a one-time code via e-mail](/connections/passwordless/spa-email-code)
+ - [Authenticate users with a magic link via e-mail](/connections/passwordless/spa-email-link)
 
 ## Regular Web Application Tutorials
 
- - [Authenticate users with a one-time code via e-mail](regular-web-app-email-code)
- - [Authenticate users with a magic link via e-mail](regular-web-app-email-link)
+ - [Authenticate users with a one-time code via e-mail](/connections/passwordless/regular-web-app-email-code)
+ - [Authenticate users with a magic link via e-mail](/connections/passwordless/regular-web-app-email-link)
 
 ## Mobile Tutorials
 
- - [iOS](ios-email-swift)
- - [Android](android-email)
+ - [iOS](/connections/passwordless/ios-email-swift)
+ - [Android](/connections/passwordless/android-email)

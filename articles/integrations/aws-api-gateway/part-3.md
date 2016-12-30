@@ -98,7 +98,7 @@ function (user, context, callback) {
 
 Be sure to update the `role` and `[principal]` ARN values with the ones for your integration.
 
-Copy the updated files to your S3 bucket for your web site.
+Copy the updated files to your S3 bucket for your website.
 
 Optionally, you can set a breakpoint in the browser at `store.set('awstoken', delegation.Credentials);`. When you log out and and log back in, inspect `delegation.Credentials` when you arrive at the breakpoint. You will see a familiar values like *AccessKeyId* and *SecretAccessKey*:
 

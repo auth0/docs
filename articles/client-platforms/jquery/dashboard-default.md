@@ -7,10 +7,11 @@ description: This tutorial demonstrates how to use the Auth0 jQuery SDK to add a
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'jQuery 3.1.0'
+  ]
 }) %>
-
-<%= include('_includes/_prerequisite') %>
 
 ${include('../\_callback')}
 

@@ -24,4 +24,4 @@ In this tutorial, you will learn how to enable MFA in the Java application you c
 
 ## Login
 
-<%= include('../_includes/_mfa-login', { loginlink: '01-login' }) %>
+<%= include('../_includes/_mfa-login', { loginlink: '/quickstart/webapp/java/01-login' }) %>

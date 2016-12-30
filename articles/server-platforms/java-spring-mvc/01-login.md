@@ -14,6 +14,6 @@ budicon: 448
   ]
 }) %>
 
-In this step we will enable login with the [Lock widget](/libraries/lock).
+In this step, we will enable login with the [Lock widget](/libraries/lock).
 
 <%= include('_includes/_login') %>

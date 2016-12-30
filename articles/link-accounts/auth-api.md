@@ -1,10 +1,10 @@
 ---
-description: How to link accounts using the Authentication API (Deprecated) 
+description: How to link accounts using the Authentication API (Deprecated)
 ---
 
-# Link Accounts using Authentication API (Deprecated) 
+# Link Accounts using Authentication API (Deprecated)
 
-**NOTE:** This method of linking accounts using the linking endpoint of the [Authentication API](/auth-api#!#get--link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used.
+**NOTE:** This method of linking accounts using the linking endpoint of the [Authentication API](/api/authentication/reference#link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used.
 
 ## Link through Auth0 Login Widget
 
@@ -50,13 +50,13 @@ The SDK for your platform should make the `access_token` available in simplest w
 
   ```js
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-  
+
   lock.show(function(err, profile, id_token, access_token) {
     //save access_token here for linking other accounts
   })
   ```
 
-* If you are using [passport-auth0](https://github.com/auth0/passport-auth0) in a regular Node.js web app, the `access_token` is available in the `strategy` callback and can be saved to the session for later use: 
+* If you are using [passport-auth0](https://github.com/auth0/passport-auth0) in a regular Node.js web app, the `access_token` is available in the `strategy` callback and can be saved to the session for later use:
 
   ```js
   var Auth0Strategy = require('passport-auth0'),
@@ -81,7 +81,7 @@ The SDK for your platform should make the `access_token` available in simplest w
   ```
 
 * If you are using ASP.NET, the `access_token` is available as a claim:
-  
+
   ```
   ${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
   ```

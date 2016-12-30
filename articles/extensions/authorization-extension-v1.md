@@ -2,7 +2,7 @@
 description: This page explains how to setup and manage the Authorization Extension v1.
 ---
 
-# Auth0 Extension: Authorization Extension v1
+# Auth0 Authorization Extension v1
 
 ::: panel-warning Notice
 This page explains how to use version 1.x of the Authorization Extension, [click here for documentation of version 2.](/extensions/authorization-extension)

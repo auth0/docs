@@ -7,7 +7,10 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
-  path: '02-Custom-Login'
+  path: '02-Custom-Login',
+  requirements: [
+    'jQuery 3.1.0'
+  ]
 }) %>
 
 In the [previous step](/quickstart/spa/jquery/01-login), we enabled login with the Auth0 Lock widget. You can also build your own custom UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
@@ -18,11 +21,8 @@ First, you must add the `Auth0.js` library to your application:
 
 ```html
 <!-- index.html -->
-  ...
 
-  <script src="${auth0js_url}"></script>
-
-  ...
+<script src="${auth0js_url}"></script>
 ```
 
 You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL` and set `responseType: 'token'`:
@@ -69,8 +69,8 @@ With `responseType: 'token'`, the result will be appended to the URL.
 Check for `hash` information using  Auth0's `parseHash` method, which will extract the `id_token`. Save it to `localStorage`:
 
 ```javascript
-/* ===== ./app.js ===== */
-...
+// ./app.js
+
 var parseHash = function() {
   var result = auth0.parseHash(window.location.hash);
   if (result && result.idToken) {
@@ -81,22 +81,21 @@ var parseHash = function() {
 };
 
 parseHash();
- ...
 ```
 
 Now, add a form to call the login:
 
 ```html
-  <!-- index.html -->
+<!-- index.html -->
 
-  <form class="form-signin">
-    <h2 class="form-signin-heading">Please sign in</h2>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="text" id="username" class="form-control" placeholder="Email address" autofocus required>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="password" class="form-control" placeholder="Password" required>
-    <button class="btn btn-lg btn-default" type="button" id="btn-login">Sign In</button>
-  </form>
+<form class="form-signin">
+  <h2 class="form-signin-heading">Please sign in</h2>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input type="text" id="username" class="form-control" placeholder="Email address" autofocus required>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="password" class="form-control" placeholder="Password" required>
+  <button class="btn btn-lg btn-default" type="button" id="btn-login">Sign In</button>
+</form>
 ```
 
 ## Sign up
@@ -126,11 +125,7 @@ and add a **Sign Up** button to call this method.
 ```html
   <!-- index.html -->
 
-  ...
-
   <button class="btn btn-lg btn-primary" type="button" id="btn-register">Sign Up</button>
-
-  ...
 ```
 
 ## Social login
@@ -153,11 +148,7 @@ $('#btn-google').on('click', function(ev) {
 and add a button to call this method:
 
 ```html
-  <!-- index.html -->
+<!-- index.html -->
 
-  ...
-
-  <button class="btn btn-lg btn-danger" type="button" id="btn-google">Google</button>
-
-  ...
+<button class="btn btn-lg btn-danger" type="button" id="btn-google">Google</button>
 ```

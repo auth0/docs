@@ -2,7 +2,7 @@
 description: How to execute an Implicit Grant flow from a SPA Client application
 ---
 
-# Executing the Implicit Grant Flow
+# Execute the Implicit Grant Flow
 <%=include('../_region-support') %>
 
 In order to execute an Implicit Grant flow you will need to configure your Client application to send the user to the authorization URL:
@@ -26,7 +26,7 @@ Where:
 * `client_id`: Your application's Client ID.
 * `redirect_uri`: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your application.
 * `state`: An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks.
-* `nonce`: A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](../tutorials/nonce).
+* `nonce`: A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce).
 
 For example:
 
@@ -36,7 +36,7 @@ For example:
 </a>
 ```
 
-## Extracting the Access Token
+## Extract the Access Token
 
 After the Authorization Server has redirected back to the Client, you can extract the `access_token` from the hash fragment of the URL:
 
@@ -66,9 +66,9 @@ $(function () {
 });
 ```
 
-## Using the Access Token
+## Use the Access Token
 
-Once the `access_token` has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+Once you have the `access_token` you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ``` js
 // Use the access token to make API calls

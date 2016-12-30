@@ -9,7 +9,7 @@ description: This tutorial will show you how to use the Auth0 Go SDK to add auth
   path: '00-Starter-Seed'
 }) %>
 
-### 1. Install `go-jwt-middleware` dependency
+### 1. Install the `go-jwt-middleware` dependency
 
 Install `go-jwt-middleware` to check for JWTs on HTTP requests.
 
@@ -25,8 +25,7 @@ ${snippet(meta.snippets.setup)}
 
 ### 3. Secure your API
 
-Now, you can use the `go-jwt-middleware` to secure your API. You can do so using `net/http` handlers or using `negroni` middlewares as well.
-
+Now, you can use the `go-jwt-middleware` to secure your API. You can do so using either `net/http` handlers or `negroni` middlewares.
 ${snippet(meta.snippets.use)}
 
 
@@ -46,4 +45,4 @@ You can now make requests against your secure API by providing the Authorization
 
 ### 5. You're done!
 
-Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
+Now you have both your frontend and backend configured to use Auth0. Congrats, you're awesome!

@@ -8,7 +8,11 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-WindowsPhone-samples',
-  path: '00-Starter-Seed/WindowsPhoneSilverlight'
+  path: '00-Starter-Seed/WindowsPhoneSilverlight',
+  requirements: [
+    'Microsoft Visual Studio 2015',
+    'Auth0.WindowsPhone 1.4.1'
+  ]
 }) %>
 
 
@@ -22,7 +26,7 @@ ${snippet(meta.snippets.dependencies)}
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that the <strong>Allowed Callback URLs list</strong> contains the following value:</p>
+<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that the <strong>Allowed Callback URLs list</strong> contains the following value:</p>
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 </div>
@@ -53,7 +57,7 @@ response = await client.SendRequestAsync(message);
 
 ### 6. Sit back and relax
 
-Now it's time to sit back and relax. You've implemented log in and signup with Auth0 for your Windows Phone application.
+Now it's time to sit back and relax. You've implemented login and signup with Auth0 for your Windows Phone application.
 
 
 ### Additional information

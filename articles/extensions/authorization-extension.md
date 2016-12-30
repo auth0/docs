@@ -2,7 +2,7 @@
 description: This page explains how to setup and manage the Authorization Extension v2.
 ---
 
-# Auth0 Extension: Authorization Extension
+# Auth0 Authorization Extension
 
 ::: panel-warning Notice
 This page explains how to use version 2 and later of the Authorization Extension, [click here for documentation of version 1.](/extensions/authorization-extension-v1)
@@ -205,7 +205,7 @@ If you have users that receive groups from the Identity Provider (such as Active
 
 ### Persistence
 
-You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/tokeninfo` endpoint](/api/authentication#!#post--tokeninfo) to retrieve this information after the user has logged in.
+You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/tokeninfo` endpoint](/api/authentication/reference#get-token-info) to retrieve this information after the user has logged in.
 
 ### Controlling Application Access
 

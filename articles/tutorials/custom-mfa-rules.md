@@ -2,7 +2,15 @@
 description: You can add step-up authentication to your app with Auth0's extensible multifactor authentication support.
 ---
 
-# Step-Up Authentication
+# Step-Up Authentication with Custom Multifactor Authentication Rules
+
+::: panel-info Notice
+Auth0 now supports `amr` and `acr` claims with `acr_values` for step-up authentication. This approach allows for more control with MFA.
+
+[Click here for details.](/tutorials/step-up-authentication) 
+:::
+
+## What is Step-Up Authentication?
 
 With Step-Up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.
 

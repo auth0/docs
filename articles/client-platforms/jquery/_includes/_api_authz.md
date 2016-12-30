@@ -14,7 +14,7 @@ Create a new Auth0 client instance as follows:
 var auth0 = new Auth0({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
-    callbackURL:  '{YOUR APP URL}'
+    callbackURL:  '${account.callback}'
 });
 ```
 
@@ -22,7 +22,7 @@ Note that the `callbackURL` must be defined in Dashboard for your client.
 
 ## Login
 
-Within your application's HTML, create an element with id `btn-login`. Then trigger the login on any of your enabled `Connections` with the following code. This will direct the user to the /authorize URL, which is the first step in the Implicit Grant OAuth flow. You can read more about API Authorization [here](../../../api-auth/grant/implicit).
+Within your application's HTML, create an element with id `btn-login`. Then trigger the login on any of your enabled `Connections` with the following code. This will direct the user to the /authorize URL, which is the first step in the Implicit Grant OAuth flow. You can read more about API Authorization [here](/api-auth/grant/implicit).
 
 ```js
 // trigger login to Auth0 when the Login button is clicked
@@ -35,7 +35,7 @@ $('#btn-login').click(function(e) {
 });
 ```
 
-The `audience` parameter should contain your API identifier from the Dashboard. If you don't send this, the runtime will take it from the tenant settings (`tenant.default_audience` or you can set it in the Dashboard). The `scope` parameter should include one or more scopes (separated by a space) you defined in the Dashboard for your API, in addition to any of the standard [OpenID scopes](https://auth0.com/docs/scopes).
+The `audience` parameter should contain your API identifier from the Dashboard. If you don't send this, the runtime will take it from the tenant settings (`tenant.default_audience` or you can set it in the Dashboard). The `scope` parameter should include one or more scopes (separated by a space) you defined in the Dashboard for your API, in addition to any of the standard [OpenID scopes](/scopes).
 
 ## Process the Callback
 
@@ -48,7 +48,7 @@ if (result && result.idToken) {
     // keep these in localStorage to use later
     localStorage.setItem('access_token', result.accessToken);
     localStorage.setItem('id_token', result.idToken);
-    
+
     auth0.getProfile(result.idToken, function (err, profile) {
         alert('hello ' + profile.name);
     });
@@ -58,7 +58,7 @@ if (result && result.idToken) {
 }
 ```
 
-The `access_token` will be used to make an Authenticated API call. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](https://auth0.com/docs/api/authentication#!#get--userinfo).
+The `access_token` will be used to make an Authenticated API call. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](/api/authentication/reference#get-user-info).
 
 ## Make an Authenticated API Call
 

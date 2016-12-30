@@ -42,14 +42,14 @@ Let's see what each attribute means.
 | `auth0.clientId` | The unique identifier for your client. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
 | `auth0.clientSecret` | The secret used to sign and validate the tokens that will be used in the different authentication flows. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
 | `auth0.securedRoute` | The URL pattern that should map to the URL endpoint you wish to secure. You should replace its value with the correct value for your implementation. It should start with `/`. * |
-| `auth0.base64EncodedSecret` | A boolean value indicating whether the Secret used to verify the JWT is `base64` encoded. Default is `false`. |
-| `auth0.authorityStrategy` | Indicates whether authorization claims against the Principal shall be `GROUPS`, `ROLES` or `SCOPE` based. Default is `ROLES`. |
+| `auth0.base64EncodedSecret` | A boolean value indicating whether the Secret used to verify the JWT is `base64` encoded. The default is `false`. |
+| `auth0.authorityStrategy` | Indicates whether authorization claims against the Principal shall be `GROUPS`, `ROLES` or `SCOPE` based. The default is `ROLES`. |
 | `auth0.defaultAuth0ApiSecurityEnabled` | A boolean value that switches having the default config enabled. It should be set to `false`. |
-| `auth0.signingAlgorithm: HS256` | Used when you want to use HS256 as a signing algorithm. We will see more on this on the next steps. |
-| `#auth0.signingAlgorithm: RS256` | Used when you want to use RS256 as a signing algorithm. We will see more on this on the next steps. |
-| `#auth0.publicKeyPath: certificate/cert.pem` | Indicates the certification in case you use RS256. We will see more on this on the next steps. |
+| `auth0.signingAlgorithm: HS256` | Used when you want to use HS256 as a signing algorithm. We will see more about this on the next steps. |
+| `#auth0.signingAlgorithm: RS256` | Used when you want to use RS256 as a signing algorithm. We will see more about this on the next steps. |
+| `#auth0.publicKeyPath: certificate/cert.pem` | Indicates the certification in case you use RS256. We will see more about this on the next steps. |
 
-**NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
+**NOTE**: If you download the seed project using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case, you should verify that the values are correct, if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
 
 
 That's all you need to start working with Auth0 in your Spring Security API!

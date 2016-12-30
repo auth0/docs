@@ -1,5 +1,5 @@
 ---
-description: Explains the basics of a User profile, how to create a user and view users and their profile details. 
+description: Explains the basics of a User profile, how to create a user and view users and their profile details.
 url: /user-profile
 ---
 
@@ -44,7 +44,7 @@ The User Details page has links for five tabs:
 
 #### User Details: Details
 
-The Details tab contains three sections that provide a high-level overview of the information in the user's profile: 
+The Details tab contains three sections that provide a high-level overview of the information in the user's profile:
 
 1. **User Identity** provides at-a-glance details about the user, including their email address, associated Connections, and access rights.
 2. **Metadata** displays the information available via the `app_metadata` and `user_metadata` attributes. Click the "Edit" button in this section to edit the user's `user_metadata` attributes. Note that all `app_metadata` attributes are read-only.
@@ -79,7 +79,7 @@ The Raw JSON tab displays all of the information contained on the user's profile
 
 ## Impersonating a User
 
-If you need to log in to your app as a user, see everything exactly as the user sees it, and do everything exactly as the user does it, you can do this using the Dashboard. 
+If you need to log in to your app as a user, see everything exactly as the user sees it, and do everything exactly as the user does it, you can do this using the Dashboard.
 
 Navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Select the user you want to impersonate from the list. When the User Details page opens, click the "Sign in as User" button. Select the app you want to log into from the dropdown menu.
 
@@ -94,20 +94,20 @@ A popup will display the URL to use to impersonate the user. You can copy the UR
 ![](/media/articles/user-profile/signin-as-user-02.png)
 
 ::: panel-info Impersonation API
-You can also use the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate) to impersonate a user. The API generates a link that you can used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
+You can also use the [Impersonation API](/api/authentication/reference#impersonation) to impersonate a user. The API generates a link that you can used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
 :::
 
 Please see [User Impersonation](/user-profile/user-impersonation) for more information about impersonating a user.
 
 ## Blocking and Unblocking a User
 
-To disable a user's access to your apps, you can block the user in the Dashboard. 
+To disable a user's access to your apps, you can block the user in the Dashboard.
 
 To block a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to block. When the User Details page opens, click the "Actions" button. Select _Block User_ from the dropdown menu.
 
 ![](/media/articles/user-profile/block-user.png)
 
-If a blocked user tries to access an application, they will see the error message `user is blocked`. 
+If a blocked user tries to access an application, they will see the error message `user is blocked`.
 
 To unblock a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to unblock. When the User Details page opens, click the "Actions" button. Select _Unblock User_ from the dropdown menu.
 

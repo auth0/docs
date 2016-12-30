@@ -30,15 +30,15 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-It is important that you register all 3 these pieces of middleware as all of them are required for the authentication to work. The Auth0 middleware  will handle the OAuth 2.0 authentication with Auth0. Once the user has authenticated, their identity will be temporarily stored in the external cookie. The Auth0 middleware will redirect the user back to `/Auth0Account/ExternalLoginCallback` action which will in turn [retrieve the user's identity from the external cookie](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample/blob/master/01-Login/MvcApplication/MvcApplication/Controllers/Auth0AccountController.cs#L30) and [sign the user in to the cookie middleware](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample/blob/master/01-Login/MvcApplication/MvcApplication/Controllers/Auth0AccountController.cs#L38).
+It is important that you register all 3 these pieces of middleware as all of them are required for the authentication to work. The Auth0 middleware  will handle the OAuth 2.0 authentication with Auth0. Once the user has authenticated, their identity will be temporarily stored in the external cookie. The Auth0 middleware will redirect the user back to `/Auth0Account/ExternalLoginCallback` action which will, in turn, [retrieve the user's identity from the external cookie](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample/blob/master/01-Login/MvcApplication/MvcApplication/Controllers/Auth0AccountController.cs#L30) and [sign the user into the cookie middleware](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample/blob/master/01-Login/MvcApplication/MvcApplication/Controllers/Auth0AccountController.cs#L38).
 
 All of this will be handled automatically for you by the Auth0 middleware and `Auth0AccountController` class which was added to your project when you installed the `Auth0-ASPNET-Owin` NuGet package, but it is important that you register all 3 pieces of middleware correctly as per the code sample above.
 
 ## Add Login and Logout Methods
 
-Next you will need to add `Login` and `Logout` actions to the `AccountController`.
+Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
-For the `Login` action you can simply return the Login view which we will create in the next step. For the `Logout` action you will need to sign the user out of the Authentication Manager and then redirect them back to the home page:
+For the `Login` action, you can simply return the Login view which we will create in the next step. For the `Logout` action you will need to sign the user out of the Authentication Manager and then redirect them back to the home page:
 
 ```cs
 public class AccountController : Controller
@@ -60,7 +60,7 @@ public class AccountController : Controller
 
 ## Add the Login View
 
-For the Login view you can embed the [Auth0 Lock component](/libraries/lock). You can use the sample code below which adds a `<div>` to your view and then initializes the Lock component to display inside the view.
+For the Login view, you can embed the [Auth0 Lock component](/libraries/lock). You can use the sample code below which adds a `<div>` to your view and then initializes the Lock component to display inside the view.
 
 ``` html
 @using System.Configuration
@@ -91,7 +91,7 @@ For the Login view you can embed the [Auth0 Lock component](/libraries/lock). Yo
 
 ## Add Login and Logout Links
 
-Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
+Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
 ```html
 <div class="navbar navbar-inverse navbar-fixed-top">

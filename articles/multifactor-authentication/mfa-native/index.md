@@ -29,7 +29,7 @@ Open the `basic-sample/Info.plist` file and replace the `CLIENT_ID` and `TENANT`
 
 ### Run the example
 
-To run the project, you need to have XCode installed. 
+To run the project, you need to have XCode installed.
 
 Then, in terminal, `cd` to the `native-mobile-samples-sample` directory and execute these commands:
 
@@ -57,7 +57,7 @@ Click **SAVE**.
 
 To enable Multifactor Authentication and enrollment, you must set the `options.mfa.active` and `options.mfa.return_enroll_settings` flags using the `PATCH  /api/v2/connections/{id}` endpoint.
 
-1. Go to [Database Connections](${manage_url}/#/connections/database) and select the database you want to use. 
+1. Go to [Database Connections](${manage_url}/#/connections/database) and select the database you want to use.
 
 2. Copy the database `id` from the URL of the **Settings** page of your database. It will be in the form: `con_xxxxxxxxxxxxxxxx`.
 
@@ -134,20 +134,20 @@ Now you can run the simulator in your sample project and sign-in to your Auth0 a
 6. You're in!
 
     ![Simulator](/media/articles/mfa/mfa-native/mfa-native-10.png)
-  
+
 ## Behind the scenes
 
-The Lock for iOS widget calls the [Resource Owner](/api/authentication#!#post--oauth-ro) endpoint to handle the authentication.
+The Lock for iOS widget calls the [Resource Owner](/api/authentication/reference#resource-owner) endpoint to handle the authentication.
 
 ![Resource Owner](/media/articles/mfa/mfa-native/mfa-native-11.png)
 
-If you have set the `options.mfa.return_enroll_settings` flag to true using the `PATCH  /api/v2/connections/{id}` endpoint, the Resource Owner response will include a url to a QR code: 
+If you have set the `options.mfa.return_enroll_settings` flag to true using the `PATCH  /api/v2/connections/{id}` endpoint, the Resource Owner response will include a url to a QR code:
 
 ```
 {
   "error": "a0.mfa_registration_required",  
   "error_description": "User is not enrolled with google-authenticator",
-  
+
   "mfa_settings": {
     "provider": "google-authenticator",
     "key": "GYQUC4JRKVLS6MJEF4YCUxxxxxxxxx",
@@ -156,7 +156,7 @@ If you have set the `options.mfa.return_enroll_settings` flag to true using the 
 }
 ```
 
-Otherwise, the response is a simple error code: 
+Otherwise, the response is a simple error code:
 
 ```
 {
