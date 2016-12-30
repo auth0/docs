@@ -83,3 +83,7 @@ Once you click on the button a pop-up window will ask you to confirm the action.
 Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. The logs include many of the actions performed by the user like failing to login to a client or requesting a password change. For more details refer to: [Logs](/logs).
 
 If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For details on the available extensions and how to configure them refer to: [Extensions](/extensions).
+
+## Dynamic Client Registration
+
+You can use the [Management APIv2](/api/management/v2) to programmatically create clients, as described in the [OIDC Dynamic Client Registration 1.0 specification](https://openid.net/specs/openid-connect-registration-1_0.html). For more details please refer to [Dynamic Client Registration](/api-auth/dynamic-client-registration).
