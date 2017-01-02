@@ -12,8 +12,8 @@ https://${account.namespace}/authorize?
   audience={API_AUDIENCE}&
   scope={SCOPE}&
   response_type={RESPONSE_TYPE}&
-  client_id={AUTH0_CLIENT_ID}&
-  redirect_uri={CALLBACK_URL}&
+  client_id=${account.clientId}&
+  redirect_uri=${account.callback}&
   nonce={CRYPTOGRAPHIC_NONCE}
   state={OPAQUE_VALUE}
 ```
@@ -31,7 +31,7 @@ Where:
 For example:
 
 ```html
-<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=${account.clientId}&redirect_uri=https://myclientapp.com/callback">
+<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=${account.clientId}&redirect_uri=${account.callback}">
   Sign In
 </a>
 ```
