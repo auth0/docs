@@ -551,3 +551,11 @@ appliance:
         url: https://auth0.com/changelog/appliance
         external: true
         forceFullReload: true
+
+services:
+
+  - title: "Overview"
+    url: "/services"
+
+  - title: "Architectural Design Sessions"
+    url: "/services/architectural-design"
