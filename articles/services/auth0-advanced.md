@@ -1,4 +1,5 @@
 ---
+section: services
 description: A training for advanced development on the Auth0 platform.
 ---
 
