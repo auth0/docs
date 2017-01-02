@@ -5,7 +5,7 @@ toc: true
 
 # Dynamic Client Registration
 
-A [client](/clients) is traditionally registered with Auth0 manually, using the [dashboard](${manage_url}). The alternative is to have the client register itself dynamically, using [Management APIv2](/api/management/v2). This way you can allow third party developers to register and use clients.
+Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables clients to register dynamically, using the [Management APIv2](/api/management/v2). This way you can allow third party developers to register and use clients.
 
 All clients, registered dynamically with Auth0, have the following characteristics:
 
