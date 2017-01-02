@@ -125,7 +125,7 @@ To create a client with the name `My Example` and the callback URLs `https://cli
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_name\":\"My Example\",\"redirect_uris\": [\"https://client.example.com/callback\", \"https://client.example.com/callback2\"]}"
+    "text": "{\"client_name\":\"My Dynamic Client\",\"redirect_uris\": [\"https://client.example.com/callback\", \"https://client.example.com/callback2\"]}"
   }
 }
 ```
@@ -144,7 +144,7 @@ The response includes the basic client information.
 HTTP/1.1 201 Created
 Content-Type: application/json
 {
-  "client_name": "Dynamic Client",
+  "client_name": "My Dynamic Client",
   "client_id": "8SXWY6j3afl2CP5ntwEOpMdPxxy49Gt2",
   "client_secret": "Q5O...33P",
   "redirect_uris": [
@@ -177,8 +177,8 @@ https://${account.namespace}/authorize?
   audience={API_AUDIENCE}&
   scope={SCOPE}&
   response_type={RESPONSE_TYPE}&
-  client_id={AUTH0_CLIENT_ID}&
-  redirect_uri={CALLBACK_URL}&
+  client_id=${account.clientId}&
+  redirect_uri=${account.callback}&
   nonce={CRYPTOGRAPHIC_NONCE}
   state={OPAQUE_VALUE}
 ```
@@ -191,6 +191,14 @@ Where:
 - `redirect_uri`: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your application.
 - `state`: An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks.
 - `nonce`: A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce).
+
+For example:
+
+```html
+<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=${account.clientId}&redirect_uri=${account.callback}">
+  Sign In
+</a>
+```
 
 This call will redirect the user to Auth0, and upon successful authentication, back to your application (specifically to the `redirect_uri`).
 
