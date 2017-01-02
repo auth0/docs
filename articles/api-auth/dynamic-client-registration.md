@@ -11,17 +11,14 @@ All clients, registered dynamically with Auth0, have the following characteristi
 
 - The [ID tokens](/tokens/id-token) generated for these clients, hold minimum user profile information. In order to retrieve the full user profile, you need to get an access token and use the [/userinfo endpoint](/api/authentication#get-user-info).
 
-- These clients cannot use [ID tokens](/tokens/id-token) to invoke the [Management APIv2](/api/management/v2) endpoints. Instead, they should [get a Management APIv2 Token](/api/management/v2/tokens#how-to-get-a-management-apiv2-token). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.
-
-| Scope | Endpoint(s) |
-| --- | --- |
-| `read:current_user` | [List or search users](/api/management/v2#!/Users/get_users),<br/> [Get a user](/api/management/v2#!/Users/get_users_by_id),<br/> [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments) |
-| `update:current_user_metadata` | [Update a user](/api/management/v2#!/Users/patch_users_by_id),<br/> [Delete a user's multifactor provider](/api/management/v2#!/Users/delete_multifactor_by_provider) |
-| `delete:current_user_metadata` | [Delete a user](/api/management/v2#!/Users/delete_users_by_id) |
-| `create:current_user_metadata` | [Create a user](/api/management/v2#!/Users/post_users) |
-| `create:current_user_device_credentials` | [Create a device public key](/api/management/v2#!/Device_Credentials/post_device_credentials) |
-| `delete:current_user_device_credentials` | [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) |
-| `update:current_user_identities` | [Link a user account](/api/management/v2#!/Users/post_identities),<br/> [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id) |
+- These clients cannot use [ID tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should [get a Management APIv2 Token](/api/management/v2/tokens#how-to-get-a-management-apiv2-token). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.
+  - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
+  - `update:current_user_metadata`: [Update a user](/api/management/v2#!/Users/patch_users_by_id), [Delete a user's multifactor provider](/api/management/v2#!/Users/delete_multifactor_by_provider)
+  - `delete:current_user_metadata`: [Delete a user](/api/management/v2#!/Users/delete_users_by_id)
+  - `create:current_user_metadata`: [Create a user](/api/management/v2#!/Users/post_users)
+  - `create:current_user_device_credentials`: [Create a device public key](/api/management/v2#!/Device_Credentials/post_device_credentials)
+  - `delete:current_user_device_credentials`: [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
+  - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
 
 - They cannot have any connections, except for tenant level connections (domain connections). To use tenant level connections, you need the latest version of [Lock](/libraries/lock).
 
