@@ -5,28 +5,33 @@ toc: true
 
 # Dynamic Client Registration
 
-A [client](/clients) is traditionally registered with Auth0 manually, using the [dashboard](${manage_url}). The alternative is to have the client register itself dynamically, using [Management APIv2](/api/management/v2).
+A [client](/clients) is traditionally registered with Auth0 manually, using the [dashboard](${manage_url}). The alternative is to have the client register itself dynamically, using [Management APIv2](/api/management/v2). This way you can allow third party developers to register and use clients.
 
 All clients, registered dynamically with Auth0, have the following characteristics:
 
 - The [ID tokens](/tokens/id-token) generated for these clients, hold minimum user profile information. In order to retrieve the full user profile, you need to get an access token and use the [/userinfo endpoint](/api/authentication#get-user-info).
 
-- These clients cannot use [ID tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should [get a Management APIv2 Token](/api/management/v2/tokens#how-to-get-a-management-apiv2-token). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.
-  - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
-  - `update:current_user_metadata`: [Update a user](/api/management/v2#!/Users/patch_users_by_id), [Delete a user's multifactor provider](/api/management/v2#!/Users/delete_multifactor_by_provider)
-  - `delete:current_user_metadata`: [Delete a user](/api/management/v2#!/Users/delete_users_by_id)
-  - `create:current_user_metadata`: [Create a user](/api/management/v2#!/Users/post_users)
-  - `create:current_user_device_credentials`: [Create a device public key](/api/management/v2#!/Device_Credentials/post_device_credentials)
-  - `delete:current_user_device_credentials`: [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
-  - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
+- These clients cannot use [ID tokens](/tokens/id-token) to invoke the [Management APIv2](/api/management/v2) endpoints. Instead, they should [get a Management APIv2 Token](/api/management/v2/tokens#how-to-get-a-management-apiv2-token). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.
+
+| Scope | Endpoint(s) |
+| --- | --- |
+| `read:current_user` | [List or search users](/api/management/v2#!/Users/get_users),<br/> [Get a user](/api/management/v2#!/Users/get_users_by_id),<br/> [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments) |
+| `update:current_user_metadata` | [Update a user](/api/management/v2#!/Users/patch_users_by_id),<br/> [Delete a user's multifactor provider](/api/management/v2#!/Users/delete_multifactor_by_provider) |
+| `delete:current_user_metadata` | [Delete a user](/api/management/v2#!/Users/delete_users_by_id) |
+| `create:current_user_metadata` | [Create a user](/api/management/v2#!/Users/post_users) |
+| `create:current_user_device_credentials` | [Create a device public key](/api/management/v2#!/Device_Credentials/post_device_credentials) |
+| `delete:current_user_device_credentials` | [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) |
+| `update:current_user_identities` | [Link a user account](/api/management/v2#!/Users/post_identities),<br/> [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id) |
 
 - They cannot have any connections, except for tenant level connections (domain connections). To use tenant level connections, you need the latest version of [Lock](/libraries/lock).
 
-## Enable Dynamic Registration
+## Enable dynamic registration
 
-By default, dynamic registration is disabled for all tenants. To change this, you have to enable the feature, promote the connections you will use with your dynamic clients to **domain connections**, and update your client's login page.
+In this section we will see how you can enable the dynamic registration feature for your tenant.
 
-### Enable the feature
+By default, the feature is disabled for all tenants. To change this, you have to update some account settings, promote the connections you will use with your dynamic clients to **domain connections**, and update your client's login page.
+
+### Update tenant settings
 
 In order to enable the feature, you need to enable the following flags at your tenant's settings:
 - `enable_dynamic_client_registration`: Enables the feature.
@@ -45,7 +50,7 @@ curl -X PATCH -H "Authorization: Bearer API2_ACCESS_TOKEN" -H "Content-Type: app
 
 You need to update the `API2_ACCESS_TOKEN` with a valid Auth0 API2 token with the scope `update:tenant_settings`. See [How to get a Management APIv2 Token](/api/management/v2/tokens#how-to-get-a-management-apiv2-token) for details on how to do so.
 
-### Promote Connections to Domain Connections
+### Promote connections
 
 Clients registered via the [Dynamic Client Registration Endpoint](#dynamic-client-registration-endpoint) are flagged as **Third Party Clients** and can only authenticate users using connections flagged as **Domain Connections**. These connections will be open for any dynamic client to allow users to authenticate.
 
@@ -62,7 +67,7 @@ Where:
 - `CONNECTION_ID`: Τhe Id of the connection to be promoted.
 
 
-### Update the Login Page
+### Update the login page
 
 If you use or would like to use an Auth0 [Hosted Login Page](/hosted-pages/login) with the Dynamic Client feature, you need to use at least version `10.7.x` of Lock, and set `__useTenantInfo: config.isThirdPartyClient` when instantiating Lock.
 
@@ -104,13 +109,13 @@ Sample script:
 </script>
 ```
 
-## Use Dynamic Registration
+## Use dynamic registration
 
-### Register your Client
+In this section we will see how a third party developer can register and configure a client.
 
-**NOTE**: Auth0 supports open Dynamic Registration, which means that the [Client Registration Endpoint](/api/management/v2#!/oidc/register) will accept a registration request without an [OAuth 2.0 Access Tokens](/tokens/access-token).
+### Register your client
 
-In order to dynamically register a client with Auth0, you need to send an HTTP `POST` message to the [/oidc/register endpoint](/api/management/v2#!/oidc/register).
+In order to dynamically register a client with Auth0, you need to send an HTTP `POST` message to the [Client Registration endpoint](/api/management/v2#!/oidc/register). Note that Auth0 supports open Dynamic Registration, which means that the [Client Registration endpoint](/api/management/v2#!/oidc/register) will accept a registration request without an [OAuth 2.0 Access Tokens](/tokens/access-token).
 
 To create a client with the name `My Example` and the callback URLs `https://client.example.com/callback` and `https://client.example.com/callback2`, you would use the following.
 
