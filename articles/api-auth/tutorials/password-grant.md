@@ -61,6 +61,7 @@ In case the scopes issued to the client differ from the scopes requested, a `sco
 
 ::: panel-info On requesting specific `scope`s
 Use of any password-based exchange gives access to all scopes because a password is equivalent to full access. This means that even if you request a `scope` of only `openid`, the resulting response will still include other standard scopes, such as `openid profile email address phone` (and any others that you've configured such as `read:notes`). In this case, a `scope` parameter will be included listing the issued scopes as mentioned above.
+:::
 
 ::: panel-info A note about user's claims
 If the client needs the user's claims you can include the scopes `openid profile` to the `scope` value in the POST to the token endpoint. If the audience uses RS256 as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can now send the `access_token` to `https://${account.namespace}/userinfo` to retrieve the user's claims.
