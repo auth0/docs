@@ -5,7 +5,7 @@ toc: true
 
 # Dynamic Client Registration
 
-Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables clients to register dynamically, using the [Management APIv2](/api/management/v2). This way you can allow third party developers to register and use clients.
+Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables you to to register clients dynamically, using the [Management APIv2](/api/management/v2). This way you can allow third party developers to register and use clients.
 
 All clients, registered dynamically with Auth0, have the following characteristics:
 
@@ -26,15 +26,15 @@ All clients, registered dynamically with Auth0, have the following characteristi
 
 In this section we will see how you can enable the dynamic registration feature for your tenant.
 
-By default, the feature is disabled for all tenants. To change this, you have to update some account settings, promote the connections you will use with your dynamic clients to **domain connections**, and update your client's login page.
+By default, the feature is disabled for all tenants. To change this, you have to update some account settings, promote the connections you will use with your dynamic clients to **domain connections**, and update your client's login page (if you use Lock).
 
 ### Update tenant settings
 
-In order to enable the feature, you need to enable the following flags at your tenant's settings:
+In order to enable the feature, you need to set to `true` the following flags at your tenant's settings:
 - `enable_dynamic_client_registration`: Enables the feature.
 - `enable_pipeline2`: Enables the underlying pipeline that is a required dependency.
 
-You can enable these flags using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings).
+You can update these flags using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings).
 
 ```
 curl -X PATCH -H "Authorization: Bearer API2_ACCESS_TOKEN" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
@@ -70,7 +70,7 @@ If you use or would like to use an Auth0 [Hosted Login Page](/hosted-pages/login
 
 Sample script:
 
-```js
+```html
 <script src="https://cdn.auth0.com/js/lock/10.7/lock.min.js"></script>
 ...
 <script>
