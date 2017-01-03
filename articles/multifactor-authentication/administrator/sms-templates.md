@@ -11,8 +11,8 @@ First, go to ([Multifactor Auth With Guardian](${manage_url}/#/guardian), then c
 ![](/media/articles/mfa/sms-config.png)
 
 You have two fields to customize your messages:
-* Enrollment Template: the message sent by Auth0 during device enrollment.
-* Verification Template: the message sent by Auth0 to verify the possession of the device.
+* **Enrollment Template**: the message sent by Auth0 during device enrollment.
+* **Verification Template**: the message sent by Auth0 to verify the possession of the device.
 
 [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) syntax is the supported templating engine to use when accessing user attributes in SMS templates. The following attributes are available: 
 * `code`: The Enrollment/Verification code. 
