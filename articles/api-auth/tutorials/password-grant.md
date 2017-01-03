@@ -64,7 +64,7 @@ Use of any password-based exchange gives access to all scopes because a password
 :::
 
 ::: panel-info A note about user's claims
-If the client needs the user's claims you can include the scopes `openid profile` to the `scope` value in the POST to the token endpoint. If the audience uses RS256 as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can now send the `access_token` to `https://${account.namespace}/userinfo` to retrieve the user's claims.
+If the client needs the user's claims you can include the scopes `openid` to the `scope` value in the POST to the token endpoint. If the audience uses RS256 as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can now send the `access_token` to `https://${account.namespace}/userinfo` to retrieve the user's claims.
 :::
 
 ### Realm Support
