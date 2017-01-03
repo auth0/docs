@@ -72,8 +72,8 @@ Finally, implement the `LoginWithSDK()` function which will perform the login an
 public async void LoginWithSDK(string username, string password){
   var user = await auth0.LoginAsync(
     "database-connection-name",     // connection name here
-    username,        // user name
-    password);                 // password
+    username,
+    password);
 
   // We are going to persist the user data here and store it in Application.Current. You can choose to do it a different way. The key takeaway is that the user variable now has access to your authorized users data.
   Application.Current.Properties["id_token"] = user.IdToken;
@@ -102,6 +102,7 @@ var email = new Entry { Placeholder = "Email" };
 var password = new Entry { Placeholder = "Password", IsPassword = true };
 
 var loginWithAPIButton = new Button { Text = "Sign In with SDK" };
+
 loginWithAPIButton.Clicked += (object sender, EventArgs e) =>{
   LoginWithAPI(email.Text, password.Text);
 };
