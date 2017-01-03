@@ -362,7 +362,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Resource Owner Password use  `password`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. Do not set this parameter if your client is not highly trusted. You can make this parameter optional for SPAs and native apps, by setting the **Token Endpoint Authentication Method** at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) to `None`. |
+| `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. Required when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted. |
 | `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
