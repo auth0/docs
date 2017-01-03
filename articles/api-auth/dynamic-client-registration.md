@@ -36,13 +36,23 @@ In order to enable the feature, you need to set to `true` the following flags at
 
 You can update these flags using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings).
 
-```
-curl -X PATCH -H "Authorization: Bearer API2_ACCESS_TOKEN" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-  "flags": {
-    "enable_pipeline2": true,
-    "enable_dynamic_client_registration": true
+```har
+{
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/tenants/settings",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer API2_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
+  ],
+  "postData": {
+    "is_domain_connection": true
   }
-}' "https://${account.namespace}/api/v2/tenants/settings"
+  "postData": {
+      "mimeType": "application/json",
+      "text" : "{ \"enable_pipeline2\": true, \"enable_dynamic_client_registration\": true }"
+  }
+}
 ```
 
 You need to update the `API2_ACCESS_TOKEN` with a valid Auth0 API2 token with the scope `update:tenant_settings`. See [How to get a Management APIv2 Token](/api/management/v2/tokens#how-to-get-a-management-apiv2-token) for details on how to do so.
@@ -53,10 +63,20 @@ Clients registered via the [Dynamic Client Registration Endpoint](#dynamic-clien
 
 You can promote a connection to domain level using the [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id).
 
-```
-curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer API2_ACCESS_TOKEN" -H "Cache-Control: no-cache" -d '{
-  "is_domain_connection": true
-}' "https://${account.namespace}/api/v2/connections/CONNECTION_ID"
+```har
+{
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/connections/CONNECTION_ID",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer API2_ACCESS_TOKEN" },
+    { "name": "Cache-Control", "value": "no-cache" }
+  ],
+  "postData": {
+      "mimeType": "application/json",
+      "text" : "{ \"is_domain_connection\": true }"
+  }
+}
 ```
 
 Where:
