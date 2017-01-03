@@ -5,7 +5,7 @@ toc: true
 
 # Dynamic Client Registration
 
-Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables you to to register clients dynamically, using the [Management APIv2](/api/management/v2). This way you can allow third party developers to register and use clients.
+Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables you to register clients dynamically. This way you can allow third party developers to register and use clients.
 
 All clients, registered dynamically with Auth0, have the following characteristics:
 
@@ -20,13 +20,17 @@ All clients, registered dynamically with Auth0, have the following characteristi
   - `delete:current_user_device_credentials`: [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
   - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
 
-- They cannot have any connections, except for tenant level connections (domain connections). To use tenant level connections, you need the latest version of [Lock](/libraries/lock).
+- They cannot use any connections, except for tenant level connections (domain connections). If the client wants to use [Lock](/libraries/lock) to authenticate users, it will need to use a version greater than `10.7`.
 
 ## Enable dynamic registration
 
 In this section we will see how you can enable the dynamic registration feature for your tenant.
 
 By default, the feature is disabled for all tenants. To change this, you have to update some account settings, promote the connections you will use with your dynamic clients to **domain connections**, and update your client's login page (if you use Lock).
+
+::: panel-warning Security warning
+Auth0 supports Open Dynamic Registration, which means that if you enable this feature, **anyone** will be able to create clients in your tenant without a token.
+:::
 
 ### Update tenant settings
 
@@ -45,9 +49,6 @@ You can update these flags using the [Update tenant settings endpoint](/api/mana
     { "name": "Authorization", "value": "Bearer API2_ACCESS_TOKEN" },
     { "name": "Cache-Control", "value": "no-cache" }
   ],
-  "postData": {
-    "is_domain_connection": true
-  }
   "postData": {
       "mimeType": "application/json",
       "text" : "{ \"enable_pipeline2\": true, \"enable_dynamic_client_registration\": true }"
@@ -132,7 +133,7 @@ In this section we will see how a third party developer can register and configu
 
 ### Register your client
 
-In order to dynamically register a client with Auth0, you need to send an HTTP `POST` message to the [Client Registration endpoint](/api/management/v2#!/oidc/register). Note that Auth0 supports open Dynamic Registration, which means that the [Client Registration endpoint](/api/management/v2#!/oidc/register) will accept a registration request without an [OAuth 2.0 Access Tokens](/tokens/access-token).
+In order to dynamically register a client with Auth0, you need to send an HTTP `POST` message to the Client Registration endpoint: `https://${account.namespace}/oidc/register`. Note that Auth0 supports open Dynamic Registration, which means that the endpoint will accept a registration request without an [OAuth 2.0 Access Tokens](/tokens/access-token).
 
 To create a client with the name `My Example` and the callback URLs `https://client.example.com/callback` and `https://client.example.com/callback2`, you would use the following.
 
@@ -151,12 +152,10 @@ To create a client with the name `My Example` and the callback URLs `https://cli
 ```
 
 Where:
-- `client_name`: The name of the Dynamic Client to be created.
-- `redirect_uris`: An array of URLs that Auth0 will deem valid to call at the end of an Authentication flow.
+- `client_name` (required): The name of the Dynamic Client to be created.
+- `redirect_uris` (required): An array of URLs that Auth0 will deem valid to call at the end of an Authentication flow.
 
 Optionally, you can set a value for `token_endpoint_auth_method`, which can be `none` or `client_secret_post` (default value).
-
-**NOTE**: You can set several attributes. For a complete listing refer to the [/oidc/register endpoint](/api/management/v2#!/oidc/register).
 
 The response includes the basic client information.
 

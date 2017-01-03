@@ -86,4 +86,4 @@ If you use a third-party application for log management, like Sumo Logic, Splunk
 
 ## Dynamic Client Registration
 
-You can use the [Management APIv2](/api/management/v2) to programmatically create clients, as described in the [OIDC Dynamic Client Registration 1.0 specification](https://openid.net/specs/openid-connect-registration-1_0.html). For more details please refer to [Dynamic Client Registration](/api-auth/dynamic-client-registration).
+You can use the Auth0 to programmatically create clients, as described in the [OIDC Dynamic Client Registration 1.0 specification](https://openid.net/specs/openid-connect-registration-1_0.html). For more details please refer to [Dynamic Client Registration](/api-auth/dynamic-client-registration).
