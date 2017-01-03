@@ -1,5 +1,5 @@
 ---
-title: MFA
+title: Multifactor Authentication
 description: This tutorial will show you how to configure Multi Factor Authentication (MFA) via Google Authenticator in your app.
 budicon: 243
 ---
@@ -7,7 +7,12 @@ budicon: 243
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
-  path: '09-MFA'
+  path: '09-MFA',
+  requirements: [
+    'CocoaPods 1.0.0',
+    'XCode 7.3 (7D175)',
+    'iPhone 6 - iOS 9.3 (13E230)'
+  ]
 }) %>
 
 ## Enable Multifactor Auth in Your Client
@@ -40,7 +45,7 @@ Make sure you hit the **save** button.
 
 To enable multifactor authentication and enrollment in your database connection, you must set the `options.mfa.active` and`options.mfa.return_enroll_settings` flags using the `PATCH /api/v2/connections/:id` endpoint.
 
-First, go to [Database Connections]({$manage_url}/#/connections/database) and select the database you want to use MFA on.
+First, go to [Database Connections](${manage_url}/#/connections/database) and select the database you want to use MFA on.
 
 Then, copy the database `id` from the URL of the **Settings** page of your database. It will be in the form: `con_xxxxxxxxxxxxxxxx`.
 

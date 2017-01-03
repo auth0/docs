@@ -12,7 +12,7 @@ In the Dashboard, on the **Email** page, under [Connections > Passwordless](${ma
 
 The Message area supports usage of multiple languages.
 
-By making a call to the [/passwordless/start](/api/authentication#!#post--with_email) authentication endpoint, you can set the value of an 'x-request-language' header to the language of your choice. If the value of this header is not set, the language will be extracted from the value in the 'accept-language' header that is automatically set by the browser.
+By making a call to the [/passwordless/start](/api/authentication/reference#get-code-or-link) authentication endpoint, you can set the value of an 'x-request-language' header to the language of your choice. If the value of this header is not set, the language will be extracted from the value in the 'accept-language' header that is automatically set by the browser.
 
 The Message area accepts Liquid syntax. You can use this syntax, combined with exposed parameter values, to programmatically construct elements of the message. For example, you can reference the `request_language` parameter to change the language of the message:
 

@@ -1,9 +1,12 @@
 ---
+section: libraries
+toc: true
 url: /libraries/lock
-description: Lock 10 is the easiest and best way to secure your web applications! This widget is a simple way to integrate Auth0 into existing projects and provide the frictionless login and signup experience that you want for your app.
+title: Lock for Web
+description: A widget that provides a frictionless login and signup experience for your web apps.
 ---
 
-# Lock
+# Lock for Web
 
 You're looking at the documentation for the _easiest_ way of securing your website and mobile apps!
 
@@ -45,7 +48,7 @@ Include via our CDN:
 
 ### Mobile
 
-If you are targeting mobile audiences, Auth0 recommendeds that you add the following meta tag to your application's `head`:
+If you are targeting mobile audiences, Auth0 recommends that you add the following meta tag to your application's `head`:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>

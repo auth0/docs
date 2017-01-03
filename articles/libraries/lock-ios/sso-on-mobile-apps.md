@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: SSO on Mobile Apps
 description: How to implement SSO on mobile apps with Lock iOS.
 ---

@@ -15,13 +15,11 @@ description: This tutorial demonstrates how to use API authorization
 
 <%= include('../../_includes/_compat_warning') %>
 
-# Before Starting
+### Before Starting
 
 ## Enable OAuth 2.0 API Authorization
 
 <%= include('../../_includes/_configure_oauth2aas') %>
-
-## Create an Application
 
 <%= include('../../_includes/_new_app_no_sample') %>
 
@@ -181,7 +179,7 @@ Provide a control for the user to log in which calls the `login` method on the `
 </div>
 ```
 
-The `access_token` retrieved from the authentication process can be used to make authenticated API calls. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](https://auth0.com/docs/api/authentication#!#get--userinfo).
+The `access_token` retrieved from the authentication process can be used to make authenticated API calls. Remember that using `response_type: token` means that you cannot get a `refresh_token`. The `id_token` can be used in your application for basic profile data. If you want to retrieve additional profile data for the user, you can use the `userinfo` endpoint with the `access_token` in the `Authorization` header. For more information, see [our API documentation](/api/authentication/reference#get-user-info).
 
 ## Making an Authenticated API Call
 
@@ -210,7 +208,7 @@ To attach the user's JWT as an `Authorization` header, we could write a service 
       }],
       whiteListedDomains: ['localhost']
     });
-	
+
     // Add the jwtInterceptor to the array of HTTP interceptors
     // so that JWTs are attached as Authorization headers
     $httpProvider.interceptors.push('jwtInterceptor');
@@ -234,7 +232,7 @@ vm.ping = function () {
 }
 ```
 
-The Resource Server (API) should be configured to verify the JWT and any claims contained within it. Because the Resource Server is utilizing the RS256 signature method, tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: [https://${account.namespace}/.well-known/jwks.json]. You can use any [recommended JWT library](https://jwt.io) to validate the standard claims returned in the token. These details are outside the scope of this quickstart tutorial. More information can be found [in our documentation](https://auth0.com/docs/api-auth/config/asking-for-access-tokens).
+<%= include('../../_includes/_create_resource_server') %>
 
 ## Log Out
 

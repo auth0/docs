@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: Build your own UI
 description: Customize the UI of Lock in your App
 ---

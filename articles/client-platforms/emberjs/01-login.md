@@ -5,23 +5,19 @@ description: This tutorial will show you how to use the Auth0 EmberJS SDK to add
 budicon: 448
 ---
 
-You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow these tutorial steps.
 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-emberjs-spa',
-  path: '00-Starter-Seed'
+  path: '00-Starter-Seed',
+  requirements: [
+    'NodeJS 0.12.7',
+    'Ember 1.12.0',
+    'jQuery 1.11.1',
+    'Ember Simple Auth 1.1.0'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* NodeJS 0.12.7
-* Ember 1.12.0
-* Bower 1.5.3
-* Jquery 1.11.1
-* Ember Simple Auth 1.1.0
-:::
 
 ${include('../\_callback')}
 
@@ -135,7 +131,7 @@ Add login and logout links. These routes are handled according to the simple-aut
 
 Once a user is authenticated, session data received from the popup window will be stored in `localStorage` under the `ember_simple_auth:session` key. This session object is a JSON object that contains user profile data, a JWT token and an access token.
 
-You can access this session information in the ember templates by using `{{session.secure}}`. For example, to say "Hi" and show the user's associated avatar:
+You can access this session information in the Ember templates by using `{{session.secure}}`. For example, to say "Hi" and show the user's associated avatar:
 
 ```handlebars
 <div class="user-info">
@@ -160,6 +156,8 @@ fetch('/api/foo', {
   // use response
 });
 ```
+
+<%= include('../_includes/_persisting_state') %>
 
 ### Additional information
 

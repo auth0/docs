@@ -8,15 +8,13 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aurelia-samples',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'NodeJS 5.0.0',
+    'JSPM 0.16.27',
+    'Aurelia-framework 1.0.0-beta.1.1.0'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 5.0.0
-* JSPM 0.16.27
-* Aurelia-framework 1.0.0-beta.1.1.0
-:::
 
 ${include('../\_callback')}
 
@@ -87,3 +85,5 @@ Aurelia's `canActivate` method can be used to check whether a route can be navig
 ${snippet(meta.snippets.routing)}
 
 This hook will redirect the user to some other route (`public` in this case) if the user's JWT has expired.
+
+<%= include('../_includes/_persisting_state') %>

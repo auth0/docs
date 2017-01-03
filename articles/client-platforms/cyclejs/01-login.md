@@ -83,3 +83,5 @@ To discover all the available properties of a user's profile, see [Auth0 Normali
 To logout, you simply need to send the `logout` action to the Auth0 driver.
 
 ${snippet(meta.snippets.logout)}
+
+<%= include('../_includes/_persisting_state') %>

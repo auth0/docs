@@ -4,32 +4,15 @@ description: Describes how to configure Amazon SNS with Guardian Multifactor
 
 ## Configuring Amazon SNS 
 
-In order to receive push notifications from Guardian, it's necessary to override Guardian's default SNS settings. To do this, use the following [Auth0 Management API](/api/management/v2) call.
+In order to receive push notifications from Guardian, it's necessary to override Guardian's default SNS settings.
 
-```text
-PUT https://${account.namespace}/api/v2/guardian/factors/push-notification/providers/sns
+To do this, go to the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard and click on the **Push Notifications** box.
 
-Content-Type: 'application/json'
-Authorization: Bearer {API-TOKEN}
+![](/media/articles/mfa/push-notification-config.png)
 
-{
-  "aws_access_key_id": "{YOUR-AWS-ACCESSKEY}",
-  "aws_secret_access_key": "{YOUR-AWS-SECRET}",
-  "aws_region": "{YOUR-AWS-REGION}",
-  "sns_apns_platform_application_arn": "{YOUR-SNS-APNS-ARN}",
-  "sns_gcm_platform_application_arn": "{YOUR-SNS-GCM-ARN}"
-}
-```
+Enable the switch to use a custom app and substitute all the appropriate values for your particular configuration.
 
-Substitute the appropriate values for your particular configuration. For instance, with Curl this could be accomplished with:
-
-```curl
-curl -X PUT \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer {API-TOKEN}" \
-  -d '{"aws_access_key_id":"{YOUR-AWS-ACCESSKEY}","aws_secret_access_key":"{YOUR-AWS-SECRET}","aws_region":"{YOUR-AWS-REGION}","sns_apns_platform_application_arn":"{YOUR-SNS-APNS-ARN}","sns_gcm_platform_application_arn":"{YOUR-SNS-GCM-ARN}"}' \
-  https://${account.namespace}/api/v2/guardian/factors/push-notification/providers/sns
-```
+Then click **SAVE**.
 
 ## Further reading
 

@@ -36,7 +36,7 @@ self.emailLabel.text = profile.email
 MyApplication.sharedInstance.accessToken = token.accessToken
 ```
 
-> For further reference on the `profile` and `token` objects, check the [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h) and [A0Token](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0Token.h) classes' documentation.
+> For further reference on the `profile` and `token` objects, check the [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0UserProfile.h) and [A0Token](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0Token.h) classes' documentation.
 >
 > To learn how to save and manage the tokens and profile in detail, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens). Notice that Lock on its own will not save the tokens and profile for you.
 

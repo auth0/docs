@@ -16,9 +16,9 @@ A customer may request a tenant restoration if the tenant was deleted by human e
 
 * The restoration can take up to seven days, for paying customers. For non paying customers, it can take longer and it will be specified if the request is accepted.
 
-## How to request:
+* Tenant restoration will be allowed if the request is made before 20 days have passed from the date the tenant was deleted.
 
-* Only a dashboard admin of the deleted tenant can request the restoration.
+## How to request:
 
 * Customers must file a tenant restoration request in writing, via the [Auth0 support center](https://support.auth0.com) or via email.
 

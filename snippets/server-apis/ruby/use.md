@@ -1,20 +1,22 @@
 ```ruby
-class InvalidTokenError < StandardError; end
+require 'jwt'
+def authenticate!
+  # Extract <token> from the 'Bearer <token>' value of the Authorization header
+  supplied_token = String(request.env['HTTP_AUTHORIZATION']).slice(7..-1)
 
-def validate_token
-  begin
-    auth0_client_id = '<%= account.clientId %>'
-    auth0_client_secret = '<%= account.clientSecret %>'
-    authorization = request.headers['Authorization']
-    raise InvalidTokenError if authorization.nil?
+  JWT.decode supplied_token, '${account.clientSecret}',
+    true, # Verify the signature of this token
+    algorithm: 'HS256',
+    iss: 'https://${account.namespace}',
+    verify_iss: true,
+    aud: '${account.clientId}',
+    verify_aud: true
 
-    token = request.headers['Authorization'].split(' ').last
-    decoded_token = JWT.decode(token,
-      JWT.base64url_decode(auth0_client_secret))
+rescue JWT::DecodeError => e
+  halt 401, json(error: e.class, message: e.message)
+end
 
-    raise InvalidTokenError if auth0_client_id != decoded_token[0]["aud"]
-  rescue JWT::DecodeError
-    raise InvalidTokenError
-  end
+before do
+  @auth_payload, @auth_header = authenticate!
 end
 ```

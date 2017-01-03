@@ -24,4 +24,4 @@ In this tutorial, you will learn how to enable MFA in the Java Spring applicatio
 
 ## Login
 
-<%= include('../_includes/_mfa-login', { loginlink: '01-login' }) %>
+<%= include('../_includes/_mfa-login', { loginlink: '/quickstart/webapp/java-spring-mvc/01-login' }) %>

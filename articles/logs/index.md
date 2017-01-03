@@ -65,33 +65,34 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>api_limit</code></td>
     <td>Rate Limit On API</td>
-    <td>The maximum number of requests to the API in given time.</td>
+    <td>The maximum number of requests to the API in given time has reached.</td>
     <td><a href="/policies/rate-limits">Rate Limit Policy</a></td>
   </tr>
   <tr>
     <td><code>cls</code></td>
     <td>Code/Link Sent</td>
-    <td></td>
-    <td></td>
+    <td>Passwordless login code/link has been sent</td>
+    <td><a href="/passwordless">Passwordless</a></td>
   </tr>
     <tr>
     <td><code>cs</code></td>
     <td>Code Sent</td>
-    <td></td>
-    <td></td>
+    <td>Passwordless login code has been sent</td>
+    <td><a href="/passwordless">Passwordless</a></td>
   </tr>
   <tr>
     <td><code>coff</code></td>
     <td>Connector Offline</td>
-    <td></td>
+    <td>AD/LDAP Connector is offline</td>
     <td><a href="/connector">Active Directory/LDAP Connector</a></td>
   </tr>
   <tr>
     <td><code>con</code></td>
     <td>Connector Online</td>
-    <td></td>
+    <td>AD/LDAP Connector is online and working</td>
     <td><a href="/connector">Active Directory/LDAP Connector</a></td>
   </tr>
+  <tr>
     <td><code>fc</code></td>
     <td>Failed by Connector</td>
     <td></td>
@@ -118,14 +119,14 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>fce</code></td>
     <td>Failed Change Email</td>
-    <td></td>
+    <td>Failed to change user email</td>
     <td><a href="/user-profile">User Profile</a></td>
   </tr>
   <tr>
     <td><code>fco</code></td>
     <td>Failed by CORS</td>
-    <td></td>
-    <td></td>
+    <td>Origin is not in the Allowed Origins list for the specified client</td>
+    <td><a href="/clients#client-settings">Clients</a></td>
   </tr>
   <tr>
     <td><code>fcp</code></td>
@@ -148,19 +149,19 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>fcpro</code></td>
     <td>Failed Connector Provisioning</td>
-    <td></td>
+    <td>Failed to provision a AD/LDAP connector</td>
     <td><a href="/connector">Active Directory/LDAP Connector</a></td>
   </tr>
   <tr>
     <td><code>fcu</code></td>
     <td>Failed Change Username</td>
-    <td></td>
+    <td>Failed to change username</td>
     <td><a href="/user-profile">User Profile</a></td>
   </tr>
   <tr>
     <td><code>fd</code></td>
     <td>Failed Delegation</td>
-    <td></td>
+    <td>Failed to generate delegation token</td>
     <td><a href="/tokens/delegation">Delegation Tokens</a></td>
   </tr>
   <tr>
@@ -172,13 +173,13 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>sdu</code></td>
     <td>Success User Deletion</td>
-    <td></td>
+    <td>User successfully deleted</td>
     <td><a href="/user-profile">User Profile</a></td>
   </tr>
   <tr>
     <td><code>feacft</code></td>
     <td>Failed Exchange</td>
-    <td>Failed exchange of authorization code for Access Token</td>
+    <td>Failed to exchange authorization code for Access Token</td>
     <td><a href="/api-auth/tutorials/authorization-code-grant">Authorization Code Grant Flow</a></td>
   </tr>
   <tr>
@@ -190,20 +191,20 @@ The following table lists the codes associated with the appropriate log events.
   <tr>
     <td><code>slo</code></td>
     <td>Success Logout</td>
-    <td></td>
-    <td></td>
+    <td>User successfully logged out</td>
+    <td><a href="/logout">Logout</a></td>
   </tr>
   <tr>
     <td><code>flo</code></td>
     <td>Failed Logout</td>
-    <td></td>
-    <td></td>
+    <td>User logout failed</td>
+    <td><a href="/logout">Logout</a></td>
   </tr>
   <tr>
     <td><code>fn</code></td>
     <td>Failed Sending Notification</td>
-    <td></td>
-    <td></td>
+    <td>Failed to send email notification</td>
+    <td><a href="/email">Emails</a></td>
   </tr>
   <tr>
     <td><code>fp</code></td>
@@ -225,26 +226,26 @@ The following table lists the codes associated with the appropriate log events.
   </tr>
   <tr>
     <td><code>fui</code></td>
-    <td>Users import</td>
-    <td>Failed user import</td>
+    <td>Failed users import</td>
+    <td>Failed to import users</td>
     <td><a href="/extensions/user-import-export">User Import/Export</a></td>
   </tr>
     <tr>
     <td><code>sui</code></td>
-    <td>Users import</td>
-    <td>Successful user import</td>
+    <td>Success users import</td>
+    <td>Successfuly imported users</td>
     <td><a href="/extensions/user-import-export">User Import/Export</a></td>
   </tr>
   <tr>
     <td><code>fv</code></td>
     <td>Failed Verification Email</td>
-    <td></td>
+    <td>Failed to send verification email</td>
     <td><a href="/email/custom#verification-email">Verification Email</a></td>
   </tr>
   <tr>
     <td><code>fvr</code></td>
     <td>Failed Verification Email Request</td>
-    <td></td>
+    <td>Failed to process verification email request</td>
     <td><a href="/email/custom#verification-email">Verification Email</a></td>
   </tr>
   <tr>

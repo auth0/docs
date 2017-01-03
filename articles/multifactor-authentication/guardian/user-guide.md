@@ -8,13 +8,11 @@ Guardian is an app that can be downloaded from the [App Store](https://itunes.ap
 
 This page will help to explain how to sign up and log in using the Guardian app and using other forms of two-factor authentication.
 
-## Sign Up as a New User
+### Enrolling for MFA
+Enrolling for MFA is a separate, distinct step from the initial sign-up for Auth0. Typically, the user is prompted to enroll the first time they attempt to sign-in to a client protected by MFA. Additionally, administrators have the ability to pre-emptively [invite users to enroll](multifactor-authentication/administrator/guardian-enrollment-email).
 
-If you do not have an existing account, you will need to sign up to create one. Click the **SIGN UP** button and enter your email and create a password.
-
-![](/media/articles/mfa/sign-up.png)
-
-Next, you will see the option to download the Auth0 Guardian app from either the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). Underneath that, is there is the option to use [Google Authenticator](#google-authenticator) or [SMS](#sms) depending on the application's settings.
+### Enrolling from the Guardian widget
+In this scenario, after your initial authentication you will see the option to download the Auth0 Guardian app from either the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). Underneath that, is there is the option to use [Google Authenticator](#google-authenticator) or [SMS](#sms) depending on the application's settings.
  
 ![](/media/articles/mfa/choose-mfa.png)
 

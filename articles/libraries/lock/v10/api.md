@@ -1,4 +1,6 @@
 ---
+section: libraries
+toc: true
 description: Details on the Lock V10 API.
 ---
 
@@ -8,12 +10,16 @@ description: Details on the Lock V10 API.
 
 Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-event-callback-) method section!
 
-* [new Auth0Lock](#new-auth0lock-clientid-domain-options-) - Instantiating Lock
-* [getProfile()](#getprofile-token-callback-) - Obtaining the profile of a logged in user
-* [show()](#show-options-) - Showing the Lock widget
-* [on()](#on-event-callback-) - Listening for events
+* [new Auth0Lock](#auth0lock) - Instantiating Lock
+* [getProfile()](#getprofile-) - Obtaining the profile of a logged in user
+* [show()](#show-) - Showing the Lock widget
+* [on()](#on-) - Listening for events
 
-## new Auth0Lock(clientID, domain, options)
+## Auth0Lock
+
+```js
+new Auth0Lock(clientID, domain, options)
+```
 
 Initializes a new instance of `Auth0Lock` configured with your client's `clientID` and your account's `domain` from your [Auth0](${manage_url}/) management dashboard. The third and optional parameter is an `options` object used to configure Lock for your application's needs. You can find this information at your [application settings](${manage_url}/#/applications).
 
@@ -21,7 +27,7 @@ Initializes a new instance of `Auth0Lock` configured with your client's `clientI
 - **domain {String}**: Required parameter. Your Auth0 _domain_. Usually _your-account.auth0.com_.
 - **options {Object}**: Optional parameter. Allows for the configuration of Lock's appearance and behavior. See [the configuration options page](/libraries/lock/v10/customization) for details.
 
-### Example
+**Example:**
 
 ```js
 var clientId = '${account.clientId}';
@@ -46,14 +52,18 @@ lock.on("authenticated", function(authResult) {
 });
 ```
 
-### getProfile(token, callback)
+## getProfile()
+
+```js
+getProfile(token, callback)
+```
 
 Once the user has logged in and you are in possesion of a token, you can use that token to obtain the user's profile with `getProfile`.
 
 - **token {String}**: User token.
 - **callback {Function}**: Will be invoked after the user profile been retrieved.
 
-#### Example
+**Example:**
 
 ```js
 lock.getProfile(token, function(error, profile) {
@@ -63,7 +73,11 @@ lock.getProfile(token, function(error, profile) {
 });
 ```
 
-### show(options)
+## show()
+
+```js
+show(options)
+```
 
 The `show` method displays the widget. Beginning with Lock version 10.2.0, the `show` method can now accept an `options` object as a parameter. Note that this parameter is meant to be used as a way to _override_ your Lock's `options` for this particular displaying of the widget - options should be _set_ when instantiating Lock, and _overridden_, only if needed for your specific use case, here. 
 
@@ -102,9 +116,9 @@ Previous users of Lock 9 should note that this is a different behavior from `opt
 
 There is an additional option that can be set in the `show` method called `flashMessage`.
 
-#### flashMessage {Object}
+### flashMessage
 
-This options is _only_ available as an option for the `show` method, not for use in the normal options object when instantiating Lock. The `flashMessage` option shows an error or success flash message when Lock is shown. It has the following parameters:
+This object is _only_ available as an option for the `show` method, not for use in the normal `options` object when instantiating Lock. The `flashMessage` object shows an error or success flash message when Lock is shown. It has the following parameters:
 
 - **type** {String}: The message type, it should be either `error` or `success`.
 - **text** {String}: The text to show.
@@ -120,7 +134,7 @@ lock.show({
 
 ```
 
-![Lock - Flash Message](/media/articles/libraries/lock/v10/flashmessage.png)
+![Lock - Flash Message](/media/articles/libraries/lock/v10/flashMessage.png)
 
 A practical application of the `flashMessage` option is to handle authorization errors. The `flashMessage` can be populated with error description text. 
 
@@ -141,7 +155,11 @@ So, if `tester@example.com` were now to try to sign in, being a user who is bloc
 
 Rather than simply failing to login, and Lock closing.
 
-### hide([callback])
+## hide()
+
+```js
+hide([callback])
+```
 
 The `hide` method closes the widget if it is currently open. The widget closes itself under most circumstances, so this method would primarily be invoked in specific use cases only. For instance, one might wish to listen for the `unrecoverable_error` event and then `hide` the Lock and redirect to their own custom error page. Another example is users who are implementing [popup mode](/libraries/lock/v10/popup-mode), and might need to manually `hide` the widget after the `authenticated` event fires.
 
@@ -156,7 +174,11 @@ lock.on("authenticated", function() {
 });
 ```
 
-### on(event, callback)
+## on()
+
+```js
+on(event, callback)
+```
 
 Lock will emit events during its lifecycle. The `on` method can be used to listen for particular events and react to them.
 

@@ -261,7 +261,7 @@ Create an HTML page and insert the following HTML and javascript code:
 <BODY>
 <p> Click on the button to log in </p>
 
-<script src="http://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}',{
         redirectUrl: 'http://jwt.io',

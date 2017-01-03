@@ -17,7 +17,19 @@
   },
   {
     "from": "/nodejs-tutorial",
-    "to": "/server-platforms/nodejs"
+    "to": "/quickstart/webapp/nodejs"
+  },
+  {
+    "from": "/server-platforms/nodejs",
+    "to": "/quickstart/webapp/nodejs"
+  },
+  {
+    "from": "/client-platforms/react",
+    "to": "/quickstart/spa/react"
+  },
+  {
+    "from": "/server-platforms/golang",
+    "to": "/quickstart/webapp/golang"
   },
   {
     "from": "/phpapi-tutorial",
@@ -65,7 +77,15 @@
   },
   {
     "from": "/php-tutorial",
-    "to": "/server-platforms/php"
+    "to": "/quickstart/webapp/php"
+  },
+  {
+    "from": "/server-platforms/php",
+    "to": "/quickstart/webapp/php"
+  },
+  {
+    "from": "/server-apis/ruby",
+    "to": "/quickstart/backend/ruby"
   },
   {
     "from": "/java-tutorial",
@@ -297,11 +317,23 @@
   },
   {
     "from": "/android-tutorial",
-    "to": "/native-platforms/android"
+    "to": "/quickstart/native/android"
+  },
+  {
+    "from": "/native-platforms/android",
+    "to": "/quickstart/native/android"
   },
   {
     "from": "/angular-tutorial",
-    "to": "/client-platforms/angularjs"
+    "to": "/quickstart/spa/angularjs"
+  },
+  {
+    "from": "/client-platforms/angularjs",
+    "to": "/quickstart/spa/angularjs"
+  },
+  {
+    "from": "/client-platforms/angular2",
+    "to": "/quickstart/spa/angular2"
   },
   {
     "from": "/aspnetwebapi-owin-tutorial",
@@ -313,11 +345,19 @@
   },
   {
     "from": "/ember-tutorial",
-    "to": "/client-platforms/emberjs"
+    "to": "/quickstart/spa/emberjs"
+  },
+  {
+    "from": "/client-platforms/emberjs",
+    "to": "/quickstart/spa/emberjs"
   },
   {
     "from": "/ios-tutorial",
-    "to": "/native-platforms/ios-objc"
+    "to": "/quickstart/native/ios-objc"
+  },
+  {
+    "from": "/native-platforms/ios-objc",
+    "to": "/quickstart/native/ios-objc"
   },
   {
     "from": "/java-tutorial",
@@ -337,7 +377,11 @@
   },
   {
     "from": "/singlepageapp-tutorial",
-    "to": "/client-platforms/vanillajs"
+    "to": "/quickstart/spa/vanillajs"
+  },
+  {
+    "from": "/client-platforms/vanillajs",
+    "to": "/quickstart/spa/vanillajs"
   },
   {
     "from": "/wcf-tutorial",
@@ -480,6 +524,10 @@
     "to": "/api/authentication"
   },
   {
+    "from": "/api/authentication/reference",
+    "to": "/api/authentication"
+  },
+  {
     "from": "/oauth2",
     "to": "/connections/social/oauth2"
   },
@@ -518,6 +566,10 @@
   {
     "from": "/quickstart/native-mobile/:platform/rails-api",
     "to": "/quickstart/native-mobile/:platform/rails"
+  },
+  {
+    "from": "/quickstart/native-mobile/:platform/:api",
+    "to": "/quickstart/native-mobile/:platform"
   },
   {
     "from": "/mfa",
@@ -781,8 +833,8 @@
     "to": "/tutorials/generic-oauth2-connection-examples"
   },
   {
-    "from": "/step-up-authentication",
-    "to": "/tutorials/setup-up-authentication"
+    "from": "/tutorials/setup-up-authentication",
+    "to": "/tutorials/step-up-authentication"
   },
   {
     "from": "/refresh-token",
@@ -791,6 +843,10 @@
   {
     "from": "/tokens/refresh_token",
     "to": "/tokens/refresh-token"
+  },
+  {
+    "from": "/tokens/access_token",
+    "to": "/tokens/access-token"
   },
   {
     "from": "/salesforce-community",
@@ -814,7 +870,7 @@
   },
   {
     "from": "/custom-signup",
-    "to": "/libraries/lock/v10/custom-signup"
+    "to": "/libraries/custom-signup"
   },
   {
     "from": "/custom-error-pages",
@@ -1087,5 +1143,29 @@
   {
     "from": "/libraries/lock-android/native-social-authentication",
     "to": "/libraries/lock-android/custom-authentication-providers"
+  },
+  {
+    "from": "/onboarding/appliance-outage",
+    "to": "/appliance/critical-issue"
+  },
+  {
+    "from": "/libraries/lock/v10/custom-signup",
+    "to": "/libraries/custom-signup"
+  },
+  {
+    "from": "/tutorials/local-testing-and-development",
+    "to": "/dev-lifecycle/local-testing-and-development"
+  },
+  {
+    "from": "/tutorials/development-lifecycle-with-auth0",
+    "to": "/dev-lifecycle/setting-up-env"
+  },
+  {
+    "from": "/tokens/id_token",
+    "to": "/tokens/id-token"
+  },
+  {
+    "from": "/connections",
+    "to": "/identityproviders"
   }
 ]

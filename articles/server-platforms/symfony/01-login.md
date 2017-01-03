@@ -23,6 +23,8 @@ ${snippet(meta.snippets.dependencies)}
 
 and run `composer update`
 
+> This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
+
 ## Enable the Bundle
 
 ${snippet(meta.snippets.setup)}
@@ -109,6 +111,8 @@ security:
 Notice that we need to identify the user provided selected in the step before both in the providers and in the firewall.
 
 ## Triggering Login Manually or Integrating Lock
+
+Set the following in `app/resources/views/base.html.twig`
 
 <%= include('../../_includes/_lock-sdk') %>
 

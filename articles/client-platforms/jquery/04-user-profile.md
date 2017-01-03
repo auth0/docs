@@ -7,7 +7,10 @@ budicon: 292
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
-  path: '04-User-Profile'
+  path: '04-User-Profile',
+  requirements: [
+    'jQuery 3.1.0'
+  ]
 }) %>
 
 ## Profile
@@ -30,8 +33,6 @@ $(document).ready(function() {
     }
   });
 
-  ...
-
   lock.on("authenticated", function(authResult) {
     lock.getProfile(authResult.idToken, function (err, profile) {
       if (err) {
@@ -48,15 +49,11 @@ $(document).ready(function() {
     });
   });
 
-  ...
-
   var logout = function() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
     window.location.href = "/";
-  };
-
-  ...
+  }
 });
 ```
 
@@ -65,50 +62,44 @@ Then display `user profile` attributes in your HTML:
 ```javascript
 // app.js
 
-...
-
 var showUserProfile = function(profile) {
+
   // Editing purposes only
   user_id = profile.user_id;
-  ...
+
+  // ...
   $('#avatar').attr('src', profile.picture);
   $('#name').text(profile.name);
   $('#email').text(profile.email);
   $('#nickname').text(profile.nickname);
   $('#created_at').text(profile.created_at);
   $('#updated_at').text(profile.updated_at);
-  ...
-};
-...
+}
 ```
 
 ```html
-  <!-- index.html -->
+<!-- index.html -->
 
-  ...
+<div id="login" class="row">
+  <h4>You are not logged in</h4>
+  <button type="button" class="btn btn-primary" id="btn-login">Login</button>
+</div>
 
-  <div id="login" class="row">
-    <h4>You are not logged in</h4>
-    <button type="button" class="btn btn-primary" id="btn-login">Login</button>
-  </div>
-
-  <div id="logged" class="row" style="display: none;">
-    <h4>You are logged in</h4>
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Profile</h3>
-        <img alt="" id="avatar">
-        <p><strong>Name: </strong> <span id="name"></span></p>
-        <p><strong>Email: </strong> <span id="email"></span></p>
-        <p><strong>Nickname: </strong> <span id="nickname"></span></p>
-        <p><strong>Created At: </strong> <span id="created_at"></span></p>
-        <p><strong>Updated At: </strong> <span id="updated_at"></span></p>
-      </div>
+<div id="logged" class="row" style="display: none;">
+  <h4>You are logged in</h4>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Profile</h3>
+      <img alt="" id="avatar">
+      <p><strong>Name: </strong> <span id="name"></span></p>
+      <p><strong>Email: </strong> <span id="email"></span></p>
+      <p><strong>Nickname: </strong> <span id="nickname"></span></p>
+      <p><strong>Created At: </strong> <span id="created_at"></span></p>
+      <p><strong>Updated At: </strong> <span id="updated_at"></span></p>
     </div>
-    <button type="button" class="btn btn-default" id="btn-logout">Logout</button>
   </div>
-
-  ...
+  <button type="button" class="btn btn-default" id="btn-logout">Logout</button>
+</div>
 ```
 
 ## Custom Sign Up Fields
@@ -122,21 +113,17 @@ You can add input fields to the sign-up form by adding `additionalSignUpFields` 
 ```javascript
 // app.js
 
-...
-
-  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
-    additionalSignUpFields: [{
-      name: "address",                              // required
-      placeholder: "Enter your address",            // required
-      icon: "https://example.com/address_icon.png", // optional
-      validator: function(value) {                  // optional
-        // only accept addresses with more than 10 characters
-        return value.length > 10;
-      }
-    }]
-  });
-
-...
+var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+  additionalSignUpFields: [{
+    name: "address",                              // required
+    placeholder: "Enter your address",            // required
+    icon: "https://example.com/address_icon.png", // optional
+    validator: function(value) {                  // optional
+      // only accept addresses with more than 10 characters
+      return value.length > 10;
+    }
+  }]
+});
 ```
 
 Each `additionalSignUpFields` value is saved to the profile in the `user_metadata` attribute.
@@ -146,28 +133,19 @@ To display this data, read it from the profile's `user_metadata`:
 ```javascript
 // app.js
 
-...
-
 var showUserProfile = function(profile) {
 
-  ...
-
+  // ...
   if (profile.hasOwnProperty('user_metadata')) {
     $('#address').text(profile.user_metadata.address);
   }
 }
-
-...
 ```
 
 ```html
-  <!-- index.html -->
+<!-- index.html -->
 
-  ...
-
-  <strong>Address: </strong> <span id="address"></span>
-
-  ...
+<strong>Address: </strong> <span id="address"></span>
 ```
 
 ## Update User Profile
@@ -181,8 +159,6 @@ First, use `$.ajaxSetup()` for setting `Authorization` header automatically for 
 ```javascript
 // app.js
 
-...
-
 $.ajaxSetup({
   'beforeSend': function(xhr) {
     if (localStorage.getItem('id_token')) {
@@ -191,16 +167,12 @@ $.ajaxSetup({
     }
   }
 });
-
-...
 ```
 
 Then use `$.ajax()` with `method = 'PATCH'` to update the user's data.
 
 ```javascript
 // app.js
-
-...
 
 $('#btn-edit-submit').on('click', function(ev) {
   ev.preventDefault();
@@ -216,30 +188,24 @@ $('#btn-edit-submit').on('click', function(ev) {
     alert("Request failed: " + textStatus);
   });
 });
-
-...
 ```
 
 Then create a simple form to add/update the *address* attribute:
 
 ```html
-  <!-- index.html -->
+<!-- index.html -->
 
-  ...
-
-  <div id="edit_profile" class="row" style="display: none;">
-    <div class="col-md-6">
-      <h3>Profile</h3>
-      <img alt="" id="edit-avatar">
-      <form>
-        <div class="form-group">
-          <label for="name">Address</label>
-          <input type="text" class="form-control" id="edit_address" placeholder="Enter address">
-        </div>
-        <button type="submit" class="btn btn-default" id="btn-edit-submit">Submit</button>
-      </form>
-    </div>
+<div id="edit_profile" class="row" style="display: none;">
+  <div class="col-md-6">
+    <h3>Profile</h3>
+    <img alt="" id="edit-avatar">
+    <form>
+      <div class="form-group">
+        <label for="name">Address</label>
+        <input type="text" class="form-control" id="edit_address" placeholder="Enter address">
+      </div>
+      <button type="submit" class="btn btn-default" id="btn-edit-submit">Submit</button>
+    </form>
   </div>
-
-  ...
+</div>
 ```

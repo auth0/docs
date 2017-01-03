@@ -85,8 +85,8 @@ In this example, you will create a policy that grants full access to the S3 reso
           "*"
         ],
         "Resource": [
-        "arn:aws:s3:::YOUR_BUCKET/$[saml:sub}",
-        "arn:aws:s3:::YOUR_BUCKET/$[saml:sub}/*"]
+        "arn:aws:s3:::YOUR_BUCKET/<%= '${saml:sub}' %>",
+        "arn:aws:s3:::YOUR_BUCKET/<%= '${saml:sub}' %>/*"]
     }]
   }
   ```

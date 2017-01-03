@@ -54,7 +54,7 @@ Clicking the link will send the user to a password reset page.
 
 **NOTE**: The reset password link in the email is valid for one use only, and it must be used before the time specified in the `URL Lifetime` field elapses. The `URL Lifetime` field can be modified in the Dashboard where you customize the Change Password email.
 
-Please see the [Change User Password for DB Connections](/auth-api#!#post--dbconnections-change_password) Authentication API endpoint for more information.
+Please see the [Change User Password for DB Connections](/api/authentication/reference#change-password) Authentication API endpoint for more information.
 
 ## Using the Management API
 

@@ -17,7 +17,7 @@ Each integration is different and requires different parameters and configuratio
 
 ### 2. Use it
 
-The key to this integration is the Delegation endpoint in Auth0. Check the documentation of any of our FrontEnd or Mobile SDKs to learn how to call [this endpoint](/auth-api#delegated). You can download your favorite library from any of the [Quickstarts](/).
+The key to this integration is the Delegation endpoint in Auth0. Check the documentation of any of our frontend or Mobile SDKs to learn how to call [the /delegation endpoint](/api/authentication#delegation). You can download your favorite library from any of the [Quickstarts](/).
 
 ### 3. You are done!
 

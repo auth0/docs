@@ -12,3 +12,5 @@ description: This tutorial demonstrates how to use Auth0 to add authentication a
 ${include('../\_callback')}
 
 <%= include('_includes/_login') %>
+
+<%= include('../_includes/_persisting_state') %>

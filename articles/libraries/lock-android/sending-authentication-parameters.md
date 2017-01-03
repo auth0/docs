@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: Sending Authentication parameters with Lock Android
 ---
 

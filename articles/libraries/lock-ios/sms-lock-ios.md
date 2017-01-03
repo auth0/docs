@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: SMS in Lock iOS
 description: How to use SMS in Lock iOS
 ---

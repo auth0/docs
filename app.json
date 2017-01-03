@@ -20,6 +20,9 @@
     },
     "HEROKU_APP_NAME": {
       "required": true
+    },
+    "GIT_SSH_KEY": {
+      "required": true
     }
   },
   "addons": []

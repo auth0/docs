@@ -1,4 +1,5 @@
 ---
+section: libraries
 description: Lock V9 documentation
 url: /libraries/lock/v9
 ---

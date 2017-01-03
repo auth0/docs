@@ -1,4 +1,5 @@
 ---
+section: libraries
 toc_title: Migration Notes v1 to v2
 description: A reference for changed option names and behaviors in Lock for Android v2
 ---

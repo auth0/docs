@@ -153,4 +153,4 @@ The following table describes operational and feature differences between each o
     </tbody>
 </table>
 
-<sup>*</sup>__NOTE:__ The [Delegated Administration](/extensions/delegated-admin) extension is currently available only for the public cloud.
+<sup>*</sup>__NOTE:__ See the [Auth0 Appliance: Extensions page](/appliance/extensions) to learn more about configuring extensions with the Appliance.

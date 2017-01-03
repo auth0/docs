@@ -5,7 +5,7 @@ var schema        = require('./schema/schema');
 var jwt           = require('express-jwt');
 
 var authenticate = jwt({
-  secret: new Buffer('<%= account.clientSecret %>', 'base64'),
+  secret: '<%= account.clientSecret %>',
   audience: '<%= account.clientId %>'
 });
 ```

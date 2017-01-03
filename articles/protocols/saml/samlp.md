@@ -15,7 +15,7 @@ These are the parameters used to configure a SAML Identity Provider:
 * The __SAML Response Binding__ (how the SAML token is received by Auth0 from IdP): `HTTP-Post`
 * The __NameID format__: `unspecified`
 * The SAML assertion, and the SAML response can be individually or simultaneously signed.
-* The __SingleLogout service URL__, where the SAML Identity Provider will send logout responses, is: `https://${account.namespace}/logout`
+* The __SingleLogout service URL__, where the SAML Identity Provider will send logout requests and responses, is: `https://${account.namespace}/logout`. Note: SAML logout requests must be signed by the Identity Provider.
 
 ## Encrypted Assertions:
 

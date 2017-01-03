@@ -29,7 +29,7 @@ They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token
 
 ## Obtain a Refresh Token
 
-To obtain a refresh token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/auth-api#!#get--offline-access) endpoint.
+To obtain a refresh token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
 
 For example:
 
@@ -99,7 +99,7 @@ Response body:
 ]
 ```
 
-To revoke a __refresh token__, call the [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint with an access token containing `delete:device_credentials` scope and the value of `id` obtained above:
+To revoke a refresh token, call the [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint with an access token containing `delete:device_credentials` scope and the value of `id` obtained above:
 
 ```
 DELETE https://${account.namespace}/api/v2/device-credentials/{id}

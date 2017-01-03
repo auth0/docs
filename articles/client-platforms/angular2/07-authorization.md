@@ -91,15 +91,11 @@ The `canActivate` method checks if the user is authenticated and then checks if 
 ```typescript
 // app/auth.service.ts
 
-...
-
 public isAdmin() {
   return this.userProfile && this.userProfile.app_metadata
     && this.userProfile.app_metadata.roles
     && this.userProfile.app_metadata.roles.indexOf('admin') > -1;
 }
-
-...
 ```
 
 Since the user's `app_metadata` is read-only for users, checking for their role in this fashion is secure.
@@ -109,11 +105,9 @@ After logging in successfully, the user will be redirected to the saved URL:
 ```typescript
 // app/auth.service.ts
 
-...
-
 // Fetch profile information
 this.lock.getProfile(authResult.idToken, (error, profile) => {
-  ...
+  // ...
 
   // Redirect to the saved URL, if present.
   var redirectUrl: string = localStorage.getItem('redirect_url');
@@ -122,7 +116,6 @@ this.lock.getProfile(authResult.idToken, (error, profile) => {
     localStorage.removeItem('redirect_url');
   }
 });
-...
 ```
 
 Now, if a user logs in with an email that contains `@example`, they will be allowed access to the `/admin` route.

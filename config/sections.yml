@@ -20,6 +20,10 @@
   title: "QuickStarts"
   url: "/quickstarts"
 
+- id: "libraries"
+  title: "Libraries"
+  url: "/libraries"
+
 - id: "appliance"
   title: "Appliance"
   url: "/appliance"

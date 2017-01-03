@@ -23,7 +23,7 @@ For this tutorial, we will assume the standard WCF template with a `basicHttpBin
 
 ## Using Auth0 generated JsonWebTokens with WCF services
 
-The integration consists of adding a `ServiceAuthorizationManager` (which is an extensibility point offered by WCF). This class intercepts all calls to a specific service and extracts the HTTP `Authorization` header that contains the JsonWebToken. Then it validates the token using a symmetric or asymmetric key, checks that it's not expired, and finally verifies that the `audience` is correct. If all these are correct, control is transfered to the user code with a `ClaimsPrincipal` object set for the app to use.
+The integration consists of adding a `ServiceAuthorizationManager` (which is an extensibility point offered by WCF). This class intercepts all calls to a specific service and extracts the HTTP `Authorization` header that contains the JsonWebToken. Then it validates the token using a symmetric or asymmetric key, checks that it's not expired, and finally, verifies that the `audience` is correct. If all these are correct, control is transferred to the user code with a `ClaimsPrincipal` object set for the app to use.
 
 ### 1. Install Auth0-WCF-Service-JWT NuGet package
 
@@ -64,7 +64,7 @@ client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(tok
 // client.CallService();
 ```
 
-> **Note**: the above asumes that the WCF service is protected with the same client secret as the web site. If you want to call a service protected with a different secret you can obtain a delegation token as shown below:
+> **Note**: the above assumes that the WCF service is protected by the same client secret as the website. If you want to call a service protected by a different secret you can obtain a delegation token as shown below:
 
 ```cs
 // get JsonWebToken from logged in user

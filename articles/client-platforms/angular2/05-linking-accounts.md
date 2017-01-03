@@ -18,8 +18,6 @@ budicon: 345
 ```typescript
 // app/auth.service.ts
 
-...
-
 // Lock instance to launch a login to obtain the secondary JWT
 lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   auth: {
@@ -32,16 +30,12 @@ lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     title: "Link with:"
   }
 });
-
-...
 ```
 
 Then, when setting the callback for the `authenticated` event with the `on` method, you can determine which login has executed by checking the value of the `authResult.state` attribute:
 
 ```typescript
 // app/auth.service.ts
-
-...
 
 // Add callback for lock `authenticated` event
 this.lock.on("authenticated", (authResult) => {
@@ -62,7 +56,6 @@ this.lockLink.on("authenticated", (authResult) => {
     this.doLinkAccounts(authResult.idToken);
   }
 });
-...
 ```
 
 Now that the second login is handled, you will need to actually do the linking.
@@ -72,23 +65,24 @@ To call the API, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides 
 First, add the `AUTH_PROVIDERS` from angular-jwt:
 
 ```typescript
-/* ===== app/app.module.ts ===== */
+// app/app.module.ts
+
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent } from './app.component';
 
 @NgModule({
-    declarations: [
-      AppComponent
-    ],
-    providers: [
-      ...
-      AUTH_PROVIDERS,
-      ...
-    ],
-    imports: [
-      ...
-    ],
-    bootstrap: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
+  providers: [
+    // ...
+    AUTH_PROVIDERS,
+    // ...
+  ],
+  imports: [
+    // ...
+  ],
+  bootstrap: [AppComponent]
 })
 ```
 
@@ -100,17 +94,15 @@ Then import `AuthHttp`, inject it into your component and use it to make the aut
 @Injectable()
 export class Auth {
 
-  ...
-
   constructor(private authHttp: AuthHttp, private router: Router) {
-    ...
-  };
+    // ...
+  }
 
   public doLinkAccounts(accountToLinkJWT) {
     var headers: any = {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
-    };
+    }
 
     var data: any = JSON.stringify({
       link_with: accountToLinkJWT
@@ -207,7 +199,7 @@ public unLinkAccount(identity) {
   var headers: any = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
-  };
+  }
 
   this.authHttp
   .delete('https://' + '${account.namespace}' + '/api/v2/users/' + this.userProfile.user_id + '/identities/' + identity.provider + "/" + identity.user_id, {headers: headers})

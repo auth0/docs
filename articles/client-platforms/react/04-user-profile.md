@@ -17,7 +17,7 @@ The [Login step](/quickstart/spa/react/01-login) of this tutorial explains how t
 
 This step demonstrates how to retrieve and show user profile information.
 
-## 1. Create the AuthService class
+## Create the AuthService Class
 
 The best way to have authentication utilities available across your application is to create a helper class. Then you can share an instance of this class by passing it to the React Component as a prop.
 
@@ -84,7 +84,7 @@ export default class AuthService {
 
 The other helper methods shown above include: `login` (to call `lock.show()` and display the login widget), `logout` (to remove the local storage data), and `loggedIn` (that checks if an `idToken` exists and returns a boolean).
 
-## 2. Request User Profile Data
+## Request User Profile Data
 
 To fetch user profile information, call the `lock.getProfile` function, specifying the token and a callback to process the response.
 

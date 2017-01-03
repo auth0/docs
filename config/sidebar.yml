@@ -65,23 +65,15 @@ articles:
       - title: "FAQ"
         url: "/api-auth/faq"
 
-  - title: "Lock & Auth0.js"
-    url: "/libraries/lock"
+  - title: "Development Lifecycle"
+    url: "/dev-lifecycle"
     children:
-      - title: "Lock for Web"
-        url: "/libraries/lock"
 
-      - title: "Lock for iOS"
-        url: "/libraries/lock-ios"
+      - title: "Setting Up Environments"
+        url: "/dev-lifecycle/setting-up-env"
 
-      - title: "Lock for Android"
-        url: "/libraries/lock-android"
-
-      - title: "Lock vs. Custom UI"
-        url: "/libraries/when-to-use-lock"
-
-      - title: "Auth0.js"
-        url: "/libraries/auth0js"
+      - title: "Running and Developing Locally"
+        url: "/dev-lifecycle/local-testing-and-development"    
 
   - title: "Rules"
     url: "/rules"
@@ -117,6 +109,9 @@ articles:
 
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension"
+
+  - title: "Professional Services"
+    url: "/services"
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
@@ -160,12 +155,11 @@ articles:
       - title: "Overview"
         url: "/sso"
 
-      - title: "Server-side (Regular Web Apps)"
-        url: "/sso/regular-web-apps-sso"
-
       - title: "Client-side (Single Page Apps)"
         url: "/sso/single-page-apps-sso"
 
+      - title: "Server-side (Regular Web Apps)"
+        url: "/sso/regular-web-apps-sso"
 
   - title: "User Profile"
     url: "/user-profile"
@@ -215,13 +209,13 @@ articles:
         url: "/multifactor-authentication/guardian"
         children:
 
-          - title: "Admin Guide"
-            url: "/multifactor-authentication/guardian/admin-guide"
+          - title: "For Administrators"
+            url: "/multifactor-authentication/administrator"
 
-          - title: "Dev Guide"
-            url: "/multifactor-authentication/guardian/dev-guide"
+          - title: "For Developers"
+            url: "/multifactor-authentication/developer"
 
-          - title: "User Guide"
+          - title: "For Users"
             url: "/multifactor-authentication/guardian/user-guide"
 
       - title: "SMS"
@@ -380,10 +374,141 @@ apis:
         forceFullReload: true
         external: true
 
+libraries:
+
+  - title: "Overview"
+    url: "/libraries"
+
+  - title: "Lock for Web"
+    url: "/libraries/lock"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/lock"
+
+      - title: "Configuration Options"
+        url: "/libraries/lock/v10/customization"
+
+      - title: "API Reference"
+        url: "/libraries/lock/v10/api"
+
+      - title: "UI Customization"
+        url: "/libraries/lock/v10/ui-customization"
+
+      - title: "v10 Migration Guide"
+        url: "/libraries/lock/v10/migration-guide"
+
+      - title: "Internationalization"
+        url: "/libraries/lock/v10/i18n"
+
+      - title: "Customizing Errors"
+        url: "/libraries/lock/v10/customizing-error-messages"
+
+      - title: "Lock with auth0.js"
+        url: "/libraries/lock/v10/auth0js"
+
+      - title: "Popup Mode"
+        url: "/libraries/lock/v10/popup-mode"
+
+  - title: "Lock for iOS"
+    url: "/libraries/lock-ios"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/lock-ios"
+
+      - title: "Customization"
+        url: "/libraries/lock-ios/customization"
+
+      - title: "Delegation API"
+        url: "/libraries/lock-ios/delegation-api"
+
+      - title: "Logging"
+        url: "/libraries/lock-ios/logging"
+
+      - title: "Objective-C API"
+        url: "/libraries/lock-ios/lock-ios-api"
+
+      - title: "Native Social Auth"
+        url: "/libraries/lock-ios/native-social-authentication"
+
+      - title: "Password Reset"
+        url: "/libraries/lock-ios/password-reset-ios"
+
+      - title: "Save/Refresh JWTs"
+        url: "/libraries/lock-ios/save-and-refresh-jwt-tokens"
+
+      - title: "Sending Auth Params"
+        url: "/libraries/lock-ios/sending-authentication-parameters"
+
+      - title: "SMS in Lock iOS"
+        url: "/libraries/lock-ios/sms-lock-ios"
+
+      - title: "SSO on Mobile Apps"
+        url: "/libraries/lock-ios/sso-on-mobile-apps"
+
+      - title: "Using Lock with Swift"
+        url: "/libraries/lock-ios/swift"
+
+      - title: "TouchID Authentication"
+        url: "/libraries/lock-ios/touchid-authentication"
+
+      - title: "Build Your Own UI"
+        url: "/libraries/lock-ios/use-your-own-ui"
+
+  - title: "Lock for Android"
+    url: "/libraries/lock-android"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/lock-android"
+
+      - title: "Configuration Options"
+        url: "/libraries/lock-android/configuration"
+
+      - title: "Custom Auth Providers"
+        url: "/libraries/lock-android/custom-authentication-providers"
+
+      - title: "Custom Signup Fields"
+        url: "/libraries/lock-android/custom-fields"
+
+      - title: "Custom Theming"
+        url: "/libraries/lock-android/custom-theming"
+
+      - title: "Migration v1 to v2"
+        url: "/libraries/lock-android/migration-guide"
+
+      - title: "Passwordless Auth"
+        url: "/libraries/lock-android/passwordless"
+
+      - title: "Internationalization"
+        url: "/libraries/lock-android/internationalization"
+
+  - title: "Lock vs. Custom UI"
+    url: "/libraries/when-to-use-lock"
+
+  - title: "Auth0 SDK for Web"
+    url: "/libraries/auth0js"
+  
+  - title: "Auth0 SDK for iOS"
+    url: "/libraries/auth0-swift"
+
+  - title: "Auth0 SDK for Android"
+    url: "/libraries/auth0-android"
+
 appliance:
 
   - title: "Introduction"
     url: "/appliance"
+
+  - title: "Support"
+    url: "/appliance/critical-issue"
+    expanded: true
+    children:
+      - title: Enterprise Support
+        url: /onboarding/enterprise-support
+      - title: Critical Issue
+        url: /appliance/critical-issue
 
   - title: Appliance Planning
     url: /appliance/appliance-overview
@@ -418,6 +543,8 @@ appliance:
         url: /appliance/modules
       - title: Webtasks
         url: /appliance/webtasks
+      - title: Extensions
+        url: /appliance/extensions
       - title: Disaster Recovery
         url: /appliance/geo-ha/disaster-recovery
       - title: Release Notes
