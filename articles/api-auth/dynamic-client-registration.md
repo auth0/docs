@@ -11,6 +11,8 @@ All clients, registered dynamically with Auth0, have the following characteristi
 
 - The [ID tokens](/tokens/id-token) generated for these clients, hold minimum user profile information. In order to retrieve the full user profile, you need to get an access token and use the [/userinfo endpoint](/api/authentication#get-user-info).
 
+- They cannot use any connections, except for tenant level connections (domain connections). If the client wants to use [Lock](/libraries/lock) to authenticate users, it will need to use a version greater than `10.7`.
+
 - These clients cannot use [ID tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should get a Management APIv2 Token (see the *How to get a Management APIv2 Token* panel for details). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.
   - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
   - `update:current_user_metadata`: [Update a user](/api/management/v2#!/Users/patch_users_by_id), [Delete a user's multifactor provider](/api/management/v2#!/Users/delete_multifactor_by_provider)
@@ -20,15 +22,12 @@ All clients, registered dynamically with Auth0, have the following characteristi
   - `delete:current_user_device_credentials`: [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
   - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
 
-  <br/>
-  ::: panel-info How to get a Management APIv2 Token
-  In order to access the [Management APIv2](/api/management/v2) endpoints, from a dynamic client, you need a Management APIv2 Token. To do so, invoke `https://${account.namespace}/authorize`, with the following request parameters:
-  - `audience`= `API2_URL`
-  - `scopes`= `read:current_user update:current_user_metadata`
-  The response will include an access token with the selected scopes for the current user.
-  :::
-
-- They cannot use any connections, except for tenant level connections (domain connections). If the client wants to use [Lock](/libraries/lock) to authenticate users, it will need to use a version greater than `10.7`.
+::: panel-info How to get a Management APIv2 Token
+In order to access the [Management APIv2](/api/management/v2) endpoints, from a dynamic client, you need a Management APIv2 Token. To do so, invoke `https://${account.namespace}/authorize`, with the following request parameters:
+- `audience`= `API2_URL`
+- `scopes`= `read:current_user update:current_user_metadata`
+The response will include an access token with the selected scopes for the current user.
+:::
 
 ## Enable dynamic registration
 
