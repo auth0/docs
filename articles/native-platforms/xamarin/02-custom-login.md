@@ -49,6 +49,7 @@ var email = new Entry { Placeholder = "Email" };
 var password = new Entry { Placeholder = "Password", IsPassword = true };
 
 var loginWithSDKButton = new Button { Text = "Sign In with SDK" };
+
 loginWithSDKButton.Clicked += (object sender, EventArgs e) =>{
   LoginWithSDK(email.Text, password.Text);
 };
