@@ -20,6 +20,7 @@ All clients, registered dynamically with Auth0, have the following characteristi
   - `delete:current_user_device_credentials`: [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
   - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
 
+  
   ::: panel-info How to get a Management APIv2 Token
   In order to access the [Management APIv2](/api/management/v2) endpoints, from a dynamic client, you need a Management APIv2 Token. To do so, invoke `https://${account.namespace}/authorize`, with the following request parameters:
   - `audience`= `API2_URL`
