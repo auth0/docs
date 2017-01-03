@@ -29,7 +29,7 @@ Once registered you will be asked to create your tenant.
 
 ## 2. Create an Application to point to Auth0
 
-In easyID go to the **Applications** tab and create a new application, a client, by clikcing the **with Auth0** button.
+In easyID go to the **Applications** tab and create a new application, a client, by clicking the **with Auth0** button.
 Give it a meaningful name, select the domain and remember to select the **NO BankID**.
 
 ![Create application with Auth0](/media/articles/connections/grean/auth0-app-no.png)
