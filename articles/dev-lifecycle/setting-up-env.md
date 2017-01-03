@@ -64,6 +64,17 @@ Since this URL will likely change from development to production, this method wi
 
 * If you are upgrading your account, your testing accounts will be upgraded too.
 * Please note that before downgrading your plan, you have to contact us via the [Auth0 Support Center](https://support.auth0.com/), otherwise there might be collateral effects on both of your accounts.
+
+## Does the child account need to belong to the same region as the master account?
+
+No, there is no limitation regarding this.
+
+## Can I have more than one child account for my master account?
+
+The default answer is no. However, this will be decided for each case. Please contact us via the [Auth0 Support Center](https://support.auth0.com/) and inform us the following:
+  * The name of the Auth0 paying account for which the child account will be linked to.
+  * The amount of child accounts that you need.
+  * The name of each of the new Auth0 child accounts.
   
 ## AD/LDAP Connectors
 
