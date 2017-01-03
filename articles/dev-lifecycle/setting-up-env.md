@@ -59,6 +59,11 @@ Since this URL will likely change from development to production, this method wi
   * The name of the Auth0 paying account for which the child account will be linked to.
   * The name of the new Auth0 child account.
 * Consider this use case to illustrate the lines above: Customer ABC purchases a Gold plan subscription. They will be eligible for a testing Gold plan account at no cost. If Customer ABC downgrades to a Silver plan, the linked free testing account will also be downgraded to a Silver plan. This similar process will be true for upgrades.
+
+## How to alter the plan of your account?
+
+* If you are upgrading your account, your testing accounts will be upgraded too.
+* Please note that before downgrading your plan, you have to contact us via the [Auth0 Support Center](https://support.auth0.com/), otherwise there might be collateral effects on both of your accounts.
   
 ## AD/LDAP Connectors
 
