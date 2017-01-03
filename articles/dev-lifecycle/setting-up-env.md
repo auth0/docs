@@ -50,6 +50,15 @@ Since this URL will likely change from development to production, this method wi
 * The child account will be subject to Auth0’s [Operational Policies](https://auth0.com/docs/policies).
 * The child account must not be used in a production environment.
 * If the child account is downgraded to a free plan and a paid plan subscription is terminated., all the additional features that it had will be removed or restricted as outlined in the [pricing page]([Pricing - Auth0](https://auth0.com/pricing)).
+
+## How to request a child account?
+
+* Requests to have a child account must be made via the [Auth0 Support Center](https://support.auth0.com/).
+* Requests must be made at least 5 business days in advance of the desired implementation date.
+* Requests must include:
+  * The name of the Auth0 paying account for which the child account will be linked to.
+  * The name of the new Auth0 child account.
+* Consider this use case to illustrate the lines above: Customer ABC purchases a Gold plan subscription. They will be eligible for a testing Gold plan account at no cost. If Customer ABC downgrades to a Silver plan, the linked free testing account will also be downgraded to a Silver plan. This similar process will be true for upgrades.
   
 ## AD/LDAP Connectors
 
