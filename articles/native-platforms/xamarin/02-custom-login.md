@@ -49,45 +49,42 @@ var email = new Entry { Placeholder = "Email" };
 var password = new Entry { Placeholder = "Password", IsPassword = true };
 
 var loginWithSDKButton = new Button { Text = "Sign In with SDK" };
-loginWithSDKButton.Clicked += (object sender, EventArgs e) =>
-  {
-    LoginWithSDK(email.Text, password.Text);
-  };
+loginWithSDKButton.Clicked += (object sender, EventArgs e) =>{
+  LoginWithSDK(email.Text, password.Text);
+};
 
 
-Content = new StackLayout
-  {
-    Padding = 30,
-    Spacing = 10,
-    Children = {
-      new Label { Text = "Login" },
-      email,
-      password,
-      loginWithSDKButton
-    }
-  };
+Content = new StackLayout{
+  Padding = 30,
+  Spacing = 10,
+  Children = {
+    new Label { Text = "Login" },
+    email,
+    password,
+    loginWithSDKButton
+  }
+};
 ```
 
 Finally, implement the `LoginWithSDK()` function which will perform the login and if successful, persist the user data throughout your app and navigate the user to a logged in page.
 
 ```cs
-public async void LoginWithSDK(string username, string password)
-  {
-    var user = await auth0.LoginAsync(
-      "database-connection-name",     // connection name here
-      username,        // user name
-      password);                 // password
+public async void LoginWithSDK(string username, string password){
+  var user = await auth0.LoginAsync(
+    "database-connection-name",     // connection name here
+    username,        // user name
+    password);                 // password
 
-    // We are going to persist the user data here and store it in Application.Current. You can choose to do it a different way. The key takeaway is that the user variable now has access to your authorized users data.
-    Application.Current.Properties["id_token"] = user.IdToken;
-    Application.Current.Properties["access_token"] = user.Auth0AccessToken;
-    Application.Current.Properties["name"] = user.Profile["name"].ToString();
-    Application.Current.Properties["email"] = user.Profile["email"].ToString();
-    Application.Current.Properties["picture"] = user.Profile["picture"].ToString();
+  // We are going to persist the user data here and store it in Application.Current. You can choose to do it a different way. The key takeaway is that the user variable now has access to your authorized users data.
+  Application.Current.Properties["id_token"] = user.IdToken;
+  Application.Current.Properties["access_token"] = user.Auth0AccessToken;
+  Application.Current.Properties["name"] = user.Profile["name"].ToString();
+  Application.Current.Properties["email"] = user.Profile["email"].ToString();
+  Application.Current.Properties["picture"] = user.Profile["picture"].ToString();
 
-    // After a successful login we are going to navigate the user to the homepage.
-    await Navigation.PushModalAsync(new HomePage());
-  }
+  // After a successful login we are going to navigate the user to the homepage.
+  await Navigation.PushModalAsync(new HomePage());
+}
 ```
 
 ### Option 2: RESTful API
@@ -105,81 +102,75 @@ var email = new Entry { Placeholder = "Email" };
 var password = new Entry { Placeholder = "Password", IsPassword = true };
 
 var loginWithAPIButton = new Button { Text = "Sign In with SDK" };
-loginWithAPIButton.Clicked += (object sender, EventArgs e) =>
-  {
-    LoginWithAPI(email.Text, password.Text);
-  };
+loginWithAPIButton.Clicked += (object sender, EventArgs e) =>{
+  LoginWithAPI(email.Text, password.Text);
+};
 
 
-Content = new StackLayout
-  {
-    Padding = 30,
-    Spacing = 10,
-    Children = {
-      new Label { Text = "Login" },
-      email,
-      password,
-      loginWithAPIButton
-    }
-  };
+Content = new StackLayout{
+  Padding = 30,
+  Spacing = 10,
+  Children = {
+    new Label { Text = "Login" },
+    email,
+    password,
+    loginWithAPIButton
+  }
+};
 ```
 
 Next, implement the `LoginWithAPI()` function:
 
 ```cs
-public void LoginWithAPI(string username, string password)
-  {
-    var client = new RestClient("${account.namespace}"); // Your Auth0 Domain
-    var request = new RestRequest("oauth/ro", Method.POST); // The oauth/ro endpoint handles username and password authentication 
-    request.AddParameter("client_id", "${account.clientId}"); // Your Auth0 Client Id
-    request.AddParameter("username", username);
-    request.AddParameter("password", password);
-    request.AddParameter("connection", "DATABASE-CONNECTION-NAME"); // Your connection name.
-    request.AddParameter("grant_type", "password");
-    request.AddParameter("scope", "openid");
+public void LoginWithAPI(string username, string password){
+  var client = new RestClient("${account.namespace}"); // Your Auth0 Domain
+  var request = new RestRequest("oauth/ro", Method.POST); // The oauth/ro endpoint handles username and password authentication 
+  request.AddParameter("client_id", "${account.clientId}"); // Your Auth0 Client Id
+  request.AddParameter("username", username);
+  request.AddParameter("password", password);
+  request.AddParameter("connection", "DATABASE-CONNECTION-NAME"); // Your connection name.
+  request.AddParameter("grant_type", "password");
+  request.AddParameter("scope", "openid");
 
-    IRestResponse response = client.Execute(request);
+  IRestResponse response = client.Execute(request);
 
-    LoginToken token = JsonConvert.DeserializeObject<LoginToken>(response.Content);
+  LoginToken token = JsonConvert.DeserializeObject<LoginToken>(response.Content);
 
-    Application.Current.Properties["id_token"] = token.id_token;
-    Application.Current.Properties["access_token"] = token.access_token;
+  Application.Current.Properties["id_token"] = token.id_token;
+  Application.Current.Properties["access_token"] = token.access_token;
 
-    // The initial call will just return the token, if you wish to get the user data we will need to make another call, this time we are implementing a function called GetUserData that does just that.
-    GetUserData(token.id_token);
-  }
+  // The initial call will just return the token, if you wish to get the user data we will need to make another call, this time we are implementing a function called GetUserData that does just that.
+  GetUserData(token.id_token);
+}
 
-  public void GetUserData(string token)
-		{
-			var client = new RestClient("${account.namespace}");
-			var request = new RestRequest("tokeninfo", Method.GET); // The tokeninfo endpoint will return the user data.
-			request.AddParameter("id_token", token);
+public void GetUserData(string token){
+  var client = new RestClient("${account.namespace}");
+  var request = new RestRequest("tokeninfo", Method.GET); // The tokeninfo endpoint will return the user data.
+  request.AddParameter("id_token", token);
 
-			IRestResponse response = client.Execute(request);
+  IRestResponse response = client.Execute(request);
 
-			User user = JsonConvert.DeserializeObject<User>(response.Content);
+  User user = JsonConvert.DeserializeObject<User>(response.Content);
 
-			Application.Current.Properties["email"] = user.email;
-			Application.Current.Properties["picture"] = user.picture;
+  Application.Current.Properties["email"] = user.email;
+  Application.Current.Properties["picture"] = user.picture;
 
-			// Finally, we navigate the user the the Home page
-			Navigation.PushModalAsync(new HomePage());
-		}
+  // Finally, we navigate the user the the Home page
+  Navigation.PushModalAsync(new HomePage());
+}
 
-    // We have created two additional classes to hold our user and token information
-		public class LoginToken
-		{
-			public string id_token { get; set; }
-			public string access_token { get; set; }
-			public string token_type { get; set; }
-		}
+// We have created two additional classes to hold our user and token information
+public class LoginToken{
+  public string id_token { get; set; }
+  public string access_token { get; set; }
+  public string token_type { get; set; }
+}
 
-		public class User
-		{
-			public string name { get; set; }
-			public string picture { get; set; }
-			public string email { get; set; }
-		}
+public class User{
+  public string name { get; set; }
+  public string picture { get; set; }
+  public string email { get; set; }
+}
 ```
 
 As you can see the REST API method requires a lot of additional code, but is a valid way to authenticate if needed.
@@ -223,8 +214,7 @@ In addition to the Auth0 SDK we will also require a couple of additional librari
 Next, implement the `LoginWithFacebook()` function which will make use of the Auth0 SDK to handle the authentication.
 
 ```cs
-public async void LoginWithFacebook()
-{
+public async void LoginWithFacebook(){
   #if __IOS__
     var window = UIApplication.SharedApplication.KeyWindow;
     var ui = window.RootViewController;
@@ -256,7 +246,7 @@ The `Auth0User` has the following properties:
 
 * `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object from [Json.NET component](http://components.xamarin.com/view/json.net/) containing all available user attributes (e.g.:`user.Profile["email"].ToString()`).
 * `IdToken`: a JSON Web Token (JWT) containing all of the user attributes and signed with your client secret.
-* `Auth0AccessToken`: the `access_token` that can be used to call the Auth0 APIs. For example, you could use this token to [Link Accounts](/link-accounts).
+* `Auth0AccessToken`: the `access_token` that can be used to call the Auth0 APIs.
 
 ::: panel-info Component info
 `Xamarin.Auth0Client` is built on top of the `WebRedirectAuthenticator` in the Xamarin.Auth component. All rules for standard authenticators apply regarding how the UI will be displayed.
