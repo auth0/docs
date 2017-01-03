@@ -38,6 +38,14 @@ function(user, context, callback){
 
 Since this URL will likely change from development to production, this method will make your code more portable.
 
+## AD/LDAP Connectors
+
+Since an AD/LDAP Connector is tied to a specific Connection within an Auth0 account, if you setup multiple Auth0 accounts, you will need to create an AD/LDAP Connection and setup an AD/LDAP Connector for each account that requires this form of authentication.
+
+Multiple AD/LDAP Connectors can point to the same AD or LDAP directory, but each AD/LDAP connector can only be used by one Connection within one Auth0 account.
+
+If you have multiple AD/LDAP directories against which users will authenticate, (to support different departments or customers, each with their own directory, for example), you can setup multiple AD/LDAP Connectors within each Auth0 account.
+
 # Child account request process
 
 * This process is for self service customers that request a test/dev/staging account to be linked to their paid production account.
@@ -58,11 +66,11 @@ Since this URL will likely change from development to production, this method wi
 * Requests must include:
   * The name of the Auth0 paying account for which the child account will be linked to.
   * The name of the new Auth0 child account.
-* Consider this use case to illustrate the lines above: Customer ABC purchases a Gold plan subscription. They will be eligible for a testing Gold plan account at no cost. If Customer ABC downgrades to a Silver plan, the linked free testing account will also be downgraded to a Silver plan. This similar process will be true for upgrades.
+* Consider this use case to illustrate the lines above: Customer ABC purchases a Gold plan subscription. They will be eligible for a child Gold plan account at no cost. If Customer ABC downgrades to a Silver plan, the linked free child account will also be downgraded to a Silver plan. This similar process will be true for upgrades.
 
 ## How to alter the plan of your account?
 
-* If you are upgrading your account, your testing accounts will be upgraded too.
+* If you are upgrading your account, your child accounts will be upgraded too.
 * Please note that before downgrading your plan, you have to contact us via the [Auth0 Support Center](https://support.auth0.com/), otherwise there might be collateral effects on both of your accounts.
 
 ## Does the child account need to belong to the same region as the master account?
@@ -75,11 +83,3 @@ The default answer is no. However, this will be decided for each case. Please co
   * The name of the Auth0 paying account for which the child account will be linked to.
   * The amount of child accounts that you need.
   * The name of each of the new Auth0 child accounts.
-  
-## AD/LDAP Connectors
-
-Since an AD/LDAP Connector is tied to a specific Connection within an Auth0 account, if you setup multiple Auth0 accounts, you will need to create an AD/LDAP Connection and setup an AD/LDAP Connector for each account that requires this form of authentication.
-
-Multiple AD/LDAP Connectors can point to the same AD or LDAP directory, but each AD/LDAP connector can only be used by one Connection within one Auth0 account.
-
-If you have multiple AD/LDAP directories against which users will authenticate, (to support different departments or customers, each with their own directory, for example), you can setup multiple AD/LDAP Connectors within each Auth0 account.
