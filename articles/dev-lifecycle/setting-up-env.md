@@ -38,6 +38,19 @@ function(user, context, callback){
 
 Since this URL will likely change from development to production, this method will make your code more portable.
 
+# Child account request process
+
+* This process is for self service customers that request a test/dev/staging account to be linked to their paid production account.
+* This process is not for accounts that have a free plan.
+* The test/dev/staging accounts are called child accounts.
+
+## Child account policy
+
+* Paid accounts are eligible for one free test account, with the same plan/features.
+* The child account will be subject to Auth0’s [Operational Policies](https://auth0.com/docs/policies).
+* The child account must not be used in a production environment.
+* If the child account is downgraded to a free plan and a paid plan subscription is terminated., all the additional features that it had will be removed or restricted as outlined in the [pricing page]([Pricing - Auth0](https://auth0.com/pricing)).
+  
 ## AD/LDAP Connectors
 
 Since an AD/LDAP Connector is tied to a specific Connection within an Auth0 account, if you setup multiple Auth0 accounts, you will need to create an AD/LDAP Connection and setup an AD/LDAP Connector for each account that requires this form of authentication.
