@@ -9,7 +9,7 @@ The callback URLs are meant to be used to receive the OAuth response when loggin
 > To form the callback url for the sample projects.
 
 Add the following url to your allowed callback URLs
-  - https://<YOUR_AUTH0DOMAIN>/<CLIENT_NAME>/<PACKAGE_NAME>/callback
+  - "https://<YOUR_AUTH0DOMAIN>/<CLIENT_NAME>/<PACKAGE_NAME>/callback"
 
   <PACKAGE_NAME> will vary depending on which sample project you are running
   - com.auth0.logindemo
@@ -19,4 +19,4 @@ Add the following url to your allowed callback URLs
 > To form the callback url for your own projects.
 
 Add the following url to your allowed callback URLs
-  - https://<YOUR_AUTH0DOMAIN>/<CLIENT_NAME>/<PACKAGE_NAME>/<ACTIVITY-CALLED-AFTER-LOGIN>
+  - "https://<YOUR_AUTH0DOMAIN>/<CLIENT_NAME>/<PACKAGE_NAME>/<ACTIVITY-CALLED-AFTER-LOGIN>"
