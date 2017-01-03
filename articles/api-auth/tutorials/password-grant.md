@@ -59,8 +59,12 @@ The response from `/oauth/token` (if successful) contains an `access_token`, for
 
 In case the scopes issued to the client differ from the scopes requested, a `scope` parameter will be included in the response JSON, listing the issued scopes.
 
-::: panel-info A note about user's claims
-If the client needs the user's claims you can include the scopes `openid profile` to the `scope` value in the POST to the token endpoint. If the audience uses RS256 as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can now send the `access_token` to `https://${account.namespace}/userinfo` to retrieve the user's claims.
+::: panel-info Password grant and standard scopes
+If you include the scope `openid` in your request, the response will include `openid profile email address phone` and any other scopes that you have configured, such as `read:notes`. In this case, the `scope` parameter will be included in the response, listing the issued scopes. This happens because a password is equal to full access hence any password-based exchange gives access to all scopes.
+:::
+
+::: panel-info How to get the user's claims
+If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can use this `access_token` to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
 :::
 
 ### Realm Support
