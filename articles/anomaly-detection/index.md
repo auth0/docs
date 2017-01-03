@@ -49,7 +49,7 @@ Auth0 does email the dashboard owner when this block is triggered. Within this e
 
 Both of these anomaly types depend on the IP address of the user. Because of this, the following use cases are not supported:
 
-1.  Using the [Resource Owner](/auth-api#!#post--oauth-ro) from the backend of the application. Using this call does not get the IP address of the user.
+1.  Using the [Resource Owner](/api/authentication#resource-owner) from the backend of the application. Using this call does not get the IP address of the user.
 2.  Authenticating many users from the same IP address. For instance, users that are behind a proxy are more likely to reach these limits and trigger the associated protection. It is possible to configure a whitelist for the proxy's IP and CIDR range and avoid erroneously triggering the protection.
 
 ### Breached Password Detection
