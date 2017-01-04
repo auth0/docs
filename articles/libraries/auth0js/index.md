@@ -46,8 +46,9 @@ bower install auth0.js
 Include via our CDN:
 
 ```html
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_8_url}"></script>
 ```
+
 >Note that for production use, the latest patch release (for example, 8.0.0) is recommended, rather than the latest minor release indicated above.
 
 If you are using [browserify](http://browserify.org/), you will want to install with `npm i auth0-js --production --save`.
@@ -61,7 +62,7 @@ Initialize a new instance of the Auth0 client as follows:
 <script type="text/javascript">
   var auth0 = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
+    clientID:     '${account.clientId}'
   });
 </script>
 ```
@@ -140,6 +141,31 @@ auth0.logout({
 ```
 
 ## Signup
+ 
+The `signup` method accepts an 'options' object that contains parameters for your signup. Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form. 
+
+```html 
+<h2>Signup Database Connection</h2> 
+<input class="signup-username" /> 
+<input type="password" class="signup-password" /> 
+<input type="button" class="signup-db" value="Signup!" /> 
+<script type="text/javascript"> 
+    $('.signup-db').click(function (e) { 
+        e.preventDefault(); 
+        auth0.signup({ 
+            connection: 'Username-Password-Authentication', 
+            email: $('.signup-email').val(), 
+            password: $('.signup-password').val(), 
+            sso: true, 
+            popup: true, 
+            auto_login: false 
+        }, function (err) { 
+            if (err) return alert('Something went wrong: ' + err.message); 
+            return alert('success signup without login!') 
+        }); 
+    }); 
+</script> 
+``` 
 
 ## Using renewAuth to Acquire New Tokens
 
@@ -147,7 +173,7 @@ The `renewAuth` method allows you to acquire a new token from Auth0 for a user w
 
 ```js
 auth0.renewAuth({
-  audience: 'urn:auth:some-audience',
+  audience: 'https://example.com/api/v2',
   scope: 'read:something write:otherthing',
   redirectUri: 'https://example.com/auth/silent-callback',
   usePostMessage: true
