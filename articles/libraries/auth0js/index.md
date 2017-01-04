@@ -20,10 +20,6 @@ The [example directory](https://github.com/auth0/auth0.js/tree/master/example) o
 1. Download dependencies by running `npm install` from the root of this project
 1. Finally, execute `npm run example` from the root of this project, and then browse to your app running on the node server, presumably at `http://localhost:3000`.
 
-<img width="600" src="/media/articles/libraries/auth0js/auth0js-example.png" />
-
-It's that easy!
-
 ## Setup and Initialization
 
 Now, let's get started integrating auth0.js into your project. We'll cover [methods of installation](#installation-options), [how to initialize auth0.js](#initialization), [signup](#signup), [login](#login), [logout](#logout), and more!
