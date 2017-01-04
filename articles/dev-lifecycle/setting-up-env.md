@@ -10,7 +10,7 @@ __Development__, __Test__, __Q&A__ environments are easy to setup in Auth0. Simp
 
 The example above uses a simple naming convention to distinguish each environment.
 
-> Note: Depending on the subscription, paying customers can apply to obtain additional accounts for development and testing environments. These will have the same plan and features as the one they've subscribed to. Please create a ticket in [Support Center](https://support.auth0.com) if you need these additional accounts.
+> Note: If you are paying more than 167 US$ per month, you can apply to obtain additional accounts for development and testing environments. These will have the same plan and features as the one they've subscribed to. Please create a ticket in [Support Center](https://support.auth0.com) if you need these additional accounts.
 
 ## Migration
 
@@ -54,12 +54,10 @@ The test/dev/staging accounts are called child accounts.
 
 ### Child account policy
 
-* Paid accounts are eligible for one free test account, with the same plan/features.
+* Accounts that pay 167 US$ per month or more are eligible for one free test account, with the same plan/features.
 * The child account will be subject to Auth0’s [Operational Policies](/policies).
 * The child account must not be used in a production environment.
 * If the child account is downgraded to a free plan and a paid plan subscription is terminated, all the additional features that it had will be removed or restricted as outlined in [pricing](https://auth0.com/pricing).
-
-Consider this use case: Customer ABC purchases a Gold plan subscription. They will be eligible for a child Gold plan account at no cost. If Customer ABC downgrades to a Silver plan, the linked free child account will also be downgraded to a Silver plan. This similar process will be true for upgrades.
 
 ### How to request a child account?
 
@@ -81,5 +79,7 @@ No, there is no limitation regarding this.
 
 The default answer is no. However, this will be decided for each case. Please contact us via the [Auth0 Support Center](https://support.auth0.com/) and inform us the following:
 * The name of the Auth0 paying account for which the child account will be linked to.
-* The amount of child accounts that you need.
+* The number of child accounts that you need.
 * The name of each of the new Auth0 child accounts.
+
+Note that you can ask up to 3 child accounts. So you can have one for development, one for staging and one for testing. We encourage you to keep things simple and have only one child account.
