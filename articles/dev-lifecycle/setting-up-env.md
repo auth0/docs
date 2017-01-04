@@ -79,8 +79,7 @@ No, there is no limitation regarding this.
 
 The default answer is no. However, this will be decided for each case. Please contact us via the [Auth0 Support Center](https://support.auth0.com/) and inform us the following:
 * The name of the Auth0 paying account for which the child account will be linked to.
-* The amount of child accounts that you need.
+* The number of child accounts that you need.
 * The name of each of the new Auth0 child accounts.
-* Considerations:
-  * You can ask up to 3 child tenants. So you can have one for development, one for staging and one for testing.
-  * We encourage you to keep things simple and have only one child tenant.
+
+Note that you can ask up to 3 child accounts. So you can have one for development, one for staging and one for testing. We encourage you to keep things simple and have only one child account.
