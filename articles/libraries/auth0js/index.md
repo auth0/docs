@@ -10,7 +10,7 @@ url: /libraries/auth0js
 Auth0.js is a client-side library for [Auth0](http://auth0.com), for use in your web apps. It allows you to trigger the authentication process and parse the [JSON Web Token](http://openid.net/specs/draft-jones-json-web-token-07.html) (JWT) with just the Auth0 `clientID`. Once you have the JWT, you can use it to authenticate requests to your HTTP API and validate the JWT in your server-side logic with the `clientSecret`.
 
 ::: panel-info Auth0.js v8
-This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the [v7 reference]() or the [migration guide]().
+This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the [v7 reference guide](/libraries/auth0js/v7).
 :::
 
 ## Ready-to-Go Example
@@ -90,7 +90,7 @@ Initialize a new instance of the Auth0 client as follows:
 
 ### Hosted Login Page
 
-To login via the hosted login page, use the `login` method. This redirects to the hosted login page to initialize an authN/authZ transaction.
+To login via the [hosted login page](/hosted-pages/login), use the `login` method. This redirects to the hosted login page to initialize an authN/authZ transaction.
 
 ```js
 auth0.login({
@@ -103,7 +103,7 @@ auth0.login({
 
 ### Custom Username and Password
 
-The `client.login` method can be used for username and password (database) logins that require a custom form, as opposed to the Auth0 hosted login page.
+The `client.login` method can be used for username and password (database) logins that require a custom form, as opposed to the Auth0 [hosted login page](/hosted-pages/login).
 
 ```js
 auth0.client.login({
@@ -144,7 +144,6 @@ auth0.logout({
 ```
 
 ## Signup
-
 
 ## Using renewAuth to Acquire New Tokens
 
@@ -221,7 +220,7 @@ var auth0 = new auth0.Management({
 });
 ```
 
-### Getting User Profile
+### Getting the User Profile
 
 In order to get the user profile data, use the `getUser()` method, with the `userId` and a callback as parameters. The method returns the user profile. https://auth0.com/docs/api/management/v2#!/Users/get_users_by_id.
 
@@ -229,7 +228,7 @@ In order to get the user profile data, use the `getUser()` method, with the `use
 getUser(userId, cb);
 ```
 
-### Updating User Profile
+### Updating the User Profile
 
 When updating user metadata, you will need to first create a `metadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `metadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata.
 
@@ -247,6 +246,6 @@ The `linkUser` method accepts two parameters, the primary user id and the second
 linkUser(userId, secondaryUserToken, cb): Link two users. https://auth0.com/docs/api/management/v2#!/Users/post_identities
 ```
 
-::: panel-info Unlinking - Metadata
-Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
+::: panel-info Linking - Metadata
+Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata, and if they are ever unlinked, the secondary account will likewise not retain the primary account's metadata when it becomes separate again.
 :::
