@@ -71,56 +71,58 @@ Obtaining new tokens using the `refresh_token` should occur only if the `access_
 
 ## Revoke a Refresh Token
 
-Since refresh tokens never expire it is important to be able to revoke them.
+Since refresh tokens never expire it is important to be able to revoke them. You can revoke a refresh token either by posting a revocation request to `https://${account.namespace}/oauth/revoke` or using the [dashboard](${manage_url}).
 
-### Revoke a Refresh Token using the Management API
+### Revoke a refresh token with a request
 
-To revoke a refresh token using the Auth0 Management API, you need the `id` of the refresh token you wish to revoke. To obtain a list of existing refresh tokens, call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an access token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
+To revoke a refresh token you can send a `POST` request to `https://${account.namespace}/oauth/revoke`.
 
-```
-GET https://${account.namespace}/api/v2/device-credentials?
-  type=refresh_token
-  &client_id={}
-  &user_id={}
-
+```har
 {
-  "Authorization":   "Bearer {your_access_token}"
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/revoke",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [],
+    "queryString" : [],
+    "postData" : {
+      "mimeType": "application/json",
+      "text" : "{ \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"token\": \"YOUR_REFRESH_TOKEN\" }"
+    },
+    "headersSize" : 150,
+    "bodySize" : 0,
+    "comment" : ""
 }
 ```
 
-Response body:
+The refresh token must be issued for the client making the revocation request.
 
-```
-[
-  {
-    "id": "dcr_dFJiaAxbEroQ5xxx",
-    "device_name": "my-device" // the value of 'device' provided in the /authorize call when creating the token
-  }
-]
-```
+If the request is valid, the refresh token is revoked and the response is `HTTP 200`, with an empty response body. Otherwise, the response body contains the error code and description.
 
-To revoke a refresh token, call the [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint with an access token containing `delete:device_credentials` scope and the value of `id` obtained above:
-
-```
-DELETE https://${account.namespace}/api/v2/device-credentials/{id}
-
+```json
 {
-  "Authorization":   "Bearer {your_access_token}"
+  "error": "invalid_request|invalid_client",
+  "error_description": "Description of the error"
 }
-
 ```
 
-The response will be a **204**: The credential no longer exists.
+The possible responses are:
 
-### Revoke a Refresh Token in the Dashboard
+| HTTP Status | Description |
+| --- | --- |
+| 200 | The refresh token is revoked or does not exist. The response body is empty. |
+| 400 | The required parameters were not sent in the request or the refresh token was not issued to the client making the revocation request (`"error": "invalid_request"`). |
+| 401 | The request is not authorized (`"error": "invalid_client"`). Check that the client credentials (`client_id` and `client_secret`) are present in the request and hold valid values. |
 
-To see if a user has existing devices with associated refresh tokens, go to the [Users section](${manage_url}/#/users) of the dashboard. Click the name of the user to view their **Details** page.
+### Revoke a refresh token using the dashboard
 
-Select the **Devices** tab. This page lists all device names and the number of refresh tokens associated with each. To revoke a refresh token, click the **X** to the right of the device name.
+To revoke a refresh token, go to the [Users section](${manage_url}/#/users) of the [dashboard](${manage_url}). Click the name of the user to view their *Details* page.
 
-![](/media/articles/tokens/dashboard-revoke-refresh-token.png)
+Select the *Authorized Applications* tab. This page lists all the clients to which the user has authorized access. Revoking an authorized application revokes also its associated refresh tokens.
 
-Click **UNLINK** to confirm.
+To revoke a refresh token, click **Revoke**.
+
+![Revoke a refresh token using the dashboard](/media/articles/tokens/dashboard-revoke-refresh-token.png)
 
 ## SDK Support
 
