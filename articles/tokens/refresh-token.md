@@ -1,13 +1,11 @@
 ---
 title: Refresh Token
-description: What is a Refresh Token and what you can do with it.
+description: What is a Refresh Token and how you can use it.
 ---
 
 # Refresh Token
 
-A **refresh token** is a special kind of token that contains the information required to obtain a new `access_token` or `id_token`.
-
-> An `id_token` is used by the client that receives it in order to identify the user. An `access_token` is used by a client to access an API. For more information refer to: [Tokens](/tokens).
+A **Refresh Token** is a special kind of token that contains the information required to obtain a new [Access Token](/tokens/access-token) or [ID Token](/tokens/id-token).
 
 Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time.
 
@@ -15,57 +13,55 @@ Refresh tokens are subject to strict storage requirements to ensure that they ar
 
 ## Overview
 
-The response of an [authentication request](/protocols) can result in an `access_token` and/or an `id_token` being issued by Auth0. The  `access_token` is used to make authenticated calls to a secured API, while the `id_token` contains user profile attributes represented in the form of _claims_. Both JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing).
+The response of an [authentication request](/api-auth) can result in an `access_token` and/or an `id_token` being issued by Auth0. The  `access_token` is used to make authenticated calls to a secured API, while the `id_token` contains user profile attributes represented in the form of _claims_. Both JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing).
 
 A refresh token allows the application to request Auth0 to issue a new `access_token` or `id_token` directly, without needing to re-authenticate the user. This will work as long as the refresh token has not been revoked.
 
-::: panel-warning Secure Storage
+::: panel-warning Security Warning
 Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
-Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API.
+Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-with-a-request) programmatically through the Auth0 API.
 
-They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-in-the-dashboard).
+They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-using-the-dashboard).
 
 ## Obtain a Refresh Token
 
-To obtain a refresh token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
+To obtain a refresh token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
 
 For example:
 
 ```
 GET https://${account.namespace}/authorize/?
     response_type=token
+    &audience=YOUR_API_IDENTIFIER
     &client_id=${account.clientId}
-    &redirect_uri=YOUR_CALLBACK_URL
+    &redirect_uri=${account.callback}
     &state=VALUE_THAT_SURVIVES_REDIRECTS
     &scope=openid%20offline_access
-    &device=my-device
 ```
 
-**NOTE**: The `device` parameter can be any value, such as a unique mobile device identifier.
-
-When the authentication flow completes, Auth0 will redirect the user to the `callback_URL` as usual.
+Once the user authenticates successfully, the client will be redirected to the `callback_URL`.
 The complete URL will be as follows:
 
 ```
-GET https://YOUR_CALLBACK_URL#
+GET ${account.callback}#
     access_token=2nF...WpA
     &id_token=eyJhb...
     &state=VALUE_THAT_SURVIVES_REDIRECTS
     &refresh_token=Cqp...Mwe
 ```
 
-The refresh token is returned as part of the URL, in the form of an opaque string.
+The refresh token (an opaque string) is part of the URL. You should store it securely and use it only when needed.
 
-**NOTE**: In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth2-implicit-flow) (`response_type=token`) was used.
+**NOTE**: In this example, the token was returned to the client in the URL because the [implicit grant](/api-auth/grant/implicit) (`response_type=token`) was used.
 
 ## Use a Refresh Token
 
-To obtain a new `id_token`, call the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
+To obtain a new `refresh_token`, call the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
 
 ::: panel-info Rate limits
-Obtaining new tokens using the `refresh_token` should occur only if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it is a bad practice to call the endpoint to get a new token every time you call an API using the `access_token`. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
+You should only ask for a new token if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it's a bad practice to call the endpoint to get a new `access_token` every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
 
@@ -146,7 +142,7 @@ For more information about using refresh tokens with these libraries, see:
 
 ## More information
 
-* [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
+* [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
 
 * [Using a refresh token with an ID token](/tokens/id_token#lifetime)
 
