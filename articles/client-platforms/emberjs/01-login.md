@@ -3,6 +3,7 @@ title: Login
 default: true
 description: This tutorial will show you how to use the Auth0 EmberJS SDK to add authentication and authorization to your web app.
 budicon: 448
+community: true
 ---
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow these tutorial steps.
