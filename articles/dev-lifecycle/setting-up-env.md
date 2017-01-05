@@ -83,3 +83,7 @@ The default answer is no. However, this will be decided for each case. Please co
 * The name of each of the new Auth0 child accounts.
 
 Note that you can ask up to 3 child accounts. So you can have one for development, one for staging and one for testing. We encourage you to keep things simple and have only one child account.
+
+### Usage considerations
+
+Please notice that usage on child accounts counts towards the master's account usage. 
