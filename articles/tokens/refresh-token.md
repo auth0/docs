@@ -58,7 +58,31 @@ The refresh token (an opaque string) is part of the URL. You should store it sec
 
 ## Use a Refresh Token
 
-To obtain a new `refresh_token`, call the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
+To refresh your token, using the `refresh_token` you already got during authorization, make a `POST` request to the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
+
+```har
+{
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [],
+    "queryString" : [],
+    "postData" : {
+      "mimeType": "application/json",
+      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
+    },
+    "headersSize" : 150,
+    "bodySize" : 0,
+    "comment" : ""
+}
+```
+
+Where:
+- `grant_type`: The type of grant to execute (the `/token` endpoint is used for various grants, for more information refer to the [Authentication API](/api/authentication#get-token)). To refresh a token use `refresh_token`.
+- `client_id`: Your application's Client ID.
+- `client_secret`: Your application's Client Secret.
+- `refresh_token`: The refresh token to use.
 
 ::: panel-info Rate limits
 You should only ask for a new token if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it's a bad practice to call the endpoint to get a new `access_token` every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
