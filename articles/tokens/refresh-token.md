@@ -95,7 +95,12 @@ To revoke a refresh token you can send a `POST` request to `https://${account.na
 }
 ```
 
-The refresh token must be issued for the client making the revocation request.
+Where:
+- `client_id`: Your application's Client ID.
+- `client_secret`: Your application's Client Secret.
+- `token`: The refresh token you want to revoke.
+
+The client should match the one the refresh token was issued for.
 
 If the request is valid, the refresh token is revoked and the response is `HTTP 200`, with an empty response body. Otherwise, the response body contains the error code and description.
 
