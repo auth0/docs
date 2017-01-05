@@ -3,7 +3,6 @@ description: Describes how to call APIs from client-side web apps using the Impl
 ---
 
 # Call APIs from Client-side Web Apps
-<%=include('../_region-support') %>
 
 The OAuth 2.0 grant that Client-side web apps utilize in order to access an API, is the **Implicit Grant**.
 

@@ -6,7 +6,6 @@ budicon: 500
 
 At some point, your APIs may need to allow limited access to users, servers, or servers on behalf of users. This tutorial demonstrates how to use the [Authorization Code Flow with PKCE](https://auth0.com/docs/api-auth/tutorials/authorization-code-grant-pkce) to give your applications (or third-party applications) limited access to your APIs on behalf of users. For more information, check out [our documentation](https://auth0.com/docs/api-auth).
 
-<%= include('../../api-auth/_region-support') %>
 <%= include('../../_includes/_compat_warning') %>
 
 ### Before Starting
