@@ -17,7 +17,7 @@ Content-Type: 'application/json'
   "send": "link|code", //if left null defaults to link
   "authParams": { // any authentication parameters that you would like to add
     "scope": "openid",
-    "state": "your_state"
+    "state": "YOUR_STATE"
   }
 }
 ```
@@ -26,7 +26,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/passwordless/start' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "email":"EMAIL", "phone_number":"PHONE_NUMBER", "send":"link|code", "authParams":{"scope": "openid","state": "your_state"}}'
+  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "email":"EMAIL", "phone_number":"PHONE_NUMBER", "send":"link|code", "authParams":{"scope": "openid","state": "YOUR_STATE"}}'
 ```
 
 ```javascript
