@@ -7,7 +7,7 @@ url: /libraries/auth0js
 
 # Auth0.js v8 Reference
 
-Auth0.js is a client-side library for [Auth0](http://auth0.com), for use in your web apps. It allows you to trigger the authentication process and parse the [JSON Web Token](http://openid.net/specs/draft-jones-json-web-token-07.html) (JWT) with just the Auth0 `clientID`. Once you have the JWT, you can use it to authenticate requests to your HTTP API and validate the JWT in your server-side logic with the `clientSecret`.
+Auth0.js is a client-side library for [Auth0](http://auth0.com). Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
 
 ::: panel-info Auth0.js v8
 This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the [v7 reference guide](/libraries/auth0js/v7).
@@ -18,7 +18,7 @@ This document covers the most up-to-date version of auth0.js - version 8. If you
 The [example directory](https://github.com/auth0/auth0.js/tree/master/example) of the auth0.js library is a ready-to-go app that can help you to quickly and easily try out auth0.js. In order to run it, follow these quick steps:
 1. If you don't have [node](http://nodejs.org/) installed, do that now
 1. Download dependencies by running `npm install` from the root of this project
-1. Finally, execute `npm run example` from the root of this project, and then browse to your app running on the node server, presumably at `http://localhost:3000`.
+1. Finally, execute `npm start` from the root of this project, and then browse to your app running on the node server, presumably at `http://localhost:3000/example`.
 
 ## Setup and Initialization
 
@@ -51,7 +51,7 @@ Include via our CDN:
 
 >Note that for production use, the latest patch release (for example, 8.0.0) is recommended, rather than the latest minor release indicated above.
 
-If you are using [browserify](http://browserify.org/), you will want to install with `npm i auth0-js --production --save`.
+If you are using a bundler, you will want to install with `npm i auth0-js --production --save`.
 
 ### Initialization
 
@@ -60,7 +60,7 @@ Initialize a new instance of the Auth0 client as follows:
 ```html
 <script src="${auth0js_url}"></script>
 <script type="text/javascript">
-  var auth0 = new auth0.WebAuth({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
@@ -87,10 +87,10 @@ Initialize a new instance of the Auth0 client as follows:
 
 ### Hosted Login Page
 
-To login via the [hosted login page](/hosted-pages/login), use the `login` method. This redirects to the hosted login page to initialize an authN/authZ transaction.
+To login via the [hosted login page](/hosted-pages/login), use the `authorize` method. This redirects to the hosted login page to initialize an authN/authZ transaction.
 
 ```js
-auth0.login({
+WebAuth.authorize({
   audience: 'url:auth:some-audience',
   scope: 'read:something write:otherthing',
   responseType: 'token',
@@ -100,10 +100,10 @@ auth0.login({
 
 ### Custom Username and Password
 
-The `client.login` method can be used for username and password (database) logins that require a custom form, as opposed to the Auth0 [hosted login page](/hosted-pages/login).
+The `client.login` method can be used when you need to request a username and password and authenticate from your site, instead of using the [hosted login page](/hosted-pages/login). This method can be used for database and ldap connections.
 
 ```js
-auth0.client.login({
+webAuth.client.login({
   realm: 'Username-Password-Authentication', //connection name or HRD domain
   username: 'info@auth0.com',
   password: 'areallystrongpassword',
@@ -119,8 +119,8 @@ auth0.client.login({
 - **client.login(options, cb)**: Authenticates the user with username & password in a realm using `/oauth/token`. This will not initialize a SSO session in auth0, hence can not be used along with renew auth.
 
 ```js
-auth0.client.login({
-  realm: 'google-oauth2'
+webAuth.client.login({
+  realm: 'db-conn'
 });
 ```
 
@@ -134,7 +134,7 @@ However, if the 'client\_id' parameter _is not_ included, the 'returnTo' URL mus
 :::
 
 ```js
-auth0.logout({
+webAuth.logout({
   returnTo: 'some url here',
   client_id: 'some client ID here'
 });
@@ -152,7 +152,7 @@ The `signup` method accepts an 'options' object that contains parameters for you
 <script type="text/javascript"> 
     $('.signup-db').click(function (e) { 
         e.preventDefault(); 
-        auth0.signup({ 
+        webAuth.signup({ 
             connection: 'Username-Password-Authentication', 
             email: $('.signup-email').val(), 
             password: $('.signup-password').val(), 
@@ -172,7 +172,7 @@ The `signup` method accepts an 'options' object that contains parameters for you
 The `renewAuth` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the hosted login page.
 
 ```js
-auth0.renewAuth({
+webAuth.renewAuth({
   audience: 'https://example.com/api/v2',
   scope: 'read:something write:otherthing',
   redirectUri: 'https://example.com/auth/silent-callback',
@@ -194,11 +194,11 @@ The callback page should be something like the following one. It will parse the 
   <head>
     <script src="${auth0js_url}"></script>
     <script type="text/javascript">
-      var auth0 = new auth0.WebAuth({
+      var webAuth = new auth0.WebAuth({
         domain: '${account.namespace}',
         clientID: '...'
       });
-      var result = auth0.parseHash(window.location.hash);
+      var result = webAuth.parseHash(window.location.hash);
       if (result) {
         parent.postMessage(result, "https://example.com/"); //The second parameter should be your domain
       }
@@ -214,7 +214,7 @@ If attempting to set up a password reset functionality, you'll use the `changePa
 
 ```js
   $('.change_password').click(function () {
-    auth0.changePassword({
+    webAuth.changePassword({
       connection: 'db-conn',
       email:   'foo@bar.com'
     }, function (err, resp) {
@@ -236,7 +236,7 @@ The Management API provides functionality that allows you to link and unlink sep
 To get started, create a new `auth0.Management` instance by passing it the account's Auth0 domain, and the token for the primary identity. In the case of linking users, this primary identity is the user profile that you want to "keep" the data for, and which you plan to link other identities to.
 
 ```js
-var auth0 = new auth0.Management({
+var auth0Manage = new auth0.Management({
   domain: '${account.namespace}',
   token: "YOUR_PRIMARY_IDENTITY_TOKEN"
 });

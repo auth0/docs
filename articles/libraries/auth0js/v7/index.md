@@ -10,7 +10,7 @@ url: /libraries/auth0js/v7
 Auth0.js is a client-side library for [Auth0](http://auth0.com), for use in your web apps. It allows you to trigger the authentication process and parse the [JSON Web Token](http://openid.net/specs/draft-jones-json-web-token-07.html) (JWT) with just the Auth0 `clientID`. Once you have the JWT, you can use it to authenticate requests to your HTTP API and validate the JWT in your server-side logic with the `clientSecret`.
 
 ::: panel-info Auth0.js v7
-This document covers an out-of-date version of auth0.js - version 7. If you are already using version 8, you can take a look at the [v8 reference](). If not, check out the [migration guide]().
+This document covers an out-of-date version of auth0.js - version 7. If you are already using version 8, you can take a look at the [v8 reference](/libraries/auth0js).
 :::
 
 ## Ready-to-Go Example
