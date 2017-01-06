@@ -7,17 +7,19 @@ toc: true
 
 Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables you to register clients dynamically. These clients are called **Third Party Clients** (since they are registered and used by third party developers).
 
-## Third Part Client characteristics
+## Third Party Client characteristics
 
-Third Part Clients have the following characteristics:
+Third Party Clients have the following characteristics:
 
 - The [ID tokens](/tokens/id-token) generated for these clients, hold minimum user profile information.
 
-- They cannot use any connections, except for tenant level connections (domain connections).
+- They can use only tenant level connections (domain connections). These are sources of users, configured in the tenant's [dashboard](${manage_url}) as connections, but they are not enabled for any client.
 
 - To authenticate users using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
 
-- These clients cannot use [ID tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should get a Management APIv2 Token (see the *How to get a Management APIv2 Token* panel for details). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.
+- They cannot skip user consent when consuming APIs. This is for security purposes, as anyone can create a client, but each client relays on the final user to provide consent.
+
+- They cannot use [ID tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should get a Management APIv2 Token (see the *How to get a Management APIv2 Token* panel for details). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.
   - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
   - `update:current_user_metadata`: [Update a user](/api/management/v2#!/Users/patch_users_by_id), [Delete a user's multifactor provider](/api/management/v2#!/Users/delete_multifactor_by_provider)
   - `delete:current_user_metadata`: [Delete a user](/api/management/v2#!/Users/delete_users_by_id)
@@ -27,11 +29,9 @@ Third Part Clients have the following characteristics:
   - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
 
 ::: panel-info How to get a Management APIv2 Token
-In order to access the [Management APIv2](/api/management/v2) endpoints, from a dynamic client, you need a Management APIv2 Token. To do so, invoke `https://${account.namespace}/authorize`, with the following request parameters:
-- `audience=API2_URL`
+In order to access the [Management APIv2](/api/management/v2) endpoints from a third party client, you need a Management APIv2 Token. To get one you can use any of the [API Authorization Flows](/api-auth), with the following request parameters:
+- `audience=https://${account.namespace}/api/v2/`
 - `scope=read:current_user update:current_user_metadata`
-
-The response will include an access token with the selected scopes for the current user.
 :::
 
 ## Enable dynamic registration
