@@ -3,7 +3,6 @@ description: Describes how to call APIs from regular web apps using the  Authent
 ---
 
 # Calling APIs from Server-side Web Apps
-<%=include('../_region-support') %>
 
 The OAuth 2.0 grant that regular web apps utilize in order to access an API, is the **Authorization Code Grant**.
 

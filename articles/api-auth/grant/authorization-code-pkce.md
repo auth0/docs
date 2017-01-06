@@ -3,7 +3,6 @@ description: Describes the call APIs from mobile apps using the  Authentication 
 ---
 
 # Calling APIs from Mobile Apps
-<%=include('../_region-support') %>
 
 The OAuth 2.0 grant that mobile apps utilize in order to access an API, is the **Authorization Code Grant using Proof Key for Code Exchange (PKCE)**.
 
