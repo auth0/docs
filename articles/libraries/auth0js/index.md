@@ -87,10 +87,10 @@ Initialize a new instance of the Auth0 client as follows:
 
 ### Hosted Login Page
 
-To login via the [hosted login page](/hosted-pages/login), use the `authorize` method. This redirects to the hosted login page to initialize an authN/authZ transaction.
+To login via the [hosted login page](/hosted-pages/login), use the `authorize` method. This redirects to the hosted login page to initialize an authN/authZ transaction. 
 
 ```js
-WebAuth.authorize({
+webAuth.authorize({
   audience: 'url:auth:some-audience',
   scope: 'read:something write:otherthing',
   responseType: 'token',
@@ -98,9 +98,11 @@ WebAuth.authorize({
 });
 ```
 
+Note that the same `authorize` method can be used with a 'connection' parameter to facilitate social connection logins, as well.
+
 ### Custom Username and Password
 
-The `client.login` method can be used when you need to request a username and password and authenticate from your site, instead of using the [hosted login page](/hosted-pages/login). This method can be used for database and ldap connections.
+The `client.login` method can be used when you need to request a username and password and authenticate from your site, instead of using the [hosted login page](/hosted-pages/login). This method can be used for database and ldap connections. This will not initialize a SSO session in Auth0, hence cannot be used along with `renewAuth`.
 
 ```js
 webAuth.client.login({
@@ -111,16 +113,6 @@ webAuth.client.login({
   scope: 'read:order write:order',
   }, function(err, authResult) {
     // Auth tokens in the result or an error
-});
-```
-
-### Custom Social Login
-
-- **client.login(options, cb)**: Authenticates the user with username & password in a realm using `/oauth/token`. This will not initialize a SSO session in auth0, hence can not be used along with renew auth.
-
-```js
-webAuth.client.login({
-  realm: 'db-conn'
 });
 ```
 
