@@ -3,7 +3,6 @@ description: How to execute an Implicit Grant flow from a SPA Client application
 ---
 
 # Execute the Implicit Grant Flow
-<%=include('../_region-support') %>
 
 In order to execute an Implicit Grant flow you will need to configure your Client application to send the user to the authorization URL:
 
