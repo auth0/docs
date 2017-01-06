@@ -56,6 +56,10 @@ The refresh token (an opaque string) is part of the URL. You should store it sec
 
 **NOTE**: In this example, the token was returned to the client in the URL because the [implicit grant](/api-auth/grant/implicit) (`response_type=token`) was used.
 
+::: panel-info Troubleshooting
+If the response did not include a refresh token, check the **Allow Offline Access** switch on your [API Settings](${manage_url}/#/apis). It must be enabled, otherwise Auth0 won't return a refresh token, even if you included the `offline_access` scope.
+:::
+
 ## Use a Refresh Token
 
 To refresh your token, using the `refresh_token` you already got during authorization, make a `POST` request to the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
