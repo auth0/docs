@@ -5,13 +5,17 @@ toc: true
 
 # Dynamic Client Registration
 
-Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables you to register clients dynamically. This way you can allow third party developers to register and use clients.
+Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables you to register clients dynamically. These clients are called **Third Party Clients** (since they are registered and used by third party developers).
 
-All clients, registered dynamically with Auth0, have the following characteristics:
+## Third Part Client characteristics
 
-- The [ID tokens](/tokens/id-token) generated for these clients, hold minimum user profile information. In order to retrieve the full user profile, you need to get an access token and use the [/userinfo endpoint](/api/authentication#get-user-info).
+Third Part Clients have the following characteristics:
 
-- They cannot use any connections, except for tenant level connections (domain connections). If the client wants to use [Lock](/libraries/lock) to authenticate users, it will need to use a version greater than `10.7`.
+- The [ID tokens](/tokens/id-token) generated for these clients, hold minimum user profile information.
+
+- They cannot use any connections, except for tenant level connections (domain connections).
+
+- To authenticate users using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
 
 - These clients cannot use [ID tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should get a Management APIv2 Token (see the *How to get a Management APIv2 Token* panel for details). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.
   - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
