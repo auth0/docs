@@ -25,9 +25,9 @@ Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a
 
 They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-using-the-dashboard).
 
-## Obtain a Refresh Token
+## Get a Refresh Token
 
-To obtain a refresh token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
+To get a refresh token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
 
 For example:
 
@@ -83,6 +83,18 @@ Where:
 - `client_id`: Your application's Client ID.
 - `client_secret`: Your application's Client Secret.
 - `refresh_token`: The refresh token to use.
+
+The response will include a new `access_token`, its type, its lifetime (in seconds), and the granted scopes. If the scope of the initial token included `openid`, then a new `id_token` will be in the response as well.
+
+```json
+{
+  "access_token": "eyJ...MoQ",
+  "expires_in": 86400,
+  "scope": "openid offline_access",
+  "id_token": "eyJ...0NE",
+  "token_type": "Bearer"
+}
+```
 
 ::: panel-info Rate limits
 You should only ask for a new token if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it's a bad practice to call the endpoint to get a new `access_token` every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
