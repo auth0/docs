@@ -13,6 +13,10 @@ Auth0.js is a client-side library for [Auth0](http://auth0.com). Using auth0.js 
 This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the [v7 reference guide](/libraries/auth0js/v7).
 :::
 
+::: panel-warning Auth0.js v7
+This document covers a recently out-of-date version of auth0.js - version 7. The documentation for version 8 will be released soon!
+:::
+
 ## Ready-to-Go Example
 
 The [example directory](https://github.com/auth0/auth0.js/tree/master/example) of the auth0.js library is a ready-to-go app that can help you to quickly and easily try out auth0.js. In order to run it, follow these quick steps:

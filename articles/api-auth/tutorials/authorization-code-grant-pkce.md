@@ -3,7 +3,6 @@ description: How to execute an Authorization Code Grant flow with PKCE for a Mob
 ---
 
 # Execute an Authorization Code Grant Flow with PKCE
-<%=include('../_region-support') %>
 
 First, you need to generate and store a `code_verifier`.
 

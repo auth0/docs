@@ -5,7 +5,6 @@ description: This tutorial demonstrates how to use Auth0 to make authorized API 
 
 At some point, your APIs may need to allow limited access to users, servers, or servers on behalf of users. This tutorial demonstrates how to use the [Authorization Code Flow](https://auth0.com/docs/api-auth/tutorials/authorization-code-grant) to give your applications (or third-party applications) limited access to your APIs on behalf of users. For more information, check out [our documentation](https://auth0.com/docs/api-auth).
 
-<%= include('../../api-auth/_region-support') %>
 <%= include('../../_includes/_compat_warning') %>
 
 ### Before Starting
@@ -22,7 +21,7 @@ At some point, your APIs may need to allow limited access to users, servers, or 
 
 Be sure to register the URL of your app in the Allowed Callback URLs in your Client Settings.
 
-## 3. Create a Resource Server (API) 
+## 3. Create a Resource Server (API)
 
 <%= include('../../_includes/_new_api') %>
 

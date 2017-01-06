@@ -5,7 +5,6 @@ description: This tutorial demonstrates how to use Auth0 to renew Access Tokens 
 
 A Refresh Token is a special kind of token that can be used to obtain a renewed access token at any time. You can request new access tokens. Remember, Refresh Tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever. For more information, check out [our documentation](https://auth0.com/docs/api-auth).
 
-<%= include('../../api-auth/_region-support') %>
 <%= include('../../_includes/_compat_warning') %>
 
 ## Obtaining a Refresh Token
@@ -28,13 +27,13 @@ function signIn() {
 ...
 ```
 
-The Refesh Token will be available in `req.user.extraParams.refresh_token`. 
+The Refesh Token will be available in `req.user.extraParams.refresh_token`.
 
 ## Using a Refresh Token
 
-If you invoke your API and you get a `401` response, this tells you that you might need to refresh your Access Token since it is expired. 
+If you invoke your API and you get a `401` response, this tells you that you might need to refresh your Access Token since it is expired.
 
-In order to renew your Access Token, you must send a request to the `/oauth/token` endpoint to obtain a renewed access token. Note that this quickstart assumes that the *Token Endpoint Authentication Method* setting for your Client is set to `POST`. 
+In order to renew your Access Token, you must send a request to the `/oauth/token` endpoint to obtain a renewed access token. Note that this quickstart assumes that the *Token Endpoint Authentication Method* setting for your Client is set to `POST`.
 
 ```js
 
@@ -43,13 +42,13 @@ In order to renew your Access Token, you must send a request to the `/oauth/toke
 var options = { method: 'POST',
   url: `https://${process.env.AUTH0_DOMAIN}/oauth/token`,
   headers: { 'content-type': 'application/json' },
-  body: { 
+  body: {
     grant_type: 'refresh_token',
     client_id: '{env.AUTH0_CLIENT_ID}',
     client_secret: '{env.AUTH0_CLIENT_SECRET}',
     refresh_token: req.user.extraParams.refresh_token
-  }, 
-  json: true 
+  },
+  json: true
 };
 
 request(options, function (error, response, body) {
@@ -59,6 +58,6 @@ request(options, function (error, response, body) {
 
 ```
 
-You can optionally include the `scope` parameter, including any or all of the scopes that were originally requested. If you ask for scopes for which the user did not already provide consent, the returned `access_token` will not include them. If you specified the `openid` scope, you will also get back an `id_token`. 
+You can optionally include the `scope` parameter, including any or all of the scopes that were originally requested. If you ask for scopes for which the user did not already provide consent, the returned `access_token` will not include them. If you specified the `openid` scope, you will also get back an `id_token`.
 
 The renewed Access Token has an expiration time equal to the `Token Expiration (Seconds)` setting for your API.

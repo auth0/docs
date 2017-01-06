@@ -3,7 +3,6 @@ description: How to execute a Resource Owner Password Grant
 ---
 
 # Execute the Resource Owner Password Grant
-<%=include('../_region-support') %>
 
 ::: panel-danger Warning
 Support for Rules and Refresh Tokens will be available in a future release.

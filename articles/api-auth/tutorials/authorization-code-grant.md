@@ -3,7 +3,6 @@ description: How to execute an Authorization Code Grant flow from a Regular Web 
 ---
 
 # Execute an Authorization Code Grant Flow
-<%=include('../_region-support') %>
 
 To begin an Authorization Code Grant flow, your Client application should first send the user to the authorization URL:
 

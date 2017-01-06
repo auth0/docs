@@ -18,8 +18,6 @@ budicon: 715
 
 <%= include('../../_includes/_api_auth_intro') %>
 
-<%= include('../../api-auth/_region-support') %>
-
 This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET (OWIN) Web API.
 
 ## Seed & Samples
