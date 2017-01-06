@@ -17,6 +17,8 @@ Use the Auth0 Management Dashboard ("Dashboard") to manage User Profiles.
 
 Within the Dashboard, you can create, view, modify, or delete users. These options are available via the [Users](${manage_url}/#/users) page.
 
+**Note:** User Management is included as part of the **Developer** subscription plan. You may need to [upgrade your plan](${manage_url}/#/account/billing/subscription) to access these features.
+
 ![User Profile Dashboard](/media/articles/user-profile/user-profile-dashboard.png)
 
 ### Creating a New User
