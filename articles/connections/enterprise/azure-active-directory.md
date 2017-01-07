@@ -25,7 +25,7 @@ To allow users to login using a Microsoft Azure Active Directory account, you mu
 
 ## 1. Create a new application
 
-Login to Microsoft Azure and choose **Active Directory** from the sidebar.
+Login to Microsoft Azure and choose **Azure Active Directory** from the sidebar.
 
 ![Select Active Directory](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-1.png)
 
