@@ -1,6 +1,8 @@
 # Get Token
 
-Use this endpoint to get an `access_token` in order to call an API. You can, optionally, retrieve an `id_token` and a `refresh_token` as well.
+Use this endpoint to:
+- Get an `access_token` in order to call an API. You can, optionally, retrieve an `id_token` and a `refresh_token` as well.
+- To refresh your token, using a `refresh_token` you already have.
 
 The only OAuth 2.0 flows that can retrieve a refresh token are:
 - [Authorization Code Grant](/api-auth/grant/authorization-code)
@@ -388,3 +390,94 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 - [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
 - [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+
+
+## Refresh Token
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+POST https://${account.namespace}/oauth/token
+Content-Type: 'application/json'
+{
+  "grant_type": "refresh_token",
+  "client_id": "${account.clientId}",
+  "client_secret": "${account.clientSecret}",
+  "refresh_token": "YOUR_REFRESH_TOKEN"
+}
+```
+
+```shell
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/token' \
+  --header 'content-type: application/json' \
+  --data '{"grant_type":"refresh_token","client_id": "${account.clientId}","client_secret": "${account.clientSecret}","refresh_token": "YOUR_REFRESH_TOKEN"}'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/json' },
+  body:
+   { grant_type: 'refresh_token',
+     client_id: '${account.clientId}',
+     client_secret: '${account.clientSecret}',
+     refresh_token: 'YOUR_REFRESH_TOKEN'},
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> RESPONSE SAMPLE:
+
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "access_token": "eyJ...MoQ",
+  "expires_in": 86400,
+  "scope": "openid offline_access",
+  "id_token": "eyJ...0NE",
+  "token_type": "Bearer"
+}
+```
+
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#refresh-token"
+}) %>
+
+Use this endpoint to refresh a token, using the refresh token you got during authorization.
+
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token use  `refresh_token`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. |
+| `refresh_token` <br/><span class="label label-danger">Required</span> | The refresh token received during the first authorization |
+
+
+### Test this endpoint
+
+<%= include('../../../_includes/_test-this-endpoint') %>
+
+1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
+
+1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+1. At the *OAuth2 / OIDC* tab, set the field **Refresh Token** to the refresh token you have. Click **OAuth2 Refresh Token Exchange**.
+
+
+### More Information
+
+- [Refresh Token](/tokens/refresh_token)
