@@ -2,12 +2,12 @@
 
 Use this endpoint to:
 - Get an `access_token` in order to call an API. You can, optionally, retrieve an `id_token` and a `refresh_token` as well.
-- To refresh your token, using a `refresh_token` you already have.
+- Refresh your access token, using a refresh token you got during authorization.
 
-The only OAuth 2.0 flows that can retrieve a refresh token are:
-- [Authorization Code Grant](/api-auth/grant/authorization-code)
-- [Authorization Code Grant Flow with PKCE](/api-auth/grant/authorization-code-pkce)
-- [Resource Owner Password Grant](/api-auth/grant/password)
+Note that the only OAuth 2.0 flows that can retrieve a refresh token are:
+- [Authorization Code](/api-auth/grant/authorization-code)
+- [Authorization Code with PKCE](/api-auth/grant/authorization-code-pkce)
+- [Resource Owner Password](/api-auth/grant/password)
 
 ## Authorization Code
 
@@ -454,7 +454,7 @@ Content-Type: application/json
   "link": "#refresh-token"
 }) %>
 
-Use this endpoint to refresh a token, using the refresh token you got during authorization.
+Use this endpoint to refresh an access token, using the refresh token you got during authorization.
 
 
 ### Request Parameters
@@ -464,7 +464,7 @@ Use this endpoint to refresh a token, using the refresh token you got during aut
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token use  `refresh_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. |
-| `refresh_token` <br/><span class="label label-danger">Required</span> | The refresh token received during the first authorization |
+| `refresh_token` <br/><span class="label label-danger">Required</span> | The refresh token to use. |
 
 
 ### Test this endpoint
