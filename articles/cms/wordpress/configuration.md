@@ -8,7 +8,7 @@ To configure the *Auth0 for WordPress* plugin, you will need to copy the *Domain
 
 **Note:** In order to install or customize plugins, you will need to use a self-hosted WordPress.org site. Using the WordPress.com site does not allow installing plugins.
 
-### Create a New Client
+## Create a New Client
 
 You must first create a client in the Auth0 dashboard before you can configure the *Auth0 for WordPress* plugin. If you already have created the client you want to connect to WordPress, you can skip to the next section.
 
@@ -21,28 +21,28 @@ You must first create a client in the Auth0 dashboard before you can configure t
 
   ![Creating the Client in the Management Dashboard](/media/articles/cms/wordpress/create-client.png)
 
-### Get your *Domain*, *Client Id* and *Client Secret*
+## Get your Domain, Client Id and Client Secret
 
-1. Go to the [Clients](${manage_url}/#/clients) of the Auth0 dashboard and select the app you want to connect to WordPress.
+1. Go to the [Clients](${manage_url}/#/clients) of the Auth0 dashboard and select the client you want to connect to WordPress.
 
   ![Client Settings in the Management Dashboard](/media/articles/cms/wordpress/auth0-client-settings.png)
 
 2. Leave this browser window open.
 
-### Copy your *Domain*, *Client Id* and *Client Secret*
+## Set your Domain, Client Id and Client Secret
 
 1. Log in as an administrator of your WordPress installation.
 2. Click on **Plugins** in the left menu of the WordPress dashboard and select the **Settings** link associated with the Auth0 plugin.
 
   ![Navigating to Settings Page in WordPress](/media/articles/cms/wordpress/plugin-settings.png)
 
-3. Copy the *Domain*, *Client Id* and *Client Secret* settings from the *Settings* page of your app in the Auth0 dashboard to the *Auth0 Settings > Basic* page of your WordPress account.
+3. Copy the **Domain**, **Client Id** and **Client Secret** settings from the *Settings* page of your app in the Auth0 dashboard to the *Auth0 Settings > Basic* page of your WordPress account.
 
   ![Providing Auth0 Client Settings to WordPress](/media/articles/cms/wordpress/auth0-plugin-settings-page.png)
 
 4. Click **Save Changes** at the bottom of the page.
 
-## *Auth0 for WordPress* Plugin Settings
+## Auth0 for WordPress Plugin Settings
 
 ### Basic
 
@@ -109,7 +109,7 @@ Here you can customize the dashboard's display and segmentation of data.
 
 The plugin includes an `auth0_user_login` action to provide notification for each time a user logs in or is created in WordPress.
 
-[Learn more about WordPress actions](https://codex.wordpress.org/Plugin_API#Actions)
+[Learn more about WordPress actions](https://codex.wordpress.org/Plugin_API#Actions).
 
 This action accepts five parameters:
 
@@ -132,4 +132,4 @@ function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $acce
 }
 ```
 
-[Click here to learn more about the `add_action` function](https://developer.wordpress.org/reference/functions/add_action/)
+[Click here to learn more about the `add_action` function.](https://developer.wordpress.org/reference/functions/add_action/)
