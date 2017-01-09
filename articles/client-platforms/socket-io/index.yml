@@ -1,4 +1,5 @@
 title: Socket.io
+community: true
 alias:
   - socket.io
 language:
