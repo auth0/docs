@@ -110,9 +110,6 @@ articles:
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension"
 
-  - title: "Professional Services"
-    url: "/services"
-
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
 
@@ -551,3 +548,11 @@ appliance:
         url: https://auth0.com/changelog/appliance
         external: true
         forceFullReload: true
+
+services:
+
+  - title: "Overview"
+    url: "/services"
+
+  - title: "Architectural Design Sessions"
+    url: "/services/architectural-design"
