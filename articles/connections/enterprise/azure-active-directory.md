@@ -23,32 +23,23 @@ To allow users to login using a Microsoft Azure Active Directory account, you mu
 
 **NOTE:** There is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.
 
-## 1. Create a new Microsoft Azure Active Directory instance
+## 1. Create a new application
 
-Login to Microsoft Azure and click on **Active Directory** on the Dashboard.
+Login to Microsoft Azure and choose **Azure Active Directory** from the sidebar.
 
 ![Select Active Directory](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-1.png)
 
-Then go to **DIRECTORY** -> **CUSTOM CREATE**
+Then under **MANAGE**, select **App registrations**.
 
-![Select Custom Create](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-2.png)
+![Select App registrations](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-2.png)
 
-Enter a *domain*, e.g.: **${account.tenant}**. This can be any text, it does not have to match the Auth0 subdomain and it will be used in the next step. Also enter your country and a friendly name for your organization.
+Then click on the **+ ADD** button to add a new application.
 
-![Add Directory Form](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-3.png)
+Enter a name for the application, select **Web app/API** as the **Application Type**, and for **Sign-on URL** enter your application URL (completely arbitrary).
 
-## 2. Create a new application
+![Create application form](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-3.png)
 
-Click on **App registrations** under **MANAGE**, then click the **Add** button.
-
-![Choose App registrations](/media/articles/connections/enterprise/azure-active-directory/azure-ad-2-1.png)
-![Add Button](/media/articles/connections/enterprise/azure-active-directory/azure-ad-2-2.png)
-
-Enter a friendly name for the application, select **WEB APPLICATION AND/OR WEB API**, and for Sign-ON URL enter your application URL (completely arbitrary).
-
-![Create application form](/media/articles/connections/enterprise/azure-active-directory/azure-ad-2-3.png)
-
-## 3. Configuring the permissions
+## 2. Configuring the permissions
 
 Once the application has been created, you will have to configure the permissions. Click on the name of the application to open the **Settings** section, then click **Required permissions**.
 
@@ -66,7 +57,7 @@ The next step is to modify permissions so your app can read the directory. Under
 
 Click the **SAVE** button at the top to save these changes.
 
-### 4. Creating the key
+### 3. Creating the key
 
 Next you will need to create a key which will be used as the **Client Secret** in the Auth0 connection. Click on **Keys** from the **Settings** menu.
 
@@ -78,7 +69,7 @@ Enter a name for the key and for the duration of the key select 1 or 2 years.
 
 Click on **Save** and the key will be displayed. Make sure to copy the value of this key before leaving this screen, this is your **Client Secret** used in the next step.
 
-## 5. Copy the Client ID and Client Secret to Auth0
+## 4. Copy the Client ID and Client Secret to Auth0
 
 Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. Select **Windows Azure AD**.
 
@@ -88,9 +79,15 @@ For the **Client ID**, this value is stored as the **Application ID** in Azure A
 
 For the **Client Secret** use the value that was shown for the key when you created it in the previous step.
 
+![Create Azure AD Connection](/media/articles/connections/enterprise/azure-active-directory/add-azure-connection.png)
+
+Click **SAVE** when you have finished.
+
 **Congratulations!** You are now ready to accept Microsoft Azure AD users.
 
 ## Troubleshooting
+
+* Make sure you are in the desired directory to add you application. If you do not have an existing directory you will need to create one.
 
 * When granting access, make sure to use an *Incognito/InPrivate* window  and a Global Administrator user.
 
