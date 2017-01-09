@@ -2,7 +2,6 @@
 title: Login
 description: This tutorial demonstrates how to use the Auth0 Socket.io SDK to add authentication and authorization to your web app
 budicon: 448
-community: true
 ---
 
 <%= include('../../_includes/_package', {
