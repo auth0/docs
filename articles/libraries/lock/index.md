@@ -71,14 +71,14 @@ var lock = new Auth0Lock(
 
 // Listening for the authenticated event
 lock.on("authenticated", function(authResult) {
-  // Use the token in authResult to getProfile() and save it to localStorage
-  lock.getProfile(authResult.idToken, function(error, profile) {
+  // Use the token in authResult to getUserInfo() and save it to localStorage
+  lock.getUserInfo(authResult.accessToken, function(error, profile) {
     if (error) {
       // Handle error
       return;
     }
 
-    localStorage.setItem('idToken', authResult.idToken);
+    localStorage.setItem('accessToken', authResult.accessToken);
     localStorage.setItem('profile', JSON.stringify(profile));
   });
 });
@@ -96,7 +96,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 
 ```js
 // Verify that there's a token in localStorage
-var token = localStorage.getItem('idToken');
+var token = localStorage.getItem('accessToken');
 if (token) {
   showLoggedIn();
 }
