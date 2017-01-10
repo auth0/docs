@@ -8,43 +8,7 @@ __Development__, __Test__, __Q&A__ environments are easy to setup in Auth0. Simp
 
 ![](/media/articles/lifecycle/environments.png)
 
-The example above uses a simple naming convention to distinguish each environment.
-
-> Note: If you are paying more than 167 US$ per month, you can apply to obtain additional accounts for development and testing environments. These will have the same plan and features as the one they've subscribed to. Please create a ticket in [Support Center](https://support.auth0.com) if you need these additional accounts.
-
-## Migration
-
-Through the [Management API v2](/api/management/v2), you can automate the migration of assets (e.g. rules, database connections, etc.) between accounts.
-
-For easier configuration management, save settings in the dashboard instead of hardcoded into your __rules__ or __db connections__ scripts.
-
-For example, in this __rule__ it is always better to write:
-
-```
-function(user, context, callback){
-  var log_url = configuration.log_url;
-...
-}
-```
-
-than:
-
-```
-function(user, context, callback){
-  var log_url = ‘https://someurl/log’;
-...
-}
-```
-
-Since this URL will likely change from development to production, this method will make your code more portable.
-
-## AD/LDAP Connectors
-
-Since an AD/LDAP Connector is tied to a specific Connection within an Auth0 account, if you setup multiple Auth0 accounts, you will need to create an AD/LDAP Connection and setup an AD/LDAP Connector for each account that requires this form of authentication.
-
-Multiple AD/LDAP Connectors can point to the same AD or LDAP directory, but each AD/LDAP connector can only be used by one Connection within one Auth0 account.
-
-If you have multiple AD/LDAP directories against which users will authenticate, (to support different departments or customers, each with their own directory, for example), you can setup multiple AD/LDAP Connectors within each Auth0 account.
+The example above uses a simple naming convention to distinguish each environment, you can name your multiple environments anyway you prefer. No need to use this naming convention, though it is the one recommended.
 
 ## Child account request process
 
@@ -87,3 +51,39 @@ Note that you can ask up to 3 child accounts. So you can have one for developmen
 ### Usage considerations
 
 Please notice that usage on child accounts counts towards the master's account usage. 
+
+## Migration
+
+Through the [Management API v2](/api/management/v2), you can automate the migration of assets (e.g. rules, database connections, etc.) between accounts.
+
+For easier configuration management, save settings in the dashboard instead of hardcoded into your __rules__ or __db connections__ scripts.
+
+For example, in this __rule__ it is always better to write:
+
+```
+function(user, context, callback){
+  var log_url = configuration.log_url;
+...
+}
+```
+
+than:
+
+```
+function(user, context, callback){
+  var log_url = ‘https://someurl/log’;
+...
+}
+```
+
+Since this URL will likely change from development to production, this method will make your code more portable.
+
+## AD/LDAP Connectors
+
+Since an AD/LDAP Connector is tied to a specific Connection within an Auth0 account, if you setup multiple Auth0 accounts, you will need to create an AD/LDAP Connection and setup an AD/LDAP Connector for each account that requires this form of authentication.
+
+Multiple AD/LDAP Connectors can point to the same AD or LDAP directory, but each AD/LDAP connector can only be used by one Connection within one Auth0 account.
+
+If you have multiple AD/LDAP directories against which users will authenticate, (to support different departments or customers, each with their own directory, for example), you can setup multiple AD/LDAP Connectors within each Auth0 account.
+
+
