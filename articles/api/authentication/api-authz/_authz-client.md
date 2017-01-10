@@ -73,7 +73,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ### Remarks
 
-- Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code).
+- Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code). Make sure that the **Allow Offline Access** field is enabled in the [API Settings]($(manage_url)/#/apis).
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 ### More Information
@@ -120,7 +120,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
-| `scope` | The scopes which you want to request authorization for. These must be separated by a space. |
+| `scope` | The scopes which you want to request authorization for. These must be separated by a space. Include `offline_access` to get a refresh token. |
 | `response_type` <br/><span class="label label-danger">Required</span> | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `state` <br/><span class="label label-danger">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
@@ -144,7 +144,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 ### Remarks
 
-- Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code-pkce-).
+- Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code-pkce-). Make sure that the **Allow Offline Access** field is enabled in the [API Settings]($(manage_url)/#/apis).
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 
