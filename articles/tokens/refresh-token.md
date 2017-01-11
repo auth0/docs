@@ -5,25 +5,31 @@ description: What is a Refresh Token and how you can use it.
 
 # Refresh Token
 
-A **Refresh Token** is a special kind of token that contains the information required to obtain a new [Access Token](/tokens/access-token) or [ID Token](/tokens/id-token).
+A **Refresh Token** is a special kind of token that contains the information required to obtain a new [access token](/tokens/access-token) or [ID token](/tokens/id-token).
 
 Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time.
 
 Refresh tokens are subject to strict storage requirements to ensure that they are not leaked. Also, [Refresh tokens can be revoked](#revoke-a-refresh-token) by the Authorization Server.
 
-## Overview
-
-The response of an [authentication request](/api-auth) can result in an `access_token` and/or an `id_token` being issued by Auth0. The  `access_token` is used to make authenticated calls to a secured API, while the `id_token` contains user profile attributes represented in the form of _claims_. Both JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing).
-
-A refresh token allows the application to request Auth0 to issue a new `access_token` or `id_token` directly, without needing to re-authenticate the user. This will work as long as the refresh token has not been revoked.
-
 ::: panel-warning Security Warning
 Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
-Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-with-a-request) programmatically through the Auth0 API.
+## Overview
 
-They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-using-the-dashboard).
+The response of an [authentication request](/api-auth) can result in an `access_token` and/or an `id_token` being issued by Auth0. The  `access_token` is used to make authenticated calls to a secured API, while the `id_token` contains user profile attributes represented in the form of _claims_. Both JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing).
+
+A refresh token allows the application to request Auth0 to issue a new `access_token` or `id_token` directly, without having to re-authenticate the user. This will work as long as the refresh token has not been revoked.
+
+## Restrictions
+
+You can only get a refresh token if you are implementing: [Authorization Code Grant](/api-auth/grant/authorization-code), [Authorization Code Grant (PKCE)](/api-auth/grant/authorization-code-pkce) or [Resource Owner Password Grant](/api-auth/grant/password).
+
+A Single Page Application (normally implementing [Implicit Grant](/api-auth/grant/implicit)) should not under any circumstances get a refresh token. The reason for that is the sensitivity of this piece of information. You can think of it as user credentials, since a refresh token allows a user to remain authenticated essentially forever. Therefore you cannot have this information in a browser, it must be stored securely.
+
+If you are implementing an SPA using [Implicit Grant](/api-auth/grant/implicit) and you need to renew a token, the only secure option is to use [Silent Authentication](/api-auth/tutorials/silent-authentication).
+
+Another safeguard is that the API should allow offline access. This is configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis). If the switch is disabled, Auth0 will not return a refresh token for this API, even if you included the `offline_access` scope.
 
 ## Get a Refresh Token
 
@@ -57,7 +63,7 @@ The refresh token (an opaque string) is part of the URL. You should store it sec
 **NOTE**: In this example, the token was returned to the client in the URL because the [implicit grant](/api-auth/grant/implicit) (`response_type=token`) was used.
 
 ::: panel-info Troubleshooting
-If the response did not include a refresh token, check the **Allow Offline Access** switch on your [API Settings](${manage_url}/#/apis). It must be enabled, otherwise Auth0 won't return a refresh token, even if you included the `offline_access` scope.
+If the response did not include a refresh token, check that you comply with the [Restrictions](#restrictions) listed in this document.
 :::
 
 ## Use a Refresh Token
