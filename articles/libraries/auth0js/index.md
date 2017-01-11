@@ -46,7 +46,7 @@ bower install auth0.js
 Include via our CDN:
 
 ```html
-<script src="${auth0js_url}"></script>
+<script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js"></script>
 ```
 
 >Note that for production use, the latest patch release (for example, 8.0.0) is recommended, rather than the latest minor release indicated above.
