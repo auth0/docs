@@ -47,7 +47,7 @@ bower install auth0.js
 Include via our CDN:
 
 ```html
-<script src="${auth0js_url}"></script>
+<script src="https://cdn.auth0.com/w2/auth0-7.6.1.min.js"></script>
 ```
 
 If you are using [browserify](http://browserify.org/), you will want to install with `npm i auth0-js --production --save`.
