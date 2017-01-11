@@ -124,6 +124,10 @@ The response will include a new `access_token`, its type, its lifetime (in secon
 You should only ask for a new token if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it's a bad practice to call the endpoint to get a new `access_token` every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
+::: panel-warning Refresh tokens and Rules
+Refresh tokens do not run [rules](/rules) at the moment, but we will add support for this in the future.
+:::
+
 
 ## Revoke a Refresh Token
 
@@ -187,14 +191,29 @@ To revoke a refresh token, click **Revoke**.
 
 ## SDK Support
 
-The [Lock](/libraries/lock), [auth0.js](/libraries/auth0js), and [auth0-angular.js](https://github.com/auth0/auth0-angular) libraries include support methods to obtain and use refresh tokens.
+### Web Apps
 
-For more information about using refresh tokens with these libraries, see:
+All our main SDKs support refresh tokens out of the box. Some are [Node.js](/quickstart/webapp/nodejs), [ASP.NET Core](/quickstart/webapp/aspnet-core), [PHP](/quickstart/webapp/php), [Java](/dev-centers/java), and many more. For a complete listing refer to our [Quickstarts page](/quickstart/webapp).
 
+### Single Page Apps
+
+For web apps that execute on the browser, the way to refresh a token is using [Silent Authentication](/api-auth/tutorials/silent-authentication). [Auth0.js](/libraries/auth0js), our client-side library, provides methods for this out of the box.
+
+- The `authorize` method, redirects the user to the `/authorize` endpoint, in order to login and provide consent.
+- The `parseHash` method, parses a URL hash fragment to extract the result of an Auth0 authentication response.
+- The `renewAuth` method, attempts to get a new token from Auth0, using [silent authentication](/api-auth/tutorials/silent-authentication). For more details refer to [Using renewAuth to Acquire New Tokens](/libraries/auth0js#using-renewauth-to-acquire-new-tokens).
+
+More information on the library:
+- [Auth0.js v8 Reference](/libraries/auth0js)
+- [Auth0.js GitHub repo](https://github.com/auth0/auth0.js#api)
+
+### Mobile / Native Apps
+
+For more information on using refresh tokens with our mobile SDKs refer to:
+
+* [Mobile / Native Quickstarts](/quickstart/native)
 * [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
-
 * [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens)
-
 * [Using Refresh Tokens in Mobile Applications](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
 
 
