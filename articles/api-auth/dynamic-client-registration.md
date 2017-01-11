@@ -5,15 +5,15 @@ toc: true
 
 # Dynamic Client Registration
 
-Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables you to register clients dynamically. These clients are called **Third Party Clients** (since they are registered and used by third party developers).
+Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables you to register clients dynamically. These clients are called **third party clients** (since they are registered and used by third party developers).
 
 ## Third Party Client characteristics
 
-Third Party Clients have the following characteristics:
+Third party clients have the following characteristics:
 
 - The [ID tokens](/tokens/id-token) generated for these clients, hold minimum user profile information.
 
-- They can use only tenant level connections (domain connections). These are sources of users, configured in the tenant's [dashboard](${manage_url}) as connections, but they are not enabled for any client.
+- They can use only tenant level connections (domain connections). These are sources of users, configured in the tenant's [dashboard](${manage_url}) as connections. These connections are enabled for every third party client and can be also enabled for selected first party (standard) clients.
 
 - To authenticate users using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
 
