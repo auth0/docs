@@ -136,6 +136,6 @@ To see if a user has existing devices with associated refresh tokens, go to the 
 
 Select the **Devices** tab. This page lists all device names and the number of refresh tokens associated with each. To revoke a refresh token, click the **X** to the right of the device name.
 
-![](/media/articles/tokens/dashboard-revoke-refresh-token.png)
+![Revoke a Refresh Token in the Dashboard](/media/articles/tokens/legacy/dashboard-revoke-refresh-token.png)
 
 Click **UNLINK** to confirm.
