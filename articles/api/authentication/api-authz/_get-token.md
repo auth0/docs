@@ -386,6 +386,21 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 - The scopes issued to the client may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
 
+### Realm support
+
+A extension grant that offers similar functionality with the Resource Owner Password Grant, including the ability to indicate a specific realm, is the `http://auth0.com/oauth/grant-type/password-realm`.
+
+Realms allow you to keep separate user directories and specify which one to use to the token endpoint.
+
+To use this variation you will have to change the following request parameters:
+
+* Set the `grant_type` to `http://auth0.com/oauth/grant-type/password-realm`.
+* Set the new request parameter `realm` to the realm the user belongs. This maps to a connection in Auth0. For example, if you have configured a database connection for your internal employees and you have named the connection `employees`, then use this value.
+
+> **Auth0 Connections as Realms**
+
+> You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), [Passwordless](/connections/passwordless), [Active Directory/LDAP](/connections/enterprise/active-directory), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
+
 ### More Information
 
 - [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
