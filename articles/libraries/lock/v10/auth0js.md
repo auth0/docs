@@ -7,9 +7,9 @@ description: How to use Lock V10 with auth0.js
 
 # Using Lock With auth0.js
 
-If you try to use `auth0.js` along with Lock 10, you will not be able to call `getClient()`. Instead, you should include its dependency and instantiate an `Auth0` object.
+If you try to use auth0.js along with Lock 10, you will not be able to call `getClient()`. Instead, you should include its dependency and instantiate the object.
 
-In the past, a version of auth0.js was included automatically with Lock; at this point, you must include auth0.js yourself, allowing you to choose the version of auth0.js that best suits the needs of your application. 
+In the past, a version of auth0.js was included automatically with Lock; at this point, you must include auth0.js yourself, allowing you to choose the supported version of auth0.js that best suits the needs of your application - version 7, or version 8. Note that the two versions have different CDN paths, as well as slightly different instantiations.
 
 ## Using auth0.js v8
 
