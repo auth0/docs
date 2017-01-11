@@ -34,6 +34,10 @@ Another safeguard is that the API should allow offline access. This is configure
 
 ## Get a Refresh Token
 
+::: panel-warning API Authorization documentation
+This article describes the new Refresh Token story, according to the [new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth). If you are looking for the legacy Refresh Token docs refer to [Refresh Token (legacy)](/tokens/legacy/refresh-token).
+:::
+
 To get a refresh token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
 
 For example, if you are using [Authorization Code Grant](/api-auth/grant/authorization-code), the authentication request would look like the following:
