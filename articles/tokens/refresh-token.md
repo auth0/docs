@@ -16,10 +16,6 @@ Usually, a user will need a new access token only after the previous one expires
 
 Refresh tokens are subject to strict storage requirements to ensure that they are not leaked. Also, [Refresh tokens can be revoked](#revoke-a-refresh-token) by the Authorization Server.
 
-::: panel-warning Security Warning
-Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
-:::
-
 ## Overview
 
 The response of an [authentication request](/api-auth) can result in an `access_token` and/or an `id_token` being issued by Auth0. The  `access_token` is used to make authenticated calls to a secured API, while the `id_token` contains user profile attributes represented in the form of _claims_. Both JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing).
@@ -77,6 +73,10 @@ The response should contain an access token and a refresh token.
   "token_type": "Bearer"
 }
 ```
+
+::: panel-warning Security Warning
+Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
+:::
 
 For more information on how to implement this using Authorization Code Grant refer to [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant). For other grants refer to [API Authorization](/api-auth).
 

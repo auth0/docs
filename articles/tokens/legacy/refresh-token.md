@@ -14,13 +14,9 @@ Usually, a user will need a new access token only after the previous one expires
 
 If you are new to refresh tokens, you can learn more about them in this blog post: [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/).
 
-Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API.
+Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API. They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-in-the-dashboard).
 
-They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-in-the-dashboard).
-
-::: panel-warning Security Warning
-Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
-:::
+Refresh tokens are subject to strict storage requirements to ensure that they are not leaked.
 
 ## Obtain a Refresh Token
 
@@ -52,6 +48,10 @@ GET https://YOUR_CALLBACK_URL#
 ```
 
 The refresh token is returned as part of the URL, in the form of an opaque string.
+
+::: panel-warning Security Warning
+Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
+:::
 
 **NOTE**: In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth2-implicit-flow) (`response_type=token`) was used.
 
