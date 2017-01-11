@@ -6,6 +6,10 @@ toc: true
 
 # Refresh Token
 
+::: panel-warning API Authorization documentation
+This article describes the new Refresh Token story, according to the [new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth). If you are looking for the legacy Refresh Token docs refer to [Refresh Token (legacy)](/tokens/legacy/refresh-token).
+:::
+
 A **Refresh Token** is a special kind of token that contains the information required to obtain a new [access token](/tokens/access-token) or [ID token](/tokens/id-token).
 
 Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time.
@@ -33,10 +37,6 @@ If you are implementing an SPA using [Implicit Grant](/api-auth/grant/implicit) 
 Another safeguard is that the API should allow offline access. This is configured via the **Allow Offline Access** switch on the [API Settings](${manage_url}/#/apis). If the switch is disabled, Auth0 will not return a refresh token for this API, even if you included the `offline_access` scope.
 
 ## Get a Refresh Token
-
-::: panel-warning API Authorization documentation
-This article describes the new Refresh Token story, according to the [new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth). If you are looking for the legacy Refresh Token docs refer to [Refresh Token (legacy)](/tokens/legacy/refresh-token).
-:::
 
 To get a refresh token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
 
