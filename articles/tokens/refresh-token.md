@@ -181,11 +181,13 @@ The possible responses are:
 
 ### Revoke a refresh token using the dashboard
 
-To revoke a refresh token, go to the [Users section](${manage_url}/#/users) of the [dashboard](${manage_url}). Click the name of the user to view their *Details* page.
+When you revoke a refresh token using the dashboard, you have to revoke the user's authorized access to the application that issued the token. This renders the refresh token useless.
+
+To do so, go to the [Users section](${manage_url}/#/users) of the [dashboard](${manage_url}). Click the name of the user to view their *Details* page.
 
 Select the *Authorized Applications* tab. This page lists all the clients to which the user has authorized access. Revoking an authorized application revokes also its associated refresh tokens.
 
-To revoke a refresh token, click **Revoke**.
+To revoke the user's access to an authorized application, and hence invalidate the refresh token, click **Revoke**.
 
 ![Revoke a refresh token using the dashboard](/media/articles/tokens/dashboard-revoke-refresh-token.png)
 
