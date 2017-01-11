@@ -83,7 +83,7 @@ A response from this request could be as follows:
 The `expires_in` parameter indicates the lifetime of the new JWT in seconds. It can be calculated by the difference between the `exp` and `iat` claims of the JWT.
 
 ::: panel-info Rate limits
-Obtaining new tokens using the `refresh_token` should occur only if the `id_token` has expired. For example, it is a bad practice to call the endpoint to get a new token every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
+Obtaining new tokens using the `refresh_token` should occur only if the `id_token` has expired. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
 
@@ -139,15 +139,3 @@ Select the **Devices** tab. This page lists all device names and the number of r
 ![](/media/articles/tokens/dashboard-revoke-refresh-token.png)
 
 Click **UNLINK** to confirm.
-
-## SDK Support
-
-The [Lock](/libraries/lock), [auth0.js](/libraries/auth0js), and [auth0-angular.js](https://github.com/auth0/auth0-angular) libraries include support to obtain and use refresh tokens.
-
-For more information about using refresh tokens with these libraries, see:
-
-* [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
-
-* [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens)
-
-* [Using Refresh Tokens in Mobile Applications](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
