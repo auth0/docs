@@ -11,8 +11,8 @@ https://${account.namespace}/authorize?
     audience={API_AUDIENCE}&
     scope={SCOPE}&
     response_type=code&
-    client_id={AUTH0_CLIENT_ID}&
-    redirect_uri={CALLBACK_URL}&
+    client_id=${account.clientId}&
+    redirect_uri=${account.callback}&
     state={OPAQUE_VALUE}
 ```
 
@@ -28,7 +28,7 @@ Where:
 For example:
 
 ```html
-<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=code&client_id=${account.clientId}&redirect_uri=https://myclientapp.com/callback">
+<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=code&client_id=${account.clientId}&redirect_uri=${account.callback}">
   Sign In
 </a>
 ```
@@ -50,7 +50,7 @@ Now that you have an Authorization Code, you must exchange it for an Access Toke
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://myclientapp.com/callback\"}"
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}"}"
   }
 }
 ```
