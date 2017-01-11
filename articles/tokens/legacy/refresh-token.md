@@ -8,27 +8,19 @@ description: A refresh token allows an application to request Auth0 to issue a n
 This article describes the legacy Refresh Token story. If you have the [new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth) enabled and you are looking for the updated documentation, refer to [Refresh Token](/tokens/refresh-token).
 :::
 
-A **refresh token** is a special kind of [JWT](/jwt) that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.  
+A **Refresh Token** is a special kind of token that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.
 
-For more information on the types of access tokens used by Auth0, see [Tokens](/tokens).
+Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time.
 
 If you are new to refresh tokens, you can learn more about them in this blog post: [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/).
-
-## Introduction
-
-The response of an [authentication request](/protocols) can result in an `id_token` (JWT) being issued by Auth0. This token is used to make authenticated calls to a secured API. JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing). Applications that are installed locally on a device (such as a desktop or smartphone) may want to avoid asking the user to enter their credentials each time this token expires.
-
-A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate the user. This will work as long as the refresh token has not been revoked.
-
-Refresh tokens can be issued for each combination of __app__, __user__ and __device__. Once the Auth0 refresh token is issued, the values of the client, user, and device set during its creation cannot be changed.
-
-::: panel-warning Secure Storage
-Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
-:::
 
 Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API.
 
 They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-in-the-dashboard).
+
+::: panel-warning Security Warning
+Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
+:::
 
 ## Obtain a Refresh Token
 
@@ -116,7 +108,7 @@ GET https://${account.namespace}/api/v2/device-credentials?
 
 Response body:
 
-```json
+```text
 [
   {
     "id": "dcr_dFJiaAxbEroQ5xxx",
@@ -157,7 +149,5 @@ For more information about using refresh tokens with these libraries, see:
 * [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
 
 * [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens)
-
-* [Get a refresh token with Auth0.js](https://github.com/auth0/auth0.js#login) and [Use a refresh token to get new id_token](https://github.com/auth0/auth0.js#refresh-token)
 
 * [Using Refresh Tokens in Mobile Applications](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
