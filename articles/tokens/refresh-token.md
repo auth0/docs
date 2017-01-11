@@ -35,32 +35,45 @@ Another safeguard is that the API should allow offline access. This is configure
 
 To get a refresh token, you must include the `offline_access` [scope](/scopes) when you initiate an authentication request through the [authorize](/api/authentication/reference#authorize-client) endpoint.
 
-For example:
+For example, if you are using [Authorization Code Grant](/api-auth/grant/authorization-code), the authentication request would look like the following:
 
-```
-GET https://${account.namespace}/authorize/?
-    response_type=token
-    &audience=YOUR_API_IDENTIFIER
-    &client_id=${account.clientId}
-    &redirect_uri=${account.callback}
-    &state=VALUE_THAT_SURVIVES_REDIRECTS
-    &scope=openid%20offline_access
-```
-
-Once the user authenticates successfully, the client will be redirected to the `callback_URL`.
-The complete URL will be as follows:
-
-```
-GET ${account.callback}#
-    access_token=2nF...WpA
-    &id_token=eyJhb...
-    &state=VALUE_THAT_SURVIVES_REDIRECTS
-    &refresh_token=Cqp...Mwe
+```text
+https://${account.namespace}/authorize?
+    audience={API_AUDIENCE}&
+    scope=offline_access&
+    response_type=code&
+    client_id=${account.clientId}&
+    redirect_uri=${account.callback}&
+    state={OPAQUE_VALUE}
 ```
 
-The refresh token (an opaque string) is part of the URL. You should store it securely and use it only when needed.
+Once the user authenticates successfully, the client will be redirected to the `redirect_uri`, with a `code` as part of the URL: `${account.callback}?code=BPPLN3Z4qCTvSNOy`. You can exchange this code with an access token using the `/oauth/token` endpoint.
 
-**NOTE**: In this example, the token was returned to the client in the URL because the [implicit grant](/api-auth/grant/implicit) (`response_type=token`) was used.
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+  }
+}
+```
+
+The response should contain an access token and a refresh token.
+
+```text
+{
+  "access_token": "eyJz93a...k4laUWw",
+  "refresh_token": "GEbRxBN...edjnXbL",
+  "token_type": "Bearer"
+}
+```
+
+For more information on how to implement this using Authorization Code Grant refer to [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant). For other grants refer to [API Authorization](/api-auth).
 
 ::: panel-info Troubleshooting
 If the response did not include a refresh token, check that you comply with the [Restrictions](#restrictions) listed in this document.
