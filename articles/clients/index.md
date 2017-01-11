@@ -6,7 +6,7 @@ description: Explains the basics of creating and using Auth0 Clients.
 
 ## Overview
 
-An Auth0 **client** maps to your application and allows to use Auth0 for authentication. The term *client* does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
+An Auth0 **client** maps to your application and allows use of Auth0 for authentication. The term *client* does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
 
 ## Client Types
 
