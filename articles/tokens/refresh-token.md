@@ -1,6 +1,7 @@
 ---
 title: Refresh Token
 description: What is a Refresh Token and how you can use it.
+toc: true
 ---
 
 # Refresh Token
@@ -193,8 +194,6 @@ For more information about using refresh tokens with these libraries, see:
 * [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
 
 * [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens)
-
-* [Get a refresh token with Auth0.js](https://github.com/auth0/auth0.js#login) and [Use a refresh token to get new id_token](https://github.com/auth0/auth0.js#refresh-token)
 
 * [Using Refresh Tokens in Mobile Applications](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
 
