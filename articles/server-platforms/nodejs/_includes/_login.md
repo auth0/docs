@@ -99,7 +99,7 @@ We will need to add a few routes for the application, including: `/login` `/logo
 // Render the login template
 router.get('/login',
   function(req, res){
-    res.render('login', { env: env });
+    res.render('login', { env: process.env });
   });
 
 // Perform session logout and redirect to homepage
