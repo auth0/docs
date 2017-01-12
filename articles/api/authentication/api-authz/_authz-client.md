@@ -52,7 +52,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
+| `audience` <br/> | The unique identifier of the target API you want to access. |
 | `scope` | The scopes which you want to request authorization for. These must be separated by a space. Include `offline_access` to get a refresh token. |
 | `response_type` <br/><span class="label label-danger">Required</span> | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
@@ -119,7 +119,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
+| `audience` <br/> | The unique identifier of the target API you want to access. |
 | `scope` | The scopes which you want to request authorization for. These must be separated by a space. Include `offline_access` to get a refresh token. |
 | `response_type` <br/><span class="label label-danger">Required</span> | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
@@ -189,7 +189,7 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
+| `audience` <br/> | The unique identifier of the target API you want to access. |
 | `scope` | The scopes which you want to request authorization for. These must be separated by a space. |
 | `response_type` <br/><span class="label label-danger">Required</span> | This will specify the type of token you will receive at the end of the flow. Use `id_token token` to get an `id_token`, or `token` to get both an `id_token` and an `access_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
