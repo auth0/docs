@@ -144,7 +144,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src="<script src="${lock_url}"></script>")
+    script(src="${lock_url}")
   body
     block content
 ```
