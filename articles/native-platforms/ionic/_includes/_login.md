@@ -240,7 +240,7 @@ Next, provide a view for the `LoginController`.
 
 This view simply contains an `ion-view` component and inside that we have a `div` tag.
 
-Lastly, configure `stateProvider` in `app.js` with the state responsbile for login.
+Lastly, configure `stateProvider` in `app.js` with the state responsible for login.
 
 ```js
 // www/app.js
