@@ -156,8 +156,80 @@ The `status` field might contain any of the following values:
 - failed: The job has failed, you must query the errors and check your logs to see what went wrong.
 
 ### Querying results
+Once the job has finished you are ready to gets it results and act based on them. To get the results you should make a request to `/api/{job_id}/results`. You will get a JSON Array response, similar to:
+
+```js
+[
+  {
+    "email": "john.doe1@example.com",
+    "status": "password_matched" 
+  },
+  {
+    "username": "john.doe2",
+    "status": "invalid_password"
+  },
+  {
+    "username": "john.doe2",
+    "status": "user_not_found"
+  }
+]
+```
+
+- Email or username will be available depending the information you provided as input. 
+- Status might have any of the following values:
+  * password_matched: the password you provided for that user matched
+  * invalid_password: the password you provided haven't matched
+  * user_not_found: the user wasn't available in the connection database you specified.
+
+Keep in mind that we try to recover from most of the errors instead of failing the job, so even when the job is complete 
+there might be rows that have had errors and so they are not included in the results. You should check the errors (see below) to get more information about what have hapenned.
+
+```
+*IMPORTANT:* To keep a high security standard you must delete the job once you have the results and store them securely. The results will be automatically deleted after some time of completing / failing the job. Once the job has been processed the input files are deleted automatically and you will be not able to access them.
+```
 
 ### Querying errors
+If we found errors processing the job they will be made available to you through this endpoint. Keep in mind that there might be errors even in a non-failed (completed) jobs; that's because if we find an error that can be scoped to an specific record, we keep processing the rest of the input file instead of completely failing the job. 
 
+To query the errors you should make `GET` request to `/api/{job_id}/errors`. You will get a JSON array result similar to:
+
+```json
+[
+  {
+    "row": {
+      "username": "john.doe"
+    },
+    "errorMessage": "The plain_text_password property is required",
+    "errorCode": "row_validation_error"
+  },
+  {
+    "row": {
+      "email": "john.doe@example.com"
+    },
+    "errorMessage": "The plain_text_password property is required",
+    "errorCode": "row_validation_error"
+  },
+  {
+    "row": {
+      "plain_text_password": "<REMOVED>"
+    },
+    "errorMessage": "Username or email are required",
+    "errorCode": "row_validation_error"
+  }
+]
+```
+
+- `row` property contains information about the failing row, if it included a password, it will be replaced by the tag "<REMOVED>"; it might also contain username or email depending on what you provided.
+
+- `errorMessage` an human readable description of the error.
+
+- `errorCode`: an invariant code of the error; it might be: 
+  * row_validation_error: when the row does not match a valid format.
+  * unknown_error: when the error is scoped to the row but we cannot classify it over a more specific type.
+  
 ### Deleting input and results data
+Once you are done, you have the results, the errors, etc. it is advisable to delete the input data, the job, the results and the errors. To do so you should make a `DELETE` request to `/api/jobs/{job_id}`. Make sure you have a `delete:passwords_checking_job` scope. If everything went well you will get back an empty `204` response. You can check that everything has been deleted trying to get the results for the job using the endpoint described above.
 
+```
+*IMPORTANT*: Even if you don't call this endpoint the input and the results will be deleted a few days after the job has been started.
+```
