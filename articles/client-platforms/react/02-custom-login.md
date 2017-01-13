@@ -314,7 +314,7 @@ export default Login;
 
 ## Add Social Sign In
 
-To login using a social connector, you simply need to tell `Auth0` which connection to use.
+To log in using a social connector, you simply need to tell `Auth0` which connection to use.
 
 For example, add a **Sign In with Google** link to the Login form and handle the `onClick` event by calling the `googleLogin` method:
 
