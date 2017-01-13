@@ -211,7 +211,7 @@ To query the errors you should make `GET` request to `/api/{job_id}/errors`. You
   },
   {
     "row": {
-      "plain_text_password": "<REMOVED>"
+      "plain_text_password": "\<REMOVED\>"
     },
     "errorMessage": "Username or email are required",
     "errorCode": "row_validation_error"
@@ -219,7 +219,7 @@ To query the errors you should make `GET` request to `/api/{job_id}/errors`. You
 ]
 ```
 
-- `row` property contains information about the failing row, if it included a password, it will be replaced by the tag "<REMOVED>"; it might also contain username or email depending on what you provided.
+- `row` property contains information about the failing row, if it included a password, it will be replaced by the tag "\<REMOVED\>"; it might also contain username or email depending on what you provided.
 
 - `errorMessage` an human readable description of the error.
 
