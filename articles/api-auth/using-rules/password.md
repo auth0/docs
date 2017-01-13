@@ -1,10 +1,10 @@
 ---
-description: Describes using rules with Resource Owner Password Grant.
+description: How to add a webtask and run it each time a Resource Owner Password grant is executed.
 ---
 
 # Using Rules with Resource Owner Password Grant
 
-You can now add [rules](/rules) into the [Resource Owner Password Grant](/api-auth/grant/password) exchange pipeline where you exchange a `username` and `password` for an `access_token`, and optionally a `refresh_token`.
+You can write functions in JavaScript and have them run every time a [Resource Owner Password grant](/api-auth/grant/password) is executed, using [webtasks](https://webtask.io/).
 
 ## Before you begin
 
@@ -12,7 +12,7 @@ You can now add [rules](/rules) into the [Resource Owner Password Grant](/api-au
 
 ## Create the Rule
 
-**Note**: You can only create one rule, which will then be executed for **all** clients and APIs.
+You can only create one rule, which will then be executed for **all** clients and APIs.
 
 ### 1. Create the Rule For Use with Webtasks
 
@@ -49,7 +49,7 @@ Before you make the `POST` call you must replace the following values:
 * `password`: Resource Owner's secret.
 * `audience`: API Identifier that the client is requesting access to.
 * `client_id`: Client ID of the client making the request.
-* `client_secret`: Client Secret of the client making the request. This parameter is only required when the **Token Endpoint Authentication Method** of your Non Interactive Client is set to `Post`. If it is `None` you do not need this parameter. To check the value navigate to [Dashboard Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+* `client_secret`: Client Secret of the client making the request. This parameter is required for non interactive clients.
 * `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
 
 <%= include('./_includes/_response', {

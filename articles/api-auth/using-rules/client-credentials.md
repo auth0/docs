@@ -1,10 +1,10 @@
 ---
-description: Describes using rules with Client Credentials Grant.
+description: How to add a webtask and run it each time a Client Credentials grant is executed.
 ---
 
 # Using Rules with Client Credentials Grants
 
-You can now add [rules](/rules) into the [client credentials](/api-auth/grant/client-credentials) exchange pipeline where you exchange a `client_id` and `secret` for an `access_token`.
+You can write functions in JavaScript and have them run every time a [Client Credentials grant](/api-auth/grant/client-credentials) is executed, using [webtasks](https://webtask.io/).
 
 ## Before you begin
 
@@ -12,7 +12,7 @@ You can now add [rules](/rules) into the [client credentials](/api-auth/grant/cl
 
 ## Create the Rule
 
-**Note**: You can only create one rule, which will then be executed for **all** clients and APIs.
+You can only create one rule, which will then be executed for **all** clients and APIs.
 
 ### 1. Create the Rule For Use with Webtasks
 
