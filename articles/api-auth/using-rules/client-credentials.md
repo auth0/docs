@@ -6,11 +6,11 @@ description: Describes using rules with Client Credentials Grant.
 
 You can now add [rules](/rules) into the [client credentials](/api-auth/grant/client-credentials) exchange pipeline where you exchange a `client_id` and `secret` for an `access_token`.
 
-## Prior to Beginning Your Configuration
+## Before you begin
 
 <%= include('./_includes/_prerequisites.md') %>
 
-## Creating the Rule
+## Create the Rule
 
 **Note**: You can only create one rule, which will then be executed for **all** clients and APIs.
 
