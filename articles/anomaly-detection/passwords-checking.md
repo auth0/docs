@@ -1,7 +1,7 @@
 Bulk Passwords Checking
 =======================
 
-In Auth0 we focus on bring you the tools you need to keep your systemas and your users safe. 
+In Auth0 we focus on bring you the tools you need to keep your systems and your users safe. 
 Bulk passwords checking is a tool that allows you to check your user's passwords against pre-defined list of 
 passwords to test their stregth.
 
@@ -9,24 +9,18 @@ This tool together with our [Breached Password Security](/anomaly-detection/brea
 users security and take actions to protect them.
 
 ## Bulk Passwords Checking vs Breached Password Security
-Breached Password Security tools verifies user passwords against our database of compromised passwords, those passwords usually
-comes from security breached experienced by a third party application have been realeased by the attackers and so they might
-have been accessed by attackers. If a compromised account is detected different actions may be taken based on your configuration.
+Breached Password Security tools checks user passwords against our database of compromised passwords, those passwords usually
+come from security breached experienced by a third party application that have been realeased and so they might have been accessed by attackers. If a compromised account is detected different actions may be taken based on your configuration.
 
 On the other hand, bulk passwords checking aims to give you the power to audit your users security against your own
-passwords database, those passwords may come from different sources, examples of possible sources might be list of passwords 
+passwords list, those passwords may come from different sources, examples of possible sources might be list of passwords 
 available on the Internet (also known as passwords-dictionaries), your own hand-made checking list, etc. 
 
 Combined with other tools we offer, actively auditing your users' account passwords will help you to proactively 
-protect them and take risk mitigation actions in case a weak password gets detected.
+protect them and take risk mitigation actions in case a weak or compromised password gets detected.
 
 ## Security considerations
-This tool helps you audit and protect your users against weak passwords, however, if used innapropiately, it might allow
-an attacker to brute force your users; because of this is really important for you to keep your credentials secure and not to 
-issue tokens that allows to execute bulk passwords checking if not strictly necesary, also, make sure to include a token 
-identifier and set a short expiration period on the tokens that allow this action, that way you will be able to blacklist them 
-if they get compromised. Finally, delete the data once you have finished; that way you can be sure nobody else will be able to 
-access it.
+This tool helps you audit and protect your users against weak or compromised passwords, however, if used inapropiately, it might allow an attacker to brute force your users; because of this is really important for you to keep your credentials secure and not to issue tokens that allows to execute bulk passwords checking if not strictly necesary, also, make sure to include a token identifier and set a short expiration period on the tokens that allow this action, that way you will be able to blacklist them if they get compromised. Finally, delete the data once you have finished; that way you can be sure nobody else will be able to access it.
 
 We also take explicit measures to protect your data:
 - As everything in Auth0 all the data is transmited over TLS even in our internal systems.
@@ -38,14 +32,14 @@ exposure.
 - Result won't include the actual matches but a reference to them.
 
 To sum up:
-- Do not issue tokens that allows this action if you are not absolutely sure this right is needed
+- Do not issue tokens that allows `create:passwords_checking_job` if you are not absolutely sure this right is needed
 - Set a short experiration on the issued tokens
 - Add an identifier (jti) to your tokens. So you will be able to blacklist compromised tokens.
-- If you think  a token might have been compromised black list it immediately.
+- If you think  a token might have been compromised blacklist it immediately.
 - Delete the input data and results once finished.
 
 ## Usage
-This tool is made available through our Management API. It has an endpoint that allows you to check a pre-defined list of users and passwords, which must be provided as a csv file, against a database connection. Each password will be checkend in background an some time later you will be able to get the results, the errors, and finally delete the information from Auth0 service.
+This tool is made available through our [Management API](/api/management/v2). It has an endpoint that allows you to check a pre-defined list of users and passwords, which must be provided as a csv file, against a database connection. Each password will be checkend in background and some time later you will be able to get the results, the errors, and finally delete the information from Auth0 service.
 
 ### Preparing the input file
 In order to run this job you need to upload a list of users and passwords to check. This list must be provided as a CSV (coma separated value) where each row must has te following format:
@@ -114,10 +108,10 @@ john.doe3@example.com,,"secret, really secret"
 
 These rows are all valid input rows. Note the quotation around "secret, really secret"
 because that password contains a coma. Whitespace does not need quotation as stated on
-5th line.
+4th line.
 
 ### Starting the job
-Once you have the file ready, you are ready to start a job to check the file against your database connection. To do so you need to execute a `POST` request against `/api/passwords-checking` with encoding type multipart/form-data.
+Once you have the file ready, you are ready to start a job to check the file against your database connection. To do so you need to execute a `POST` request against `/api/passwords-checking` with encoding type `multipart/form-data`.
 
 Your request should contain the following parameters:
 
@@ -136,7 +130,7 @@ If it works, you will get a response similar to the following one:
 ```
 
 The returned entity represents the passwords checking job. At this point the job is queued on our system and will be started
-as soon as possible. Once the job is finishes you will get a log entry `fpc` (if failed) or `spc` (if succeed). You can query the logs throught Management API2 or use our [Dashboard](${manage_url}/#/logs) to get them. You can also query job status anytime you want using the appropiate endpoint (see bellow).
+as soon as possible. Once the job is finishes you will get a log entry `fpc` (if failed) or `spc` (if succeed). You can query the logs throught [Management API2](/api/management/v2) or use our [Dashboard](${manage_url}/#/logs) to get them. You can also query job status anytime you want using the appropiate endpoint (see bellow).
 
 ### Querying job status
 Once a job has been started you can query its status whenever you want, to do so simply make a `GET` request to `/api/jobs/{id}`, the `id` is the one that has been handed to you when you started the job (see above). You will get a response similar to 
@@ -189,7 +183,7 @@ there might be rows that have had errors and so they are not included in the res
 ```
 
 ### Querying errors
-If we found errors processing the job they will be made available to you through this endpoint. Keep in mind that there might be errors even in a non-failed (completed) jobs; that's because if we find an error that can be scoped to an specific record, we keep processing the rest of the input file instead of completely failing the job. 
+If we found errors processing the job they will be made available to you through this endpoint. Keep in mind that there might be errors even in a non-failed (completed) job; that's because if we find an error that can be scoped to an specific record, we keep processing the rest of the input file instead of completely failing the job. 
 
 To query the errors you should make `GET` request to `/api/{job_id}/errors`. You will get a JSON array result similar to:
 
@@ -219,7 +213,7 @@ To query the errors you should make `GET` request to `/api/{job_id}/errors`. You
 ]
 ```
 
-- `row` property contains information about the failing row, if it included a password, it will be replaced by the tag "\<REMOVED\>"; it might also contain username or email depending on what you provided.
+- `row` property contains information about the failing row, if it included a password it will be replaced by the tag "\<REMOVED\>"; it might also contain username or email depending on what you provided.
 
 - `errorMessage` an human readable description of the error.
 
