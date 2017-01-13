@@ -117,6 +117,47 @@ because that password contains a coma. Whitespace does not need quotation as sta
 5th line.
 
 ### Starting the job
+Once you have the file ready, you are ready to start a job to check the file against your database connection. To do so you need to execute a `POST` request against `/api/passwords-checking` with encoding type multipart/form-data.
 
+Your request should contain the following parameters:
 
+- passwords (the csv file, detailed above, that you are uploading, which contains data to check)
+- connection_id (a string, the connection id of the connection from where the users will be checked)
+
+If it works, you will get a response similar to the following one:
+
+```js
+{
+    "id":"job_abcdef1234567890",
+    "status":"pending",
+    "type":"passwords_checking",
+    "connection":"abcd"
+}
+```
+
+The returned entity represents the passwords checking job. At this point the job is queued on our system and will be started
+as soon as possible. Once the job is finishes you will get a log entry `fpc` (if failed) or `spc` (if succeed). You can query the logs throught Management API2 or use our [Dashboard](${manage_url}/#/logs) to get them. You can also query job status anytime you want using the appropiate endpoint (see bellow).
+
+### Querying job status
+Once a job has been started you can query its status whenever you want, to do so simply make a `GET` request to `/api/jobs/{id}`, the `id` is the one that has been handed to you when you started the job (see above). You will get a response similar to 
+
+```js
+{
+    "id":"job_abcdef1234567890",
+    "status":"pending",
+    "type":"passwords_checking",
+}
+```
+
+The `status` field might contain any of the following values:
+
+- pending: The job is still queued or being executed on our system. Wait some minutes and query again to know when it has finished.
+- completed: The job is complete you can query the errors and the results (see bellow).
+- failed: The job has failed, you must query the errors and check your logs to see what went wrong.
+
+### Querying results
+
+### Querying errors
+
+### Deleting input and results data
 
