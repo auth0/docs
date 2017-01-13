@@ -2,7 +2,7 @@
 description: This page explains how to setup and manage the Authorization Extension v2.
 ---
 
-# Auth0 Extension: Authorization Extension
+# Auth0 Authorization Extension
 
 ::: panel-warning Notice
 This page explains how to use version 2 and later of the Authorization Extension, [click here for documentation of version 1.](/extensions/authorization-extension-v1)
@@ -16,11 +16,11 @@ The Auth0 Authorization Extension provides user authorization support in Auth0. 
 
 To install the Authorization extension, click on the "Auth0 Authorization" box on the main Extensions page of the Management Portal. You will be prompted to install the app.
 
-![Install Authorization Extension](/media/articles/extensions/authorization/app-install.png)
+![Install Authorization Extension](/media/articles/extensions/authorization/app-install-v2.png)
 
 Once installed, you will see the app listed under "Installed Extensions".
 
-![Installed Extensions](/media/articles/extensions/authorization/installed-extensions.png)
+![Installed Extensions](/media/articles/extensions/authorization/installed-extensions-v2.png)
 
 When you click on the link to open the extension for the first time, you will be prompted to provide permission for the extension to access your Auth0 account. Then you will be redirected to the Authorization Dashboard.
 
@@ -76,7 +76,7 @@ The Groups that you will create are dependent on the needs of your business proc
         * Finance IT Support
     * Management
 
-To create nested Groups, you must first create all of the individual groups via the CREATE button on the Groups page of the Authorization Dashboard.
+To create nested Groups, you must first create all of the individual groups via the **CREATE** button on the Groups page of the Authorization Dashboard.
 
 ![Add Nested Groups](/media/articles/extensions/authorization/add-nested-groups-v2.png)
 
@@ -113,7 +113,7 @@ You can create different types of Roles such as: Expense Admins, Expense Manager
 
 ![Roles](/media/articles/extensions/authorization/roles.png)
 
-To add a role, click the **CREATE ROLE** button from the **Roles** section of the dashboard. Then choose the application this Role applys to (such as Expense Management Tool) and then add a name of the role (such as Expense Admins) and a description of the role. Then select the permissions you wish to grant to this role. If you haven't yet created your permissions you can add them later to an exisiting Role.
+To add a role, click the **CREATE ROLE** button from the **Roles** section of the dashboard. Then choose the application this Role applies to (such as Expense Management Tool) and then add a name of the role (such as Expense Admins) and a description of the role. Then select the permissions you wish to grant to this role. If you haven't yet created your permissions you can add them later to an exisiting Role.
 
 ![Add a New Role](/media/articles/extensions/authorization/add-role.png)
 
@@ -205,7 +205,7 @@ If you have users that receive groups from the Identity Provider (such as Active
 
 ### Persistence
 
-You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/tokeninfo` endpoint](/api/authentication#!#post--tokeninfo) to retrieve this information after the user has logged in.
+You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/tokeninfo` endpoint](/api/authentication/reference#get-token-info) to retrieve this information after the user has logged in.
 
 ### Controlling Application Access
 
@@ -262,3 +262,9 @@ The extension uses the internal Webtask storage capabilities, which are limited 
  - If you have 20 groups and 7000 users, where each user is member of 3 groups about 480 KB of data would be used.
 
 Think you need more? [Contact support.](https://support.auth0.com)
+
+## Troubleshooting
+
+### An authentication results in a token that contains Groups but not Roles or Permissions
+
+If this happens, chances are you created roles & permissions for one application (client) but are authenticating with another. For example, you created all your roles/permissions against Website A but create another website client in Auth0 (Website B) and use its `client_id` and `client_secret` in your application.  This can also occur if you click the **Try** button in the Auth0 Dashboard on a Connection that contains one of your users. This will execute an authentication flow using the Auth0 _global application_, which is not the same as the application you configured in the extension.

@@ -22,11 +22,13 @@ This bundle helps you integrate your Symfony WebApp with [Auth0](https://auth0.c
 
 ### 1. Install dependencies
 
-We need to add **jwt-auth-bundle** dependency to your composer.json.
+We need to add the **jwt-auth-bundle** dependency to your composer.json.
 
 Once that's done, just run the following:
 
 ${snippet(meta.snippets.dependencies)}
+
+> v2.x.x provides compatibility with Symfony 3, for Symfony 2.x, stick to v1 branch.
 
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 

@@ -524,6 +524,10 @@
     "to": "/api/authentication"
   },
   {
+    "from": "/api/authentication/reference",
+    "to": "/api/authentication"
+  },
+  {
     "from": "/oauth2",
     "to": "/connections/social/oauth2"
   },
@@ -562,6 +566,10 @@
   {
     "from": "/quickstart/native-mobile/:platform/rails-api",
     "to": "/quickstart/native-mobile/:platform/rails"
+  },
+  {
+    "from": "/quickstart/native-mobile/:platform/:api",
+    "to": "/quickstart/native-mobile/:platform"
   },
   {
     "from": "/mfa",
@@ -825,12 +833,16 @@
     "to": "/tutorials/generic-oauth2-connection-examples"
   },
   {
-    "from": "/step-up-authentication",
-    "to": "/tutorials/setup-up-authentication"
+    "from": "/tutorials/setup-up-authentication",
+    "to": "/tutorials/step-up-authentication"
   },
   {
     "from": "/refresh-token",
     "to": "/tokens/refresh-token"
+  },
+  {
+    "from": "/tokens/access_token",
+    "to": "/tokens/access-token"
   },
   {
     "from": "/salesforce-community",
@@ -1147,5 +1159,13 @@
   {
     "from": "/tutorials/development-lifecycle-with-auth0",
     "to": "/dev-lifecycle/setting-up-env"
+  },
+  {
+    "from": "/tokens/id_token",
+    "to": "/tokens/id-token"
+  },
+  {
+    "from": "/connections",
+    "to": "/identityproviders"
   }
 ]

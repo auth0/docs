@@ -50,7 +50,7 @@ Let's see what each attribute means.
 | `auth0.loginCallback` | The URL context path for the login callback endpoint. Should start with `/`. |
 | `auth0.loginRedirectOnSuccess` | The landing page URL context path for a successful authentication. Should start with `/`. |
 | `auth0.loginRedirectOnFail` | The URL context path for the page to redirect to upon failure. Should start with `/`. |
-| `auth0.base64EncodedSecret` | A boolean value indicating whether the Secret used to verify the JWT is `base64` encoded. Default is `true`. |
+| `auth0.base64EncodedSecret` | A boolean value indicating whether the Secret used to verify the JWT is `base64` encoded. Default is `false`. |
 | `auth0.authorityStrategy` | Indicates whether authorization claims against the Principal shall be `GROUPS`, `ROLES` or `SCOPE` based. Default is `ROLES`. |
 | `auth0.defaultAuth0ApiSecurityEnabled` | A boolean value that switches having the default config enabled. It should be set to `false`. |
 | `auth0.signingAlgorithm` | This is signing algorithm to verify signed JWT token. Use HS256 or RS256. |

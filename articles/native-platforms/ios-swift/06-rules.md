@@ -7,10 +7,15 @@ budicon: 173
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
-  path: '06-Rules'
+  path: '06-Rules',
+  requirements: [
+    'CocoaPods 1.0.0',
+    'XCode 7.3 (7D175)',
+    'iPhone 6 - iOS 9.3 (13E230)'
+  ]
 }) %>
 
-Rules are one of the cool features of Auth0. The reason behind that coolness is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middlewares. To see a detailed description, please refer to [the full documentation](/rules).
+Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. For more information about Auth0 rules, please refer to [the full documentation](/rules).
 
 ## Create a Rule
 
@@ -28,7 +33,7 @@ This is just a starting template, you can edit it to meet your business needs. O
 
 ## Test the Rule
 
-To see the created rule results, just implement a login and fetch the user profile information (you can check out how to do it in the [login tutorial](01-login)).
+To see the created rule results, just implement a login and fetch the user profile information (you can check out how to do it in the [login tutorial](/quickstart/native/ios-swift/01-login)).
 
 You can access the `country` added by the rule within the `extraInfo` dictionary from the `A0UserProfile` object, like so:
 

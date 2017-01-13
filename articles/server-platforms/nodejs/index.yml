@@ -23,5 +23,3 @@ articles:
   - 07-authorization
   - 09-mfa
   - 10-customizing-lock
-  - 11-api-authorization
-  - 12-api-refresh-token

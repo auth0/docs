@@ -8,8 +8,6 @@ This multi-step quickstart guide will walk you through managing authentication i
 
 ## Sample Projects
 
-<%= include('_includes/_prerequisite') %>
-
 Each tutorial in the series includes a link to its corresponding sample project, which demonstrates how to achieve the tutorial's goal. You can find all the samples [here](https://github.com/auth0-samples/auth0-ios-swift-sample/).
 
 ## Dependencies

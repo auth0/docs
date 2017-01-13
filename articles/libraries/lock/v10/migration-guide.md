@@ -17,7 +17,7 @@ The goal of this migration guide is to provide you with all of the information y
 ## General Changes and Additions
 
 ### User Profiles
-- The profile is no longer fetched automatically after a successful login, you need to call [lock.getProfile](/libraries/lock/v10/api#getprofile-token-callback-).
+- The profile is no longer fetched automatically after a successful login, you need to call [lock.getUserInfo](/libraries/lock/v10/api#getuserinfo-).
 
 ### Redirect Mode vs Popup Mode
 - Lock now uses Redirect Mode by default. To use [Popup Mode](/libraries/lock/v10/popup-mode), you must enable this explicitly with the [redirect](/libraries/lock/v10/customization#redirect-boolean-) option `auth: { redirect: false }`.

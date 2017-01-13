@@ -49,8 +49,7 @@ Go to the `Configure` method of your `Startup` class and add a call to `UseJwtBe
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 {
-    var keyAsBase64 = Configuration["auth0:clientSecret"].Replace('_', '/').Replace('-', '+');
-    var keyAsBytes = Convert.FromBase64String(keyAsBase64);
+    var secret = Encoding.UTF8.GetBytes(Configuration["auth0:clientSecret"]);
 
     var options = new JwtBearerOptions
     {
@@ -58,7 +57,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
         {
             ValidIssuer = $"https://{Configuration["auth0:domain"]}/",
             ValidAudience = Configuration["auth0:clientId"],
-            IssuerSigningKey = new SymmetricSecurityKey(keyAsBytes)
+            IssuerSigningKey = new SymmetricSecurityKey(secret)
         }
     };
     app.UseJwtBearerAuthentication(options);
@@ -120,7 +119,7 @@ If you make a request to the `/ping/secure` endpoint you will notice that the AP
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 
-As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication#!#post--oauth-ro):
+As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication/reference#resource-owner):
 
 ![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-jwt.png)
 

@@ -6,13 +6,11 @@ description: A tutorial for using Ionic Framework and Firebase.
 
 You can either download the sample project, or follow the instructions below.
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="http://cdn.auth0.com/auth0-ionic-firebase-sample.zip" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a sample project</span>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-ionic-firebase',
+  path: ''
+}) %>
 
 ### 1. Setting up the callback URL in Auth0
 
@@ -28,10 +26,25 @@ You can either download the sample project, or follow the instructions below.
 
 You need to add your Firebase account information to Auth0. Once the user logs in to the App, Auth0 will use this information to issue a Firebase authentication token.
 
-Go to [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) and click on Addons. In there, turn on the __Firebase Addon__ and enter your Firebase secret.
+Go to [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) and click on Addons. In there, turn on the __Firebase Addon__.
 
-![Firebase secret](/media/articles/tutorials/firebase-config.gif)
+Under **Settings**, use the **Use SDK v3+ tokens** slider to select the SDK version you are using.
 
+**SDK Version 2:**
+If you are using an older version, you will only need to enter your **Firebase Secret** which you can get from your Firebase dashboard under **Project Settings** then **Service Accounts** then **Database Secrets**.
+
+![Firebase Secret](/media/articles/tutorials/firebase-secret-sdkv2.png)
+
+**SDK Version 3+:**
+For SDKv3 and later, you will need the **Private Key** and **Client Email**. The **Private Key Id** and **Token Expiration** fields are optional.
+
+In your Firebase dashboard, go to **Project Settings** and select the **Service Accounts** tab. Then under Firebase Admin SDK, scroll down and click on **GENERATE NEW PRIVATE KEY**.
+
+![Generate a Firebase Key](/media/articles/tutorials/firebase-generate-key.png)
+
+This will generate a JSON file which will contain the `private_key_id`, `private_key` and `client_email` fields to be entered into the Addon Settings on the Auth0 dashboard. Click **SAVE** when you are finished.
+
+![Enter Fields](/media/articles/tutorials/enter-firebase-settings.png)
 
 ### 3. Adding the needed dependencies
 
@@ -109,8 +122,8 @@ angular.module('starter', ['ionic',
     templateUrl: 'templates/dashboard.html',
     data: {
       // This tells Auth0 that this state requires the user to be logged in.
-      // If the user isn't logged in and he tries to access this state
-      // he'll be redirected to the login page
+      // If a user isn't logged in and tries to access this state
+      // they will be redirected to the login page
       requiresLogin: true
     }
   })
@@ -143,7 +156,7 @@ After a successful login, you will:
 2. Save the __token__ and __[refresh token](/refresh-token)__
 3. Call Auth0 to issue a __Firebase token__ and save it as well.
 
-> All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](/auth-api#delegated).
+> All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](/api/authentication#delegation).
 
 ```js
 // LoginCtrl.js
@@ -226,7 +239,7 @@ friends.$add({name: 'Hey John'});
 After the user has logged in, you can get the `profile` property from the `auth` service. You can access all logged-in user properties:
 
 ```html
-<span>His name is {{auth.profile.nickname}}</span>
+<span>User's name is {{auth.profile.nickname}}</span>
 ```
 
 ```js

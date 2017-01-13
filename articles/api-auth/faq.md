@@ -10,6 +10,6 @@ description: API Authentication and Authorization FAQ
 
 ### Q: I have a Client that needs to talk to different Resource Servers.
 
-**A:**  If both Resource Servers have been created and the Client has been linked to each, you can use the `audience=resource_server_client_identifier` parameter to specify the audience of the access token during the authentication request.
+**A:** If a single Client needs access tokens for different resource servers, then multiple calls to `/authorize` (that is, multiple executions of the same or different Authorization Flow) needs to be performed. Each authorization will use a different value for `audience`, which will result in a different access token at the end of the flow.
 
 For more information, see the [OAuth 2.0: Audience Information Specification](https://tools.ietf.org/html/draft-tschofenig-oauth-audience-00#section-3).

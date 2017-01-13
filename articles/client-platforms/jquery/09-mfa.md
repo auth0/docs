@@ -7,7 +7,10 @@ budicon: 243
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
-  path: '09-MFA'
+  path: '09-MFA',
+  requirements: [
+    'jQuery 3.1.0'
+  ]
 }) %>
 
 <%= include('../_includes/_mfa-introduction') %>

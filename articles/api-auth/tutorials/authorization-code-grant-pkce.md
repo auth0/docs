@@ -2,10 +2,9 @@
 description: How to execute an Authorization Code Grant flow with PKCE for a Mobile Application
 ---
 
-# Executing an Authorization Code Grant Flow with PKCE
-<%=include('../_region-support') %>
+# Execute an Authorization Code Grant Flow with PKCE
 
-Before starting with the Authorization Code Grant flow, you need to generate and store a `code_verifier`
+First, you need to generate and store a `code_verifier`.
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -45,7 +44,7 @@ NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
 </div>
 
 
-And using the `code_verifier`, generate a `code_challenge` that will be sent in the authorization request
+Using the `code_verifier`, generate a `code_challenge` that will be sent in the authorization request.
 
 <div class="code-picker">
   <div class="languages-bar">
@@ -129,7 +128,7 @@ For example:
 </a>
 ```
 
-## Exchanging the Authorization Code for an Access Token
+## Exchange the Authorization Code for an Access Token
 
 Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to POST to the OAuth Token URL sending also the `code_verifier`:
 
@@ -166,16 +165,16 @@ The response from `/oauth/token` contains `access_token`, `refresh_token`, `id_t
 }
 ```
 
-Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled "Allow Offline Access" for your Resource Server (API) in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](
+Note that the `refresh_token` will be present in the response, only if you included the `offline_access` scope **and** enabled **Allow Offline Access** for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](
  https://auth0.com/docs/tokens/refresh-token).
 
 ::: panel-danger Warning
 It is important to understand that the Authorization Code flow with PKCE can only be used for Clients whose type is `Native` in the Dashboard.
 :::
 
-## Using the Access Token
+## Use the Access Token
 
-Once the `access_token` has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
+Once you have the `access_token`, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
 ```har
 {

@@ -22,7 +22,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Next, in the `Configure` method of the `Startup` class add the cookie middleware and the OpenID Connect middleware. Middleware executes in the order they are registered so it is important to register the cookie middleware first, and then the OIDC middleware. 
 
-Both these middleware should be registered before your MVC middleware in order for your controllers to be protected:
+Both these middleware should be registered before your MVC middleware in order for your controllers to be protected. The OIDC middleware is required in order to authenticate the user with Auth0. Once the user has authenticated they will be signed in to the Cookie middleware which will be used to authenticate all subsequent requests.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
@@ -41,13 +41,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     }
 
     app.UseStaticFiles();
-
-    // Add the cookie middleware
-    app.UseCookieAuthentication(new CookieAuthenticationOptions
-    {
-        AutomaticAuthenticate = true,
-        AutomaticChallenge = true
-    });
 
     // Add the cookie middleware
     app.UseCookieAuthentication(new CookieAuthenticationOptions

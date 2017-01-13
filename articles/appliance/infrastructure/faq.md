@@ -25,5 +25,8 @@ While this is currently not supported, preinstalled anti-virus software may be i
 ### Will Auth0 provide me with a CSR file for my SSL Certificate?
 If Auth0 hosts the Appliance, Auth0 will provide the required certificate(s).
 
+### Why do both the DEV (non-prod) node and PROD cluster require unique certificates signed by a public Certificate Authority?
+Webtasks and web extensions require this due to Node.js security requirements.
+
 ### Can I whitelist specific IP addresses on my firewall to the Internet sites the Appliance requires outbound access to?
 For Auth0 Appliance updates, we can provide you with specific addresses that are required. For certain protocols, Internet connectivity is required during operation (such as social connections or emails).

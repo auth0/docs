@@ -3,7 +3,7 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 Ruby SDK to add authentication and authorization to your API.
 ---
 
-You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow these tutorial steps.
 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
@@ -47,4 +47,4 @@ You can now make requests against your secure API by providing the Authorization
 
 ### 4. You're done!
 
-Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
+Now you have both your frontend and backend configured to use Auth0. Congrats, you're awesome!

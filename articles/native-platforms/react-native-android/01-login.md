@@ -18,13 +18,13 @@ budicon: 448
 
 ## Install Lock
 
-First you need to run the following command to install **react-native-lock**
+First, you need to run the following command to install **react-native-lock**
 
 ```bash
 npm install --save react-native-lock
 ```
 
-Then install [rnpm](https://github.com/rnpm/rnpm)
+Then, install [rnpm](https://github.com/rnpm/rnpm)
 
 ```bash
 npm install rnpm -g
@@ -36,7 +36,7 @@ After that, link **react-native-lock** with your Android project:
 rnpm link react-native-lock
 ```
 
-Open the file `android/app/build.gradle` and inside add the following inside the `android {}` section
+Open the file `android/app/build.gradle` and inside add the following into the `android {}` section
 
 ```gradle
 packagingOptions {
@@ -45,7 +45,7 @@ packagingOptions {
 }
 ```
 
-Then check in `AndroidManifest.xml` that the application requests the `android.permission.INTERNET` permission. If not already there, add it inside the `<manifest>` tag:
+Then, check in `AndroidManifest.xml` that the application requests the `android.permission.INTERNET` permission. If is not already there, add it inside the `<manifest>` tag:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -90,13 +90,13 @@ Now we're ready to implement the Login. First we need to require react-native-lo
 
 ${snippet(meta.snippets.setup)}
 
-Then we can show **Lock**:
+Then, we can show **Lock**:
 
 ${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/reactnative-android/Lock-Widget-Screenshot.png)](https://auth0.com)
 
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-android#sms-passwordless) or [Email](https://github.com/auth0/react-native-lock-android#email-passwordless)
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock) or [Email](https://github.com/auth0/react-native-lock)
 
 On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
 

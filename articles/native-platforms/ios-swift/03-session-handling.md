@@ -7,13 +7,18 @@ budicon: 280
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
-  path: '03-Session-Handling'
+  path: '03-Session-Handling',
+  requirements: [
+    'CocoaPods 1.0.0',
+    'XCode 7.3 (7D175)',
+    'iPhone 6 - iOS 9.3 (13E230)'
+  ]
 }) %>
 
 
 ## Before Starting
 
-This tutorial assumes you're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, check out [this tutorial](01-login) first.**
+This tutorial assumes you're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, review the [login tutorial](/quickstart/native/ios-swift/01-login) first.**
 
 ### Add the SimpleKeychain Dependency
 
@@ -82,7 +87,7 @@ To do so, first, we retrieve its value from the `id_token` key we used above, fr
 ```swift
 let keychain = A0SimpleKeychain(service: "Auth0")
 guard let idToken = keychain.stringForKey("id_token") else {
-    // idToken doesn't exist, user has to enter his credentials to log in
+    // idToken doesn't exist, user has to enter their credentials to log in
     // Present A0Lock Login
     return
 }
@@ -170,7 +175,7 @@ client.fetchNewIdTokenWithRefreshToken(refreshToken,
             // refreshToken is no longer valid (e.g. it has been revoked)
             // Cleaning stored values since they are no longer valid
             keychain.clearAll()
-            // ⛔️ At this point, you should ask the user to enter his credentials again!
+            // ⛔️ At this point, you should ask the user to enter their credentials again!
         })
 ```
 

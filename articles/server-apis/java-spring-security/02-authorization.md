@@ -16,11 +16,11 @@ You can get started by either downloading the seed project or if you would like 
   ]
 }) %>
 
-In this step we will see how we can add role based authorization to our API, using [Rules](/rules).
+In this step we will see how we can add role-based authorization to our API, using [Rules](/rules).
 
 ## 1. Create a Rule to assign roles
 
-In our example we will create a simple rule that assigns two roles (`ROLE_ADMIN` and `ROLE_USER`) to any user. Of course you can change our sample code to match your needs.
+In our example, we will create a simple rule that assigns two roles (`ROLE_ADMIN` and `ROLE_USER`) to any user. Of course, you can change our sample code to match your needs.
 
 To create a new rule, navigate to the [new rule page](${manage_url}/#/rules/new) and select the __Set Roles To A User__ template, under _Access Control_. Then, replace the sample script with the following:
 
@@ -68,7 +68,7 @@ You can now make requests against your secure API by providing the Authorization
 
 Before making the request you should replace the port (`8000`) with the one on which your app is listening.
 
-If the roles functionality is not working properly for you make sure that the `roles` property is included in the token. To ensure this you can log your token and use the [JWT home page](https://jwt.io/) to decode it and review its contents.
+If the roles functionality is not working properly for you, make sure that the `roles` property is included in the token. To ensure this you can log your token and use the [JWT home page](https://jwt.io/) to decode it and review its contents.
 
 ### 4. You're done!
 
