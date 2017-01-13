@@ -38,13 +38,85 @@ exposure.
 - Result won't include the actual matches but a reference to them.
 
 To sum up:
-- Don't issue tokens that allows this action if you are not absolutely sure this right is needed
+- Do not issue tokens that allows this action if you are not absolutely sure this right is needed
 - Set a short experiration on the issued tokens
 - Add an identifier (jti) to your tokens. So you will be able to blacklist compromised tokens.
 - If you think  a token might have been compromised black list it immediately.
 - Delete the input data and results once finished.
 
 ## Usage
+This tool is made available through our Management API. It has an endpoint that allows you to check a pre-defined list of users and passwords, which must be provided as a csv file, against a database connection. Each password will be checkend in background an some time later you will be able to get the results, the errors, and finally delete the information from Auth0 service.
+
+### Preparing the input file
+In order to run this job you need to upload a list of users and passwords to check. This list must be provided as a CSV (coma separated value) where each row must has te following format:
+```
+{username},{email},{password}
+```
+
+#### Format considerations:
+- Must not has header row
+- Each row *must* have a maximum of 400 characters
+- If any of the values contain a coma, the whole value must be quoted
+- Email and username are optional, but you must provide one of them (and not both)
+
+The following JSON schema describes a row and might be used to validate it before uploading:
+```js
+   {
+     type: 'object',
+     anyOf: [
+       {
+         properties: {
+           email: {
+             type: 'string',
+             minLength: 1,
+             maxLength: 100,
+             description: 'Email to check'
+           },
+           plain_text_password: {
+             type: 'string',
+             minLength: 1,
+             maxLength: 100,
+             description: 'Password to check'
+           }
+         },
+         required: ['plain_text_password', 'email'],
+         additionalProperties: false
+       },
+       {
+         properties: {
+           username: {
+            type: 'string',
+            minLength: 1,
+            maxLength: 100,
+            description: 'Username to check'
+           },
+           plain_text_password: {
+             type: 'string',
+             minLength: 1,
+             maxLength: 100,
+             description: 'Password to check'
+           }
+         },
+         required: ['plain_text_password', 'username'],
+         additionalProperties: false
+       }
+     ]
+   }
+```
+
+##### File Example
+```
+john.doe0@example.com,,secret
+,john.doe2,secret
+john.doe3@example.com,,"secret, really secret"
+,john.doe2,secr et
+```
+
+These rows are all valid input rows. Note the quotation around "secret, really secret"
+because that password contains a coma. Whitespace does not need quotation as stated on
+5th line.
+
+### Starting the job
 
 
 
