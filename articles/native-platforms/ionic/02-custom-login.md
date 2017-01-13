@@ -13,7 +13,7 @@ budicon: 448
   ]
 }) %>
 
-The previous step explained how you can log users into your application using the Lock Widget. You do not need to use Lock, and can instead create a custom login page and UI if you wish.
+The previous step explained how you can log users into your application using the Lock Widget. You do not necessarily need to use Lock, instead, you can create a custom login page and UI if you wish.
 
 If you are using social logins, you can also launch the login screen for a particular social login provider directly from your Ionic application.
 
@@ -32,7 +32,7 @@ The custom login uses the `auth0.js` library, so it needs to be referenced inste
 
 ## Implement the Login
 
-For the login view, you must display fields for **Username** and **Password**, along with a **Login** to allow users to log in with their email address. For social login, a signle button can be supplied.
+For the login view, you must display fields for **Username** and **Password**, along with a **Login** to allow users to log in with their email address. For social login, a single button can be supplied.
 
 ```html
 <!-- www/components/login/login.html -->
