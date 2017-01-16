@@ -145,7 +145,7 @@ For this to work, `auth` needs to be included as a prop, which can be done from 
 
 ## Send `auth` from Router to Container Children
 
-To use the `auth` parameter in various child components, it needs to be propagated down from from the `Container` component. 
+To use the `auth` parameter in various child components, it needs to be propagated down from the `Container` component. 
 
 ```javascript
 // src/views/Main/Container.js
