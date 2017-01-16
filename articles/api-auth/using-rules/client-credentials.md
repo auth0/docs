@@ -23,7 +23,8 @@ You can only create one rule, which will then be executed for **all** clients an
 ### 2. Create the Webtask to Use Your Rule
 
 <%= include('./_includes/_create-webtask', {
-	  grant: 'credentials-exchange'
+	  grant: 'credentials-exchange',
+		compiler: 'client-credentials-exchange'
 }) %>
 
 ### 3. Test Your Setup
