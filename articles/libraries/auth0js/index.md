@@ -10,7 +10,7 @@ url: /libraries/auth0js
 Auth0.js is a client-side library for [Auth0](http://auth0.com). Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
 
 ::: panel-info Auth0.js v8
-This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the [v7 reference guide](/libraries/auth0js/v7).
+This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the [v7 reference guide](/libraries/auth0js/v7), or take a look at the [v8 migration guide](/libraries/auth0js/migration-guide).
 :::
 
 ## Ready-to-Go Example
