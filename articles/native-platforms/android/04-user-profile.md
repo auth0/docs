@@ -27,7 +27,7 @@ The first step is to instantiate the authentication API client. This will be use
 
 ```java
 AuthenticationAPIClient client = new AuthenticationAPIClient(
-new Auth0(${account.clientId}, ${account.namespace}));
+new Auth0("${account.clientId}", "${account.namespace}"));
 ```
 
 > It's suggested that you add both the `Auth0DomainID` and `Auth0ClientID` to the `strings.xml` file rather than hardcode them in the manifest.
