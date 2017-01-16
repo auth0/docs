@@ -83,13 +83,13 @@ With the Auth0 access token, call the `/api/v2/users/{user-id}` endpoint to get 
 }
 ```
 
-**NOTE:** For Native and SPA applications you will need to send the `id_token` to your backend and verify it using the client secret. For regular apps you can use the `user_id` from the user profile but not the `user_id` from the `identities` array in the user profile.
+**NOTE:** For Native and SPA applications you will need to send the `id_token` to your backend and verify it using the client secret. For regular apps you can use the `user_id` from the user profile. Make sure you use the main profile property (`user.user_id`) and not the one from the Identity Provider Attributes array (`user.identities.user_id`).
 
 The request must include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the Auth0 token you obtained in the previous step.
 
 The body of the request must include the following:
 
-- `user-id`: The value of the `user_id` property of the user profile not the `identities` array.
+- `user-id`: The value of the `user_id` property of the user profile. Make sure you use the main profile property (`user.user_id`) and not the one from the Identity Provider Attributes array (`user.identities.user_id`).
 
 ### 3. Extract the IdP access token
 
