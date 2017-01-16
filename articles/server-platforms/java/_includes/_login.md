@@ -33,7 +33,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
         var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
           auth: {
             params: {
-              state: <%= "${state}" %>,
+              state: '<%= "${state}" %>',
               // change scopes to whatever you like, see https:///scopes
               // claims are added to JWT id_token - openid profile gives everything
               scope: 'openid user_id name nickname email picture'
