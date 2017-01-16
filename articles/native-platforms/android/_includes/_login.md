@@ -5,7 +5,7 @@ At this point, you're all set to implement the login in any activity you want. I
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-    Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
+    Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     lock = Lock.newBuilder(auth0, callback)
                     // Add parameters to the Lock Builder
                     .build(this);
