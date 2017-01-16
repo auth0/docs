@@ -33,9 +33,9 @@ ${snippet(meta.snippets.dependencies)}
 
 > **Note:** Some functionality provided by Lock is meant for regular web browsers. For best results, add `auth: { sso: false }` to your Lock configuration options.
 
-## Follow the Front End Quickstarts
+## Follow the frontend Quickstarts
 
-You can use any front end technology you like in your Electron application. Follow the [quickstart](/quickstart/spa) guide specific to your use case.
+You can use any frontend technology you like in your Electron application. Follow the [quickstart](/quickstart/spa) guide specific to your use case.
 
 In the simple case of using [jQuery](/quickstart/spa/jquery), you can provide a control to render the Lock widget which will allow the user to log in.
 
