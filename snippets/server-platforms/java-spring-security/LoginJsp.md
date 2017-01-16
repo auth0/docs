@@ -29,7 +29,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
                     redirectUrl: '<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %><%= "${loginCallback}" %>',
                     responseType: 'code',
                     params: {
-                        state: <%= "${state}" %>,
+                        state: '<%= "${state}" %>',
                         scope: 'openid user_id name nickname email picture'
                     }
                 }
