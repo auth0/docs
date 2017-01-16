@@ -49,7 +49,7 @@ At any given time, you can call `getProfile` on `lock` passing in a token and ca
 
 ```
 
-The user's profile is being saved in local storage in the success callback and just needs to be retrieved for use from any place in the applciation. An example can be found in the `HomeController`.
+The user's profile is being saved in local storage in the success callback and just needs to be retrieved for use from any place in the application. An example can be found in the `HomeController`.
 
 ```js
 // www/components/home/home.controller.js
