@@ -18,7 +18,7 @@ curl --request GET \
   --data '"connection"="CONNECTION"'
 ```
 
-<% var acceptReqPath = '/samlp/{client_id}'; %>
+<% var acceptReqPath = '/samlp/${account.clientId}'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_method": "GET",
@@ -60,7 +60,7 @@ curl --request GET \
   --url 'https://${account.namespace}/samlp/metadata/${account.clientId}'
 ```
 
-<% var getMetadataPath = '/samlp/metadata/{client_id}'; %>
+<% var getMetadataPath = '/samlp/metadata/${account.clientId}'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_method": "GET",
@@ -86,7 +86,7 @@ This endpoint returns the SAML 2.0 metadata.
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/login/callback?connection={CONNECTION}
+POST https://${account.namespace}/login/callback?connection=CONNECTION
 Content-Type: 'application/x-www-form-urlencoded'
   SAMLResponse=SAML_RESPONSE
 ```
