@@ -10,14 +10,14 @@ Auth0 implements the [Proof Key for Code Exchange by OAuth Public Clients](https
 
 ## How it works
 
-Traditionally, public clients (e.g. mobile apps, SPAs and CLIs) have used the [implicit flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) to obtain a token. In this flow, there's no __client authentication__ because there's no easy way of storing a `client_secret`.
+Traditionally, public clients (e.g. mobile apps, SPAs and CLIs) have used the [implicit flow](/api-auth/grant/implicit) to obtain a token. In this flow, there's no __client authentication__ because there's no easy way of storing a `client_secret`.
 
 The [PKCE flow](/protocols) ('pixy' for friends), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps to intercept the response from the authorization server, and get hold of the token.
 
 For this exchange to work without secret, you will have to set the `token_endpoint_auth_method` to `none`.
 
 ```bash
-curl -H "Authorization: Bearer API2_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"token_endpoint_auth_method":"none"}' https://yours.auth0.com/api/v2/clients/CLIENT_ID
+curl -H "Authorization: Bearer API2_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"token_endpoint_auth_method":"none"}' https://yours.auth0.com/api/v2/clients/${account.clientId}
 ```
 
 A CLI program just needs to:
@@ -48,8 +48,8 @@ POST /token HTTP/1.1
 Host: ${account.namespace}
 Content-type: application/json
 {
-  "code": {THE CODE},
-  "code_verifier": {THE VERIFIER},
+  "code": "THE CODE",
+  "code_verifier": "THE VERIFIER",
   "client_id": "${account.clientId}",
   "grant_type": "authorization_code",
   "redirect_uri": "${account.callback}"
@@ -74,9 +74,9 @@ var dotenv = require('dotenv');
 dotenv.load();
 
 var env = {
-  AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
+  AUTH0_CLIENT_ID: process.env.${account.clientId},
   AUTH0_URL: process.env.AUTH0_URL,
-  AUTH0_CALLBACK_URL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000',
+  AUTH0_CALLBACK_URL: process.env.${account.callback} || 'http://localhost:3000',
   AUTH0_CONNECTION: process.env.AUTH0_CONNECTION || 'Username-Password-Authentication'
 };
 
@@ -90,8 +90,8 @@ var verifier = base64url(crypto.randomBytes(32));
 var verifier_challenge = base64url(crypto.createHash('sha256').update(verifier).digest());
 
 var authorize_url = env.AUTH0_URL + '/authorize?response_type=code&scope=openid%20profile&' + 
-                                    'client_id=' + env.AUTH0_CLIENT_ID + 
-                                    '&redirect_uri=' + env.AUTH0_CALLBACK_URL + 
+                                    'client_id=' + env.${account.clientId} + 
+                                    '&redirect_uri=' + env.${account.callback} + 
                                     '&code_challenge=' + verifier_challenge + '&code_challenge_method=S256' +
                                     '&connection=' + env.AUTH0_CONNECTION;
 
@@ -105,9 +105,9 @@ rl.question('Please enter the authorization code: ', function(code) {
     json:{
       code: code,
       code_verifier: verifier,
-      client_id: env.AUTH0_CLIENT_ID,
+      client_id: env.${account.clientId},
       grant_type: 'authorization_code',
-      redirect_uri: env.AUTH0_CALLBACK_URL
+      redirect_uri: env.${account.callback}
   }},function(err,status,body){
     //TODO: do something useful with the token (in body)
     //CLI is ready to call APIs, etc.
