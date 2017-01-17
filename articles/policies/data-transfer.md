@@ -25,6 +25,8 @@ Auth0 will transfer customer data from one account to another in the following s
 
 * Rename of an account.
 
+* Rename of a database connection.
+
 ## Limitations
 
 The following limitations apply to data transfers:
