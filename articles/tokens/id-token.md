@@ -68,19 +68,26 @@ The `id_token` is valid for 10 hours (36000 seconds) by default.  The value can 
 
 There are cases where you might want to renew your `id_token`. In order to do so, you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
 
-If you are using auth0.js then you can fetch a new token using:
-
-```js
-auth0.silentAuthentication({}, function(err, result){
-  // Get here the new result.id_token
-})
-```
-
-For more information refer to [Silent Authentication](https://github.com/auth0/auth0.js#silent-authentication).
-
 When performing the initial authorization flow, you can ask for a `refresh_token`, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The `refresh_token` is stored in session, alongside with the `id_token`. Then when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the `refresh_token` on the backend to obtain a new `id_token`, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
 
-For more information on refresh tokens and how to use them refer to: [Refresh Token](/tokens/refresh-token).
+This method is not an option for Single Page Apps (SPAs), since for security reasons you cannot get a `refresh_token` from the [Implicit Grant](/api-auth/grant/implicit) (the OAuth flow typically used from Client-side Web Apps). In that case you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
+
+If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `renewAuth()` method. 
+
+```js
+auth0.renewAuth({
+  audience: 'https://mystore.com/api/v2',
+  scope: 'read:order write:order',
+  redirectUri: 'https://example.com/auth/silent-callback',
+
+  // this will use postMessage to comunicate between the silent callback
+  // and the SPA. When false the SDK will attempt to parse the url hash
+  // should ignore the url hash and no extra behaviour is needed.
+  usePostMessage: true
+  }, function (err, authResult) {
+    // Renewed tokens or error
+});
+```
 
 ## Revoke access
 
@@ -89,6 +96,8 @@ Once issued, tokens can not be revoked in the same fashion as cookies with sessi
 ## More Information
 
 * [Overview of JSON Web Tokens](/jwt)
+* [Silent Authentication for Single Page Apps](/api-auth/tutorials/silent-authentication)
+* [How to get, use and revoke a Refresh Token](/tokens/refresh-token)
 * [A writeup on the contents of a JSON Web Token](https://scotch.io/tutorials/the-anatomy-of-a-json-web-token)
 * [Wikipedia page on JSON Web Tokens](https://en.wikipedia.org/wiki/JSON_Web_Token)
 * [IETF RFC for JWT](https://tools.ietf.org/html/rfc7519)
