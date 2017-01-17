@@ -216,7 +216,7 @@ To get an access token without using our Client sample implementation, perform a
 
 ```json
 {
-  audience: "{YOUR_API_IDENTIFIER}",
+  audience: "YOUR_API_IDENTIFIER",
   grant_type: "client_credentials",
   client_id: "${account.client_id}",
   client_secret: "${account.client_secret}"
@@ -259,7 +259,7 @@ Our implementation should perform a `POST` operation to the `https://${account.n
 
 ```json
 {
-  audience: "{YOUR_API_IDENTIFIER}",
+  audience: "YOUR_API_IDENTIFIER",
   grant_type: "client_credentials",
   client_id: "${account.client_id}",
   client_secret: "${account.client_secret}"

@@ -8,14 +8,14 @@ When initiating a [client-side authorization transaction](/protocols#oauth-for-n
 only an opaque `access_token` will be returned by default.
 To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
 
-## Example ([implicit flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser))
+## Example (implicit flow)
 
 The following URL logs a user in using Google and requests a JWT that authenticates the user.
 
 <pre>
 https://example.auth0.com/authorize
   ?response_type=token
-  &client_id=YOUR_CLIENT_ID
+  &client_id=${account.clientId}
   &redirect_uri=http://jwt.io&connection=google-oauth2
   &<strong>scope=openid</strong>
 </pre>

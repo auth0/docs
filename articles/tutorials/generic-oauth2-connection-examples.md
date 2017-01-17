@@ -9,7 +9,7 @@ The [OAuth2](/oauth2) or [OAuth1](/oauth1) connections give you the ability to s
 Here are a few examples of OAuth2/OAuth1 connections you can create through the [Management Auth0 API v2](/api/v2#!/Connections/post_connections). You will require a [Management API V2 token](/api/v2/tokens) with `create:connections` scope to invoke the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the Management API:
 
 ```
-curl -vX POST https://${account.namespace}/api/v2/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @sample-connection.json
+curl -vX POST https://${account.namespace}/api/v2/connections -H "Content-Type: application/json" -H 'Authorization: Bearer YOUR_API_V2_TOKEN' -d @sample-connection.json
 ```
 
 After the call completes successfully, you will be able to login using these new providers.
@@ -25,8 +25,8 @@ After the call completes successfully, you will be able to login using these new
   "name": "uber",
   "strategy": "oauth2",
   "options": {
-    "client_id": "{YOUR_UBER_APP_KEY}",
-    "client_secret": "{YOUR_UBER_APP_SECRET}",
+    "client_id": "YOUR_UBER_APP_KEY",
+    "client_secret": "YOUR_UBER_APP_SECRET",
     "authorizationURL": "https://login.uber.com/oauth/authorize",
     "tokenURL": "https://login.uber.com/oauth/token",
     "scope": ["profile"],
@@ -46,8 +46,8 @@ After the call completes successfully, you will be able to login using these new
   "name": "digitalocean",
   "strategy": "oauth2",
   "options": {
-    "client_id": "{YOUR-DIGITAL-OCEAN-CLIENT-ID}",
-    "client_secret": "{YOUR-DIGITAL-OCEAN-CLIENT-SECRET}",
+    "client_id": "YOUR-DIGITAL-OCEAN-CLIENT-ID",
+    "client_secret": "YOUR-DIGITAL-OCEAN-CLIENT-SECRET",
     "authorizationURL": "https://cloud.digitalocean.com/v1/oauth/authorize",
     "tokenURL": "https://cloud.digitalocean.com/v1/oauth/token",
     "scope": ["read"],
@@ -69,8 +69,8 @@ After the call completes successfully, you will be able to login using these new
   "name": "imgur",
   "strategy": "oauth2",
   "options": {
-    "client_id": "{YOUR-IMGUR-CLIENT-ID}",
-    "client_secret": "{YOUR-IMGUR-CLIENT-SECRET}",
+    "client_id": "YOUR-IMGUR-CLIENT-ID",
+    "client_secret": "YOUR-IMGUR-CLIENT-SECRET",
     "authorizationURL": "https://api.imgur.com/oauth2/authorize",
     "tokenURL": "https://api.imgur.com/oauth2/token",
     "scripts": {
@@ -90,8 +90,8 @@ After the call completes successfully, you will be able to login using these new
   "name": "xing",
   "strategy": "oauth1",
   "options": {
-    "client_id": "{YOUR-XING-CONSUMER-KEY}",
-    "client_secret": "{YOUR-XING-CONSUMER-SECRET}",
+    "client_id": "YOUR-XING-CONSUMER-KEY",
+    "client_secret": "YOUR-XING-CONSUMER-SECRET",
     "requestTokenURL": "https://api.xing.com/v1/request_token",
     "accessTokenURL": "https://api.xing.com/v1/access_token",
     "userAuthorizationURL": "https://api.xing.com/v1/authorize",
@@ -112,8 +112,8 @@ After the call completes successfully, you will be able to login using these new
   "name": "twitch",
   "strategy": "oauth2",
   "options": {
-    "client_id": "{YOUR-TWITCH-CLIENTID}",
-    "client_secret": "{YOUR-TWITCH-CLIENTSECRET}",
+    "client_id": "YOUR-TWITCH-CLIENTID",
+    "client_secret": "YOUR-TWITCH-CLIENTSECRET",
     "authorizationURL": "https://api.twitch.tv/kraken/oauth2/authorize",
     "tokenURL": "https://api.twitch.tv/kraken/oauth2/token",
     "scope": ["user_read"],
@@ -134,8 +134,8 @@ After the call completes successfully, you will be able to login using these new
   "name": "dribbble",
   "strategy": "oauth2",
   "options": {
-    "client_id": "{YOUR DRIBBLE CLIENT ID}",
-    "client_secret": "{YOUT DRIBBBLE CLIENT SECRET}",
+    "client_id": "YOUR DRIBBLE CLIENT ID",
+    "client_secret": "YOUT DRIBBBLE CLIENT SECRET",
     "authorizationURL": "https://dribbble.com/oauth/authorize",
     "tokenURL": "https://dribbble.com/oauth/token",
     "scope": ["public"],
@@ -156,8 +156,8 @@ After the call completes successfully, you will be able to login using these new
   "name": "vimeo",
   "strategy": "oauth2",
   "options": {
-    "client_id": "{YOUR-VIMEO-CLIENT-IDENTIFIER}",
-    "client_secret": "{YOUR-VIMEO-CLIENT-SECRET}",
+    "client_id": "YOUR-VIMEO-CLIENT-IDENTIFIER",
+    "client_secret": "YOUR-VIMEO-CLIENT-SECRET",
     "authorizationURL": "https://api.vimeo.com/oauth/authorize",
     "tokenURL": "https://api.vimeo.com/oauth/access_token",
     "scope": ["public"],
@@ -178,8 +178,8 @@ After the call completes successfully, you will be able to login using these new
   "name": "tumblr",
   "strategy": "oauth1",
   "options": {
-    "client_id": "{YOUR-TUMBLR-CONSUMER-KEY}",
-    "client_secret": "{YOUR-TUMBLR-SECRET-KEY}",
+    "client_id": "YOUR-TUMBLR-CONSUMER-KEY",
+    "client_secret": "YOUR-TUMBLR-SECRET-KEY",
     "requestTokenURL": "https://www.tumblr.com/oauth/request_token",
     "accessTokenURL": "https://www.tumblr.com/oauth/access_token",
     "userAuthorizationURL": "https://www.tumblr.com/oauth/authorize",
@@ -214,9 +214,9 @@ When creating the incoming link, use the following settings:
 > Note: If you need to modify these settings on JIRA after having created the application link, they can be found in the "Incoming Authentication" section of the link's settings.
 
 In the JSON below, replace all instances of the following placeholders:
-  * `{JIRA_URL}`: The root URL of your JIRA instance, e.g. `https://foo.atlassian.net`
-  * `{CONSUMER_KEY}`: The chosen Consumer Key for your application link
-  * `{CONSUMER_SECRET}`: The previously generated private key, as a JSON string. You can convert `EXAMPLE.key` to a valid JSON string using the following command:
+  * `JIRA_URL`: The root URL of your JIRA instance, e.g. `https://foo.atlassian.net`
+  * `CONSUMER_KEY`: The chosen Consumer Key for your application link
+  * `CONSUMER_SECRET`: The previously generated private key, as a JSON string. You can convert `EXAMPLE.key` to a valid JSON string using the following command:
 
 ```bash
 node -p -e 'JSON.stringify(require("fs").readFileSync("EXAMPLE.key").toString("ascii"));'
@@ -227,14 +227,14 @@ node -p -e 'JSON.stringify(require("fs").readFileSync("EXAMPLE.key").toString("a
   "options": {
     "name": "jira",
     "strategy": "oauth1",
-    "consumerKey": "{CONSUMER_KEY}"  ,
-    "consumerSecret": "{CONSUMER_SECRET}",
-    "requestTokenURL": "{JIRA_URL}/plugins/servlet/oauth/request-token",
-    "accessTokenURL": "{JIRA_URL}/plugins/servlet/oauth/access-token",
-    "userAuthorizationURL": "{JIRA_URL}/plugins/servlet/oauth/authorize",
+    "consumerKey": "CONSUMER_KEY"  ,
+    "consumerSecret": "CONSUMER_SECRET",
+    "requestTokenURL": "JIRA_URL/plugins/servlet/oauth/request-token",
+    "accessTokenURL": "JIRA_URL/plugins/servlet/oauth/access-token",
+    "userAuthorizationURL": "JIRA_URL/plugins/servlet/oauth/authorize",
     "signatureMethod": "RSA-SHA1",
     "scripts": {
-    "fetchUserProfile": "function(token, tokenSecret, ctx, cb) {\n  // Based on passport-atlassian-oauth\n  // https://github.com/tjsail33/passport-atlassian-oauth/blob/a2e444b0c3969dfd7caf4524ce4a4c379656ba2e/lib/passport-atlassian-oauth/strategy.js\n  var jiraUrl = '{JIRA_URL}';\n  var OAuth = new require('oauth').OAuth;\n  var oauth = new OAuth(ctx.requestTokenURL, ctx.accessTokenURL, ctx.client_id, ctx.client_secret, '1.0', null, 'RSA-SHA1');\n  function oauthRequest(url, cb) {\n    return oauth._performSecureRequest(token, tokenSecret, 'GET', url, null, '', 'application/json', cb);\n  }\n  oauthRequest(jiraUrl + '/rest/auth/1/session', function(err, body, res) {\n    if (err) return cb(err);\n    if (res.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));\n    var json;\n    try {\n      json = JSON.parse(body);\n    } catch(ex) {\n      return cb(new Error('Invalid JSON returned from JIRA', ex));\n    }\n    var profileUrl = jiraUrl + '/rest/api/2/user?expand=groups&username=' + encodeURIComponent(json.name);\n    oauthRequest(profileUrl, function(err, body, res) {\n      if (err) return cb(err);\n      if (res.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));\n      try {\n        json = JSON.parse(body);\n      } catch(ex) {\n        return cb(new Error('Invalid JSON returned from JIRA', ex));\n      }\n      // Auth0-specific mappings, customize as n:qeeded\n      // https:///user-profile/normalized\n      return cb(null, {\n        user_id: json.name,\n        username: json.name,\n        email: json.emailAddress,\n        name: json.displayName,\n        groups: json.groups,\n        picture: json.avatarUrls['48x48'],\n        active: json.active,\n        self: json.self,\n        timezone: json.timeZone,\n        locale: json.locale\n      });\n    });\n  });\n}\n"
+    "fetchUserProfile": "function(token, tokenSecret, ctx, cb) {\n  // Based on passport-atlassian-oauth\n  // https://github.com/tjsail33/passport-atlassian-oauth/blob/a2e444b0c3969dfd7caf4524ce4a4c379656ba2e/lib/passport-atlassian-oauth/strategy.js\n  var jiraUrl = 'JIRA_URL';\n  var OAuth = new require('oauth').OAuth;\n  var oauth = new OAuth(ctx.requestTokenURL, ctx.accessTokenURL, ctx.client_id, ctx.client_secret, '1.0', null, 'RSA-SHA1');\n  function oauthRequest(url, cb) {\n    return oauth._performSecureRequest(token, tokenSecret, 'GET', url, null, '', 'application/json', cb);\n  }\n  oauthRequest(jiraUrl + '/rest/auth/1/session', function(err, body, res) {\n    if (err) return cb(err);\n    if (res.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));\n    var json;\n    try {\n      json = JSON.parse(body);\n    } catch(ex) {\n      return cb(new Error('Invalid JSON returned from JIRA', ex));\n    }\n    var profileUrl = jiraUrl + '/rest/api/2/user?expand=groups&username=' + encodeURIComponent(json.name);\n    oauthRequest(profileUrl, function(err, body, res) {\n      if (err) return cb(err);\n      if (res.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));\n      try {\n        json = JSON.parse(body);\n      } catch(ex) {\n        return cb(new Error('Invalid JSON returned from JIRA', ex));\n      }\n      // Auth0-specific mappings, customize as n:qeeded\n      // https:///user-profile/normalized\n      return cb(null, {\n        user_id: json.name,\n        username: json.name,\n        email: json.emailAddress,\n        name: json.displayName,\n        groups: json.groups,\n        picture: json.avatarUrls['48x48'],\n        active: json.active,\n        self: json.self,\n        timezone: json.timeZone,\n        locale: json.locale\n      });\n    });\n  });\n}\n"
     }
   }
 }
