@@ -89,10 +89,6 @@ auth0.renewAuth({
 });
 ```
 
-For more information on silent authentication refer to [Silent Authentication for Single Page Apps](/api-auth/tutorials/silent-authentication).
-
-For more information on refresh tokens and how to use them refer to [Refresh Token](/tokens/refresh-token).
-
 ## Revoke access
 
 Once issued, tokens can not be revoked in the same fashion as cookies with session id’s for server-side sessions.  As a result, tokens should be issued for relatively short periods, and then [renewed](#lifetime) periodically if the user remains active.
@@ -100,6 +96,8 @@ Once issued, tokens can not be revoked in the same fashion as cookies with sessi
 ## More Information
 
 * [Overview of JSON Web Tokens](/jwt)
+* [Silent Authentication for Single Page Apps](/api-auth/tutorials/silent-authentication).
+* [How to get, use and revoke a Refresh Token](/tokens/refresh-token).
 * [A writeup on the contents of a JSON Web Token](https://scotch.io/tutorials/the-anatomy-of-a-json-web-token)
 * [Wikipedia page on JSON Web Tokens](https://en.wikipedia.org/wiki/JSON_Web_Token)
 * [IETF RFC for JWT](https://tools.ietf.org/html/rfc7519)
