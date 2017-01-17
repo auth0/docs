@@ -35,38 +35,11 @@ Auth0 is expanding into new US regions, and traffic originating from these regio
 
 If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to add the following IP addresses to your firewall rules:
 
-<table>
-  <tr>
-    <td>138.91.154.99</td>
-    <td>54.221.228.15</td>
-    <td>54.183.64.135</td>
-    <td>54.67.77.38</td>
-  </tr>
-  <tr>
-    <td>54.67.15.170</td>
-    <td>54.183.204.205</td>
-    <td>54.173.21.107</td>
-    <td>54.85.173.28</td>
-  </tr>
-  <tr>
-    <td>35.167.74.121</td>
-    <td>35.160.3.103</td>
-    <td>35.166.202.113</td>
-    <td>35.165.143.35</td>
-  </tr>
-  <tr>
-    <td>35.167.53.126</td>
-    <td>35.167.33.107</td>
-    <td>52.14.40.253</td>
-    <td>52.14.38.78</td>
-  </tr>
-  <tr>
-    <td>52.14.17.114</td>
-    <td>52.71.209.77</td>
-    <td>34.195.142.251</td>
-    <td>52.200.94.42</td>
-  </tr>
-</table>
+```
+138.91.154.99, 54.221.228.15, 54.183.64.135, 54.67.77.38, 54.67.15.170, 54.183.204.205, 54.173.21.107, 54.85.173.28, 35.167.74.121, 35.160.3.103, 35.166.202.113, 35.165.143.35, 35.167.53.126, 35.167.33.107, 52.14.40.253, 52.14.38.78, 52.14.17.114, 52.71.209.77, 34.195.142.251, 52.200.94.42
+```
+
+If you have any questions, create a ticket in our [Support Center](https://support.auth0.com).
 
 ### SAML Validations
 
