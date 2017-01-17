@@ -13,6 +13,4 @@ If you want to unlock the new API Authorization scenario, you will need to enabl
 
 You will now see that the API section is displayed on your sidebar.
 
-::: panel-info Docs on the new API Authorization flows
-For documentation on the new API Authorization flows refer to [API Authorization](/api-auth).
-:::
+**NOTE**: For docs on the new API Authorization flows refer to [API Authorization](/api-auth).
