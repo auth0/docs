@@ -127,7 +127,7 @@ The following is the most basic request you can make to the `/authorize` endpoin
 ```text
 https://${account.namespace}/authorize
   ?response_type=token
-  &client_id=YOUR_CLIENT_ID
+  &client_id=${account.clientId}
   &redirect_uri=https://${account.namespace}/mobile
 ```
 
@@ -158,7 +158,7 @@ You can request a user's name and profile picture by requesting the `name` and `
 ```text
 https://${account.namespace}/authorize
   ?response_type=token
-  &client_id=YOUR_CLIENT_ID
+  &client_id=${account.clientId}
   &redirect_uri=https://${account.namespace}/mobile
   &scope=openid%20name%20picture
 ```
@@ -192,7 +192,7 @@ You can send a user directly to the GitHub authentication screen by passing the 
 ```text
 https://${account.namespace}/authorize
   ?response_type=token
-  &client_id=YOUR_CLIENT_ID
+  &client_id=${account.clientId}
   &redirect_uri=https://${account.namespace}/mobile
   &scope=openid%20name%20picture%20email
   &connection=github
