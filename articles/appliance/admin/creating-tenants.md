@@ -24,8 +24,8 @@ If your business needs require you to create tenants regularly, you may automate
 3. Paste the following payload into the provided `body` box after you have supplied the client ID and the root tenant authority:
     ```text
     {
-     'client_id': '{CLIENT_ID}',
-     'audience': 'https://{RTA}/api/v2/',
+     'client_id': '${account.clientId}',
+     'audience': 'https://ROOT_TENANT_AUTHORITY/api/v2/',
      'scope': ['create:tenants']
     }
     ```
@@ -34,14 +34,14 @@ If your business needs require you to create tenants regularly, you may automate
     ```har
     {
         "method": "POST",
-        "url": "https://{RTA_DOMAIN}/api/v2/client-grants",
+        "url": "https://ROOT_TENANT_AUTHORITY/api/v2/client-grants",
         "httpVersion": "HTTP/1.1",
         "cookies": [],
         "headers": [],
         "queryString" : [],
         "postData": {
           "mimeType": "application/json",
-          "text" : "{ \"client_id\": \"{CLIENT_ID}\", \"audience\": \"https://{RTA}/api/v2/\", \"scope\": [\"create:tenants\"] }"
+          "text" : "{ \"client_id\": \"${account.clientId}\", \"audience\": \"https://ROOT_TENANT_AUTHORITY/api/v2/\", \"scope\": [\"create:tenants\"] }"
         },
         "headersSize" : -1,
         "bodySize" : -1,
@@ -58,7 +58,7 @@ Once you have created your New Client Grant, you may use it to complete the foll
 ```har
 {
     "method": "POST",
-    "url": "https://{RTA_DOMAIN}/oauth/token",
+    "url": "https://ROOT_TENANT_AUTHORITY_DOMAIN/oauth/token",
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
@@ -68,7 +68,7 @@ Once you have created your New Client Grant, you may use it to complete the foll
     "queryString" : [],
     "postData" : {
         "mimeType": "application/json",
-        "text": "{\"audience\": \"https://{RTA}/api/v2/\", \"grant_type\": \"client_credentials\",\"client_id\": \"{CLIENT_ID}\", \"client_secret\": \"{CLIENT_SECRET}\"}"
+        "text": "{\"audience\": \"https://ROOT_TENANT_AUTHORITY/api/v2/\", \"grant_type\": \"client_credentials\",\"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\"}"
     },
     "headersSize" : -1,
     "bodySize" : -1,
@@ -91,13 +91,13 @@ You may use the following call create a tenant. Once the tenant is created, the 
 ```har
 {
     "method": "POST",
-    "url": "https://{RTA_DOMAIN}/api/v2/tenants",
+    "url": "https://ROOT_TENANT_AUTHORITY_DOMAIN/api/v2/tenants",
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
         { "name": "cache-control", "value": "no-cache" },
         { "name": "content-type", "value": "application/json" },
-        { "name": "authorization", "value": "Bearer {ACCESS_TOKEN}" }
+        { "name": "authorization", "value": "Bearer ACCESS_TOKEN" }
     ],
     "queryString" : [],
     "postData" : {
@@ -117,7 +117,7 @@ This snippet shows how you can get an access token for the newly-created tenant,
 ```har
 {
     "method": "POST",
-    "url": "https://{NEW_TENANT_DOMAIN}/oauth/token",
+    "url": "https://NEW_TENANT_DOMAIN/oauth/token",
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
@@ -127,7 +127,7 @@ This snippet shows how you can get an access token for the newly-created tenant,
     "queryString" : [],
     "postData" : {
         "mimeType": "application/json",
-        "text": "{\"audience\": \"https://{NEW_TENANT_DOMAIN}/api/v2/\", \"grant_type\": \"client_credentials\", \"client_id\": \"{MANAGEMENT_CLIENT_ID}\", \"client_secret\": \"{MANAGEMENT_CLIENT_SECRET}\"}"
+        "text": "{\"audience\": \"https://NEW_TENANT_DOMAIN/api/v2/\", \"grant_type\": \"client_credentials\", \"client_id\": \"MANAGEMENT_CLIENT_ID\", \"client_secret\": \"MANAGEMENT_CLIENT_SECRET\"}"
     },
     "headersSize" : -1,
     "bodySize" : -1,
