@@ -152,14 +152,14 @@ The following is the most basic request you can make to the `/authorize` endpoin
 ```text
 https://${account.namespace}/authorize
   ?response_type=token
-  &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://YOUR_APP/callback
+  &client_id=${account.clientId}
+  &redirect_uri=${account.callback}
 ```
 
 After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` and `token_type` passed as parameters in the hash fragment:
 
 ```text
-https://YOUR_APP/callback
+${account.callback}
   #id_token=eyJ0...
   &token_type=Bearer
 ```
@@ -183,15 +183,15 @@ You can request a user's name and profile picture by requesting the `name` and `
 ```text
 https://${account.namespace}/authorize
   ?response_type=token
-  &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://YOUR_APP/callback
+  &client_id=${account.clientId}
+  &redirect_uri=${account.callback}
   &scope=openid%20name%20picture
 ```
 
 After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` and `token_type` passed as parameters in the hash fragment:
 
 ```text
-https://YOUR_APP/callback
+${account.callback}
   #id_token=eyJ0...
   &token_type=Bearer
 ```
@@ -217,8 +217,8 @@ You can send a user directly to the GitHub authentication screen by passing the 
 ```text
 https://${account.namespace}/authorize
   ?response_type=token
-  &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://YOUR_APP/callback
+  &client_id=${account.clientId}
+  &redirect_uri=${account.callback}
   &scope=openid%20name%20picture%20email
   &connection=github
 ```
@@ -226,7 +226,7 @@ https://${account.namespace}/authorize
 After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` and `token_type` passed as parameters in the hash fragment:
 
 ```text
-https://YOUR_APP/callback
+${account.callback}
   #id_token=eyJ0...
   &token_type=Bearer
 ```
