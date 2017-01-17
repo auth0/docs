@@ -15,7 +15,7 @@ To ask Auth0 for tokens for any of your authorized client applications, perform 
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"{CLIENT_ID}\",\"client_secret\": \"{CLIENT_SECRET}\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
   }
 }
 ```
@@ -25,8 +25,8 @@ The response will be a [signed JWT (JSON Web Token)](/jwt#2-body) containing at 
 ```
 {
   "iss": "https://${account.namespace}/",
-  "sub": "{APP_CLIENT_ID}@clients",
-  "aud": "{YOUR_API_IDENTIFIER}",
+  "sub": "${account.clientId}@clients",
+  "aud": "YOUR_API_IDENTIFIER",
   "exp": // unix timestamp of the token's expiration date,
   "iat": // unix timestamp of the token's creation date,
   "scope": ""
