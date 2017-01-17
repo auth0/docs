@@ -44,10 +44,10 @@ If you've extended Auth0 through [rules](/rules) or [a custom database connectio
 POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
-  "client_id":   "{An app registered in Auth0 for monitoring}",
-  "username":    "{A system account for monitoring}",
-  "password":    "{A password}",
-  "connection":  "{A user store defined in Auth0}",
+  "client_id":   "An app registered in Auth0 for monitoring",
+  "username":    "A system account for monitoring",
+  "password":    "A password",
+  "connection":  "A user store defined in Auth0",
   "grant_type":  "password",
   "scope":       "openid",
   "device":      "SCOM"
@@ -75,7 +75,7 @@ If you are using the __Auth0 Appliance__, monitoring is very similar to the step
 
 The health endpoints are equivalent, only with the private URL:
 
-  https://{your_auth0_server}/{test | testall}
+  https://YOUR_AUTH0_SERVER/test|testall
 
 In a dedicated deployment we recommend you monitor the following endpoints:
 
@@ -95,9 +95,9 @@ content-type: application/json
 
 The endpoints above will normally hit the load-balancer that is fronting the nodes of a cluster. You can monitor individual nodes. A typical highly-available deployment will have at leasts 3 nodes:
 
-* `https://{IP Address Node 1}/testall`
-* `https://{IP Address Node 2}/testall`
-* `https://{IP Address Node 3}/testall`
+* `https://IP_ADDRESS_NODE_1}/testall`
+* `https://IP_ADDRESS_NODE_2}/testall`
+* `https://IP_ADDRESS_NODE_3}/testall`
 
 If all is working fine, the endpoints will return a simple string:
 
