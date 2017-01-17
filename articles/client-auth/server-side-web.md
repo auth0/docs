@@ -40,7 +40,7 @@ The **Create Client** window will open, allowing you to enter the name of your n
 
 ![](/media/articles/client-auth/server-side-web/create-client.png)
 
-Once the client has been created you can navigate to the **Settings** tab of the client and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, e.g. `https://YOUR_APP/callback`. 
+Once the client has been created you can navigate to the **Settings** tab of the client and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, e.g. `${account.callback}`. 
 
 This URL must be part of your application, as your application will need to retrieve the `code` and exchange it for the `id_token`.
 
@@ -57,7 +57,7 @@ This endpoint supports the following query string parameters:
 | response_type | The response type specifies the Grant Type you want to use. This can be either `code` or `token`. For server-side web applications using the Authorization Code Flow this **must be set** to `code` |
 | client_id | The Client ID of the Client you registered in Auth0. This can be found on the **Settings** tab of your Client in the Auth0 Dashboard |
 | scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
-| redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, e.g. `https://YOUR_APP/callback`<br><br>**Note:** Be sure to add this URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Client inside the [Auth0 Dashboard](${manage_url}) |
+| redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, e.g. `${account.callback}`<br><br>**Note:** Be sure to add this URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Client inside the [Auth0 Dashboard](${manage_url}) |
 | connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your client.  |
 | state | The state parameter will be sent back should be used for XSRF and contextual information (like a return url) |
 
@@ -66,7 +66,7 @@ This endpoint supports the following query string parameters:
 After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along an `access_token` in the `code` query string parameter of the URL, e.g.
 
 ```text
-https://YOUR_APP/callback?code=2OKj...
+${account.callback}?code=2OKj...
 ```
 
 You application will need to handle the request to this callback URL, extract the `access_code` from the `code` query string parameter and call the `/oauth/token` endpoint of the Auth0 Authentication API in order to exchange the `access_code` for the `id_token`:
@@ -80,7 +80,7 @@ You application will need to handle the request to this callback URL, extract th
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://YOUR_APP/callback\"}"
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
   }
 }
 ```
@@ -152,14 +152,14 @@ The following is the most basic request you can make to the `/authorize` endpoin
 ```text
 https://${account.namespace}/authorize
   ?response_type=code
-  &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://YOUR_APP/callback
+  &client_id=${account.clientId}
+  &redirect_uri=${account.callback}
 ```
 
 After the user has authenticated, they will be redirected back to the `redirect_uri` with the `access_code` in the `code` query string parameter:
 
 ```text
-https://YOUR_APP/callback?code=2OKj...
+${account.callback}?code=2OKj...
 ```
 
 You can then exchange the `access_code` for an `id_token`. This is an example of the decoded payload of the `id_token` which will be returned:
@@ -181,15 +181,15 @@ You can request a user's name and profile picture by requesting the `name` and `
 ```text
 https://${account.namespace}/authorize
   ?response_type=code
-  &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://YOUR_APP/callback
+  &client_id=${account.clientId}
+  &redirect_uri=${account.callback}
   &scope=openid%20name%20picture
 ```
 
 After the user has authenticated, they will be redirected back to the `redirect_uri` with the `access_code` in the `code` query string parameter:
 
 ```text
-https://YOUR_APP/callback?code=2OKj...
+${account.callback}?code=2OKj...
 ```
 
 You can then exchange the `access_code` for an `id_token`. The name and profile picture will be available in the `name` and `picture` claims of the returned `id_token`:
@@ -213,8 +213,8 @@ You can send a user directly to the GitHub authentication screen by passing the 
 ```text
 https://${account.namespace}/authorize
   ?response_type=code
-  &client_id=YOUR_CLIENT_ID
-  &redirect_uri=https://YOUR_APP/callback
+  &client_id=${account.clientId}
+  &redirect_uri=${account.callback}
   &scope=openid%20name%20picture%20email
   &connection=github
 ```
@@ -224,7 +224,7 @@ After the user has authenticated, they will be redirected back to the `redirect_
 After the user has authenticated, they will be redirected back to the `redirect_uri` with the `access_code` in the `code` query string parameter:
 
 ```text
-https://YOUR_APP/callback?code=2OKj...
+${account.callback}?code=2OKj...
 ```
 
 You can then exchange the `access_code` for an `id_token`. The user's name and profile picture and email address will be available in the `name`, `picture` and `email` claims of the returned `id_token`. You will also notice that the `sub` claim contains the User's unique ID returned from GitHub:
