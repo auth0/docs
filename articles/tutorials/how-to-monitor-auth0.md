@@ -95,9 +95,9 @@ content-type: application/json
 
 The endpoints above will normally hit the load-balancer that is fronting the nodes of a cluster. You can monitor individual nodes. A typical highly-available deployment will have at leasts 3 nodes:
 
-* `https://IP_ADDRESS_NODE_1}/testall`
-* `https://IP_ADDRESS_NODE_2}/testall`
-* `https://IP_ADDRESS_NODE_3}/testall`
+* `https://IP_ADDRESS_NODE_1/testall`
+* `https://IP_ADDRESS_NODE_2/testall`
+* `https://IP_ADDRESS_NODE_3/testall`
 
 If all is working fine, the endpoints will return a simple string:
 
