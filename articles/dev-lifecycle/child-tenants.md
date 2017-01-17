@@ -12,8 +12,9 @@ The test/dev/staging accounts are called child accounts.
 
 * Accounts that pay 167 US$ per month or more are eligible for one free test account, with the same plan/features.
 * The child account will be subject to Auth0’s [Operational Policies](/policies).
-* The child account must not be used in a production environment.
 * If the child account is downgraded to a free plan and a paid plan subscription is terminated, all the additional features that it had will be removed or restricted as outlined in [pricing](https://auth0.com/pricing).
+* **The child account must not be used in a production environment.**
+
 
 ## How to request a child account?
 
