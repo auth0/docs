@@ -18,7 +18,7 @@ curl --request GET \
   --data '"connection"="CONNECTION"'
 ```
 
-<% var acceptReqPath = '/samlp/${account.clientId}'; %>
+<% var acceptReqPath = '/samlp/YOUR_CLIENT_ID'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_method": "GET",
@@ -60,7 +60,7 @@ curl --request GET \
   --url 'https://${account.namespace}/samlp/metadata/${account.clientId}'
 ```
 
-<% var getMetadataPath = '/samlp/metadata/${account.clientId}'; %>
+<% var getMetadataPath = '/samlp/metadata/YOUR_CLIENT_ID'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_method": "GET",
