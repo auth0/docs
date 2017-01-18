@@ -13,6 +13,8 @@ Auth0 currently supports the following providers:
 * [SendGrid](#configure-sendgrid-for-sending-email)
 * [Custom SMTP](#configure-a-custom-smtp-server-for-sending-email)
 
+**Note:** You can only configure one email provider (Amazon SES, Sendgrid, etc.) which will be used for all emails. 
+
 ## Configure Amazon SES for Sending Email
 
 There are several steps to follow to configure Amazon SES for sending email. If you want to use the SES API, please follow this guide.

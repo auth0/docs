@@ -12,6 +12,9 @@ The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emai
 
 ![](/media/articles/email/index/emails-fields.png)
 
+
+**Note:** Only one template can be used for each template type (i.e. only one template for change passsword emails).
+
 ## Configuring *From*, *Subject*, *Redirect To*, and *URL Lifetime*
 
 For each type of email, you can customize the **From Address**, the **Subject**, the **Redirect To** and the **URL Lifetime**.
