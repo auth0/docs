@@ -9,7 +9,7 @@ description: This tutorial will show you how to use the Auth0 WCF SDK to add aut
   path: '',
   requirements: [
     'Microsoft Visual Studio 2015',
-    'Auth0-WCF-Service-JWT 1.0.3
+    'Auth0-WCF-Service-JWT 1.0.3'
   ]
 }) %>
 
