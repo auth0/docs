@@ -23,6 +23,27 @@ If you need help with the migration, create a ticket in our [Support Center](htt
 ## Current Migrations
 Current migrations are listed below, newest first. For migrations that have already been enabled see [Past Migrations](#past-migrations).
 
+### Whitelisting IP Address Ranges
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Low | 2011-01-15 |  2017-01-31 |
+
+Auth0 is expanding into new US regions, and traffic originating from these regions will have new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
+
+#### Am I affected by the change?
+
+If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to add the following IP addresses to your firewall rules:
+
+```
+138.91.154.99, 54.221.228.15, 54.183.64.135, 54.67.77.38, 54.67.15.170, 
+54.183.204.205, 54.173.21.107, 54.85.173.28, 35.167.74.121, 35.160.3.103, 
+35.166.202.113, 35.165.143.35, 35.167.53.126, 35.167.33.107, 52.14.40.253, 
+52.14.38.78, 52.14.17.114, 52.71.209.77, 34.195.142.251, 52.200.94.42
+```
+
+If you have any questions, create a ticket in our [Support Center](https://support.auth0.com).
+
 ### SAML Validations
 
 | Severity | Grace Period Start | Mandatory Opt-In|
