@@ -19,7 +19,7 @@ Auth0 will transfer customer data from one account to another in the following s
  
 * If you are opting to move out from our service, then you might want to check [this section](/moving-out). Please notice that in order to make this request you must be signed in to the Silver plan for one month.
 
-## Frequently asked requests that are not allowed:
+## Frequently asked requests that are not allowed
 
 * Transfer of data from one non-production account to a production account prior to transition to production status. 
 
