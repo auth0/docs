@@ -214,5 +214,5 @@ To query the errors you should make `GET` request to `/api/{job_id}/errors`. You
 Once you have retrieved the results, make a DELETE request to /api/jobs/{job_id}. Make sure you have a delete:passwords_checking_job scope. You should get back an empty 204 response. You can check that everything has been deleted trying to get the results for the job using the endpoint described above.
 
 ```
-*IMPORTANT*: If this endpoint is not called, the data will be deleted automatically after a short period of time.```
+*IMPORTANT*: If this endpoint is not called, the data will be deleted automatically after a short period of time.
 ```
