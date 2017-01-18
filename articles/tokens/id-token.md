@@ -64,7 +64,9 @@ If you are using [OAuth 2.0 API Authorization](/api-auth/tutorials/configuring-t
 
 ## Lifetime
 
-The `id_token` is valid for 10 hours (36000 seconds) by default.  The value can be changed in the [Dashboard > Clients > Settings](${manage_url}/#/clients/${account.clientId}/settings) screen using the `JWT Expiration (seconds)` field.
+The purpose of the `id_token` is to cache user information for better performance and experience, and by default, the token is valid for 36000 seconds, or 10 hours. You may change this setting as you see fit; if there are security concerns, you may certainly shorten the time period before the token expires, but remember that the `id_token` helps ensure optimal performance by reducing the need to contact the Identity Provider every time the user performs an action that requires an API call.
+
+The expiration time can be changed in the [Dashboard > Clients > Settings](${manage_url}/#/clients/${account.clientId}/settings) screen using the `JWT Expiration (seconds)` field.
 
 There are cases where you might want to renew your `id_token`. In order to do so, you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
 
@@ -72,7 +74,7 @@ When performing the initial authorization flow, you can ask for a `refresh_token
 
 This method is not an option for Single Page Apps (SPAs), since for security reasons you cannot get a `refresh_token` from the [Implicit Grant](/api-auth/grant/implicit) (the OAuth flow typically used from Client-side Web Apps). In that case you would have to use [silent authentication](/api-auth/tutorials/silent-authentication).
 
-If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `renewAuth()` method. 
+If you are using [auth0.js](/libraries/auth0js) on an SPA, then you can fetch a new token using the `renewAuth()` method.
 
 ```js
 auth0.renewAuth({
