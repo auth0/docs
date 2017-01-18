@@ -1,59 +1,52 @@
-Bulk Passwords Checking
+Bulk Password Checking
 =======================
 
-In Auth0 we focus on bring you the tools you need to keep your systems and your users safe.
-Bulk passwords checking is a tool that allows you to check your user's passwords against pre-defined list of
-passwords to test their strength.
+At Auth0, we focus on bringing you the tools you need to keep your systems and your users safe.
+The bulk password checking tool allows you to check your users' passwords against a pre-defined list of passwords.
 
-This tool together with our [Breached Password Security](/anomaly-detection/breached-passwords) helps you audit your
-users security and take actions to protect them.
+This tool, together with our [Breached-Password Detection](/anomaly-detection/breached-passwords) functionality, helps you audit your users' security and take appropriate actions to protect them and their accounts.
 
-## Bulk Passwords Checking vs Breached Password Security
-Breached Password Security tools checks user passwords against our database of compromised passwords, those passwords usually
-come from security breached experienced by a third party application that have been released and so they might have been accessed by attackers. If a compromised account is detected different actions may be taken based on your configuration.
-
-On the other hand, bulk passwords checking aims to give you the power to audit your users security against your own
-passwords list, those passwords may come from different sources, examples of possible sources might be list of passwords
-available on the Internet (also known as passwords-dictionaries), your own hand-made checking list, etc.
-
-Combined with other tools we offer, actively auditing your users' account passwords will help you to proactively
-protect them and take risk mitigation actions in case a weak or compromised password gets detected.
+## Bulk Password Checking vs. Breached-Password Detection
+The Breached-Password Detection feature checks user passwords against Auth0's database of compromised passwords. These passwords have been compiled from security breaches experienced by external third-parties, where the breached information have been released to the public. If a compromised account is detected, the Breached-Password Detection tool will take appropriate action.
+ 
+ Bulk Password Checking, on the other hand, aims to give you the power to audit your users' security against your own passwords list. This list of passwords can be anything you choose; like a list of forbidden, trivial-to-crack passwords, or a list of passwords that your organization knows to have been breached elsewhere.
+ 
+Combined with other tools we offer, actively auditing your users' account passwords will help you to proactively protect them, and to mitigate risk to your users and their accounts.
 
 ## Security considerations
-This tool helps you audit and protect your users against weak or compromised passwords, however, if used inappropriately, it might allow an attacker to brute force your users; because of this is really important for you to keep your credentials secure and not to issue tokens that allows to execute bulk passwords checking if not strictly necessary, also, make sure to include a token identifier and set a short expiration period on the tokens that allow this action, that way you will be able to blacklist them if they get compromised. Finally, delete the data once you have finished; that way you can be sure nobody else will be able to access it.
+This tool is designed to help you audit and protect your users against weak or compromised passwords. If used inappropriately, however, it could be used to attempt to guess your users' passwords.
+
+For this reason, it is really important for you to keep your credentials secure and not to issue tokens that allows the execution of Bulk Password Checking unnecessarily. Be sure to include a token identifier, and set a short expiration period on the tokens that allow this action. That way you will be able to blacklist them if they get compromised. Finally, delete the data once the checking is complete, in order to prevent its abuse.
 
 We also take explicit measures to protect your data:
-- As everything in Auth0 all the data is transmitted over TLS even in our internal systems.
-- Your data will be in our systems as less time as possible, only the time needed to
-process and hand you in the results, then it is going to be deleted automatically in a short period of time. Even so,
-it is considered a good practice to manually delete the data once you have the results (see bellow).
-- Input data will be processed in batches and every batch will be deleted as soon as it gets processed to minimize the risk of
-exposure.
-- Result won't include the actual matches but a reference to them.
+- As with all data at Auth0, it is transmitted over TLS even in our internal systems.
+- The data is held only for the time it takes to process and return the results, and then it will be automatically deleted after the results are retrieved. Even so, it is considered good practice to manually delete the data once you have retrieved the results (see below).
+- The results will not contain the password information.
 
 To sum up:
-- Do not issue tokens that allows `create:passwords_checking_job` if you are not absolutely sure this right is needed
-- Set a short expiration on the issued tokens
-- Add an identifier (jti) to your tokens. So you will be able to blacklist compromised tokens.
-- If you think  a token might have been compromised blacklist it immediately.
-- Delete the input data and results once finished.
+- Use tokens with create:passwords_checking_job sparingly.
+- Set a short expiration on the issued tokens.
+- As always, add an identifier (jti) to your tokens so you will be able to blacklist compromised tokens.
+- If you think a token may have been compromised, blacklist it immediately.
+- Delete the input data and results when finished.
 
 ## Usage
-This tool is made available through our [Management API](/api/management/v2). It has an endpoint that allows you to check a pre-defined list of users and passwords, which must be provided as a csv file, against a database connection. Each password will be checkend in background and some time later you will be able to get the results, the errors, and finally delete the information from Auth0 service.
+This tool is made available through our [Management API](/api/management/v2). It has an endpoint that allows you to check a pre-defined list of users and passwords --provided as a csv file-- against a database connection. This is run as a background process, which, when complete, will allow you to retrieve the results and any errors, as well as delete the data from Auth0.
 
 ### Preparing the input file
-In order to run this job you need to upload a list of users and passwords to check. This list must be provided as a CSV (coma separated value) where each row must has te following format:
+In order to run this job you need to upload a list of users and passwords to check. This list must be provided as a CSV (comma separated value) file, where each row must have the following format:
+
 ```
 {username},{email},{password}
 ```
 
 #### Format considerations:
-- Must not has header row
+- Must not have a header row
 - Each row *must* have a maximum of 400 characters
-- If any of the values contain a coma, the whole value must be quoted
-- Email and username are optional, but you must provide one of them (and not both)
+- If any of the values contain a comma, the whole value must be quoted
+- You must provide either a email or a username, but not both
 
-The following JSON schema describes a row and might be used to validate it before uploading:
+Use the following JSON schema to verify your data before uploading:
 ```js
    {
      type: 'object',
@@ -106,19 +99,17 @@ john.doe3@example.com,,"secret, really secret"
 ,john.doe2,secr et
 ```
 
-These rows are all valid input rows. Note the quotation around "secret, really secret"
-because that password contains a coma. Whitespace does not need quotation as stated on
-4th line.
+Each of these rows are valid. Note the quotation around "secret, really secret" is necessary because of the comma within the password. Whitespace does not require quoting.
 
 ### Starting the job
 Once you have the file ready, you are ready to start a job to check the file against your database connection. To do so you need to execute a `POST` request against `/api/passwords-checking` with encoding type `multipart/form-data`.
 
 Your request should contain the following parameters:
 
-- passwords (the csv file, detailed above, that you are uploading, which contains data to check)
-- connection_id (a string, the connection id of the connection from where the users will be checked)
+- passwords (the csv file as shown above)
+- connection_id (the [connection](/connections/database) the data will be checked against)
 
-If it works, you will get a response similar to the following one:
+If successful, your response will be similar to the following:
 
 ```js
 {
@@ -129,11 +120,10 @@ If it works, you will get a response similar to the following one:
 }
 ```
 
-The returned entity represents the passwords checking job. At this point the job is queued on our system and will be started
-as soon as possible. Once the job is finishes you will get a log entry `fpc` (if failed) or `spc` (if succeed). You can query the logs through [Management API2](/api/management/v2) or use our [Dashboard](${manage_url}/#/logs) to get them. You can also query job status anytime you want using the appropriate endpoint (see bellow).
+The returned entity represents the job in progress. At this point the job is queued. Once the job completes you will get a log entry `fpc` (for failure) or `spc` (for success). You can query the logs through [Management API2](/api/management/v2) or the [Dashboard](${manage_url}/#/logs). You can also query job status anytime using the appropriate endpoint as shown below.
 
 ### Querying job status
-Once a job has been started you can query its status whenever you want, to do so simply make a `GET` request to `/api/jobs/{id}`, the `id` is the one that has been handed to you when you started the job (see above). You will get a response similar to
+To query a job's status, make a `GET` request to `/api/jobs/{id}` using the `id` returned when the job was initiated (see above). You will get a response similar to
 
 ```js
 {
@@ -145,12 +135,12 @@ Once a job has been started you can query its status whenever you want, to do so
 
 The `status` field might contain any of the following values:
 
-- pending: The job is still queued or being executed on our system. Wait some minutes and query again to know when it has finished.
-- completed: The job is complete you can query the errors and the results (see bellow).
-- failed: The job has failed, you must query the errors and check your logs to see what went wrong.
+- pending: The job is still queued or is being executed on our system.
+- completed
+- failed
 
 ### Querying results
-Once the job has finished you are ready to gets it results and act based on them. To get the results you should make a request to `/api/{job_id}/results`. You will get a JSON Array response, similar to:
+Once the job has finished you may retrieve the results with a request to /api/{job_id}/results. You will get a JSON Array response, similar to:
 
 ```js
 [
@@ -172,18 +162,17 @@ Once the job has finished you are ready to gets it results and act based on them
 - Email or username will be available depending the information you provided as input.
 - Status might have any of the following values:
   * password_matched: the password you provided for that user matched
-  * invalid_password: the password you provided haven't matched
-  * user_not_found: the user wasn't available in the connection database you specified.
+  * invalid_password: the password provided did not match
+  * user_not_found: the user was not in the connection database you specified
 
-Keep in mind that we try to recover from most of the errors instead of failing the job, so even when the job is complete
-there might be rows that have had errors and so they are not included in the results. You should check the errors (see below) to get more information about what have happened.
+Note that the system will recover from most of errors instead of failing the job, so there may be rows with errors even after the job completes. You should check the errors (see below) after every job.
 
 ```
-*IMPORTANT:* To keep a high security standard you must delete the job once you have the results and store them securely. The results will be automatically deleted after some time of completing / failing the job. Once the job has been processed the input files are deleted automatically and you will be not able to access them.
+*IMPORTANT:* For security, you should delete the job once you have retrieved your results. The results will be automatically deleted after a period of time, but it is a good practice to clean out the data as soon as possible regardless.
 ```
 
 ### Querying errors
-If we found errors processing the job they will be made available to you through this endpoint. Keep in mind that there might be errors even in a non-failed (completed) job; that's because if we find an error that can be scoped to an specific record, we keep processing the rest of the input file instead of completely failing the job.
+Any errors will be made available to you through this endpoint. Keep in mind that there might be errors even a completed job; specific records may be problematic, but we keep processing the rest of the input file instead of completely failing the job.
 
 To query the errors you should make `GET` request to `/api/{job_id}/errors`. You will get a JSON array result similar to:
 
@@ -222,8 +211,8 @@ To query the errors you should make `GET` request to `/api/{job_id}/errors`. You
   * unknown_error: when the error is scoped to the row but we cannot classify it over a more specific type.
 
 ### Deleting input and results data
-Once you are done, you have the results, the errors, etc. it is advisable to delete the input data, the job, the results and the errors. To do so you should make a `DELETE` request to `/api/jobs/{job_id}`. Make sure you have a `delete:passwords_checking_job` scope. If everything went well you will get back an empty `204` response. You can check that everything has been deleted trying to get the results for the job using the endpoint described above.
+Once you have retrieved the results, make a DELETE request to /api/jobs/{job_id}. Make sure you have a delete:passwords_checking_job scope. You should get back an empty 204 response. You can check that everything has been deleted trying to get the results for the job using the endpoint described above.
 
 ```
-*IMPORTANT*: Even if you don't call this endpoint the input and the results will be deleted a few days after the job has been started.
+*IMPORTANT*: If this endpoint is not called, the data will be deleted automatically after a short period of time.```
 ```
