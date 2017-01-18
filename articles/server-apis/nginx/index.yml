@@ -1,4 +1,6 @@
 title: Nginx API
+thirdParty: false
+community: true
 alias:
   - nginx
   - openresty
