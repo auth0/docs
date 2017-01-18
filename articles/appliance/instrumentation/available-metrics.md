@@ -1,0 +1,59 @@
+---
+section: appliance
+description: This document covers the metrics available when using Instrumentation.
+---
+
+# Auth0 Appliance: Metrics Available via Instrumentation
+
+::: panel-info Limitations
+Telegraf collects data from the Appliance at **5 second intervals**. Any data collected at this frequency is then available for **1 day** after its collection time.
+
+For data that is most useful, sampling occurs at **1 minute intervals**. Data collected at this frequency is available for **1 week** after its collection time.
+:::
+
+## Metrics Available
+
+The following metrics are available to you when Instrumentation is enabled on your Appliance instance(s)
+
+### Metrics Regarding Appliance Infrastructure
+
+* CPU
+* Disk
+* Disk I/O
+* Memory
+* processesSwap
+* System
+* MongoDB
+* Net
+* Nginx
+* RabbitMQ
+* Procstat
+
+### Metrics Regarding Appliance Processes
+
+* auth0-api2_http_requests_authenticated
+* auth0-api2_http_requests_received
+* auth0-api2_http_requests_replied
+* auth0-api2_http_response_time
+* auth0-import-users-worker_event-loop_blocked
+* auth0-import-users-worker_resources_cpu_usage
+* auth0-import-users-worker_resources_memory_heapTotal
+* auth0-import-users-worker_resources_memory_heapUsed
+* auth0-import-users-worker_resources_memory_usage
+* auth0-notifications_event-loop_blocked
+* auth0-notifications_resources_cpu_usage
+* auth0-notifications_resources_memory_heapTotal
+* auth0-notifications_resources_memory_heapUsed
+* auth0-notifications_resources_memory_usage
+* auth0-server_auth_step_time
+* auth0-server_clients_findByTenantAndClientId
+* auth0-server_connections_getByName
+* auth0-server_http_requests_received
+* auth0-server_http_requests_replied
+* auth0-server_http_response_time
+* auth0-server_tenants_get
+* auth0-users_bootup_time
+* auth0-users_http_requests_received
+* auth0-users_http_requests_replied
+* auth0-users_http_requests_size
+* auth0-users_http_response_time
