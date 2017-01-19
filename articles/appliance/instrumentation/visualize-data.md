@@ -14,7 +14,7 @@ Once you have enabled Instrumentation, you can access your data in one of two pl
 
 If you would like to see your data in the Appliance Dashboard, navigate to `https://<appliance_manage_domain>/configuration#/instrumentation` to access the graphs created from the data collected from your Appliance instances.
 
-![](/media/articles/appliance/instrumentation/general-data.png)
+![Appliance Instrumentation Dashboard](/media/articles/appliance/instrumentation/general-data.png)
 
 ## Access Your Data Directly from Grafana
 
@@ -32,4 +32,4 @@ Once you have created your Grafana dashboards, tag them as `instrumentation` so 
 1. Navigate to the Grafana dashboard's *Settings > General* page.
 2. Add a tag to the appropriate Grafana dashboard called `instrumentation`.
 
-![](/media/articles/appliance/instrumentation/tag-dashboard.png)
+![Grafana Dashboard Settings Screen](/media/articles/appliance/instrumentation/tag-dashboard.png)

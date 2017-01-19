@@ -81,15 +81,15 @@ The following table lists the query index and the metric to which it corresponds
 
 `query-metrics 4 "time > now() - 10m" "time < now()" nginx`
 
-## Access the InfluxDB Command-Line Interface
+## Access Data Directly from InfluxDB via Command-Line Interface
 
 ::: panel-warning Warning
 You can delete data and drop measurements and databases using the InfluxDB Command-Line Interface. Proceed with caution.
 :::
 
-You can access the InfluxDB Command-Line Interface (CLI) by running the `influx` command. The CLI allows you to run custom queries and explore your data. To see a full list of acceptable arguments for this command, please refer to the [InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.0/tools/shell/).
+You can access you data directly by querying your InfluxDB instance using its Command-Line Interface (CLI). To do this, run the `influx` command from the Appliance. The CLI allows you to run custom queries and explore your data. To see a full list of acceptable arguments for this command, please refer to the [InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.0/tools/shell/).
 
-Within InfluxDB, the database containing Appliance-related data is named `auth0`. There are two retention policies under `auth0`:
+Within InfluxDB, the database containing Appliance-related data is named `auth0`. There are two data retention policies under `auth0`:
 
 1. `1day`: contains metrics that get downsampled and stored for 1 day
 2. `1week`: contains metrics that get downsampled and stored for 1 week
@@ -100,7 +100,7 @@ Within InfluxDB, the database containing Appliance-related data is named `auth0`
 
 The following query allows you to view the number of MongoDB queries per second for the last two minutes.
 
-```
+```text
 USE auth 0
 
 SELECT queries_per_sec FROM auth0."1day"."mongodb" WHERE time > now() - 2m
