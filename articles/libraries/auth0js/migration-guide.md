@@ -8,7 +8,9 @@ url: /libraries/auth0js/migration-guide
 
 The following instructions assume you are migrating from **auth0.js v7** to **auth0.js v8**. 
 
-The goal of this migration guide is to provide you with all of the information you would need to update Auth0.js in your application. Of course, your first step is to include the latest version of auth0.js. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation of auth0.js to reflect the new changes. Take a look below for more information!
+The goal of this migration guide is to provide you with all of the information you would need to update Auth0.js in your application. Of course, your first step is to include the latest version of auth0.js. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation of auth0.js to reflect the new changes. Note that we especially recommend migrating to auth0.js v8 if you have the OAuth2 flag enabled in your tenant. 
+
+Take a look below for more information about changes and additions to auth0.js in version 8!
 
 ## Initialization of auth0.js
 
@@ -25,30 +27,78 @@ Initialization of auth0.js in your application will now use `auth0.WebAuth` inst
 
 ## Login
 
-Logging in has changed in v8 as well. Rather than using the `login` method, to [login using the Hosted Login page](/libraries/auth0js#hosted-login-page) you will need to use the `authorize` method. To [login using a custom username/password](/libraries/auth0js#custom-username-and-password), you'll use the `client.login` method.
+The `login` method of version 7 was divided into several different methods in version 8, based on the type of auth you need, rather than the old `login` method.
 
-Hosted Login:
+### webAuth.authorize()
+
+The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below. The default behavior for `authorize` is redirect, but popup can be specified.
+
+For hosted login, one must call the authorize endpoint
+
+
+```js
+webAuth.authorize({ //Any additional options can go here });
+```
+
+For social logins, the connection will need to be specified
 
 ```js
 webAuth.authorize({
-  audience: 'url:auth:some-audience',
-  scope: 'read:something write:otherthing',
-  responseType: 'token',
-  redirectUri: 'https://example.com/auth/callback'
+  connection: 'twitter'
 });
 ```
 
-Custom Username/Password Login:
+Hosted login with popup
+
+```js
+webAuth.popup.authorize({ //Any additional options can go here });
+```
+
+And social login with popup
+
+```js
+webAuth.popup.authorize({
+  connection: 'twitter'
+});
+```
+
+### webAuth.loginWithCredentials()
+
+To login with credentials to enterprise connections, the `loginWithCredentials` method is used. Redirect or popup should be specified.
+
+With redirect
+
+```js
+webAuth.redirect.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
+});
+```
+
+Or with popup
+
+```js
+webAuth.popup.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
+});
+```
+
+### webAuth.client.login()
+
+The `client.login` method allows for non rediret auth using custom database connections, using /oauth/token.
 
 ```js
 webAuth.client.login({
-  realm: 'Username-Password-Authentication', //connection name or HRD domain
-  username: 'info@auth0.com',
-  password: 'areallystrongpassword',
-  audience: 'https://mystore.com/api/v2',
-  scope: 'read:order write:order',
-  }, function(err, authResult) {
-    // Auth tokens in the result or an error
+  realm: 'tests',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid profile',
+  audience: 'urn:test'
 });
 ```
 
