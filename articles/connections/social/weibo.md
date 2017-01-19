@@ -61,7 +61,7 @@ When finished, click **SAVE**.
 
 ## 5. Test the Connection
 
-On the [Connections > Social](${manage_url}/#/connections/social) page of the Auth0 dashboard you should now see a **TRY** button with the weibo connection.
+On the [Connections > Social](${manage_url}/#/connections/social) page of the Auth0 dashboard you should now see a **TRY** button with the Weibo connection.
 
 ![Try Button](/media/articles/connections/social/weibo/try-connection.png)
 
