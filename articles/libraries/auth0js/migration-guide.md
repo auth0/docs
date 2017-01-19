@@ -16,7 +16,7 @@ Take a look below for more information about changes and additions to auth0.js i
 
 Initialization of auth0.js in your application will now use `auth0.WebAuth` instead of `Auth0`
 ```html
-<script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/auth0/8.1.0/auth0.min.js"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
     domain:       'YOUR_AUTH0_DOMAIN',
@@ -31,13 +31,15 @@ The `login` method of version 7 was divided into several different methods in ve
 
 ### webAuth.authorize()
 
-The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below. The default behavior for `authorize` is redirect, but popup can be specified.
+The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below. 
 
 For hosted login, one must call the authorize endpoint
 
 
 ```js
-webAuth.authorize({ //Any additional options can go here });
+webAuth.authorize({ 
+  //Any additional options can go here 
+});
 ```
 
 For social logins, the connection will need to be specified
@@ -48,10 +50,16 @@ webAuth.authorize({
 });
 ```
 
+### webAuth.popup.authorize()
+
+For popup authentication, the `popup.authorize` method can be used. 
+
 Hosted login with popup
 
 ```js
-webAuth.popup.authorize({ //Any additional options can go here });
+webAuth.popup.authorize({ 
+  //Any additional options can go here 
+});
 ```
 
 And social login with popup
@@ -62,9 +70,9 @@ webAuth.popup.authorize({
 });
 ```
 
-### webAuth.loginWithCredentials()
+### webAuth.redirect.loginWithCredentials()
 
-To login with credentials to enterprise connections, the `loginWithCredentials` method is used. Redirect or popup should be specified.
+To login with credentials to enterprise connections, the `redirect.loginWithCredentials` method is used.
 
 With redirect
 
@@ -77,7 +85,9 @@ webAuth.redirect.loginWithCredentials({
 });
 ```
 
-Or with popup
+### webAuth.popup.loginWithCredentials()
+
+Or, popup authentication can be performed with `popup.loginWithCredentials`.
 
 ```js
 webAuth.popup.loginWithCredentials({
