@@ -28,8 +28,8 @@ The following RACI Matrix provides a more in-depth summary of the roles and resp
 
 ### RACI
 
-* **Responsible**: the assigned party is responsible for implementing the task as required;
-* **Accountable**: the assigned party who is ultimately accountable for the task being completed as required;
+* **Responsible**: the assigned party who is responsible for implementing the task as required;
+* **Accountable**: the assigned party who is accountable for the task being completed as required;
 * **Consulted**: the party (or parties) whose opinions are requested and with whom there is two-way communication;
 * **Informed**: the party (or parties) who are kept up-to-date with regards to progress and with whom there is one-way communication
 
@@ -40,11 +40,11 @@ The following RACI Matrix provides a more in-depth summary of the roles and resp
 |Configuration of Development and Production environments|C|R|The Auth0 CSE will show the subscriber's infrastructure engineer [how to upload the SSL certificates, enter the SMTP credentials, and add administrators](/appliance/dashboard).|
 |Operations Handover|R|C|Auth0 Customer Success Engineers will provide a 90-minute Operations Handover meeting to review information regarding Appliance monitoring, backup, and updates, as well as answer questions.|
 |Monitoring|I|R, A|The subscriber is responsible for [monitoring the Appliance](/appliance/monitoring).|
-|Backing Up|I (in the event that there are issues)|R, A|The subscriber is responsible for [backing up the Appliance](/appliance/disaster-recovery) using the [Command-Line Tools](/appliance/cli)|
+|Backing Up|I (in the event that there are issues)|R, A|The subscriber is responsible for [backing up the Appliance](/appliance/disaster-recovery) using the [Command-Line Tools](/appliance/cli).|
 |Code Integration into Applications|C, I (in the event that there are issues)|R, A|The subscriber is responsible for Auth0 code integration.|
 |User Migration (if required)|C, I (in the event that there are issues)|R, A|The subscriber is responsible for migrating users where appropriate.|
-|Updates|R|R, A|Auth0 Customer Success Engineers will partner with the subscriber's infrastructure engineers to update the Appliance on an agreed-upon basis. The subscriber is responsible for taking VM snapshot(s) prior to the update, providing access to the Appliance, being present as the Appliance updates. Auth0 is responsible for running manual scripts (if required) and informing the subscriber on the status of the upgrade.|
-|Testing Updates|C, I (in the event that there are questions/issues)|R, A|The subscriber will test the Appliance after the DEV node is updated and inform Auth0 in the event there are issues.|
+|Updates|R|R, A|Auth0 Customer Success Engineers will partner with the subscriber's infrastructure engineers to update the Appliance on an agreed-upon basis. The subscriber is responsible for: taking VM snapshot(s) prior to the update, providing access to the Appliance, being present as the Appliance updates. Auth0 is responsible for: running manual scripts (if required), informing the subscriber on the status of the upgrade.|
+|Testing Updates|C, I (in the event that there are questions/issues)|R, A|The subscriber will test the Appliance after the Development node has been updated and inform Auth0 about any issues.|
 |Issue Identification and Support Ticket Submission|C|R, A|The subscriber is responsible for submitting issues via the [Support Center](/onboarding/enterprise-support).|
 |Issue Resolution|R|C|Auth0 will provide support for issues within the *core* of the Appliance. Auth0 will *consult* on issues pertaining to integration between Auth0 APIs and Dashboards.|
 
@@ -52,7 +52,7 @@ The following RACI Matrix provides a more in-depth summary of the roles and resp
 
 For more information about the Appliance, see:
 
-* [Appliance Overview](/appliance/appliance-overview )
+* [Overview](/appliance/appliance-overview )
 * [Infrastructure](/appliance/infrastructure)
 * [Dashboard](/appliance/dashboard)
 * [Monitoring](/appliance/monitoring)
