@@ -28,7 +28,7 @@ npm install auth0-js
 **CDN**
 
 ```bash
-<script src="${auth0js_url}"></script>
+<script src="https://cdn.auth0.com/w2/auth0-7.6.min.js"></script>
 ```
 
 ## Create the AuthService Class

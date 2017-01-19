@@ -22,7 +22,7 @@ First, add the `auth0.js` library to your application:
 ```typescript
 // index.html
 
-<script src="${auth0js_url}"></script>
+<script src="https://cdn.auth0.com/w2/auth0-7.6.min.js"></script>
 ```
 
 You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL` and set `responseType: 'token'`:
