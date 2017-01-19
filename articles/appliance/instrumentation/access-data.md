@@ -5,7 +5,7 @@ description: This document covers how to access the data gathered via Instrument
 
 # Auth0 Appliance: Access Your Data
 
-If you have connected to your Appliance via SSH, you can access your data in one of two ways.
+By connecting to your Appliance via SSH, you can access your data in one of two ways.
 
 ## Run Quick Queries from the Command Line
 
@@ -18,13 +18,17 @@ From the command line, you can run the `query-metrics` script, which provides yo
 
 ### Get Detailed Usage Information
 
-By running the `query-metrics` script *without* arguments, you can view detailed usage information.
+By running the `query-metrics` script *without* arguments, you can view detailed usage information:
+
+`query metrics`
 
 ### Get Specific Usage Information
 
-If you want to see specific information about a given usage scenario, you can add the appropriate arguments when running the `query-metrics` script. To do this, modify your command as follows:
+To see specific information about a given usage scenario, you can add the appropriate arguments when running the `query-metrics` script. To do this, modify your command as follows:
 
-`query-metrics <query_idx> <start_time> <end_time> [<additional_args>...] [<host> <port>]`
+`query-metrics <query_idx> <start_time> <end_time> [<additional_args>...]`
+
+The following table lists the query index and the metric to which it corresponds:
 
 <table class="table">
   <th>Index</th>
@@ -80,14 +84,12 @@ If you want to see specific information about a given usage scenario, you can ad
 ## Access the InfluxDB Command-Line Interface
 
 ::: panel-warning Warning
-Please be aware that you can delete data and drop measurements and databases using the InfluxDB Command-Line Interface. Proceed with caution.
+You can delete data and drop measurements and databases using the InfluxDB Command-Line Interface. Proceed with caution.
 :::
 
-You can access the InfluxDB Command-Line Interface (CLI) by running the `influx` command. The CLI allows you to run custom queries and explore your data.
+You can access the InfluxDB Command-Line Interface (CLI) by running the `influx` command. The CLI allows you to run custom queries and explore your data. To see a full list of acceptable arguments for this command, please refer to the [InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.0/tools/shell/).
 
-Additionally, the `influx` command accepts additional arguments so that you perform actions like importing commands from text files and so on. To see a full list of acceptable arguments, please refer to the [InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.0/tools/shell/).
-
-The database containing the Appliance's metrics is named `auth0`. There are two retention policies under `auth0`:
+Within InfluxDB, the database containing Appliance-related data is named `auth0`. There are two retention policies under `auth0`:
 
 1. `1day`: contains metrics that get downsampled and stored for 1 day
 2. `1week`: contains metrics that get downsampled and stored for 1 week

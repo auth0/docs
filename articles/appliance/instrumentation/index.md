@@ -6,11 +6,12 @@ description: This document covers why and how to enable instrumentation in the A
 
 # Auth0 Appliance: Instrumentation
 
-To make it easy for interested parties (such as your Appliance administrators or Auth0 Customer Success Engineers) to gather information about the current/previous state of the Appliance or diagnose issues, you can enable a feature called Instrumentation. By doing this, you are collecting data about the overall Appliance instance, as well as individual processes. You can then query or visualize this data.
+The Appliance ships with a feature called Instrumentation, which makes it easy for your Appliance administrators or Auth0 Customer Success Engineers to gather information about the current (or previous) state of the Appliance. With instrumentation, you are collecting time series data about the overall Appliance, as well as individual processes. You can then query or visualize this data to draw conclusions about the state of your Appliance.
+
+> Please contact your Auth0 Customer Success Engineer if you would like to enable Instrumentation for your Appliance.
 
 * [Software Components Used to Implement Instrumentation](/appliance/instrumentation/components)
 * [Available Metrics](/appliance/instrumentation/available-metrics)
-* [How to Enable Instrumentation on the Appliance](/appliance/instrumentation/how-to-enable)
 * [Access Your Data](/appliance/instrumentation/access-data)
 * [How to Visualize Your Data](/appliance/instrumentation/visualize-data)
-* [Create Users in Grafana](/appliance/instrumentation/create-grafana-users)
+* [Add Users in Grafana](/appliance/instrumentation/add-grafana-users)

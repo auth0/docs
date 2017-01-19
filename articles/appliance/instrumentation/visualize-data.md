@@ -6,6 +6,7 @@ description: This document covers how to visualize data gathered via Instrumenta
 # Auth0 Appliance: How to Visualize Your Data
 
 Once you have enabled Instrumentation, you can access your data in one of two places:
+
 * Appliance Dashboard
 * Grafana
 
@@ -24,7 +25,7 @@ Each Appliance node has its own instances of Grafana, InfluxDB, and Telegraph. T
 
 If you need to view relationships between datasets that have yet to be graphed, you can create new (or update existing) Grafana Dashboards displayed on the Appliance Dashboard's Instrumentation page. To create new Grafana dashboards, please view [this video](https://www.youtube.com/watch?v=sKNZMtoSHN4&index=7&list=PLDGkOdUX1Ujo3wHw9-z5Vo12YLqXRjzg2).
 
-Once you have created your Grafana dashboards, you will tag them before they will display on the Instrumentation page. To do this:
+Once you have created your Grafana dashboards, tag them as `instrumentation` so that they appear on the Instrumentation page. To do this:
 
 1. Navigate to the Grafana dashboard's *Settings > General* page.
 2. Add a tag to the Grafana dashboard called `instrumentation`.

@@ -8,26 +8,27 @@ description: This document covers the metrics available when using Instrumentati
 ::: panel-info Limitations
 Telegraf collects data from the Appliance at **5 second intervals**. Any data collected at this frequency is then available for **1 day** after its collection time.
 
-For data that is most useful, sampling occurs at **1 minute intervals**. Data collected at this frequency is available for **1 week** after its collection time.
+For selected data points, sampling occurs at **1 minute intervals**. Data collected at this frequency is then available for **1 week** after its collection time.
 :::
 
 ## Metrics Available
 
-The following metrics are available to you when Instrumentation is enabled on your Appliance instance(s)
+The following metrics are available to you when Instrumentation is enabled on your Appliance:
 
 ### Metrics Regarding Appliance Infrastructure
 
-* CPU
-* Disk
-* Disk I/O
-* Memory
-* processesSwap
-* System
-* MongoDB
-* Net
-* Nginx
-* RabbitMQ
-* Procstat
+* [CPU](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/CPU_README.md)
+* [Disk](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/DISK_README.md)
+* [Disk I/O](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/DISK_README.md)
+* [Memory](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/MEM_README.md)
+* [Processes](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/PROCESSES_README.md)
+* [Swap](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/MEM_README.md)
+* [System](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/SYSTEM_README.md)
+* [MongoDB](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/mongodb/README.md)
+* [Net](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/net.go)
+* [NGINX](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/nginx/README.md)
+* [RabbitMQ](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/rabbitmq)
+* [Procstat](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/procstat/README.md)
 
 ### Metrics Regarding Appliance Processes
 
