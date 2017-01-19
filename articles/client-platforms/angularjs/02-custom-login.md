@@ -13,11 +13,15 @@ The previous step explained how you can log users into your application using th
 
 ## Add `auth0.js`
 
-To add custom login to your app, you need to use the `auth0.js` library. Add a reference to `auth0.js` in your `index.html`.
+To add custom login to your app, you need to use the `auth0.js` library. Install **angular-auth9** and add a reference to the libraries in your `index.html`.
+
+```bash
+bower install angular-auth0
+```
 
 ```html
 <!-- Auth0's JS library -->
-<script type="text/javascript" src="bower_components/auth0.js/build/auth0.js"></script>
+<script type="text/javascript" src="https://cdn.auth0.com/w2/auth0-7.6.min.js"></script>
 <!-- auth0-angular -->
 <script type="text/javascript" src="bower_components/angular-auth0/dist/angular-auth0.js"></script>
 <!-- angular-jwt -->
