@@ -12,13 +12,13 @@ These steps will guide you through how to create an application with Yahoo! and 
 
 ## 1. Add a New Application
 
-To begin, you need a Yahoo user ID. If you don’t have one ([login.yahoo.com](login.yahoo.com) or [admanager.yahoo.com](admanager.yahoo.com)), you need to create one.
+To begin, you need a Yahoo user ID. If you don’t have one ([login.yahoo.com](https://login.yahoo.com) or [admanager.yahoo.com](https://admanager.yahoo.com)), you need to create one.
 
 Then, go to [Yahoo Developer Apps](https://developer.yahoo.com/apps/) and click on the **Create an App** button.
 
 ![Click the Create an App button](/media/articles/connections/social/yahoo/create-an-app.png)
 
-Then create an **Application Name** and select **Web Application** as the **Application Type**. 
+Create an **Application Name** and select **Web Application** as the **Application Type**. 
 
 ![Enter your app data](/media/articles/connections/social/yahoo/enter-fields.png)
 
@@ -32,11 +32,11 @@ For the **API Permissions** make sure to select at least one user data API:
 
 ## 2. Get your **Client Key** and **Client Secret**
 
-Once the application is created you will see a Client ID (Consumer Key) and Client Secret (Consumer Secret) to be used in the next step.
+Once the application is created you will see a **Client ID** (Consumer Key) and **Client Secret** (Consumer Secret). Copy these values as you will use them to set up the connection in Auth0.
 
 ![Get Client ID and Client Secret](/media/articles/connections/social/yahoo/client-id-and-secret.png)
 
-## 3. Setup the Connection in Auth0
+## 3. Set up the Connection in Auth0
 
 In a seperate tab or page, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
