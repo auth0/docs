@@ -58,57 +58,78 @@ The following RACI Matrix provides a more in-depth summary of the roles and resp
     <td>The Auth0 CSE will show the subscriber's infrastructure engineer [how to upload the SSL certificates, enter the SMTP credentials, and add administrators](/appliance/dashboard). </td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Operations Handover</td>
+    <td>R</td>
+    <td>C</td>
+    <td>Auth0 Customer Success Engineers will provide a 90-minute Operations Handover meeting to review information regarding Appliance monitoring, backup, and updates, as well as answer questions.</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Monitoring</td>
+    <td>I (in the event that there are issues)</td>
+    <td>R </br> A</td>
+    <td>The subscriber is responsible for [monitoring the Appliance](/appliance/monitoring). </td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Backing Up</td>
+    <td>I (in the event that there are issues)</td>
+    <td>R </br> A</td>
+    <td>The subscriber is responsible for [backing up the Appliance](/appliance/disaster-recovery) using the [Command-Line Tools](/appliance/cli)</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Code Integration into Applications</td>
+    <td>C </br>I (in the event that there are issues)</td>
+    <td>R </br> A</td>
+    <td>The subscriber is responsible for Auth0 code integration.</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>User Migration (if required)</td>
+    <td>C </br>I (in the event that there are issues)</td>
+    <td>R </br> A</td>
+    <td>The subscriber is responsible for migrating users where appropriate.</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Updates</td>
+    <td>R</td>
+    <td>R </br> A</td>
+    <td>
+    <p>Auth0 Customer Success Engineers will partner with the subscriber's infrastructure engineers to update the Appliance on an agreed-upon basis.</p>
+
+    <p>The subscriber is responsible for: <ul><li>taking VM snapshot(s) prior to the update</li><li>providing access to the Appliance</li> <li>being present as the Appliance updates</li></ul></p>
+
+    <p>Auth0 is responsible for:
+    <ul><li>running manual scripts (if required)</li>
+    <li>informing the subscriber on the status of the upgrade</li></ul></p></td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Testing Updates</td>
+    <td>C </br>I (in the event that there are questions/issues)</td>
+    <td>R </br> A</td>
+    <td>The subscriber will test the Appliance after the DEV node is updated and inform Auth0 in the event there are issues.
+    </td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Issue Identification and Support Ticket Submission</td>
+    <td>C</td>
+    <td>R </br> A</td>
+    <td>The subscriber is responsible for submitting issues via the [Support Center](/onboarding/enterprise-support).</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Issue Resolution</td>
+    <td>R</td>
+    <td>C</td>
+    <td>Auth0 will provide support for issues within the *core* of the Appliance. Auth0 will *consult* on issues pertaining to integration between Auth0 APIs and Dashboards.</td>
   </tr>
 </table>
+
+## Further Reading
+
+For more information about the Appliance, see:
+
+* [Appliance Overview](/appliance/appliance-overview )
+* [Infrastructure](/appliance/infrastructure)
+* [Dashboard](/appliance/dashboard)
+* [Monitoring](/appliance/monitoring)
+* [Disaster Recovery](/appliance/disaster-recovery)
+* [Command-Line Interface (CLI)](/appliance/cli)
+* [Enterprise Support](/onboarding/enterprise-support)
+* [Critical Support Issues Guidance](/appliance/critical-issue)
