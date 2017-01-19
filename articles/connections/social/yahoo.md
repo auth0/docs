@@ -56,11 +56,11 @@ When finished, click **SAVE**.
 
 On the [Connections > Social](${manage_url}/#/connections/social) page of the Auth0 dashboard you should now see a **TRY** button with the Yahoo! connection.
 
-![Connection Approval](/media/articles/connections/social/yahoo/approve-connection.png)
+![Try button](/media/articles/connections/social/yahoo/try-button.png)
 
 Click on this to test the new connection. This should bring up a confirmation page for the connection:
 
-![Try button](/media/articles/connections/social/yahoo/try-button.png)
+![Connection Approval](/media/articles/connections/social/yahoo/approve-connection.png)
 
 If accepted, you should be able to see the **It Works!** confirmation page that your connection has been configured correctly.
 
