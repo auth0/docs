@@ -27,7 +27,7 @@ Initialization of auth0.js in your application will now use `auth0.WebAuth` inst
 
 ## The parseHash Method
 
-The `parseHash` method now validates the id_token to avoid CRFS (along with the nonce) attacks. In order for this to work properly, the token should be signed using RS256, and will fail if the token is signed using HS256.
+The `parseHash` method now validates the id_token. In order for this to work properly, the token should be signed using RS256, and will fail if the token is signed using HS256.
 
 This can be avoided by either switching how your id_tokens are signed, or by manually parsing hashes, rather than using the `parseHash` method.
 
