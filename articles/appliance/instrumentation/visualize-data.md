@@ -14,6 +14,8 @@ Once you have enabled Instrumentation, you can access your data in one of two pl
 
 If you would like to see your data in the Appliance Dashboard, navigate to `https://<appliance_manage_domain>/configuration#/instrumentation` to access the graphs created from the data collected from your Appliance instances.
 
+![](/media/articles/appliance/instrumentation/general-data.png)
+
 ## Access Your Data Directly from Grafana
 
 Each Appliance node has its own instances of Grafana, InfluxDB, and Telegraph. To access a given node's Grafana instance:
@@ -28,4 +30,6 @@ If you need to view relationships between datasets that have yet to be graphed, 
 Once you have created your Grafana dashboards, tag them as `instrumentation` so that they appear on the Instrumentation page. To do this:
 
 1. Navigate to the Grafana dashboard's *Settings > General* page.
-2. Add a tag to the Grafana dashboard called `instrumentation`.
+2. Add a tag to the appropriate Grafana dashboard called `instrumentation`.
+
+![](/media/articles/appliance/instrumentation/tag-dashboard.png)

@@ -5,17 +5,9 @@ description: This document covers the metrics available when using Instrumentati
 
 # Auth0 Appliance: Metrics Available via Instrumentation
 
-::: panel-info Limitations
-Telegraf collects data from the Appliance at **5 second intervals**. Any data collected at this frequency is then available for **1 day** after its collection time.
-
-For selected data points, sampling occurs at **1 minute intervals**. Data collected at this frequency is then available for **1 week** after its collection time.
-:::
-
-## Metrics Available
-
 The following metrics are available to you when Instrumentation is enabled on your Appliance:
 
-### Metrics Regarding Appliance Infrastructure
+## Metrics Regarding Appliance Infrastructure
 
 * [CPU](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/CPU_README.md)
 * [Disk](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/DISK_README.md)
@@ -30,7 +22,7 @@ The following metrics are available to you when Instrumentation is enabled on yo
 * [RabbitMQ](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/rabbitmq)
 * [Procstat](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/procstat/README.md)
 
-### Metrics Regarding Appliance Processes
+## Metrics Regarding Appliance Processes
 
 * auth0-api2_http_requests_authenticated
 * auth0-api2_http_requests_received
