@@ -14,6 +14,8 @@ seo_alias: google
 
 To connect your Auth0 client to Google and Google Apps, you will need to generate a *Client ID* and *Client Secret* in a Google project, copy these keys into your Auth0 settings, and enable the Connection.
 
+If you are looking to manage authentication in your native Android app [see the Android quickstart](/quickstart/native/android).
+
 ## 1. Access the Google API Manager
 
 While logged in to your Google account, go to the [API Manager](https://console.developers.google.com/projectselector/apis/credentials).
@@ -46,7 +48,7 @@ Provide a **Product Name** that will be shown to users when they log in through 
 
 ![](/media/articles/connections/social/google/oauth-consent-screen.png)
 
-Click **Save**:
+Click **Save**.
 
 ## 4. Create your *Client Id* and *Client Secret*
 
