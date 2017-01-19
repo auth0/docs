@@ -30,7 +30,7 @@ The `id_token` is a [JSON Web Token (JWT)](/jwt) and contains various attributes
 4. The Client sends the `authorization_code` together with the `redirect_uri` and the Client Id/Client Secret to the Authorization Server.
 5. The Authorization Server validates this information and returns an `id_token`.
 
-## Registering your Client
+## Register your Client
 
 The first thing you need to do is to create a new client in Auth0. An Auth0 client maps to your application and allows it to use Auth0 for authentication.
 
@@ -46,7 +46,7 @@ This URL must be part of your application, as your application will need to retr
 
 ![](/media/articles/client-auth/server-side-web/allowed-callback-url.png)
 
-## Calling the Authorization URL
+## Call the Authorization URL
 
 The URL used when authenticating a user is `https://${account.namespace}/authorize`. This is the initial endpoint to which a user must be redirected. This will handle checking whether any SSO session is active, authenticating the user and also potentially redirect the user directly to any Identity Provider to handle authentication.
 
@@ -61,7 +61,7 @@ This endpoint supports the following query string parameters:
 | connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your client.  |
 | state | The state parameter will be sent back should be used for XSRF and contextual information (like a return url) |
 
-## Exhanging the `access_code` for an `id_token`
+## Exhange the `access_code` for an `id_token`
 
 After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along an `access_token` in the `code` query string parameter of the URL, e.g.
 
@@ -137,7 +137,7 @@ The exact claims contained in the `id_token` will depend on the `scope` paramete
 The [JWT.io website](https://jwt.io) has a handy debugger which will allow you to debug any JSON Web Token. This is useful is you quickly want to decode a JWT to see the information contained in the token.
 :::
 
-### Keeping the user logged in
+### Keep the user logged in
 
 Auth0 will assist you in authenticating a user, but it is up to you to keep track in your application of whether or not a user is logged in. You can use a cookie or other session storage to keep track of whether a user is logged in or not, and also to store the claims of the user which was extracted from the `id_token`.
 
@@ -174,7 +174,7 @@ You can then exchange the `access_code` for an `id_token`. This is an example of
 }
 ```
 
-### Requesting the Name and Profile Picture
+### Request the Name and Profile Picture
 
 You can request a user's name and profile picture by requesting the `name` and `picture` scopes. 
 
@@ -206,7 +206,7 @@ You can then exchange the `access_code` for an `id_token`. The name and profile 
 }
 ```
 
-### Requesting a User Log In With GitHub
+### Request a User Log In With GitHub
 
 You can send a user directly to the GitHub authentication screen by passing the value of **github** to the `connection` parameter. Note that we also request the `openid`, `name`, `picture` and `email` scopes:
 
@@ -218,6 +218,12 @@ https://${account.namespace}/authorize
   &scope=openid%20name%20picture%20email
   &connection=github
 ```
+
+::: panel-info Log in with other social providers
+You can just as easily request a user log in with other social providers, like Google or Facebook. All you have to do is configure the corresponding connection in the [dashboard](${manage_url}/#/connections/social) and change the `connection` value of this call to `/authorize` with the name of the connection to use (`google-oauth2` for Google, `facebook` for Facebook, and so forth). You can get the connection's name from the _Settings_ of the connection in the [dashboard](${manage_url}/#/connections/social). For more info:
+- [Identity Providers Supported by Auth0](/identityproviders)
+- [Social Login using the Authentication API](/api/authentication#social)
+:::
 
 After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` and `token_type` passed as parameters in the hash fragment:
 
