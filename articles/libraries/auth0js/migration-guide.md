@@ -34,14 +34,14 @@ This can be avoided by either switching how your id_tokens are signed, or by man
 ### Switching from HS256 to RS256
 
 To switch from HS256 to RS256 for a specific client, follow these instructions:
-1. Go to https://manage.auth0.com/#/clients
+1. Go to [https://manage.auth0.com/#/clients](https://manage.auth0.com/#/clients)
 1. Select your client
 1. Go to Settings
 1. Click on Show Advanced Settings
 1. Click on the OAuth tab in Advanced Settings
 1. Change the JsonWebToken Signature Algorithm to RS256
 
-And remember that if the token is being validated anywhere else, that those places might need to be altered as well to comply.
+And remember that if the token is being validated anywhere else, that changes might need to be made there as well to comply.
 
 ### Manually Parsing Hashes 
 
