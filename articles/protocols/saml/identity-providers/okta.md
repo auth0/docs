@@ -3,9 +3,9 @@ title: Okta
 description: How to configure Okta as an identity provider.
 ---
 
-# Configuring Okta as an Identity Provider
+# Configure Okta as an Identity Provider
 
-# On Okta dashboard...
+## On Okta dashboard
 
 Go to Okta dashboard and click on **Applications**. Click on **Create New App**.
 
@@ -40,7 +40,7 @@ Take note of the following:
 
 ![](/media/articles/saml/identity-providers/okta/okta-6.png)
 
-# On Auth0 dashboard...
+## On Auth0 dashboard
 
 Go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** and click **+NEW**
 
@@ -52,7 +52,7 @@ Go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** and click
 
 Click on **Save** and close the next dialog. You will get asked which application you want to connect this to.
 
-# Testing
+# Test the Connection
 
 If you have a user on Okta you can now click on **Try** on your Auth0 dashboard and you should be redirected to Okta:
 
