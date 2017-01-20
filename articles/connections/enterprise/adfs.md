@@ -20,7 +20,7 @@ Provide this information to your ADFS administrator:
 
 **Note**: The Federation Metadata file contains information about the ADFS server's certificates. If the Federation Metadata endpoint (`/FederationMetadata/2007-06/FederationMetadata.xml`) is enabled in ADFS, Auth0 can periodically (once a day) look for changes in the configuration, like a new signing certificate added to prepare for a rollover. Because of this, enabling the Federation Metadata endpoint is preferred to providing a standalone metadata file. If you provide a standalone metadata file, we will notify you via email when the certificates are close to their expiration date.
 
-### Scripted setup
+## Scripted setup
 
 For automated integration, this script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a **Relying Party** that will issue, for the authenticated user, the following claims: **email**, **upn**, **given name** and **surname**.
 
@@ -33,9 +33,9 @@ Copy and paste the script above into the Windows PowerShell window.
 
 **Note:** You must run this script as an administrator of your system.
 
-#### What the script does
+### What the script does
 
-##### 1. Creates the *Relying Party* on ADFS
+#### 1. Creates the *Relying Party* on ADFS
 
     $realm = "urn:auth0:${account.tenant}";
     $webAppEndpoint = "https://${account.namespace}/login/callback";
@@ -44,7 +44,7 @@ Copy and paste the script above into the Windows PowerShell window.
     Add-ADFSRelyingPartyTrust -Name $realm -Identifier $realm -WSFedEndpoint $webAppEndpoint
     $rp = Get-ADFSRelyingPartyTrust -Name $realm
 
-##### 2. Creates rules to output the most common Active Directory attributes (email, UPN, given name, surname)
+#### 2. Creates rules to output the most common Active Directory attributes (email, UPN, given name, surname)
 
     $rules = @'
     @RuleName = "Store: ActiveDirectory -> Mail (ldap attribute: mail), Name (ldap attribute: displayName), Name ID (ldap attribute: userPrincipalName), GivenName (ldap attribute: givenName), Surname (ldap attribute: sn)"
@@ -62,7 +62,7 @@ Copy and paste the script above into the Windows PowerShell window.
     $rSet = New-ADFSClaimRuleSet –ClaimRule '=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");'
     Set-ADFSRelyingPartyTrust –TargetName $realm –IssuanceAuthorizationRules $rSet.ClaimRulesString
 
-### Manual setup
+## Manual setup
 
 If you don't feel comfortable executing the script, you can follow these steps:
 
@@ -116,3 +116,11 @@ If you don't feel comfortable executing the script, you can follow these steps:
   Auth0 will use the name part of the claim type (i.e. `department` in `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`) as the attribute name for the user profile.
 
 Yes, running the script is definitely easier.
+
+## Next steps
+
+After you configure the connection, you have to configure your application to use it. You can initiate login using [Lock](/libraries/lock), [Auth0.js](/libraries/auth0js), or use the [Authentication API endpoint](/api/authentication?http#enterprise-saml-and-others-). 
+
+For detailed instructions and samples for a variety of technologies, refer to our [Quickstarts](/quickstarts).
+
+We also have a blog post that shows how to [Authenticate PHP with ADFS using Auth0](https://auth0.com/authenticate/php/adfs).
