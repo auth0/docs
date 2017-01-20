@@ -6,7 +6,7 @@ description: Explains the different types of support options provided by Auth0.
 # Support Options
 
 ## Auth0 Status
-The [Auth0 status page](https://status.auth0.com) contains information on current production status and will be updated during an outage.  After an outage, a root-cause analysis is performed and made available via the page. 
+The [Auth0 status page](https://status.auth0.com) contains information on current production status and will be updated during an outage.  After an outage, a root-cause analysis is performed and made available via the page.
 
 Please check the [status page](https://status.auth0.com) before filing a ticket.  If the status page contains a notification about an outage, our team will already be working on restoring service as quickly as possible.  Once the issue is resolved, the status page will be updated to reflect that.  There is a button on the page to subscribe to notifications of any changes.  A root-cause analysis will be published to the status page once an investigation has been done.
 
@@ -15,6 +15,10 @@ Please check the [status page](https://status.auth0.com) before filing a ticket.
 Auth0's public [discussion forum](https://ask.auth0.com) offers support for __all__ subscribers. All customers, even on free accounts, can use our public [discussion forum](https://ask.auth0.com) to search existing questions and receive support from our engineers if their question has not already been asked.
 
 ## Support Center
+
+:::panel-info Pricing
+For pricing information on the various subscription plans, please see your [Account Settings]({$manage_url}/#/account/billing/subscription). 
+:::
 
 Additionally, paid subscribers can create a private ticket via [Support Center](https://support.auth0.com). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
 
@@ -25,7 +29,7 @@ Critical Production issues should always be reported via the [Support Center](ht
 
 ### Ticket Response Times
 
-Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the discussion forum. Non-paying customers may still raise a private ticket via the Support Center however there is no support response SLA and tickets will be answered on a best effort basis after prioritization of paying subscribers' tickets, generally resulting in a 2-5+ business day response.
+Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the discussion forum. Non-paying customers may still raise a private ticket via the Support Center. However, there is no support response SLA for these users, and tickets will be answered on a best effort basis after prioritization of paying subscribers' tickets. This generally means that the user will receive a response in a 2-5+ business days.
 
 <table class="table">
   <thead>
@@ -125,7 +129,7 @@ Critical Production issues should always be reported via the [Support Center](ht
 Translation from former support plans to new:
 
 - Subscriptions previously known as "Free" map to the current "Free" support classification
-- Subscriptions previously known as "Gold/Silver/Home Grown"  map to the current "Standard" support plan. 
+- Subscriptions previously known as "Gold/Silver/Home Grown"  map to the current "Standard" support plan.
 - Support plans previously known as "Enterprise" and "Premium" support map to the current "Enterprise" support plan.
 - The "Preferred" support plan is a new plan available for purchase as of October 2016.
 
