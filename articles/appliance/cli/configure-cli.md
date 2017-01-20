@@ -36,6 +36,37 @@ Usage: a0cli [options] <command>
    -p, --port <number>  Port number of appliance instance. Default port: 10121
 ```
 
+However, if you have keys defined and you've run `update-commands`, you will see an extended list of commands:
+
+```text
+Usage: a0cli [options] <command>
+
+
+ Commands:
+
+   create-key                     Creates private/public keys pair on current path.
+   show-key                       Shows public key on current path.
+   delete-key                     Deletes keys pair from current path.
+   update-commands                Retrieve availables commands from the specified node.
+   backup <password>              Creates a new backup.
+   backup-delete                  Deletes the current backup
+   backup-retrieve                retrieves the current backup.
+   backup-status                  Retrieves the status of the node backup.
+   nslookup <host>                Performs an nslookup to a specified <host> from the target node.
+   ping                           Sends a PING message to verify if the target node is up.
+   re-up <host>                   Updates the host entries for instances in the database cluster. Example a0-1:10.1.0.21, a0-2:10.1.0.22
+   set-as-backup [device] [force] Add the backup role to the target node.
+   test-port <host> <port>        Verifies if the target ip can listen <port> on <host>.
+
+ Options:
+
+   -h, --help           output usage information
+   -V, --version        output the version number
+   -t, --target <ip>    Host name or IP address of appliance instance.
+   -p, --port <number>  Port number of appliance instance. Default port: 10121
+```
+
+
 > Because the CLI sends commands to the server running on each Appliance's node, please ensure that the server is both available and can accept inbound and outbound connections to port `10121`.
 
 ## Granting Access Rights to Users
