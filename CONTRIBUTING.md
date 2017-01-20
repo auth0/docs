@@ -14,6 +14,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Headings](#headings)
   * [Warning banner](#warning-banner)
   * [Panels](#panels)
+  * [Alerts](#alerts)
   * [HTTP Request Snippets](#http-request-snippets)
   * [Escaping Strings](#escaping-strings)
   * [Screenshots](#screenshots)
@@ -93,7 +94,7 @@ You message here
 ```
 
 ### Panels
-Panels can be useful to separate information from the main body of a document.
+Panels can be useful to separate information from the main body of a document. If you want to add versioning information use [alerts](#alerts) instead.
 
 ```
 ::: panel-primary This is a panel
@@ -116,6 +117,14 @@ Panel content
 Panel content
 :::
 ```
+
+### Alerts
+
+Alerts should be used to display breef versioning information. For example:
+
+![Alert displaying version info](/media/readme/alert-version.png)
+
+[Styleguide: Alerts](http://styleguide.auth0.com/#alert)
 
 ### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
