@@ -32,6 +32,9 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Auth0 Management API Webhooks](/extensions/management-api-webhooks)
 - [Auth0 Authentication API Webhooks](/extensions/authentication-api-webhooks)
 
+### Test various endpoints of the Auth0 Authentication API
+- [Authentication API Debugger Extension](/extensions/authentication-api-debugger)
+
 ### Monitor your AD/LDAP connectors
 - [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector)
 
