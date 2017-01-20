@@ -62,7 +62,7 @@ $('#btn-login').on('click', function(ev) {
 });
 ```
 
-Since `Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login.
+Since `Auth0` uses [redirect mode](https://auth0.com/docs/libraries/lock) by default, the app will be redirected to the `callbackURL` after a successful login.
 
 With `responseType: 'token'`, the result will be appended to the URL.
 
