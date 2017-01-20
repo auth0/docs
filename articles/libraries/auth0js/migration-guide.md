@@ -8,7 +8,7 @@ url: /libraries/auth0js/migration-guide
 
 The following instructions assume you are migrating from **auth0.js v7** to **auth0.js v8**. 
 
-The goal of this migration guide is to provide you with all of the information you would need to update Auth0.js in your application. Of course, your first step is to include the latest version of auth0.js. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation of auth0.js to reflect the new changes. Note that we especially recommend migrating to auth0.js v8 if you have the OAuth2 flag enabled in your tenant. 
+The goal of this migration guide is to provide you with all of the information you would need to update Auth0.js in your application. Of course, your first step is to include the latest version of auth0.js. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation of auth0.js to reflect the new changes. Note that we especially recommend migrating to auth0.js v8 if you have [enabled the new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth). 
 
 Take a look below for more information about changes and additions to auth0.js in version 8!
 
@@ -34,14 +34,14 @@ This can be avoided by either switching how your id_tokens are signed, or by man
 ### Switching from HS256 to RS256
 
 To switch from HS256 to RS256 for a specific client, follow these instructions:
-1. Go to [https://manage.auth0.com/#/clients](https://manage.auth0.com/#/clients)
+1. Go to [Dashboard > Clients](https://manage.auth0.com/#/clients)
 1. Select your client
-1. Go to Settings
-1. Click on Show Advanced Settings
-1. Click on the OAuth tab in Advanced Settings
-1. Change the JsonWebToken Signature Algorithm to RS256
+1. Go to _Settings_
+1. Click on __Show Advanced Settings__
+1. Click on the _OAuth_ tab in Advanced Settings
+1. Change the __JsonWebToken Signature Algorithm__ to `RS256`
 
-And remember that if the token is being validated anywhere else, that changes might need to be made there as well to comply.
+Remember that if the token is being validated anywhere else, changes might be needed there as well in order to comply.
 
 ### Manually Parsing Hashes 
 
