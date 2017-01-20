@@ -14,7 +14,7 @@ The exact requirements for configuring Contextual MFA will vary. Below are sampl
 
 ### Change the frequency of authentication requests
 
-When using the Guardian multi-factor application, by default users are given the option to be remembered and skip MFA for a period of 30 days. To disable this choice for users, set the `allowRememberBroswer` field to `false`.
+When using the Guardian multi-factor application, by default users are given the option to be remembered and skip MFA for a period of 30 days. To disable this choice for users, set the `allowRememberBrowser` field to `false`.
 
 For other types of MFA, users are remembered for 30 days by default, or when `allowRememberBrowser` is explicitly set to `true`. You can disable this by setting `allowRememberBrowser` to `false`.
 
