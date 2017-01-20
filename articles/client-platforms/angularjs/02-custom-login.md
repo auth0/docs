@@ -27,7 +27,7 @@ bower install angular-auth0#2.0.0-beta.1 angular-jwt
 
 ```html
 <!-- auth0.js -->
-<script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
+<script type="text/javascript" src="bower_components/auth0.js/build/auth0.js"></script>
 <!-- auth0-angular -->
 <script type="text/javascript" src="bower_components/angular-auth0/dist/angular-auth0.js"></script>
 <!-- angular-jwt -->
