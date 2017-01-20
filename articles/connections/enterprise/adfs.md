@@ -119,4 +119,8 @@ Yes, running the script is definitely easier.
 
 ## Next steps
 
-After you configure the connection, you have to configure your application to use it. You can initiate login using [Lock](/libraries/lock), [Auth0.js](/libraries/auth0js), or use the [Authentication API endpoint](/api/authentication?http#enterprise-saml-and-others-). For detailed instructions and samples for a variety of technologies, refer to our [Quickstarts](/quickstarts).
+After you configure the connection, you have to configure your application to use it. You can initiate login using [Lock](/libraries/lock), [Auth0.js](/libraries/auth0js), or use the [Authentication API endpoint](/api/authentication?http#enterprise-saml-and-others-). 
+
+For detailed instructions and samples for a variety of technologies, refer to our [Quickstarts](/quickstarts).
+
+We also have a blog post that shows how to [Authenticate PHP with ADFS using Auth0](https://auth0.com/authenticate/php/adfs).
