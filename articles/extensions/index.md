@@ -23,17 +23,17 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 ## What types of actions can I do with extensions?
 
 ### Manage the authorizations for Users using Groups, Roles and Permissions
-- [Auth0 Authorization](/extensions/authorization-extension)
+- [Auth0 Authorization Extension](/extensions/authorization-extension)
 
 ### Easily manage custom social connections
-- [Custom Social Connections](/extensions/custom-social-extensions)
+- [Custom Social Connections Extension](/extensions/custom-social-extensions)
 
 ### Go through the audit logs and call the appropriate webhook for specific API event triggers
 - [Auth0 Management API Webhooks](/extensions/management-api-webhooks)
 - [Auth0 Authentication API Webhooks](/extensions/authentication-api-webhooks)
 
 ### Monitor your AD/LDAP connectors
-- [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector): exposes endpoint for AD/LDAP connections monitoring
+- [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector)
 
 ### Import or Export exisiting users
 - [Users Import / Export](/extensions/user-import-export)
@@ -56,13 +56,13 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Delegated Administration](/extensions/delegated-admin)
 
 ### Deploy rules and database connections scripts from external repositories
-- [GitHub Deployments](/extensions/github-deploy)
-- [Bitbucket Deployments](/extensions/bitbucket-deploy)
-- [GitLab Deployments](/extensions/gitlab-deploy)
-- [Visual Studio Team Services Deployments](/extensions/visual-studio-team-services-deploy)
+- [GitHub Deployments Extension](/extensions/github-deploy)
+- [Bitbucket Deployments Extension](/extensions/bitbucket-deploy)
+- [GitLab Deployments Extension](/extensions/gitlab-deploy)
+- [Visual Studio Team Services Deployments Extension](/extensions/visual-studio-team-services-deploy)
 
 ### Create a SSO dashboard with multiple enterprise applications 
-- [SSO Dashboard](extensions/sso-dashboard)
+- [SSO Dashboard Extension](extensions/sso-dashboard)
 
 ## Creating Your Own Extension
 
