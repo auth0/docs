@@ -37,4 +37,5 @@ There are different options to control the lifetime of a cookie:
 * Cookies can be read by both the JavaScript and the server side code or only server side if the `httpOnly` flag is set.
 
 **Additional Resources:**
+
 [Auth0 Blog: 10 Things You Should Know about Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
