@@ -25,15 +25,18 @@ Delegation makes it easy for you to obtain tokens from AWS to access AWS service
 
 ### Ways to Secure the Amazon API Gateway
 
-AWS API Gateway provides two different methods to secure your APIs:
+AWS API Gateway provides several different methods to secure your APIs:
 
 1. API keys;
-2. IAM.
+2. IAM;
+3. [Amazon Cognito](/integrations/aws-api-gateway/secure-api-with-cognito).
 
 Using API keys is typically appropriate for a service-to-service interaction, as illustrated below. However, there are several downsides to this approach:
 
 * Placing a secret with a long lifetime on the client is risky (clients are easier to compromise);
 * Creating a framework to issue and manage API keys requires a secure implementation that can be challenging to develop.
+
+This section of the tutorial will utilize [IAM roles and policies](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html) to secure your API in API Gateway, but you can also choose to do so using [user pools in Amazon Cognito](http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html).
 
 ### 1. Configure IAM and Auth0 for SAML Integration with the API Gateway
 
@@ -43,7 +46,7 @@ The AWS IAM SAML Integration lets the trusted identity provider (IDP) specify an
 
 Log in to your Auth0 account. You will be brought to the Management Dashboard. Click on **+ New Client**, which is located in the top right corner of the page.
 
-![Auth0 nManagement Dashboard](/media/articles/integrations/aws-api-gateway/part-2/mgmt-dashboard.png)
+![Auth0 Management Dashboard](/media/articles/integrations/aws-api-gateway/part-2/mgmt-dashboard.png)
 
 Name your new client *AWS API Gateway*, and indicate that this Client is going to be a *Single Page Application*. Click **Create**.
 
