@@ -78,7 +78,7 @@ $.ajaxSetup({
 });
 ```
 
-After that we are good to go and can link the accounts:
+After that we can link the accounts:
 
 ```javascript
 // app.js
@@ -103,7 +103,7 @@ var linkAccount = function(id_token) {
 
 The function takes the `id_token` of the account to link with and posts to the API, passing the `link_with` parameter with the `id_token` value in the body. Then it fetches the profile on success to check that the accounts are now linked.
 
-Now to begin the linking process, call the `show` method on `lockLink` instance:
+Now to begin the linking process, call the `show` method on the `lockLink` instance:
 
 ```javascript
 // app.js
