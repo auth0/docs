@@ -142,7 +142,7 @@ export class Auth {
         localStorage.setItem('id_token', authResult.idToken);
         this.router.navigate(['/home']);
       } else if (authResult && authResult.error) {
-        alert(`Error: ${authResult.error}`);
+        alert('Error: ' + authResult.error);
       }
     });
   }
@@ -154,7 +154,7 @@ export class Auth {
       password
     }, (err, authResult) => {
       if (err) {
-        alert(`Error: ${err.description}`);
+        alert('Error: ' + err.description);
         return;
       }
       if (authResult && authResult.idToken && authResult.accessToken) {
@@ -171,7 +171,7 @@ export class Auth {
       password,
     }, function(err) {
       if (err) {
-        alert(`Error: ${err.description}`);
+        alert('Error: ' + err.description);
       }
     });
   }
