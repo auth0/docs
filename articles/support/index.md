@@ -17,7 +17,7 @@ Auth0's public [discussion forum](https://ask.auth0.com) offers support for __al
 ## Support Center
 
 :::panel-info Pricing
-For pricing information on the various subscription plans, please see your [Account Settings]({$manage_url}/#/account/billing/subscription). 
+For pricing information on the various subscription plans, please see your [Account Settings](${manage_url}/#/account/billing/subscription). 
 :::
 
 Additionally, paid subscribers can create a private ticket via [Support Center](https://support.auth0.com). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
