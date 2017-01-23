@@ -12,7 +12,7 @@ description: Describes the new features with Lock V10.
 You can add input fields to the sign up form with the new option `additionalSignUpFields`.
 
 ```js
-var lock = new AuthLock(
+var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}',
   {
@@ -32,7 +32,7 @@ var lock = new AuthLock(
 If the possible values for the field are predefined, you can add a field with the `"select"` `type`.
 
 ```js
-var lock = new AuthLock(
+var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}',
   {
@@ -57,7 +57,7 @@ var lock = new AuthLock(
 The `options` and `prefill` properties can also be functions, which is useful when you need to make a request to obtain their values.
 
 ```js
-var lock = new AuthLock(
+var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}',
   {
@@ -88,7 +88,7 @@ var lock = new AuthLock(
 By default, [Gravatar](http://gravatar.com/) is used to fetch the user avatar and display name, but you can obtain them from anywhere with the `avatar` option.
 
 ```js
-var lock = new AuthLock(
+var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}',
   {
@@ -116,7 +116,7 @@ var lock = new AuthLock(
 If you don't want to display an avatar pass `null`.
 
 ```js
-var lock = new AuthLock(
+var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}',
   {
@@ -130,7 +130,7 @@ var lock = new AuthLock(
 It is now possible to fill the user's email and/or username input if you know them beforehand with the `prefill` option.
 
 ```js
-var lock = new AuthLock(
+var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}',
   {
@@ -147,7 +147,7 @@ var lock = new AuthLock(
 Authentication options have been grouped in their own namespace.
 
 ```js
-var lock = new AuthLock(
+var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}',
   {
@@ -170,7 +170,7 @@ You may now choose the screen that will be first displayed when Lock is shown wi
 * `signUp`;
 
 ```js
-var lock = new AuthLock(
+var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}',
   {
@@ -184,7 +184,7 @@ var lock = new AuthLock(
 Theme options have been grouped in their own namespace.
 
 ```js
-var lock = new AuthLock(
+var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}',
   {
@@ -201,7 +201,7 @@ var lock = new AuthLock(
 You can ask the user to accept the terms and conditions by clicking a checkbox input before signing up with the `mustAcceptTerms` option.
 
 ```js
-var lock = new AuthLock(
+var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}',
   {
