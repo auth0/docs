@@ -40,13 +40,13 @@ In this case, the callbackURL should look something like:
 http://yourUrl/callback
 ```
 
-## 4. Triggering Login Manually or Integrating Lock
+## 4. Trigger Login Manually or Integrate Lock
 
 <%= include('../../_includes/_lock-sdk') %>
 
 > **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL specified in the previous step
 
-## 5. Accessing User Information
+## 5. Access User Information
 
 You can access the user information via the `profile` you stored in the session on step 2
 
@@ -69,7 +69,7 @@ def dashboard():
 
 ### 6. Optional steps
 
-#### Checking if the user is authenticated
+#### Check if the user is authenticated
 
 You can add the following annotation to your `Flask` app to check if the user is authenticated. Note that you should import `wraps` first, adding the following line to your file `from functools import wraps`.
 
