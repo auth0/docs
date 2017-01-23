@@ -25,11 +25,9 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Configure Callback URLs
 
-<div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your website. For security purposes, you have to register this URL on the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section on Auth0 Admin app.</p>
+After authenticating the user on Auth0, we will do a POST to the `/LoginCallback.ashx` URL on your website, e.g. `http://localhost:PORT/LoginCallback.ashx`. For security purposes, you have to register this URL on the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section on Auth0 Admin app.
 
-<pre><code>http://localhost:PORT/LoginCallback.ashx</pre></code>
-</div>
+![Callback URLs](/media/articles/server-platforms/aspnet/callback_url.png)
 
 ## Filling Web.Config with your Auth0 Settings
 
