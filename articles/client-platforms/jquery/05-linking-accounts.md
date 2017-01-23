@@ -78,7 +78,7 @@ $.ajaxSetup({
 });
 ```
 
-After that we are able to go and link the accounts:
+After that we can link the accounts:
 
 ```javascript
 // app.js
