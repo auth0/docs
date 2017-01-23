@@ -214,7 +214,7 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
   };
 
   // initialize
-  var lock = new Lock('xxxxxx', '<account>.auth0.com', options);
+  var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com', options);
 
   // render
   lock.show();
