@@ -9,9 +9,9 @@ url: /libraries/auth0js
 
 Auth0.js is a client-side library for [Auth0](http://auth0.com). Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
 
-::: panel-info Auth0.js v8
-This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the [v7 reference guide](/libraries/auth0js/v7), or take a look at the [v8 migration guide](/libraries/auth0js/migration-guide).
-:::
+<div class="alert alert-info">
+  This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the <a href="/libraries/auth0js/v7">v7 reference guide</a>, or take a look at the <a href="/libraries/auth0js/migration-guide">v8 migration guide</a>
+</div>
 
 ## Ready-to-Go Example
 
@@ -224,9 +224,10 @@ webAuth.passwordlessVerify({
 
 To logout a user, use the `logout` method. This accepts an options object, which can include a 'client_id', and a 'returnTo' URL. If you want to navigate the user to a specific URL after the logout, set that URL at the 'returnTo' parameter.
 
-<div class="alert alert-info">
-  <strong>Heads up!</strong> Note that if the <code>client_id</code> parameter <em>is</em> included, the <code>returnTo</code> URL that is provided must be listed in the <strong>client's</strong> "Allowed Logout URLs" in the Auth0 dashboard. However, if the <code>client_id</code> parameter <em>is not</em> included, the <code>returnTo</code> URL must be listed in the "Allowed Logout URLs" at the <strong>account level</strong> in the Auth0 Dashboard.
-</div>
+::: panel-info returnTo parameter
+Note that if the 'client\_id' parameter _is_ included, the 'returnTo' URL that is provided must be listed in the **client's** "Allowed Logout URLs" in the Auth0 dashboard. 
+However, if the 'client\_id' parameter _is not_ included, the 'returnTo' URL must be listed in the "Allowed Logout URLs" at the **account level** in the Auth0 Dashboard.
+:::
 
 ```js
 webAuth.logout({
@@ -274,9 +275,9 @@ webAuth.renewAuth({
 });
 ```
 
-<div class="alert alert-info">
-  <strong>Heads up!</strong> This will use <code>postMessage</code> to comunicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behaviour is needed.
-</div>
+panel-info postMessage
+This will use postMessage to comunicate between the silent callback and the SPA. When false the SDK will attempt to parse the url hash, should ignore the url hash, and no extra behaviour is needed.
+:::
 
 The callback page should be something like the following one. It will parse the url hash and post it to the parent document:
 
@@ -360,6 +361,6 @@ The `linkUser` method accepts two parameters, the primary user id and the second
 auth0Manage.linkUser(userId, secondaryUserToken, cb);
 ```
 
-<div class="alert alert-info">
-  <strong>Heads up!</strong> Note that when accounts are linked, the secondary account's metadata is <strong>not</strong> merged with the primary account's metadata, and if they are ever unlinked, the secondary account will likewise not retain the primary account's metadata when it becomes separate again.
-</div>
+::: panel-info Linking - Metadata
+Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata, and if they are ever unlinked, the secondary account will likewise not retain the primary account's metadata when it becomes separate again.
+:::
