@@ -125,7 +125,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 In order to configure the `state` parameter and save the correct Cookies for the OIDC middleware to work correctly when the redirect URL is called, you will need to add 2 helper classes to your project. You can download the source code for these helper files classes from the following locations:
 
-* [Auth0Extensions.cs](https://github.com/auth0-samples/auth0-aspnetcore-sample/blob/master/02-Login-Embedded-Lock/SampleMvcApp/Auth0Settings.cs)
+* [Auth0Extensions.cs](https://github.com/auth0-samples/auth0-aspnetcore-sample/blob/master/02-Login-Embedded-Lock/SampleMvcApp/Auth0Extensions.cs)
 * [LockContext.cs](https://github.com/auth0-samples/auth0-aspnetcore-sample/blob/master/02-Login-Embedded-Lock/SampleMvcApp/LockContext.cs)
 
 ::: panel-warning Fix namespaces
