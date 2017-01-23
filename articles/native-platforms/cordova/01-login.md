@@ -19,7 +19,7 @@ You can get started by either downloading the seed project or if you would like 
 ## 1. Setting Up the Callback URL
 
 <div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 
