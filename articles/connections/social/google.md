@@ -107,7 +107,7 @@ Click **Save**.
 
 ## 9. Test your connection
 
-Go back to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard.
+Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 If you have configured your connection correctly, you will see a **Try** icon next to the Google logo:
 
