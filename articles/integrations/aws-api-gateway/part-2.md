@@ -36,7 +36,7 @@ Using API keys is typically appropriate for a service-to-service interaction, as
 * Placing a secret with a long lifetime on the client is risky (clients are easier to compromise);
 * Creating a framework to issue and manage API keys requires a secure implementation that can be challenging to develop.
 
-This section of the tutorial will utilize [IAM roles and policies](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html) to secure your API in API Gateway, but you can also choose to do so using [user pools in Amazon Cognito](http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html).
+This section of the tutorial will utilize [IAM roles and policies](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html) to secure your API in API Gateway, but you can also choose to do so using [user pools in Amazon Cognito](http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html). See detailed instructions on doing so [here](/integrations/aws-api-gateway/secure-api-with-cognito).
 
 ### 1. Configure IAM and Auth0 for SAML Integration with the API Gateway
 
