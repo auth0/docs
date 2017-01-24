@@ -65,4 +65,4 @@ Every time the `$stateChangeStart` event fires, a check is done to determine whe
 
 > **Note:** Users have no control over their own `app_metadata`, so there is no risk of a user modifying their own access level in Auth0. Keep in mind, however, that the payload of a JSON Web Token can be modified in debuggers such as [jwt.io](https://jwt.io). If a user does this, their JWT will be invalidated and become unusable for accessing server resources; however, the user would be able to access client-side routes with a modified payload. Be sure to keep sensitive information out of the client side completely and rely on XHR requests for that information as this will ensure that resources are properly protected.
 
-Now if an user logs in with an email that contains `@example`, they will be allowed access to the `/admin` route.
+Now if a user logs in with an email that contains `@example`, they will be allowed access to the `/admin` route.
