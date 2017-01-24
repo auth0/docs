@@ -9,9 +9,9 @@ description: This page shows you how to connect your Auth0 app to Dropbox. You w
 
 To connect your Auth0 app to Dropbox, you will need to generate a *Client ID* and *Client Secret* in a Dropbox app, copy these keys into your Auth0 settings, and enable the connection.
 
-::: panel-info Lock version
-This connection will only work with Lock version 9.2 or higher.
-:::
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This connection will only work with Lock version 9.2 or higher.
+</div>
 
 ## 1. Login to the developer portal
 
