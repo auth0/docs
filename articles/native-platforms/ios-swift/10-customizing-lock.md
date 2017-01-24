@@ -46,7 +46,7 @@ You can configure these type of properties:
 For instance:
 
 ```
-theme.registerColorForKey(UIColor.redColor(), A0ThemePrimaryButtonNormalColor);
+theme.register(.red, forKey: A0ThemePrimaryButtonNormalColor);
 ```
 
 So, for example, if you want to achieve something like this:
@@ -57,51 +57,51 @@ You will need to customize several parts... This is how you do it:
 
 ```swift
 // 1. Change the logo:
-theme.registerImageWithName("custom-logo", bundle: NSBundle.mainBundle(), forKey: A0ThemeIconImageName)
+theme.registerImage(withName: "custom-logo", bundle: Bundle.main, forKey: A0ThemeIconImageName)
 ```
 
 ```swift
 /// 2. Customize the 'Login' text appearance:
-theme.registerColor(.whiteColor(), forKey: A0ThemeTitleTextColor)
-theme.registerFont(.systemFontOfSize(24, weight: UIFontWeightThin), forKey: A0ThemeTitleFont)
+theme.register(.white, forKey: A0ThemeTitleTextColor)
+theme.register(.systemFont(ofSize: 24, weight: UIFontWeightThin), forKey: A0ThemeTitleFont)
 ```
 
 ```swift
 // 3. Customize the 'OR' text appearance:
-theme.registerColor(.whiteColor(), forKey: A0ThemeSeparatorTextColor)
-theme.registerFont(.systemFontOfSize(12, weight: UIFontWeightSemibold), forKey: A0ThemeSeparatorTextFont)
+theme.register(.white, forKey: A0ThemeSeparatorTextColor)
+theme.register(.systemFont(ofSize: 12, weight: UIFontWeightSemibold), forKey: A0ThemeSeparatorTextFont)
 ```
 
 ```swift
 // 4. Customize the text fields:
-theme.registerColor(.lightVioletColor(), forKey: A0ThemeTextFieldIconColor)
-theme.registerColor(.lightVioletColor(), forKey: A0ThemeTextFieldPlaceholderTextColor)
-theme.registerColor(.whiteColor(), forKey: A0ThemeTextFieldTextColor)
-theme.registerFont(.systemFontOfSize(14, weight: UIFontWeightRegular), forKey: A0ThemeTextFieldFont)
+theme.register(.magenta, forKey: A0ThemeTextFieldIconColor)
+theme.register(.magenta, forKey: A0ThemeTextFieldPlaceholderTextColor)
+theme.register(.white, forKey: A0ThemeTextFieldTextColor)
+theme.register(.systemFont(ofSize: 14, weight: UIFontWeightRegular), forKey: A0ThemeTextFieldFont)
 ```
 
 ```swift
 // 5. Customize the primary button (ACCESS):
-theme.registerColor(.whiteColor(), forKey: A0ThemePrimaryButtonNormalColor)
-theme.registerColor(.lightVioletColor(), forKey: A0ThemePrimaryButtonHighlightedColor)
-theme.registerColor(.darkVioletColor(), forKey: A0ThemePrimaryButtonTextColor)
-theme.registerFont(.systemFontOfSize(20, weight: UIFontWeightBold), forKey: A0ThemePrimaryButtonFont)
+theme.register(.white, forKey: A0ThemePrimaryButtonNormalColor)
+theme.register(.magenta, forKey: A0ThemePrimaryButtonHighlightedColor)
+theme.register(.magenta, forKey: A0ThemePrimaryButtonTextColor)
+theme.register(.systemFont(ofSize: 20, weight: UIFontWeightBold), forKey: A0ThemePrimaryButtonFont)
 ```
 
 ```swift
 // 6. Configure the secondary buttons (sign up / reset password):
-theme.registerColor(.lightVioletColor(), forKey: A0ThemeSecondaryButtonBackgroundColor)
-theme.registerColor(.whiteColor(), forKey: A0ThemeSecondaryButtonTextColor)
+theme.register(.magenta, forKey: A0ThemeSecondaryButtonBackgroundColor)
+theme.register(.white, forKey: A0ThemeSecondaryButtonTextColor)
 ```
 
 ```swift
 // 7. Add a background image:
-theme.registerImageWithName("custom-background", bundle: NSBundle.mainBundle(), forKey: A0ThemeScreenBackgroundImageName)
+theme.registerImage(withName: "custom-background", bundle: Bundle.main, forKey: A0ThemeScreenBackgroundImageName)
 ```
 
 ```swift
 // 8. Configure the X button:
-theme.registerColor(.lightVioletColor(), forKey: A0ThemeCloseButtonTintColor)
+theme.register(.magenta, forKey: A0ThemeCloseButtonTintColor)
 ```
 
 ```swift
@@ -114,7 +114,7 @@ theme.statusBarStyle = .LightContent
 Last, but not least: You still need to register your theme before presenting the login dialog:
 
 ```swift
-A0Theme.sharedInstance().registerTheme(theme)
+A0Theme.sharedInstance().register(theme)
 ```
 
 ### Done!
@@ -124,7 +124,7 @@ In conclusion, here is the code snippet you need to keep on mind:
 ```swift
 let theme = A0Theme()
 // customize your theme here
-A0Theme.sharedInstance().registerTheme(theme)
+A0Theme.sharedInstance().register(theme)
 ```
 
 ### Appendix: Customizable Properties List
