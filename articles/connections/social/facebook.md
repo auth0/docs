@@ -44,7 +44,13 @@ Enter the following URL in the **Valid OAuth redirect URIs** field:
 
 Click **Save Changes**.
 
-## 4. Get your **App ID** and **App Secret**
+## 4. Make your App Public
+
+Next, click on **App Review** on the left navigation bar. Near the top of the page under **Make (Your App Name) App public?** click to move the slider to **Yes**.
+
+![Make Public](/media/articles/connections/social/facebook/facebook-public.png)
+
+## 5. Get your **App ID** and **App Secret**
 
 Click **Settings** in the left nav. On this page you can retrieve your **App ID** and **App Secret**.
 
