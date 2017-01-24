@@ -6,9 +6,9 @@ toc: true
 
 # Refresh Token
 
-::: panel-warning API Authorization documentation
-This article describes the new Refresh Token story, according to the [new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth). If you are looking for the legacy Refresh Token docs refer to [Refresh Token (legacy)](/tokens/legacy/refresh-token).
-:::
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This article describes the new Refresh Token story, according to the <a href="/api-auth/tutorials/configuring-tenant-for-api-auth">new API Authorization flows</a>. If you are looking for the legacy Refresh Token docs refer to <a href="/tokens/legacy/refresh-token">Refresh Token (legacy)</a>.
+</div>
 
 A **Refresh Token** is a special kind of token that contains the information required to obtain a new [access token](/tokens/access-token) or [ID token](/tokens/id-token).
 
