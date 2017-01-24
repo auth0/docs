@@ -79,7 +79,7 @@ auth.getToken(options)
 
 #### Modifying the `role` and `principal` Strings
 
-To modify the `role` and `principal` strings, specify the appropriate values via [Rules](${manage_url}/#/rules):
+To modify the `role` and `principal` strings (which are the final two lines of the `if` statement contained in the provided function), specify the appropriate values via [Rules](${manage_url}/#/rules):
 
 ```js
 function (user, context, callback) {
@@ -95,6 +95,10 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+
+:::panel-info Rules
+[How to Work with Rules](/docs/rules#video-using-rules)
+:::
 
 Be sure to update the `role` and `[principal]` ARN values with the ones for your integration.
 
