@@ -40,7 +40,9 @@ This section of the tutorial will utilize [IAM roles and policies](http://docs.a
 
 ### 1. Configure IAM and Auth0 for SAML Integration with the API Gateway
 
-The AWS IAM SAML Integration lets the trusted identity provider (IDP) specify an AWS IAM role in the SAML token used to obtain an AWS token. The returned token has the AWS access permissions of that role. Your SAML IDP controls the level of access for your users by issuing SAML tokens with different AWS IAM roles. For example, the IDP could specify the IAM role based on group membership (for example, an administrator in Active Directory) or authentication source (for example, a database connection or a social provider like Facebook). This approach lets you differentiate user access to your Amazon API Gateway methods when secured using AWS IAM.
+You can specify an AWS IAM role for the SAML token you exchange for an AWS token. Depending on the permissions granted to that IAM role (which are set using your identity provider), the received token possesses those same permissions. By issuing different SAML tokens, each with its own AWS IAM role, you can control the levels of access for your users.
+
+For example, the IDP could specify the IAM role based on group membership (for example, an administrator in Active Directory) or authentication source (for example, a database connection or a social provider like Facebook). This approach lets you differentiate user access to your Amazon API Gateway methods when secured using AWS IAM.
 
 #### Configuring Auth0
 
