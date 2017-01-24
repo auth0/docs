@@ -42,7 +42,7 @@ Click **Register**.
 
 ## 4. Get your *Client ID* and *Client Secret*
 
-Once your app is registered, you will be brought to the **Manage Clients** page. Click on the **Manage** button for your new client.
+Once your app is registered, you will be navigated to the **Manage Clients** page. Click on the **Manage** button for your new client.
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-4.png)
 
