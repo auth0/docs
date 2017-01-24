@@ -8,9 +8,9 @@ toc: true
 
 Auth0 provides multiple locations for storing different types of data associated with authenticating an app’s users. The purpose of this document is to demonstrate the best practices in using these storage mechanisms efficiently and securely.
 
-The document also gives you a look at an example of the end-to-end experience of an application using auth0 and an external database. We created an application to illustrate the important distinctions a developer must make when storing their user data with Auth0.
+Auth0 provides multiple places for storing data used for authenticating a Client's users. This document covers best practices on how to store your data securely and efficiently, using a sample Client, a mobile music application, to illustrate specific topics. The Client reflects the end-to-end user experience of one using both Auth0 *and* an external database.  
 
-For this example case we used the scenario of a mobile music application. We started with a basic mobile app for iOS (coded in Swift) from the Auth0 seed project for an [iOS mobile app](/quickstart/native/ios-swift). As a backend for the app, we used the Auth0 seed project for a simple [Node.js API](/quickstart/backend/nodejs). As we discuss the different types of data and the best places to store them, we will continue to use this application as the example case. See the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api) from our documentation to give you a visual of how the application is structured.
+We started with a basic mobile app for iOS (coded in Swift) from the Auth0 seed project for an [iOS mobile app](/quickstart/native/ios-swift). As a backend for the app, we used the Auth0 seed project for a simple [Node.js API](/quickstart/backend/nodejs). As we discuss the different types of data and the best places to store them, we will continue to use this application as the example case. See the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api) from our documentation to give you a visual of how the application is structured.
 
 ## Table of Contents
 
