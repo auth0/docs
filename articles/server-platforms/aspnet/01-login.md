@@ -15,7 +15,7 @@ budicon: 448
   ]
 }) %>
 
-## Install Auth0-ASPNET NuGet Package
+## 1. Install Auth0-ASPNET NuGet Package
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET** package, running the command:
 
@@ -23,23 +23,23 @@ ${snippet(meta.snippets.dependencies)}
 
 > This package will add a `LoginCallback.ashx` to your project, which will process the login.
 
-## Configure Callback URLs
+## 2. Configure Callback URLs
 
-After authenticating the user on Auth0, we will do a POST to the `/LoginCallback.ashx` URL on your website, e.g. `http://localhost:PORT/LoginCallback.ashx`. For security purposes, you have to register this URL on the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section on Auth0 Admin app.
+After authenticating the user on Auth0, we will do a POST to the `/LoginCallback.ashx` URL on your website, e.g. `http://localhost:PORT/LoginCallback.ashx`. For security purposes, you have to register this URL in the [Client Settings](${manage_url}/#/applications/${account.clientId}/settings) section on Auth0 Admin app.
 
 ![Callback URLs](/media/articles/server-platforms/aspnet/callback_url.png)
 
-## Filling Web.Config with your Auth0 Settings
+## 3. Filling Web.Config with your Auth0 Settings
 
 The NuGet package also created three settings on `<appSettings>`. Replace those with the following settings:
 
 ${snippet(meta.snippets.setup)}
 
-## Triggering Login Manually or Integrating Lock
+## 4.Triggering Login Manually or Integrating Lock
 
 <%= include('../../_includes/_lock-sdk') %>
 
-## Accessing User Information
+## 5. Accessing User Information
 
 Once the user successfully authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
@@ -52,7 +52,7 @@ public ActionResult Index()
 
 The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](/user-profile).
 
-## Further Reading
+## 6. Further Reading
 
 ### Authorization
 
@@ -88,7 +88,7 @@ public ActionResult Login(string returnUrl)
 }
 ```
 
-### Log Out
+### Logout
 
 To clear the cookie generated on login, use the `FederatedAuthentication.SessionAuthenticationModule.SignOut()` method on the `AccountController\Logout` method.
 
@@ -124,7 +124,7 @@ ${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
 
 ### Flow the Identity to a WCF Service
 
-If you want to flow the identity of the user logged in to a website, to a WCF service or an API, you have to use the `responseType: 'token'` parameter on the login widget constructor. When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. [Read more about this](/server-apis/wcf-service).
+If you want to flow the identity of the user logged into a website, to a WCF service or an API, you have to use the `responseType: 'token'` parameter on the login widget constructor. When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. [Read more about this](/server-apis/wcf-service).
 
 ### Manage Environments: Dev, Test, Production
 
