@@ -71,7 +71,7 @@ Go to the **Apps** tab of the Bitbucket connection on Auth0 and select each of y
 
 ## 6. Test the connection
 
-Close the **Settings** window to return to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard.
+Close the **Settings** window to return to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 A **TRY** icon will now be displayed next to the Bitbucket logo:
 

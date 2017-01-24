@@ -62,7 +62,7 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
 ## Test your connection
 
-1. Go back to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard. If you have configured your app correctly, you will see a **Try** icon next to the Twitter logo:
+1. Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard. If you have configured your app correctly, you will see a **Try** icon next to the Twitter logo:
 
     ![](/media/articles/connections/social/twitter/twitter-api-7.png)
 
