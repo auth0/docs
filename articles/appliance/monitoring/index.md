@@ -1,4 +1,5 @@
 ---
+url: /appliance/monitoring
 section: appliance
 description: Ways to monitor the Appliance
 ---
