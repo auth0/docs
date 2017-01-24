@@ -7,4 +7,4 @@ The Auth0 Runtime expects you to return an `access_token` that looks like the fo
 }
 ```
 
-If you decide not to issue the token, you can return `Error (cb(new Error('access denied')))`.
+If you decide not to issue the token, you can return `cb(new Error('access denied'))`.
