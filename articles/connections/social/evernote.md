@@ -9,6 +9,8 @@ description: How to obtain a Consumer Key and Consumer Secret for Evernote.
 
 To configure Evernote OAuth connections, you will need to create an API Key on the Evernote Developers portal.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Log into the Developers portal
 
 Log into the [Evernote Developers](http://dev.evernote.com) portal and click **Get an API Key**:
@@ -50,3 +52,6 @@ Complete the information on this page, including you *API Consumer Key*, and cli
 Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **Evernote**. Copy the `Consumer Key` and `Consumer Secret` from the Evernote API Key page into the fields on this page on Auth0:
 
 ![](/media/articles/connections/social/evernote/evernote-7.png)
+
+<%= include('../_quickstart-links.md') %>
+
