@@ -62,6 +62,7 @@ Auth0 tracks large security breaches that are happening on major third party sit
 
 **Actions:**
 * Send an email to the affected user
+* Send an email to dashboard owners immediately, or have a daily/weekly/monthly summary.
 * Block login attempts for suspected user accounts using that username and password combination
 
 This block remains in place until the user changes their password.
