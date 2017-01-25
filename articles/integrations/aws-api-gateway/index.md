@@ -6,7 +6,7 @@ description: How to build a serverless application using Token-based Authenticat
 
 # Amazon API Gateway Tutorial
 
-## Building a Serverless Application Using Token-Based Authentication with AWS API Gateway and Lambda
+## Build a Serverless Application Using Token-Based Authentication with AWS API Gateway and Lambda
 
 With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a JavaScript client.
 
@@ -20,11 +20,11 @@ Next, the tutorial walks you through setting up the Amazon API Gateway using AWS
 
 You will be taken through the following steps:
 
-* [Step 1 - Setting up the AWS API Gateway](/integrations/aws-api-gateway/part-1)
-* [Step 2 - Securing and Deploying the Amazon API Gateway](/integrations/aws-api-gateway/part-2)
-* [Step 3 - Building the Client Application](/integrations/aws-api-gateway/part-3)
-* [Step 4 - Using Multiple Roles with Amazon API Gateway](/integrations/aws-api-gateway/part-4)
-* [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5)
+* [Step 1 - Set up the AWS API Gateway](/integrations/aws-api-gateway/part-1)
+* [Step 2 - Secure and Deploy the Amazon API Gateway](/integrations/aws-api-gateway/part-2)
+* [Step 3 - Build the Client Application](/integrations/aws-api-gateway/part-3)
+* [Step 4 - Use Multiple Roles with Amazon API Gateway](/integrations/aws-api-gateway/part-4)
+* [Step 5 - Use Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5)
 
 <%= include('./_stepnav', {
  next: ["1. Setup", "/integrations/aws-api-gateway/part-1"]
