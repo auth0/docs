@@ -224,9 +224,9 @@ node -p -e 'JSON.stringify(require("fs").readFileSync("EXAMPLE.key").toString("a
 
 ```
 {
+  "name": "jira",
+  "strategy": "oauth1",
   "options": {
-    "name": "jira",
-    "strategy": "oauth1",
     "consumerKey": "CONSUMER_KEY"  ,
     "consumerSecret": "CONSUMER_SECRET",
     "requestTokenURL": "JIRA_URL/plugins/servlet/oauth/request-token",

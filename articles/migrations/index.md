@@ -1,5 +1,6 @@
 ---
 url: /migrations
+toc: true
 description: Occasionally, Auth0 engineers must make breaking changes to the Auth0 platform.
 ---
 
@@ -44,6 +45,20 @@ If you are using a custom database connection, rule, and/or custom email provide
 
 If you have any questions, create a ticket in our [Support Center](https://support.auth0.com).
 
+### Account Linking Removal
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2017-01-03 |  2017-03-01 |
+
+As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an `access_token` as part of the `/authorize` call as stated [here](/api/authentication?http#account-linking).
+
+#### Am I affected by the change?
+
+If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an `access_token` in your `/authorize` calls. 
+
+If you need help with the migration, create a ticket in our [Support Center](https://support.auth0.com)
+
 ### SAML Validations
 
 | Severity | Grace Period Start | Mandatory Opt-In|
@@ -79,8 +94,6 @@ Lock version 9 and above uses the [new password reset flow](/connections/databas
 
 ## Past Migrations
 These are migrations that have already been enabled for all customers.
-
-
 
 ### Email Delivery Changes: "From" Address
 
@@ -154,9 +167,6 @@ The previous endpoint for deleting all users was `DELETE  /api/v2/users`. This i
 
 #### Am I affected by the change?
 You are affected by the change only if you currently make use of the delete all users endpoint. If so, the only change you need to make is to change the URL as explained above.
-
-
-
 
 ### State Parameter required on redirect from rule
 

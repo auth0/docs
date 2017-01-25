@@ -27,4 +27,4 @@ In this tutorial, you will learn how to enable MFA in the jQuery application you
 
 # Summary
 
-In this guide you learned how to use Auth0 Guardian to add multifactor authentication to your jQuery project.
+In this guide, you learned how to use Auth0 Guardian to add multifactor authentication to your jQuery project.

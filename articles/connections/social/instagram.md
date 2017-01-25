@@ -42,17 +42,21 @@ Click **Register**.
 
 ## 4. Get your *Client ID* and *Client Secret*
 
-Once your app is registered, your `Client Id` and `Client Secret` will be displayed:
+Once your app is registered, you will be navigated to the **Manage Clients** page. Click on the **Manage** button for your new client.
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-4.png)
 
+This will bring you to the page that contains your **Client ID** and **Client Secret**. Copy these for use in the next step.
+
+![](/media/articles/connections/social/instagram/instagram-devportal-4-1.png)
+
 ## 5. Copy your *Client Id* and *Client Secret* into Auth0
 
-In a separate window, login to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left nav. 
+In a separate window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth Dashboard. 
 
 Select **Instagram**. 
 
-Copy the `Client Id` and `Client Secret` from the **Manage Clients** page of the Instagram Developer portal into the fields on this page on Auth0.
+Copy the `Client Id` and `Client Secret` from the **Manage Client** page of the Instagram Developer portal into the fields on this page on Auth0.
 
 Select the **Permissions** you want to enable.
 

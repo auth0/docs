@@ -9,9 +9,9 @@ url: /libraries/auth0js
 
 Auth0.js is a client-side library for [Auth0](http://auth0.com). Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
 
-::: panel-info Auth0.js v8
-This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the [v7 reference guide](/libraries/auth0js/v7).
-:::
+<div class="alert alert-info">
+  This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the <a href="/libraries/auth0js/v7">v7 reference guide</a>, or take a look at the <a href="/libraries/auth0js/migration-guide">v8 migration guide</a>
+</div>
 
 ## Ready-to-Go Example
 
@@ -85,35 +85,139 @@ Initialize a new instance of the Auth0 client as follows:
 
 ## Login
 
-### Hosted Login Page
+You can choose a method for login based on the type of auth you need in your application.
 
-To login via the [hosted login page](/hosted-pages/login), use the `authorize` method. This redirects to the hosted login page to initialize an authN/authZ transaction. 
+### webAuth.authorize()
+
+The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below. 
+
+For hosted login, one must call the `authorize` endpoint:
 
 ```js
-webAuth.authorize({
-  audience: 'url:auth:some-audience',
-  scope: 'read:something write:otherthing',
-  responseType: 'token',
-  redirectUri: 'https://example.com/auth/callback'
+webAuth.authorize({ 
+  //Any additional options can go here 
 });
 ```
 
-Note that the same `authorize` method can be used with a 'connection' parameter to facilitate social connection logins, as well.
+For social logins, the connection will need to be specified:
 
-### Custom Username and Password
+```js
+webAuth.authorize({
+  connection: 'twitter'
+});
+```
 
-The `client.login` method can be used when you need to request a username and password and authenticate from your site, instead of using the [hosted login page](/hosted-pages/login). This method can be used for database and ldap connections. This will not initialize a SSO session in Auth0, hence cannot be used along with `renewAuth`.
+### webAuth.popup.authorize()
+
+For popup authentication the `popup.authorize` method can be used. 
+
+Hosted login with popup:
+
+```js
+webAuth.popup.authorize({ 
+  //Any additional options can go here 
+});
+```
+
+And for social login with popup using `authorize`:
+
+```js
+webAuth.popup.authorize({
+  connection: 'twitter'
+});
+```
+
+### webAuth.redirect.loginWithCredentials()
+
+To login using redirect with credentials to enterprise connections, the `redirect.loginWithCredentials` method is used.
+
+
+```js
+webAuth.redirect.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
+});
+```
+
+### webAuth.popup.loginWithCredentials()
+
+To login using popup mode with credentials to enterprise connections, the `popup.loginWithCredentials` method is used.
+
+
+```js
+webAuth.popup.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
+});
+```
+
+### webAuth.client.login()
+
+The `client.login` method allows for non redirect auth using custom database connections, using /`oauth/token`.
 
 ```js
 webAuth.client.login({
-  realm: 'Username-Password-Authentication', //connection name or HRD domain
-  username: 'info@auth0.com',
-  password: 'areallystrongpassword',
-  audience: 'https://mystore.com/api/v2',
-  scope: 'read:order write:order',
-  }, function(err, authResult) {
-    // Auth tokens in the result or an error
+  realm: 'tests',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid profile',
+  audience: 'urn:test'
 });
+```
+
+### Passwordless Login
+
+Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
+
+#### Start Passwordless
+
+The `passwordlessStart` method requires several options:
+
+* `connection` - a string, the connection for this authentication
+* `send` - a string, value must be either 'code' or 'link'
+
+In addition, _one_ of the two following options must be sent:
+
+* `phoneNumber` - a string containing the user's phone number for delivery of a code or link via SMS
+* `email` - a string containing the user's email for delivery of a code or link via email
+
+```js
+webAuth.passwordlessStart({
+    connection: 'Username-Password-Authentication',
+    send: 'code',
+    email: 'foo@bar.com'
+  }, function (err,res) {
+    // handle errors or continue
+  }
+);
+```
+
+#### Verify Passwordless
+
+The `passwordlessVerify` method requires several options:
+
+* `connection` - a string, the connection for this authentication
+* `verificationCode` - a string, the code sent to the user as a code or within a link.
+
+In addition, _one_ of the two following options must be sent:
+
+* `phoneNumber` - a string containing the user's phone number, to which the code or link was delivered via SMS
+* `email` - a string containing the user's email, to which the code or link was delivered via email
+
+
+```js
+webAuth.passwordlessVerify({
+    connection: 'Username-Password-Authentication',
+    email: 'foo@bar.com',
+    verificationCode: '389945'
+  }, function (err,res) {
+    // handle errors or continue
+  }
+);
 ```
 
 ## Logout
@@ -147,10 +251,7 @@ The `signup` method accepts an 'options' object that contains parameters for you
         webAuth.signup({ 
             connection: 'Username-Password-Authentication', 
             email: $('.signup-email').val(), 
-            password: $('.signup-password').val(), 
-            sso: true, 
-            popup: true, 
-            auto_login: false 
+            password: $('.signup-password').val()
         }, function (err) { 
             if (err) return alert('Something went wrong: ' + err.message); 
             return alert('success signup without login!') 
@@ -174,7 +275,7 @@ webAuth.renewAuth({
 });
 ```
 
-::: panel-info postMessage
+panel-info postMessage
 This will use postMessage to comunicate between the silent callback and the SPA. When false the SDK will attempt to parse the url hash, should ignore the url hash, and no extra behaviour is needed.
 :::
 
@@ -236,28 +337,28 @@ var auth0Manage = new auth0.Management({
 
 ### Getting the User Profile
 
-In order to get the user profile data, use the `getUser()` method, with the `userId` and a callback as parameters. The method returns the user profile. https://auth0.com/docs/api/management/v2#!/Users/get_users_by_id.
+In order to get the user profile data, use the `getUser()` method, with the `userId` and a callback as parameters. The method returns the user profile.
 
 ```js
-getUser(userId, cb);
+auth0Manage.getUser(userId, cb);
 ```
 
 ### Updating the User Profile
 
-When updating user metadata, you will need to first create a `metadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `metadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata.
+When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. Visit the [User Metadata](/metadata) documentation for more details on user metadata.
 
 ```js
-patchUserMetadata(userId, userMetadata, cb);
+auth0Manage.patchUserMetadata(userId, userMetadata, cb);
 ```
 
 ### Linking Users
 
 Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
 
-The `linkUser` method accepts two parameters, the primary user id and the secondary user token (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe.
+The `linkUser` method accepts two parameters, the primary user id and the secondary user token (the token obtained after login with this identity). The user id in question is the unique identifier for this user account. If the id is in the format `facebook|1234567890`, the id required is the portion after the delimiting pipe. Visit the [Linking Accounts](/link-accounts) documentation for more details on linking accounts.
 
 ```js
-linkUser(userId, secondaryUserToken, cb): Link two users. https://auth0.com/docs/api/management/v2#!/Users/post_identities
+auth0Manage.linkUser(userId, secondaryUserToken, cb);
 ```
 
 ::: panel-info Linking - Metadata
