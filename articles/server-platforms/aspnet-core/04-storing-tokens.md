@@ -2,7 +2,7 @@
 title: Storing Tokens
 description: This tutorial will show you how store the tokens returned from Auth0 in order to use them later on.
 budicon: 280
----the val
+---
 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
