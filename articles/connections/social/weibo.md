@@ -9,6 +9,8 @@ description: How to obtain an App ID and App Secret for Weibo.
 
 To configure a Weibo connection you will need to register Auth0 on the [Weibo App portal](http://open.weibo.com/apps).
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Add a new Application
 
 First log in into your [Weibo portal](http://open.weibo.com/apps), once you have logged in go to the [Development page](http://open.weibo.com/development) and click on the orange button.
@@ -70,4 +72,7 @@ Click on this to test the new connection. This should bring up a confirmation pa
 ![Confirmation page](/media/articles/connections/social/weibo/confirmation.png)
 
 If accepted, you should be able to see the **It Works!** confirmation page that your connection has been configured correctly.
+
+<%= include('../_quickstart-links.md') %>
+
 

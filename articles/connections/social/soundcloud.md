@@ -10,6 +10,8 @@ description: How to obtain a Client Id and Client Secret for SoundCloud.
 
 To configure an OAuth 2.0 connection with SoundCloud, you will need to register your Auth0 Client with SoundCloud using their [Developer Portal](http://developers.soundcloud.com/).
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Register Your App and Obtain API Credentials with SoundCloud
 
 ::: panel-warning SoundCloud Registration Process
@@ -43,3 +45,6 @@ You will be prompted to provide your SoundCloud `Client ID` and `Client Secret`.
 **Save** your settings. Switch to the *Clients* tab, and select the Client(s) you want to use the SoundCloud integration. **Save** again.
 
 ![](/media/articles/connections/social/soundcloud/clients.png)
+
+<%= include('../_quickstart-links.md') %>
+
