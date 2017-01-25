@@ -17,14 +17,18 @@ The previous step explained how you can log users into your application using th
 
 If you are using social logins, you can also launch the login screen for a particular social login provider directly from your Ionic application.
 
-## Update References
+## Add auth0.js
 
-The custom login uses the `auth0.js` library, so it needs to be referenced instead of the Lock widget in your `index.html`. Replace the existing reference to `lib/auth0-lock/build/auth0-lock.js` with `lib/auth0.js/build/auth0.js`.
+To implement a custom login screen, the **auth0.js** library and **angular-auth0** wrapper are required. Install these packages, along with angular-jwt, and add them to your project.
+
+```bash
+bower install auth0.js#7.6.1 angular-auth0#1.0.6 angular-jwt
+```
 
 ```html
-<!-- Auth0's JS library -->
+<!-- auth0.js library -->
 <script src="lib/auth0.js/build/auth0.js"></script>
-<!-- auth0-angular -->
+<!-- angular-auth0 -->
 <script src="lib/angular-auth0/dist/angular-auth0.js"></script>
 <!-- angular-jwt -->
 <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
