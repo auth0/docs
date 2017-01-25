@@ -36,7 +36,6 @@ Expand the **Web Settings** section. Enter your Auth0 callback URL in the **Allo
 
 Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Amazon**. Copy the `Client Id` and `Client Secret` from the **Web Settings** of your app on Amazon into the fields on this page on Auth0.
 
-<%= include('../_quickstart-links.md') %>
-
 ![](/media/articles/connections/social/amazon/amazon-add-connection.png)
 
+<%= include('../_quickstart-links.md') %>
