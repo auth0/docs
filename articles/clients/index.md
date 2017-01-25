@@ -89,15 +89,15 @@ If you use a third-party application for log management, like Sumo Logic, Splunk
 
 Once you have configured your Client, some common next steps to take are:
 
-- Configure a Connection and enable it for your Client. For details refer to [Client Connections](/clients/connections). For a list of the supported Identity Providers refer to [Identity Providers Supported by Auth0](/identityproviders).
+- **Configure a Connection** and enable it for your Client. For details refer to [Client Connections](/clients/connections). For a list of the supported Identity Providers refer to [Identity Providers Supported by Auth0](/identityproviders).
 
-- Configure your app to use your Auth0 Client. For detailed instructions and samples for a variety of technologies, refer to our [quickstarts](/quickstarts). There you can find information on how to implement login and logout (using [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js)), handle your user sessions, retrieve and display user profile information, add [Rules](/rules) to customize your flow, and more.
+- **Configure your app** to use your Auth0 Client. For detailed instructions and samples for a variety of technologies, refer to our [quickstarts](/quickstarts). There you can find information on how to implement login and logout (using [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js)), handle your user sessions, retrieve and display user profile information, add [Rules](/rules) to customize your flow, and more.
 
   **NOTE**: For background theory on client authentication flows, refer to [Client Authentication](/client-auth).
 
-- Use our latest [API Authorization](/api-auth) features to call an API. You need to [configure your tenant for the new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth).
+- Use our latest [API Authorization](/api-auth) features to **call an API**. You need to [configure your tenant for the new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth).
 
-- Use [our APIs](/api/info).
+- **Use [our APIs](/api/info)**.
 
   - The [Authentication API](/api/authentication) handles all the primary identity related functions (login, logout, get user profile, and so forth). Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually you will have to interact with this API directly.
   
