@@ -9,12 +9,12 @@ description: This tutorial demonstrates how to use the Auth0 Angular 1.x SDK to 
   path: '02-Custom-Login'
 }) %>
 
-The previous step explained how you can log users into your application using the [Lock Widget](https://auth0.com/lock). While Lock provides the simplest way to add authentication to your app, you also have the option of creating your own custom user interface.
+The previous step explained how you can log users into your application using the [Lock Widget](/libraries/lock). While Lock provides the simplest way to add authentication to your app, you also have the option of creating your own custom user interface.
 
 ::: panel-info Version Requirements
-This quickstart and the accompanying sample demonstrate custom login with auth0.js version 8 and angular-auth0 version 2. If you are using auth0.js version 7, please see the [reference guide](https://auth0.com/docs/libraries/auth0js/v7) for the library, as well as the [legacy AngularJS custom login sample](https://github.com/auth0-samples/auth0-angularjs-sample/tree/auth0js-v7/02-Custom-Login).
+This quickstart and the accompanying sample demonstrate custom login with auth0.js version 8 and angular-auth0 version 2. If you are using auth0.js version 7, please see the [reference guide](/libraries/auth0js/v7) for the library, as well as the [legacy AngularJS custom login sample](https://github.com/auth0-samples/auth0-angularjs-sample/tree/auth0js-v7/02-Custom-Login).
 
-Auth0.js version 8 verifies ID tokens during authentication transactions. Only tokens which are signed with the RS256 algorithm can be verified on the client side, meaning that your Auth0 client must be configured to sign tokens with RS256. See the [auth0.js migration guide](https://auth0.com/docs/libraries/auth0js/migration-guide#switching-from-hs256-to-rs256) for more details.
+Auth0.js version 8 verifies ID tokens during authentication transactions. Only tokens which are signed with the RS256 algorithm can be verified on the client side, meaning that your Auth0 client must be configured to sign tokens with RS256. See the [auth0.js migration guide](/libraries/auth0js/migration-guide#switching-from-hs256-to-rs256) for more details.
 :::
 
 ## Add auth0.js
