@@ -71,6 +71,20 @@ While the Client ID is considered public information, the Client Secret **must b
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
+## How to Delete a Client
+
+Navigate to the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) and scroll to the end of the page. Under the *Danger Zone* section you can find the **Delete Client** button. This operation cannot be undone.
+
+Once you click on the button a pop-up window will ask you to confirm the action. Click **Yes, delete client** to permanently remove the client.
+
+**Note**: You can also delete a client using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
+
+## Client Auditing
+
+Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. The logs include many of the actions performed by the user like failing to login to a client or requesting a password change. For more details refer to: [Logs](/logs).
+
+If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For details on the available extensions and how to configure them refer to: [Extensions](/extensions).
+
 ## Next Steps
 
 Once you have configured your Client, some common next steps to take are:
@@ -88,17 +102,3 @@ Once you have configured your Client, some common next steps to take are:
   - The [Authentication API](/api/authentication) handles all the primary identity related functions (login, logout, get user profile, and so forth). Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually you will have to interact with this API directly.
   
   - The [Management API](/api/management/v2) can be used to automate various tasks in Auth0 such as creating users.
-
-## How to Delete a Client
-
-Navigate to the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) and scroll to the end of the page. Under the *Danger Zone* section you can find the **Delete Client** button. This operation cannot be undone.
-
-Once you click on the button a pop-up window will ask you to confirm the action. Click **Yes, delete client** to permanently remove the client.
-
-**Note**: You can also delete a client using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
-
-## Client Auditing
-
-Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. The logs include many of the actions performed by the user like failing to login to a client or requesting a password change. For more details refer to: [Logs](/logs).
-
-If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For details on the available extensions and how to configure them refer to: [Extensions](/extensions).
