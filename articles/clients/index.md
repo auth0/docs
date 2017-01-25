@@ -1,5 +1,6 @@
 ---
 description: Explains the basics of creating and using Auth0 Clients.
+toc: true
 ---
 
 # Clients
@@ -20,7 +21,7 @@ There are four client types in Auth0.
 
 - **Non Interactive Clients**: Used for server to server applications like CLIs, daemons or services running on your backend. Typically you would use this option if you have a service that requires access to an API.
 
-## How to configure a Client
+## Create a Client
 
 Navigate to the [dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients) menu option on the left. By default, you should have one client named *Default App*. You can either configure this one or create a new one by clicking the **+ Create Client** button.
 
@@ -70,7 +71,25 @@ While the Client ID is considered public information, the Client Secret **must b
 
 - **Use Auth0 instead of the IdP to do Single Sign On**: If enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on).
 
-## How to Delete a Client
+## Next Steps
+
+Once you have created your Client, some common next steps to take are:
+
+- Configure a Connection and enable it for your Client. For details refer to [Client Connections](/clients/connections). For a list of the supported Identity Providers refer to [Identity Providers Supported by Auth0](/identityproviders).
+
+- Configure your app to use your Auth0 Client. For detailed instructions and samples for a variety of technologies, refer to our [quickstarts](/quickstarts). There you can find information on how to implement login and logout (using [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js)), handle your user sessions, retrieve and display user profile information, add [Rules](/rules) to customize your flow, and more.
+
+  **NOTE**: For background theory on client authentication flows, refer to [Client Authentication](/client-auth).
+
+- Use our latest [API Authorization](/api-auth) features to call an API. You need to [configure your tenant for the new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth).
+
+- Use [our APIs](/api/info).
+
+  - The [Authentication API](/api/authentication) handles all the primary identity related functions (login, logout, get user profile, and so forth). Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually you will have to interact with this API directly.
+  
+  - The [Management API](/api/management/v2) can be used to automate various tasks in Auth0 such as creating users.
+
+## Delete a Client
 
 Navigate to the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) and scroll to the end of the page. Under the *Danger Zone* section you can find the **Delete Client** button. This operation cannot be undone.
 
