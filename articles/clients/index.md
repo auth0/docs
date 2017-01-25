@@ -21,7 +21,7 @@ There are four client types in Auth0.
 
 - **Non Interactive Clients**: Used for server to server applications like CLIs, daemons or services running on your backend. Typically you would use this option if you have a service that requires access to an API.
 
-## Create a Client
+## How to configure a Client
 
 Navigate to the [dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients) menu option on the left. By default, you should have one client named *Default App*. You can either configure this one or create a new one by clicking the **+ Create Client** button.
 
@@ -73,7 +73,7 @@ While the Client ID is considered public information, the Client Secret **must b
 
 ## Next Steps
 
-Once you have created your Client, some common next steps to take are:
+Once you have configured your Client, some common next steps to take are:
 
 - Configure a Connection and enable it for your Client. For details refer to [Client Connections](/clients/connections). For a list of the supported Identity Providers refer to [Identity Providers Supported by Auth0](/identityproviders).
 
@@ -89,7 +89,7 @@ Once you have created your Client, some common next steps to take are:
   
   - The [Management API](/api/management/v2) can be used to automate various tasks in Auth0 such as creating users.
 
-## Delete a Client
+## How to Delete a Client
 
 Navigate to the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) and scroll to the end of the page. Under the *Danger Zone* section you can find the **Delete Client** button. This operation cannot be undone.
 
