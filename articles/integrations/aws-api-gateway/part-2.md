@@ -4,7 +4,7 @@ description: Step 2 of Amazon API Gateway Tutorial
 ---
 
 # AWS API Gateway Tutorial
-## Step 2 - Securing and Deploying the Amazon API Gateway
+## Step 2 - Secure and Deploy the Amazon API Gateway
 
 Now that you have your API running, you need to add security. In this step, you will:
 
@@ -44,7 +44,7 @@ You can specify an AWS IAM role for the SAML token you exchange for an AWS token
 
 For example, the IDP could specify the IAM role based on group membership (for example, an administrator in Active Directory) or authentication source (for example, a database connection or a social provider like Facebook). This approach lets you differentiate user access to your Amazon API Gateway methods when secured using AWS IAM.
 
-#### Configuring Auth0
+#### Configure Auth0
 
 Log in to your Auth0 account. You will be brought to the Management Dashboard. Click on **+ New Client**, which is located in the top right corner of the page.
 
@@ -58,7 +58,7 @@ Navigate to the *Addons* tab for your newly-created Client. Using the appropriat
 
 ![Enable AWS for Client](/media/articles/integrations/aws-api-gateway/part-2/enable-aws-addon.png)
 
-#### Configuring AWS
+#### Configure AWS
 
 Follow the [Set Up AWS for Delegated Authentication with APIs](/aws-api-setup) tutorial to configure AWS for delegated access, which uses SAML. Some caveats:
 
@@ -66,7 +66,7 @@ Follow the [Set Up AWS for Delegated Authentication with APIs](/aws-api-setup) t
 * Name the SAML provider you create `auth0`;
 * Name the AWS IAM role `auth0-api-role`.
 
-##### Setting the Permissions Policy on Your IWS IAM Role
+##### Set the Permissions Policy on Your IWS IAM Role
 
 Once you have configured the AWS IAM role, you will add a policy to `auth0-api-role` that lets you execute your API Gateway methods.
 
