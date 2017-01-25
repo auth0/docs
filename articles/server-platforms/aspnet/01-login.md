@@ -29,17 +29,17 @@ After authenticating the user on Auth0, we will do a POST to the `/LoginCallback
 
 ![Callback URLs](/media/articles/server-platforms/aspnet/callback_url.png)
 
-## 3. Filling Web.Config with your Auth0 Settings
+## 3. Fill Web.Config with your Auth0 Settings
 
 The NuGet package also created three settings on `<appSettings>`. Replace those with the following settings:
 
 ${snippet(meta.snippets.setup)}
 
-## 4.Triggering Login Manually or Integrating Lock
+## 4.Trigger Login Manually or Integrating Lock
 
 <%= include('../../_includes/_lock-sdk') %>
 
-## 5. Accessing User Information
+## 5. Access User Information
 
 Once the user successfully authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
@@ -58,7 +58,7 @@ The user profile is normalized regardless of where the user came from. We will a
 
 You can use the usual authorization techniques since the `LoginCallback.ashx` handler and the Http Module will generate an `IPrincipal` on each request. This means you can use the declarative `[Authorize]` or `<location path='..'>` protection or code-based checks like `User.Identity.IsAuthenticated`
 
-### Redirecting to a Login Page
+### Redirect to a Login Page
 
 An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the request is not authenticated. If you want to redirect to a login page automatically in these cases, you can leverage the **Forms Authentication** module by configuring this in `web.config`:
 
@@ -112,7 +112,7 @@ public RedirectResult Logout()
 
 Note that the final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. [Read more about this](/logout#redirecting-users-after-logout).
 
-### Linking Accounts
+### Link Accounts
 
 To allow users to link accounts from different providers, read [Link Accounts](/link-accounts).
 
