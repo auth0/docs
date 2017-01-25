@@ -13,7 +13,7 @@ Single sign-on (SSO) makes it possible for a user to log into one client and the
 
 ## How to Implement Single Sign-On with Auth0
 
-To enable SSO for one of your **clients** (recall that each client is independent of one another), navigate to the [clients section](${manage_url}/#/clients) of the Auth0 Management Dashboard. Click on **Settings** for the client you would like to enable SSO for.
+To enable SSO for one of your **clients** (recall that each client is independent of one another), navigate to the [client's section](${manage_url}/#/clients) of the Auth0 Management Dashboard. Click on **Settings** for the client you would like to enable SSO for.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
