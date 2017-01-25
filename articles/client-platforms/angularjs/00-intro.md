@@ -5,7 +5,7 @@ description: This quickstart guide demonstrates how to add authentication to an 
 
 This quickstart guide demonstrates how to add authentication to an Angular 1.x application using Auth0.
 
-Auth0 provides wrappers for using the [Lock widget](https://auth0.com/lock) and the [auth0.js](https://github.com/auth0/auth0.js) library in Anguar apps, and these wrappers will be used throughout these quickstart guides.
+Auth0 provides wrappers for using the [Lock widget](/libraries/lock) and the [auth0.js](/libraries/auth0js) library in Angular apps, and these wrappers will be used throughout these quickstart guides.
 
 ## Sample Projects
 
