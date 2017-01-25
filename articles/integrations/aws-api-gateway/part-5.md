@@ -4,7 +4,7 @@ description: Step 5 of Amazon API Gateway Tutorial
 ---
 
 # AWS API Gateway Tutorial
-## Step 5 - Using Identity Tokens to Flow Identity
+## Step 5 - Use Identity Tokens to Flow Identity
 
 In this final step, you will:
 
@@ -25,11 +25,11 @@ In addition, you can use the JWT for authorization, which allows you to bypass t
 
 ![AWS Identity Flow](/media/articles/integrations/aws-api-gateway/identity-flow.png)
 
-### Adding Information to the JWT
+### Add Information to the JWT
 
 There are several ways of adding a user's information to the JWT. The following example adds the user's email address to the JWT, but the concepts are same for other user datapoints.
 
-#### Using Rules
+#### Use Rules
 
 One way to add a user's email address to the JWT is to use a [rule](/rules). This is a good approach if you want to make sure that this value is always available in the JWT for an authenticating user.
 
