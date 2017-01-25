@@ -14,6 +14,8 @@ New connections with Fitbit will use OAuth 2.0. Please see the following documen
 
 To configure a Fitbit OAuth 2.0 connection, you will need to register a new application in Fitbit.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Register a New Fitbit App
 
 Log into the [Fitbit's Developer site](https://dev.fitbit.com) and select **REGISTER AN APP**:
@@ -55,3 +57,6 @@ Go to the **Apps** tab of the Fitbit connection on your Auth0 Dashboard and sele
 If you have configured everything correctly, you will see the "It works" page!
 
 **NOTE:** Fitbit is a registered trademark and service mark of Fitbit, Inc. Auth0 is designed for use with the Fitbit platform. This product is not part of Fitbit, and Fitbit does not service or warrant the functionality of this product.
+
+<%= include('../_quickstart-links.md') %>
+

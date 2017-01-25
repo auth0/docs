@@ -88,10 +88,7 @@ Create a template which has a `form` for users to submit their credentials. The 
   </button>
 </div>
 ```
-
 The buttons in this template will have event listeners registered from an `app.js` file. This will be the file from which authentication transaction methods will be called from auth0.js.
-
-Since `Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login.
 
 ## Create the Authentication Functions
 

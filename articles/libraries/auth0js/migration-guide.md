@@ -122,7 +122,7 @@ webAuth.popup.loginWithCredentials({
 
 ### webAuth.client.login()
 
-The `client.login` method allows for non rediret auth using custom database connections, using /oauth/token.
+The `client.login` method allows for non redirect auth using custom database connections, using /oauth/token.
 
 ```js
 webAuth.client.login({
@@ -132,6 +132,32 @@ webAuth.client.login({
   scope: 'openid profile',
   audience: 'urn:test'
 });
+```
+
+### Passwordless Login
+
+Passwordless authentication is no longer available using the v7 methods. Now, passwordless is a simpler process, begun by calling `passwordlessStart` and completed by calling `passwordlessVerify`. See the v8 [documentation on Passwordless Authentication](/libraries/auth0js#passwordless-login) for more details!
+
+```js
+webAuth.passwordlessStart({
+    connection: 'Username-Password-Authentication',
+    send: 'code', // code or link
+    email: 'foo@bar.com' // either send an email param or a phoneNumber param
+  }, function (err,res) {
+    // handle errors or continue
+  }
+);
+```
+
+```js
+webAuth.passwordlessVerify({
+    connection: 'Username-Password-Authentication',
+    email: 'foo@bar.com',
+    verificationCode: '389945'
+  }, function (err,res) {
+    // handle errors or continue
+  }
+);
 ```
 
 ## Refreshing Tokens

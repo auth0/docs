@@ -18,13 +18,13 @@ The seed project contains a controller action and view which will display the cl
 
 ## Storing the Tokens as Claims
 
-You may however want to save the actual tokens as claims, so you can use these tokens to authenticate against API calls.
+You may, however, want to save the actual tokens as claims, so you can use these tokens to authenticate against API calls.
 
 The first thing you must do is to set the `SaveTokens` property of `OpenIdConnectOptions` to true. This will save the tokens to the Properties. You can then subsequently retrieve the tokens from the Properties in the `OnTicketReceived` event.
 
 The names of the tokens will be saved as a semicolon-separated list inside the ".TokenNames" property. You will need to extract those names, and then for each of them extract the value of the token from the Properties.
 
-The value will be stored as a property with the name ".Token." suffixed with the name of the token. So, for example the "access_token" will be stored in a property with the name ".Token.access_token".
+The value will be stored as a property with the name ".Token." suffixed with the name of the token. So, for example, the "access_token" will be stored in a property with the name ".Token.access_token".
 
 Once you have retrieved the value of the token, you can then simply store it as a claim for the `ClaimsIdentity`:
 
@@ -92,5 +92,5 @@ app.UseOpenIdConnectAuthentication(options);
 The `access_token` will now be stored as a claim called "access_token", so to retrieve it inside a controller you can simply use `User.Claims.FirstOrDefault("access_token").Value`
 
 ::: warning-banner Beware of your cookie size
-You need to note that saving the tokens will increase the size of your authentication cookie, so be careful with adding unnecessarry claims to the ClaimsIdentity as this cookie is sent back to the server with every request.
+You need to note that saving the tokens will increase the size of your authentication cookie, so be careful with adding unnecessary claims to the ClaimsIdentity as this cookie is sent back to the server with every request.
 :::

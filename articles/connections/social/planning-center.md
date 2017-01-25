@@ -9,6 +9,8 @@ description: How to obtain a Client Id and Client Secret for Planning Center.
 
 To configure an OAuth2 connection with Planning Center Online, you will need to register Auth0 with Planning Center on their Developer portal.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Log into the Planning Center Developer portal
 
 Go to the [Planning Center Developer](https://api.planningcenteronline.com/) portal. Log in with your credentials and click **Register** on the **Developer Applications** page:
@@ -38,3 +40,6 @@ Go to the [Social Connections](${manage_url}/#/connections/social) page of your 
 Copy the `Client Id` and `Secret` from the **Developer Applications** page of the Planning Center Developer portal into the fields on this page on Auth0.
 
 ![](/media/articles/connections/social/planning-center/planning-center-api-4.png)
+
+<%= include('../_quickstart-links.md') %>
+

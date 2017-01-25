@@ -1,5 +1,6 @@
 ---
 url: /migrations
+toc: true
 description: Occasionally, Auth0 engineers must make breaking changes to the Auth0 platform.
 ---
 
@@ -94,8 +95,6 @@ Lock version 9 and above uses the [new password reset flow](/connections/databas
 ## Past Migrations
 These are migrations that have already been enabled for all customers.
 
-
-
 ### Email Delivery Changes: "From" Address
 
 | Severity | Platforms | Grace Period Start | Mandatory Opt-In|
@@ -168,9 +167,6 @@ The previous endpoint for deleting all users was `DELETE  /api/v2/users`. This i
 
 #### Am I affected by the change?
 You are affected by the change only if you currently make use of the delete all users endpoint. If so, the only change you need to make is to change the URL as explained above.
-
-
-
 
 ### State Parameter required on redirect from rule
 

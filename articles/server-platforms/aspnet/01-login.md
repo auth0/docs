@@ -15,7 +15,7 @@ budicon: 448
   ]
 }) %>
 
-## Install Auth0-ASPNET NuGet Package
+## 1. Install Auth0-ASPNET NuGet Package
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET** package, running the command:
 
@@ -23,25 +23,23 @@ ${snippet(meta.snippets.dependencies)}
 
 > This package will add a `LoginCallback.ashx` to your project, which will process the login.
 
-## Configure Callback URLs
+## 2. Configure Callback URLs
 
-<div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your website. For security purposes, you have to register this URL on the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section on Auth0 Admin app.</p>
+After authenticating the user on Auth0, we will do a POST to the `/LoginCallback.ashx` URL on your website, e.g. `http://localhost:PORT/LoginCallback.ashx`. For security purposes, you have to register this URL in the [Client Settings](${manage_url}/#/applications/${account.clientId}/settings) section on Auth0 Admin app.
 
-<pre><code>http://localhost:PORT/LoginCallback.ashx</pre></code>
-</div>
+![Callback URLs](/media/articles/server-platforms/aspnet/callback_url.png)
 
-## Filling Web.Config with your Auth0 Settings
+## 3. Fill Web.Config with your Auth0 Settings
 
 The NuGet package also created three settings on `<appSettings>`. Replace those with the following settings:
 
 ${snippet(meta.snippets.setup)}
 
-## Triggering Login Manually or Integrating Lock
+## 4.Trigger Login Manually or Integrating Lock
 
 <%= include('../../_includes/_lock-sdk') %>
 
-## Accessing User Information
+## 5. Access User Information
 
 Once the user successfully authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
@@ -54,13 +52,13 @@ public ActionResult Index()
 
 The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](/user-profile).
 
-## Further Reading
+## 6. Further Reading
 
 ### Authorization
 
 You can use the usual authorization techniques since the `LoginCallback.ashx` handler and the Http Module will generate an `IPrincipal` on each request. This means you can use the declarative `[Authorize]` or `<location path='..'>` protection or code-based checks like `User.Identity.IsAuthenticated`
 
-### Redirecting to a Login Page
+### Redirect to a Login Page
 
 An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the request is not authenticated. If you want to redirect to a login page automatically in these cases, you can leverage the **Forms Authentication** module by configuring this in `web.config`:
 
@@ -90,7 +88,7 @@ public ActionResult Login(string returnUrl)
 }
 ```
 
-### Log Out
+### Logout
 
 To clear the cookie generated on login, use the `FederatedAuthentication.SessionAuthenticationModule.SignOut()` method on the `AccountController\Logout` method.
 
@@ -114,7 +112,7 @@ public RedirectResult Logout()
 
 Note that the final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. [Read more about this](/logout#redirecting-users-after-logout).
 
-### Linking Accounts
+### Link Accounts
 
 To allow users to link accounts from different providers, read [Link Accounts](/link-accounts).
 
@@ -126,7 +124,7 @@ ${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
 
 ### Flow the Identity to a WCF Service
 
-If you want to flow the identity of the user logged in to a website, to a WCF service or an API, you have to use the `responseType: 'token'` parameter on the login widget constructor. When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. [Read more about this](/server-apis/wcf-service).
+If you want to flow the identity of the user logged in a website, to a WCF service or an API, you have to use the `responseType: 'token'` parameter on the login widget constructor. When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. [Read more about this](/server-apis/wcf-service).
 
 ### Manage Environments: Dev, Test, Production
 

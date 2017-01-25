@@ -23,16 +23,13 @@ The SSL Certificate:
     * webtask;
     * App Tenant(s) (current *and* future) specific to that particular Appliance instance.
 
-Auth0 accepts the following certificate formats:
+Auth0 accepts the following certificate format:
 
-* PFX/PKCS12;
-* CER/PEM (RSA Private Key).
+* PFX/PKCS12
 
-If you are using **PEM**, please ensure that:
-* there is no password on the private key;
-* the key is an RSA Private Key.
+If you are using CER / PEM format, you should [convert to PFX format](http://stackoverflow.com/questions/2957742/how-to-convert-pkcs8-formatted-pem-private-key-to-the-traditional-format).
 
-**Note**: All intermediate certificates must be included in the public key.
+**Note**: The PFX certificate must contain the full chain (all intermediate certificates must be included in the public key).
 
 ```text
 -----BEGIN CERTIFICATE-----

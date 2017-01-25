@@ -142,6 +142,12 @@ On the Auth0 [Dashboard](${manage_url}/#/applications), select your app. In the 
 
 **NOTE:** For more detailed instructions on delegation, see [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup).
 
+### Username Length with AWS 
+
+Auth0 DB and custom DB users should take note that AWS requires usernames to be between 2-64 characters long. If you intend to use use Auth0 DB alongside of AWS here, change your [username length settings](/connections/database/require-username#length) accordingly in your Auth0 dashboard.
+
+Custom DB users should implement a similar username length policy in their application to ensure that this integration works. See this [AWS Troubleshooting Page](http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_saml.html#troubleshoot_saml_invalid-rolesessionname) for more information.
+
 ### IAM policy
 
 Here is an example of an IAM policy:

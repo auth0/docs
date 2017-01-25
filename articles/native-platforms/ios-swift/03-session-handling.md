@@ -58,8 +58,8 @@ We will store this `idToken` **upon a successful login**, in order to prevent th
 Once the user has logged in, you get both an `A0Profile` and an `A0Token` object, as follows:
 
 ```swift
-let controller = A0Lock.sharedLock().newLockViewController()
-controller.onAuthenticationBlock = { maybeProfile, maybeToken in
+let controller = A0Lock.shared().newLockViewController()
+controller?.onAuthenticationBlock = { profile, token in
     // do something with profile and token
 }
 ```
@@ -69,7 +69,7 @@ controller.onAuthenticationBlock = { maybeProfile, maybeToken in
 We need to store the `id_token` string value, which is inside the `A0Token` instance that comes in `maybeToken`. To do so, we'll use an `A0SimpleKeychain` instance:
 
 ```swift
-guard let token = maybeToken else { return }
+guard let token = token else { return }
 let keychain = A0SimpleKeychain(service: "Auth0")
 keychain.setString(token.idToken, forKey: "id_token")
 ```
@@ -86,7 +86,7 @@ To do so, first, we retrieve its value from the `id_token` key we used above, fr
 
 ```swift
 let keychain = A0SimpleKeychain(service: "Auth0")
-guard let idToken = keychain.stringForKey("id_token") else {
+guard let idToken = keychain.string(forKey: "id_token") else {
     // idToken doesn't exist, user has to enter their credentials to log in
     // Present A0Lock Login
     return
@@ -100,13 +100,13 @@ guard let idToken = keychain.stringForKey("id_token") else {
 Then, if such a token exists, we need to check whether it's still valid, has expired, or is no longer valid for some other reason, such as being revoked. To do so, we'll use `A0Lock` to fetch the user profile based on the current `idToken` we've got:
 
 ```swift
-guard let idToken = keychain.stringForKey("id_token") else {
+guard let idToken = keychain.string(forKey: "id_token") else {
     // Present A0Lock Login
     return
 }
 // Validate idToken
-let client = A0Lock.sharedLock().apiClient()
-client.fetchUserProfileWithIdToken(idToken,
+let client = A0Lock.shared().apiClient()
+client?.fetchUserProfile(withIdToken: idToken,
         success: { profile in
             // Our idToken is still valid...
             // We store the fetched user profile
@@ -158,12 +158,12 @@ We've used the `fetchNewIdTokenWithIdToken` function from `A0Lock.sharedLock().a
 ```swift
 // ⚠️ idToken has expired or is no longer valid
 let keychain = A0SimpleKeychain(service: "Auth0")
-guard let refreshToken = keychain.stringForKey("refresh_token") else {
+guard let refreshToken = keychain.string(forKey: "refresh_token") else {
     keychain.clearAll()
     return
 }
-let client = A0Lock.sharedLock().apiClient()
-client.fetchNewIdTokenWithRefreshToken(refreshToken,
+let client = A0Lock.shared().apiClient()
+client.fetchNewIdToken(withRefreshToken: refreshToken,
         parameters: nil,
         success: { newToken in
             // Just got a new idToken!

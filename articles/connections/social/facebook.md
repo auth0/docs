@@ -10,6 +10,8 @@ description: This page shows you how to connect your Auth0 app to Facebook. You 
 
 To connect your Auth0 app to Facebook, you will need to generate a *Client ID* and *Client Secret* in a Facebook app, copy these keys into your Auth0 settings, and enable the connection.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Login to Facebook Developers
 
 Go to [Facebook Developers](https://developers.facebook.com) and login with your account. Select **Add a New App** from the dropdown in the upper right:
@@ -44,7 +46,13 @@ Enter the following URL in the **Valid OAuth redirect URIs** field:
 
 Click **Save Changes**.
 
-## 4. Get your **App ID** and **App Secret**
+## 4. Make your App Public
+
+Next, click on **App Review** on the left navigation bar. Near the top of the page under **Make (Your App Name) App public?** click to move the slider to **Yes**.
+
+![Make Public](/media/articles/connections/social/facebook/facebook-public.png)
+
+## 5. Get your **App ID** and **App Secret**
 
 Click **Settings** in the left nav. On this page you can retrieve your **App ID** and **App Secret**.
 
@@ -96,4 +104,6 @@ Click continue and if configured correctly, you will see the **It works!!!** pag
 **Deauthorize Callback URL:** On the **Facebook Login** Client OAuth Settings page, you can also set a Deauthorize Callback URL to be called when a user deauthorizes your app.
 
 [Facebook Docs for Facebook Login](https://developers.facebook.com/docs/facebook-login)
+
+<%= include('../_quickstart-links.md') %>
 

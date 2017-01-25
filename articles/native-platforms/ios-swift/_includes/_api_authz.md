@@ -9,7 +9,7 @@ This quickstart uses the Auth0.swift SDK to help you add authentication and API 
 If you are using Carthage, add the following lines to your `Cartfile`:
 
 ```ruby
-github "auth0/Auth0.swift" "~> 1.0"
+github "auth0/Auth0.swift" "~> 1.1"
 ```
 
 Then, run `carthage bootstrap`.
@@ -22,7 +22,7 @@ If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `P
 
 ```ruby
 use_frameworks!
-pod 'Auth0', '~> 1.0'
+pod 'Auth0', '~> 1.1'
 ```
 
 Then, run `pod install`.

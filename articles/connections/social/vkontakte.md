@@ -9,6 +9,7 @@ description: How to connect your Auth0 app to vKontakte.
 
 To connect your Auth0 app to vKontakte, you will need to generate an `Application ID` and `Secure Key` in a vKontakte app, copy these keys into your Auth0 settings, and enable the connection.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Create a new vKontakte application
 
@@ -92,3 +93,6 @@ Click **TRY**.
 If you have configured everything correctly, you will see the **It works!!!** page:
 
 ![](/media/articles/connections/social/vkontakte/vkontakte-works.png)
+
+<%= include('../_quickstart-links.md') %>
+

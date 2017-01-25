@@ -10,6 +10,8 @@ description: How to obtain a Client Id and Client Secret for GitHub.
 
 To configure a GitHub connection, you will need to register Auth0 with GitHub.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Add a new application
 Log into GitHub and go to [Register new application](https://github.com/settings/applications/new):
 
@@ -34,3 +36,6 @@ Once the application is registered, your app's `Client Id` and `Client Secret` w
 Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Github**. Copy the `Client Id` and `Client Secret` from the **Developer Applications** of your app on Github into the fields on this page on Auth0.
 
 ![](/media/articles/connections/social/github/github-addapp-4.png)
+
+<%= include('../_quickstart-links.md') %>
+
