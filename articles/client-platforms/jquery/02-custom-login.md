@@ -91,6 +91,8 @@ Create a template which has a `form` for users to submit their credentials. The 
 
 The buttons in this template will have event listeners registered from an `app.js` file. This will be the file from which authentication transaction methods will be called from auth0.js.
 
+Since `Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login.
+
 ## Create the Authentication Functions
 
 All authentication transactions should be handled from a single JavaScript file which can act as a service. The service requires functions named `login`, `signup`, and `loginWithGoogle` which all make calls to the appropriate auth0.js methods to handle those actions.
