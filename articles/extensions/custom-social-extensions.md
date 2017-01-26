@@ -61,6 +61,15 @@ Using the slider, enable this social connection for the apps that you want to us
 
 Once you have enabled/disabled the appropriate apps, click **Save**.
 
+### Provide your Callback URL to the Identity Provider
+
+The callback URL is the URL that is invoked by the provider after the authentication request has finished.
+
+Use this value for the **Callback URL**:
+`https://${account.namespace}/login/callback`
+
+Depending on the provider, this field can be referred to by different names. Sometimes called a **Redirect URI** the callback URL may also be be referred to as: "Valid OAuth redirect URI", "Authorized redirect URI", "Allowed Return URL" or something similar.
+
 ## Use your new connection
 
 You can use [auth0.js](/libraries/auth0js) or a direct link to log a user in with the new connection.
@@ -92,3 +101,14 @@ If the identity provider requires Basic Authentication, you can be use the __Cus
     "Authorization" : "Basic MTIzNDU2OmFiY2RlZg=="
 }
 ```
+
+## Additional Provider Resources
+
+To learn more about how each provider handles authentication, see their documentation:
+
+[DigitalOcean: OAuth2 Tutorial](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#application-registration)
+[Dribbble: OAuth](http://developer.dribbble.com/v1/oauth/)
+[Dropbox: OAuth guide](https://www.dropbox.com/developers/reference/oauth-guide)
+[Imgur: Authorization and OAuth](https://api.imgur.com/oauth2)
+[Uber: OAuth 2.0](https://developer.uber.com/docs/riders/guides/authentication/introduction#oauth-20)
+[Vimeo: Authentication](https://developer.vimeo.com/api/authentication)
