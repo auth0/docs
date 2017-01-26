@@ -404,8 +404,10 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 | `username` <br/><span class="label label-danger">Required</span> | Username/email of the user to login |
 | `password` <br/><span class="label label-danger">Required</span> | Password of the user to login |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the connection to use for login |
-| `grant_type` <br/><span class="label label-danger">Required</span> | Set to `password`
 | `scope` | Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Set to `password` to authenticate using username/password or `urn:ietf:params:oauth:grant-type:jwt-bearer` to authenticate using an `id_token` (used to [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)) |
+| `device` | String value. Required when `grant_type` is `urn:ietf:params:oauth:grant-type:jwt-bearer` |
+| `id_token` | Used to authenticate using a token instead of username/password, in [TouchID](/libraries/lock-ios/touchid-authentication) scenarios. Required when `grant_type` is `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 
 
 ### Test this endpoint
@@ -434,6 +436,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 - [Database Identity Providers](/connections/database)
 - [Rate Limits on User/Password Authentication](/connections/database/rate-limits)
 - [Active Directory/LDAP Connector](/connector)
+- [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)
 
 
 
