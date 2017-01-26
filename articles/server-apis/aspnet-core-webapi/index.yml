@@ -20,3 +20,4 @@ articles:
   - 04-authentication-rs256-deprecated
   - 05-authentication-hs256-deprecated
   - 06-authorization-deprecated
+  - 07-troubleshooting
