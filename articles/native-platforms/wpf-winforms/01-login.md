@@ -12,7 +12,7 @@ budicon: 448
 }) %>
 
 ::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
+This tutorial and seed project have to be tested with the following:
 * Microsoft Visual Studio 2015
 * .NET Framework 4.6.1
 :::
@@ -39,12 +39,12 @@ ${snippet(meta.snippets.dependencies)}
 There are three options to do the integration:
 
 1. Using [Auth0 Lock](/lock) inside a Web View (this is the simplest way with only a few lines of code required).
-2. Creating your own UI (more work, but higher control the UI and overall experience).
+2. Creating your own UI (more work, but higher control of the UI and overall experience).
 3. Using specific username and password.
 
 ### Option 1: Auth0 Lock
 
-To start with, we'd recommend using __Lock__. Here is a snippet of code to copy & paste on your project.
+To start, we'd recommend using __Lock__. Here is a snippet of code to copy & paste on your project.
 Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
 
 ${snippet(meta.snippets.setup)}
