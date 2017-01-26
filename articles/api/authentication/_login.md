@@ -406,7 +406,7 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the connection to use for login |
 | `grant_type` <br/><span class="label label-danger">Required</span> | Set to `password` or `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | `scope` | Set to `openid` to retrieve also an `id_token`, leave null to get only an `access_token` |
-| `device` | You should set this to a string, if you set `grant_type` to `urn:ietf:params:oauth:grant-type:jwt-bearer` |
+| `device` | String value. Required when `grant_type` is `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | `id_token` | Used to authenticate using a token instead of username/password, in [TouchID](/libraries/lock-ios/touchid-authentication) scenarios. |
 
 
