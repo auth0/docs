@@ -81,7 +81,7 @@ Now that the second user is authenticated, the accounts can be linked.
     
       $http({
         method: 'POST',
-        url: 'https://${account.clientId}/api/v2/users/' + profile.user_id + '/identities',
+        url: 'https://${account.namespace}/api/v2/users/' + profile.user_id + '/identities',
         headers: {
           Authorization: 'Bearer ' + token
         },
@@ -216,7 +216,7 @@ You can dissociate a linked account by calling the [unlink a user account](/api/
 
       $http({
         method: 'DELETE',
-        url: 'https://${account.clientId}/api/v2/users/' + profile.user_id + '/identities/' + identity.provider + '/' + identity.user_id,
+        url: 'https://${account.namespace}/api/v2/users/' + profile.user_id + '/identities/' + identity.provider + '/' + identity.user_id,
         headers: {
           Authorization: 'Bearer ' + token
         }
