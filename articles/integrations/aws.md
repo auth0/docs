@@ -272,9 +272,7 @@ The result of calling the delegation endpoint will contain the AWS token in the 
 ```
 
 :::panel-info Auth0 Libraries
-The [Auth0 client libraries](/libraries) simplify the process of calling these endpoints. See an example for client-side JavaScript at: [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request).
-
-Please note that this example is for **version 7** of the `auth0js` library; delegation is *not* supported in version 8 of `auth0js`.
+The [Auth0 client libraries](/libraries) simplify the process of calling these endpoints. See an example for client-side JavaScript at: [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request). Please note that this example is for **version 7** of the `auth0js` library; delegation is *not* supported in version 8 of `auth0js`.
 :::
 
 Here is an example of client-side code used to obtain the token:
