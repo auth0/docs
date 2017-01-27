@@ -1,5 +1,6 @@
 ---
 description: How to configure a Custom Social Connection to your Auth0 app.
+toc: true
 ---
 
 # Auth0 Extension: Custom Social Connections
@@ -24,7 +25,7 @@ You will be asked to authorize the Custom Social Connections app. After you do s
 
 Click the slider next to the social provider you want to set up. The slider will turn from grey to green, indicating that a connection to that provider exists.
 
-### Configuring Social Connection Settings
+### Configure the Social Connection Settings
 
 The **New Connection** window contains two tabs: **Settings** and **Apps**:
 
@@ -106,14 +107,14 @@ If the identity provider requires Basic Authentication, you can be use the __Cus
 
 To learn more about how each provider handles authentication, see their documentation:
 
-[DigitalOcean: OAuth2 Tutorial](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#application-registration)
+- [DigitalOcean: OAuth2 Tutorial](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#application-registration)
 
-[Dribbble: OAuth](http://developer.dribbble.com/v1/oauth/)
+- [Dribbble: OAuth](http://developer.dribbble.com/v1/oauth/)
 
-[Dropbox: OAuth guide](https://www.dropbox.com/developers/reference/oauth-guide)
+- [Dropbox: OAuth guide](https://www.dropbox.com/developers/reference/oauth-guide)
 
-[Imgur: Authorization and OAuth](https://api.imgur.com/oauth2)
+- [Imgur: Authorization and OAuth](https://api.imgur.com/oauth2)
 
-[Uber: OAuth 2.0](https://developer.uber.com/docs/riders/guides/authentication/introduction#oauth-20)
+- [Uber: OAuth 2.0](https://developer.uber.com/docs/riders/guides/authentication/introduction#oauth-20)
 
-[Vimeo: Authentication](https://developer.vimeo.com/api/authentication)
+- [Vimeo: Authentication](https://developer.vimeo.com/api/authentication)
