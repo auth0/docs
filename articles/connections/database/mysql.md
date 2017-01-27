@@ -10,7 +10,7 @@ description: How to authenticate users with username and password using a Custom
 
 Applications often rely on user databases for authentication. Auth0 enables you to easily connect to these repositories and use them as identity providers while preserving user credentials and providing many additional features. You can read more about database connections and the different user store options at [Database Identity Providers](/connections/database).
 
-In this tutorial, you will be guided through a series of steps to connect your custom user store to Auth0.
+In this tutorial, you will be guided through a series of steps to connect your custom user store to Auth0. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Create a database connection
 
@@ -135,3 +135,5 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 After you have enabled the database connection, the Auth0 Login widget will automatically change its appearance to allow users to enter their `username` and `password`. Once entered, this data is passed to your scripts.
 
 ![](/media/articles/connections/database/mysql/db-connection-widget.png)
+
+<%= include('../_quickstart-links.md') %>
