@@ -1,5 +1,6 @@
 ---
 description: How to configure a Custom Social Connection to your Auth0 app.
+toc: true
 ---
 
 # Auth0 Extension: Custom Social Connections
@@ -22,7 +23,7 @@ You will be asked to authorize the Custom Social Connections app. After you do s
 
 ![](/media/articles/extensions/custom-social-connections.png)
 
-Click the slider next to the social provider you want to set up. The slider will turn from grey to green, indicating that a connection to that provider exists. For additional information on how each individual provider handles authentication, see that provider's documenation.
+Click the slider next to the social provider you want to set up. The slider will turn from grey to green, indicating that a connection to that provider exists. For additional information on how each individual provider handles authentication, see that provider's documentation.
 
 ### Configure the Social Connection Settings
 
