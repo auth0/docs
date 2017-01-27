@@ -40,7 +40,7 @@ There are three options to do the integration:
 
 ### Option 1: Auth0 Lock
 
-To start, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project.
+To start, we recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project.
 Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
 
 ${snippet(meta.snippets.setup)}
