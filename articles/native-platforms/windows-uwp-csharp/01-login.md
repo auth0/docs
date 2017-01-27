@@ -26,7 +26,7 @@ ${snippet(meta.snippets.dependencies)}
 ## Set Up the Auth0 Callback URL
 
 <div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
+<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 </div>
@@ -36,11 +36,11 @@ There are three options to do the integration:
 
 1. Using the [Auth0 Login Widget](/libraries/lock) with the Web Authentication Broker (this is the simplest with only a few lines of code required).
 2. Using the [Auth0 Login Widget](/libraries/lock) with the Web Authentication Broker, but specifying a specific Connection.
-3. Custom user interface to ask username and password.
+3. A custom user interface to ask username and password.
 
 ### Option 1: Auth0 Lock
 
-To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project.
+To start, we recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project.
 Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
 
 ${snippet(meta.snippets.setup)}
@@ -81,7 +81,7 @@ You can get more information about this in the [Scopes documentation](/scopes).
 
 ## Capabilities (Optional)
 
-In some cases Auth0 may not be able to connect to an identity provider. Showing nothing more than a "Can't connect to the service" message. A reason for this may be that the identity provider endpoint resolves to an Intranet (that has an authenticated domain controller), home or work network. In this case it is required to enable the "Private Networks (Client & Server)" capability.
+In some cases, Auth0 may not be able to connect to an identity provider. Showing nothing more than a "Can't connect to the service" message. A reason for this may be that the identity provider endpoint resolves to an Intranet (that has an authenticated domain controller), home or work network. In this case it is required to enable the "Private Networks (Client & Server)" capability.
 
 Use the Package Manifest (Solution Explorer > Package.appxmanifest) to enable the capability within the "Capabilities" tab.
 
