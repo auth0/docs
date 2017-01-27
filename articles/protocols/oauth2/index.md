@@ -88,7 +88,7 @@ OAuth 2.0 utilizes two endpoints: the **Authorization** endpoint and the **Token
 The Authorization endpoint is used to interact with the resource owner and get the authorization to access the protected resource. To better understand this, imagine that you want to log in to a service using your Google account. First, the service will redirect you to Google in order to authenticate (if you are not already logged in) and then you will get a consent screen, where you will be asked to authorize the service to access some of your data (protected resources), for example your email address and your list of contacts.
 
 The request parameters of the Authorization endpoint are:
-- `response_type`: Tells the authorization server which grant to execute. Refer to the [Response Type paragraph](#response-type) for details.
+- `response_type`: Tells the authorization server which grant to execute. Refer to the [How Response Type Works paragraph](#how-response-type-works) for details.
 - `client_id`: The id of the client application that asks for authorization.
 - `redirect_uri`: Holds a URL. A successful response from this endpoint results in a redirect to this URL.
 - `scope`: A space-delimited list of permissions that the client application requires.
