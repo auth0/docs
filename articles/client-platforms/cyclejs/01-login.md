@@ -6,7 +6,7 @@ budicon: 448
 ---
 
 ::: panel-info System Requirements
-This tutorial has to be tested with the following:
+This tutorial has been tested with the following:
 
 * NodeJS 6.3
 * npm 3.10.3
@@ -78,7 +78,7 @@ ${snippet(meta.snippets.query)}
 
 To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
-## 6. Logout
+## 6. Implement the Logout
 
 To log out, you simply need to send the `logout` action to the Auth0 driver.
 
