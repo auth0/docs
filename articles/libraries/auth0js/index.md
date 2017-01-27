@@ -291,10 +291,9 @@ The callback page should be something like the following one. It will parse the 
         domain: '${account.namespace}',
         clientID: '...'
       });
-      var result = webAuth.parseHash(window.location.hash);
-      if (result) {
-        parent.postMessage(result, "https://example.com/"); //The second parameter should be your domain
-      }
+      var result = auth0.parseHash(window.location.hash, function(err, data) {
+        parent.postMessage(err || data, "http://localhost:3000/");
+      });
     </script>
   </head>
   <body></body>
