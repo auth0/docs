@@ -1,5 +1,6 @@
 ---
 description: Overview of Microsoft Office 365 Integration with Auth0.
+toc: true
 ---
 
 # Office 365 Integration
@@ -34,7 +35,7 @@ When authentication is handed over to Auth0 it will use the AD Connector to auth
 
 > Note: If you're interested in providing SSO to Office 365 using other connections (like Database Connections, traditional AD, ...) you can [write a rule with custom provisioning logic](/integrations/office-365-custom-provisioning)
 
-## Configuring Synchronization With Office 365 / Azure AD
+## Configure Synchronization With Office 365 / Azure AD
 
 The synchronization with your local LDAP directory can be configured in Office 365 or Azure AD (if you have an Azure Subscription).
 
@@ -50,7 +51,7 @@ Once the domain is validated you can [Activate Active Directory synchronization]
 
 After installing and configuring the tool you'll be able to start the synchronization and your AD users will start showing up in the Admin Center user overview.
 
-## Configuring SSO With Auth0
+## Configure SSO With Auth0
 
 Everything in terms of synchronization has been configured and we can now proceed to the SSO configuration with Auth0. We will start by adding Office 365 as a SSO Integration in the dashboard.
 
@@ -103,9 +104,9 @@ When authentication with Kerberos is not possible (eg: not enabled for the conne
 
 This is where they'll enter their Active Directory credentials after which they'll be signed in to Office 365.
 
-# IdP Initiated Login
+## Log in Users without the Azure AD Portal
 
-When users navigate to https://portal.office.com they will always see the Azure AD login page which will redirect the users to the configured identity provider after entering their username. Using the IdP initiated login flow we can also skip this step.
+When users navigate to [https://portal.office.com](https://portal.office.com) they will always see the Azure AD login page which will redirect the users to the configured identity provider after entering their username. Using the IdP initiated login flow we can skip this step.
 
 Auth0 exposes an endpoint that can immediately start the login without showing the Azure AD login page. The format is as follows:
 
