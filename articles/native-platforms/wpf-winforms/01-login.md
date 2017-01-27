@@ -8,15 +8,12 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-winformsWPF-samples',
-  path: '00-Starter-Seed'
+  path: '00-Starter-Seed',
+  requirements: [
+    'Microsoft Visual Studio 2015',
+    '.NET Framework 4.6.1'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have to be tested with the following:
-* Microsoft Visual Studio 2015
-* .NET Framework 4.6.1
-:::
-
 
 This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsOrWPF` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
