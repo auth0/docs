@@ -22,9 +22,9 @@ You will be asked to authorize the Custom Social Connections app. After you do s
 
 ![](/media/articles/extensions/custom-social-connections.png)
 
-Click the slider next to the social provider you want to set up. The slider will turn from grey to green, indicating that a connection to that provider exists.
+Click the slider next to the social provider you want to set up. The slider will turn from grey to green, indicating that a connection to that provider exists. For additional information on how each individual provider handles authentication, see that provider's documenation.
 
-### Configuring Social Connection Settings
+### Configure the Social Connection Settings
 
 The **New Connection** window contains two tabs: **Settings** and **Apps**:
 
@@ -40,7 +40,7 @@ The Settings page is used to provide the information required to set up the soci
 - __Authorization URL__: The URL where the transaction begins and authorization occurs;
 - __Token URL__: The URL used to exchange the code generated from the information you provide for an access_token;
 - __Scope__: The scope parameters for which you want access rights;
-- __Fetch User Profile Script__: The function that returns the user profile and associated information.
+- __Fetch User Profile Script__: The JS function that returns the user profile and associated information. It will be auto-generated with the appropriate fields depending on the chosen provider.
 - __Custom Headers__: An optional JSON object that lets you provide custom headers to be included in the HTTP calls to the provider. Should be in the format of:
 
 ```
@@ -101,14 +101,3 @@ If the identity provider requires Basic Authentication, you can be use the __Cus
     "Authorization" : "Basic MTIzNDU2OmFiY2RlZg=="
 }
 ```
-
-## Additional Provider Resources
-
-To learn more about how each provider handles authentication, see their documentation:
-
-[DigitalOcean: OAuth2 Tutorial](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#application-registration)
-[Dribbble: OAuth](http://developer.dribbble.com/v1/oauth/)
-[Dropbox: OAuth guide](https://www.dropbox.com/developers/reference/oauth-guide)
-[Imgur: Authorization and OAuth](https://api.imgur.com/oauth2)
-[Uber: OAuth 2.0](https://developer.uber.com/docs/riders/guides/authentication/introduction#oauth-20)
-[Vimeo: Authentication](https://developer.vimeo.com/api/authentication)
