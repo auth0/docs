@@ -80,8 +80,4 @@ If a user is returned to the Okta dashboard after authenticating via Okta in a S
 
 2. In the Okta configuration screen titled "(2) Configure SAML", click on "Show Advanced Settings" and check the option for "Request Compression".  The Okta documentation indicates this should be checked if the value of this parameter is compressed.  Some Okta users have reported it should be checked for HTTP Redirect binding and uncompressed for HTTP POST binding.
 
-## Next steps
-
-After you configure the connection, you have to configure your application to use it. You can initiate login using [Lock](/libraries/lock), [Auth0.js](/libraries/auth0js), or use the [Authentication API endpoint](/api/authentication?http#enterprise-saml-and-others-). 
-
-For detailed instructions and samples for a variety of technologies, refer to our [Quickstarts](/quickstarts).
+<%= include('../../../connections/_quickstart-links.md') %>
