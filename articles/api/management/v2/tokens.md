@@ -53,7 +53,7 @@ You should be able to scroll down to see your `access_token` property from the t
 
 ### Using the Auth0 Management APIv2 Explorer (deprecated)
 
-::: panel-danger This feature will be deprecated
+::: panel-danger Deprecation Notice
 Generating tokens through the Management APIv2 explorer will soon be deprecated in favor of the more secure Client Credentials flow.
 :::
 
