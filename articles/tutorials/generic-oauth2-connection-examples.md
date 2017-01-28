@@ -204,20 +204,24 @@ After the call completes successfully, you will be able to login using these new
 * [Create an application](https://www.tumblr.com/oauth/apps)
 * Copy `OAuth Consumer Key` and `Secret Key` to config file below
 
-```
+```har
 {
-  "name": "tumblr",
-  "strategy": "oauth1",
-  "options": {
-    "client_id": "YOUR-TUMBLR-CONSUMER-KEY",
-    "client_secret": "YOUR-TUMBLR-SECRET-KEY",
-    "requestTokenURL": "https://www.tumblr.com/oauth/request_token",
-    "accessTokenURL": "https://www.tumblr.com/oauth/access_token",
-    "userAuthorizationURL": "https://www.tumblr.com/oauth/authorize",
-    "scripts": {
-        "fetchUserProfile": "function (token, tokenSecret, ctx, cb) {var OAuth = new require('oauth').OAuth;var oauth = new OAuth(ctx.requestTokenURL,ctx.accessTokenURL,ctx.client_id,ctx.client_secret,'1.0',null,'HMAC-SHA1');oauth.get('https://api.tumblr.com/v2/user/info',token,tokenSecret,function(e, b, r) {if (e) return cb(e);if (r.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));var user = JSON.parse(b).response.user; user.user_id = user.name; cb(null, user);});}"
-    }
-  }
+	"method": "POST",
+	"url": "https://YOURACCOUNT.auth0.com/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer ABCD"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"name\": \"tumblr\", \"strategy\": \"oauth1\", \"options\": { \"client_id\", \"YOUR-TUMBLR-CONSUMER-KEY\", \"client_secret\": \"YOUR-TUMBLR-SECRET-KEY\", \"requestTokenURL\": \"https://www.tumblr.com/oauth/request_token\", \"accessTokenURL\": \"https://www.tumblr.com/oauth/access_token\", \"userAuthorizationURL\": \"https://www.tumblr.com/oauth/authorize\", \"scripts\": { \"fetchUserProfile\": \"function (token, tokenSecret, ctx, cb) {var OAuth = new require('oauth').OAuth;var oauth = new OAuth(ctx.requestTokenURL,ctx.accessTokenURL,ctx.client_id,ctx.client_secret,'1.0',null,'HMAC-SHA1');oauth.get('https://api.tumblr.com/v2/user/info',token,tokenSecret,function(e, b, r) {if (e) return cb(e);if (r.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));var user = JSON.parse(b).response.user; user.user_id = user.name; cb(null, user);});}"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
 }
 ```
 
