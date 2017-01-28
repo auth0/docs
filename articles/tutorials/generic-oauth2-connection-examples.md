@@ -103,31 +103,41 @@ You will be able to log in using these new providers once your call successfully
 
 ## JIRA
 
-Generate an RSA keypair with the following command or any equivalent method:
+### Step 1: Generate an RSA Keypair
+
+Generate an RSA keypair with the following command (or any equivalent method):
 
 ```bash
 $ openssl genrsa -out EXAMPLE.key 2048 && openssl rsa -pubout -in EXAMPLE.key -out EXAMPLE.pub
 ```
 
-From JIRA, create an [Application Link](https://confluence.atlassian.com/display/APPLINKS-050/Application+Links+Documentation) (under Administration > Applications > Application links) with the following settings:
-  * Application URL: arbitrary URL, e.g. `https://${account.namespace}` (ignore warnings about "No response was received from the URL")
-  * Application Name: arbitrary name, e.g. `Auth0`
-  * Application Type: Generic Application
-  * Create incoming link: checked
-  * All other options left blank
+### Step 2: Create a JIRA Application Link
 
-When creating the incoming link, use the following settings:
-  * Consumer Key: arbitrary URL-friendly name, e.g. `auth0-jira`
-  * Consumer Name: arbitrary name, e.g. `Auth0`
-  * Public Key: the previously generated public key (copy and paste entire `.pub` file)
-  * Consumer Callback URL: `https://${account.namespace}/login/callback`
 
-> Note: If you need to modify these settings on JIRA after having created the application link, they can be found in the "Incoming Authentication" section of the link's settings.
+From JIRA, go to **Administration** > **Application** > **Application Links**, and [create an Application Link](https://confluence.atlassian.com/display/APPLINKS-050/Application+Links+Documentation) with the following settings:
+
+* **Application URL**: Any arbitrary URL (you can ignore the `No response was received from the URL` warnings);
+* **Application Name**: Any arbitrary name;
+* **Application Type**: Generic Application;
+* **Create incoming link**: *checked*.
+
+Leave all other options left blank.
+
+To create the incoming link, use the following settings:
+
+  * **Consumer Key**: Any arbitrary URL-friendly name (for example, `auth0-jira`)
+  * **Consumer Name**: Any arbitrary name
+  * **Public Key**: The RSA keypair previously generated in step 1 (copy and paste the entire `.pub` file)
+  * **Consumer Callback URL**: `https://${account.namespace}/login/callback`
+
+:::panel-info Updating Settings
+If you need to modify these settings after you've created the application link, you can do so via the **Incoming Authentication** section of the link's settings.
+:::
 
 In the JSON below, replace all instances of the following placeholders:
-  * `JIRA_URL`: The root URL of your JIRA instance, e.g. `https://foo.atlassian.net`
+  * `JIRA_URL`: The root URL of your JIRA instance (for example, `https://foo.atlassian.net`)
   * `CONSUMER_KEY`: The chosen Consumer Key for your application link
-  * `CONSUMER_SECRET`: The previously generated private key, as a JSON string. You can convert `EXAMPLE.key` to a valid JSON string using the following command:
+  * `CONSUMER_SECRET`: The previously generated private key (as a JSON string). You can convert `EXAMPLE.key` to a valid JSON string using the following command:
 
 ```bash
 node -p -e 'JSON.stringify(require("fs").readFileSync("EXAMPLE.key").toString("ascii"));'
