@@ -10,25 +10,7 @@ Adding [OAuth 1.0](/oauth1) and [OAuth 2.0](/oauth2) providers as Connections al
 
 This document covers examples of OAuth 1.0/2.0 Connections that you can create by making the appropriate `POST` call to the [Auth0 APIv2's Connections endpoint](/api/v2#!/Connections/post_connections). Please note that doing so requires an [APIv2 token](/api/v2/tokens) with `create:connections` scope.
 
-```har
-{
-    "method": "POST",
-    "url": "https://YOURACCOUNT.auth0.com/api/v2/connections",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
-    "headers": [
-      { "name": "Authorization", "value": "Bearer ABCD" }
-    ],
-    "queryString" : [],
-    "postData": {
-      "mimeType": "application/json",
-      "text" : "{ \"name\": \"\", \"strategy\": \"\", \"options\": { \"\" }, \"enabled_clients\": [\"\"] }"
-    },
-    "headersSize" : -1,
-    "bodySize" : -1,
-    "comment" : ""
-}
-```
+
 
 Please see the following docs for information on creating specific OAuth providers:
 
