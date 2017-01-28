@@ -73,19 +73,24 @@ After the call completes successfully, you will be able to login using these new
 * Copy `Client ID` and `Client Secret` to config file below
 
 
-```
+```har
 {
-  "name": "imgur",
-  "strategy": "oauth2",
-  "options": {
-    "client_id": "YOUR-IMGUR-CLIENT-ID",
-    "client_secret": "YOUR-IMGUR-CLIENT-SECRET",
-    "authorizationURL": "https://api.imgur.com/oauth2/authorize",
-    "tokenURL": "https://api.imgur.com/oauth2/token",
-    "scripts": {
-      "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://api.imgur.com/3/account/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b).data; profile.user_id = profile.id; cb(null, profile); });}"
-    }
-  }
+	"method": "POST",
+	"url": "https://YOURACCOUNT.auth0.com/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer ABCD"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"name\": \"imgur\", \"strategy\": \"oauth2\", \"options\": { \"client_id\", \"YOUR-IMGUR-CLIENT-ID\", \"client_secret\": \"YOUR-IMGUR-CLIENT-SECRET\", \"authorizationURL\": \"https://api.imgur.com/oauth2/authorize\", \"tokenURL\": \"https://api.imgur.com/oauth2/token\", \"scripts\": { \"fetchUserProfile\": \"function(accessToken, ctx, cb) { request.get('https://api.imgur.com/3/account/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b).data; profile.user_id = profile.id; cb(null, profile); });}"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
 }
 ```
 
