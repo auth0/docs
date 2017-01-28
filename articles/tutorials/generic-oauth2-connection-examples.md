@@ -178,20 +178,24 @@ After the call completes successfully, you will be able to login using these new
 * [Create an application](https://developer.vimeo.com/apps/new)
 * Copy `Client Identifier` and `Client Secrets` to config file below
 
-```
+```har
 {
-  "name": "vimeo",
-  "strategy": "oauth2",
-  "options": {
-    "client_id": "YOUR-VIMEO-CLIENT-IDENTIFIER",
-    "client_secret": "YOUR-VIMEO-CLIENT-SECRET",
-    "authorizationURL": "https://api.vimeo.com/oauth/authorize",
-    "tokenURL": "https://api.vimeo.com/oauth/access_token",
-    "scope": ["public"],
-    "scripts": {
-      "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://api.vimeo.com/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.user_id = profile.uri; cb(null, profile); });}"
-    }
-  }
+	"method": "POST",
+	"url": "https://YOURACCOUNT.auth0.com/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer ABCD"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"name\": \"vimeo\", \"strategy\": \"oauth2\", \"options\": { \"client_id\", \"YOUR_VIMEO_CLIENT_ID\", \"client_secret\": \"YOUR_VIMEO_CLIENT_SECRET\", \"authorizationURL\": \"https://api.vimeo.com/oauth/authorize\", \"tokenURL\": \"https://api.vimeo.com/oauth/access_token\", \"scope\": [\"public\"], \"scripts\": { \"fetchUserProfile\": \"function(accessToken, ctx, cb) { request.get('https://api.vimeo.com/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.user_id = profile.uri; cb(null, profile); });}"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
 }
 ```
 
