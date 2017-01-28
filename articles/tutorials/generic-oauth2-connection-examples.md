@@ -2,17 +2,33 @@
 description: This page lists generic OAuth1 and OAuth2 examples.
 ---
 
-# Generic OAuth2 or OAuth1 Examples
+# Generic OAuth 1.0 and OAuth 2.0 Examples
 
-The [OAuth2](/oauth2) or [OAuth1](/oauth1) connections give you the ability to support any OAuth2/OAuth1 providers in addition to the ones that are available in the dashboard.
+Adding [OAuth 1.0](/oauth1) and [OAuth 2.0](/oauth2) providers as Connections allow you to support providers that are not currently built-in to the [Auth0 Management Dashboard](${manage_url}).
 
-Here are a few examples of OAuth2/OAuth1 connections you can create through the [Management Auth0 API v2](/api/v2#!/Connections/post_connections). You will require a [Management API V2 token](/api/v2/tokens) with `create:connections` scope to invoke the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the Management API:
+This document covers examples of OAuth 1.0/2.0 Connections that you can create by making the appropriate `POST` call to the [Auth0 APIv2's Connections endpoint](/api/v2#!/Connections/post_connections). Please note that doing so requires an [APIv2 token](/api/v2/tokens) with `create:connections` scope.
 
+```har
+{
+    "method": "POST",
+    "url": "/api/v2/connections",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      { "name": "Authorization", "value": "Bearer ABCD" }
+    ],
+    "queryString" : [],
+    "postData": {
+      "mimeType": "application/json",
+      "text" : "{ \"name\": \"\", \"strategy\": \"\", \"options\": { \"validation\": \"object\", \"passwordPolicy\": \"\", \"password_history\": \"object\", \"password_no_personal_info\": \"object\", \"password_dictionary\": \"object\" }, \"enabled_clients\": [\"\"] }"
+    },
+    "headersSize" : -1,
+    "bodySize" : -1,
+    "comment" : ""
+}
 ```
-curl -vX POST https://${account.namespace}/api/v2/connections -H "Content-Type: application/json" -H 'Authorization: Bearer YOUR_API_V2_TOKEN' -d @sample-connection.json
-```
 
-After the call completes successfully, you will be able to login using these new providers.
+After the call successfully completes, you will be able to log in using your new providers.
 
 ## Uber
 
