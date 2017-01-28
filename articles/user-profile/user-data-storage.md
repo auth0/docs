@@ -6,7 +6,7 @@ toc: true
 
 # User Data Storage Guidance
 
-Auth0 provides multiple places for storing data used for authenticating a Client's users. This document covers best practices on how to store your data securely and efficiently. Additionally, this document uses a sample Client (a mobile music application) that's reflective of the end-to-end user experience of using Auth0 with an external database to illustrate specific topics.
+Auth0 provides multiple places to store data used to authenticate a Client's users. This document covers best practices on how to store your data securely and efficiently. Additionally, this document uses a sample Client (a mobile music application) that reflects the end-to-end user experience of using Auth0 with an external database to illustrate specific topics.
 
 :::panel-info Example: Mobile Music Application
 The sample Client is a basic iOS app utilizing the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). See the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api) for a visualization of the Client's overall structure.
@@ -16,7 +16,7 @@ The sample Client is a basic iOS app utilizing the [Auth0 iOS seed project](/qui
 
 - [Where should I store my data?](#where-do-i-put-my-authentication-data-)
 - [How should I use the Auth0 data store?](#how-should-i-use-the-auth0-data-store-)
-- [Why shouldn't I put all of my app’s data in the Auth0 data store?](#why-shouldn-t-i-put-all-of-my-app-s-data-in-the-auth0-data-store-)
+- [Why shouldn't I put all my app’s data in the Auth0 data store?](#why-shouldn-t-i-put-all-my-app-s-data-in-the-auth0-data-store-)
 - [Summary](#summary)
 
 ## Where should I store my authentication data?
@@ -26,11 +26,11 @@ To store user data points beyond the basic information Auth0 uses for authentica
 1. The Auth0 data store;
 2. A [custom database](/connections/database/mysql).
 
-However, if you choose to used these additional data points for authentication purposes, we recommend using the Auth0 data store, since this allows you to manage your user data through the [Auth0 Management Dashboard](${manage_url}).
+However, if you use these additional data points for authentication purposes, we recommend using the Auth0 data store, as this allows you to manage your user data through the [Auth0 Management Dashboard](${manage_url}).
 
 ## How should I use the Auth0 data store?
 
-Any data that you store in Auth0 that's *not* already a part of the user profile should go into one of the two provided [metadata](/metadata) fields:
+Any data you store in Auth0 that's *not* already a part of the user profile should go into one of the two provided [metadata](/metadata) :
 
 * `app_metadata`
 * `user_metadata`
@@ -39,24 +39,24 @@ These fields contain JSON snippets and can be used during the Auth0 authenticati
 
 ### App Metadata
 
-You can store data points that are read-only to the user in `app_metadata`. Three common types of data for the `app_metadata` field include:
+You can store data points that are read-only to the user in `app_metadata`. Three common types of data for the `app_metadata` field:
 
-* Permissions: privileges granted to certain users that allow them to have rights within the Client that others do not;
+* Permissions: privileges granted to certain users allowing them rights within the Client that others do not have;
 * Plan information: settings that cannot be changed by the user without confirmation from someone with the appropriate authority;
 * External IDs: identifying information used to associate users with external accounts.
 
 #### Example: `app_metadata` for a Mobile Music Application
 
-The following data points from our mobile music application that would be appropriate to store in `app_metadata` include:
+The following data points from our mobile music application appropriate to store in `app_metadata`:
 
-* a user's subscription plan;
-* a user's right (or lack thereof) to edit featured playlists.
+* A user's subscription plan;
+* A user's right (or lack thereof) to edit featured playlists.
 
-The primary reason that these two should be stored in `app_metadata` instead of `user_metadata` is that they should not be directly changeable by the user.
+These two should be stored in `app_metadata` instead of `user_metadata` because they should not be directly changeable by the user.
 
-The following section details two [rules](/rules), which we use to implement permissions on whether a user can edit featured playlists or not.
+The following section details [rules](/rules) we use to implement permissions on whether a user can edit featured playlists or not.
 
-The first rule sends a request to our Node API, which then queries the database connected to Heroku to check how many plays the user’s playlist has. If the number is 100 or greater, then we assign `playlist_editor` as a value in the `roles` array in `app_metadata`.
+The first rule sends a request to our Node API, which then queries the database connected to Heroku to check how many plays the user’s playlist has. If the number is 100 or greater, we assign `playlist_editor` as a value in the `roles` array in `app_metadata`.
 
 ```js
 function (user, context, callback) {
@@ -121,7 +121,7 @@ function (user, context, callback) {
 }
 ```
 
-The second rule gets the `app_metadata` field and assigns the `roles` array to a field in the user object so that it can be accessed without calling `app_metadata` on the client. The `scope` parameter can then specify `roles` upon the user logging in without including everything in `app_metadata` in the user object:
+The second rule gets the `app_metadata` field and assigns the `roles` array to a field in the user object so it can be accessed without calling `app_metadata` on the client. The `scope` parameter can then specify `roles` upon the user logging in without including everything in `app_metadata` in the user object:
 
 ```js
 function(user, context, callback) {
@@ -133,13 +133,13 @@ function(user, context, callback) {
 }
 ```
 
-Once we've implemented these two rules, the app recognizes whether the user is a playlist editor or not and changes the welcome screen accordingly. If `playlist_editor` is in the `roles` array stored in the user's `app_metadata`, they will be welcomed as an **EDITOR** after signing in:
+After we've implemented these two rules, the app recognizes whether the user is a playlist editor or not and changes the welcome screen accordingly. If `playlist_editor` is in the `roles` array stored in the user's `app_metadata`, the user will be welcomed as an **EDITOR** after signing in:
 
 ![](/media/articles/tutorials/data-scenarios/3-home.png)
 
 ### User Metadata
 
-The following data points from our mobile music application that would be appropriate to store in `user_metadata` include:
+The following data points from our mobile music application are appropriate to store in `user_metadata`:
 
 * Application preferences;
 * Avatar customization;
@@ -149,7 +149,7 @@ Note that, unlike the data points for `app_metadata`, the user can easily and re
 
 #### Example: `user_metadata` for a Mobile Music Application
 
-We can let the user change their `displayName`, which is how they identify themselves to other users of the app and the name the user sees upon logging in.
+We can let the user change their `displayName`, which is the name the user sees upon logging in and is displayed to other users of the app.
 
 To display the user's chosen identifier whenever they log in, we use a rule to get the `user.user_metadata` value.
 
@@ -211,13 +211,13 @@ This is followed by a call to the [Update a User](/api/management/v2#!/Users/pat
 }
 '''
 
-## Why shouldn't I put all of my Client's data in the Auth0 data store?
+## Why shouldn't I put all my Client's data in the Auth0 data store?
 
-Because the Auth0 data store is customized for authentication data, storing anything beyond the default user information should only be done in limited cases. Here's why:
+Because the Auth0 data store is customized for authentication data, storing anything beyond the default user information should be done only in limited cases. Here's why:
 
 * **Scalability**: The Auth0 data store is limited in scalability, and your Client's data may exceed the appropriate limits. By using an external database, you keep your Auth0 data store simple, while the more efficient external database contains the extra data;
 * **Performance**: Your authentication data is likely accessed at lower frequencies than your other data. The Auth0 data store isn't optimized for high frequency use, so you should store data that needs to be retrieved more often elsewhere;
-* **Flexibility**: Because the Auth0 data store was built to accomodate only user profiles and their associated metadata, you are limited in terms of the actions that you can perform on the database. By using separate databases for your other data, you can manage your data as appropriate.
+* **Flexibility**: Because the Auth0 data store was built to accomodate only user profiles and their associated metadata, you are limited in terms of the actions you can perform on the database. By using separate databases for your other data, you can manage your data as appropriate.
 
 ### Example
 
@@ -269,7 +269,7 @@ We can add functionality to handle different data requests from our Client. For 
 
 > The function `buildAPIRequest()` takes the path and HTTP method of the request as parameters and builds a request using the base URL of our Node.js API that's hosted on Heroku.
 
-In the Client, the `getGenre()` function makes a request to the API and changes the app's interface to display the request response to `/genres/getFav`. The backend retrieves the required data for this action using the `queryGenre()` function and returning the results to the Client:
+In the Client, the `getGenre()` function makes a request to the API and changes the app's interface to display the request response to `/genres/getFav`. The backend retrieves the required data for this action using the `queryGenre()` function and returns the results to the Client:
 
 ```js
 function queryGenre(user_id, res){
@@ -292,10 +292,10 @@ function queryGenre(user_id, res){
 
 ## Summary
 
-When determining where you should store specific pieces of data regarding your user, here are the general rules-of-thumb:
+When determining where you should store specific pieces of data about your user, here are the general rules of thumb:
 
 | Type of Data | Storage Location |
 | --- | --- |
 | Data that should be **read-only** to the user | `app_metadata` |
 | Data that should be *editable* by the user | `user_metadata` |
-| Data that is unrelated to user authentication | External Database |
+| Data unrelated to user authentication | External database |
