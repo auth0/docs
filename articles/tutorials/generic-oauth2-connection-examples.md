@@ -1,24 +1,30 @@
 ---
-description: This page lists generic OAuth1 and OAuth2 examples.
+description: This document covers generic OAuth 1.0/2.0 examples.
 ---
 
-# Generic OAuth2 or OAuth1 Examples
+# Generic OAuth 1.0 and 2.0 Examples
 
-The [OAuth2](/oauth2) or [OAuth1](/oauth1) connections give you the ability to support any OAuth2/OAuth1 providers in addition to the ones that are available in the dashboard.
+Adding [OAuth 1.0](/oauth1) and [OAuth 2.0](/oauth2) providers as Connections allow you to support providers that are not currently built-in to the [Auth0 Management Dashboard](${manage_url}).
 
-Here are a few examples of OAuth2/OAuth1 connections you can create through the [Management Auth0 API v2](/api/v2#!/Connections/post_connections). You will require a [Management API V2 token](/api/v2/tokens) with `create:connections` scope to invoke the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the Management API:
+This document covers examples of OAuth 1.0/2.0 Connections that you can create by making the appropriate `POST` call to the [Auth0 APIv2's Connections endpoint](/api/v2#!/Connections/post_connections). Please note that doing so requires an [APIv2 token](/api/v2/tokens) with `create:connections` scope.
 
-```
-curl -vX POST https://${account.namespace}/api/v2/connections -H "Content-Type: application/json" -H 'Authorization: Bearer YOUR_API_V2_TOKEN' -d @sample-connection.json
-```
+You will be able to log in using these new providers once your call successfully completes.
 
-After the call completes successfully, you will be able to login using these new providers.
+* [DigitalOcean](#digitalocean)
+* [Dribble](#dribbble)
+* [Imgur](#imgur)
+* [JIRA](#jira)
+* [Tumblr](#tumblr)
+* [Twitch](#twitch)
+* [Uber](#uber)
+* [Vimeo](#vimeo)
+* [Xing](#xing)
 
 ## Uber
 
-* [Create an application](https://developer.uber.com/apps/new)
-* Set the `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
-* Copy `Client ID` and `Secret` to config file below
+1. Navigate to [Uber Developers](https://developer.uber.com/).
+2. If you have not already [registered an Uber application](https://developer.uber.com/dashboard/create), you will need to do so prior to continuing. If you have, set the `Redirect URI` of your application to 'https://${account.namespace}/login/callback'.
+3. Copy the `Client ID` and `Client Secret` for use with your cURL `POST`.
 
 ```har
 {
@@ -43,8 +49,9 @@ After the call completes successfully, you will be able to login using these new
 
 ## DigitalOcean
 
-* [Create an application](https://cloud.digitalocean.com/settings/applications/new)
-* Copy `Client Id` and `Client Secret` to config file below
+1. Navigate to [Digital Ocean](https://cloud.digitalocean.com/login).
+2. If you have not already registered a Digital Ocean application, you will need to do so prior to continuing.
+3. Once available, copy the `Client ID` and `Client Secret` for use with your cURL `POST`.
 
 ```har
 {
@@ -69,9 +76,9 @@ After the call completes successfully, you will be able to login using these new
 
 ## Imgur
 
-* [Create an application](https://api.imgur.com/oauth2/addclient)
-* Copy `Client ID` and `Client Secret` to config file below
-
+1. Navigate to [Imgur](https://api.imgur.com/oauth2/addclient).
+2. If you have not already registered an Imgur application, you will need to do so prior to continuing.
+3. Once available, copy the `Client ID` and `Client Secret` for use with your cURL `POST`.
 
 ```har
 {
@@ -96,8 +103,9 @@ After the call completes successfully, you will be able to login using these new
 
 ## Xing
 
-* [Create an application](https://developer.xing.com/applications/dashboard)
-* Copy `Consumer Key` and `Consumer Secret` to config file below
+1. Navigate to [Xing](https://developer.xing.com/).
+2. If you have not already registered a Xing application, you will need to do so prior to continuing.
+3. Once available, copy the `Client ID` and `Client Secret` for use with your cURL `POST`.
 
 ```har
 {
@@ -122,8 +130,9 @@ After the call completes successfully, you will be able to login using these new
 
 ## Twitch
 
-* [Create an application](http://www.twitch.tv/kraken/oauth2/clients/new)
-* Copy `Client ID` and `Client Secret` to config file below
+1. Navigate to [Twitch](http://www.twitch.tv/kraken/oauth2/clients/new).
+2. If you have not already registered a Twitch application, you will need to do so prior to continuing.
+3. Once available, copy the `Client ID` and `Client Secret` for use with your cURL `POST`.
 
 ```har
 {
@@ -148,9 +157,9 @@ After the call completes successfully, you will be able to login using these new
 
 ## Dribbble
 
-* [Register a new Consumer in Dribbble](https://dribbble.com/account/applications/new)
-* Set the `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
-* Copy `Client ID` and `Client Secret` to config file below
+1. Navigate to [Dribble](https://dribbble.com/account/applications/new).
+2. If you have not already registered a new Dribble consumer, you will need to do so prior to continuing. If you have, set the `Redirect URI` of your application to `https://${account.namespace}/login/callback`.
+3. Copy the `Client ID` and `Client Secret` for use with your cURL `POST`.
 
 ```har
 {
@@ -175,8 +184,9 @@ After the call completes successfully, you will be able to login using these new
 
 ## Vimeo
 
-* [Create an application](https://developer.vimeo.com/apps/new)
-* Copy `Client Identifier` and `Client Secrets` to config file below
+1. Navigate to [Vimeo](https://dribbble.com/account/applications/new).
+2. If you have not already registered a new Vimeo application, you will need to do so prior to continuing.
+3. Copy the `Client ID` and `Client Secret` for use with your cURL `POST`.
 
 ```har
 {
@@ -201,8 +211,9 @@ After the call completes successfully, you will be able to login using these new
 
 ## Tumblr
 
-* [Create an application](https://www.tumblr.com/oauth/apps)
-* Copy `OAuth Consumer Key` and `Secret Key` to config file below
+1. Navigate to [Tumblr](https://www.tumblr.com/oauth/apps).
+2. If you have not already registered a new Tumblr application, you will need to do so prior to continuing.
+3. Copy the `OAuth Consumer Key` and `Secret Key` for use with your cURL `POST`.
 
 ```har
 {
