@@ -1163,5 +1163,9 @@
   {
     "from": "/connections",
     "to": "/identityproviders"
+  },
+  {
+    "from": "/tutorials/generic-oauth2-connection-examples",
+    "to": "/oauth/examples"
   }
 ]
