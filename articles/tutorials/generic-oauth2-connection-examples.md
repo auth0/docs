@@ -20,22 +20,27 @@ After the call completes successfully, you will be able to login using these new
 * Set the `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
 * Copy `Client ID` and `Secret` to config file below
 
-```
+```har
 {
-  "name": "uber",
-  "strategy": "oauth2",
-  "options": {
-    "client_id": "YOUR_UBER_APP_KEY",
-    "client_secret": "YOUR_UBER_APP_SECRET",
-    "authorizationURL": "https://login.uber.com/oauth/authorize",
-    "tokenURL": "https://login.uber.com/oauth/token",
-    "scope": ["profile"],
-    "scripts": {
-      "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://api.uber.com/v1/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.user_id = profile.uuid; cb(null, profile); });}"
-    }
-  }
+	"method": "POST",
+	"url": "https://YOURACCOUNT.auth0.com/api/v2/connections",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer ABCD"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"name\": \"uber\", \"strategy\": \"oauth2\", \"options\": { \"client_id\", \"YOUR_UBER_APP_KEY\", \"client_secret\": \"YOUR_UBER_APP_SECRET\", \"authorizationURL\": \"https://login.uber.com/oauth/authorize\", \"tokenURL\": \"https://login.uber.com/oauth/token\", \"scope\": [\"profile\"], \"scripts\": { \"fetchUserProfile\": \"function(accessToken, ctx, cb) { request.get('https://api.uber.com/v1/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.user_id = profile.uuid; cb(null, profile); });}\" } }, \"enabled_clients\": [\"\"] }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
 }
 ```
+
 ## DigitalOcean
 
 * [Create an application](https://cloud.digitalocean.com/settings/applications/new)
