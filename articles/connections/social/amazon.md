@@ -28,7 +28,11 @@ Click on the **Register New Application** button and enter a **Name**, **Descrip
 
 ### 3. Enter your callback URL
 
-Expand the **Web Settings** section. Enter your Auth0 callback URL in the **Allowed Return URLs** field. The callback address for your app should be:
+Expand the **Web Settings** section. Enter your Auth0 JavaScript origin in the **Allowed JavaScript Origins** field and callback URLs in the **Allowed Return URLs** field. The JavaScript origin address for your app should be:
+
+    https://${account.namespace}/login/
+
+and the callback address for your app should be:
 
     https://${account.namespace}/login/callback
 
