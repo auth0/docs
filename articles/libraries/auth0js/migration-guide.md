@@ -162,7 +162,8 @@ webAuth.passwordlessVerify({
 
 ## Refreshing Tokens
 
-Refreshing tokens is now done via the [renewAuth](/libraries/auth0js#using-renewauth-to-acquire-new-tokens) method. 
+In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken` and `refreshToken` methods were used to renew tokens. In [auth0.js v8](/libraries/auth0js#using-renewauth-to-acquire-new-tokens), 
+refreshing tokens is now done via the `renewAuth` method. If a user is already authenticated, `renewAuth` can acquire a new token for that user.
 
 ## User Management
 
