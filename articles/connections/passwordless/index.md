@@ -32,6 +32,10 @@ See the following tutorials for a step-by-step guide on how to implement passwor
  - [Authenticate users with a one time code via SMS](/connections/passwordless/android-sms)
  - [Authenticate users with a one time code via e-mail](/connections/passwordless/android-email)
 
+### Passwordless Guardian
+
+Auth0 Guardian now [supports Passwordless Authentication](/connections/passwordless/guardian).
+
 ### Passwordless API
 
 If you'd like to build your own implementation or understand how this works under the hood, check out the [complete API reference](/auth-api#passwordless).
