@@ -89,7 +89,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Test with Authentication API Debugger
