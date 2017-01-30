@@ -12,13 +12,6 @@ Auth0 provides multiple places to store data used to authenticate a Client's use
 The sample Client is a basic iOS app utilizing the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). See the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api) for a visualization of the Client's overall structure.
 :::
 
-## Contents
-
-- [Where should I store my data?](#where-do-i-put-my-authentication-data-)
-- [How should I use the Auth0 data store?](#how-should-i-use-the-auth0-data-store-)
-- [Why shouldn't I put all my app’s data in the Auth0 data store?](#why-shouldn-t-i-put-all-my-app-s-data-in-the-auth0-data-store-)
-- [Summary](#summary)
-
 ## Where should I store my authentication data?
 
 To store user data points beyond the basic information Auth0 uses for authentication, you can use:
@@ -297,5 +290,5 @@ When determining where you should store specific pieces of data about your user,
 | Type of Data | Storage Location |
 | --- | --- |
 | Data that should be **read-only** to the user | `app_metadata` |
-| Data that should be *editable* by the user | `user_metadata` |
+| Data that should be **editable** by the user | `user_metadata` |
 | Data unrelated to user authentication | External database |
