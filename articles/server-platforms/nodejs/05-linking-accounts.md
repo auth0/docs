@@ -32,7 +32,7 @@ If you fetch a profile containing linked accounts, you will have all this inform
 
 To link accounts, call the [Link a user account](/api/management/v2#!/Users/post_identities) Auth0 API endpoint. To complete the request, you must provide the primary account Auth0 JWT (the token provided when the user logged in), the user id (from the JWT or the profile API) and the JWT of the account you want to link (secondary account).
 
-In order to get the user tokens we must make a small modification to the `Auth0Strategy` configuration so that
+In order to get the user tokens, we must make a small modification to the `Auth0Strategy` configuration so that
 the user tokens are stored in the user object.
 
 ```js
