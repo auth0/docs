@@ -85,7 +85,7 @@ The relevant warning message to look for is the following:
 
 > Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
 
-To resolve this issue, ensure that your send the JWT as a bearer token 
+To resolve this issue, ensure that your send the JWT as a bearer token in the Authorization header.
 
 ## 2. Did you configure the JWT middleware for the correct signing algorithm?
 
@@ -111,3 +111,44 @@ In this case the relevant error message to look for is the following:
 
 > Bearer was not authenticated. Failure message: IDX10501: Signature validation failed. Unable to match 'kid': 'NTF...'
 
+To resolve this issue, be sure to that the signature algorithm matches with how your middleware is configured.
+
+## 3. Has your token expired?
+
+Each JSON Web Token is only valid until the time specified in the `exp` claim. If you and send a token which has expired, the token will be rejected:
+
+![Token Expired](/media/articles/server-apis/aspnet-core-webapi/troubleshoot-token-expired.png)
+
+The error message to look for is the following:
+
+> IDX10223: Lifetime validation failed. The token is expired
+
+The resolve this issue, be sure to send a token which has not expired.
+
+<div class="alert alert-info">
+  <strong>Quick tip:</strong> The value of the `exp` claim is a numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time. If you want to see the actual date/time for the value, you can visit <a href="http://www.epochconverter.com/">EpochConverter</a>.
+</div>
+
+## 4. Did you configure the correct Issuer?
+
+The audience specified in your token must match exactly with what is configured in your JWT middleware. 
+
+![Issuer Validation Failed](/media/articles/server-apis/aspnet-core-webapi/troubleshoot-issuer-validation-failed.png)
+
+The error message to look for is the following:
+
+> IDX10205: Issuer validation failed.
+
+The resolve this issue, ensure that you specify the correct issuer for your JWT middeware. When configuring the JWT for RS256, the JWT middleware will automatically use the value of the `Authority` property as the issuer, so it is highly unlikely you will get this error when using RS256, since the signature validation would have probaly failed first. For HS256 be sure to specify the correct value for the `ValidIssuer` property of the `TokenValidationParameters`.
+
+## 5. Does the audience match?
+
+The audience specified in your token must match exactly with what is configured in your JWT middleware. 
+
+![Audience Validation Failed](/media/articles/server-apis/aspnet-core-webapi/troubleshoot-audience-validation-failed.png)
+
+The error message to look for is the following:
+
+> IDX10214: Audience validation failed
+
+The resolve this issue, ensure that you specify the correct audience for your JWT middeware. Depending on how your JWT middleware was configured this means that you need to set the correct `Audience` property of the `JwtBearerOptions`, or the `ValidAudience` property of the `TokenValidationParameters`.
