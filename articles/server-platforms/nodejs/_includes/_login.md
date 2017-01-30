@@ -15,7 +15,7 @@ npm install connect-ensure-login --save
 
 ## Add Requires and Initialize Passport Configuration
 
-First we need to require `passport` and `passport-auth0` in `app.js`.
+First, we need to require `passport` and `passport-auth0` in `app.js`.
 
 ```js
 // app.js
@@ -28,7 +28,7 @@ var Auth0Strategy = require('passport-auth0');
 ...
 ```
 
-Next we need to setup and configure Passport to use the Auth0 strategy.
+Next, we need to set up and configure Passport to use the Auth0 strategy.
 
 ```js
 // app.js
@@ -87,7 +87,7 @@ var user = require('./routes/user');
 ...
 ```
 
-## Authentication Using Lock
+## Authenticate Using Lock
 
 Using Auth0's Lock widget is the simplest and most robust way of handling user logins. Client side, the `Auth0Lock` library will initiate the login process and once the user is authenticated with the chosen provider, the useragent will perform a redirect to the URL specified in `AUTH0_CALLBACK_URL`. This URL will be picked up by Passport.js.
 
@@ -174,7 +174,7 @@ block content
     lock.show();
 ```
 
-> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL for the callback route.
+**Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL for the callback route.
 
 In `views/user.jade` we simply display the user's nickname and profile picture.
 
