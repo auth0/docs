@@ -15,7 +15,7 @@ npm install connect-ensure-login --save
 
 ## Add Requires and Initialize Passport Configuration
 
-First we need to require `passport` and `passport-auth0` in `app.js`.
+First, we need to require `passport` and `passport-auth0` in `app.js`.
 
 ```js
 // app.js
@@ -28,7 +28,7 @@ var Auth0Strategy = require('passport-auth0');
 ...
 ```
 
-Next we need to setup and configure Passport to use the Auth0 strategy.
+Next, we need to setup and configure Passport to use the Auth0 strategy.
 
 ```js
 // app.js
