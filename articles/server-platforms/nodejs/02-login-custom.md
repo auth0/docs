@@ -16,7 +16,7 @@ budicon: 448
 
 ## auth0.js
 
-The previous step explained how to provide a login screen with Auth0's [Lock widget](https://auth0.com/lock). In this tutorial (based on the previous tutorial's source code) we are going to learn how to create a custom login page by using the [auth0.js library](/libraries/auth0js).
+The previous step explained how to provide a login screen with Auth0's [Lock widget](/libraries/lock). In this tutorial (based on the previous tutorial's source code) we are going to learn how to create a custom login page by using the [auth0.js library](/libraries/auth0js).
 
 ## Add the auth0.js Dependency
 
