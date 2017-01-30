@@ -1163,5 +1163,9 @@
   {
     "from": "/connections",
     "to": "/identityproviders"
+  },
+  {
+    "from": "/anomaly-detection/brute-force-protection",
+    "to": "/anomaly-detection#brute-force-protection"
   }
 ]
