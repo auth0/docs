@@ -87,7 +87,12 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `redirect_uri`| This is required only if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values must match. |
 
 
-### Test this endpoint
+### Test with Postman
+
+<%= include('../../../_includes/_test-with-postman') %>
+
+
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -179,7 +184,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `redirect_uri` | This is required only if it was set at the [GET /authorize](#authorization-code-grant-pkce-) endpoint. The values must match. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -270,7 +275,7 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 | `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -372,7 +377,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 | `realm` | String value of the realm the user belongs. Set this if you want to add realm support at this grant. For more information on what realms are refer to [Realm Support](/api-auth/grant/password#realm-support). |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 

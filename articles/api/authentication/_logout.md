@@ -61,7 +61,7 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 | `federated`      | Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 

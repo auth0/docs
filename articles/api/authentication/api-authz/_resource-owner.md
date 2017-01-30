@@ -82,7 +82,7 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 | `device` | You should set this to a string, if you are requesting a refresh token (`scope=offline_access`). |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 

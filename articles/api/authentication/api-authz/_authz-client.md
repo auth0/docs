@@ -59,7 +59,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -129,7 +129,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `code_challenge` <br/><span class="label label-danger">Required</span> | Generated challenge from the `code_verifier`. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -198,7 +198,7 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 | `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
