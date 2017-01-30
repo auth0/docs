@@ -98,7 +98,7 @@ Storing all of the folders that the user has access to as part of the user profi
 
 * Auth0 has a single [Dashboard](${manage_url}) for all tenants.
 * Auth0 supports Google, GitHub, Live and user/password authentication.
-* Auth0 also supports Enterprise connections for Platinum level subscriptions. You can request this by opening a [support ticket](https://support.auth0.com).
+* Auth0 also supports Enterprise connections for Platinum level subscriptions. You can request this by opening a [support ticket](${env.DOMAIN_URL_SUPPORT}).
 * Auth0 uses email domains for home realm discovery (see screen below), making it similar to the Dropbox experience.
 
 ![](/media/articles/saas/saas-05.png)
@@ -144,13 +144,13 @@ A typical modern SaaS multi-tenant app has these features:
 
 A single database connection is often sufficient. Whether or not a user has access to a certain tenant can be handled with [metadata](/api/v1#!#put--api-users--user_id--metadata) instead of separate database connections.
 
-If you need to isolate a set of users (e.g. staging vs. prod environment), it may make sense to use different database connections. Even then, it would be better to create different accounts in Auth0. 
+If you need to isolate a set of users (e.g. staging vs. prod environment), it may make sense to use different database connections. Even then, it would be better to create different accounts in Auth0.
 
 You may require a separate database connection if, for example,  **tenant-A** uses the built-in Auth0 user store but **tenant-B** has a set of users elsewhere that you want to authenticate. In this case, you could create a [custom db connection](/connections/database/mysql) for **tenant-B** and reference that association in your application.
 
 ### A single Auth0 account for all tenants
 
-One account for all tenants is simpler and allows you to manage them in one place. 
+One account for all tenants is simpler and allows you to manage them in one place.
 
 Only if you want to share access to the dashboard with tenants would a separate Auth0 account per tenant be required. But to do so would require you to leverage the restricted API to create each new account. However, you can use the regular API to add applications and connections.
 
