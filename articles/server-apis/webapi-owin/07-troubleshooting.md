@@ -124,7 +124,7 @@ Each JSON Web Token is only valid until the time specified in the `exp` claim. I
 
 The error message to look for is the following:
 
-> ????? IDX10223: Lifetime validation failed. The token is expired
+> Expired bearer token received
 
 The resolve this issue, be sure to send a token which has not expired.
 
