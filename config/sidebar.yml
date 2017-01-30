@@ -259,16 +259,6 @@ articles:
 
       - title: "Auth0 Guardian"
         url: "/connections/passwordless/guardian"
-        children:
-
-          - title: "Push Notifications"
-            url: "/connections/passwordless/guardian/push"
-
-          - title: "SMS"
-            url: "/connections/passwordless/guardian/sms"
-
-          - title: "TOTP"
-            url: "/connections/passwordless/guardian/totp"
 
       - title: "FAQ"
         url: "/connections/passwordless/faq"
