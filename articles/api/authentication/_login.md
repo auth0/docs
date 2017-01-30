@@ -98,7 +98,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 | `additional-parameter` | Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
@@ -190,6 +190,11 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 | `access_token` <br/><span class="label label-danger">Required</span> | The social provider's `access_token`. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of an identity provider configured to your app. |
 | `scope` | Use `openid` to get an `id_token`, or `openid profile email` to include user information in the `id_token`. If null, only an `access_token` will be returned. |
+
+
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
 
 
 ### Remarks
@@ -296,7 +301,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
@@ -410,7 +415,11 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 | `id_token` | Used to authenticate using a token instead of username/password, in [TouchID](/libraries/lock-ios/touchid-authentication) scenarios. Required when `grant_type` is `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 
 
-### Test this endpoint
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
@@ -493,7 +502,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 

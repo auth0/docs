@@ -39,6 +39,11 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 | `connection`     | The connection to use. |
 
 
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+
 ### Remarks
 
 - All the parameters of the SAML response can be modified with [Rules](/rules).
@@ -75,6 +80,11 @@ This endpoint returns the SAML 2.0 metadata.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
+
+
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
 
 
 ### More Information
@@ -117,7 +127,7 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 | `SAMLResponse` <br/><span class="label label-danger">Required</span> | An IdP-Initiated Sign On SAML Response. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 

@@ -80,6 +80,11 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 | `access_token` <br/><span class="label label-danger">Required</span> | The Auth0 `access_token` obtained during login. |
 
 
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+
 ## Get Token Info
 
 <h5 class="code-snippet-title">Examples</h5>
@@ -159,6 +164,11 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `id_token` <br/><span class="label label-danger">Required</span> | The `id_token` to use. |
+
+
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
 
 
 ### More Information

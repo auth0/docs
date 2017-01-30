@@ -111,6 +111,11 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 | `user_id`<br/><span class="label label-danger">Required</span>        | The logged-in user's `user_id` |
 
 
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+
 ### More Information
 
 - [Unlinking Accounts](/link-accounts#unlinking-accounts)
