@@ -20,7 +20,7 @@ A customer may request a tenant restoration if the tenant was deleted by human e
 
 ## How to request:
 
-* Customers must file a tenant restoration request in writing, via the [Auth0 support center](https://support.auth0.com) or via email.
+* Customers must file a tenant restoration request in writing, via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}) or via email.
 
 * Please specify the name that the deleted tenant had and the region where it belonged.
 

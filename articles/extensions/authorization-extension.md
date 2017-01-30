@@ -261,7 +261,7 @@ The extension uses the internal Webtask storage capabilities, which are limited 
  - If you have 1000 groups and 3000 users, where each user is member of 3 groups about 475 KB of data would be used.
  - If you have 20 groups and 7000 users, where each user is member of 3 groups about 480 KB of data would be used.
 
-Think you need more? [Contact support.](https://support.auth0.com)
+Think you need more? [Contact support.](${env.DOMAIN_URL_SUPPORT})
 
 ## Troubleshooting
 

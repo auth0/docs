@@ -4,13 +4,13 @@ decription: How to open and manage tickets with Support Center.
 
 # Opening and Managing Tickets in Support Center
 
-With [Support Center](https://support.auth0.com), you can create tickets for questions or issues you are experiencing. You need to be a full administrator of an Auth0 account to access Support Center.
+With [Support Center](${env.DOMAIN_URL_SUPPORT}), you can create tickets for questions or issues you are experiencing. You need to be a full administrator of an Auth0 account to access Support Center.
 
 If you are an existing Appliance customer, you will need to create an Auth0 cloud-based account to log in to the Support Center. This account can also be used for Dev/Test purposes at no additional cost. Please contact your Customer Success Manager or Sales Executive to associate your cloud-based account to your existing Appliance subscription.
 
 ## Opening a New Ticket
 
-1. From [Support Center](https://support.auth0.com), click on the **OPEN TICKET** button.
+1. From [Support Center](${env.DOMAIN_URL_SUPPORT}), click on the **OPEN TICKET** button.
 ![](/media/articles/support/open-ticket.png)
 1. Choose the "Affected Account" from the dropdown menu.
 1.  Under "What can we help you with?" select the type of issue that best fits your case.
@@ -41,7 +41,7 @@ If you are an existing Appliance customer, you will need to create an Auth0 clou
 
 ## Updating an Existing Ticket
 
-1. You can view the existing tickets you have filed by going to the [Support Center](https://support.auth0.com) page and clicking on the **Home** link. Select the ticket that you want to update by clicking on its subject.
+1. You can view the existing tickets you have filed by going to the [Support Center](${env.DOMAIN_URL_SUPPORT}) page and clicking on the **Home** link. Select the ticket that you want to update by clicking on its subject.
 ![](/media/articles/support/select-ticket.png)
 
 1. Enter any additional details into the text box and then click the **REPLY** button. If you are the ticket requester and the ticket is assigned to an agent, but is not solved or closed, you have the option to change the status of your ticket to **Solved** by checking the **Submit as solved** box next to the **REPLY** button.
