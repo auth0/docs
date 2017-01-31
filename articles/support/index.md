@@ -29,7 +29,7 @@ Critical Production issues should always be reported via the [Support Center](${
 
 ### Ticket Response Times
 
-Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the discussion forum. Non-paying customers may still raise a private ticket via the Support Center. However, there is no support response SLA for these users, and tickets will be answered on a best effort basis after prioritization of paying subscribers' tickets. This generally means that the user will receive a response in a 2-5+ business days.
+Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the discussion forum. Non-paying customers may still raise a private ticket via the Support Center. However, there is no support response SLA for these users, and tickets will be answered on a best effort basis after prioritization of paying subscribers' tickets. 
 
 <table class="table">
   <thead>
@@ -126,12 +126,12 @@ Critical: Defined as an Auth0 issue severely impacting your live or in-productio
 
 Critical Production issues should always be reported via the [Support Center](${env.DOMAIN_URL_SUPPORT}) for fastest response.
 
-Translation from former support plans to new:
-
 - Subscriptions previously known as "Free" map to the current "Free" support classification
 - Subscriptions previously known as "Gold/Silver/Home Grown"  map to the current "Standard" support plan.
+- Customers that have Developer or Developer Pro subscriptions map to the current "Standard" support plan.
 - Support plans previously known as "Enterprise" and "Premium" support map to the current "Enterprise" support plan.
 - The "Preferred" support plan is a new plan available for purchase as of October 2016.
+
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.  Response times may also be delayed during periods of heavy ticket volume.
 
