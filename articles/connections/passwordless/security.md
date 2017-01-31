@@ -29,5 +29,7 @@ For push notifications, Guardian uses RSA key-based authentication. A private ke
 
 Note that Guardian uses [TOTP](link) authentication as a backup mechanism, in case there are any communication problems (for example, if you're on an airplane). This out-of-band authentication is fairly robust and secure, but it does rely on a different mechanism than the key-based authentication above. You may want to factor that into your security decision.
 
+Note also that Guardian also offers the ability to use SMS as the communication channel, as opposed to the push notifications above. You may want to disable the SMS option in order to avoid the security consequences as shown above.
+
 ## TouchID
 
