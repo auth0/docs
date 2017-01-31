@@ -42,6 +42,13 @@ Ticket response times will vary based on your support plan (shown below).  Note 
     </tr>
   </thead>
   <tbody>
+     <tr>
+      <th>Subscription Plan</th>
+      <td>Free</td>
+      <td>Developer, Developer Pro. Legacy plans: Gold, Silver and Home Grown</td>
+      <td>Enterprise</td>
+      <td>Addon to Enterprise</td>
+    </tr>
     <tr>
       <th>Ticket Prioritization</th>
       <td>Lowest</td>
