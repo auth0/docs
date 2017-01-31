@@ -14,11 +14,13 @@ The Auth0 Authorization Extension provides user authorization support in Auth0. 
 
 ## How to Install
 
-To install the Authorization extension, click on the "Auth0 Authorization" box on the main Extensions page of the Management Portal. You will be prompted to install the app.
+First make sure you have a Client created that can support the Authorization extension. Supported client types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Clients with no type assigned or non-interactive clients are not supported.
+
+To install the Authorization extension, click on the "Auth0 Authorization" box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app.
 
 ![Install Authorization Extension](/media/articles/extensions/authorization/app-install-v2.png)
 
-Once installed, you will see the app listed under "Installed Extensions".
+Once installed, you will see the app listed under **Installed Extensions**.
 
 ![Installed Extensions](/media/articles/extensions/authorization/installed-extensions-v2.png)
 
@@ -32,15 +34,47 @@ When you click on the link to open the extension for the first time, you will be
 One of the major changes of the v2 of the Authorization Extension is that the **Applications** section has been removed. The driving factor for this change is complexity: Defining a policy when someone can or cannot access an application depends on different factors (roles, groups, time of day, MFA, ...). This is why the desired approach for this use case is [rules](#controlling-application-access).
 :::
 
-### Upgrading to v2
+### Upgrade the Extension Version
 
 To upgrade your existing version of the Authorization Extension, go to [Extensions section](${manage_url}/#/extensions) of the dashboard, then click **Installed Extensions**.
 
 Next to the Authorization Extension, you should see a link to upgrade to the latest version.
 
+## Configure the Extension
+
+The extension needs to be configured before it can enforce your authorization logic.
+
+Click **Configuration** on the dropdown on the top right of the **Authorization Dashboard**.
+
+![Click Configuration](/media/articles/extensions/authorization/click-configuration.png)
+
+This will bring you to the **Rule Configuration** section of the **Configuration** page.
+
+![Configuration page](/media/articles/extensions/authorization/configuration.png)
+
+Here you can configure:
+
+### Token Contents
+
+**Storing Additional Data in Tokens**:
+
+If you want to store data on Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces.
+
+::: panel-warning Notice
+Storing too much data in the token can cause performance issues or even prevent the token to be issued. Make sure you only choose to store the data that you'll really need. If this data can grow too large, consider using persistence instead of adding it to the token.
+:::
+
+**Passthroughs**:
+
+If you have users that receive groups from the Identity Provider (such as Active Directory) then you can merge these groups (in order to preserve them) with the groups defined in your Authorization Extension. Use the toggle buttons to choose which to merge of Groups, Roles and Permissions.
+
+### Persistence
+
+You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/tokeninfo` endpoint](/api/authentication/reference#get-token-info) to retrieve this information after the user has logged in.
+
 ## Setup the Authorization Extension
 
-Once you have the Authorization Extension installed, you can start to configure Groups, Roles and Permissions for your Users in the Authorization Extension dashboard.
+Once you have the extension configured you can start to configure Groups, Roles and Permissions for your Users in the Authorization Extension dashboard.
 
 ### Users
 
@@ -149,7 +183,7 @@ Then click the **CREATE PERMISSION** button. Then enter the name of the permissi
 
 Once you have your permissions created, you can associate them with [Roles](#roles).
 
-## Enabling API Access
+## Enable API Access
 
 At this point the extension might contain some roles, groups, permissions. Your users might also have been assigned to specific roles and groups.
 
@@ -177,43 +211,13 @@ In addition to API access, you can also deploy a rule that reaches out to the ex
 
 > Note: Since this logic is part of a rule it will only be executed in the context of a login. If users are added to or removed from a group this will only be reflected within Auth0 after this user logs in again (eg: in the user's `app_metadata` or when calling the `/userinfo` endpoint).
 
-### Configuration
+### Control Application Access
 
-To configure this rule, click **Configuration** on the dropdown on the top right of the **Authorization Dashboard**.
+In addition, you can write your own rules that are applied after the rule that is published by the extension. For example you can write a rule to control application access. One way to achieve this is to use the [Application Metadata](/rules/metadata-in-rules#reading-metadata) where you can specify on every client that roles are required.
 
-![Click Configuration](/media/articles/extensions/authorization/click-configuration.png)
+- For example, you can have **required_roles**: `Timesheet User,Timesheet Admin`
 
-This will bring you to the **Rule Configuration** section of the **Configuration** page.
-
-![Configuration page](/media/articles/extensions/authorization/configuration.png)
-
-Here you can configure:
-
-### Token Contents
-
-**Storing Additional Data in Tokens**:
-
-If you want to store data on Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces.
-
-::: panel-warning Notice
-Storing too much data in the token can cause performance issues or even prevent the token to be issued. Make sure you only choose to store the data that you'll really need. If this data can grow too large, consider using persistence instead of adding it to the token.
-:::
-
-**Passthroughs**:
-
-If you have users that receive groups from the Identity Provider (such as Active Directory) then you can merge these groups (in order to preserve them) with the groups defined in your Authorization Extension. Use the toggle buttons to choose which to merge of Groups, Roles and Permissions.
-
-### Persistence
-
-You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/tokeninfo` endpoint](/api/authentication/reference#get-token-info) to retrieve this information after the user has logged in.
-
-### Controlling Application Access
-
-In addition to the rule that is published by the extension, you can write your own rules after that one to control application access for example. One way to achieve this is to use [Application Metadata](https://auth0.com/docs/rules/metadata-in-rules#reading-metadata) where you could specify on every client that roles might be required. Eg:
-
-- **required_roles**: `Timesheet User,Timesheet Admin`
-
-Then you can write a rule that enforces this logic.
+Then you can write a rule that enforces this logic:
 
 ```js
 function (user, context, callback) {
@@ -267,4 +271,9 @@ Think you need more? [Contact support.](${env.DOMAIN_URL_SUPPORT})
 
 ### An authentication results in a token that contains Groups but not Roles or Permissions
 
-If this happens, chances are you created roles & permissions for one application (client) but are authenticating with another. For example, you created all your roles/permissions against Website A but create another website client in Auth0 (Website B) and use its `client_id` and `client_secret` in your application.  This can also occur if you click the **Try** button in the Auth0 Dashboard on a Connection that contains one of your users. This will execute an authentication flow using the Auth0 _global application_, which is not the same as the application you configured in the extension.
+If this happens, chances are you created roles and permissions for one application (client) but are authenticating with another. For example, you created all your roles/permissions against Website A but create another website client in Auth0 (Website B) and use its `client_id` and `client_secret` in your application.  This can also occur if you click the **Try** button in the Auth0 Dashboard on a Connection that contains one of your users. This will execute an authentication flow using the Auth0 _global application_, which is not the same as the application you configured in the extension.
+
+### My application/client is not shown in the dropdown when setting up the extension
+
+The supported client types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Clients with no type assigned or non-interactive clients are not supported.
+
