@@ -18,7 +18,7 @@ Prior to installing the AD/LDAP Connector, please ensure that you have already i
 
 2. Expand the <a class="download-github" href=""></a> package and install its dependencies:
 
-    ```
+    ```text
     > mkdir /opt/auth0-adldap
     > tar -xzf /tmp/adldap.tar.gz -C /opt/auth0-adldap --strip-components=1
     > cd /opt/auth0-adldap
@@ -27,19 +27,19 @@ Prior to installing the AD/LDAP Connector, please ensure that you have already i
 
 3. Start your server:
 
-    ```
+    ```text
     node server.js
     ```
 
     When prompted for the ticket number, enter the full ticket URL from the **Settings** tab of the **Setup AD/LDAP connector** screen in the Auth0 Management Dashboard:
 
-    ```
+    ```text
     > Please enter the ticket number: https://YOUR_DOMAIN.auth0.com/some/other/stuff
     ```
 
 4. You will be prompted to edit the `config.json` configuration file with your LDAP connection and authentication details:
 
-    ```
+    ```text
     "LDAP_URL": "ldap://YOUR_LDAP_SERVER_FQDN",
     "LDAP_BASE": "dc=YOURDOMAIN,dc=com",
     "LDAP_BIND_USER":"YOUR_LDAP_USER",
@@ -48,9 +48,7 @@ Prior to installing the AD/LDAP Connector, please ensure that you have already i
 
     > If you're using LDAP, refer to the [Modifying the Connector Settings](/connector/modify) page.
 
-5. Run `node server.js` once more to start the Connector.
-
-      **Note**: The `LDAP_BIND_PASSWORD` line in `config.json` changes to `LDAP_BIND_CREDENTIALS` at this point.
+5. Run `node server.js` once more to start the Connector. Note that the `LDAP_BIND_PASSWORD` line in `config.json` changes to `LDAP_BIND_CREDENTIALS` at this point.
 
 6. Once the Connector is running, you will need to daemonize the Connector (if you don't already have a tool selected, you can consider [upstart](http://upstart.ubuntu.com/) or [systemd](https://www.freedesktop.org/wiki/Software/systemd/)).
 
