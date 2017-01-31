@@ -31,7 +31,7 @@ The `RedirectOnLoginFailed` specifies the view that should be shown to an authen
 
 The `CookieName` allows you to set the name of the cookie that will be used to save the User information.
 
-The `UserIdentifier` let you set an identifier for the user. Currently, here are the fields that are available:
+The `UserIdentifier` lets you set an identifier for the user. Currently, here are the fields that are available:
 
   * `userid`
   * `email`
