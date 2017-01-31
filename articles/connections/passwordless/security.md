@@ -15,10 +15,6 @@ You also do not have control over the user's client -- potentially including an 
 
 Ultimately, using email for passwordless authentication at best only establishes that the user has control over that email account, and includes some risk of interception via insecure email practices. Use this mechanism with caution.
 
-
-## Magic Links
-Magic links are links that are sent to the user's email address that allow single-click access to verify that they've received the email, and thus have possession of that email account. This mechanism has the same security considerations as for email-based passwordless authentication, as noted above.
-
 ## SMS
 SMS-based passwordless authentication is predicated on the user's ability to receive a one-time code on their mobile device which will be entered into the website. This establishes possession of the phone number, and presumably a consistent identity for the user.
 
@@ -26,10 +22,13 @@ Unfortunately, there are a few attack vectors for this, as outlined by [NIST](ht
 
 For now, SMS authentication is potentially sufficient for applications in which you're merely trying to associate a phone number, and don't have the risk of compromised data or application security.  
 
+## Magic Links
+Magic links are links that can be delivered to the user either via email or SMS, allowing single-click verification and authentication. The use of magic links has the same security considerations as for email-based and SMS-based passwordless mechanisms as noted above.
+
 ## Guardian
 Passwordless Guardian is designed to strongly prove that the user has possession of their Guardian Authenticator.
 
-For push notifications, Guardian uses RSA key-based authentication. A private key is generated on the device during enrollment, and the associated public key is sent to the Guardian backend. On subsequent login requests, the Guardian backend uses this public/private key pair for authentication, confirming that the Guardian Authenticator is the same one that originally enrolled. Furthermore, the Guardian Authenticator verifies that the communication from the Guardian backend is authentic, avoiding spoofing attacks.
+For push notifications, Guardian uses RSA key-based authentication. A private key is generated on the device during enrollment, and the associated public key is sent to the Guardian backend. On subsequent login requests, the Guardian backend uses this public/private key pair for authentication, confirming that the Guardian Authenticator is the same one that originally enrolled. 
 
 Note that Guardian uses [TOTP](https://tools.ietf.org/html/rfc6238) authentication as a backup mechanism, in case there are any communication problems (for example, if you're on an airplane). This out-of-band authentication is fairly robust and secure, but it does rely on a different mechanism than the key-based authentication above. You may want to factor that into your security decision.
 
