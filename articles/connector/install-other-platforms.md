@@ -28,7 +28,7 @@ Prior to installing the AD/LDAP Connector, please ensure that you have already i
 3. Start your server:
 
     ```text
-    node server.js
+    >node server.js
     ```
 
     When prompted for the ticket number, enter the full ticket URL from the **Settings** tab of the **Setup AD/LDAP connector** screen in the Auth0 Management Dashboard:
