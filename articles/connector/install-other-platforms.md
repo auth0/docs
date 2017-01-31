@@ -16,21 +16,28 @@ Prior to installing the AD/LDAP Connector, please ensure that you have already i
 
     <code class="curl-example"></code>
 
-5. Expand the package and install dependencies:
+2. Expand the <a class="download-github" href=""></a> package and install its dependencies:
 
     ```
-    mkdir /opt/auth0-adldap
-    tar -xzf /tmp/adldap.tar.gz -C /opt/auth0-adldap --strip-components=1
-    cd /opt/auth0-adldap
-    npm install
-    ```
-6. Run `node server.js` and insert the full ticket URL from the **Setup AD/LDAP connector** screen in the Auth0 console when prompted for "ticket number".
-
-    ```
-    Please enter the ticket number: https://YOUR_DOMAIN.auth0.com/some/other/stuff
+    > mkdir /opt/auth0-adldap
+    > tar -xzf /tmp/adldap.tar.gz -C /opt/auth0-adldap --strip-components=1
+    > cd /opt/auth0-adldap
+    > npm install
     ```
 
-7. You will be asked to edit the `config.json` configuration file. If you're using LDAP, see: [Modifying the Connector Settings](/connector/modify). Edit the `config.json` file to add your LDAP connection and authentication details as follows:
+3. Start your server:
+
+    ```
+    node server.js
+    ```
+
+    When prompted for the ticket number, enter the full ticket URL from the **Settings** tab of the **Setup AD/LDAP connector** screen in the Auth0 Management Dashboard:
+
+    ```
+    > Please enter the ticket number: https://YOUR_DOMAIN.auth0.com/some/other/stuff
+    ```
+
+4. You will be prompted to edit the `config.json` configuration file with your LDAP connection and authentication details:
 
     ```
     "LDAP_URL": "ldap://YOUR_LDAP_SERVER_FQDN",
@@ -39,12 +46,13 @@ Prior to installing the AD/LDAP Connector, please ensure that you have already i
     "LDAP_BIND_PASSWORD":"YOUR_LDAP_USER_PASSWORD" //cleartextpassword
     ```
 
-    When you next start the connector server with `node server.js`, the password will be read, hashed, and the line changed to
-`"LDAP_BIND_CREDENTIALS":"hashed password"`
+    > If you're using LDAP, refer to the [Modifying the Connector Settings](/connector/modify) page.
 
-8. Run `node server.js` once more to start the connector.
+5. Run `node server.js` once more to start the Connector.
 
-9. Once the connector is running, you will need to daemonize the connector using a tool like upstart, systemd, init.d, etc.
+      **Note**: The `LDAP_BIND_PASSWORD` line in `config.json` changes to `LDAP_BIND_CREDENTIALS` at this point.
+
+6. Once the Connector is running, you will need to daemonize the Connector (if you don't already have a tool selected, you can consider [upstart](http://upstart.ubuntu.com/) or [systemd](https://www.freedesktop.org/wiki/Software/systemd/)).
 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
@@ -56,3 +64,7 @@ Prior to installing the AD/LDAP Connector, please ensure that you have already i
       .text('curl -Lo /tmp/adldap.tar.gz https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz');
   })
 </script>
+
+#### Notes
+
+* If you get an `Invalid Ticket` message when configuring the Connector for the first time, the most likely cause is a network issue (for example, you have the Connector running behind a proxy). Try troubleshooting by connecting to `https://your_tenant.auth0.com/testall` with a browser other than Internet Explorer.
