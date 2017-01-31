@@ -21,7 +21,7 @@ In this step, you will create a session for that user and also allow the user to
 
 Once the user is logged in, you will want to create a session for that user. To do this, you only need to store the value of the `id_token` attribute that is returned in the Lock `authenticated` callback parameter.
 
-**NOTE**: This example uses `localStorage`, but you can use any storage library. At the end of this guide you can see how to do the same with `Lockr` storage library.
+**NOTE**: This example uses `localStorage`, but you can use any storage library. At the end of this guide, you can see how to do the same with `Lockr` storage library.
 
 ```javascript
 // app.js

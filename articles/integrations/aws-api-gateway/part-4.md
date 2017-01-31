@@ -4,7 +4,7 @@ description: Step 4 of Amazon API Gateway Tutorial
 ---
 
 # AWS API Gateway Tutorial
-## Step 4 - Using Multiple Roles with Amazon API Gateway
+## Step 4 - Use Multiple Roles with Amazon API Gateway
 
 In this step, you'll assign different AWS IAM roles to users based on authentication information:
 

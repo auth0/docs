@@ -1,11 +1,13 @@
 # Get Token
 
-Use this endpoint to get an `access_token` in order to call an API. You can, optionally, retrieve an `id_token` and a `refresh_token` as well.
+Use this endpoint to:
+- Get an `access_token` in order to call an API. You can, optionally, retrieve an `id_token` and a `refresh_token` as well.
+- Refresh your access token, using a refresh token you got during authorization.
 
-The only OAuth 2.0 flows that can retrieve a refresh token are:
-- [Authorization Code Grant](/api-auth/grant/authorization-code)
-- [Authorization Code Grant Flow with PKCE](/api-auth/grant/authorization-code-pkce)
-- [Resource Owner Password Grant](/api-auth/grant/password)
+Note that the only OAuth 2.0 flows that can retrieve a refresh token are:
+- [Authorization Code](/api-auth/grant/authorization-code)
+- [Authorization Code with PKCE](/api-auth/grant/authorization-code-pkce)
+- [Resource Owner Password](/api-auth/grant/password)
 
 ## Authorization Code
 
@@ -17,7 +19,7 @@ Content-Type: 'application/json'
 {
   "grant_type": "authorization_code",
   "client_id": "${account.clientId}",
-  "client_secret": "${account.client_secret}",
+  "client_secret": "${account.clientSecret}",
   "code": "AUTHORIZATION_CODE",
   "redirect_uri": ${account.callback}
 }
@@ -85,7 +87,12 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `redirect_uri`| This is required only if it was set at the [GET /authorize](#authorization-code-grant) endpoint. The values must match. |
 
 
-### Test this endpoint
+### Test with Postman
+
+<%= include('../../../_includes/_test-with-postman') %>
+
+
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -177,7 +184,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `redirect_uri` | This is required only if it was set at the [GET /authorize](#authorization-code-grant-pkce-) endpoint. The values must match. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -268,7 +275,7 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 | `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -299,7 +306,8 @@ Content-Type: 'application/json'
   "password": "PASSWORD",
   "audience": "API_IDENTIFIER",
   "scope": "SCOPE",
-  "client_id": ${account.clientId}
+  "client_id": "${account.clientId}",
+  "client_secret": "${account.clientSecret}"
 }
 ```
 
@@ -307,7 +315,8 @@ Content-Type: 'application/json'
 curl --request POST \
   --url '${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"SCOPE", "client_id": ${account.clientId}}'
+  --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"SCOPE", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"
+ }'
 ```
 
 ```javascript
@@ -322,7 +331,8 @@ var options = { method: 'POST',
      password: 'PASSWORD',
      audience: 'API_IDENTIFIER',
      scope: 'SCOPE',
-     client_id: '${account.clientId}' },
+     client_id: '${account.clientId}',
+     client_secret: '${account.clientSecret}' },
   json: true };
 
 request(options, function (error, response, body) {
@@ -357,15 +367,17 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Resource Owner Password use  `password`. |
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Resource Owner Password use  `password`. To add realm support use `http://auth0.com/oauth/grant-type/password-realm`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
+| `client_secret` <br/> | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
+| `audience` <br/> | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
 | `scope` | String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
+| `realm` | String value of the realm the user belongs. Set this if you want to add realm support at this grant. For more information on what realms are refer to [Realm Support](/api-auth/grant/password#realm-support). |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -374,6 +386,12 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Password Grant**.
+
+
+### Remarks
+
+- The scopes issued to the client may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
+- To add realm support set the `grant_type` to `http://auth0.com/oauth/grant-type/password-realm`, and the `realm` to the realm the user belongs. This maps to a connection in Auth0. For example, if you have configured a database connection for your internal employees and you have named the connection `employees`, then use this value. For more information on how to implement this refer to: [Realm Support](/api-auth/tutorials/password-grant#realm-support).
 
 
 ### More Information

@@ -73,7 +73,10 @@ articles:
         url: "/dev-lifecycle/setting-up-env"
 
       - title: "Running and Developing Locally"
-        url: "/dev-lifecycle/local-testing-and-development"    
+        url: "/dev-lifecycle/local-testing-and-development"
+
+      - title: "Child Account Request Process"
+        url: "/dev-lifecycle/child-tenants"
 
   - title: "Rules"
     url: "/rules"
@@ -489,7 +492,17 @@ libraries:
 
   - title: "Auth0 SDK for Web"
     url: "/libraries/auth0js"
-  
+    children:
+
+      - title: "Auth0.js v8"
+        url: "/libraries/auth0js"
+
+      - title: "Migration Guide v8"
+        url: "/libraries/auth0js/migration-guide"
+
+      - title: "Auth0.js v7"
+        url: "/libraries/auth0js/v7"
+
   - title: "Auth0 SDK for iOS"
     url: "/libraries/auth0-swift"
 
@@ -520,6 +533,8 @@ appliance:
         url: /appliance/geo-ha
       - title: Infrastructure Requirements
         url: /appliance/infrastructure
+      - title: Roles and Responsibilities
+        url: /appliance/raci
       - title: Customer Onboarding
         url: /onboarding/appliance-sprint
       - title: Private Cloud Requirements

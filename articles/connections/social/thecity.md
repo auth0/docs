@@ -7,6 +7,8 @@ description: How to obtain an App ID and Secret with The City.
 
 # Obtaining an App ID and Secret with The City
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Log in into The City portal
 
 Log in into your The City portal, and select __Admin__:
@@ -36,3 +38,5 @@ Press __Create__
 Once the application is created, enter your new `App ID` and `Secret` into the connection settings in Auth0.
 
 ![](/media/articles/connections/social/thecity/thecity-register-4.png)
+
+<%= include('../_quickstart-links.md') %>

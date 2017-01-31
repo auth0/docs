@@ -11,8 +11,6 @@ description: This tutorial demonstrates how to use API authorization
 
 <%= include('../../_includes/_api_auth_intro') %>
 
-<%= include('../../api-auth/_region-support') %>
-
 <%= include('../../_includes/_compat_warning') %>
 
 ### Before Starting

@@ -10,17 +10,19 @@ description: How to obtain a Client Id and Client Secret for PayPal.
 
 To configure an OAuth connection with PayPal, register your Auth0 Client on the [**PayPal Developer Portal**](https://developer.paypal.com/).
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Registering Your Auth0 Client Using the PayPal Developer Portal
 
 Go to the [PayPal Developer Portal](https://developer.paypal.com/) and log in with your PayPal credentials. Click on **Dashboard** in the upper-right corner.
 
 ![](/media/articles/connections/social/paypal/dev-portal.png)
 
-You will be directed to the *My Apps & Credentials* page immediately. Under the *REST API Apps* section, click **Create App**
+You will be directed to the **My Apps & Credentials** page. Scroll down to under the **REST API Apps** section, click **Create App**.
 
 ![](/media/articles/connections/social/paypal/apps-and-creds.png)
 
-On the *Create New App* page, provide a value for **App Name** and click **Create App**:
+On the **Create New App** page, provide a value for **App Name** and click **Create App**:
 
 ![](/media/articles/connections/social/paypal/create-new-app.png)
 
@@ -46,10 +48,31 @@ Click **Save**:
 
 ## 4. Provide Your PayPal Client Id and Secret to Your Auth0 Client
 
-Log in to your [Auth0 Management Dashboard](${manage_url}). Using the left-side navigation bar, select **Connections**. Under the **Social** page, enable **PayPal**.
+Go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 Dashboard. Under the **Social** page, click to enable **PayPal**.
 
 ![](/media/articles/connections/social/paypal/social-connections.png)
 
-Paste in the `Client Id` and `Client Secret` from the **PayPal Developer Portal** into the **App ID** and **App Secret** fields on this page on Auth0, respectively, and click **Save**
+Paste in the **Client Id** and **Secret** from the **PayPal Developer Portal** into the **App ID** and **App Secret** fields on this page on Auth0, respectively, then click **Save**.
 
 ![](/media/articles/connections/social/paypal/paypal-settings.png)
+
+## 5. Enable and Test the Connection
+
+Switch the **Paypal** connection in the dashboard to enabled. Then under **Clients**, choose which of your clients you want to enable this connection and then click **SAVE**.
+
+![Enable Clients](/media/articles/connections/social/paypal/enable-clients.png)
+
+Now you should see a **TRY** button for the **Paypal** connection.
+
+![Try Paypal](/media/articles/connections/social/paypal/try-button.png)
+
+This allows you to test your connection to see if it has been configured properly.
+
+**Note:** The Target URL field that you enter can take up to 3 hours for the change to go into effect with Paypal. This can cause the connection to fail until it is updated.
+
+## Additional Information
+
+[Paypal Docs](https://developer.paypal.com/docs/)
+
+<%= include('../_quickstart-links.md') %>
+

@@ -142,6 +142,12 @@ On the Auth0 [Dashboard](${manage_url}/#/applications), select your app. In the 
 
 **NOTE:** For more detailed instructions on delegation, see [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup).
 
+### Username Length with AWS
+
+Auth0 DB and custom DB users should take note that AWS requires usernames to be between 2-64 characters long. If you intend to use use Auth0 DB alongside of AWS here, change your [username length settings](/connections/database/require-username#length) accordingly in your Auth0 dashboard.
+
+Custom DB users should implement a similar username length policy in their application to ensure that this integration works. See this [AWS Troubleshooting Page](http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_saml.html#troubleshoot_saml_invalid-rolesessionname) for more information.
+
 ### IAM policy
 
 Here is an example of an IAM policy:
@@ -211,7 +217,7 @@ function (user, context, callback) {
 
 ```
 
-You can optionally set `context.addonConfiguration.aws.region` to specifically target an AWS region. For example, `region: 'cn-north-1'` will direct requests to the Chinese north region. Temporary credentials from AWS GovCloud (US) and China (Beijing) can be used only in the region from which they originated. 
+You can optionally set `context.addonConfiguration.aws.region` to specifically target an AWS region. For example, `region: 'cn-north-1'` will direct requests to the Chinese north region. Temporary credentials from AWS GovCloud (US) and China (Beijing) can be used only in the region from which they originated.
 
 The `context.addonConfiguration.aws.mappings` variable allows you to specify parameters that are sent to AWS to assume a Role. By default, Auth0 will use these mappings:
 
@@ -225,19 +231,19 @@ But [other mappings are available in AWS](http://docs.aws.amazon.com/IAM/latest/
 
 ```js
     function(user,context,callback){
-    
+
         context.addonConfiguration.aws.mappings: {
               'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier': 'name',
               'https://aws.amazon.com/SAML/Attributes/Role':                          'awsrole',
               'https://aws.amazon.com/SAML/Attributes/RoleSessionName':               'rolesessionname',
               'urn:oid:1.3.6.1.4.1.5923.1.1.1.1':                                     'awsGroup'
         };
-        
+
         callback(null,user,context);
     }
 ```
 
-The example above assumes the `user` object contains an `awsGroup` property with the expected value. 
+The example above assumes the `user` object contains an `awsGroup` property with the expected value.
 
 **NOTE:** Copy the Provider ARN, and use this as the Principal ARN when obtaining the delegation token.
 
@@ -265,7 +271,9 @@ The result of calling the delegation endpoint will contain the AWS token in the 
 }
 ```
 
-**NOTE:** The Auth0 client libraries simplify calling these endpoints. See our [GitHub repo](https://github.com/auth0/) for the latest SDKs. See an example for client-side JavaScript at: [Delegation Token Request](https://github.com/auth0/auth0.js#delegation-token-request).
+:::panel-info Auth0 Libraries
+The [Auth0 client libraries](/libraries) simplify the process of calling these endpoints. See an example for client-side JavaScript at [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request). Please note that this example is for **version 7** of the `auth0js` library; delegation is *not* supported in version 8 of `auth0js`.
+:::
 
 Here is an example of client-side code used to obtain the token:
 

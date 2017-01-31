@@ -3,7 +3,6 @@ description: How to execute an Implicit Grant flow from a SPA Client application
 ---
 
 # Execute the Implicit Grant Flow
-<%=include('../_region-support') %>
 
 In order to execute an Implicit Grant flow you will need to configure your Client application to send the user to the authorization URL:
 
@@ -12,8 +11,8 @@ https://${account.namespace}/authorize?
   audience={API_AUDIENCE}&
   scope={SCOPE}&
   response_type={RESPONSE_TYPE}&
-  client_id={AUTH0_CLIENT_ID}&
-  redirect_uri={CALLBACK_URL}&
+  client_id=${account.clientId}&
+  redirect_uri=${account.callback}&
   nonce={CRYPTOGRAPHIC_NONCE}
   state={OPAQUE_VALUE}
 ```
@@ -22,7 +21,7 @@ Where:
 
 * `audience`: The target API for which the Client Application is requesting access on behalf of the user.
 * `scope`: The scopes which you want to request authorization for. These must be separated by a space.
-* `response_type`: The response type. For this flow you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow.
+* `response_type`: The response type. For this flow you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow. Use `id_token token` to get only an `id_token`, or `token` to get both an `id_token` and an `access_token`.
 * `client_id`: Your application's Client ID.
 * `redirect_uri`: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your application.
 * `state`: An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks.
@@ -31,7 +30,7 @@ Where:
 For example:
 
 ```html
-<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=${account.clientId}&redirect_uri=https://myclientapp.com/callback">
+<a href="https://${account.namespace}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=${account.clientId}&redirect_uri=${account.callback}">
   Sign In
 </a>
 ```

@@ -3,9 +3,9 @@ title: Okta
 description: How to configure Okta as an identity provider.
 ---
 
-# Configuring Okta as an Identity Provider
+# Configure Okta as an Identity Provider
 
-# On Okta dashboard...
+## On Okta dashboard
 
 Go to Okta dashboard and click on **Applications**. Click on **Create New App**.
 
@@ -40,7 +40,7 @@ Take note of the following:
 
 ![](/media/articles/saml/identity-providers/okta/okta-6.png)
 
-# On Auth0 dashboard...
+## On Auth0 dashboard
 
 Go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** and click **+NEW**
 
@@ -52,7 +52,7 @@ Go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** and click
 
 Click on **Save** and close the next dialog. You will get asked which application you want to connect this to.
 
-# Testing
+## Test the Connection
 
 If you have a user on Okta you can now click on **Try** on your Auth0 dashboard and you should be redirected to Okta:
 
@@ -79,3 +79,5 @@ If a user is returned to the Okta dashboard after authenticating via Okta in a S
 1. If your application is integrated with Auth0 using the OpenID Connect protocol, Auth0 will take the value of the 'state' parameter and pass it on to Okta in the SAML "RelayState" parameter. Therefore, make sure you are setting the 'state' parameter to a value that Okta can use.
 
 2. In the Okta configuration screen titled "(2) Configure SAML", click on "Show Advanced Settings" and check the option for "Request Compression".  The Okta documentation indicates this should be checked if the value of this parameter is compressed.  Some Okta users have reported it should be checked for HTTP Redirect binding and uncompressed for HTTP POST binding.
+
+<%= include('../../../connections/_quickstart-links.md') %>

@@ -261,4 +261,10 @@ The extension uses the internal Webtask storage capabilities, which are limited 
  - If you have 1000 groups and 3000 users, where each user is member of 3 groups about 475 KB of data would be used.
  - If you have 20 groups and 7000 users, where each user is member of 3 groups about 480 KB of data would be used.
 
-Think you need more? [Contact support.](https://support.auth0.com)
+Think you need more? [Contact support.](${env.DOMAIN_URL_SUPPORT})
+
+## Troubleshooting
+
+### An authentication results in a token that contains Groups but not Roles or Permissions
+
+If this happens, chances are you created roles & permissions for one application (client) but are authenticating with another. For example, you created all your roles/permissions against Website A but create another website client in Auth0 (Website B) and use its `client_id` and `client_secret` in your application.  This can also occur if you click the **Try** button in the Auth0 Dashboard on a Connection that contains one of your users. This will execute an authentication flow using the Auth0 _global application_, which is not the same as the application you configured in the extension.

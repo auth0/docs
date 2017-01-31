@@ -60,7 +60,7 @@ This means that the `InAppBrowser` plugin wasn't installed successfully. Try any
 phonegap plugin remove cordova-plugin-inappbrowser
 phonegap plugin add cordova-plugin-inappbrowser
 ```
-* Remove the platform and re add it
+* Remove the platform and re-add it
 
 iOS:
 
@@ -86,7 +86,7 @@ Android:
 ```bash
 cp plugins/cordova-plugin-inappbrowser/src/android/* platforms/android/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
 ```
-#### Get a blank page with an OK after signin
+#### Get a blank page with an `OK` after signin
 
 This could mean that the `InAppBrowser` plugin wasn't installed successfully.
 

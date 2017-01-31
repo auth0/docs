@@ -13,7 +13,7 @@ Single sign-on (SSO) makes it possible for a user to log into one client and the
 
 ## How to Implement Single Sign-On with Auth0
 
-To enable SSO for one of your **clients** (recall that each client is independent of one another), navigate to the [clients section](${manage_url}/#/clients) of the Auth0 Management Dashboard. Click on **Settings** for the client you would like to enable SSO for.
+To enable SSO for one of your **clients** (recall that each client is independent of one another), navigate to the [client's section](${manage_url}/#/clients) of the Auth0 Management Dashboard. Click on **Settings** for the client you would like to enable SSO for.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
@@ -143,7 +143,7 @@ With SSO enabled in both applications, the user can log into one of them and the
 
 ## Log Out from Auth0
 
-To log the user out of their SSO session completely, call `logout` from `auth0.js`. You may optionally pass a `returnTo` key so that the user is taken back to the app once logout is complete. Your logout domain needs to be whitelisted in your application [settings](${manage_url}/#/clients/${account.clientId}/settings). Be sure to pass the client ID for the appropriate application as a `client_id` key in the `logout` method.
+To log the user out of their SSO session completely, call `logout` from `auth0.js`. You may optionally pass a `returnTo` key so that the user is taken back to the app once logout is complete. Your logout domain needs to be whitelisted in your [Client settings](${manage_url}/#/clients/${account.clientId}/settings). Be sure to pass the client ID for the appropriate application as a `client_id` key in the `logout` method.
 
 Note that you will also likely need to call the existing `logout` method from the `authService` that was created in the earlier steps so that the user's token and profile are removed from local storage for the app being used.
 

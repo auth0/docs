@@ -14,15 +14,15 @@ budicon: 546
 
 ## Restrict an Action Based on a User's Roles
 
-As mentioned before, the claims returned in the ID Token will automatically be mapped to claims on the `ClaimsIdentity`. ASP.NET Core will also maps roles correctly.
+As mentioned before, the claims returned in the ID Token will automatically be mapped to claims on the `ClaimsIdentity`. ASP.NET Core will also map roles correctly.
 
 Specifically, it will look for a "roles" claim on the ID Token, and then for each role inside the array on the "roles" claim, it will add a "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" claim to the `ClaimsIdentity`.
 
 This means that it integrates seamlessly with the [Role based authorization](https://docs.asp.net/en/latest/security/authorization/roles.html) inside ASP.NET Core.
 
-Once the correct claims are being returned from Auth0, all you therefore have to do is decorate your controller actions with the `[Authorize(Roles = ?)]` attribute.
+Once the correct claims are being returned from Auth0, all you have to do therefore, is decorate your controller actions with the `[Authorize(Roles = ?)]` attribute.
 
-The sample code below will restrict the particular action only to user who have the "admin" role:
+The sample code below will restrict the particular action only to the user who have the "admin" role:
 
 ```csharp
 [Authorize(Roles = "admin")]

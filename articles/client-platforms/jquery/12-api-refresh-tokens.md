@@ -5,12 +5,11 @@ description: This tutorial demonstrates how to use Auth0 to refresh Access Token
 
 JQuery applications, as with all client-based applications, are not trusted to maintain the safety of a client secret or Refresh Token. Therefore, these application should not be issued Refresh Tokens. However, it is still possible to renew an Access Token. This tutorial demonstrates how to renew an Access Token using auth0.js. For more information, check out [our documentation](https://auth0.com/docs/api-auth).
 
-<%= include('../../api-auth/_region-support') %>
 <%= include('../../_includes/_compat_warning') %>
 
 ## Refreshing an Access Token
 
-If you invoke your API and you get a `401` response, this tells you that you might need to refresh your Access Token since it is expired. 
+If you invoke your API and you get a `401` response, this tells you that you might need to refresh your Access Token since it is expired.
 
 In order to refresh your Access Token, you can use `prompt=none` in your `/authorize` call. With auth0.js, this is done using the `silentAuthentication` function.
 

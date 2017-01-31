@@ -34,7 +34,7 @@ ${snippet(meta.snippets.setup)}
 
 ## Configuring Auth0 Settings
 
-In your application settings add new allowed callback which is equal to `OIDCRedirectURI`.
+In your client settings add a new allowed callback which is equal to `OIDCRedirectURI`.
 
 Now, go to OAuth section in advanced settings and change `JsonWebToken Token Signature Algorithm` to RS256.
 

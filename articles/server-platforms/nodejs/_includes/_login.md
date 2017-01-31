@@ -15,7 +15,7 @@ npm install connect-ensure-login --save
 
 ## Add Requires and Initialize Passport Configuration
 
-First we need to require `passport` and `passport-auth0` in `app.js`.
+First, we need to require `passport` and `passport-auth0` in `app.js`.
 
 ```js
 // app.js
@@ -28,7 +28,7 @@ var Auth0Strategy = require('passport-auth0');
 ...
 ```
 
-Next we need to setup and configure Passport to use the Auth0 strategy.
+Next, we need to set up and configure Passport to use the Auth0 strategy.
 
 ```js
 // app.js
@@ -87,7 +87,7 @@ var user = require('./routes/user');
 ...
 ```
 
-## Authentication Using Lock
+## Authenticate Using Lock
 
 Using Auth0's Lock widget is the simplest and most robust way of handling user logins. Client side, the `Auth0Lock` library will initiate the login process and once the user is authenticated with the chosen provider, the useragent will perform a redirect to the URL specified in `AUTH0_CALLBACK_URL`. This URL will be picked up by Passport.js.
 
@@ -99,7 +99,7 @@ We will need to add a few routes for the application, including: `/login` `/logo
 // Render the login template
 router.get('/login',
   function(req, res){
-    res.render('login', { env: env });
+    res.render('login', { env: process.env });
   });
 
 // Perform session logout and redirect to homepage
@@ -144,7 +144,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src="<script src="${lock_url}"></script>")
+    script(src="${lock_url}")
   body
     block content
 ```
@@ -174,7 +174,7 @@ block content
     lock.show();
 ```
 
-> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL for the callback route.
+**Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL for the callback route.
 
 In `views/user.jade` we simply display the user's nickname and profile picture.
 

@@ -14,7 +14,7 @@ The following attributes are available on the [User Profile](/user-profile):
 
 * `email`: the user's email address
 
-* `email verified`: the `yes/no` value indicating if the user has verified their email address;
+* `email_verified`: the `yes/no` value indicating if the user has verified their email address;
 
 * `identities`: the array of objects with information about the user's identities:
 

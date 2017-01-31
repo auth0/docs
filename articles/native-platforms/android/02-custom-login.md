@@ -58,7 +58,7 @@ First, in your customized login method, instantiate the Authentication API:
 
 ```java
 private void login(String email, String password) {
-    Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
+    Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 
     // proper login

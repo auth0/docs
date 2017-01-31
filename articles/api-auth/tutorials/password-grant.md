@@ -3,7 +3,6 @@ description: How to execute a Resource Owner Password Grant
 ---
 
 # Execute the Resource Owner Password Grant
-<%=include('../_region-support') %>
 
 ::: panel-danger Warning
 Support for Rules and Refresh Tokens will be available in a future release.
@@ -17,7 +16,7 @@ The Password Grant relies on a connection capable of authenticating users via us
 1. Scroll down to the Settings section and locate the "Default Directory" setting.
 1. Enter the name of the connection you would like to use. Keep in mind that only connections capable of authenticating users via username and password can be used (i.e. database connections, AD, LDAP, Windows Azure AD, ADFS)
 
-  ![](/media/articles/api-auth/default-directory-setting.png)
+  ![Update Default Directory](/media/articles/api-auth/default-directory-setting.png)
 
 ## Execute the flow
 
@@ -32,7 +31,7 @@ In order to execute the flow the client needs to acquire the Resource Owner's cr
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"XyD....23S\"}"
+    "text": "{\"grant_type\":\"password\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\"}"
   }
 }
 ```
@@ -43,7 +42,8 @@ Where:
 * `username`: Resource Owner's identifier.
 * `password`: Resource Owner's secret.
 * `audience`: API Identifier that the client is requesting access to.
-* `client_id`: Client ID of the client making the request
+* `client_id`: Client ID of the client making the request.
+* `client_secret`: Client Secret of the client making the request. Required when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA).
 * `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
 
 The response from `/oauth/token` (if successful) contains an `access_token`, for example:
@@ -51,12 +51,21 @@ The response from `/oauth/token` (if successful) contains an `access_token`, for
 ```js
 {
   "access_token": "eyJz93a...k4laUWw",
-  "token_type": "Bearer"
+  "token_type": "Bearer",
+  "expires_in": 36000
 }
 ```
 
-::: panel-info A note about user's claims
-If the client needs the user's claims you can include the scopes `openid profile` to the `scope` value in the POST to the token endpoint. If the audience uses RS256 as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can now send the `access_token` to `https://${account.namespace}/userinfo` to retrieve the user's claims.
+In case the scopes issued to the client differ from the scopes requested, a `scope` parameter will be included in the response JSON, listing the issued scopes.
+
+::: panel-info Password grant and standard scopes
+If **no** API scopes (such as `read:notes`) are included in the request, all API scopes (such as `read:notes`, `create:notes`, etc.) are included in the `access_token`.
+If only the `openid` scope is included in the request, all `openid` standard scopes will be returned, such as `openid profile email address phone`.
+In these cases, the `scope` parameter will be included in the response, listing the issued scopes. This happens because a password is equal to full access and hence any password-based exchange gives access to all scopes.
+:::
+
+::: panel-info How to get the user's claims
+If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can use this `access_token` to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
 :::
 
 ### Realm Support
@@ -78,7 +87,7 @@ To use this variation you will have to change the following request parameters:
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"XyD....23S\", \"realm\": \"employees\"}"
+    "text": "{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"user@example.com\",\"password\": \"pwd\",\"audience\": \"https://someapi.com/api\", \"scope\": \"read:sample\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"realm\": \"employees\"}"
   }
 }
 ```

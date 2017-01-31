@@ -47,7 +47,7 @@ In order to configure a new system for Auth0 logs and acquire the *SUMOLOGIC_URL
 
 ## Using Your Installed Extension
 
- To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Sumo Logic* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
+ To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Sumo Logic* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution.
 
 ![](/media/articles/extensions/sumologic/view-cron-jobs.png)
 
@@ -67,6 +67,6 @@ To help us (and our customers) visualize these logs, we spent some time creating
 
 ![](/media/articles/extensions/sumologic/auth0-dashboard.png)
 
-If you're a Sumo Logic customer and are interested in trying out this dashboard, just let us know via [Support Center](https://support.auth0.com/) and we will gladly share it with you. Make sure to include your Sumo Logic account name in your request. Once it's available through your account, you're free to customize it, add to it, create alerts based on the searches, or really anything else that you find useful.
+If you're a Sumo Logic customer and are interested in trying out this dashboard, just let us know via [Support Center](${env.DOMAIN_URL_SUPPORT}) and we will gladly share it with you. Make sure to include your Sumo Logic account name in your request. Once it's available through your account, you're free to customize it, add to it, create alerts based on the searches, or really anything else that you find useful.
 
 Have fun analyzing and visualizing those logs!

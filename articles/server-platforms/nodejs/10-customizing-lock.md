@@ -18,7 +18,7 @@ Using the Lock widget is easy, but it might be necessary to customize the UI for
 
 ## Lock Options
 
-Some UI customization can be done via the `options` parameter when creating a `Lock` instance. These options can be found in the [full documentation](https://auth0.com/docs/libraries/lock/v10/customization).
+Some UI customization can be done via the `options` parameter when creating a `Lock` instance. These options can be found in the [full documentation](/libraries/lock/v10/customization).
 
 ## Theme options
 
@@ -53,4 +53,4 @@ This is how Lock will appear using a custom logo, color, and title:
 
 ## Further Reading
 
-For more information, read read the [full documentation](https://auth0.com/docs/libraries/lock/v10/customization) on Lock customization options.
+For more information, read the [full documentation](/libraries/lock/v10/customization) on Lock customization options.

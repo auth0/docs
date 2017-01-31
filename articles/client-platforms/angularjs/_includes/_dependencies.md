@@ -25,7 +25,7 @@ Once installed, the scripts for these libraries can be included in your project.
 **After Installation with npm**
 
 ```html
-<script type="text/javascript" src="${lock_url}"></script>
+<script type="text/javascript" src="https://cdn.auth0.com/js/lock/10.8/lock.min.js"></script>
 <script src="node_modules/angular-lock/dist/angular-lock.js"></script>
 <script src="node_modules/angular-jwt/dist/angular-jwt.js"></script>
 ```

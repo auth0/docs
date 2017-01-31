@@ -10,6 +10,8 @@ description: How to obtain a Client Id and Client Secret for Salesforce.
 
 To configure a Salesforce OAuth2 connection you will need to register your Auth0 tenant on their **Administer** panel.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Register a New App
 
 Log into [Salesforce](https://login.salesforce.com/). Click on **Setup** in the upper right, next to your account name. Navigate to **Build > Create > Apps**. Under **Connected Apps**, click **New**:
@@ -62,3 +64,6 @@ It is common to customize the login page for __Community__ sites. If you do so, 
 
 [This sample](https://github.com/salesforceidentity/basic-custom-login) provides details on how to do it properly.
 ::
+
+<%= include('../_quickstart-links.md') %>
+

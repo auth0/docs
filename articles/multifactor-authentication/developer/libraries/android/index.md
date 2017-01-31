@@ -20,10 +20,10 @@ Android API level 15+ is required in order to use the Guardian Android SDK.
 Guardian is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Guardian* add these lines to your `build.gradle` dependencies file:
 
 ```gradle
-compile 'com.auth0.android:guardian-sdk:0.1.0'
+compile 'com.auth0.android:guardian-sdk:0.2.0'
 ```
 
-_You can check for the latest version on the repository [Releases](https://github.com/auth0/GuardianSDK.Android/releases) tab, in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22guardian-sdk%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/guardian-android)._
+_You can check for the latest version on the repository [Releases](https://github.com/auth0/GuardianSDK.Android/releases) tab, in [Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.auth0.android%22%20AND%20a%3A%22guardian%22), or in [JCenter](https://bintray.com/auth0/android/Guardian.Android)._
 
 After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 

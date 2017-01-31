@@ -7,7 +7,11 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-community',
   repo: 'auth0-chrome-sample',
-  path: '00-Starter-Seed'
+  path: '00-Starter-Seed',
+  requirements: [
+    'auth0-chrome 0.1.2',
+    'jwt-decode 2.1.0'
+  ]
 }) %>
 
 This quickstart demonstrates how to add authentication to a Chrome extension with Auth0. The tutorial is based on a sample application which uses Auth0's hosted Lock widget and Chrome's `launchWebAuthFlow`.
@@ -15,24 +19,6 @@ This quickstart demonstrates how to add authentication to a Chrome extension wit
 ## Overview
 
 To integrate Auth0 in a Chrome extension, you can use the `auth0-chrome` package available on npm. This package provides a generic `PKCEClient.js` file which allows you to use the [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636) spec. PKCE is recommended for native applications to mitigate the threat of authorization code interception.
-
-## Configure Your Auth0 Application
-
-Chrome extensions are packaged as `.crx` files for distribution but may be loaded "unpacked" for development. For more information on how to load an unpacked extension, see the [Chrome extension docs](https://developer.chrome.com/extensions/getstarted#unpacked).
-
-When loading your application as an unpacked extension, a unique ID will be generated for it. In your [application settings](${manage_url}/#/applications/${account.clientId}/settings), you must whitelist your callback URL (the URL that Auth0 will return to once authentication is complete) and the allowed origin URL.
-
-In the **Allowed Callback URLs** section, whitelist your callback URL.
-
-```bash
-https://<YOUR_EXTENSION_ID>.chromiumapp.org/auth0
-```
-
-In the **Allowed Origins** section, whitelist your chrome extension as an origin.
-
-```bash
-chrome-extension://<YOUR_EXTENSION_ID>
-```
 
 ## Install the Dependencies
 
@@ -258,6 +244,26 @@ When the `authenticate` message is received, an `Auth0Chrome` instance is create
 The `Auth0Chrome` constructor takes the **domain** and **client ID** for your application, and the `authenticate` method takes an `options` object which allows you to customize the authentication flow. The `authenticate` method returns a promise and the result from the authentication process can be retrieved when it resolves. In this example, the result is saved in local storage immediately for future use and a Chrome notification is created to let the user know they have successfully logged in.
 
 ![hosted-lock](/media/articles/native-platforms/chrome/02-hosted-lock.png)
+
+## Configure Your Auth0 Application
+
+Chrome extensions are packaged as `.crx` files for distribution but may be loaded "unpacked" for development. For more information on how to load an unpacked extension, see the [Chrome extension docs](https://developer.chrome.com/extensions/getstarted#unpacked).
+
+When loading your application as an unpacked extension, a unique ID will be generated for it. In your [application settings](${manage_url}/#/applications/${account.clientId}/settings), you must whitelist your callback URL (the URL that Auth0 will return to once authentication is complete) and the allowed origin URL.
+
+In the **Allowed Callback URLs** section, whitelist your callback URL.
+
+```bash
+https://<YOUR_EXTENSION_ID>.chromiumapp.org/auth0
+```
+
+In the **Allowed Origins** section, whitelist your chrome extension as an origin.
+
+```bash
+chrome-extension://<YOUR_EXTENSION_ID>
+```
+
+Once the extension is published in the Chrome Web Store the Callback URL and the CORS origins used for development must be changed.
 
 ## Further Reading
 

@@ -26,7 +26,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ## 2. Import Dependencies and Set Up Auth0Lock
 
-Later we'll see how to make authenticated HTTP requests, and for that we'll need `HttpClient` from `aurelia-fetch-client`. We also need to create a new instance of `Auth0Lock`.
+Later we'll see how to make authenticated HTTP requests, and for that, we'll need `HttpClient` from `aurelia-fetch-client`. We also need to create a new instance of `Auth0Lock`.
 
 ${snippet(meta.snippets.setup)}
 
@@ -44,7 +44,7 @@ The `login` method will show the Lock widget and save the user's profile and JWT
 
 ${snippet(meta.snippets.login)}
 
-To log the user out, we just need to remove the their JWT and profile from local storage, and then set `isAuthenticated` to false.
+To log the user out, we just need to remove the JWT and profile from local storage, and then set `isAuthenticated` to false.
 
 ${snippet(meta.snippets.logout)}
 

@@ -52,14 +52,14 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
+| `audience` <br/> | The unique identifier of the target API you want to access. |
 | `scope` | The scopes which you want to request authorization for. These must be separated by a space. Include `offline_access` to get a refresh token. |
 | `response_type` <br/><span class="label label-danger">Required</span> | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `state` <br/><span class="label label-danger">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -73,7 +73,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ### Remarks
 
-- Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code).
+- Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code). Make sure that the **Allow Offline Access** field is enabled in the [API Settings]($(manage_url)/#/apis).
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 ### More Information
@@ -119,17 +119,17 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
-| `scope` | The scopes which you want to request authorization for. These must be separated by a space. |
+| `audience` <br/> | The unique identifier of the target API you want to access. |
+| `scope` | The scopes which you want to request authorization for. These must be separated by a space. Include `offline_access` to get a refresh token. |
 | `response_type` <br/><span class="label label-danger">Required</span> | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `state` <br/><span class="label label-danger">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `code_challenge_method` <br/><span class="label label-danger">Required</span> | Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
 | `code_challenge` <br/><span class="label label-danger">Required</span> | Generated challenge from the `code_verifier`. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 
@@ -144,7 +144,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 ### Remarks
 
-- Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code-pkce-).
+- Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code-pkce-). Make sure that the **Allow Offline Access** field is enabled in the [API Settings]($(manage_url)/#/apis).
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 
@@ -189,16 +189,16 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `audience` <br/><span class="label label-danger">Required</span> | The unique identifier of the target API you want to access. |
+| `audience` <br/> | The unique identifier of the target API you want to access. |
 | `scope` | The scopes which you want to request authorization for. These must be separated by a space. |
 | `response_type` <br/><span class="label label-danger">Required</span> | This will specify the type of token you will receive at the end of the flow. Use `id_token token` to get an `id_token`, or `token` to get both an `id_token` and an `access_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `state` <br/><span class="label label-danger">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `nonce` <br/><span class="label label-danger">Recommended</span> | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
+| `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 

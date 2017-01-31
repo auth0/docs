@@ -15,7 +15,10 @@ Content-Type: 'application/json'
   "email": "EMAIL", //set for connection=email
   "phone_number": "PHONE_NUMBER", //set for connection=sms
   "send": "link|code", //if left null defaults to link
-  "authParams": "PARAMS"
+  "authParams": { // any authentication parameters that you would like to add
+    "scope": "openid",
+    "state": "YOUR_STATE"
+  }
 }
 ```
 
@@ -23,7 +26,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/passwordless/start' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "email":"EMAIL", "phone_number":"PHONE_NUMBER", "send":"link|code", "authParams":"PARAMS"}'
+  --data '{"client_id":"${account.clientId}", "connection":"email|sms", "email":"EMAIL", "phone_number":"PHONE_NUMBER", "send":"link|code", "authParams":{"scope": "openid","state": "YOUR_STATE"}}'
 ```
 
 ```javascript
@@ -118,6 +121,11 @@ You have three options for [passwordless authentication](/connections/passwordle
 | `phone_number` | Set this to the user's phone number, when `connection=sms`. |
 | `send` | Use `link` to send a link or `code` to send a verification code. If null, a link will be sent. |
 | `authParams` | Use this to append or override the link parameters (like `scope`, `redirect_uri`, `protocol`, `response_type`), when you send a link using email. |
+
+
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
 
 
 ### Remarks
@@ -215,10 +223,6 @@ auth0.verifySMSCode({
   "link": "#authenticate-user"
 }) %>
 
-::: panel-warning Deprecation Notice
-This endpoint will be deprecated. Customers will be notified and given ample time to migrate once an official deprecation notice is posted. The [POST /oauth/token { grant_type: password }](#resource-owner-password) should be used instead.
-:::
-
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
 
 
@@ -234,7 +238,12 @@ Once you have a verification code, use this endpoint to login the user with thei
 | `scope` | Use `openid` to get an `id_token`, or `openid profile email` to include also user profile information in the `id_token`. |
 
 
-### Test this endpoint
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 

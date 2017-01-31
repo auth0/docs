@@ -6,7 +6,7 @@ budicon: 715
 
 This multistep quickstart guide will walk you through setting up and managing authentication in your Ionic apps using Auth0.
 
-Auth0 provides wrappers for using the [Lock widget](https://auth0.com/lock) and the [auth0.js](https://github.com/auth0/auth0.js) library in Anguar apps, and these wrappers will be used throughout these quickstart guides.
+Auth0 provides wrappers for using the [Lock widget](https://auth0.com/lock) and the [auth0.js](https://github.com/auth0/auth0.js) library in Angular apps, and these wrappers will be used throughout these quickstart guides.
 
 ## Samples Projects
 

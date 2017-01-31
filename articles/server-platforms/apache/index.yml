@@ -1,4 +1,5 @@
 title: Apache
+community: true
 image: /media/platforms/apache.jpg
 tags:
   - quickstart

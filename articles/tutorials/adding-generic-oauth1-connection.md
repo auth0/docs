@@ -4,14 +4,14 @@ description: How to add a generic Oauth1 Authorization Server to Auth0.
 
 # Adding a generic OAuth1 Authorization Server to Auth0
 
-The most common [identity providers](identityproviders) are readily available on Auth0's dashboard. However, you can add any __OAuth1 Authorization Server__ to Auth0 as an identity provider.
+The most common [identity providers](/identityproviders) are available on Auth0's [dashboard](${manage_url}). However, you can add any __OAuth1 Authorization Server__ to Auth0 as an identity provider.
 
 To create an arbitrary __OAuth1__ connection, you use __[Auth0's Connections API](/api/v2#!/Connections/post_connections)__. 
 
 This example would create a custom Twitter connection:
 
 ```
-curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @twitter.json https://${account.namespace}/api/connections
+curl -H "Content-Type: application/json" -H 'Authorization: Bearer YOUR_GLOBAL_CLIENT_ACCESS_TOKEN' -d @twitter.json https://${account.namespace}/api/connections
 ```
 
 ```
@@ -19,8 +19,8 @@ curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_
   "name": "custom-twitter",
   "strategy": "oauth1",
   "options": {
-    "client_id": "{YOUR_TWITTER_CLIENT_ID}",
-    "client_secret": "{YOUR_TWITTER_CLIENT_SECRET}",
+    "client_id": "YOUR_TWITTER_CLIENT_ID",
+    "client_secret": "YOUR_TWITTER_CLIENT_SECRET",
     "requestTokenURL": 'https://api.twitter.com/oauth/request_token',
     "accessTokenURL": 'https://api.twitter.com/oauth/access_token',
     "userAuthorizationURL": 'https://api.twitter.com/oauth/authenticate',
@@ -66,15 +66,17 @@ The `token` and `tokenSecret` parameters will often be used for authenticating r
 
 Notice that you can manipulate the profile returned from the provider to filter/remove/add anything in it. However, we recommend you keep this script as simple as possible. More sophisticated manipulation of the user information can be achieved through [Rules](/rules). 
 
->One advantage of using Rules is that they apply to __any__ connection.
+> One advantage of using Rules is that they apply to __any__ connection.
 
 ## Using your new connection
 
 You can use any of the Auth0 standard mechanisms to login a user with the new connection (e.g. direct links, [Auth0 Lock](lock), [auth0.js](auth0js), etc.). 
 
 A direct link would look like:
-            
-    https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION
+
+```text
+https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION
+```
 
 
 ## Other resources

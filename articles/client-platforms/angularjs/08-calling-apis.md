@@ -45,7 +45,7 @@ To attach the user's JWT as an `Authorization` header, we could write a service 
 })();
 ```
 
-Witht the `jwtInterceptor` configured, you can now send authenticated requests to an API that is protected by your Auth0 secret key.
+With the `jwtInterceptor` configured, you can now send authenticated requests to an API that is protected by your Auth0 secret key.
 
 ```js
 // components/ping/ping.controller.js

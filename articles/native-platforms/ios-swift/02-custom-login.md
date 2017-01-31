@@ -35,10 +35,10 @@ Auth0
     )
     .start { result in
             switch result {
-            case .Success(let credentials):
+            case .success(let credentials):
                 // Logged in successfully
                 // You've got a Credentials instance, which you'll use, for example, to retrieve the User Profile
-            case .Failure(let error):
+            case .failure(let error):
                 // You've got an error
             }
     }
@@ -61,9 +61,9 @@ Auth0
     .tokenInfo(token: idToken)
     .start { result in
         switch result {
-        case .Success(let profile):
+        case .success(let profile):
             // You've got a UserProfile object
-        case .Failure(let error):
+        case .failure(let error):
             // You've got an error
         }
 }
@@ -101,10 +101,10 @@ Auth0
     )
     .start { result in
             switch result {
-            case .Success(let credentials):
+            case .success(let credentials):
               // Registered successfully
               // You've got a Credentials object
-            case .Failure(let error):
+            case .failure(let error):
                 // You've got an error
             }
         }
@@ -150,7 +150,7 @@ import Auth0
 ```
 
 ```swift
-func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     return Auth0.resumeAuth(url, options: options)
 }
 ```
@@ -164,9 +164,9 @@ Auth0
     .scope("openid")
     .start { result in
         switch result {
-        case .Success(let credentials):
+        case .success(let credentials):
             // You've got your credentials
-        case .Failure(let error):
+        case .failure(let error):
             // Handle the error
         }
     }

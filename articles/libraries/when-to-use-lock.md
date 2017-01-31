@@ -19,7 +19,86 @@ When adding Auth0 to your web apps, you have the option to implement either:
 
 **Lock** is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface. The Auth0 Libraries are client-side libraries that *do not* come with a user interface but allow for expanded customization of the behavior and appearance of the login. The **Authentication API** provides integration without requiring the use of Auth0 libraries. The best option to choose will depend on the needs of your app.
 
-### When to Implement Lock vs. Implementing a Custom UI
+## When to Implement Lock vs. a Custom UI 
+
+Below is a quick overview of reasons you might want to use Lock, versus using an Auth0 library or the authentication API. There are details about each option (Lock, Auth0 Libraries, Authentication API) below the table, to assist you in finding the right way to implement Auth0 in your application!
+
+<table class="table"> 
+    <thead> 
+        <tr> 
+            <th align="left"><b>Desired UI Attributes:</b></th> 
+            <th>Lock</th> 
+            <th>Custom&nbsp;UI</th> 
+        </tr> 
+    </thead> 
+    <tbody> 
+        <tr> 
+            <td>Has a simple design that fits in with most modern websites with just a few tweaks to its options.</td> 
+            <td class="success" align="center">Yes</td> 
+            <td class="danger" align="center">No</td> 
+        </tr> 
+        <tr> 
+            <td>Adapts to your configuration and only show the allowable options in the appropriate situations</td> 
+            <td class="success" align="center">Yes</td> 
+            <td class="danger" align="center">No</td> 
+        </tr> 
+        <tr> 
+            <td>Chooses the correct connection automatically</td> 
+            <td class="success" align="center">Yes</td> 
+            <td class="danger" align="center">No</td> 
+        </tr> 
+        <tr> 
+            <td>Remembers the last used connection for a given user</td> 
+            <td class="success" align="center">Yes</td> 
+            <td class="danger" align="center">No</td> 
+        </tr> 
+        <tr> 
+            <td>Automatically accommodates internationalization</td> 
+            <td class="success" align="center">Yes</td> 
+            <td class="danger" align="center">No</td> 
+        </tr> 
+        <tr> 
+            <td>Automatically provides password policy checking at signup</td> 
+            <td class="success" align="center">Yes</td> 
+            <td class="danger" align="center">No</td> 
+        </tr>
+        <tr> 
+            <td>Provide secure authentication via Auth0</td> 
+            <td class="success" align="center">Yes</td> 
+            <td class="success" align="center">Yes</td> 
+        </tr> 
+        <tr> 
+            <td>Potential to provide auth without having to create custom code to deal directly with Auth0's API</td> 
+            <td class="success" align="center">Yes</td> 
+            <td class="success" align="center">Yes</td> 
+        </tr> 
+        <tr> 
+            <td>Follows strict appearance requirements as set by your company</td> 
+            <td class="danger" align="center">No</td> 
+            <td class="success" align="center">Yes</td> 
+        </tr> 
+        <tr> 
+            <td>Allows you to retain your existing UI for authentication</td> 
+            <td class="danger" align="center">No</td> 
+            <td class="success" align="center">Yes</td> 
+        </tr> 
+        <tr> 
+            <td>Allows for expert usage of HTML, CSS, and JavaScript for customization</td> 
+            <td class="danger" align="center">No</td> 
+            <td class="success" align="center">Yes</td> 
+        </tr> 
+        <tr> 
+            <td>Adapts to a simpler process for username/password and social provider authentication</td> 
+            <td class="danger" align="center">No</td> 
+            <td class="success" align="center">Yes</td> 
+        </tr> 
+        <tr> 
+            <td>Handles multiple databases or Active Directory connections</td> 
+            <td class="danger" align="center">No</td> 
+            <td class="success" align="center">Yes</td> 
+        </tr> 
+    </tbody> 
+</table> 
 
 ## Lock
 
