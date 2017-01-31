@@ -70,7 +70,7 @@ You need to update the `API2_ACCESS_TOKEN` with a valid Auth0 API2 token with th
 
 ### Promote connections
 
-Clients registered via the [Dynamic Client Registration Endpoint](#dynamic-client-registration-endpoint) are flagged as **Third Party Clients** and can only authenticate users using connections flagged as **Domain Connections**. These connections will be open for any dynamic client to allow users to authenticate.
+Clients registered via the [Dynamic Client Registration Endpoint](#register-your-client) are flagged as **Third Party Clients** and can only authenticate users using connections flagged as **Domain Connections**. These connections will be open for any dynamic client to allow users to authenticate.
 
 You can promote a connection to domain level using the [Update a Connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id).
 
