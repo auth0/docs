@@ -262,7 +262,8 @@ The `signup` method accepts an 'options' object that contains parameters for you
 
 ## Using renewAuth to Acquire New Tokens
 
-The `renewAuth` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the hosted login page.
+The `renewAuth` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain.
+
 
 ```js
 webAuth.renewAuth({
@@ -276,10 +277,12 @@ webAuth.renewAuth({
 ```
 
 ::: panel-info postMessage
-This will use postMessage to comunicate between the silent callback and the SPA. When false the SDK will attempt to parse the url hash, should ignore the url hash, and no extra behaviour is needed.
+This will use postMessage to comunicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behaviour is needed.
 :::
 
-The callback page should be something like the following one. It will parse the url hash and post it to the parent document:
+The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe. 
+
+This callback page should only parse the URL hash and post it to the parent document, so that your application can take action depending on the outcome of the silent authentication attempt. The callback page should be something like the following one. It will parse the URL hash and post it to the parent document:
 
 ```html
 <!DOCTYPE html>
@@ -292,13 +295,15 @@ The callback page should be something like the following one. It will parse the 
         clientID: '...'
       });
       var result = auth0.parseHash(window.location.hash, function(err, data) {
-        parent.postMessage(err || data, "http://localhost:3000/");
+        parent.postMessage(err || data, "https://example.com/");
       });
     </script>
   </head>
   <body></body>
 </html>
 ```
+
+Remember to add the URL of the silent authentication callback page that you create to the "Allowed Callback URLs" list of your Auth0 client in the [Auth0 Dashboard](https://manage.auth0.com/) under client settings.
 
 ## Password Reset Requests
 
