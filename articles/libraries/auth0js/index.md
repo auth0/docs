@@ -187,7 +187,7 @@ In addition, _one_ of the two following options must be sent:
 
 ```js
 webAuth.passwordlessStart({
-    connection: 'Username-Password-Authentication',
+    connection: 'email',
     send: 'code',
     email: 'foo@bar.com'
   }, function (err,res) {
@@ -211,7 +211,7 @@ In addition, _one_ of the two following options must be sent:
 
 ```js
 webAuth.passwordlessVerify({
-    connection: 'Username-Password-Authentication',
+    connection: 'email',
     email: 'foo@bar.com',
     verificationCode: '389945'
   }, function (err,res) {
