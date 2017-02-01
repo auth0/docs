@@ -11,22 +11,21 @@ description: A widget that provides a frictionless login and signup experience f
 
 Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory. You can also use Lock for Android to provide Passwordless authentication using email or SMS.
 
-Get started using Lock for Android below, or if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Lock for Android!!
+Get started using Lock for Android below, or if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Lock for Android.
 
 ## Requirements
 
-You need Android API level 15+ to use Lock's UI.
-If you intend to create your own UI and call the Auth0 API via the [Auth0.Android library](https://github.com/auth0/Auth0.Android), the minimum required API level is also 15+.
+To use Lock's UI or your own UI via the [Auth0.Android library](https://github.com/auth0/Auth0.Android) the minimum required Android API level is 15+.
 
 ## Installation
 
 Lock is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Lock* add these lines to your `build.gradle` dependencies file:
 
 ```gradle
-compile 'com.auth0.android:lock:2.0.0'
+compile 'com.auth0.android:lock:2.3.0'
 ```
 
-_You can check for the latest version on the repository [Releases](https://github.com/auth0/Lock.Android/releases) tab, in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/lock-android/lock)._
+_You can check for the latest version on the repository [Releases](https://github.com/auth0/Lock.Android/releases) tab, in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/lock)._
 
 After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
@@ -42,13 +41,11 @@ Head over to your Auth0 Dashboard and go to the client's settings. Add the follo
 https://{YOUR_AUTH0_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
-Be sure to change the URL to add your Auth0 domain and your app package name of course!
+Be sure to change the URL to add your Auth0 domain and your app package name!
 
-### Keystores
+### Keystores and Key Hashes
 
-You will need a keystore for signing your Android app. If you already have one, you can continue and skip the instructions about acquiring one. During development, you can use the default "debug keystore" to sign your application, and that requires specific values.
-
-The following examples will explain how to generate a keystore using debug values. For a release keystore, replace the name, password, alias, and key password with your own values.
+You will need a [Keystore](https://developer.android.com/studio/publish/app-signing.html) for signing your Android app. If you already have one, you can continue and skip the instructions about acquiring one. During development, you can use the default "android debug keystore" to sign your application. To generate the key hashes using this keystore follow the examples below. For a release keystore, replace the file, alias, store password and key password with your own values.
 
 **On Windows:**
 
@@ -82,10 +79,10 @@ Certificate fingerprints:
      Version: 3
 ```
 
-Once you have your keystore file output, copy the resulting SHA256 value and go to your client's settings in the Auth0 Dashboard. Click "Show Advanced Settings", and in the "Mobile Settings" tab, under "Android", fill the "App Package Name" with your application's package name, and the "Key Hashes" field with the value you copied from your keystore. Don't forget to save the changes.
+Once you have your key hashes output, copy the resulting SHA256 value and go to your client's settings in the [Auth0 Dashboard](https://manage.auth0.com/#/clients). Click "Show Advanced Settings", and in the "Mobile Settings" tab, under "Android", fill the "App Package Name" with your application's package name, and the "Key Hashes" field with the SHA256 value you copied. Don't forget to save the changes.
 
 ::: panel-warning Required Actions
-If you don't add the callback URL to the client settings nor the key hash to the client's mobile settings, the Auth0 server won't return the call result to your application.
+If you don't add the Callback URL to the client settings nor the Key Hashes to the client's mobile settings, the Auth0 server won't return the call result to your application.
 :::
 
 ## Implementing Lock (Social, Database, Enterprise)
@@ -173,6 +170,8 @@ public class MainActivity extends Activity {
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    // Your own Activity code
     Auth0 auth0 = new Auth0('${account.clientId}','${account.namespace}');
     lock = Lock.newBuilder(auth0, callback)
       // ... Options
@@ -181,9 +180,10 @@ public class MainActivity extends Activity {
 
   @Override
   public void onDestroy() {
+    super.onDestroy();
+    // Your own Activity code
     lock.onDestroy(this);
     lock = null;
-    super.onDestroy();
   }
 
   private LockCallback callback = new AuthenticationCallback() {
@@ -205,9 +205,9 @@ public class MainActivity extends Activity {
 }
 ```
 
-Remember to notify the `LockActivity` when your `Activity` calls the `OnDestroy` method, as it helps to keep the Lock state.
+Remember to notify the `Lock` when your `Activity` calls the `OnDestroy` method, as it helps to keep the Lock state.
 
-Then, start `LockActivity` from inside your `Activity`
+Then, start `Lock` from inside your `Activity`
 
 ```java
 startActivity(lock.newIntent(this));
@@ -221,15 +221,14 @@ For instructions on how to implement Passwordless authentication with Lock for A
 
 ## Proguard
 
-In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock for Android and its dependencies. You can use this in your release builds to avoid issues when compiling.
+The proguard rules should be applied automatically if your application is using `minifyEnabled = true`. If you want to include them manually check the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard). By default you should at least use the following files:
 
 By default you should at least use the following files:
-* `proguard-okio.pro`
 * `proguard-gson.pro`
 * `proguard-otto.pro`
 * `proguard-lock-2.pro`
 
-As this library depends on `Auth0.Android`, you should keep the files up to date with the proguard rules defined in the [repository](https://github.com/auth0/Lock.Android).
+As this library depends on `Auth0.Android`, you should keep the files up to date with the proguard rules defined in that [repository](https://github.com/auth0/Lock.Android).
 
 ## Lock Configuration
 

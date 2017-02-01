@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-Then, just start `PasswordlessLockActivity` from inside your `Activity`
+Then, just start `PasswordlessLock` from inside your `Activity`
 
 ```java
 startActivity(lock.newIntent(this));

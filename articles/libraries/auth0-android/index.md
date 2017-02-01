@@ -394,7 +394,7 @@ WebAuthProvider.init(account)
                 .start(this);
 ```
 
-### Use a custom scheme for the redirect uri
+### Use a custom scheme for the Redirect Uri
 
 If you're not using Android "App Links" or you just want to use a different scheme for the _redirect uri_ then do as follow:
 
@@ -405,28 +405,6 @@ WebAuthProvider.init(account)
 ```
 
 **Scheme must be lowercase**. Remember to update your intent-filter after changing this setting.
-
-### Specify response type (P2)
-
-If you want to request a custom response type do as follow:
-
-```java
-WebAuthProvider.init(account)
-                .withResponseType(ResponseType.CODE|ResponseType.ID_TOKEN)
-                .start(this);
-```
-
-Any combination of `ResponseType.CODE`, `ResponseType.ID_TOKEN` and `ResponseType.TOKEN` is allowed.
-
-### Authenticate using a custom audience
-
-If you want to request a custom audience do as follow:
-
-```java
-WebAuthProvider.init(account)
-                .withAudience("https://myapi.me.auth0.com/users")
-                .start(this);
-```
 
 ### Specify state
 

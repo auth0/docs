@@ -12,12 +12,12 @@ You can use Google AuthProvider to log in with or without **Lock**. Make sure to
 The Lock-Google is available through [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To install it, simply add the following line to your `build.gradle`:
 
 ```gradle
-compile 'com.auth0.android:lock-google:1.0.0'
+compile 'com.auth0.android:lock-google:1.1.0'
 ```
 
 ## Requirements
 
-Android 4.0 or later & Google Play Services 9.+
+Android API 15 or later & Google Play Services 10.+
 
 ## Github Repository
 
@@ -59,7 +59,7 @@ Android 4.0 or later & Google Play Services 9.+
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-4. When creating a new instance of the `GoogleAuthProvider` pass the value as the first parameter:
+4. When creating a new instance of the `GoogleAuthProvider` pass the `google_server_client_id` value obtained previously as the first parameter:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -77,13 +77,13 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-> If you need further help with the setup, please check Google's [Sign-In for Android Guide](https://developers.google.com/identity/sign-in/android).
+> If you need further help with the Google SDK setup, please check Google's [Sign-In for Android Guide](https://developers.google.com/identity/sign-in/android).
 
 ## Usage with Lock
-If you plan to use this provider with **Lock**, pass the instance of the provider to the `GoogleAuthHandler` class and add it to Lock's Builder when you create the instance.
+If you plan to use this provider with **Lock**, pass the instance of the provider to the `GoogleAuthHandler` class and add it to Lock's Builder when you create the Lock instance.
 
 ```java
-FacebookAuthHandler handler = new GoogleAuthHandler(provider);
+GoogleAuthHandler handler = new GoogleAuthHandler(provider);
 lock = Lock.newBuilder(auth0, authCallback)
         .withAuthHandlers(handler)
         //...
@@ -94,6 +94,10 @@ lock = Lock.newBuilder(auth0, authCallback)
 If you plan to use this provider without **Lock**, make sure you override the `onActivityResult()` method and redirect the call to the provider instance. Finally, call start to begin the authentication process.
 
 ```java
+// Define your own request codes
+private static final int RC_PERMISSIONS = 101;
+private static final int RC_AUTHENTICATION = 102;
+
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (provider.authorize(requestCode, resultCode, data)) {
@@ -107,7 +111,7 @@ private void beginAuthentication(){
 }
 ```
 
-That's it, you're ready to run the application and log in with Google native provider!!
+That's it, you're ready to run the application and log in using Google native provider!!
 
 ## Additional options
 
@@ -118,21 +122,30 @@ To use a custom social connection name to authorize against Auth0, create the Go
 GoogleAuthProvider provider = new GoogleAuthProvider("my-connection", "google-server-client-id", client);
 ```
 
+### Send additional authentication parameters
+To send additional parameters on the authentication call `setParameters`.
+
+```java
+Map<String, Object> parameters = new HashMap<>();
+//Add entries
+provider.setParameters(parameters);
+```
+
 ### Requesting a custom Google Scope
-By default, the scope `Scopes.PLUS_LOGIN` is requested. You can customize the Scopes by calling `setScopes` with the list of Scopes. Each Google API (Auth, Drive, Plus..) specify it's own list of Scopes.
+By default, the scope `Scopes.PLUS_LOGIN` is requested. You can customize the Scopes by calling `setScopes` with the list of Scopes. Each Google API (Auth, Drive, Plus..) specify it's own list of Google Scopes.
 
 ```java
 provider.setScopes(Arrays.asList(new Scope(Scopes.PLUS_ME), new Scope(Scopes.PLUS_LOGIN)));
 ```
 
 ### Requesting custom Android Runtime Permissions
-This provider doesn't require any special Android Manifest Permission to authenticate the user. But if your use case requires them, you can let the AuthProvider handle them for you. Use the `setRequiredPermissions` method.
+This provider doesn't require any special _Android Manifest Permissions_ to authenticate the user. But if your use case requires them, you can let the AuthProvider handle them for you. Use the `setRequiredPermissions` method.
 
 ```java
 provider.setRequiredPermissions(new String[]{"android.permission.GET_ACCOUNTS"});
 ```
 
-If you're not using Lock, then you'll have to handle the permission request result yourself. To do so, make your activity implement `ActivityCompat.OnRequestPermissionsResultCallback` and override the `onRequestPermissionsResult` method, calling `provider.onRequestPermissionsResult` with the activity context and the received parameters.
+If you're not using Lock then you'll have to handle the permission request result yourself. To do so, make your activity implement the `ActivityCompat.OnRequestPermissionsResultCallback` interface. When the `onRequestPermissionsResult` method gets called pass the result to the provider by calling `provider.onRequestPermissionsResult`.
 
 ### Log out / Clear account.
 To log out the user so that the next time they are prompted to input their credentials call `clearSession`. After you do this the provider state will be invalid and you will need to call `start` again before trying to `authorize` a result. Calling `stop` has the same effect.
@@ -142,7 +155,7 @@ provider.clearSession();
 ```
 
 ### Remember the Last Login
-By default, this provider will remember the last account used to log in. If you want to change this behavior, use the following method.
+By default this provider will remember the last account used to log in. If you want to change this behavior, use the following method.
 
 ```java
 provider.rememberLastLogin(false);

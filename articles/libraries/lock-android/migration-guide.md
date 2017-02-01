@@ -13,28 +13,27 @@ In v1 of Lock for Android, you were asked to create a custom `Application` class
 
 ## Obtaining the User's Profile
 
-In v1, when an authentication was successful, you could obtain the UserProfile from the received Intent. As of v2, the only received value is a `Credentials` object. If you want to get the UserProfile you'll need to make a request to Auth0 using the `id_token`.
+In v1, when an authentication was successful, you could obtain the UserProfile from the received Intent. As of v2, the only received value is a `Credentials` object. You can get the `access_token` and request the information associated to that user, by making a request to Auth0.
 
-1. Reuse the previous instance of the `Auth0` object or create a new one with your account details.
-2. Save the `id_token` value received in the authentication. If the value is not present in the `Credentials` object that you received, check that you're requesting the authentication with the scope `openid`. This is the default requested scope.
-3. Create a new `AuthenticationAPIClient` instance by passing the auth0 object.
-4. Call the `tokenInfo` method on the api client passing the saved token.
+1. Create a new `AuthenticationAPIClient` instance by passing an instance of the `Auth0` object. It can be the same instance used to launch Lock in the first place.
+2. Call the `userInfo` method on the API client passing the previously obtained `access_token`.
+3. A `UserProfile` instance is returned
 
 ```java
 Auth0 auth0 = new Auth0(  '${account.clientId}','${account.namespace}');
-String idToken = credentials.getIdToken();
+String accessToken = credentials.getAccessToken();
 AuthenticationAPIClient apiClient = new AuthenticationAPIClient(auth0);
 
-apiClient.tokenInfo(idToken)
+apiClient.userInfo(accessToken)
   .start(new BaseCallback<UserProfile, AuthenticationException>() {
       @Override
-      public void onSuccess(final UserProfile profile) {
-          //profile received
+      public void onSuccess(final UserProfile information) {
+          //user information received
       }
 
       @Override
       public void onFailure(AuthenticationException error) {
-          //profile request failed
+          //user information request failed
       }
   });
 ```
@@ -51,6 +50,7 @@ As in the previous version, Lock for Android v2 can be configured with extra opt
 * `disableResetAction`: Renamed to `allowForgotPassword`. Shows a link to the Forgot Password form if a Database connection is configured and it's allowed from the Dashboard. Defaults to `true`.
 * `defaultUserPasswordConnection`: Renamed to `setDefaultDatabaseConnection`. Defines which will be the default Database connection. This is useful if your application has many Database connections configured.
 * `setConnections`: Renamed to `allowedConnections`. Filters the allowed connections from the list configured in the Dashboard. If this value is empty, all the connections defined in the dashboard will be available. This is also the default behavior.
-* `setAuthenticationParameters`: Renamed to `withAuthenticationParameters`. Defines extra authentication parameters to be sent on sign up and log in/sign in. The default `scope` used on authentication calls is `openid`. This is changed from v1, which also included the `offline_access` scope. 
+* `setAuthenticationParameters`: Renamed to `withAuthenticationParameters`. Defines extra authentication parameters to be sent on sign up and log in/sign in. The default `scope` used on authentication calls is `openid`. This is changed from v1, which also included the `offline_access` scope.
 
-Lock for Android v2 also features a bunch of new options. Check the [options documentation](/libraries/lock-android#lock-configuration-options) for a complete list of them.
+
+Lock for Android v2 also features a bunch of new options. Check the [options documentation](/libraries/lock-android#configuration) for a complete list of them.
