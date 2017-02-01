@@ -246,7 +246,7 @@ function (user, context, callback) {
 
 ## Import/Export Authorization Data
 
-You can import new data or export exisiting authorization data with a JSON file. This can be useful when moving over an environment, but remember roles and permissions are linked to specific clients, so you will need to update to the correct **applicationId** when moving environments.
+You can import new data or export exisiting authorization data with a JSON file. This can be useful when moving over an environment, but remember roles and permissions are linked to specific clients, so you will need to update to the correct `applicationId` when moving environments.
 
 You can get to the **Import/Export** section by clicking **Configuration** on the dropdown on the top right of the **Authorization Dashboard**.
 
