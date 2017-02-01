@@ -191,11 +191,11 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 |:-----------------|:------------|
 | `audience` <br/> | The unique identifier of the target API you want to access. |
 | `scope` | The scopes which you want to request authorization for. These must be separated by a space. |
-| `response_type` <br/><span class="label label-danger">Required</span> | This will specify the type of token you will receive at the end of the flow. Use `id_token token` to get an `id_token`, or `token` to get both an `id_token` and an `access_token`. |
+| `response_type` <br/><span class="label label-danger">Required</span> | This will specify the type of token you will receive at the end of the flow. Use `token` to get only an `access_token`, or `id_token token` to get both an `id_token` and an `access_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID token response from Auth0, used to prevent token replay attacks. |
+| `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`. |
 
 
 ### Test with Authentication API Debugger
@@ -223,3 +223,4 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 - [Calling APIs from Client-side Web Apps](/api-auth/grant/implicit)
 - [Executing the Implicit Grant Flow](/api-auth/tutorials/implicit-grant)
 - [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [Mitigate replay attacks when using the Implicit Grant](/api-auth/tutorials/nonce)
