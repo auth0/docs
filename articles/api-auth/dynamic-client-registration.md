@@ -215,6 +215,11 @@ https://${account.namespace}/authorize?
 Where:
 - `audience` (optional): The target API for which the Client Application is requesting access on behalf of the user. Set this parameter if you need API access.
 - `scope` (optional): The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Set this parameter if you need API access.
+
+  ::: panel-info Custom claims namespaced format
+  In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
+  :::
+
 - `response_type`: The response type. For Implicit Grant you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow. Use `token` to get only an `access_token`, or `id_token token` to get both an `id_token` and an `access_token`.
 - `client_id`: Your application's Client ID.
 - `redirect_uri`: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your application.
