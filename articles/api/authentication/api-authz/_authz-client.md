@@ -2,7 +2,7 @@
 
 To begin an OAuth 2.0 Authorization flow, your Client application should first send the user to the authorization URL.
 
-The purpose of this call is to obtain consent from the user to invoke the Resource Server (specified in `audience`) to do certain things (specified in `scope`) on behalf of the user. The Authorization Server will authenticate the user and obtain consent, unless consent has been previously given. If you alter the value in `scope`, the Authorization Server will require consent to be given again.
+The purpose of this call is to obtain consent from the user to invoke the API (specified in `audience`) and do certain things (specified in `scope`) on behalf of the user. Auth0 will authenticate the user and obtain consent, unless consent has been previously given. If you alter the value in `scope`, Auth0 will require consent to be given again.
 
 The OAuth 2.0 flows that require user authorization are:
 - Authorization Code Grant
@@ -53,10 +53,10 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `audience` <br/> | The unique identifier of the target API you want to access. |
-| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
-| `response_type` <br/><span class="label label-danger">Required</span> | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant Flow. |
+| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
+| `response_type` <br/><span class="label label-danger">Required</span> | Indicates to Auth0 which OAuth 2.0 flow you want to perform. Use `code` for Authorization Code Grant Flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that Auth0 includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 
 ### Test with Authentication API Debugger
@@ -121,10 +121,10 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `audience` <br/> | The unique identifier of the target API you want to access. |
-| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
-| `response_type` <br/><span class="label label-danger">Required</span> | Indicates to the Authorization Server which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
+| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
+| `response_type` <br/><span class="label label-danger">Required</span> | Indicates to Auth0 which OAuth 2.0 Flow you want to perform. Use `code` for Authorization Code Grant (PKCE) Flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that Auth0 includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `code_challenge_method` <br/><span class="label label-danger">Required</span> | Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
 | `code_challenge` <br/><span class="label label-danger">Required</span> | Generated challenge from the `code_verifier`. |
@@ -192,10 +192,10 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 | Parameter        | Description |
 |:-----------------|:------------|
 | `audience` <br/> | The unique identifier of the target API you want to access. |
-| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). |
+| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). |
 | `response_type` <br/><span class="label label-danger">Required</span> | This will specify the type of token you will receive at the end of the flow. Use `token` to get only an `access_token`, or `id_token token` to get both an `id_token` and an `access_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that Auth0 includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`. |
 
