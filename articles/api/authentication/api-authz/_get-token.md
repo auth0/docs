@@ -360,7 +360,7 @@ Content-Type: application/json
   "link": "#resource-owner-password"
 }) %>
 
-This is the OAuth 2.0 grant that highly trusted apps utilize in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is later on sent to the Client and the Authorization Server. It is therefore imperative that the Client is absolutely trusted with this information.
+This is the OAuth 2.0 grant that highly trusted apps utilize in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form in the user-agent (browser). This information is later on sent to the client and Auth0. It is therefore imperative that the client is absolutely trusted with this information.
 
 
 ### Request Parameters
@@ -369,8 +369,8 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Resource Owner Password use  `password`. To add realm support use `http://auth0.com/oauth/grant-type/password-realm`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` <br/> | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
-| `audience` <br/> | The unique identifier of the target API you want to access. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
+| `audience` | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
 | `scope` | String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
