@@ -8,7 +8,7 @@ description: This page shows you how to connect your Auth0 app to Facebook. You 
 
 # Connect your app to Facebook
 
-To connect your Auth0 app to Facebook, you will need to generate a *Client ID* and *Client Secret* in a Facebook app, copy these keys into your Auth0 settings, and enable the connection.
+To connect your Auth0 app to Facebook, you will need an **App ID** and **App Secret** from your Facebook app, then copy these keys into your Auth0 settings and enable the connection.
 
 This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
@@ -96,14 +96,18 @@ Click continue and if configured correctly, you will see the **It works!!!** pag
 
 ![](/media/articles/connections/social/facebook/facebook-8b.png)
 
+## Additional Info
 
-## Additional Info:
+### Create a Test App
 
-**Creating a Test App:** Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have a seperate **App ID** and **App Secret**, make sure to enter the app data of the desired app into Auth0.
+Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have it's own seperate **App ID** and **App Secret**. Auth0 only allows one Facebook connection to be configured per account. One option for testing is that create the connection to the test connection and then change the values when you are ready to connect to the production application. 
 
-**Deauthorize Callback URL:** On the **Facebook Login** Client OAuth Settings page, you can also set a Deauthorize Callback URL to be called when a user deauthorizes your app.
+Another option is to create another Auth0 account used for testing purposes. A new account can be created in the [Dashboard](${manage_url}) by clicking on your account name in the top right corner and selecting **New Account** from the dropdown. See the [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for more information on multiple environments.
+
+### Deauthorize Callback URL
+
+On the **Facebook Login** Client OAuth Settings page, you can also set a Deauthorize Callback URL to be called when a user deauthorizes your app.
 
 [Facebook Docs for Facebook Login](https://developers.facebook.com/docs/facebook-login)
 
 <%= include('../_quickstart-links.md') %>
-
