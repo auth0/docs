@@ -43,7 +43,7 @@ Optionally, if you want to use the [facade](http://laravel.com/docs/facades) cal
 You will now be able to access to the logged user info with `Auth0::getUser()`.
 
 Finally, you will need to bind a class that provides the users (your app model user) each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (which should implement the `\Auth0\Login\Contract\Auth0UserRepository` interface, this is covered later).
-For this you need to add to your AppServiceProvider the following line:
+For this you need to add to your `AppServiceProvider` the following line:
 
 ```php
 ...
