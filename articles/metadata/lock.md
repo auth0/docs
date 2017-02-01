@@ -10,7 +10,7 @@ When using Auth0's [Lock](/libraries/lock) library, you can define and update th
 
 ## Defining User Metadata on Signup
 
-For information on adding `user_metadata` on signup, see the section on Lock [Custom Sign Up Fields](/libraries/lock/v10/new-features#custom-sign-up-fields)
+For information on adding `user_metadata` on signup, see the section on Lock [Additional Signup Fields](/libraries/lock/v10/customization#additionalsignupfields-array-)
 
 ## Working with User Metadata
 
