@@ -215,11 +215,11 @@ https://${account.namespace}/authorize?
 Where:
 - `audience` (optional): The target API for which the Client Application is requesting access on behalf of the user. Set this parameter if you need API access.
 - `scope` (optional): The scopes which you want to request authorization for. These must be separated by a space. Set this parameter if you need API access.
-- `response_type`: The response type. For this flow you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow.
+- `response_type`: The response type. For Implicit Grant you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow. Use `token` to get only an `access_token`, or `id_token token` to get both an `id_token` and an `access_token`.
 - `client_id`: Your application's Client ID.
 - `redirect_uri`: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your application.
 - `state`: An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks.
-- `nonce`: A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce).
+- `nonce`: A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`.
 
 For example:
 
