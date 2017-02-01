@@ -22,20 +22,22 @@ You can run your VM on any cloud platform, but this guide will walk through how 
 2. Log into the [Azure Management](https://manage.windowsazure.com) console.
 3. At the bottom left corner, click **NEW**, then **COMPUTE** > **VIRTUAL MACHINE** > **QUICK CREATE**
 4. Complete the form:
+
   * Choose a DNS name. Example: `auth0-test-ad`
   * Image: **Windows Server 2012 R2 Datacenter**
   * Size: **D1**
   * User name: `ad-admin`
   * Password: (generate your own secure password)
   * Region: (your choice)  
+
 5. Click the **CREATE A VIRTUAL MACHINE** button. It will take a few minutes for the VM to provision.
 6. Click on the **ENDPOINTS** tab of the new VM, and take note of the **PUBLIC PORT** for the **Remote Desktop** endpoint.
 
-  ![](/media/articles/connector/test-dc/remote-desktop-port.png)
+    ![](/media/articles/connector/test-dc/remote-desktop-port.png)
 
 7. Open up Microsoft Remote Desktop client (Windows or Mac) or the client of your choice (such as [rdesktop](http://www.rdesktop.org/) for Linux systems). Create a new connection to your VM:
 
-  ![](/media/articles/connector/test-dc/remote-desktop-connection.png)
+    ![](/media/articles/connector/test-dc/remote-desktop-connection.png)
 
 8. Open the connection, disregarding any certificate warnings presented by the Remote Desktop client. You should be logged in automatically and eventually see a desktop that looks like this:  
 
