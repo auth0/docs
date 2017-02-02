@@ -90,7 +90,22 @@ Following the Node.js example, the [jwt.verify()](https://github.com/auth0/node-
 
 ## Check the Permissions
 
+By now you have verified that the JWT is valid. The last step is to verify that the client has the permissions required to access the protected resources.
+
+To do so, you need to check the [scopes](/scopes) of the decoded JWT. This claim is part of the payload and it is a space-separated list of strings.
+
 ### How can my API check the permissions?
+
+To check the permissions granted to the client, you need to check the contents of the `scope`.
+
+For example, a user management API might provide three endpoints to read, create or delete a user record: `/create`, `/read` and `/delete`. We have configured this API, so each endpoint requires a specific permission (or scope):
+- The `read:users` scope provides access to the `/read` endpoint.
+- The `create:users` scope provides access to the `/create` endpoint.
+- The `delete:users` scope provides access to the `/delete` endpoint.
+
+If a request requests to access the `/create` endpoint, but the `scope` claim does NOT include the value `create:users`, then the API should reject the request with `403 Forbidden`.
+
+You can see how to do this, for a simple timesheets API in Node.js, in this document: [Check the Client permissions](/docs/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions).
 
 ## Sample Implementation
 
