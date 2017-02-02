@@ -177,13 +177,13 @@ Passwordless authentication allows users to log in by receiving a one-time passw
 
 The `passwordlessStart` method requires several options:
 
-* `connection` - a string, the connection for this authentication
-* `send` - a string, value must be either 'code' or 'link'
+* `connection`: a string that specifies how to send the code/link to the user. Value must be either `email` or `sms`.
+* `send`: a string, value must be either 'code' or 'link'. If null, a link will be sent.
 
 In addition, _one_ of the two following options must be sent:
 
-* `phoneNumber` - a string containing the user's phone number for delivery of a code or link via SMS
-* `email` - a string containing the user's email for delivery of a code or link via email
+* `phoneNumber`: a string containing the user's phone number for delivery of a code or link via SMS.
+* `email`: a string containing the user's email for delivery of a code or link via email.
 
 ```js
 webAuth.passwordlessStart({
@@ -200,13 +200,13 @@ webAuth.passwordlessStart({
 
 The `passwordlessVerify` method requires several options:
 
-* `connection` - a string, the connection for this authentication
-* `verificationCode` - a string, the code sent to the user as a code or within a link.
+* `connection`: a string that specifies how to send the code/link to the user. Value must be either `email` or `sms` and the same with the one used at `passwordlessStart`.
+* `verificationCode`: a string, the code sent to the user as a code or within a link.
 
 In addition, _one_ of the two following options must be sent:
 
-* `phoneNumber` - a string containing the user's phone number, to which the code or link was delivered via SMS
-* `email` - a string containing the user's email, to which the code or link was delivered via email
+* `phoneNumber`: a string containing the user's phone number, to which the code or link was delivered via SMS
+* `email`: a string containing the user's email, to which the code or link was delivered via email
 
 
 ```js
@@ -220,13 +220,13 @@ webAuth.passwordlessVerify({
 );
 ```
 
-## Logout
+## Log out
 
-To logout a user, use the `logout` method. This accepts an options object, which can include a 'client_id', and a 'returnTo' URL. If you want to navigate the user to a specific URL after the logout, set that URL at the 'returnTo' parameter.
+To log out a user, use the `logout` method. This accepts an options object, which can include a `client_id`, and a `returnTo` URL. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter.
 
 ::: panel-info returnTo parameter
-Note that if the 'client\_id' parameter _is_ included, the 'returnTo' URL that is provided must be listed in the **client's** "Allowed Logout URLs" in the Auth0 dashboard. 
-However, if the 'client\_id' parameter _is not_ included, the 'returnTo' URL must be listed in the "Allowed Logout URLs" at the **account level** in the Auth0 Dashboard.
+Note that if the `client_id` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}). 
+However, if the `client_id` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
 :::
 
 ```js
@@ -236,9 +236,9 @@ webAuth.logout({
 });
 ```
 
-## Signup
+## Sign up
  
-The `signup` method accepts an 'options' object that contains parameters for your signup. Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form. 
+The `signup` method accepts an `options` object that contains parameters for your signup. Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form. 
 
 ```html 
 <h2>Signup Database Connection</h2> 
@@ -334,7 +334,7 @@ var auth0Manage = new auth0.Management({
 });
 ```
 
-### Getting the User Profile
+### Get the User Profile
 
 In order to get the user profile data, use the `getUser()` method, with the `userId` and a callback as parameters. The method returns the user profile.
 
@@ -342,7 +342,7 @@ In order to get the user profile data, use the `getUser()` method, with the `use
 auth0Manage.getUser(userId, cb);
 ```
 
-### Updating the User Profile
+### Update the User Profile
 
 When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. Visit the [User Metadata](/metadata) documentation for more details on user metadata.
 
@@ -350,7 +350,7 @@ When updating user metadata, you will need to first create a `userMetadata` obje
 auth0Manage.patchUserMetadata(userId, userMetadata, cb);
 ```
 
-### Linking Users
+### Link Users
 
 Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
 
