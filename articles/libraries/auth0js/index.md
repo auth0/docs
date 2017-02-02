@@ -7,7 +7,7 @@ url: /libraries/auth0js
 
 # Auth0.js v8 Reference
 
-Auth0.js is a client-side library for [Auth0](http://auth0.com). Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
+Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
 
 <div class="alert alert-info">
   This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the <a href="/libraries/auth0js/v7">v7 reference guide</a>, or take a look at the <a href="/libraries/auth0js/migration-guide">v8 migration guide</a>
@@ -262,7 +262,8 @@ The `signup` method accepts an 'options' object that contains parameters for you
 
 ## Using renewAuth to Acquire New Tokens
 
-The `renewAuth` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the hosted login page.
+The `renewAuth` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain.
+
 
 ```js
 webAuth.renewAuth({
@@ -276,10 +277,12 @@ webAuth.renewAuth({
 ```
 
 ::: panel-info postMessage
-This will use postMessage to comunicate between the silent callback and the SPA. When false the SDK will attempt to parse the url hash, should ignore the url hash, and no extra behaviour is needed.
+This will use postMessage to comunicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behaviour is needed.
 :::
 
-The callback page should be something like the following one. It will parse the url hash and post it to the parent document:
+The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe. 
+
+This callback page should only parse the URL hash and post it to the parent document, so that your application can take action depending on the outcome of the silent authentication attempt. The callback page should be something like the following one. It will parse the URL hash and post it to the parent document:
 
 ```html
 <!DOCTYPE html>
@@ -292,13 +295,15 @@ The callback page should be something like the following one. It will parse the 
         clientID: '...'
       });
       var result = auth0.parseHash(window.location.hash, function(err, data) {
-        parent.postMessage(err || data, "http://localhost:3000/");
+        parent.postMessage(err || data, "https://example.com/");
       });
     </script>
   </head>
   <body></body>
 </html>
 ```
+
+Remember to add the URL of the silent authentication callback page that you create to the **Allowed Callback URLs** list of your Auth0 client in the [Auth0 Dashboard](${manage_url}) under your client's *Settings*.
 
 ## Password Reset Requests
 
