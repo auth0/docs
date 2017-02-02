@@ -28,7 +28,7 @@ By default, it says that if the user email contains `@example.com` he will be gi
 
 ## Restrict an action based on a user's roles
 
-As with the country property which was added in the previous step, you will also need to manually extract the roles from the user in the `OnAuthenticated` event and add the appropriate claims. For each role you can add a role of the type `ClaimTypes.Role`.
+As with the country property which was added in the previous step, you will also need to manually extract the roles from the user in the `OnAuthenticated` event and add the appropriate claims. For each role, you can add a role of the type `ClaimTypes.Role`.
 
 This will ensure proper integration with the existing role-based authorization in ASP.NET MVC and allow you to restrict access to a controller by simply decorating your controller actions with the `[Authorize(Roles = ?)]` attribute
 
