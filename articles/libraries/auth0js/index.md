@@ -7,7 +7,7 @@ url: /libraries/auth0js
 
 # Auth0.js v8 Reference
 
-Auth0.js is a client-side library for [Auth0](http://auth0.com). Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
+Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
 
 <div class="alert alert-info">
   This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the <a href="/libraries/auth0js/v7">v7 reference guide</a>, or take a look at the <a href="/libraries/auth0js/migration-guide">v8 migration guide</a>
@@ -303,7 +303,7 @@ This callback page should only parse the URL hash and post it to the parent docu
 </html>
 ```
 
-Remember to add the URL of the silent authentication callback page that you create to the "Allowed Callback URLs" list of your Auth0 client in the [Auth0 Dashboard](https://manage.auth0.com/) under client settings.
+Remember to add the URL of the silent authentication callback page that you create to the **Allowed Callback URLs** list of your Auth0 client in the [Auth0 Dashboard](${manage_url}) under your client's *Settings*.
 
 ## Password Reset Requests
 
