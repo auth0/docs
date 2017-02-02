@@ -1,18 +1,11 @@
 ---
 description: How to create and test an Active Directory Domain Controller.
+toc: true
 ---
 
 # Creating a Test Active Directory Domain Controller
 
 Auth0's AD/LDAP integration is relatively easy to set up, but it does require that you have access to an existing AD service and sufficient privileges to [install and configure the Connector](/connector/install). What if, however, you'd just like to try out the Connector or set up a dev/test environment? The following steps guides you in creating a minimal AD Domain Controller installation on a cloud-deployed virtual machine for these purposes.
-
-In these instructions you will:
-1. [Create a New Windows Server VM on Azure](#create-a-new-windows-server-vm-on-azure)
-2. [Install Active Directory Domain Services](#install-active-directory-domain-services)
-3. [Promote the Server to a Domain Controller](#promote-the-server-to-a-domain-controller)
-4. [Add Test Groups and Users](#add-test-groups-and-users)
-5. [Install and Configure the AD/LDAP Connector](#add-a-few-test-groups-and-users)
-6. [Test an Authentication Flow from Auth0](#test-an-authentication-flow-from-auth0)
 
 ## Create a New Windows Server VM on Azure
 
