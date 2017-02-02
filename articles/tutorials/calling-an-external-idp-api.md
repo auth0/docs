@@ -8,12 +8,6 @@ Upon successfully authenticating a user with an external Identity Provider such 
 
 If you need access to the user's IdP access token, you'll need to call the [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint of the [Auth0 Management API](/api/management/v2) with the `read:user_idp_tokens` scope. This document details the recommended two-step method for doing so.
 
-1. **Create a client** that gets an access token (with the `read:user_idp_tokens` scope) valid to obtain authorized access to the Auth0 Management API.
-2. **Write code on your backend** to handle your request to the external IdP API which will:
-    * Execute the client credentials exchange to obtain a valid Auth0 access token.
-    * Use the Auth0 access token to execute the request to the `/api/v2/users/{user_id}` endpoint.
-    * Use the IdP access token extracted from the user profile to make calls to the IdP API.
-
 ## Step 1: Create a Client
 
 You will need to create an Auth0 client that calls the Auth0 Management API on behalf of your app to obtain an access token.
