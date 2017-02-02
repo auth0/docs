@@ -41,7 +41,7 @@ You will see the available scopes that you can be granted for this client (which
 
 ![Choose authorized scopes](/media/articles/api/tokens/choose-scopes.png)
 
-**Getting the token**
+**Get the token**
 
 To test the client interaction with the API, go to the **Test** section under **Auth0 Management API**.
 
@@ -53,7 +53,7 @@ You should be able to scroll down to see your `access_token` property from the t
 
 ### Using the Auth0 Management APIv2 Explorer (deprecated)
 
-::: panel-warning This feature will be deprecated
+::: panel-danger Deprecation Notice
 Generating tokens through the Management APIv2 explorer will soon be deprecated in favor of the more secure Client Credentials flow.
 :::
 
@@ -79,7 +79,7 @@ The Management APIv2 token will be issued for a particular tenant.  To have a to
 
 There is no specific validity period for a Management APIv2 token.  A Management APIv2 token can be built programmatically, as desired, by a client.
 
-## Renewing the token
+## Renew the token
 
 There is no mechanism for renewing a Management APIv2 token.  A new token should be created whenever it is needed.
 
