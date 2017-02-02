@@ -1,5 +1,6 @@
 ---
 description: How an API can verify a bearer JWT access token
+toc: true
 ---
 
 # Verify Bearer JWT Access Tokens
@@ -46,13 +47,13 @@ Just paste your token at the _Encoded_ text area and review the decoded results 
 
 ![Decode JWT with JWT.io](/media/articles/api-auth/decode-jwt.png)
 
-## Check the Signature
+## Check the Signature Algorithm
 
 The API needs to check if the algorithm, as specified by the JWT header (property `alg`), matches the one expected by the API. If not, the token is considered invalid and the request must be rejected.
 
 In this case the mismatch might be due to mistake (it is common that the tokens are signed using the `HS256` signing algorithm, but your API is configured for `RS256`, or vice versa), but it could also be due to an attack, hence the request has to be rejected.
 
-### How can my API check the signature?
+### How can my API check the signature algorithm?
 
 To check if the signature matches the API's expectations, you have to decode the JWT and retrieve the `alg` property of the JWT header.
 
@@ -60,13 +61,38 @@ Alternatively, you can use one of the libraries listed in the _Libraries for Tok
 
 Following the Node.js example of the previous section, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method of the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), supports an `algorithms` argument, that contains a list of strings with the names of the allowed algorithms.
 
+## Verify the Signature
+
+will then download all signing keys from the JWKS endpoint and see if a one of the signing keys matches the `kid` in the header of the JWT. If none of the signing keys match the incoming `kid`, an error will be thrown. If we have a match, we will pass the right signing key to express-jwt.
+
+### How can my API verify the signature?
+
 ## Validate the Claims
 
+Once the API verifies the token's signature, the next step is to validate the standard claims of the token's payload. The following validations need to be made:
+
+- _Token expiration_: The current date/time _must_ be before the expiration date/time listed in the `exp` claim (which is a Unix timestamp). If not, the request must be rejected.
+
+- _Token issuer_: The `iss` claim denotes the issuer of the JWT. The value _must_ match the one configured in your API. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
+
+- _Token audience_: The `aud` claim identifies the recipients that the JWT is intended for. For JWTs issued by Auth0, `aud` holds the unique identifier of the target API (field __Identifier__ at your [API's Settings](${manage_url}/#/apis)). If the API is not the intended audience of the JWT, it _must_ reject the request.
+
 ### How can my API validate the claims?
+
+To validate the claims, you have to decode the JWT, retrieve the claims (`exp`, `iss`, `aud`) and validate their values.
+
+The easiest way however, is to use one of the libraries listed in the _Libraries for Token Signing/Verification_ section of [JWT.io](https://jwt.io/). Note that not all libraries validate all the claims. In [JWT.io](https://jwt.io/) you can see which validations each library supports (look for the green check marks).
+
+Following the Node.js example, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method of the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), validates these claims, depending on the input arguments:
+- `audience`: if you want to check `aud`, provide a value here
+- `issuer`: string or array of strings of valid values for the `iss` field
+- `ignoreExpiration`: if `true` do not validate the expiration of the token
 
 ## Check the Permissions
 
 ### How can my API check the permissions?
+
+## Sample Implementation
 
 ## More information
 
