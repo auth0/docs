@@ -6,7 +6,7 @@ description: How to call an Identity Provider API.
 
 Upon successfully authenticating a user with an external Identity Provider such as Facebook or GitHub, the IdP often includes an access token in the user's profile. This token can be used to call the IdP's API.
 
-Because Auth0 removes this access token from the user profile for security reasons, you'll need to call the [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint of the [Auth0 Management API](/api/management/v2) with the `read:user_idp_tokens` scope if you need access to the user's IdP access token. This document details the recommended two-step method for doing so.
+If you need access to the user's IdP access token, you'll need to call the [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint of the [Auth0 Management API](/api/management/v2) with the `read:user_idp_tokens` scope. This document details the recommended two-step method for doing so.
 
 1. **Create a client** that gets an access token (with the `read:user_idp_tokens` scope) valid to obtain authorized access to the Auth0 Management API.
 2. **Write code on your backend** to handle your request to the external IdP API which will:
