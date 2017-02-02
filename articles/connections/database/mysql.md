@@ -28,6 +28,10 @@ Click **Custom Database** and turn on the **Use my own database** switch.
 
 You have to provide a login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
 
+:::panel-info
+When creating users, the `get_user` script is called before the `create` script. Be sure that you have implemented both.
+:::
+
 These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 
 This tutorial uses **MySQL** as an example. In the **Templates** drop-down, select **MySQL**:
@@ -74,7 +78,7 @@ This script connects to a **MySQL** database and executes a query to retrieve th
 
 ### Database Field Requirements
 
-Of course, your custom database will need to have fields in it that will provide the information to populate user profiles. In the above example, the script is checking for an `id`, `nickname`, `email`, and `password`. 
+Of course, your custom database will need to have fields in it that will provide the information to populate user profiles. In the above example, the script is checking for an `id`, `nickname`, `email`, and `password`.
 
 For more information on Auth0 user profile schema and the fields that are expected, as well as additional ones that are available, take a look at the [Auth0 Normalized User Profile](/user-profile/normalized) documentation.
 
@@ -95,6 +99,7 @@ function login (username, password, callback) {
     password : configuration.MYSQL_PASSWORD,
     database : 'mydb'
   });
+}
 ```
 
 ## 5. Error handling
