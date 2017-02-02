@@ -22,7 +22,7 @@ This document lists all the validations that your API should perform:
 
 ## Parse the JWT
 
-First, the API needs to parse the JSON Web Token (JWT) to make sure it's well formed. If this fails the token is considered invalid and the request must be denied.
+First, the API needs to parse the JSON Web Token (JWT) to make sure it's well formed. If this fails the token is considered invalid and the request must be rejected.
 
 A well formed JWT, consists of three strings separated by dots (.): the header, the payload and the signature. Typically it looks like the following:
 
@@ -48,7 +48,17 @@ Just paste your token at the _Encoded_ text area and review the decoded results 
 
 ## Check the Signature
 
+The API needs to check if the algorithm, as specified by the JWT header (property `alg`), matches the one expected by the API. If not, the token is considered invalid and the request must be rejected.
+
+In this case the mismatch might be due to mistake (it is common that the tokens are signed using the `HS256` signing algorithm, but your API is configured for `RS256`, or vice versa), but it could also be due to an attack, hence the request has to be rejected.
+
 ### How can my API check the signature?
+
+To check if the signature matches the API's expectations, you have to decode the JWT and retrieve the `alg` property of the JWT header.
+
+Alternatively, you can use one of the libraries listed in the _Libraries for Token Signing/Verification_ section of [JWT.io](https://jwt.io/).
+
+Following the Node.js example of the previous section, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method of the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), supports an `algorithms` argument, that contains a list of strings with the names of the allowed algorithms.
 
 ## Validate the Claims
 
