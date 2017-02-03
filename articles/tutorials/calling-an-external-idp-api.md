@@ -34,7 +34,7 @@ You will need to create an Auth0 client that calls the Auth0 Management API on b
 
 ![Management Dashboard API Authorization](/media/articles/tutorials/calling-an-external-idp-api/authorize-client.png)
 
-For more information on creating a Client to access the Auth0 API, see [API Authorization: Using the Auth0 Dashboard](/api-auth#using-the-auth0-dashboard-for-setting-up-an-api-authorization-scenario).
+For more information on creating a Client to access the Auth0 API, see [Set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard).
 
 ## Step 2: Configure the Backend Service
 
