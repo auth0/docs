@@ -89,7 +89,7 @@ Since JWT authentication is stateless, logging the user out is simply a matter o
 })();
 ```
 
-Remember to also add a **Log Out** button which calls this function. In our example we call this function from `HomeController`, so this button can be added in `home.html`.
+Remember to also add a **Log Out** button which calls this function. In our example, we call this function from `HomeController`, so this button can be added in `home.html`.
 
 ```html
 <!-- components/home/home.html -->
