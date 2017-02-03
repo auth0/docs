@@ -34,7 +34,7 @@ With the `authService` injected in this controller, the `login` method can now b
 <button class="btn btn-primary" ng-click="vm.authService.login()">Log In</button>
 ```
 
-When the user clicks the **Log In** button, the Lock widget will be displayed.
+When the user clicks the **Log In** button, the [Lock widget](/libraries/lock) will be displayed.
 
 Lastly, add the **login** state to your `$stateProvider` configuration in `app.js`.
 
