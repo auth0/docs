@@ -35,7 +35,9 @@ For details on the JWT structure refer to [What is the JSON Web Token structure?
 
 In order to parse the JWT you can either manually implement all the checks as described in the specification [RFC 7519 > 7.2 Validating a JWT](https://tools.ietf.org/html/rfc7519#section-7.2), or use one of the libraries listed in the _Libraries for Token Signing/Verification_ section of [JWT.io](https://jwt.io/).
 
-For example, if my API is implemented with Node.js and I want to use the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), then I would call the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method. If the parsing fails then the library will return a [JsonWebTokenError error](https://github.com/auth0/node-jsonwebtoken#jsonwebtokenerror) with the message `jwt malformed`.
+For example, if your API is implemented with Node.js and you want to use the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), then you would call the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method. If the parsing fails then the library will return a [JsonWebTokenError error](https://github.com/auth0/node-jsonwebtoken#jsonwebtokenerror) with the message `jwt malformed`.
+
+We should note here that many web frameworks (such as [ASP.NET Core](/quickstart/backend/aspnet-core-webapi) for example) have JWT middleware that handle the token validation. Most of the times this will be a better route to take, rather that resorting to use a third-party library, as the middleware typically integrates well with the framework's overall authentication mechanisms.
 
 ### How can I visually inspect a token?
 
