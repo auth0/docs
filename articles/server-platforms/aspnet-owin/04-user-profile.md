@@ -16,7 +16,7 @@ The Auth0 OAuth2 middleware will automatically retrieve the user's information f
 
 You may also want to create a nicer looking user profile page which will display a user's name, email address and profile image.
 
-First create view model which will contain the basic user profile information, such as a `Name`, `EmailAddress` and `ProfileImage`:
+First, create a view model which will contain the basic user profile information, such as a `Name`, `EmailAddress` and `ProfileImage`:
 
 ```csharp
 public class UserProfileViewModel
@@ -29,7 +29,7 @@ public class UserProfileViewModel
 }
 ```
 
-Add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to dectorate the action with the `[Authorize]` attribute so only authenticated users can access the action:
+Add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to decorate the action with the `[Authorize]` attribute so only authenticated users can access the action:
 
 ```csharp
 [Authorize]
