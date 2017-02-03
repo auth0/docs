@@ -100,30 +100,54 @@ Please see the [Appliance](/appliance) pages for [information on monitoring a de
 
 ## Configure SCOM
 
-Auth0 can be monitored as a standard web application using System Center Operations Manager (or any tool that supports synthetic transactions).
+Auth0 can be monitored as a standard web application using System Center Operations Manager (SCOM) or any tool that supports synthetic transactions.
 
-We recommend adding probes in SCOM for all the endpoints described above, in addition to a synthetic login transaction that includes the extensions your applications rely on (such as rules that execute custom code integrating with your company's other services).
+We recommend adding SCOM probes for the `test` and `testall` endpoints, in addition to one for a synthetic login transaction that includes the extensions your applications rely on (such as rules that execute custom code for integration with your company's other services).
 
-#### Configuring System Center Operations Manager
+To set up SCOM:
 
-Setup for SCOM is straightforward as shown on these screenshots:
+1. Add a new SCOM instance using the *Add Monitoring Wizard*:
 
-![ss-2014-11-21T15-44-34.png](/media/articles/monitoring/ss-2014-11-21T15-44-34.png)
+  * **Name**: a descriptive name for the SCOM instance
+  * **Description**: a description of what this SCOM instances monitors
+  * **Select destination management pack**: Default Management Pack
 
-![ss-2014-11-21T16-31-15.png](/media/articles/monitoring/ss-2014-11-21T16-31-15.png)
+  ![ss-2014-11-21T15-44-34.png](/media/articles/monitoring/ss-2014-11-21T15-44-34.png)
 
-![ss-2014-11-21T16-32-25.png](/media/articles/monitoring/ss-2014-11-21T16-32-25.png)
+  Click **Next** to continue.
 
-![ss-2014-11-21T16-33-51.png](/media/articles/monitoring/ss-2014-11-21T16-33-51.png)
+2. Click **Add** to enter the URLs you want SCOM to monitor.
+
+  ![ss-2014-11-21T16-31-15.png](/media/articles/monitoring/ss-2014-11-21T16-31-15.png)
+
+  Click **Next** to continue.
+
+3. You will be asked where you want to monitor from. Click **Add** to set up a location. In the pop-up dialog, search for **Internal location - Agent**. Select the appropriate address and click **Add**. Click **Ok** to finish selecting the location.
+
+  ![ss-2014-11-21T16-32-25.png](/media/articles/monitoring/ss-2014-11-21T16-32-25.png)
+
+  Click **Next** to continue.
+
+4. Set the frequency with which SCOM collects data from each endpoint:
+
+  * **Test frequency**: 60 seconds
+  * **Performance data collection interval**: 60 seconds
+  * **Test time-out**: 30 seconds
+
+  Additionally, under the *Alerts* section, **check** the box next to *HTTP status code* and set that to **Great than or equals 400**.
+
+  ![ss-2014-11-21T16-33-51.png](/media/articles/monitoring/ss-2014-11-21T16-33-51.png)
+
+  Click **Next** to continue.
+
+5. Click **Run Test** to test each endpoint and ensure that the connection settings provided are correct.  
 
 ![ss-2014-11-21T16-34-25.png](/media/articles/monitoring/ss-2014-11-21T16-34-25.png)
 
-Make sure to configure proper alerts against these probes. Timeouts on endpoints are dependent on the network configuration, but should resemble the expected behavior of applications.
-
-#### Monitoring
-
-You can monitor System Center activity through the monitoring tab:
+Once you have finished configuring your SCOM instance, you can activity through the **Monitoring** tab:
 
 ![ss-2014-11-25T17-20-47.png](/media/articles/monitoring/ss-2014-11-25T17-20-47.png)
+
+Click **Web Application Status** to bring up the information SCOM has gathered.
 
 ![ss-2014-11-25T17-22-10.png](/media/articles/monitoring/ss-2014-11-25T17-22-10.png)
