@@ -28,7 +28,7 @@ The `test` endpoint checks the status of the core Auth0 authentication service. 
 
 Additionally, this endpoint returns a JSON object:
 
-```text
+```json
 {
   "clock": 1417220191640
 }
@@ -85,14 +85,14 @@ We recommend using an authentication flow that doesn't require a user interface 
 
 If you are seeing issues with your Auth0 service, but the monitoring endpoints aren't returning information on errors, check the status of any external services that you use via Auth0.
 
-[Amazon Web Services] https://status.aws.amazon.com/
-[Azure Active Directory] https://azure.microsoft.com/en-us/status/
-[Facebook] https://developers.facebook.com/status/
-[GitHub] https://status.github.com/
-[Google's G Suite] https://www.google.com/appsstatus#hl=en&v=status
-[Mandrill] http://status.mandrillapp.com/
-[SendGrid] http://status.sendgrid.com/
-[Twilio] https://status.twilio.com/
+* [Amazon Web Services] https://status.aws.amazon.com/
+* [Azure Active Directory] https://azure.microsoft.com/en-us/status/
+* [Facebook] https://developers.facebook.com/status/
+* [GitHub] https://status.github.com/
+* [Google's G Suite] https://www.google.com/appsstatus#hl=en&v=status
+* [Mandrill] http://status.mandrillapp.com/
+* [SendGrid] http://status.sendgrid.com/
+* [Twilio] https://status.twilio.com/
 
 ## Monitoring a Dedicated Deployment
 
