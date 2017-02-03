@@ -16,7 +16,7 @@ You can also follow the samples that are included in each step. Each sample uses
 
 ## Create a Client
 
-Create a new client application in your Auth0 dashboard and retrieve the domain, client ID and client secret for the app. The downloadable samples throughout the quickstart steps will be configured with your default app credentials.
+Create a new client application in your [Auth0 dashboard](${manage_url}) and retrieve the __domain__, __client ID__ and __client secret__ for the app. The downloadable samples throughout the quickstart steps will be configured with your default app credentials.
 
 ![App Dashboard](/media/articles/server-platforms/rails/app_dashboard.png)
 
