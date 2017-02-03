@@ -794,18 +794,6 @@ var options = {
 };
 ```
 
-### integratedWindowsLogin {Boolean}
-
-Allows for Realm discovery by `AD`, `LDAP` connections. Defaults to `true`.
-
-```js
-// disable Realm discovery to force
-// input of credentials
-var options = {
-  integratedWindowsLogin: false
-};
-```
-
 ---
 
 ## Other Options
