@@ -4,6 +4,7 @@ connection: MySQL
 image: /media/connections/mysql.svg
 seo_alias: mysql
 description: How to authenticate users with username and password using a Custom Database.
+toc: true
 ---
 
 # Authenticate Users with Username and Password using a Custom Database
