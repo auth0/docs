@@ -15,8 +15,6 @@ This document lists all the validations that your API should perform:
 
 <div class="alert alert-info"><a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims.</div>
 
-<i class="notification-icon icon-budicon-764"></i> __NOTE__: [JWT.io](https://jwt.io/) provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims.
-
 <div class="auth0-notification frendly"><i class="notification-icon icon-budicon-764"></i>
   <p><a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims.
 </div>
