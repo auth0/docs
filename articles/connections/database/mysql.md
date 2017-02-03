@@ -28,7 +28,7 @@ Click **Custom Database** and turn on the **Use my own database** switch.
 
 You have to provide a login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
 
-:::panel-info
+::: panel-info Note
 When creating users, the `get_user` script is called before the `create` script. Be sure that you have implemented both.
 :::
 
