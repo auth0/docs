@@ -12,7 +12,7 @@ The **AD/LDAP Connector** acts as a bridge between your **Active Directory** ser
 
 The Connector supports authentication based on the following:
 
-* LDAP;
+* [LDAP](/protocols/ldap);
 * [Kerberos](/connector/kerberos);
 * [Client Certificates](/connector/client-certificates).
 
