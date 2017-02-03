@@ -6,13 +6,17 @@ description: Explains implementation details for Extensions specific to the Auth
 
 # Auth0 Appliance: Extensions
 
-In many ways, using [Extensions](/extensions) in the Appliance requires the same configuration steps as in the Auth0 Cloud. This page covers the differences that exist.
+While using [Extensions](/extensions) in the Appliance is very similar to using Extensions in the multi-tenant installation of Auth0, there are some differences.
 
 ## Configure Extensions
 
 Extensions make use of Webtasks. When you activate a Webtask in the Appliance, you get a URL specific to that instance of the Webtask service. By default, this URL is structured as follows:
 
 `webtask.<auth0applianceurl>`
+
+:::panel-info Enable Webtasks
+To enable Webtasks, go to the [Webtasks Settings page of the Management Dashboard](${manage_url}/#/account/webtasks).
+:::
 
 In order for you to configure Extensions, you will need to add this URL to the **Allowed Origins (CORS)** section under the [Auth0 Dashboard's Client Settings page](${manage_url}/#/clients).
 
