@@ -62,7 +62,7 @@ If someone tries to create a JWT with another key set the signature verification
 
 ![Console output with incorrectly signed JWT](/media/articles/server-apis/aspnet-core-webapi/console-output.png)
 
-## 3. Securing an API endpoint
+## 3. Secure an API endpoint
 
 The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.asp.net/en/latest/security/authentication/index.html) and [Authorization](https://docs.asp.net/en/latest/security/authorization/index.html) mechanisms.
 
@@ -82,7 +82,7 @@ public class PingController : Controller
 }
 ```
 
-## 4. Using your API
+## 4. Use your API
 
 You can make calls to your API by authenticating a user using any of our Lock integrations and then using the `id_token` obtained during authentication and passing that in the `Authorization` header of requests to your API as a Bearer token.
 
@@ -103,7 +103,7 @@ request.AddHeader("authorization", "Bearer <your token>");
 IRestResponse response = client.Execute(request);
 ```
 
-## 5. Testing your API in Postman
+## 5. Test your API with Postman
 
 During development, you may want to test your API with Postman.
 
