@@ -2,19 +2,31 @@
 description: How to use monitoring with an Auth0 account.
 ---
 
-# Monitoring Auth0
+# Monitor Auth0
 
-If you are using the public cloud version of Auth0 we recommend you subscribe to [http://status.auth0.com](http://status.auth0.com) for a continuous stream of notifications regarding the availability of the service. Any incidents are reported there by the Auth0 Devops team. Current and historical uptime is available on [http://uptime.auth0.com](http://uptime.auth0.com).
+If you are using the public cloud version of Auth0, we recommend subscribing to [Auth0 Status](http://status.auth0.com) for notifications regarding Auth0 service availability. The Auth0 DevOps team uses Auth0 Status](http://status.auth0.com) for reports on current incidents.
 
-## Monitoring your own Auth0 account
+Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0.com).
 
-You can add Auth0 health probes to your own monitoring infrastructure easily by querying these two endpoints:
+## Monitor Your Auth0 Account
 
-  GET https://${account.namespace}/test
+You can add Auth0 health probes to your own monitoring infrastructure with the following endpoints:
 
-This returns a JSON object with a single property:
+`GET https://${account.namespace}/test`
 
+```har
+{
+  "method": "GET",
+  "url": "https://${account.namespace}/test",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
+  ]
+}
 ```
+
+This endpoint returns a JSON object:
+
+```text
 200
 content-type: application/json
 {"clock":1417220191640}
