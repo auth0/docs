@@ -6,7 +6,7 @@ description: Customize the UI of Lock in your App
 
 # Lock iOS: Build your own UI
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0',
   repo: 'native-mobile-samples',
   path: 'iOS/custom-ui-sample-swift'
