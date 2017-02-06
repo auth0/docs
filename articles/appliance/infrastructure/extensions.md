@@ -15,13 +15,12 @@ Some of the [Extensions](/extensions) available to users of the Auth0 public clo
 
 Your Development and/or Production environments must meet the following requirements before you can update to version 8986.
 
-* All nodes need outbound access using **Port 443** to:
+* All nodes in the cluster need outbound access using **Port 443** to:
   * `docker.it.auth0.com` (or `52.9.124.234`)
     * Please note that version 8293 required outbound access to `docker.it.auth0.com` (or `52.9.124.234`) on Port **5000**.
   * `cdn.auth0.com`
-* All nodes in the Development cluster (if applicable) should be able to communicate with each other using ports **8721** and **8701**.
-* All nodes in the Production cluster should be able to communicate with each other using ports **8721** and **8701**.
-* The Production and Development SSL certificates (issued by a **public** certificate authority) have the appropriate Webtask DNS entry. Examples:
+* All nodes should be able to communicate with other nodes in the same cluster using ports **8721** and **8701**.
+* The SSL certificates (issued by a **public** certificate authority) have the appropriate Webtask DNS entry. Examples:
   * `webtask.<yourdomain>.com`
   * `webtask-dev.<yourdomain>.com`
 
@@ -30,7 +29,7 @@ Your Development and/or Production environments must meet the following requirem
 Once you have met the requirements for updating to version 8986, contact an Auth0 Customer Success Engineer to:
 
 * Configure Webtasks (including switching your sandbox mode to `auth0-sandbox`)
-* Perform the upgrade. Auth0 will work with you to upgrade your Development environment first. You will then test the upgrade prior to the upgrade in Production.
+* Perform the upgrade. Auth0 will work with you to upgrade your Development environment first, so that you can test the changes. Afterwards, Auth0 will coordinate the Production upgrade.
 
 ## Further Reading
 
