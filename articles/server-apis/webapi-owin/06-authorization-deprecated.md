@@ -35,7 +35,7 @@ The JWT middleware will automatically map claims contained in the JWT to claims 
 
 This means that it integrates seamlessly with the Role based authorization inside ASP.NET.
 
-Once the correct claims are being returned from Auth0, all you therefore have to do is decorate your controller actions with the `[Authorize(Roles = ?)]` attribute.
+Once the correct claims are being returned from Auth0, all you, therefore, have to do is decorate your controller actions with the `[Authorize(Roles = ?)]` attribute.
 
 The sample code below will restrict the particular action only to user who have the "admin" role:
 
