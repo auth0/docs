@@ -15,10 +15,6 @@ This document lists all the validations that your API should perform:
 
 <div class="alert alert-info"><a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims.</div>
 
-<div class="auth0-notification frendly"><i class="notification-icon icon-budicon-764"></i>
-  <p><a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims.
-</div>
-
 ## Parse the JWT
 
 First, the API needs to parse the JSON Web Token (JWT) to make sure it's well formed. If this fails the token is considered invalid and the request must be rejected.
