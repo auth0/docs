@@ -134,4 +134,4 @@ Now you can use the `id_token` and pass it along in the Authorization header as 
 
 ## Next Step
 
-To learn how to allow only users in a certain role to access a particular endpoint, please continue with the [Authorization](/quickstart/backend/webapi-owin/03-authorization) tutorial.
+To learn how to allow only users in a certain role to access a particular endpoint, please continue with the [Authorization](https://auth0.com/docs/quickstart/backend/webapi-owin/06-authorization-deprecated) tutorial.
