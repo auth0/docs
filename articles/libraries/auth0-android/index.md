@@ -76,7 +76,7 @@ Logging in with a database connection merely requires calling `login` with the u
 ```java
 authentication
     .login("info@auth0.com", "a secret password", "my-database-connection")
-    .start(new BaseCallback<Credentials>() {
+    .start(new BaseCallback<Credentials, AuthenticationException>() {
         @Override
         public void onSuccess(Credentials payload) {
             //Logged in!
@@ -104,7 +104,7 @@ In this example, requesting the code is done by calling `passwordlessWithEmail` 
 ```java
 authentication
     .passwordlessWithEmail("info@auth0.com", PasswordlessType.CODE, "my-passwordless-connection")
-    .start(new BaseCallback<Void>() {
+    .start(new BaseCallback<Void, AuthenticationException>() {
         @Override
         public void onSuccess(Void payload) {
             //Code sent!
@@ -124,7 +124,7 @@ Once the user has a code, they can input it. Call the `loginWithEmail` method, a
 ```java
 authentication
     .loginWithEmail("info@auth0.com", "123456", "my-passwordless-connection")
-    .start(new BaseCallback<Credentials>() {
+    .start(new BaseCallback<Credentials, AuthenticationException>() {
         @Override
         public void onSuccess(Credentials payload) {
             //Logged in!
@@ -148,7 +148,7 @@ Signing up with a database connection is similarly easy. Call the `signUp` metho
 ```java
 authentication
     .signUp("info@auth0.com", "a secret password", "my-database-connection")
-    .start(new BaseCallback<Credentials>() {
+    .start(new BaseCallback<Credentials, AuthenticationException>() {
         @Override
         public void onSuccess(Credentials payload) {
             //Signed Up & Logged in!
@@ -202,14 +202,14 @@ The `link` method accepts two parameters, the primary user id and the secondary 
 ```java
 users
     .link("primary user id", "secondary user token")
-    .start(new BaseCallback<List<UserIdentity>>() {
+    .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
         @Override
         public void onSuccess(List<UserIdentity> payload) {
             //Got the updated identities! Accounts linked.
         }
 
         @Override
-        public void onFailure(Auth0Exception error) {
+        public void onFailure(ManagementException error) {
             //Error!
         }
     });
@@ -222,14 +222,14 @@ Unlinking users is a similar process to the linking of users. The `unlink` metho
 ```java
 users
     .unlink("primary user id", "secondary user id", "secondary provider")
-    .start(new BaseCallback<List<UserIdentity>>() {
+    .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
         @Override
         public void onSuccess(List<UserIdentity> payload) {
             //Got the updated identities! Accounts linked.
         }
 
         @Override
-        public void onFailure(Auth0Exception error) {
+        public void onFailure(ManagementException error) {
             //Error!
         }
     });

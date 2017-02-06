@@ -1,6 +1,6 @@
 ---
 section: libraries
-description: Lock for Android - Custom Oauth Connections
+description: Lock for Android - Custom OAuth Connections
 ---
 
 # Custom OAuth Connections
@@ -30,6 +30,6 @@ builder.withAuthStyle("facebook", R.style.Style_Facebook)
         .build(...);
 ```
 
-When *Lock* needs to display that connection in a SocialButton it will first search for user-overridden styles, and if none is found it will default to the Lock social defaults. This means that for "facebook" it will use facebook background color, facebook logo and "FACEBOOK" as name. 
+When *Lock* needs to display that connection in a SocialButton it will first search for user-overridden styles, and if none is found it will default to the Lock social defaults. This means that for "facebook" it will use facebook background color, facebook logo and "FACEBOOK" as name.
 
 As the builder method receives the `connectionName` you can now customize `oauth2` strategy type connections. The default values for this strategy are the same as in v1: Auth0 logo, Auth0 background color, and "OAUTH2" as name.

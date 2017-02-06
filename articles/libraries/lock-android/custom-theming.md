@@ -25,7 +25,7 @@ First you need to create a new `Theme` that extends from `Lock.Theme`, and overr
 styles.xml
 ```xml
 <resources>
-  <style name="MyLockTheme" parent="Lock.Theme">
+  <style name="MyTheme" parent="Lock.Theme">
     <item name="Auth0.HeaderLogo">@drawable/com_auth0_lock_header_logo</item>
     <item name="Auth0.HeaderTitle">@string/com_auth0_lock_header_title</item>
     <item name="Auth0.HeaderTitleColor">@color/com_auth0_lock_text</item>
@@ -39,7 +39,7 @@ styles.xml
 > Those attributes not overridden by the user will default to the ones defined in `Lock.Theme`.
 
 
-Then, you need to tell the Manifest that you want to use the new `MyLockTheme` in the `Activity`. This is **very important**!!
+Then, you need to tell the Manifest that you want to use the new `MyTheme` in the `Activity`. This is **very important**!!
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -52,7 +52,10 @@ Then, you need to tell the Manifest that you want to use the new `MyLockTheme` i
         android:theme="@style/AppTheme">
         <activity
           android:name="com.auth0.android.lock.LockActivity"
-          android:theme="@style/MyLockTheme">
+          android:label="@string/app_name"
+          android:launchMode="singleTask"
+          android:screenOrientation="portrait"
+          android:theme="@style/MyTheme">
         </activity>
     </application>
 </manifest>
