@@ -63,9 +63,19 @@ Following the Node.js example of the previous section, the [jwt.verify()](https:
 
 ## Verify the Signature
 
-will then download all signing keys from the JWKS endpoint and see if a one of the signing keys matches the `kid` in the header of the JWT. If none of the signing keys match the incoming `kid`, an error will be thrown. If we have a match, we will pass the right signing key to express-jwt.
+The API needs to verify the signature. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
+
+Remember that the signature is created using header and payload of the JWT, a secret and the hashing algorithm being used (as specified in the header: HMAC, SHA256 or RSA). The way to verify it, depends on the hashing algorithm:
+- For `HS256`, the Client's Secret is used. You can find this information at your [Client's Settings](https://${manage_url}/#/clients/${account.clientId}/settings).
+- For `RS256`, the tenant's JSON Web Key Set (JWKS) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
+
+The most secure practice, and our recommendation, is to use `RS256`.
 
 ### How can I verify the signature?
+
+To verify a token's signature, you can use one of the libraries listed in the _Libraries for Token Signing/Verification_ section of [JWT.io](https://jwt.io/).
+
+Following the Node.js example of the previous section, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method of the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), supports an `secretOrPublicKey` argument, that should be populated with a string or buffer containing either the secret (for `HS256`), or the PEM encoded public key (for `RS256`). If the verification fails you will get a `invalid signature` error.
 
 ## Validate the Claims
 
@@ -109,8 +119,15 @@ You can see how to do this, for a simple timesheets API in Node.js, in this docu
 
 ## Sample Implementation
 
+You can find a sample API implementation, in Node.js, in [Server Client + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs).
+
+This document is part the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api), an implementation of a Client Credentials grant for a hypothetical scenario. For more information on the complete solution refer to [Server + API Architecture Scenario](/architecture-scenarios/application/server-api).
+
+
 ## More information
 
 [RFC 7519 - JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519)
 
 [JSON Web Tokens (JWT) in Auth0](/jwt)
+
+[Server Client + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions)
