@@ -3,7 +3,7 @@ description: How an API can verify a bearer JWT access token
 toc: true
 ---
 
-# Verify Bearer JWT Access Tokens
+# Verify Access Tokens
 
 When an API receives a request with a bearer access token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
@@ -31,7 +31,7 @@ The header and the payload are Base64Url encoded. The signature is created using
 
 For details on the JWT structure refer to [What is the JSON Web Token structure?](/jwt#what-is-the-json-web-token-structure-).
 
-### How can my API parse the JWT?
+### How can I parse the JWT?
 
 In order to parse the JWT you can either manually implement all the checks as described in the specification [RFC 7519 > 7.2 Validating a JWT](https://tools.ietf.org/html/rfc7519#section-7.2), or use one of the libraries listed in the _Libraries for Token Signing/Verification_ section of [JWT.io](https://jwt.io/).
 
@@ -53,7 +53,7 @@ The API needs to check if the algorithm, as specified by the JWT header (propert
 
 In this case the mismatch might be due to mistake (it is common that the tokens are signed using the `HS256` signing algorithm, but your API is configured for `RS256`, or vice versa), but it could also be due to an attack, hence the request has to be rejected.
 
-### How can my API check the signature algorithm?
+### How can I check the signature algorithm?
 
 To check if the signature matches the API's expectations, you have to decode the JWT and retrieve the `alg` property of the JWT header.
 
@@ -65,7 +65,7 @@ Following the Node.js example of the previous section, the [jwt.verify()](https:
 
 will then download all signing keys from the JWKS endpoint and see if a one of the signing keys matches the `kid` in the header of the JWT. If none of the signing keys match the incoming `kid`, an error will be thrown. If we have a match, we will pass the right signing key to express-jwt.
 
-### How can my API verify the signature?
+### How can I verify the signature?
 
 ## Validate the Claims
 
@@ -77,7 +77,7 @@ Once the API verifies the token's signature, the next step is to validate the st
 
 - _Token audience_: The `aud` claim identifies the recipients that the JWT is intended for. For JWTs issued by Auth0, `aud` holds the unique identifier of the target API (field __Identifier__ at your [API's Settings](${manage_url}/#/apis)). If the API is not the intended audience of the JWT, it _must_ reject the request.
 
-### How can my API validate the claims?
+### How can I validate the claims?
 
 To validate the claims, you have to decode the JWT, retrieve the claims (`exp`, `iss`, `aud`) and validate their values.
 
@@ -94,7 +94,7 @@ By now you have verified that the JWT is valid. The last step is to verify that 
 
 To do so, you need to check the [scopes](/scopes) of the decoded JWT. This claim is part of the payload and it is a space-separated list of strings.
 
-### How can my API check the permissions?
+### How can I check the permissions?
 
 To check the permissions granted to the client, you need to check the contents of the `scope`.
 
