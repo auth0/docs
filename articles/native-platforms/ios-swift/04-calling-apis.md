@@ -7,11 +7,11 @@ budicon: 546
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
-  path: '08-Calling-APIs',
+  path: '04-Calling-APIs',
   requirements: [
-    'CocoaPods 1.0.0',
-    'XCode 7.3 (7D175)',
-    'iPhone 6 - iOS 9.3 (13E230)'
+    'CocoaPods 1.1.1',
+    'Version 8.2 (8C38)',
+    'iPhone 6 - iOS 10.2 (14C89)'
   ]
 }) %>
 
@@ -19,38 +19,38 @@ The reason for implementing authentication, in the first place, is to protect in
 
 In this tutorial, you'll learn how to get a token, attach it to a request (using the authorization header), and call any API you need to authenticate with.
 
-## Get a Token
+## Get the user's credentials
 
 In order to make an authenticated request, you first need to obtain a token, against which your API can compare to detect whether or not the request is properly authenticated.
 
-You should already know how to get an [A0Token](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0Token.h) instance from the [login tutorial](/quickstart/native/ios-swift/01-login). Anyway, here's a quick recap:
+You should already know how to get an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance from the [login tutorial](/quickstart/native/ios-swift/01-login). Anyway, here's a quick recap:
 
 ```swift
 import Lock
 ```
 
 ```swift
-let controller = A0Lock.shared().newLockViewController()
-controller?.onAuthenticationBlock = { profile, token in
-    // Upon successfull login, you get an A0Token instance
-    // You will usually save it for later use
-    controller?.dismiss(animated: true, completion: nil)
-}
-A0Lock.shared().present(controller, from: self)
+Lock
+    .classic()
+    .onAuth { credentials in
+      guard let idToken = credentials.idToken else { return }
+      // Good time to store the idToken that you will use next.
+    }
+    .present(from: self)
 ```
 
-In order to make authenticated requests, you can use any of the token strings inside that `A0Token` instance you just obtained; which one is up to you.
+In order to make authenticated requests, you can use any of the token strings inside that `Credentials` instance you just obtained; which one depends on the application usage.
 
 ## Attach the Token
 
 Supposing you have decided to use the `idToken` value, here is what you would do:
 
 ```swift
-let token = ... // The A0Token instance you got upon login
+let token  = ... // The idToken you stored after authentication
 let url = URL(string: "your api url")!
 var request = URLRequest(url: url)
 // Configure your request here (method, body, etc)
-request.addValue("Bearer \(token.idToken)", forHTTPHeaderField: "Authorization")
+request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 let task = URLSession.shared.dataTask(with: request) { data, response, error in
     // Parse the response
 }
