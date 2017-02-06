@@ -1,10 +1,11 @@
 ---
 description: How to use monitoring with an Auth0 account.
+toc: true
 ---
 
 # Monitor Auth0
 
-If you are using the public cloud version of Auth0, we recommend subscribing to [Auth0 Status](http://status.auth0.com) for notifications regarding Auth0 service availability. The Auth0 DevOps team uses Auth0 Status](http://status.auth0.com) for reports on current incidents.
+If you are using the public cloud version of Auth0, we recommend subscribing to [Auth0 Status](http://status.auth0.com) for notifications regarding Auth0 service availability. The Auth0 DevOps team uses [Auth0 Status](http://status.auth0.com) for reports on current incidents.
 
 Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0.com).
 
@@ -36,7 +37,7 @@ Additionally, this endpoint returns a JSON object:
 
 ### The `testall` Endpoint
 
-The `/testall` endpoint checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Management Dashboard](${}) and [Documentation](/).
+The `/testall` endpoint checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Management Dashboard](${manage_url}) and Documentation.
 
 ```har
 {
@@ -85,14 +86,14 @@ We recommend using an authentication flow that doesn't require a user interface 
 
 If you are seeing issues with your Auth0 service, but the monitoring endpoints aren't returning information on errors, check the status of any external services that you use via Auth0.
 
-* [Amazon Web Services] https://status.aws.amazon.com/
-* [Azure Active Directory] https://azure.microsoft.com/en-us/status/
-* [Facebook] https://developers.facebook.com/status/
-* [GitHub] https://status.github.com/
-* [Google's G Suite] https://www.google.com/appsstatus#hl=en&v=status
-* [Mandrill] http://status.mandrillapp.com/
-* [SendGrid] http://status.sendgrid.com/
-* [Twilio] https://status.twilio.com/
+* [Amazon Web Services](https://status.aws.amazon.com/)
+* [Azure Active Directory](https://azure.microsoft.com/en-us/status/)
+* [Facebook](https://developers.facebook.com/status/)
+* [GitHub](https://status.github.com/)
+* [Google's G Suite](https://www.google.com/appsstatus#hl=en&v=status)
+* [Mandrill](http://status.mandrillapp.com/)
+* [SendGrid](http://status.sendgrid.com/)
+* [Twilio](https://status.twilio.com/)
 
 ## Monitoring a Dedicated Deployment
 
