@@ -16,9 +16,31 @@ You can only create one rule, which will then be executed for **all** clients an
 
 ### 1. Create the Rule For Use with Webtasks
 
-<%= include('./_includes/_create-rule', {
-	  args: 'user, client, scope, audience, context, cb'
-}) %>
+Create a file named `myrule.js`, and enter the following:
+
+```js
+module.exports = function(user, client, scope, audience, context, cb) {
+	var myCustomAccessTokenClaims = {
+     scope: scope.concat('email'),
+     'http://mydomain.com/foo': 'bar'
+  }
+  var myCustomIdTokenClaims = {
+    'http://mydomain.com/biz': 'buz'
+  }
+
+  cb(null, {accessToken: myCustomAccessTokenClaims, idToken: myCustomIdTokenClaims});
+};
+```
+This is a sample rule that will:
+
+* Add a [standard claim](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) (`email`) and an arbitrary claim (`http://mydomain.com/foo`) to the `access_token`.
+* Add an arbitrary claim (`http://mydomain.com/biz`) to the `id_token`.
+* Add an extra scope to the default scopes configured on your [API](${manage_url}/#/apis).
+
+::: panel-info Custom claims namespaced format
+In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. That is why we named our arbitrary claim `https://foo.com/claim`, instead of `claim`.
+:::
+
 
 ### 2. Create the Webtask to Use Your Rule
 
