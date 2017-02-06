@@ -21,14 +21,15 @@ Create a file named `myrule.js`, and enter the following:
 ```js
 module.exports = function(user, client, scope, audience, context, cb) {
 	var myCustomAccessTokenClaims = {
-     scope: scope.concat('email'),
-     'http://mydomain.com/foo': 'bar'
-  }
-  var myCustomIdTokenClaims = {
-    'http://mydomain.com/biz': 'buz'
-  }
+		scope: scope.concat('email'),
+		'http://mydomain.com/foo': 'bar'
+	}
 
-  cb(null, {accessToken: myCustomAccessTokenClaims, idToken: myCustomIdTokenClaims});
+	var myCustomIdTokenClaims = {
+		'http://mydomain.com/biz': 'buz'
+	}
+
+	cb(null, {accessToken: myCustomAccessTokenClaims, idToken: myCustomIdTokenClaims});
 };
 ```
 This is a sample rule that will:
