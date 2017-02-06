@@ -11,3 +11,5 @@ The function of LDAP is to enable access to an existing directory, like Active D
 In Auth0 we use LDAP to integrate with Active Directory/LDAP through the Active Directory/LDAP Connector that you install in your network.
 
 For more information refer to [Active Directory/LDAP Connector](/connector).
+
+There is also an endpoint proxy implementation at https://github.com/auth0/auth0-ldap-endpoint which may be used to connect a legacy application to Auth0 using the LDAP protocol.
