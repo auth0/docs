@@ -10,17 +10,13 @@ You can get started by either downloading the seed project or if you would like 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-emberjs2-sample',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'Ember 2.5.0',
+    'jQuery 1.11.3',
+    'Ember Simple Auth 1.1.0'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have to be tested with the following:
-* Bower 1.7.7
-* NodeJS 5.11.0
-* Ember 2.5.0
-* jQuery 1.11.3
-* Ember Simple Auth 1.1.0
-:::
 
 __Note:__ This quickstart and seed project are for Ember >= 2.x.x.
 

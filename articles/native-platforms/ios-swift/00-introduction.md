@@ -24,8 +24,8 @@ A brief description:
 If you are using Carthage, add the following lines to your `Cartfile`:
 
 ```ruby
-github "auth0/Lock.iOS-OSX" -> 1.26
-github "auth0/Auth0.swift" "1.0.0-beta.5"
+github "auth0/Lock.iOS-OSX" ~> 1.26
+github "auth0/Auth0.swift" ~> 1.1
 ```
 
 Then, run `carthage bootstrap`.
@@ -38,8 +38,8 @@ If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `P
 
 ```ruby
 use_frameworks!
-pod 'Lock', '~> 1.26'
-pod 'Auth0', '1.0.0-beta.5'
+pod 'Lock', '~> 1.28'
+pod 'Auth0', '~> 1.1'
 ```
 
 Then, run `pod install`.

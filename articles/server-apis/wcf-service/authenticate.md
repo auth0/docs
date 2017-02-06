@@ -3,12 +3,15 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 WCF SDK to add authentication and authorization to your API.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Microsoft Visual Studio 2015
-:::
-
-
+<%= include('../../_includes/_package', {
+  org: 'auth0',
+  repo: 'auth0-wcf-rest-sample',
+  path: '',
+  requirements: [
+    'Microsoft Visual Studio 2015',
+    'Auth0-WCF-Service-JWT 1.0.3'
+  ]
+}) %>
 
 This tutorial explains how to consume a WCF service, validating the identity of the caller.
 

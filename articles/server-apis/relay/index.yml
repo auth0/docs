@@ -1,5 +1,6 @@
 title: Relay API
 thirdParty: false
+community: true
 alias:
   - relay
 languages:

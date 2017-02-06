@@ -9,6 +9,8 @@ description: How to obtain a Client Id and Client Secret for Dwolla.
 
 To configure OAuth2 connections with Dwolla, you will need to register Auth0 on the Dwolla Developer portal.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Log into the developer portal
 
 Log into the Dwolla [Developer portal](https://uat.dwolla.com/applications) and click **Create an application**:
@@ -36,3 +38,6 @@ Once the application is registered, your app's `Key` and `Secret` will be displa
 Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **Dwolla**. Copy the `Key` and `Secret` from the **Application** page of your app on Dwolla into the `Client Id` and `Client Secret` fields on this page on Auth0:
 
 ![](/media/articles/connections/social/dwolla/dwolla-4.png)
+
+<%= include('../_quickstart-links.md') %>
+

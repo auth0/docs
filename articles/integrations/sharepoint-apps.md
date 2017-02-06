@@ -38,7 +38,7 @@ Since Auth0 is in between your app and the Office 365 infrastructure, you need t
 
 **Redirect URI**:
 
-  https://${account.namespace}/login/callback?{SpAppToken}&connection={CONNECTION NAME}&client_id={YOUR APP CLIENT ID}&redirect_uri={YOUR REDIRECT URL}
+  https://${account.namespace}/login/callback?SP_APP_TOKEN&connection=CONNECTION&client_id=${account.clientId}&redirect_uri=${account.callback}
 
 * `connection` is just the name you will use in Auth0's connections (e.g. "sharepoint").
 * `client_id` identifies your app in Auth0 (created in steps 1).
@@ -82,4 +82,4 @@ Users will install your app from the Office Marketplace. When they click on the 
 
   GET https://yoursite.sharepoint.com/_api/web/lists
   Accept: application/json;odata=verbose
-  Authorization: Bearer {the access_token}
+  Authorization: Bearer THE_ACCESS_TOKEN

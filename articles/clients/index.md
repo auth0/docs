@@ -1,12 +1,13 @@
 ---
 description: Explains the basics of creating and using Auth0 Clients.
+toc: true
 ---
 
 # Clients
 
 ## Overview
 
-An Auth0 **client** maps to your application and allows to use Auth0 for authentication. The term *client* does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
+An Auth0 **client** maps to your application and allows use of Auth0 for authentication. The term *client* does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
 
 ## Client Types
 
@@ -83,3 +84,25 @@ Once you click on the button a pop-up window will ask you to confirm the action.
 Auth0 stores log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users. The logs include many of the actions performed by the user like failing to login to a client or requesting a password change. For more details refer to: [Logs](/logs).
 
 If you use a third-party application for log management, like Sumo Logic, Splunk or Loggly, you can use Auth0 Extensions to export your logs there. For details on the available extensions and how to configure them refer to: [Extensions](/extensions).
+
+## Dynamic Client Registration
+
+You can use the Auth0 to programmatically create clients, as described in the [OIDC Dynamic Client Registration 1.0 specification](https://openid.net/specs/openid-connect-registration-1_0.html). For more details please refer to [Dynamic Client Registration](/api-auth/dynamic-client-registration).
+
+## Next Steps
+
+Once you have configured your Client, some common next steps to take are:
+
+- **Configure a Connection** and enable it for your Client. For details refer to [Client Connections](/clients/connections). For a list of the supported Identity Providers refer to [Identity Providers Supported by Auth0](/identityproviders).
+
+- **Configure your app** to use your Auth0 Client. For detailed instructions and samples for a variety of technologies, refer to our [quickstarts](/quickstarts). There you can find information on how to implement login and logout (using [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js)), handle your user sessions, retrieve and display user profile information, add [Rules](/rules) to customize your flow, and more.
+
+  **NOTE**: For background theory on client authentication flows, refer to [Client Authentication](/client-auth).
+
+- Use our latest [API Authorization](/api-auth) features to **call an API**. You need to [configure your tenant for the new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth).
+
+- **Use [our APIs](/api/info)**.
+
+  - The [Authentication API](/api/authentication) handles all the primary identity related functions (login, logout, get user profile, and so forth). Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually you will have to interact with this API directly.
+  
+  - The [Management API](/api/management/v2) can be used to automate various tasks in Auth0 such as creating users.

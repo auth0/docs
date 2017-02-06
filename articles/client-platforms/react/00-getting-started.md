@@ -20,7 +20,7 @@ The `auth0-react-scripts` app demonstrates **login**, **session handling**, and 
 
 ## About the Sample Applications
 
-The code snippets within this quickstart guide are based off of the downloadable samples. Within each of these samples, you will find a very simple React application which utilizes a few views and containers. The samples use **react-router** (with `browserHistory`) and **react-bootstrap**.
+The code snippets within this quickstart guide are based on the downloadable samples. Within each of these samples, you will find a very simple React application which utilizes a few views and containers. The samples use **react-router** (with `browserHistory`) and **react-bootstrap**.
 
 It should be noted that a simplistic React application is used in the samples and snippets intentionally. The focus of this quickstart guide is on how to use Auth0 in a React application in general rather than on how to approach various architectural scenarios. However, Auth0 works well in any React setup and can be integrated with Flux, Redux, and other flavors that you may be interested in.
 

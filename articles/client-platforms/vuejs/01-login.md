@@ -31,7 +31,7 @@ On the Vue instance, create a login method that calls `lock`.
 
 ${snippet(meta.snippets.login)}
 
-In this example, the Vue instance is attached to an element with an ID of `app`. The `authenticated` property is used to keep track of the user's authentication state and is initially set to false. It is set to true upon a successful login. When the user authenticates successfuly, their `profile` and `token` are saved in local storage.
+In this example, the Vue instance is attached to an element with an ID of `app`. The `authenticated` property is used to keep track of the user's authentication state and is initially set to false. It is set to true upon a successful login. When the user authenticates successfully, their `profile` and `token` are saved in local storage.
 
 ### 2.2 Logout
 

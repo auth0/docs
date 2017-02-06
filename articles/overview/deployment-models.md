@@ -55,7 +55,7 @@ The following table describes operational and feature differences between each o
         <tr>
             <th>Service & Uptime Reporting</th>
             <td>http://status.auth0.com<br />http://uptime.auth0.com</td>
-            <td>Dedicated uptime URL</td>
+            <td>Monitored by Auth0</td>
             <td>Monitored by Auth0 and Customer's tools</td>
             <td>Monitored by Auth0 and Customer's tools</td>
         </tr>

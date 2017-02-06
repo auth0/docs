@@ -1,9 +1,10 @@
-title: Node.js API
+title: Node (Express) API
 thirdParty: false
 alias:
   - node
   - nodejs
   - node.js
+  - express
 languages:
   - Javascript
 image: /media/platforms/node.png
@@ -14,4 +15,6 @@ snippets:
   setup: server-apis/nodejs/setup
   use: server-apis/nodejs/use
 articles:
-  - authenticate
+  - 01-getting-started
+  - 02-authenticate-hs256
+  - 03-authenticate-rs256

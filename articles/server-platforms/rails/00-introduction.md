@@ -8,15 +8,15 @@ This multistep quickstart guide will walk you through managing authentication in
 
 ## Seed and Samples
 
-To follow along this quickstart you can either download the [seed project](https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/00-Starter-Seed) or the [samples](https://github.com/auth0-samples/auth0-rubyonrails-sample) provided at each page of this quickstart.
+To follow along with this quickstart you can either download the [seed project](https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/00-Starter-Seed) or the [samples](https://github.com/auth0-samples/auth0-rubyonrails-sample) provided at each page of this quickstart.
 
-The seed is a regular RoR app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow along the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/00-Starter-Seed) and follow along.
+The seed is a regular RoR app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/00-Starter-Seed) and follow along.
 
-You can also follow the samples that are included in each step. Each sample uses the seed project as starting point and applies each step configuration to it, so for example the Login sample would be the seed project plus the login configuration. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
+You can also follow the samples that are included in each step. Each sample uses the seed project as a starting point and applies each step configuration to it, so, for example, the Login sample would be the seed project plus the login configuration. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
 
 ## Create a Client
 
-Create a new client application in your Auth0 doashboard and retrieve the the domain, client ID and client secret for the app. The downloadable samples throughout the quickstart steps will be configured with your default app credentials.
+Create a new client application in your [Auth0 dashboard](${manage_url}) and retrieve the __domain__, __client ID__ and __client secret__ for the app. The downloadable samples throughout the quickstart steps will be configured with your default app credentials.
 
 ![App Dashboard](/media/articles/server-platforms/rails/app_dashboard.png)
 

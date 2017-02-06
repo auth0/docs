@@ -23,15 +23,15 @@ Content-Type: 'application/json'
 {
   "client_id":   "${account.clientId}",
   "grant_type":  "urn:ietf:params:oauth:grant-type:jwt-bearer",
-  "id_token":    "{YOUR_ID_TOKEN}",
+  "id_token":    "YOUR_ID_TOKEN",
   "target":      "${account.clientId}",
   "api_type":    "azure_blob",
   "scope":       "openid"
 }
 ```
 
-* The `client_id` value identifies the requesting app (e.g. your website) and `{YOUR_ID_TOKEN}` identifies the user you are requesting this on behalf-of. (Notice that the `id_token` is signed with the `client_id` corresponding `clientSecret`).
-* The `target` parameter identifies this API endpoint in Auth0 (often the same as `{CLIENT ID}`. This is the `client_id` of the app where this add-on has been enabled.
+* The `client_id` value identifies the requesting app (e.g. your website) and `YOUR_ID_TOKEN` identifies the user you are requesting this on behalf-of. (Notice that the `id_token` is signed with the `client_id` corresponding `clientSecret`).
+* The `target` parameter identifies this API endpoint in Auth0 (often the same as `${account.clientId}`. This is the `client_id` of the app where this add-on has been enabled.
 * `api_type` must be `azure_blob`.
 * `scope` must be `openid`.
 

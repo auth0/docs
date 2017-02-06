@@ -165,7 +165,7 @@ This code does the following:
 
 1. First, and `AuthenticationManager` property is added which will simply get the Authentication Manager from the OWIN context. This is needed to sign the user in.
 2. Create a `Login` action for GET requests which will return the Login view.
-3. Create a `Login` action for POST requests which will call the Authentication API to authenticate the user. If the user is successfully authenticated, the user's information is obtained from the token and a new `ClaimsIdentity` is created with the relevant claims. Finally the user is signed in to the Authentication Manager.
+3. Create a `Login` action for POST requests which will call the Authentication API to authenticate the user. If the user is successfully authenticated, the user's information is obtained from the token and a new `ClaimsIdentity` is created with the relevant claims. Finally, the user is signed in to the Authentication Manager.
 4. Create a `Logout` method which will sign the user out of the Authentication Manager.
 
 ## Add Login and Logout links

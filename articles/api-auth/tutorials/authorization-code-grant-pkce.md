@@ -3,7 +3,6 @@ description: How to execute an Authorization Code Grant flow with PKCE for a Mob
 ---
 
 # Execute an Authorization Code Grant Flow with PKCE
-<%=include('../_region-support') %>
 
 First, you need to generate and store a `code_verifier`.
 
@@ -98,13 +97,13 @@ To begin an Authorization Code Grant flow, your Client application should first 
 
 ```text
 https://${account.namespace}/authorize?
-    audience={API_AUDIENCE}&
-    scope={SCOPE}&
+    audience=API_AUDIENCE&
+    scope=SCOPE&
     response_type=code&
-    client_id={AUTH0_CLIENT_ID}&
-    code_challenge={CODE_CHALLENGE}&
+    client_id=${account.clientId}&
+    code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri={CALLBACK_URL}
+    redirect_uri=${account.callback}
 ```
 
 Where:
@@ -166,8 +165,7 @@ The response from `/oauth/token` contains `access_token`, `refresh_token`, `id_t
 }
 ```
 
-Note that the `refresh_token` will be present in the response, only if you included the `offline_access` scope **and** enabled **Allow Offline Access** for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](
- https://auth0.com/docs/tokens/refresh-token).
+Note that the `refresh_token` will be present in the response, only if you included the `offline_access` scope **and** enabled **Allow Offline Access** for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [Refresh Token](/tokens/refresh-token).
 
 ::: panel-danger Warning
 It is important to understand that the Authorization Code flow with PKCE can only be used for Clients whose type is `Native` in the Dashboard.
@@ -183,7 +181,7 @@ Once you have the `access_token`, you can use it to make calls to the API, by pa
   "url": "https://someapi.com/api",
   "headers": [
     { "name": "Content-Type", "value": "application/json" },
-    { "name": "Authorization", "value": "Bearer {ACCESS_TOKEN}" }
+    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" }
   ]
 }
 ```

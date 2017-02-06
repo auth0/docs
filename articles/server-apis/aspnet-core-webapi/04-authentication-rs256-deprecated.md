@@ -1,5 +1,5 @@
 ---
-title: Authentication (Deprecated)
+title: Authentication
 name: Shows how to secure your API using the standard JWT middeware
 description: Shows how to secure your API using the standard JWT middeware.
 budicon: 500
@@ -48,11 +48,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 ### Signature Validation
 
-Before we carry on, a quick word about the verification of the JWT, as the configuration above may af first glance seem very simplistic.
+Before we carry on, a quick word about the verification of the JWT, as the configuration above may at first glance seem very simplistic.
 
 The JWT middleware will automatically use the `Authority` to verify the issuer of the JWT, and the `Audience` to verify the audience. These values need match the values in the token exactly, so ensure you specify the trailing backslash (`/`) for the `Authority` as this is a fairly common reason for tokens not verifying correctly.
 
-Next it will seem as though the JWT middleware configuration above is insecure since the signature is not explicitly verified anywhere. This is however not true, as the JWT middleware will go to the `/.well-known/openid-configuration` endpoint at the URL specified in the `Authority` property to discover the JSON Web Key Set (JWK) document. It will then download the JSON Web Key which is used to subsequently verify the token.
+Next, it will seem as though the JWT middleware configuration above is insecure since the signature is not explicitly verified anywhere. This is however not true, as the JWT middleware will go to the `/.well-known/openid-configuration` endpoint at the URL specified in the `Authority` property to discover the JSON Web Key Set (JWK) document. It will then download the JSON Web Key which is used to subsequently verify the token.
 
 This can be confirmed by looking and the Fiddler trace in the screenshot below:
 
@@ -62,7 +62,7 @@ If someone tries to create a JWT with another key set the signature verification
 
 ![Console output with incorrectly signed JWT](/media/articles/server-apis/aspnet-core-webapi/console-output.png)
 
-## 3. Securing an API endpoint
+## 3. Secure an API endpoint
 
 The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.asp.net/en/latest/security/authentication/index.html) and [Authorization](https://docs.asp.net/en/latest/security/authorization/index.html) mechanisms.
 
@@ -82,7 +82,7 @@ public class PingController : Controller
 }
 ```
 
-## 4. Using your API
+## 4. Use your API
 
 You can make calls to your API by authenticating a user using any of our Lock integrations and then using the `id_token` obtained during authentication and passing that in the `Authorization` header of requests to your API as a Bearer token.
 
@@ -103,9 +103,9 @@ request.AddHeader("authorization", "Bearer <your token>");
 IRestResponse response = client.Execute(request);
 ```
 
-## 5. Testing your API in Postman
+## 5. Test your API with Postman
 
-During development you may want to test your API with Postman.
+During development, you may want to test your API with Postman.
 
 If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 

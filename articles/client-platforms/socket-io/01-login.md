@@ -18,7 +18,7 @@ budicon: 448
 ## 1. Set up the Allowed Origin (CORS) in Auth0
 
 <div class="setup-origin">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure to add your URL as an <b>Allowed Origin (CORS)</b>. If you're testing it locally, it should contain the following value:</p>
+<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure to add your URL as an <b>Allowed Origin (CORS)</b>. If you're testing it locally, it should contain the following value:</p>
 
 <pre><code>http://localhost:3001</pre></code>
 

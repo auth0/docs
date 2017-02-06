@@ -9,6 +9,8 @@ description: How to obtain an Application ID and Application Password for Yandex
 
 To configure an Yandex connection you will need to register your Auth0 instance as a Yandex application.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Create a new Application in Yandex:
 
 Log in into Yandex and [create a new app](https://oauth.yandex.ru/client/new):
@@ -37,3 +39,6 @@ Notice that `scopes` in Yandex are defined in this screen. Select what kind of i
 Once the application is registered, enter your new `Application ID` and `Application Password` into the connection settings in Auth0.
 
 ![](/media/articles/connections/social/yandex/yandex-add-connection.png)
+
+<%= include('../_quickstart-links.md') %>
+

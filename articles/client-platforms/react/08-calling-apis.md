@@ -213,7 +213,7 @@ Also note that `auth` is an `AuthService` instance expected as a prop, and that 
 
 Lastly, include the `Messages` component in an application view.
 
-To show how this component works in both authenticated and not authenticated situations, do not only include it in `Home` (where the user is already authenticated) but also in `Login`, to demonstrate that the private API requests fails:
+To show how this component works in both authenticated and not authenticated situations, do not only include it in `Home` (where the user is already authenticated) but also in `Login`, to demonstrate that the private API request fails:
 
 ```javascript
 // src/views/Main/Home/Home.js

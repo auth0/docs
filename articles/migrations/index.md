@@ -1,5 +1,6 @@
 ---
 url: /migrations
+toc: true
 description: Occasionally, Auth0 engineers must make breaking changes to the Auth0 platform.
 ---
 
@@ -18,10 +19,45 @@ The migration process is outlined below:
 
 During the grace period, customers are informed via dashboard notifications and emails to account administrators. You will continue to receive emails until the migration has been enabled on each account you administer.
 
-If you need help with the migration, create a ticket in our [Support Center](https://support.auth0.com)
+If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
 ## Current Migrations
 Current migrations are listed below, newest first. For migrations that have already been enabled see [Past Migrations](#past-migrations).
+
+### Whitelisting IP Address Ranges
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Low | 2011-01-15 |  2017-01-31 |
+
+Auth0 is expanding into new US regions, and traffic originating from these regions will have new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
+
+#### Am I affected by the change?
+
+If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to add the following IP addresses to your firewall rules:
+
+```
+138.91.154.99, 54.221.228.15, 54.183.64.135, 54.67.77.38, 54.67.15.170,
+54.183.204.205, 54.173.21.107, 54.85.173.28, 35.167.74.121, 35.160.3.103,
+35.166.202.113, 35.165.143.35, 35.167.53.126, 35.167.33.107, 52.14.40.253,
+52.14.38.78, 52.14.17.114, 52.71.209.77, 34.195.142.251, 52.200.94.42
+```
+
+If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+### Account Linking Removal
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2017-01-03 |  2017-03-01 |
+
+As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an `access_token` as part of the `/authorize` call as stated [here](/api/authentication?http#account-linking).
+
+#### Am I affected by the change?
+
+If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an `access_token` in your `/authorize` calls.
+
+If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
 ### SAML Validations
 
@@ -39,7 +75,7 @@ As part of Auth0's efforts to improve security and standards compliance, we will
 
 You are affected by this change if you see the validation warnings in your tenant logs. During the grace period, these validation errors will show up in your tenant logs, but will not cause the authentication to fail.
 
-If you need help with the migration, create a ticket in our [Support Center](https://support.auth0.com)
+If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
 ### Vulnerable Password Flow
 
@@ -58,8 +94,6 @@ Lock version 9 and above uses the [new password reset flow](/connections/databas
 
 ## Past Migrations
 These are migrations that have already been enabled for all customers.
-
-
 
 ### Email Delivery Changes: "From" Address
 
@@ -133,9 +167,6 @@ The previous endpoint for deleting all users was `DELETE  /api/v2/users`. This i
 
 #### Am I affected by the change?
 You are affected by the change only if you currently make use of the delete all users endpoint. If so, the only change you need to make is to change the URL as explained above.
-
-
-
 
 ### State Parameter required on redirect from rule
 

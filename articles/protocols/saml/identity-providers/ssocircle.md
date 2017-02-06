@@ -157,14 +157,14 @@ Create an HTML file with the following HTML and JavaScript:
 
     <script src="${lock_url}"></script>
     <script type="text/javascript">
-      var lock = new Auth0Lock('YOUR_CLIENT_ID', '${account.namespace}');
+      var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
       function signin() {
         lock.show({
             callbackURL: 'http://jwt.io'
           , responseType: 'token'
           , authParams: {
-            scope: 'openid name email' //Details: https:///scopes
+            scope: 'openid name email'
           }
         });
       }
@@ -176,9 +176,7 @@ Create an HTML file with the following HTML and JavaScript:
 </HTML>
 ```
 
-Be sure to replace `YOUR_CLIENT_ID` with the actual value for the [Client you created](#4-create-an-auth0-client-to-test-the-connection).
-
-The Client ID can be found in the **Auth0 Dashboard** by going to **Clients** and clicking the **Settings** icon to the right of your Client name.
+Be sure to replace `YOUR_CLIENT_ID` with the actual value for the [Client you created](#4-create-an-auth0-client-to-test-the-connection). To find the Client ID, go to *[Auth0 Dashboard](${manage_url}) > [Clients](${manage_url}/#/clients)* and click the **Settings** icon to the right of your Client name. Copy the **Client ID** value.
 
 Save this file. For the purposes of this example, we'll call it `hello-saml.html`.
 

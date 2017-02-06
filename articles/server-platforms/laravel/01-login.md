@@ -11,7 +11,7 @@ budicon: 448
   path: '00-Starter-Seed',
   requirements: [
     'Composer 1.0-dev',
-    'PHP 5.5.12',
+    'PHP 5.6.4',
     'Laravel 5.2.15'
   ]
 }) %>
@@ -43,10 +43,8 @@ Optionally, if you want to use the [facade](http://laravel.com/docs/facades) cal
 );
 ```
 
-Now, you will be able to access to the logged user info with `Auth0::getUser()`.
-
 Finally, you will need to bind a class that provides the users (your app model user) each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (which should implement the `\Auth0\Login\Contract\Auth0UserRepository` interface, this is covered later).
-For this you need to add to your AppServiceProvider the following line:
+For this you need to add to your `AppServiceProvider` the following line:
 
 ```php
 ...
@@ -77,7 +75,7 @@ php artisan vendor:publish
 
 The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.3/authentication), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hook up the callback uri.
 
-In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${manage_url}/#/applications) and also, add it as a route in Laravel
+In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${manage_url}/#/applications) and also, add it as a route in `routes/web.php` in Laravel
 
 ```php
 Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');
@@ -85,9 +83,11 @@ Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');
 
 ## Triggering Login Manually or Integrating the Auth0 Widget
 
-You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](/lock), by adding the following javascript into a Laravel view or layout
+You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](/lock), by adding the following javascript into a Laravel view or layout (e.g. in `resources/views/welcome.blade.php`)
 
 <%= include('../../_includes/_lock-sdk') %>
+
+Now, after user has logged in, you will be able to access to the logged user info with `Auth::user()`.
 
 ## Defining a User and a User Provider
 
@@ -112,7 +112,7 @@ To enable this driver, you need to change the following line in `/config/auth.ph
 If you need a more advanced custom solution, you can extend the `Auth0UserRepository` class.
 
 For example, you may want to expose CRUD operations on the application `User` model. In the following
-example custom `read` methods are added and user profile data is stored locally.
+example, custom `read` methods are added and user profile data is stored locally.
 
 ```php
 <?php
@@ -171,7 +171,7 @@ class MyCustomUserRepository implements Auth0UserRepository {
 }
 ```
 
-And change the binding in the second step:
+And change the binding in the second step in your `AppServiceProvider`:
 
 ```php
 ...

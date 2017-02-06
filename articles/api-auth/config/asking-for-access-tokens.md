@@ -2,7 +2,7 @@
 description: How to request tokens for your applications.
 ---
 
-# API Authorization: Asking for Access Tokens for a Client Credentials Grant
+# Ask for Access Tokens for a Client Credentials Grant
 
 To ask Auth0 for tokens for any of your authorized client applications, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
 
@@ -15,7 +15,7 @@ To ask Auth0 for tokens for any of your authorized client applications, perform 
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"{CLIENT_ID}\",\"client_secret\": \"{CLIENT_SECRET}\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
   }
 }
 ```
@@ -25,15 +25,15 @@ The response will be a [signed JWT (JSON Web Token)](/jwt#2-body) containing at 
 ```
 {
   "iss": "https://${account.namespace}/",
-  "sub": "{APP_CLIENT_ID}@clients",
-  "aud": "{YOUR_API_IDENTIFIER}",
+  "sub": "${account.clientId}@clients",
+  "aud": "YOUR_API_IDENTIFIER",
   "exp": // unix timestamp of the token's expiration date,
   "iat": // unix timestamp of the token's creation date,
   "scope": ""
 }
 ```
 
-### Verifying an access token for a resource server
+### Verify an access token for a resource server
 
 Access tokens will be signed using the signature method configured for the resource server, and must be verified accordingly:
 
@@ -48,7 +48,7 @@ Your client app must be authorized to access your API before you can request tok
 
 You can go to the **Non Interactive Clients** tab of your API in the [APIs section](${manage_url}/#/apis) of the dashboard to verify that the app you are using has been authorized to request access tokens from this API.
 
-To add an authorized app, follow the instructions as described in [API Authorization: Using the Auth0 Dashboard](/api-auth#using-the-auth0-dashboard-for-setting-up-an-api-authorization-scenario).
+To add an authorized app, follow the instructions as described in [Set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard).
 
 ### Where to Find the IDs
 

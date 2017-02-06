@@ -11,8 +11,6 @@ The Auth0 Management APIv2 token is required to call v2 of the Auth0 Management 
 
 ## How to get a Management APIv2 Token
 
-### Using the Client Credentials Flow
-
 **Create a Non Interactive Client**
 
 A Non Interactive Client is a client that interacts with an API where there is no user involved. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow.
@@ -51,22 +49,6 @@ This page will give you code snippets on how to form a request to get a token.
 
 You should be able to scroll down to see your `access_token` property from the token which can be used to make authorized requests to your API.
 
-### Using the Auth0 Management APIv2 Explorer (deprecated)
-
-::: panel-warning This feature will be deprecated
-Generating tokens through the Management APIv2 explorer will soon be deprecated in favor of the more secure Client Credentials flow.
-:::
-
-The [Auth0 Management APIv2 explorer page](/api/v2) is very useful to experiment with Auth0 Management APIv2. Each endpoint shows its required scopes. By clicking the scope, it is automatically added to the token. For example, to make a call to the “List or search users” endpoint, one would click on the `read:users` scope to generate the token before invoking it:
-
-![](/media/articles/api/tokens/endpoint-scope.png)
-
-You can see the generated token in the **TOKEN GENERATOR** section. You can also manage scopes from this section to generate tokens. For adding new scopes you need to select an entity, an action and then press the arrow. Once all necessary scopes have been specified, the field underneath **TOKEN GENERATOR** will contain the APIv2 token to pass to the APIv2 endpoint(s).
-
-![](/media/articles/api/tokens/token-generator.png)
-
-To generate a Management APIv2 token programmatically, build a JSON Web  Token (JWT) containing the necessary information and sign it with the tenant API Secret. To build the JWT, it is helpful to use the Management APIv2 explorer, specify the desired scopes, and then click **Debug in jwt.io**. This will create the JWT with the scopes you specified and display it in JWT format. To get the API secret with which to sign the JWT, click on **API Key/Secret** in the Auth0 Management APIv2 API explorer.
-
 ### Special Scopes
 
 Notice that within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the id_token, which are granted automatically to the logged in user, so it makes no sense to click on them to generate a Management APIv2 token that will be used from server side code.
@@ -96,7 +78,8 @@ The Auth0 Management APIv2 access token is used to call the Auth0 Management API
 Keep your API secret secure. In the event that your API secret has been compromised or you need to invalidate all of your tokens you can change the API secret.
 
 You can change the API secret  in the dashboard by visiting this URL directly:
-```
+
+```text
 ${manage_url}/#/applications/YOUR_API_ID/settings
 ```
 

@@ -6,7 +6,7 @@ budicon: 448
 ---
 
 ::: panel-info System Requirements
-This tutorial have been tested with the following:
+This tutorial has been tested with the following:
 
 * NodeJS 6.3
 * npm 3.10.3
@@ -33,7 +33,7 @@ ${snippet(meta.snippets.setup)}
 ## 3. Implement the Login
 
 Now that everything is set, you can activate authentication on some of your components. Activating authentication on a component is as simple as calling the `protect` function on that component.
-Let's asume you have a `Todos` component and you want to ensure the user is logged in to see it.
+Let's assume you have a `Todos` component and you want to ensure the user is logged in to see it.
 
 ${snippet(meta.snippets.use)}
 
@@ -56,7 +56,7 @@ It defaults to:
 
 All the available configurable parameters are supported, see [User configurable options](/libraries/lock/v10/customization).
 
-After authentication, the `protect` function will handle the token parsing and storing it to `localStorage`.
+After authentication, the `protect` function will handle the token parsing and store it to `localStorage`.
 
 ## 4. Configure Secure Calls to Your API
 
@@ -78,9 +78,9 @@ ${snippet(meta.snippets.query)}
 
 To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
-## 6. Log out
+## 6. Implement the Logout
 
-To logout, you simply need to send the `logout` action to the Auth0 driver.
+To log out, you simply need to send the `logout` action to the Auth0 driver.
 
 ${snippet(meta.snippets.logout)}
 

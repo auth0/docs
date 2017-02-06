@@ -4,13 +4,14 @@ connection: MySQL
 image: /media/connections/mysql.svg
 seo_alias: mysql
 description: How to authenticate users with username and password using a Custom Database.
+toc: true
 ---
 
 # Authenticate Users with Username and Password using a Custom Database
 
 Applications often rely on user databases for authentication. Auth0 enables you to easily connect to these repositories and use them as identity providers while preserving user credentials and providing many additional features. You can read more about database connections and the different user store options at [Database Identity Providers](/connections/database).
 
-In this tutorial, you will be guided through a series of steps to connect your custom user store to Auth0.
+In this tutorial, you will be guided through a series of steps to connect your custom user store to Auth0. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Create a database connection
 
@@ -27,6 +28,10 @@ Click **Custom Database** and turn on the **Use my own database** switch.
 ## 3. Provide action scripts
 
 You have to provide a login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
+
+::: panel-info Note
+When creating users, the `get_user` script is called before the `create` script. Be sure that you have implemented both.
+:::
 
 These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 
@@ -74,7 +79,7 @@ This script connects to a **MySQL** database and executes a query to retrieve th
 
 ### Database Field Requirements
 
-Of course, your custom database will need to have fields in it that will provide the information to populate user profiles. In the above example, the script is checking for an `id`, `nickname`, `email`, and `password`. 
+Of course, your custom database will need to have fields in it that will provide the information to populate user profiles. In the above example, the script is checking for an `id`, `nickname`, `email`, and `password`.
 
 For more information on Auth0 user profile schema and the fields that are expected, as well as additional ones that are available, take a look at the [Auth0 Normalized User Profile](/user-profile/normalized) documentation.
 
@@ -95,6 +100,7 @@ function login (username, password, callback) {
     password : configuration.MYSQL_PASSWORD,
     database : 'mydb'
   });
+}
 ```
 
 ## 5. Error handling
@@ -135,3 +141,5 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 After you have enabled the database connection, the Auth0 Login widget will automatically change its appearance to allow users to enter their `username` and `password`. Once entered, this data is passed to your scripts.
 
 ![](/media/articles/connections/database/mysql/db-connection-widget.png)
+
+<%= include('../_quickstart-links.md') %>

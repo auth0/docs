@@ -2,7 +2,7 @@
 
 The `authService` has a method for showing the Lock widget, but it hasn't been called anywhere yet. The place from which this method is called depends on how your application is set up, but it is common to do so from a header toolbar component or from a dedicated **login** or **user** view.
 
-### Log In
+### Login
 
 Start by creating a **login** controller and view.
 
@@ -34,9 +34,9 @@ With the `authService` injected in this controller, the `login` method can now b
 <button class="btn btn-primary" ng-click="vm.authService.login()">Log In</button>
 ```
 
-When the user clicks the **Log In** button, the Lock widget will be displayed.
+When the user clicks the **Log In** button, the [Lock widget](/libraries/lock) will be displayed.
 
-Lastly, add the **login** state to your `$stateProvider` configuation in `app.js`.
+Lastly, add the **login** state to your `$stateProvider` configuration in `app.js`.
 
 ```js
 // app.js
@@ -63,7 +63,7 @@ Lastly, add the **login** state to your `$stateProvider` configuation in `app.js
 })();
 ```
 
-### Log Out
+### Logout
 
 Since JWT authentication is stateless, logging the user out is simply a matter of removing the user's `id_token` from local storage. Calling `authManager.unauthenticate` will set the user's application-wide authentication status to `false`.
 
@@ -89,7 +89,7 @@ Since JWT authentication is stateless, logging the user out is simply a matter o
 })();
 ```
 
-Remember to also add a **Log Out** button which calls this function. In our example we call this function from `HomeController`, so this button can be added in `home.html`.
+Remember to also add a **Log Out** button which calls this function. In our example, we call this function from `HomeController`, so this button can be added in `home.html`.
 
 ```html
 <!-- components/home/home.html -->

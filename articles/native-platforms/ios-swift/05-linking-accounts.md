@@ -35,13 +35,13 @@ import Lock
 ```
 
 ```swift
-let controller = A0Lock.sharedLock().newLockViewController()
-controller.closable = true
-controller.onAuthenticationBlock = { profile, token in
+let controller = A0Lock.shared().newLockViewController()
+controller?.closable = true
+controller?.onAuthenticationBlock = { profile, token in
     // store token.idToken
-    controller.dismissViewControllerAnimated(true, completion: nil)
+    controller?.dismiss(animated: true, completion: nil)
 }
-A0Lock.sharedLock().presentLockController(controller, fromController: self)
+A0Lock.shared().present(controller, from: self)
 ```
 
 Upon success, you need to store the `token.idToken` value for later use, which is the `idToken` for the secondary account that the user is linking with.
@@ -67,9 +67,9 @@ Auth0
     .link(userId, withOtherUserToken: otherUserToken)
     .start { result in
         switch result {
-        case .Success:
+        case .success:
             // linked account!
-        case .Failure(let error):
+        case .failure(let error):
             // deal with error
         }
     }
@@ -84,8 +84,8 @@ import Lock
 ```
 
 ```swift
-let client = A0Lock.sharedLock().apiClient()
-client.fetchUserProfileWithIdToken(idToken,
+let client = A0Lock.shared().apiClient()
+client?.fetchUserProfile(withIdToken: idToken,
     success: { profile in
         let identities = profile.identities as! [A0UserIdentity]
         // you've got the linked accounts here
@@ -114,9 +114,9 @@ Auth0
     .unlink(identityId: identity.userId, provider: identity.provider, fromUserId: userId)
     .start { result in
             switch result {
-            case .Success:
+            case .success:
                 // unlinked account!
-            case .Failure(let error):
+            case .failure(let error):
                 // deal with error
             }
      }

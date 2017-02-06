@@ -18,19 +18,19 @@ You can get started by either downloading the seed project or if you would like 
   ]
 }) %>
 
-## Add the Dependencies
+## 1. Add the Dependencies
 
 ${snippet(meta.snippets.dependencies)}
 
 This example uses `flask` but it could work with any server
 
-## Add the Auth0 Callback Handler
+## 2. Add the Auth0 Callback Handler
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
 
 ${snippet(meta.snippets.setup)}
 
-## Specify the Callback URLs
+## 3. Specify the Callback URLs
 
 ${include('../_callbackRegularWebApp')}
 
@@ -40,13 +40,13 @@ In this case, the callbackURL should look something like:
 http://yourUrl/callback
 ```
 
-## Triggering Login Manually or Integrating Lock
+## 4. Trigger Login Manually or Integrate Lock
 
 <%= include('../../_includes/_lock-sdk') %>
 
 > **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL specified in the previous step
 
-## Accessing User Information
+## 5. Access User Information
 
 You can access the user information via the `profile` you stored in the session on step 2
 
@@ -67,9 +67,9 @@ def dashboard():
 
 [Click here](/user-profile) to check all the information that the userinfo hash has.
 
-### Optional steps
+### 6. Optional steps
 
-#### Checking if the user is authenticated
+#### Check if the user is authenticated
 
 You can add the following annotation to your `Flask` app to check if the user is authenticated. Note that you should import `wraps` first, adding the following line to your file `from functools import wraps`.
 

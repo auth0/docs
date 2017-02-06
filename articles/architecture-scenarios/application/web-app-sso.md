@@ -87,11 +87,11 @@ For these reasons, ABC will use OpenID Connect for their implementation.
 OpenID Connect supports more than one flow for authentication. Since our scenario involves a regular web app we will use the __Authorization Code Flow__.
 
 The flow goes as follows:
-1. The app (called a Client in OIDC) initiates the authentication request by redirecting the user to Auth0.
-1. The first time the user goes through this flow a consent page will be shown where the permissions that will be given to the Client are listed (for example, post messages, list contacts). The user logs in to the service (unless they are already logged in) and authorizes the application access.
-1. Auth0 redirects the user to the Client, along with an _authorization code_ in the querystring.
+1. The web app (called the __Client__ in OIDC terms) initiates the authentication request by redirecting the __user-agent__ (browser) to Auth0 (the __Authorization Server__ in OIDC terms).
+1. Auth0 authenticates the user (via the user-agent). The first time the user goes through this flow a consent page will be shown where the permissions that will be given to the Client are listed (for example, post messages, list contacts). The user logs in to the service (unless they are already logged in) and authorizes the application access.
+1. Assuming the user grants access, Auth0 redirects the __user-agent__ back to the __Client__, along with an _authorization code_ in the querystring.
 1. The Client sends the _authorization code_ to Auth0, along with the client credentials (`client_id` and `client_secret`), and asks for a token.
-1. The service returns an __ID token__.
+1. Auth0 authenticates the __Client__ (using the `client_id` and `client_secret`) and validates the _authorization code_. If valid, Auth0 responds back with an __ID token__.
 
 ![Diagram of the Authorization Code Flow](/media/articles/architecture-scenarios/web-app-sso/authz-code-flow.png)
 

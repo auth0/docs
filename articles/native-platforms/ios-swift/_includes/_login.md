@@ -9,16 +9,16 @@ import Lock
 Then, configure and present the login screen, like this:
 
 ```swift
-let controller = A0Lock.sharedLock().newLockViewController()
-controller.closable = true
-controller.onAuthenticationBlock = { profile, token in
+let controller = A0Lock.shared().newLockViewController()
+controller?.closable = true
+controller?.onAuthenticationBlock = { profile, token in
     // Do something with token  profile. e.g.: save them.
     // Lock will not save these objects for you.
 
     // Don't forget to dismiss the Lock controller
-    controller.dismissViewControllerAnimated(true, completion: nil)
+    controller?.dismiss(animated: true, completion: nil)
 }
-A0Lock.sharedLock().presentLockController(controller, fromController: self)
+A0Lock.shared().present(controller, from: self)
 ```
 
 [![Lock.png](/media/articles/native-platforms/ios-swift/Lock-Widget-Screenshot.png)](https://auth0.com)

@@ -99,8 +99,8 @@ If Auth0 is acting as a Service Provider, the following is needed to support IDP
 If Auth0 is acting as an Identity Provider, the following is needed to support IDP-initiated Single Sign On.
 
 
-* The URL to invoke for IDP-initiated login, if Auth0 will authenticate the users is of the form: `https://{accountname}.auth0.com/samlp/{client_id}`
-* The `RelayState parameter` can be appended to specify a URL to which the Service Provider should redirect the user after processing the SAML response. Example: `https://{accountname}.auth0.com/samlp/{client_id}?RelayState=http://{final_destination_URL}`
+* The URL to invoke for IDP-initiated login, if Auth0 will authenticate the users is of the form: `https://${account.namespace}/samlp/${account.clientId}`
+* The `RelayState parameter` can be appended to specify a URL to which the Service Provider should redirect the user after processing the SAML response. Example: `https://{accountname}.auth0.com/samlp/${account.clientId}?RelayState=http://FINAL_DESTINATION_URL`
 
 
 ### Signing and Encryption

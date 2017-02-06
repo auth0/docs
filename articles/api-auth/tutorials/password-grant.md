@@ -3,7 +3,6 @@ description: How to execute a Resource Owner Password Grant
 ---
 
 # Execute the Resource Owner Password Grant
-<%=include('../_region-support') %>
 
 ::: panel-danger Warning
 Support for Rules and Refresh Tokens will be available in a future release.
@@ -44,7 +43,7 @@ Where:
 * `password`: Resource Owner's secret.
 * `audience`: API Identifier that the client is requesting access to.
 * `client_id`: Client ID of the client making the request.
-* `client_secret`: Client Secret of the client making the request. This should be set only for highly trusted clients. You can make this parameter optional for SPAs and native apps, by setting the **Token Endpoint Authentication Method** at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) to `None`.
+* `client_secret`: Client Secret of the client making the request. Required when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA).
 * `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
 
 The response from `/oauth/token` (if successful) contains an `access_token`, for example:
@@ -60,7 +59,9 @@ The response from `/oauth/token` (if successful) contains an `access_token`, for
 In case the scopes issued to the client differ from the scopes requested, a `scope` parameter will be included in the response JSON, listing the issued scopes.
 
 ::: panel-info Password grant and standard scopes
-If you include the scope `openid` in your request, the response will include `openid profile email address phone` and any other scopes that you have configured, such as `read:notes`. In this case, the `scope` parameter will be included in the response, listing the issued scopes. This happens because a password is equal to full access hence any password-based exchange gives access to all scopes.
+If **no** API scopes (such as `read:notes`) are included in the request, all API scopes (such as `read:notes`, `create:notes`, etc.) are included in the `access_token`.
+If only the `openid` scope is included in the request, all `openid` standard scopes will be returned, such as `openid profile email address phone`.
+In these cases, the `scope` parameter will be included in the response, listing the issued scopes. This happens because a password is equal to full access and hence any password-based exchange gives access to all scopes.
 :::
 
 ::: panel-info How to get the user's claims

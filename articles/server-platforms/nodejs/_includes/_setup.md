@@ -23,7 +23,7 @@ The sample projects which accompany each of these steps will have the following 
 
 ## Dependencies
 
-All the project dependencies are managed by npm and listed in the `package.json` file for each of the samples.
+All the project dependencies are managed by `npm` and listed in the `package.json` file for each of the samples.
 
 Run the following command to install the required packages.
 

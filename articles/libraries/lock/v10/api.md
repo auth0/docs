@@ -11,7 +11,7 @@ description: Details on the Lock V10 API.
 Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-event-callback-) method section!
 
 * [new Auth0Lock](#auth0lock) - Instantiating Lock
-* [getProfile()](#getprofile-) - Obtaining the profile of a logged in user
+* [getUserInfo()](#getuserinfo-) - Obtaining the profile of a logged in user
 * [show()](#show-) - Showing the Lock widget
 * [on()](#on-) - Listening for events
 
@@ -37,14 +37,14 @@ var lock = new Auth0Lock(clientId, domain);
 
 // Listen for the authenticated event and get profile
 lock.on("authenticated", function(authResult) {
-  lock.getProfile(authResult.idToken, function(error, profile) {
+  lock.getUserInfo(authResult.accessToken, function(error, profile) {
     if (error) {
       // Handle error
       return;
     }
 
     // Save token and profile locally
-    localStorage.setItem("idToken", authResult.idToken);
+    localStorage.setItem("accessToken", authResult.accessToken);
     localStorage.setItem("profile", JSON.stringify(profile));
 
     // Update DOM
@@ -52,21 +52,21 @@ lock.on("authenticated", function(authResult) {
 });
 ```
 
-## getProfile()
+## getUserInfo()
 
 ```js
-getProfile(token, callback)
+getUserInfo(accessToken, callback)
 ```
 
-Once the user has logged in and you are in possesion of a token, you can use that token to obtain the user's profile with `getProfile`.
+Once the user has logged in and you are in possesion of a token, you can use that token to obtain the user's profile with `getUserInfo`. This method replaces the deprecated `getProfile()`.
 
-- **token {String}**: User token.
+- **accessToken {String}**: User token.
 - **callback {Function}**: Will be invoked after the user profile been retrieved.
 
 **Example:**
 
 ```js
-lock.getProfile(token, function(error, profile) {
+lock.getUserInfo(accessToken, function(error, profile) {
   if (!error) {
     alert("hello " + profile.name);
   }
@@ -187,21 +187,21 @@ Lock will emit events during its lifecycle. The `on` method can be used to liste
 - `unrecoverable_error`: emitted when there is an unrecoverable error, for instance when no connection is available. Has the error as the only argument.
 - `authenticated`: emitted after a successful authentication. Has the authentication result as the only argument. The authentication result contains the token which can be used to get the user's profile or stored to log them in on subsequent checks. 
 
-The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`.
+The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `accessToken`, `idToken`, `state`, `refreshToken` and `idTokenPayload`.
 
 An example use of the `authenticated` event:
 
 ```js
 // Listen for authenticated event; pass the result to a function as authResult
 lock.on("authenticated", function(authResult) {
-  // Call getProfile using the token from authResult
-  lock.getProfile(authResult.idToken, function(error, profile) {
+  // Call getUserInfo using the token from authResult
+  lock.getUserInfo(authResult.accessToken, function(error, profile) {
     if (error) {
       // Handle error
       return;
     }
     // Store the token from authResult for later use
-    localStorage.setItem('idToken', authResult.idToken);
+    localStorage.setItem('accessToken', authResult.accessToken);
     // Display user information
     show_profile_info(profile);
   });

@@ -22,23 +22,23 @@ A Critical Issue is defined as an Auth0 issue severely impacting your live or in
 
 ## Special procedures for critical issues impacting production applications for Appliance customers
 
-Appliance customers should use the [Auth0 Support Center](https://support.auth0.com) as a primary method of logging a critical support issue. As part of the onboarding procedure a cloud account should be created that gives administrators the possibility to log in to Support Center and create new tickets. Set the ticket severity to **Urgent** if you need an immediate response.
+Appliance customers should use the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) as a primary method of logging a critical support issue. As part of the onboarding procedure a cloud account should be created that gives administrators the possibility to log in to Support Center and create new tickets. Set the ticket severity to **Urgent** if you need an immediate response.
 
-> **Important**: using Support Center requires a cloud account setup. If you are unsure about this, please try logging in at the [Auth0 Support Center](https://support.auth0.com) or check with your Auth0 Customer Success Manager.
+> **Important**: using Support Center requires a cloud account setup. If you are unsure about this, please try logging in at the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) or check with your Auth0 Customer Success Manager.
 
-As a secondary point of escalation, Appliance customers can also send an email to productionoutage@auth0.com to log a critical support issue. *Note that this should only be a secondary escalation point, as a ticket created in Support Center provides a more reliable way to identify the customer having the problem and interact with the user.* 
+As a secondary point of escalation, Appliance customers can also send an email to productionoutage@auth0.com to log a critical support issue. *Note that this should only be a secondary escalation point, as a ticket created in Support Center provides a more reliable way to identify the customer having the problem and interact with the user.*
 
 ### To log a critical support issue in Support Center
 
-1. Go to the [Auth0 Support Center](https://support.auth0.com) and log in with your credentials.
-2. Click on the [New Ticket](https://support.auth0.com/tickets/new) button.
+1. Go to the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) and log in with your credentials.
+2. Click on the [New Ticket](${env.DOMAIN_URL_SUPPORT}/tickets/new) button.
 3. Select the affected service. **Note that even if you only see your cloud account, you will be getting support for your Appliance installation.**
 4. In **Environment** indicate the specific installation having the problem (i.e. Production, QA).
 5. For **What can we help you with?** select `Auth0 Service Issue`.
 6. For **Severity** select `Urgent`
 
   > **Note**: if you don't select `Urgent`, the issue will not be treated as critical. You will not be able to change the severity of the ticket once it is created so if, for example, you set Severity to `High` but later realize that the situation is critical, you need to create a new ticket with `Severity` set to Urgent.
-  
+
 7. Complete an appropriate **Subject** title.
 8. Describe the problem as completely as possible. *The more information you can provide about the issue you are having, the better we can provide quick and valuable support.*
 

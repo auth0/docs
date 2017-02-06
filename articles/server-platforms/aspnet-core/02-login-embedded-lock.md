@@ -12,9 +12,9 @@ budicon: 448
 
 ## Background
 
-When using the normal OIDC middleware, when a user wants to log in and the middleware is called, the user will be redirected to the Auth0 website to sign in using the hosted version of Lock. This may not be the user experience you are looking for. You may for example want to embed Lock inside your application so it has more of the look-and-feel of your own application. In this instance you can use both Lock and the OIDC middleware together, but it requires a bit of extra work on your side.
+When using the normal OIDC middleware, when a user wants to log in and the middleware is called, the user will be redirected to the Auth0 website to sign in using the hosted version of Lock. This may not be the user experience you are looking for. You may for example want to embed Lock inside your application so it has more of the look-and-feel of your own application. In this instance, you can use both Lock and the OIDC middleware together, but it requires a bit of extra work on your side.
 
-Normally when the OIDC middleware initiates the 1st leg of the authentication, it will send along information contained in `state` and `nonce` parameters. After the user has authenticated and Auth0 redirects back to the redirect URL inside your application, in will pass back this `state` and `nonce` parameters. The OIDC middleware is going to pick up that callback to the redirect URL because it will need to exchange the `code` for an `access_token`. It will however validate the `state` and `nonce` parameters to protect against CSRF.
+Normally when the OIDC middleware initiates the 1st leg of the authentication, it will send along information contained in `state` and `nonce` parameters. After the user has authenticated and Auth0 redirects back to the redirect URL inside your application, in will pass back this `state` and `nonce` parameters. The OIDC middleware is going to pick up that callback to the redirect URL because it will need to exchange the `code` for an `access_token`. It will, however, validate the `state` and `nonce` parameters to protect against CSRF.
 
 This poses a problem. When you embed Lock in your application, the OIDC middleware is not initiating the 1st leg of the OAuth flow. Instead, the embedded Lock widget is initiating that first step.
 
@@ -76,13 +76,13 @@ The reason we configure the OIDC options with the DI Framework is because we wil
 
 ## Configure OpenID Connect middleware
 
-Next you must configure the Cookie and OIDC middleware in the `Configure` method.
+Next, you must configure the Cookie and OIDC middleware in the `Configure` method.
 
-First be sure to change the signature of your `Configure` method to accept a parameter called `oidcOptions` of type `IOptions<OpenIdConnectOptions>`. The DI framework will inject the `OpenIdConnectOptions` registered in the `ConfigureServices` method as the value of this parameter.
+First, be sure to change the signature of your `Configure` method to accept a parameter called `oidcOptions` of type `IOptions<OpenIdConnectOptions>`. The DI framework will inject the `OpenIdConnectOptions` registered in the `ConfigureServices` method as the value of this parameter.
 
-Next register the Cookie middleware by making a call to the `UseCookieAuthentication` method. Then register the OIDC middleware by making a call to the `UseOpenIdConnectAuthentication` method, passing along the value of the `oidcOptions` parameter which was injected by the DI framework.
+Next, register the Cookie middleware by making a call to the `UseCookieAuthentication` method. Then register the OIDC middleware by making a call to the `UseOpenIdConnectAuthentication` method, passing along the value of the `oidcOptions` parameter which was injected by the DI framework.
 
-Both these middleware should be registered before your MVC middleware in order for your controllers to be protected. The OIDC middleware is required in order to authenticate the user with Auth0. Once the user has authenticated they will be signed in to the Cookie middleware which will be used to authenticate all subsequent requests.
+Both of these middleware should be registered before your MVC middleware in order for your controllers to be protected. The OIDC middleware is required in order to authenticate the user with Auth0. Once the user has authenticated they will be signed into the Cookie middleware which will be used to authenticate all subsequent requests.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<OpenIdConnectOptions> oidcOptions)
@@ -125,7 +125,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 In order to configure the `state` parameter and save the correct Cookies for the OIDC middleware to work correctly when the redirect URL is called, you will need to add 2 helper classes to your project. You can download the source code for these helper files classes from the following locations:
 
-* [Auth0Extensions.cs](https://github.com/auth0-samples/auth0-aspnetcore-sample/blob/master/02-Login-Embedded-Lock/SampleMvcApp/Auth0Settings.cs)
+* [Auth0Extensions.cs](https://github.com/auth0-samples/auth0-aspnetcore-sample/blob/master/02-Login-Embedded-Lock/SampleMvcApp/Auth0Extensions.cs)
 * [LockContext.cs](https://github.com/auth0-samples/auth0-aspnetcore-sample/blob/master/02-Login-Embedded-Lock/SampleMvcApp/LockContext.cs)
 
 ::: panel-warning Fix namespaces
@@ -134,13 +134,13 @@ Be sure fix the namespaces in the files above to correlate with the namespace of
 
 ## Add Login and Logout methods
 
-Next you will need to add `Login` and `Logout` actions to the `AccountController`.
+Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
 First though, add a constructor to the `AccountController` which will accept a parameter of `IOptions<OpenIdConnectOptions>` (this will be injected by the DI framework). Be sure to save this parameter to an instance variable, as you will need to use it in the `Login` action.
 
 The `Login` method must call the `GenerateLockContext` extension method which will create the correct `state` and `nonce` parameters and set the correct Cookies for the OIDC middleware to function correctly. It will return a `LockContext` parameter which you must pass along to the View.
 
-After the OIDC middleware has signed the user in, the user will automatically be signed into the cookie middleware as well to authenticate them on subsequent requests. So for the `Logout` action you will need to sign the user out of both the OIDC and the cookie middleware:
+After the OIDC middleware has signed the user in, the user will automatically be signed into the cookie middleware as well to authenticate them on subsequent requests. So, for the `Logout` action you will need to sign the user out of both the OIDC and the cookie middleware:
 
 ``` csharp
 public class AccountController : Controller
@@ -202,11 +202,11 @@ For the Login screen you can create a Razor view and embed the code for Lock. Yo
 </script>
 ```
 
-Be sure to set the Client ID, Domain and Callback URL values from the ones supplied by the `LockContext` model. Also be sure to set the correct `state` and `nonce` parameters as shown above, as this is the key to getting everyting to work together.
+Be sure to set the Client ID, Domain and Callback URL values from the ones supplied by the `LockContext` model. Also be sure to set the correct `state` and `nonce` parameters as shown above, as this is the key to getting everything to work together.
 
 ## Add Login and Logout links
 
-Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. This will link to the `Logout` and `Login` actions of the `AccountController` respectively:
+Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. This will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
 ```html
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -241,4 +241,4 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
 
 ## Run your application
 
-Now when you run the application you can select the Login link to log in to the application. This will take you to the Login view containing the embedded Lock widget. After the user has logged in they can click on the Logout link to log them out of the application.
+Now, when you run the application you can select the Login link to log in to the application. This will take you to the Login view containing the embedded Lock widget. After the user has logged in they can click on the Logout link to log them out of the application.

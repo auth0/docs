@@ -13,6 +13,8 @@ To connect your Auth0 app to Shopify, you will need to create an app on the Shop
 Due to Shopify's OAuth implementation, successful user authentication returns the **Shop** profile, not the user profile.
 :::
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ### 1. Create an app on the Shopify Partner portal
 
 Login to the [Shopify Partner](https://app.shopify.com/services/partners) portal. Select **Apps** in the left nav and click **Create a new app**:
@@ -86,6 +88,7 @@ If you have configured everything correctly, you will see the It works!!! page:
 ::: panel-info Shopify Multipass
 You can use Shopify's [Multipass](https://help.shopify.com/api/reference/multipass) feature to automatically authenticate users who have already been verified by Auth0 on Shopify.
 :::
- 
 
+<%= include('../_quickstart-links.md') %>
+ 
 

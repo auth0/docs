@@ -71,7 +71,7 @@ public class SecurePage : NancyModule
 
 ## Add Auth0 Callback Handler
 
-We need to add the handler for the Auth0 callback so that we can authenticate the user and get their information. We also need to add an endpoint to let users Login and Logout.
+We need to add the handler for the Auth0 callback so that we can authenticate the user and get their information. We also need to add an endpoint to let users log in and log out.
 
 ```cs
 public class Authentication : NancyModule

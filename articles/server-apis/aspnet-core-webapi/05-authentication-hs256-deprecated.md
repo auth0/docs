@@ -1,5 +1,5 @@
 ---
-title: Authentication - HS256 (Deprecated)
+title: Authentication (HS256)
 name: Shows how to secure your API using the standard JWT middeware
 description: Shows how to secure your API using the standard JWT middeware
 budicon: 500
@@ -70,7 +70,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.
 :::
 
-## 4. Securing an API endpoint
+## 4. Secure an API endpoint
 
 The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.asp.net/en/latest/security/authentication/index.html) and [Authorization](https://docs.asp.net/en/latest/security/authorization/index.html) mechanisms.
 
@@ -90,7 +90,7 @@ public class PingController : Controller
 }
 ```
 
-## 5. Using your API
+## 5. Use your API
 
 You can make calls to your API by authenticating a user using any of our Lock integrations and then using the `id_token` obtained during authentication and passing that in the `Authorization` header of requests to your API as a Bearer token.
 
@@ -111,11 +111,11 @@ request.AddHeader("authorization", "Bearer <your token>");
 IRestResponse response = client.Execute(request);
 ```
 
-## 6. Testing your API in Postman
+## 6. Test your API with Postman
 
-During development you may want to test your API with Postman.
+During development, you may want to test your API with Postman.
 
-If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
+If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code `401 Unauthorized`:
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 
@@ -129,4 +129,4 @@ Now you can use the `id_token` and pass it along in the Authorization header as 
 
 ## Next Step
 
-To learn how to allow only users in a certain role to access a particular endpoint, please continue with the [Authorization](/quickstart/backend/aspnet-core-webapi/03-authorization) tutorial.
+To learn how to allow only users in a certain role to access a particular endpoint, please continue with the [Authorization](/quickstart/backend/aspnet-core-webapi/06-authorization-deprecated) tutorial.

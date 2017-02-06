@@ -8,9 +8,7 @@ __Development__, __Test__, __Q&A__ environments are easy to setup in Auth0. Simp
 
 ![](/media/articles/lifecycle/environments.png)
 
-The example above uses a simple naming convention to distinguish each environment.
-
-> Note: Depending on the subscription, paying customers can apply to obtain additional accounts for development and testing environments. These will have the same plan and features as the one they've subscribed to. Please create a ticket in [Support Center](https://support.auth0.com) if you need these additional accounts.
+The example above uses a simple naming convention to distinguish each environment, you can name your multiple environments anyway you prefer. No need to use this naming convention, though it is the one recommended.
 
 ## Migration
 
@@ -45,3 +43,5 @@ Since an AD/LDAP Connector is tied to a specific Connection within an Auth0 acco
 Multiple AD/LDAP Connectors can point to the same AD or LDAP directory, but each AD/LDAP connector can only be used by one Connection within one Auth0 account.
 
 If you have multiple AD/LDAP directories against which users will authenticate, (to support different departments or customers, each with their own directory, for example), you can setup multiple AD/LDAP Connectors within each Auth0 account.
+
+

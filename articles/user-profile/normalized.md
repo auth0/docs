@@ -41,7 +41,7 @@ The `identities` array contains the following attributes:
 
 **NOTE:** Auth0 will pass to your app all other properties supplied by the identity provider, even if those that are not mapped to the standard attributes listed above.
 
-## Storing User Data
+## Store User Data
 
 When outsourcing user authentication, there is usually no need to maintain your own users/passwords table. Even so, you may still want to associate application data to authenticated users.
 
@@ -158,3 +158,16 @@ This is a sample profile from **ADFS (Active Directory Federation Services)**:
   "user_id": "adfs|john@fabrikam.com"
 }
 ```
+
+## How to retrieve the User Profile
+
+You can retrieve the user profile using [Lock](/libraries/lock/v10/api#getuserinfo-), [Auth0.js](/libraries/auth0js#user-management), or our [Authentication API /userinfo endpoint](/api/authentication#get-user-info).
+
+We also have a _User Profile_ section on most of our [quickstarts](/quickstarts). Some of the most popular technologies we offer quickstarts and samples for are:
+- [Android](/quickstart/native/android/04-user-profile)
+- [Angular 1.x](/quickstart/spa/angularjs/04-user-profile) and [Angular 2](/quickstart/spa/angular2/04-user-profile)
+- [React](/quickstart/spa/react/04-user-profile)
+- [Node.js](/quickstart/webapp/nodejs/04-user-profile)
+- [ASP .NET Core](/quickstart/webapp/aspnet-core/05-user-profile)
+- [jQuery](/quickstart/spa/jquery/04-user-profile)
+- and [many more](/quickstarts)

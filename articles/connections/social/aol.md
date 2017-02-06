@@ -15,3 +15,5 @@ To configure an AOL Reader connection with Auth0, contact [AOL Reader Support](h
 * Your callback URL:
 
     `https://${account.namespace}/login/callback`
+
+<%= include('../_quickstart-links.md') %>

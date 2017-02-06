@@ -1,5 +1,5 @@
 ---
-title: Authorization (Deprecated)
+title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain API endpoints.
 budicon: 500
 ---
@@ -29,11 +29,11 @@ By default, it says that if the user email contains `@example.com` he will be gi
 
 ## 2. Restrict an action based on a user's roles
 
-ASP.NET Core will automatically map claims contained in the JWT to claims on the `ClaimsIdentity`. Specifically, it will look for a "roles" claim on the `id_token`, and then for each role inside the array on the "roles" claim, it will add a "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" claim to the `ClaimsIdentity`.
+ASP.NET Core will automatically map claims contained in the JWT to claims on the `ClaimsIdentity`. Specifically, it will look for a `roles` claim on the `id_token`, and then for each role inside the array on the "roles" claim, it will add a `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` claim to the `ClaimsIdentity`.
 
 This means that it integrates seamlessly with the [Role based authorization](https://docs.asp.net/en/latest/security/authorization/roles.html) inside ASP.NET Core.
 
-Once the correct claims are being returned from Auth0, all you therefore have to do is decorate your controller actions with the `[Authorize(Roles = ?)]` attribute.
+Once the correct claims are returned from Auth0, all you have to do is decorate your controller actions with the `[Authorize(Roles = ?)]` attribute.
 
 The sample code below will restrict the particular action only to user who have the "admin" role:
 
@@ -47,7 +47,7 @@ public string PingAdmin()
 }
 ```
 
-### Debugging Claims
+### Debug Claims
 
 The sample source code for this quickstart contains a very handy API endpoint which allows you to view the claims associated with a particular JWT. You simply make a call to the `/api/claims` endpoint and it will return all the claims associated with the JWT.
 

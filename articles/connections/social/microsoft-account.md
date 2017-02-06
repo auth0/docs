@@ -15,6 +15,8 @@ description: How to configure your Auth0 app for an OAuth connection to Microsof
 
 To connect your Auth0 app to Microsoft Account, you will need to create an app on the Microsoft Application Registration Portal, generate an `Application Id` and `Secret`, copy these credentials into Auth0, and enable the connection.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Create an application
 
 Login to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
@@ -94,4 +96,7 @@ Click Yes to allow your Microsoft app to access your information.
 If you see the **It Works!** page, you have successfully configured your connection to Microsoft Account.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-9.png)
+
+<%= include('../_quickstart-links.md') %>
+
 

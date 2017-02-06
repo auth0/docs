@@ -100,7 +100,7 @@ ${" <% end %> "}
 
 ## Create the Settings Controller
 
-Create the `show` action that will continue to retrieve the user information as in the previous steps, but addittionally it will collect the list of the current user's identity providers into the `providers` hash:
+Create the `show` action that will continue to retrieve the user information as in the previous steps, but additionally it will collect the list of the current user's identity providers into the `providers` hash:
 
 ```ruby
 def show

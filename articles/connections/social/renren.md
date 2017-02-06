@@ -9,6 +9,8 @@ description: How to obtain an API Key and Secret Key for RenRen.
 
 To configure a RenRen OAuth2 connection, you will need to register Auth0 on the RenRen integration portal.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Create a new App
 
 Log into the RenRen [integration portal](http://app.renren.com/developers) and click **Create New App**:
@@ -36,3 +38,6 @@ Once the app is created, the `API Key` and `Secret Key` will be displayed on the
 Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **RenRen**. Copy the `API Key` and `Secret Key` from the **New App** page on RenRen into fields on this page on Auth0:
 
 ![](/media/articles/connections/social/renren/renren-register-4.png)
+
+<%= include('../_quickstart-links.md') %>
+

@@ -30,13 +30,13 @@ import Lock
 ```
 
 ```swift
-let controller = A0Lock.sharedLock().newLockViewController()
-controller.onAuthenticationBlock = { profile, token in
+let controller = A0Lock.shared().newLockViewController()
+controller?.onAuthenticationBlock = { profile, token in
     // Upon successfull login, you get an A0Token instance
     // You will usually save it for later use
-    controller.dismissViewControllerAnimated(true, completion: nil)
+    controller?.dismiss(animated: true, completion: nil)
 }
-A0Lock.sharedLock().presentLockController(controller, fromController: self)
+A0Lock.shared().present(controller, from: self)
 ```
 
 In order to make authenticated requests, you can use any of the token strings inside that `A0Token` instance you just obtained; which one is up to you.
@@ -47,11 +47,11 @@ Supposing you have decided to use the `idToken` value, here is what you would do
 
 ```swift
 let token = ... // The A0Token instance you got upon login
-let url = NSURL(string: "your api url")!
-let request = NSMutableURLRequest(URL: url)
+let url = URL(string: "your api url")!
+var request = URLRequest(url: url)
 // Configure your request here (method, body, etc)
 request.addValue("Bearer \(token.idToken)", forHTTPHeaderField: "Authorization")
-let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+let task = URLSession.shared.dataTask(with: request) { data, response, error in
     // Parse the response
 }
 ```
@@ -71,8 +71,8 @@ task.resume()
 When testing the sample project, make sure you configure your URL request in the `ProfileViewController.swift` file:
 
 ```swift
-let url = NSURL(string: "your api url")!
-let request = NSMutableURLRequest(URL: url)
+let url = URL(string: "your api url")!
+var request = URLRequest(url: url)
 // Configure your request here (method, body, etc)
 ```
 

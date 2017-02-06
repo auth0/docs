@@ -13,7 +13,7 @@ curl --request GET \
   --url 'https://${account.namespace}/wsfed/${account.clientId}'
 ```
 
-<% var acceptWSReqPath = '/wsfed/{client_id}'; %>
+<% var acceptWSReqPath = '/wsfed/YOUR_CLIENT_ID'; %>
 <%= include('../../_includes/_http-method', {
   "http_method": "GET",
   "path": acceptWSReqPath,
@@ -34,7 +34,12 @@ This endpoint accepts a WS-Federation request to initiate a login.
 | `wreply`         | The callback URL. |
 
 
-### Test this endpoint
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
@@ -50,7 +55,7 @@ This endpoint accepts a WS-Federation request to initiate a login.
 - The `wtrealm` parameter must be in one of these formats:
   - `urn:clientID` (e.g. urn:${account.clientId})
   - If this parameter does not begin with a urn, the `client.clientAliases` array is used for look-up. This can only be set with the [/api/v2/clients](/api/management/v2#!/Clients/get_clients) Management API.
-- The `whr` parameter is mapped to the connection like this: `urn:{connection_name}`. For example, `urn:google-oauth2` indicates login with Google. If there is no `whr` parameter included, the user will be directed to the [Auth0 Login Page](/login_page).
+- The `whr` parameter is mapped to the connection like this: `urn:CONNECTION_NAME`. For example, `urn:google-oauth2` indicates login with Google. If there is no `whr` parameter included, the user will be directed to the [Auth0 Login Page](/login_page).
 
 
 ### More Information
@@ -70,7 +75,7 @@ curl --request GET \
   --url 'https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml'
 ```
 
-<% var getMetadataPath = '/wsfed/{client_id}/FederationMetadata/2007-06/FederationMetadata.xml'; %>
+<% var getMetadataPath = '/wsfed/YOUR_CLIENT_ID/FederationMetadata/2007-06/FederationMetadata.xml'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_method": "GET",
@@ -79,6 +84,11 @@ include('../../_includes/_http-method', {
 }) %>
 
 This endpoint returns the WS-Federation metadata.
+
+
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
 
 
 ### More Information

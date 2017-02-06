@@ -35,8 +35,8 @@ import Lock
 ```
 
 ```swift
-let client = A0Lock.sharedLock().apiClient()
-client.fetchUserProfileWithIdToken(idToken,
+let client = A0Lock.shared().apiClient()
+client.fetchUserProfile(withIdToken: idToken,
     success: { profile in
         // You've got the user profile here!
         // You might want to store it in a safe place. You can use SimpleKeychain:
@@ -106,9 +106,9 @@ Auth0
     .patch(profile.userId, userMetadata: ["first_name": "John", "last_name": "Appleseed", "country": "Canada"]
     .start { result in
         switch result {
-        case .Success:
+        case .success:
             // deal with success
-        case .Failure(let error):
+        case .failure(let error):
             // deal with failure
         }
 }
