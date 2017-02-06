@@ -130,4 +130,10 @@ This document is part the [Server + API Architecture Scenario](/architecture-sce
 
 [JSON Web Tokens (JWT) in Auth0](/jwt)
 
+[APIs in Auth0](/apis)
+
+[Tokens used by Auth0](/tokens)
+
 [Server Client + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions)
+
+[How to implement API authentication and authorization scenarios](/api-auth)
