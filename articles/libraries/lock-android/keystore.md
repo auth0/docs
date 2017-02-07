@@ -8,13 +8,11 @@ description: Instructions on acquiring development keystores/key hashes during A
 
 # Android Development Keystores and Key Hashes
 
-You will need a [Keystore](https://developer.android.com/studio/publish/app-signing.html) for signing your Android app. 
+When creating a new OAuth Credential for many connections you will need to provide the SHA-1 of the certificate you're using to sign your application. When completing your Client's configuration in the [Auth0 Dashboard](${manage_url}) you will also need to provide the SHA-256 value. 
 
-_If you already have one, you can continue and skip the instructions about acquiring one._ 
+Locate the certificate you're using to sign your application. If you don't have one you can generate it. For production applications, you should do this.
 
-During development, you can use the default "android debug keystore" to sign your application. To generate the key hashes using this keystore follow the examples below. 
-
-For a release keystore, replace the file, alias, store password and key password with your own values.
+During development, you can sign your application with the default `android.keystore` certificate that was generated automatically for you when you installed the SDK. In this example we're going to use this default keystore. To generate the key hashes using this keystore follow the examples below. 
 
 ## Generating your key hashes
 
