@@ -35,12 +35,12 @@ Android API 15 or later & Facebook Android SDK 4.+
 7. Click Settings and then Advanced. Turn ON the **Native or desktop app?** switch.
 
 ### Auth0 Dashboard
-1. Go to the Auth0 Dashboard and click [Social Connections](https://manage.auth0.com/#/connections/social).
+1. Go to the Auth0 Dashboard and click [Social Connections](${manage_url}/#/connections/social).
 2. Click **Facebook** and a dialog will prompt.
 3. Complete the "App ID" field with the `APP ID` value obtained in the step 5 of the **Facebook Developers Console** section above.
 4. Complete the "App Secret" field with the `APP SECRET` value obtained in the step 5 of the **Facebook Developers Console** section above.
 5. Click the Save button.
-6. Go to the Auth0 Dashboard and click [Clients](https://manage.auth0.com/#/clients). If you haven't created yet one, do that first and get into your client configuration page.
+6. Go to the Auth0 Dashboard and click [Clients](${manage_url}/#/clients). If you haven't created yet one, do that first and get into your client configuration page.
 7. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Mobile Settings" tab.
 8. In the Android section, complete the **Package Name** with your application's package name. Finally, complete the **Key Hashes** field with the SHA-256 of the certificate you're using to sign your application. If you need help obtaining the SHA-256 check [this](#certificate-fingerprints) section. Click the "Save Changes" button.
 

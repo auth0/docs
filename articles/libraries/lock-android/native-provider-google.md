@@ -30,18 +30,18 @@ Android API 15 or later & Google Play Services 10.+
 1. Go to the [Google Developers Console](https://console.developers.google.com/) and create a new Project.
 2. Complete the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) by at least providing a valid Email Address and Name.
 3. On the left side you have the navigation drawer, click [Credentials](https://console.developers.google.com/apis/credentials).
-4. Create a new credential by clicking the [Create Credentials](https://console.developers.google.com/apis/credentials/oauthclient) button and choosing **OAuth client ID**. Next, choose **Web Application** and give it a name like "Auth0 Server Google-OAuth". Complete the **Authorized redirect URIs** by filling the field with your callback URL, which should look like `https://{YOUR_DOMAIN}.auth0.com/login/callback`. Make sure to press ENTER before leaving the field and then click the Create button. Take note of the `CLIENT ID` and `CLIENT SECRET` values as we're going to use them later.
+4. Create a new credential by clicking the [Create Credentials](https://console.developers.google.com/apis/credentials/oauthclient) button and choosing **OAuth client ID**. Next, choose **Web Application** and give it a name like "Auth0 Server Google-OAuth". Complete the **Authorized redirect URIs** by filling the field with your callback URL, which should look like `https://${account.namespace}/login/callback`. Make sure to press ENTER before leaving the field and then click the Create button. Take note of the `CLIENT ID` and `CLIENT SECRET` values as we're going to use them later.
 5. Create a new credential by clicking the [Create Credentials](https://console.developers.google.com/apis/credentials/oauthclient) button and choosing **OAuth client ID**. Next, choose **Android** and give it a name like "Auth0 Android Google-OAuth". Obtain the **SHA-1** of the certificate you're using to sign your application and complete the first field with it. If you need help obtaining the SHA-1 check [this](#certificate-fingerprints) section. Finally, complete the last field with your android application **Package Name** and then click the Create button. Take note of the `CLIENT ID` value as we're going to use it later.
 
 ### Auth0 Dashboard
 
-1. Go to the Auth0 Dashboard and click [Social Connections](https://manage.auth0.com/#/connections/social).
+1. Go to the Auth0 Dashboard and click [Social Connections](${manage_url}/#/connections/social).
 2. Click **Google** and a dialog will prompt.
 3. Complete the "Client ID" field with the `CLIENT ID` value obtained in the step 4 of the **Google Developers Console** section above.
 4. Complete the "Client Secret" field with the `CLIENT SECRET` value obtained in the step 4 of the **Google Developers Console** section above.
 5. Complete the "Allowed Mobile Client IDs" field with the `CLIENT ID` obtained in the step 5 of the **Google Developers Console** section above.
 6. Click the Save button.
-7. Go to the Auth0 Dashboard and click [Clients](https://manage.auth0.com/#/clients). If you haven't created yet one, do that first and get into your client configuration page.
+7. Go to the Auth0 Dashboard and click [Clients](${manage_url}/#/clients). If you haven't created yet one, do that first and get into your client configuration page.
 8. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Mobile Settings" tab.
 9. In the Android section, complete the **Package Name** with your application's package name. Finally, complete the **Key Hashes** field with the SHA-256 of the certificate you're using to sign your application. If you need help obtaining the SHA-256 check [this](#certificate-fingerprints) section. Click the "Save Changes" button.
 

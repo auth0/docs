@@ -7,7 +7,7 @@ description: Lock for Android - Custom OAuth Connections
 
 ## Create the OAuth Connection in the Dashboard
 
-First the user needs to create a new connection by using the `Custom Social Connections` [extension](https://manage.auth0.com/#/extensions), filling every required field before saving the changes.
+First the user needs to create a new connection by using the `Custom Social Connections` [extension](${manage_url}/#/extensions), filling every required field before saving the changes.
 
 ## Customize the Style in Lock
 

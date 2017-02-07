@@ -53,4 +53,4 @@ As in the previous version, Lock for Android v2 can be configured with extra opt
 * `setAuthenticationParameters`: Renamed to `withAuthenticationParameters`. Defines extra authentication parameters to be sent on sign up and log in/sign in. The default `scope` used on authentication calls is `openid`. This is changed from v1, which also included the `offline_access` scope.
 
 
-Lock for Android v2 also features a bunch of new options. Check the [options documentation](/libraries/lock-android#configuration) for a complete list of them.
+Lock for Android v2 also features a bunch of new options. Check the [configuration options page](/libraries/lock-android/configuration) for a complete list of them.
