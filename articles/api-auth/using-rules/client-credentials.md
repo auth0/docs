@@ -81,7 +81,16 @@ The input parameters for the rule, including sample snippets:
 
 ### Auth0 Runtime Expectation
 
-<%= include('./_includes/_runtime') %>
+The Auth0 Runtime expects you to return an `access_token` that looks like the following:
+
+```json
+{
+  "https://foo.com/claim": "bar",
+  "scope": [ "scope1", "scope2" ]
+}
+```
+
+If you decide not to issue the token, you can return `cb(new Error('access denied'))`.
 
 ### Logs
 
