@@ -6,30 +6,11 @@ description: How to read and update user metadata with Lock.
 
 When using Auth0's [Lock](/libraries/lock) library, you can define and update the user's `user_metadata` field.
 
-**NOTE**: For an overview on implementing Lock, see the [JavaScript Quickstart](/quickstart/spa/vanillajs).
-
-## Defining User Metadata on Signup
+## Define User Metadata on Signup
 
 For information on adding `user_metadata` on signup, see the section on Lock [Additional Signup Fields](/libraries/lock/v10/customization#additionalsignupfields-array-)
 
-## Working with User Metadata
-
-Once you have [implemented the login functionality](/quickstart/spa/vanillajs#3-implement-the-login) for your Lock instance, you can choose to store the newly-created `id_token`. 
-
-```js
-var hash = lock.parseHash(window.location.hash);
-if (hash) {
-  if (hash.error) {
-    console.log("There was an error logging in", hash.error);
-    alert('There was an error: ' + hash.error + '\n' + hash.error_description);
-  } else {
-    //save the token in the session:
-    localStorage.setItem('id_token', hash.id_token);
-  }
-}
-```
-
-## Reading User Metadata Properties
+## Read User Metadata
 
 You can read the user's `user_metadata` properties the same way you would for any user profile property. This example retrieves the value associated with `user_metadata.hobby`:
 
@@ -41,26 +22,37 @@ lock.getUserInfo(accessToken, function(error, profile) {
 });
 ```
 
-## Updating Metadata Properties
+**NOTE**: For details on how to initialize `lock` refer to [new Auth0Lock(clientID, domain, options)](https://github.com/auth0/lock#new-auth0lockclientid-domain-options)
 
-You can [update the metadata properties](/metadata/apiv2#update-user-metadata) with calls to the Auth0 Management API.
+## Update User Metadata
 
-By including the user's `id_token` in the `Authorization` header, you can make the appropriate `PATCH` call to the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint.
+You can [update the metadata properties](/metadata/apiv2#update-user-metadata) with calls to the Auth0 Management API. To do so, make a `PATCH` call to the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint.
 
-Here is what a sample request might look like:
 
-```js
-var request = require("request");
+Here is a sample request, that adds the user's home address as a second-level property:
 
-var options = { method: 'PATCH',
-  url: 'https://${account.namespace}/api/v2/users/{user_id}',
-  headers: { authorization: "Bearer " + localStorage.getItem(id_token) },
-  body: { user_metadata: { addresses: { home: '123 Main Street, Anytown, ST 12345' } } },
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
+```har
+{
+  "method": "PATCH",
+  "url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer YOUR_TOKEN"
+  }, {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"user_metadata\": {\"addresses\": {\"home\": \"123 Main Street, Anytown, ST 12345\"}}}"
+  },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
+}
 ```
+
+**Note:** The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
