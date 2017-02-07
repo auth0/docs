@@ -110,7 +110,7 @@ IRestResponse response = client.Execute(request);
 
 ## 5. Testing your API in Postman
 
-During development you may want to test your API with Postman.
+During development, you may want to test your API with Postman.
 
 If you make a request to the `/api/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
