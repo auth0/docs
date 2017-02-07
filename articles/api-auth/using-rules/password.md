@@ -8,7 +8,7 @@ You can write functions in JavaScript and have them run every time a [Resource O
 
 ## Before you begin
 
-<%= include('./_includes/_prerequisites.md') %>
+Please ensure that you have the [Webtask Command Line Interface (CLI) installed](${manage_url}/#/account/webtasks).
 
 ## Create the Rule
 
