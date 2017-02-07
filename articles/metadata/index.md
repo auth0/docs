@@ -69,6 +69,24 @@ However, the usage of the `.` delimiter is acceptable in the data values:
 }
 ```
 
+## Restrictions
+
+The following fields may not be stored in the `app_metadata` field:
+
+* `blocked`
+* `clientID`
+* `created_at`
+* `email`
+* `email_verified`
+* `global_client_id`
+* `globalClientID`
+* `identities`
+* `lastIP`
+* `lastLogin`
+* `metadata`
+* `user_id`
+* `loginsCount`
+
 ## Further Reading
 
 * [User Data Storage Guidance](/user-profile/user-data-storage)
