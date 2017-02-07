@@ -31,18 +31,14 @@ if (hash) {
 
 ## Reading User Metadata Properties
 
-You can read the user's `user_metadata` properties the same way you would for any user profile property. This example retrieves the value associated with `user.metadata.hobby`:
+You can read the user's `user_metadata` properties the same way you would for any user profile property. This example retrieves the value associated with `user_metadata.hobby`:
 
 ```js
-var id_token = localStorage.getItem('id_token');
-if (id_token) {
-  lock.getProfile(id_token, function (err, profile) {
-    if (err) {
-      return alert('There was an error getting the profile: ' + err.message);
-    }
+lock.getUserInfo(accessToken, function(error, profile) {
+  if (!error) {
     document.getElementById('name').textContent = profile.user_metadata.hobby;
-  });
-}
+  }
+});
 ```
 
 ## Updating Metadata Properties
