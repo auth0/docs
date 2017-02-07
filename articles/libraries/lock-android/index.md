@@ -205,9 +205,9 @@ public class MainActivity extends Activity {
 }
 ```
 
-Remember to notify the `Lock` when your `Activity` calls the `OnDestroy` method, as it helps to keep the Lock state.
+Remember to notify the `Lock` when your activity calls the `OnDestroy` method, as it helps to keep the Lock state.
 
-Then, start `Lock` from inside your `Activity`
+Then, start `Lock` from inside your activity.
 
 ```java
 startActivity(lock.newIntent(this));

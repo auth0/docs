@@ -170,7 +170,7 @@ authentication
   .userInfo("access token")
   .start(new BaseCallback<UserProfile, AuthenticationException>() {
       @Override
-      public void onSuccess(final UserProfile information) {
+      public void onSuccess(UserProfile information) {
           //user information received
       }
 
@@ -403,7 +403,7 @@ WebAuthProvider.init(account)
                 .withScheme("myapp")
                 .start(this);
 ```
-
+              
 **Scheme must be lowercase**. Remember to update your intent-filter after changing this setting.
 
 ### Specify state

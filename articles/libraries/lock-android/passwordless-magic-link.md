@@ -84,7 +84,7 @@ Your verification code is: {{ code }}
 
 ## Application configuration
 
-Now that we have the Auth0 client configured, before we start with the android configuration we must follow the instructions and set up Lock.Android and LockPasswordlessActivity as seen in the [passwordless docs](/libraries/lock-android/passwordless).
+Now that we have the Auth0 client configured, before we start with the android configuration we must follow the instructions and set up Lock.Android and PasswordlessLock as seen in the [passwordless docs](/libraries/lock-android/passwordless).
 
 Now, in order to use App Links, there is an additional configuration step we must follow. We must declare an intent filter in the `AndroidManifest.xml`, inside the `PasswordlessLockActivity` activity tag. This filter will allow the app to handle the links we'll send by Email or SMS.
 
@@ -127,7 +127,7 @@ Also notice that in case we'll only use one passwordless method (SMS or Email) y
 
 ## Usage
 
-`PasswordlessLockActivity` authenticates users by sending them an Email or SMS, in this case we'll send them a link instead of a code. The only difference with the regular passwordless is that we now explicitly indicate that we will use **Android App Links**. To accomplish this, configure the PasswordlessLock.Builder with the `useLink` method.
+`PasswordlessLock` authenticates users by sending them an Email or SMS, in this case we'll send them a link instead of a code. The only difference with the regular passwordless is that we now explicitly indicate that we will use **Android App Links**. To accomplish this, configure the PasswordlessLock.Builder with the `useLink` method.
 
 ```java
 public class MyActivity extends AppCompatActivity {

@@ -38,7 +38,7 @@ Also, you'll need to add *Internet* permission to your application:
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Then in any of your Activities, you need to initialize **PasswordlessLock**
+Then in any of your activities, you need to initialize **PasswordlessLock**
 
 ```java
 public class MainActivity extends Activity {
@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-Then, just start `PasswordlessLock` from inside your `Activity`
+Then, just start `PasswordlessLock` from inside your activity.
 
 ```java
 startActivity(lock.newIntent(this));

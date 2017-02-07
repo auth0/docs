@@ -3,7 +3,7 @@ section: libraries
 description: Sending Authentication parameters with Lock Android
 ---
 
-# Sending Authentication Parameters
+# Lock Android: Sending Authentication Parameters
 
 You can specify additional authentication parameters, before starting `Lock` or when calling any API method using `auth0.android`'s `AuthenticationAPIClient`, by using `ParameterBuilder` object to build the parameter dictionary. By default `ParameterBuilder` has the parameter `scope` with `openid`.
 
