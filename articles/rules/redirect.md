@@ -12,9 +12,8 @@ Rules can also be used to programatically redirect users before an authenticatio
 * Implementing custom verification mechanisms (e.g. proprietary multifactor authentication providers).
 * Forcing users to change passwords.
 
-::: panel-danger Caution:
-Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner) authentication endpoint.
-You can detect resource owner logins from a rule by checking `context.protocol === 'oauth2-resource-owner'`.
+::: panel-danger Caution
+Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner) authentication endpoint. You can detect resource owner logins from a rule by checking `context.protocol === 'oauth2-resource-owner'`.
 :::
 
 ## How to implement a redirect
@@ -32,7 +31,7 @@ function (user, context, callback) {
 
 Once all rules have finished executing, the user will be redirected to the specified URL.
 
-## What to do after redirecting
+## What to do afterwards
 
 An authentication transaction that has been interrupted by setting `context.redirect` can be resumed by redirecting the user to the following URL:
 
@@ -40,10 +39,14 @@ An authentication transaction that has been interrupted by setting `context.redi
 https://${account.namespace}/continue?state=THE_ORIGINAL_STATE
 ```
 
+::: panel-info State
+State is an opaque value the clients adds to the initial request that Auth0 includes when redirecting back to the client. We highly recommend using this param, since it can be used by the client to prevent [CSRF attacks](/security/common-threats#cross-site-request-forgery-xsrf-or-csrf-). By `THE_ORIGINAL_STATE` we mean the value you provided during user authentication.
+:::
+
 When a user has been redirected to the `/continue` endpoint, all rules will be run again.
 
-::: panel-danger Caution:
-Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will lose the context of the login transaction.
+::: panel-danger Caution
+Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will loose the context of the login transaction.
 :::
 
 
@@ -59,7 +62,7 @@ function (user, context, callback) {
 }
 ```
 
-## Securely processing results after redirecting
+## How to securely process results
 
 Suppose you would like to force users to change their passwords under specific conditions. You can write a rule that would have the following behavior:
 
@@ -138,6 +141,6 @@ function(user, context, callback) {
 
 ## Caveats
 
-Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner) authentication endpoint. This is because the endpoint returns a JSON result. __Redirect__ rules work with browser based protocols.
+Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner) authentication endpoint. This is because the endpoint returns a JSON result. Redirect rules work _only_ with browser based protocols.
 
 Also, if you are using any social network as a connection, make sure you register your own account (vs. using Auth0's Dev Keys). This is because redirect rules are resumed on the endpoint: `https://${account.namespace}/continue`. When using Auth0's Dev Keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error.
