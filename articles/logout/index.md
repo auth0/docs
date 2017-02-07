@@ -182,4 +182,4 @@ To prevent a Session Participant for being notified, you can set `logout.slo_ena
 
 #### Non Single Logout Scenario
 
-If your Service Provider does not support SAML SLO, but provides a redirect URL where the user will be redirects after logging out of the SP, the best thing to do is configure the redirect URL to `https://${account.namespace}/logout`. This won't notify other session participants that a logot was initiated, but it will at remove the session from Auth0.
+If your Service Provider does not support SAML SLO, but provides a redirect URL where the user will be redirects after logging out of the SP, the best thing to do is configure the redirect URL to `https://${account.namespace}/logout`. This won't notify other session participants that a logout was initiated, but it will at remove the session from Auth0.
