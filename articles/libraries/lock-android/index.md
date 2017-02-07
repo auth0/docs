@@ -29,9 +29,9 @@ _You can check for the latest version on the repository [Releases](https://githu
 
 After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
-## Dashboard Settings
+## Dashboard settings
 
-You need to fill in a few settings in your [Auth0 Dashboard](https://manage.auth0.com) before you get started.
+You need to fill in a few settings in your [Auth0 Dashboard](${manage_url}) before you get started.
 
 ### Callback URL
 
@@ -43,47 +43,13 @@ https://{YOUR_AUTH0_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
 
 Be sure to change the URL to add your Auth0 domain and your app package name!
 
-### Keystores and Key Hashes
+### Keystores and key hashes
 
-You will need a [Keystore](https://developer.android.com/studio/publish/app-signing.html) for signing your Android app. If you already have one, you can continue and skip the instructions about acquiring one. During development, you can use the default "android debug keystore" to sign your application. To generate the key hashes using this keystore follow the examples below. For a release keystore, replace the file, alias, store password and key password with your own values.
+You will need a [Keystore](https://developer.android.com/studio/publish/app-signing.html) for signing your Android app. If you already have one, you can continue and skip the instructions about acquiring one. 
 
-**On Windows:**
+During development, you can use the default "android debug keystore" to sign your application. For instructions on how to generate the key hashes using this keystore, use our [Android Keystores and Key Hashes Guide](/libraries/lock-android/keystore). 
 
-```bash
-keytool -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
-```
-
-**On Linux / macOS:**
-
-```bash
-keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
-```
-
-**Sample output:**
-
-```text
-Alias name: androiddebugkey
-Creation date: Jan 01, 2013
-Entry type: PrivateKeyEntry
-Certificate chain length: 1
-Certificate[1]:
-Owner: CN=Android Debug, O=Android, C=US
-Issuer: CN=Android Debug, O=Android, C=US
-Serial number: 4aa9b300
-Valid from: Mon Jan 01 08:04:04 UTC 2013 until: Mon Jan 01 18:04:04 PST 2033
-Certificate fingerprints:
-     MD5:  AE:9F:95:D0:A6:86:89:BC:A8:70:BA:34:FF:6A:AC:F9
-     SHA1: BB:0D:AC:74:D3:21:E1:43:07:71:9B:62:90:AF:A1:66:6E:44:5D:75
-     SHA256: 15:B9:F9:33:9F:E4:E3:68:C2:10:49:17:5D:A8:77:12:7C:8E:57:E9:FF:B7:23:EA:CC:DD:56:08:06:C9:5E:33
-     Signature algorithm name: SHA256withRSA
-     Version: 3
-```
-
-Once you have your key hashes output, copy the resulting SHA256 value and go to your client's settings in the [Auth0 Dashboard](https://manage.auth0.com/#/clients). Click "Show Advanced Settings", and in the "Mobile Settings" tab, under "Android", fill the "App Package Name" with your application's package name, and the "Key Hashes" field with the SHA256 value you copied. Don't forget to save the changes.
-
-::: panel-warning Required Actions
-If you don't add the Callback URL to the client settings nor the Key Hashes to the client's mobile settings, the Auth0 server won't return the call result to your application.
-:::
+For a release keystore, replace the file, alias, store password and key password with your own values.
 
 ## Implementing Lock (Social, Database, Enterprise)
 
@@ -120,7 +86,7 @@ Add `LockActivity` to your Manifest, replacing the `host` attribute with your `$
 </activity>
 ```
 
-#### Some Restrictions
+#### Some restrictions
 
 * Make sure the Activity's launchMode is declared as `singleTask` or the result won't come back after the authentication.
 * Also note that for the time being, `LockActivity` can't be launched by calling `startActivityForResult`.
@@ -133,7 +99,7 @@ Create an `Auth0` instance to hold your account details, which are the `AUTH0_CL
 Auth0 auth0 = new Auth0('${account.clientId}','${account.namespace}');
 ```
 
-### Authentication Callback
+### Authentication callback
 
 You'll also need a `LockCallback` implementation. Here is an example which will notify you about Authentication events (logins).
 
@@ -230,11 +196,15 @@ By default you should at least use the following files:
 
 As this library depends on `Auth0.Android`, you should keep the files up to date with the proguard rules defined in that [repository](https://github.com/auth0/Lock.Android).
 
-## Lock Configuration
+## Lock configuration
 
 For a full list of Lock's configuration options, check out the [Lock for Android Configuration Reference](/libraries/lock-android/configuration). Also, for users of v1 migrating to v2, read the [Migration Guide](/libraries/lock-android/migration-guide) to see what options have changed.
 
-## Additional Documents
+## Error messages
+
+For descriptions of common error messages, check out the [Error Messages](/libraries/error-messages) page. Also, if your callback receives an `AuthenticationException` you can check [source](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/authentication/AuthenticationException.java) to learn how to identify each error scenario.
+
+## Additional documents
 
 <ul>
 <% cache.find('articles/libraries/lock-android', {sort: 'toc_title'}).forEach(article => { %>

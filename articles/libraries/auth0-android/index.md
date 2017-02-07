@@ -163,7 +163,7 @@ authentication
 
 ### Getting user information
 
-To get the information associated to a given user's `access_token` you can call the `userInfo` endpoint passing the token.
+To get the information associated with a given user's `access_token`, you can call the `userInfo` endpoint, passing the token.
 
 ```java
 authentication
@@ -338,7 +338,7 @@ WebAuthProvider.init(account)
 
 ### Authenticate with Auth0 Hosted Login Page
 
-If no connection name is specified the browser will show the Auth0 [Hosted Login Page](hosted-pages/login) with all of the connections which are enabled for this client.
+If no connection name is specified, the browser will show the Auth0 [Hosted Login Page](hosted-pages/login) with all of the connections which are enabled for this client.
 
 ```java
 WebAuthProvider.init(account)
@@ -349,8 +349,7 @@ WebAuthProvider.init(account)
 
 Code grant is the default mode, and will always be used unless calling `useCodeGrant` with `false`, or unless the device doesn't support the signing/hashing algorithms.
 
-Before you can use `Code Grant` in Android, make sure to go to your [client's section](${manage_url}/#/applications) in dashboard and check in the Settings that `Client Type` is `Native`. If you have not used code grants before, you might want to take a look at our [tutorial on executing an authorization code grant flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce) before proceeding.
-//Do we need the user to know how this work?? The provider handles the logic itself.
+Before you can use `Code Grant` in Android, make sure to go to your [client's section](${manage_url}/#/applications) in dashboard and check in the Settings that `Client Type` is `Native`.
 
 ```java
 WebAuthProvider.init(account)
@@ -384,7 +383,7 @@ WebAuthProvider.init(account)
 
 ### Authenticate using custom authentication parameters
 
-To send additional parameters on the authentication do as follow:
+To send additional parameters on the authentication, use `withParameters`:
 
 ```java
 Map<String, Object> parameters = new HashMap<>();
@@ -396,7 +395,7 @@ WebAuthProvider.init(account)
 
 ### Use a custom scheme for the Redirect Uri
 
-If you're not using Android "App Links" or you just want to use a different scheme for the _redirect uri_ then do as follow:
+If you're not using Android "App Links" or you just want to use a different scheme for the _redirect uri_ then use `withScheme`:
 
 ```java
 WebAuthProvider.init(account)
@@ -408,7 +407,7 @@ WebAuthProvider.init(account)
 
 ### Specify state
 
-By default a random state is always sent. If you need to use a custom one do as follow:
+By default a random state is always sent. If you need to use a custom one, use `withState`:
 
 ```java
 WebAuthProvider.init(account)
@@ -418,7 +417,7 @@ WebAuthProvider.init(account)
 
 ### Specify nonce
 
-By default a random nonce is sent when the response type includes `id_token`. If you need to use a custom one do as follow:
+By default a random nonce is sent when the response type includes `id_token`. If you need to use a custom one, use `withNonce`:
 
 ```java
 WebAuthProvider.init(account)
