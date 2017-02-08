@@ -1,6 +1,6 @@
 ---
 description: How to use the Command-Line Interface with Auth0 Hooks
-url: /hooks/extensibility-points
+url: /auth0-hooks/extensibility-points
 ---
 
 # Webtask Command-Line Interface

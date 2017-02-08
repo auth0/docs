@@ -1,6 +1,6 @@
 ---
 description: How to create new Hooks using the Management Dashboard
-url: /hooks/dashboard
+url: /auth0-hooks/dashboard
 ---
 
 # Create a New Hook Using the Management Dashboard

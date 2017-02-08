@@ -1,6 +1,6 @@
 ---
 description: The extensibility points for use with Auth0 Hooks
-url: /hooks/extensibility-points
+url: /auth0-hooks/extensibility-points
 ---
 
 # Extensibility Points
