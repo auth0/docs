@@ -21,7 +21,7 @@ wt init
 
 ## Create an Auth0 Hook
 
-1. Scaffold the sample code for an Auth0 Hook:
+1. Scaffold the sample code for an Auth0 Hook. The following code scaffolds the sample code for the `pre-user-registration` extensibility point into a file called `file.js`.
 
   `auth0 scaffold -t pre-user-registration > file.js`
 
@@ -43,18 +43,26 @@ wt init
 
 ## List Your Hooks
 
-The following command lists all Hooks associated with a specific extensibility point.
+The following command lists all Hooks associated with a specific extensibility point:
 
 `auth0 ls -t pre-user-registration -p auth0-default`
 
-7. List all Auth0 hooks on your account:
-auth0 ls -p auth0-default
+The following command lists all Hooks associated with your Auth0 account:
 
-8. Access streaming, real-time logs of all of your hooks:
-auth0 logs -p auth0-default
+`auth0 ls -p auth0-default`
 
-9. Disable a hook:
-auth0 disable my-extension-1 -p auth0-default
+## Get Real-Time Information About Your Hooks
 
-10. Delete a hook:
-auth0 rm my-extension-1 -p auth0-default
+The following command allows you to streaming, real-time logs for your Hooks:
+
+`auth0 logs -p auth0-default`
+
+## Disable/Delete Your Hooks
+
+The following command disables your Hook:
+
+`auth0 disable my-extension-1 -p auth0-default`
+
+The following command delete a hook:
+
+`auth0 rm my-extension-1 -p auth0-default`

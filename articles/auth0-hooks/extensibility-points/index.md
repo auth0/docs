@@ -1,17 +1,19 @@
 ---
 description: The extensibility points for use with Auth0 Hooks
+url: /auth0-hooks/extensibility-points
 ---
 
 # Extensibility Points
 
-The following is a list of supported extensibility hooks and information on what you can do with them.
+The following is a list of supported extensibility hooks:
 
-- `client-credentials-exchange`
-- `password-exchange`
-- `pre-user-registration`
-- `post-user-registration`
+- [`client-credentials-exchange`](#client-credentials-exchange)
+- [`password-exchange`](#password-exchange)
+- [`pre-user-registration`](#pre-user-registration)
+- [`post-user-registration`](#post-user-registration)
 
-Using the `client-credentials-exchange` extensibility point, you can modify the scopes and add custom claims to the tokens issued by the Auth0 API's `POST /oauth/token` endpoint.
+## `client-credentials-exchange`
+The `client-credentials-exchange` extensibility point allows you to modify the scopes and add custom claims to the tokens issued by the Auth0 API's `POST /oauth/token` endpoint.
 
 ```har
 {

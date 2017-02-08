@@ -9,16 +9,28 @@ description: >-
 
 # Auth0 Hooks
 
-Auth0 Hooks allow you to extend the Auth0 platform with custom code. You can manage your Hooks using the Auth0 Command-Line Interface (CLI).
+Auth0 Hooks allow you to extend the Auth0 platform with custom code.
 
 ## Under the Hood
 
-Auth0 Hooks are Webtasks associated with specific extensibility points of the Auth0 platform. Auth0 invokes the Hooks at runtime to execute your custom logic.
+Auth0 Hooks are Webtasks associated with specific extensibility points of the Auth0 platform.
 
-## Installing the Webtask Command-Line Interface
+:::panel-info Extensibility Points
+Extensibility points are like webhooks that come with a server.
+:::
 
-You can find instructions for installing the Webtask Command-Line Interface in the [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
+Auth0 invokes the Hooks at runtime to execute your custom logic. You can manage your Hooks using:
 
-## Sample Hook
+* The Auth0 Management Dashboard
+* The Auth0 Command-Line Interface (CLI).
 
-For information on how Auth0 hooks work and how you can leverage them, please see our [example using the `pre-user-registration` extensibility point](/auth0-hooks/example).
+## Supported Extensibility Points
+
+You can create Hooks for the following [extensibility points](/auth0-hooks/extensibility-points):
+
+- client-credentials-exchange
+- password-exchange
+- pre-user-registration
+- post-user-registration
+
+Each of the extensibility points supports more than one Hook, but you can enable **one** Hook at a time. Disabled hooks are useful for staging new functionality.
