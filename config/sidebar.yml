@@ -64,14 +64,7 @@ articles:
 
       - title: "FAQ"
         url: "/api-auth/faq"
-
-  - title: "Auth0 Hooks"
-    url: "/hooks"
-    children:
-
-      - title: "overview"
-        url: "/auth0-hooks/overview"
-
+        
   - title: "Development Lifecycle"
     url: "/dev-lifecycle"
     children:
