@@ -40,6 +40,7 @@ For details on how to implement this using Auth0, refer to [Executing an Authori
 
 - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
 - [How to configure an API in Auth0](/apis)
+- [Web App Quickstarts](/quickstart/webapp)
 - [Client Authentication for Server-side Web Apps](/client-auth/server-side-web)
 - [Authentication API: GET /authorize](/api/authentication?http#authorization-code-grant)
 - [Authentication API: POST /oauth/token](/api/authentication?http#authorization-code)
@@ -47,3 +48,4 @@ For details on how to implement this using Auth0, refer to [Executing an Authori
 - [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
 - [Integrating a Web App with Auth0](/protocols/oauth2/oauth-web-protocol)
+- [RFC 6749](https://tools.ietf.org/html/rfc6749)
