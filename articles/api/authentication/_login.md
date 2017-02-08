@@ -92,7 +92,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 |:-----------------|:------------|
 | `response_type` <br/><span class="label label-danger">Required</span> | Use `code` for server side flows and `token` for client side flows |
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client |
-| `connection`     | The name of a social identity provider configured to your client, for example `google-oauth2` or `facebook`. If null, it will redirect to [Auth0 Login Page](https://manage.auth0.com/login) and show the Login Widget. |
+| `connection`     | The name of a social identity provider configured to your client, for example `google-oauth2` or `facebook`. If null, it will redirect to the [Auth0 Login Page](https://${account.namespace}/login) and show the Login Widget. |
 | `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `additional-parameter` | Use this to send additional parameters to the provider. For example, `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode). |
@@ -288,7 +288,7 @@ Location: https://auth0.com/#/login_page&state=STATE
   "link": "#database-ad-ldap-passive-"
 }) %>
 
-Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to [Auth0 Login Page](https://auth0.com/#/login_page) that will show the Login Widget where the user can login with email and password.
+Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to the [Auth0 Login Page](https://${account.namespace}/login) that will show the Login Widget where the user can login with email and password.
 
 ### Request Parameters
 
@@ -296,7 +296,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 |:-----------------|:------------|
 | `response_type` <br/><span class="label label-danger">Required</span> | Use `code` for server side flows and `token` for client side flows. |
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
-| `connection`     | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `connection`     | The name of the connection configured to your client. If null, it will redirect to the [Auth0 Login Page](https://${account.namespace}/login) and show the Login Widget using the first database connection. |
 | `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
@@ -316,7 +316,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
-- The main difference between passive and active authentication is that the former happens in the browser through the [Login Page](https://auth0.com/#/login_page) and the latter can be invoked from anywhere (a script, server to server, and so forth).
+- The main difference between passive and active authentication is that the former happens in the browser through the [Auth0 Login Page](https://${account.namespace}/login) and the latter can be invoked from anywhere (a script, server to server, and so forth).
 
 
 ### More Information
@@ -433,7 +433,7 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 ### Remarks
 
 - This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
-- The main difference between passive and active authentication is that the former happens in the browser through the [Login Page](https://auth0.com/#/login_page) and the latter can be invoked from anywhere (a script, server to server, and so forth).
+- The main difference between passive and active authentication is that the former happens in the browser through the [Auth0 Login Page](https://${account.namespace}/login) and the latter can be invoked from anywhere (a script, server to server, and so forth).
 
 
 ### Error Codes
@@ -497,7 +497,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 |:-----------------|:------------|
 | `response_type` <br/><span class="label label-danger">Required</span> | Use `code` for server side flows, `token` for client side flows. |
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
-| `connection` | The name of the connection configured to your client. If null, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget using the first database connection. |
+| `connection` | The name of the connection configured to your client. If null, it will redirect to the [Auth0 Login Page](https://${account.namespace}/login) and show the Login Widget using the first database connection. |
 | `redirect_uri` <br/><span class="label label-danger">Required</span> | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that the authorization server includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 
@@ -515,7 +515,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 
 ### Remarks
 
-- If no `connection` is specified, it will redirect to [Auth0 Login Page](https://auth0.com/#/login_page) and show the Login Widget.
+- If no `connection` is specified, it will redirect to the [Login Page](https://${account.namespace}/login) and show the Login Widget.
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 - Additional parameters can be sent that will be passed to the provider.
