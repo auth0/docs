@@ -54,7 +54,7 @@ articles:
         url: "/auth0-hooks/dashboard"
 
       - title: "Work with Hooks Using the CLI"
-        url: "/auth0-hooks/ci"
+        url: "/auth0-hooks/cli"
 
   - title: "API Authorization"
     url: "/api-auth"
