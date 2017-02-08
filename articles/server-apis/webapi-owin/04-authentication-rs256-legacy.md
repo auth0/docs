@@ -7,7 +7,7 @@ budicon: 500
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-webapi-sample',
-  path: '04-Authentication-RS256-Deprecated/WebApi',
+  path: '04-Authentication-RS256-Legacy/WebApi',
   requirements: [
     'Microsoft Visual Studio 2015 Update 3',
     'Microsoft.Owin.Security.ActiveDirectory V3.0.1',

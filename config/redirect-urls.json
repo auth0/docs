@@ -1167,5 +1167,29 @@
   {
     "from": "/anomaly-detection/brute-force-protection",
     "to": "/anomaly-detection#brute-force-protection"
+  },
+  {
+    "from": "/quickstart/backend/webapi-owin/04-authentication-rs256-deprecated",
+    "to": "/quickstart/backend/webapi-owin/04-authentication-rs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/webapi-owin/05-authentication-hs256-deprecated",
+    "to": "/quickstart/backend/webapi-owin/05-authentication-hs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/webapi-owin/06-authorization-deprecated",
+    "to": "/quickstart/backend/webapi-owin/06-authorization-legacy"
+  },
+  {
+    "from": "/quickstart/backend/aspnet-core-webapi/04-authentication-rs256-deprecated",
+    "to": "/quickstart/backend/aspnet-core-webapi/04-authentication-rs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-deprecated",
+    "to": "/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/aspnet-core-webapi/06-authorization-deprecated",
+    "to": "/quickstart/backend/aspnet-core-webapi/06-authorization-legacy"
   }
 ]
