@@ -28,6 +28,6 @@
   title: "Appliance"
   url: "/appliance"
 
-- id: "auth0-hooks"
+- id: "hooks"
   title: "Auth0 Hooks"
-  url: "/auth0-hooks"
+  url: "/hooks"

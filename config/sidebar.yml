@@ -66,11 +66,11 @@ articles:
         url: "/api-auth/faq"
 
   - title: "Auth0 Hooks"
-    url: "/auth0-hooks"
+    url: "/hooks"
     children:
 
       - title: "overview"
-        url: "/api-auth/overview"
+        url: "/auth0-hooks/overview"
 
   - title: "Development Lifecycle"
     url: "/dev-lifecycle"
