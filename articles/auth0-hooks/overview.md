@@ -1,5 +1,4 @@
 ---
-toc: true
 description: >-
   Auth0 hooks are JavaScript functions executed as part of the user
   authentication flow. They allow you to customize and extend Auth0's
