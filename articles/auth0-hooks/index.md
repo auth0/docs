@@ -1,5 +1,4 @@
 ---
-url: /auth0-hooks
 toc: true
 description: >-
   Auth0 hooks are JavaScript functions executed as part of the user
