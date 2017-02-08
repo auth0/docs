@@ -51,4 +51,4 @@ startActivity(lock.newIntent(this));
 
 > If you require in-depth configuration, see [Lock Builder](/libraries/lock-android#lock-builder) for more information
 
-> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](02-custom-login).
+> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](/quickstart/native/android/02-custom-login).

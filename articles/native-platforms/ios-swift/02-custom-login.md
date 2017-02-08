@@ -172,4 +172,4 @@ Auth0
     }
 ```
 
-Once you get the `credentials` object, upon a successful authentication, you deal with them as usual. For more information on that topic, check out the [login](01-login) and [session handling](session-handling) tutorials.
+Once you get the `credentials` object, upon a successful authentication, you deal with them as usual. For more information on that topic, check out the [login](/quickstart/native/ios-swift/01-login) and [session handling](/quickstart/native/ios-swift/session-handling) tutorials.
