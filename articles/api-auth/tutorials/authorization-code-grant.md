@@ -8,31 +8,38 @@ description: How to execute an Authorization Code Grant flow from a Regular Web 
   This tutorial will help you implement the Authorization Code grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code">Calling APIs from Server-side Web Apps</a>.
 </div>
 
-The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quickstart/webapp) use in order to access an API.
+The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quickstart/webapp) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access the API using the token.
 
 
 ## 1. Get the User's Authorization
 
-To begin an Authorization Code Grant flow, your Client application should first send the user to the authorization URL:
+To begin an Authorization Code flow, your web application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant):
 
 ```text
 https://${account.namespace}/authorize?
-    audience=API_AUDIENCE&
-    scope=SCOPE&
+    audience=YOUR_API_AUDIENCE&
+    scope=YOUR_SCOPE&
     response_type=code&
     client_id=${account.clientId}&
     redirect_uri=${account.callback}&
-    state=OPAQUE_VALUE}
+    state=YOUR_OPAQUE_VALUE}
 ```
 
 Where:
 
-* `audience`: The target API for which the Client Application is requesting access on behalf of the user.
-* `scope`: The scopes which you want to request authorization for. These must be separated by a space.
-* `response_type`: The response type. For this flow, the value must be `code`. This indicates to Auth0 that you are performing an Authorization Code flow.
-* `client_id`: Your application's Client ID.
+* `audience`: The unique identifier of the API the web app wants to access. Use the value of the __Identifier__ field at your [API Settings](${manage_url}/#/apis). If you can't see this page, enable the __Enable APIs Section__ toggle at [Account Settings > Advanced](${manage_url}/#/account/advanced).
+
+* `scope`: The [scopes](/scopes) which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
+
+  __NOTE__: In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
+
+* `response_type`: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be `code`.
+
+* `client_id`: Your application's Client ID. You can find this value at your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
 * `state`: An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks, [click here to learn more](/protocols/oauth-state).
-* `redirect_uri`: The URL to which Auth0 will redirect the browser after authorization has been granted by the user. The Authorization Code will be available in the `code` URL parameter. This URL must be specified as a valid callback URL under the Client Settings of your application.
+
+* `redirect_uri`: The URL to which Auth0 will redirect the browser after authorization has been granted by the user. The Authorization Code will be available in the `code` URL parameter. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 For example:
 
