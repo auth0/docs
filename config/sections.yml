@@ -27,3 +27,7 @@
 - id: "appliance"
   title: "Appliance"
   url: "/appliance"
+
+- id: "auth0-hooks"
+  title: "Auth0 Hooks"
+  url: "/auth0-hooks"

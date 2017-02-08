@@ -5,9 +5,9 @@ description: >-
   capabilities, and you can chain them together for modular coding.
 ---
 
-# Auth0 Hooks
+# Auth0 Hooks: Overview
 
-Auth0 Hooks allow you to extend the Auth0 platform with custom code.
+Auth0 Hooks, which will eventually replace [Rules](/rules), allow you to extend the Auth0 platform with custom code.
 
 ## Under the Hood
 
@@ -30,5 +30,3 @@ You can create Hooks for the following [extensibility points](/auth0-hooks/exten
 - password-exchange
 - pre-user-registration
 - post-user-registration
-
-Each of the extensibility points supports more than one Hook, but you can enable **one** Hook at a time. Disabled hooks are useful for staging new functionality.
