@@ -18,3 +18,7 @@ Auth0 Hooks are Webtasks associated with specific extensibility points of the Au
 ## Installing the Webtask Command-Line Interface
 
 You can find instructions for installing the Webtask Command-Line Interface in the [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
+
+## Sample Hook
+
+For information on how Auth0 hooks work and how you can leverage them, please see our [example using the `pre-user-registration` extensibility point](/auth0-hooks/example).

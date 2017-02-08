@@ -1,10 +1,10 @@
 ---
-description: The currently-supported extensibility points.
+description: The extensibility points for use with Auth0 Hooks
 ---
 
 # Extensibility Points
 
-The following is a list of currently-supported extensibility hooks and information on what you can do with them.
+The following is a list of supported extensibility hooks and information on what you can do with them.
 
 - `client-credentials-exchange`
 - `password-exchange`
@@ -33,3 +33,5 @@ Using the `client-credentials-exchange` extensibility point, you can modify the 
     "comment": ""
 }
 ```
+
+The response
