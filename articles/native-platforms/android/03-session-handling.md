@@ -28,7 +28,7 @@ Those objects are the keys needed to keep the user connected, as they will be us
 
 ## Before Starting
 
-Be sure that you have completed the [Login](01-login.md) quickstart.
+Be sure that you have completed the [Login](/quickstart/native/android/01-login) quickstart.
 
 ## Save The User's Credentials
 
