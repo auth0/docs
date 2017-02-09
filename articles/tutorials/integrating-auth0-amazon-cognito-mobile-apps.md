@@ -125,6 +125,4 @@ dataset.synchronize()
 
 That’s it! Now, your users can login with Github or any other identity provider using a native UI and save their information with Cognito easily.
 
-You can check out a working sample that uses Cognito and Auth0 in [this Github repository](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/Cognito.Swift)
-
 Happy coding :).
