@@ -13,18 +13,18 @@ Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps mak
   This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the <a href="/libraries/auth0js/v7">v7 reference guide</a>, or take a look at the <a href="/libraries/auth0js/migration-guide">v8 migration guide</a>
 </div>
 
-## Ready-to-Go Example
+## Ready-to-go example
 
 The [example directory](https://github.com/auth0/auth0.js/tree/master/example) of the auth0.js library is a ready-to-go app that can help you to quickly and easily try out auth0.js. In order to run it, follow these quick steps:
 1. If you don't have [node](http://nodejs.org/) installed, do that now
 1. Download dependencies by running `npm install` from the root of this project
 1. Finally, execute `npm start` from the root of this project, and then browse to your app running on the node server, presumably at `http://localhost:3000/example`.
 
-## Setup and Initialization
+## Setup and initialization
 
 Now, let's get started integrating auth0.js into your project. We'll cover [methods of installation](#installation-options), [how to initialize auth0.js](#initialization), [signup](#signup), [login](#login), [logout](#logout), and more!
 
-### Installation Options
+### Installation options
 
 You have a few options for using auth0.js in your project. Pick one of the below depending on your needs:
 
@@ -67,7 +67,7 @@ Initialize a new instance of the Auth0 client as follows:
 </script>
 ```
 
-#### Available Parameters
+#### Available parameters
 
 ##### Required
 
@@ -169,11 +169,11 @@ webAuth.client.login({
 });
 ```
 
-### Passwordless Login
+### Passwordless login
 
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
 
-#### Start Passwordless
+#### Start passwordless
 
 The `passwordlessStart` method requires several options:
 
@@ -196,7 +196,7 @@ webAuth.passwordlessStart({
 );
 ```
 
-#### Verify Passwordless
+#### Verify passwordless
 
 The `passwordlessVerify` method requires several options:
 
@@ -313,7 +313,7 @@ The `signup` method accepts an `options` object that contains parameters for you
 </script> 
 ``` 
 
-## Using renewAuth to Acquire New Tokens
+## Using renewAuth to acquire new tokens
 
 The `renewAuth` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain.
 
@@ -358,7 +358,7 @@ This callback page should only parse the URL hash and post it to the parent docu
 
 Remember to add the URL of the silent authentication callback page that you create to the **Allowed Callback URLs** list of your Auth0 client in the [Auth0 Dashboard](${manage_url}) under your client's *Settings*.
 
-## Password Reset Requests
+## Password reset requests
 
 If attempting to set up a password reset functionality, you'll use the `changePassword` method and pass in an "options" object, with a "connection" parameter and an "email" parameter.
 
@@ -379,7 +379,7 @@ If attempting to set up a password reset functionality, you'll use the `changePa
 
 The user will then receive an email which will contain a link that they can follow to reset their password.
 
-## User Management 
+## User management 
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
@@ -392,7 +392,7 @@ var auth0Manage = new auth0.Management({
 });
 ```
 
-### Get the User Profile
+### Getting the user profile
 
 In order to get the user profile data, use the `getUser()` method, with the `userId` and a callback as parameters. The method returns the user profile. Note that the `userID` required here will be the part after the delimiter if using the `user_id` fetched from the `client.userInfo` method.
 
@@ -400,7 +400,7 @@ In order to get the user profile data, use the `getUser()` method, with the `use
 auth0Manage.getUser(userId, cb);
 ```
 
-### Update the User Profile
+### Updating the user profile
 
 When updating user metadata, you will need to first create a `userMetadata` object, and then call the `patchUserMetadata` method, passing it the user id and the `userMetadata` object you created. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata. Visit the [User Metadata](/metadata) documentation for more details on user metadata.
 
@@ -408,7 +408,7 @@ When updating user metadata, you will need to first create a `userMetadata` obje
 auth0Manage.patchUserMetadata(userId, userMetadata, cb);
 ```
 
-### Link Users
+### Linking users
 
 Linking user accounts will allow a user to authenticate from any of their accounts and no matter which one they use, still pull up the same profile upon login. Auth0 treats all of these accounts as separate profiles by default, so if you wish a user's accounts to be linked, this is the way to go.
 
