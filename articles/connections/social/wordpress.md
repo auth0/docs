@@ -14,7 +14,7 @@ This doc refers to the client steps to connect your client. If you are looking t
 
 ## 1. Log In to the Developer Portal
 
-Go to the [WordPress Developer Portal](http://developer.wordpress.com/), and log in with your WordPress credentials. Select **My Applications**.
+Go to the [WordPress Developer Portal](http://developer.wordpress.com/), and log in with your WordPress credentials. Select **My Apps** from the top menu.
 
 ![](/media/articles/connections/social/wordpress/wordpress-dev-portal.png)
 
@@ -24,9 +24,19 @@ If you have not already registered your application with Wordpress, click **Crea
 
 ![](/media/articles/connections/social/wordpress/create-new-app.png)
 
-Complete the fields on the *Create an Application* screen with the requested details. Use this URL as your callback: `https://${account.namespace}/login/callback`
+Complete all the fields on the **Create an Application** screen.
 
 ![](/media/articles/connections/social/wordpress/create-new-app-config-screen.png)
+
+**Name**- the name of your application;
+**Description**-  The description of your application;
+**Website URL**- The URL to an informational home page about your application;
+**Redirect URL**- Enter `https://${account.namespace}/login/callback` in this field;
+**Javascript Origins**- (Optional) Whitelist URLs to prevent unauthenticated GET requests;
+**Verification Question**- to confirm you are an actual user performing the request;
+**Type**- select **Web** as the client type;
+
+Then click on the **Create** button.
 
 Once you've done so (or if you have previously registered your application), you will see your application listed on your dashboard landing page.
 
@@ -34,11 +44,36 @@ Once you've done so (or if you have previously registered your application), you
 
 ## 3. Get Your Client ID and Client Secret
 
-Once you have created/registered your application, you will see it listed on your dashboard landing page. Click **Manage Application** to be taken to a display of your OAuth Information.
+On the **My Applications** dashboard page, click **Manage Application**. Under the **OAuth Information** you will see your **Client ID** and **Client Secret**.
 
 ![](/media/articles/connections/social/wordpress/oauth-info.png)
 
-Copy your new `Client ID` and `Client Secret` values, and paste them into the appropriate Connection settings page in Auth0.
+In a seperate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard. 
+
+Click on the box with the **WordPress** logo.
+
+This will bring up the WordPress connection settings. Copy the **Client ID** and **Client Secret** from your WordPress application.
+
+![Configure settings](/media/articles/connections/social/wordpress/settings.png)
+
+Click **SAVE**. Then click the **Clients** tab and select the applications you wish to enable this connection.
+
+![Enable clients](/media/articles/connections/social/wordpress/enable-clients.png)
+
+Click **SAVE** when finished.
+
+## 4. Test the Connection
+
+In the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard a **TRY** icon will now be displayed next to the WordPress logo:
+
+![Click Try](/media/articles/connections/social/wordpress/try-button.png)
+
+Click **TRY**.
+
+The WordPress access page will appear.
+
+![Connect Your Site](/media/articles/connections/social/allow-connection.png)
+
+Click **Approve** and if configured correctly, you will see the **It works!!!** page:
 
 <%= include('../_quickstart-links.md') %>
-
