@@ -4,7 +4,9 @@ description: How to link accounts using the Authentication API (Deprecated)
 
 # Link Accounts using Authentication API (Deprecated)
 
-**NOTE:** This method of linking accounts using the linking endpoint of the [Authentication API](/api/authentication/reference#link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used.
+::: panel-danger Deprecation Notice
+This method of linking accounts using the linking endpoint of the [Authentication API](/api/authentication#link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations#account-linking-removal).
+:::
 
 ## Link through Auth0 Login Widget
 
