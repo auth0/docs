@@ -18,6 +18,11 @@ description: Working with Auth0 Hooks
   Hooks allow you to customize the behavior of Auth0 using Node.js code that is executed against extensibility points (which are comparable to webhooks that come with a server). Hooks allow you modularity when configuring your Auth0 implementation, and extend the functionality of base Auth0 features.
 </p>
 
+<h3> Auth0 Hooks vs. Rules </h3>
+<p>
+  Hooks will eventually replace [Rules](/rules), the current Auth0 extensibility method. Currently, you can use both Hooks and Rules, but Auth0 will implement new functionality in Hooks.
+</p>
+
 <h2>Work with Hooks</h2>
 
 <ul class="topic-links">
