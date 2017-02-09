@@ -220,7 +220,60 @@ webAuth.passwordlessVerify({
 );
 ```
 
-## Log out
+## Extract the authResult and get user info
+
+After authentication occurs, the `parseHash` method parses a URL hash fragment to extract the result of an Auth0 authentication response. 
+
+::: panel-info RS256 Requirement
+This method requires that your tokens are signed with RS256 rather than HS256. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
+:::
+
+The contents of the authResult object returned by `parseHash` depend upon which authentication parameteres were used. It can include:
+
+* `accessToken` - an access token for the API, specified by the `audience`
+* `expiresIn` - a string containing the expiration time (in seconds) of the `accessToken`
+* `idToken` - an ID Token JWT containing user profile information
+
+```js
+auth0.parseHash(window.location.hash, function(err, authResult) {
+  if (err) {
+    return console.log(err);
+  }
+
+  auth0.client.userInfo(authResult.accessToken, function(err, user) {
+    // Now you have the user's information
+  });
+});
+```
+
+As shown above, the `client.userInfo` method can be called passing the returned `authResult.accessToken`. It will make a request to the `/userinfo` endpoint and return the `user` object, which contains the user's information, similar to the below example.
+
+```json
+{
+    "email_verified": "false",
+    "email": "test@example.com",
+    "clientID": "AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH",
+    "updated_at": "2017-02-07T20:50:33.563Z",
+    "name": "tester9@example.com",
+    "picture": "https://gravatar.com/avatar/example.png",
+    "user_id": "auth0|123456789012345678901234",
+    "nickname": "tester9",
+    "identities": [
+        {
+            "user_id": "123456789012345678901234",
+            "provider": "auth0",
+            "connection": "Username-Password-Authentication",
+            "isSocial": "false"
+        }
+    ],
+    "created_at": "2017-01-20T20:06:05.008Z",
+    "sub": "auth0|123456789012345678901234"
+}
+```
+
+You can now do something else with this information as your application needs, such as acquire the user's entire set of profile information with the Management API, as described below.
+
+## Logout
 
 To log out a user, use the `logout` method. This accepts an options object, which can include a `client_id`, and a `returnTo` URL. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter.
 
@@ -341,7 +394,7 @@ var auth0Manage = new auth0.Management({
 
 ### Get the User Profile
 
-In order to get the user profile data, use the `getUser()` method, with the `userId` and a callback as parameters. The method returns the user profile.
+In order to get the user profile data, use the `getUser()` method, with the `userId` and a callback as parameters. The method returns the user profile. Note that the `userID` required here will be the part after the delimiter if using the `user_id` fetched from the `client.userInfo` method.
 
 ```js
 auth0Manage.getUser(userId, cb);
