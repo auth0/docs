@@ -17,7 +17,7 @@ You can read the user's `user_metadata` properties the same way you would for an
 ```js
 lock.getUserInfo(accessToken, function(error, profile) {
   if (!error) {
-    document.getElementById('name').textContent = profile.user_metadata.hobby;
+    document.getElementById('hobby').textContent = profile.user_metadata.hobby;
   }
 });
 ```
