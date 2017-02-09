@@ -58,7 +58,11 @@ The **Get User** script will execute when any of the following actions are perfo
 
 This script is needed because none of these actions require authentication on the user's behalf. The **Get User** script must provide a way of verifying that a user exists in the legacy database without requiring their password.
 
+:::panel-warning Passwords for Un-Migrated Users
 If an un-migrated user confirms a password change, their user profile will be created in Auth0 with the new password. This user profile will contain all the information returned in the **Get User** script. All subsequent logins of this user will be performed in Auth0 directly.
+
+You may see unexpected behavior if you return differing user profiles in the `login` and `get_user` scripts.
+:::
 
 ### 4. Complete the migration
 
