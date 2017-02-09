@@ -15,12 +15,11 @@ You can create new Hooks using the Auth0 Management Dashboard.
 
 2. On the *New Hook* pop-up window, provide the requested information:
 
+  ![Create Hook Dialog](/media/articles/auth0-hooks/cli/name-new-hook.png)
+
   * **Name**: The name for your new Hook
   * **Hook**: The extensibility point associated with your Hook
 
   Click **Create** to create your Hook.
 
-3. Once you create your hook, it will be listed under its extensibility point. There are two icons at the right side of the Hook's row listing:
-
-  * Click the **Pencil and Paper** icon to open the Webtask Editor and edit your Hook.
-  * Click the **Gear** icon if you would like to *rename* or *delete* your Hook.
+  At this point, you will see your newly-created Hook listed under its associated extensibility point.

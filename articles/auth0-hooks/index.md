@@ -30,9 +30,6 @@ description: Working with Auth0 Hooks
       <li>
         <i class="icon icon-budicon-695"></i><a href="/auth0-hooks/extensibility-points">Auth0 Extensibility Points</a>
       </li>
-      <li>
-        <i class="icon icon-budicon-695"></i><a href="/auth0-hooks/faq">Frequently Asked Questions About Auth0 Hooks</a>
-      </li>
     </ul>
   </li>
   <li>
