@@ -2,9 +2,9 @@
 description: How to read and update user metadata with Lock.
 ---
 
-# Using Metadata with Auth0's Lock Library
+# How to use Metadata with Lock Library
 
-When using Auth0's [Lock](/libraries/lock) library, you can define and update the user's `user_metadata` field.
+This article describes how you can define and update the user's `user_metadata`, using Auth0's [Lock](/libraries/lock) library. If you are not familiar with `user_metadata`, refer to [User Metadata](/metadata). If you need more details on how to install, initialize and use Lock, refer to [Lock for Web](/libraries/lock).
 
 ## Define User Metadata on Signup
 
