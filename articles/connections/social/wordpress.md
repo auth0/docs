@@ -78,7 +78,7 @@ Click **TRY**.
 
 The WordPress access page will appear.
 
-![Connect Your Site](/media/articles/connections/social/allow-connection.png)
+![Connect Your Site](/media/articles/connections/social/wordpress/allow-connection.png)
 
 Click **Approve** and if configured correctly, you will see the **It works!!!** page:
 
