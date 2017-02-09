@@ -39,7 +39,7 @@ You will see the available scopes that you can be granted for this client (which
 
 ![Choose authorized scopes](/media/articles/api/tokens/choose-scopes.png)
 
-**Getting the token**
+**Get the token**
 
 To test the client interaction with the API, go to the **Test** section under **Auth0 Management API**.
 
@@ -59,13 +59,13 @@ The Management APIv2 token will be issued for a particular tenant.  To have a to
 
 ## Validity
 
-There is no specific validity period for a Management APIv2 token.  A Management APIv2 token can be built programmatically, as desired, by a client.
+The Management APIv2 token has a validity of __24 hours__. After that the token will expire and you will have to [get a new one](#renew-the-token). 
 
-## Renewing the token
+## Renew the token
 
-There is no mechanism for renewing a Management APIv2 token.  A new token should be created whenever it is needed.
+You cannot renew a Management APIv2 token. A [new token](#get-the-token) should be created when the old one expires.
 
-## Termination of tokens
+## Terminate the token
 
 You can terminate the Management APIv2 tokens calling the [blacklist endpoint](/api/v2#!/Blacklists/post_tokens).
 
