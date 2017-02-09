@@ -29,16 +29,22 @@ Complete all the fields on the **Create an Application** screen.
 ![](/media/articles/connections/social/wordpress/create-new-app-config-screen.png)
 
 **Name**- the name of your application;
+
 **Description**-  The description of your application;
+
 **Website URL**- The URL to an informational home page about your application;
+
 **Redirect URL**- Enter `https://${account.namespace}/login/callback` in this field;
+
 **Javascript Origins**- (Optional) Whitelist URLs to prevent unauthenticated GET requests;
+
 **Verification Question**- to confirm you are an actual user performing the request;
+
 **Type**- select **Web** as the client type;
 
-Then click on the **Create** button.
+After completing the fields, click on the **Create** button.
 
-Once you've done so (or if you have previously registered your application), you will see your application listed on your dashboard landing page.
+Then (or if you have previously registered your application) you will see your application listed on your dashboard landing page.
 
 ![](/media/articles/connections/social/wordpress/my-apps.png)
 
