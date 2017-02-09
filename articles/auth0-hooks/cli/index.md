@@ -23,6 +23,6 @@ While the Auth0 CLI is undergoing beta testing, you must install `wt-cli` using 
 
 Once you have installed and set up the Auth0 Command-Line Interface (CLI), you can use it to create new Hooks and manage/delete existing Hooks. You can also use it to gather real-time log data on your Hooks.
 
-* ### [Create New Hooks](/auth0-hooks/cli/working-with-hooks#create-a-new-hook)
-* ### [Manage/Delete Existing Hooks](/auth0-hooks/cli/working-with-hooks#manage-existing-hooks)
-* ### [Identify and Get Log Data from Your Hooks](/auth0-hooks/cli/working-with-hooks#gather-information-about-your-hooks)
+* [Create New Hooks](/auth0-hooks/cli/working-with-hooks#create-a-new-hook)
+* [Manage/Delete Existing Hooks](/auth0-hooks/cli/working-with-hooks#manage-existing-hooks)
+* [Identify and Get Log Data from Your Hooks](/auth0-hooks/cli/working-with-hooks#gather-information-about-your-hooks)

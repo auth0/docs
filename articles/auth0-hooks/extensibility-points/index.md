@@ -7,7 +7,7 @@ url: /auth0-hooks/extensibility-points
 
 The following is a list of available extensibility points:
 
-- [`client-credentials-exchange`](/auth0-hooks/extensibility-points/client-credentials-exchange)
-- [`password-exchange`](/auth0-hooks/extensibility-points/password-exchange)
-- [`pre-user-registration`](/auth0-hooks/extensibility-points/pre-user-registration)
-- [`post-user-registration`](/auth0-hooks/extensibility-points/post-user-registration)
+- [Client Credentials Exchange](/auth0-hooks/extensibility-points/client-credentials-exchange)
+- [Password Exchange](/auth0-hooks/extensibility-points/password-exchange)
+- [Pre-User Registration](/auth0-hooks/extensibility-points/pre-user-registration)
+- [Post User Registration`](/auth0-hooks/extensibility-points/post-user-registration)
