@@ -29,26 +29,31 @@ function (user, context, callback) {
 }
 ```
 
-Once all rules have finished executing, the user will be redirected to the specified URL.
+Once all rules have finished executing, the user will be redirected to the specified URL. 
+
+Auth0 will also pass a state value in that URL, for example `https://example.com/foo?state=abc123`.
+
+<div class="alert alert-info"><strong>What is state?</strong> State is an opaque value the clients adds to the initial request that Auth0 includes when redirecting back to the client. We highly recommend using this param, since it can be used by the client to prevent <a href="/security/common-threats#cross-site-request-forgery-xsrf-or-csrf-">CSRF attacks</a>.</div>
+
+You need to extract this value since you will need it in order to resume the authentication transaction after the redirect (see `THE_ORIGINAL_STATE` at the next paragraph).
 
 ## What to do afterwards
 
-An authentication transaction that has been interrupted by setting `context.redirect` can be resumed by redirecting the user to the following URL:
+An authentication transaction that has been interrupted, by setting `context.redirect`, can be resumed by redirecting the user to the following URL:
 
 ```text
 https://${account.namespace}/continue?state=THE_ORIGINAL_STATE
 ```
 
-::: panel-info State
-State is an opaque value the clients adds to the initial request that Auth0 includes when redirecting back to the client. We highly recommend using this param, since it can be used by the client to prevent [CSRF attacks](/security/common-threats#cross-site-request-forgery-xsrf-or-csrf-). By `THE_ORIGINAL_STATE` we mean the value you provided during user authentication.
-:::
+By `THE_ORIGINAL_STATE` we mean the value that Auth0 generated and sent to the redirect URL. For example, if your rule redirected to `https://example.com/foo`, Auth0 would use a redirect URL similar to: `https://example.com/foo?state=abc123` (`abc123` being the `THE_ORIGINAL_STATE`). In this case in order to resume the authentication transaction you should redirect to `https://${account.namespace}/continue?state=abc123`.
+
+To extract the state value, check the `request.query` object for Database logins (`context.request.query.state`), or the `request.body` object for Social/Enterprise logins (`context.request.body.state`).
 
 When a user has been redirected to the `/continue` endpoint, all rules will be run again.
 
 ::: panel-danger Caution
-Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will loose the context of the login transaction.
+Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will lose the context of the login transaction and the user will not be able to login due to to an `invalid_request` error.
 :::
-
 
 To distinguish between user-initiated logins and resumed login flows, the `context.protocol` property can be checked:
 
