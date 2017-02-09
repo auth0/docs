@@ -15,7 +15,7 @@ You can create new Hooks using the Auth0 Management Dashboard.
 
 2. On the *New Hook* pop-up window, provide the requested information:
 
-  ![Create Hook Dialog](/media/articles/auth0-hooks/cli/name-new-hook.png)
+  ![Create Hook Dialog](/media/articles/auth0-hooks/name-new-hook.png)
 
   * **Name**: The name for your new Hook
   * **Hook**: The extensibility point associated with your Hook

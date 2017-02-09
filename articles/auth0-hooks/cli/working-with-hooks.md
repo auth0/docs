@@ -28,7 +28,7 @@ The following command will open up the code for your Hook in the Webtask Editor 
 
   `auth0 edit my-extension-1`
 
-  ![Webtask Editor](/media/articles/auth0-hooks/cli/webtask-editor.png)
+  ![Webtask Editor](/media/articles/auth0-hooks/webtask-editor.png)
 
   If the CLI cannot open the Editor window automatically, you can copy and paste the provided link into your web browser.
 

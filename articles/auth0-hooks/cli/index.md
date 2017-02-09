@@ -17,7 +17,7 @@ While the Auth0 CLI is undergoing beta testing, you must install `wt-cli` using 
 `npm i -g auth0/wt-cli#auth0`
 :::
 
-![Install Webtasks Instructions](/media/articles/auth0-hooks/cli/mgmt-dashboard-webtasks.png)
+![Install Webtasks Instructions](/media/articles/auth0-hooks/mgmt-dashboard-webtasks.png)
 
 ## Work with Hooks Using the Command-Line Interface
 
