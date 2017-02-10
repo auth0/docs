@@ -8,7 +8,6 @@ You can create new Hooks using the Auth0 Management Dashboard.
 
 ![Management Dashboard Hooks Page](/media/articles/auth0-hooks/hooks-dashboard.png)
 
-
 ## Create a New Hook
 
 1. Navigate to the Hooks page of the Management Dashboard. You can create new Hooks in one of two ways:
@@ -26,5 +25,7 @@ You can create new Hooks using the Auth0 Management Dashboard.
   Click **Create** to create your Hook.
 
   At this point, you will see your newly-created Hook listed under its associated extensibility point.
+
+**Note**: Auth0 enables your Hook for that extensibility point if there are no other Hooks associated with that point. In any other circumstance, Auth0 does *not* enable your new Hook.
 
 ![List of Hooks](/media/articles/auth0-hooks/hooks-list.png)

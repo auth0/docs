@@ -2,6 +2,10 @@
 description: How to work with Hooks using the Auth0 CLI
 ---
 
+:::panel-info Profile Name
+All of the examples on this page use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli` and can be obtained from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
+:::
+
 # Create New Hooks Using the Auth0 Command-Line Interface (CLI)
 
 Using the Auth0 CLI, you can create new Hooks, as well as manage or delete existing Hooks. You can also gather real-time data about your Hooks.
@@ -14,7 +18,7 @@ Using the Auth0 CLI, you can create new Hooks, as well as manage or delete exist
 
 2. Create the hook:
 
-  `auth0 create -t pre-user-registration --name my-extension-1 -p tj-default file.js`
+  `auth0 create -t pre-user-registration --name my-extension-1 -p auth0-default file.js`
 
 At this point, you have created a new, disabled Hook using the `pre-user-registration` [extensibility point](/auth0-hooks/extensibility-points). You can repeat this process and create Hooks for any of the other extensibility points.
 
@@ -32,11 +36,23 @@ The following command will open up the code for your Hook in the Webtask Editor 
 
   If the CLI cannot open the Editor window automatically, you can copy and paste the provided link into your web browser.
 
-### Enable Your Hook
+### Delete Your Hook
+
+The following command deletes your Hook:
+
+  `auth0 rm my-extension-1 -p auth0-default`
+
+## Enable and Disable Your Hooks
+
+For each extensibility point, you may have either no associated Hooks enabled or **one** associated Hook enabled.
 
 By default, the Auth0 CLI creates new Hooks in a disabled state. The following command will enable your Hook:
 
-  `auth0 enable my-extension-1 -p tj-default`
+### Enable Your Hook
+
+The following command enables your Hook:
+
+  `auth0 enable my-extension-1 -p auth0-default`
 
 By enabling a given Hook, the Auth0 CLI disables all other Hooks associated with the same extensibility point.
 
@@ -44,21 +60,15 @@ By enabling a given Hook, the Auth0 CLI disables all other Hooks associated with
 
 The following command disables your Hook:
 
-  `auth0 disable my-extension-1 -p tj-default`
-
-### Delete Your Hook
-
-The following command deletes your Hook:
-
-  `auth0 rm my-extension-1 -p tj-default`
+  `auth0 disable my-extension-1 -p auth0-default`
 
 ## Gather Information About Your Hooks
 
 You can use the Auth0 CLI to gather information about your Hooks:
 
 * To get a list of Hooks for a specific extensibility point:
-  `auth0 ls -t pre-user-registration -p tj-default`
+  `auth0 ls -t pre-user-registration -p auth0-default`
 * To get a list of Hooks associated with your Auth0 account:
-  `auth0 ls -p tj-default`
+  `auth0 ls -p auth0-default`
 * To access logs containing real-time data on your Hooks:
-  `auth0 logs -p tj-default`
+  `auth0 logs -p auth0-default`
