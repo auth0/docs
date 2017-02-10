@@ -20,7 +20,7 @@ description: Working with Auth0 Hooks
 
 <h3> Auth0 Hooks vs. Rules </h3>
 <p>
-  Hooks will eventually replace [Rules](/rules), the current Auth0 extensibility method. Currently, you can use both Hooks and Rules, but Auth0 will implement new functionality in Hooks.
+  Hooks will eventually replace Rules, the current Auth0 extensibility method. Currently, you can use both Hooks and Rules, but Auth0 will implement new functionality in Hooks.
 </p>
 
 <h2>Work with Hooks</h2>

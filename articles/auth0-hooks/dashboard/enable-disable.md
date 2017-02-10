@@ -32,4 +32,4 @@ You will now see a green dot next to the name of the Hook, indicating that it's 
 3. Select **None**.
 4. Confirm your selection by clicking **YES, DISABLE HOOK**.
 
-  ![Confirm Hook to Disable](/media/articles/auth0-hooks/confirm-enable-hook.png)
+  ![Confirm Hook to Disable](/media/articles/auth0-hooks/disable-hook.png)

@@ -37,4 +37,4 @@ You can create new Hooks using the Auth0 Management Dashboard.
 3. Click **Delete**.
 4. Confirm that you want to delete your Hook by clicking **YES, DELETE HOOK**.
 
-![Delete Hook Confirmation](/media/articles/auth0-hooks/hooks-list.png)
+![Delete Hook Confirmation](/media/articles/auth0-hooks/delete-hook.png)
