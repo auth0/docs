@@ -8,6 +8,14 @@ At Auth0, the focus has always been not only on greenfield projects but also on 
 
 Auth0 supports the automatic migration of users to Auth0 from a custom database connection. This feature adds your users to the Auth0 database one-at-a-time as each logs in and avoids asking your users to reset their passwords all at the same time.
 
+::: panel-info Notice
+The feature for migrating legacy database users to Auth0 is only available to users on the **Enterprise** plan. 
+
+The feature to connect an existing store or database through a Javascript script that runs on Auth0's server on every authentication requires the **Developer Pro** or **Enterprise** plan.
+
+[Click here to learn more about Auth0 pricing plans.](https://auth0.com/pricing)
+:::
+
 You can read more about database connections and the several user store options at [Database Identity Providers](/connections/database).
 
 ## The migration process
