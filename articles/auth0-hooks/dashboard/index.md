@@ -9,6 +9,6 @@ url: /auth0-hooks/dashboard
 
 The Auth0 Management Dashboard provides a visual interface for working with Hooks. With the Dashboard, you can:
 
-* [Create New Hooks](/auth0-hooks/dashboard/create)
-* [Manage Existing Hooks](/auth0-hooks/dashboard/manage)
+* [Create/Delete New Hooks](/auth0-hooks/dashboard/create-delete)
+* [Enable/Disable Existing Hooks](/auth0-hooks/dashboard/enable-disable)
 * [Edit Existing Hooks](/auth0-hooks/dashboard/edit)

@@ -5,11 +5,11 @@ url: /auth0-hooks/cli
 
 # Auth0 Command-Line Interface
 
-The Auth0 Command-Line Interface (CLI) allows you to create, manage, and delete Hooks associated with specific extensibility points within the Auth0 platform. You can also use the CLI to identify Hooks and gather real-time logging information.
+The Auth0 Command-Line Interface (CLI) allows you to create, edit, enable/disable, and delete Hooks associated with specific extensibility points within the Auth0 platform. You can also use the CLI to identify Hooks and gather real-time logging information.
 
 ## Install and Set Up the Auth0 Command-Line Interface
 
-You can find instructions for installing and configuring the Webtask Command-Line Interface (CLI) in the [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks). This package also includes the `auth0` binary, allowing you to use the Auth0 CLI.
+You can find instructions for installing and configuring the Webtask Command-Line Interface (CLI) in the [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks). The `wt-cli` package also includes the `auth0` binary, allowing you to use the Auth0 CLI.
 
 ![Install Webtasks Instructions](/media/articles/auth0-hooks/mgmt-dashboard-webtasks.png)
 

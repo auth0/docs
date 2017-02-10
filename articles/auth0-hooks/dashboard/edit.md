@@ -14,3 +14,13 @@ You can edit the code for your existing Hook using the Webtask Editor. To open u
 3. Edit your Hook using the Webtask Editor.
 
   ![Webtask Editor](/media/articles/auth0-hooks/webtask-editor.png)
+
+## Rename Your Hook
+
+You can rename your Hook using the Management Dashboard.
+
+1. In the Hooks page of the Management Dashboard, find the Hook you want to edit.
+2. Click the **Gear** icon next to your Hook.
+3. Click **Rename**. You will see a dialog pop up, asking you for the **Current Name** of the Hook, as well as the **New Name** you want to use. Click **Rename** when you have populated both values.
+
+![Webtask Editor](/media/articles/auth0-hooks/rename-hooks.png)

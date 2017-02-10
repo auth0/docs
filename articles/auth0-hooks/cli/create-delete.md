@@ -24,6 +24,6 @@ At this point, you have created a new, disabled Hook using the `pre-user-registr
 
 ## Delete an Existing Hook
 
-If you need to delete an existing Hook, the following command will do so:
+If you need to delete an existing Hook, you can do so using the following command:
 
   `auth0 rm my-extension-1 -p auth0-default`

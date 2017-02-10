@@ -10,7 +10,7 @@ All of the examples on this page use `auth0-profile` as the name of the profile.
 
 For each extensibility point, you may have either no associated Hooks enabled or **one** associated Hook enabled.
 
-By default, the Auth0 CLI creates new Hooks in a disabled state. The following command will enable your Hook:
+By default, the Auth0 CLI creates new Hooks in a disabled state.
 
 ### Enable Your Hook
 

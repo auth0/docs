@@ -6,16 +6,6 @@ description: The password-exchange extensibility point for use with Auth0 Hooks
 
 The `password-exchange` extensibility point allows you to change the scopes and add custom claims to the tokens issued by the Auth0 API's `POST /oauth/token` endpoint using `grant_type=password`.
 
-In addition to the `scope` property, the response may include properties that:
-
-* Are URLs with `http` or `https` schemes
-* Have hostnames (including subdomains) other than:
-  * `auth0.com`
-  * `webtask.io`
-  * `webtask.run`
-
-The extensibility point will add no other properties as claims to the issued token.
-
 ## Starter Code
 
 ```js
