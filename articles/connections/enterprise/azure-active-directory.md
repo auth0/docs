@@ -35,7 +35,7 @@ Then under **MANAGE**, select **App registrations**.
 
 Then click on the **+ ADD** button to add a new application.
 
-Enter a name for the application, select **Web app/API** as the **Application Type**, and for **Sign-on URL** enter your application URL (completely arbitrary).
+Enter a name for the application, select **Web app/API** as the **Application Type**, and for **Sign-on URL** enter your application URL.
 
 ![Create application form](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-3.png)
 
