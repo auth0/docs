@@ -2,39 +2,9 @@
 description: The password-exchange extensibility point for use with Auth0 Hooks
 ---
 
-# Extensibility Point: `password-exchange`
+# Extensibility Point: Password Exchange
 
 The `password-exchange` extensibility point allows you to change the scopes and add custom claims to the tokens issued by the Auth0 API's `POST /oauth/token` endpoint using `grant_type=password`.
-
-You can include the following in the body of your request:
-
-```json
-{
-  "audience": "string",
-  "scope": "array of strings",
-  "user": {
-    "tenant": "string",
-    "id": "string",
-    "displayName": "string",
-    "user_metadata": "object",
-    "app_metadata": "object"
-  },
-  "client": {
-    "tenant": "string",
-    "id": "string",
-    "name": "string",
-    "metadata": "object"
-  }
-}
-```
-
-The body of the response is as follows:
-
-```json
-{
-  "scope": "array of strings"
-}
-```
 
 In addition to the `scope` property, the response may include properties that:
 
@@ -54,3 +24,22 @@ module.exports = function (user, context, cb) {
   cb(null, { slack_notified: true });
 };
 ```
+
+## Parameters
+
+* **audience** [string] - audience claim of the token
+* **cb** [function] - function (parameters: error, accessTokenClaims)
+* **client** [object] - information about the Client
+* **client.id** [string] - Client ID
+* **client.metadata** [object] - Client metadata
+* **client.name** [string] - name of the Client
+* **client.tenant** [string] - name of the Auth0 Tenant
+* **context** [object] - additional authorization context
+* **context.webtask** [object] - the context in which the Webtask runs
+* **scope** [array|undefined] - array of strings representing the scope claim *or* undefined
+* **user** [object] - the logged-in user
+* **user.app_metadata** [object] - application metadata
+* **user.displayName** - the displayed name of the user
+* **user.id** [string] - the user's unique identifier
+* **user.tenant** [string] - the Auth0 Tenant name
+* **user.user_metadata** [object] - user metadata
