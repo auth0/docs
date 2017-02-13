@@ -174,4 +174,18 @@ provider.rememberLastLogin(false);
 
 ### Certificate fingerprints
 
-When creating a new OAuth Credential in the Google Developers Console you will need to provide the SHA-1 of the certificate you're using to sign your application. When completing your Client's Configuration in the Auth0 Dashboard you will also need to provide the SHA-256 value. If you need assistance, you can follow this [Keystores Guide](/libraries/lock-android/keystore) to acquire those values.
+When creating a new OAuth Credential in the Google Developers Console you will need to provide the SHA-1 of the certificate you're using to sign your application. When completing your Client's Configuration in the Auth0 Dashboard you will also need to provide the SHA-256 value. Here is an example of the terminal command to acquire the value, and a sample result.
+
+Command:
+
+```sh
+keytool -exportcert -alias androiddebugkey -keystore <PATH_TO_YOUR_KEYSTORE>/.android/debug.keystore -storepass android | openssl sha1 -binary | openssl base64
+```
+
+Sample output:
+
+```
+no71633JAC3qgzQYCbskprUr55k=
+```
+
+If you need assistance, you can follow this [Keystores Guide](/libraries/lock-android/keystore) to acquire those values.

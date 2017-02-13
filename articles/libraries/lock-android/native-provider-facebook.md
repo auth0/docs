@@ -19,13 +19,14 @@ compile 'com.auth0.android:lock-facebook:3.1.0'
 
 Android API 15 or later & Facebook Android SDK 4.+
 
-## Github Repository
+## Github repository
 
 [https://github.com/auth0/Lock-Facebook.Android](https://github.com/auth0/Lock-Facebook.Android)
 
 ## Setup
 
 ### Facebook Developers Console
+
 1. Go to the [Facebook Developers Console](https://developers.facebook.com/) and create a new App: Choose "Android" and give it a valid name. Click "Create new Facebook App ID".
 2. Add your application's **Package Name** and the name of the **Activity class** where you're using the provider and click the Next button.
 3. Add the **SHA-1** Base64 encoded Key Hashes of the certificates you're using to sign your application and click the Next button. If you need help obtaining the SHA-1 check [this](#certificate-fingerprints) section.
@@ -34,7 +35,8 @@ Android API 15 or later & Facebook Android SDK 4.+
 6. On the left side you have the navigation drawer. Click Settings and then Basic. Turn ON the **Single Sign On** switch and click the Save button.
 7. Click Settings and then Advanced. Turn ON the **Native or desktop app?** switch.
 
-### Auth0 Dashboard
+### Auth0 dashboard
+
 1. Go to the Auth0 Dashboard and click [Social Connections](${manage_url}/#/connections/social).
 2. Click **Facebook** and a dialog will prompt.
 3. Complete the "App ID" field with the `APP ID` value obtained in the step 5 of the **Facebook Developers Console** section above.
@@ -44,7 +46,8 @@ Android API 15 or later & Facebook Android SDK 4.+
 7. At the bottom of the page, click the "Show Advanced Settings" link and go to the "Mobile Settings" tab.
 8. In the Android section, complete the **Package Name** with your application's package name. Finally, complete the **Key Hashes** field with the SHA-256 of the certificate you're using to sign your application. If you need help obtaining the SHA-256 check [this](#certificate-fingerprints) section. Click the "Save Changes" button.
 
-### Android Application
+### Android application
+
 1. In your android application, create a new String resource in the `res/strings.xml` file. Name it `facebook_app_id` and set as value the `APP ID` obtained in the step 5 of the **Facebook Developers Console** setup section above.
 2. Add the `FacebookActivity` and `facebook_app_id` MetaData to the `AndroidManifest.xml` file, inside the Application tag.
 
@@ -124,6 +127,7 @@ That's it, you're ready to run the application and log in using Facebook native 
 ## Additional options
 
 ### Using a custom connection name
+
 To use a custom social connection name to authorize against Auth0, call `setConnection` with your new connection name.
 
 ```java
@@ -131,6 +135,7 @@ FacebookAuthProvider provider = new FacebookAuthProvider("my_connection_name", c
 ```
 
 ### Send additional authentication parameters
+
 To send additional parameters on the authentication call `setParameters`.
 
 ```java
@@ -139,14 +144,16 @@ Map<String, Object> parameters = new HashMap<>();
 provider.setParameters(parameters);
 ```
 
-### Requesting custom Facebook Permissions
+### Requesting custom Facebook permissions
+
 By default, the permission `public_profile` is requested. You can customize them by calling `setPermissions` with the list of Facebook Permissions.
 
 ```java
 provider.setPermissions(Arrays.asList("public_profile", "user_photos"));
 ```
 
-### Requesting custom Android Runtime Permissions
+### Requesting custom Android runtime permissions
+
 This provider doesn't require any special _Android Manifest Permissions_ to authenticate the user. But if your use case requires them, you can let the AuthProvider handle them for you. Use the `setRequiredPermissions` method to specify them.
 
 ```java
@@ -155,14 +162,15 @@ provider.setRequiredPermissions(new String[]{"android.permission.GET_ACCOUNTS"})
 
 If you're not using Lock then you'll have to handle the permission request result yourself. To do so, make your activity implement the `ActivityCompat.OnRequestPermissionsResultCallback` interface. When the `onRequestPermissionsResult` method gets called pass the result to the provider by calling `provider.onRequestPermissionsResult`.
 
-### Log out / Clear account.
+### Log out / clear account.
 To log out the user so that the next time they are prompted to input their credentials call `clearSession`. After you do this the provider state will be invalid and you will need to call `start` again before trying to `authorize` a result. Calling `stop` has the same effect.
 
 ```java
 provider.clearSession();
 ```
 
-### Remember the Last Login
+### Remember the last Login
+
 By default this provider will remember the last account used to log in. If you want to change this behavior, use the following method.
 
 ```java
@@ -172,4 +180,19 @@ provider.rememberLastLogin(false);
 
 ## Certificate fingerprints
 
-When creating a new OAuth Credential in the Facebook Developers Console you will need to provide the SHA-1 of the certificate you're using to sign your application. When completing your Client's Configuration in the Auth0 Dashboard you will also need to provide the SHA-256 value. If you need assistance, you can follow this [Keystores Guide](/libraries/lock-android/keystore) to acquire those values.
+When creating a new OAuth Credential in the Facebook Developers Console you will need to provide the SHA-1 of the certificate you're using to sign your application. When completing your Client's Configuration in the Auth0 Dashboard you will also need to provide the SHA-256 value. Here is an example of the terminal command to acquire the value, and a sample result.
+
+Command:
+
+```sh
+keytool -exportcert -alias androiddebugkey -keystore <PATH_TO_YOUR_KEYSTORE>/.android/debug.keystore -storepass android | openssl sha1 -binary | openssl base64
+```
+
+Sample output:
+
+```
+SHA1: BB:0D:AC:74:D3:21:E1:43:07:71:9B:62:90:AF:A1:66:6E:44:5D:75
+SHA256: 15:B9:F9:33:9F:E4:E3:68:C2:10:49:17:5D:A8:77:12:7C:8E:57:E9:FF:B7:23:EA:CC:DD:56:08:06:C9:5E:33
+```
+
+If you need assistance, you can follow this [Keystores Guide](/libraries/lock-android/keystore) to acquire those values.
