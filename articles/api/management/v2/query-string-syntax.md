@@ -40,6 +40,10 @@ Some examples of query string syntax are:
 
     `_exists_: description`
 
+* Your query can search across more than one field by using the `AND` & `OR` condition. Where the username field is exactly `"john"` AND the field `description` has any non-null value:
+
+    `username: "john" AND _exists_: description` 
+
 ### Wildcards
 
 Wildcard searches can be run on individual terms, using `?` to replace a single character, and `*` to replace zero or more characters:
@@ -92,7 +96,7 @@ Some examples of range queries are:
 
 * Last login date of 2015:
 
-    `last_login:[2015-01-01 TO 2015-12-31]
+    `last_login:[2015-01-01 TO 2015-12-31]`
 
 * Users who have logged in between 1-5 times:
 
