@@ -142,11 +142,19 @@ A typical modern SaaS multi-tenant app has these features:
 
 ### One database connection or many
 
-A single database connection is often sufficient. Whether or not a user has access to a certain tenant can be handled with [metadata](/api/v1#!#put--api-users--user_id--metadata) instead of separate database connections.
+A single database connection is often sufficient. Whether or not a user has access to a certain tenant can be handled with [metadata](/api/v1#!#put--api-users--user_id--metadata) instead of separate database connections. You can easily find users that have specific metadata values via our [user search API](https://auth0.com/docs/api/management/v2/user-search). For example, to fetch all users that belong to the `company1` tenant per the example give earlier, you could use this Lucene query:
 
-If you need to isolate a set of users (e.g. staging vs. prod environment), it may make sense to use different database connections. Even then, it would be better to create different accounts in Auth0.
+```
+_exists_:app_metadata.permissions.company1
+````
 
-You may require a separate database connection if, for example,  **tenant-A** uses the built-in Auth0 user store but **tenant-B** has a set of users elsewhere that you want to authenticate. In this case, you could create a [custom db connection](/connections/database/mysql) for **tenant-B** and reference that association in your application.
+There are a few cases where storing users in multiple database connections might make sense:
+
+1. If you need to isolate a set of users (e.g. staging vs. prod environment), it may make sense to use different database connections. However, we recommend you use [separate Auth0 tenants](https://auth0.com/docs/dev-lifecycle/setting-up-env) for this instead.
+2. If your **tenant A** and **tenant B** only contain username/password users but **tenant C** uses an enterprise connection for its users (eg. Active Directory or SAML), then you might want separate database connections for **tenant A** and **tenant B**, but again, you could just use one database connection for both and use the metadata approach instead. In fact, you may have some tenants with a mixture of both database and enterprise (or even social) connections. Metadata provides a consistent way to categorize your users without the added complexity of multiple database connections.
+3. If your tenants have different connetion-level requirements. The best example is if they have different password policy requirements. So **tenant A** only requires the **Fair** password policy where **tenant B** requires the **Excellent** password policy and maybe a specific password history. Since these are settings at the connection level you would require multiple database connections to accomplish this.
+
+> WARNING: If you do decide to employ multiple database connections, be aware that there is currently a limit to how many _enabled_ database connections that Lock will support for a single client. Therefore we advise if you have multiple database connections _and_ you use Lock in your application, that you actually create _separate_ Auth0 clients for each of your tenants. Many would argue that multi-tenant SaaS applications should treat each tenant as separate applications anyway, even if it's the same physical application hosting all of them.
 
 ### A single Auth0 account for all tenants
 
