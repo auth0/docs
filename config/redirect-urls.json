@@ -1191,5 +1191,9 @@
   {
     "from": "/quickstart/backend/aspnet-core-webapi/06-authorization-deprecated",
     "to": "/quickstart/backend/aspnet-core-webapi/06-authorization-legacy"
+  },
+  {
+    "from": "/libraries/lock-android/error-messages",
+    "to": "/libraries/error-messages"
   }
 ]
