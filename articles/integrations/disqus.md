@@ -12,17 +12,17 @@ Disqus allows you to embed a discussion section onto your site where your users 
 1. If you don't already have an account with Disqus, create one. If you do, log in.
 2. Select the **I want to install Disqus on my site** box.
 
-  ![](/disqus-on-site.png)
+  ![](/media/articles/integrations/disqus/disqus-on-site.png)
 
 3. You will be directed to the *Create a new site* page. Provide your **Website Name** and your website's **Category**. When you've provided the requested information, click **Create Site** to continue.
 
   > You **Website Name** will become your unique Disqus URL. Make note of this URL, since it is required to configure your Auth0 Client.
 
-  ![](/create-new-site.png)
+  ![](/media/articles/integrations/disqus/create-new-site.png)
 
 4. Select your site's platform to receive customized instructions on installing Disqus and embedding its UI onto your site. If the platform you're using isn't listed, select **I don't see my platform, install manually with Universal Code** at the bottom of the page.
 
-  ![](/platforms.png)
+  ![](/media/articles/integrations/disqus/platforms.png)
 
   When you have finished the installation process, click **Configure** to move on to the next step.
 
@@ -38,15 +38,15 @@ Prior to configuring Single Sign On for your Disqus-Auth0 Integration, you must 
 
 1. Navigate to the [Applications section of the Disqus API](https://disqus.com/api/applications/) to register your application.
 
-  ![](/register-api-app.png)
+  ![](/media/articles/integrations/disqus/register-api-app.png)
 
 2. Provide the requested details about your application. When complete, click **Register my application**.
 
-  ![](/register.png)
+  ![](/media/articles/integrations/disqus/register.png)
 
 3. You will now see your Auth0 application listed in the Disqus Applications panel.
 
-  ![](/register-api-app.png)
+  ![](/media/articles/integrations/disqus/register-api-app.png)
 
 4. Click on the [Single Sign-On](https://disqus.com/api/sso/) tab to go to the SSO management area where you will configure your remote domain and test the payload you create. Provide the following for your integration:
 
@@ -60,7 +60,7 @@ Prior to configuring Single Sign On for your Disqus-Auth0 Integration, you must 
 
   Click **Save Changes** when you're done.
 
-  ![](/sso-config.png)
+  ![](/media/articles/integrations/disqus/sso-config.png)
 
 5. Return to the *Settings* page of the *Applications* tab.
 6. Scroll to the *Settings* section and provide the following information:
@@ -72,13 +72,13 @@ Prior to configuring Single Sign On for your Disqus-Auth0 Integration, you must 
 
   * **Default Access**: Set to *Read and Write*.
 
-  ![](/disqus-app-settings.png)
+  ![](/media/articles/integrations/disqus/disqus-app-settings.png)
 
   When done, click **Save Changes**.
 
 6. At this point, SSO is fully configured for your Disqus account. You will now need to [finish configuring the integration](https://help.disqus.com/customer/portal/articles/236206-single-sign-on) from the Auth0 side.
 
-  ![](/sso-config.png)
+  ![](/media/articles/integrations/disqus/sso-config.png)
 
 ## Integrate Disqus with Auth0
 
