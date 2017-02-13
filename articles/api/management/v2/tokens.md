@@ -153,20 +153,11 @@ The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires
 }
 ```
 
-From the above we can see that our `access_token` is a bearer access token, it will expire in 24 hours (86400 seconds), and it has been authorized to read and create clients.
+From the above we can see that our `access_token` is a [bearer access token](https://tools.ietf.org/html/rfc6750), it will expire in 24 hours (86400 seconds), and it has been authorized to read and create clients.
 
-### 2. Verify the Token
+### 2. Use the Token
 
-Access tokens will be signed using the signature method configured for the resource server, and must be verified accordingly:
-
-* HS256 (symmetric): signed using the resource server's signing secret
-* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
-
-For claim verification, use any [recommended JWT library](https://jwt.io/) which validates all the standard claims returned in the token.
-
-### 3. Use the Token
-
-You can use this bearer token with an Authorization Header in your request to obtain authorized access to your API.
+To use this token, just include it in the `Authorization` header of your request .
 
 ```har
 {
@@ -174,11 +165,76 @@ You can use this bearer token with an Authorization Header in your request to ob
   "url": "http://PATH_TO_THE_ENDPOINT/",
   "headers": [
     { "name": "Content-Type", "value": "application/json" },
-    { "name": "Authorization", "value": "authorization: Bearer YOUR_ACCESS_TOKEN"}
+    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN"}
   ]
 }
 ```
 
+For example, in order to [Get all clients](/api/management/v2#!/Clients/get_clients) use the following:
+
+```har
+{
+  "method": "GET",
+  "url": "https://${account.namespace}/api/v2/clients",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5ESTFNa05DTVRGQlJrVTRORVF6UXpFMk1qZEVNVVEzT1VORk5ESTVSVU5GUXpnM1FrRTFNdyJ9.eyJpc3MiOiJodHRwczovL2RlbW8tYWNjb3VudC5hdXRoMC5jb20vIiwic3ViIjoib9O7eVBnMmd4VGdMNjkxTnNXY2RUOEJ1SmMwS2NZSEVAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vZGVtby1hY2NvdW50LmF1dGgwLmNvbS9hcGkvdjIvIiwiZXhwIjoxNDg3MDg2Mjg5LCJpYXQiOjE5ODY5OTk4ODksInNjb3BlIjoicmVhZDpjbGllbnRzIGNyZWF0ZTpjbGllbnRzIHJlYWQ6Y2xpZW50X2tleXMifQ.oKTT_cEA_U6hVzNYPCl_4-SnEXXvFSOMJbZyFydQDPml2KqBxVw_UPAXhjgtW8Kifc_b2HQ4jFh7nH0KC_j1XjfEJPvwFZgqfI_ILzO3DPfpEIK_n_aX-Tz4okbZe6nj2aT_qLpHimLxK50jOGaMuzp4a1djHJTj5q-NbIiPW8AJowS2-gveP4T3dyyegUsZkmTNwrreqppPApmpWWE-wVsxnVsI_FZFrHnq0rn7lmY_Iz6vyiZjaKrd2C3hFm0zFGTn8FslBfHUldTcDNzOKOpCq7HFMeU0urXBXDetrzkW1afxIqED3G2C51JEV-4nTRYUinnWgXJfLJ87G3ge_A"}
+  ]
+}
+```
+
+<div class="alert alert-info">
+  You can get the curl command for each endpoint from the Management API v2 Explorer. Go to the endpoint you want to call, and click the <em>get curl command</em> link at the <em>Test this endpoint</em> section.
+</div>
+
+### Sample Implementation: Python
+
+This python script gets a Management API v2 access token, uses it to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console:
+
+```python
+def main():
+  import json, urllib, urllib2
+
+  # Configuration Values
+  DOMAIN = "${account.namespace}"
+  AUDIENCE = "https://${account.namespace}/api/v2/"
+  CLIENT_ID = "${account.clientId}"
+  CLIENT_SECRET = "${account.clientSecret}"
+  GRANT_TYPE = "client_credentials" # OAuth 2.0 flow to use
+
+  # Get an access token from Auth0
+  base_url = "https://{domain}".format(domain=DOMAIN)
+  data = urllib.urlencode([('client_id', CLIENT_ID),
+                          ('client_secret', CLIENT_SECRET),
+                          ('audience', AUDIENCE),
+                          ('grant_type', GRANT_TYPE)])
+  req = urllib2.Request(base_url + "/oauth/token", data)
+  response = urllib2.urlopen(req)
+  oauth = json.loads(response.read())
+  access_token = oauth['access_token']
+
+  # Get all Clients using the token
+  req = urllib2.Request(base_url + "/api/v2/clients")
+  req.add_header('Authorization', 'Bearer ' + access_token)
+  req.add_header('Content-Type', 'application/json')
+
+  try:
+    response = urllib2.urlopen(req)
+    res = json.loads(response.read())
+    print res
+  except urllib2.HTTPError, e:
+    print 'HTTPError = ' + str(e.code) + ' ' + str(e.reason)
+  except urllib2.URLError, e:
+    print 'URLError = ' + str(e.reason)
+  except urllib2.HTTPException, e:
+    print 'HTTPException'
+  except Exception:
+    print 'Generic Exception'
+
+# Standard boilerplate to call the main() function.
+if __name__ == '__main__':
+  main()
+```
 
 ## Frequently Asked Questions
 
