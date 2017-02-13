@@ -10,10 +10,6 @@ toc: true
 
 In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as Auth0 Management APIv2 Token. This token is a [JWT](/jwt), contains specific granted permissions (known as __scopes__), and is signed with a client API key and secret for the entire tenant.
 
-  ::: panel-info What are these scopes?
-  The scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create clients, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
-  :::
-
 There are two ways to get a Management APIv2 Token: [get one manually using the Dashboard](#get-a-token-manually), or [automate the process](#automate-the-process) (build a simple command line tool that generates tokens). In this article we will see how you can do either.
 
 ## Get a token manually
@@ -68,7 +64,11 @@ Toggle the slider from `Unauthorized` to `Authorized` for your client.
 
 ### 3. Choose the Scopes
 
-The last step, before you get a token, is to select which scopes (permissions) should be granted to this client: for example, should it be able only to read users or create and delete as well?
+The last step, before you get a token, is to select which scopes should be granted to this client.
+
+  ::: panel-info What are the scopes?
+  The scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create clients, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
+  :::
 
 If you followed this article so far, then you already are at the _Non Interactive Clients_ tab of the `Auth0 Management API`. If not, go to [APIs](${manage_url}/#/apis), click the **Edit** icon for `Auth0 Management API`, go to _Non Interactive Clients_ and expand your non interactive client, using the pointing down arrow, next to the _Authorized_ toggle.
 
@@ -186,6 +186,8 @@ For example, in order to [Get all clients](/api/management/v2#!/Clients/get_clie
 <div class="alert alert-info">
   You can get the curl command for each endpoint from the Management API v2 Explorer. Go to the endpoint you want to call, and click the <em>get curl command</em> link at the <em>Test this endpoint</em> section.
 </div>
+
+That's it! You are done!
 
 ### Sample Implementation: Python
 
