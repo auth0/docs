@@ -19,7 +19,7 @@ module.exports = function (user, client, scope, audience, context, cb) {
 };
 ```
 
-The default response body is as follows:
+The default response object is as follows:
 
 ```json
 {
@@ -29,13 +29,13 @@ The default response body is as follows:
 
 You can add the following as claims to the issued token:
 
-* The `scope` property of the response body;
+* The `scope` property of the response object;
 * Any properties with namespaced property names:
 
   * URLs with HTTP or HTTPS schemes
   * URLs with hostnames that *aren't* auth0.com, webtask.io, webtask.run, or the associated subdomain names
 
-The extensibility point will ignore all other response properties.
+The extensibility point will ignore all other response object properties.
 
 ## Parameters
 

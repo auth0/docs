@@ -31,6 +31,24 @@ module.exports = function (user, context, cb) {
 };
 ```
 
+The default response object is as follows:
+
+```json
+{
+  "user": {
+    "user_metadata": "object",
+    "app_metadata": "object",
+  }
+}
+```
+
+If you specify `app_metadata` and `user_metadata` in the response object, Auth0 adds this information to the new user.
+
+Metadata property names must not:
+
+* Start with the `$` character;
+* Contain the `.` character.
+
 ## Parameters
 
 * **cb** [function] - function (parameters: error, accessTokenClaims)

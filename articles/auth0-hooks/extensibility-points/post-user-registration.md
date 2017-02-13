@@ -20,7 +20,7 @@ module.exports = function (user, context, cb) {
 };
 ```
 
-:::panel-warning Response Body
+:::panel-warning Response Object
 The Post-User Registration extensibility point ignores any response object.
 :::
 
