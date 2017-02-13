@@ -14,7 +14,7 @@ Some MitM attacks can also modify the data transmitted between the client and th
 
 ### Preventing MitM attacks
 
-To help defend against this type of attack it is important to use strong encryption and authentication between the client and the server. Using encryption the server authenticates the client's request by presenting a digital certificate, and only then can the connection be established.  FOr example, HTTPS uses the secure sockets layer (SSL) capability of the browser to mask web traffic. To decrypt HTTPS, a man-in-the-middle attacker would have to obtain the keys used to encrypt the network traffic.
+To help defend against this type of attack it is important to use strong encryption and authentication between the client and the server. Using encryption the server authenticates the client's request by presenting a digital certificate, and only then can the connection be established.  For example, HTTPS uses the secure sockets layer (SSL) capability of the browser to mask web traffic. To decrypt HTTPS, a man-in-the-middle attacker would have to obtain the keys used to encrypt the network traffic.
 
 With the configuration of TLS on your servers we suggest using the [Mozilla OpSec recommendations](https://wiki.mozilla.org/Security/Server_Side_TLS) which use TLSv1.2. Mozilla also provides an [SSL Configuration Generator](https://mozilla.github.io/server-side-tls/ssl-config-generator/), to use this first choose which platform your server is running and then choose the most modern configuration based on what your client base can support. The more modern configurations provide stronger ciphers to help prevent attacks.
 
