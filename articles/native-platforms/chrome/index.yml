@@ -1,4 +1,5 @@
 title: Chrome Extension
+community: true
 language:
   - JavaScript
 framework:
