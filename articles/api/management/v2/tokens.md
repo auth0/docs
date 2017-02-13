@@ -7,80 +7,149 @@ section: apis
 
 ## Overview
 
-The Auth0 Management APIv2 token is required to call v2 of the Auth0 Management API.  This token is used by a specific tenant in Auth0 to call Auth0 Management APIv2 to access or update records for that tenant.  This Management APIv2 token is a JWT, and contains various scopes, such as `read:users` or `update:clients`, and is signed with a client API key and secret for the entire tenant.
+In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as Auth0 Management APIv2 Token. This token is a [JWT](/jwt), contains specific granted permissions (known as _scopes_), and is signed with a client API key and secret for the entire tenant.
 
-## How to get a Management APIv2 Token
+  ::: panel-info What are these scopes?
+  Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. The scopes are permissions that should be granted by the owner. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create clients, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
+  :::
 
-**Create a Non Interactive Client**
+There are two ways to get a Management APIv2 Token: [get one manually using the Dashboard](#get-a-token-manually), or [automate the process](#automate-the-process) (build a simple command line tool that generates tokens). In this article we will see how you can do that.
 
-A Non Interactive Client is a client that interacts with an API where there is no user involved. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow.
+## Get a token manually
 
-To create a new Non Interactive Client, go to the [Clients section](${manage_url}/#/clients) of the dashboard then click the **CREATE CLIENT** button.
+<div class="alert alert-info">
+  <strong>Heads up!</strong> Before you decide to follow the manual process, you should know that the Management APIv2 token has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to <a href="#renew-the-token">get a new one</a>. Alternatively, you can <a href="#automate-the-process">automate the process</a>.
+</div>
 
-Enter a name for your new client, select **Non Interactive Clients** and then click the **CREATE** button.
+Let's see how you can get a token manually. Note, that the first two steps of the process need to be executed _only_ the first time. This might be true also for the third step, if the endpoints you need to access do not change. In that case you can skip to the [Get the Token](#get-the-token) section.
+
+### 1. Create a Client
+
+First, you need to create a Non Interactive Client. If you already have one skip this paragraph.
+
+  ::: panel-info What is a Non Interactive Client?
+  A Non Interactive Client represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
+  :::
+
+Go to the [Clients section](${manage_url}/#/clients) of the dashboard and click the **Create Client** button.
+
+Enter a name for your new client, select **Non Interactive Clients** and then click **Create**.
 
 ![Create New Client](/media/articles/api/tokens/noninteractive-client.png)
 
-**Authorize the Client**
+### 2. Authorize the Client
 
-After creating the new client, you will be brought to it's **Quick Start** section. Select **Auth0 Management API** from the dropdown. You will then see a message that the client is not authorized, click **NAVIGATE TO THE API AND AUTHORIZE**.
+Once you create the new client, you will be navigated to it's *Quick Start* section.
 
-![](/media/articles/api/tokens/navigate-button.png)
+If this is the first time you are configuring an API in Auth0, you will see this message:
 
-This will bring you to the [APIs section](${manage_url}/#/apis) under **Auth0 Management API** in the **Non Interactive Clients** section. (To enable the APIs section of the sidebar, go to Account Settings > Advanced > Enable APIs Section)
+```text
+Defining Non Interactive Clients and APIs is a new feature in Auth0 that you can opt-in to. Once you enable it, a new item on the sidebar "APIs" will be shown. To enable it, turn on this toggle (or do it on Account Settings).
+```
 
-![Authorize Client](/media/articles/api/tokens/authorize-noninteractive.png)
+If you see that, turn on the toggle. Notice that a new item is added on the left hand menu: [APIs](${manage_url}/#/apis).
 
-Toggle the slider to authorize your client.
+Now you should see a `Select an API` dropdown, listing all the APIs you have configured with Auth0.
 
-**Choose the scopes**
+Select `Auth0 Management API` from the dropdown. You will then see a message that the client is not authorized (`This client is not authorized for this API.`).
 
-You will see the available scopes that you can be granted for this client (which can be revoked at any time). Choose the desired scopes and then click the **UPDATE** button.
+Click **Navigate to the API and authorize**.
+
+![Navigate to the API and authorize button](/media/articles/api/tokens/navigate-button.png)
+
+This will bring you to the [APIs section](${manage_url}/#/apis), specifically to the _Non Interactive Clients_ tab of the `Auth0 Management API`.
+
+![Authorize Non Interactive Client](/media/articles/api/tokens/authorize-noninteractive.png)
+
+Toggle the slider from `Unauthorized` to `Authorized` for your client.
+
+### 3. Choose the Scopes
+
+The last step, before you get a token, is to select which scopes (permissions) should be granted to this client: for example, should it be able only to read users or create and delete as well?
+
+If you followed this article so far, then you already are at the _Non Interactive Clients_ tab of the `Auth0 Management API`. If not, go to [APIs](${manage_url}/#/apis), click the **Edit** icon for `Auth0 Management API`, go to _Non Interactive Clients_ and expand the your non interactive client, using the pointing down arrow, next to the _Authorized_ toggle.
+
+All the scopes, for the various [Management API v2](/api/management/v2) endpoints are listed here. Tick the ones you want to grant to the client and click the **Update** button.
+
+  ::: panel-info I don't know which scopes to choose!
+  To find out which scopes you should choose, go the [Management API v2](/api/management/v2) and note the scopes listed at each endpoint. For example, the [Get all Clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a Client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. If your client needs to read and create users, then you need to tick the checkboxes for these three scopes: `read:clients`, `read:client_keys` and `create:clients`.
+  :::
 
 ![Choose authorized scopes](/media/articles/api/tokens/choose-scopes.png)
 
-**Get the token**
+### 4. Get the Token
 
-To test the client interaction with the API, go to the **Test** section under **Auth0 Management API**.
-
-![Test Client](/media/articles/api/tokens/test-client.png)
+To get a token, go to the *Test* section under `Auth0 Management API`.
 
 This page will give you code snippets on how to form a request to get a token.
 
-You should be able to scroll down to see your `access_token` property from the token which can be used to make authorized requests to your API.
+Check the _Response_, a token is already generated for you. Click **Copy Token**.
 
-### Special Scopes
+![Test Client](/media/articles/api/tokens/test-client.png)
 
-Notice that within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the id_token, which are granted automatically to the logged in user, so it makes no sense to click on them to generate a Management APIv2 token that will be used from server side code.
+You can now make authorized calls to the [Management API v2](/api/management/v2) using this token.
 
-## How to control contents of a Management APIv2 token
+### 5. Use the Token
 
-The Management APIv2 token will be issued for a particular tenant.  To have a token issued in the Management APIv2 explorer for a particular tenant, log into the Auth0 tenant, and then access the Management APIv2 explorer page.  Similarly, to obtain the secret with which to sign a Management APIv2 token, log into the desired tenant first before accessing the Management APIv2 explorer page.
+You can use the [Management API v2 explorer page](/api/management/v2) to manually call an endpoint, using the token you got in the previous step. You will need two pieces of information:
+- The Management API v2 token you just got
+- Your tenant's domain (`${account.namespace}`). You can find this on the _Settings_ of any of your [Clients](${manage_url}/#/clients/${account.clientId}/settings).
 
-## Validity
+Once you have this information you are ready to call the API. Follow these steps:
+1. Go to the Management API v2 explorer page](/api/management/v2)
+1. Click the __Set API Token__ button at the top left
+1. Set the __Domain__ and __API Token__ fields, and click __Set Token__
+1. Under the __Set API Token__ button at the top left, some new information is now displayed: the domain and token set, and the scopes that have been granted to this client
+1. Go to the endpoint you want to call, fill any parameters that might be required and click __Try__
 
-The Management APIv2 token has a validity of __24 hours__. After that the token will expire and you will have to [get a new one](#renew-the-token). 
+![Set the Token](/media/articles/api/tokens/set-token.png)
 
-## Renew the token
+## Automate the Process
 
+### Prerequisites
+
+### 1. Get a Token
+
+### 2. Verify the Token
+
+### 3. Use the Token
+
+
+## Frequently Asked Questions
+
+__How long is the token valid for?__
+The Management APIv2 token has a validity of __24 hours__. After that the token will expire and you will have to get a new one.
+
+__I hate this! The Management APIv2 token used to never expire, why would you change that?__
+The old way of generating tokens was insecure since the tokens had an infinite lifespan and could not be revoked. The new way allows tokens to be generated with specific scopes, expirations, and with the ability to revoke tokens if they were to be breached. These changes were done with our first priority in mind: keeping you and your users secure.
+
+__Can I change my token's validity period?__
+No, we have disabled this option. Your applications should use short-lived tokens to minimize security risks.
+
+__Can I refresh my token?__
 You cannot renew a Management APIv2 token. A [new token](#get-the-token) should be created when the old one expires.
 
-## Terminate the token
+__My token was compromised! Can I invalidate it?__
+Sure. You can terminate the Management APIv2 tokens calling the [blacklist endpoint](/api/v2#!/Blacklists/post_tokens).
 
-You can terminate the Management APIv2 tokens calling the [blacklist endpoint](/api/v2#!/Blacklists/post_tokens).
+__I need to invalidate all my tokens. How can I do that?__
+All your tenant's Management APIv2 tokens are signed using the Client Secret of your non interactive client, hence if you change that, all your tokens will be invalidated. To do this, go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint.
 
-## Uses
+__My Client Secret was compromised! What should I do?__
+You need to change the secret immediately. Go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint. Since your tenant's Management APIv2 tokens are signed using the Client Secret, all your tokens will be invalidated and you will have to issue new ones.
 
-The Auth0 Management APIv2 access token is used to call the Auth0 Management APIv2.  This token is required to update the app_metadata portions of the user profile.
+__I can see some `current_user` scopes in my `id_token`. What is that?__
+Within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the `id_token`, which are granted automatically to the logged in user.
 
-## API Secret
 
-Keep your API secret secure. In the event that your API secret has been compromised or you need to invalidate all of your tokens you can change the API secret.
+## More reading
 
-You can change the API secret  in the dashboard by visiting this URL directly:
+[Calling APIs from a Service](/api-auth/grant/client-credentials)
 
-```text
-${manage_url}/#/applications/YOUR_API_ID/settings
-```
+[Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 
-You can then change the `Client Secret` in that page to change your Management APIv2 secret.
+[Information on the query string syntax](/api/management/v2/query-string-syntax)
+
+[Search for Users](/api/management/v2/user-search)
+
+[Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)
