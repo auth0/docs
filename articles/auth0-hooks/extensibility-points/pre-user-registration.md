@@ -6,13 +6,13 @@ description: The pre-user-registration extensibility point for use with Auth0 Ho
 
 The `pre-user-registration` extensibility point allows you to:
 
-* Prevent creation of an application user;
+* Prevent creation of a database user;
 * Add custom `app_metadata` or `user_metadata` to a newly-created user.
 
 This allows you to implement scenarios including (but not limited to):
 
 * Enforcing a custom password policy;
-* Preventing signups for those who meet certain requirements (such as existing users or users using a particular Social Connection);
+* Preventing signups for those who meet certain requirements;
 * Setting conditional `app_metadata` or `user_metadata` on users that do not yet exist;
 * Preventing (blacklisting) personal email domains.
 

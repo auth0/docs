@@ -26,7 +26,11 @@ You can create new Hooks using the Auth0 Management Dashboard.
 
   At this point, you will see your newly-created Hook listed under its associated extensibility point.
 
-**Note**: Auth0 enables your Hook for that extensibility point if there are no other Hooks associated with that point. In any other circumstance, Auth0 does *not* enable your new Hook.
+:::panel-info New Hooks
+For any given extensibility point, you may create multiple Hooks. However, you may only have **one** Hook enabled per extensibility point at any given time.
+
+Auth0 automatically enables the first Hook you create for an extensibility point, and any subsequent Hooks for that point are created in a disabled state. As such, you must explicitly activate subsequent Hooks.
+:::
 
 ![List of Hooks](/media/articles/auth0-hooks/hooks-list.png)
 

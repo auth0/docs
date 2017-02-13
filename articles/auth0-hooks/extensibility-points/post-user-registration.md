@@ -20,6 +20,10 @@ module.exports = function (user, context, cb) {
 };
 ```
 
+:::panel-warning Response Body
+The Post-User Registration extensibility point ignores any response object.
+:::
+
 ## Parameters
 
 * **cb** [function] - function (parameters: error, accessTokenClaims)

@@ -20,6 +20,10 @@ Create the hook:
 
 `auth0 create -t pre-user-registration --name my-extension-1 -p auth0-default file.js`
 
+### Provision Secrets to New Hooks
+
+Optionally, you can add provision secrets (such as Twilio Keys or database connection strings) to your new Hook by adding `--secret KEY=VALUE` to your *Create* command. The information you attach will be encrypted, and it can only be decrypted by the Webtask server.
+
 At this point, you have created a new, disabled Hook using the `pre-user-registration` [extensibility point](/auth0-hooks/extensibility-points). You can repeat this process and create Hooks for any of the other extensibility points.
 
 ## Delete an Existing Hook
