@@ -12,13 +12,13 @@ Using the Auth0 CLI, you can create new Hooks, as well as manage or delete exist
 
 ## Create a New Hook
 
-1. Rather than beginning from scratch, you can scaffold the sample code for an Auth0 hook.
+Rather than beginning from scratch, you can scaffold the sample code for an Auth0 hook.
 
-  `auth0 scaffold -t pre-user-registration > file.js`
+`auth0 scaffold -t pre-user-registration > file.js`
 
-2. Create the hook:
+Create the hook:
 
-  `auth0 create -t pre-user-registration --name my-extension-1 -p auth0-default file.js`
+`auth0 create -t pre-user-registration --name my-extension-1 -p auth0-default file.js`
 
 At this point, you have created a new, disabled Hook using the `pre-user-registration` [extensibility point](/auth0-hooks/extensibility-points). You can repeat this process and create Hooks for any of the other extensibility points.
 
@@ -26,4 +26,4 @@ At this point, you have created a new, disabled Hook using the `pre-user-registr
 
 If you need to delete an existing Hook, you can do so using the following command:
 
-  `auth0 rm my-extension-1 -p auth0-default`
+`auth0 rm my-extension-1 -p auth0-default`

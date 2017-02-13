@@ -12,7 +12,7 @@ You can create new Hooks using the Auth0 Management Dashboard.
 
 1. Navigate to the Hooks page of the Management Dashboard. You can create new Hooks in one of two ways:
 
-    * Click on the **+ Create New Hook** button at the top right of the Hooks page.
+    * Clicking on the **+ Create New Hook** button at the top right of the Hooks page.
     * Finding the extensibility hook you want to work with and then clicking the **Create New Hook** link below.
 
 2. On the *New Hook* pop-up window, provide the requested information:

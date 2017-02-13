@@ -23,4 +23,4 @@ You can rename your Hook using the Management Dashboard.
 2. Click the **Gear** icon next to your Hook.
 3. Click **Rename**. You will see a dialog pop up, asking you for the **Current Name** of the Hook, as well as the **New Name** you want to use. Click **Rename** when you have populated both values.
 
-![Rename Hooks prompt](/media/articles/auth0-hooks/rename-hooks.png)
+![Rename Hooks prompt](/media/articles/auth0-hooks/rename-hook.png)

@@ -21,7 +21,7 @@ Once you have installed and set up the Auth0 Command-Line Interface (CLI), you c
 The Auth0 CLI examples use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli`, and you can obtain it from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
 :::
 
-* [Create/Delete Hooks](/auth0-hooks/cli/create)
+* [Create/Delete Hooks](/auth0-hooks/cli/create-delete)
 * [Edit Existing Hooks](/auth0-hooks/cli/edit)
 * [Enable/Disable Existing Hooks](/auth0-hooks/cli/enable-disable)
 * [Identify and Get Log Data from Your Hooks](/auth0-hooks/cli/logs)

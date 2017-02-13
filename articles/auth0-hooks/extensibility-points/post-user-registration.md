@@ -6,12 +6,10 @@ description: The post-user-registration extensibility point for use with Auth0 H
 
 The `post-user-registration` extensibility point allows you to implement custom actions that execute after a new user registers and is added to the database. Hooks associated with the `post-user-registration` extensibility point execute asynchronously from the actions that are a part of the Auth0 authentication process.
 
-This allows you to implement scenarios including:
+This allows you to implement scenarios including (but not limited to):
 
 * Sending notifications to Slack or via e-mail about the user's new account;
 * Creating a new user record in SalesForce.
-
-The newly-created user's profile will include `user_metadata` and/or `app_metadata` if specified in the response body.
 
 ## Starter Code
 
