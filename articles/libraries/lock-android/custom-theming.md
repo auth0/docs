@@ -63,4 +63,4 @@ Then, you need to tell the Manifest that you want to use the new `MyTheme` in th
 
 ## Pay Attention to the Manifest!
 
-Please note that if you define your own Theme in a style resource file and forget to specify that the Theme's parent is "Lock.Theme", or you forget to tell the Manifest which will be the Theme for the Activity, you will end up with a really bad looking UI. This may also happen if the values you specify in your custom Theme are invalid.
+Please note that if you define your own Theme in a style resource file and forget to specify that the Theme's parent is `Lock.Theme`, or you forget to tell the Manifest which will be the Theme for the Activity, you will end up with a really bad looking UI. This may also happen if the values you specify in your custom Theme are invalid.
