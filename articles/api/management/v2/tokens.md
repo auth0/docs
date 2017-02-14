@@ -10,7 +10,11 @@ toc: true
 
 In order to call the endpoints of [Auth0 Management API v2](/api/management/v2), you need a token, what we refer to as Auth0 Management APIv2 Token. This token is a [JWT](/jwt), contains specific granted permissions (known as __scopes__), and is signed with a client API key and secret for the entire tenant.
 
-There are two ways to get a Management APIv2 Token: [get one manually using the Dashboard](#get-a-token-manually), or [automate the process](#automate-the-process) (build a simple command line tool that generates tokens). In this article we will see how you can do either.
+There are two ways to get a Management APIv2 Token:
+- [get one manually using the Dashboard](#get-a-token-manually), or
+- [automate the process](#automate-the-process) (build a simple command line tool that generates tokens).
+
+In this article we will see how you can do either.
 
 ## Get a token manually
 
@@ -95,15 +99,15 @@ You can now make authorized calls to the [Management API v2](/api/management/v2)
 ### 5. Use the Token
 
 You can use the [Management API v2 explorer page](/api/management/v2) to manually call an endpoint, using the token you got in the previous step. You will need two pieces of information:
-- The Management API v2 token you just got
+- The Management API v2 token you just got.
 - Your tenant's domain (`${account.namespace}`). You can find this on the _Settings_ of any of your [Clients](${manage_url}/#/clients/${account.clientId}/settings).
 
 Once you have this information you are ready to call the API. Follow these steps:
-1. Go to the [Management API v2 explorer page](/api/management/v2)
-1. Click the __Set API Token__ button at the top left
-1. Set the __Domain__ and __API Token__ fields, and click __Set Token__
-1. Under the __Set API Token__ button at the top left, some new information is now displayed: the domain and token set, and the scopes that have been granted to this client
-1. Go to the endpoint you want to call, fill any parameters that might be required and click __Try__
+1. Go to the [Management API v2 explorer page](/api/management/v2).
+1. Click the __Set API Token__ button at the top left.
+1. Set the __Domain__ and __API Token__ fields, and click __Set Token__.
+1. Under the __Set API Token__ button at the top left, some new information is now displayed: the domain and token set, and the scopes that have been granted to this client.
+1. Go to the endpoint you want to call, fill any parameters that might be required and click __Try__.
 
 ![Set the Token](/media/articles/api/tokens/set-token.png)
 
@@ -193,15 +197,21 @@ That's it! You are done!
 
 ### Sample Implementation: Python
 
-This python script gets a Management API v2 access token, uses it to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console:
+This python script gets a Management API v2 access token, uses it to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console.
+
+Before you run it make sure that the following variables hold valid values:
+- `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](https://${manage_url}/#/apis).
+- `DOMAIN`: The __Domain__ of the Non Interactive Client you created at [this step](#1-create-a-client).
+- `CLIENT_ID`: The __Client ID__ of the Non Interactive Client you created at [this step](#1-create-a-client).
+- `CLIENT_SECRET`: The __Client Secret__ of the Non Interactive Client you created at [this step](#1-create-a-client).
 
 ```python
 def main():
   import json, urllib, urllib2
 
   # Configuration Values
-  DOMAIN = "${account.namespace}"
   AUDIENCE = "https://${account.namespace}/api/v2/"
+  DOMAIN = "${account.namespace}"
   CLIENT_ID = "${account.clientId}"
   CLIENT_SECRET = "${account.clientSecret}"
   GRANT_TYPE = "client_credentials" # OAuth 2.0 flow to use
