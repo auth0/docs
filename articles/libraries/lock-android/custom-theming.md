@@ -25,7 +25,7 @@ First you need to create a new `Theme` that extends from `Lock.Theme`, and overr
 styles.xml
 ```xml
 <resources>
-  <style name="MyLockTheme" parent="Lock.Theme">
+  <style name="MyTheme" parent="Lock.Theme">
     <item name="Auth0.HeaderLogo">@drawable/com_auth0_lock_header_logo</item>
     <item name="Auth0.HeaderTitle">@string/com_auth0_lock_header_title</item>
     <item name="Auth0.HeaderTitleColor">@color/com_auth0_lock_text</item>
@@ -39,7 +39,7 @@ styles.xml
 > Those attributes not overridden by the user will default to the ones defined in `Lock.Theme`.
 
 
-Then, you need to tell the Manifest that you want to use the new `MyLockTheme` in the `Activity`. This is **very important**!!
+Then, you need to tell the Manifest that you want to use the new `MyTheme` in the `Activity`. This is **very important**!!
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -52,7 +52,10 @@ Then, you need to tell the Manifest that you want to use the new `MyLockTheme` i
         android:theme="@style/AppTheme">
         <activity
           android:name="com.auth0.android.lock.LockActivity"
-          android:theme="@style/MyLockTheme">
+          android:label="@string/app_name"
+          android:launchMode="singleTask"
+          android:screenOrientation="portrait"
+          android:theme="@style/MyTheme">
         </activity>
     </application>
 </manifest>
@@ -60,4 +63,4 @@ Then, you need to tell the Manifest that you want to use the new `MyLockTheme` i
 
 ## Pay Attention to the Manifest!
 
-Please note that if you define your own Theme in a style resource file and forget to specify that the Theme's parent is "Lock.Theme", or you forget to tell the Manifest which will be the Theme for the Activity, you will end up with a really bad looking UI. This may also happen if the values you specify in your custom Theme are invalid.
+Please note that if you define your own Theme in a style resource file and forget to specify that the Theme's parent is `Lock.Theme`, or you forget to tell the Manifest which will be the Theme for the Activity, you will end up with a really bad looking UI. This may also happen if the values you specify in your custom Theme are invalid.
