@@ -143,7 +143,7 @@ A typical modern SaaS multi-tenant app has these features:
 
 ### One database connection or many
 
-A single database connection is often sufficient. Whether or not a user has access to a certain tenant can be handled with [metadata](/metadata) instead of separate database connections. You can easily find users that have specific metadata values via our [user search API](/api/management/v2/user-search). For example, to fetch all users that belong to the `company1` tenant per the example give earlier, you could use this Lucene query:
+A single database connection is often sufficient. Whether or not a user has access to a certain tenant can be handled with [metadata](/metadata) instead of separate database connections. You can easily find users that have specific metadata values via our [user search API](/api/management/v2/user-search). For example, to fetch all users that belong to the `company1` tenant per the example given earlier, you could use this Lucene query:
 
 ```
 _exists_:app_metadata.permissions.company1
@@ -158,7 +158,7 @@ There are a few cases where storing users in multiple database connections might
 - If your tenants have different connetion-level requirements. The best example is if they have different password policy requirements. So **tenant A** only requires the **Fair** password policy where **tenant B** requires the **Excellent** password policy and maybe a specific password history. Since these are settings at the connection level you would require multiple database connections to accomplish this.
 
 ::: panel-warning Warning
-If you do decide to employ multiple database connections, be aware that there is currently a limit to how many _enabled_ database connections that Lock will support for a single client. Therefore we advise if you have multiple database connections _and_ you use Lock in your application, that you actually create _separate_ Auth0 clients for each of your tenants. Many would argue that multi-tenant SaaS applications should treat each tenant as separate applications anyway, even if it's the same physical application hosting all of them.
+If you do decide to employ multiple database connections, be aware that there is currently a limit to how many _enabled_ database connections that Lock will support for a single client (at the time of this writing the limit was 50). Therefore we advise if you have multiple database connections _and_ you use Lock in your application, that you actually create _separate_ Auth0 clients for each of your tenants. Many would argue that multi-tenant SaaS applications should treat each tenant as separate applications anyway, even if it's the same physical application hosting all of them.
 :::
 
 ### A single Auth0 account for all tenants
