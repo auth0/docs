@@ -38,13 +38,13 @@ description: Working with Auth0 Hooks
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="#">Work with Hooks in the Management Dashboard</a>
+    <i class="icon icon-budicon-715"></i><a href="/auth0-hooks/dashboard">Work with Hooks in the Management Dashboard</a>
     <p>
       How to work with Hooks using the Auth0 Management Dashboard
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="#">Work with Hooks using the Command-Line Interface</a>
+    <i class="icon icon-budicon-715"></i><a href="/auth0-hooks/cli">Work with Hooks using the Command-Line Interface</a>
     <p>
       How to work with Hooks using the Auth0 Command-Line Interface
     </p>
