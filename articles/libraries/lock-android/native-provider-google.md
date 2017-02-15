@@ -179,7 +179,7 @@ When creating a new OAuth Credential in the Google Developers Console you will n
 Command:
 
 ```sh
-keytool -exportcert -alias androiddebugkey -keystore <PATH_TO_YOUR_KEYSTORE>/.android/debug.keystore -storepass android | openssl sha1 -binary | openssl base64
+keytool -exportcert -alias androiddebugkey -keystore <PATH_TO_YOUR_KEYSTORE> -storepass android | openssl sha1 -binary | openssl base64
 ```
 
 Sample output:
