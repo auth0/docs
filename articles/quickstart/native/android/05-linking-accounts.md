@@ -30,68 +30,101 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 
 Here's the scenario: Your logged-in user wants to link one (or multiple) accounts to the account they are logged in with.
 
-To do this, we will use Lock for logging in as we did in the [Login tutorial](/quickstart/native/android/01-login). In this case, we will send as an `Extra`, a boolean value to indicate that this is a secondary login.
+To do this, we will use Lock for logging in as we did in the [Login tutorial](01-login). In this case, we will send as an extra a boolean value to indicate that this is a secondary login.
 
 ```java
-Intent intent = new Intent(this, LoginActivity.class);        intent.putExtra(Constants.LINK_ACCOUNTS, true);
-intent.putExtra(Constants.PRIMARY_USER_ID, mUserProfile.getId());
+Intent intent = new Intent(this, LoginActivity.class);
+intent.putExtra(Constants.LINK_ACCOUNTS, true);
+intent.putExtra(Constants.PRIMARY_USER_ID, profile.getId());
 startActivity(intent);
 ```
 
-In the `LoginActivity.java` we obtain that value:
+In the `LoginActivity` we obtain those values:
 
 ```java
-mLinkSessions = getIntent().getExtras().getBoolean(Constants.LINK_ACCOUNTS, false);
+boolean linkSessions = getIntent().getExtras().getBoolean(Constants.LINK_ACCOUNTS, false);
+String userId = getIntent().getExtras().getString(Constants.PRIMARY_USER_ID);
 ```
 
-Then, in the login response, we decide if we advance to the `MainActivity.java` as usual, or return to the already instantiated one:
+Then, in the login response we decide if we advance to the `MainActivity` as usual or return to the already instantiated one:
 
 ```java
 @Override
-public void onAuthentication(Credentials secondaryCredentials) {
-  if(mLinkSessions){
+public void onAuthentication(Credentials credentials) {
+  if (linkSessions){
     // Link the accounts
-  }
-  else {
-    App.getInstance().setUserCredentials(credentials);
-    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+    performLink(credentials.getIdToken())
+  } else {
+    CredentialsManager.saveCredentials(this, credentials);
+    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+    startActivity(intent);
   }
 }
 ```
-
-> Remember to instantiate the `auth0` object with `auth0 = new Auth0(${account.clientId}, ${account.namespace});`
-> Also, bear in mind that the `App.getInstance().getUserCredentials().getIdToken()` method depends on how you stored your user's `Credentials`.
 
 ## Link an Account
 
 Now we can link the accounts. You have a main user along with another account you want to link to that user. All we need is the `id` of the logged-in user and the `id_token`s for the two accounts: the one we had previously saved and the one that we just received in the login response.
 
 ```java
-UsersAPIClient client = new UsersAPIClient(auth0, credentials.getIdToken());
-  String primaryUserId = mUserProfile.getId();
-  client.link(primaryUserId, secondaryCredentials.getIdToken());
+private void performLink(String secondaryIdToken){
+  Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+  auth0.setOIDCConformant(true);
+  String idToken = CredentialsManager.getCredentials(this).getIdToken();
+
+  UsersAPIClient usersClient = new UsersAPIClient(auth0, idToken);
+  usersClient.link(userId, secondaryIdToken)
+      .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
+          @Override
+          public void onSuccess(List<UserIdentity> payload) {
+              // accounts linked!
+          }
+
+          @Override
+          public void onFailure(ManagementException error) {
+
+          }
+      });
+}
+
 ```
 
 ## Retrieve Linked Accounts
 
-The linked accounts are stored within the `UserProfile` as a list of `UserIdentity`, something we've previously learned when fetching the user profile (a process that we already know from the [user profile tutorial](/quickstart/native/android/04-user-profile)):
+The linked accounts are stored within the `UserProfile` received from a `UsersAPIClient` call, as a list of `UserIdentity`.
 
 ```java
 @Override
-public void onSuccess(final UserProfile payload) {
-  mUserProfile.getIdentities();  //Get all the profile accounts
+public void onSuccess(UserProfile profile) {
+  profile.getIdentities();  //Get all the profile accounts
 }
 ```
 
-> For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) documentation.
+> For more information, check the [UserIdentity](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) class.
 
-### 4. Unlink An Account
 
-The unlink process is similar to the linking one, the only difference being that you need to specify the `identityId` and `provider` to unlink the connections. Additionally, as the first parameter, you need to use the main connection's `idToken`.
+### Unlink An Account
+
+The unlink process is similar to the linking one, the only difference being that you need to specify both the two `user id`'s and the `provider name` to unlink the connections. Additionally, the token used to instantiate the `UsersAPIClient` must be the `id_token` of the main identity.
 
 ```java
-UsersAPIClient client = new UsersAPIClient(mAuth0, App.getInstance().getUserCredentials().getIdToken());
-client.unlink(primaryUserId, secondaryUserId, secondaryProvider);
-```
+private void unlink(UserIdentity secondaryAccountIdentity) {
+    Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+    auth0.setOIDCConformant(true);
+    String idToken = CredentialsManager.getCredentials(this).getIdToken();
 
-> You can access the userId directly from the list, `userProfile.getIdentities().get(0).getId()`, if you know the connection's position in the array.
+    UsersAPIClient usersClient = new UsersAPIClient(auth0, idToken);    
+    usersClient.unlink(profile.getId(), secondaryAccountIdentity.getId(), secondaryAccountIdentity.getProvider())
+             .start(new BaseCallback<List<UserIdentity>, ManagementException>() {
+                 @Override
+                 public void onSuccess(List<UserIdentity> payload) {
+                     // accounts unlinked
+                 }
+
+                 @Override
+                 public void onFailure(final ManagementException error) {
+
+                 }
+             });
+}
+```

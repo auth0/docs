@@ -20,31 +20,18 @@ This quickstart will show you how to add Auth0 login capabilities while using a 
 
 ## Before Starting
 
-Go to the [Client Settings](${manage_url}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the value:
+Go to the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the next value, replacing the `YOUR_APP_PACKAGE_NAME` with your application's package name.
 
 ```
 https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
-## Add The Auth0 Android Dependency
+<%= include('_includes/_auth0') %>
 
-Your first step is to add [Auth0 Android](https://github.com/auth0/Auth0.Android) into your project, which is basically the library that will manage the login process, via [Auth0](https://auth0.com/) Authentication Client.
 
-#### i. Gradle
+### Configure Your Manifest File
 
-Add to your app's module Gradle file:
-
-```gradle
-compile 'com.auth0.android:auth0:1.0.0'
-```
-
-Then, run "Sync project with Gradle files" inside Android Studio or `./gradlew clean assembleDebug` from the command line.
-
-> For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
-
-### 2. Configure Your Manifest File
-
-You need to add the following permissions inside the `AndroidManifest.xml`:
+You need to add the following permission inside the `AndroidManifest.xml`:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -54,15 +41,12 @@ You need to add the following permissions inside the `AndroidManifest.xml`:
 
 At this point, you're all set to implement the login in any activity you want.
 
-First, in your customized login method, instantiate the Authentication API:
+First, in your customized login method, instantiate the Authentication API Client:
 
 ```java
-private void login(String email, String password) {
-    Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
-    AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
-
-    // proper login
-}
+Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
+AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 ```
 
 Then, login using the newly created client:
@@ -86,4 +70,4 @@ client.login(email, password, connectionName)
 
 In this example we're logging in using an Auth0 Database Connection called "Username-Password-Authentication". You can also [create your own](https://manage.auth0.com/#/connections/database/new).
 
-> There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example.
+> There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's Login template](https://developer.android.com/studio/projects/templates.html#LoginActivity) as an example.

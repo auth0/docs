@@ -24,7 +24,7 @@ You should already know how to manage the `Credentials` object, as explained in 
 
 ## Get a Token
 
-Your first step is to get the `Credentials` object.
+Your first step is to get the `Credentials` object, i.e. using Lock.
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
@@ -37,36 +37,32 @@ private LockCallback callback = new AuthenticationCallback() {
 
 };
 ```
-You can use any of the token strings contained in the `Credentials` object.
 
 ## Attach the Token
 
-First, prepare the request.
+First, prepare the request. In this example we use the library [volley](https://github.com/google/volley).
 
 ```java
 RequestQueue queue = Volley.newRequestQueue(this);
 String url = "YOUR API URL";
 ```
 
-Next you need to add the token to the request header so that authenticated requests can be made. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
+Next you need to add the token to the request header so that authenticated requests can be made. Retrieve the credentials from where you saved them.
 
 ```java
-// Retrieve the credentials from where you saved them
-String tokenID = getCredentials.getTokenID();
+String accessToken = sendToken ? CredentialsManager.getCredentials(this).getAccessToken() : null;
+AuthorizationRequestObject authorizationRequest = new AuthorizationRequestObject(Request.Method.GET, url, accessToken, null, new Response.Listener<JSONObject>() {
 
-AuthorizationRequestObject authorizationRequest = new AuthorizationRequestObject(Request.Method.GET,url,
-  tokenID, null, new Response.Listener<JSONObject>(){
-
-  @Override
-  public void onResponse(JSONObject response) {
-    // Parse Response
-  }
+    @Override
+    public void onResponse(JSONObject response) {
+        // Parse response
+    }
 }, new Response.ErrorListener() {
 
-  @Override
-  public void onErrorResponse(VolleyError error) {
-
-  }
+    @Override
+    public void onErrorResponse(VolleyError error) {
+      // Parse error
+    }
 });
 ```
 
@@ -74,21 +70,21 @@ The customized `AuthorizationRequestObject` looks like:
 
 ```java
 public class AuthorizationRequestObject extends JsonObjectRequest {
-  private String headerTokenID = null;
+    private String accessToken;
 
-  public AuthorizationRequestObject(int method, String url, String tokenID, JSONObject jsonRequest,
-  Response.Listener listener, Response.ErrorListener errorListener) {
-    super(method, url, jsonRequest, listener, errorListener);
-    headerTokenID = tokenID;
-  }
+    AuthorizationRequestObject(int method, String url, String accessToken, JSONObject jsonRequest, Response.Listener listener, Response.ErrorListener errorListener) {
+        super(method, url, jsonRequest, listener, errorListener);
+        this.accessToken = accessToken;
+    }
 
-  @Override
-  public Map getHeaders() throws AuthFailureError {
-    Map headers = new HashMap();
-    headers.put("Authorization", "Bearer " + headerTokenID);
-    return headers;
-  }
-
+    @Override
+    public Map getHeaders() throws AuthFailureError {
+        Map headers = new HashMap();
+        if (accessToken != null) {
+            headers.put("Bearer " + accessToken, "Authorization");
+        }
+        return headers;
+    }
 }
 ```
 
@@ -105,6 +101,4 @@ At this point, you only need to schedule the request.
 queue.add(authorizationRequest);
 ```
 
-From here, check that the request was made and that the response came back as expected. You will need to configure your server-side to protect your API endpoints with the secret key for our Auth0 application.
-
-> For further information on authentication API on the server-side, check [the official documentation](https://auth0.com/docs/api/authentication).
+From here, check that the request was made and that the response came back as expected. You will need to configure your server-side to protect your API endpoints with the secret key for our Auth0 application. As in this example we're using the Auth0's issued `access_token`, you can use this same token to call Auth0 API's.

@@ -19,33 +19,56 @@ This tutorial will show you how to use Lock to get the user's profile data in yo
 
 ## Before Starting
 
-Be sure that you have completed the [Basic Login](/quickstart/native/android/01-login) and the [Session Handling](/quickstart/native/android/03-session-handling) Quickstarts.
+Be sure that you have completed the [Basic Login](01-login) and the [Session Handling](03-session-handling) Quickstarts. You'll need a valid `access_token` and `id_token` to call the API clients.
 
 ## Request User Data
 
-The first step is to instantiate the authentication API client. This will be used to request the user's profile data.
+The first step is to instantiate the API clients. This will be used to request the user's profile data.
 
 ```java
-AuthenticationAPIClient client = new AuthenticationAPIClient(
-new Auth0("${account.clientId}", "${account.namespace}"));
+Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}")
+auth0.setOIDCConformant(true);
+String idToken = CredentialsManager.getCredentials(this).getIdToken();
+UsersAPIClient usersClient = new UsersAPIClient(auth0, idToken);
+AuthenticationAPIClient authClient = new AuthenticationAPIClient(auth0);
 ```
 
-> It's suggested that you add both the `Auth0DomainID` and `Auth0ClientID` to the `strings.xml` file rather than hardcode them in the manifest.
+> It's suggested that you add both the Auth0 `domain` and `clientId` to the `strings.xml` file rather than hardcode them.
 
-
-Then, use your previously stored credentials (in this example, stored in the Application Singleton) to request the data.
+Next, use the `access_token` to obtain the user id with the `AuthenticationAPIClient`. Although the call returns a `UserProfile` instance, this is a basic OIDC conformant profile and doesn't have any Auth0 custom properties (i.e. the `user_metadata`). The only value to guaranteed to be present is the `sub` claim, that indicates the user id. We're going to use this value to call later the  [Management API](https://auth0.com/docs/api/management/v2#!/Users) and get a full profile.
 
 ```java
-client.tokenInfo(App.getInstance().getUserCredentials().getIdToken())
+String accessToken = CredentialsManager.getCredentials(this).getAccessToken();
+authClient.userInfo(accessToken)
                 .start(new BaseCallback<UserProfile, AuthenticationException>() {
-  @Override
-  public void onSuccess(UserProfile payload){
-  }
+                    @Override
+                    public void onSuccess(final UserProfile info) {
+                        String userId = (String) info.getExtraInfo().get("sub");
+                        // fetch the user profile
+                    }
 
-  @Override
-  public void onFailure(AuthenticationException error){
-  }
-});
+                    @Override
+                    public void onFailure(AuthenticationException error) {
+
+                    }
+                });
+```
+
+Finally, use the `UsersAPIClient` and the user id to get the full User profile.
+
+```java;
+usersClient.getProfile(userId)
+        .start(new BaseCallback<UserProfile, ManagementException>() {
+            @Override
+            public void onSuccess(UserProfile profile) {
+                // Display the user profile
+            }
+
+            @Override
+            public void onFailure(ManagementException error) {
+
+            }
+        });
 ```
 
 ## Access The Data Inside The UserProfile
@@ -58,9 +81,9 @@ You can use this data wherever you need it.
 Some examples are:
 
 ```java
-payload.getName();
-payload.getEmail();
-payload.getPictureURL();
+profile.getName();
+profile.getEmail();
+profile.getPictureURL();
 ```
 
 > Remember that you can't modify the UI inside the onSuccess() method, as it works in a second thread. To solve this, you can persist the data, create a task in the UI thread or create a handler to receive that information.
@@ -71,22 +94,23 @@ Besides the defaults, you can handle more information that is contained within a
 
 ##### A. USER METADATA
 
-The userMetadata `map` contains fields related to the user profile that can be added from the client-side (e.g. when editing the profile). We're going to edit this one in this tutorial. You can access its fields as follows:
+The `userMetadata` map contains fields related to the user profile that can be added from the client-side (e.g. when editing the profile). We're going to edit this one in this tutorial. You can access its fields as follows:
 
 ```java
-String country = payload.getUserMetadata().get("country").toString();
-boolean active = payload.getUserMetadata().get("active");
+//Make sure the key exists and the value is not null or the cast may throw.
+String country = (String) profile.getUserMetadata().get("country");
+boolean active = (boolean) profile.getUserMetadata().get("active");
 ```
 
-> The strings you use for subscripting the userMetadata dictionary, and the variable types you handle, are up to you.
+> The strings you use for subscripting the user_metadata map, and the variable types you handle, are up to you.
 
 ##### B. APP METADATA
 
-The appMetadata `map` contains fields that are usually added via a rule, which is read-only for the native platform.
+The `appMetadata` map contains fields that are usually added via a Rule, which is read-only for the native platform.
 
 ##### C. EXTRA INFO
 
-The extraInfo `map` contains any other extra information stored in Auth0. That information is read-only for the native platform.
+The `extraInfo` map contains any additional values stored in Auth0 but not mapped to a `UserProfile` getter method. That information is read-only for the native platform.
 
 > For further information on metadata, see the full documentation.
 
@@ -99,20 +123,20 @@ Create a `Map<String, Object>` and add the new metadata:
 Map<String, Object> userMetadata = new HashMap<>();
 userMetadata.put("country", "USA");
 ```
-And then with the `UserApiClient`, perform the update:
+And then with the `UsersAPIClient`, perform the update:
 
 ```java
-UsersAPIClient usersClient = new UsersAPIClient(mAuth0, App.getInstance().getUserCredentials().getIdToken());
-usersClient.updateMetadata(mUserProfile.getId(), userMetadata).start(new BaseCallback<UserProfile, ManagementException>() {
-  @Override
-  public void onSuccess(final UserProfile payload) {
-    // As receive the updated profile here
-    // You can react to this, and show the information to the user.
-  }
+usersClient.updateMetadata(userId, userMetadata)
+  .start(new BaseCallback<UserProfile, ManagementException>() {
+    @Override
+    public void onSuccess(UserProfile profile) {
+      // As receive the updated profile here
+      // You can react to this, and show the information to the user.
+    }
 
-  @Override
-  public void onFailure(ManagementException error) {
+    @Override
+    public void onFailure(ManagementException error) {
 
-  }
+    }
 });
 ```
