@@ -1,9 +1,23 @@
+---
+description: A custom callback script for those integrating with IBM DB2
+---
+
+# IBM DB2: Custom Login Script
 
 ```js
 function login (email, password, callback) {
   var ibmdb = require("ibm_db");
 
-  ibmdb.open("DRIVER={DB2};DATABASE=SAMPLE;HOSTNAME=<db2host_url>;UID=<user_name>;PWD=<password>;PORT=50001;PROTOCOL=TCPIP", function(err, conn) {
+  var credentials = "";
+  credentials += "DRIVER={DB2};";
+  credentials += "DATABASE=SAMPLE;";
+  credentials += "HOSTNAME=<db2host_url>;";
+  credentials += "UID=<user_name>;";
+  credentials += "PWD=<password>;";
+  credentials += "PORT=50001;";
+  credentials += "PROTOCOL=TCPIP";
+
+  ibmdb.open(credentials, function(err, conn) {
     if (err) callback(new Error("Error while trying to connect to auth source"));
     conn.query("select * from =<user_name>.USERS where email='" + email + "'", function(err, data) {
       if (err) callback(new Error(err));
