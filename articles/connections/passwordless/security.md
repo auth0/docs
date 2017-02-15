@@ -13,14 +13,14 @@ The security implication here is that you're reliant on the security of the emai
 
 You also do not have control over the user's client -- potentially including an unlocked cell phone or an insecure browser connection -- so you need to factor that into the level of trust you have for this mechanism.
 
-Ultimately, using email for passwordless authentication at best only establishes that the user has control over that email account, and includes some risk of interception via insecure email practices. Use this mechanism with caution.
+Ultimately, using email for passwordless authentication at best only establishes that the user has control over that email account, and includes some risk of interception via insecure email practices. While this is the same level of security afforded by most password reset systems, we recommend you use this mechanism with caution.
 
 ## SMS
 SMS-based passwordless authentication is predicated on the user's ability to receive a one-time code on their mobile device which will be entered into the website. This establishes possession of the phone number, and presumably a consistent identity for the user.
 
 Unfortunately, there are a few attack vectors for this, as outlined by [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html). Risks include the phone number being reassigned, and even direct [attacks against the underlying telecommunications infrastructure](https://www.theguardian.com/technology/2016/apr/19/ss7-hack-explained-mobile-phone-vulnerability-snooping-texts-calls). NIST discourages the use of SMS for new applications, and it expected that they will deprecate its usage for any authentication in the future.
 
-For now, SMS authentication is potentially sufficient for applications in which you're merely trying to associate a phone number, and don't have the risk of compromised data or application security.  
+For now, SMS authentication is potentially sufficient for applications in which you're merely trying to associate a phone number with an account, but you're not overly concerned about unauthorized access to that account.
 
 ## Magic Links
 Magic links are links that can be delivered to the user either via email or SMS, allowing single-click verification and authentication. The use of magic links has the same security considerations as for email-based and SMS-based passwordless mechanisms as noted above.
