@@ -50,6 +50,8 @@ Since this client application will access the [Auth0 Management API v2](/api/v2)
 * In the **Scopes** list select `read:users`, `update:users`, `delete:users`, `create:users`, and `create:user_tickets`.
 * Click **Update** to save the changes
 
+![](/media/articles/invite-only/invite-only-authorize-client.png)
+
 ### GitHub repository
 
 A full working sample of the application can be found at https://github.com/auth0-samples/auth0-invite-only-sample
