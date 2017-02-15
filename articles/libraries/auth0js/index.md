@@ -294,7 +294,7 @@ This callback page should only parse the URL hash and post it to the parent docu
         domain: '${account.namespace}',
         clientID: '...'
       });
-      var result = auth0.parseHash(window.location.hash, function(err, data) {
+      var result = webAuth.parseHash(window.location.hash, function(err, data) {
         parent.postMessage(err || data, "https://example.com/");
       });
     </script>
