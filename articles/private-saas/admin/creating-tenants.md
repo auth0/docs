@@ -1,5 +1,5 @@
 ---
-section: appliance
+section: private-saas
 description: How to automatically create tenants in the Appliance
 ---
 
