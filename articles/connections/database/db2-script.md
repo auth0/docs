@@ -4,6 +4,8 @@ description: A custom callback script for those integrating with IBM DB2
 
 # IBM DB2: Custom Login Script
 
+If you are integrating Auth0 with [IBM DB2](https://www.ibm.com/analytics/us/en/technology/db2/), you can use the following script for your login process.
+
 ```js
 function login (email, password, callback) {
   var ibmdb = require("ibm_db");
