@@ -23,17 +23,33 @@ The default response object is as follows:
 
 ```json
 {
-  "scope": "array of strings"
+  "accessToken": {
+    "scope": ["array", "of", "strings"],
+    "claim1": "value1",
+    "claim2": "value2"
+  },
+  "idToken": {
+    "claimA": "valueA",
+    "claimB": "valueB"
+  }
 }
 ```
 
-You can add the following as claims to the issued token:
+You can include one or both of the two optional properties in the response object:
 
-* The `scope` property of the response object;
-* Any properties with namespaced property names:
+* `accessToken`: the token for claims corresponding to `access_token`, including the scope property
+* `idToken`: the token for claims corresponding to `id_token`
 
-  * URLs with HTTP or HTTPS schemes
-  * URLs with hostnames that *aren't* auth0.com, webtask.io, webtask.run, or the associated subdomain names
+Property names for custom claims must meet the following requirements:
+
+* They must be properly namespaced. You must use a valid URL with HTTP/HTTPS schemes as the prefix (such as `https://example.com/someClaimName`).
+* The hostname of the URL **cannot** be:
+
+  * auth0.com
+  * webtask.io
+  * webtask.run
+
+  Additionally, you cannot use any subdomains of the above domains.
 
 The extensibility point will ignore all other response object properties.
 
