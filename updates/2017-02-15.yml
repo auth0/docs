@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Updated Auth0 Management APIv2 Token doc"
+    tags:
+      - apiv2
+      - token
+    description: |
+      New version of the [Auth0 Management APIv2 Token](https://auth0.com/docs/api/management/v2/tokens) has been released.
