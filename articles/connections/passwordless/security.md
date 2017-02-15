@@ -23,7 +23,7 @@ Unfortunately, there are a few attack vectors for this, as outlined by [NIST](ht
 For now, SMS authentication is potentially sufficient for applications in which you're merely trying to associate a phone number with an account, but you're not overly concerned about unauthorized access to that account.
 
 ## Magic Links
-Magic links are links that can be delivered to the user either via email or SMS, allowing single-click verification and authentication. The use of magic links has the same security considerations as for email-based and SMS-based passwordless mechanisms as noted above.
+Magic links are links that can be delivered to the user either via email or SMS, allowing single-click verification and authentication -- instead of a code to be entered manually. Because they are delivered using either email or SMS, the use of magic links has the same security considerations as for email-based and SMS-based passwordless mechanisms as noted above.
 
 ## Guardian
 Passwordless Guardian is designed to strongly prove that the user has possession of their Guardian Authenticator.
