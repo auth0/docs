@@ -10,12 +10,23 @@ The `password-exchange` extensibility point allows you to change the scopes and 
 
 ```js
 module.exports = function (user, client, scope, audience, context, cb) {
-  var access_token = {};
-  access_token.scope = scope;
-  // Modify scopes or add extra claims
-  // access_token['https://example.com/claim'] = 'bar';
-  // access_token.scope.push('extra');
-  cb(null, access_token);
+  var response = {};
+
+  // Modify scopes or add extra claims to access token
+  // response.accessToken = {
+  //   scope: ['array', 'of', 'strings'],
+  //   'http://example.com/claim1': 'value1',
+  //   'http://example.com/claim2': 'value2'
+  // };
+
+  // Modify scopes or add extra claims to id token
+  // response.idToken = {
+  //   'http://example.com/claimA': 'valueA',
+  //   'http://example.com/claimB': 'valueB'
+  // };
+
+  // Call the callback with an error as first argument to signal authorization failure if needed
+  cb(null, response);
 };
 ```
 
