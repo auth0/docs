@@ -21,6 +21,5 @@ You can manage your Hooks using:
 You can create Hooks for the following [extensibility points](/auth0-hooks/extensibility-points):
 
 - client-credentials-exchange
-- password-exchange
 - pre-user-registration
 - post-user-registration
