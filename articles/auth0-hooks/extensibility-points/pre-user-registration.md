@@ -4,7 +4,7 @@ description: The pre-user-registration extensibility point for use with Auth0 Ho
 
 # Extensibility Point: Pre-User Registration
 
-The `pre-user-registration` extensibility point allows you to:
+For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to:
 
 * Prevent creation of a database user;
 * Add custom `app_metadata` or `user_metadata` to a newly-created user.
