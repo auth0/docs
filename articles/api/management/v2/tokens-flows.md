@@ -48,19 +48,70 @@ Using Auth0 UI, no you cannot. However, if you need a work-around to the old way
 <div class="alert alert-danger">Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
 
 If you are set on generating a non-expiring token, you have the following options:
+- Use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually type the claims and generate a token.
+- Use one of the [JWT.io libraries](https://jwt.io/#libraries-io).
 
-- Use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually generate a token. The debugger allows you to edit the __Header__ and __Payload__ content on the right hand side of the screen. The token will automatically be updated on the left hand text area. Note that the debugger supports only `HS256` when editing header and payload.
+### Generate a Token using the Editor
+
+You can use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually generate a token.
+
+The debugger allows you to edit the __Header__ and __Payload__ content on the right hand side of the screen. The token will automatically be updated on the left hand text area. Note that the debugger supports only `HS256` when editing header and payload.
+
+To generate a token follow the next steps:
+
+1. Go to [JWT.io Debugger](https://jwt.io/#debugger-io). Notice that there is a sample token on the left hand editor. The right hand editor contains the header, payload and verify signature parts.
+
+1. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)) and check the __secret base64 encoded__ flag.
+
+1. Make sure the _Header_ contains the `alg` and `typ` claims, as follows.
+
+  ```json
+  {
+    "alg": "HS256",
+    "typ": "JWT"
+  }
+  ```
+1. Delete the dummy claims from the _Payload_ and add the following claims: `iss`, `aud`, `scope`, `iat`, `exp`, `jti`.
+
+  ```json
+  {
+    "iss": "https://${account.namespace}/",
+    "aud": "YOUR_GLOBAL_CLIENT_ID",
+    "scope": "SPACE-SEPARATED-LIST-OF-SCOPES",
+    "iat": CURRENT_TIMESTAMP,
+    "exp": EXPIRY_TIME,
+    "jti": "UNIQUE_JWT_ID"
+  }
+  ```
+
+  Where:
+
+  - __iss__: Who issued the token. Use your tenant's __Domain__. You can find this value at any [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+  - __aud__: Who is the intended audience for this token. Use the __Global Client Id__ of your tenant. You can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced).
+
+  - __scope__: The (space separated) list of authorized scopes for the token. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. So if you need to read _and_ create clients, then the token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`. In this case you would set the scope at the editor to the value `read:clients read:client_keys create:clients`.
+
+  - __iat__: The time at which the token was issued. It must be a number containing a `NumericDate` value, for example `1487260214` (which maps to `Thu, 16 Feb 2017 15:50:14 GMT`). You can use an [epoch converter](http://www.epochconverter.com/) to get this value.
+
+  - __exp__: The time at which the token will expire. It must be a number containing a `NumericDate` value, for example `1518808520` (which maps to `Fri, 16 Feb 2018 19:15:20 GMT`).
+
+  - __jti__: The token's unique ID. Without this claim you will not be able to revoke the token, in case it gets compromised. This value must be unique.
+
+1. As you type the token on the left hand editor is automatically refreshed. When you are done copy this value.
+
+### Generate a Token using a Library
 
 - Use one of the [JWT.io libraries](https://jwt.io/#libraries-io). For example, the following snippet generates a JWT using [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken):
 
   ```javascript
   const jwt = require('jsonwebtoken');
-  const globalClientSecret = new Buffer('MY_GLOBAL_CLIENT_SECRET', 'base64');
+  const globalClientSecret = new Buffer('YOUR_GLOBAL_CLIENT_SECRET', 'base64');
   const currentTimestamp = Math.floor(new Date());
 
   var token = jwt.sign({
     iss: 'https://${account.namespace}/',
-    aud: 'MY_GLOBAL_CLIENT_ID',
+    aud: 'YOUR_GLOBAL_CLIENT_ID',
     scope: 'read:clients read:client_keys'},
     globalClientSecret,
     { //options
