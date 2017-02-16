@@ -4,17 +4,6 @@ description: This tutorial will show you how to configure Multifactor Authentica
 budicon: 243
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-android-sample',
-  path: '09-MFA',
-  requirements: [
-    'Android Studio 2.2',
-    'Android SDK 24',
-    'Emulator - Nexus 5X - Android 6.0'
-  ]
-}) %>
-
 ## Before Starting
 
 Be sure that you have completed the [Login](01-login.md) quickstart.
