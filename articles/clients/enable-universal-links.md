@@ -48,11 +48,11 @@ If the link is successful, you will return the following JSON (formatted for rea
 ```json
 {
   "applinks": {
-      "apps": [],
-      "details": [{
-          "appID": "86WQXF56BC.com.auth0.Passwordless-Email",
-          "paths": ["/ios/com.auth0.Passwordless-Email/*"]
-      }]
+    "apps": [],
+    "details": [{
+      "appID": "86WQXF56BC.com.auth0.Passwordless-Email",
+      "paths": ["/ios/com.auth0.Passwordless-Email/*"]
+    }]
   }
 }
 ```
