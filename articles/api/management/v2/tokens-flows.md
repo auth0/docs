@@ -98,7 +98,8 @@ If the token has been compromised, you can blacklist it using the [Blacklist end
   "method": "POST",
   "url": "https://${account.namespace}/api/v2/blacklists/tokens",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
   ],
   "postData": {
     "mimeType": "application/json",
@@ -112,3 +113,5 @@ The request parameters are:
 - `aud`: The audience of the token you want to blacklist. For this case, it is your __Global Client Id__.
 
 - `jti`: The unique ID of the token you want to blacklist. You should set this to the same value you used when you created your token.
+
+Note that you should set the Management APIv2 token you got at the first step, at the `Authorization` header.
