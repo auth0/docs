@@ -62,9 +62,9 @@ To generate a token follow the next steps:
 
 1. Go to [JWT.io Debugger](https://jwt.io/#debugger-io). Notice that there is a sample token on the left hand editor. The right hand editor contains the header, payload and verify signature parts.
 
-1. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)) and check the __secret base64 encoded__ flag.
+2. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)) and check the __secret base64 encoded__ flag.
 
-1. Make sure the _Header_ contains the `alg` and `typ` claims, as follows.
+3. Make sure the _Header_ contains the `alg` and `typ` claims, as follows.
 
   ```json
   {
@@ -72,7 +72,7 @@ To generate a token follow the next steps:
     "typ": "JWT"
   }
   ```
-1. Delete the dummy claims from the _Payload_ and add the following claims: `iss`, `aud`, `scope`, `iat`, `exp`, `jti`.
+4. Delete the dummy claims from the _Payload_ and add the following claims: `iss`, `aud`, `scope`, `iat`, `exp`, `jti`.
 
   ```json
   {
@@ -99,7 +99,7 @@ To generate a token follow the next steps:
 
   - __jti__: The token's unique ID. Without this claim you will not be able to revoke the token, in case it gets compromised. This value must be unique.
 
-1. As you type the token on the left hand editor is automatically refreshed. When you are done copy this value.
+5. As you type the token on the left hand editor is automatically refreshed. When you are done copy this value.
 
 ### Generate a Token using a Library
 
