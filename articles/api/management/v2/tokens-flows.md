@@ -55,11 +55,11 @@ If you are set on generating a non-expiring token, you have the following option
 
   ```javascript
   const jwt = require('jsonwebtoken');
-  const globalClientSecret = 'MY_GLOBAL_CLIENT_SECRET';
+  const globalClientSecret = new Buffer('MY_GLOBAL_CLIENT_SECRET', 'base64');
 
   var token = jwt.sign({
     iss: 'https://${account.namespace}/',
-    aud: 'https://${account.namespace}/api/v2/',
+    aud: 'MY_GLOBAL_CLIENT_ID',
     scope: 'read:clients read:client_keys'},
     globalClientSecret,
     { algorithm: 'HS256', expiresIn: '1y'}
