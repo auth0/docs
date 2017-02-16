@@ -1,6 +1,7 @@
 ---
 description: Describes what changed in the flow for generating Auth0 Management APIv2 tokens and why.
 section: apis
+toc: true
 ---
 
 # Changes in Auth0 Management APIv2 Tokens
