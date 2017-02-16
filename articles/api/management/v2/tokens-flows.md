@@ -43,9 +43,9 @@ Having a token that never expires can be very risky, in case an attacher gets ho
 
 ## Can I still get a non-expiring token?
 
-Using Auth0 UI, no you cannot. However, if you need a work-around to the old way, you can generate a token using [JWT.io](https://jwt.io/), that will be long-lived. Note though that it will also be non-revocable.
+Using Auth0 UI, no you cannot. However, if you need a work-around to the old way, you can generate a token using [JWT.io](https://jwt.io/), that will be long-lived.
 
-<div class="alert alert-danger">Long-lived tokens, that cannot be revoked, compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
+<div class="alert alert-danger">Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
 
 If you are set on generating a non-expiring token, you have the following options:
 
