@@ -52,7 +52,7 @@ If you are set on generating a non-expiring token, you have the following option
 - Use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually type the claims and generate a token.
 - Use one of the [JWT.io libraries](https://jwt.io/#libraries-io).
 
-### Generate a Token using the Editor
+### Use the JWT.io Debugger
 
 You can use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually generate a token.
 
@@ -101,7 +101,7 @@ To generate a token follow the next steps:
 
 5. As you type the token on the left hand editor is automatically refreshed. When you are done copy this value.
 
-### Generate a Token using a Library
+### Use a Library
 
 - Use one of the [JWT.io libraries](https://jwt.io/#libraries-io). For example, the following snippet generates a JWT using [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken):
 
