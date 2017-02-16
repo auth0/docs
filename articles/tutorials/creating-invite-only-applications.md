@@ -1,5 +1,6 @@
 ---
 description: This scenario demonstrates an invite-only sign-up implementation using the Auth0 Management API to customize the process and the email flow.
+toc: true
 ---
 
 # Invite-only Applications
@@ -43,18 +44,18 @@ The Analystick application is an ASP.NET MVC web application hosted on `http://l
 
 Since this client application will access the [Auth0 Management API v2](/api/v2), you will need to authorize it:
 
-* Go to the [API section](https://manage.auth0.com/#/apis) on the dashboard
-* Select __Auth0 Management API__
-* Click on the **Non-interactive Clients** tab
-* Look for the Client you created before and move the toggle to **Authorized**
-* In the **Scopes** list select `read:users`, `update:users`, `delete:users`, `create:users`, and `create:user_tickets`.
-* Click **Update** to save the changes
+* Go to the [API section](${manage_url}/#/apis) on the dashboard.
+* Select _Auth0 Management API_.
+* Click on the *Non-interactive Clients* tab.
+* Look for the Client you created before and move the toggle to `Authorized`.
+* In the *Scopes* list select `read:users`, `update:users`, `delete:users`, `create:users`, and `create:user_tickets`.
+* Click **Update** to save the changes.
 
-![](/media/articles/invite-only/invite-only-authorize-client.png)
+![Authorize Client](/media/articles/invite-only/invite-only-authorize-client.png)
 
 ### GitHub repository
 
-A full working sample of the application can be found at https://github.com/auth0-samples/auth0-invite-only-sample
+A full working sample of the application can be found at [this GitHub repository](https://github.com/auth0-samples/auth0-invite-only-sample).
 
 ### User Management
 
