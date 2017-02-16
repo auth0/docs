@@ -34,3 +34,25 @@ Select the *Mobile Settings* tab and provide the **Team ID** and the **App bundl
 ![](/media/articles/applications/mobile-settings.png)
 
 Click **Save Changes** when done.
+
+## Test Your Universal Link
+
+To test this, check whether the universal links apple app site association file is available for your application. Go to your browser and open: https://YOURACCOUNT.auth0.com/apple-app-site-association (replace YOURACCOUNT with your Auth0 account name).
+
+You can test your universal link by navigating to the following URL using your browser:
+
+`${account.namespace}/apple-app-site-association`
+
+If the link is successful, you will return the following JSON (formatted for readability):
+
+```json
+{
+  "applinks": {
+      "apps": [],
+      "details": [{
+          "appID": "86WQXF56BC.com.auth0.Passwordless-Email",
+          "paths": ["/ios/com.auth0.Passwordless-Email/*"]
+      }]
+  }
+}
+```
