@@ -31,16 +31,17 @@ Auth0
     .login(
         usernameOrEmail: "email@foo.com",
         password: "123456",
-        connection: "Username-Password-Authentication"
+        realm: "Username-Password-Authentication",
+        scope: "openid profile"
     )
     .start { result in
-            switch result {
-            case .success(let credentials):
-                // Logged in successfully
-                // You've got a Credentials instance, which you'll use, for example, to retrieve the User Profile
-            case .failure(let error):
-                // You've got an error
-            }
+        switch result {
+        case .success(let credentials):
+            // Logged in successfully
+            // You've got a Credentials instance, which you'll use, for example, to retrieve the User Profile
+        case .failure(let error):
+            // You've got an error
+        }
     }
 ```
 
@@ -93,14 +94,14 @@ Auth0
         userMetadata: ["first_name": "Foo", "last_name": "Bar"] // or any extra user data you need
     )
     .start { result in
-            switch result {
-            case .success(let credentials):
-              // Registered successfully
-              // You've got a Credentials object
-            case .failure(let error):
-                // You've got an error
-            }
+        switch result {
+        case .success(let credentials):
+            // Registered successfully
+            // You've got a Credentials object
+        case .failure(let error):
+            // You've got an error
         }
+    }
 }
 ```
 

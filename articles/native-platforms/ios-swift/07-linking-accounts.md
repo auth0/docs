@@ -36,6 +36,10 @@ import Lock
 ```swift
 Lock
     .classic()
+    .withOptions {
+        $0.oidcConformant = true
+        $0.scope = "openid profile"
+    }
     .onAuth { credentials in
         guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
         // Store accessToken to retrieve user profile, store idToken for linking
@@ -89,15 +93,30 @@ Auth0
         .start { result in
             switch(result) {
             case .success(let profile):
-                let identities = profile.identities
-                // You have the linked account information
-                // Do something e.g. Display it on a table view
+                // Store profile
             case .failure(let error):
                 // Handle error
             }
 ```
 
-> Any linked account is handled as an `Profile` identity object. For further information on this object, check out the [profile class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift)
+Once you have the profile you can retrieve the users identities through a management API call as follows:
+
+```swift
+Auth0
+    .users(token: idToken)
+    .get(userId, fields: ["identities"], include: true)
+    .start { result in
+        switch result {
+        case .success(let user):
+            let identityValues = user["identities"] as? [[String: Any]] ?? []
+            let identities = identityValues.flatMap { Identity(json: $0) }
+        case .failure(let error):
+            // Handle error
+        }
+  }
+```
+
+> Any linked account is handled as a `Profile` identity object. For further information on this object, check out the [profile class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift)
 
 ## Unlink an Account
 

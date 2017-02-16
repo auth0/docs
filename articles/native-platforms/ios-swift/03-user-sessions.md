@@ -60,6 +60,10 @@ Once the user has logged in, you get a `Credentials` object, as follows:
 ```swift
 Lock
     .classic()
+    .withOptions {
+        $0.oidcConformant = true
+        $0.scope = "openid profile"
+    }
     .onAuth { credentials in
         // Let's save our credentials.accessToken value
     }
@@ -155,7 +159,8 @@ keychain.setString(refreshToken, forKey: "refresh_token") // Add this line
 Lock
     .classic()
     .withOptions {
-        $0.scope = "openid offline_access"
+        $0.oidcConformant = true
+        $0.scope = "openid profile offline_access"
     }
     .onAuth {
       guard let accessToken = credentials.accessToken, let refreshToken = credentials.refreshToken else { return }
@@ -251,34 +256,11 @@ let avatarURL = profile.pictureURL
 
 #### Additional info
 
-Besides the defaults, you can handle more information that is contained within any of the following dictionaries:
-
-##### a. User Metadata
-
-The `userMetadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one we're going to work with in this tutorial. You can access its fields as follows:
-
-```swift
-let firstName = profile.userMetadata["first_name"] as? String
-let lastName = profile.userMetadata["last_name"] as? String
-let country = profile.userMetadata["country"] as? String
-let isActive = profile.userMetadata["active"] as? Bool
-```
-
-> The strings you use for subscripting the `userMetadata` dictionary, and the variable types you handle, are up to you.
-
-##### b. App Metadata
-
-The `appMetadata` dictionary contains fields that are usually added via [a rule](/quickstart/native/ios-swift/05-authorization), which is read-only for the native platform.
-
-##### c. Extra Info
-
-The `extraInfo` dictionary contains any other extra information stored in Auth0. That information is read-only for the native platform.
-
-> For further information on metadata, see [the full documentation](/rules/metadata-in-rules).
+Besides the defaults, you can request more information than returned in the basic profile. Before we do this let's add some `userMetadata` to the profile.
 
 ## Update the User Profile
 
-You can only update the user metadata. In order to do so, you need to perform a `patch`:
+You can store additional user information in the user metadata. In order to do so, you need to perform a `patch`:
 
 ```swift
 import Auth0
@@ -293,9 +275,42 @@ Auth0
     .start { result in
         switch result {
           case .success(let ManagementObject):
-            // deal with success
+              // deal with success
           case .failure(let error):
-            // deal with failure
+              // deal with failure
         }
 }
 ```
+
+## Retrieving User Metadata
+
+The `user_metadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one we're going to work with in this tutorial.
+
+You can specify the `fields` to be retrieved, or use an empty array `[]` to pull back the complete user profile.  Let's grab the `user_metadata`:
+
+```swift
+Auth0
+    .users(token: idToken)
+    .get(userId, fields: ["user_metadata"], include: true)
+    .start { result in
+        switch result {
+        case .success(let user):
+            guard let userMetadata = user["user_metadata"] as? [String: Any] else { return }
+            // Access userMetadata
+        case .failure(let error):
+            // Deal with failure
+        }
+}
+```
+
+
+You can then access its fields as follows:
+
+```swift
+let firstName = userMetadata["first_name"] as? String
+let lastName = userMetadata["last_name"] as? String
+let country = userMetadata["country"] as? String
+let isActive = userMetadata["active"] as? Bool
+```
+
+> The strings you use for subscripting the `userMetadata` dictionary, and the variable types you handle, are up to you.

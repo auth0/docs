@@ -42,19 +42,29 @@ import Lock
 ```
 
 ```swift
-let profile: Profile = ... // the user profile you get upon login
-guard let roles = profile.appMetadata["roles"] as? [String] else {
-    // Test failed, make sure you've configured your rule properly (check step 1 thoroughly)
-    return
-}
-if roles.contains("admin") {
-    // User has admin access, grant them the power.
-} else {
-    // Not an admin, deny the user.
+Auth0
+    .users(token: idToken)
+    .get(userId, fields: ["app_metadata"], include: true)
+    .start { result in
+        switch result {
+        case .success(let user):
+            guard
+              let appMetadata = user["app_metadata"] as? [String: Any],
+              let roles = appMetadata["roles"] as? [String]
+            else {
+              // Test failed, make sure you've configured your rule properly (check step 1 thoroughly)
+              return
+            }
+            if role == "admin" {
+                // User has admin access, grant them the power.
+            } else {
+                // Not an admin, deny the user.
+            }
+        case .failure(let error):
+            // Handler error
+        }
 }
 ```
-
-Notice that you'll find the `roles` information within the `appMetadata` dictionary from the `Profile` object, that's because of what's defined inside the rule.
 
 ## Use the Rule
 

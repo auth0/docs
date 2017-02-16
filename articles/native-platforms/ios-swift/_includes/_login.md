@@ -15,9 +15,9 @@ Lock
         $0.oidcConformant = true
     }
     .onAuth { credentials in
-      // Do something with credentials e.g.: save them.
-      // Lock will not save these objects for you.
-      // Lock will dismiss itself automatically by default.
+        // Do something with credentials e.g.: save them.
+        // Lock will not save these objects for you.
+        // Lock will dismiss itself automatically by default.
     }
     .present(from: self)
 ```
