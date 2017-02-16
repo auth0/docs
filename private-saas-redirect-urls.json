@@ -1,0 +1,42 @@
+[
+  {
+    "from": "/appliance",
+    "to": "/private-saas"
+  },
+  {
+    "from": "/appliance/admin/backing-up-the-appliance-instances",
+    "to": "/private-saas/admin/backing-up-private-saas"
+  },
+  {
+    "from": "/appliance/admin/creating-tenants",
+    "to": "/private-saas/admin/creating-tenants"
+  },
+  {
+    "from": "/appliance/admin/disabling-sign-ups",
+    "to": "/private-saas/admin/disabling-sign-ups"
+  },
+  {
+    "from": "/appliance/admin",
+    "to": "/private-saas/admin"
+  },
+  {
+    "from": "/appliance/admin/inviting-coadmins",
+    "to": "/private-saas/admin/inviting-coadmins"
+  },
+  {
+    "from": "/appliance/admin/limiting-ssh-access",
+    "to": "/private-saas/admin/limiting-ssh-access"
+  },
+  {
+    "from": "/appliance/admin/managing-the-dashboard",
+    "to": "/private-saas/admin/managing-the-dashboard"
+  },
+  {
+    "from": "/appliance/admin/monitoring",
+    "to": "/private-saas/admin/monitoring"
+  },
+  {
+    "from": "/appliance/admin/updating-the-appliance",
+    "to": "/private-saas/admin/updating-private-saas"
+  },
+]

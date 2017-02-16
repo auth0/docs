@@ -1,11 +1,11 @@
 ---
 section: private-saas
-description: How to automatically create tenants in the Appliance
+description: How to automatically create tenants in the Private SaaS
 ---
 
-# Appliance Administration: Automatic Creation of Tenants
+# Private SaaS Administration: Automatic Creation of Tenants
 
-If your business needs require you to create tenants regularly, you may automate this process in your Appliance instances. For example, you might need to create one tenant for each customer or project that goes live.
+If your business needs require you to create tenants regularly, you may automate this process in your Private SaaS implementation. For example, you might need to create one tenant for each customer or project that goes live.
 
 ## Creating a Management API Client for the Root Tenant Authority
 
@@ -86,7 +86,7 @@ In return, you will receive the Access token:
 
 ### Creating a Tenant
 
-You may use the following call create a tenant. Once the tenant is created, the API responds with a Client ID and Secret that grants access to the Management API for the newly-created tenant (which you can then use to get additional access tokens--see the following section for the sample call).
+You may use the following call create a tenant. Once you've created the tenant, the API responds with a Client ID and Secret that grants access to the Management API for the newly-created tenant (which you can then use to get additional access tokens--see the following section for the sample call).
 
 ```har
 {
