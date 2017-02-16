@@ -25,7 +25,9 @@ Once this is done you can get a new token either [using the dashboard](#4-get-th
 
 In order to generate the token, the Management API had access to your __Global Client Secret__ (used to sign the token). This is information that should __not__ be exposed to web browsers.
 
-The new OAuth 2.0 Client Credentials grant implementation does not pose such risks, since the secret is not exposed on your browser. Once you do the initial configuration, you can get a token either by visiting the dashboard, or by making a simple `POST` request to `/oauth/token`.
+Furthermore, the API Explorer has no way to do authorization. This means that if you could login and access the API explorer, you could generate a token with __any__ scope, even if you as the logged in user were not allowed to have that scope.
+
+The new OAuth 2.0 Client Credentials grant implementation does not pose such risks. Once you do the initial configuration, you can get a token either by visiting the dashboard, or by making a simple `POST` request to [the `/oauth/token` endpoint of our Authentication API](/api/authentication#client-credentials).
 
 However, with regards to the manual process, we do understand that changing screens is not always the best user experience, so we are looking into ways to make the new flow more intuitive.
 
@@ -41,9 +43,9 @@ Having a token that never expires can be very risky, in case an attacher gets ho
 
 ## Can I still get a non-expiring token?
 
-Using Auth0 UI, no you cannot. However, if you need a work-around to the old way, you can generate a token using [JWT.io](https://jwt.io/).
+Using Auth0 UI, no you cannot. However, if you need a work-around to the old way, you can generate a token using [JWT.io](https://jwt.io/), that will be long-lived. Note though that it will also be non-revocable.
 
-<div class="alert alert-danger">Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
+<div class="alert alert-danger">Long-lived tokens, that cannot be revoked, compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
 
 If you are set on generating a non-expiring token, you have the following options:
 
