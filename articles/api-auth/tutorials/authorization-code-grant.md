@@ -55,7 +55,7 @@ Note that if you alter the value in `scope`, Auth0 will require consent to be gi
 
 ## 2. Exchange the Authorization Code for an Access Token
 
-Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to POST to the OAuth Token URL:
+Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication?http#authorization-code):
 
 ```har
 {
@@ -79,7 +79,7 @@ Where:
 * `code`: The Authorization Code received from the initial `authorize` call.
 * `redirect_uri`: The URL must match exactly the `redirect_uri` passed to `/authorize`.
 
-The response from `/oauth/token` contains `access_token`, `refresh_token`, `id_token`, and `token_type` values, for example:
+The response contains the `access_token`, `refresh_token`, `id_token`, and `token_type` values, for example:
 
 ```js
 {
@@ -92,8 +92,8 @@ The response from `/oauth/token` contains `access_token`, `refresh_token`, `id_t
 
 Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/refresh-token).
 
-::: panel-danger Warning
-It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the Implicit Grant flow is more appropriate in that case.
+::: panel-danger Security Warning
+It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Grant flow](/api-auth/grant/implicit) is more appropriate in that case.
 :::
 
 ## 3. Call the API
