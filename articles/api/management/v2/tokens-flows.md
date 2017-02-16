@@ -69,6 +69,6 @@ If you are set on generating a non-expiring token, you have the following option
   ```
 
   Note the following:
-  - The token is singed using `HS256` and the __Global Client Secret__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)).
+  - The token is signed using `HS256` and the __Global Client Secret__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)).
   - We want this token in order to call the [Get all clients](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
   - The token expires in one year (`expiresIn: '1y'`).
