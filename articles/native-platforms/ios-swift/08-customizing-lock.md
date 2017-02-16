@@ -9,9 +9,9 @@ budicon: 285
   repo: 'auth0-ios-swift-sample',
   path: '08-Customizing-Lock',
   requirements: [
-    'CocoaPods 1.0.0',
-    'XCode 7.3 (7D175)',
-    'iPhone 6 - iOS 9.3 (13E230)'
+    'CocoaPods 1.1.1',
+    'Version 8.2 (8C38)',
+    'iPhone 6 - iOS 10.2 (14C89)'
   ]
 }) %>
 
@@ -27,13 +27,13 @@ The Lock experience can be extensively customized through a combination of Lock 
 
 Lock's UI is composed of several parts that can be customized.
 
-![Lock.png](/media/articles/libraries/lock-ios/customization/lock_2_ui.png)
+<div class="phone-mockup"><img src="/media/articles/libraries/lock-ios/customization/lock_2_ui.png" alt="Lock UI"></div>
 
 You can find the full list of style properties in the [style struct documentation](https://github.com/auth0/Lock.iOS-OSX/blob/v2/Lock/Style.swift)
 
 So, for example, if you want to achieve something like this:
 
-<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_2_style.png" alt="Lock Custom UI/></div>
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_2_style.png" alt="Lock Custom UI"></div>
 
 You can make use of the `withStyle` method when initializing Lock:
 
@@ -53,5 +53,4 @@ You can find more examples in the [Styling Lock](https://github.com/auth0/Lock.i
 
 ## Configuring the Options
 
-You can find more detailed information in the Customization options]
-(https://github.com/auth0/Lock.iOS-OSX/tree/v2#customization-options) section of the Lock README.
+You can find more detailed information in the [Configuration options](https://github.com/auth0/Lock.iOS-OSX/tree/v2#customization-options) section of the Lock README.

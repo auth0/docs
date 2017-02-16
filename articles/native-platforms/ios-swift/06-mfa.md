@@ -9,9 +9,9 @@ budicon: 243
   repo: 'auth0-ios-swift-sample',
   path: '06-MFA',
   requirements: [
-    'CocoaPods 1.0.0',
-    'XCode 7.3 (7D175)',
-    'iPhone 6 - iOS 9.3 (13E230)'
+    'CocoaPods 1.1.1',
+    'Version 8.2 (8C38)',
+    'iPhone 6 - iOS 10.2 (14C89)'
   ]
 }) %>
 
@@ -29,4 +29,4 @@ If you want to use MFA in **all** of your clients, the easiest you can do is dis
 if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
 ```
 
-> For more information on how to configure Lock-Android in your app, take a look at the [login tutorial](01-login).
+> For more information on how to configure Lock in your app, take a look at the [login tutorial](01-login).

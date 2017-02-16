@@ -9,9 +9,9 @@ budicon: 500
   repo: 'auth0-ios-swift-sample',
   path: '05-Authorization',
   requirements: [
-    'CocoaPods 1.0.0',
-    'XCode 7.3 (7D175)',
-    'iPhone 6 - iOS 9.3 (13E230)'
+    'CocoaPods 1.1.1',
+    'Version 8.2 (8C38)',
+    'iPhone 6 - iOS 10.2 (14C89)'
   ]
 }) %>
 
@@ -19,7 +19,7 @@ Many identity providers will supply access claims, like roles or groups, with th
 
 ## Before Starting
 
-You need to know how to retrieve a user's pofile, check the [user sessions](/quickstart/native/ios-swift/03-user-sessions) tutorial for more information on how to get the user profile.
+You need to know how to retrieve a user's profile, check the [user sessions](/quickstart/native/ios-swift/03-user-sessions) tutorial for more information on how to get the user profile.
 
 ## Create a Rule to Assign Roles
 

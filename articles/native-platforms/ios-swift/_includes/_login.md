@@ -11,6 +11,9 @@ Then, configure and present the login screen, like this:
 ```swift
 Lock
     .classic()
+    .withOptions {
+        $0.oidcConformant = true
+    }
     .onAuth { credentials in
       // Do something with credentials e.g.: save them.
       // Lock will not save these objects for you.
@@ -19,10 +22,9 @@ Lock
     .present(from: self)
 ```
 
-[![Lock.png](/media/articles/native-platforms/ios-swift/lock_2_login)](https://auth0.com)
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_2_login.png" alt="Lock UI"></div>
 
-@todo Review this content
-> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](/libraries/lock-ios/use-your-own-ui).
+> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own custom login](/quickstart/native/ios-swift/02-custom-login).
 
 As you can see, upon successful authentication, the `onAuth` callback will yield the user's `credentials`.
 
