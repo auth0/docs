@@ -3,7 +3,7 @@ description: Describes what changed in the flow for generating Auth0 Management 
 section: apis
 ---
 
-# Flows for generating Auth0 Management APIv2 Tokens
+# Changes in Auth0 Management APIv2 Tokens
 
 Recently we changed the process to get a Management APIv2 Token. This article explains what changed, why this was done and how you can work around it (not recommended).
 
