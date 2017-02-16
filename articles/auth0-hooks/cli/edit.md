@@ -18,6 +18,6 @@ If the CLI cannot open the Editor window automatically, you can copy and paste t
 
 ## Manipulate Secrets
 
-If you [provisioned a secret to your Hook](/auth0-hooks/cli/create-delete#provision-secrets-to-new-hooks) during creation, you can manipulate it by click on the **key** icon at the right-side of the Webtask Editor window.
+If you [provisioned a secret to your Hook](/auth0-hooks/cli/create-delete#provision-secrets-to-new-hooks) during creation, you can manipulate it by clicking on the **wrench** at the top left of the Webtask Editor window and selecting **Secrets** from the dropdown menu.
 
   ![Webtask Editor Secrets pane](/media/articles/auth0-hooks/webtask-editor-secrets.png)
