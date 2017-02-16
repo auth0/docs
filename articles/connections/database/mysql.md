@@ -9,13 +9,13 @@ toc: true
 
 # Authenticate Users with Username and Password using a Custom Database
 
-Applications often rely on user databases for authentication. Auth0 enables you to easily connect to these repositories and use them as identity providers while preserving user credentials and providing many additional features. You can read more about database connections and the different user store options at [Database Identity Providers](/connections/database).
+Applications often rely on user databases for authentication. Auth0 enables you to connect to these repositories and use them as identity providers while preserving user credentials and providing additional features. You can read more about database connections and the different user store options at [Database Identity Providers](/connections/database).
 
-In this tutorial, you will be guided through a series of steps to connect your custom user store to Auth0. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+This tutorial will guide you through a series of steps to connect your custom user store to Auth0. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Create a database connection
 
-Log into Auth0, and select the [Connections > Database](${manage_url}/#/connections/database) menu option. Click the **New Database Connection** button and provide a name for the database, or select a database you have created previously.
+Log into Auth0, and select the [Connections > Database](${manage_url}/#/connections/database) menu option. Click the **New Database Connection** button and provide a name for the database, or select a database you have created.
 
 ![](/media/articles/connections/database/database-connections.png)
 
@@ -30,7 +30,7 @@ Click **Custom Database** and turn on the **Use my own database** switch.
 You have to provide a login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
 
 ::: panel-info Note
-When creating users, the `get_user` script is called before the `create` script. Be sure that you have implemented both.
+When creating users, Auth0 calls the `get_user` script before the `create` script. Be sure that you have implemented both.
 :::
 
 These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
@@ -39,7 +39,7 @@ This tutorial uses **MySQL** as an example. In the **Templates** drop-down, sele
 
 ![](/media/articles/connections/database/mysql/db-connection-login-script.png)
 
-The following code is generated for you in the connection editor:
+You will see the following sample code in the Connection editor:
 
 ```js
 function login (email, password, callback) {
@@ -76,6 +76,8 @@ function login (email, password, callback) {
 ```
 
 This script connects to a **MySQL** database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. You can tweak this script in the editor to adjust it to your own requirements.
+
+If you are using [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product, [click here](/connections/database/db2-script) for a sample login script.
 
 ### Database Field Requirements
 
