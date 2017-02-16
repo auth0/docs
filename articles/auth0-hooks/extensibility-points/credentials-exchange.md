@@ -1,10 +1,10 @@
 ---
-description: The client-credentials-exchange extensibility point for use with Auth0 Hooks
+description: The credentials-exchange extensibility point for use with Auth0 Hooks
 ---
 
-# Extensibility Point: Client Credentials Exchange
+# Extensibility Point: Credentials Exchange
 
-The `client-credentials-exchange` extensibility point allows you to change the scopes and add custom claims to the tokens issued by the Auth0 API's `POST /oauth/token` endpoint.
+The `credentials-exchange` extensibility point allows you to change the scopes and add custom claims to the tokens issued by the Auth0 API's `POST /oauth/token` endpoint.
 
 :::panel-info
 Please see [Calling APIs from a Service](/api-auth/grant/client-credentials) for more information on the Client Credentials Grant.
