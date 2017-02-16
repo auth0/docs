@@ -56,19 +56,59 @@ If you are set on generating a non-expiring token, you have the following option
   ```javascript
   const jwt = require('jsonwebtoken');
   const globalClientSecret = new Buffer('MY_GLOBAL_CLIENT_SECRET', 'base64');
+  const currentTimestamp = Math.floor(new Date());
 
   var token = jwt.sign({
     iss: 'https://${account.namespace}/',
     aud: 'MY_GLOBAL_CLIENT_ID',
     scope: 'read:clients read:client_keys'},
     globalClientSecret,
-    { algorithm: 'HS256', expiresIn: '1y'}
+    { //options
+      algorithm: 'HS256',
+      expiresIn: '1y',
+      jwtid: currentTimestamp.toString()
+    }
   );
 
   console.log(token);
   ```
 
   Note the following:
+
   - The token is signed using `HS256` and the __Global Client Secret__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)).
+
+  - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)).
+
+  - The token needs to have the `jti` claim set. The reason is that without this you will not be able to revoke it in case it gets compromised. The claim is set with the `jwtid` option, for this library. In this example, we use the current timestamp (`jwtid: currentTimestamp.toString()`). You have to make sure that this value is unique.
+
   - We want this token in order to call the [Get all clients](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
+
   - The token expires in one year (`expiresIn: '1y'`).
+
+### How to revoke this token
+
+If the token has been compromised, you can blacklist it using the [Blacklist endpoint of the Management APIv2](/api/management/v2#!/Blacklists/post_tokens). The steps to follow are:
+
+1.  Get a Management APIv2 token (either by Auth0 or create it yourself) that includes the `blacklist:tokens` scope.
+
+1. Call the [Blacklist endpoint of the Management APIv2](/api/management/v2#!/Blacklists/post_tokens).
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/api/v2/blacklists/tokens",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"aud\":\"THE_TOKEN_AUDIENCE\",\"jti\": \"THE_TOKEN_ID\"}"
+  }
+}
+```
+
+The request parameters are:
+
+- `aud`: The audience of the token you want to blacklist. For this case, it is your __Global Client Id__.
+
+- `jti`: The unique ID of the token you want to blacklist. You should set this to the same value you used when you created your token.
