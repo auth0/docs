@@ -28,79 +28,41 @@ In this article we will see how you can do either.
 
 Let's see how you can get a token manually. Note, that the first two steps of the process need to be executed _only_ the first time. This might be true also for the third step, if the endpoints you need to access do not change. In that case you can skip to the [Get the Token](#4-get-the-token) section.
 
-### 1. Create a Client
+### 1. Create and Authorize a Client
 
-First, you need to create a Non Interactive Client. We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have. If you already have done that, you can skip this paragraph.
+First, you need to create and authorize a Non Interactive Client. We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have. If you already have done that, you can skip this paragraph.
 
   ::: panel-info What is a Non Interactive Client?
   A Non Interactive Client represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
   :::
 
-Go to the [Clients section](${manage_url}/#/clients) of the dashboard and click the **Create Client** button.
+To create and authorize a Non Interactive Client, follow these steps:
 
-Enter a name for your new client. We recommend using something descriptive, like `Auth0 Management API Client`.
+1. Go to [the Test tab of your Auth0 Management API](${manage_url}/#/apis/management/test).
 
-Select **Non Interactive Clients** and then click **Create**.
+1. Click the button __Create & Authorize Client__.
 
-![Create New Client](/media/articles/api/tokens/noninteractive-client.png)
+![Create and Authorize Client](/media/articles/api/tokens/create-authorize-client.png)
 
-### 2. Authorize the Client
+That's it! A new client has been created and it's authorized to access the Management API.
 
-Once you create the new client, you will be navigated to it's *Quick Start* section.
+Note, that each Non Interactive Client that accesses an API, has to be granted a set of scopes. This client that we just created has been granted __all__ the APIv2 scopes. This means that it can access all the endpoints.
 
-If this is the first time you are configuring an API in Auth0, you will see this message:
-
-```text
-Defining Non Interactive Clients and APIs is a new feature in Auth0 that you can opt-in to.
-Once you enable it, a new item on the sidebar "APIs" will be shown.
-To enable it, turn on this toggle (or do it on Account Settings).
-```
-
-If you see that, turn on the toggle. Notice that a new item is added on the left hand menu: [APIs](${manage_url}/#/apis).
-
-Now you should see a `Select an API` dropdown, listing all the APIs you have configured with Auth0.
-
-Select `Auth0 Management API` from the dropdown. You will then see a message that the client is not authorized.
-
-Click **Navigate to the API and authorize**.
-
-![Navigate to the API and authorize button](/media/articles/api/tokens/navigate-button.png)
-
-This will bring you to the [APIs section](${manage_url}/#/apis), specifically to the _Non Interactive Clients_ tab of the `Auth0 Management API`.
-
-![Authorize Non Interactive Client](/media/articles/api/tokens/authorize-noninteractive.png)
-
-Toggle the slider from `Unauthorized` to `Authorized` for your client.
-
-### 3. Choose the Scopes
-
-The last step, before you get a token, is to select which scopes should be granted to this client.
-
-  ::: panel-info What are the scopes?
-  The scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create clients, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
-  :::
-
-If you followed this article so far, then you already are at the _Non Interactive Clients_ tab of the `Auth0 Management API`. If not, go to [APIs](${manage_url}/#/apis), click the **Edit** icon for `Auth0 Management API`, go to _Non Interactive Clients_ and expand your non interactive client, using the pointing down arrow, next to the _Authorized_ toggle.
-
-All the scopes, for the various [Management API v2](/api/management/v2) endpoints are listed here. Tick the ones you want to grant to the client and click the **Update** button. To find out which scopes you should choose, go the [Management API v2](/api/management/v2) and note the scopes listed at each endpoint.
-
-![Choose authorized scopes](/media/articles/api/tokens/choose-scopes.png)
+::: panel-info What are the scopes?
+The scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create clients, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
+:::
 
 __NOTE__: If you have multiple apps that should access the Management API, and you need different sets of scopes per app, we recommend creating a new Non Interactive Client for each. For example, if one app is to read and create users (`create:users`, `read:users`) and another to read and create clients (`create:clients`, `read:clients`) create two Clients (one for user scopes, one for clients) instead of one.
 
-### 4. Get the Token
+### 2. Get the Token
 
-To get a token, go to the *Test* section under `Auth0 Management API`.
+To get a token, click __Copy Token__ at [the Test tab of your Auth0 Management API](${manage_url}/#/apis/management/test).
 
-This page will give you code snippets on how to form a request to get a token.
-
-Check the _Response_, a token is already generated for you. Click **Copy Token**.
-
-![Test Client](/media/articles/api/tokens/test-client.png)
+![Test Client](/media/articles/api/tokens/copy-token.png)
 
 You can now make authorized calls to the [Management API v2](/api/management/v2) using this token.
 
-### 5. Use the Token
+### 3. Use the Token
 
 You can use the [Management API v2 explorer page](/api/management/v2) to manually call an endpoint, using the token you got in the previous step. You will need two pieces of information:
 - The Management API v2 token you just got.
@@ -120,10 +82,7 @@ Once you have this information you are ready to call the API. Follow these steps
 [The manual process](#get-a-token-manually) might work for you if you want to test an endpoint or invoke it sporadically. But if you need to make scheduled frequent calls then you have to build a simple CLI that will provide you with a token automatically (and thus simulate a non-expiring token).
 
 ::: panel-info Prerequisites
-Before we proceed with the implementation, some configuration at the [Auth0 dashboard](${manage_url}) is required:
-- You must have configured a Non Interactive Client (step by step instructions: [Create a Client](#1-create-a-client)).
-- You must have authorized this Client to access the Auth0 Management API (step by step instructions: [Authorize the Client](#2-authorize-the-client)).
-- You must have granted to your Client the required scopes (step by step instructions: [Choose the Scopes](#3-choose-the-scopes))
+Before you proceed with the implementation, you must have [created and authorized a Non Interactive Client](#1-create-and-authorize-a-client). The Client should have all the required scopes for the endpoints you mean to access.
 :::
 
 ### 1. Get a Token
