@@ -18,7 +18,7 @@ Ultimately, using email for passwordless authentication at best only establishes
 ## SMS
 SMS-based passwordless authentication is predicated on the user's ability to receive a one-time code on their mobile device which will be entered into the website. This establishes possession of the phone number, and presumably a consistent identity for the user.
 
-Unfortunately, there are a few attack vectors for this, as outlined by [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html). Risks include the phone number being reassigned, and even direct [attacks against the underlying telecommunications infrastructure](https://www.theguardian.com/technology/2016/apr/19/ss7-hack-explained-mobile-phone-vulnerability-snooping-texts-calls). NIST discourages the use of SMS for new applications, and it expected that they will deprecate its usage for any authentication in the future.
+Unfortunately, there are a few attack vectors for this, as outlined by [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html). Risks include the phone number being reassigned, and even direct [attacks against the underlying telecommunications infrastructure](https://www.theguardian.com/technology/2016/apr/19/ss7-hack-explained-mobile-phone-vulnerability-snooping-texts-calls). NIST discourages the use of SMS for new applications, and it is expected that they will deprecate its usage for any authentication in the future.
 
 For now, SMS authentication is potentially sufficient for applications in which you're merely trying to associate a phone number with an account, but you're not overly concerned about unauthorized access to that account.
 
@@ -26,7 +26,7 @@ For now, SMS authentication is potentially sufficient for applications in which 
 Magic links are links that can be delivered to the user either via email or SMS, allowing single-click verification and authentication -- instead of a code to be entered manually. Because they are delivered using either email or SMS, the use of magic links has the same security considerations as for email-based and SMS-based passwordless mechanisms as noted above.
 
 ## Guardian
-Passwordless Guardian is designed to strongly prove that the user has possession of their Guardian Authenticator.
+Passwordless Guardian is designed to strongly prove possession of the Guardian Authenticator.
 
 For push notifications, Guardian uses RSA key-based authentication. A private key is generated on the device during enrollment, and the associated public key is sent to the Guardian backend. On subsequent login requests, the Guardian backend uses this public/private key pair for authentication, confirming that the Guardian Authenticator is the same one that originally enrolled. 
 
