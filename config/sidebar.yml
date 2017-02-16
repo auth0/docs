@@ -107,10 +107,10 @@ articles:
       - title: "Extensibility Points"
         url: "/auth0-hooks/extensibility-points"
 
-      - title: "Work with Hooks Using the Auth0 CLI"
+      - title: "Using the Auth0 CLI"
         url: "/auth0-hooks/cli"
 
-      - title: "Work with Hooks Using the Management Dashboard"
+      - title: "Using the Management Dashboard"
         url: "/auth0-hooks/dashboard"
 
   - title: "Extensions"
