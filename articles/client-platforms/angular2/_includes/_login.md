@@ -95,8 +95,7 @@ import { routing,
     HomeComponent
   ],
   providers: [
-    appRoutingProviders,
-    AUTH_PROVIDERS
+    appRoutingProviders
   ],
   imports: [
     BrowserModule,
