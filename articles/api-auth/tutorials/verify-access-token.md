@@ -62,7 +62,7 @@ Following the Node.js example of the previous section, the [jwt.verify()](https:
 The API needs to verify the signature. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 
 Remember that the signature is created using the header and the payload of the JWT, a secret and the hashing algorithm being used (as specified in the header: HMAC, SHA256 or RSA). The way to verify it, depends on the hashing algorithm:
-- For `HS256`, the Client's Secret is used. You can find this information at your [Client's Settings](https://${manage_url}/#/clients/${account.clientId}/settings).
+- For `HS256`, the API's __Signing Secret__ is used. You can find this information at your [API's Settings](https://${manage_url}/#/apis).
 - For `RS256`, the tenant's JSON Web Key Set (JWKS) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 
 The most secure practice, and our recommendation, is to use `RS256`.
@@ -90,9 +90,9 @@ To validate the claims, you have to decode the JWT, retrieve the claims (`exp`, 
 The easiest way however, is to use one of the libraries listed in the _Libraries for Token Signing/Verification_ section of [JWT.io](https://jwt.io/). Note that not all libraries validate all the claims. In [JWT.io](https://jwt.io/) you can see which validations each library supports (look for the green check marks).
 
 Following the Node.js example, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method of the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), validates these claims, depending on the input arguments:
-- `audience`: if you want to check `aud`, provide a value here
+- `audience`: set `aud` to the __Identifier__ of the API
 - `issuer`: string or array of strings of valid values for the `iss` field
-- `ignoreExpiration`: if `true` do not validate the expiration of the token
+- `ignoreExpiration`: set to `false` to validate the expiration of the token
 
 ## Check the Permissions
 
