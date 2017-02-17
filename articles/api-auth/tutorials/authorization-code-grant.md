@@ -119,7 +119,7 @@ For details on the validations that should be performed refer to [Verify Access 
 ## More reading
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
-- [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
+- [How to refresh a token](/tokens/preview/refresh-token)
 - [How to configure an API in Auth0](/apis)
 - [Web App Quickstarts](/quickstart/webapp)
 - [Client Authentication for Server-side Web Apps](/client-auth/server-side-web)
