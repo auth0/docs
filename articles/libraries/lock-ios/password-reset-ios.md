@@ -1,12 +1,12 @@
 ---
 section: libraries
-toc_title: Password Reset 
+toc_title: Password Reset
 description: All you need to know about password reset with Lock for iOS.
 ---
 
 # Lock iOS: Password Reset
 
-You can allow the user to reset their password for any database connections. 
+You can allow the user to reset their password for any database connections.
 
 If you use Lock UI, you can hide or show a **Reset password** button by setting the `disableResetPassword` property, which will default to `false`.
 
@@ -41,14 +41,14 @@ params[A0ParameterConnection] = @"Username-Password-Authentication";
 **Swift**
 
 ```swift
-let client = A0Lock.sharedLock().apiClient()
+let client = A0Lock.shared().apiClient()
 let params = A0AuthParameters.newDefaultParams();
 params[A0ParameterConnection] = "Username-Password-Authentication";
-                                // Or your configured DB connection
-client.requestChangePasswordForUsername(<user_email>,
-    parameters: params, success: { () in
-      print("Please check your email!")
-    }, failure: { (error: NSError) in
-      print("Oops something went wrong: \(error)")
+// Or your configured DB connection
+client.requestChangePassword(forUsername: "<username>", parameters: params,
+success: { _ in
+    print("Please check your email!")
+}, failure: { error in
+    print("Oops something went wrong: \(error)")
 })
 ```

@@ -841,6 +841,10 @@
     "to": "/tokens/refresh-token"
   },
   {
+    "from": "/tokens/refresh_token",
+    "to": "/tokens/refresh-token"
+  },
+  {
     "from": "/tokens/access_token",
     "to": "/tokens/access-token"
   },

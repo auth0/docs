@@ -9,9 +9,9 @@ description: This tutorial demonstrates how to integrate Lock in your iOS Swift 
   repo: 'auth0-ios-swift-sample',
   path: '01-Login',
   requirements: [
-    'CocoaPods 1.0.0',
-    'XCode 7.3 (7D175)',
-    'iPhone 6 - iOS 9.3 (13E230)'
+    'CocoaPods 1.1.1',
+    'Version 8.2 (8C38)',
+    'iPhone 6 - iOS 10.2 (14C89)'
   ]
 }) %>
 

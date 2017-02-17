@@ -105,7 +105,7 @@ Then call this method:
 #### Swift
 
 ```swift
-self.lock.applicationLaunchedWithOptions(launchOptions)
+lock.applicationLaunched(options: launchOptions)
 ```
 
 Lastly, you will need to handle the already registered custom scheme in your `AppDelegate`. To do so, override the `-application:openURL:sourceApplication:annotation:` method and add the following line:
@@ -121,8 +121,8 @@ Lastly, you will need to handle the already registered custom scheme in your `Ap
 #### Swift
 
 ```swift
-func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-    return self.lock.handleURL(url, sourceApplication: sourceApplication)
+func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+    return self.lock.handle(url, sourceApplication: sourceApplication)
 }
 ```
 
@@ -153,15 +153,15 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 #### Swift
 
 ```swift
-let lock = ... //Fetch Lock from where its stored
-let controller = lock.newLockViewController()
-controller.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
+let lock = ... // Fetch Lock from where its stored
+let controller: A0LockViewController = lock.newLockViewController()
+controller.onAuthenticationBlock = { (profile, token) in
     // Do something with token & profile. e.g.: save them.
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
-    self.dismissViewControllerAnimated(true, completion: nil)
+    self.dismiss(animated: true, completion: nil)
 }
-self.presentViewController(controller, animated: true, completion: nil)
+lock.present(controller, from: self)
 ```
 
 You will see the Lock native login screen:
@@ -198,19 +198,19 @@ controller.onUserDismissBlock = ^(){
 #### Swift
 
 ```swift
-let controller = A0Lock.sharedLock().newLockViewController()
+let controller: A0LockViewController = A0Lock.shared().newLockViewController()
 controller.closable = true
 
 controller.onAuthenticationBlock = { (profile, token) in
-  // Do something with token & profile. e.g.: save them.
-  // And dismiss the ViewController
+    // Do something with token & profile. e.g.: save them.
+    // And dismiss the ViewController
 }
 
-controller.onUserDismissBlock = { () in
-  print("User closed Lock UI")
+controller.onUserDismissBlock = { _ in
+    print("User closed Lock UI")
 }
 
-self.presentViewController(controller, animated: true, completion: nil)
+self.present(controller, animated: true, completion: nil)
 ```
 
 ### Sign-up
@@ -238,13 +238,13 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 #### Swift
 
 ```swift
-let controller = A0Lock.sharedLock().newSignUpViewController()
+let controller: A0LockViewController = A0Lock.shared().newSignUpViewController()
 controller.onAuthenticationBlock = { (profile, token) in
-  // Do something with token & profile. e.g.: save them.
-  // And dismiss the ViewController
+    // Do something with token & profile. e.g.: save them.
+    // And dismiss the ViewController
 }
 
-self.presentViewController(controller, animated: true, completion: nil)
+self.present(controller, animated: true, completion: nil)
 ```
 
 
@@ -304,28 +304,28 @@ if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
 #### Swift
 
 ```swift
-let controller = A0Lock.sharedLock().newLockViewController()
+let controller: A0LockViewController = A0Lock.shared().newLockViewController()
 
 controller.onAuthenticationBlock = { (profile, token) in
-    self.dismissViewControllerAnimated(true, completion: nil)
+    self.dismiss(animated: true, completion: nil)
 }
 
-//Create custom SignUp view controller
-controller.customSignUp = { (lock:A0Lock, delegate:A0LockEventDelegate) in
-  let YourCustomSignUpVC = …//your viewController;
-  signUpVC.lock = lock
-  signUpVC.delegate = delegate
+// Create custom SignUp view controller
+controller.customSignUp = { (lock, delegate) in
+    let YourCustomSignUpVC = // Your viewController;
+    signUpVC.lock = lock
+    signUpVC.delegate = delegate
 
-  return signUpVC
+    return signUpVC
 }
 
 let navController:UINavigationController = UINavigationController.init(rootViewController: controller)
 
-if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad) {
-    navController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad) {
+    navController.modalPresentationStyle = UIModalPresentationStyle.formSheet
 
 }
-self.presentViewController(navController, animated: true, completion: nil)
+self.present(navController, animated: true, completion: nil)
 ```
 
 #### Automatic login after sign-up
@@ -358,7 +358,7 @@ A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:<Your_Keychai
 #### Swift
 
 ```swift
-A0Lock.sharedLock().clearSessions()
+A0Lock.shared().clearSessions()
 let keychain = A0SimpleKeychain(service: <Your_Keychain_Name>)
 keychain.clearAll()
 //redirect the user to Login Page
@@ -386,13 +386,13 @@ controller.onUserDismissBlock = ^(){
 #### Swift
 
 ```swift
-let controller = A0Lock.sharedLock().newLockViewController()
+let controller: A0LockViewController = A0Lock.shared().newLockViewController()
 controller.useWebView = false
 controller.onAuthenticationBlock = { (profile, token) in
-  // Do something with token & profile. e.g.: save them.
-  // And dismiss the ViewController
+    // Do something with token & profile. e.g.: save them.
+    // And dismiss the ViewController
 }
-self.presentViewController(controller, animated: true, completion: nil)
+self.present(controller, animated: true, completion: nil)
 ```
 
 ## Additional Information

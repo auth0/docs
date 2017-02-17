@@ -28,7 +28,7 @@ Current migrations are listed below, newest first. For migrations that have alre
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
-| Low | 2011-01-15 |  2017-01-31 |
+| Low | 2017-01-15 |  2017-02-20 |
 
 Auth0 is expanding into new US regions, and traffic originating from these regions will have new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
 
