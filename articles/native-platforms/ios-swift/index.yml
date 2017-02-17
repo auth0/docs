@@ -12,14 +12,11 @@ tags:
 seo_alias: swift
 default_article: dashboard-default
 articles:
-  - 00-introduction
   - 01-login
   - 02-custom-login
-  - 03-session-handling
-  - 04-user-profile
-  - 05-linking-accounts
-  - 06-rules
-  - 07-authorization
-  - 08-calling-apis
-  - 09-mfa
-  - 10-customizing-lock
+  - 03-user-sessions
+  - 04-calling-apis
+  - 05-authorization
+  - 06-mfa
+  - 07-linking-accounts
+  - 08-customizing-lock
