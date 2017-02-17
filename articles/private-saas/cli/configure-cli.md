@@ -1,11 +1,11 @@
 ---
-section: appliance
-description: How to configure the Appliance CLI
+section: private-saas
+description: How to configure Private SaaS CLI
 ---
 
-# Configuring and Using the Auth0 Appliance Command Line Interface
+# Configuring and Using the Auth0 Private SaaS Command Line Interface
 
-The Auth0 Appliance Command Line Interface (CLI) allows you to perform operations on your Appliance instances via authorized workstations.
+The Auth0 Private SaaS Command Line Interface (CLI) allows you to perform operations on your Private SaaS via authorized workstations.
 
 ## Downloading the CLI Setup Files
 
@@ -67,27 +67,27 @@ Usage: a0cli [options] <command>
 ```
 
 
-> Because the CLI sends commands to the server running on each Appliance's node, please ensure that the server is both available and can accept inbound and outbound connections to port `10121`.
+> Because the CLI sends commands to the server running on each Private SaaS node, please ensure that the server is both available and can accept inbound and outbound connections to port `10121`.
 
 ## Granting Access Rights to Users
 
-Only workstations that you have authorized may perform operations on the Appliance.
+Only workstations that you have authorized may perform operations on Private SaaS.
 
 To authorize a new workstation for use with the CLI:
 
 1. Generate a key pair by running, in your local command-line tool, `a0cli create-key`. This outputs a public key, which is now associated with that particular workstation. You will also need to copy for this key to complete the next step.
 
-    ![](/media/articles/appliance/cli/cli-create-key.png)
+    ![](/media/articles/private-saas/cli/cli-create-key.png)
 
-2. Navigate to the CLI page of the Appliance configuration area, and add the key to your configuration. For additional information on how to do this, please see the [configuration instructions for Appliance CLIs](/appliance/dashboard/cli).
+2. Navigate to the CLI page of the Private SaaS configuration area, and add the key to your configuration. For additional information on how to do this, please see the [configuration instructions for Private SaaS CLIs](/private-saas/dashboard/cli).
 
-    ![](/media/articles/appliance/cli/cli-config-with-key.png)
+    ![](/media/articles/private-saas/cli/cli-config-with-key.png)
 
-> Please note that any user on the workstation with access to the location where the key is stored locally will have access rights to perform operations on the Appliance.
+> Please note that any user on the workstation with access to the location where the key is stored locally will have access rights to perform operations on Private SaaS.
 
 ## Updating Command Lists
 
-To send commands to the appliance's node, you will need to update the command list the node accepts by running the following command:
+To send commands to the Private SaaS node, you will need to update the command list the node accepts by running the following command:
 
 `a0cli -t <target node> update-commands`
 

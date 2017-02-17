@@ -1,11 +1,11 @@
 ---
-section: appliance
-description: How to add an Appliance node in the backup node
+section: private-saas
+description: How to add an Private SaaS node in the backup node
 ---
 
-# Appliance: Adding a Node to the Backup Role
+# Private SaaS: Adding a Node to the Backup Role
 
-> This document applies beginning with Appliance update **build 7247**.
+> This document applies beginning with Private SaaS update **build 7247**.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ description: How to add an Appliance node in the backup node
 
 ## Adding a Node to the Backup Role
 
-To add a node to the `backup` role, execute the `set-as-backup` command using the Auth0 Appliance's Command-Line Interface. When issuing this command, you will need to specify the device on the target node to be used to store backups.
+To add a node to the `backup` role, execute the `set-as-backup` command using the Auth0 Private SaaS's Command-Line Interface. When issuing this command, you will need to specify the device on the target node to be used to store backups.
 
 `$a0cli -t <node_ip> set-as-backup <backup_device> [force]`
 
@@ -24,5 +24,5 @@ To add a node to the `backup` role, execute the `set-as-backup` command using th
 
 
 ## Additional Reading:
-* [Configuring and Using the Auth0 Appliance Command Line Interface](/appliance/cli/configure-cli)
-* [How to Back Up Appliance Instances Using the CLI](/appliance/cli/backing-up-the-appliance)
+* [Configuring and Using the Auth0 Private SaaS Command Line Interface](/private-saas/cli/configure-cli)
+* [How to Back Up Private SaaS Using the CLI](/private-saas/cli/backing-up-private-saas)

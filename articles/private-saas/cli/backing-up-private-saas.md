@@ -1,17 +1,17 @@
 ---
-section: appliance
-description: How to back up the Appliance using its CLI
+section: private-saas
+description: How to back up Private SaaS using its CLI
 ---
 
-# How to Back Up Appliance Instances Using the CLI
+# How to Back Up Private SaaS Using the CLI
 
-You may use Appliance CLI to perform a backup on a specific node.
+You may use Private SaaS CLI to perform a backup on a specific node.
 
 ## Prior to Beginning the Backup
 
-Please ensure that your workstation has been [configured to perform operations](/appliance/cli/configure-cli) on your Appliance instances;
+Please ensure that your workstation has been [configured to perform operations](/private-saas/cli/configure-cli) on your Private SaaS instances;
 
-> Please perform backups only on Appliance instances running **build 7247** or later. Backups are only allowed on nodes added to the `backup` role. Please see [Adding a Node to the Backup Role](/appliance/cli/adding-node-to-backup-role) for additional information.
+> Please perform backups only on Private SaaS instances running **build 7247** or later. Backups are only allowed on nodes added to the `backup` role. Please see [Adding a Node to the Backup Role](/private-saas/cli/adding-node-to-backup-role) for additional information.
 
 Please be aware that, throughout this document, the following sample values are used:
 

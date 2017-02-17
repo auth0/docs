@@ -1,12 +1,12 @@
 ---
-url: /appliance/custom-domains
-section: appliance
-description: How to set up custom domains for your Appliances
+url: /private-saas/custom-domains
+section: private-saas
+description: How to set up custom domains for your Private SaaS implementation
 ---
 
 # Custom Domains
 
-Beginning with Appliance Build 5XXX, you may configure custom domains using the Management Dashboard.
+Beginning with Private SaaS Build 5XXX, you may configure custom domains using the Management Dashboard.
 
 Custom domains allow you to expose one or more arbitrary DNS names for a tenant. Conventionally, Auth0 uses a three-part domain name for access, and it is the third portion of the domain name that varies depending on the tenant.
 
@@ -29,7 +29,7 @@ However, you might want to expose other domain names to your end users, such as:
 * `auth.site1.com`
 * `auth.site1.example.com`
 
-You may do so by utilizing the Appliance's custom domains feature, which sets the domain used for authentication endpoints.
+You may do so by utilizing the Private SaaS custom domains feature, which sets the domain used for authentication endpoints.
 
 ## Certificates Required for Custom Domains
 
@@ -50,4 +50,4 @@ Each of the custom domains (in this example, there are two) has its own certific
 
 ## Configuring Custom Domains
 
-You may configure custom domains for your tenants via the [custom domains set-up area](/appliance/dashboard/tenants#custom-domains) of the [tenants page in the Appliance configuration area](/appliance/dashboard/tenants).
+You may configure custom domains for your tenants via the [custom domains set-up area](/private-saas/dashboard/tenants#custom-domains) of the [tenants page in the Private SaaS configuration area](/private-saas/dashboard/tenants).

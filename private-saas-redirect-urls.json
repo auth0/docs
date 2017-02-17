@@ -39,4 +39,28 @@
     "from": "/appliance/admin/updating-the-appliance",
     "to": "/private-saas/admin/updating-private-saas"
   },
+  {
+    "from": "/appliance/custom-domains",
+    "to": "/private-saas/custom-domains"
+  },
+  {
+    "from": "/appliance/cli/adding-node-to-backup-role",
+    "to": "/private-saas/cli/"
+  },
+  {
+    "from": "/appliance/cli/backing-up-the-appliance",
+    "to": "/private-saas/cli/backing-up-private-saas"
+  },
+  {
+    "from": "/appliance/cli/configure-cli",
+    "to": "/private-saas/cli/configure-cli"
+  },
+  {
+    "from": "/appliance/cli/reconfiguring-ip",
+    "to": "/private-saas/cli/reconfiguring-ip"
+  },
+  {
+    "from": "",
+    "to": ""
+  },
 ]
