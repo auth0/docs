@@ -38,9 +38,9 @@ First, you need to create and authorize a Non Interactive Client. We recommend c
 
 To create and authorize a Non Interactive Client, follow these steps:
 
-1. Go to [the Test tab of your Auth0 Management API](${manage_url}/#/apis/management/test).
+1. Go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
-1. Click the button __Create & Authorize Client__.
+1. Click the button __Create & Authorize a Test Client__.
 
 ![Create and Authorize Client](/media/articles/api/tokens/create-authorize-client.png)
 
@@ -56,7 +56,7 @@ __NOTE__: If you have multiple apps that should access the Management API, and y
 
 ### 2. Get the Token
 
-To get a token, click __Copy Token__ at [the Test tab of your Auth0 Management API](${manage_url}/#/apis/management/test).
+To get a token, click __Copy Token__ at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
 ![Test Client](/media/articles/api/tokens/copy-token.png)
 
