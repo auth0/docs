@@ -58,10 +58,10 @@ description: Customize the UI of Lock in your App
   let lock = ... // Get your Lock instance
   let client = lock.apiClient()
   let parameters = A0AuthParameters(dictionary: [A0ParameterConnection : "Username-Password-Authentication"])
-  client.loginWithUsername(email, password: password, parameters: parameters, success: { profile, token in
-    println("We did it!. Logged in with Auth0.")
+  client.login(withUsername: email, password: password, parameters: parameters, success: { profile, token in
+      print("We did it!. Logged in with Auth0.")
   }, failure: { error in
-    println("Oops something went wrong: \(error)")
+      print("Oops something went wrong: \(error)")
   })
   ```
 > More details about the parameters you can use check [this wiki page](/libraries/lock-ios/sending-authentication-parameters).
@@ -77,7 +77,7 @@ After that, you may want to save the user's token to be able to use them later, 
   ```
   ```swift
   let lock = ... // Get your Lock instance
-  lock.applicationLaunchedWithOptions(launchOptions)
+  lock.applicationLaunched(options: launchOptions)
   ```
 
 2. Also add the following lines to your `AppDelegate` too
@@ -88,9 +88,9 @@ After that, you may want to save the user's token to be able to use them later, 
   }
   ```
   ```swift
-  func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+  func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     let lock = ... // Get your Lock instance
-    return lock.handleURL(url, sourceApplication: sourceApplication)
+    return lock.handle(url, sourceApplication: sourceApplication)
   }
   ```
 
