@@ -137,7 +137,7 @@ Refresh tokens do not run [rules](/rules) at the moment, but we will add support
 
 Since refresh tokens never expire it is important to be able to revoke them. You can revoke a refresh token either by posting a revocation request to `https://${account.namespace}/oauth/revoke` or using the [dashboard](${manage_url}).
 
-### Revoke a refresh token with a request
+### Use the API
 
 To revoke a refresh token you can send a `POST` request to `https://${account.namespace}/oauth/revoke`.
 
@@ -183,7 +183,7 @@ The possible responses are:
 | 400 | The required parameters were not sent in the request or the refresh token was not issued to the client making the revocation request (`"error": "invalid_request"`). |
 | 401 | The request is not authorized (`"error": "invalid_client"`). Check that the client credentials (`client_id` and `client_secret`) are present in the request and hold valid values. |
 
-### Revoke a refresh token using the dashboard
+### Use the Dashboard
 
 When you revoke a refresh token using the dashboard, you have to revoke the user's authorized access to the application that issued the token. This renders the refresh token useless.
 
