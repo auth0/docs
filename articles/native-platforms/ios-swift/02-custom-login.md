@@ -6,7 +6,7 @@ budicon: 448
 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
+  repo: 'auth0-ios-swift-v2-sample',
   path: '02-Custom-Login',
   requirements: [
     'CocoaPods 1.1.1',

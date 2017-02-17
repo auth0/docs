@@ -6,7 +6,7 @@ budicon: 546
 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
+  repo: 'auth0-ios-swift-v2-sample',
   path: '04-Calling-APIs',
   requirements: [
     'CocoaPods 1.1.1',
