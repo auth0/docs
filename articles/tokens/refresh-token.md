@@ -2,10 +2,10 @@
 description: A refresh token allows an application to request Auth0 to issue a new id_token directly, without needing to re-authenticate the user.
 ---
 
-# Refresh Token (legacy)
+# Refresh Token
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This article describes the legacy Refresh Token story. If you have the <a href="/api-auth/tutorials/configuring-tenant-for-api-auth">new API Authorization flows</a> enabled and you are looking for the updated documentation, refer to <a href="/tokens/preview/refresh-token">Refresh Token</a>.
+  <strong>Heads up!</strong> This article describes the legacy Refresh Token story. If you are working with the <a href="/api-auth/tutorials/configuring-tenant-for-api-auth">API Authorization flows</a> and you are looking for the updated documentation, refer to <a href="/tokens/preview/refresh-token">Refresh Token (API Authorization)</a>.
 </div>
 
 A **Refresh Token** is a special kind of token that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.
