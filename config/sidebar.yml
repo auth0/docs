@@ -97,6 +97,22 @@ articles:
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
 
+  - title: "Auth0 Hooks"
+    url: "/auth0-hooks"
+    children:
+
+      - title: "Overview"
+        url: "/auth0-hooks"
+
+      - title: "Extensibility Points"
+        url: "/auth0-hooks/extensibility-points"
+
+      - title: "Using the Auth0 CLI"
+        url: "/auth0-hooks/cli"
+
+      - title: "Using the Management Dashboard"
+        url: "/auth0-hooks/dashboard"
+
   - title: "Extensions"
     url: "/extensions"
     children:

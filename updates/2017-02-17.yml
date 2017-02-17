@@ -1,5 +1,13 @@
 added:
   -
+    title: "New docs on Auth0 Hooks"
+    tags:
+      - webtask
+      - hook
+      - rules
+    description: |
+      Released new docs on [Auth0 Hooks](https://auth0.com/docs/auth0-hooks). Auth0 Hooks allow you to extend the Auth0 platform using Node.js code.
+  -
     title: "New docs on Refresh Tokens"
     tags:
       - refresh-token
