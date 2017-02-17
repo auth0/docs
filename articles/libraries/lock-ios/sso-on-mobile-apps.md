@@ -34,8 +34,8 @@ A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0" acce
 NSString *refreshToken = [keychain stringForKey:@"refresh_token"];
 ```
 ```swift
-let keychain = A0SimpleKeychain.keychainWithService("Auth0", accessGroup:"ABC1234DEF.mysharedgroup")
-let refreshToken = keychain.stringForKey("refresh_token")
+let keychain = A0SimpleKeychain.withService("Auth0", accessGroup:"ABC1234DEF.mysharedgroup")
+keychain.setString(auth0User.refreshToken, forKey:"refresh_token")
 ```
 
 To store a value in the Keychain:
@@ -44,7 +44,7 @@ A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0" acce
 [keychain setString:auth0User.refreshToken forKey:@"refresh_token"];
 ```
 ```swift
-let keychain = A0SimpleKeychain.keychainWithService("Auth0", accessGroup:"ABC1234DEF.mysharedgroup")
+let keychain = A0SimpleKeychain.withService("Auth0", accessGroup:"ABC1234DEF.mysharedgroup")
 keychain.setString(auth0User.refreshToken, forKey:"refresh_token")
 ```
 

@@ -25,7 +25,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 ```
 
 ```swift
-let controller = ...
+let controller: A0LockViewController = ...
 controller.onAuthenticationBlock = { (profile, token) in
     guard let profile = profile, let token = token else {
         return //it's a sign up
@@ -35,7 +35,7 @@ controller.onAuthenticationBlock = { (profile, token) in
     if let refreshToken = token.refreshToken {
         keychain.setString(refreshToken, forKey: "refresh_token")
     }
-    keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+    keychain.setData(NSKeyedArchiver.archivedData(withRootObject: profile), forKey: "profile")
     // Other stuff. Don't forget to dismiss lock
 }
 ```

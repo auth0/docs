@@ -16,7 +16,7 @@ A0Theme *myAwesomeTheme = [[A0Theme alloc] init];
 ```swift
 let myAwesomeTheme = A0Theme()
 //Customize your theme
-A0Theme.sharedInstance().registerTheme(myAwesomeTheme)
+A0Theme.sharedInstance().register(myAwesomeTheme)
 ```
 
 ## How to configure your Theme
@@ -30,7 +30,7 @@ You can either configure some type of properties which are:
 
 * Color: `UIColor` instance.
 * Image: `NSString` with image name.
-* Font: `UIFont` instance. 
+* Font: `UIFont` instance.
 
 Example Usage
 ```

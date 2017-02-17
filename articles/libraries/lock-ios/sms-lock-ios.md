@@ -29,16 +29,15 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 ```
 
 ```swift
-let lock = ... //Fetch Lock from where its stored
-let controller = lock.newSMSViewController()
-controller.auth0APIToken = {() -> String in return "Copy API v2 token here"}
-controller.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
-    // Do something with token & profile. e.g.: save them.
-    // Lock will not save the Token and the profile for you.
-    // And dismiss the UIViewController.
-    self.dismissViewControllerAnimated(true, completion: nil)
+let lock = ... // Fetch Lock from where its stored
+let controller: A0SMSLockViewController = lock.newSMSViewController()
+controller.onAuthenticationBlock = { (profile, token) in
+   // Do something with token & profile. e.g.: save them.
+   // Lock will not save the Token and the profile for you.
+   // And dismiss the UIViewController.
+   self.dismiss(animated: true, completion: nil)
 }
-lock.presentSMSController(controller, fromController: self)
+lock.presentSMSController(controller, from: self)
 ```
 And you'll see SMS login screen
 

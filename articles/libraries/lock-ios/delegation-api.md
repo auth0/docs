@@ -24,17 +24,17 @@ A0AuthParameters *parameters = [A0AuthParameters newWithDictionary:@{
 ```
 
 ```swift
-let client = A0Lock.sharedLock().apiClient()
-let token = ...; // Auth0's id_token obtained on login
-let parameters = A0AuthParameters.newWithDictionary([
-        "id_token": token,
-        A0ParameterAPIType: "firebase"
+let client = A0Lock.shared().apiClient()
+let token = // Auth0's id_token obtained on login
+let parameters = A0AuthParameters.new(with: [
+    "id_token": token,
+    A0ParameterAPIType: "firebase"
     ])
-client.fetchDelegationTokenWithParameters(parameters,
+client.fetchDelegationToken(with: parameters,
     success: { payload in
         // payload will have your firebase token
     },
-    failure: error in {
+    failure: { error in
         // Something went wrong
     })
 ```

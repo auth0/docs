@@ -28,10 +28,13 @@ Lock provides passwordless authentication with TouchID for your Auth0 DB connect
   };
   ```
   ```swift
-  let controller = A0TouchIDLockViewController()
-  controller.onAuthenticationBlock = { (profile, token) -> () in
-      //Store token & profile. For example in the keychain using SimpleKeychain.
-      self.dismissViewControllerAnimated(true, completion:nil)
+  let lock = A0Lock.shared()
+  let controller: A0TouchIDLockViewController = lock.newTouchIDViewController()
+  controller.onAuthenticationBlock = { (profile, token) in
+      // Do something with token & profile. e.g.: save them.
+      // Lock will not save the Token and the profile for you.
+      // And dismiss the UIViewController.
+      self.dismiss(animated: true, completion: nil)
   }
   ```
 
@@ -45,7 +48,7 @@ Lock provides passwordless authentication with TouchID for your Auth0 DB connect
   ```
   ```swift
   let navController = UINavigationController(rootViewController: controller)
-  if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+  if UIDevice.current.userInterfaceIdiom == .pad {
       navController.modalPresentationStyle = .FormSheet
   }
   self.presentViewController(navController, animated: true, completion:nil)
