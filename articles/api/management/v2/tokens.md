@@ -40,6 +40,10 @@ To create and authorize a Non Interactive Client, follow these steps:
 
 1. Go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
+<div class="alert alert-info">
+  If you cannot see the APIs on the Dashboard menu, you can enable it by switching on the <strong>Enable APIs Section</strong> toggle at your <a href="${manage_url}/#/account/advanced">Account's Advanced Settings</a>.
+</div>
+
 1. Click the button __Create & Authorize a Test Client__.
 
 ![Create and Authorize Client](/media/articles/api/tokens/create-authorize-client.png)
