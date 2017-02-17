@@ -55,7 +55,7 @@ Auth0
               // Test failed, make sure you've configured your rule properly (check step 1 thoroughly)
               return
             }
-            if role == "admin" {
+            if roles == "admin" {
                 // User has admin access, grant them the power.
             } else {
                 // Not an admin, deny the user.
