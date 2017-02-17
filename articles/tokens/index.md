@@ -19,7 +19,7 @@ There are six primary tokens used in Auth0's token based authentication scenario
 - [ID Token](#id-token)
 - [Access Token](#access-token)
 - [Identity Provider Access Tokens](#identity-provider-access-tokens)
-- [Refresh Token](#refresh-token)
+- [Auth0 `refresh_token`](#auth0-refresh_token)
 - [Delegation Tokens](#delegation-tokens)
 - [Auth0 Management APIv2 Token](#auth0-management-apiv2-token)
 
@@ -41,11 +41,11 @@ When a user authenticates via Auth0 with another social provider's authenticatio
 
 [More information](/tokens/idp)
 
-## Refresh Token
+## Auth0 `refresh_token`
 
-The Refresh Token, commonly referred to as `refresh_token`, is a long-lived token that is used to obtain a new [id_token](#id-token) or [access token](#access-token), after a previous one has expired.
+The Refresh token is a long-lived token that is used to obtain a new [`id_token`](#auth0-idtoken-jwt) after a previous one has expired.  This is useful for applications running on mobile devices that call remote APIs and do not want to require the user to log in every time the user uses the mobile app.
 
-For more information refer to: [Refresh Token](/tokens/refresh-token).
+[More information](/tokens/refresh_token)
 
 ## Delegation Tokens
 
