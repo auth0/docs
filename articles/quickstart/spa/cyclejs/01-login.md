@@ -11,7 +11,7 @@ This tutorial has been tested with the following:
 * NodeJS 6.3
 * npm 3.10.3
 * @cycle/xstream-run 3.0.3
-* cyclejs-auth0 1.1.0
+* cyclejs-auth0 2.0.0
 :::
 
 
@@ -20,7 +20,7 @@ ${include('../\_callback')}
 
 ## 1. Install the `cyclejs-auth0` Package
 
-To install both `cyclejs-auth0` and the `cyclic-router` (needed to parse the token sent by Auth0), from the command line, run:
+To install `cyclejs-auth0` from the command line, run:
 
 ${snippet(meta.snippets.dependencies)}
 
