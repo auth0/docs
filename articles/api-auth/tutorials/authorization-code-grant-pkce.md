@@ -4,6 +4,8 @@ description: How to execute an Authorization Code Grant flow with PKCE for a Mob
 
 # Execute an Authorization Code Grant Flow with PKCE
 
+## 1. Create a Code Verifier
+
 First, you need to generate and store a `code_verifier`.
 
 <div class="code-picker">
@@ -43,6 +45,7 @@ NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
   </div>
 </div>
 
+## 2. Create a Code Challenge
 
 Using the `code_verifier`, generate a `code_challenge` that will be sent in the authorization request.
 
@@ -93,6 +96,8 @@ NSString *challenge = [[[[hash base64EncodedStringWithOptions:0]
   </div>
 </div>
 
+## 3. Get an Authorization Code
+
 To begin an Authorization Code Grant flow, your Client application should first send the user to the authorization URL including the `code_challenge` and the method used to generate it:
 
 ```text
@@ -128,7 +133,7 @@ For example:
 </a>
 ```
 
-## Exchange the Authorization Code for an Access Token
+## 4. Exchange the Authorization Code for an Access Token
 
 Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to POST to the OAuth Token URL sending also the `code_verifier`:
 
@@ -171,7 +176,7 @@ Note that the `refresh_token` will be present in the response, only if you inclu
 It is important to understand that the Authorization Code flow with PKCE can only be used for Clients whose type is `Native` in the Dashboard.
 :::
 
-## Use the Access Token
+## 5. Use the Access Token
 
 Once you have the `access_token`, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
@@ -185,3 +190,9 @@ Once you have the `access_token`, you can use it to make calls to the API, by pa
   ]
 }
 ```
+
+## 6. Verify the Token
+
+Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+
+For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).

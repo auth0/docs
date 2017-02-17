@@ -110,11 +110,16 @@ Once the `access_token` has been obtained it can be used to make calls to the AP
   ]
 }
 ```
+## 4. Verify the Token
+
+Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+
+For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
 ## More reading
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
-- [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
+- [How to refresh a token](/tokens/preview/refresh-token)
 - [How to configure an API in Auth0](/apis)
 - [Web App Quickstarts](/quickstart/webapp)
 - [Client Authentication for Server-side Web Apps](/client-auth/server-side-web)

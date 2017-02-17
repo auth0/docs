@@ -4,6 +4,8 @@ description: How to execute an Implicit Grant flow from a SPA Client application
 
 # Execute the Implicit Grant Flow
 
+## 1. Get the User's Authorization
+
 In order to execute an Implicit Grant flow you will need to configure your Client application to send the user to the authorization URL:
 
 ```text
@@ -40,7 +42,7 @@ For example:
 </a>
 ```
 
-## Extract the Access Token
+## 2. Extract the Access Token
 
 After Auth0 has redirected back to the Client, you can extract the `access_token` from the hash fragment of the URL:
 
@@ -70,7 +72,7 @@ $(function () {
 });
 ```
 
-## Use the Access Token
+## 3. Use the Access Token
 
 Once you have the `access_token` you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
@@ -86,6 +88,12 @@ $('#get-appointments').click(function(e) {
   });
 });
 ```
+
+## 4. Verify the Token
+
+Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+
+For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
 ## More information
 

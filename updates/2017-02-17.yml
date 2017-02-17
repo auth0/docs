@@ -6,3 +6,10 @@ added:
       - api-auth
     description: |
       Released new version of [Refresh Tokens (API Authorization)](https://auth0.com/docs/tokens/preview/refresh-token). The legacy version is still in place and you can find it at [Refresh Tokens](https://auth0.com/docs/tokens/refresh-token). The legacy doc will be served as default, with a panel at the top referring to the updated one.
+  -
+    title: "New doc on how to verify an access token"
+    tags:
+      - api
+      - access_token
+    description: |
+      A new doc was released with details on all the validations than an API should perform on a Bearer Access Token: [Verify Access Tokens](https://auth0.com/docs/api-auth/tutorials/verify-access-token).
