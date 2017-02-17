@@ -11,8 +11,6 @@ This allows you to implement scenarios including (but not limited to):
 * Sending notifications to Slack or via e-mail about the user's new account;
 * Creating a new user record in SalesForce.
 
-## Starter Code
-
 :::panel-warning Response Object
 The Post-User Registration extensibility point ignores any response object.
 :::
