@@ -82,7 +82,6 @@ And create your [NgModule](https://angular.io/docs/ts/latest/guide/ngmodule.html
 
 import { NgModule }            from '@angular/core';
 import { BrowserModule  }      from '@angular/platform-browser';
-import { AUTH_PROVIDERS }      from 'angular2-jwt';
 
 import { AppComponent }        from './app.component';
 import { HomeComponent }       from './home.component';
