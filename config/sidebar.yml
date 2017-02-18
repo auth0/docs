@@ -97,7 +97,7 @@ articles:
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
 
-  - title: "Auth0 Hooks"
+  - title: "Hooks"
     url: "/auth0-hooks"
     children:
 
