@@ -1,0 +1,8 @@
+added:
+  -
+    title: "New doc on How to Implement Token Based Authentication"
+    tags:
+      - token
+      - jwt
+    description: |
+       A [new document](https://auth0.com/tokens/jwt-auth) was created to show an example on how to implement token based authentication.
