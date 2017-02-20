@@ -12,12 +12,12 @@ You can edit the code of your Hook using the Webtask Editor. The following comma
 
   `auth0 edit my-extension-1`
 
-  ![Webtask Editor](/media/articles/auth0-hooks/webtask-editor.png)
+  ![Webtask Editor](/media/articles/hooks/webtask-editor.png)
 
 If the CLI cannot open the Editor window automatically, you can copy and paste the provided link into your web browser.
 
 ## Manipulate Secrets
 
-If you [provisioned a secret to your Hook](/auth0-hooks/cli/create-delete#provision-secrets-to-new-hooks) during creation, you can manipulate it by clicking on the **wrench** at the top left of the Webtask Editor window and selecting **Secrets** from the dropdown menu.
+If you [provisioned a secret to your Hook](/hooks/cli/create-delete#provision-secrets-to-new-hooks) during creation, you can manipulate it by clicking on the **wrench** at the top left of the Webtask Editor window and selecting **Secrets** from the dropdown menu.
 
-  ![Webtask Editor Secrets pane](/media/articles/auth0-hooks/webtask-editor-secrets.png)
+  ![Webtask Editor Secrets pane](/media/articles/hooks/webtask-editor-secrets.png)

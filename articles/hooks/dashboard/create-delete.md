@@ -6,7 +6,7 @@ description: How to create new Hooks using the Management Dashboard
 
 You can create new Hooks using the Auth0 Management Dashboard.
 
-![Management Dashboard Hooks Page](/media/articles/auth0-hooks/hooks-dashboard.png)
+![Management Dashboard Hooks Page](/media/articles/hooks/hooks-dashboard.png)
 
 ## Create a New Hook
 
@@ -17,7 +17,7 @@ You can create new Hooks using the Auth0 Management Dashboard.
 
 2. On the *New Hook* pop-up window, provide the requested information:
 
-  ![Create Hook Dialog](/media/articles/auth0-hooks/create-new-hook.png)
+  ![Create Hook Dialog](/media/articles/hooks/create-new-hook.png)
 
   * **Name**: The name for your new Hook
   * **Hook**: The extensibility point associated with your Hook
@@ -32,7 +32,7 @@ For any given extensibility point, you may create multiple Hooks. However, you m
 Auth0 automatically enables the first Hook you create for an extensibility point, and any subsequent Hooks for that point are created in a disabled state. As such, you must explicitly activate subsequent Hooks.
 :::
 
-![List of Hooks](/media/articles/auth0-hooks/hooks-list.png)
+![List of Hooks](/media/articles/hooks/hooks-list.png)
 
 ## Delete an Existing Hook
 
@@ -41,4 +41,4 @@ Auth0 automatically enables the first Hook you create for an extensibility point
 3. Click **Delete**.
 4. Confirm that you want to delete your Hook by clicking **YES, DELETE HOOK**.
 
-![Delete Hook Confirmation](/media/articles/auth0-hooks/delete-hook.png)
+![Delete Hook Confirmation](/media/articles/hooks/delete-hook.png)

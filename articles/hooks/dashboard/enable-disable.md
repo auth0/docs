@@ -13,12 +13,12 @@ You can use the Management Dashboard to enable/disable Hooks. Each extensibility
 1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks) and find the extensibility point for which you want an enabled Hook.
 2. Immediately under the name and description of the extensibility point, click on the dropdown box that lists all of the point's associated Hooks.
 
-  ![List of Hooks for a Point](/media/articles/auth0-hooks/select-hook-to-enable.png)
+  ![List of Hooks for a Point](/media/articles/hooks/select-hook-to-enable.png)
 
 3. Select the Hook you want to enable.
 4. Confirm your selection by clicking **YES, ENABLE HOOK**.
 
-  ![Confirm Hook to Enable](/media/articles/auth0-hooks/confirm-enable-hook.png)
+  ![Confirm Hook to Enable](/media/articles/hooks/confirm-enable-hook.png)
 
 You will now see a green dot next to the name of the Hook, indicating that it's enabled.
 
@@ -27,9 +27,9 @@ You will now see a green dot next to the name of the Hook, indicating that it's 
 1. Navigate to [the Hooks page of the Dashboard](${manage_url}/#/hooks) and find the extensibility point for which you want an enabled Hook.
 2. Immediately under the name and description of the extensibility point, click on the dropdown box that lists all of the point's associated Hooks.
 
-  ![List of Hooks for a Point](/media/articles/auth0-hooks/select-hook-to-enable.png)
+  ![List of Hooks for a Point](/media/articles/hooks/select-hook-to-enable.png)
 
 3. Select **None**.
 4. Confirm your selection by clicking **YES, DISABLE HOOK**.
 
-  ![Confirm Hook to Disable](/media/articles/auth0-hooks/disable-hook.png)
+  ![Confirm Hook to Disable](/media/articles/hooks/disable-hook.png)
