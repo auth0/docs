@@ -1149,6 +1149,10 @@
     "to": "/appliance/critical-issue"
   },
   {
+    "from": "/api-auth/grant/using-rules",
+    "to": "/api-auth/using-rules/using-rules/client-credentials"
+  },
+  {
     "from": "/libraries/lock/v10/custom-signup",
     "to": "/libraries/custom-signup"
   },
