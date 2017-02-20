@@ -1,18 +1,49 @@
 ---
-description: Describes using rules with Client Credentials Grants.
+description: How to use Hooks to change the scopes and add custom claims to the tokens you got using Client Credentials Grant.
+toc: true
 ---
 
-# Using Rules with Client Credentials Grants
+# Using Hooks with Client Credentials Grants
 
 You can now add [rules](/rules) into the [client credentials](/api-auth/grant/client-credentials) exchange pipeline where you exchange a `client_id` and `secret` for an `access_token`.
 
-## Prior to Beginning Your Configuration
+## Overview
+
+## Before you start
 
 Please ensure that:
 
-* You have the [Webtask Command Line Interface (CLI) installed](${manage_url}/#/account/webtasks);
-* You have created an [API defined with the appropriate scopes](${manage_url}/#/apis);
-* You have created a [non-interactive client](${manage_url}/#/applications) that is authorized to use the API created in the previous step.
+- You have created an [API defined with the appropriate scopes](${manage_url}/#/apis)
+- You have created a [non-interactive client](${manage_url}/#/clients) that is authorized to use the API created in the previous step
+
+If you haven't done these yet, refer to these docs for details:
+- How to set up a Client Credentials Grant:
+  - [Using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
+  - [Using the Management API](/api-auth/config/using-the-management-api)
+- [How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+
+## Use the Dashboard
+
+## Use the Auth0 CLI
+
+## Manage your Hooks
+
+You can disable, enable, delete or edit hooks using either the Auth0 CLI or the [dashboard]((${manage_url}/#/hooks)). You can also review your logs using the Auth0 CLI. For details, refer to the articles below.
+
+Use the Dashboard to:
+- [Delete Hooks](/auth0-hooks/dashboard/create-delete)
+- [Edit Hooks](/auth0-hooks/dashboard/edit)
+- [Enable or disable Hooks](/auth0-hooks/dashboard/enable-disable)
+
+Use the Auth0 CLI to:
+- [Delete Hooks](/auth0-hooks/cli/create-delete)
+- [Edit Hooks](/auth0-hooks/cli/edit)
+- [Enable or disable Hooks](/auth0-hooks/cli/enable-disable)
+- [Review Logs](/auth0-hooks/cli/logs)
+
+---
+
+# OLD - to be removed
 
 ## Creating the Rule
 
@@ -33,7 +64,7 @@ module.exports = function(client, scope, audience, context, cb) {
 ```
 This is a sample rule that will:
 
-* add an arbitrary claim (`https://foo.com/claim`) to the access_token;
+* add an arbitrary claim (`https://foo.com/claim`) to the access_token
 * add an extra scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
 ### 2. Create the Webtask to Use Your Rule
@@ -134,7 +165,3 @@ The Auth0 Runtime expects you to return an `access_token` that looks like the fo
 ```
 
 If you decide not to issue the token, you can return `Error (cb(new Error('access denied')))`.
-
-### Logs
-
-You can use `wt logs` to see realtime logs. For additional information on reading the output, please consult [Webtask Streaming Logs](https://webtask.io/docs/api_logs).
