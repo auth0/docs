@@ -1,19 +1,19 @@
 ---
-section: appliance
-description: Overview of the Appliance Dashboard Settings page
+section: private-saas
+description: Overview of the Private SaaS Dashboard Settings page
 ---
 
-# Auth0 Appliance Dashboard: Settings
+# Auth0 Private SaaS Dashboard: Settings
 
-::: panel-info Appliance Dashboard Navigation
+::: panel-info Private SaaS Dashboard Navigation
 
-For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+For additional information on navigating to and using the Private SaaS Dashboard, please see the section on [Private SaaS Controls](/private-saas/dashboard#private-saas-controls).
 
 :::
 
-The Settings page is where you will make most of the changes that pertain to your Appliance configuration.
+The Settings page is where you will make most of the changes that pertain to your Private SaaS configuration.
 
-![](/media/articles/appliance/dashboard/settings.png)
+![](/media/articles/private-saas/dashboard/settings.png)
 
 The Settings page is broken down into the following sections:
 
@@ -37,7 +37,7 @@ The Settings page is broken down into the following sections:
 
 ## Dashboard
 
-* **Enable "New Account" in Dashboard**: if enabled, you may create new isolated accounts (called tenants) in the Appliance;
+* **Enable "New Account" in Dashboard**: if enabled, you may create new isolated accounts (called tenants) in Private SaaS;
 * **Federated Logout**: if enabled, signing out of the Dashboard also signs you out from the ldP (e.g. when using enterprise connections with the Dashboard).
 
 ## HTTPS Configuration
@@ -78,13 +78,13 @@ The Settings page is broken down into the following sections:
 
 ## Monitoring
 
-* **New Relic License Key**: if you use New Relic for monitoring, enter your license key here to monitor your Appliance instances.
+* **New Relic License Key**: if you use New Relic for monitoring, enter your license key here to monitor your Private SaaS.
 
 ## API Keys
 
-* **Health service**: generates a key that authenticates your API calls for status information regarding your Appliance instances;
+* **Health service**: generates a key that authenticates your API calls for status information regarding your Private SaaS;
 
-    ![](/media/articles/appliance/dashboard/health-keys-api-service.png)
+    ![](/media/articles/private-saas/dashboard/health-keys-api-service.png)
 
     **Please be sure to save the Settings page to persist the newly-generated key.**
 

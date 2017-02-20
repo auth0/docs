@@ -1,19 +1,19 @@
 ---
-section: appliance
-description: Overview of the Appliance Dashboard Tenants page
+section: private-saas
+description: Overview of the Private SaaS Dashboard Tenants page
 ---
 
-# Auth0 Appliance Dashboard: Tenants
+# Auth0 Private SaaS Dashboard: Tenants
 
-::: panel-info Appliance Dashboard Navigation
+::: panel-info Private SaaS Dashboard Navigation
 
-For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+For additional information on navigating to and using the Private SaaS Dashboard, please see the section on [Private SaaS Controls](/private-saas/dashboard#private-saas-controls).
 
 :::
 
-The Tenants page of the Appliance Dashboard lists all tenants associated with your Appliance instance.
+The Tenants page of the Private SaaS Dashboard lists all tenants associated with your Private SaaS.
 
-![](/media/articles/appliance/dashboard/tenants.png)
+![](/media/articles/private-saas/dashboard/tenants.png)
 
 For each associated tenant, you will see the following pieces of information:
 
@@ -25,7 +25,7 @@ For each associated tenant, you will see the following pieces of information:
 
 ## Custom Domains
 
-![](/media/articles/appliance/dashboard/tenant-custom-domain.png)
+![](/media/articles/private-saas/dashboard/tenant-custom-domain.png)
 
 The name column of the Tenants page is a hyperlink. Clicking on this brings up the page where you can set up custom domains for this particular tenant, as well overview information for any currently-existing custom domains.
 
@@ -34,7 +34,7 @@ The name column of the Tenants page is a hyperlink. Clicking on this brings up t
 To add a custom domain, click on the "Add Domain" button. You will be prompted for the following information:
 
 
-![](/media/articles/appliance/dashboard/tenant-add-custom-domain.png)
+![](/media/articles/private-saas/dashboard/tenant-add-custom-domain.png)
 
 * **Domain**: the custom domain for your tenant;
 * **SSL Available**: the SSL certificate format (either *PFX/PKCS12* or *Standard PEM*);

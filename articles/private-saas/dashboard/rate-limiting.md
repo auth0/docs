@@ -1,19 +1,19 @@
 ---
-section: appliance
-description: Overview of the Appliance Dashboard Rate Limiting page
+section: private-saas
+description: Overview of the Private SaaS Dashboard Rate Limiting page
 ---
 
-# Auth0 Appliance Dashboard: Rate Limiting
+# Auth0 Private SaaS Dashboard: Rate Limiting
 
-::: panel-info Appliance Dashboard Navigation
+::: panel-info Private SaaS Dashboard Navigation
 
-For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+For additional information on navigating to and using the Private SaaS Dashboard, please see the section on [Private SaaS Controls](/private-saas/dashboard#private-saas-controls).
 
 :::
 
-While the Auth0-managed cloud instances automatically includes rate limiting to ensure quality service, you must manually enable rate limiting if you are using Auth0 Appliance instances.
+While the Auth0-managed cloud instances automatically includes rate limiting to ensure quality service, you must manually enable rate limiting if you are using Auth0 Private SaaS.
 
-![](/media/articles/appliance/dashboard/rate-limiting.png)
+![](/media/articles/private-saas/dashboard/rate-limiting.png)
 
 ## Settings
 

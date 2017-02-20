@@ -1,23 +1,23 @@
 ---
-section: appliance
-description: Overview of the Appliance Dashboard Troubleshoot page
+section: private-saas
+description: Overview of the Private SaaS Dashboard Troubleshoot page
 ---
 
-# Auth0 Appliance Dashboard: Troubleshoot
+# Auth0 Private SaaS Dashboard: Troubleshoot
 
-::: panel-info Appliance Dashboard Navigation
+::: panel-info Private SaaS Dashboard Navigation
 
-For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+For additional information on navigating to and using the Private SaaS Dashboard, please see the section on [Private SaaS Controls](/private-saas/dashboard#private-saas-controls).
 
 :::
 
-The Troubleshoot page of the Appliance Dashboard provides you with tools to help diagnose any issues that might occur.
+The Troubleshoot page of the Private SaaS Dashboard provides you with tools to help diagnose any issues that might occur.
 
-![](/media/articles/appliance/dashboard/troubleshoot.png)
+![](/media/articles/private-saas/dashboard/troubleshoot.png)
 
 ## Diagnostics Package
 
-You may create a diagnostic package containing detailed information about your Appliance instance(s) by clicking on the "Generate New Package" button.
+You may create a diagnostic package containing detailed information about your Private SaaS implementation by clicking on the "Generate New Package" button.
 
 Once you've clicked "Generate New Package", you will see a notification message that indicates that your package is being generated. Once your package is ready, the message will disappear and a link to download the package related to a particular node instance will appear in the last column of your Nodes table.
 
@@ -33,7 +33,7 @@ Upon downloaded your package, you'll notice that the file name formatted as foll
 
 ## Health Check
 
-The Health Check offers a quick overview of the status of your Appliance instances. Data is available for the past hour through the past twenty-nine (29) days.
+The Health Check offers a quick overview of the status of your Private SaaS implementation. Data is available for the past hour through the past twenty-nine (29) days.
 
 To obtain data for a specific period of time, change the `Day` and/or `Hour` field to correspond to the time period whose data you want to analyze. Click "Get" to return the specified data.
 
