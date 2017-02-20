@@ -626,6 +626,7 @@ When writing docs you can use the following variables instead of hard-coding the
 | `auth0js_url`                 | The url to the auth0.js CDN location.      | |
 | `lock_url`                  | The url to the Lock script CDN location.   | |
 | `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
+| `env.DOMAIN_URL_SUPPORT` | Support Center URL | `https://support.auth0.com/` |
 
 
 ### User Specific Variables
