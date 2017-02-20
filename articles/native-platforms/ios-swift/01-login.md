@@ -20,7 +20,7 @@ A brief description:
 - [**Auth0.swift**](https://github.com/auth0/Auth0.swift) is a toolkit that lets you communicate efficiently with many of the basic [Auth0 API](/api/info) functions.
 
 :::panel-info
-Because universal links establish a *verified relationship between domains and applications*, both your Auth0 Client settings and your iOS application need to be in sync. You can view instructions on [setting up universal links here](/clients/enable-universal-links).
+Because universal links establish a *verified relationship between domains and applications*, both your Auth0 Client settings and your iOS application need to be in sync. You can view instructions on setting up universal links [here](/clients/enable-universal-links).
 :::
 
 #### Carthage
