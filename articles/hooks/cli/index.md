@@ -1,5 +1,5 @@
 ---
-description: How to use the Command-Line Interface with Auth0 Hooks
+description: How to use the Command-Line Interface with Hooks
 url: /auth0-hooks/cli
 ---
 

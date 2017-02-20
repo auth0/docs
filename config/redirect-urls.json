@@ -1199,5 +1199,9 @@
   {
     "from": "/libraries/lock-android/error-messages",
     "to": "/libraries/error-messages"
+  },
+  {
+    "from": "/auth0-hooks",
+    "to": "/hooks"
   }
 ]

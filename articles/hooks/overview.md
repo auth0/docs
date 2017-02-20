@@ -5,9 +5,9 @@ description: >-
   capabilities, and you can chain them together for modular coding.
 ---
 
-# Auth0 Hooks: Overview
+# Hooks: Overview
 
-Auth0 Hooks, which will eventually replace [Rules](/rules), allow you to extend the Auth0 platform with custom code.
+Hooks, which will eventually replace [Rules](/rules), allow you to extend the Auth0 platform with custom code.
 
 Hooks are Webtasks associated with specific extensibility points of the Auth0 platform. Auth0 invokes the Hooks at runtime to execute your custom logic.
 

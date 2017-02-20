@@ -1,5 +1,5 @@
 ---
-description: The credentials-exchange extensibility point for use with Auth0 Hooks
+description: The credentials-exchange extensibility point for use with Hooks
 ---
 
 # Extensibility Point: Credentials Exchange
