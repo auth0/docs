@@ -107,7 +107,7 @@ In `routes.js`, there is now an `onEnter` callback assigned to the `/home` route
 
 ## Create the Login View
 
-Create a new `Login` component and save it in `src/views/Main/Login/`. This React component should accept an `auth` object (which is an instance of the `AuthServce`) as a prop.
+Create a new `Login` component and save it in `src/views/Main/Login/`. This React component should accept an `auth` object (which is an instance of the `AuthService`) as a prop.
 
 ```js
 // src/views/Main/Login/Login.js
