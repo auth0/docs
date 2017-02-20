@@ -187,4 +187,4 @@ The following Auth0 Authenticaion API endpoints return rate limit-related header
   </tr>
 </table>
 
-* *The `/delegation` endpoint limits up to 10 requests per minute from the same IP address with the same user_id*
+**The `/delegation` endpoint limits up to 10 requests per minute from the same IP address with the same user_id*
