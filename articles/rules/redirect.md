@@ -35,7 +35,7 @@ Auth0 will also pass a state value in that URL, for example `https://example.com
 
 <div class="alert alert-info"><strong>What is state?</strong> State is an opaque value, used to prevent <a href="/security/common-threats#cross-site-request-forgery-xsrf-or-csrf-">CSRF attacks</a>. In this case, Auth0 passes this param to the redirect URL.</div>
 
-You need to extract this value since you will need it in order to resume the authentication transaction after the redirect (see `THE_ORIGINAL_STATE` at the next paragraph).
+Your redirect URL will need to extract the `state` parameter and send it back to Auth0 in order to resume the authentication transaction.
 
 ## What to do afterwards
 
@@ -47,9 +47,9 @@ https://${account.namespace}/continue?state=THE_ORIGINAL_STATE
 
 By `THE_ORIGINAL_STATE` we mean the value that Auth0 generated and sent to the redirect URL. For example, if your rule redirected to `https://example.com/foo`, Auth0 would use a redirect URL similar to: `https://example.com/foo?state=abc123` (`abc123` being the `THE_ORIGINAL_STATE`). In this case in order to resume the authentication transaction you should redirect to `https://${account.namespace}/continue?state=abc123`.
 
-To extract the state value, check the `request.query` object for Database logins (`context.request.query.state`), or the `request.body` object for Social/Enterprise logins (`context.request.body.state`).
+How you extract the `state` parameter depends entirely on the server you redirect to. If you're using [Node.js and Express, you could use `req.query.state` to extract this parameter](https://expressjs.com/en/api.html#req.query).
 
-When a user has been redirected to the `/continue` endpoint, all rules will be run again.
+When a user has been redirected to the `/continue` endpoint, **all rules will be run again.**
 
 ::: panel-danger Caution
 Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will lose the context of the login transaction and the user will not be able to login due to to an `invalid_request` error.
@@ -149,3 +149,5 @@ function(user, context, callback) {
 Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner) authentication endpoint. This is because the endpoint returns a JSON result. Redirect rules work _only_ with browser based protocols.
 
 Also, if you are using any social network as a connection, make sure you register your own account (vs. using Auth0's Dev Keys). This is because redirect rules are resumed on the endpoint: `https://${account.namespace}/continue`. When using Auth0's Dev Keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error.
+
+You can [read more about issues that may arise from using Auth0's Dev Keys here.](/connections/social/devkeys)
