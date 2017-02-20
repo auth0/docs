@@ -5,7 +5,7 @@ description: This page explains how to impersonate a user, often used for testin
 # User Impersonation
 
 ::: panel-warning Advanced Feature
-Impersonation functionality may be disabled by default for your tenant, but can be enabled by [contacting support](${env.DOMAIN_URL_SUPPORT}).
+Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the __Sign in as User__ button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
 :::
 
 Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation the administrators can login to an app as a specific user, see everything exactly as that user sees it, and do everything exactly as that user does it.
@@ -17,13 +17,16 @@ Auth0 provides a _Sign in As_ feature for user impersonation, and provides the f
 
 ## Impersonate a User using the Management Dashboard
 
-Navigate to the [Users](${manage_url}/#/users) page in the Management Dashboard and select the user you want to login as. Click on the _Sign in as User_ and select the app you want to log into using the dropdown menu.
+Navigate to the [Users](${manage_url}/#/users) page in the Management Dashboard and select the user you want to login as. Click on the __Sign in as User__ and select the client you want to log into using the dropdown menu.
 
 ![](/media/articles/user-profile/signin-as-user-01.png)
 
-> Can't see the button? Check the following conditions; they should apply for the button to be displayed:
-> - The applications registered in the account must have at least one callback URL listed.
-> - The applications must have the connections turned on that the users who are to be impersonated belong to.
+::: panel-info I can't see this button
+In order to see this button the following conditions should apply:
+- Impersonation should be enabled for your account (see panel at the top of this page)
+- The Clients registered in the account must have at least one __callback URL__ listed
+- The Clients must have the connections turned on that the users who are to be impersonated belong to
+:::
 
 A popup displays the URL to be used in order to impersonate the user. You can choose either to copy the URL into the clipboard (white button) or open it in a separate browser tab/window (blue button).
 
