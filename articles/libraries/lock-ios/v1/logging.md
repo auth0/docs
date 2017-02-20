@@ -6,7 +6,9 @@ description: Learn how to debug Lock by enabling logging.
 
 # Lock iOS: Logging
 
-__Lock__ logs serveral useful debugging information using [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack).
+__Lock__ logs several pieces of useful debugging information using [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack).
+
+<%= include('../_includes/_lock-version-1') %>
 
 > If you are using a Lock version older than `1.10.0` please check [here](#lock-versions-1-10-0)
 

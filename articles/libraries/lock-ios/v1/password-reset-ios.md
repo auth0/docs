@@ -8,6 +8,8 @@ description: All you need to know about password reset with Lock for iOS.
 
 You can allow the user to reset their password for any database connections.
 
+<%= include('../_includes/_lock-version-1') %>
+
 If you use Lock UI, you can hide or show a **Reset password** button by setting the `disableResetPassword` property, which will default to `false`.
 
 If you implement a custom UI, you need to send a password reset email to the user using `A0APIClient`.

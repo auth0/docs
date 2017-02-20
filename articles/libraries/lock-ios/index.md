@@ -12,6 +12,8 @@ You're looking at the documentation for the easiest way of securing your iOS and
 
 Lock is an embeddable login form, which is configurable to your needs and ready for use in your mobile applications. It's easier than ever to add social identity providers to Lock, as well, allowing your users to login seamlessly using whichever providers make sense for your application. Check out the basic usage guide below for more information!
 
+<%= include('_includes/_lock-version') %>
+
 ## Requirements
 
 - iOS 9 or later
@@ -20,15 +22,7 @@ Lock is an embeddable login form, which is configurable to your needs and ready 
 
 ## Install
 
-You have two choices for installation - CocoaPods or Carthage. 
-
-### Installation Using CocoaPods
-
-Add the following line to your `Podfile`:
-
-```ruby
-pod "Lock", "~> 2.0.0-rc.1"
-```
+You have two choices for installation - [Carthage](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos) or [CocoaPods](http://guides.cocoapods.org/using/getting-started.html). You will need to install `Lock` for use logging in and signing up users. If you wish to access user profile information, you will also need the `Auth0` library.
 
 ### Installation Using Carthage
 
@@ -36,7 +30,21 @@ Add the following line to your `Cartfile`:
 
 ```
 github "auth0/Lock.iOS-OSX" "2.0.0-rc.1"
+github "auth0/Auth0.swift" ~> 1.1.1
 ```
+
+Then run `carthage bootstrap`.
+
+### Installation Using CocoaPods
+
+Add the following line to your `Podfile`:
+
+```ruby
+pod "Lock", "~> 2.0.0-rc.1"
+pod "Auth0", "~> 1.1.1"
+```
+
+Then run `pod install`.
 
 ## Setup 
 
@@ -56,11 +64,12 @@ Import **Lock** wherever you'll need it
 
 ```swift
 import Lock
+import Auth0
 ```
 
 ### Auth0 Credentials
 
-In order to use Lock you need to provide your Auth0 Client Id and Domain, which can be found in your [Auth0 Dashboard](https://manage.auth0.com).
+In order to use Lock you need to provide your Auth0 Client Id and Domain, which can be found in your [Auth0 Dashboard](${manage_url}), under your Client's settings.
 
 In your application bundle you can add a `plist` file named `Auth0.plist` that will include your credentials with the following format.
 
@@ -87,12 +96,32 @@ To show Lock, add the following snippet in your `UIViewController`.
 Lock
     .classic()
     // withConnections, withOptions, withStyle, etc
-    .onAuth { 
+    .onAuth { credentials in
       // Save the Credentials object
-      // Use the token to get the user's profile
     }
     .present(from: self)
 ```
+
+## Use Auth0 Library to access user profile
+
+To access user profile information, you will need to use the `Auth0.Swift` library:
+
+```swift
+guard let accessToken = credentials.accessToken else { return }
+Auth0
+    .authentication()
+    .userInfo(token: accessToken)
+    .start { result in
+        switch result {
+        case .success(let profile):
+            // You've got a UserProfile object
+        case .failure(let error):
+            // You've got an error
+        }
+}
+```
+
+Check out the [Auth0.Swift Library Documentation](/libraries/auth0-swift) for more information about its uses.
 
 ## Specify Connections
 
@@ -163,8 +192,19 @@ Lock
         $0.logHttpRequest = true
     }
 ```
+## Future roadmap for Lock iOS v2
+
+- Native Authentication with third party SDKs (Facebook, Google, Twitter)
+- 1Password support
+- Passwordless Authentication (SMS & Email)
+- Secure Token storage and automatic token refresh
+- Remember me like feature using TouchID
+- Universal Link support for browser based Auth
+- Improved UI Styling
+- Bundle more i18n translation in Lock.framework
 
 ## Other Resources
 
 * [Styles Customization](/libraries/lock-ios/v2/customization) - customize the look and feel of Lock
 * [Behavior Configuration](/libraries/lock-ios/v2/configuration) - configure the behavior of Lock
+* [Migration Guide for v2](/libraries/lock-ios/v2/migration) - migrate from v1 to v2

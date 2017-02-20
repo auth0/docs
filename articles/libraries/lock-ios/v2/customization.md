@@ -8,7 +8,11 @@ description: Styling and customization options for the style of Lock v2 for iOS/
 
 # Lock v2 for iOS/macOS - Style Customization Options 
 
-There are numerous options to configure Lock's style and appearance listed below. In addition, there are also quite a few options available to alter Lock's behavior and functionality in the [Behavior Configuration Options](/lock-ios/v2/configuration) page.
+There are numerous options to configure Lock's style and appearance listed below. In addition, there are also quite a few options available to alter Lock's behavior and functionality in the [Behavior Configuration Options](/libraries/lock-ios/v2/configuration) page.
+
+<%= include('../_includes/_lock-version') %>
+
+## Customizing Lock's appearance
 
 Style customization options can be added to your Lock initialization using `withStyle`.
 

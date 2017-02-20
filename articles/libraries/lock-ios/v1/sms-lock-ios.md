@@ -8,6 +8,8 @@ description: How to use SMS in Lock iOS
 
 `A0SMSLockViewController` authenticates without using a password with SMS. In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](${manage_url}/#/connections/passwordless).
 
+<%= include('../_includes/_lock-version-1') %>
+
 First instantiate `A0SMSLockViewController` and register the authentication callback that will receive the authenticated user's credentials.
 
 The next step is register a block to return an API Token used to register the  phone number and send the login code with SMS. This token can be generated in  [Auth0 API v2 page](/api/v2), just select the scope `create:users` and copy the generated API Token.

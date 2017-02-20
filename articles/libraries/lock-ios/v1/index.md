@@ -12,6 +12,8 @@ description: A widget that provides a frictionless login and signup experience f
 
 Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
+<%= include('../_includes/_lock-version-1') %>
+
 Auth0 Lock makes it easy to integrate SSO into your app. Lock's many benefits include:
 
 * Providing a professional looking login dialog that displays well on any device.
@@ -406,7 +408,7 @@ For more information on Lock for CocoaPods, see the [Lock documentation in Cocoa
 ### Related Documentation
 
 <ul>
-<% cache.find('articles/libraries/lock-ios', {sort: 'toc_title'}).forEach(article => { %>
+<% cache.find('articles/libraries/lock-ios/v1', {sort: 'toc_title'}).forEach(article => { %>
   <% if (article.toc_title) { %>
   <li>
     <span><a href="<%- article.url %>"><%- article.toc_title %></a>
