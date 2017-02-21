@@ -176,7 +176,7 @@ The following Auth0 Authenticaion API endpoints return rate limit-related header
       <td>/tokeninfo</td>
   </tr>
   <tr>
-      <td>Delegated Authentication*</td>
+  <td>Delegated Authentication<sup>*</sup></td>
       <td></td>
       <td>/delegation</td>
   </tr>
