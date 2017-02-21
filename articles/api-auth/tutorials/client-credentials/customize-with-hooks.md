@@ -180,38 +180,13 @@ Use the Auth0 CLI to:
 - [Enable or disable Hooks](/auth0-hooks/cli/enable-disable)
 - [Review Logs](/auth0-hooks/cli/logs)
 
----
+## Webtask Input Parameters
 
-# OLD - to be removed
+As you saw in our example, the webtask takes five input parameters. You can use these values for your custom logic.
 
-### 2. Create the Webtask to Use Your Rule
+Let's see what each one contains.
 
-Create the Webtask. You will need to set the following static metadata fields for the Webtask:
-
-* `wt-compiler = auth0-ext-compilers/client-credentials-exchange`
-* `auth0-extension = runtime`
-* `auth0-extension-name = credentials-exchange`
-* `auth0-extension-secret = {random_secret}`
-
-The same `{random_secret}` value provided to the `auth0-extension-secret` metadata property must also be provided to the webtask code as an `auth0-extension-secret` secret parameter. This prevents unauthorized calls to this webtask. A secret may be conveniently created using `openssl` tool if your platform has it available:
-
-```
-SECRET=$(openssl rand 32 -base64) && \
-wt create myrule.js \
-  --meta wt-compiler=auth0-ext-compilers/client-credentials-exchange \
-  --meta auth0-extension=runtime \
-  --meta auth0-extension-name=credentials-exchange \
-  --meta auth0-extension-secret=$SECRET \
-  --secret auth0-extension-secret=$SECRET
-```
-
-## Implementation Notes
-
-### Input Parameters
-
-The input parameters for the rule, including sample snippets:
-
-* **client** - `object` - the client asking for the token, including the `client` metadata (a key-value pair that can be set by client)
+- __client__ (object): Information on the client asking for the token, including the `client` metadata (a key-value pair that can be set by client). Sample snippet:
 
     ```json
     {
@@ -224,9 +199,11 @@ The input parameters for the rule, including sample snippets:
     }
     ```
 
-* **scope** - `string array` - the scopes available on the API that you have defined
-* **audience** - `string` - the API identifier available via the API settings page
-* **context** - `object` - the contextual information about the request
+- __scope__ (`string array`): The scopes available on the API that you have defined.
+
+- __audience__ (`string`): The API identifier available via the API settings page.
+
+- __context__ (`object`): The contextual information about the request. Sample snippet:
 
     ```json
     {
@@ -238,17 +215,6 @@ The input parameters for the rule, including sample snippets:
     }
     ```
 
-### Auth0 Runtime Expectation
-
-The Auth0 Runtime expects you to return an `access_token` that looks like the following:
-
-```json
-{
-  "https://anything.com/foo": "bar",
-  "scope": [ "scope1", "scope2" ]
-}
-```
-
-If you decide not to issue the token, you can return `Error (cb(new Error('access denied')))`.
+- __cb__: The callback. In our example we returned the token (`cb(null, access_token)`). If you decide, however, not to issue a token, you can return `Error (cb(new Error('access denied')))`.
 
 ## Read more
