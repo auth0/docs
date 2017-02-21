@@ -72,11 +72,49 @@ Click __Save__ (or hit Ctrl+S/Cmd+S) and close the Editor.
 
 ## Use the Auth0 CLI
 
+1. Make sure you have installed the Webtask CLI. You can find detailed instructions in the [Dashboard's Webtask page](${manage_url}/#/account/webtasks).
+
+2. Create a file with your Node.js code. For our example, we will name the file `myrule.js` and copy the following code:
+
+```js
+module.exports = function(client, scope, audience, context, cb) {
+  var access_token = {};
+  access_token['https://foo.com/claim'] = 'bar';
+  access_token.scope = scope;
+  access_token.scope.push('extra');
+  cb(null, access_token);
+};
+```
+
+3. Create the Webtask. The command is the following:
+
+```text
+auth0 create -t credentials-exchange -n client-credentials-exchange-hook -p ${account.namespace}-default file.js
+```
+
+Let's break this down:
+- `auth0`: The binary to use.
+- `create`: The sub-command for creating or updating a Hook. Run in your terminal `auth0 -h` to see the rest.
+- `-t credentials-exchange`: The hook type. For this use case, set to `credentials-exchange`.
+- `-n client-credentials-exchange-hook`: The webtask's name. Set this to your preference, we chose `client-credentials-exchange-hook`.
+- `-p ${account.namespace}-default`: Your account's profile name. Get this value from _Step 2_ of the instructions on the [Dashboard's Webtask page](${manage_url}/#/account/webtasks).
+- `file.js`: The name of the file you created in the previous step.
+
+Run the command.
+
+4. You will see a message that your hook was created, but in disabled state. To enable the hook, run the command:
+
+```text
+auth0 enable --profile ${account.namespace}-default client-credentials-exchange-hook
+```
+
+Where `client-credentials-exchange-hook` is the name of the webtask, and `${account.namespace}-default` the name of your profile (the same as the one used in the previous step).
+
+5. That's it! Now you only need to test your hook. You can find detailed instructions at the [Test your Hook](#test-your-hook) paragraph.
+
 ## Test your Hook
 
 To test the hook you just created you need to run a Client Credentials exchange, get the `access_token`, decode it and review its contents.
-
-__1. Get the access_token__
 
 To get a token, make a `POST` request at the `https://${account.namespace}/oauth/token` API endpoint, with a payload in the following format.
 
@@ -98,7 +136,11 @@ To get a token, make a `POST` request at the `https://${account.namespace}/oauth
   If you don't know where to find the Client Id, Client Secret, or API Identifier information, refer to <a href="/api-auth/config/asking-for-access-tokens#where-to-find-the-ids">Where to Find the IDs</a>.
 </div>
 
-A successful response will include an `access_token`, its expiration time in seconds (`expires_in`), the token's type set as `Bearer` (`token_type`), and an `extra` scope (`scope`). This scope was added by our hook.
+A successful response will include:
+- an `access_token`,
+- its expiration time in seconds (`expires_in`),
+- the token's type set as `Bearer` (`token_type`), and
+- an `extra` scope (`scope`) (this scope was added by your hook)
 
 ```json
 HTTP/1.1 200 OK
@@ -111,11 +153,9 @@ Content-Type: application/json
 }
 ```
 
-Copy the `access_token` and continue to the next step.
+Copy the `access_token`.
 
-__2. Review the token's contents__
-
-The easiest way to decode your `access_token` and review its contents is to use the [JWT.io Debugger](https://jwt.io/#debugger-io).
+The easiest way to decode it and review its contents is to use the [JWT.io Debugger](https://jwt.io/#debugger-io).
 
 Paste your `access_token` at the left-hand editor. Automatically the JWT is decoded and its contents are displayed on the right-hand editor.
 
@@ -143,21 +183,6 @@ Use the Auth0 CLI to:
 ---
 
 # OLD - to be removed
-
-### 1. Create the Rule For Use with Webtasks
-
-Create a file named `myrule.js`, and enter the following:
-
-```js
-module.exports = function(client, scope, audience, context, cb) {
-  var access_token = {};
-  access_token['https://foo.com/claim'] = 'bar';
-  access_token.scope = scope;
-  access_token.scope.push('extra');
-  cb(null, access_token);
-};
-```
-
 
 ### 2. Create the Webtask to Use Your Rule
 
