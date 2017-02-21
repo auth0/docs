@@ -19,6 +19,8 @@ When creating [Rules](/rules), the following properties are available for the `c
   * `oidc-implicit-profile`: used on mobile devices and single page apps
   * `oauth2-resource-owner`: user/password login typically used on database connections
   * `oauth2-resource-owner-jwt-bearer`: login using a bearer JWT signed with user's private key
+  * `oauth2-password`: login using the password exchange
+  * `oauth2-refresh-token`: refreshing a token using the refresh token exchange
   * `samlp`: SAML protocol used on SaaS apps
   * `wsfed`: WS-Federation used on Microsoft products like Office365
   * `wstrust-usernamemixed`: WS-trust user/password login used on CRM and Office365
