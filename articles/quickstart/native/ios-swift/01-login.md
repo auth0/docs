@@ -4,57 +4,8 @@ description: This tutorial demonstrates how to integrate Lock in your iOS Swift 
 budicon: 448
 ---
 
-This multi-step quickstart guide will walk you through managing authentication in your iOS apps with Auth0.
-
-## Sample Projects
-
-Each tutorial in the series includes a link to its corresponding sample project, which demonstrates how to achieve the tutorial's goal. You can find all the samples [here](https://github.com/auth0-samples/auth0-ios-swift-sample/).
-
-## Dependencies
-
-Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.iOS-OSX) or the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit, or both.
-
-A brief description:
-
-- [**Lock**](https://github.com/auth0/Lock.iOS-OSX) is a widget that is easy to present in your app. It contains default templates (that can be customized) for login with email/password, signup, social providers integration, and password recovery.
-- [**Auth0.swift**](https://github.com/auth0/Auth0.swift) is a toolkit that lets you communicate efficiently with many of the basic [Auth0 API](/api/info) functions.
-
-::: panel-info Universal Links
-Because universal links establish a *verified relationship between domains and applications*, both your Auth0 Client settings and your iOS application need to be in sync. You can view instructions on setting up universal links [here](/clients/enable-universal-links).
-:::
-
-#### Carthage
-
-If you are using Carthage, add the following lines to your `Cartfile`:
-
-```ruby
-github "auth0/Lock.iOS-OSX" ~> 2.0
-github "auth0/Auth0.swift" ~> 1.2
-```
-
-Then run `carthage bootstrap`.
-
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
-
-#### Cocoapods
-
-If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
-
-```ruby
-use_frameworks!
-pod 'Lock', '~> 2.0'
-pod 'Auth0', '~> 1.2'
-```
-
-Then, run `pod install`.
-
-> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
-
-<%= include('../../../_includes/_new_app') %>
-
-<%= include('_includes/_config') %>
-
-<%= include('../../../_includes/_package', {
+<%= include('../../_includes/_package', {
+  Guide:articles/native-platforms/ios-swift/01-login.md
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-v2-sample',
   path: '01-Login',
@@ -66,3 +17,29 @@ Then, run `pod install`.
 }) %>
 
 <%= include('_includes/_login') %>
+
+## Configure Callback URLs
+
+Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including a token. Since callback URLs can be manipulated, you will need to add your application's URL to your client's *Allowed Callback URLs* for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
+
+In your application's `Info.plist` file, register your iOS Bundle Identifer as a custom scheme:
+
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>None</string>
+        <key>CFBundleURLName</key>
+        <string>auth0</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+        </array>
+    </dict>
+</array>
+```
+
+Finally, go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
+
+`{YOUR_BUNDLE_IDENTIFIER}://{YOUR_AUTH0_DOMAIN}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback`
