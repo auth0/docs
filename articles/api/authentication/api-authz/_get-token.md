@@ -313,7 +313,7 @@ Content-Type: 'application/json'
 
 ```shell
 curl --request POST \
-  --url '${account.namespace}/oauth/token' \
+  --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
   --data '{"grant_type":"password", "username":"USERNAME", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"SCOPE", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"
  }'
