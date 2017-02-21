@@ -30,7 +30,100 @@ If you haven't done these yet, refer to these docs for details:
 
 ## Use the Dashboard
 
+1. Go to [the Hooks page of the Dashboard](${manage_url}/#/hooks).
+
+![Dashboard Hooks](/media/articles/api-auth/hooks/dashboard-hooks.png)
+
+2. Click the __+ Create New Hook__ button. On the _New Hook_ pop-up window, set the __Hook__ dropdown to `Client Credentials Exchange` and set a __Name__ for your hook. Click __Create__.
+
+![New Client Credentials Hook](/media/articles/api-auth/hooks/new-cc-hook.png)
+
+At this point, you will see your newly-created Hook listed under the _Client Credentials Exchange_.
+
+<div class="alert alert-info">
+  You can create more than one hooks per extensibility point but <strong>only one can be enabled</strong>. The enabled hook will then be executed for <strong>all</strong> clients and APIs.
+</div>
+
+3. Click the __Pencil and Paper__ icon to the right of the Hook to open the Webtask Editor.
+
+![Edit Client Credentials Hook](/media/articles/api-auth/hooks/edit-cc-hook.png)
+
+4. Using the Webtask Editor, write your Node.js code. As an example, we will add an extra scope. The claim's name will be `https://foo.com/claim` and its value `bar`. Copy the sample code below and paste it in the Editor.
+
+```js
+module.exports = function(client, scope, audience, context, cb) {
+  var access_token = {};
+  access_token['https://foo.com/claim'] = 'bar';
+  access_token.scope = scope;
+  access_token.scope.push('extra');
+  cb(null, access_token);
+};
+```
+
+This sample hook will:
+- add an arbitrary claim (`https://foo.com/claim`) to the `access_token`
+- add an `extra` scope to the default scopes configured on your [API](${manage_url}/#/apis).
+
+![Webtask Editor](/media/articles/api-auth/hooks/cc-webtask-editor.png)
+
+Click __Save__ (or hit Ctrl+S/Cmd+S) and close the Editor.
+
+5. That's it! Now you only need to test your hook. You can find detailed instructions at the [Test your Hook](#test-your-hook) paragraph.
+
 ## Use the Auth0 CLI
+
+## Test your Hook
+
+To test the hook you just created you need to run a Client Credentials exchange, get the `access_token`, decode it and review its contents.
+
+__1. Get the access_token__
+
+To get a token, make a `POST` request at the `https://${account.namespace}/oauth/token` API endpoint, with a payload in the following format.
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"client_credentials\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"audience\": \"YOUR_API_IDENTIFIER\"}"
+  }
+}
+```
+
+<div class="alert alert-info">
+  If you don't know where to find the Client Id, Client Secret, or API Identifier information, refer to <a href="/api-auth/config/asking-for-access-tokens#where-to-find-the-ids">Where to Find the IDs</a>.
+</div>
+
+A successful response will include an `access_token`, its expiration time in seconds (`expires_in`), the token's type set as `Bearer` (`token_type`), and an `extra` scope (`scope`). This scope was added by our hook.
+
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5ESTFNa05DTVRGQlJrVTRORVF6UXpFMk1qZEVNVVEzT1VORk5ESTVSVU5GUXpnM1FrRTFNdyJ9.eyJpc3MiOiJodHRwczovL2RlbW8tYWNjb3VudC5hdXRoMC3jb20vIiwic3ViIjoic0FRSlFpQmYxREw0c2lqSVZCb2pFRUZvcmRoa0o4WUNAY2xpZW50cyIsImF1ZCI6ImRlbW8tYWNjb3VudC5hcGkiLCJleHAiOjE0ODc3NjU8NjYsImlhdCI6MTQ4NzY3OTI2Niwic2NvcGUiOiJyZWFkOmRhdGEgZXh0cmEiLCJodHRwczovL2Zvby5jb20vY2xhaW0iOiKoPXIifQ.da-48mHY_7esfLZpvHWWL8sIH1j_2mUYAB49c-B472lCdsNFvpaLoq6OKQyhnqk9_aW_Xhfkusos3FECTrLFvf-qwQK70QtwbkbVye_IuPSTAYdQ2T-XTzGDm9Nmmy5Iwl9rNYLxVs2OoCdfpVMyda0OaI0AfHBgEdKWluTP67OOnV_dF3KpuwtK3dPKWTCo2j9VCa7X1I4h0CNuM79DHhY2wO7sL8WBej7BSNA3N2TUsp_YTWWfrvsr_vVhJf-32G7w_12ms_PNFUwj2C30ZZIPWc-uEkDztyMLdI-lu9q9TLrLdr0dOhfrtfkdeJx4pUSiHdJHf42kg7UAVK6JcA",
+  "expires_in": 86400,
+  "scope": "extra",
+  "token_type": "Bearer"
+}
+```
+
+Copy the `access_token` and continue to the next step.
+
+__2. Review the token's contents__
+
+The easiest way to decode your `access_token` and review its contents is to use the [JWT.io Debugger](https://jwt.io/#debugger-io).
+
+Paste your `access_token` at the left-hand editor. Automatically the JWT is decoded and its contents are displayed on the right-hand editor.
+
+![Decode Token with JWT.io](/media/articles/api-auth/hooks/cc-decode-token.png)
+
+Look into the last two items of the __Payload__. Both have been set by our hook:
+- `"scope": "extra"`
+- `"https://foo.com/claim": "bar"`
 
 ## Manage your Hooks
 
@@ -51,10 +144,6 @@ Use the Auth0 CLI to:
 
 # OLD - to be removed
 
-## Creating the Rule
-
-**Note**: You can only create one rule, which will then be executed for **all** clients and APIs.
-
 ### 1. Create the Rule For Use with Webtasks
 
 Create a file named `myrule.js`, and enter the following:
@@ -68,10 +157,7 @@ module.exports = function(client, scope, audience, context, cb) {
   cb(null, access_token);
 };
 ```
-This is a sample rule that will:
 
-* add an arbitrary claim (`https://foo.com/claim`) to the access_token
-* add an extra scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
 ### 2. Create the Webtask to Use Your Rule
 
@@ -92,38 +178,6 @@ wt create myrule.js \
   --meta auth0-extension-name=credentials-exchange \
   --meta auth0-extension-secret=$SECRET \
   --secret auth0-extension-secret=$SECRET
-```
-
-### 3. Test Your Setup
-
-To test your newly-created rule and webtask, make the following `POST` call:
-
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/token",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"API_IDENTIFIER\",\"grant_type\": \"client_credentials\"}"
-  }
-}
-```
-
-If all is well, you will receive a JWT `access_token` that looks like this:
-
-```json
-{
-  "iss": "https://YOURS.auth0.com/",
-  "sub": "YOUR_CLIENT_ID@clients",
-  "aud": "API_IDENTIFIER",
-  "exp": 1472832994,
-  "iat": 1472746594,
-  "scope": "test extra",
-  "https://foo.com/claim": "bar"
-}
 ```
 
 ## Implementation Notes
@@ -171,3 +225,5 @@ The Auth0 Runtime expects you to return an `access_token` that looks like the fo
 ```
 
 If you decide not to issue the token, you can return `Error (cb(new Error('access denied')))`.
+
+## Read more
