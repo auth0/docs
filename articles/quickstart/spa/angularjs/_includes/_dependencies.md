@@ -10,7 +10,7 @@ The easiest way to add authentication to any app with Auth0 is to use the Lock w
 **Installing Dependencies with npm**
 
 ```bash
-npm install auth0-js angular-lock angular-jwt
+npm install auth0-js angular-lock angular-jwt --save
 ```
 
 or
@@ -18,7 +18,7 @@ or
 **Installing Dependencies with Bower**
 
 ```bash
-bower install auth0-lock auth0.js angular-lock angular-jwt
+bower install auth0-lock auth0.js angular-lock angular-jwt --save
 ```
 
 Once installed, the scripts for these libraries can be included in your project.

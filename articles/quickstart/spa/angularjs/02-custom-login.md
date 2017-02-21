@@ -6,7 +6,11 @@ description: This tutorial demonstrates how to use the Auth0 Angular 1.x SDK to 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '02-Custom-Login'
+  path: '02-Custom-Login',
+  requirements: [
+    'AngularJS 1.5.8',
+    'Angular-auth0 2.0.0-beta.1'
+  ]
 }) %>
 
 The previous step explained how you can log users into your application using the [Lock Widget](/libraries/lock). While Lock provides the simplest way to add authentication to your app, you also have the option of creating your own custom user interface.
@@ -20,7 +24,7 @@ This quickstart and the accompanying sample demonstrate custom login with auth0.
 To implement a custom login screen, the **auth0.js** library and **angular-auth0** wrapper are required. Install these packages, along with angular-jwt, and add them to your project.
 
 ```bash
-bower install angular-auth0#2.0.0-beta.1 angular-jwt
+bower install angular-auth0#2.0.0-beta.1 angular-jwt --save
 ```
 
 ```html

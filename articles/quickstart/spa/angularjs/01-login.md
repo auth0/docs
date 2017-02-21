@@ -6,7 +6,11 @@ description: This tutorial demonstrates how to use the Auth0 Angular 1.x SDK to 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'AngularJS 1.5.8',
+    'Angular-lock 1.0.2'
+  ]
 }) %>
 
 The first step in adding authentication to your Angular app is to provide a way for the user to log in. The easiest way to do this with Auth0 is to use the [Lock widget](/libraries/lock).

@@ -6,7 +6,11 @@ description: This tutorial demonstrates how to add Multifactor Authentication to
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '09-MFA'
+  path: '09-MFA',
+  requirements: [
+    'AngularJS 1.5.8',
+    'Angular-lock 1.0.2'
+  ]
 }) %>
 
 <%= include('../_includes/_mfa-introduction') %>
