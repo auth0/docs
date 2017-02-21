@@ -61,7 +61,9 @@ Once the user has logged in, you get a `Credentials` object, as follows:
 Lock
     .classic()
     .withOptions {
-        $0.oidcConformant = true
+        // TODO Use OIDC once refreshToken fixed
+        $0.oidcConformant = false
+        $0.parameters = ["device":"UNIQUE_ID"]
         $0.scope = "openid profile"
     }
     .onAuth { credentials in
