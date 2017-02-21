@@ -6,11 +6,11 @@
 
 articles:
 
-  - title: Getting Started
+  - title: "Getting Started"
     url: "/overview"
     children:
-      - title: Overview
-        url: /overview
+      - title: "Overview"
+        url: "/overview"
 
       - title: "Clients"
         url: "/clients"
@@ -18,65 +18,14 @@ articles:
       - title: "APIs"
         url: "/apis"
 
-      - title: Developer Videos
-        url: /videos
+      - title: "Developer Videos"
+        url: "/videos"
 
-      - title: Architecture Scenarios
-        url: /architecture-scenarios
+      - title: "Architecture Scenarios"
+        url: "/architecture-scenarios"
 
-  - title: "Client Authentication"
-    url: "/client-auth"
-    children:
-
-      - title: "Overview"
-        url: "/client-auth"
-
-      - title: "For Mobile & Desktop Apps"
-        url: "/client-auth/mobile-desktop"
-
-      - title: "For Server-side Web Apps"
-        url: "/client-auth/server-side-web"
-
-      - title: "For Client-side Web Apps"
-        url: "/client-auth/client-side-web"
-
-  - title: "API Authorization"
-    url: "/api-auth"
-    children:
-
-      - title: "Which Flow to Use"
-        url: "/api-auth/which-oauth-flow-to-use"
-
-      - title: "From Server-side Apps"
-        url: "/api-auth/grant/authorization-code"
-
-      - title: "From Mobile Apps"
-        url: "/api-auth/grant/authorization-code-pkce"
-
-      - title: "From Client-side Apps"
-        url: "/api-auth/grant/implicit"
-
-      - title: "From a Service"
-        url: "/api-auth/grant/client-credentials"
-
-      - title: "From Trusted Clients"
-        url: "/api-auth/grant/password"
-
-      - title: "FAQ"
-        url: "/api-auth/faq"
-
-  - title: "Development Lifecycle"
-    url: "/dev-lifecycle"
-    children:
-
-      - title: "Setting Up Environments"
-        url: "/dev-lifecycle/setting-up-env"
-
-      - title: "Running and Developing Locally"
-        url: "/dev-lifecycle/local-testing-and-development"
-
-      - title: "Child Account Request Process"
-        url: "/dev-lifecycle/child-tenants"
+  - title: "Username/Password Connection"
+    url: "/connections/database"
 
   - title: "Rules"
     url: "/rules"
@@ -113,121 +62,42 @@ articles:
       - title: "Using the Management Dashboard"
         url: "/hooks/dashboard"
 
-  - title: "Extensions"
-    url: "/extensions"
+  - title: "Email"
     children:
-
       - title: "Overview"
-        url: "/extensions"
+        url: "/email"
 
-      - title: "Creating Extensions"
-        url: "/extensions/custom-extensions"
+      - title: "Custom Email Handling"
+        url: "/email/custom"
 
-      - title: "User Import / Export Extension"
-        url: "/extensions/user-import-export"
+      - title: "Customizing Your Emails"
+        url: "/email/templates"
 
-      - title: "Authorization Extension"
-        url: "/extensions/authorization-extension"
+  - title: "Social Users"
+    url: "/extensions/custom-social-extensions"
 
-  - title: "Professional Services"
-    url: "/services"
-
-  - title: "Anomaly Detection"
-    url: "/anomaly-detection"
-
-  - title: "Identity Providers"
-    url: "/identityproviders"
+  - title: "Password Policies"
     children:
+      - title: "Password Options"
+        url: "/connections/database/password-options"
 
-      - title: "Overview"
-        url: "/identityproviders"
+      - title: "Password Strength"
+        url: "/connections/database/password-strength"
 
-      - title: "Custom Social Connections"
-        url: "/extensions/custom-social-extensions"
+  - title: "User Metadata"
+    url: "/metadata"
 
-      - title: "Database Identity Providers"
-        url: "/connections/database"
-        children:
-
-          - title: "Custom Database"
-            url: "/connections/database/mysql"
-
-          - title: "Migrating Users to Auth0"
-            url: "/connections/database/migrating"
-
-          - title: "Password Strength"
-            url: "/connections/database/password-strength"
-
-          - title: "Password Options"
-            url: "/connections/database/password-options"
-
-          - title: "Rate Limits"
-            url: "/connections/database/rate-limits"
-
-          - title: "Usernames"
-            url: "/connections/database/require-username"
-
-  - title: "Single Sign-On"
-    url: "/sso"
-    children:
-
-      - title: "Overview"
-        url: "/sso"
-
-      - title: "Client-side (Single Page Apps)"
-        url: "/sso/single-page-apps-sso"
-
-      - title: "Server-side (Regular Web Apps)"
-        url: "/sso/regular-web-apps-sso"
-
-  - title: "User Profile"
-    url: "/user-profile"
-    children:
-
-      - title: "Overview"
-        url: "/user-profile"
-        children:
-
-      - title: "Metadata"
-        url: "/metadata"
-        children:
-
-          - title: "Updating with Lock"
-            url: "/metadata/lock"
-
-          - title: "Updating with API"
-            url: "/metadata/management-api"
-
-          - title: "Data Storage Guidance"
-            url: "/user-profile/user-data-storage"
-
-      - title: "Normalized User Profile"
-        url: "/user-profile/normalized"
-
-      - title: "Progressive Profiling"
-        url: "/user-profile/progressive-profiling"
-
-      - title: "Linking User Accounts"
-        url: "/link-accounts"
-        children:
-
-          - title: "User Initiated Account Linking"
-            url: "/link-accounts/user-initiated-linking"
-
-          - title: "Server Side Account Linking"
-            url: "/link-accounts/suggested-linking"
+  - title: "User Impersonation"
+    url: "/user-profile/user-impersonation"
 
   - title: "Multifactor Authentication"
-    url: "/multifactor-authentication"
     children:
-
       - title: "Overview"
         url: "/multifactor-authentication"
 
-      - title: "Auth0 Guardian"
+      - title: "Guardian"
         url: "/multifactor-authentication/guardian"
         children:
-
           - title: "For Administrators"
             url: "/multifactor-authentication/administrator"
 
@@ -235,7 +105,7 @@ articles:
             url: "/multifactor-authentication/developer"
 
           - title: "For Users"
-            url: "/multifactor-authentication/guardian/user-guide"
+            url: "/multifactor-authentication/user-guide"
 
       - title: "SMS"
         url: "/multifactor-authentication#mfa-with-sms"
@@ -246,318 +116,28 @@ articles:
       - title: "Duo Security"
         url: "/multifactor-authentication/duo"
 
-      # - title: "Custom MFA"
-      #   url: "/multifactor-authentication#mfa-using-a-custom-provider"
+  - title: "Custom Database Connections"
+    url: "/connections/database/mysql"
 
-        # children:
-        #
-        #   - title: "Admin Guide"
-        #     url: "/multifactor-authentication/google-auth/admin-guide"
-        #
-        #   - title: "Dev Guide"
-        #     url: "/multifactor-authentication/google-auth/dev-guide"
-        #
-        #   - title: "User Guide"
-        #     url: "/multifactor-authentication/google-auth/user-guide"
+  - title: "Enterprise Identity Providers"
+    url: "/identityproviders#enterprise"
 
-  - title: "Passwordless Authentication"
-    url: "/connections/passwordless"
-    children:
+  - title: "Anomaly Detection"
+    url: "/anomaly-detection"
 
-      - title: "Overview"
-        url: "/connections/passwordless"
-
-      - title: "Email Passwordless Authentication"
-        url: "/connections/passwordless/email"
-
-      - title: "SMS Passwordless Authentication"
-        url: "/connections/passwordless/sms"
-
-      - title: "FAQ"
-        url: "/connections/passwordless/faq"
-
-  - title: "Email"
-    url: "/email"
-    children:
-
-      - title: "Overview"
-        url: "/email"
-
-      - title: "Custom Email Handling"
-        url: "/email/custom"
-
-      - title: "Customizing Your Emails"
-        url: "/email/templates"
-
-  - title: "Hosted Pages"
-    url: "/hosted-pages"
-    children:
-
-      - title: "Overview"
-        url: "/hosted-pages"
-
-      - title: "Hosted Login Page"
-        url: "/hosted-pages/login"
-
-      - title: "Hosted Password Reset Page"
-        url: "/hosted-pages/password-reset"
-
-      - title: "Hosted Guardian MFA Page"
-        url: "/hosted-pages/guardian"
-
-      - title: "Hosted Error Pages"
-        url: "/hosted-pages/error-pages"
-
-  - title: "Protocols"
-    url: "/protocols"
-    children:
-      - title: "OAuth 2.0"
-        url: "/protocols/oauth2"
-
-      - title: "OpenID Connect"
-        url: "/protocols/oidc"
-
-      - title: "SAML"
-        url: "/protocols/saml"
-
-      - title: "WS-Fed"
-        url: "/protocols/ws-fed"
-
-      - title: "LDAP"
-        url: "/protocols/ldap"
-
-  - title: "AD Connector"
-    url: "/connector"
-    children:
-
-      - title: "Overview"
-        url: "/connector"
-
-      - title: "Health Monitoring Extension"
-        url: "/extensions/adldap-connector"
-
-  - title: "CMS Plugins"
-    url: "/cms"
-    children:
-
-      - title: "Overview"
-        url: "/cms"
-
-      # - title: "Wordpress"
-      #   url: "/cms#wordpress-plugin"
-      #
-      # - title: "Joomla"
-      #   url: "/cms#joomla-extension"
-
-      - title: "SharePoint"
-        url: "https://github.com/auth0/auth0-sharepoint"
-        forceFullReload: true
-        external: true
-
-  - title: "Client Addons"
+  - title: "Addons/Third-Party Applications"
     url: "/addons"
 
-apis:
+  - title: "Passwordless Authentication"
+      children:
+        - title: "Overview"
+          url: "/connections/passwordless"
 
-  - title: "Overview"
-    url: "/api/info"
+        - title: "Email Passwordless Authentication"
+          url: "/passwordless/email"
 
-  - title: "Testing with Postman"
-    url: "/api/postman"
+        - title: "SMS Passwordless Authentication"
+          url: "/passwordless/sms"
 
-  - title: Authentication API
-    url: "/api/authentication"
-    external: true
-    forceFullReload: true
-
-  - title: Management API
-    url: "/api/management/v2/tokens"
-    forceFullReload: true
-    expanded: true
-    children:
-
-      - title: API Tokens
-        url: "/api/management/v2/tokens"
-        forceFullReload: true
-
-      - title: Query String Syntax
-        url: "/api/management/v2/query-string-syntax"
-        forceFullReload: true
-
-      - title: User Search
-        url: "/api/management/v2/user-search"
-        forceFullReload: true
-
-      - title: API Explorer
-        url: "/api/management/v2/"
-        forceFullReload: true
-        external: true
-
-libraries:
-
-  - title: "Overview"
-    url: "/libraries"
-
-  - title: "Lock for Web"
-    url: "/libraries/lock"
-    children:
-
-      - title: "Overview"
-        url: "/libraries/lock"
-
-      - title: "Configuration Options"
-        url: "/libraries/lock/v10/customization"
-
-      - title: "API Reference"
-        url: "/libraries/lock/v10/api"
-
-      - title: "UI Customization"
-        url: "/libraries/lock/v10/ui-customization"
-
-      - title: "v10 Migration Guide"
-        url: "/libraries/lock/v10/migration-guide"
-
-      - title: "Internationalization"
-        url: "/libraries/lock/v10/i18n"
-
-      - title: "Customizing Errors"
-        url: "/libraries/lock/v10/customizing-error-messages"
-
-      - title: "Lock with auth0.js"
-        url: "/libraries/lock/v10/auth0js"
-
-      - title: "Popup Mode"
-        url: "/libraries/lock/v10/popup-mode"
-
-  - title: "Lock for iOS"
-    url: "/libraries/lock-ios"
-    children:
-
-      - title: "Overview"
-        url: "/libraries/lock-ios"
-
-      - title: "Styles Customization"
-        url: "/libraries/lock-ios/v2/customization"
-
-      - title: "Behavior Configuration"
-        url: "/libraries/lock-ios/v2/configuration"
-
-      - title: "Custom Fields"
-        url: "/libraries/lock-ios/v2/custom-fields"
-
-      - title: "Internationalization"
-        url: "/libraries/lock-ios/v2/internationalization"
-
-      - title: "Version 2 Migration Guide"
-        url: "/libraries/lock-ios/v2/migration"
-
-      - title: "Version 1 Documentation"
-        url: "/libraries/lock-ios/v1"
-
-  - title: "Lock for Android"
-    url: "/libraries/lock-android"
-    children:
-
-      - title: "Overview"
-        url: "/libraries/lock-android"
-
-      - title: "Configuration Options"
-        url: "/libraries/lock-android/configuration"
-
-      - title: "Custom Auth Providers"
-        url: "/libraries/lock-android/custom-authentication-providers"
-
-      - title: "Custom Signup Fields"
-        url: "/libraries/lock-android/custom-fields"
-
-      - title: "Custom Theming"
-        url: "/libraries/lock-android/custom-theming"
-
-      - title: "Migration v1 to v2"
-        url: "/libraries/lock-android/migration-guide"
-
-      - title: "Passwordless Auth"
-        url: "/libraries/lock-android/passwordless"
-
-      - title: "Internationalization"
-        url: "/libraries/lock-android/internationalization"
-
-  - title: "Lock vs. Custom UI"
-    url: "/libraries/when-to-use-lock"
-
-  - title: "Auth0 SDK for Web"
-    url: "/libraries/auth0js"
-    children:
-
-      - title: "Auth0.js v8"
-        url: "/libraries/auth0js"
-
-      - title: "Migration Guide v8"
-        url: "/libraries/auth0js/migration-guide"
-
-      - title: "Auth0.js v7"
-        url: "/libraries/auth0js/v7"
-
-  - title: "Auth0 SDK for iOS"
-    url: "/libraries/auth0-swift"
-
-  - title: "Auth0 SDK for Android"
-    url: "/libraries/auth0-android"
-
-appliance:
-
-  - title: "Introduction"
-    url: "/appliance"
-
-  - title: "Support"
-    url: "/appliance/critical-issue"
-    expanded: true
-    children:
-      - title: Enterprise Support
-        url: /onboarding/enterprise-support
-      - title: Critical Issue
-        url: /appliance/critical-issue
-
-  - title: Appliance Planning
-    url: /appliance/appliance-overview
-    expanded: true
-    children:
-      - title: Overview
-        url: /appliance/appliance-overview
-      - title: Geographic High-Availability
-        url: /appliance/geo-ha
-      - title: Infrastructure Requirements
-        url: /appliance/infrastructure
-      - title: Roles and Responsibilities
-        url: /appliance/raci
-      - title: Customer Onboarding
-        url: /onboarding/appliance-sprint
-      - title: Private Cloud Requirements
-        url: /appliance/private-cloud-requirements
-
-  - title: "Appliance Administration"
-    url: "/appliance/admin"
-    expanded: true
-    children:
-      - title: Administrator's Manual
-        url: /appliance/admin
-      - title: Dashboard/Configuration Area
-        url: /appliance/dashboard
-      - title: Monitoring Tools
-        url: /appliance/monitoring
-      - title: Command-Line Interface Tools
-        url: /appliance/cli
-      - title: Automatic Tenant Creation
-        url: /appliance/admin/creating-tenants
-      - title: Node Module Availibility
-        url: /appliance/modules
-      - title: Webtasks
-        url: /appliance/webtasks
-      - title: Extensions
-        url: /appliance/extensions
-      - title: Disaster Recovery
-        url: /appliance/geo-ha/disaster-recovery
-      - title: Release Notes
-        url: https://auth0.com/changelog/appliance
-        external: true
-        forceFullReload: true
+        - title: "FAQ"
+          url: "/passwordless/faq"
