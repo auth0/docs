@@ -29,7 +29,7 @@ You have two choices for installation - [Carthage](https://github.com/Carthage/C
 Add the following line to your `Cartfile`:
 
 ```
-github "auth0/Lock.iOS-OSX" "2.0"
+github "auth0/Lock.iOS-OSX" ~> 2.0
 github "auth0/Auth0.swift" ~> 1.2
 ```
 

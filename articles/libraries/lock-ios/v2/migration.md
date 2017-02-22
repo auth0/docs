@@ -60,7 +60,7 @@ In Lock v1 you'd add the following:
 
 ```swift
 func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-    return A0Lock.shared().handle(url, sourceApplication: sourceApplication)
+  return A0Lock.shared().handle(url, sourceApplication: sourceApplication)
 }
 ```
 
@@ -107,10 +107,10 @@ In v1 to show Lock from a `UIViewController` you'd add the following code:
 let lock = A0Lock.shared()
 let controller = lock.newLockViewController()
 controller.onAuthenticationBlock = {(profile, token) in
-    // Do something with token & profile. e.g.: save them.
-    // Lock will not save the Token and the profile for you.
-    // And dismiss the UIViewController.
-    self.dismissViewController(animated: true, completion: nil)
+  // Do something with token & profile. e.g.: save them.
+  // Lock will not save the Token and the profile for you.
+  // And dismiss the UIViewController.
+  self.dismissViewController(animated: true, completion: nil)
 }
 lock.present(controller, from: self)
 ```
@@ -119,11 +119,11 @@ In v2, to show Lock, the following code will be necessary:
 
 ```swift
 Lock
-    .classic()
-    .onAuth { credentials in
-      print("Authenticated!")
-    }
-    .present(from: self)
+  .classic()
+  .onAuth { credentials in
+    print("Authenticated!")
+  }
+  .present(from: self)
 ```
 
 So, in the `onAuth` callback, you'd only recieve the credentials of the user when the authentication is successful. 
@@ -133,17 +133,17 @@ In the case you need to know about the errors or signup there are the correspond
 
 ```swift
 Lock
-    .classic()
-    .onAuth { credentials in
-      print("Authenticated!")
-    }
-    .onSignUp { email, attributes in
-      print("New user with email \(email)!")
-    }
-    .onError { error in
-      print("Failed with error \(error.localizedString)")
-    }
-    .present(from: self)
+  .classic()
+  .onAuth { credentials in
+    print("Authenticated!")
+  }
+  .onSignUp { email, attributes in
+    print("New user with email \(email)!")
+  }
+  .onError { error in
+    print("Failed with error \(error.localizedString)")
+  }
+  .present(from: self)
 ```
 
 > The callback `onSignUp` is only called when the "login after signup" is disabled
@@ -162,11 +162,11 @@ In Lock v2 you can do it all before presenting Lock by using this format:
 
 ```swift
 Lock
-    .withOptions { options in
-      options.closable = true
-      options.allowedConnections = ["facebook", "github", "my-database"]
-    }
-    // continue configuring and then present Lock
+  .withOptions { options in
+    options.closable = true
+    options.allowedConnections = ["facebook", "github", "my-database"]
+  }
+  // continue configuring and then present Lock
 ```
 
 
@@ -184,12 +184,29 @@ In Lock v2, the UI customization is done using the `withStyle` function:
 
 ```swift
 Lock
-    .classic()
-    .withStyle { style in
-      style.titleColor = .blue
+  .classic()
+  .withStyle { style in
+    style.titleColor = .blue
+  }
+  // other customizations
+  .present(from: self)
+```
+
+#### Delegation
+
+Delegation is no available through Lock, but Lock v1 users who still need delegation can implement it via the the [Auth0.Swift library](/libraries/auth0-swift). The following is an example of delegation using Auth0.Swift:
+
+```swift
+Auth0.authentication()
+  .delegation(withParameters: ["id_token" : "<AUTH0 ID TOKEN>", "api_type": "firebase"])
+  .start() { result in
+    switch result {
+    case .success(let payload):
+      // payload will have your firebase token
+    case .failure(let error):
+      // Handle Error
     }
-    // other customizations
-    .present(from: self)
+  }
 ```
 
 ## Features which are still in the roadmap for v2:
