@@ -210,4 +210,6 @@ Lock
 
 * [Styles Customization](/libraries/lock-ios/v2/customization) - customize the look and feel of Lock
 * [Behavior Configuration](/libraries/lock-ios/v2/configuration) - configure the behavior of Lock
-* [Migration Guide for v2](/libraries/lock-ios/v2/migration) - migrate from v1 to v2
+* [Custom Fields](/libraries/lock-ios/v2/custom-fields) - adding custom signup fields to Lock
+* [Internationalization](/libraries/lock-ios/v2/internationalization) - internationalization and localization support in Lock
+* [Migration Guide for v2](/libraries/lock-ios/v2/migration) - migrate from Lock v1 to Lock v2

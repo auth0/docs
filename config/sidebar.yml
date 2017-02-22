@@ -445,6 +445,9 @@ libraries:
       - title: "Custom Fields"
         url: "/libraries/lock-ios/v2/custom-fields"
 
+      - title: "Internationalization"
+        url: "/libraries/lock-ios/v2/internationalization"
+
       - title: "Version 2 Migration Guide"
         url: "/libraries/lock-ios/v2/migration"
 
