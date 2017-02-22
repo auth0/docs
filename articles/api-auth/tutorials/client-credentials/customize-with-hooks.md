@@ -32,41 +32,41 @@ If you haven't done these yet, refer to these docs for details:
 
 1. Go to [the Hooks page of the Dashboard](${manage_url}/#/hooks).
 
-![Dashboard Hooks](/media/articles/api-auth/hooks/dashboard-hooks.png)
+  ![Dashboard Hooks](/media/articles/api-auth/hooks/dashboard-hooks.png)
 
 2. Click the __+ Create New Hook__ button. On the _New Hook_ pop-up window, set the __Hook__ dropdown to `Client Credentials Exchange` and set a __Name__ for your hook. Click __Create__.
 
-![New Client Credentials Hook](/media/articles/api-auth/hooks/new-cc-hook.png)
+  ![New Client Credentials Hook](/media/articles/api-auth/hooks/new-cc-hook.png)
 
-At this point, you will see your newly-created Hook listed under the _Client Credentials Exchange_.
+  At this point, you will see your newly-created Hook listed under the _Client Credentials Exchange_.
 
-<div class="alert alert-info">
-  You can create more than one hooks per extensibility point but <strong>only one can be enabled</strong>. The enabled hook will then be executed for <strong>all</strong> clients and APIs.
-</div>
+  <div class="alert alert-info">
+    You can create more than one hooks per extensibility point but <strong>only one can be enabled</strong>. The enabled hook will then be executed for <strong>all</strong> clients and APIs.
+  </div>
 
 3. Click the __Pencil and Paper__ icon to the right of the Hook to open the Webtask Editor.
 
-![Edit Client Credentials Hook](/media/articles/api-auth/hooks/edit-cc-hook.png)
+  ![Edit Client Credentials Hook](/media/articles/api-auth/hooks/edit-cc-hook.png)
 
 4. Using the Webtask Editor, write your Node.js code. As an example, we will add an extra scope. The claim's name will be `https://foo.com/claim` and its value `bar`. Copy the sample code below and paste it in the Editor.
 
-```js
-module.exports = function(client, scope, audience, context, cb) {
-  var access_token = {};
-  access_token['https://foo.com/claim'] = 'bar';
-  access_token.scope = scope;
-  access_token.scope.push('extra');
-  cb(null, access_token);
-};
-```
+  ```js
+  module.exports = function(client, scope, audience, context, cb) {
+    var access_token = {};
+    access_token['https://foo.com/claim'] = 'bar';
+    access_token.scope = scope;
+    access_token.scope.push('extra');
+    cb(null, access_token);
+  };
+  ```
 
-This sample hook will:
-- add an arbitrary claim (`https://foo.com/claim`) to the `access_token`
-- add an `extra` scope to the default scopes configured on your [API](${manage_url}/#/apis).
+  This sample hook will:
+  - add an arbitrary claim (`https://foo.com/claim`) to the `access_token`
+  - add an `extra` scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
-![Webtask Editor](/media/articles/api-auth/hooks/cc-webtask-editor.png)
+  ![Webtask Editor](/media/articles/api-auth/hooks/cc-webtask-editor.png)
 
-Click __Save__ (or hit Ctrl+S/Cmd+S) and close the Editor.
+  Click __Save__ (or hit Ctrl+S/Cmd+S) and close the Editor.
 
 5. That's it! Now you only need to test your hook. You can find detailed instructions at the [Test your Hook](#test-your-hook) paragraph.
 
@@ -76,39 +76,39 @@ Click __Save__ (or hit Ctrl+S/Cmd+S) and close the Editor.
 
 2. Create a file with your Node.js code. For our example, we will name the file `myrule.js` and copy the following code:
 
-```js
-module.exports = function(client, scope, audience, context, cb) {
-  var access_token = {};
-  access_token['https://foo.com/claim'] = 'bar';
-  access_token.scope = scope;
-  access_token.scope.push('extra');
-  cb(null, access_token);
-};
-```
+  ```js
+  module.exports = function(client, scope, audience, context, cb) {
+    var access_token = {};
+    access_token['https://foo.com/claim'] = 'bar';
+    access_token.scope = scope;
+    access_token.scope.push('extra');
+    cb(null, access_token);
+  };
+  ```
 
 3. Create the Webtask. The command is the following:
 
-```text
-auth0 create -t credentials-exchange -n client-credentials-exchange-hook -p ${account.namespace}-default file.js
-```
+  ```text
+  auth0 create -t credentials-exchange -n client-credentials-exchange-hook -p ${account.namespace}-default file.js
+  ```
 
-Let's break this down:
-- `auth0`: The binary to use.
-- `create`: The sub-command for creating or updating a Hook. Run in your terminal `auth0 -h` to see the rest.
-- `-t credentials-exchange`: The hook type. For this use case, set to `credentials-exchange`.
-- `-n client-credentials-exchange-hook`: The webtask's name. Set this to your preference, we chose `client-credentials-exchange-hook`.
-- `-p ${account.namespace}-default`: Your account's profile name. Get this value from _Step 2_ of the instructions on the [Dashboard's Webtask page](${manage_url}/#/account/webtasks).
-- `file.js`: The name of the file you created in the previous step.
+  Let's break this down:
+  - `auth0`: The binary to use.
+  - `create`: The sub-command for creating or updating a Hook. Run in your terminal `auth0 -h` to see the rest.
+  - `-t credentials-exchange`: The hook type. For this use case, set to `credentials-exchange`.
+  - `-n client-credentials-exchange-hook`: The webtask's name. Set this to your preference, we chose `client-credentials-exchange-hook`.
+  - `-p ${account.namespace}-default`: Your account's profile name. Get this value from _Step 2_ of the instructions on the [Dashboard's Webtask page](${manage_url}/#/account/webtasks).
+  - `file.js`: The name of the file you created in the previous step.
 
-Run the command.
+  Run the command.
 
 4. You will see a message that your hook was created, but in disabled state. To enable the hook, run the command:
 
-```text
-auth0 enable --profile ${account.namespace}-default client-credentials-exchange-hook
-```
+  ```text
+  auth0 enable --profile ${account.namespace}-default client-credentials-exchange-hook
+  ```
 
-Where `client-credentials-exchange-hook` is the name of the webtask, and `${account.namespace}-default` the name of your profile (the same as the one used in the previous step).
+  Where `client-credentials-exchange-hook` is the name of the webtask, and `${account.namespace}-default` the name of your profile (the same as the one used in the previous step).
 
 5. That's it! Now you only need to test your hook. You can find detailed instructions at the [Test your Hook](#test-your-hook) paragraph.
 
@@ -218,3 +218,13 @@ Let's see what each one contains.
 - __cb__: The callback. In our example we returned the token (`cb(null, access_token)`). If you decide, however, not to issue a token, you can return `Error (cb(new Error('access denied')))`.
 
 ## Read more
+
+[What are Hooks and how you can work with them](/hooks)
+
+[Overview of the Client Credentials Grant](/api-auth/grant/client-credentials)
+
+[How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
+
+[How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
+
+[How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
