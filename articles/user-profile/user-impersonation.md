@@ -1,5 +1,6 @@
 ---
 description: This page explains how to impersonate a user, often used for testing and troubleshooting purposes.
+toc: true
 ---
 
 # User Impersonation
@@ -156,37 +157,41 @@ The process described applies to Regular Web Applications. In case yours is a Si
 
 Now you should exchange the Authorization Code you received for a token. Note that this should already be implemented if you have a regular webapp and are using OAuth Server Side flow for authenticating normal users.
 
-If not you should send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret`.
+If not you should send a `POST` request to the [Token endpoint in Auth0](/api/authentication#authorization-code). You will need to send the __Authorization Code__ obtained before along with your __Client Id__ and __Client Secret__.
 
 ```har
 {
   "method": "POST",
-  "url": "https://${account.namespace}/users/oauth/token",
+  "url": "https://${account.namespace}/oauth/token",
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"AUTHORIZATION_CODE\",\"grant_type\": \"authorization_code\",\"callback_url\": \"CALLBACK_URL\"}"
+    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"AUTHORIZATION_CODE\",\"grant_type\": \"authorization_code\",\"callback_url\": \"${account.callback}\"}"
   }
 }
 ```
 
-Replace the `AUTHORIZATION_CODE` with the `code` you received previously. Also, replace `CALLBACK_URL` with your application's callback URL.
+Replace the `AUTHORIZATION_CODE` with the `code` you received previously. Also, replace `${account.callback}` with your application's callback URL.
 
 If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call the Auth0 APIs and get additional information such as the user profile.
 
-
-##### Sample Access Token Response:
-
-  {
-       "access_token": ".....Access Token.....",
-       "token_type": "bearer",
-       "id_token": "......The JWT......"
-  }
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "access_token":"eyJz93a...k4laUWw",
+  "id_token":"eyJ0XAi...4faeEoQ",
+  "token_type":"Bearer",
+  "expires_in":86400
+}
+```
 
 Congratulations, you are done!
 
-## Further reading
-- [Troubleshooting? This is what you shouldn’t do.](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
-- [Identity Protocols supported by Auth0](/protocols)
+## Read more
+
+[Troubleshooting? This is what you shouldn’t do.](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
+
+[Identity Protocols supported by Auth0](/protocols)
