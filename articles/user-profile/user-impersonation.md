@@ -19,7 +19,7 @@ Auth0 provides a _Sign in As_ feature for user impersonation, and provides the f
 
 Navigate to the [Users](${manage_url}/#/users) page in the Management Dashboard and select the user you want to login as. Click on the __Sign in as User__ and select the client you want to log into using the dropdown menu.
 
-![](/media/articles/user-profile/signin-as-user-01.png)
+![Click Sign in as User](/media/articles/user-profile/signin-as-user-01.png)
 
 ::: panel-info I can't see this button
 In order to see this button the following conditions should apply:
@@ -30,9 +30,22 @@ In order to see this button the following conditions should apply:
 
 A popup displays the URL to be used in order to impersonate the user. You can choose either to copy the URL into the clipboard (white button) or open it in a separate browser tab/window (blue button).
 
-![](/media/articles/user-profile/signin-as-user-02.png)
+![Links for User Impersonation](/media/articles/user-profile/signin-as-user-02.png)
 
-> Impersonating a user using the Management Dashboard will not return a [JWT](/jwt) to your application by default. You can achieve this by calling the [impersonation endpoint](/api/authentication/reference#impersonation) manually and adding `additionalParameters.scope: "openid"` to the request body.
+> Impersonating a user using the Management Dashboard will not return a [JWT](/jwt) to your application by default. You can achieve this by calling the [impersonation endpoint](/api/authentication/reference#impersonation) manually or in the [Advanced Settings](#advanced-settings). If calling the endpoint manually add `additionalParameters.scope: "openid"` to the request body.
+
+### Advanced Settings
+
+When impersonating a user in Management Dashboard, after clicking __Sign in as User__ you will see a link to expand __Advanced Settings**.
+
+![Advanced Settings](/media/articles/user-profile/impersonation-adv.png)
+
+This reveals fields to make it easier to [impersonate a User using the Impersonation API](#impersonate-a-user-using-the-impersonation-api):
+
+* **Response mode**: `GET` or `POST`. This is only for server side apps, client side apps default to `GET`.
+* **Response type**: `Code` or `Token`. This is only for server side apps, client side apps default to `Token`.
+* **Scope**: This field will have `openid` in it is as default, [other scopes](/scopes) can be added as a list using whitespace as separator. 
+* **State**: The `state` is an optional parameter. Learn more about [using the state parameter here](/protocols/oauth2/oauth-state).
 
 ## Impersonate a User using the Impersonation API
 
