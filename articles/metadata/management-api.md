@@ -121,6 +121,10 @@ The user's profile will now appear as follows:
 }
 ```
 
+::: panel-info Delete Properties/Values
+When you send `PATCH` calls where you've set properties/field values to null (for example, `{user_metadata: {color: null}}`), Auth0 **deletes** the property/value from the database.
+:::
+
 ### Merging
 
 Only properties at the root level are merged into the object. All lower-level properties will be replaced.
