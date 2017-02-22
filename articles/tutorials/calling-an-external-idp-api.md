@@ -70,7 +70,7 @@ Using the Auth0 access token, call the [Get a User](/api/management/v2#!/Users/g
 ```har
 {
   "method": "GET",
-  "url": "https://${account.namespace}/api/v2/Users/get_users_by_id",
+  "url": "https://${account.namespace}/api/v2/users/:user_id",
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ]
