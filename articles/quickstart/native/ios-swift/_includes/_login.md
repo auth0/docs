@@ -54,3 +54,5 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
   return Lock.resumeAuth(url, options: options)
 }
 ```
+
+> Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-swift/00-getting-started#configure-callback-urls).

@@ -112,7 +112,7 @@ Notice that any extra information that you need to add to the user's profile, ot
 First, go to your [Client Dashboard](${manage_url}/#/applications/${account.clientId}/settings/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
 
 ```shell
-{YOUR_APP_BUNDLE_IDENTIFIER}://${account.domain}/ios/{YOUR_APP_BUNDLE_IDENTIFIER}/callback
+{YOUR_APP_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_APP_BUNDLE_IDENTIFIER}/callback
 ```
 
 In your application's `Info.plist` file, register your iOS Bundle Identifier as a custom scheme. To do so, open the `Info.plist` as source code, and add this chunk of code under the main `<dict>` entry:
