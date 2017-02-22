@@ -27,24 +27,24 @@ description: Working with Hooks
 
 <ul class="topic-links">
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/auth0-hooks/overview">Overview of Hooks</a>
+    <i class="icon icon-budicon-715"></i><a href="/hooks/overview">Overview of Hooks</a>
     <p>
       Hooks provide an easy-to-use method for extending the functionality of the base Auth0 platform.
     </p>
     <ul>
       <li>
-        <i class="icon icon-budicon-695"></i><a href="/auth0-hooks/extensibility-points">Auth0 Extensibility Points</a>
+        <i class="icon icon-budicon-695"></i><a href="/hooks/extensibility-points">Auth0 Extensibility Points</a>
       </li>
     </ul>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/auth0-hooks/dashboard">Work with Hooks in the Management Dashboard</a>
+    <i class="icon icon-budicon-715"></i><a href="/hooks/dashboard">Work with Hooks in the Management Dashboard</a>
     <p>
       How to work with Hooks using the Auth0 Management Dashboard
     </p>
   </li>
   <li>
-    <i class="icon icon-budicon-715"></i><a href="/auth0-hooks/cli">Work with Hooks using the Command-Line Interface</a>
+    <i class="icon icon-budicon-715"></i><a href="/hooks/cli">Work with Hooks using the Command-Line Interface</a>
     <p>
       How to work with Hooks using the Auth0 Command-Line Interface
     </p>

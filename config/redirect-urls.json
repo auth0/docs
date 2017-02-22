@@ -1203,5 +1203,65 @@
   {
     "from": "/api-auth/grant/using-rules",
     "to": "/api-auth/tutorials/client-credentials/customize-with-hooks"
+  },
+  {
+    "from": "/auth0-hooks",
+    "to": "/hooks"
+  },
+  {
+    "from": "/auth0-hooks/cli/create-delete",
+    "to": "/hooks/cli/create-delete"
+  },
+  {
+    "from": "/auth0-hooks/cli/edit",
+    "to": "/hooks/cli/edit"
+  },
+  {
+    "from": "/auth0-hooks/cli/enable-disable",
+    "to": "/hooks/cli/enable-disable"
+  },
+  {
+    "from": "/auth0-hooks/cli",
+    "to": "/hooks/cli"
+  },
+  {
+    "from": "/auth0-hooks/cli/logs",
+    "to": "/hooks/cli/logs"
+  },
+  {
+    "from": "/auth0-hooks/dashboard",
+    "to": "/hooks/dashboard"
+  },
+  {
+    "from": "/auth0-hooks/dashboard/create-delete",
+    "to": "/hooks/dashboard/create-delete"
+  },
+  {
+    "from": "/auth0-hooks/dashboard/edit",
+    "to": "/hooks/dashboard/edit"
+  },
+  {
+    "from": "/auth0-hooks/dashboard/enable-disable",
+    "to": "/hooks/dashboard/enable-disable"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points",
+    "to": "/hooks/extensibility-points"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points/credentials-exchange",
+    "to": "/hooks/extensibility-points/credentials-exchange"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points/post-user-registration",
+    "to": "/hooks/extensibility-points/post-user-registration"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points/pre-user-registration",
+    "to": "/hooks/extensibility-points/pre-user-registration"
+  },
+  {
+    "from": "/auth0-hooks/overview",
+    "to": "/hooks/overview"
   }
 ]

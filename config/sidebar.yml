@@ -98,20 +98,20 @@ articles:
         url: "/extensions/gitlab-deploy"
 
   - title: "Hooks"
-    url: "/auth0-hooks"
+    url: "/hooks"
     children:
 
       - title: "Overview"
-        url: "/auth0-hooks"
+        url: "/hooks"
 
       - title: "Extensibility Points"
-        url: "/auth0-hooks/extensibility-points"
+        url: "/hooks/extensibility-points"
 
       - title: "Using the Auth0 CLI"
-        url: "/auth0-hooks/cli"
+        url: "/hooks/cli"
 
       - title: "Using the Management Dashboard"
-        url: "/auth0-hooks/dashboard"
+        url: "/hooks/dashboard"
 
   - title: "Extensions"
     url: "/extensions"

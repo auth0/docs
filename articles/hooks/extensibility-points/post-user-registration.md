@@ -1,5 +1,5 @@
 ---
-description: The post-user-registration extensibility point for use with Auth0 Hooks
+description: The post-user-registration extensibility point for use with Hooks
 ---
 
 # Extensibility Point: Post-User Registration
