@@ -29,8 +29,8 @@ You have two choices for installation - [Carthage](https://github.com/Carthage/C
 Add the following line to your `Cartfile`:
 
 ```
-github "auth0/Lock.iOS-OSX" "2.0.0-rc.1"
-github "auth0/Auth0.swift" ~> 1.1.1
+github "auth0/Lock.iOS-OSX" "2.0"
+github "auth0/Auth0.swift" ~> 1.2
 ```
 
 Then run `carthage bootstrap`.
@@ -40,8 +40,8 @@ Then run `carthage bootstrap`.
 Add the following line to your `Podfile`:
 
 ```ruby
-pod "Lock", "~> 2.0.0-rc.1"
-pod "Auth0", "~> 1.1.1"
+pod "Lock", "~> 2.0"
+pod "Auth0", "~> 1.2"
 ```
 
 Then run `pod install`.
@@ -95,6 +95,9 @@ To show Lock, add the following snippet in your `UIViewController`.
 ```swift
 Lock
     .classic()
+    .withOptions{
+      $0.oidcConformant = true
+    }
     // withConnections, withOptions, withStyle, etc
     .onAuth { credentials in
       // Save the Credentials object
@@ -192,7 +195,7 @@ Lock
         $0.logHttpRequest = true
     }
 ```
-## Future roadmap for Lock iOS v2
+## Future roadmap of Lock v2 for iOS and macOS
 
 - Native Authentication with third party SDKs (Facebook, Google, Twitter)
 - 1Password support

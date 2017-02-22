@@ -442,6 +442,9 @@ libraries:
       - title: "Behavior Configuration"
         url: "/libraries/lock-ios/v2/configuration"
 
+      - title: "Custom Fields"
+        url: "/libraries/lock-ios/v2/custom-fields"
+
       - title: "Version 2 Migration Guide"
         url: "/libraries/lock-ios/v2/migration"
 

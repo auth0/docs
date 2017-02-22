@@ -6,7 +6,7 @@ title: Lock for iOS and macOS v2 Style Customization Options
 description: Styling and customization options for the style of Lock v2 for iOS/macOS
 ---
 
-# Lock v2 for iOS/macOS - Style Customization Options 
+# Lock v2 for iOS and macOS - Style Customization Options 
 
 There are numerous options to configure Lock's style and appearance listed below. In addition, there are also quite a few options available to alter Lock's behavior and functionality in the [Behavior Configuration Options](/libraries/lock-ios/v2/configuration) page.
 
