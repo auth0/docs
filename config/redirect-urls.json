@@ -1201,6 +1201,10 @@
     "to": "/libraries/error-messages"
   },
   {
+    "from": "/api-auth/grant/using-rules",
+    "to": "/api-auth/tutorials/client-credentials/customize-with-hooks"
+  },
+  {
     "from": "/auth0-hooks",
     "to": "/hooks"
   },

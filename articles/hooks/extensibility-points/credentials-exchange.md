@@ -41,6 +41,10 @@ You can add the following as claims to the issued token:
 
 The extensibility point will ignore all other response object properties.
 
+## How to implement this
+
+You can implement a Hook for this extensibility point using either the Dashboard or the Auth0 CLI. For detailed steps refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
+
 ## Parameters
 
 * **audience** [string] - audience claim of the token
