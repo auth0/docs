@@ -82,6 +82,7 @@ And create your [NgModule](https://angular.io/docs/ts/latest/guide/ngmodule.html
 
 import { NgModule }            from '@angular/core';
 import { BrowserModule  }      from '@angular/platform-browser';
+import { AUTH_PROVIDERS }      from 'angular2-jwt';
 
 import { AppComponent }        from './app.component';
 import { HomeComponent }       from './home.component';
@@ -94,7 +95,8 @@ import { routing,
     HomeComponent
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    AUTH_PROVIDERS
   ],
   imports: [
     BrowserModule,
@@ -106,33 +108,5 @@ export class AppModule {}
 ```
 
 The Lock widget will be displayed when the **Login** button is clicked.
-
-## Use with HashLocationStrategy
-
-In redirect-based authentication flows, the results for the user's authentication transaction come back in a hash fragment. Angular's router automatically cleans up routes on navigation. When using `HashLocationStrategy`, this means that the application won't see the fragment and the `authenticated` event won't work properly.
-
-As a workaround, look for an `access_token`, `id_token`, or `error` in the hash when `NavigationStart` happens and use Lock's `resumeAuth` method.
-
-```js
-// app/auth.service.ts
-
-import { Router } from '@angular/router';
-import 'rxjs/add/operator/filter';
-
-constructor(public router: Router) {
-  this
-    .router
-    .events
-    .filter(event => event.constructor.name === 'NavigationStart')
-    .filter(event => (/access_token|id_token|error/).test(event.url))
-    .subscribe(() => {
-      this.lock.resumeAuth(window.location.hash, (error, authResult) => {
-        if (error) return console.log(error);
-        localStorage.setItem('id_token', authResult.idToken);
-        this.router.navigate(['/']);
-      });
-  });
-}
-```
 
 <%= include('../../_includes/_persisting_state') %>

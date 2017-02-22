@@ -24,26 +24,20 @@ First, add `AUTH_PROVIDERS` from `angular2-jwt`:
 ```typescript
 // app/app.module.ts
 
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent } from './app.component';
-import { Http, RequestOptions } from '@angular/http';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
-
-function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig({
-    tokenName: 'id_token',
-  }), http, options);
-}
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   providers: [
-    {
-      provide: AuthHttp,
-      useFactory: authHttpServiceFactory,
-      deps: [Http, RequestOptions]
-    }
+    // ...
+    AUTH_PROVIDERS,
+    // ...
+  ],
+  imports: [
+    // ...
   ],
   bootstrap: [AppComponent]
 })
