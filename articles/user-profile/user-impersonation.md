@@ -16,7 +16,7 @@ Auth0 provides a _Sign in As_ feature for user impersonation, and provides the f
 - Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data.
 - Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works.
 
-## Use the Management Dashboard
+## Use the Dashboard
 
 Navigate to the [Users](${manage_url}/#/users) page in the Management Dashboard and select the user you want to login as. Click on the __Sign in as User__ and select the client you want to log into using the dropdown menu.
 
@@ -56,7 +56,7 @@ You can also use the [Impersonation API](/api/authentication/reference#impersona
 
 Let's assume that you have two apps, `app1` and `app2`, and you want to impersonate the users of `app2`.
 
-### Get a Management APIv2 Token
+### Get a Token
 
 First, you have to generate an `access_token` that you can use to call the [Management APIv2](/api/management/v2), specifically the [Impersonation endpoint](/api/authentication/reference#impersonation).
 
