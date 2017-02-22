@@ -128,10 +128,6 @@ The response will include a new `access_token`, its type, its lifetime (in secon
 You should only ask for a new token if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it's a bad practice to call the endpoint to get a new `access_token` every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
-::: panel-warning Refresh tokens and Rules
-Refresh tokens do not run [rules](/rules) at the moment, but we will add support for this in the future.
-:::
-
 
 ## Revoke a Refresh Token
 
@@ -197,12 +193,12 @@ To revoke the user's access to an authorized application, and hence invalidate t
 
 ## Rules
 
-Rules will run for the Refresh Token Exchange. There are two key differences in the behavior of rules in this flow:
+Rules will run for the [Refresh Token Exchange](#use-a-refresh-token). There are two key differences in the behavior of rules in this flow:
 
-- If you try to do a redirect with context.redirect, the authentication flow will return an error.
-- If you try to do MFA by setting context.multifactor, the authentication flow will return an error.
+- If you try to do a [redirect](/rules/redirect) with `context.redirect`, the authentication flow will return an error.
+- If you try to do MFA by setting `context.multifactor`, the authentication flow will return an error.
 
-If you wish to execute special logic unique to the Refresh Token exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-refresh-token`, then this is the indication that the rule is running during the Refresh Token exchange.
+If you wish to execute special logic unique to the [Refresh Token Exchange](#use-a-refresh-token), you can look at the `context.protocol` property in your rule. If the value is `oauth2-refresh-token`, then this is the indication that the rule is running during the Refresh Token exchange.
 
 ## SDK Support
 
