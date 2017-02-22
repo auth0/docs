@@ -61,7 +61,7 @@ Once the user has logged in, you get a `Credentials` object, as follows:
 Lock
     .classic()
     .withOptions {
-        $0.oidcConformant = true
+        $0.oidcConformant = false
         $0.scope = "openid profile"
     }
     .onAuth { credentials in
@@ -149,18 +149,12 @@ In this case, we're going to leverage the `refreshToken`. The refresh token is a
 Besides storing the `accessToken`, we need to store the `refreshToken`. Let's make a couple of changes:
 
 ```swift
-guard
-    let token = maybeToken,
-    let refreshToken = token.refreshToken
-    else { return }
-let keychain = A0SimpleKeychain(service: "Auth0")
-keychain.setString(token.idToken, forKey: "id_token")
-keychain.setString(refreshToken, forKey: "refresh_token") // Add this line
 Lock
     .classic()
     .withOptions {
-        $0.oidcConformant = true
+        $0.oidcConformant = false
         $0.scope = "openid profile offline_access"
+        $0.parameters = ["device":"A_UNIQUE_ID"]
     }
     .onAuth {
       guard let accessToken = credentials.accessToken, let refreshToken = credentials.refreshToken else { return }
