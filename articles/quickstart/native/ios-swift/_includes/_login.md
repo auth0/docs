@@ -11,9 +11,6 @@ Then, configure and present the login screen, like this:
 ```swift
 Lock
     .classic()
-    .withOptions {
-        $0.oidcConformant = true
-    }
     .onAuth { credentials in
         // Do something with credentials e.g.: save them.
         // Lock will not save these objects for you.

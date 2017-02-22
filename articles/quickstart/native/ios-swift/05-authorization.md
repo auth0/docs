@@ -17,10 +17,6 @@ budicon: 500
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
 
-## Before Starting
-
-You need to know how to retrieve a user's profile, check the [user sessions](/quickstart/native/ios-swift/03-user-sessions) tutorial for more information on how to get the user profile.
-
 ## Create a Rule to Assign Roles
 
 To create a rule, just go to the [new rule page](${manage_url}/#/rules/new). You can create it from scratch or use an existing template.  These templates are written by Auth0 team to assist you complete common tasks.

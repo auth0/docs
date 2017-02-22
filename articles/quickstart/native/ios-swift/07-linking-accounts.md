@@ -36,10 +36,6 @@ import Lock
 ```swift
 Lock
     .classic()
-    .withOptions {
-        $0.oidcConformant = true
-        $0.scope = "openid profile"
-    }
     .onAuth { credentials in
         guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
         // Store accessToken to retrieve user profile, store idToken for linking

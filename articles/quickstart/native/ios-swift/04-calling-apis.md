@@ -32,10 +32,6 @@ import Lock
 ```swift
 Lock
     .classic()
-    .withOptions {
-        $0.oidcConformant = true
-        $0.scope = "openid profile"
-    }
     .onAuth { credentials in
         guard let idToken = credentials.idToken else { return }
         // Good time to store the idToken that you will use next.

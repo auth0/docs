@@ -31,7 +31,7 @@ Auth0
     .login(
         usernameOrEmail: "email@foo.com",
         password: "123456",
-        realm: "Username-Password-Authentication",
+        connection: "Username-Password-Authentication",
         scope: "openid profile"
     )
     .start { result in

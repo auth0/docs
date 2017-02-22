@@ -49,86 +49,82 @@ Then, run `pod install`.
 
 > For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
 
-## On Login: Store the user's accessToken
+## On Login: Store the user's token
 
-> The `accessToken` is a string representing, basically, the user's [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
+> The `idToken` is a string representing, basically, the user's [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
 
-We will store this `accessToken` **upon a successful login**, in order to prevent the user from being asked for login credentials again every time the app is re-launched.
+We will store this `idToken` **upon a successful login**, in order to prevent the user from being asked for login credentials again every time the app is re-launched.
 
 Once the user has logged in, you get a `Credentials` object, as follows:
 
 ```swift
 Lock
     .classic()
-    .withOptions {
-        $0.oidcConformant = false
-        $0.scope = "openid profile"
-    }
     .onAuth { credentials in
-        // Let's save our credentials.accessToken value
+        // Let's save our credentials.idToken value
     }
     .present(from: self)
 ```
 
-We want to store the `access_token` string value, which is inside the `Credentials` instance that comes in `credentials`. To do so, we'll use an `A0SimpleKeychain` instance:
+We want to store the `idToken` string value, which is inside the `Credentials` instance that comes in `credentials`. To do so, we'll use an `A0SimpleKeychain` instance:
 
 ```swift
-guard let accessToken = credentials.accessToken else { return }
+guard let idToken = credentials.idToken else { return }
 let keychain = A0SimpleKeychain(service: "Auth0")
-keychain.setString(accessToken, forKey: "access_token")
+keychain.setString(idToken, forKey: "id_token")
 ```
 
 As you can see, `SimpleKeychain` can be seen simply as a key-value storage.
 
 > You can also verify whether a JWT token is valid or not by decoding it locally, to check its expiration. For further reference, you can check out this [JWT decoder for Swift](https://github.com/auth0/JWTDecode.swift).
 
-## On Startup: Check accessToken existence
+## On Startup: Check idToken existence
 
-The main purpose of storing this token is to save the user from having to re-enter login credentials upon relaunch of the app. So, **once the app has launched**, we need to check for the existence of an `accessToken` to see if we can automatically log the user in and redirect the user straight into the app's main flow, skipping any login screen.
+The main purpose of storing this token is to save the user from having to re-enter login credentials upon relaunch of the app. So, **once the app has launched**, we need to check for the existence of an `idToken` to see if we can automatically log the user in and redirect the user straight into the app's main flow, skipping any login screen.
 
-To do so, first, we retrieve its value from the `access_token` key we used above, from the keychain:
+To do so, first, we retrieve its value from the `id_token` key we used above, from the keychain:
 
 ```swift
 let keychain = A0SimpleKeychain(service: "Auth0")
-guard let accessToken = keychain.string(forKey: "access_token") else {
-    // AccessToken doesn't exist, user has to enter their credentials to log in
+guard let idToken = keychain.string(forKey: "id_token") else {
+    // idToken doesn't exist, user has to enter their credentials to log in
     // Present Lock
     return
 }
-// AccessToken exists
+// idToken exists
 // We still need to validate it!
 ```
 
-## Validate an existent accessToken
+## Validate an existent idToken
 
-Then, if such a token exists, we need to check whether it's still valid, has expired, or is no longer valid for some other reason, such as being revoked. To do so, we'll use `Auth0` to fetch the user's profile based on the current `accessToken` we've got:
+Then, if such a token exists, we need to check whether it's still valid, has expired, or is no longer valid for some other reason, such as being revoked. To do so, we'll use `Auth0` to fetch the user's profile based on the current `idToken` we've got:
 
 ```swift
 let keychain = A0SimpleKeychain(service: "Auth0")
-guard let accessToken = keychain.string(forKey: "access_token") else {
-    // No accessToken found, present Lock Login
+guard let idToken = keychain.string(forKey: "id_token") else {
+    // No idToken found, present Lock Login
     return
 }
 
-// Retrieve userInfo
+// Retrieve profile
 Auth0
      .authentication()
-     .userInfo(token: accessToken)
+     .tokenInfo(token: idToken)
      .start { result in
          switch(result) {
          case .success(let profile):
-             // Our accessToken is still valid and we have the user's profile
+             // Our idToken is still valid and we have the user's profile
              // This would be a good time to store your profile somewhere
          case .failure(let error):
-             // accessToken has expired or no longer valid
+             // idToken has expired or no longer valid
          }
      }
 ```
 
-## Dealing with a non-valid accessToken
+## Dealing with a non-valid idToken
 
-How to deal with a non-valid accessToken is up to you. You will normally choose between two scenarios:
-Either you ask users to re-enter theirs credentials, or you [use the refreshToken to get a new valid accessToken again](/refresh-token).
+How to deal with a non-valid idToken is up to you. You will normally choose between two scenarios:
+Either you ask users to re-enter theirs credentials, or you can use delegation with a [refresh_token((/refresh-token)) to obtain a new valid idToken again.
 
 If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
 
@@ -138,7 +134,7 @@ A0SimpleKeychain(service: "Auth0").clearAll()
 
 However, in this tutorial, we'll focus on the latter scenario, where we still want to log users in without asking for their credentials again.
 
-In this case, we're going to leverage the `refreshToken`. The refresh token is another token string contained within the `Credentials` object that comes upon a successful login, which doesn't expire, and whose main purpose is retrieving a new valid `accessToken`.
+In this case, we're going to leverage the `refreshToken`. The refresh token is another token string contained within the `Credentials` object that comes upon a successful login, which doesn't expire, and whose main purpose is retrieving a new valid `idToken`.
 
 >It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep in mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
 
@@ -146,30 +142,29 @@ In this case, we're going to leverage the `refreshToken`. The refresh token is a
 
 > The `refreshToken` can be `nil` if `offline_access` is not sent in the `scope` parameter during authentication.
 
-Besides storing the `accessToken`, we need to store the `refreshToken`. Let's make a couple of changes:
+Besides storing the `idToken`, we need to store the `refreshToken`. Let's make a couple of changes:
 
 ```swift
 Lock
     .classic()
     .withOptions {
-        $0.oidcConformant = false
-        $0.scope = "openid profile offline_access"
+        $0.scope = "openid offline_access"
         $0.parameters = ["device":"A_UNIQUE_ID"]
     }
     .onAuth {
-      guard let accessToken = credentials.accessToken, let refreshToken = credentials.refreshToken else { return }
+      guard let idToken = credentials.idToken, let refreshToken = credentials.refreshToken else { return }
       let keychain = A0SimpleKeychain(service: "Auth0")
-      keychain.setString(accessToken, forKey: "access_token")
+      keychain.setString(idToken, forKey: "id_token")
       keychain.setString(refreshToken, forKey: "refresh_token")
     }
 ```
 
-### Use the refreshToken to get a new accessToken
+### Use the refreshToken to get a new idToken
 
 We can use the `func renew(withRefreshToken refreshToken: String)` method in `Auth0` to yield fresh user's credentials.
 
 ```swift
-// ⚠️ accessToken has expired or invalid
+// ⚠️ idToken has expired or invalid
 let keychain = A0SimpleKeychain(service: "Auth0")
 guard let refreshToken = keychain.string(forKey: "refresh_token") else {
     keychain.clearAll()
@@ -177,14 +172,15 @@ guard let refreshToken = keychain.string(forKey: "refresh_token") else {
 }
 Auth0
     .authentication()
-    .renew(withRefreshToken: refreshToken)
+    .delegation(withParameters: ["refresh_token": refreshToken])
     .start { result in
         switch(result) {
         case .success(let credentials):
-            // Just got a new accessToken!
+            // Just got a new idToken!
             // Don't forget to store it...
-            guard let accessToken = credentials.accessToken else { return }
-            keychain.setString(accessToken, forKey: "access_token")
+            guard let idToken = credentials["id_token"] as? String else { return }
+            self.storeTokens(idToken)
+            keychain.setString(idToken, forKey: "id_token")
             // At this point, you can log the user into your app. e.g. by navigating to the corresponding screen
         case .failure(let error):
             // refreshToken is no longer valid (e.g. it has been revoked)
@@ -192,7 +188,7 @@ Auth0
             keychain.clearAll()
             // At this point, you should ask the user to enter their credentials again!
         }
-    }
+}
 ```
 
 That's it! You've already dealt with the basic concepts of session handling in your app.
@@ -212,27 +208,24 @@ As you have probably realized by now, session handling is not a straightforward 
 
 ## Fetch the User Profile
 
-The first step is to fetch the user profile. To do so, you need a valid `accessToken` first.
+The first step is to fetch the user profile. To do so, you need a valid `idToken` first.
 
-You need to call a method from the `Auth0` module that allows you to fetch the user profile given an `accessToken`:
-
-```swift
-import Lock
-```
+You need to call a method from the `Auth0` module that allows you to fetch the user profile given an `idToken`:
 
 ```swift
-Auth0
-     .authentication()
-     .userInfo(token: accessToken)
-     .start { result in
-         switch(result) {
-         case .success(let profile):
-             // You've got the user profile here
-             // Store it somewhere safe, you can see an example in this chapter's sample project.
-         case .failure(let error):
-             // Check this chapters sample project for an example of how to handle this.
-         }
-     }
+ // Retrieve profile
+ Auth0
+      .authentication()
+      .tokenInfo(token: idToken)
+      .start { result in
+          switch(result) {
+          case .success(let profile):
+              // You've got the user profile here
+              // Store it somewhere safe, you can see an example in this chapter's sample project.
+          case .failure(let error):
+              // Check this chapters sample project for an example of how to handle this.
+          }
+      }
 ```
 
 ## Show User Profile's Data
@@ -255,10 +248,6 @@ Besides the defaults, you can request more information than returned in the basi
 ## Update the User Profile
 
 You can store additional user information in the user metadata. In order to do so, you need to perform a `patch`:
-
-```swift
-import Auth0
-```
 
 ```swift
 let idToken = ... // You will need the idToken from your credentials instance 'credentials.idToken'
