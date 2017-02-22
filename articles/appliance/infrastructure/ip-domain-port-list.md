@@ -124,20 +124,12 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
-    <td>Updates and examples</td>
+    <td>Examples</td>
     <td>Outbound</td>
     <td>github.com</td>
     <td>443</td>
-    <td>Required for applying patches to Appliance instances; Source to download and repackage example applications</td>
-    <td>Yes</td>
-  </tr>
-   <tr>
-    <td>Updates</td>
-    <td>Outbound</td>
-    <td>registry.npmjs.org</td>
-    <td>443</td>
-    <td>Required for applying patches to Appliance instances</td>
-    <td>Yes</td>
+    <td>Source to download and repackage example applications</td>
+    <td>No</td>
   </tr>
   <tr>
     <td>Usage & Telemetry</td>
