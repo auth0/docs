@@ -1,19 +1,19 @@
 ---
-section: appliance
-description: Descriptions of Appliance Geo HA Failure and Disaster Recovery
+section: private-saas
+description: Descriptions of Private SaaS Geo HA Failure and Disaster Recovery
 ---
 
-# Geographic High-Availability Appliance Failure & Disaster Recovery
+# Geographic High-Availability Private SaaS Failure & Disaster Recovery
 
-One key aspect of the Geographic High-Availability (GEO HA) Appliance is the data center redundancy and failure handling that ensures the highest form of Appliance uptime offered by Auth0.
+One key aspect of the Geographic High-Availability (GEO HA) Private SaaS is the data center redundancy and failure handling that ensures the highest form of Private SaaS uptime offered by Auth0.
 
 ## Standard Configuration
 
-The standard configuration of a GEO HA Appliance is a stretched cluster that consists of the following pieces:
+The standard configuration of a GEO HA Private SaaS is a stretched cluster that consists of the following pieces:
 
 * one geographically-aware global load balancer/DNS failover configuration;
-* one primary data center with three Appliance instances;
-* one secondary data center with three Appliance instances;
+* one primary data center with Private SaaS;
+* one secondary data center with Private SaaS;
 * one arbiter, a seventh instance that is located in its own data center.
 
 ## Failure Scenarios and Handling

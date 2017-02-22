@@ -1,15 +1,15 @@
 ---
-section: appliance
-description: Appliance infrastructure information about security
+section: private-saas
+description: Private SaaS infrastructure information about security
 ---
 
-# Auth0 Appliance Infrastructure Requirements: Security and Access
+# Auth0 Private SaaS Infrastructure Requirements: Security and Access
 
- This document details the security and access requirements for your Appliance instances.
+ This document details the security and access requirements for your Private SaaS implementation.
 
  ## SSL Certificates
 
- Each Auth0 Appliance (e.g. your production cluster Appliance instance(s) and your development/test node Appliance instance) requires a unique SSL certificate to be created and installed.
+ Each Auth0 Private SaaS (e.g. your production cluster Private SaaS implementation and your development/test node Private SaaS implementation) requires a unique SSL certificate to be created and installed.
 
  > If you are unsure of where to get SSL Certificates, please contact your network security team. They are usually the ones familiar with the required processes and working with the appropriate certificate authorities (CA) to generate new certificates.
 
@@ -21,7 +21,7 @@ The SSL Certificate:
     * Management Dashboard;
     * Configuration Tenant;
     * webtask;
-    * App Tenant(s) (current *and* future) specific to that particular Appliance instance.
+    * App Tenant(s) (current *and* future) specific to that particular Private SaaS implementation.
 
 Auth0 accepts the following certificate format:
 
@@ -45,25 +45,25 @@ PARENT
 If you are behind a transparent proxy, you will need to:
 
 * obtain certificate(s) for your proxy;
-* add an exception so that the Appliance instance(s) may get through the proxy unauthenticated.
+* add an exception so that the Private SaaS implementation may get through the proxy unauthenticated.
 
 ## HTTPS
 
-Please ensure that your network is configured such that the Auth0 Appliance exposes HTTPS to end users only.
+Please ensure that your network is configured such that the Auth0 Private SaaS exposes HTTPS to end users only.
 
 ## SMTP
 
-You must configure an SMTP server in order for the Auth0 Appliance to send emails. The Auth0 Appliance requires an authentication SMTP server that has been configured with SMTP PLAIN authentication.
+You must configure an SMTP server in order for the Auth0 Private SaaS to send emails. The Auth0 Private SaaS requires an authentication SMTP server that has been configured with SMTP PLAIN authentication.
 
 **AWS SES Users**: If your domain is not validated, you will not be able to send email with AWS SES.
 
 Optionally, you may use a Transactional Email Provider (e.g. SendGrid, Amazon SES, Mandrill).
 
-The Appliance supports STARTTLS, but it is not required.
+The Private SaaS supports STARTTLS, but it is not required.
 
 ## Auth0 Remote Access
 
-Auth0 may require remote access to your Appliance instances to perform updates, maintenance, or troubleshooting.
+Auth0 may require remote access to your Private SaaS implementation to perform updates, maintenance, or troubleshooting.
 
 ### Initial Configuration
 
@@ -73,10 +73,10 @@ After the initial configuration, please feel free to disable this connection. If
 
 ### Updates, Maintenance, and Troubleshooting
 
-Typically, updates are performed via the Auth0 Dashboard. In the event that Auth0 needs to remote in to identify and troubleshoot issues, an Auth0 Customer Success Engineer will need access to the Appliance through SSH access via Jumphost (the preferred method) or over VPN.
+Typically, updates are performed via the Auth0 Dashboard. In the event that Auth0 needs to remote in to identify and troubleshoot issues, an Auth0 Customer Success Engineer will need access to the Private SaaS through SSH access via Jumphost (the preferred method) or over VPN.
 
 This connection may be enabled for and disabled after the agreed-upon time frames for work. If these requirements are not feasible given your infrastructure, please contact your Auth0 Customer Success Engineer or Pre-Sales Engineer to determine an alternate solution.
 
 ### Around-the-Clock Accessibility for Custom SLAs
 
-Auth0's remote access method requires SSH access via Jumphost (the preferred method) or via VPN. For those customers requesting a Custom SLA tied to the Appliance, remote access must be granted through this method 24 hours per day, 7 days per week. If these requirements are not feasible given your infrastructure, please contact your Auth0 Customer Success Engineer or Pre-Sales Engineer to determine an alternate solution.
+Auth0's remote access method requires SSH access via Jumphost (the preferred method) or via VPN. For those customers requesting a Custom SLA tied to the Private SaaS, remote access must be granted through this method 24 hours per day, 7 days per week. If these requirements are not feasible given your infrastructure, please contact your Auth0 Customer Success Engineer or Pre-Sales Engineer to determine an alternate solution.

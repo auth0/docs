@@ -1,13 +1,13 @@
 ---
-section: appliance
-description: Appliance infrastructure information about DNS
+section: private-saas
+description: private-saas infrastructure information about DNS
 ---
 
 # DNS
 
-The following document details the requirements of DNS records used for Appliance instances.
+The following document details the requirements of DNS records used for private-saas.
 
-> **Important**: DNS records must be finalized for all of the tenants prior to Appliance deployment. They cannot be changed afterwards.
+> **Important**: DNS records must be finalized for all of the tenants prior to private-saas deployment. They cannot be changed afterwards.
 
 ### Sample DNS Naming Scheme
 
@@ -30,7 +30,7 @@ The following document details the requirements of DNS records used for Applianc
     </tr>
 </table>
 
-For a dev/test non-production Appliance a common practice is to append “-dev” to the hostname component in the domain name:
+For a dev/test non-production private-saas a common practice is to append “-dev” to the hostname component in the domain name:
 
 <table class="table">
     <tr>
@@ -53,24 +53,24 @@ For a dev/test non-production Appliance a common practice is to append “-dev�
 
 #### Definitions of Terms Used in the DNS Naming Scheme
 
-* **Root Tenant Authority (RTA)**: highly-privileged tenant used to do the Appliance baseline configuration and for managing the security of other tenants;
+* **Root Tenant Authority (RTA)**: highly-privileged tenant used to do the private-saas baseline configuration and for managing the security of other tenants;
 * **App**: the name of your application;
 * **Project**: the name of the overarching project or department;
 * **yourdomain.com**: your organization's domain name.
 
-![](/media/articles/appliance/infrastructure/appliance-dns.png)
+![](/media/articles/private-saas/infrastructure/private-saas-dns.png)
 
 ### Multi-Tenancy
 
-The Auth0 Appliance is capable of supporting multi-tenancy (that is, each tenant may have one or more associated apps). Auth0 may recommend this deployment model when multiple groups within your company share the Appliance for different projects. If a customer decides to create multiple app tenants, each app tenant must have its own DNS entry.
+The Auth0 private-saas is capable of supporting multi-tenancy (that is, each tenant may have one or more associated apps). Auth0 may recommend this deployment model when multiple groups within your company share the private-saas for different projects. If a customer decides to create multiple app tenants, each app tenant must have its own DNS entry.
 
 ### DNS Configuration Requirements
 
 #### IP Addresses and DNS Records
 
-In a standard multi-node cluster deployment, the DNS records will point to the IP address of the [load balancer in front of the cluster](/appliance/infrastructure/infrastructure-overview).
+In a standard multi-node cluster deployment, the DNS records will point to the IP address of the [load balancer in front of the cluster](/private-saas/infrastructure/infrastructure-overview).
 
-For a single-node Appliance instance, the DNS record(s) will point to the IP address of the virtual machine itself (this is often the case for the development/test node).
+For a single-node private-saas, the DNS record(s) will point to the IP address of the virtual machine itself (this is often the case for the development/test node).
 
 > Auth0 does not recommend using the same wildcard certificate(s) for Production **and** non-Production (Test/Development) environments **or** mapping the DNS for both environments to the same servers.
 
@@ -138,7 +138,7 @@ Three- or four-part domain names are supported (e.g. manage.project.yourdomain.c
 
 #### Custom Domains
 
-In the Appliance, you may map any arbitrary domain name to a tenant using the Custom Domains feature. You may also map multiple custom domains to a single tenant.
+In the private-saas implementation, you may map any arbitrary domain name to a tenant using the Custom Domains feature. You may also map multiple custom domains to a single tenant.
 
 Suppose these were your standard domains:
 

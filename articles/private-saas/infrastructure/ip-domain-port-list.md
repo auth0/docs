@@ -1,15 +1,15 @@
 ---
-description: Appliance infrastructure information about IP/Domain and Port Usage
+description: Private SaaS infrastructure information about IP/Domain and Port Usage
 ---
 
 
-# Appliance Infrastructure: IP/Domain and Port List
+# Private SaaS Infrastructure: IP/Domain and Port List
 
-The Appliance requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
+The Private SaaS requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
 
 ## Between Cluster Nodes
 
-When possible, instances within a cluster should have full connectivity to each other so that you do not need to introduce new firewall rules if Auth0 adds new features. However, since this isn't possible in every environment, the following table lists the ports that are required to be open and accessible to other Appliance instances in the same cluster:
+When possible, instances within a cluster should have full connectivity to each other so that you do not need to introduce new firewall rules if Auth0 adds new features. However, since this isn't possible in every environment, the following table lists the ports that are required to be open and accessible to other Private SaaS implementations in the same cluster:
 
 <table class="table">
   <tr>
@@ -64,7 +64,7 @@ When possible, instances within a cluster should have full connectivity to each 
 
 ## External Connectivity
 
-Auth0 strives to keep these IP addresses stable, though this is not a given. From time to time, Auth0 may add IP addresses or additional servers. During updates and metrics, you must allow your Appliance instances to connect to these addresses.
+Auth0 strives to keep these IP addresses stable, though this is not a given. From time to time, Auth0 may add IP addresses or additional servers. During updates and metrics, you must allow your Private SaaS implementation to connect to these addresses.
 
 <table class="table">
   <tr>
@@ -96,7 +96,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Inbound <b>and</b> Outbound</td>
     <td>CLI Clients (often on the internal network)</td>
     <td>10121</td>
-    <td>Allows use of the Appliance Command Line Interface</td>
+    <td>Allows use of the Private SaaS Command Line Interface</td>
     <td>No</td>
   </tr>
   <tr>
@@ -104,7 +104,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>apt-mirror.it.auth0.com (52.8.153.197)</td>
     <td>80/443</td>
-    <td>Provides update packages for Appliance instances</td>
+    <td>Provides update packages for Private SaaS implementations</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -112,7 +112,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>docker.it.auth0.com (52.9.124.234)</td>
     <td>443</td>
-    <td>Provides updates for Appliance Docker Packages</td>
+    <td>Provides updates for Private SaaS Docker Packages</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -120,7 +120,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
-    <td>Required to run web extensions; Provides update packages for Appliance instances running versions `6868` or earlier</td>
+    <td>Required to run web extensions; Provides update packages for Private SaaS implementations running versions `6868` or earlier</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -144,7 +144,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Inbound</td>
     <td>Jump Host</td>
     <td>22</td>
-    <td>Allows access to Appliance instances for support purposes</td>
+    <td>Allows access to Private SaaS implementations for support purposes</td>
     <td>No</td>
   </tr>
   <tr>

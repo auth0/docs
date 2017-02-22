@@ -1,14 +1,14 @@
 ---
-section: appliance
-description: Appliance infrastructure information about enabling Webtasks and Web Extensions
+section: private-saas
+description: Private SaaS infrastructure information about enabling Webtasks and Web Extensions
 ---
 
 # Enable Webtasks and Web Extensions
 
-Beginning with version 8986, the Appliance supports web extensions. This is in addition to support for [Webtasks](appliance/webtasks).
+Beginning with version 8986, Private SaaS implementations support web extensions. This is in addition to support for [Webtasks](private-saas/webtasks).
 
 :::panel-info Extensions
-Some of the [Extensions](/extensions) available to users of the Auth0 public cloud are unavailable in the Appliance. As such, these do not appear as options in the Appliance's Dashboard.
+Some of the [Extensions](/extensions) available to users of the Auth0 public cloud are unavailable in Private SaaS. As such, these do not appear as options in the Private SaaS Dashboard.
 :::
 
 ## Requirements for Updating to Version 8986
@@ -33,7 +33,7 @@ Once you have met the requirements for updating to version 8986, contact an Auth
 
 ## Further Reading
 
-* [IP Address and Port Requirements](/appliance/infrastructure/ip-domain-port-list)
+* [IP Address and Port Requirements](/private-saas/infrastructure/ip-domain-port-list)
 * [Web Extensions](/extensions)
-* [Webtasks](appliance/webtasks)
-* [Version Change Logs](https://auth0.com/changelog/appliance)
+* [Webtasks](private-saas/webtasks)
+* [Version Change Logs](https://auth0.com/changelog/private-saas)

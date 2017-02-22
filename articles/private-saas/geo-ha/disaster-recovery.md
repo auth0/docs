@@ -1,16 +1,16 @@
 ---
-section: appliance
-description: Descriptions of Appliance Geo HA Failure Scenarios and Testing
+section: private-saas
+description: Descriptions of Private SaaS Geo HA Failure Scenarios and Testing
 
 ---
 
-# Geographic High-Availability Appliance Failure Scenarios and Testing
+# Geographic High-Availability Private SaaS Failure Scenarios and Testing
 
-[Overview of the Geographic High-Availability Appliance](/appliance/geo-ha)
+[Overview of the Geographic High-Availability Private SaaS](/private-saas/geo-ha)
 
-## Geographic High-Availability Appliance Failure Scenarios and Impact
+## Geographic High-Availability Private SaaS Failure Scenarios and Impact
 
-The following table details some of the ways in which the Geographic High-Availability Appliance may fail and what the implications of such a failure are.
+The following table details some of the ways in which the Geographic High-Availability Private SaaS may fail and what the implications of such a failure are.
 
 <table class="table">
     <tr>
@@ -65,7 +65,7 @@ The following table details some of the ways in which the Geographic High-Availa
     </tr>
     <tr>
         <td>Data and Service Unavailable for Nodes 1, 2, and 3</td>
-        <td>The Appliance instances associated with the secondary site are now serving requests.</td>
+        <td>The Private SaaS instances associated with the secondary site are now serving requests.</td>
         <td>None.</td>
     </tr>
     <tr>
@@ -90,9 +90,9 @@ The following table details some of the ways in which the Geographic High-Availa
     </tr>
 </table>
 
-## Geographic High-Availability Appliance Testing
+## Geographic High-Availability Private SaaS Testing
 
-To test the Geographic High-Availability Appliance (GEO HA) failover/failback procedure, Auth0 will:
+To test the Geographic High-Availability Private SaaS (GEO HA) failover/failback procedure, Auth0 will:
 
 1. Take all nodes in the primary data center offline.
 2. Run tests against the global load balancer to ensure that traffic gets rerouted to the secondary site.
@@ -103,9 +103,9 @@ The Arbiter, located in a third site, determines which site stays active in the 
 
 The application layer is always active on all nodes. For performance reasons, only the site containing the primary data node typically serves traffic. This is managed by the global load balancer.
 
-## Backing Up the Geographic High-Availability Appliance
+## Backing Up the Geographic High-Availability Private SaaS
 
-As a customer, it is your responsibility to perform regular backups on your Geographic High-Availability Appliance (GEO HA). Auth0 recommends a single backup, since the GEO HA is a single cluster stretched over a distance.
+As a customer, it is your responsibility to perform regular backups on your Geographic High-Availability Private SaaS (GEO HA). Auth0 recommends a single backup, since the GEO HA is a single cluster stretched over a distance.
 
 Typically, Auth0 recommends performing a daily backup. However, if you have concerns about a logical data corruption, or you need greater assurance of up-to-date data, you might choose to backup more frequently.
 
@@ -113,6 +113,6 @@ Because the backup process puts a substantial load on the backup node, please co
 
 ## Further Reading
 
-* [How to Configure the Command Line Interface for Use with Appliance Instances](/appliance/cli/adding-node-to-backup-role)
-* [Backing Up Appliance Instances with the Command Line Interface](/appliance/cli/backing-up-the-appliance)
-* [Adding Appliance Nodes to the Backup Role](/appliance/cli/configure-cli)
+* [How to Configure the Command Line Interface for Use with Private SaaS](/private-saas/cli/adding-node-to-backup-role)
+* [Backing Up Private SaaS with the Command Line Interface](/private-saas/cli/backing-up-private-saas)
+* [Adding Private SaaS Nodes to the Backup Role](/private-saas/cli/configure-cli)
