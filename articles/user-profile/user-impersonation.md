@@ -58,11 +58,11 @@ Let's assume that you have two apps, `app1` and `app2`, and you want to imperson
 
 ### Get a Token
 
-First, you have to generate an `access_token` that you can use to call the [Management APIv2](/api/management/v2), specifically the [Impersonation endpoint](/api/authentication/reference#impersonation).
+First, you have to generate a token that you can use to call the [Management APIv2](/api/management/v2), specifically the [Impersonation endpoint](/api/authentication/reference#impersonation). This token is called __Auth0 Management APIv2 Token__.
 
-You can do this either using the Dashboard or by making a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint. For details on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+You can get one either using the Dashboard or by making a `POST` operation to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 
-The `access_token` will be valid for 24 hours, so you should ask for a token everytime you make a request to the API or handle vigorously `401` responses.
+The Management APIv2 Token will be valid for __24 hours__, so you should ask for a token everytime you make a request to the API or handle vigorously `401` responses.
 
 ### Find the User Id
 
@@ -106,15 +106,15 @@ The data part of the request should include the following:
   }
   ```
 
-  The `state` is an optional parameter, but we strongly recommend you [use it as it mitigates CSRF attacks](/protocols/oauth2/oauth-state).
+The `state` is an optional parameter, but we strongly recommend you [use it as it mitigates CSRF attacks](/protocols/oauth2/oauth-state).
 
-  The `callback_url` must match what is defined in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+The `callback_url` must match what is defined in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
-  There are various possible values for `scope`:
-  - `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a _JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
-  - `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
+There are various possible values for `scope`:
+- `scope: 'openid'`: _(default)_ It will return, not only the Access Token, but also an [ID Token](/tokens/id-token) which is a _JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
+- `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the [ID Token](/tokens/id-token) (for example, `scope: 'openid name email picture'`).
   
-  You can get more information about this in the [Scopes documentation](/scopes).
+You can get more information about this in the [Scopes documentation](/scopes).
 
 Your request should look like the following:
 
@@ -150,7 +150,7 @@ ${account.callback}/?code=AUTHORIZATION_CODE&state=STATE_VALUE
 - `code` is the authorization code you need
 
 ::: panel-info Single Page Apps
-The process described applies to Regular Web Applications. In case yours is a Single Page Application (SPA) you would have to use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication/reference#impersonation). Once you do this Auth0 will redirect to your SPA _Callback URL_ with `access_token` and `id_token` in the `#` params. You can read more on the OAuth2 Implicit flow [here](/protocols/oauth2/oauth-implicit-protocol).
+The process described applies to Regular Web Applications. In case yours is a Single Page Application (SPA) you would have to use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication/reference#impersonation). Once you do this Auth0 will redirect to your SPA _Callback URL_ with Access Token and ID Token in the `#` params. You can read more on the OAuth2 Implicit flow [here](/protocols/oauth2/oauth-implicit-protocol).
 :::
 
 ### Exchange Code with Token
@@ -175,7 +175,7 @@ If not you should send a `POST` request to the [Token endpoint in Auth0](/api/au
 
 Replace the `AUTHORIZATION_CODE` with the `code` you received previously. Also, replace `${account.callback}` with your application's callback URL.
 
-If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call the Auth0 APIs and get additional information such as the user profile.
+If the request is successful, you will get a JSON object with an Access Token. You can use this token to call the Auth0 APIs and get additional information such as the user profile.
 
 ```json
 HTTP/1.1 200 OK
