@@ -13,7 +13,10 @@ Rules can also be used to programatically redirect users before an authenticatio
 * Forcing users to change passwords.
 
 ::: panel-danger Caution
-Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner) or the [Refresh Token exchange](/tokens/preview/refresh-token#rules). You can detect resource owner logins from a rule by checking `context.protocol === 'oauth2-password'`. To detect a Refresh Token exchange, check `context.protocol === 'oauth2-refresh-token'`.
+Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner), the [Password exchange](/api-auth/grant/password) or the [Refresh Token exchange](/tokens/preview/refresh-token#rules). You can detect these cases by checking `context.protocol`:
+- For Password exchange: `context.protocol === 'oauth2-password'`
+- For Refresh Token exchange: `context.protocol === 'oauth2-refresh-token'`
+- For Resource Owner logins: `context.protocol === 'oauth2-resource-owner'`
 :::
 
 ## How to implement a redirect
