@@ -192,6 +192,25 @@ Lock
   .present(from: self)
 ```
 
+## Use Auth0.Swift Library to access user profile
+
+Lock can no longer directly access user profile information. To do so, you will now need to use the [Auth0.Swift library](/libraries/auth0-swift). Below is an example of accessing `userInfo` with `Auth0.Swift`:
+
+```swift
+guard let accessToken = credentials.accessToken else { return }
+Auth0
+    .authentication()
+    .userInfo(token: accessToken)
+    .start { result in
+        switch result {
+        case .success(let profile):
+            // You've got a UserProfile object
+        case .failure(let error):
+            // You've got an error
+        }
+}
+```
+
 #### Delegation
 
 Delegation is no available through Lock, but Lock v1 users who still need delegation can implement it via the the [Auth0.Swift library](/libraries/auth0-swift). The following is an example of delegation using Auth0.Swift:

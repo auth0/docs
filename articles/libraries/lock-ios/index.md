@@ -95,9 +95,6 @@ To show Lock, add the following snippet in your `UIViewController`.
 ```swift
 Lock
     .classic()
-    .withOptions{
-      $0.oidcConformant = true
-    }
     // withConnections, withOptions, withStyle, etc
     .onAuth { credentials in
       // Save the Credentials object
@@ -105,7 +102,7 @@ Lock
     .present(from: self)
 ```
 
-## Use Auth0 Library to access user profile
+## Use Auth0.Swift Library to access user profile
 
 To access user profile information, you will need to use the `Auth0.Swift` library:
 
