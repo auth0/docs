@@ -1,4 +1,4 @@
-<%= include('../../_includes/_login_preamble', { library: 'Angular 2+' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'AngularJS' }) %>
 
 ## Install the Dependencies
 
@@ -191,8 +191,8 @@ When the `Log In` button is clicked, the Lock widget will be shown, and the user
 
 Create a directive or component named `callback` and populate it with a loading indicator.
 
-```js
-// app/callback/callback.html
+```html
+<!-- app/callback/callback.html -->
 
 <div class="loading">
   <img src="assets/loading.svg" alt="loading">

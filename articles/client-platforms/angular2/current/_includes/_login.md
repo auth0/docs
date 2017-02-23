@@ -1,5 +1,19 @@
-<%= include('../../_includes/_login_preamble', { library: 'Angular 2+' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'Angular' }) %>
 <%= include('../../_includes/_auth_service_description') %>
+
+## Install the Lock Widget
+
+The only dependency required to power a basic login solution is Auth0's [Lock widget](/lock) which can be installed using npm.
+
+```bash
+npm install --save auth0-lock
+```
+
+The Lock widget can also be retrieved from Auth0's CDN.
+
+```html
+<script src="https://cdn.auth0.com/js/lock/10.11/lock.min.js"></script>
+```
 
 Create an injectable authentication service for your application. The naming is at your discretion, but in these examples it will be called `AuthService` and the filename will be `auth.service.ts`. An instance of the Lock widget can be created in the service and its configuration can be controlled there.
 
@@ -156,8 +170,8 @@ When the `Log In` button is clicked, the Lock widget will be shown, and the user
 
 Create a component named `CallbackComponent` and populate it with a loading indicator.
 
-```js
-// src/app/callback/callback.component.html
+```html
+<!-- app/callback/callback.html -->
 
 <div class="loading">
   <img src="assets/loading.svg" alt="loading">
@@ -213,8 +227,3 @@ export class AppComponent {
 
 }
 ```
-
-
-
-
-

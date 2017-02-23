@@ -2,7 +2,13 @@ The previous step demonstrated how to add authentication to your app using the L
 
 ## Install auth0.js
 
-The auth0.js library can either be retrieved from Auth0's CDN or from npm.
+The auth0.js library can either be retrieved from npm or from Auth0's CDN.
+
+**npm**
+
+```bash
+npm install --save auth0-js
+```
 
 **CDN Link**
 
@@ -10,10 +16,4 @@ The auth0.js library can either be retrieved from Auth0's CDN or from npm.
 <!-- index.html  -->
 
 <script src="https://cdn.auth0.com/js/auth0/8.2/auth0.min.js"></script>
-```
-
-**npm**
-
-```bash
-npm install --save auth0-js
 ```
