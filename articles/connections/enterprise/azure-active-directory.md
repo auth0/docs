@@ -41,7 +41,11 @@ Enter a name for the application, select **Web app/API** as the **Application Ty
 
 ## 2. Configuring the permissions
 
-Once the application has been created, you will have to configure the permissions. Click on the name of the application to open the **Settings** section, then click **Required permissions**.
+Once the application has been created, you will have to configure the permissions. Click on the name of the application to open the **Settings** section.
+
+![Created application list](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-3b.png)
+
+Click **Required permissions**.
 
 ![Choose Required Permissions](/media/articles/connections/enterprise/azure-active-directory/azure-ad-3-1.png)
 
@@ -69,11 +73,14 @@ Enter a name for the key and for the duration of the key select 1 or 2 years.
 
 Click on **Save** and the key will be displayed. Make sure to copy the value of this key before leaving this screen, this is your **Client Secret** used in the next step.
 
+![Creating a Key](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2b.png)
+
+
 ## 4. Copy the Client ID and Client Secret to Auth0
 
 Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. Select **Windows Azure AD**.
 
-For the **Client ID**, this value is stored as the **Application ID** in Azure AD. 
+For the **Client ID**, this value is stored as the **Application ID** in Azure AD.
 
 ![Application ID](/media/articles/connections/enterprise/azure-active-directory/azure-ad-5-1.png)
 
@@ -98,5 +105,3 @@ Click **SAVE** when you have finished.
 Signing keys are used by the identity provider to sign the authentication token it issues, and by the consumer application (Auth0 in this case) to validate the authenticity of the generated token.
 
 For security purposes, Azure AD’s signing key [rolls on a periodic basis](https://azure.microsoft.com/en-us/documentation/articles/active-directory-signing-key-rollover/). If this happens, **you do not need to take any action**. Auth0 will use the new key automatically.
-
-
