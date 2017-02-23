@@ -1,11 +1,11 @@
 ---
-section: appliance
+section: private-saas
 description: This document covers how to access the data gathered via Instrumentation.
 ---
 
-# Auth0 Appliance: Access Your Data
+# Auth0 Private SaaS: Access Your Data
 
-By connecting to your Appliance via SSH, you can access your data in one of two ways.
+By connecting to your Private SaaS via SSH, you can access your data in one of two ways.
 
 ## Run Quick Queries from the Command Line
 
@@ -87,9 +87,9 @@ The following table lists the query index and the metric to which it corresponds
 You can delete data and drop measurements and databases using the InfluxDB Command-Line Interface. Proceed with caution.
 :::
 
-You can access you data directly by querying your InfluxDB instance using its Command-Line Interface (CLI). To do this, run the `influx` command from the Appliance. The CLI allows you to run custom queries and explore your data. To see a full list of acceptable arguments for this command, please refer to the [InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.0/tools/shell/).
+You can access you data directly by querying your InfluxDB instance using its Command-Line Interface (CLI). To do this, run the `influx` command from Private SaaS. The CLI allows you to run custom queries and explore your data. To see a full list of acceptable arguments for this command, please refer to the [InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.0/tools/shell/).
 
-Within InfluxDB, the database containing Appliance-related data is named `auth0`. There are two data retention policies under `auth0`:
+Within InfluxDB, the database containing Private SaaS-related data is named `auth0`. There are two data retention policies under `auth0`:
 
 1. `1day`: contains metrics that get downsampled and stored for 1 day
 2. `1week`: contains metrics that get downsampled and stored for 1 week

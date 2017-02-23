@@ -1,6 +1,6 @@
 ---
-section: appliance
-description: Overview of using the testall endpoint with the Appliance
+section: private-saas
+description: Overview of using the testall endpoint with the Private SaaS
 ---
 
 # Using the `testall` Endpoint

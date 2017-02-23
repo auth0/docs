@@ -1,13 +1,13 @@
 ---
-section: appliance
+section: private-saas
 description: This document covers the metrics available when using Instrumentation.
 ---
 
-# Auth0 Appliance: Metrics Available via Instrumentation
+# Auth0 Private SaaS: Metrics Available via Instrumentation
 
-The following metrics are available to you when Instrumentation is enabled on your Appliance:
+The following metrics are available to you when Instrumentation is enabled on your Private SaaS implementation:
 
-## Metrics Regarding Appliance Infrastructure
+## Metrics Regarding Private SaaS Infrastructure
 
 * [CPU](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/CPU_README.md)
 * [Disk](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/system/DISK_README.md)
@@ -22,7 +22,7 @@ The following metrics are available to you when Instrumentation is enabled on yo
 * [RabbitMQ](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/rabbitmq)
 * [Procstat](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/procstat/README.md)
 
-## Metrics Regarding Appliance Processes
+## Metrics Regarding Private SaaS Processes
 
 * auth0-api2_http_requests_authenticated
 * auth0-api2_http_requests_received

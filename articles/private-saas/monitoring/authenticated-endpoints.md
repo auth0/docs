@@ -1,23 +1,23 @@
 ---
-section: appliance
-description: Overview of using the authenticated endpoint with the Appliance
+section: private-saas
+description: Overview of using the authenticated endpoint with the Private SaaS
 ---
 
 # Using Authenticated Testing Endpoints
 
-For tests that provide detailed information, Auth0 requires that these requests be authenticated using a key generated in your Appliance configuration area. This key is used in the request header of the call sent to the endpoint.
+For tests that provide detailed information, Auth0 requires that these requests be authenticated using a key generated in your Private SaaS configuration area. This key is used in the request header of the call sent to the endpoint.
 
 ### Generating the API Key
 
-To generate an API Key for use the authenticated testing endpoints, navigate to the [Settings](/appliance/dashboard/settings) page of your Appliance configuration area. There, you will find an [API Keys section](/appliance/dashboard/settings#api-keys) that allows you to generate new keys.
+To generate an API Key for use the authenticated testing endpoints, navigate to the [Settings](/private-saas/dashboard/settings) page of your Private SaaS configuration area. There, you will find an [API Keys section](/private-saas/dashboard/settings#api-keys) that allows you to generate new keys.
 
 During the first use, you will see a that there is no key. To generate your first key, click on the "Generate" button at the far right of the row.
 
-![](/media/articles/appliance/api-keys/no-key.png)
+![](/media/articles/private-saas/api-keys/no-key.png)
 
 You will be prompted to confirm the new key generation. If confirmed, you will see that the key now populates the previously-blank field.
 
-![](/media/articles/appliance/api-keys/key.png)
+![](/media/articles/private-saas/api-keys/key.png)
 
  > You may only use one key at a time. If you generate a new key, all applications and services using the old key will fail.
 
