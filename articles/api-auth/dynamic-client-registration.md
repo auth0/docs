@@ -44,11 +44,9 @@ Auth0 supports Open Dynamic Registration, which means that if you enable this fe
 
 ### Update tenant settings
 
-In order to enable the feature, you need to set to `true` the following flags at your tenant's settings:
-- `enable_dynamic_client_registration`: Enables the feature.
-- `enable_pipeline2`: Enables the underlying pipeline that is a required dependency.
+In order to enable the feature, you need to set the `enable_dynamic_client_registration` flag to `true` in your tenant's settings.
 
-You can update these flags using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings).
+You can update this flag using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings).
 
 ```har
 {
@@ -61,7 +59,7 @@ You can update these flags using the [Update tenant settings endpoint](/api/mana
   ],
   "postData": {
       "mimeType": "application/json",
-      "text" : "{ \"enable_pipeline2\": true, \"enable_dynamic_client_registration\": true }"
+      "text" : "{ \"flags\": { \"enable_dynamic_client_registration\": true } }"
   }
 }
 ```
