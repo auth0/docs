@@ -16,28 +16,17 @@ curl --request GET \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
-$('.logout-dbconn').click(function() {
-  //log the user out from their current browser session in your app
-  localStorage.removeItem('id_token');
-
-  //log the user out from Auth0
-  auth0.logout();
-
-  //log the user out from Auth0 and redirect to tenant-level whitelisted URL LOGOUT_URL
-  auth0.logout({ returnTo: 'LOGOUT_URL' }, { version: 'v2' });
-
-  //log the user out from Auth0 and redirect to client-level whitelisted URL LOGOUT_URL
-  auth0.logout({ returnTo: 'LOGOUT_URL', client_id: ${account.clientId} }, { version: 'v2' });
+webAuth.logout({
+  returnTo: 'some url here',
+  client_id: 'some client ID here'
 });
 ```
 

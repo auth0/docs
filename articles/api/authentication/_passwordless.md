@@ -30,73 +30,22 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
-//EMAIL: request a link to be sent via email
-$('.request-email-link').click(function (ev) {
-  ev.preventDefault();
-  auth0.requestMagicLink({
-    email: $('.email-input').val()
-  }, function (err) {
-    if (err) {
-      alert(err.error_description);
-      return;
-    }
-    // the request was successful and you should receive
-    // an email with the link at the specified address
-  });
-});
-
-//EMAIL: request a code to be sent via email
-$('.request-email-code').click(function (ev) {
-  ev.preventDefault();
-
-  auth0.requestEmailCode({
-    email: $('.email-input').val()
-  }, function (err) {
-    if (err) {
-      alert(err.error_description);
-      return;
-    }
-    // the request was successful and you should receive
-    // an email with the code at the specified address
-  });
-});
-
-//SMS: request a code to be sent via SMS
-$('.request-sms-code').click(function (ev) {
-  ev.preventDefault();
-
-  auth0.requestSMSCode({
-    phoneNumber: $('.phone-input').val()
-  }, function (err) {
-    if (err) {
-      alert(err.error_description);
-      return;
-    }
-    // the request was successful and you should receive
-    // a SMS with the code at the specified phone number
-  });
-});
-```
-
-> RESPONSE SAMPLE:
-
-```JSON
-//for connection=email
-{
-  "_id": "5845818fe...",
-  "email": "test.account@passwordless.com",
-  "email_verified": false
-}
+webAuth.passwordlessStart({
+    connection: 'Username-Password-Authentication',
+    send: 'code', // code or link
+    email: 'foo@bar.com' // either send an email param or a phoneNumber param
+  }, function (err,res) {
+    // handle errors or continue
+  }
+);
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -172,49 +121,22 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
-//EMAIL: authenticate the user when you get the code, using email and code
-auth0.verifyEmailCode({
-  email: $('.email-input').val(),
-  code: $('.email-code-input').val()
-}, function (err, result) {
-  if (err) {
-    alert("something went wrong: " + err.error_description);
-    return;
+webAuth.passwordlessVerify({
+    connection: 'email',
+    email: 'foo@bar.com',
+    verificationCode: '389945'
+  }, function (err,res) {
+    // handle errors or continue
   }
-  alert('Hello');
-});
-
-//SMS: authenticate the user when you get the code, using phoneNumber and code
-auth0.verifySMSCode({
-  phoneNumber: $('.phone-input').val(),
-  code: $('.sms-code-input').val()
-}, function (err, result) {
-  if (err) {
-    alert("something went wrong: " + err.error_description);
-    return;
-  }
-  alert("Hello");
-});
-```
-
-> RESPONSE SAMPLE:
-
-```json
-{
-  "id_token": "eyJ0eXA...",
-  "access_token": "5CB7...",
-  "token_type": "bearer"
-}
+);
 ```
 
 <%= include('../../_includes/_http-method', {
