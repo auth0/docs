@@ -15,63 +15,27 @@ GET https://${account.namespace}/authorize?
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'code|token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
 //trigger login with google
-$('.login-google').click(function () {
-  auth0.login({
-    connection: 'google-oauth2'
-  });
+webAuth.authorize({
+  connection: 'google-oauth2'
 });
 
 //trigger login with github
-$('.login-github').click(function () {
-  auth0.login({
-    connection: 'github'
-  });
+webAuth.authorize({
+  connection: 'github'
 });
 
-//trigger login popup with google
-$('.login-google-popup').click(function (e) {
-  e.preventDefault();
-  auth0.login({
-    connection: 'google-oauth2',
-    popup: true,
-    popupOptions: {
-      width: 450,
-      height: 800
-    }
-  }, function(err, result) {
-    if (err) {
-      alert("something went wrong: " + err.message);
-      return;
-    }
-    alert('Hello!');
-  });
-});
-
-//trigger login requesting additional scopes with google
-$('.login-google').click(function () {
-  auth0.login({
-    connection: 'google-oauth2',
-    connection_scope: ['https://www.googleapis.com/auth/orkut', 'https://picasaweb.google.com/data/']
-  });
-});
-
-// alternatively a comma separated list also works
-$('.login-google').click(function () {
-  auth0.login({
-    connection: 'google-oauth2',
-    connection_scope: 'https://www.googleapis.com/auth/orkut,https://picasaweb.google.com/data/'
-  });
+//trigger login popup with twitter
+webAuth.popup.authorize({
+  connection: 'twitter'
 });
 ```
 
@@ -229,57 +193,38 @@ GET https://${account.namespace}/authorize?
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'code|token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
-//trigger login with a db connection
-$('.login-dbconn').click(function () {
-  auth0.login({
-    connection: 'db-conn',
-    username:   $('.username').val(),
-    password:   $('.password').val(),
-  });
+//trigger login using redirect with credentials to enterprise connections 
+webAuth.redirect.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
 });
 
-//trigger login with a db connection and avoid the redirect
-$('.login-dbconn').click(function () {
-  auth0.login({
-    connection: 'db-conn',
-    username:   $('.username').val(),
-    password:   $('.password').val(),
-  },
-  function (err, result) {
-    // store in cookies
-  });
+//trigger login using popup mode with credentials to enterprise connections
+webAuth.popup.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
 });
 
-//trigger login with offline mode support to get the refresh_token
-$('.login-dbconn').click(function () {
-  auth0.login({
-    connection: 'db-conn',
-    username:   $('.username').val(),
-    password:   $('.password').val(),
-    scope: 'openid offline_access'
-  },
-  function (err, result) {
-    // store in cookies
-    // result.refreshToken is sent because offline_access is set as a scope
-  });
+// The client.login method allows for non redirect auth using custom database connections, using /oauth/token.
+webAuth.client.login({
+  realm: 'tests',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid profile',
+  audience: 'urn:test'
 });
-```
-
-> RESPONSE SAMPLE
-
-```text
-HTTP/1.1 302 Found
-Location: https://auth0.com/#/login_page&state=STATE
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -351,46 +296,38 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
-//trigger login with a db connection
-$('.login-dbconn').click(function () {
-  auth0.login({
-    connection: 'db-conn',
-    username:   $('.username').val(),
-    password:   $('.password').val(),
-  });
+//trigger login using redirect with credentials to enterprise connections 
+webAuth.redirect.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
 });
 
-//trigger login with a db connection and avoid the redirect
-$('.login-dbconn').click(function () {
-  auth0.login({
-    connection: 'db-conn',
-    username:   $('.username').val(),
-    password:   $('.password').val(),
-  },
-  function (err, result) {
-    // store in cookies
-  });
+//trigger login using popup mode with credentials to enterprise connections
+webAuth.popup.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
 });
-```
 
-> RESPONSE SAMPLE:
-
-```json
-{
-  "id_token": "eyJ0eXAiOiJKV1Qi...",
-  "access_token": "sMjTAT...",
-  "token_type": "bearer"
-}
+// The client.login method allows for non redirect auth using custom database connections, using /oauth/token.
+webAuth.client.login({
+  realm: 'tests',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid profile',
+  audience: 'urn:test'
+});
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -464,21 +401,37 @@ GET https://${account.namespace}/authorize?
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'code|token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
-//trigger login with an enterprise connection
-$('.login-microsoft').click(function () {
-  auth0.login({
-    connection: 'contoso.com'
-  });
+//trigger login using redirect with credentials to enterprise connections 
+webAuth.redirect.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
+});
+
+//trigger login using popup mode with credentials to enterprise connections
+webAuth.popup.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
+});
+
+// The client.login method allows for non redirect auth using custom database connections, using /oauth/token.
+webAuth.client.login({
+  realm: 'tests',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid profile',
+  audience: 'urn:test'
 });
 ```
 
