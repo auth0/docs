@@ -24,9 +24,6 @@ In order for you to configure Extensions, you will need to add this URL to the *
 
 At this point, you can enable any of the available Extensions [in the dashboard](${manage_url}/#/extensions) and use them just as you would if your Auth0 installation were running in the cloud.
 
-## Extensions Unavailable in the Appliance
+## Delegated Administration Extension
 
-The following Extensions are unavailable in the Appliance:
-
-* [Delegated Administration](/extensions/delegated-admin)
-* [Auth0 Authorization](/extensions/authorization-extension)
+The [Delegated Administration](/extensions/delegated-admin) extension is available beginning with version 10755 when User search is enabled.
