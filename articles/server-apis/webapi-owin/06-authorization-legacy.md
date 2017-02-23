@@ -33,7 +33,9 @@ By default, it says that if the user email contains `@example.com` he will be gi
 
 The JWT middleware will automatically map claims contained in the JWT to claims on the `ClaimsIdentity`. Specifically, it will look for a "roles" claim on the `id_token`, and then for each role inside the array on the "roles" claim, it will add a "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" claim to the `ClaimsIdentity`.
 
-> **Note**: The [System.IdentityModel.Tokens.Jwt package](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/) needs to be at least on version `4.0.2.205111437` for the automatic role claims mapping described above to work.
+<div class="alert alert-info">
+  <strong>Heads up!</strong> The <a href="https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/">System.IdentityModel.Tokens.Jwt package</a> needs to be at least on version <code>4.0.2.205111437</code> for the automatic role claims mapping described above to work.
+</div>
 
 This means that it integrates seamlessly with the Role based authorization inside ASP.NET.
 
