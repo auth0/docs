@@ -23,7 +23,7 @@ In this article we will see how you can do either.
 ## Get a token manually
 
 <div class="alert alert-warning">
-  <strong>Heads up!</strong> Τhe Management APIv2 token, by default, has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either change the validity period of the token, or <a href="#automate-the-process">automate the process</a>.
+  <strong>Heads up!</strong> Τhe Management APIv2 token, by default, has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or <a href="#automate-the-process">automate the process</a>.
 </div>
 
 Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.
@@ -60,7 +60,7 @@ __NOTE__: If you have multiple apps that should access the Management API, and y
 
 To get a token, click __Copy Token__ at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
-![Test Client](/media/articles/api/tokens/copy-token.png)
+![Test Client](/media/articles/api/management/v2/copy-token.png)
 
 Note, that this token has by default an expiration time of 24 hours. To change that, update the __Token Expiration (Seconds__ field to the desired expiration, and click __Update & Regenerate Token__.
 
