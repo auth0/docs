@@ -35,7 +35,7 @@ However, with regards to the manual process, we do understand that changing scre
 
 ### The Validity Period
 
-With the previous flow the tokens never expired. With the new flow all Management APIv2 Tokens __expire by default after 24 hours__.
+With the previous flow the tokens never expired. With the new flow all Management APIv2 Tokens __expire by default after 24 hours__. You can [work around that](#can-i-still-get-a-non-expiring-token-), even though we do not recommend it.
 
 #### Why this changed
 
