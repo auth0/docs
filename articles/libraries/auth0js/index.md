@@ -273,6 +273,16 @@ As shown above, the `client.userInfo` method can be called passing the returned 
 
 You can now do something else with this information as your application needs, such as acquire the user's entire set of profile information with the Management API, as described below.
 
+## Using `nonce`
+
+By default, `auth0.js` will generate a random `nonce` when you call `auth0.authorize`, store it in local storage, and pull it out in `auth0.parseHash`. The default behavior should work in most cases, but some use cases may require a developer to control the `nonce`.
+If you want to use a developer generated `nonce`, then you must provide it as an option to both `auth0.authorize` and `auth0.parseHash`.
+
+```js
+  auth0.authorize({nonce: '1234'});
+  auth0.parseHash({nonce:'1234'}, callback);
+```
+
 ## Logout
 
 To log out a user, use the `logout` method. This accepts an options object, which can include a `client_id`, and a `returnTo` URL. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter.
