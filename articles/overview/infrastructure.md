@@ -4,7 +4,7 @@ description: How Auth0 ensures infrastructure resiliency
 
 # Auth0 Infrastructure
 
-Auth0's infrastructure runs on Amazon Web Services (AWS), which is designed for high availability. This means that an outage involving one data center (also known as an availability zone) will not cause service interruptions. There is no scheduled downtime, so Auth0 is available 24 hours per day, 3 days per week, 365 days per year.
+Auth0's infrastructure runs on Amazon Web Services (AWS), which is designed for high availability. This means that an outage involving one data center (also known as an availability zone) will not cause service interruptions. There is no scheduled downtime, so Auth0 is available 24 hours per day, 7 days per week, 365 days per year.
 
 Each AWS availability zone (AZ) has independent fault boundaries for its power, network, and physical infrastructure. In addition, Auth0 spreads its services across multiple AZs to ensure multi-data center/regional redundancy.
 
@@ -19,6 +19,7 @@ For regional outages, a scripted, engineer-initiated failover reconfigures the f
 <table class="table">
   <tr>
     <th>Auth0 Objectives for Regional Outages</th>
+    <td></td>
   </tr>
   <tr>
     <th>Recovery Point Objective (RPO)</th>
