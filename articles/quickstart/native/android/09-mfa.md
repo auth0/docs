@@ -12,7 +12,7 @@ Be sure that you have completed the [Login](01-login.md) quickstart.
 
 Multifactor authentication can be enabled with the flip of a switch with Auth0. Go to the [MFA section](${manage_url}/#/guardian) of your dashboard and flip the switch on for **Push Notifications**.
 
-You must specify which clients you want to enable MFA for. To do so, select from the `Templates` dropdown on the right of the page the "Multifactor with Auth0 Guardian" item. This template enables MFA for **all** your clients. You can specify which clients to enable MFA for by editing the snippet so that the if clause for the `CLIENTS_WITH_MFA` array contents is considered instead:
+You must specify which clients you want to enable MFA for. To do so, select from the `Templates` dropdown on the right of the page the "Multifactor with Auth0 Guardian" item. This template enables MFA for **all** your clients. You can specify which clients to enable MFA for by editing the snippet so that the if clause for the `CLIENTS_WITH_MFA` array contents is considered instead. Make sure to edit the array contents to match your own client ids:
 
 ![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-guardian.png)
 
