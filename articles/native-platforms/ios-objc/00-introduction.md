@@ -5,31 +5,26 @@ description: Brief introduction to the iOS Objective-C tutorials.
 
 This is the very beginning of a simple, practical, multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
 
-
-
 ## Seed Project
 
 Here is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed) containing an empty project with only the required [dependencies](#dependencies) installed.
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/00-Starter-Seed',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-objc-sample',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: '01-Login/Auth0Sample/Info.plist',
-  pkgType: 'replace'
+  org: 'auth0-samples',
+  repo: 'auth0-ios-objc-sample',
+  path: '00-Starter-Seed',
+  requirements: [
+    'CocoaPods 1.1.1',
+    'Version 8.2 (8C38)',
+    'iPhone 6 - iOS 10.2 (14C89)'
+  ]
 }) %>
 
 This seed project can be useful as a starting point for the app to which you need to integrate authentication.
 
-
-
 ## Sample Projects
 
 Each tutorial in the series includes a link to its corresponding sample project, which demonstrates how to achieve the goal from the tutorial in question. You can check out all the samples [here](https://github.com/auth0-samples/auth0-ios-objc-sample/).
-
-
 
 ## Dependencies
 
@@ -51,8 +46,8 @@ Otherwise, if you're starting an empty project of your own, or if you want to ad
 If you are using Carthage, add the following lines to your `Cartfile`:
 
 ```ruby
-github "auth0/Lock.iOS-OSX" -> 1.26
-github "auth0/Auth0.swift" "1.0.0-beta.5"
+github "auth0/Lock.iOS-OSX" ~> 1.28
+github "auth0/Auth0.swift" ~> 1.2
 ```
 
 Then, run `carthage bootstrap`.
@@ -65,15 +60,13 @@ If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `P
 
 ```ruby
 use_frameworks!
-pod 'Lock', '~> 1.24'
-pod 'Auth0', '1.0.0-beta.5'
+pod 'Lock', '~> 1.28'
+pod 'Auth0', '~> 1.2'
 ```
 
 Then, run `pod install`.
 
 > For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
-
-
 
 ## Your First Steps
 
@@ -83,79 +76,48 @@ Make sure you complete these steps before going through any tutorial:
 
 <%= include('../../_includes/_new_app') %>_
 
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
-
 #### 2. Configure your callback URLs
 
-TO BE UPDATED: The initial PR had this include `'../_includes/_callback-url-introduction'`. Neither the file nor the directory exist and the page could not load due to that.
+Go to your [Client Dashboard](${manage_url}/#/applications/${account.clientId}/settings/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
 
-#### 3. Set your credentials
-
-The [dependencies](#dependencies) listed above require that you set your credentials in two different `.plist` files in order for them to work. If you downloaded the seed project, or any sample project from here, these credentials will come automatically set. Anyway, you have to make sure they are there, otherwise your app might crash.
-
-Make sure you have the following entries in your project's `Info.plist`:
-
-<table class="table">
-  <thead>
-
-```
-<tr>
-  <th>Key</th>
-  <th>Value</th>
-</tr>
+```shell
+{YOUR_APP_BUNDLE_IDENTIFIER}://${account.domain}/ios/{YOUR_APP_BUNDLE_IDENTIFIER}/callback
 ```
 
-  </thead>
-  <tr>
+In your application's `Info.plist` file, register your iOS Bundle Identifier as a custom scheme. To do so, open the `Info.plist` as source code, and add this chunk of code under the main `<dict>` entry:
 
-```
-<td>Auth0ClientId</td>
-<td>${account.clientId}</td>
-```
-
-  </tr>
-  <tr>
-
-```
-<td>Auth0Domain</td>
-<td>${account.namespace}</td>
-```
-
-  </tr>
-</table>
-
-Also, make sure you have the following entries in a file named `Auth0.plist`. You have to create that file if it doesn't exist:
-
-<table class="table">
-  <thead>
-
-```
-<tr>
-  <th>Key</th>
-  <th>Value</th>
-</tr>
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>None</string>
+        <key>CFBundleURLName</key>
+        <string>auth0</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>{YOUR_APP_BUNDLE_IDENTIFIER}</string>
+        </array>
+    </dict>
+</array>
 ```
 
-  </thead>
-  <tr>
+#### 3. Add your credentials
 
+Add your credentials in `Auth0.plist`. You have to create that file if it doesn't already exist in your project:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>ClientId</key>
+  <string>${account.clientId}</string>
+  <key>Domain</key>
+  <string>${account.namespace}</string>
+</dict>
+</plist>
 ```
-<td>ClientId</td>
-<td>${account.clientId}</td>
-```
-
-  </tr>
-  <tr>
-
-```
-<td>Domain</td>
-<td>${account.namespace}</td>
-```
-
-  </tr>
-</table>
-
-
 
 ## Done!
 

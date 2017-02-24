@@ -3,22 +3,15 @@ title: Customizing Lock
 description: This tutorial will show you how to customize the Lock widget UI.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* CocoaPods 1.0.0
-* XCode 7.3 (7D175)
-* Simulator - iPhone 6 - iOS 9.3 (13E230)
-  :::
-
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/10-Customizing-Lock',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
-  pkgBranch: 'master',
-  pkgPath: '10-Customizing-Lock',
-  pkgFilePath: '10-Customizing-Lock/Auth0Sample/Info.plist',
-  pkgType: 'replace'
+  org: 'auth0-samples',
+  repo: 'auth0-ios-objc-sample',
+  path: '10-Customizing-Lock',
+  requirements: [
+    'CocoaPods 1.1.1',
+    'Version 8.2 (8C38)',
+    'iPhone 6 - iOS 10.2 (14C89)'
+  ]
 }) %>
 
 ### Before Starting

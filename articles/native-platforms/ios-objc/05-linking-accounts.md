@@ -3,33 +3,26 @@ title: Linking Accounts
 description: This tutorial will show you how to link different user profiles, allowing different ways of signing in into a single profile.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* CocoaPods 1.0.0
-* XCode 7.3 (7D175)
-* Simulator - iPhone 6 - iOS 9.3 (13E230)
-  :::
-
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/05-Linking-Accounts',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
-  pkgBranch: 'master',
-  pkgPath: '05-Linking-Accounts',
-  pkgFilePath: '05-Linking-Accounts/Auth0Sample/Info.plist',
-  pkgType: 'replace'
+  org: 'auth0-samples',
+  repo: 'auth0-ios-objc-sample',
+  path: '05-Linking-Accounts',
+  requirements: [
+    'CocoaPods 1.1.1',
+    'Version 8.2 (8C38)',
+    'iPhone 6 - iOS 10.2 (14C89)'
+  ]
 }) %>
 
 ### Let's Begin
 
 #### Be Familiar with Auth0
 
-This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](01-login.md) first.**
+This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](/quickstart/native/ios-objc/01-login) first.**
 
 ### 1. Setting Up
 
-For this tutorial we are going to use the Auth0 Toolkit, and import the toolkit (which is writen in Swift) into our Objective-C project. All the necessary steps for this are covered in the [Custom Login](02-custom-login.md) tutorial.
+For this tutorial we are going to use the Auth0 Toolkit, and import the toolkit (which is written in Swift) into our Objective-C project. All the necessary steps for this are covered in the [Custom Login](/quickstart/native/ios-objc/02-custom-login) tutorial.
 
 ### 2. Getting Your Second Token
 
@@ -52,15 +45,11 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 
 #### ii. Use Auth0 Toolkit
 
-You might prefer to avoid the Lock UI and only show the sign in options of third parties. If that's the case, you're encouraged to read the [Custom Login](02-custom-login.md) tutorial. Anyway, here is a quick outline.
+You might prefer to avoid the Lock UI and only show the sign in options of third parties. If that's the case, you're encouraged to read the [Custom Login](/quickstart/native/ios-objc/02-custom-login) tutorial. Anyway, here is a quick outline.
 
-- Check that you have set up the URL Type with your app's bundle ID.
-- On your `Application Support` panel on the Auth0 web site, check that you have the `Allowed callback URLS` set up to handle this callback:
-```
-{application.bundleID}://{application.domain}/ios/{application.bundleID}/callback
-```
+Check that you have set up the [Callback URL](/quickstart/native/ios-objc/00-introduction#2-configure-your-callback-urls)
 
-- Set up your AppDelegate to handle the URL redirection:
+Set up your AppDelegate to handle the URL redirection:
 
 ```objc
 - (BOOL) application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
@@ -68,7 +57,7 @@ You might prefer to avoid the Lock UI and only show the sign in options of third
 }
 ```
 
-- Finally, show the sign in for each third party. It's important that you set up the scope as `openid` in order to be able to link the profiles:
+Finally, show the sign in for each third party. It's important that you set up the scope as `openid` in order to be able to link the profiles:
 
 ```objc
 - (IBAction)linkAccount:(id)sender{

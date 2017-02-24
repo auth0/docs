@@ -3,29 +3,22 @@ title: User Profile
 description: This tutorial will show you how to access the user profile from within your app, as well as how to update it.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* CocoaPods 1.0.0
-* XCode 7.3 (7D175)
-* Simulator - iPhone 6 - iOS 9.3 (13E230)
-  :::
-
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/04-User-Profile',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
-  pkgBranch: 'master',
-  pkgPath: '04-User-Profile',
-  pkgFilePath: '04-User-Profile/Auth0Sample/Info.plist',
-  pkgType: 'replace'
+  org: 'auth0-samples',
+  repo: 'auth0-ios-objc-sample',
+  path: '04-User-Profile',
+  requirements: [
+    'CocoaPods 1.1.1',
+    'Version 8.2 (8C38)',
+    'iPhone 6 - iOS 10.2 (14C89)'
+  ]
 }) %>
 
 ### In the Beginning
 
 #### Be Familiar with Auth0
 
-This tutorial assumes you are already familiar with Auth0 and how to Sign up and Login using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](01-login.md) first.**
+This tutorial assumes you are already familiar with Auth0 and how to Sign up and Login using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](/quickstart/native/ios-objc/01-login) first.**
 
 ### 1. Remember Me?
 
@@ -50,11 +43,11 @@ Now that you have the profile information, you can use it in your app:
 Use the image URL to download the image and display it on an `UIImageView`:
 
 ```objc
-    [[[NSURLSession sharedSession] dataTaskWithURL:profile.pictureURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.avatarImageView.image = [UIImage imageWithData:data];
-        });
-    }] resume];
+[[[NSURLSession sharedSession] dataTaskWithURL:profile.pictureURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.avatarImageView.image = [UIImage imageWithData:data];
+    });
+}] resume];
 ```
 
 #### ii. Get the Basic User Information
@@ -62,7 +55,7 @@ Use the image URL to download the image and display it on an `UIImageView`:
 On the profile you can get the user's name and email, when was the last time the user logged in, and so on-everything Auth0 uses to manage a user.
 
 ```objc
-    self.welcomeLabel.text = [NSString stringWithFormat:@"Welcome, %@", self.userProfile.name];
+self.welcomeLabel.text = [NSString stringWithFormat:@"Welcome, %@", self.userProfile.name];
 ```
 
 #### iii. Everything Else
@@ -70,9 +63,9 @@ On the profile you can get the user's name and email, when was the last time the
 You can also store your own app information for the user in the `userMetadata` dictionary.
 
 ```objc
-    self.userFirstNameField.text = [self.userProfile.userMetadata objectForKey:@"firstName"];
-    self.userLastNameField.text = [self.userProfile.userMetadata objectForKey:@"lastName"];
-    self.userCountryField.text = [self.userProfile.userMetadata objectForKey:@"country"];
+self.userFirstNameField.text = [self.userProfile.userMetadata objectForKey:@"firstName"];
+self.userLastNameField.text = [self.userProfile.userMetadata objectForKey:@"lastName"];
+self.userCountryField.text = [self.userProfile.userMetadata objectForKey:@"country"];
 ```
 
 ### 3. Saving the Metadata
@@ -80,21 +73,20 @@ You can also store your own app information for the user in the `userMetadata` d
 This metadata field can be used to store any information about the user your app needs. You only need to send a dictionary with the fields that need updating.
 
 ```objc
-    NSDictionary* profileMetadata = @{
-                                @"firstName": self.userFirstNameField.text,
-                                @"lastName":self.userLastNameField.text,
-                                @"country":self.userCountryField.text};
+NSDictionary* profileMetadata = @{@"firstName": self.userFirstNameField.text,
+                                  @"lastName":self.userLastNameField.text,
+                                  @"country":self.userCountryField.text};
 
-    A0ManagementAPI *authApi = [[A0ManagementAPI alloc] initWithToken:userToken url:domain];
+A0ManagementAPI *authApi = [[A0ManagementAPI alloc] initWithToken:userToken url:domain];
 
-    [authApi patchUserWithIdentifier:self.userProfile.userId userMetadata:profileMetadata callback:^(NSError * _Nullable error, NSDictionary<NSString *,id> * _Nullable data) {
-        if(error) {
+[authApi patchUserWithIdentifier:self.userProfile.userId userMetadata:profileMetadata callback:^(NSError * _Nullable error, NSDictionary<NSString *,id> * _Nullable data) {
+    if(error) {
         // Something went wrong, let the user know
-        } else {
+    } else {
         // The user was updated on the server, create a new instance of the
         // profile with the new information and use this one from now on
 
         self.userProfile = [[A0UserProfile alloc] initWithDictionary:data];
-        }
-    }];
+    }
+}];
 ```
