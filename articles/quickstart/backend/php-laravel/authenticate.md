@@ -177,35 +177,7 @@ public function register()
 ...
 ```
 
-### 6. Authenticate your requests without Laravel Passport
-
-If you don't want to use Laravel Passport, you can use the Middlewares provided by this package.
-
-To register the middlewares, you need to go to `app/Http/Kernel.php` and add these lines to the `routeMiddleware` collection:
-
-```php
-protected $routeMiddleware = [
-  ...
-  'auth0.jwt' => '\Auth0\Login\Middleware\Auth0JWTMiddleware',
-  'auth0.jwt_verification' => '\Auth0\Login\Middleware\Auth0OptionalJWTMiddleware',
-  'auth0.jwt_force' => '\Auth0\Login\Middleware\ForceAuthMiddleware',
-  ...
-];
-```
-
-#### Auth0JWTMiddleware
-
-This middleware with extract the token from the request headers, decode and verify it. If the token is not present it will reject the login with an HTTP 401 code.
-
-#### Auth0OptionalJWTMiddleware & ForceAuthMiddleware
-
-`Auth0OptionalJWTMiddleware` with extract the token from the request headers, decode and verify it. If the token is not present it will not set the user.
-
-`ForceAuthMiddleware` will check if there is a user set up, if there is not it will reject the login with an HTTP 401 code.
-
-The idea of using these middlewares is to be able to set `Auth0OptionalJWTMiddleware` to all your API routes and for those that should be secured, you can add `ForceAuthMiddleware`.
-
-### 5. Use it & Run it
+### 6. Use it & Run it
 
 Now you can secure your REST calls like this:
 
@@ -224,7 +196,7 @@ You can now make requests against your secure API by providing the Authorization
 }
 ```
 
-### 6. You're done!
+### 7. You're done!
 
 Now you have both your frontend and backend configured to use Auth0. Congrats, you're awesome!
 
@@ -255,3 +227,31 @@ After you've installed it, just set the following in the configuration file for 
     ),
 ),
 ```
+
+#### Authenticate your requests without Laravel Passport
+
+If you don't want to use Laravel Passport, you can use the Middlewares provided by this package.
+
+To register the middlewares, you need to go to `app/Http/Kernel.php` and add these lines to the `routeMiddleware` collection:
+
+```php
+protected $routeMiddleware = [
+  ...
+  'auth0.jwt' => '\Auth0\Login\Middleware\Auth0JWTMiddleware',
+  'auth0.jwt_verification' => '\Auth0\Login\Middleware\Auth0OptionalJWTMiddleware',
+  'auth0.jwt_force' => '\Auth0\Login\Middleware\ForceAuthMiddleware',
+  ...
+];
+```
+
+##### Auth0JWTMiddleware
+
+This middleware with extract the token from the request headers, decode and verify it. If the token is not present it will reject the login with an HTTP 401 code.
+
+##### Auth0OptionalJWTMiddleware & ForceAuthMiddleware
+
+`Auth0OptionalJWTMiddleware` with extract the token from the request headers, decode and verify it. If the token is not present it will not set the user.
+
+`ForceAuthMiddleware` will check if there is a user set up, if there is not it will reject the login with an HTTP 401 code.
+
+The idea of using these middlewares is to be able to set `Auth0OptionalJWTMiddleware` to all your API routes and for those that should be secured, you can add `ForceAuthMiddleware`.
