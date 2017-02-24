@@ -1,17 +1,17 @@
 ---
-url: /appliance/webtasks
-section: appliance
-description: How to use Webtasks on the Appliance
+url: /private-saas/webtasks
+section: private-saas
+description: How to use Webtasks on the Private SaaS
 ---
 
-# Auth0 Appliance: Webtasks
+# Auth0 Private SaaS: Webtasks
 
-Beginning with Build 7247, you may use the Appliance's version of [Webtasks](http://webtask.io/) to execute your rules and custom database logic.
+Beginning with Build 7247, you may use the Private SaaS' version of [Webtasks](http://webtask.io/) to execute your rules and custom database logic.
 
 ::: panel-info Prerequisites
 Prior to working with Webtasks, please ensure that you have configured the:
 
-* [Appliance Command Line Interface (CLI)](/appliance/cli/configure-cli);
+* [Private SaaS Command Line Interface (CLI)](/private-saas/cli/configure-cli);
 * [Webtask Command Line Interface (`wt-cli`)](https://webtask.io/docs/101)
 :::
 
@@ -33,13 +33,13 @@ The `auth0-sandbox` is the recommended method for running your custom code.
 
 ## Working with Webtasks
 
-You may use Webtasks by calling its endpoints directly. This can be done using the Webtask Command Line Interface (`wt-cli`) and specifying the ``--url "https://webtask.<a0url>.com"`` parameter (where `a0url` is the address of the Appliance node). For additional information on setting up the `wt-cli`, please see [Getting Started with Webtasks](https://webtask.io/docs/101).
+You may use Webtasks by calling its endpoints directly. This can be done using the Webtask Command Line Interface (`wt-cli`) and specifying the ``--url "https://webtask.<a0url>.com"`` parameter (where `a0url` is the address of the Private SaaS node). For additional information on setting up the `wt-cli`, please see [Getting Started with Webtasks](https://webtask.io/docs/101).
 
 ### Node.js Modules
 
-Currently, not all of the [Node.js modules available for the Auth0 Cloud Environment](https://tehsis.github.io/webtaskio-canirequire/) are available for the Appliance.
+Currently, not all of the [Node.js modules available for the Auth0 Cloud Environment](https://tehsis.github.io/webtaskio-canirequire/) are available for Private SaaS.
 
-To see which modules are available for Webtasks running on Appliance instances, execute the [`List Modules` Webtask](https://github.com/tehsis/webtaskio-canirequire/blob/gh-pages/tasks/list_modules.js) using the appropriate sandbox on your Appliance instance.
+To see which modules are available for Webtasks running on Private SaaS, execute the [`List Modules` Webtask](https://github.com/tehsis/webtaskio-canirequire/blob/gh-pages/tasks/list_modules.js) using the appropriate sandbox on your Private SaaS implementation.
 
 First, copy locally the [`List Modules` Webtask](https://github.com/tehsis/webtaskio-canirequire/blob/gh-pages/tasks/list_modules.js), either by downloading the file or by copying this code:
 
