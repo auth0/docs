@@ -36,7 +36,7 @@ First, you need to create and authorize a Non Interactive Client. We recommend c
   A Non Interactive Client represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
   :::
 
-To create and authorize a Non Interactive Client, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
+To create and authorize a Non Interactive Client for the Management API, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
 <div class="alert alert-info">
   If you cannot see the APIs on the Dashboard menu, you can enable it by switching on the <strong>Enable APIs Section</strong> toggle at your <a href="${manage_url}/#/account/advanced">Account's Advanced Settings</a>.
@@ -58,13 +58,11 @@ __NOTE__: If you have multiple apps that should access the Management API, and y
 
 ### 2. Get the Token
 
-To get a token, click __Copy Token__ at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
-
-![Test Client](/media/articles/api/management/v2/copy-token.png)
+A token is automatically generated and displayed at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
 Note, that this token has by default an expiration time of 24 hours. To change that, update the __Token Expiration (Seconds__ field to the desired expiration, and click __Update & Regenerate Token__.
 
-![Update Expiration Time](/media/articles/api/tokens/update-exp.png)
+![Test Client](/media/articles/api/management/v2/copy-token.png)
 
 Click __Copy Token__. You can now make authorized calls to the [Management API v2](/api/management/v2) using this token.
 
