@@ -62,7 +62,7 @@ A token is automatically generated and displayed at [the API Explorer tab of you
 
 Note, that this token has by default an expiration time of 24 hours. To change that, update the __Token Expiration (Seconds__ field to the desired expiration, and click __Update & Regenerate Token__.
 
-![Test Client](/media/articles/api/management/v2/copy-token.png)
+![Test Client](/media/articles/api/tokens/copy-token.png)
 
 Click __Copy Token__. You can now make authorized calls to the [Management API v2](/api/management/v2) using this token.
 
