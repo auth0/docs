@@ -39,7 +39,7 @@ Enter a name for the application, select **Web app/API** as the **Application Ty
 
 ![Create application form](/media/articles/connections/enterprise/azure-active-directory/azure-ad-1-3.png)
 
-## 2. Configuring the permissions
+## 2. Configure the permissions
 
 Once the application has been created, you will have to configure the permissions. Click on the name of the application to open the **Settings** section.
 
@@ -61,7 +61,7 @@ The next step is to modify permissions so your app can read the directory. Under
 
 Click the **SAVE** button at the top to save these changes.
 
-### 3. Creating the key
+### 3. Create the key
 
 Next you will need to create a key which will be used as the **Client Secret** in the Auth0 connection. Click on **Keys** from the **Settings** menu.
 
