@@ -17,23 +17,22 @@ curl --request GET \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
-auth0.getUserInfo(access_token, function (err, profile) {
-  if(err) {
-    // handle error
-    return;
+webAuth.parseHash(window.location.hash, function(err, authResult) {
+  if (err) {
+    return console.log(err);
   }
 
-  alert('hello ' + profile.name);
+  webAuth.client.userInfo(authResult.accessToken, function(err, user) {
+    // Now you have the user's information
+  });
 });
 ```
 
@@ -105,23 +104,22 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
-auth0.getProfile(idToken, function (err, profile) {
-  if(err) {
-    // handle error
-    return;
+webAuth.parseHash(window.location.hash, function(err, authResult) {
+  if (err) {
+    return console.log(err);
   }
 
-  alert('hello ' + profile.name);
+  webAuth.client.userInfo(authResult.accessToken, function(err, user) {
+    // Now you have the user's information
+  });
 });
 ```
 

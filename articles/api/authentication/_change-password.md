@@ -21,18 +21,16 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
 $('.change_password').click(function () {
-  auth0.changePassword({
+  webAuth.changePassword({
     connection: 'CONNECTION',
     email:   'EMAIL'
   }, function (err, resp) {

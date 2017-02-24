@@ -22,50 +22,6 @@ curl --request POST \
   --data '{"client_id":"${account.clientId}", "grant_type":"urn:ietf:params:oauth:grant-type:jwt-bearer", "id_token|refresh_token":"TOKEN", "target":"TARGET_CLIENT_ID", "scope":"openid", "api_type":"API_TYPE"}'
 ```
 
-```javascript
-<script src="${auth0js_url}"></script>
-<script type="text/javascript">
-  var auth0 = new Auth0({
-    domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
-  });
-</script>
-
-//get a delegation token
-var options = {
-  id_token: "TOKEN", // The id_token you have now
-  api: 'API_TYPE', // This defaults to the first active addon if any or you can specify this
-  scope: "openid profile" // default: openid
-};
-
-auth0.getDelegationToken(options, function (err, delegationResult) {
-    // Call your API using delegationResult.id_token
-});
-
-//get the token for another API or App
-var options = {
-  id_token: "TOKEN", // The id_token you have now
-  api: 'auth0' // This is default when calling another app that doesn't have an addon
-  targetClientId: 'TARGET_CLIENT_ID'
-};
-
-auth0.getDelegationToken(options, function (err, delegationResult) {
-  // Call your API using delegationResult.id_token
-});
-```
-
-> RESPONSE SAMPLE:
-
-```json
-{
-  "token_type": "Bearer",
-  "expires_in": 36000,
-  "id_token": "eyJ0eXAi..."
-}
-```
-
 <%= include('../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/delegation",
