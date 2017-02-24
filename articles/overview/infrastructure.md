@@ -1,5 +1,5 @@
 ---
-description:
+description: How Auth0 ensures infrastructure resiliency
 ---
 
 # Auth0 Infrastructure
