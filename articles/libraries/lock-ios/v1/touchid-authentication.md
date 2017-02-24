@@ -6,6 +6,8 @@ description: How to implement TouchID authentication with Lock iOS.
 
 # Lock iOS: TouchID Authentication
 
+<%= include('../_includes/_lock-version-1') %>
+
 Lock provides passwordless authentication with TouchID for your Auth0 DB connection. To start authenticating your users with TouchID please follow those steps:
 
 1. Add `TouchID` subspec module of **Lock** to your `Podfile`

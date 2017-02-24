@@ -1263,5 +1263,54 @@
   {
     "from": "/auth0-hooks/overview",
     "to": "/hooks/overview"
+  },
+  {
+    "from": "/libraries/lock-ios/delegation-api",
+    "to": "/libraries/lock-ios/v1/delegation-api"
+  },
+  {
+    "from": "/libraries/lock-ios/lock-ios-api",
+    "to": "/libraries/lock-ios/v1/lock-ios-api"
+  },
+  {
+    "from": "/libraries/lock-ios/logging",
+    "to": "/libraries/lock-ios/v1/logging"
+  },
+  {
+    "from": "/libraries/lock-ios/native-social-authentication",
+    "to": "/libraries/lock-ios/v1/native-social-authentication"
+  },
+  {
+    "from": "/libraries/lock-ios/password-reset-ios",
+    "to": "/libraries/lock-ios/v1/password-reset-ios"
+  },
+  {
+    "from": "/libraries/lock-ios/save-and-refresh-jwt-tokens",
+    "to": "/libraries/lock-ios/v1/save-and-refresh-jwt-tokens"
+  },
+  {
+    "from": "/libraries/lock-ios/sending-authentication-parameters",
+    "to": "/libraries/lock-ios/v1/sending-authentication-parameters"
+  },
+  {
+    "from": "/libraries/lock-ios/sms-lock-ios",
+    "to": "/libraries/lock-ios/v1/sms-lock-ios"
+  },
+  {
+    "from": "/libraries/lock-ios/sso-on-mobile-apps",
+    "to": "/libraries/lock-ios/v1/sso-on-mobile-apps"
+  },
+  {
+    "from": "/libraries/lock-ios/swift",
+    "to": "/libraries/lock-ios/v1/swift"
+  },
+  {
+    "from": "/libraries/lock-ios/touchid-authentication",
+    "to": "/libraries/lock-ios/v1/touchid-authentication"
+  },
+  {
+    "from": "/libraries/lock-ios/use-your-own-ui",
+    "to": "/libraries/lock-ios/v1/use-your-own-uis"
   }
+
 ]

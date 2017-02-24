@@ -6,6 +6,8 @@ description: How to enable native login for some the supported social social con
 
 # Lock iOS: Native Social Authentication
 
+<%= include('../_includes/_lock-version-1') %>
+
 **Lock** by default handles all social authentication with Safari (Web Login), but you can enable native login for some social connections. Currently we only provide integration with Facebook, Google & Twitter that can be included like this in your `Podfile`
 ```ruby
 pod 'Lock-Facebook'
