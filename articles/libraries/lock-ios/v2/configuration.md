@@ -92,7 +92,7 @@ Specify the type of identifier the login will require.  The default is either: `
 }
 ```
 
-#### Custom Signup Fields
+#### Custom Signup Fields
 
 When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in the [Metadata Documentation](/metadata).
 
