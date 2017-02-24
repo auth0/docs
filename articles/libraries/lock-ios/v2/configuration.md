@@ -6,7 +6,7 @@ title: Lock for iOS and macOS v2 Configuration Options
 description: Behavior configuration options available with Lock v2 for iOS/macOS
 ---
 
-# Lock v2 for iOS and macOS - Configuration Options 
+# Lock v2 for iOS and macOS - Configuration Options
 
 There are numerous options to configure Lock's behavior listed below. In addition, there are also quite a few options available to alter Lock's appearance and style in the [Style Customization Options](/libraries/lock-ios/v2/customization) page.
 
@@ -64,7 +64,7 @@ By default Lock will use Auth0's [Terms of Service](https://auth0.com/terms) and
 
 ### allow
 
-Which database screens will be accessible, the default is enable all screens e.g. `.Login, .Signup, .ResetPassword`. 
+Which database screens will be accessible, the default is enable all screens e.g. `.Login, .Signup, .ResetPassword`.
 
 ```swift
 .withOptions {
@@ -92,7 +92,7 @@ Specify the type of identifier the login will require.  The default is either: `
 }
 ```
 
-#### Custom Signup Fields
+#### Custom Signup Fields
 
 When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in the [Metadata Documentation](/metadata).
 
