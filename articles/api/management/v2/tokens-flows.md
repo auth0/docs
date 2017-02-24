@@ -16,9 +16,9 @@ Until recently you could generate a Management APIv2 Token directly from the Man
 
 That way was very easy but it was also __very insecure__. So we changed it.
 
-The new way uses the [OAuth 2.0 Client Credentials grant](/api-auth/grant/client-credentials). This new flow requires some initial configuration: [set up a Non Interactive Client](#1-create-a-client) and [authorize it to access the Management APIv2](#2-authorize-the-client).
+The new way uses the [OAuth 2.0 Client Credentials grant](/api-auth/grant/client-credentials).
 
-Once this is done you can get a new token either [using the dashboard](#4-get-the-token) (if you use the API sporadically) or [by configuring a server process](#1-get-a-token) (if you need a token frequently) that will get a new token every 24 hours.
+You can get a new token either [using the dashboard](/api/management/v2/tokens#get-a-token-manually) (if you use the API sporadically) or [by configuring a server process](/api/management/v2/tokens#automate-the-process) (if you need a token frequently) that will get a new token every 24 hours.
 
 <div class="alert alert-info">For details on how to follow this new process refer to <a href="/api/management/v2/tokens">The Auth0 Management APIv2 Token</a></div>
 
@@ -35,16 +35,17 @@ However, with regards to the manual process, we do understand that changing scre
 
 ### The Validity Period
 
-With the previous flow the tokens never expired. With the new flow all Management APIv2 Tokens __expire after 24 hours__.
+With the previous flow the tokens never expired. With the new flow all Management APIv2 Tokens __expire by default after 24 hours__. You can [work around that](#can-i-still-get-a-non-expiring-token-), even though we do not recommend it.
 
 #### Why this changed
 
 Having a token that never expires can be very risky, in case an attacher gets hold of it. If the token expires within a few hours the attacker has only a small window to access your protected resources.
 
-
 ## Can I still get a non-expiring token?
 
-Using Auth0 UI, no you cannot. However, if you need a work-around to the old way, you can generate a token using [JWT.io](https://jwt.io/), that will be long-lived.
+Yes you can. We added a text box (__Token Expiration (Seconds)__), at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer), where you can set the new expiration time (in seconds) and click __Update & Regenerate Token__. A new token will be generated with your custom expiration time. Our recommendation however is not to use this and get a new token every 24 hours. You can easily automate this [following this process](/api/management/v2/tokens#1-get-a-token).
+
+Furthermore, you can generate a token using [JWT.io](https://jwt.io/).
 
 <div class="alert alert-danger">Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
 

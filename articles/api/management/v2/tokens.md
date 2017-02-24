@@ -23,10 +23,10 @@ In this article we will see how you can do either.
 ## Get a token manually
 
 <div class="alert alert-warning">
-  <strong>Heads up!</strong> Before you decide to follow the manual process, you should know that the Management APIv2 token has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can <a href="#automate-the-process">automate the process</a>.
+  <strong>Heads up!</strong> Τhe Management APIv2 token, by default, has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or <a href="#automate-the-process">automate the process</a>.
 </div>
 
-Let's see how you can get a token manually. Note, that the first two steps of the process need to be executed _only_ the first time. This might be true also for the third step, if the endpoints you need to access do not change. In that case you can skip to the [Get the Token](#4-get-the-token) section.
+Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.
 
 ### 1. Create and Authorize a Client
 
@@ -36,15 +36,13 @@ First, you need to create and authorize a Non Interactive Client. We recommend c
   A Non Interactive Client represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
   :::
 
-To create and authorize a Non Interactive Client, follow these steps:
-
-1. Go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
+To create and authorize a Non Interactive Client for the Management API, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
 <div class="alert alert-info">
   If you cannot see the APIs on the Dashboard menu, you can enable it by switching on the <strong>Enable APIs Section</strong> toggle at your <a href="${manage_url}/#/account/advanced">Account's Advanced Settings</a>.
 </div>
 
-2. Click the button __Create & Authorize a Test Client__.
+Click the button __Create & Authorize a Test Client__.
 
 ![Create and Authorize Client](/media/articles/api/tokens/create-authorize-client.png)
 
@@ -60,24 +58,26 @@ __NOTE__: If you have multiple apps that should access the Management API, and y
 
 ### 2. Get the Token
 
-To get a token, click __Copy Token__ at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
+A token is automatically generated and displayed at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
+
+Note, that this token has by default an expiration time of 24 hours (86400 seconds). To change that, update the __Token Expiration (Seconds)__ field and click __Update & Regenerate Token__.
 
 ![Test Client](/media/articles/api/tokens/copy-token.png)
 
-You can now make authorized calls to the [Management API v2](/api/management/v2) using this token.
+Click __Copy Token__. You can now make authorized calls to the [Management API v2](/api/management/v2) using this token.
 
 ### 3. Use the Token
 
-You can use the [Management API v2 explorer page](/api/management/v2) to manually call an endpoint, using the token you got in the previous step. You will need two pieces of information:
+You can use the [Management API v2 explorer page](/api/management/v2) to manually call an endpoint, using the token you got in the previous step. You will need:
 - The Management API v2 token you just got.
 - Your tenant's domain (`${account.namespace}`). You can find this on the _Settings_ of any of your [Clients](${manage_url}/#/clients/${account.clientId}/settings).
 
 Once you have this information you are ready to call the API. Follow these steps:
-1. Go to the [Management API v2 explorer page](/api/management/v2).
-1. Click the __Set API Token__ button at the top left.
-1. Set the __Domain__ and __API Token__ fields, and click __Set Token__.
-1. Under the __Set API Token__ button at the top left, some new information is now displayed: the domain and token set, and the scopes that have been granted to this client.
-1. Go to the endpoint you want to call, fill any parameters that might be required and click __Try__.
+1. Go to the [Management API v2 explorer page](/api/management/v2)
+1. Click the __Set API Token__ button at the top left
+1. Set the __Domain__ and __API Token__ fields, and click __Set Token__
+1. Under the __Set API Token__ button at the top left, some new information is now displayed: the domain and token set, and the scopes that have been granted to this client
+1. Go to the endpoint you want to call, fill any parameters that might be required and click __Try__
 
 ![Set the Token](/media/articles/api/tokens/set-token.png)
 
@@ -220,16 +220,16 @@ if __name__ == '__main__':
 ## Frequently Asked Questions
 
 __How long is the token valid for?__</br>
-The Management APIv2 token has a validity of __24 hours__. After that the token will expire and you will have to get a new one.
+The Management APIv2 token has by default a validity of __24 hours__. After that the token will expire and you will have to get a new one. If you get one manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) though, you can change the expiration time. However, having non-expiring tokens is not secure.
 
 __The old way of generating tokens was better, since the token never expired. Why was this changed?__</br>
 The old way of generating tokens was insecure since the tokens had an infinite lifespan and could not be revoked. The new way allows tokens to be generated with specific scopes, expirations, and with the ability to revoke tokens if they were to be breached. We decided to move to the most secure implementation because your security, and that of your users, is priority number one for us.
 
 __Can I change my token's validity period?__</br>
-No, we have disabled this option. Your applications should use short-lived tokens to minimize security risks.
+You cannot change the default validity period, which is set to 24 hours. However, if you get a token manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) you can change the expiration time for the specific token. Note though, that your applications should use short-lived tokens to minimize security risks.
 
 __Can I refresh my token?__</br>
-You cannot renew a Management APIv2 token. A [new token](#4-get-the-token) should be created when the old one expires.
+You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
 
 __My token was compromised! Can I invalidate it?__</br>
 Sure. You can terminate the Management APIv2 tokens calling the [blacklist endpoint](/api/v2#!/Blacklists/post_tokens).
