@@ -6,10 +6,10 @@ budicon: 546
 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-angularjs-samples',
+  repo: 'auth0-react-samples',
   path: '05-Authorization',
   requirements: [
-    'Angular 1.6'
+    'React 15'
   ]
 }) %>
 
@@ -28,153 +28,99 @@ npm install --save jwt-decode
 Create methods for checking the user's `role` and whether it is equal to `admin`.
 
 ```js
-// src/app/auth/auth.service.ts
+// src/Auth/Auth.js
 
-function getRole() {
-  var namespace = 'https://example.com';
-  var idToken = localStorage.getItem('id_token');
-  if (!idToken) return null;
-  return jwt_decode(idToken)[namespace + '/role'] || null;
+getRole() {
+  const namespace = 'https://example.com';
+  const idToken = localStorage.getItem('id_token');
+  return decode(idToken)[`${namespace}/role`] || null;
 }
 
-function isAdmin() {
-  return getRole() === 'admin';
+isAdmin() {
+  return this.getRole() === 'admin';
 }
 ``` 
 
 The `isAdmin` method can now be used alongside `isAuthenticated` to conditionally show and hide certain UI elements based on those two conditions.
 
-```html
-<!-- src/navbar/navbar.html -->
+```js
+// src/App.js
 
-<button
-  class="btn btn-primary btn-margin"
-  ng-if="vm.auth.isAuthenticated()
-  && vm.auth.isAdmin()"
-  ui-sref="admin">
-    Admin
-</button>
+class App extends Component {
+  // ...
+  render() {
+    const { isAuthenticated, isAdmin } = this.props.route.auth;
+
+    return (
+      <div>
+        // ...
+        {
+          isAuthenticated() && isAdmin() && (
+              <Button
+                bsStyle="primary"
+                className="btn-margin"
+                onClick={this.goTo.bind(this, 'admin')}
+              >
+                Admin Area
+              </Button>
+            )
+        }
+      </div>
+    );
+  }
+}
+
+export default App;
 ```
 
 <%= include('../../_includes/_authz_protect_client_routes') %>
 
-To prevent access to client-side routes based on a `role` completely, mark the routes you wish to protect with a flag of `requiresLogin: true`. To limit route access to users of a certain level, you may include the required `accessLevel`.
+To prevent access to client-side routes based on a `role` completely, create a function which checks whether the user has a `role` of `admin` and redirects them to the `home` route if they do not. Some of the routes in your application may only require that the user be authenticated. For these scenarios, you can provide a function which only checks whether the user is authenticated.
 
 ```js
-// app/app.run.js
+// src/routes.js
 
-(function () {
-
-  'use strict';
-
-  angular
-    .module('app', ['auth0.lock', 'angular-jwt', 'ui.router'])
-    .config(config);
-
-  config.$inject = [
-    '$stateProvider',
-    '$httpProvider',
-    'lockProvider',
-    'jwtOptionsProvider'
-  ];
-
-  function config(
-    $stateProvider,
-    $httpProvider,
-    lockProvider,
-    jwtOptionsProvider
-  ) {
-
-    $stateProvider
-      .state('home', {
-        url: '/',
-        controller: 'HomeController',
-        templateUrl: 'app/home/home.html',
-        controllerAs: 'vm'
-      })
-      .state('profile', {
-        url: '/profile',
-        controller: 'ProfileController',
-        templateUrl: 'app/profile/profile.html',
-        controllerAs: 'vm',
-        data: {
-          requiresLogin: true
-        }
-      })
-      .state('admin', {
-        url: '/admin',
-        controller: 'AdminController',
-        templateUrl: 'app/admin/admin.html',
-        controllerAs: 'vm',
-        data: { 
-          requiresLogin: true,
-          accessLevel: 'admin'
-        }
-      });
-    // ...
+const requireAuth = (nextState, replace) => {
+  if (!auth.isAuthenticated()) {
+    replace({ pathname: '/home' });
   }
+}
 
-})();
+const requireAdmin = (next, replace) => {
+  if (!auth.isAuthenticated() || !auth.isAdmin()) {
+    replace({ pathname: '/home' });
+  }
+}
+
+export const makeMainRoutes = () => {
+  return (
+    <Route path="/" component={App} auth={auth}>
+      <IndexRedirect to="/home" />
+      <Route path="home" component={Home} auth={auth} />
+      <Route path="profile" component={Profile} auth={auth} onEnter={requireAuth} />
+      <Route path="admin" component={Admin} auth={auth} onEnter={requireAdmin} />
+      <Route path="ping" component={Ping} auth={auth} onEnter={requireAuth} />
+      <Route path="callback" component={Callback} />
+    </Route>
+  );
+}
 ```
 
-> **Note:** The keys and values in the route definition `data` object are arbitrary. The shape of this information is at your discretion.
-
-Use the `$stateChangeStart` event in your application's `run` block to detect whether the route being requested has requires that the user be authenticated, and whether they need to have a certain role. If those conditions aren't satisfied, you may reroute the user to the main route, or somewhere for them to log in.
-
-```js
-(function () {
-
-  'use strict';
-
-  angular
-    .module('app')
-    .run(run);
-
-  run.$inject = ['$rootScope', '$location', 'authService'];
-    
-  function run($rootScope, $location, authService) {
-    // Handle the authentication
-    // result in the hash
-    authService.handleAuthentication();
-
-    $rootScope.$on('$stateChangeStart', function(event, toState) {
-      if (!toState.data) return;
-      
-      var isAuthenticated = authService.isAuthenticated();
-      var role = authService.getRole();
-      var requiresLogin = toState.data.requiresLogin;
-      var accessLevel = toState.data.accessLevel;
-
-      if (
-        (requiresLogin && !isAuthenticated) ||
-        (accessLevel && accessLevel !== role)
-      ) {
-        $location.path('/');
-      }
-    });
-
-  }
-
-})();
-```
-
-The user will now be redirected to the main route unless they have a `role` of `admin`.
+When an unauthenticated user tries to enter the `profile` or `ping` routes, they will be redirected to `home`. Similarly, if an authenticated user tries to access the `admin` route but doesn't have a `role` of `admin`, they will be redirected as well.
 
 <%= include('../../_includes/_authz_client_routes_disclaimer') %>
 
 <%= include('../../_includes/_authz_api_access_control') %>
 
 ```js
-// app/app.js
+// src/Auth/Auth.js
 
-// Initialization for the angular-lock library
-lockProvider.init({ ..., options: {
+lock = new Auth0Lock(..., {
+  // ...
+  auth: {
     // ...
-    auth: {
-      // ...
-      params: {
-        scope: 'openid profile read:messages'
-      }
+    params: { 
+      scope: 'openid profile read:messages' 
     }
   }
 });

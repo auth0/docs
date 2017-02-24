@@ -132,8 +132,8 @@ import { browserHistory } from 'react-router';
 import './App.css';
 
 class App extends Component {
-  goHome() {
-    browserHistory.replace('/home');
+  goTo(route) {
+    browserHistory.replace(`/${route}`)
   }
 
   login() {
@@ -157,7 +157,7 @@ class App extends Component {
             <Button
               bsStyle="primary"
               className="btn-margin"
-              onClick={this.goHome.bind(this)}
+              onClick={this.goTo.bind(this, 'home')}
             >
               Home
             </Button>
