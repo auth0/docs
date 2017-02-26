@@ -53,61 +53,61 @@ So, for example, if you want to achieve something like this:
 
 You will need to customize several parts. This is how you do it:
 
+1. Change the logo
 ```objc
-// 1. Change the logo:
 [theme registerImageWithName: @"custom-logo"
                       bundle: [NSBundle mainBundle]
                       forKey: A0ThemeIconImageName];
 ```
 
+2. Customize the 'Login' text appearance:
 ```objc
-/// 2. Customize the 'Login' text appearance:
 [theme registerColor: [UIColor whiteColor] forKey: A0ThemeTitleTextColor];
 [theme registerFont: [UIFont systemFontOfSize: 24] forKey: A0ThemeTitleFont];
 ```
 
+3. Customize the 'OR' text appearance:
 ```objc
-// 3. Customize the 'OR' text appearance:
 [theme registerColor: [UIColor whiteColor] forKey: A0ThemeSeparatorTextColor];
 [theme registerFont: [UIFont systemFontOfSize: 18] forKey: A0ThemeSeparatorTextFont];
 ```
 
+4. Customize the text fields:
 ```objc
-// 4. Customize the text fields:
 [theme registerColor: [self lightVioletColor] forKey: A0ThemeTextFieldIconColor];
 [theme registerColor: [self lightVioletColor] forKey: A0ThemeTextFieldPlaceholderTextColor];
 [theme registerColor: [UIColor whiteColor] forKey: A0ThemeTextFieldTextColor];
 [theme registerFont: [UIFont systemFontOfSize: 14] forKey: A0ThemeTextFieldFont];
 ```
 
+5. Customize the primary button (ACCESS):
 ```objc
-// 5. Customize the primary button (ACCESS):
 [theme registerColor: [UIColor whiteColor] forKey: A0ThemePrimaryButtonNormalColor];
 [theme registerColor: [self lightVioletColor] forKey: A0ThemePrimaryButtonHighlightedColor];
 [theme registerColor: [self darkVioletColor] forKey: A0ThemePrimaryButtonFont];
 [theme registerFont: [UIFont boldSystemFontOfSize: 20] forKey: A0ThemePrimaryButtonFont];
 ```
 
+6. Configure the secondary buttons (sign up / reset password):
 ```objc
-// 6. Configure the secondary buttons (sign up / reset password):
 [theme registerColor: [self lightVioletColor] forKey: A0ThemeSecondaryButtonBackgroundColor];
 [theme registerColor: [UIColor whiteColor] forKey: A0ThemeSecondaryButtonTextColor];
 ```
 
+7. Add a background image:
 ```objc
-// 7. Add a background image:
 [theme registerImageWithName:@"custom-background"
                       bundle:[NSBundle mainBundle]
                       forKey:A0ThemeScreenBackgroundImageName];
 ```
 
+8. Configure the X button:
 ```objc
-// 8. Configure the X button:
 [theme registerColor:[self lightVioletColor] forKey: A0ThemeCloseButtonTintColor];
 ```
 
+9. Configure the status bar:
 ```objc
-// 9. Configure the status bar:
 [theme setStatusBarStyle:UIStatusBarStyleLightContent];
 ```
 
