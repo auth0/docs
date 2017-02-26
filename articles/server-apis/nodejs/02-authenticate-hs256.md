@@ -14,6 +14,10 @@ description: This tutorial demonstrates how to verify an HS256-signed JSON Web T
   ]
 }) %>
 
+::: panel-warning Before Starting
+This tutorial demonstrates how to verify JSON Web Tokens (JWT) signed with the **HS256** algorithm. Check the signing algorithm used for your JWT by debugging it at [JWT.io](https://jwt.io) and checking the `alg` key in the `header`. If the algorithm is `HS256`, use this guide. If it is `RS256`, use the [RS256 guide](https://auth0.com/docs/quickstart/backend/nodejs/03-authenticate-rs256).
+:::
+
 ## Installation
 
 Install the **express-jwt** package.
