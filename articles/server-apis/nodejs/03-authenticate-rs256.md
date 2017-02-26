@@ -16,6 +16,10 @@ description: This tutorial demonstrates how to verify an RS256-signed JSON Web T
 
 To verify tokens signed with the RS256 algorithm, the remote JSON Web Key Set (JWKS) for your application must be consulted. This is handled with the **jwks-rsa** package.
 
+::: panel-warning Before Starting
+This tutorial demonstrates how to verify JSON Web Tokens (JWT) signed with the **RS256** algorithm. Check the signing algorithm used for your JWT by debugging it at [JWT.io](https://jwt.io) and checking the `alg` key in the `header`. If the algorithm is `RS256`, use this guide. If it is `HS256`, use the [HS256 guide](https://auth0.com/docs/quickstart/backend/nodejs/02-authenticate-hs256).
+:::
+
 ## Installation
 
 Install the **express-jwt** and **jwks-rsa** package.
