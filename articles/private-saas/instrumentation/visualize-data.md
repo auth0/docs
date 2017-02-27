@@ -1,5 +1,5 @@
 ---
-section: appliance
+section: private-saas
 description: This document covers how to visualize data gathered via Instrumentation.
 ---
 
@@ -12,16 +12,16 @@ Once you have enabled Instrumentation, you can access your data in one of two pl
 
 ## View Your Data in the Private SaaS Dashboard
 
-If you would like to see your data in the Private SaaS Dashboard, navigate to `https://<appliance_manage_domain>/configuration#/instrumentation` to access the graphs created from the data collected from your Private SaaS implementation.
+If you would like to see your data in the Private SaaS Dashboard, navigate to `https://<private-saas_manage_domain>/configuration#/instrumentation` to access the graphs created from the data collected from your Private SaaS implementation.
 
-![Private SaaS Instrumentation Dashboard](/media/articles/appliance/instrumentation/general-data.png)
+![Private SaaS Instrumentation Dashboard](/media/articles/private-saas/instrumentation/general-data.png)
 
 ## Access Your Data Directly from Grafana
 
 Each Private SaaS node has its own instances of Grafana, InfluxDB, and Telegraph. To access a given node's Grafana instance:
 
 1. Obtain the node's private IP address
-2. Using the private IP address, navigate to `https://<appliance_manage_domain>.com/grafana/<private_ip>`
+2. Using the private IP address, navigate to `https://<private-saas_manage_domain>.com/grafana/<private_ip>`
 
 ### Add Grafana Dashboards to the Instrumentation Page in the Private SaaS Dashboard
 
@@ -32,4 +32,4 @@ Once you have created your Grafana dashboards, tag them as `instrumentation` so 
 1. Navigate to the Grafana dashboard's *Settings > General* page.
 2. Add a tag to the appropriate Grafana dashboard called `instrumentation`.
 
-![Grafana Dashboard Settings Screen](/media/articles/appliance/instrumentation/tag-dashboard.png)
+![Grafana Dashboard Settings Screen](/media/articles/private-saas/instrumentation/tag-dashboard.png)

@@ -37,4 +37,4 @@ There are two ways of using this extension, they are described below:
 
 ### Observations
 
-This extension is not supported in the Appliance.
+This extension is not supported in Private SaaS implementations.

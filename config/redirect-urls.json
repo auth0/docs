@@ -137,7 +137,7 @@
   },
   {
     "from": "/updating-appliance",
-    "to": "/appliance/update"
+    "to": "/private-saas/update"
   },
   {
     "from": "/adldap-auth",
@@ -313,7 +313,7 @@
   },
   {
     "from": "/checksum",
-    "to": "/appliance/checksum"
+    "to": "/private-saas"
   },
   {
     "from": "/android-tutorial",
@@ -669,15 +669,15 @@
   },
   {
     "from": "/appliance/checksum",
-    "to": "/appliance"
+    "to": "/private-saas"
   },
   {
     "from": "/appliance/proxy-updater",
-    "to": "/appliance"
+    "to": "/private-saas"
   },
   {
     "from": "/appliance/update",
-    "to": "/appliance"
+    "to": "/private-saas"
   },
   {
     "from": "/enterprise-support",
@@ -1145,8 +1145,8 @@
     "to": "/libraries/lock-android/custom-authentication-providers"
   },
   {
-    "from": "/onboarding/appliance-outage",
-    "to": "/appliance/critical-issue"
+    "from": "/onboarding/private-saas-outage",
+    "to": "/private-saas/critical-issue"
   },
   {
     "from": "/libraries/lock/v10/custom-signup",
