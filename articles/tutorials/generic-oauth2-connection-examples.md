@@ -3,6 +3,10 @@ description: This document covers generic OAuth 1.0/2.0 examples.
 toc: true
 ---
 
+::: panel-info
+The preferred method for creating custom Social Connections is to use Auth0's [Custom Social Connections Extension](/extensions/custom-social-connections). The information contained below should be used for reference purposes only. 
+:::
+
 # Generic OAuth 1.0 and 2.0 Examples
 
 Adding [OAuth 1.0](/oauth1) and [OAuth 2.0](/oauth2) providers as Connections allow you to support providers that are not currently built-in to the [Auth0 Management Dashboard](${manage_url}), like [DigitalOcean](#digitalocean), [Tumblr](#tumblr), and more.
