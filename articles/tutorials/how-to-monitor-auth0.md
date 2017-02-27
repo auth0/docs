@@ -97,7 +97,7 @@ If you are seeing issues with your Auth0 service, but the monitoring endpoints a
 
 ## Monitoring a Dedicated Deployment
 
-Please see the [Appliance](/appliance) pages for [information on monitoring a dedicated deployment](/appliance/monitoring).
+Please see the [Private SaaS](/private-saas) pages for [information on monitoring a dedicated deployment](/private-saas/monitoring).
 
 ## Configure SCOM
 
@@ -141,7 +141,7 @@ To set up SCOM:
 
   Click **Next** to continue.
 
-5. Click **Run Test** to test each endpoint and ensure that the connection settings provided are correct.  
+5. Click **Run Test** to test each endpoint and ensure that the connection settings provided are correct.
 
 ![ss-2014-11-21T16-34-25.png](/media/articles/monitoring/ss-2014-11-21T16-34-25.png)
 

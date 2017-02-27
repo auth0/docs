@@ -24,7 +24,7 @@ For each type of email, you can customize the **From Address**, the **Subject**,
 Users will see the sender's address in the **From Address** field when receiving an email from Auth0. If you do not configure a **From Address** for your emails your emails will be sent from the email address of the first owner of your Auth0 account.
 
 ::: panel-info Domain blacklist
-For security purposes, you may not send customized emails from any `@auth0.com` address. If you are an appliance user, you may configure a similar domain blacklist.
+For security purposes, you may not send customized emails from any `@auth0.com` address. If you are a Private SaaS user, you may configure a similar domain blacklist.
 :::
 
 The **From Address** field supports the following macros:
@@ -176,7 +176,7 @@ The following macros are available in the **Verification Email** template:
 If you configure a **Redirect To** URL, the user will be directed to this URL after clicking the verification link. The following will be appended to the query string:
 
 ```text
-http://myapplication.com/my_page/ 
+http://myapplication.com/my_page/
   ?email=john%40contoso.com
   &message=Your%20email%20was%20verified.%20You%20can%20continue%20using%20the%20application.
   &success=true

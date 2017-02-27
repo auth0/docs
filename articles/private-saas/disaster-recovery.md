@@ -2,7 +2,7 @@
 description: High-level overview of disaster recovery options for Private SaaS
 ---
 
-# Appliance: Disaster Recovery
+# Private SaaS: Disaster Recovery
 
 When preparing for the possibility of issues with your Private SaaS implementation, your options depend on your tolerance for downtime. Below, you will find a discussion of the advantages and disadvantages associated with the various disaster recovery (DR) options available.
 
@@ -74,8 +74,8 @@ If you choose to use database backups as your DR strategy, please note that this
 * Recovering with a database backup requires the greatest amount of time.
 
 For more information, please see:
-* [Backing Up Private SaaS](/private-saas/admin/backing-up-the-private-saas-instances)
-* [Using the CLI to Backup Appliance](/private-saas/cli/backing-up-the-private-saas)
+* [Backing Up Private SaaS](/private-saas/admin/backing-up-private-saas)
+* [Using the CLI to Backup Private SaaS](/private-saas/cli/backing-up-private-saas)
 * [Adding an Private SaaS Node to the Backup Role](/private-saas/cli/adding-node-to-backup-role)
 
 **Note**: This option is available to Private SaaS on version **7247** or later.

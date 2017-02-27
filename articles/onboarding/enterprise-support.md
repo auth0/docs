@@ -1,5 +1,5 @@
 ---
-description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience. 
+description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience.
 ---
 
 # Enterprise Support Guidance
@@ -90,7 +90,7 @@ To speed resolution, please provide the following when logging an issue:
 * Screenshot of error message (if any)
 * HTTP trace in the form of a [.har file](/har)
 
-For Appliance Customers:
-* Appliance version/build number (top left hand corner of configuration screen on config tenant, e.g. https://yourmanage.yourdomain.com/configuration#/)
+For Private SaaS Customers:
+* Private SaaS version/build number (top left hand corner of configuration screen on config tenant, e.g. https://yourmanage.yourdomain.com/configuration#/)
 * Status of nodes https://yourmanage.yourdomain.com/configuration#/nodes
 * Status of health check https://yourmanage.yourdomain.com/configuration#/troubleshoot

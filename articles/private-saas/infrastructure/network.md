@@ -1,5 +1,5 @@
 ---
-section: appliance
+section: private-saas
 description: Private SaaS infrastructure information about Networks
 ---
 
@@ -23,7 +23,7 @@ For **multi-node** clusters, all virtual machines must be:
 
 > Production and non-Production (test/development) must be on completely isolated networks.
 
-For a full list of IP addresses, domains, and ports used by the Private SaaS clusters, as well as what they are used for, please see [Private SaaS Infrastructure: IP/Domain and Port List](/appliance/infrastructure/ip-domain-port-list).
+For a full list of IP addresses, domains, and ports used by the Private SaaS clusters, as well as what they are used for, please see [Private SaaS Infrastructure: IP/Domain and Port List](/private-saas/infrastructure/ip-domain-port-list).
 
 
 ## Internet Connectivity
@@ -41,7 +41,7 @@ DNS records are required for all Private SaaS implementations (development/test 
 * **webtask**: webtask DNS is used for web extensions and to use Webtasks externally;
 * **App Tenant**: the tenant on the Private SaaS created for your apps. It manages settings for your apps, user profiles, rules, etc. This is the tenant you will interact with primarily through the Management Dashboard and the API.
 
-Please refer to the [DNS page](/appliance/infrastructure/dns) for additional requirements.
+Please refer to the [DNS page](/private-saas/infrastructure/dns) for additional requirements.
 
 ## Load Balancers (for Multi-Node Clusters only)
 
