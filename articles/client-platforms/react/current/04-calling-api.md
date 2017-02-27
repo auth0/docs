@@ -17,7 +17,7 @@ budicon: 546
 
 ## Create a Modified Fetch Function
 
-Making an authenticated request from your React application requires that the `access_token` issued to the authenticated user be included. This can be done by adding an `Authorization` header to the request. The API or library used for making requests is at your discrection, but the example in this tutorial uses the Fetch API to demonstrate how to add this header.
+Making an authenticated request from your React application requires that the `access_token` issued to the authenticated user be included in the call. This can be done by adding an `Authorization` header to the request. The API or library used for making requests is at your discrection, but the example in this tutorial uses the Fetch API to demonstrate how to add this header.
 
 Add a method called `authFetch` to the `Auth` service. This method should return a `fetch` call and include the `access_token` if the user is authenticated.
 

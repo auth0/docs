@@ -1,0 +1,1 @@
+> **Note:** This example uses a simplistic and limited routing implementation which only conditionally hides and displays content based on a given "route". This is not intended to be a real routing mechanism. The routing library used in your own application is at your discretion.

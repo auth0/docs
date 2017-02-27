@@ -13,7 +13,7 @@ budicon: 292
   ]
 }) %>
 
-<%= include('../../_includes/_updating_user_preabmle') %>
+<%= include('../../_includes/_user_profile_preamble') %>
 
 ## Request the Profile Scope
 
