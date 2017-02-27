@@ -6,11 +6,11 @@
 
 articles:
 
-  - title: "Getting Started"
+  - title: Getting Started
     url: "/overview"
     children:
-      - title: "Overview"
-        url: "/overview"
+      - title: Overview
+        url: /overview
 
       - title: "Clients"
         url: "/clients"
@@ -18,11 +18,11 @@ articles:
       - title: "APIs"
         url: "/apis"
 
-      - title: "Developer Videos"
-        url: "/videos"
+      - title: Developer Videos
+        url: /videos
 
-      - title: "Architecture Scenarios"
-        url: "/architecture-scenarios"
+      - title: Architecture Scenarios
+        url: /architecture-scenarios
 
   - title: "Username/Password Connection"
     url: "/connections/database"
