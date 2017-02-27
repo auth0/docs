@@ -129,15 +129,16 @@ articles:
     url: "/addons"
 
   - title: "Passwordless Authentication"
-      children:
-        - title: "Overview"
-          url: "/connections/passwordless"
+    url: "/connections/passwordless"
+    children:
+      - title: "Overview"
+        url: "/connections/passwordless"
 
-        - title: "Email Passwordless Authentication"
-          url: "/passwordless/email"
+      - title: "Email Passwordless Authentication"
+        url: "/passwordless/email"
 
-        - title: "SMS Passwordless Authentication"
-          url: "/passwordless/sms"
+      - title: "SMS Passwordless Authentication"
+        url: "/passwordless/sms"
 
-        - title: "FAQ"
-          url: "/passwordless/faq"
+      - title: "FAQ"
+        url: "/passwordless/faq"
