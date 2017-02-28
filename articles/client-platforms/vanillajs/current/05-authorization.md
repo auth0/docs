@@ -1,15 +1,15 @@
 ---
 title: Calling an API
-description: This tutorial demonstrates how to add authorization and access control to a jQuery app with Auth0
+description: This tutorial demonstrates how to add authorization and access control to a JavaScript app with Auth0
 budicon: 546
 ---
 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-jquery-samples',
+  repo: 'auth0-javascript-samples',
   path: '05-Authorization',
   requirements: [
-    'jQuery 3.1'
+    'ECMAScript 5'
   ]
 }) %>
 
@@ -48,19 +48,12 @@ The `isAdmin` method can now be used alongside `isAuthenticated` to conditionall
 ```js
 // app.js
 
-function displayAsAdmin() {
-  // button to access admin content
-  $('#btn-admin').show();
-}
+var adminViewBtn = document.getElementById('btn-admin-view');
 
-if (isAuthenticated()) {
-  displayAsAuthenticated();
-  // ...
-} else {
-  displayAsNotAuthenticated();
-}
 if (isAdmin()) {
-  displayAsAdmin();
+  adminViewBtn.style.display = 'inline-block';
+} else {
+  adminViewBtn.style.display = 'none';
 }
 ```
 
