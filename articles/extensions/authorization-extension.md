@@ -1,4 +1,5 @@
 ---
+toc: true
 description: This page explains how to setup and manage the Authorization Extension v2.
 ---
 

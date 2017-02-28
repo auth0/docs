@@ -1,5 +1,6 @@
 ---
 title: Which OAuth 2.0 flow should I use?
+toc: true
 description: Helps the user identify the proper OAuth 2.0 grant for each use case.
 ---
 
