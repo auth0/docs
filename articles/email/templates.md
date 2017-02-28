@@ -137,6 +137,10 @@ For example, you can refer to attributes in the template to control flow as foll
 {% endif %}
 ```
 
+##### Debugging Liquid Template Variables
+
+To assist your template development, we've added a custom `{% debug %}` liquid tag, which outputs a summary of the template variables available to your template when it was rendered.  _Remember to remove this tag from any "live" templates._
+
 #### Using Markdown Syntax
 
 ::: panel-danger Deprecation Notice
