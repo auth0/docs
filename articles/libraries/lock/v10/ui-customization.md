@@ -41,7 +41,7 @@ var options = {
 ```
 
 ### Customizing Text
-The `languageDictionary` option allows customization of every piece of text displayed in the Lock. Defaults to {}. See below Language Dictionary Specification for the details.
+The `languageDictionary` option allows customization of every piece of text displayed in the Lock. Defaults to {}. See below for an example.
 
 ```js
 var options = {
@@ -51,6 +51,11 @@ var options = {
   },
 };
 ```
+
+::: panel-info Language Dictionary
+For a complete list of the items able to be customized using `languageDictionary`, see the [English Language Dictionary Specification](https://github.com/auth0/lock/blob/master/src/i18n/en.js) in the repository.
+:::
+
 ### Instantiating Lock
 Finally, you'll want to go ahead and instantiate your Lock, with the `options` object that you've defined with your custom options in it.
 
