@@ -137,7 +137,7 @@
   },
   {
     "from": "/updating-appliance",
-    "to": "/appliance/update"
+    "to": "/private-saas/update"
   },
   {
     "from": "/adldap-auth",
@@ -313,7 +313,7 @@
   },
   {
     "from": "/checksum",
-    "to": "/appliance/checksum"
+    "to": "/private-saas"
   },
   {
     "from": "/android-tutorial",
@@ -669,15 +669,15 @@
   },
   {
     "from": "/appliance/checksum",
-    "to": "/appliance"
+    "to": "/private-saas"
   },
   {
     "from": "/appliance/proxy-updater",
-    "to": "/appliance"
+    "to": "/private-saas"
   },
   {
     "from": "/appliance/update",
-    "to": "/appliance"
+    "to": "/private-saas"
   },
   {
     "from": "/enterprise-support",
@@ -1145,8 +1145,8 @@
     "to": "/libraries/lock-android/custom-authentication-providers"
   },
   {
-    "from": "/onboarding/appliance-outage",
-    "to": "/appliance/critical-issue"
+    "from": "/onboarding/private-saas-outage",
+    "to": "/private-saas/critical-issue"
   },
   {
     "from": "/libraries/lock/v10/custom-signup",
@@ -1311,6 +1311,233 @@
   {
     "from": "/libraries/lock-ios/use-your-own-ui",
     "to": "/libraries/lock-ios/v1/use-your-own-uis"
+  },
+  {
+    "from": "/appliance",
+    "to": "/private-saas"
+  },
+  {
+    "from": "/appliance/admin/backing-up-the-appliance-instances",
+    "to": "/private-saas/admin/backing-up-private-saas"
+  },
+  {
+    "from": "/appliance/admin/creating-tenants",
+    "to": "/private-saas/admin/creating-tenants"
+  },
+  {
+    "from": "/appliance/admin/disabling-sign-ups",
+    "to": "/private-saas/admin/disabling-sign-ups"
+  },
+  {
+    "from": "/appliance/admin",
+    "to": "/private-saas/admin"
+  },
+  {
+    "from": "/appliance/admin/inviting-coadmins",
+    "to": "/private-saas/admin/inviting-coadmins"
+  },
+  {
+    "from": "/appliance/admin/limiting-ssh-access",
+    "to": "/private-saas/admin/limiting-ssh-access"
+  },
+  {
+    "from": "/appliance/admin/managing-the-dashboard",
+    "to": "/private-saas/admin/managing-the-dashboard"
+  },
+  {
+    "from": "/appliance/admin/monitoring",
+    "to": "/private-saas/admin/monitoring"
+  },
+  {
+    "from": "/appliance/admin/updating-the-appliance",
+    "to": "/private-saas/admin/updating-private-saas"
+  },
+  {
+    "from": "/appliance/custom-domains",
+    "to": "/private-saas/custom-domains"
+  },
+  {
+    "from": "/appliance/cli/adding-node-to-backup-role",
+    "to": "/private-saas/cli/"
+  },
+  {
+    "from": "/appliance/cli/backing-up-the-appliance",
+    "to": "/private-saas/cli/backing-up-private-saas"
+  },
+  {
+    "from": "/appliance/cli/configure-cli",
+    "to": "/private-saas/cli/configure-cli"
+  },
+  {
+    "from": "/appliance/cli/reconfiguring-ip",
+    "to": "/private-saas/cli/reconfiguring-ip"
+  },
+  {
+    "from": "/appliance/custom-domains",
+    "to": "/private-saas/custom-domains"
+  },
+  {
+    "from": "/appliance/dashboard/activity",
+    "to": "/private-saas/dashboard/activity"
+  },
+  {
+    "from": "/appliance/dashboard/cli",
+    "to": "/private-saas/dashboard/cli"
+  },
+  {
+    "from": "/appliance/dashboard/nodes",
+    "to": "/private-saas/dashboard/nodes"
+  },
+  {
+    "from": "/appliance/dashboard/oss-components",
+    "to": "/private-saas/dashboard/oss-components"
+  },
+  {
+    "from": "/appliance/dashboard/rate-limiting",
+    "to": "/private-saas/dashboard/rate-limiting"
+  },
+  {
+    "from": "/appliance/dashboard/settings",
+    "to": "/private-saas/dashboard/settings"
+  },
+  {
+    "from": "/appliance/dashboard/tenants",
+    "to": "/private-saas/dashboard/tenants"
+  },
+  {
+    "from": "/appliance/dashboard/troubleshoot",
+    "to": "/private-saas/dashboard/troubleshoot"
+  },
+  {
+    "from": "/appliance/dashboard/updates",
+    "to": "/private-saas/dashboard/updates"
+  },
+  {
+    "from": "/appliance/geo-ha/disaster-recovery",
+    "to": "/private-saas/geo-ha/disaster-recovery"
+  },
+  {
+    "from": "/appliance/geo-ha/dr-overview",
+    "to": "/private-saas/geo-ha/dr-overview"
+  },
+  {
+    "from": "/appliance/geo-ha",
+    "to": "/private-saas/geo-ha"
+  },
+  {
+    "from": "/appliance/infrastrucutre/dns",
+    "to": "/private-saas/infrastrucutre/dns"
+  },
+  {
+    "from": "/appliance/infrastructure/extensions",
+    "to": "/private-saas/infrastructure/extensions"
+  },
+  {
+    "from": "/appliance/infrastructure/faq",
+    "to": "/private-saas/infrastructure/faq"
+  },
+  {
+    "from": "/appliance/infrastructure",
+    "to": "/private-saas/infrastructure"
+  },
+  {
+    "from": "/appliance/infrastructure/infrastructure-overview",
+    "to": "/private-saas/infrastructure/infrastructure-overview"
+  },
+  {
+    "from": "/appliance/infrastructure/installation",
+    "to": "/private-saas/infrastructure/installation"
+  },
+  {
+    "from": "/appliance/infrastructure/ip-domain-port-list",
+    "to": "/private-saas/infrastructure/ip-domain-port-list"
+  },
+  {
+    "from": "/appliance/infrastructure/network",
+    "to": "/private-saas/infrastructure/network"
+  },
+  {
+    "from": "/appliance/infrastructure/security",
+    "to": "/private-saas/infrastructure/security"
+  },
+  {
+    "from": "/appliance/infrastructure/virtual-machines",
+    "to": "/private-saas/infrastructure/virtual-machines"
+  },
+  {
+    "from": "/appliance/instrumentation/access-data",
+    "to": "/private-saas/instrumentation/access-data"
+  },
+  {
+    "from": "/appliance/instrumentation/add-grafana-users",
+    "to": "/private-saas/instrumentation/add-grafana-users"
+  },
+  {
+    "from": "/appliance/instrumentation/available-metrics",
+    "to": "/private-saas/instrumentation/available-metrics"
+  },
+  {
+    "from": "/appliance/instrumentation/components",
+    "to": "/private-saas/instrumentation/components"
+  },
+  {
+    "from": "/appliance/instrumentation",
+    "to": "/private-saas/instrumentation"
+  },
+  {
+    "from": "/appliance/instrumentation/visualize-data",
+    "to": "/private-saas/instrumentation/visualize-data"
+  },
+  {
+    "from": "/appliance/monitoring/authenticated-endpoints",
+    "to": "/private-saas/monitoring/authenticated-endpoints"
+  },
+  {
+    "from": "/appliance/monitoring",
+    "to": "/private-saas/monitoring"
+  },
+  {
+    "from": "/appliance/monitoring/testall",
+    "to": "/private-saas/monitoring/testall"
+  },
+  {
+    "from": "/appliance/clock",
+    "to": "/private-saas/clock"
+  },
+  {
+    "from": "/appliance/critical-issue",
+    "to": "/private-saas/critical-issue"
+  },
+  {
+    "from": "/appliance/dashboard",
+    "to": "/private-saas/dashboard"
+  },
+  {
+    "from": "/appliance/disaster-recovery",
+    "to": "/private-saas/disaster-recovery"
+  },
+  {
+    "from": "/appliance/extensions",
+    "to": "/private-saas/extensions"
+  },
+  {
+    "from": "/appliance/modules",
+    "to": "/private-saas/modules"
+  },
+  {
+    "from": "/appliance/private-cloud-requirements",
+    "to": "/private-saas/private-cloud-requirements"
+  },
+  {
+    "from": "/appliance/private-saas-overview",
+    "to": "/private-saas/private-saas-overview"
+  },
+  {
+    "from": "/appliance/raci",
+    "to": "/private-saas/raci"
+  },
+  {
+    "from": "/appliance/webtasks",
+    "to": "/private-saas/webtasks"
   }
-
 ]

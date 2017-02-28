@@ -7,7 +7,7 @@ toc: true
 
 The **Delegated Administration** extension allows you to expose the [Users Dashboard](${manage_url}/#/users) to a group of users, without having to provide access to them to the [dashboard](${manage_url}/#/). Instead the [Users Dashboard](${manage_url}/#/users) is exposed as an Auth0 client. Let's see how this is done.
 
-**NOTE**: This extension is available on the public cloud. On the [appliance](/appliance), it is available beginning with version 10755 when User search is enabled.
+**NOTE**: This extension is available on the Auth0 public cloud. For [Private Saas](/private-saas) customers, the extension is available beginning with version 10755 when User Search is enabled.
 
 ## Create a Client
 
@@ -16,7 +16,7 @@ Let's start with creating a new client application. Navigate to [Clients](${mana
 ![Create a Client](/media/articles/extensions/delegated-admin/create-client.png)
 
 Click on the *Settings* tab and set the **Allowed Callback URLs**. This varies based on your location.
- 
+
 | Location | Allowed Callback URL |
 | --- | --- |
 | USA | `https://${account.tenant}.us.webtask.io/auth0-delegated-admin/login` |

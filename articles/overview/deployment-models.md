@@ -1,4 +1,4 @@
----
+Private SaaS---
 description: This page explains the differences of the four different deployment models in which Auth0 is offered.
 ---
 
@@ -9,7 +9,7 @@ Auth0 is offered in 4 deployment models:
 1. As a __multi-tenant cloud service__ running on Auth0's cloud.
 2. As a __dedicated cloud service__ running on Auth0's cloud.
 3. As a __dedicated cloud service__ running on Customer's cloud infrastructure.
-4. As an __on-premises virtual appliance__ running on Customer's data centers.
+4. As an __on-premises Private SaaS__ running on Customer's data centers.
 
 The following table describes operational and feature differences between each of these models.
 
@@ -153,4 +153,4 @@ The following table describes operational and feature differences between each o
     </tbody>
 </table>
 
-<sup>*</sup>__NOTE:__ See the [Auth0 Appliance: Extensions page](/appliance/extensions) to learn more about configuring extensions with the Appliance.
+<sup>*</sup>__NOTE:__ See the [Auth0 Private SaaS: Extensions page](/private-saas/extensions) to learn more about configuring extensions with the Private SaaS.

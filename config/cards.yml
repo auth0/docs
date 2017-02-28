@@ -92,22 +92,22 @@
       url: "/api/management/v2"
       forceFullReload: true
 
-- id: "appliance"
-  title: "Appliance"
+- id: "private-saas"
+  title: "Private SaaS"
   icon: "icon-budicon-359"
   color: "pink"
   description: "Deploying and managing a private instance of Auth0."
-  url: "/appliance"
+  url: "/private-saas"
   articles:
 
-    - title: "Appliance Planning"
-      url: "/appliance/appliance-overview"
+    - title: "Private SaaS Planning"
+      url: "/private-saas/private-saas-overview"
 
     - title: Administrator's Manual
-      url: /appliance/admin
+      url: /private-saas/admin
 
     - title: Onboarding Process
-      url: /onboarding/appliance-sprint
+      url: /onboarding/private-saas-sprint
 
 - id: "extensibility"
   title: "Extensibility"

@@ -504,59 +504,59 @@ libraries:
   - title: "Auth0 SDK for Android"
     url: "/libraries/auth0-android"
 
-appliance:
+private-saas:
 
   - title: "Introduction"
-    url: "/appliance"
+    url: "/private-saas"
 
   - title: "Support"
-    url: "/appliance/critical-issue"
+    url: "/private-saas/critical-issue"
     expanded: true
     children:
       - title: Enterprise Support
         url: /onboarding/enterprise-support
       - title: Critical Issue
-        url: /appliance/critical-issue
+        url: /private-saas/critical-issue
 
-  - title: Appliance Planning
-    url: /appliance/appliance-overview
+  - title: Private SaaS Planning
+    url: /private-saas/private-saas-overview
     expanded: true
     children:
       - title: Overview
-        url: /appliance/appliance-overview
+        url: /private-saas/private-saas-overview
       - title: Geographic High-Availability
-        url: /appliance/geo-ha
+        url: /private-saas/geo-ha
       - title: Infrastructure Requirements
-        url: /appliance/infrastructure
+        url: /private-saas/infrastructure
       - title: Roles and Responsibilities
-        url: /appliance/raci
+        url: /private-saas/raci
       - title: Customer Onboarding
-        url: /onboarding/appliance-sprint
+        url: /onboarding/private-saas-sprint
       - title: Private Cloud Requirements
-        url: /appliance/private-cloud-requirements
+        url: /private-saas/private-cloud-requirements
 
-  - title: "Appliance Administration"
-    url: "/appliance/admin"
+  - title: "Private SaaS Administration"
+    url: "/private-saas/admin"
     expanded: true
     children:
       - title: Administrator's Manual
-        url: /appliance/admin
+        url: /private-saas/admin
       - title: Dashboard/Configuration Area
-        url: /appliance/dashboard
+        url: /private-saas/dashboard
       - title: Monitoring Tools
-        url: /appliance/monitoring
+        url: /private-saas/monitoring
       - title: Command-Line Interface Tools
-        url: /appliance/cli
+        url: /private-saas/cli
       - title: Automatic Tenant Creation
-        url: /appliance/admin/creating-tenants
+        url: /private-saas/admin/creating-tenants
       - title: Node Module Availibility
-        url: /appliance/modules
+        url: /private-saas/modules
       - title: Webtasks
-        url: /appliance/webtasks
+        url: /private-saas/webtasks
       - title: Extensions
-        url: /appliance/extensions
+        url: /private-saas/extensions
       - title: Disaster Recovery
-        url: /appliance/geo-ha/disaster-recovery
+        url: /private-saas/geo-ha/disaster-recovery
       - title: Release Notes
         url: https://auth0.com/changelog/appliance
         external: true
