@@ -79,6 +79,10 @@ This script connects to a **MySQL** database and executes a query to retrieve th
 
 If you are using [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product, [click here](/connections/database/db2-script) for a sample login script.
 
+::: panel-info
+You can use the `auth0-custom-db-testharness` [library](https://www.npmjs.com/package/auth0-custom-db-testharness) to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
+:::
+
 ### Database Field Requirements
 
 Of course, your custom database will need to have fields in it that will provide the information to populate user profiles. In the above example, the script is checking for an `id`, `nickname`, `email`, and `password`.

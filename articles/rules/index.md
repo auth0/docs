@@ -181,6 +181,10 @@ Use this to create the POST request:
 }
 ```
 
+::: panel-info
+You can use the `auth0-rules-testharness` [library](https://www.npmjs.com/package/auth0-rules-testharness) to deploy, execute, and test the output of Rules using a Webtask sandbox environment.
+:::
+
 ## Debugging
 
 You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${manage_url}/#/rules/create)  provides two ways for seeing the output:
