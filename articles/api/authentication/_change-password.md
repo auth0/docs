@@ -82,7 +82,6 @@ This endpoint only works for database connections.
 - If a password is provided, when the user clicks on the confirm password change link, the new password specified in this POST will be set for this user.
 - If a password is NOT provided, when the user clicks on the password change link they will be redirected to a page asking them for a new password.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
-- Auth0.js version 8 verifies ID tokens during authentication transactions. Only tokens which are signed with the `RS256` algorithm can be verified on the client side, meaning that your Auth0 client must be configured to sign tokens with `RS256`. See the [auth0.js migration guide](/libraries/auth0js/migration-guide#switching-from-hs256-to-rs256) for more details.
 
 
 ### More Information
