@@ -22,6 +22,11 @@ curl --request POST \
   --data '{"client_id":"${account.clientId}", "grant_type":"urn:ietf:params:oauth:grant-type:jwt-bearer", "id_token|refresh_token":"TOKEN", "target":"TARGET_CLIENT_ID", "scope":"openid", "api_type":"API_TYPE"}'
 ```
 
+```javascript
+// Delegation is not supported in version 8 of auth0.js.
+// For a version 7 sample refer to: https://auth0.com/docs/libraries/auth0js/v7#delegation-token-request
+```
+
 <%= include('../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/delegation",
@@ -64,6 +69,7 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 - The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
+- Delegation is __not supported__ in version 8 of [auth0.js](/libraries/auth0js). For a sample in version 7 of the library, refer to [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request).
 
 ### More Information
 - [Delegation Tokens](/tokens/delegation)
