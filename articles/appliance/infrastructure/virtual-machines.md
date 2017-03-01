@@ -22,10 +22,10 @@ When provisioning the Appliance from the templates, Auth0 recommends the followi
 * **Memory**: 16 GB RAM (8 GB RAM minimum);
 * **CPU**: 4 vCPU (2 vCPU minimum);
 * **Storage**:
-    * *For Non-Production Nodes*: 40 GB for system/operating system storage, 50 GB for data storage, and 50 GB for backup purposes (if you want to test the backup process).
+    * *For Non-Production Nodes*: 4 drives: 40 GB for system/operating system storage, 50 GB for data storage, 50 GB for User Search, and 50 GB for backup purposes (if you want to test the backup process).
     * *For three-node, high availability Production clusters*:
-        * Two of the virtual machines each should be allocated 40 GB for system/operating system storage and 100 GB for data storage;
-        * One virtual machine should be allocated 40 GB for system/operating system storage, 100 GB for data storage, and 100 GB for backup purposes.
+        * Two of the virtual machines with 3 drives: 40 GB for system/operating system storage, 100 GB for data storage, and 100 GB for User Search;
+        * One virtual machine with 4 drives: 40 GB for system/operating system storage, 100 GB for data storage, 100 GB for User Search, and 100 GB for backup purposes.
         * If you anticipate more than 10 million users, please let us know for additional storage requirements and considerations.
         * Drives should be thick provisioned.
 
