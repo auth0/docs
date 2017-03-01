@@ -77,6 +77,7 @@ articles:
     url: "/extensions/custom-social-extensions"
 
   - title: "Password Policies"
+    url: "/connections/database/password-options"
     children:
       - title: "Password Options"
         url: "/connections/database/password-options"
