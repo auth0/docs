@@ -63,6 +63,7 @@ articles:
         url: "/hooks/dashboard"
 
   - title: "Email"
+    url: "/email"
     children:
       - title: "Overview"
         url: "/email"
@@ -92,6 +93,7 @@ articles:
     url: "/user-profile/user-impersonation"
 
   - title: "Multifactor Authentication"
+    url: "/multifactor-authentication"
     children:
       - title: "Overview"
         url: "/multifactor-authentication"
