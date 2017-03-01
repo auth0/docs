@@ -27,6 +27,19 @@ Realms allow you to keep separate user directories and specify which one to use 
 
 For more information on how to implement this extension grant refer to [Executing a Resource Owner Password Grant > Realm Support](/api-auth/tutorials/password-grant#realm-support).
 
+### Rules
+
+[Rules](/rules) will run for the Password Exchange (including the Password Realm extension grant). There are two key differences in the behavior of rules in these flows:
+
+- Redirect rules won't work. If you try to do a [redirect](/rules/redirect) by specifying `context.redirect` in your rule, the authentication flow will return an error.
+- If you try to do MFA by specifying `context.multifactor` in your rule, the authentication flow will return an error. MFA support is coming soon, as noted below.
+
+If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then this is the indication that the rule is running during the password exchange.
+
+## MFA Support
+
+MFA support is coming soon.
+
 ## Use Case
 
 - Allow the Client to make calls to the Resource Server on behalf of the Resource Owner

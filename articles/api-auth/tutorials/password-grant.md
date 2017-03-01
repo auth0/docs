@@ -5,7 +5,7 @@ description: How to execute a Resource Owner Password Grant
 # Execute the Resource Owner Password Grant
 
 ::: panel-danger Warning
-Support for Rules and Refresh Tokens will be available in a future release.
+Support for Refresh Tokens will be available in a future release.
 :::
 
 ## Configure your tenant for the Resource Owner Password Grant
