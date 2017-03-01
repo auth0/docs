@@ -20,7 +20,7 @@ You can read more about database connections and the the options for using sever
 
 When a user authenticates via a custom database connection marked for import to Auth0, the following process takes place:
 
-![](/media/articles/connections/database/migrating-diagram.png)
+![Migration Diagram](/media/articles/connections/database/migrating-diagram.png)
 
 Auth0 authenticates migrated users against the Auth0 database. If the user has not been migrated, Auth0 executes your custom login script and, upon successfully log in, adds the user to the Auth0 database. Subsequent logins results in the user's credentials retrieved from Auth0, *not* your custom database.
 
@@ -36,19 +36,19 @@ You can create a new database connection in the [Connections > Database](${manag
 
 On the **Custom Database** page, enable the **Use my own database** option:
 
-![](/media/articles/connections/database/custom-database.png)
+![DB Login Page in Dashboard](/media/articles/connections/database/custom-database.png)
 
 ### 2. Turn on Automatic Migration
 
 On the **Settings** page for your database, enable the **Import Users to Auth0** option:
 
-![](/media/articles/connections/database/import-users.png)
+![Dashboard Import Users Option](/media/articles/connections/database/import-users.png)
 
 ### 3. Configure the Database Action Scripts
 
 On the **Custom Database** page, under *Database Action Scripts*, you will see the *Login* and *GetUser* scripts you need to configure.
 
-![](/media/articles/connections/database/import-scripts.png)
+![Database Action Scripts page](/media/articles/connections/database/import-scripts.png)
 
 These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. For more information on implementing these scripts, see [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql).
 
@@ -73,7 +73,7 @@ After you've enabled migration, you can verify the users that have migrated by:
 * Using the [List or search users](/api/v2#!/Users/get_users) Management API endpoint;
 * Reviewing the [Users](${manage_url}/#/users) list on the Dashboard.
 
-![](/media/articles/connections/database/migrated-users.png)
+![Database Users](/media/articles/connections/database/migrated-users.png)
 
 Once all your users are in the Auth0 database, you are ready to turn off the import users feature and convert the database to Auth0.
 
