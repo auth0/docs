@@ -16,6 +16,7 @@ curl --request GET \
 ```
 
 ```javascript
+// Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
@@ -25,8 +26,8 @@ curl --request GET \
 </script>
 
 webAuth.logout({
-  returnTo: 'some url here',
-  client_id: 'some client ID here'
+  returnTo: 'YOUR_LOGOUT_URL',
+  client_id: '${account.clientId}'
 });
 ```
 
@@ -64,6 +65,7 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 ### Remarks
 
 - Logging the user out of their identity provider is not common practice, so think about the user experience before you use the `federated` querystring parameter.
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 ### More Information
 
