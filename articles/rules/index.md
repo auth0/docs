@@ -26,7 +26,9 @@ Among many possibilities, Rules can be used to:
 * Enable counters or persist other information. (For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).)
 * Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
 
-**NOTE:** You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
+<div class="alert alert-info">
+You can find more examples of common Rules on Github at <a href="https://github.com/auth0/rules">auth0/rules</a>.
+</div>
 
 ## Video: Using Rules
 Watch this video learn all about rules in just a few minutes.
@@ -42,7 +44,9 @@ A Rule is a function with the following arguments:
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. (A complete list of context properties is available here: [Context Argument Properties in Rules](/rules/context).)
 * `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0 (or an error).
 
-**NOTE:** Because of the async nature of *node.js*, it is important to always call the `callback` function, or else the script will timeout.
+<div class="alert alert-info">
+Because of the async nature of Node.js, it is important to always call the <code>callback</code> function, or else the script will timeout.
+</div>
 
 ## Examples
 
@@ -60,7 +64,10 @@ function (user, context, callback) {
 }
 ```
 
-> **NOTE:** You can add `console.log` lines for [debugging](#debugging) or use the **Real-time Webtask Logs** Extension.
+<div class="alert alert-info">
+  You can add <code>console.log</code> lines for <a href="#debugging">debugging</a> or use the <a href="/extensions/realtime-webtask-logs">Real-time Webtask Logs Extension</a>.
+</div>
+
 
 ### Add roles to a user
 
@@ -120,7 +127,9 @@ After the rule executes, the output that the application will receive is the fol
 }
 ```
 
-> Properties added in a rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
+<div class="alert alert-info">
+Properties added in a rule are <strong>not persisted</strong> in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
+</div>
 
 ### Deny access based on a condition
 
@@ -138,9 +147,11 @@ function (user, context, callback) {
 
 This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
 
-> Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`.
+<div class="alert alert-info">
+  Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a <code>SAMLResponse</code>.
+</div>
 
-### Creating a new Rule using the Management API
+### Create a new Rule using the Management API
 
 Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](/api/management/v2#!/Rules/post_rules).
 
@@ -181,6 +192,10 @@ Use this to create the POST request:
 }
 ```
 
+<div class="alert alert-info">
+You can use the <a href="https://www.npmjs.com/package/auth0-custom-db-testharness">auth0-custom-db-testharness library</a> to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
+</div>
+
 ## Debugging
 
 You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${manage_url}/#/rules/create)  provides two ways for seeing the output:
@@ -208,7 +223,7 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
   This debugging method works for rules tried from the dashboard and those actually running during user authentication.
 
-## Caching expensive resources
+## Cache expensive resources
 
 The code sandbox Rules run on allows storing _expensive_ resources that will survive individual execution.
 
