@@ -17,23 +17,27 @@ curl --request GET \
 ```
 
 ```javascript
+// Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
+  // Initialize the Auth0 client
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-</script>
-
-webAuth.parseHash(window.location.hash, function(err, authResult) {
-  if (err) {
-    return console.log(err);
-  }
-
-  webAuth.client.userInfo(authResult.accessToken, function(err, user) {
-    // Now you have the user's information
+  
+  // Parse the URL and extract the access_token
+  webAuth.parseHash(window.location.hash, function(err, authResult) {
+    if (err) {
+      return console.log(err);
+    }
+    webAuth.client.userInfo(authResult.accessToken, function(err, user) {
+        // This method will make a request to the /userinfo endpoint 
+        // and return the user object, which contains the user's information, 
+        // similar to the response below.
+    });
   });
-});
+</script>
 ```
 
 > RESPONSE SAMPLE:
@@ -82,6 +86,15 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 ### Test with Postman
 
 <%= include('../../_includes/_test-with-postman') %>
+
+
+### Remarks
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
+- The auth0.js `parseHash` method, requires that your tokens are signed with `RS256`, rather than `HS256`. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
+
+
+### More Information
+- [Auth0.js v8 Reference: Extract the authResult and get user info](/libraries/auth0js#extract-the-authresult-and-get-user-info)
 
 
 ## Get Token Info
