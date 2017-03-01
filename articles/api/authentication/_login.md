@@ -15,6 +15,7 @@ GET https://${account.namespace}/authorize?
 ```
 
 ```javascript
+// Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
@@ -76,6 +77,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates on the provider, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### More Information
@@ -193,6 +195,7 @@ GET https://${account.namespace}/authorize?
 ```
 
 ```javascript
+// Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
@@ -262,6 +265,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 - The main difference between passive and active authentication is that the former happens in the browser through the [Auth0 Login Page](https://${account.namespace}/login) and the latter can be invoked from anywhere (a script, server to server, and so forth).
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### More Information
@@ -296,6 +300,7 @@ curl --request POST \
 ```
 
 ```javascript
+// Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
@@ -371,6 +376,7 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 
 - This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
 - The main difference between passive and active authentication is that the former happens in the browser through the [Auth0 Login Page](https://${account.namespace}/login) and the latter can be invoked from anywhere (a script, server to server, and so forth).
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### Error Codes
@@ -401,6 +407,7 @@ GET https://${account.namespace}/authorize?
 ```
 
 ```javascript
+// Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
@@ -423,15 +430,6 @@ webAuth.popup.loginWithCredentials({
   username: 'testuser',
   password: 'testpass',
   scope: 'openid'
-});
-
-// The client.login method allows for non redirect auth using custom database connections, using /oauth/token.
-webAuth.client.login({
-  realm: 'tests',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid profile',
-  audience: 'urn:test'
 });
 ```
 
@@ -472,6 +470,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 - Additional parameters can be sent that will be passed to the provider.
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 ### More Information
 
