@@ -21,31 +21,23 @@ curl --request POST \
 ```
 
 ```javascript
+// Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
+  
+  webAuth.signup({ 
+    connection: 'Username-Password-Authentication', 
+    email: $('.signup-email').val(), 
+    password: $('.signup-password').val()
+  }, function (err) { 
+    if (err) return alert('Something went wrong: ' + err.message); 
+      return alert('success signup without login!') 
+  });
 </script>
-
-<h2>Signup Database Connection</h2> 
-<input class="signup-username" /> 
-<input type="password" class="signup-password" /> 
-<input type="button" class="signup-db" value="Signup!" /> 
-<script type="text/javascript"> 
-    $('.signup-db').click(function (e) { 
-        e.preventDefault(); 
-        webAuth.signup({ 
-            connection: 'Username-Password-Authentication', 
-            email: $('.signup-email').val(), 
-            password: $('.signup-password').val()
-        }, function (err) { 
-            if (err) return alert('Something went wrong: ' + err.message); 
-            return alert('success signup without login!') 
-        }); 
-    }); 
-</script> 
 ```
 
 > RESPONSE SAMPLE:
@@ -82,6 +74,10 @@ This endpoint only works for database connections.
 ### Test with Postman
 
 <%= include('../../_includes/_test-with-postman') %>
+
+
+### Remarks
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### More Information
