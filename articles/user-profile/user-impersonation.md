@@ -37,8 +37,6 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 
 ![Links for User Impersonation](/media/articles/user-profile/signin-as-user-02.png)
 
-> Impersonating a user using the Dashboard will not return a [JWT](/jwt) to your application by default. To achieve this, call the [impersonation endpoint](/api/authentication/reference#impersonation) manually or in the [Advanced Settings](#advanced-settings). If you call the endpoint manually, add `additionalParameters.scope: "openid"` to the request body.
-
 <div class="alert alert-info">
 Impersonating a user using the Dashboard will not return a <a href="/jwt">JWT</a> to your application by default. To achieve this, call the <a href="/api/authentication/reference#impersonation">impersonation endpoint</a> manually or in the <a href="#advanced-settings">Advanced Settings</a>. If you call the endpoint manually, add <code>additionalParameters.scope: "openid"</code> to the request body.
 </div>
