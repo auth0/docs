@@ -4,6 +4,7 @@ toc: true
 url: /libraries/lock
 title: Lock for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
+img: media/articles/libraries/lock-web.png
 ---
 
 # Lock for Web
