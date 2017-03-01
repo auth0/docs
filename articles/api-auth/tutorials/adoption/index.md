@@ -52,6 +52,20 @@ of the following are true:
 If none of these conditions are met, the **legacy authentication
 pipeline** will be used, and everything will keep working as usual.
 
+## My application works just fine, why should I update?
+
+Any new Auth0 features, examples and documentation moving forward will
+target only the OIDC-conformant pipeline. All Auth0 SDK versions that
+depend on the legacy pipeline are deprecated and will not receive
+updates for new features or non-critical security issues, and will
+eventually be discontinued.
+
+The new features provided by the OIDC-conformant pipeline include:
+
+* [Create third-party clients for your APIs and display consent dialogs for authorization](/api-auth/user-consent)
+* Restrict the user profile information provided to clients upon authentication
+* [OIDC Dynamic Client Registration](/api-auth/dynamic-client-registration)
+
 ## Is there a deadline to adopt these new features?
 
 We understand that making changes to the core authentication logic of
@@ -65,19 +79,6 @@ All Auth0 documentation, SDKs, libraries and samples will eventually
 apply only to the OIDC-conformant pipeline. Because of this, we strongly
 recommend adoption even if you do not need to leverage any new features
 or functionality in the near future.
-
-## My application works just fine, why should I update?
-
-Complying with the OIDC specification means that your application will
-be more secure. The OIDC-conformant authentication pipeline includes
-security fixes for refresh tokens, state isolation and fine-grained
-authorization.
-
-Any new Auth0 features, examples and documentation moving forward will
-target only the OIDC-conformant pipeline. All Auth0 SDK versions that
-depend on the legacy pipeline are deprecated and will not receive
-updates for new features or non-critical security issues, and will
-eventually be discontinued.
 
 ## Compare differences between the two pipelines
 
