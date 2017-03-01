@@ -18,26 +18,27 @@ GET https://${account.namespace}/authorize?
 // Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
+  // Initialize client
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
+  
+  // Trigger login with google
+  webAuth.authorize({
+    connection: 'google-oauth2'
+  });
+
+  // Trigger login with github
+  webAuth.authorize({
+    connection: 'github'
+  });
+
+  // Trigger login popup with twitter
+  webAuth.popup.authorize({
+    connection: 'twitter'
+  });
 </script>
-
-//trigger login with google
-webAuth.authorize({
-  connection: 'google-oauth2'
-});
-
-//trigger login with github
-webAuth.authorize({
-  connection: 'github'
-});
-
-//trigger login popup with twitter
-webAuth.popup.authorize({
-  connection: 'twitter'
-});
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -303,36 +304,37 @@ curl --request POST \
 // Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
+  // Initialize client
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
+  
+  // Trigger login using redirect with credentials to enterprise connections 
+  webAuth.redirect.loginWithCredentials({
+    connection: 'Username-Password-Authentication',
+    username: 'testuser',
+    password: 'testpass',
+    scope: 'openid'
+  });
+
+  // Trigger login using popup mode with credentials to enterprise connections
+  webAuth.popup.loginWithCredentials({
+    connection: 'Username-Password-Authentication',
+    username: 'testuser',
+    password: 'testpass',
+    scope: 'openid'
+  });
+
+  // The client.login method allows for non redirect auth using custom database connections, using /oauth/token.
+  webAuth.client.login({
+    realm: 'tests',
+    username: 'testuser',
+    password: 'testpass',
+    scope: 'openid profile',
+    audience: 'urn:test'
+  });
 </script>
-
-//trigger login using redirect with credentials to enterprise connections 
-webAuth.redirect.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-});
-
-//trigger login using popup mode with credentials to enterprise connections
-webAuth.popup.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-});
-
-// The client.login method allows for non redirect auth using custom database connections, using /oauth/token.
-webAuth.client.login({
-  realm: 'tests',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid profile',
-  audience: 'urn:test'
-});
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -410,27 +412,28 @@ GET https://${account.namespace}/authorize?
 // Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
+  // Initialize client
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
+  
+  // Trigger login using redirect with credentials to enterprise connections 
+  webAuth.redirect.loginWithCredentials({
+    connection: 'Username-Password-Authentication',
+    username: 'testuser',
+    password: 'testpass',
+    scope: 'openid'
+  });
+
+  // Trigger login using popup mode with credentials to enterprise connections
+  webAuth.popup.loginWithCredentials({
+    connection: 'Username-Password-Authentication',
+    username: 'testuser',
+    password: 'testpass',
+    scope: 'openid'
+  });
 </script>
-
-//trigger login using redirect with credentials to enterprise connections 
-webAuth.redirect.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-});
-
-//trigger login using popup mode with credentials to enterprise connections
-webAuth.popup.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-});
 ```
 
 <%= include('../../_includes/_http-method', {
