@@ -138,10 +138,10 @@ articles:
         url: "/connections/passwordless"
 
       - title: "Email Passwordless Authentication"
-        url: "/passwordless/email"
+        url: "/connections/passwordless/email"
 
       - title: "SMS Passwordless Authentication"
-        url: "/passwordless/sms"
+        url: "/connections/passwordless/sms"
 
       - title: "FAQ"
-        url: "/passwordless/faq"
+        url: "/connections/passwordless/faq"
