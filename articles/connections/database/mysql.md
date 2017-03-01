@@ -29,9 +29,9 @@ Click **Custom Database** and turn on the **Use my own database** switch.
 
 You have to provide a login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
 
-::: panel-info Note
-When creating users, Auth0 calls the `get_user` script before the `create` script. Be sure that you have implemented both.
-:::
+<div class="alert alert-info">
+  When creating users, Auth0 calls the <code>get_user</code> script before the <code>create</code> script. Be sure that you have implemented both.
+</div>
 
 These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 
@@ -79,9 +79,9 @@ This script connects to a **MySQL** database and executes a query to retrieve th
 
 If you are using [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product, [click here](/connections/database/db2-script) for a sample login script.
 
-::: panel-info
-You can use the `auth0-custom-db-testharness` [library](https://www.npmjs.com/package/auth0-custom-db-testharness) to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
-:::
+<div class="alert alert-info">
+You can use the <a href="https://www.npmjs.com/package/auth0-custom-db-testharness">auth0-custom-db-testharness library</a> to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
+</div>
 
 ### Database Field Requirements
 
