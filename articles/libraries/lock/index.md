@@ -51,7 +51,7 @@ Include via our CDN:
 If you are targeting mobile audiences, Auth0 recommends that you add the following meta tag to your application's `head`:
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 ```
 
 ### Bundling Dependencies
