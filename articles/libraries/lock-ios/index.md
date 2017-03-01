@@ -4,6 +4,7 @@ toc: true
 url: /libraries/lock-ios
 title: Lock v2 for iOS and macOS
 description: A widget that provides a frictionless login and signup experience for your native iOS and macOS apps.
+mobileimg: media/articles/libraries/lock-ios.png
 ---
 
 # Lock v2 for iOS and macOS
