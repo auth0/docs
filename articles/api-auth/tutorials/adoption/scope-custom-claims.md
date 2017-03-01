@@ -9,7 +9,7 @@ User profile claims and scope
 
 The [behavior of the `scope` parameter has also been changed to conform to the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims).
 Instead of requesting arbitrary application-specific claims, clients can
-request any of the standard OIDC scopes such as `profile` and `email`, as well as any [scopes supported by a resource server](/api-auth/tutorials/migration/api-tokens).
+request any of the standard OIDC scopes such as `profile` and `email`, as well as any [scopes supported by a resource server](/api-auth/tutorials/adoption/api-tokens).
 
 Standard claims
 ---------------

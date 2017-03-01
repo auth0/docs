@@ -80,7 +80,7 @@ in many cases it’s desirable to retrieve additional user information at
 the API, this token is also valid for calling the /userinfo API, which
 will return the user’s profile information.
 
-[Note that the `scope` parameter has a different behavior than in the legacy pipeline](/api-auth/tutorials/migration/scope-custom-claims).
+[Note that the `scope` parameter has a different behavior than in the legacy pipeline](/api-auth/tutorials/adoption/scope-custom-claims).
 It determines the permissions that an authorized client should have for
 a given resource server (OAuth authorization), as well as which standard
 profile claims should be included in the ID token (OIDC authentication),

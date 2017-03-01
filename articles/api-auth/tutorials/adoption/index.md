@@ -1,10 +1,10 @@
 ---
-url: /api-auth/tutorials/migration
-title: OIDC-conformant authentication migration guide
+url: /api-auth/tutorials/adoption
+title: OIDC-conformant authentication adoption guide
 ---
 
-OIDC-conformant authentication migration guide
-==============================================
+OIDC-conformant authentication adoption guide
+=============================================
 
 Auth0 is a [certified OpenID Connect (OIDC)
 provider](http://openid.net/certification/), but not all Auth0
@@ -18,7 +18,7 @@ Authorization](/api-auth), which is available
 today.
 
 This guide details all the upcoming changes, **some of which will be
-breaking**, and provides suggestions on how to migrate your existing
+breaking**, and provides suggestions on how to adapt your existing
 applications.
 
 ## Who is this guide for?
@@ -52,7 +52,7 @@ of the following are true:
 If none of these conditions are met, the **legacy authentication
 pipeline** will be used, and everything will keep working as usual.
 
-## Is there a deadline?
+## Is there a deadline to adopt these new features?
 
 We understand that making changes to the core authentication logic of
 your application is not something that you want to do every day, and
@@ -63,7 +63,7 @@ until further notice.
 
 All Auth0 documentation, SDKs, libraries and samples will eventually
 apply only to the OIDC-conformant pipeline. Because of this, we strongly
-recommend migrating even if you do not need to leverage any new features
+recommend adoption even if you do not need to leverage any new features
 or functionality in the near future.
 
 ## My application works just fine, why should I update?

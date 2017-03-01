@@ -4,7 +4,7 @@ title: User consent and third-party clients
 
 # User consent and third-party clients
 
-The [OIDC-conformant authentication pipeline](/api-auth/tutorials/migration) supports defining [resource servers (i.e. APIs) as entities separate from clients](/api-auth/tutorials/migration/api-tokens).
+The [OIDC-conformant authentication pipeline](/api-auth/tutorials/adoption) supports defining [resource servers (i.e. APIs) as entities separate from clients](/api-auth/tutorials/adoption/api-tokens).
 This lets you decouple APIs from the applications that consume them, and also lets you define third-party clients that you might not control or even fully trust.
 
 ## Consent dialog
