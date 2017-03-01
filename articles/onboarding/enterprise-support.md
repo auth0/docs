@@ -1,4 +1,6 @@
 ---
+toc: true
+section: appliance
 description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience. 
 ---
 

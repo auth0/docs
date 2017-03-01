@@ -1,4 +1,5 @@
 ---
+toc: true
 description: Client-side SSO with single page applications.
 ---
 
