@@ -33,41 +33,42 @@ curl --request POST \
 // Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
+  // Initialize client
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
+  
+  // Send a verification code using email
+  webAuth.passwordlessStart({
+      connection: 'email',
+      send: 'code',
+      email: 'USER_EMAIL'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
+
+  // Send a link using email
+  webAuth.passwordlessStart({
+      connection: 'email',
+      send: 'link',
+      email: 'USER_EMAIL'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
+
+  // Send a verification code using SMS
+  webAuth.passwordlessStart({
+      connection: 'sms',
+      send: 'code',
+      phoneNumber: 'USER_PHONE_NUMBER'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
 </script>
-
-// Send a verification code using email
-webAuth.passwordlessStart({
-    connection: 'email',
-    send: 'code',
-    email: 'USER_EMAIL'
-  }, function (err,res) {
-    // handle errors or continue
-  }
-);
-
-// Send a link using email
-webAuth.passwordlessStart({
-    connection: 'email',
-    send: 'link',
-    email: 'USER_EMAIL'
-  }, function (err,res) {
-    // handle errors or continue
-  }
-);
-
-// Send a verification code using SMS
-webAuth.passwordlessStart({
-    connection: 'sms',
-    send: 'code',
-    phoneNumber: 'USER_PHONE_NUMBER'
-  }, function (err,res) {
-    // handle errors or continue
-  }
-);
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -147,41 +148,42 @@ curl --request POST \
 // Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
+  // Initialize client
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
+  
+  // Verify code sent via email
+  webAuth.passwordlessVerify({
+      connection: 'email',
+      email: 'USER_EMAIL',
+      verificationCode: 'VERIFICATION_CODE_SENT'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
+
+  // Verify code sent within link using email
+  webAuth.passwordlessVerify({
+      connection: 'email',
+      email: 'USER_EMAIL',
+      verificationCode: 'VERIFICATION_CODE_SENT_WITHIN_LINK'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
+
+  // Verify code sent via SMS
+  webAuth.passwordlessVerify({
+      connection: 'sms',
+      phoneNumber: 'USER_PHONE_NUMBER',
+      verificationCode: 'VERIFICATION_CODE_SENT'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
 </script>
-
-// Verify code sent via email
-webAuth.passwordlessVerify({
-    connection: 'email',
-    email: 'USER_EMAIL',
-    verificationCode: 'VERIFICATION_CODE_SENT'
-  }, function (err,res) {
-    // handle errors or continue
-  }
-);
-
-// Verify code sent within link using email
-webAuth.passwordlessVerify({
-    connection: 'email',
-    email: 'USER_EMAIL',
-    verificationCode: 'VERIFICATION_CODE_SENT_WITHIN_LINK'
-  }, function (err,res) {
-    // handle errors or continue
-  }
-);
-
-// Verify code sent via SMS
-webAuth.passwordlessVerify({
-    connection: 'sms',
-    phoneNumber: 'USER_PHONE_NUMBER',
-    verificationCode: 'VERIFICATION_CODE_SENT'
-  }, function (err,res) {
-    // handle errors or continue
-  }
-);
 ```
 
 <%= include('../../_includes/_http-method', {
