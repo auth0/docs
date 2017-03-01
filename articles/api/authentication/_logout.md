@@ -19,16 +19,17 @@ curl --request GET \
 // Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
+  // Initialize client
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
+  
+  webAuth.logout({
+    returnTo: 'YOUR_LOGOUT_URL',
+    client_id: '${account.clientId}'
+  });
 </script>
-
-webAuth.logout({
-  returnTo: 'YOUR_LOGOUT_URL',
-  client_id: '${account.clientId}'
-});
 ```
 
 <%= include('../../_includes/_http-method', {
