@@ -28,9 +28,7 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-</script>
-
-$('.change_password').click(function () {
+  
   webAuth.changePassword({
     connection: 'CONNECTION',
     email:   'EMAIL'
@@ -40,9 +38,8 @@ $('.change_password').click(function () {
     }else{
       console.log(resp);
     }
-
   });
-});
+</script>
 ```
 
 <%= include('../../_includes/_http-method', {
