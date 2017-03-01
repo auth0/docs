@@ -12,3 +12,5 @@ If you want to unlock the new API Authorization scenario, you will need to enabl
   ![OAuth 2.0 API Authorization flag](/media/articles/api-auth/account-settings.png)
 
 You will now see that the API section is displayed on your sidebar.
+
+**NOTE**: For docs on the new API Authorization flows refer to [API Authorization](/api-auth).

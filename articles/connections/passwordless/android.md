@@ -6,5 +6,5 @@ title: Using Passwordless Authentication on Android
 
 ## Tutorials for Android
 
- - [Authenticate users with a one-time code via SMS](android-sms)
- - [Authenticate users with a one-time code via e-mail](android-email)
+ - [Authenticate users with a one-time code via SMS](/connections/passwordless/android-sms)
+ - [Authenticate users with a one-time code via e-mail](/connections/passwordless/android-email)

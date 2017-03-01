@@ -19,7 +19,7 @@ This tutorial will show you how to use Lock to get the user's profile data in yo
 
 ## Before Starting
 
-Be sure that you have completed the [Basic Login](01-login) and the [Session Handling](03-session-handling) Quickstarts.
+Be sure that you have completed the [Basic Login](/quickstart/native/android/01-login) and the [Session Handling](/quickstart/native/android/03-session-handling) Quickstarts.
 
 ## Request User Data
 
@@ -27,7 +27,7 @@ The first step is to instantiate the authentication API client. This will be use
 
 ```java
 AuthenticationAPIClient client = new AuthenticationAPIClient(
-new Auth0(${account.clientId}, ${account.namespace}));
+new Auth0("${account.clientId}", "${account.namespace}"));
 ```
 
 > It's suggested that you add both the `Auth0DomainID` and `Auth0ClientID` to the `strings.xml` file rather than hardcode them in the manifest.

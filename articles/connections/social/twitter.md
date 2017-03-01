@@ -10,6 +10,8 @@ index: 8
 
 To connect your Auth0 client to Twitter, you will need to generate *Consumer* and *Secret* Keys in a Twitter application, copy these into your Auth0 settings, and enable the connection.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## Create a Twitter application
 
 1. Login to [Twitter Application Management](https://apps.twitter.com/).
@@ -62,7 +64,7 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
 ## Test your connection
 
-1. Go back to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard. If you have configured your app correctly, you will see a **Try** icon next to the Twitter logo:
+1. Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard. If you have configured your app correctly, you will see a **Try** icon next to the Twitter logo:
 
     ![](/media/articles/connections/social/twitter/twitter-api-7.png)
 
@@ -93,3 +95,5 @@ To generate an Access Token and Secret:
     ![](/media/articles/connections/social/twitter/twitter-api-11.png)
 
 **NOTE**: You can also regenerate or revoke your Access Token and Secret in case they have been compromised.
+
+<%= include('../_quickstart-links.md') %>

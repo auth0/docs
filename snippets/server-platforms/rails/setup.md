@@ -5,7 +5,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     '${account.clientId}',
     '${account.clientSecret}',
     '${account.namespace}',
-    callback_path: "/auth/auth0/callback"
+    callback_path: "/auth/oauth2/callback"
   )
 end
 ```

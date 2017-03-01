@@ -20,7 +20,7 @@ GET https://${account.namespace}/authorize?
 }) %>
 
 ::: panel-danger Deprecation Notice
-This endpoint is deprecated. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead.
+This endpoint is deprecated for account linking. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations#account-linking-removal).
 :::
 
 Call this endpoint when a user wants to link a second authentication method (for example, a user/password database connection, with Facebook).
@@ -109,6 +109,11 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 |:-----------------|:------------|
 | `access_token`<br/><span class="label label-danger">Required</span>   | The logged-in user's `access token` |
 | `user_id`<br/><span class="label label-danger">Required</span>        | The logged-in user's `user_id` |
+
+
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
 
 
 ### More Information

@@ -67,21 +67,13 @@ First, add the `AUTH_PROVIDERS` from angular-jwt:
 ```typescript
 // app/app.module.ts
 
-import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  providers: [
-    // ...
-    AUTH_PROVIDERS,
-    // ...
-  ],
-  imports: [
-    // ...
-  ],
+  // ...
   bootstrap: [AppComponent]
 })
 ```

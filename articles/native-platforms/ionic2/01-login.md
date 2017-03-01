@@ -8,15 +8,12 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ionic2-samples',
-  path: '01-Login'
+  path: '01-Login',
+  requirements: [
+    'Ionic 2.0.0-rc.0',
+    'Angular 2+'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 6.3.0
-* Ionic 2.0.0-rc.0
-* Angular 2.0.0
-:::
 
 ## Set Up the Callback URL
 

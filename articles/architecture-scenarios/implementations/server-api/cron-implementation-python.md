@@ -23,10 +23,10 @@ def main():
   import json, urllib, urllib2
 
   # Configuration Values
-  DOMAIN = "YOUR-AUTH0-DOMAIN"
+  DOMAIN = "${account.namespace}"
   AUDIENCE = "YOUR_API_IDENTIFIER"
-  CLIENT_ID = "YOUR_CLIENT_ID"
-  CLIENT_SECRET = "YOUR_CLIENT_SECRET"
+  CLIENT_ID = "${account.clientId}"
+  CLIENT_SECRET = "${account.clientSecret}"
   API_URL = "http://localhost:8080/timesheet"
   GRANT_TYPE = "client_credentials" # OAuth 2.0 flow to use
 

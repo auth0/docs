@@ -4,7 +4,7 @@ description: Step 5 of Amazon API Gateway Tutorial
 ---
 
 # AWS API Gateway Tutorial
-## Step 5 - Using Identity Tokens to Flow Identity
+## Step 5 - Use Identity Tokens to Flow Identity
 
 In this final step, you will:
 
@@ -14,22 +14,22 @@ In this final step, you will:
 
 ## Use an Identity Token
 
-Often, you will want to use your Lambda function to process the user's role based on the user's identity. For example, during a purchasing transaction, you retrieved the username from the profile returned with the identity token.
+You can use your Lambda function to process and obtain information about the user. For example, during a purchasing transaction, you retrieved the username from the profile returned with the identity token. However, you can also choose to have the user's information embedded with the identity itself, which is a JSON Web Token (JWT).
 
-Alternatively, you can choose to have the user's information embedded with the identity itself, which is a JSON Web Token (JWT). The advantage of this method is that you can:
+The advantages of using JWTs is that you can:
 
 1. Verify the authenticity of the JWT;
 2. Be sure that the calling user is authenticated (instead of relying on a plain-text parameter that could have been tampered with).
 
-In addition, you can use the JWT for authorization, allowing you to bypass the IAM integration with Amazon API Gateway. The caveat to this, however, is that using the API Gateway for authorization allows you to halt the API call prior to invocation of your Lambda function.
+In addition, you can use the JWT for authorization, which allows you to bypass the IAM integration with Amazon API Gateway. Please note, however, that using the API Gateway for authorization allows you to halt the API call prior to invocation of your Lambda function.
 
 ![AWS Identity Flow](/media/articles/integrations/aws-api-gateway/identity-flow.png)
 
-### Adding Email Information to the JWT
+### Add Information to the JWT
 
-There are several ways of adding a user's email address to the JWT.
+There are several ways of adding a user's information to the JWT. The following example adds the user's email address to the JWT, but the concepts are same for other user datapoints.
 
-#### Using Rules
+#### Use Rules
 
 One way to add a user's email address to the JWT is to use a [rule](/rules). This is a good approach if you want to make sure that this value is always available in the JWT for an authenticating user.
 
@@ -53,7 +53,7 @@ While you can include the full profile of the user within the JWT, you will want
 
 ## Validate the JWT Token
 
-Because the AWS Lambda console has access to a limited number of Node modules that can be accessed when you enter your Node.js code using the browser console, you'll need to include additional modules and upload the Lambda function as a package to process the identity token.
+Because the AWS Lambda console has access to a limited number of Node modules that can be used when you enter your Node.js code using the browser console, you'll need to include additional modules and upload the Lambda function as a package to process the identity token.
 
 > For additional details, see [Creating Deployment Packages using Node.js](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) and [Uploading Deployment Packages and Testing](http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-upload-zip-test.html).
 
@@ -113,7 +113,9 @@ Take a look at the logic in `index.js`. You will see logic around line 60 that v
 
 ### Extract Profile Information to Assign a Buyer
 
-The final step is to pass the JWT to the method used by the browser client. The standard method comes with an `Authorization` header as a *bearer* token, and you can use this method by turning off IAM authorization and relying solely on the OpenID token for authorization (you will also need to map the Authorization header into the event data passed to the AWS Lambda function).
+The final step is to pass the JWT to the method used by the browser client.
+
+The standard method comes with an `Authorization` header as a *bearer* token, and you can use this method by turning off IAM authorization and relying solely on the OpenID token for authorization (you will also need to map the Authorization header into the event data passed to the AWS Lambda function).
 
 If, however, you are using IAM, then the AWS API Gateway uses the `Authorization` header to contain the signature of the message, and you will break the authentication by inserting the JWT into this header. To do this, you can either:
 

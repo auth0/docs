@@ -93,7 +93,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
   </tr>
   <tr>
     <td>Command Line Interface</td>
-    <td>Inbound</td>
+    <td>Inbound <b>and</b> Outbound</td>
     <td>CLI Clients (often on the internal network)</td>
     <td>10121</td>
     <td>Allows use of the Appliance Command Line Interface</td>
@@ -116,7 +116,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
-    <td>Updates</td>
+    <td>Updates and web extensions</td>
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
@@ -124,7 +124,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
-    <td>GitHub</td>
+    <td>Examples</td>
     <td>Outbound</td>
     <td>github.com</td>
     <td>443</td>

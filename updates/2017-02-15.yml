@@ -1,0 +1,18 @@
+changed:
+  -
+    title: "Updated Auth0 Management APIv2 Token doc"
+    tags:
+      - apiv2
+      - token
+    description: |
+      New version of the [Auth0 Management APIv2 Token](https://auth0.com/docs/api/management/v2/tokens) has been released.
+
+added:
+  -
+    title: "Added Change or Upgrade Your Auth0 Subscription"
+    tags:
+      - tutorial
+      - accounts
+      - subscriptions
+    description: |
+      A [new doc](https://auth0.com/docs/support/subscription) was added showing how to upgrade or change your Auth0 subscription.

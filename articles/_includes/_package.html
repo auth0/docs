@@ -15,8 +15,13 @@
       <% } %>
     </div>
     <div class="package-buttons">
+      <% if (typeof branch !== 'undefined') { %>
+      <a href="/package/v2?org=${org}&repo=${repo}&branch=${branch}&path=${path}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download</a>
+      <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/${branch}/${path}" class="github-link" rel="nofollow">Fork on Github</a>
+      <% } else { %>
       <a href="/package/v2?org=${org}&repo=${repo}&path=${path}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download</a>
       <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/master/${path}" class="github-link" rel="nofollow">Fork on Github</a>
+      <% } %>
     </div>
   </div>
   <% if (typeof requirements !== 'undefined') { %>

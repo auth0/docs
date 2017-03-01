@@ -1,5 +1,6 @@
 ---
 description: How to configure a Custom Social Connection to your Auth0 app.
+toc: true
 ---
 
 # Auth0 Extension: Custom Social Connections
@@ -22,9 +23,9 @@ You will be asked to authorize the Custom Social Connections app. After you do s
 
 ![](/media/articles/extensions/custom-social-connections.png)
 
-Click the slider next to the social provider you want to set up. The slider will turn from grey to green, indicating that a connection to that provider exists.
+Click the slider next to the social provider you want to set up. The slider will turn from grey to green, indicating that a connection to that provider exists. For additional information on how each individual provider handles authentication, see that provider's documentation.
 
-### Configuring Social Connection Settings
+### Configure the Social Connection Settings
 
 The **New Connection** window contains two tabs: **Settings** and **Apps**:
 
@@ -40,7 +41,7 @@ The Settings page is used to provide the information required to set up the soci
 - __Authorization URL__: The URL where the transaction begins and authorization occurs;
 - __Token URL__: The URL used to exchange the code generated from the information you provide for an access_token;
 - __Scope__: The scope parameters for which you want access rights;
-- __Fetch User Profile Script__: The function that returns the user profile and associated information.
+- __Fetch User Profile Script__: The JS function that returns the user profile and associated information. It will be auto-generated with the appropriate fields depending on the chosen provider.
 - __Custom Headers__: An optional JSON object that lets you provide custom headers to be included in the HTTP calls to the provider. Should be in the format of:
 
 ```
@@ -60,6 +61,15 @@ Once you have successfully configured the connection, you will be presented with
 Using the slider, enable this social connection for the apps that you want to use it with.
 
 Once you have enabled/disabled the appropriate apps, click **Save**.
+
+### Provide your Callback URL to the Identity Provider
+
+The callback URL is the URL that is invoked by the provider after the authentication request has finished.
+
+Use this value for the **Callback URL**:
+`https://${account.namespace}/login/callback`
+
+Depending on the provider, this field can be referred to by different names. Sometimes called a **Redirect URI** the callback URL may also be be referred to as: "Valid OAuth redirect URI", "Authorized redirect URI", "Allowed Return URL" or something similar.
 
 ## Use your new connection
 

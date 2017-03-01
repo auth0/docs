@@ -8,7 +8,7 @@ We do our best to support many scenarios and different configurations.
 
 Unfortunately some issues are very hard to predict. Especially those that happen behind our customer's firewall. We have less control over that environment, and the related infrastructure dependencies (e.g. network, proxies, OS versions, etc).
 
-If you are experiencing problems with the connector, please [open a support ticket](https://support.auth0.com) with the following information:
+If you are experiencing problems with the connector, please [open a support ticket](${env.DOMAIN_URL_SUPPORT}) with the following information:
 
 -  Symptoms, explain your problem
 -  the `config.json` from:
@@ -36,7 +36,7 @@ The __Run__ button on the __Troubleshooting__ page will run the troubleshooting 
 
 **Note:** In order to detect issues with certificates you'll need to set `CONNECTIONS_API_V2_KEY` in the `config.json` file as described [here](/connector/modify#using-the-configuration-file).
 
-The __Export__ button will create a .zip file containing the `config.json` file, the `lib\\profileMapper.js` file, the `certs` folder and the output of the troubleshooting tool. Send this troubleshooting package to us by opening a [support ticket](https://support.auth0.com) if you're experiencing problems with the connector.
+The __Export__ button will create a .zip file containing the `config.json` file, the `lib\\profileMapper.js` file, the `certs` folder and the output of the troubleshooting tool. Send this troubleshooting package to us by opening a [support ticket](${env.DOMAIN_URL_SUPPORT}) if you're experiencing problems with the connector.
 
 ## Troubleshooting Tool
 
@@ -130,6 +130,6 @@ The Connector caches only *groups* a user might be a member of. Its lifetime is 
 
 > Groups are cached, because by default, the Connector retrieves all group membership of a user recursively, which can be costly in some AD/LDAP installations. Cache is deleted on each Connector restart.
 
-These two settings might affect how profile information flows to an app. But in general, AD changes don't happen very often. 
+These two settings might affect how profile information flows to an app. But in general, AD changes don't happen very often.
 
 In some AD/LDAP installations, user attributes synchronization takes few minutes too.

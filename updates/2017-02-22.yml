@@ -1,0 +1,8 @@
+added:
+  -
+    title: "New doc on how to use Hooks with Client Credentials"
+    tags:
+      - hooks
+      - credentials-exchange
+    description: |
+       A [new document](https://auth0.com/docs/api-auth/tutorials/client-credentials/customize-with-hooks) was created on how to use Hooks to change the scopes and add custom claims to the tokens you got using Client Credentials Grant.

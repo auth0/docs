@@ -9,9 +9,9 @@ url: /libraries/auth0js/v7
 
 Auth0.js is a client-side library for [Auth0](http://auth0.com), for use in your web apps. It allows you to trigger the authentication process and parse the [JSON Web Token](http://openid.net/specs/draft-jones-json-web-token-07.html) (JWT) with just the Auth0 `clientID`. Once you have the JWT, you can use it to authenticate requests to your HTTP API and validate the JWT in your server-side logic with the `clientSecret`.
 
-::: panel-info Auth0.js v7
-This document covers an out-of-date version of auth0.js - version 7. If you are already using version 8, you can take a look at the [v8 reference](/libraries/auth0js).
-:::
+<div class="alert alert-info">
+  This document covers an out-of-date version of auth0.js - version 7. If you are already using version 8, you can take a look at the <a href="/libraries/auth0js">v8 reference</a>, or if you are using v7 but interested in upgrading, take a look at the <a href="/libraries/auth0js">v8 migration guide</a>.
+</div>
 
 ## Ready-to-Go Example
 
@@ -457,7 +457,7 @@ var auth0 = new Auth0({
 
 On successful login, Auth0 will redirect to your `callbackURL` with an appended authorization `code` query parameter. Unlike the SPA scenario, this `code` value should get processed completely server-side.
 
-> Note: Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](https://auth0.com/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
+> Note: Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
 
 #### Popup Mode
 

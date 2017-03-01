@@ -15,114 +15,254 @@ budicon: 448
 
 In the [previous step](/quickstart/spa/react/01-login), we enabled login with Auth0's Lock widget. You can also build your own UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
 
-## Installing `auth0.js`
+::: panel-info Version Requirements
+This quickstart and the accompanying sample demonstrate custom login with auth0.js version 8. If you are using auth0.js version 7, please see the [reference guide](https://auth0.com/docs/libraries/auth0js/v7) for the library, as well as the [legacy React custom login sample](https://github.com/auth0-samples/auth0-react-sample/tree/auth0js-v7/02-Custom-Login).
 
-You can get **auth0.js** from npm or from Auth0's CDN.
+Auth0.js version 8 verifies ID tokens during authentication transactions. Only tokens which are signed with the RS256 algorithm can be verified on the client side, meaning that your Auth0 client must be configured to sign tokens with RS256. See the [auth0.js migration guide](https://auth0.com/docs/libraries/auth0js/migration-guide#switching-from-hs256-to-rs256) for more details.
+:::
+
+## Getting Started
+
+The auth0.js library can either be retrieved from Auth0's CDN or from npm.
+
+**CDN Link**
+
+```html
+<script src="https://cdn.auth0.com/js/auth0/8.0/auth0.min.js"></script>
+```
 
 **npm**
 
 ```bash
-npm install auth0-js
+npm install --save auth0-js
 ```
 
-**CDN**
+## Create a Login Component
 
-```bash
-<script src="${auth0js_url}"></script>
+At a basic level, two items are required for a custom login UI: the component and template to power the interface itself, and a service to call the appropriate authentication transaction methods from auth0.js.
+
+Create a component which has a template with a `form` and controls for submitting a `login`, `signup`, and `loginWithGoogle` request. The `AuthService` that is used in this component will be created later.
+
+```js
+import React, { PropTypes as T } from 'react'
+import ReactDOM from 'react-dom'
+import {Form, FormGroup, FormControl, ControlLabel, Button, ButtonToolbar} from 'react-bootstrap'
+import AuthService from 'utils/AuthService'
+import styles from './styles.module.css'
+
+export class Login extends React.Component {
+  static contextTypes = {
+    router: T.object
+  }
+
+  static propTypes = {
+    location: T.object,
+    auth: T.instanceOf(AuthService)
+  }
+
+  getAuthParams() {
+    return {
+      email: ReactDOM.findDOMNode(this.refs.email).value,
+      password: ReactDOM.findDOMNode(this.refs.password).value
+    }
+  }
+
+  login(e) {
+    e.preventDefault()
+    const { email, password } = this.getAuthParams()
+    this.props.auth.login(email, password)
+  }
+
+  signup() {
+    const { email, password } = this.getAuthParams()
+    this.props.auth.signup(email, password)
+  }
+
+  loginWithGoogle() {
+    this.props.auth.loginWithGoogle();
+  }
+
+  render() {
+    return (
+      <div className={styles.root}>
+        <h2>Login</h2>
+        <Form onSubmit={this.login.bind(this)}>
+          <FormGroup controlId="email">
+            <ControlLabel>Email</ControlLabel>
+            <FormControl type="email" ref="email" placeholder="yours@example.com" required />
+          </FormGroup>
+
+          <FormGroup controlId="password">
+            <ControlLabel>Password</ControlLabel>
+            <FormControl type="password" ref="password" placeholder="Password" required />
+          </FormGroup>
+
+          <ButtonToolbar>
+            <Button type="submit" bsStyle="primary">Log In</Button>
+            <Button onClick={this.signup.bind(this)}>Sign Up</Button>
+            <Button bsStyle="link" onClick={this.loginWithGoogle.bind(this)}>
+              Login with Google
+            </Button>
+          </ButtonToolbar>
+        </Form>
+      </div>
+    )
+  }
+}
+
+export default Login;
 ```
+
+This component has a form with inputs for users to submit their username and password, buttons for handling the `login` and `signup` cases, and a control for the user to initiate a social authentication flow with Google.
+
+The `onClick` handlers attached to these controls call the component methods which, in turn, make calls to the `AuthService`. It's within the `AuthService` that auth0.js will be called and the user's credentials passed along to complete authentication transactions.
+
 
 ## Create the AuthService Class
 
-The best way to have authentication utilities available across your application is to create a helper class. Then you can share an instance of this class by passing it to the React Component as a prop.
+All authentication transactions should be handled from a service. The service requires methods named `login`, `signup`, and `loginWithGoogle` which all make calls to the appropriate auth0.js methods to handle those actions. These methods are called from the `login` component above.
 
-First, you will create the `AuthService` helper class to encapsulate the login functionality provided by the `auth0.js` library and save it inside the `src/utils` folder as `AuthService.js`.
+The auth0.js methods for making authentication requests come from the `WebAuth` object. Create an instance of `auth0.WebAuth` and provide the domain, client ID, and callback URL (as the redirect URI) for your client. A `responseType` of `token id_token` should also be specified.
 
-Inside this class, you will create an `Auth0` instance that receives your Auth0 credentials. Instead of hard-coding your credentials in this class, they are passed from the `AuthService` constructor parameters to the `Auth0` instance.
+The `login` and `signup` methods should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `client.login` method. Since `client.login` is an XHR-based transaction, the authentication result is handled in a callback and the user's access token and ID token are saved into local storage if the transaction is successful.
 
-This class also provides `login` and `signup` methods that simply pass parameters to the equivalent `Auth0` library methods.
-
-Below is the full code for `AuthService.js` file:
+The `signup` method is a redirect-based flow and the authentication result is handled by the `parseHash` method. This method looks for an access token and ID token in the URL hash when the user is redirected back to the application. If those tokens are found, they are saved into local storage and the user is redirected to the home route.
 
 ```javascript
 // src/utils/AuthService.js
 
-import Auth0 from 'auth0-js'
+import { EventEmitter } from 'events'
+import { isTokenExpired } from './jwtHelper'
+import { browserHistory } from 'react-router'
+import auth0 from 'auth0-js'
 
-export default class AuthService {
+export default class AuthService extends EventEmitter {
   constructor(clientId, domain) {
     super()
     // Configure Auth0
-    this.auth0 = new Auth0({
-      clientID: clientId,
-      domain: domain,
-      responseType: 'token'
-    });
+    this.auth0 = new auth0.WebAuth({
+      clientID: '${account.clientId}',
+      domain: '${account.namespace}',
+      responseType: 'token id_token',
+      redirectUri: 'http://localhost:3000/login'
+    })
 
     this.login = this.login.bind(this)
     this.signup = this.signup.bind(this)
+    this.loginWithGoogle = this.loginWithGoogle.bind(this)
   }
 
-  login(params, onError) {
-    //redirects the call to auth0 instance
-    this.auth0.login(params, onError)
+  login(username, password) {
+    this.auth0.client.login({
+      realm: 'Username-Password-Authentication',
+      username,
+      password
+    }, (err, authResult) => {
+      if (err) {
+        alert('Error: ' + err.description)
+        return
+      }
+      if (authResult && authResult.idToken && authResult.accessToken) {
+        this.setToken(authResult.accessToken, authResult.idToken)
+        browserHistory.replace('/home')
+      }
+    })
   }
 
-  signup(params, onError) {
-    //redirects the call to auth0 instance
-    this.auth0.signup(params, onError)
+  signup(email, password){
+    this.auth0.redirect.signupAndLogin({
+      connection: 'Username-Password-Authentication',
+      email,
+      password,
+    }, function(err) {
+      if (err) {
+        alert('Error: ' + err.description)
+      }
+    })
+  }
+
+  loginWithGoogle() {
+    this.auth0.authorize({
+      connection: 'google-oauth2'
+    })
   }
 
   parseHash(hash) {
-    // uses auth0 parseHash method to extract data from url hash
-    const authResult = this.auth0.parseHash(hash)
-    if (authResult && authResult.idToken) {
-      this.setToken(authResult.idToken)
-    }
+    this.auth0.parseHash({ hash }, (err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        this.setToken(authResult.accessToken, authResult.idToken)
+        browserHistory.replace('/home')
+        this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
+          if (error) {
+            console.log('Error loading the Profile', error)
+          } else {
+            this.setProfile(profile)
+          }
+        })
+      } else if (authResult && authResult.error) {
+        alert('Error: ' + authResult.error)
+      }
+    })
   }
 
   loggedIn() {
     // Checks if there is a saved token and it's still valid
-    return !!this.getToken()
+    const token = this.getToken()
+    return !!token && !isTokenExpired(token)
   }
 
-  setToken(idToken) {
-    // Saves user token to local storage
+  setToken(accessToken, idToken) {
+    // Saves user access token and ID token into local storage
+    localStorage.setItem('access_token', accessToken)
     localStorage.setItem('id_token', idToken)
   }
 
+  setProfile(profile) {
+    // Saves profile data to localStorage
+    localStorage.setItem('profile', JSON.stringify(profile))
+    // Triggers profile_updated event to update the UI
+    this.emit('profile_updated', profile)
+  }
+
+  getProfile() {
+    // Retrieves the profile data from localStorage
+    const profile = localStorage.getItem('profile')
+    return profile ? JSON.parse(localStorage.profile) : {}
+  }
+
   getToken() {
-    // Retrieves the user token from local storage
+    // Retrieves the user token from localStorage
     return localStorage.getItem('id_token')
   }
 
   logout() {
-    // Clear user token and profile data from local storage
-    localStorage.removeItem('id_token');
+    // Clear user token and profile data from localStorage
+    localStorage.removeItem('id_token')
+    localStorage.removeItem('profile')
   }
 }
 ```
 
-The `auth0.js` library uses [redirect mode](/libraries/auth0js#redirect-mode) by default which redirects your users back to your application after a successful login. Make sure that the URL for your application is set as a **Callback URL** in your [Auth0 dashboard](${manage_url}/#/applications).
+The service has several other utility methods that are necessary to complete authentication transactions.
 
-`auth0.js` appends authentication data to the callback URL as hash parameters. The `parseHash` method above extracts this data from the URL hash and saves the user authentication token to local storage.
+* The `parseHash` method is necessary for redirect-based authentication transactions which, in this example, include `signup` and `loginWithGoogle`.
+* The `logout` method removes the user's tokens from local storage which effectively logs them out of the application.
+* The `setToken` method takes an authentication result object and sets the access token and ID token values into local storage
+* The `loggedIn` method uses the `isTokenExpired` utility from a `jwtHelper` file to check whether the user's ID token is expired. This is done to determine whether the user should be able to access the `Home` route.
 
-## Use `AuthService` to protect private routes
 
-This section describes how to integrate `AuthService` in your React routes to protect private URLs and parse the URL parameters after a successful login.
+## Check the Authentication Hash and Protect Private Routes
 
-To use the new class to protect routes, import `AuthService` in `src/views/Main/routes.js` and create a new instance. Below is the updated routes file:
+When a redirect-based authentication flow is completed, such as the `signup` and `loginWithGoogle` transactions above, the authentication result comes back in a URL hash. This hash can be read using the `parseHash` method from auth0.js, after which the tokens that come back in it can be saved in local storage and the user can be considered logged in.
 
-```javascript
+The URL hash should be checked when the user enters the `Login` route because this is the route that is assigned as a `callbackUri` on the `auth0.WebAuth` instance. To check for this, set up a function which is run when the `Login` route is entered.
+
+Routes can also be configured to dissallow access if the user is not authenticated. Create a `requireAuth` function which uses the `AuthService` to check whether the user is currently logged in and, if they are not, redirects them to the `Login` route.
+
+```js
 // src/views/Main/routes.js
 
-import React from 'react'
-import {Route, IndexRedirect} from 'react-router'
-import AuthService from 'utils/AuthService'
-import Container from './Container'
-import Home from './Home/Home'
-import Login from './Login/Login'
-
-const auth = new AuthService('${account.clientId}', '${account.namespace}');
+// ...
 
 // onEnter callback to validate authentication in private routes
 const requireAuth = (nextState, replace) => {
@@ -131,11 +271,9 @@ const requireAuth = (nextState, replace) => {
   }
 }
 
-// OnEnter for callback url to parse access_token
 const parseAuthHash = (nextState, replace) => {
-  if (nextState.location.hash) {
+  if (/access_token|id_token|error/.test(nextState.location.hash)) {
     auth.parseHash(nextState.location.hash)
-    replace({ pathname: '/' })
   }
 }
 
@@ -144,221 +282,8 @@ export const makeMainRoutes = () => {
     <Route path="/" component={Container} auth={auth}>
       <IndexRedirect to="/home" />
       <Route path="home" component={Home} onEnter={requireAuth} />
-      <Route path="login" component={Login} />
-      <Route path="login" onEnter={parseAuthHash} /> //to get auth0 data from params
+      <Route path="login" component={Login} onEnter={parseAuthHash} />
     </Route>
   )
 }
-
-export default makeMainRoutes
 ```
-
-<%= include('_includes/_env-note') %>
-
-In the updated `routes.js`, you now have two routes with `onEnter` callbacks assigned. The `/home` route calls `requireAuth`, which checks if there is an authenticated user, and redirects to `/login` if not. The `login` route checks the hash and parses it with auth0.js before entering.
-
-## Create the Login view
-
-Login is a new view component that should be saved in `src/views/Main/Login/`. It is is a React Component that accepts into its props an `auth` object as an instance of `AuthService`. It renders an authentication form that allows users to enter their email and password to sign in.
-
-The Login component code looks like this:
-
-```javascript
-// src/views/Main/Login/Login.js
-
-import React, { PropTypes as T } from 'react'
-import ReactDOM from 'react-dom'
-import {Form, FormGroup, FormControl, ControlLabel, Button, ButtonToolbar} from 'react-bootstrap'
-import AuthService from 'utils/AuthService'
-import styles from './styles.module.css'
-
-export class Login extends React.Component {
-  static propTypes = {
-    auth: T.instanceOf(AuthService)
-  }
-
-  handleSubmit(e) {
-    e.preventDefault()
-    // on form submit, sends the credentials to auth0 api
-    this.props.auth.login({
-      connection: 'Username-Password-Authentication',
-      responseType: 'token',
-      email: ReactDOM.findDOMNode(this.refs.email).value,
-      password: ReactDOM.findDOMNode(this.refs.password).value
-    }, function(err) {
-      if (err) alert("something went wrong: " + err.message);
-    });
-  }
-
-  render() {
-    return (
-      <div className={styles.root}>
-        <h2>Login</h2>
-        <Form onSubmit={this.handleSubmit.bind(this)}>
-          <FormGroup controlId="email">
-            <ControlLabel>E-mail</ControlLabel>
-            <FormControl type="email" ref="email" placeholder="yours@example.com" required />
-          </FormGroup>
-
-          <FormGroup controlId="password">
-            <ControlLabel>Password</ControlLabel>
-            <FormControl type="password" ref="password" placeholder="Password" required />
-          </FormGroup>
-
-          <ButtonToolbar>
-            <Button type="submit" bsStyle="primary">Sign In</Button>
-          </ButtonToolbar>
-        </Form>
-      </div>
-    )
-  }
-}
-
-export default Login
-```
-
-The form submit is handled by the `handleSubmit` method, which sends the credentials to Auth0 login API. For authentication errors, it simply shows an alert. On successful authentication, Auth0 will redirect to the callback url, where the router will catch and parse the provided data.
-
-Now, if you run the application, you will see an error in the Login component because `auth` is still not included in the props.
-
-## Send `auth` from router to Container children
-
-To fix the Login component's missing dependency, you need to propagate the `auth` parameter from the `Container` component (that receives it from the route) to the container's children.
-
-The updated `src/views/Main/Container.js` is:
-
-```javascript
-// src/views/Main/Container.js
-
-import React, { PropTypes as T } from 'react'
-import { Jumbotron } from 'react-bootstrap'
-import styles from './styles.module.css'
-
-export class Container extends React.Component {
-  render() {
-    let children = null;
-    if (this.props.children) {
-      children = React.cloneElement(this.props.children, {
-        auth: this.props.route.auth //sends auth instance from route to children
-      })
-    }
-
-    return (
-      <Jumbotron>
-        <h2 className={styles.mainTitle}>
-          <img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg" />
-        </h2>
-        {children}
-      </Jumbotron>
-    )
-  }
-}
-
-export default Container;
-```
-
-Now, the Login button should work and the user will be redirected to the home page after successful authentication.
-
-## Add Sign Up
-
-The simplest way to allow sign up is to add a new button to the login form and call the Auth0 signup API, instead of login.
-
-The required changes in the Login component are included below:
-
-```javascript
-// src/views/Main/Login/Login.js
-
-import React, { PropTypes as T } from 'react'
-
-export class Login extends React.Component {
-
-  signUp() {
-    // calls auth0 signup api, sending new account data
-    this.props.auth.signup({
-      connection: 'Username-Password-Authentication',
-      responseType: 'token',
-      email: ReactDOM.findDOMNode(this.refs.email).value,
-      password: ReactDOM.findDOMNode(this.refs.password).value
-    }, function(err) {
-      if (err) alert("something went wrong: " + err.message);
-    });
-  }
-
-  render() {
-    return (
-      <div className={styles.root}>
-        <h2>Login</h2>
-        <Form onSubmit={this.handleSubmit.bind(this)}>
-          <FormGroup controlId="email">
-            <ControlLabel>E-mail</ControlLabel>
-            <FormControl type="email" ref="email" placeholder="yours@example.com" required />
-          </FormGroup>
-
-          <FormGroup controlId="password">
-            <ControlLabel>Password</ControlLabel>
-            <FormControl type="password" ref="password" placeholder="Password" required />
-          </FormGroup>
-
-          <ButtonToolbar>
-            <Button type="submit" bsStyle="primary">Sign In</Button>
-            <Button onClick={this.signUp.bind(this)}>Sign Up</Button>
-          </ButtonToolbar>
-        </Form>
-      </div>
-    )
-  }
-}
-
-export default Login;
-```
-
-## Add Social Sign In
-
-To login using a social connector, you simply need to tell `Auth0` which connection to use.
-
-For example, add a **Sign In with Google** link to the Login form and handle the `onClick` event by calling the `googleLogin` method:
-
-```javascript
-// src/views/Main/Login/Login.js
-
-import React, { PropTypes as T } from 'react'
-
-export class Login extends React.Component {
-
-  googleLogin() {
-    this.props.auth.login({
-      connection: 'google-oauth2'
-    }, function(err) {
-      if (err) alert("something went wrong: " + err.message);
-    });
-  }
-
-  render() {
-    return (
-      <div className={styles.root}>
-        <h2>Login</h2>
-        <Form onSubmit={this.handleSubmit.bind(this)}>
-          <FormGroup controlId="email">
-            <ControlLabel>E-mail</ControlLabel>
-            <FormControl type="email" ref="email" placeholder="yours@example.com" required />
-          </FormGroup>
-
-          <FormGroup controlId="password">
-            <ControlLabel>Password</ControlLabel>
-            <FormControl type="password" ref="password" placeholder="Password" required />
-          </FormGroup>
-
-          <ButtonToolbar>
-            <Button type="submit" bsStyle="primary">Sign In</Button>
-            <Button onClick={this.signUp.bind(this)}>Sign Up</Button>
-            <Button bsStyle="link" onClick={this.googleLogin.bind(this)}>Login with Google</Button>
-          </ButtonToolbar>
-        </Form>
-      </div>
-    )
-  }
-}
-
-export default Login;
-```
-

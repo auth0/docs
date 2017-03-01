@@ -84,6 +84,11 @@ This endpoint only works for database connections.
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database configured to your client. |
 
 
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+
 ### More Information
 
 - [Password Strength in Auth0 Database Connections](/connections/database/password-strength)

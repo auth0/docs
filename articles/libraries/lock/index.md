@@ -4,6 +4,7 @@ toc: true
 url: /libraries/lock
 title: Lock for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
+img: media/articles/libraries/lock-web.png
 ---
 
 # Lock for Web
@@ -120,7 +121,7 @@ function showLoggedIn() {
 
 ## Browser Compatibility
 
-Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **IE >= 9**. Auth0 currently uses [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
+Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **IE >= 10**. Auth0 currently uses [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
 
 <!--vars-->
 

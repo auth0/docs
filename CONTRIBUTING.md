@@ -14,6 +14,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Headings](#headings)
   * [Warning banner](#warning-banner)
   * [Panels](#panels)
+  * [Alerts](#alerts)
   * [HTTP Request Snippets](#http-request-snippets)
   * [Escaping Strings](#escaping-strings)
   * [Screenshots](#screenshots)
@@ -93,7 +94,7 @@ You message here
 ```
 
 ### Panels
-Panels can be useful to separate information from the main body of a document.
+Panels can be useful to separate information from the main body of a document. If you want to add versioning information use [alerts](#alerts) instead.
 
 ```
 ::: panel-primary This is a panel
@@ -116,6 +117,22 @@ Panel content
 Panel content
 :::
 ```
+
+### Alerts
+
+Alerts should be used to display brief versioning information. For example:
+
+```html
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This document uses an outdated version of Lock (version 9). Learn how to <a href="/libraries/lock/v10/migration-guide">migrate to version 10</a>, or, if you're new to Lock, start out with the <a href="/libraries/lock">Lock 10 Documentation</a>.
+</div>
+```
+
+looks like this:
+
+![Alert displaying version info](/media/readme/alert-version.png)
+
+[Styleguide: Alerts](http://styleguide.auth0.com/#alert)
 
 ### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
@@ -609,6 +626,7 @@ When writing docs you can use the following variables instead of hard-coding the
 | `auth0js_url`                 | The url to the auth0.js CDN location.      | |
 | `lock_url`                  | The url to the Lock script CDN location.   | |
 | `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
+| `env.DOMAIN_URL_SUPPORT` | Support Center URL | `https://support.auth0.com/` |
 
 
 ### User Specific Variables

@@ -16,7 +16,7 @@ budicon: 448
 
 ## auth0.js
 
-The previous step explained how to provide a login screen with Auth0's Lock widget. In this tutorial (based on the previous tutorial's source code) we are going to learn how to create a custom login page by using the [auth0.js library](/libraries/auth0js).
+The previous step explained how to provide a login screen with Auth0's [Lock widget](/libraries/lock). In this tutorial (based on the previous tutorial's source code) we are going to learn how to create a custom login page by using the [auth0.js library](/libraries/auth0js).
 
 ## Add the auth0.js Dependency
 
@@ -38,7 +38,7 @@ html
 
 ## Login with Auth0.js
 
-To login with `auth0.js` we first need to create an Auth0 instance which will
+To log in with `auth0.js` we first need to create an Auth0 instance which will
 then be used to initiate the login process.
 
 ```jade
@@ -55,7 +55,7 @@ script.
 Initiating the login process is done by calling the `.signin()` method of `auth0`
 passing the connection to use.
 
-Here is an example of how to use `.signin()` to login with Google.
+Here is an example of how to use `.signin()` to log in with Google.
 
 ```jade
 // views/index.jade
@@ -91,7 +91,7 @@ script.
   }
 ```
 
-## Putting it All Together
+## Putting it all together
 
 We can now add some input fields and buttons to make a complete custom login page.
 

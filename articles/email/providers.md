@@ -13,6 +13,8 @@ Auth0 currently supports the following providers:
 * [SendGrid](#configure-sendgrid-for-sending-email)
 * [Custom SMTP](#configure-a-custom-smtp-server-for-sending-email)
 
+**Note:** You can only configure one email provider (Amazon SES, Sendgrid, etc.) which will be used for all emails.
+
 ## Configure Amazon SES for Sending Email
 
 There are several steps to follow to configure Amazon SES for sending email. If you want to use the SES API, please follow this guide.
@@ -97,13 +99,13 @@ The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will 
 
 ## Configure SendGrid for Sending Email
 
-1. Sign up for a [SendGrid](https://sendgrid.com) account, or login. (If you have a Microsoft Azure subscription you can get a free account in the Azure Marketplace). 
+1. Sign up for a [SendGrid](https://sendgrid.com) account, or login. (If you have a Microsoft Azure subscription you can get a free account in the Azure Marketplace).
 
 2. Go to **Settings > API Keys** and click **Create API Key**.
 3. Provide a name for your key and enable **Full Access** for **Mail Send** permissions. Click **Save**.
 
     ![](/media/articles/email/providers/sendgrid-permissions.png)
-    
+
 4. Copy the API key provided.
 
     ![](/media/articles/email/providers/sendgrid-key.png)
@@ -115,7 +117,7 @@ The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will 
     ![](/media/articles/email/providers/sendgrid-dashboard.png)
 
 
-Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. If you have configured everything correctly, you will receive a confirmation email: 
+Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. If you have configured everything correctly, you will receive a confirmation email:
 
 ![](/media/articles/email/providers/sendgrid-test.png)
 
@@ -127,10 +129,11 @@ The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now 
 
 ## Configure a Custom SMTP Server for Sending Email
 
-You can use your own SMTP server to send email. There are two requirements for the SMTP server:
+You can use your own SMTP server to send email. There are three requirements for the SMTP server:
 
 * It must support LOGIN [authentication](https://en.wikipedia.org/wiki/SMTP_Authentication).
 * It must support [TLS](https://en.wikipedia.org/wiki/STARTTLS) 1.0 or higher.
+* It must use a certificate signed by a public certificate authority (CA).
 
 To be able to use your own SMTP server:
 

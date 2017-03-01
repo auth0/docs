@@ -18,7 +18,7 @@ curl --request GET \
   --data '"connection"="CONNECTION"'
 ```
 
-<% var acceptReqPath = '/samlp/{client_id}'; %>
+<% var acceptReqPath = '/samlp/YOUR_CLIENT_ID'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_method": "GET",
@@ -37,6 +37,11 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 |:-----------------|:------------|
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
 | `connection`     | The connection to use. |
+
+
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
 
 
 ### Remarks
@@ -60,7 +65,7 @@ curl --request GET \
   --url 'https://${account.namespace}/samlp/metadata/${account.clientId}'
 ```
 
-<% var getMetadataPath = '/samlp/metadata/{client_id}'; %>
+<% var getMetadataPath = '/samlp/metadata/YOUR_CLIENT_ID'; %>
 <%=
 include('../../_includes/_http-method', {
   "http_method": "GET",
@@ -77,6 +82,11 @@ This endpoint returns the SAML 2.0 metadata.
 | `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client. |
 
 
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+
 ### More Information
 - [SAML](/protocols/saml)
 
@@ -86,7 +96,7 @@ This endpoint returns the SAML 2.0 metadata.
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/login/callback?connection={CONNECTION}
+POST https://${account.namespace}/login/callback?connection=CONNECTION
 Content-Type: 'application/x-www-form-urlencoded'
   SAMLResponse=SAML_RESPONSE
 ```
@@ -117,7 +127,7 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 | `SAMLResponse` <br/><span class="label label-danger">Required</span> | An IdP-Initiated Sign On SAML Response. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 

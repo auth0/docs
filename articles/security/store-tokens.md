@@ -11,7 +11,7 @@ description: Explains how to securely store tokens used in token-based authentic
 
 ## Where to Store Your JWTs
 
-Tokens can be stored in session storage/local storage or a cookie.
+We strongly recommend that you store your tokens in session storage/local storage or a cookie.
 
 ### Web Storage (localStorage/sessionStorage)
 
@@ -35,3 +35,7 @@ There are different options to control the lifetime of a cookie:
 * Implement a server side check (typically done for you by the web framework in use), and you could implement expiration or sliding window expiration.
 * Cookies can be persistent (not destroyed after the browser is closed) with an expiration.
 * Cookies can be read by both the JavaScript and the server side code or only server side if the `httpOnly` flag is set.
+
+**Additional Resources:**
+
+[Auth0 Blog: 10 Things You Should Know about Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)

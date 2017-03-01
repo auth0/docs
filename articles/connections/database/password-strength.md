@@ -25,11 +25,11 @@ At each level, new passwords must meet the following criteria:
  * **None** (default): at least 1 character of any type.
  * **Low**: at least 6 characters.
  * **Fair**: at least 8 characters including a lower-case letter, an upper-case letter, and a number.
- * **Good**: at least 8 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (e.g. !@#$%^&*)
- * **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (e.g. `!@#$%^&*`). Not more than 2 identical characters in a row (e.g. `111` is not allowed) and not more than 128 characters.
+ * **Good**: at least 8 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (e.g. !@#$%^&*).
+ * **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (e.g. `!@#$%^&*`). Not more than 2 identical characters in a row (e.g. `111` is not allowed).
 
 
-## Changing your policy
+## Change your policy
 
 To change the password strength policy, go to [Database connections](${manage_url}/#/connections/database). Select the database connection you want to change and click on the **Password Strength** tab:
 

@@ -9,9 +9,11 @@ description: This page shows you how to connect your Auth0 app to Bitbucket. You
 
 To connect your Auth0 app to Bitbucket, you will need to generate a *Key* and *Secret* in a Bitbucket app, copy these keys into your Auth0 settings, and enable the connection.
 
-::: panel-info Lock version
-This connection will only work with Lock version 9.2 or higher.
-:::
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This connection will only work with Lock version 9.2 or higher.
+</div>
+
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Login to Bitbucket
 
@@ -71,7 +73,7 @@ Go to the **Apps** tab of the Bitbucket connection on Auth0 and select each of y
 
 ## 6. Test the connection
 
-Close the **Settings** window to return to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard.
+Close the **Settings** window to return to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 A **TRY** icon will now be displayed next to the Bitbucket logo:
 
@@ -86,3 +88,5 @@ Click **Grant access** to allow your app access.
 If you have configured everything correctly, you will see the **It works!!!** page:
 
 ![](/media/articles/connections/social/bitbucket/bitbucket-10.png)
+
+<%= include('../_quickstart-links.md') %>

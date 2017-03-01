@@ -1,4 +1,5 @@
 ---
+toc: true
 description: Server-side SSO with regular web applications.
 ---
 
@@ -27,7 +28,7 @@ In this document we will be looking specifically how to achieve this in a Regula
 The user logs in on one of the Single Page Applications and click on a link that should take them to a particular URL on app3.com. In this case, you can create an endpoint on the target application (app3) that will redirect to the URL the user wanted to go after SSO. For example:
 
 ```text
-https://app3.com/sso?targetUrl=/foo/bar&connection=<connection name>
+https://app3.com/sso?targetUrl=/foo/bar&connection=CONNECTION_NAME
 ```
 
 This endpoint would check if the user is already logged in to this app. If they are, then redirect to the target URL. If the user is not logged in to the application, then redirect to Auth0 for SSO, passing along the name of the connection to use:
@@ -37,7 +38,7 @@ handle("/sso")
   if (user is already logged in)
     redirect to targetUrl
   else
-    redirect to "https://${account.namespace}/authorize?client_id=…&connection=<connection name>&redirect_uri=http://urlTo/callback&response_type=code&state=' + targetUrl
+    redirect to "https://${account.namespace}/authorize?client_id=${account.clientId}&connection=CONNECTION_NAME&redirect_uri=${account.callback}&response_type=code&state=' + targetUrl
 ```
 
 Here is an example in node.js:
@@ -88,7 +89,7 @@ app.get('/callback',
 The user is logged in on app1.com and opens a new tab and goes to app3.com. You would expect the user to be automatically signed in. To do that, you need to redirect the user to the following URL in a filter or a middleware:
 
 ```
-https://${account.namespace}/authorize?client_id=…&response_type=code&redirect_uri=http://urlTo/callback
+https://${account.namespace}/authorize?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}
 ```
 
 Here is an example in node.js:
@@ -110,5 +111,5 @@ If the user was already logged in before, then Auth0 will automatically redirect
 The user has never logged in to any app. In this case, the filter or middleware mentioned in the previous point checks if the user is authenticated or not, and in the case they're not, redirects the user to the following URL:
 
 ```
-https://${account.namespace}/authorize?client_id=…&response_type=code&redirect_uri=http://urlTo/callback
+https://${account.namespace}/authorize?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}
 ```

@@ -10,6 +10,8 @@ description: This page shows you how to connect your Auth0 app to Instagram. You
 
 To connect your Auth0 app to Instagram, you will need to generate a *Client ID* and *Client Secret* in an Instagram app, copy these keys into your Auth0 settings, and enable the connection.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Log into the developer portal
 
 Go to the Instagram [Developer portal](http://instagram.com/developer) and log in with your Instagram credentials. 
@@ -42,17 +44,21 @@ Click **Register**.
 
 ## 4. Get your *Client ID* and *Client Secret*
 
-Once your app is registered, your `Client Id` and `Client Secret` will be displayed:
+Once your app is registered, you will be navigated to the **Manage Clients** page. Click on the **Manage** button for your new client.
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-4.png)
 
+This will bring you to the page that contains your **Client ID** and **Client Secret**. Copy these for use in the next step.
+
+![](/media/articles/connections/social/instagram/instagram-devportal-4-1.png)
+
 ## 5. Copy your *Client Id* and *Client Secret* into Auth0
 
-In a separate window, login to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left nav. 
+In a separate window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth Dashboard. 
 
 Select **Instagram**. 
 
-Copy the `Client Id` and `Client Secret` from the **Manage Clients** page of the Instagram Developer portal into the fields on this page on Auth0.
+Copy the `Client Id` and `Client Secret` from the **Manage Client** page of the Instagram Developer portal into the fields on this page on Auth0.
 
 Select the **Permissions** you want to enable.
 
@@ -85,3 +91,6 @@ If you have configured everything correctly, you will see the **It works!!!** pa
 ![](/media/articles/connections/social/instagram/instagram-devportal-7b.png)
 
 [Click here to learn more about authentication with Instagram](https://www.instagram.com/developer/authentication/)
+
+<%= include('../_quickstart-links.md') %>
+

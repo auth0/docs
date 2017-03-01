@@ -5,7 +5,7 @@ At this point, you're all set to implement the login in any activity you want. I
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-    Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
+    Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     lock = Lock.newBuilder(auth0, callback)
                     // Add parameters to the Lock Builder
                     .build(this);
@@ -51,4 +51,4 @@ startActivity(lock.newIntent(this));
 
 > If you require in-depth configuration, see [Lock Builder](/libraries/lock-android#lock-builder) for more information
 
-> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](02-custom-login).
+> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](/quickstart/native/android/02-custom-login).

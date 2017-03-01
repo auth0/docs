@@ -58,7 +58,7 @@ First, in your customized login method, instantiate the Authentication API:
 
 ```java
 private void login(String email, String password) {
-    Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
+    Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 
     // proper login
@@ -68,7 +68,8 @@ private void login(String email, String password) {
 Then, login using the newly created client:
 
 ```java
-client.login(email, password, "YOUR_DATABASE_CONNECTION_NAME")
+String connectionName = "Username-Password-Authentication";
+client.login(email, password, connectionName)
     .start(new BaseCallback<Credentials, AuthenticationException>() {
         @Override
         public void onSuccess(Credentials payload) {
@@ -82,5 +83,7 @@ client.login(email, password, "YOUR_DATABASE_CONNECTION_NAME")
         }
     });
 ```
+
+In this example we're logging in using an Auth0 Database Connection called "Username-Password-Authentication". You can also [create your own](https://manage.auth0.com/#/connections/database/new).
 
 > There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example.

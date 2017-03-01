@@ -25,8 +25,7 @@ ${snippet(meta.snippets.dependencies)}
 ### 2. Configure `nginx-jwt` with your Auth0 account
 
 1. Export the `JWT_SECRET` environment variable on the Nginx host, setting it equal to your Auth0 Client Secret (`${account.clientSecret}`).
-1. Export the `JWT_SECRET_IS_BASE64_ENCODED` environment variable on the Nginx host, setting it equal to `false`.
-1. Expose both environment variables to the Nginx server:
+1. Expose this environment variable to the Nginx server:
 
 ${snippet(meta.snippets.setup)}
 

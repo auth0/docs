@@ -4,11 +4,11 @@ description: Step 3 of Amazon API Gateway Tutorial
 ---
 
 # AWS API Gateway Tutorial
-## Step 3 - Building the Client Application
+## Step 3 - Build the Client Application
 
 In this step, you will build a single page, serverless client application using the AngularJS framework that you will serve out of an AWS S3 bucket configured to act as a static website.
 
-### 1. Setting Up Your Sample Application
+### 1. Set Up Your Sample Application
 
 For a simple starter app, download this seed project.
 
@@ -77,9 +77,9 @@ auth.getToken(options)
 });
 ```
 
-#### Modifying the `role` and `principal` Strings
+#### Modify the `role` and `principal` Strings
 
-To modify the `role` and `principal` strings, specify the appropriate values via [Rules](${manage_url}/#/rules):
+To modify the `role` and `principal` strings (which are the final two lines of the `if` statement contained in the provided function), specify the appropriate values via [Rules](${manage_url}/#/rules):
 
 ```js
 function (user, context, callback) {
@@ -95,6 +95,10 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+
+:::panel-info Rules
+[How to Work with Rules](/rules#video-using-rules)
+:::
 
 Be sure to update the `role` and `[principal]` ARN values with the ones for your integration.
 
@@ -117,7 +121,7 @@ If you don't see these values, be sure that you have the *Amazon Web Services ad
 
 The first thing you will do is show the pets to the end users.
 
-#### Adding the API Code to Call Your API
+#### Add the API Code to Call Your API
 
 To add the API code for adding a call to your service, copy the contents of *apiGateway-js-sdk.zip* you [previously downloaded](/integrations/aws-api-gateway/part-2/#deploy-the-api) to the `pets` directory. The contents should include:
 
@@ -146,7 +150,7 @@ Open the `index.html` file located in the root of your `pets` folder to add all 
 
 If you open `apigClient.js`, you can see that the downloaded library has created wrappers like `petsPost` and `petsGet` for your API methods. You do *not* need to modify this generated code.
 
-#### Configuring the `getPets` Method
+#### Configure the `getPets` Method
 
 Open `home.js` in the `home` folder, and update the contents of `getPets` with a method for retrieving pets data (be sure to update the region if you are not running in `us-east-1`):
 

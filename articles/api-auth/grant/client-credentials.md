@@ -23,9 +23,12 @@ This flow is not redirect based but is an API call made by the Client to the Aut
  - Allow the Client to make calls to the Resource Server on its own behalf (machine to machine)
  - APIs and services that are not user centric
 
-## Tutorials
+## Read more
 
-- [Setting up a Client Credentials Grant using Auth0's Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
-- [Using Rules with Client Credential Grants](/api-auth/grant/using-rules).
-- [How to ask Auth0 for an access token for a Resource Server in a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
-- [Using Auth0's Management API for setting up Resource Servers and Client Grants](/api-auth/config/using-the-management-api)
+[How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
+
+[How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
+
+[How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+
+[How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks).

@@ -176,7 +176,7 @@ The following Auth0 Authenticaion API endpoints return rate limit-related header
       <td>/tokeninfo</td>
   </tr>
   <tr>
-      <td>Delegated Authentication</td>
+  <td>Delegated Authentication<sup>*</sup></td>
       <td></td>
       <td>/delegation</td>
   </tr>
@@ -186,3 +186,5 @@ The following Auth0 Authenticaion API endpoints return rate limit-related header
       <td>/dbconnections/change_password</td>
   </tr>
 </table>
+
+**The `/delegation` endpoint limits up to 10 requests per minute from the same IP address with the same user_id*

@@ -16,13 +16,13 @@ budicon: 448
   ]
 }) %>
 
-## Initial Setup
+## 1. Initial Setup
 
 Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section of your app in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
 
 `a0${account.clientId}://\*.auth0.com/authorize`
 
-## Add the Auth0 Dependencies
+## 2. Add the Auth0 Dependencies
 
 Add the following to the `Podfile` and run `pod install`:
 
@@ -30,7 +30,7 @@ ${snippet(meta.snippets.dependencies)}
 
 **NOTE:** If you need help installing CocoaPods, see: [What is CocoaPods](http://guides.cocoapods.org/using/getting-started.html).
 
-## Configure Auth0 Lock for iOS
+## 3. Configure Auth0 Lock for iOS
 
 1. Add the following entries to your app's `Info.plist`:
 
@@ -51,7 +51,7 @@ ${snippet(meta.snippets.setup)}
 
 **NOTE:** You can create `A0Lock` in any other class, even in your `AppDelegate`, the only requirement is that you keep it in a **strong** reference.
 
-## Register Native Authentication Handlers
+## 4. Register Native Authentication Handlers
 
 1. In your `AppDelegate` method `application:didFinishLaunchingWithOptions:`, add the following lines:
 
@@ -159,7 +159,7 @@ if ([A0TwitterAuthenticator canUseNativeTwitterAuthentication]) {
 
 **NOTE:** For more information on configuring your app for Twitter, see: [Connect your app to Twitter](/connections/social/twitter).
 
-## Implement the Login
+## 5. Implement the Login
 
 Now you are ready to implement the Login using Lock. You only need to instantiate and present it from any of your `UIViewControllers`, like this:
 
@@ -175,7 +175,7 @@ On successful authentication, `onAuthenticationBlock` will yield the user's prof
 
 **NOTE:** To learn how to save and manage the tokens and profile, see: [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens).
 
-## 5. Showing user information
+## 6. Showing user information
 
 After the user has logged in, you can use the `profile` object which contains all the user information:
 

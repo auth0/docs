@@ -88,7 +88,12 @@ Given an existing token, this endpoint will generate a new token signed with the
 | `api_type`       | The API to be called. |
 
 
-### Test this endpoint
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 

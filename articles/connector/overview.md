@@ -1,19 +1,23 @@
 ---
-description: Explains an overview of the Connector.
+description: An overview of what the AD/LDAP Connector is and why it's necessary.
 ---
 
 # Overview
 
-Auth0 integrates with Active Directory/LDAP through the __Active Directory/LDAP Connector__ that you install in your network.
+Auth0 [integrates with Active Directory/LDAP](/connections/enterprise/active-directory) through an **AD/LDAP Connector** installed on your network.
 
-The __AD/LDAP Connector (1)__, is a bridge between your __Active Directory (2)__  and the __Auth0 Service (3)__. This bridge is necessary because AD is typically locked down to your internal network, and Auth0 is a cloud service running on a completely different context.
+The **AD/LDAP Connector** acts as a bridge between your **Active Directory** service and the **Auth0**. This is necessary, since AD typically runs and is accessible to your internal network, while Auth0 is a cloud service (and therefore running in a different context from your AD service).
 
 ![](/media/articles/connector/ad-data-flow.png)
 
-You can install multiple instances of the Connector for high availability and load balancing. Also, all connections are out-bound: from the Connector to the Auth0 Server, so in general no changes to the firewall need to be applied.
+The Connector supports authentication based on the following:
 
-The Connector supports __LDAP__, [__Kerberos__](/connector/kerberos) and [__Client Certificates__](/connector/client-certificates) based authentication.
+* [LDAP](/protocols/ldap);
+* [Kerberos](/connector/kerberos);
+* [Client Certificates](/connector/client-certificates).
 
-An AD/LDAP Connection caches user profiles and credentials by default to maximize availability and performance. Credential caching can be disabled at the connection level.
+## Notes
 
-> The AD/LDAP Connection credential cache stores a **hash** of the user password. Auth0 never stores secrets in clear text.
+* All connections from the Connector to the Auth0 Server are outbound only, so you do not need to make any changes to your firewall.
+* By default, an AD/LDAP Connection caches user profiles and credentials to ensure optimal uptime and performance (Auth0 stores a *hash* of the user's password). You can disable credential caching at the [connections](/identityproviders) level.
+* For [high availability and load balancing](/connector/high-availability), you can install multiple instances of the AD/LDAP Connector.

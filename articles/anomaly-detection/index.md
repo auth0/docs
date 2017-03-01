@@ -1,4 +1,5 @@
 ---
+toc: true
 description: Explains all the types of Anomaly Detection provided by Auth0 and how to enable them.
 url: /anomaly-detection
 ---
@@ -21,11 +22,13 @@ There are two different triggers for the brute-force protection shield, for two 
 **Trigger:** *10* failed login attempts into a single account from the same IP address.
 
 **Actions**:
-* Send an email to the affected user
+* Send an email to the affected user (The email can be [customized](#customize-the-blocked-account-email))
 * Block the suspicious IP address
 
 ::: panel-info Note
 The way this anomaly protection works is that if user with "user_id1" signs in from IP1 and fails to login consecutively for 10 attempts their login from this IP - IP1 will be blocked. Another user, say "user_id2" signing in from the same IP (IP1) will not be blocked. The mechanism to clear this block is described below.
+
+Currently the default trigger amount of 10 cannot be changed.
 :::
 
 If this block is triggered, it can be cleared the following ways:
@@ -35,7 +38,7 @@ If this block is triggered, it can be cleared the following ways:
 * The User changes their password.
 
 
-**Trigger:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. 50 sign ups attempts per minute from the same IP address.
+**Trigger:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. Or *50* sign ups attempts per minute from the same IP address.
 
 **Actions:**
 * Notify dashboard owners
@@ -47,7 +50,7 @@ Auth0 does email the dashboard owner when this block is triggered. Within this e
 
 #### Restrictions Regarding Brute-Force Protection
 
-Both of these anomaly types depend on the IP address of the user. Because of this, the following use cases are not supported:
+Both of these anomaly types depend on the IP address of the user. Because of this, the following use cases are *not* supported:
 
 1.  Using the [Resource Owner](/api/authentication#resource-owner) from the backend of the application. Using this call does not get the IP address of the user.
 2.  Authenticating many users from the same IP address. For instance, users that are behind a proxy are more likely to reach these limits and trigger the associated protection. It is possible to configure a whitelist for the proxy's IP and CIDR range and avoid erroneously triggering the protection.
@@ -78,4 +81,19 @@ You can use the toggle to disable all the actions of a certain shield. Or to ena
 
 Then you can use the toggle to enable/disable an action.
 
+Here you can also add any IP addresses to the **Whitelist** field to avoid erroneously triggering the protection.
+
 Click **Save** when you have finished.
+
+### Customize the Blocked Account Email
+
+When Auth0 sends an email to a user to notify them of the block, the message contains a link to re-enable the origin of the request. Notice that Auth0 never blocks the user itself, just the attempts from the suspicious origin.
+
+The email sent to the user looks like this:
+
+![Email Example](/media/articles/brute-force-protection/bfp-2015-12-29_1832.png)
+
+The template used for this message can be customized on the [Dashboard](${manage_url}/#/emails) under __Emails > Templates > Blocked Account Email__.
+
+[Learn more about Customizing your Emails](/email/templates)
+

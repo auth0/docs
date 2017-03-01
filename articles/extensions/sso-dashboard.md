@@ -102,13 +102,13 @@ Then click on the **CREATE APP** button to add a new application.
 
 You will then need to enter the following fields for the new application:
 
-**Type**: This field is a dropdown where you select the either SAML, OpenID-Connect, or WS-Federation depending on the type of application.
-**Application**: This is the application name of the application you have created that you wish to associate the login of users.
-**Name**: The name of the new application you are adding.
-**Logo**: Enter the url of the logo you wish to user as an icon for the application.
-**Callback**: This is one of the **Allowed Callback URLs** under your [Client Settings](${manage_url}/#/clients) of the application.
-**Connection** *Optional*: Select the connection type from the dropdown. You can add/edit your available connection types in the [Connections section of the Auth0 Management dashboard](${manage_url}/#/connections/database).  If a connection is not set and the user is not logged, the user will see the Auth0 Login page.
-**Enabled**: Select this checkbox for this application to be visible (published) to your users.
+* **Type**: This field is a dropdown where you select the either SAML, OpenID-Connect, or WS-Federation depending on the type of application.
+* **Application**: This is the application name of the application you have created that you wish to associate the login of users.
+* **Name**: The name of the new application you are adding.
+* **Logo**: Enter the url of the logo you wish to user as an icon for the application.
+* **Callback**: This is one of the **Allowed Callback URLs** under your [Client Settings](${manage_url}/#/clients) of the application.
+* **Connection** *Optional*: Select the connection type from the dropdown. You can add/edit your available connection types in the [Connections section of the Auth0 Management dashboard](${manage_url}/#/connections/database).  If a connection is not set and the user is not logged, the user will see the Auth0 Login page.
+* **Enabled**: Select this checkbox for this application to be visible (published) to your users.
 
 ![Create a new application](/media/articles/extensions/sso-dashboard/new-app.png)
 

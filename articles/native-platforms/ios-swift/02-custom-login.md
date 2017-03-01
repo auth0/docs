@@ -6,12 +6,12 @@ budicon: 448
 
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
+  repo: 'auth0-ios-swift-v2-sample',
   path: '02-Custom-Login',
   requirements: [
-    'CocoaPods 1.0.0',
-    'XCode 7.3 (7D175)',
-    'iPhone 6 - iOS 9.3 (13E230)'
+    'CocoaPods 1.1.1',
+    'Version 8.2 (8C38)',
+    'iPhone 6 - iOS 10.2 (14C89)'
   ]
 }) %>
 
@@ -29,18 +29,19 @@ Then, add the following code to perform a login:
 Auth0
     .authentication()
     .login(
-        emailOrUsername: "email@foo.com",
+        usernameOrEmail: "email@foo.com",
         password: "123456",
-        connection: "Username-Password-Authentication"
+        realm: "Username-Password-Authentication",
+        scope: "openid profile"
     )
     .start { result in
-            switch result {
-            case .Success(let credentials):
-                // Logged in successfully
-                // You've got a Credentials instance, which you'll use, for example, to retrieve the User Profile
-            case .Failure(let error):
-                // You've got an error
-            }
+        switch result {
+        case .success(let credentials):
+            // Logged in successfully
+            // You've got a Credentials instance, which you'll use, for example, to retrieve the User Profile
+        case .failure(let error):
+            // You've got an error
+        }
     }
 ```
 
@@ -55,28 +56,21 @@ Basically, `credentials` contains token-related information; you will normally s
 Once you've obtained a `Credentials` object, retrieving a user profile is quite simple. All you have to do is:
 
 ```swift
-guard let idToken = credentials.idToken else { return }
+guard let accessToken = credentials.accessToken else { return }
 Auth0
     .authentication()
-    .tokenInfo(token: idToken)
+    .userInfo(token: accessToken)
     .start { result in
         switch result {
-        case .Success(let profile):
+        case .success(let profile):
             // You've got a UserProfile object
-        case .Failure(let error):
+        case .failure(let error):
             // You've got an error
         }
 }
 ```
 
-A trivial example of how to use some profile info:
-
-```swift
-welcomeLabel.text = "Welcome, \(profile.name)!"
-memberLabel.text = "You are member since \(profile.createdAt)"
-```
-
-> For further reference on the `profile` and `error` objects, check the [UserProfile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/UserProfile.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Authentication.swift) files documentation.
+> For further reference on the `profile` and `error` objects, check the [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication.swift) files documentation.
 
 ## Implement a Sign Up
 
@@ -100,14 +94,14 @@ Auth0
         userMetadata: ["first_name": "Foo", "last_name": "Bar"] // or any extra user data you need
     )
     .start { result in
-            switch result {
-            case .Success(let credentials):
-              // Registered successfully
-              // You've got a Credentials object
-            case .Failure(let error):
-                // You've got an error
-            }
+        switch result {
+        case .success(let credentials):
+            // Registered successfully
+            // You've got a Credentials object
+        case .failure(let error):
+            // You've got an error
         }
+    }
 }
 ```
 
@@ -150,7 +144,7 @@ import Auth0
 ```
 
 ```swift
-func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     return Auth0.resumeAuth(url, options: options)
 }
 ```
@@ -164,12 +158,12 @@ Auth0
     .scope("openid")
     .start { result in
         switch result {
-        case .Success(let credentials):
+        case .success(let credentials):
             // You've got your credentials
-        case .Failure(let error):
+        case .failure(let error):
             // Handle the error
         }
     }
 ```
 
-Once you get the `credentials` object, upon a successful authentication, you deal with them as usual. For more information on that topic, check out the [login](01-login) and [session handling](session-handling) tutorials.
+Once you get the `credentials` object, upon a successful authentication, you deal with them as usual.

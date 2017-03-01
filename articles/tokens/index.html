@@ -1,0 +1,149 @@
+---
+url: /tokens
+section: articles
+classes: topic-page
+title: Tokens
+description: Learn about the numerous types of tokens referenced in Auth0 documentation, what each is used for and how to use it.
+---
+
+<div class="topic-page-header">
+  <div data-name="example" class="topic-page-badge"></div>
+  <h1>Tokens used by Auth0</h1>
+  <p>
+    Learn about the types of tokens referenced in Auth0 documentation, what each is used for and how to use it.
+  </p>
+</div>
+
+<p>
+  Auth0 uses two types of tokens:
+  <ul>
+    <li>
+      <strong>JSON Web Tokens (JWT)</strong>: Tokens that conform to the <a href="/jwt">JSON Web Token standard</a> and contain information about an identity in the form of claims.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
+    </li>
+    <li>
+      <strong>Opaque tokens</strong>: Tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
+    </li>
+  </ul>
+
+  There are six primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation.
+</p>
+
+<ul class="topic-links">
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/tokens/id-token">ID Token</a>
+    <p>
+      The ID token, usually referred to as <code>id_token</code> in code samples, is a <a href="/jwt">JSON Web Token (JWT)</a> that contains user profile attributes represented in the form of <i>claims</i>. The <code>id_token</code> is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/jwt">JSON Web Tokens (JWT) in Auth0</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="https://tools.ietf.org/html/rfc7519">JWT Specification: RFC 7519</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/scopes">Scopes</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/libraries/lock#implementing-lock">Get a token using Lock</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/libraries/lock/v10/api#getuserinfo-">Retrieve the full user profile using Lock</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/user-profile">User profile overview</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/api/authentication#get-token-info">Validate a JWT and get the full user profile</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="https://jwt.io/">Debugger for viewing JWT</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/protocols/oidc">Read about OpenID Connect (OIDC)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/tokens/access-token">Access Token</a>
+    <p>
+      The Access Token, commonly referred to as <code>access_token</code>, is a credential that can be used by a client to access an API. Auth0 uses access tokens to protect access to the Auth0 Management API.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/api/authentication#get-user-info">Retrieve the full user profile with an access token</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/user-profile">User profile overview</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/protocols/oauth2">Read about OAuth 2.0</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/tokens/idp">Identity Provider Access Token</a>
+    <p>
+      When a user authenticates via Auth0 with another social provider's authentication service, such as Facebook or LinkedIn, the social provider will return an access token that can be used by the client program to call that social provider's API.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/tutorials/calling-an-external-idp-api">Call an Identity Provider API</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/tutorials/adding-scopes-for-an-external-idp">Add scopes/permissions to call Identity Provider's APIs</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/api/authentication#social-with-provider-s-access-token">Social Login with Provider's Access Token</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/tokens/refresh_token">Refresh Token</a>
+    <p>
+      The Refresh token is a long-lived token that is used to obtain a new <a href="/tokens/id-token">ID Token</a> after a previous one has expired.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/libraries/lock-ios/save-and-refresh-jwt-tokens">Lock iOS: Saving and Refreshing JWT Tokens</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/libraries/lock-android/refresh-jwt-tokens">Lock Android: Refreshing JWT Tokens</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/">Refresh Tokens: When to Use Them and How They Interact with JWTs</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/tokens/delegation">Delegation Token</a>
+    <p>
+      The Auth0 <a href="/tokens/id-token">ID Token</a> can be exchanged for another token, called a Delegation Token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/libraries/lock-ios/delegation-api">Lock iOS: Delegation API</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/libraries/lock-android/delegation-api">Lock Android: Delegation API</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/api/authentication#delegation">Authentication API Delegation endpoint</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/api/v2/tokens">Management APIv2 Token</a>
+    <p>
+      The Management APIv2 token is used to call the Auth0 Management API v2. This APIv2 token is a JWT, and contains various scope claims, such as <code>read:users</code> or <code>update:clients</code>, and is signed with a client API key and secret for the entire tenant.
+    </p>
+    <ul>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/api/v2">Management APIv2 Explorer</a>
+      </li>
+      <li>
+        <i class="icon icon-budicon-695"></i><a href="/api/management/v2/changes">Management API v1 vs v2</a>
+      </li>
+    </ul>
+  </li>
+</ul>

@@ -1,63 +1,75 @@
 ---
 description: How to use monitoring with an Auth0 account.
+toc: true
 ---
 
-# Monitoring Auth0
+# Monitor Auth0
 
-If you are using the public cloud version of Auth0 we recommend you subscribe to [http://status.auth0.com](http://status.auth0.com) for a continuous stream of notifications regarding the availability of the service. Any incidents are reported there by the Auth0 Devops team. Current and historical uptime is available on [http://uptime.auth0.com](http://uptime.auth0.com).
+If you are using the public cloud version of Auth0, we recommend subscribing to [Auth0 Status](http://status.auth0.com) for notifications regarding Auth0 service availability. The Auth0 DevOps team uses [Auth0 Status](http://status.auth0.com) for reports on current incidents.
 
-## Monitoring your own Auth0 account
+Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0.com).
 
-You can add Auth0 health probes to your own monitoring infrastructure easily by querying these two endpoints:
+## Monitor Your Auth0 Account
 
-  GET https://${account.namespace}/test
+You can add Auth0 health probes to your monitoring infrastructure with the following endpoints:
 
-This returns a JSON object with a single property:
+### The `test` Endpoint
 
-```
-200
-content-type: application/json
-{"clock":1417220191640}
-```
+The `test` endpoint checks the status of the core Auth0 authentication service. If the status is up, the endpoint returns a `200` status code; if is is not, it will return a `5xx` status code.
 
-If the core Auth0 authentication service is up, the `/test` endpoint will return a 200 status code.
-Otherwise, it will return 5xx.
-
-This other one:
-
-  GET https://${account.namespace}/testall
-
-returns a simple text:
-
-```
-200
-content-type: text/plain
-OK
-```
-
-The `/testall` endpoint checks that the core Auth0 authentication service is up as well as additional services such as the management dashboard and documentation pages.
-If any of those services are down, the response code from `/testall` will be 5xx.
-
-If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can also build a synthetic transaction that exercises these capabilities. We recommend using an authentication flow that won't require a UI (e.g. `Resource Owner flow`). Other ones might require a monitoring tool able to mimic what a user would do (e.g. follow redirects, input username/password on a form, etc.).
-
-```
-POST https://${account.namespace}/oauth/ro
-Content-Type: 'application/json'
+```har
 {
-  "client_id":   "{An app registered in Auth0 for monitoring}",
-  "username":    "{A system account for monitoring}",
-  "password":    "{A password}",
-  "connection":  "{A user store defined in Auth0}",
-  "grant_type":  "password",
-  "scope":       "openid",
-  "device":      "SCOM"
+  "method": "GET",
+  "url": "https://${account.namespace}/test",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
+  ]
 }
 ```
 
-A successful request would return:
+Additionally, this endpoint returns a JSON object:
 
+```json
+{
+  "clock": 1417220191640
+}
 ```
-HTTP 200
+
+### The `testall` Endpoint
+
+The `/testall` endpoint checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Management Dashboard](${manage_url}) and Documentation.
+
+```har
+{
+  "method": "GET",
+  "url": "https://${account.namespace}/testall",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
+  ]
+}
+```
+
+If all services are up, the endpoint returns the `200` HTTP response code and a simple text message saying, "`OK`." If any service is down, the response code from `/testall` will be 5xx.
+
+If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities.
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/ro",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"An app registered in Auth0 for monitoring\",\"username\": \"A system account for monitoring\", \"password\": \"A password\", \"connection\": \"A user store defined in Auth0\", \"grant_type\": \"password\", \"scope\":\"openid\", \"device\": \"SCOM\"}"
+  }
+}
+```
+
+A successful request would return a `200` HTTP status code and the following information:
+
+```json
 {
   "id_token": "eyJ0eXAi......3Jia5WgM",
   "access_token": "F25VQ.....NWpS",
@@ -65,80 +77,78 @@ HTTP 200
 }
 ```
 
-Many tools exist for monitoring using this approach: [New Relic](http://newrelic.com), [Pingdom](http://pingdom.com), etc.
+We recommend using an authentication flow that doesn't require a user interface (such as the `Resource Owner flow`) so that you don't have to use a monitoring tool that is capable of mimicking the actions of a user. Many monitoring tools exist using this approach, including:
 
----
+* [New Relic](http://newrelic.com)
+* [Pingdom](http://pingdom.com)
 
-## Monitoring a dedicated deployment
+### Monitor External Services Associated with Your Auth0 Account
 
-If you are using the __Auth0 Appliance__, monitoring is very similar to the steps described above.
+If you are seeing issues with your Auth0 service, but the monitoring endpoints aren't returning information on errors, check the status of any external services that you use via Auth0.
 
-The health endpoints are equivalent, only with the private URL:
+* [Amazon Web Services](https://status.aws.amazon.com/)
+* [Azure Active Directory](https://azure.microsoft.com/en-us/status/)
+* [Facebook](https://developers.facebook.com/status/)
+* [GitHub](https://status.github.com/)
+* [Google's G Suite](https://www.google.com/appsstatus#hl=en&v=status)
+* [Mandrill](http://status.mandrillapp.com/)
+* [SendGrid](http://status.sendgrid.com/)
+* [Twilio](https://status.twilio.com/)
 
-  https://{your_auth0_server}/{test | testall}
+## Monitoring a Dedicated Deployment
 
-In a dedicated deployment we recommend you monitor the following endpoints:
+Please see the [Appliance](/appliance) pages for [information on monitoring a dedicated deployment](/appliance/monitoring).
 
-* __Dashboard__: `https://app.myauth0.com/test`
-* __Documentation site__: `https://docs.myauth0.com/test`
-* __Login endpoints__: `https://login.myauth0.com/test` and  `https://login.myauth0.com/lo/test`
+## Configure SCOM
 
-As before, the above endpoints return a timestamp:
+Auth0 can be monitored as a standard web application using System Center Operations Manager (SCOM) or any tool that supports synthetic transactions.
 
-```
-200
-content-type: application/json
-{"clock":1417196777540}
-```
+We recommend adding SCOM probes for the `test` and `testall` endpoints, in addition to one for a synthetic login transaction that includes the extensions your applications rely on (such as rules that execute custom code for integration with your company's other services).
 
-### Monitoring individual nodes of a cluster
+To set up SCOM:
 
-The endpoints above will normally hit the load-balancer that is fronting the nodes of a cluster. You can monitor individual nodes. A typical highly-available deployment will have at leasts 3 nodes:
+1. Add a new SCOM instance using the *Add Monitoring Wizard*:
 
-* `https://{IP Address Node 1}/testall`
-* `https://{IP Address Node 2}/testall`
-* `https://{IP Address Node 3}/testall`
+  * **Name**: a descriptive name for the SCOM instance
+  * **Description**: a description of what this SCOM instances monitors
+  * **Select destination management pack**: Default Management Pack
 
-If all is working fine, the endpoints will return a simple string:
+  ![ss-2014-11-21T15-44-34.png](/media/articles/monitoring/ss-2014-11-21T15-44-34.png)
 
-```
-200
-content-type: text/plain
-OK
-```
+  Click **Next** to continue.
 
-Individual nodes that are not responding, or timeout can be __removed from the load balancer without affecting the service__. All nodes of a cluster can serve requests to client applications. All configuration information is continuously replicated across nodes.
+2. Click **Add** to enter the URLs you want SCOM to monitor.
 
-> These endpoints are typically used by the Load Balancer to decide whether a node should be removed from the cluster or not. If a node stops responding, and the Load Balancer removes it you must contact [Auth0 Support](https://support.auth0.com).
+  ![ss-2014-11-21T16-31-15.png](/media/articles/monitoring/ss-2014-11-21T16-31-15.png)
 
-### Configuring SCOM
+  Click **Next** to continue.
 
-Auth0 can be monitored as a standard web application on System Center Operations Manager (or any other similar tool that supports synthetic transactions).
+3. You will be asked where you want to monitor from. Click **Add** to set up a location. In the pop-up dialog, search for **Internal location - Agent**. Select the appropriate address and click **Add**. Click **Ok** to finish selecting the location.
 
-We recommend adding probes in SCOM for all the endpoints describe before, including a login synthetic transaction that includes the extensions your applications rely on (e.g. rules that execute custom code that integrates with other services in your company).
+  ![ss-2014-11-21T16-32-25.png](/media/articles/monitoring/ss-2014-11-21T16-32-25.png)
 
-#### Configuring System Center Operations Manager
+  Click **Next** to continue.
 
-Setup for SCOM is straight forward as shown on these screenshots:
+4. Set the frequency with which SCOM collects data from each endpoint:
 
-![ss-2014-11-21T15-44-34.png](/media/articles/monitoring/ss-2014-11-21T15-44-34.png)
+  * **Test frequency**: 60 seconds
+  * **Performance data collection interval**: 60 seconds
+  * **Test time-out**: 30 seconds
 
-![ss-2014-11-21T16-31-15.png](/media/articles/monitoring/ss-2014-11-21T16-31-15.png)
+  Additionally, under the *Alerts* section, **check** the box next to *HTTP status code* and set that to **Great than or equals 400**.
 
-![ss-2014-11-21T16-32-25.png](/media/articles/monitoring/ss-2014-11-21T16-32-25.png)
+  ![ss-2014-11-21T16-33-51.png](/media/articles/monitoring/ss-2014-11-21T16-33-51.png)
 
-![ss-2014-11-21T16-33-51.png](/media/articles/monitoring/ss-2014-11-21T16-33-51.png)
+  Click **Next** to continue.
+
+5. Click **Run Test** to test each endpoint and ensure that the connection settings provided are correct.  
 
 ![ss-2014-11-21T16-34-25.png](/media/articles/monitoring/ss-2014-11-21T16-34-25.png)
 
-Make sure to configure proper alerts against these probes. Timeouts on endpoints are dependent on the network configuration, but should resemble the expected behavior of applications.
-
-#### Monitoring
-
-You can monitor System Center activity throught the monitoring tab as shown bellow:
+Once you have finished configuring your SCOM instance, you can activity through the **Monitoring** tab:
 
 ![ss-2014-11-25T17-20-47.png](/media/articles/monitoring/ss-2014-11-25T17-20-47.png)
 
-![ss-2014-11-25T17-22-10.png](/media/articles/monitoring/ss-2014-11-25T17-22-10.png)
+Click **Web Application Status** to bring up the information SCOM has gathered.
 
-> If any of these alarms are triggered, contact [Auth0 support](https://support.auth0.com) immediately following the incident escalation procedure provided during the onboarding process.
+![ss-2014-11-25T17-22-10.png](/media/articles/monitoring/ss-2014-11-25T17-22-10.png)

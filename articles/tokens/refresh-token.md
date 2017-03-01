@@ -2,29 +2,21 @@
 description: A refresh token allows an application to request Auth0 to issue a new id_token directly, without needing to re-authenticate the user.
 ---
 
-# Refresh Tokens
+# Refresh Token
 
-A **refresh token** is a special kind of [JWT](/jwt) that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.  
+<div class="alert alert-info">
+  <strong>Heads up!</strong> If you are working with the <a href="/api-auth">API Authorization flows</a> and you are looking for the updated documentation, refer to <a href="/tokens/preview/refresh-token">Refresh Token (API Authorization)</a>.
+</div>
 
-For more information on the types of access tokens used by Auth0, see [Tokens](/tokens).
+A **Refresh Token** is a special kind of token that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.
+
+Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time.
 
 If you are new to refresh tokens, you can learn more about them in this blog post: [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/).
 
-## Introduction
+Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API. They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-in-the-dashboard).
 
-The response of an [authentication request](/protocols) can result in an `id_token` (JWT) being issued by Auth0. This token is used to make authenticated calls to a secured API. JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing). Applications that are installed locally on a device (such as a desktop or smartphone) may want to avoid asking the user to enter their credentials each time this token expires.
-
-A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate the user. This will work as long as the refresh token has not been revoked.
-
-Refresh tokens can be issued for each combination of __app__, __user__ and __device__. Once the Auth0 refresh token is issued, the values of the client, user, and device set during its creation cannot be changed.
-
-::: panel-warning Secure Storage
-Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
-:::
-
-Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API.
-
-They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-in-the-dashboard).
+Refresh tokens are subject to strict storage requirements to ensure that they are not leaked.
 
 ## Obtain a Refresh Token
 
@@ -57,6 +49,10 @@ GET https://YOUR_CALLBACK_URL#
 
 The refresh token is returned as part of the URL, in the form of an opaque string.
 
+::: panel-warning Security Warning
+Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
+:::
+
 **NOTE**: In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth2-implicit-flow) (`response_type=token`) was used.
 
 ## Use a Refresh Token
@@ -87,7 +83,7 @@ A response from this request could be as follows:
 The `expires_in` parameter indicates the lifetime of the new JWT in seconds. It can be calculated by the difference between the `exp` and `iat` claims of the JWT.
 
 ::: panel-info Rate limits
-Obtaining new tokens using the `refresh_token` should occur only if the `id_token` has expired. For example, it is a bad practice to call the endpoint to get a new token every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
+Obtaining new tokens using the `refresh_token` should occur only if the `id_token` has expired. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
 
@@ -112,7 +108,7 @@ GET https://${account.namespace}/api/v2/device-credentials?
 
 Response body:
 
-```json
+```text
 [
   {
     "id": "dcr_dFJiaAxbEroQ5xxx",
@@ -140,20 +136,6 @@ To see if a user has existing devices with associated refresh tokens, go to the 
 
 Select the **Devices** tab. This page lists all device names and the number of refresh tokens associated with each. To revoke a refresh token, click the **X** to the right of the device name.
 
-![](/media/articles/tokens/dashboard-revoke-refresh-token.png)
+![Revoke a Refresh Token in the Dashboard](/media/articles/tokens/legacy/dashboard-revoke-refresh-token.png)
 
 Click **UNLINK** to confirm.
-
-## SDK Support
-
-The [Lock](/libraries/lock), [auth0.js](/libraries/auth0js), and [auth0-angular.js](https://github.com/auth0/auth0-angular) libraries include support to obtain and use refresh tokens.
-
-For more information about using refresh tokens with these libraries, see:
-
-* [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
-
-* [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens)
-
-* [Get a refresh token with Auth0.js](https://github.com/auth0/auth0.js#login) and [Use a refresh token to get new id_token](https://github.com/auth0/auth0.js#refresh-token)
-
-* [Using Refresh Tokens in Mobile Applications](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)

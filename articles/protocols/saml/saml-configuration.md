@@ -99,8 +99,8 @@ If Auth0 is acting as a Service Provider, the following is needed to support IDP
 If Auth0 is acting as an Identity Provider, the following is needed to support IDP-initiated Single Sign On.
 
 
-* The URL to invoke for IDP-initiated login, if Auth0 will authenticate the users is of the form: `https://{accountname}.auth0.com/samlp/{client_id}`
-* The `RelayState parameter` can be appended to specify a URL to which the Service Provider should redirect the user after processing the SAML response. Example: `https://{accountname}.auth0.com/samlp/{client_id}?RelayState=http://{final_destination_URL}`
+* The URL to invoke for IDP-initiated login, if Auth0 will authenticate the users is of the form: `https://${account.namespace}/samlp/${account.clientId}`
+* The `RelayState parameter` can be appended to specify a URL to which the Service Provider should redirect the user after processing the SAML response. Example: `https://{accountname}.auth0.com/samlp/${account.clientId}?RelayState=http://FINAL_DESTINATION_URL`
 
 
 ### Signing and Encryption
@@ -156,7 +156,7 @@ To prepare a connection for this:
 
 ##### Receiving signed SAML Authentication Requests
 
-When Auth0 is acting as a SAML Identity Provider, it can receive signed authentication requests, signed with the Service Provider's private key, and use the Service Provider's public key/certificate to validate the signature.
+When Auth0 is acting as a SAML Identity Provider, it can receive signed authentication requests, signed with the Service Provider's private key, and use the Service Provider's public key/certificate to validate the signature. To configure signature validation you will need to download the Service Provider public key and then go to *Clients > Addons > SAML2 WEB APP > Settings* tab and store the value in the `signingCert` key
 
 ##### Sending Signed SAML Authentication Responses/Assertions
 
@@ -191,7 +191,6 @@ function (user, context, callback) {
 
 ### Logout
 
-
 For information on how to log out the user's session in Auth0, or in both Auth0 and federated identity providers, see:
 
 * [Logout](/logout)
@@ -205,6 +204,8 @@ In the "Settings" field, enter a specification for logout callback URL:
 ```
 "logout": { "callback" : "http://your-callback-goes-here" },
 ```
+
+On SAML compliant endpoint this URL will be used to send LogoutRequests or LogoutResponse depending if the Service Provider was the session initiating the logout or it's just another Session Participant. If you wan to skip a service provider from being notified about a Session Termination you can set `slo_enabled` key inside logout to `false`.
 
 ### Selecting between multiple Identity Providers (Auth0 connections)
 

@@ -13,18 +13,22 @@ budicon: 448
   ]
 }) %>
 
-The previous step explained how you can log users into your application using the Lock Widget. You do not need to use Lock, and can instead create a custom login page and UI if you wish.
+The previous step explained how you can log users into your application using the Lock Widget. You do not necessarily need to use Lock, instead, you can create a custom login page and UI if you wish.
 
 If you are using social logins, you can also launch the login screen for a particular social login provider directly from your Ionic application.
 
-## Update References
+## Add auth0.js
 
-The custom login uses the `auth0.js` library, so it needs to be referenced instead of the Lock widget in your `index.html`. Replace the existing reference to `lib/auth0-lock/build/auth0-lock.js` with `lib/auth0.js/build/auth0.js`.
+To implement a custom login screen, the **auth0.js** library and **angular-auth0** wrapper are required. Install these packages, along with angular-jwt, and add them to your project.
+
+```bash
+bower install auth0.js#7.6.1 angular-auth0#1.0.6 angular-jwt
+```
 
 ```html
-<!-- Auth0's JS library -->
+<!-- auth0.js library -->
 <script src="lib/auth0.js/build/auth0.js"></script>
-<!-- auth0-angular -->
+<!-- angular-auth0 -->
 <script src="lib/angular-auth0/dist/angular-auth0.js"></script>
 <!-- angular-jwt -->
 <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
@@ -32,7 +36,7 @@ The custom login uses the `auth0.js` library, so it needs to be referenced inste
 
 ## Implement the Login
 
-For the login view, you must display fields for **Username** and **Password**, along with a **Login** to allow users to log in with their email address. For social login, a signle button can be supplied.
+For the login view, you must display fields for **Username** and **Password**, along with a **Login** to allow users to log in with their email address. For social login, a single button can be supplied.
 
 ```html
 <!-- www/components/login/login.html -->

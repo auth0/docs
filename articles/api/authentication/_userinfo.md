@@ -80,6 +80,11 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 | `access_token` <br/><span class="label label-danger">Required</span> | The Auth0 `access_token` obtained during login. |
 
 
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+
 ## Get Token Info
 
 <h5 class="code-snippet-title">Examples</h5>
@@ -151,10 +156,6 @@ auth0.getProfile(idToken, function (err, profile) {
   "link": "#get-token-info"
 }) %>
 
-::: panel-warning Deprecation Notice
-This endpoint will be deprecated. Customers will be notified and given ample time to migrate once an official deprecation notice is posted. The [GET /userinfo](#get-user-info) endpoint should be used instead to retrieve user information.
-:::
-
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
 
 
@@ -163,6 +164,11 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `id_token` <br/><span class="label label-danger">Required</span> | The `id_token` to use. |
+
+
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
 
 
 ### More Information

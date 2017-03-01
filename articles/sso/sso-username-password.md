@@ -1,4 +1,5 @@
 ---
+toc: true
 description: Overview of single sign on with username and password logins.
 ---
 
@@ -17,12 +18,12 @@ This endpoint accepts the following parameters:
 {
   scope:'openid',
   response_type:'code',
-  connection:'{YOUR CONNECTION}',
+  connection:'YOUR CONNECTION',
   username: username,
   password: password,
   sso: true|false,
-  client_id:'{THE APP CLIENT ID}',
-  redirect_uri:'{YOUR CALLBACK}',
+  client_id:'${account.clientId}',
+  redirect_uri:'${account.callback}',
   tenant:'${account.tenant}'
 }
 ```
@@ -51,12 +52,12 @@ The response from this is an HTML form that can be injected on your web page DOM
         var data = {
           scope:'openid',
           response_type:'code',
-          connection:'{YOUR CONNECTION}',
+          connection:'YOUR CONNECTION',
           username: username,
           password: password,
           sso: true,
-          client_id:'{YOUR CLIENT ID}',
-          redirect_uri:'{YOUR APP CALLBACK}',
+          client_id:'${account.clientId}',
+          redirect_uri:'${account.callback}',
           tenant:'${account.tenant}'
         };
 
@@ -81,7 +82,7 @@ This endpoint is conceptually similar to `/ro` (Resource Owner), the difference 
     <input type="hidden" 
            name="wresult" 
            value="eyJ0eXAiOiJKV........6RZk5oAcf2dknZfE">
-    <input type="hidden" name="wctx" value="{&quot;strategy&quot;:&quot;auth0&quot;,&quot;auth0Client&quot;:&quot;&quot;,&quot;tenant&quot;:&quot;${account.tenant}&quot;,&quot;connection&quot;:&quot;YOUR_CONNECTION&quot;,&quot;client_id&quot;:&quot;YOUR_CLIENT_ID&quot;,&quot;response_type&quot;:&quot;code&quot;,&quot;scope&quot;:&quot;openid&quot;,&quot;redirect_uri&quot;:&quot;YOUR_CALLBACK&quot;,&quot;session_user&quot;:&quot;123456789&quot;}">
+    <input type="hidden" name="wctx" value="{&quot;strategy&quot;:&quot;auth0&quot;,&quot;auth0Client&quot;:&quot;&quot;,&quot;tenant&quot;:&quot;${account.tenant}&quot;,&quot;connection&quot;:&quot;YOUR_CONNECTION&quot;,&quot;client_id&quot;:&quot;${account.clientId}&quot;,&quot;response_type&quot;:&quot;code&quot;,&quot;scope&quot;:&quot;openid&quot;,&quot;redirect_uri&quot;:&quot;${account.callback}&quot;,&quot;session_user&quot;:&quot;123456789&quot;}">
     <noscript>
         <p>
           Script is disabled. Click Submit to continue.

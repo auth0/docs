@@ -7,11 +7,11 @@ description: Tutorial for creating an Auth0 app that uses SAML SSO with SSOCircl
 
 This tutorial will create a sample application that uses Auth0 for SAML Single Sign On (SSO), authenticating users against identity provider **SSOCircle**.
 
-## 1. Obtain the SSOCircle Metadata
-
-::: panel-info SSOCircle Metadata
+::: panel-danger Deprecation Notice
 As of July 8, 2016, SSOCircle supports integration via [manual configuration using public settings](http://www.ssocircle.com/en/idp-tips-tricks/public-idp-configuration/). If you have previously used account-specific metadata, your integration will still function, though this usage is now deprecated.
 :::
+
+## 1. Obtain the SSOCircle Metadata
 
 Navigate to [SSOCircle's IDP page](https://idp.ssocircle.com/) to see the metadata required for integration. You will be shown an XML file.
 
@@ -157,14 +157,14 @@ Create an HTML file with the following HTML and JavaScript:
 
     <script src="${lock_url}"></script>
     <script type="text/javascript">
-      var lock = new Auth0Lock('YOUR_CLIENT_ID', '${account.namespace}');
+      var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
       function signin() {
         lock.show({
             callbackURL: 'http://jwt.io'
           , responseType: 'token'
           , authParams: {
-            scope: 'openid name email' //Details: https:///scopes
+            scope: 'openid name email'
           }
         });
       }
@@ -176,9 +176,7 @@ Create an HTML file with the following HTML and JavaScript:
 </HTML>
 ```
 
-Be sure to replace `YOUR_CLIENT_ID` with the actual value for the [Client you created](#4-create-an-auth0-client-to-test-the-connection).
-
-The Client ID can be found in the **Auth0 Dashboard** by going to **Clients** and clicking the **Settings** icon to the right of your Client name.
+Be sure to replace `YOUR_CLIENT_ID` with the actual value for the [Client you created](#4-create-an-auth0-client-to-test-the-connection). To find the Client ID, go to *[Auth0 Dashboard](${manage_url}) > [Clients](${manage_url}/#/clients)* and click the **Settings** icon to the right of your Client name. Copy the **Client ID** value.
 
 Save this file. For the purposes of this example, we'll call it `hello-saml.html`.
 

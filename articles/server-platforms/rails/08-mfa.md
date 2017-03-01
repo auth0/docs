@@ -16,7 +16,7 @@ budicon: 448
 
 <%= include('../_includes/_mfa-introduction') %>
 
-On this tutorial you'll learn how to enable MFA in the Rails application created in the [Login](/quickstart/webapp/rails/01-login) step.
+On this tutorial, you'll learn how to enable MFA in the Rails application created in the [Login](/quickstart/webapp/rails/01-login) step.
 
 ## Enable Multifactor Authentication in Your Account
 

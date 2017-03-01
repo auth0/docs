@@ -8,15 +8,12 @@ budicon: 448
 <%= include('../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-winformsWPF-samples',
-  path: '00-Starter-Seed'
+  path: '00-Starter-Seed',
+  requirements: [
+    'Microsoft Visual Studio 2015',
+    '.NET Framework 4.6.1'
+  ]
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Microsoft Visual Studio 2015
-* .NET Framework 4.6.1
-:::
-
 
 This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsOrWPF` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
@@ -39,12 +36,12 @@ ${snippet(meta.snippets.dependencies)}
 There are three options to do the integration:
 
 1. Using [Auth0 Lock](/lock) inside a Web View (this is the simplest way with only a few lines of code required).
-2. Creating your own UI (more work, but higher control the UI and overall experience).
+2. Creating your own UI (more work, but higher control of the UI and overall experience).
 3. Using specific username and password.
 
 ### Option 1: Auth0 Lock
 
-To start with, we'd recommend using __Lock__. Here is a snippet of code to copy & paste on your project.
+To start, we recommend using __Lock__. Here is a snippet of code to copy & paste on your project.
 Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
 
 ${snippet(meta.snippets.setup)}

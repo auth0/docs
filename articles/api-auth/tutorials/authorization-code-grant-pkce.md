@@ -4,6 +4,14 @@ description: How to execute an Authorization Code Grant flow with PKCE for a Mob
 
 # Execute an Authorization Code Grant Flow with PKCE
 
+<div class="alert alert-info">
+  This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code-pkce">Calling APIs from Mobile Apps</a>.
+</div>
+
+The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/quickstart/native) use in order to access an API. In this document we will work through the steps needed in order to implement this: create a code verifier and a code challenge, get the user's authorization, get a token and access the API using the token.
+
+## 1. Create a Code Verifier
+
 First, you need to generate and store a `code_verifier`.
 
 <div class="code-picker">
@@ -43,6 +51,7 @@ NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
   </div>
 </div>
 
+## 2. Create a Code Challenge
 
 Using the `code_verifier`, generate a `code_challenge` that will be sent in the authorization request.
 
@@ -93,27 +102,39 @@ NSString *challenge = [[[[hash base64EncodedStringWithOptions:0]
   </div>
 </div>
 
-To begin an Authorization Code Grant flow, your Client application should first send the user to the authorization URL including the `code_challenge` and the method used to generate it:
+## 3. Get the User's Authorization
+
+To begin an Authorization Code Grant flow, your native application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) including the `code_challenge` and the method used to generate it.
 
 ```text
 https://${account.namespace}/authorize?
-    audience={API_AUDIENCE}&
-    scope={SCOPE}&
+    audience=API_AUDIENCE&
+    scope=SCOPE&
     response_type=code&
-    client_id={AUTH0_CLIENT_ID}&
-    code_challenge={CODE_CHALLENGE}&
+    client_id=${account.clientId}&
+    code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri={CALLBACK_URL}
+    redirect_uri=${account.callback}
 ```
 
 Where:
 
-* `audience`: The target API for which the Client Application is requesting access on behalf of the user.
-* `scope`: The scopes which you want to request authorization for. These must be separated by a space.
-* `response_type`: The response type. For this flow, the value must be `code`. This indicates to the Authorization Server that you are performing an Authorization Code flow.
-* `client_id`: Your application's Client ID.
-* `redirect_uri`: The URL to which the Authorization Server (Auth0) will redirect the User Agent (Browser) after authorization has been granted by the User. The Authorization Code will be available in the hash fragment of this URL (via the `code` param). This URL must be specified as a valid callback URL under the Client Settings of your application.
+* `audience`: The unique identifier of the API the native app wants to access. Use the value of the __Identifier__ field at your [API Settings](${manage_url}/#/apis). If you can't see this page, enable the __Enable APIs Section__ toggle at [Account Settings > Advanced](${manage_url}/#/account/advanced).
+
+* `scope`: The [scopes](/scopes) that you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
+
+  ::: panel-info Arbitrary Claims
+  In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add arbitrary claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add an arbitrary claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
+  :::
+
+* `response_type`: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be `code`.
+
+* `client_id`: Your application's Client ID. You can find this value at your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+* `redirect_uri`: The URL to which Auth0 will redirect the browser after authorization has been granted by the user. The Authorization Code will be available in the `code` URL parameter. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
 * `code_challenge`: Generated challenge from the `code_verifier`.
+
 * `code_challenge_method`: Method used to generate the challenge.
 
 ::: panel-warning A Note About code_challenge_method
@@ -128,9 +149,9 @@ For example:
 </a>
 ```
 
-## Exchange the Authorization Code for an Access Token
+## 4. Exchange the Authorization Code for an Access Token
 
-Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to POST to the OAuth Token URL sending also the `code_verifier`:
+Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to `POST` to the [Token URL](/api/authentication#authorization-code-pkce-) sending also the `code_verifier`:
 
 ```har
 {
@@ -154,7 +175,7 @@ Where:
 * `code`: The Authorization Code received from the initial `authorize` call.
 * `redirect_uri`: The URL must match exactly the `redirect_uri` passed to `/authorize`.
 
-The response from `/oauth/token` contains `access_token`, `refresh_token`, `id_token`, and `token_type` values, for example:
+The response contains `access_token`, `refresh_token`, `id_token`, and `token_type` values, for example:
 
 ```js
 {
@@ -165,14 +186,13 @@ The response from `/oauth/token` contains `access_token`, `refresh_token`, `id_t
 }
 ```
 
-Note that the `refresh_token` will be present in the response, only if you included the `offline_access` scope **and** enabled **Allow Offline Access** for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](
- https://auth0.com/docs/tokens/refresh-token).
+Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/preview/refresh-token).
 
 ::: panel-danger Warning
 It is important to understand that the Authorization Code flow with PKCE can only be used for Clients whose type is `Native` in the Dashboard.
 :::
 
-## Use the Access Token
+## 5. Call the API
 
 Once you have the `access_token`, you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
@@ -182,7 +202,37 @@ Once you have the `access_token`, you can use it to make calls to the API, by pa
   "url": "https://someapi.com/api",
   "headers": [
     { "name": "Content-Type", "value": "application/json" },
-    { "name": "Authorization", "value": "Bearer {ACCESS_TOKEN}" }
+    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" }
   ]
 }
 ```
+
+## 6. Verify the Token
+
+Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+
+For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+
+## Read more
+
+[Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
+
+[How to configure an API in Auth0](/apis)
+
+[Mobile/Native App Quickstarts](/quickstart/native)
+
+[Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
+
+[Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
+
+[Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
+
+[The OAuth 2.0 protocol](/protocols/oauth2)
+
+[The OpenID Connect protocol](/protocols/oidc)
+
+[Tokens used by Auth0](/tokens)
+
+[RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+
+[RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)

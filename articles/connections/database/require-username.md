@@ -22,7 +22,15 @@ You can see how the this will affect the login screen by clicking on **Try Conne
 
 Users can then login with either their username or their email address. For users who registered while **Requires Username** was disabled, there will be no Username field stored for them and they will have to login with their email.
 
-### Username length limitations
+### Username Limitations
+
+### Length
+
 The default allowed length for usernames is between 1 and 15 characters. However, using the dashboard or via API v2, you can modify the length minimum and maximum (up to a maximum length of 128 characters).
 
 ![](/media/articles/connections/database/username-length.png)
+
+### Allowed Characters
+
+The username field only allows letters (upper and lowercase A through Z, letters with accent marks not accepted), numbers, and the underscore (`_`) symbol. All other symbols (`@`, `.`, `,`, etc.) are not allowed.
+

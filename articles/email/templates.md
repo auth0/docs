@@ -12,11 +12,14 @@ The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emai
 
 ![](/media/articles/email/index/emails-fields.png)
 
+
+**Note:** Only one template can be used for each template type (i.e. only one template for change passsword emails).
+
 ## Configuring *From*, *Subject*, *Redirect To*, and *URL Lifetime*
 
 For each type of email, you can customize the **From Address**, the **Subject**, the **Redirect To** and the **URL Lifetime**.
 
-### *From Address*
+### From Address
 
 Users will see the sender's address in the **From Address** field when receiving an email from Auth0. If you do not configure a **From Address** for your emails your emails will be sent from the email address of the first owner of your Auth0 account.
 
@@ -134,9 +137,15 @@ For example, you can refer to attributes in the template to control flow as foll
 {% endif %}
 ```
 
+##### Debugging Liquid Template Variables
+
+To assist your template development, we've added a custom `{% debug %}` liquid tag, which outputs a summary of the template variables available to your template when it was rendered.  _Remember to remove this tag from any "live" templates._
+
 #### Using Markdown Syntax
 
-> Use of Markdown in email templates has been deprecated, so you will no longer be able to add new Markdown formatting. If you have an existing template in Markdown, you will be able to toggle from Markdown to Liquid, but changing this setting will result in  you losing any existing Markdown, as well as the ability to use Markdown.
+::: panel-danger Deprecation Notice
+Use of Markdown in email templates has been deprecated, so you will no longer be able to add new Markdown formatting. If you have an existing template in Markdown, you will be able to toggle from Markdown to Liquid, but changing this setting will result in  you losing any existing Markdown, as well as the ability to use Markdown.
+:::
 
 The use of Markdown in email templating has been **deprecated**, and is only available for templates which were already using Markdown as the templating syntax. The available attributes for Markdown syntax are:
 
@@ -187,19 +196,23 @@ The following macros are available in the **Welcome Email** template:
 
 If a user requests a password change, they will receive a **Change Password Confirmation Email**. Until the user clicks the verification link contained in the email, the password will remain unchanged.
 
+If a user requests a password change, this email will be sent. The password will not be changed until the user follows the verification link in the email. @@url@@ (or {{ url }} if you are using the HTML + Liquid syntax) is a placeholder for the verification link.
+
 The following macros are available in the **Change Password Confirmation** email template:
 
 * `{application.name}`
 * `{connection.name}`
 * `{user.email}`
 
-If you configure a **Redirect To** URL, the user will be directed to this URL after clicking the verification link. The following will be appended to the query string:
+This email template has a [**Redirect To** URL field](#redirect-to-url), which contains the URL the user will be directed to URL after clicking the verification link. The following will be appended to the query string:
 
 ```text
 http://myapplication.com/my_page/
   ?success=true
   &message=You%20can%20now%20login%20to%20the%20application%20with%20the%20new%20password.
 ```
+
+This template also has a **URL Lifetime** field which is the lifetime of the URL in seconds. The default is 432000 seconds (5 days).
 
 ### Blocked Account Email
 
@@ -214,3 +227,14 @@ The following macros are available in the **Blocked Account Email** template:
 * `user.country`
 * `application.name`
 * `connection.name`
+
+### Password Breach Alert
+
+This email type is sent whenever Auth0 detects that the user is trying to access the application using a password that has been leaked by a third party. These emails are only set after enabling **Breached Password Detection** in the [Anomaly Detection](${manage_url}/#/anomaly) section of the dashboard.
+
+The following macros are available in the **Password Breach Alert** template:
+
+* `{application.name}`
+* `{connection.name}`
+
+[Learn more about Breached Password Detection](/anomaly-detection#breached-password-detection)

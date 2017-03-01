@@ -20,19 +20,31 @@ This tutorial will show you how to use Lock to maintain an active session with A
 
 For this, you will need to handle the user's `credentials`. Let's take a look at this class, which is composed of three objects:
 
-* ``idToken``: Identity Token that proves the identity of the user.
-* ``accessToken``: Access Token used by the Auth0 API.
-* ``refreshToken``: Refresh Token that can be used to request new tokens without signing in again.
+* `idToken`: Identity Token that proves the identity of the user.
+* `accessToken`: Access Token used by the Auth0 API.
+* `refreshToken`: Refresh Token that can be used to request new tokens without signing in again.
 
 Those objects are the keys needed to keep the user connected, as they will be used in all the API calls`.
 
 ## Before Starting
 
-Be sure that you have completed the [Login](01-login.md) quickstart.
+Be sure that you have completed the [Login](/quickstart/native/android/01-login) quickstart.
+
+Before launching Lock you need to ask for the `offline_access` scope in order to get a valid `refresh_token` in the response. Locate the snippet were you're initializing Lock and add the `withScope("openid offline_access")` line.
+
+```java
+Auth0 auth0 = new Auth0(getString(R.string.auth0_client_id), getString(R.string.auth0_domain));
+Map<String, Object> parameters = new HashMap<>();
+parameters.put("scope", "openid offline_access");
+Lock lock = Lock.newBuilder(auth0, callback)
+        .withAuthenticationParameters(parameters)
+        .build(this);
+startActivity(lock.newIntent(this));
+```
 
 ## Save The User's Credentials
 
-Your first step is to save--through a secure method--the user's credentials obtained in the login success response.
+Save _through a secure method_ the user's credentials obtained in the login success response.
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
@@ -94,7 +106,7 @@ First, for both cases, you need to instantiate an `AuthenticationAPIClient`:
 
 ```java
 AuthenticationAPIClient client = new AuthenticationAPIClient(
-      new Auth0(${account.clientId}, ${account.namespace}));
+      new Auth0("${account.clientId}", "${account.namespace}"));
 ```
 
 ### i. Using a non-expired idToken

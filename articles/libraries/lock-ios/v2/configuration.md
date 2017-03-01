@@ -1,0 +1,191 @@
+---
+section: libraries
+toc: true
+url: /libraries/lock-ios/v2/configuration
+title: Lock for iOS and macOS v2 Configuration Options
+description: Behavior configuration options available with Lock v2 for iOS/macOS
+---
+
+# Lock v2 for iOS and macOS - Configuration Options
+
+There are numerous options to configure Lock's behavior listed below. In addition, there are also quite a few options available to alter Lock's appearance and style in the [Style Customization Options](/libraries/lock-ios/v2/customization) page.
+
+<%= include('../_includes/_lock-version') %>
+
+## Configuring Lock's behavior
+
+Configuration options can be added to your Lock initialization using `withOptions`.
+
+```swift
+Lock
+  .classic()
+  .withOptions {
+    $0.closable = true
+    $0.usernameStyle = [.Username]
+    $0.allow = [.Login, .ResetPassword]
+  }
+  .present(from: self)
+```
+
+## Behavior Options
+
+### closable
+
+Allows Lock to be dismissed by the user. By default this is `false`.
+
+```swift
+.withOptions {
+  $0.closable = true
+}
+```
+
+### scope
+
+Scope used for authentication. By default is `openid`. It will return not only the **access\_token**, but also an **id_token** which is a [JSON Web Token (JWT)](https://jwt.io/) containing user information. See the documentation on [Scopes](/scopes) for more information about authentication scopes.
+
+```swift
+.withOptions {
+  $0.scope = "openid name email picture"
+}
+```
+
+### termsOfService
+
+By default Lock will use Auth0's [Terms of Service](https://auth0.com/terms) and [Privacy Policy](https://auth0.com/privacy), but other URLs can be filled in to link to other terms and policies.
+
+```swift
+.withOptions {
+  $0.termsOfService = "https://mycompany.com/terms"
+  $0.privacyPolicy = "https://mycompany.com/privacy"
+}
+```
+
+## Database Options
+
+### allow
+
+Which database screens will be accessible, the default is enable all screens e.g. `.Login, .Signup, .ResetPassword`.
+
+```swift
+.withOptions {
+  $0.allow = [.Login, .ResetPassword]
+}
+```
+
+### initialScreen
+
+The first screen to present to the user. The default is `.Login`, other options include `.Signup` and `ResetPassword`.
+
+```swift
+.withOptions {
+  $0.initialScreen = .Login
+}
+```
+
+### usernameStyle
+
+Specify the type of identifier the login will require.  The default is either: `[.Username, .Email]`, but it can also accept `[.Username]` or `[.Email]`. However it's important to note that this option is only active if you have set the `requires_username` flag to `true` in your [Auth0 Dashboard](https://manage.auth0.com/#/)
+
+```swift
+.withOptions {
+  $0.usernameStyle = [.Username]
+}
+```
+
+#### Custom Signup Fields
+
+When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in the [Metadata Documentation](/metadata).
+
+```swift
+.withOptions {
+  $0.customSignupFields = [
+    CustomTextField(name: "first\_name", placeholder: "First Name", icon: LazyImage(name: "ic_person", bundle: Lock.bundle)),
+    CustomTextField(name: "last\_name", placeholder: "Last Name", icon: LazyImage(name: "ic_person", bundle: Lock.bundle))
+  ]
+}
+```
+
+*Note: You must specify the icon to use with your custom text field.*
+
+## Enterprise Options
+
+There are also configuration options specific to Enterprise connections:
+
+### enterpriseConnectionUsingActiveAuth
+
+By default Enterprise connections will use Web Authentication. However, you can specify which connections will alternatively use credential authentication and prompt for a username and password.
+
+```swift
+.withOptions {
+  $0.enterpriseConnectionUsingActiveAuth = ["enterprisedomain.com"]
+}
+```
+
+### activeDirectoryEmailAsUsername
+
+When in credential authentication mode, should the user require their email as an identifier?  The default is `false`, and instead requires a username.
+
+```swift
+.withOptions {
+  $0.activeDirectoryEmailAsUsername = true
+}
+```
+
+## Logging Options
+
+Lock provides options to easily turn on and off logging capabilities, as well as adjust other logging related settings.
+
+### logLevel
+
+By default this is `.off`, *Syslog* logging levels are supported.
+
+```swift
+.withOptions {
+  $0.logLevel = .all
+}
+```
+
+### logHttpRequest
+
+Whether or not to log Auth0.swift API requests. By default this is `false`.
+
+```swift
+.withOptions {
+  $0.logHttpRequest = true
+}
+```
+
+### loggerOutput
+
+Specify logger output handler, by default this uses the `print` statement.
+
+```swift
+.withOptions {
+  $0.loggerOutput = CleanroomLockLogger()
+}
+```
+
+In the code above, the *loggerOutput* has been set to use [CleanroomLogger](https://github.com/emaloney/CleanroomLogger). This can typically be achieved by implementing the *loggerOutput* protocol.  You can of course use your favorite logger library. Below is an example of usage handling logger output with CleanroomLogger.
+
+```swift
+class CleanroomLockLogger: LoggerOutput {
+  func message(_ message: String, level: LoggerLevel, filename: String, line: Int) {
+    let channel: LogChannel?
+    switch level {
+    case .debug:
+        channel = Log.debug
+    case .error:
+        channel = Log.error
+    case .info:
+        channel = Log.info
+    case .verbose:
+        channel = Log.verbose
+    case .warn:
+        channel = Log.warning
+    default:
+        channel = nil
+    }
+    channel?.message(message, filePath: filename, fileLine: line)
+  }
+}
+```

@@ -28,7 +28,7 @@ Since these tokens are created and managed by a third-party (such as Facebook, G
 
 An `id_token` issued by Auth0 is valid for **10 hours (36000 seconds) by default**. The expiration of this token can be set in the Apps/APIs -> Settings screen using the JWT expiration field.
 
-[Learn more about id_tokens issued by Auth0](id_token)
+[Learn more about id_tokens issued by Auth0](tokens/id_token)
 
 ## Auth0 Refresh Tokens 
 

@@ -23,5 +23,5 @@ seo_alias: sms
 
 ## Mobile Tutorials
 
- - [iOS](ios-sms-swift)
- - [Android](android-sms)
+ - [iOS](/connections/passwordless/ios-sms-swift)
+ - [Android](/connections/passwordless/android-sms)

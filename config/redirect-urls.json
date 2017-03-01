@@ -841,6 +841,10 @@
     "to": "/tokens/refresh-token"
   },
   {
+    "from": "/tokens/refresh_token",
+    "to": "/tokens/refresh-token"
+  },
+  {
     "from": "/tokens/access_token",
     "to": "/tokens/access-token"
   },
@@ -1163,5 +1167,150 @@
   {
     "from": "/connections",
     "to": "/identityproviders"
+  },
+  {
+    "from": "/anomaly-detection/brute-force-protection",
+    "to": "/anomaly-detection#brute-force-protection"
+  },
+  {
+    "from": "/quickstart/backend/webapi-owin/04-authentication-rs256-deprecated",
+    "to": "/quickstart/backend/webapi-owin/04-authentication-rs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/webapi-owin/05-authentication-hs256-deprecated",
+    "to": "/quickstart/backend/webapi-owin/05-authentication-hs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/webapi-owin/06-authorization-deprecated",
+    "to": "/quickstart/backend/webapi-owin/06-authorization-legacy"
+  },
+  {
+    "from": "/quickstart/backend/aspnet-core-webapi/04-authentication-rs256-deprecated",
+    "to": "/quickstart/backend/aspnet-core-webapi/04-authentication-rs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-deprecated",
+    "to": "/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/aspnet-core-webapi/06-authorization-deprecated",
+    "to": "/quickstart/backend/aspnet-core-webapi/06-authorization-legacy"
+  },
+  {
+    "from": "/libraries/lock-android/error-messages",
+    "to": "/libraries/error-messages"
+  },
+  {
+    "from": "/api-auth/grant/using-rules",
+    "to": "/api-auth/tutorials/client-credentials/customize-with-hooks"
+  },
+  {
+    "from": "/auth0-hooks",
+    "to": "/hooks"
+  },
+  {
+    "from": "/auth0-hooks/cli/create-delete",
+    "to": "/hooks/cli/create-delete"
+  },
+  {
+    "from": "/auth0-hooks/cli/edit",
+    "to": "/hooks/cli/edit"
+  },
+  {
+    "from": "/auth0-hooks/cli/enable-disable",
+    "to": "/hooks/cli/enable-disable"
+  },
+  {
+    "from": "/auth0-hooks/cli",
+    "to": "/hooks/cli"
+  },
+  {
+    "from": "/auth0-hooks/cli/logs",
+    "to": "/hooks/cli/logs"
+  },
+  {
+    "from": "/auth0-hooks/dashboard",
+    "to": "/hooks/dashboard"
+  },
+  {
+    "from": "/auth0-hooks/dashboard/create-delete",
+    "to": "/hooks/dashboard/create-delete"
+  },
+  {
+    "from": "/auth0-hooks/dashboard/edit",
+    "to": "/hooks/dashboard/edit"
+  },
+  {
+    "from": "/auth0-hooks/dashboard/enable-disable",
+    "to": "/hooks/dashboard/enable-disable"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points",
+    "to": "/hooks/extensibility-points"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points/credentials-exchange",
+    "to": "/hooks/extensibility-points/credentials-exchange"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points/post-user-registration",
+    "to": "/hooks/extensibility-points/post-user-registration"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points/pre-user-registration",
+    "to": "/hooks/extensibility-points/pre-user-registration"
+  },
+  {
+    "from": "/auth0-hooks/overview",
+    "to": "/hooks/overview"
+  },
+  {
+    "from": "/libraries/lock-ios/delegation-api",
+    "to": "/libraries/lock-ios/v1/delegation-api"
+  },
+  {
+    "from": "/libraries/lock-ios/lock-ios-api",
+    "to": "/libraries/lock-ios/v1/lock-ios-api"
+  },
+  {
+    "from": "/libraries/lock-ios/logging",
+    "to": "/libraries/lock-ios/v1/logging"
+  },
+  {
+    "from": "/libraries/lock-ios/native-social-authentication",
+    "to": "/libraries/lock-ios/v1/native-social-authentication"
+  },
+  {
+    "from": "/libraries/lock-ios/password-reset-ios",
+    "to": "/libraries/lock-ios/v1/password-reset-ios"
+  },
+  {
+    "from": "/libraries/lock-ios/save-and-refresh-jwt-tokens",
+    "to": "/libraries/lock-ios/v1/save-and-refresh-jwt-tokens"
+  },
+  {
+    "from": "/libraries/lock-ios/sending-authentication-parameters",
+    "to": "/libraries/lock-ios/v1/sending-authentication-parameters"
+  },
+  {
+    "from": "/libraries/lock-ios/sms-lock-ios",
+    "to": "/libraries/lock-ios/v1/sms-lock-ios"
+  },
+  {
+    "from": "/libraries/lock-ios/sso-on-mobile-apps",
+    "to": "/libraries/lock-ios/v1/sso-on-mobile-apps"
+  },
+  {
+    "from": "/libraries/lock-ios/swift",
+    "to": "/libraries/lock-ios/v1/swift"
+  },
+  {
+    "from": "/libraries/lock-ios/touchid-authentication",
+    "to": "/libraries/lock-ios/v1/touchid-authentication"
+  },
+  {
+    "from": "/libraries/lock-ios/use-your-own-ui",
+    "to": "/libraries/lock-ios/v1/use-your-own-uis"
   }
+
 ]

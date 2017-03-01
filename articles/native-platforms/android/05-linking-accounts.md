@@ -21,7 +21,7 @@ This tutorial will show you how to use Lock within your Android project to link 
 
 You should be familiar with previous tutorials. This tutorial assumes that:
 
-* You've integrated [Lock for Android](https://github.com/auth0/Lock.Android) as a dependency in your project and you're familiar with presenting the Lock login dialog. For further information, see the [login tutorial](01-login) and the [session handling](03-session-handling) tutorial first.
+* You've integrated [Lock for Android](https://github.com/auth0/Lock.Android) as a dependency in your project and you're familiar with presenting the Lock login dialog. For further information, see the [login tutorial](/quickstart/native/android/01-login) and the [session handling](/quickstart/native/android/03-session-handling) tutorial first.
 * You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the session handling and user profile tutorials.
 
 > It is highly recommended that you take a look at the [linking accounts](/link-accounts) documentation to understand the process of linking accounts.
@@ -30,7 +30,7 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 
 Here's the scenario: Your logged-in user wants to link one (or multiple) accounts to the account they are logged in with.
 
-To do this, we will use Lock for logging in as we did in the [Login tutorial](01-login). In this case, we will send as an `Extra`, a boolean value to indicate that this is a secondary login.
+To do this, we will use Lock for logging in as we did in the [Login tutorial](/quickstart/native/android/01-login). In this case, we will send as an `Extra`, a boolean value to indicate that this is a secondary login.
 
 ```java
 Intent intent = new Intent(this, LoginActivity.class);        intent.putExtra(Constants.LINK_ACCOUNTS, true);
@@ -74,7 +74,7 @@ UsersAPIClient client = new UsersAPIClient(auth0, credentials.getIdToken());
 
 ## Retrieve Linked Accounts
 
-The linked accounts are stored within the `UserProfile` as a list of `UserIdentity`, something we've previously learned when fetching the user profile (a process that we already know from the [user profile tutorial](04-user-profile)):
+The linked accounts are stored within the `UserProfile` as a list of `UserIdentity`, something we've previously learned when fetching the user profile (a process that we already know from the [user profile tutorial](/quickstart/native/android/04-user-profile)):
 
 ```java
 @Override

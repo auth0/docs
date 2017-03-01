@@ -16,5 +16,6 @@ This document contains the following information about the Appliance and its inf
     * [Network](/appliance/infrastructure/network);
     * [IP/Domain and Port List](/appliance/infrastructure/ip-domain-port-list)
     * [Security and Access](/appliance/infrastructure/security).
+* [Webtasks and Web Extensions](/appliance/infrastructure/extensions)
 
 Please consult the [FAQ](/appliance/infrastructure/faq) for further information about the Appliance.

@@ -94,6 +94,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 ## Display Options
 
 ### allowedConnections {Array}
+
 Array of connections that will be used for the `signin|signup|reset` actions. Defaults to all enabled connections.
 
 ```js
@@ -214,7 +215,7 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
   };
 
   // initialize
-  var lock = new Lock('xxxxxx', '<account>.auth0.com', options);
+  var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com', options);
 
   // render
   lock.show();
@@ -550,7 +551,7 @@ var options = {
 
 ### additionalSignUpFields {Array}
 
-Extra input fields can be added to the sign up screen with the `additionalSignUpFields` option. Every input must have a `name` and a `placeholder`, and an `icon` url can also be provided. Also, the initial value can be provided with the `prefill` option, which can be a string with the value or a function that obtains it. Other options depend on the type of the field, which is defined via the type option and defaults to "text".
+Extra input fields can be added to the sign up screen with the `additionalSignUpFields` option. Each option added in this manner will then be added to that user's `user_metadata`. See the [user metadata documentation](/metadata) for more information. Every input must have a `name` and a `placeholder`, and an `icon` URL can also be provided. Also, the initial value can be provided with the `prefill` option, which can be a string with the value or a function that obtains it. Other options depend on the type of the field, which is defined via the type option and defaults to "text".
 
 ::: panel-info Intended for use with database signup only
 `additionalSignupFields` are intended for use with database signups only. If you have social sign ups too, you can ask for the additional information after the users sign up (see this [page about custom signup](/libraries/lock/v10/custom-signup#using-lock) for more details). You can use the `databaseAlternativeSignupInstructions` i18n key to display these instructions.
@@ -790,18 +791,6 @@ Resolve the AD placeholder username from the email's prefix. Defaults to `true`.
 ```js
 var options = {
   defaultADUsernameFromEmailPrefix: false
-};
-```
-
-### integratedWindowsLogin {Boolean}
-
-Allows for Realm discovery by `AD`, `LDAP` connections. Defaults to `true`.
-
-```js
-// disable Realm discovery to force
-// input of credentials
-var options = {
-  integratedWindowsLogin: false
 };
 ```
 
