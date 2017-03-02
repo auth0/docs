@@ -25,8 +25,8 @@ iOS needs to know which domains your application handles. To configure this:
 
 ## Pass Callbacks to the Auth0 Lock Library
 
-:::panel-info
-If you've already implemented [Lock iOS](https://auth0.com/blog/how-to-implement-slack-like-login-on-ios-with-auth0/), you have already configured callbacks to the Auth0 Lock Library.
+::: panel-info Callbacks to the Autho Lock Library
+If you've already implemented [Lock v1 for iOS](https://auth0.com/blog/how-to-implement-slack-like-login-on-ios-with-auth0/), you have already configured callbacks to the Auth0 Lock Library.
 :::
 
 In the `AppDelegate` class of your iOS application, include the following code to pass callbacks to Auth0 Lock:
