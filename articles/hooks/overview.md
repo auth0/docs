@@ -5,7 +5,7 @@ description: >-
   capabilities, and you can chain them together for modular coding.
 ---
 
-# Hooks: Overview
+# Hooks: Overview&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
 
 Hooks, which will eventually replace [Rules](/rules), allow you to extend the Auth0 platform with custom code.
 

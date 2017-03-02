@@ -97,7 +97,7 @@ articles:
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
 
-  - title: "Hooks"
+  - title: "Hooks (Beta)"
     url: "/hooks"
     children:
 
@@ -110,7 +110,7 @@ articles:
       - title: "Using the Auth0 CLI"
         url: "/hooks/cli"
 
-      - title: "Using the Management Dashboard"
+      - title: "Using the Dashboard"
         url: "/hooks/dashboard"
 
   - title: "Extensions"
