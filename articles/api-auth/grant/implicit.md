@@ -22,9 +22,7 @@ Once the user authenticates, the client app receives the `access_token` in the h
 
  1. Auth0 authenticates the user. The first time the user goes through this flow a consent page will be shown where the permissions, that will be given to the Client, are listed (for example: post messages, list contacts, and so forth).
 
- 1. Auth0 redirects the user to the app with an `access_token` (and optionally a `id_token`) in the hash fragment of the URI.
-
- 1. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this would be done using Javascript and in a Mobile Application this is typically handled by interacting with a Web View.
+ 1. Auth0 redirects the user to the app with an `access_token` (and optionally a `id_token`) in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this would be done using Javascript and in a Mobile Application this is typically handled by interacting with a Web View.
 
  1. The app can use the `access_token` to call the API on behalf of the user.
 
@@ -37,7 +35,7 @@ For details on how to implement this using Auth0, refer to [Execute an Implicit 
 
 ## Keep reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Executing an Implicit Grant flow](/api-auth/tutorials/implicit-grant)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Executing an Implicit Grant flow](/api-auth/tutorials/implicit-grant)
 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Protecting against replay attacks](/api-auth/tutorials/nonce)<br/>
 
