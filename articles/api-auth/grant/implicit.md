@@ -26,8 +26,9 @@ Once the user authenticates, the client app receives the `access_token` in the h
 
  1. The app can use the `access_token` to call the API on behalf of the user.
 
-
-  __NOTE__: In OAuth 2.0 terms, the web app is the _Client_, the end user the _Resource Owner_, the API the _Resource Server_, the browser the _User Agent_, and Auth0 the _Authorization Server_.
+  <div class="auth0-notification frendly"><i class="notification-icon icon-budicon-266"></i>
+     &nbsp;In OAuth 2.0 terms, the web app is the <em>Client</em>, the end user the <em>Resource Owner</em>, the API the <em>Resource Server</em>, the browser the <em>User Agent</em>, and Auth0 the <em>Authorization Server</em>.
+  </div>
 
 ## How to implement the flow
 
@@ -36,27 +37,26 @@ For details on how to implement this using Auth0, refer to [Execute an Implicit 
 ## Keep reading
 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Executing an Implicit Grant flow](/api-auth/tutorials/implicit-grant)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Protecting against replay attacks](/api-auth/tutorials/nonce)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Protecting against replay attacks](/api-auth/tutorials/nonce)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to configure an API in Auth0](/apis)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to configure an API in Auth0](/apis)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Single Page App Quickstarts](/quickstart/spa)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Single Page App Quickstarts](/quickstart/spa)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[ID Token](/tokens/id-token)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[ID Token](/tokens/id-token)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Client Authentication for Client-side Web Apps](/client-auth/client-side-web)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Client Authentication for Client-side Web Apps](/client-auth/client-side-web)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Authentication API: GET /authorize](/api/authentication#implicit-grant)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Authentication API: GET /authorize](/api/authentication#implicit-grant)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OAuth 2.0 protocol](/protocols/oauth2)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OAuth 2.0 protocol](/protocols/oauth2)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OpenID Connect protocol](/protocols/oidc)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OpenID Connect protocol](/protocols/oidc)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Tokens used by Auth0](/tokens)
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Tokens used by Auth0](/tokens)<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[RFC 6749](https://tools.ietf.org/html/rfc6749)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[RFC 6749](https://tools.ietf.org/html/rfc6749)
