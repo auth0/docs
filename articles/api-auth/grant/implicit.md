@@ -1,10 +1,14 @@
 ---
-description: Describes how to call APIs from client-side web apps using the Implicit Grant.
+description: Learn how to call APIs from client-side web apps using the OAuth 2.0 Implicit Grant.
 ---
 
 # Call APIs from Client-side Web Apps
 
-The OAuth 2.0 grant that Client-side web apps utilize in order to access an API, is the **Implicit Grant**.
+In order to access an API from a [client-side app](/quickstart/spa) (typically a Single Page Application or a Mobile Application), you need to implement the OAuth 2.0 **Implicit Grant**. In this document we will see how this flow works.
+
+<div class="alert alert-info">
+  If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
+</div>
 
 ## Overview
 
@@ -12,22 +16,27 @@ The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.or
 
 ![Implicit Grant](/media/articles/api-auth/implicit-grant.png)
 
- 1. The Client initiates the flow and redirects the user to the Authorization Server
- 2. The user authenticates
- 3. The Authorization Server redirects the user to the Client with an `access_token` (and optionally a `id_token`) in the hash fragment
- 4. The Client can now extract the tokens from the hash fragment. In a Single Page Application this would be done using Javascript and in a Mobile Application this is typically handled by interacting with a Web View
- 5. The Client can use the `access_token` to call the Resource Server on behalf of the user
+ 1. The app initiates the flow and redirects the user to Auth0.
 
-The first time the user goes through this flow a consent page will be shown where the permissions are listed that will be given to the Client (eg: post messages, list contacts, ...).
+ 1. The user authenticates.
 
-## Use Case
+ 1. Auth0 redirects the user to the app with an `access_token` (and optionally a `id_token`) in the hash fragment.
 
-- Allow the Client to make calls to the Resource Server on behalf of the Resource Owner
-- The Client is typically a Single Page Application or a Mobile Application
+ 1. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this would be done using Javascript and in a Mobile Application this is typically handled by interacting with a Web View.
 
-## Tutorials
+ 1. The app can use the `access_token` to call the API on behalf of the user.
 
- - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
- - [Executing an Implicit Grant flow](/api-auth/tutorials/implicit-grant)
- - [Protecting against replay attacks](/api-auth/tutorials/nonce)
- - [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)
+
+  __NOTE__: In OAuth 2.0 terms, the web app is the _Client_, the end user the _Resource Owner_, the API the _Resource Server_, the browser the _User Agent_, and Auth0 the _Authorization Server_.
+
+The first time the user goes through this flow a consent page will be shown where the permissions are listed that will be given to the Client (for example, post messages, list contacts, and so forth).
+
+## How to implement the flow
+
+For details on how to implement this using Auth0, refer to [Execute an Implicit Grant Flow](/api-auth/tutorials/implicit-grant).
+
+## Keep reading
+
+<i class="notification-icon icon-budicon-345"></i>[Executing an Implicit Grant flow](/api-auth/tutorials/implicit-grant)
+<i class="notification-icon icon-budicon-345"></i>[Protecting against replay attacks](/api-auth/tutorials/nonce)
+<i class="notification-icon icon-budicon-345"></i>[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)
