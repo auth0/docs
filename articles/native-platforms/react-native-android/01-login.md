@@ -45,6 +45,17 @@ packagingOptions {
 }
 ```
 
+After that, open `MainApplication.java` and add `new LockReactPackage()` in `getPackages()` method:
+
+```java
+protected List<ReactPackage> getPackages() {
+  return Arrays.<ReactPackage>asList(
+      new MainReactPackage(),
+      new LockReactPackage()
+  );
+}
+```
+
 Then, check in `AndroidManifest.xml` that the application requests the `android.permission.INTERNET` permission. If is not already there, add it inside the `<manifest>` tag:
 
 ```xml
