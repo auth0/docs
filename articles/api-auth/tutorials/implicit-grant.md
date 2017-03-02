@@ -1,38 +1,51 @@
 ---
-description: How to execute an Implicit Grant flow from a SPA Client application
+description: How to execute an Implicit Grant flow from a SPA Client application.
 ---
 
-# Execute the Implicit Grant Flow
+# How to implement the Implicit Grant
+
+<div class="alert alert-info">
+  This tutorial will help you implement the Implicit Grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/implicit">Call APIs from Client-side Web Apps</a>.
+</div>
+
+The __Implicit Grant__ is an OAuth 2.0 flow that [client-side apps](/quickstart/spa) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access an API using the token.
 
 ## 1. Get the User's Authorization
 
-In order to execute an Implicit Grant flow you will need to configure your Client application to send the user to the authorization URL:
+First, your app should get consent from the user to invoke the API on their behalf. Auth0 will authenticate the user and obtain consent, unless consent has been previously given.
+
+To initiate the flow, send the user to the [authorization URL](/api/authentication#implicit):
 
 ```text
 https://${account.namespace}/authorize?
-  audience={API_AUDIENCE}&
-  scope={SCOPE}&
-  response_type={RESPONSE_TYPE}&
+  audience=YOUR_API_AUDIENCE&
+  scope=YOUR_SCOPE&
+  response_type=YOUR_RESPONSE_TYPE&
   client_id=${account.clientId}&
   redirect_uri=${account.callback}&
-  nonce={CRYPTOGRAPHIC_NONCE}
-  state={OPAQUE_VALUE}
+  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+  state=YOUR_OPAQUE_VALUE
 ```
 
 Where:
 
-* `audience`: The target API for which the Client Application is requesting access on behalf of the user.
-* `scope`: The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`).
+* `audience`: The unique identifier of the API the app wants to access. Use the value of the __Identifier__ field at your [API Settings](${manage_url}/#/apis). If you can't see this page, enable the __Enable APIs Section__ toggle at [Account Settings > Advanced](${manage_url}/#/account/advanced).
+
+* `scope`: The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Note that user's consent will be requested, every time the `scope` value changes.
 
   ::: panel-info Custom claims namespaced format
   In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
   :::
 
 * `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token`, to get only an `access_token`, or `id_token token`, to get both an `id_token` and an `access_token`.
-* `client_id`: Your application's Client ID.
-* `redirect_uri`: The URL to which the Auth0 will redirect the user's browser after authorization has been granted by the user. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under the Client Settings of your application.
-* `state`: An opaque value the clients adds to the initial request that Auth0 includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks.
-* `nonce`: A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`.
+
+* `client_id`: Your application's Client ID. You can find this value at your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+* `redirect_uri`: The URL to which the Auth0 will redirect the user's browser after authorization has been granted by the user. The `access_token` (and optionally an `id_token`) will be available in the hash fragment of this URL. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+
+* `state`: An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks, [click here to learn more](/protocols/oauth-state).
+
+* `nonce`: A string value which will be included in the response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`.
 
 For example:
 
@@ -44,7 +57,7 @@ For example:
 
 ## 2. Extract the Access Token
 
-After Auth0 has redirected back to the Client, you can extract the `access_token` from the hash fragment of the URL:
+After Auth0 has redirected back to the app, you can extract the `access_token` from the hash fragment of the URL:
 
 ```js
 function getParameterByName(name) {
@@ -72,7 +85,7 @@ $(function () {
 });
 ```
 
-## 3. Use the Access Token
+## 3. Call the API
 
 Once you have the `access_token` you can use it to make calls to the API, by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
@@ -97,8 +110,24 @@ For details on the validations that should be performed by the API, refer to [Ve
 
 ## More information
 
-- [Implicit Grant overview](/api-auth/grant/implicit)
+-
 - [Authentication API Explorer](/api/authentication#implicit-grant)
 - [How to configure your tenant for the new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth)
 - [Mitigate replay attacks](/api-auth/tutorials/nonce)
 - [Silent Authentication for SPAs](/api-auth/tutorials/silent-authentication)
+
+## Keep reading
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Implicit Grant overview](/api-auth/grant/implicit)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to configure an API in Auth0](/apis)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Single Page App Quickstarts](/quickstart/spa)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[ID Token](/tokens/id-token)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Client Authentication for Client-side Web Apps](/client-auth/client-side-web)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Authentication API: GET /authorize](/api/authentication#implicit-grant)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OAuth 2.0 protocol](/protocols/oauth2)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OpenID Connect protocol](/protocols/oidc)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Tokens used by Auth0](/tokens)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)

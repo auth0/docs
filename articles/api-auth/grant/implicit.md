@@ -32,11 +32,11 @@ Once the user authenticates, the client app receives the `access_token` in the h
 
 ## How to implement the flow
 
-For details on how to implement this using Auth0, refer to [Execute an Implicit Grant Flow](/api-auth/tutorials/implicit-grant).
+For details on how to implement this using Auth0, refer to [Execute an Implicit Grant](/api-auth/tutorials/implicit-grant).
 
 ## Keep reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to execute an Implicit Grant flow](/api-auth/tutorials/implicit-grant)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant)<br/>
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)<br/>
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)<br/>
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[How to configure an API in Auth0](/apis)<br/>
