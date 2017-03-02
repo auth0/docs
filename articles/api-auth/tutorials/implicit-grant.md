@@ -108,14 +108,6 @@ Once your API receives a request with a Bearer `access_token`, the first thing t
 
 For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
-## More information
-
--
-- [Authentication API Explorer](/api/authentication#implicit-grant)
-- [How to configure your tenant for the new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth)
-- [Mitigate replay attacks](/api-auth/tutorials/nonce)
-- [Silent Authentication for SPAs](/api-auth/tutorials/silent-authentication)
-
 ## Keep reading
 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Implicit Grant overview](/api-auth/grant/implicit)<br/>
