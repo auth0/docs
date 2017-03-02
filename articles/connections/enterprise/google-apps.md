@@ -84,19 +84,19 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
 3. On the Configuration screen, provide the following information:
 
-  * **Client ID**: the Client ID for your Google Apps Account
-  * **Client Secret**: the Client Secret for your Google Apps Account
-  * **Attributes**: the flag that indicates how much information you want stored in the Auth0 User Profile. Select one of the two options:
-    * **Basic Profile**: includes the `email` and the `email verified` flag
-    * **Extended Profile**: includes the name, public profile URL, photo, gender, birthdate, country, language, and timezone
-  * **Extended Attributes**: select one or more of the following flags to bring the corresponding information to Auth0
-    * **Groups**: the distribution list(s) to which the user belongs
-    * **Is Domain Administrator**: whether the user is a domain administrator or not
-    * **Is Account Suspended**: whether the user's account is suspended or not
-    * **Agreed to Terms**: whether the user's agreed to the terms of service or not
-  * **Enable Users API**: the flag that indicates whether you've chosen to enable the ability to make calls to the Google Directory API
+    * **Client ID**: the Client ID for your Google Apps Account
+    * **Client Secret**: the Client Secret for your Google Apps Account
+    * **Attributes**: the flag that indicates how much information you want stored in the Auth0 User Profile. Select one of the two options:
+      * **Basic Profile**: includes the `email` and the `email verified` flag
+      * **Extended Profile**: includes the name, public profile URL, photo, gender, birthdate, country, language, and timezone
+    * **Extended Attributes**: select one or more of the following flags to bring the corresponding information to Auth0
+      * **Groups**: the distribution list(s) to which the user belongs
+      * **Is Domain Administrator**: whether the user is a domain administrator or not
+      * **Is Account Suspended**: whether the user's account is suspended or not
+      * **Agreed to Terms**: whether the user's agreed to the terms of service or not
+    * **Enable Users API**: the flag that indicates whether you've chosen to enable the ability to make calls to the Google Directory API
 
-  Click **Save** when you're done.
+    Click **Save** when you're done.
 
 4. At this point, you've finished configuring your Google Apps Enterprise Connection. To use it, you'll need to *create* a Connection. You can do this by returning to the [Enterprise Connections](${manage_url}/#/connections/enterprise) page, scrolling down to the row for Google Apps, and clicking on the **Plus** icon. This brings up the *Create Google Apps Connection* window.
 
@@ -104,10 +104,10 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
 5. On the *Create Google Apps Connection* window, provide the following information:
 
-  * **Google Apps Domain**: the Google Apps domain you're using for authentication
-  * **Domain Aliases** (optional): a comma-separated list of domains registered as aliases for the primary domain
+    * **Google Apps Domain**: the Google Apps domain you're using for authentication
+    * **Domain Aliases** (optional): a comma-separated list of domains registered as aliases for the primary domain
 
-  Click **Save**.
+    Click **Save**.
 
 6. You will need to configure your settings so that your app can use Google's Admin APIs. If you're the administrator, you can click **Continue** on the Connection's *Settings* page to do so. If not, provide the URL you're given to your administrator so that they can adjust the required Settings.
 
