@@ -37,6 +37,8 @@ For details on how to implement this using Auth0, refer to [Execute an Implicit 
 
 ## Keep reading
 
-<i class="notification-icon icon-budicon-345"></i>[Executing an Implicit Grant flow](/api-auth/tutorials/implicit-grant)
-<i class="notification-icon icon-budicon-345"></i>[Protecting against replay attacks](/api-auth/tutorials/nonce)
-<i class="notification-icon icon-budicon-345"></i>[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Executing an Implicit Grant flow](/api-auth/tutorials/implicit-grant)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Protecting against replay attacks](/api-auth/tutorials/nonce)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)<br/>
