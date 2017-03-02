@@ -12,20 +12,53 @@ articles:
       - title: Overview
         url: /overview
 
-      - title: "Clients"
-        url: "/clients"
-
-      - title: "APIs"
-        url: "/apis"
-
       - title: Developer Videos
         url: /videos
 
       - title: Architecture Scenarios
         url: /architecture-scenarios
 
-  - title: "Username/Password Connection"
-    url: "/connections/database"
+  - title: "Clients"
+    url: "/clients"
+
+  - title: "APIs"
+    url: "/apis"
+    children:
+      - title: "API Authorization"
+        url: "/api-auth"
+
+  - title: "Connections"
+    url: "/connections"
+    children:
+      - title: "Username/Password Connection"
+        url: "/connections/database"
+
+      - title: "Social Connections"
+        url: "/identityproviders#social"
+        children:
+          - title: "Custom Social Extensions"
+            url: "/extensions/custom-social-extensions"
+
+      - title: "Custom Database Connections"
+        url: "/connections/database/mysql"
+
+      - title: "Enterprise Identity Providers"
+        url: "/identityproviders#enterprise"
+
+      - title: "Passwordless Authentication"
+        url: "/connections/passwordless"
+        children:
+          - title: "Overview"
+            url: "/connections/passwordless"
+
+          - title: "Email Passwordless Authentication"
+            url: "/connections/passwordless/email"
+
+          - title: "SMS Passwordless Authentication"
+            url: "/connections/passwordless/sms"
+
+          - title: "FAQ"
+            url: "/connections/passwordless/faq"
 
   - title: "Rules"
     url: "/rules"
@@ -46,7 +79,7 @@ articles:
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
 
-  - title: "Hooks"
+  - title: "Hooks (Beta)"
     url: "/hooks"
     children:
 
@@ -74,9 +107,6 @@ articles:
       - title: "Customizing Your Emails"
         url: "/email/templates"
 
-  - title: "Social Users"
-    url: "/extensions/custom-social-extensions"
-
   - title: "Password Policies"
     url: "/connections/database/password-options"
     children:
@@ -86,11 +116,32 @@ articles:
       - title: "Password Strength"
         url: "/connections/database/password-strength"
 
-  - title: "User Metadata"
-    url: "/metadata"
+  - title: "User Management"
+    url: "/user-profile"
+    children:
+      - title: "User Profiles"
+        url: "/user-profile"
 
-  - title: "User Impersonation"
-    url: "/user-profile/user-impersonation"
+      - title: "User Metadata"
+        url: "/metadata"
+
+      - title: "User Impersonation"
+        url: "/user-profile/user-impersonation"
+
+      - title: "Delegated Administration Extension"
+        url: "/extensions/delegated-admin"
+
+      - title: "Authorization Extensions"
+        url: "/extensions/authorization-extension"
+        children:
+          - title: "Groups"
+            url: "/extensions/authorization-extension#groups"
+
+          - title: "Roles"
+            url: "/extensions/authorization-extension#roles"
+
+          - title: "Permissions"
+            url: "/extensions/authorization-extension#permissions"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
@@ -119,29 +170,9 @@ articles:
       - title: "Duo Security"
         url: "/multifactor-authentication/duo"
 
-  - title: "Custom Database Connections"
-    url: "/connections/database/mysql"
-
-  - title: "Enterprise Identity Providers"
-    url: "/identityproviders#enterprise"
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
 
   - title: "Addons/Third-Party Applications"
     url: "/addons"
-
-  - title: "Passwordless Authentication"
-    url: "/connections/passwordless"
-    children:
-      - title: "Overview"
-        url: "/connections/passwordless"
-
-      - title: "Email Passwordless Authentication"
-        url: "/connections/passwordless/email"
-
-      - title: "SMS Passwordless Authentication"
-        url: "/connections/passwordless/sms"
-
-      - title: "FAQ"
-        url: "/connections/passwordless/faq"
