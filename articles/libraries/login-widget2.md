@@ -2,7 +2,7 @@
 description: Info page on the Auth0 Login widget which has been deprecated.
 ---
 
-<div class="alert alert-danger"><strong>This version has been deprecated!</strong><br>Please use the <a href="/lock">new version</a> instead.</div>
+<div class="alert alert-danger"><strong>This version has been deprecated!</strong>Please use the <a href="/lock">new version</a> instead.</div>
 
 # Auth0 Login Widget
 
