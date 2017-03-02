@@ -54,8 +54,8 @@ To connect your Auth0 client to Google, you will need to generate a *Client ID* 
 
 12. Under **Restrictions**, enter the following information:
 
-  * **Authorized JavaScript origins:** `https://${account.namespace}`
-  * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
+    * **Authorized JavaScript origins:** `https://${account.namespace}`
+    * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
 
 13. Click **Create**. Your `Client Id` and `Client Secret` will be displayed:
 
@@ -87,11 +87,11 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
 3. Select each of your existing Auth0 Clients for which you want to enable this connection. Click **Save** when you're done.
 
-  ![](/media/articles/connections/social/google/goog-api-aoth0-apps.png)
+    ![](/media/articles/connections/social/google/goog-api-aoth0-apps.png)
 
 4. Switch over to the *Settings* tab. Copy the `Client Id` and `Client Secret` from the Credentials page of your project in the **Google API Manager** into the fields on this page on Auth0.
 
-  ![](/media/articles/connections/social/google/goog-api-aoth0-settings.png)
+    ![](/media/articles/connections/social/google/goog-api-aoth0-settings.png)
 
 5. Select the **Permissions** for each of the features you want to allow your app to access. Click **Save** when you're done.
 
@@ -99,16 +99,16 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
 1. Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard. If you have configured your connection correctly, you will see a **Try** icon next to the Google logo:
 
-  ![](/media/articles/connections/social/google/goog-api-trylogo.png)
+    ![](/media/articles/connections/social/google/goog-api-trylogo.png)
 
 2. Click **Try**.
 
 3. Click **Allow** in the permissions pop-up screen:
 
-  ![](/media/articles/connections/social/google/goog-api-permit.png)
+    ![](/media/articles/connections/social/google/goog-api-permit.png)
 
 If you have configured everything correctly, you will see the **It works!!!** page:
 
-![](/media/articles/connections/social/google/goog-api-works.png)
+  ![](/media/articles/connections/social/google/goog-api-works.png)
 
 <%= include('../_quickstart-links.md') %>

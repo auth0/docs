@@ -48,8 +48,8 @@ You can connect your Auth0 Client to Google Apps by providing the Google *Client
 
 12. Under **Restrictions**, enter the following information:
 
-  * **Authorized JavaScript origins:** `https://${account.namespace}`
-  * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
+    * **Authorized JavaScript origins:** `https://${account.namespace}`
+    * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
 
 13. Click **Create**. Your `Client Id` and `Client Secret` will be displayed:
 
@@ -78,7 +78,7 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
   ![Enterprise Connections](/media/articles/connections/enterprise/google/enterprise-connections.png)
 
-  You will see the *Configuration* page for the Google Apps Connection.
+    You will see the *Configuration* page for the Google Apps Connection.
 
   ![Google Apps Enterprise Connection Configuration](/media/articles/connections/enterprise/google/google-apps-connection-settings.png)
 
