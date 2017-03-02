@@ -2,9 +2,7 @@
 description: Info page on the Auth0 Login widget which has been deprecated.
 ---
 
-::: warning-banner
-__WARNING:__ This version of the login widget has been deprecated. <br> Please use the [new version](/lock) instead.
-:::
+<div class="alert alert-danger"><strong>This version has been deprecated!</strong><br>Please use the <a href="/lock">new version</a> instead.</div>
 
 # Auth0 Login Widget
 
