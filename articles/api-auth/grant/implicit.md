@@ -12,15 +12,17 @@ In order to access an API from a [client-side app](/quickstart/spa) (typically a
 
 ## Overview
 
-The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is also a redirect-based flow, similar to the Authorization Code Grant, but the main difference is that all of the interactions with the Authorization Server happen through the User Agent (this includes receiving the access token). After receiving the `access_token`, the User Agent will expose this to the Client, allowing it to call the Resource Server on behalf of the Resource Owner.
+The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but the main difference is that the client app receives an `access_token` directly, without the need for an `authorization_code`. This happens because the client app, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the [Authorization Code Grant](/api-auth/grant/authorization-code)). Also, in the Implicit Grant, no refresh tokens for are returned, for the same reason (for an alternative refer to [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)).
+
+Once the user authenticates, the client app receives the `access_token` in the hash fragment of the URI. The client app can now use this `access_token` to call the API on behalf of the user.
 
 ![Implicit Grant](/media/articles/api-auth/implicit-grant.png)
 
- 1. The app initiates the flow and redirects the user to Auth0.
+ 1. The app initiates the flow and redirects the browser to Auth0 (specifically to the [/authorize endpoint](/api/authentication#implicit-grant)), so the user can authenticate.
 
- 1. The user authenticates.
+ 1. Auth0 authenticates the user. The first time the user goes through this flow a consent page will be shown where the permissions, that will be given to the Client, are listed (for example: post messages, list contacts, and so forth).
 
- 1. Auth0 redirects the user to the app with an `access_token` (and optionally a `id_token`) in the hash fragment.
+ 1. Auth0 redirects the user to the app with an `access_token` (and optionally a `id_token`) in the hash fragment of the URI.
 
  1. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this would be done using Javascript and in a Mobile Application this is typically handled by interacting with a Web View.
 
@@ -28,8 +30,6 @@ The **Implicit Grant** (defined in [RFC 6749, section 4.1](https://tools.ietf.or
 
 
   __NOTE__: In OAuth 2.0 terms, the web app is the _Client_, the end user the _Resource Owner_, the API the _Resource Server_, the browser the _User Agent_, and Auth0 the _Authorization Server_.
-
-The first time the user goes through this flow a consent page will be shown where the permissions are listed that will be given to the Client (for example, post messages, list contacts, and so forth).
 
 ## How to implement the flow
 
@@ -42,3 +42,23 @@ For details on how to implement this using Auth0, refer to [Execute an Implicit 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Protecting against replay attacks](/api-auth/tutorials/nonce)<br/>
 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to configure an API in Auth0](/apis)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Single Page App Quickstarts](/quickstart/spa)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[ID Token](/tokens/id-token)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Client Authentication for Client-side Web Apps](/client-auth/client-side-web)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Authentication API: GET /authorize](/api/authentication#implicit-grant)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OAuth 2.0 protocol](/protocols/oauth2)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OpenID Connect protocol](/protocols/oidc)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Tokens used by Auth0](/tokens)<br/>
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[RFC 6749](https://tools.ietf.org/html/rfc6749)<br/>
