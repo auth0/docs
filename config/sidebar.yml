@@ -128,10 +128,10 @@ articles:
       - title: "User Impersonation"
         url: "/user-profile/user-impersonation"
 
-      - title: "Delegated Administration Extension"
+      - title: "Delegated Administration"
         url: "/extensions/delegated-admin"
 
-      - title: "Authorization Extensions"
+      - title: "Authorization"
         url: "/extensions/authorization-extension"
         children:
           - title: "Groups"
