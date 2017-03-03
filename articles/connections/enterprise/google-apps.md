@@ -78,7 +78,7 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
   ![Enterprise Connections](/media/articles/connections/enterprise/google/enterprise-connections.png)
 
-    You will see the *Configuration* page for the Google Apps Connection.
+  You will see the *Configuration* page for the Google Apps Connection.
 
   ![Google Apps Enterprise Connection Configuration](/media/articles/connections/enterprise/google/google-apps-connection-settings.png)
 
