@@ -96,7 +96,7 @@ Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which
 </ul>
 ```
 
-A remaining issue is that the `User.Identity.Name` property used in the Navbar snippet above will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user, but hat claim will not be set and the property will therefor be null.
+A remaining issue is that the `User.Identity.Name` property used in the Navbar snippet above will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user, but that claim will not be set and the property will therefore be null.
 
 Added to that, none of the user's profile details will be returned in the `id_token` as we a currently only requesting the `openid` scope. Ensure to also request the `name`, `email` and `picture` scopes to ensure that the user's Name, Email address and Profile Image is returned as claims in the `id_token`.
 
