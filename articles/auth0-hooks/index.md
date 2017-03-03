@@ -7,7 +7,7 @@ description: Working with Hooks
 
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Hooks</h1>
+  <h1>Hooks (Beta)</h1>
   <p>
     Hooks allow you to extend the Auth0 platform with custom code.
   </p>
