@@ -305,7 +305,7 @@ The `signup` method accepts an `options` object that contains parameters for you
 
 ```html 
 <h2>Signup Database Connection</h2> 
-<input class="signup-username" /> 
+<input class="signup-email" /> 
 <input type="password" class="signup-password" /> 
 <input type="button" class="signup-db" value="Signup!" /> 
 <script type="text/javascript"> 
