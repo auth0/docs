@@ -104,15 +104,57 @@ public class AccountController : Controller
         return new ChallengeResult("Auth0", new AuthenticationProperties() { RedirectUri = "/" });
     }
 
-    public IActionResult Logout()
+    public async Task Logout()
     {
-        HttpContext.Authentication.SignOutAsync("Auth0");
-        HttpContext.Authentication.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-        return RedirectToAction("Index", "Home");
+        await HttpContext.Authentication.SignOutAsync("Auth0", new AuthenticationProperties
+        {
+            RedirectUri = Url.Action("Index", "Home")
+        });
+        await HttpContext.Authentication.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
     }
 }
 ```
+
+At this point ASP.NET Core will call `SignOutAsync` for the **Auth0** authentication scheme (i.e. the OIDC middleware), but the OIDC middleware does not know what the actual Logout URL is it should call to log the user out of Auth0. To do this you should handle the `OnRedirectToIdentityProviderForSignOut` event when registering the OIDC middleware.
+
+So back in the `Startup.cs` file, update the instantiation of `OpenIdConnectOptions` with the following code:
+
+```csharp
+var options = new OpenIdConnectOptions("Auth0")
+{
+    // some code omitted for brevity...
+
+    Events = new OpenIdConnectEvents
+    {
+        // handle the logout redirection 
+        OnRedirectToIdentityProviderForSignOut = (context) =>
+        {
+            var logoutUri = $"https://{auth0Settings.Value.Domain}/v2/logout?client_id={auth0Settings.Value.ClientId}";
+
+            var postLogoutUri = context.Properties.RedirectUri;
+            if (!string.IsNullOrEmpty(postLogoutUri))
+            {
+                if (postLogoutUri.StartsWith("/"))
+                {
+                    // transform to absolute
+                    var request = context.Request;
+                    postLogoutUri = request.Scheme + "://" + request.Host + request.PathBase + postLogoutUri;
+                }
+                logoutUri += $"&returnTo={ Uri.EscapeDataString(postLogoutUri)}";
+            }
+
+            context.Response.Redirect(logoutUri);
+            context.HandleResponse();
+
+            return Task.CompletedTask;
+        }
+    }
+};
+```
+
+This will ensure that when `SignOutAsync` is called for the OIDC Middleware, that the `/v2/logout` endpoint of the Auth0 Authentication API is called to log the user out of Auth0. 
+
+It will also pass along the Redirect URL (when specified) in the `returnTo` parameter. You must therefore ensure that you have specified this URL in the **Allowed Logout URLs** for your Client in the Auth0 Dashboard.
 
 ## Add Login and Logout Links
 
