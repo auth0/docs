@@ -191,8 +191,7 @@ GET https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=STATE&
-  additional-parameter=ADDITIONAL_PARAMETERS
+  state=STATE
 ```
 
 ```javascript
@@ -275,7 +274,7 @@ Content-Type: 'application/json'
   "username": "USERNAME",
   "password": "PASSWORD",
   "connection": "CONNECTION",
-  "scope": "openid",
+  "scope": "openid"
 }
 ```
 
@@ -391,8 +390,7 @@ GET https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=STATE&
-  additional-parameter=ADDITIONAL_PARAMETERS
+  state=STATE
 ```
 
 ```javascript
