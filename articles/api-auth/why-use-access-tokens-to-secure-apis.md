@@ -39,12 +39,11 @@ Now that we saw what these tokens can be used for, let's see what they cannot be
 
 - __An `id_token` should not be used for API access__. Each token contains information on the intended audience (recipient). According to the OpenID Connect specification, the audience (claim `aud`) of each `id_token` must be the `client_id` of the client making the authentication request. If it isn't you shouldn't trust the token. An API, on the other hand, expects a token with the audience set to the API's unique identifier. So unless you are in control of both the client and the API, sending an `id_token` to an API will not work.
 
-## More information
+## Keep reading
 
-- [Access Token](/tokens/access-token)
-
-- [ID Token](/tokens/id-token)
-
-- [The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
-
-- [User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[ID Token](/tokens/id-token)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[OAuth 2.0 Overview](/protocols/oauth2)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[OpenID Connect Overview](/protocols/oidc)
