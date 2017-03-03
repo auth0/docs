@@ -8,6 +8,7 @@ methods: {
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
     this.authenticated = false;
+    self.$route.router.go('/');
   },
 }
 

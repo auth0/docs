@@ -2,66 +2,76 @@
 // app.js
 
 // The public route can be viewed at any time
-var Public = Vue.extend({
+var Public = {
   template: `<p>This is a public route</p>`
-});
+};
 
 // The private route can only be viewed when
 // the user is authenticated. The canActivate hook
 // uses checkAuth to return true if the user is authenticated
 // or false if not.
-var Private = Vue.extend({
+var Private = {
   template: `<p>This is a private route. If you are reading this, you are authenticated.</p>`,
   route: {
     canActivate() {
       return checkAuth();
     }
   }
-});
+};
 
-var App = Vue.extend({
+var App = {
   template: `
+  <div>
     <h1>Vue.js with Auth0</h1>
     <button @click="login()" v-show="!authenticated">Login</button>
     <button @click="logout()" v-show="authenticated">Logout</button>
     <hr>
-    <button v-link="'public'">Public Route</button>
-    <button v-link="'private'" v-show="authenticated">Private Route</button>
+    <router-link to="/public">Public Route</router-link>
+    <router-link to="/private" v-show="authenticated">Private Route</router-link>
     <router-view></router-view>
     <hr>
     <div v-show="authenticated">
       <button @click="getSecretThing()">Get Secret Thing</button>
       <h3>{{secretThing}}</h3>
     </div>
+  </div>
   `,
   data() {
     return {
       authenticated: false,
       secretThing: '',
-      lock: new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>')
+      lock: new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN)
+    }
+  },
+  events: {
+    'logout': function() {
+      this.logout();
     }
   },
   // Check the user's auth status when the app
   // loads to account for page refreshing
-  ready() {
-    this.authenticated = checkAuth();
-    this.lock.on('authenticated', (authResult) => {
-      console.log('authenticated');
-      localStorage.setItem('id_token', authResult.idToken);
-      this.lock.getProfile(authResult.idToken, (error, profile) => {
-        if (error) {
-          // Handle error
-          return;
-        }
-        // Set the token and user profile in local storage
-        localStorage.setItem('profile', JSON.stringify(profile));
+  mounted() {
+    var self = this;
+    Vue.nextTick(function() {
+      self.authenticated = checkAuth();
+      self.lock.on('authenticated', (authResult) => {
+        console.log('authenticated');
+        localStorage.setItem('id_token', authResult.idToken);
+        self.lock.getProfile(authResult.idToken, (error, profile) => {
+          if (error) {
+            // Handle error
+            return;
+          }
+          // Set the token and user profile in local storage
+          localStorage.setItem('profile', JSON.stringify(profile));
 
-        this.authenticated = true;
+          self.authenticated = true;
+        });
       });
-    });
-    this.lock.on('authorizaton_error', (error) => {
-      // handle error when authorizaton fails
-    });
+      self.lock.on('authorization_error', (error) => {
+        // handle error when authorizaton fails
+      });
+  });
   },
   methods: {
     login() {
@@ -73,20 +83,22 @@ var App = Vue.extend({
       localStorage.removeItem('id_token');
       localStorage.removeItem('profile');
       this.authenticated = false;
+      self.$route.router.go('/');
     },
     // Make a secure call to the server by attaching
     // the user's JWT as an Authorization header
     getSecretThing() {
       var jwtHeader = { 'Authorization': 'Bearer ' + localStorage.getItem('id_token') };
-      this.$http.get('http://localhost:3001/secured/ping', (data) => {
+      this.$http.get('http://localhost:3001/secured/ping',{
+        headers: jwtHeader
+      }).then((data) => {
         console.log(data);
         this.secretThing = data.text;
-      }, {
-        headers: jwtHeader
-      }).error((err) => console.log(err));
+      },
+      (err) => console.log(err));
     }
   }
-});
+};
 
 // Utility to check auth status
 function checkAuth() {
@@ -94,17 +106,22 @@ function checkAuth() {
 }
 
 var router = new VueRouter({
-  history: true
+  mode: 'history',
+  routes: [{
+      path: '/public',
+      component: Public
+    },
+    {
+      path: '/private',
+      component: Private
+    }
+  ]
 });
 
-router.map({
-  '/public': {
-    component: Public
-  },
-  '/private': {
-    component: Private
-  }
-});
-
-router.start(App, '#app');
+new Vue({
+  el: '#app',
+  router,
+  // replace the content of <div id="app"></div> with App
+  render: h => h(App)
+})
 ```

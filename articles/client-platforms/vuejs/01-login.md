@@ -9,7 +9,7 @@ budicon: 448
   repo: 'auth0-vue-samples',
   path: '01-Login',
   requirements: [
-    'Vue.js 1.0.16'
+    'Vue.js 2.1.10'
   ]
 }) %>
 

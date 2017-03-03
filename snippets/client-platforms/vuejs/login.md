@@ -10,28 +10,27 @@ new Vue({
       lock: new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>')
     }
   },
-  ready() {
+  mounted() {
     var self = this;
-    
-    this.authenticated = checkAuth();
-    
-    this.lock.on('authenticated', (authResult) => {
-      console.log('authenticated');
-      localStorage.setItem('id_token', authResult.idToken);
-      this.lock.getProfile(authResult.idToken, (error, profile) => {
-        if (error) {
-          // Handle error
-          return;
-        }
-        // Set the token and user profile in local storage
-        localStorage.setItem('profile', JSON.stringify(profile));
+    Vue.nextTick(function() {
+      self.authenticated = checkAuth();
+      self.lock.on('authenticated', (authResult) => {
+        console.log('authenticated');
+        localStorage.setItem('id_token', authResult.idToken);
+        self.lock.getProfile(authResult.idToken, (error, profile) => {
+          if (error) {
+            // Handle error
+            return;
+          }
+          // Set the token and user profile in local storage
+          localStorage.setItem('profile', JSON.stringify(profile));
 
-        this.authenticated = true;
+          self.authenticated = true;
+        });
       });
-    });
-
-    this.lock.on('authorization_error', (error) => {
-      // handle error when authorizaton fails
+      self.lock.on('authorization_error', (error) => {
+        // handle error when authorizaton fails
+      });
     });
   },
   methods: {
