@@ -86,7 +86,7 @@ If the token is not specified you will get the following JSON as a response.
 
 A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication/reference#resource-owner):
 
-![Obtain a JWT](/media/articles/server-apis/java-spring-security/request-jwt.png)
+![Obtain a JWT](/media/articles/server-apis/java-spring-security/legacy/request-jwt.png)
 
 Now you can use the `id_token` and pass it along in the Authorization header as a Bearer token.
 

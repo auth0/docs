@@ -1,0 +1,26 @@
+title: Spring Security Java API
+thirdParty: false
+alias:
+  - spring security
+  - spring
+languages:
+  - Java
+framework:
+  - Spring
+image: /media/platforms/java.png
+tags:
+  - quickstart
+snippets:
+  configure: server-apis/java-spring-security/legacy/configure
+  dependencies: server-apis/java-spring-security/legacy/dependencies
+  dependenciesGradle: server-apis/java-spring-security/legacy/dependencies-gradle
+  setup: server-apis/java-spring-security/legacy/setup
+  use: server-apis/java-spring-security/legacy/use
+  newRule: server-apis/java-spring-security/legacy/newRule
+  AppConfig: server-apis/java-spring-security/legacy/AppConfig
+  PingController: server-apis/java-spring-security/legacy/PingController
+  SecurePingController: server-apis/java-spring-security/legacy/SecurePingController
+articles:
+  - 00-intro
+  - 01-authentication
+  - 02-authorization
