@@ -94,7 +94,9 @@ To refresh your token, using the `refresh_token` you already got during authoriz
     "url": "https://${account.namespace}/oauth/token",
     "httpVersion": "HTTP/1.1",
     "cookies": [],
-    "headers": [],
+    "headers": [
+      { "name": "Content-Type", "value": "application/json" }
+    ],
     "queryString" : [],
     "postData" : {
       "mimeType": "application/json",
@@ -143,7 +145,9 @@ To revoke a refresh token you can send a `POST` request to `https://${account.na
     "url": "https://${account.namespace}/oauth/revoke",
     "httpVersion": "HTTP/1.1",
     "cookies": [],
-    "headers": [],
+    "headers": [
+      { "name": "Content-Type", "value": "application/json" }
+    ],
     "queryString" : [],
     "postData" : {
       "mimeType": "application/json",
