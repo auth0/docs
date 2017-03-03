@@ -273,6 +273,9 @@ articles:
       - title: "SMS Passwordless Authentication"
         url: "/connections/passwordless/sms"
 
+      - title: "Auth0 Guardian"
+        url: "/connections/passwordless/guardian"
+
       - title: "FAQ"
         url: "/connections/passwordless/faq"
 

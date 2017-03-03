@@ -4,9 +4,7 @@ title: Send one time codes via your own SMS Gateway
 
 # Send one time codes via your own SMS Gateway
 
-By default the SMS connection will use Twilio to send the one time code. If you already have your own infrastructure to send text messages cannot or might not want to use Twilio.
-
-Instead you'll want your own infrastructure to handle the delivery of these one time codes.
+By default, the SMS connection will use Twilio to send one-time use codes via SMS. However, if you already have your own text messaging infrastructure, you can use it to handle delivery of your authentication codes.
 
 ## Configure your SMS Gateway
 
@@ -109,6 +107,6 @@ The previous settings assume your SMS Gateway accepts non-authenticated requests
 }
 ```
 
-With this configuration, when the payload is sent to the SMS Gateway a JWT will be added to the `Authorization` header which contains a token with the `subject` and `audience` configured in the connection and signed with the `secret`. 
+With this configuration, when the payload is sent to the SMS Gateway a JWT will be added to the `Authorization` header which contains a token with the `subject` and `audience` configured in the connection and signed with the `secret`.
 
 Additionally, if you secret is base64 url encoded you can set `options.secret_base64_encoded` to `true`.
