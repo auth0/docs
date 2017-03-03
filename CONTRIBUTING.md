@@ -19,6 +19,8 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Escaping Strings](#escaping-strings)
   * [Screenshots](#screenshots)
   * [Front Matter](#front-matter)
+  
+[Versioning](#versioning)
 
 [Finishing](#finishing)
 
@@ -639,3 +641,84 @@ When writing docs you can use the following variables instead of hard-coding the
 | `account.clientId`     | The Client ID of the current Auth0 app.            | `YOUR_CLIENT_ID`                       |
 | `account.clientSecret` | The Client Secret of the current Auth0 app.        | `YOUR_CLIENT_SECRET`                   |
 | `account.callback`     | The first callback URL of the current Auth0 app.   | `http://YOUR_APP.auth0.com/callback`   |
+
+# Versioning
+Building on the system we established for Quickstarts, topic versioning is controlled by adding metadata to `index.yml` files. The filesystem structure for a versioned topic looks like this:
+
+```
+lock/
+  v9/
+    article1.md
+    article2.md
+  v10/
+    article1.md
+    article2.md
+    article3.md
+  index.yml
+```
+
+In this case `lock` is the name of the topic that has versions, and the two versions available are `v9` and `v10`. Note that different versions of the same topic may have different articles; more on this later.
+
+To create a versioned topic, the `lock/index.yml` file must contain a `versioning` property. Here's an example:
+
+```yaml
+versioning:
+  baseUrl: libraries/lock
+  current: v10
+  versions:
+    - v9
+    - v10
+  defaultArticles:
+    v1: article1
+```
+
+The `versioning` object has the following properties:
+
+* `baseUrl` -- The URL for the topic. This is used to construct URLs for corresponding versions of a given article when a user navigates between.
+* `current` -- The name of the current version. This must be present in the `versions` array.
+* `versions` -- An array of all versions of the topic. Each of these must have a corresponding subdirectory beneath the topic directory.
+* `defaultArticles` -- A map of default articles for each version. (Explained below)
+
+## User interface
+
+When a user views an article within a versioned topic, a banner will be added to the top of the page:
+
+![screen shot 2017-02-15 at 10 31 41 am](https://cloud.githubusercontent.com/assets/1576/22981261/f8c641fa-f369-11e6-9bf0-3a20865cb508.png)
+
+The user can navigate between versions of the topic by selecting a new version from the drop-down box. If an article with the same filename is present in the newly-selected version, the user will navigate to that article. If no article with the same filename is present, they will instead receive a HTTP redirect (302) to the *default article* for that version.
+
+By default, the default article for a version is the first article in the subdirectory (sorted alphabetically, ascending). To change this, you can add an entry in the `defaultArticles` map of the `versioning` object in `index.yml`.
+
+## Limitations
+
+This versioning system has one major limitation: all articles for each version must exist in the same directory. For example, this is a valid hierarchy:
+
+
+```
+example/
+  v1/
+    foo.md
+    bar.md
+  v2/
+    foo.md
+    bar.md
+  index.yml
+```
+
+But this hierarchy will not work:
+
+
+```
+example/
+  v1/
+    subtopic/
+      foo.md
+    bar.md
+  v10/
+    subtopic/
+      foo.md
+    bar.md
+  index.yml
+```
+
+This limitation is a result of the implementation of `AutoVersionPlugin`, and how the paths are calculated for the different versions. Fixing this is possible, but makes things a little more tricky, so I decided to cut it from the first version of the feature. If it's a desired behavior we can always add it later.
