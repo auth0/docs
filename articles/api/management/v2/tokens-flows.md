@@ -45,13 +45,11 @@ Having a token that never expires can be very risky, in case an attacher gets ho
 
 Yes you can. We added a text box (__Token Expiration (Seconds)__), at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer), where you can set the new expiration time (in seconds) and click __Update & Regenerate Token__. A new token will be generated with your custom expiration time. Our recommendation however is not to use this and get a new token every 24 hours. You can easily automate this [following this process](/api/management/v2/tokens#1-get-a-token).
 
-Furthermore, you can generate a token using [JWT.io](https://jwt.io/).
-
-<div class="alert alert-danger">Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
-
-If you are set on generating a non-expiring token, you have the following options:
+Furthermore, you can generate a token using [JWT.io](https://jwt.io/):
 - Use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually type the claims and generate a token.
 - Use one of the [JWT.io libraries](https://jwt.io/#libraries-io).
+
+<div class="alert alert-danger">Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
 
 ### Use the JWT.io Debugger
 
