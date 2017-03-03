@@ -41,9 +41,9 @@ Now that we saw what these tokens can be used for, let's see what they cannot be
 
 ## Keep reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[ID Token](/tokens/id-token)
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[OAuth 2.0 Overview](/protocols/oauth2)
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[OpenID Connect Overview](/protocols/oidc)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[ID Token](/tokens/id-token)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[OAuth 2.0 Overview](/protocols/oauth2)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[OpenID Connect Overview](/protocols/oidc)<br/>
