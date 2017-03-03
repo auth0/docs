@@ -24,7 +24,6 @@ added:
   -
     title: "New doc: Reset Your Auth0 Account Password"
     tags:
-      - google apps
-      - connection
+      - reset password
     description: |
       A [new doc](https://auth0.com/docs/tutorials/reset-account-password) was created on how to reset your Auth0 account password.
