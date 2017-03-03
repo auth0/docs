@@ -176,6 +176,9 @@ articles:
 
   - title: "Addons/Third-Party Applications"
     url: "/addons"
+  
+  - title: "Professional Services"
+    url: "/services"
 
 apis:
 
