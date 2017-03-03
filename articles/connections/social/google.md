@@ -105,10 +105,10 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
 3. Click **Allow** in the permissions pop-up screen:
 
-    ![](/media/articles/connections/social/google/goog-api-permit.png)
+   ![](/media/articles/connections/social/google/goog-api-permit.png)
 
 If you have configured everything correctly, you will see the **It works!!!** page:
 
-    ![](/media/articles/connections/social/google/goog-api-works.png)
+   ![](/media/articles/connections/social/google/goog-api-works.png)
 
 <%= include('../_quickstart-links.md') %>
