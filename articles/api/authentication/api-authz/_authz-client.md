@@ -5,15 +5,11 @@ To begin an OAuth 2.0 Authorization flow, your Client application should first s
 The purpose of this call is to obtain consent from the user to invoke the API (specified in `audience`) and do certain things (specified in `scope`) on behalf of the user. Auth0 will authenticate the user and obtain consent, unless consent has been previously given. If you alter the value in `scope`, Auth0 will require consent to be given again.
 
 The OAuth 2.0 flows that require user authorization are:
-- Authorization Code Grant
-- Authorization Code Grant using Proof Key for Code Exchange (PKCE)
-- Implicit Grant
+- [Authorization Code Grant](/api-auth/grant/authorization-code)
+- [Authorization Code Grant using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce)
+- [Implicit Grant](/api-auth/grant/implicit)
 
 On the other hand, the [Resource Owner Password Grant](/api-auth/grant/password) and [Client Credentials](/api-auth/grant/client-credentials) flows do not use this endpoint since there is no user authorization involved. Instead they invoke directly the `POST /oauth/token` endpoint to retrieve an access token.
-
-Note also the following:
-* Additional parameters can be sent that will be passed through to the provider, e.g. `access_type=offline` (for Google refresh tokens) , `display=popup` (for Windows Live popup mode).
-* The `state` parameter will be returned and can be used for XSRF and contextual information (like a return url).
 
 Based on the OAuth 2.0 flow you are implementing, the parameters slightly change. To determine which flow is best suited for your case refer to: [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use).
 
@@ -27,10 +23,8 @@ GET https://${account.namespace}/authorize?
   scope=SCOPE&
   response_type=code&
   client_id=${account.clientId}&
-  connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=STATE&
-  additional-parameter=ADDITIONAL_PARAMETERS
+  state=STATE
 ```
 
 > RESPONSE SAMPLE
