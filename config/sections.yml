@@ -14,7 +14,7 @@
 
 - id: "apis"
   title: "APIs"
-  url: "/api/info"
+  url: "/apis"
 
 - id: "quickstarts"
   title: "QuickStarts"
