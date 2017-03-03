@@ -230,6 +230,9 @@ You cannot change the default validity period, which is set to 24 hours. However
 
 __Can I refresh my token?__</br>
 You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
+  
+__My token was compromised! Can I revoke it?__</br>
+You cannot directly revoke a Management APIv2 token, but you can achieve a similar effect by deleting the client grant. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 client using the dashboard](${manage_url}/#/apis/management/authorized-clients).
 
 __I need to invalidate all my tokens. How can I do that?__</br>
 All your tenant's Management APIv2 tokens are signed using the Client Secret of your non interactive client, hence if you change that, all your tokens will be invalidated. To do this, go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint.
