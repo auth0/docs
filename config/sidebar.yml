@@ -176,3 +176,208 @@ articles:
 
   - title: "Addons/Third-Party Applications"
     url: "/addons"
+
+apis:
+
+  - title: "Overview"
+    url: "/api/info"
+
+  - title: "Testing with Postman"
+    url: "/api/postman"
+
+  - title: Authentication API
+    url: "/api/authentication"
+    external: true
+    forceFullReload: true
+
+  - title: Management API
+    url: "/api/management/v2/tokens"
+    forceFullReload: true
+    expanded: true
+    children:
+
+      - title: API Tokens
+        url: "/api/management/v2/tokens"
+        forceFullReload: true
+
+      - title: Query String Syntax
+        url: "/api/management/v2/query-string-syntax"
+        forceFullReload: true
+
+      - title: User Search
+        url: "/api/management/v2/user-search"
+        forceFullReload: true
+
+      - title: API Explorer
+        url: "/api/management/v2/"
+        forceFullReload: true
+        external: true
+
+libraries:
+
+  - title: "Overview"
+    url: "/libraries"
+
+  - title: "Lock for Web"
+    url: "/libraries/lock"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/lock"
+
+      - title: "Configuration Options"
+        url: "/libraries/lock/v10/customization"
+
+      - title: "API Reference"
+        url: "/libraries/lock/v10/api"
+
+      - title: "UI Customization"
+        url: "/libraries/lock/v10/ui-customization"
+
+      - title: "v10 Migration Guide"
+        url: "/libraries/lock/v10/migration-guide"
+
+      - title: "Internationalization"
+        url: "/libraries/lock/v10/i18n"
+
+      - title: "Customizing Errors"
+        url: "/libraries/lock/v10/customizing-error-messages"
+
+      - title: "Lock with auth0.js"
+        url: "/libraries/lock/v10/auth0js"
+
+      - title: "Popup Mode"
+        url: "/libraries/lock/v10/popup-mode"
+
+  - title: "Lock for iOS"
+    url: "/libraries/lock-ios"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/lock-ios"
+
+      - title: "Styles Customization"
+        url: "/libraries/lock-ios/v2/customization"
+
+      - title: "Behavior Configuration"
+        url: "/libraries/lock-ios/v2/configuration"
+
+      - title: "Custom Fields"
+        url: "/libraries/lock-ios/v2/custom-fields"
+
+      - title: "Internationalization"
+        url: "/libraries/lock-ios/v2/internationalization"
+
+      - title: "Version 2 Migration Guide"
+        url: "/libraries/lock-ios/v2/migration"
+
+      - title: "Version 1 Documentation"
+        url: "/libraries/lock-ios/v1"
+
+  - title: "Lock for Android"
+    url: "/libraries/lock-android"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/lock-android"
+
+      - title: "Configuration Options"
+        url: "/libraries/lock-android/configuration"
+
+      - title: "Custom Auth Providers"
+        url: "/libraries/lock-android/custom-authentication-providers"
+
+      - title: "Custom Signup Fields"
+        url: "/libraries/lock-android/custom-fields"
+
+      - title: "Custom Theming"
+        url: "/libraries/lock-android/custom-theming"
+
+      - title: "Migration v1 to v2"
+        url: "/libraries/lock-android/migration-guide"
+
+      - title: "Passwordless Auth"
+        url: "/libraries/lock-android/passwordless"
+
+      - title: "Internationalization"
+        url: "/libraries/lock-android/internationalization"
+
+  - title: "Lock vs. Custom UI"
+    url: "/libraries/when-to-use-lock"
+
+  - title: "Auth0 SDK for Web"
+    url: "/libraries/auth0js"
+    children:
+
+      - title: "Auth0.js v8"
+        url: "/libraries/auth0js"
+
+      - title: "Migration Guide v8"
+        url: "/libraries/auth0js/migration-guide"
+
+      - title: "Auth0.js v7"
+        url: "/libraries/auth0js/v7"
+
+  - title: "Auth0 SDK for iOS"
+    url: "/libraries/auth0-swift"
+
+  - title: "Auth0 SDK for Android"
+    url: "/libraries/auth0-android"
+
+appliance:
+
+  - title: "Introduction"
+    url: "/appliance"
+
+  - title: "Support"
+    url: "/appliance/critical-issue"
+    expanded: true
+    children:
+      - title: Enterprise Support
+        url: /onboarding/enterprise-support
+      - title: Critical Issue
+        url: /appliance/critical-issue
+
+  - title: Appliance Planning
+    url: /appliance/appliance-overview
+    expanded: true
+    children:
+      - title: Overview
+        url: /appliance/appliance-overview
+      - title: Geographic High-Availability
+        url: /appliance/geo-ha
+      - title: Infrastructure Requirements
+        url: /appliance/infrastructure
+      - title: Roles and Responsibilities
+        url: /appliance/raci
+      - title: Customer Onboarding
+        url: /onboarding/appliance-sprint
+      - title: Private Cloud Requirements
+        url: /appliance/private-cloud-requirements
+
+  - title: "Appliance Administration"
+    url: "/appliance/admin"
+    expanded: true
+    children:
+      - title: Administrator's Manual
+        url: /appliance/admin
+      - title: Dashboard/Configuration Area
+        url: /appliance/dashboard
+      - title: Monitoring Tools
+        url: /appliance/monitoring
+      - title: Command-Line Interface Tools
+        url: /appliance/cli
+      - title: Automatic Tenant Creation
+        url: /appliance/admin/creating-tenants
+      - title: Node Module Availibility
+        url: /appliance/modules
+      - title: Webtasks
+        url: /appliance/webtasks
+      - title: Extensions
+        url: /appliance/extensions
+      - title: Disaster Recovery
+        url: /appliance/geo-ha/disaster-recovery
+      - title: Release Notes
+        url: https://auth0.com/changelog/appliance
+        external: true
+        forceFullReload: true
