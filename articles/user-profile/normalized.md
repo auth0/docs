@@ -26,6 +26,10 @@ Fields that are generated when the details are available:
 * **`given_name`**: the user's first name.
 * **`family_name`**: the user's last name.
 
+::: panel-info Custom Databases 
+If you are writing a login script for a [custom database](/connections/database/mysql) you are responsible for returning the information in the user profile. A unique and immutable `user_id` property is mandatory to correctly identify the user (see [Uniquely Identify Users](#uniquely-identify-users)). 
+:::
+
 ### Additional Attributes
 
 The User Profile includes an array of identities. In the most common case (logging in with a single provider), the array contains only one element. If the user has multiple accounts linked, the array will have an element for each associated account. 
@@ -55,6 +59,20 @@ There are two recommended options to uniquely identify your users:
 
 1. By the `user_id` property. This is guaranteed to be unique per user (e.g. `{identity provider id}|{unique id in the provider}`, or `facebook|1234567890`).
 2. By a *natural* key, like the `email` property. In this case, it is recommended that you enable email verification and only use this option with providers that require that users verify their emails.
+
+If you use [custom databases](/connections/database/mysql), you must return a unique `user_id` property. If you have multiple custom databases and expect possible collisions between ids from different connections, you should use a prefix identifying the connection. E.g:
+
+```javascript
+function login (email, password, callback) {
+  var user = getUserFromDB(email);
+  var profile = {
+    user_id: 'MyConnection1|' + user.id,
+    email: user.email,
+    [...]
+  };
+  callback(null, profile);
+}
+```
 
 ## Sample User Profiles
 
