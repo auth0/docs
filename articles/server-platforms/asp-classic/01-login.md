@@ -6,7 +6,7 @@ budicon: 448
 ---
 
 ::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
+This tutorial and seed project have to be tested with the following:
 * Microsoft Internet Information Services (IIS)
 :::
 
