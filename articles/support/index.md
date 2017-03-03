@@ -143,3 +143,7 @@ Critical Production issues should always be reported via the [Support Center](${
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.  Response times may also be delayed during periods of heavy ticket volume.
 
 If you have specific support requirements or are interested in the __Enterprise Support__ or __Preferred Support__ option, please [contact sales](https://auth0.com/?contact=true).
+
+### Support Languages
+
+We provide all technical support in English. We will however make an effort to accommodate other languages in the event we have staff that are fluent.
