@@ -223,16 +223,13 @@ __How long is the token valid for?__</br>
 The Management APIv2 token has by default a validity of __24 hours__. After that the token will expire and you will have to get a new one. If you get one manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) though, you can change the expiration time. However, having non-expiring tokens is not secure.
 
 __The old way of generating tokens was better, since the token never expired. Why was this changed?__</br>
-The old way of generating tokens was insecure since the tokens had an infinite lifespan and could not be revoked. The new way allows tokens to be generated with specific scopes, expirations, and with the ability to revoke tokens if they were to be breached. We decided to move to the most secure implementation because your security, and that of your users, is priority number one for us.
+The old way of generating tokens was insecure since the tokens had an infinite lifespan. The new implementation allows tokens to be generated with specific scopes and expirations. We decided to move to the most secure implementation because your security, and that of your users, is priority number one for us.
 
 __Can I change my token's validity period?__</br>
 You cannot change the default validity period, which is set to 24 hours. However, if you get a token manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) you can change the expiration time for the specific token. Note though, that your applications should use short-lived tokens to minimize security risks.
 
 __Can I refresh my token?__</br>
 You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
-
-__My token was compromised! Can I invalidate it?__</br>
-Sure. You can terminate the Management APIv2 tokens calling the [blacklist endpoint](/api/v2#!/Blacklists/post_tokens).
 
 __I need to invalidate all my tokens. How can I do that?__</br>
 All your tenant's Management APIv2 tokens are signed using the Client Secret of your non interactive client, hence if you change that, all your tokens will be invalidated. To do this, go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint.
@@ -244,7 +241,7 @@ __I can see some `current_user` scopes in my `id_token`. What is that?__</br>
 Within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the `id_token`, which are granted automatically to the logged in user.
 
 
-## More reading
+## Keep reading
 
 [Calling APIs from a Service](/api-auth/grant/client-credentials)
 
