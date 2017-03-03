@@ -15,64 +15,30 @@ GET https://${account.namespace}/authorize?
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+// Script uses auth0.js v8. See Remarks for details.
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  // Initialize client
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'code|token'
+    clientID:     '${account.clientId}'
   });
-</script>
-
-//trigger login with google
-$('.login-google').click(function () {
-  auth0.login({
+  
+  // Trigger login with google
+  webAuth.authorize({
     connection: 'google-oauth2'
   });
-});
 
-//trigger login with github
-$('.login-github').click(function () {
-  auth0.login({
+  // Trigger login with github
+  webAuth.authorize({
     connection: 'github'
   });
-});
 
-//trigger login popup with google
-$('.login-google-popup').click(function (e) {
-  e.preventDefault();
-  auth0.login({
-    connection: 'google-oauth2',
-    popup: true,
-    popupOptions: {
-      width: 450,
-      height: 800
-    }
-  }, function(err, result) {
-    if (err) {
-      alert("something went wrong: " + err.message);
-      return;
-    }
-    alert('Hello!');
+  // Trigger login popup with twitter
+  webAuth.popup.authorize({
+    connection: 'twitter'
   });
-});
-
-//trigger login requesting additional scopes with google
-$('.login-google').click(function () {
-  auth0.login({
-    connection: 'google-oauth2',
-    connection_scope: ['https://www.googleapis.com/auth/orkut', 'https://picasaweb.google.com/data/']
-  });
-});
-
-// alternatively a comma separated list also works
-$('.login-google').click(function () {
-  auth0.login({
-    connection: 'google-oauth2',
-    connection_scope: 'https://www.googleapis.com/auth/orkut,https://picasaweb.google.com/data/'
-  });
-});
+</script>
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -112,6 +78,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates on the provider, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### More Information
@@ -224,62 +191,30 @@ GET https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=STATE&
-  additional-parameter=ADDITIONAL_PARAMETERS
+  state=STATE
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+// Script uses auth0.js v8. See Remarks for details.
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  // Initialize Client
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'code|token'
+    clientID:     '${account.clientId}'
   });
+  
+  // Calculate URL to redirect to
+  var url = webAuth.client.buildAuthorizeUrl({
+    clientID: '${account.clientId}', // string
+    responseType: 'token', // code or token
+    redirectUri: '${account.callback}',
+    state: 'YOUR_STATE'
+  });
+  
+  // Redirect to url
+  // ...
 </script>
-
-//trigger login with a db connection
-$('.login-dbconn').click(function () {
-  auth0.login({
-    connection: 'db-conn',
-    username:   $('.username').val(),
-    password:   $('.password').val(),
-  });
-});
-
-//trigger login with a db connection and avoid the redirect
-$('.login-dbconn').click(function () {
-  auth0.login({
-    connection: 'db-conn',
-    username:   $('.username').val(),
-    password:   $('.password').val(),
-  },
-  function (err, result) {
-    // store in cookies
-  });
-});
-
-//trigger login with offline mode support to get the refresh_token
-$('.login-dbconn').click(function () {
-  auth0.login({
-    connection: 'db-conn',
-    username:   $('.username').val(),
-    password:   $('.password').val(),
-    scope: 'openid offline_access'
-  },
-  function (err, result) {
-    // store in cookies
-    // result.refreshToken is sent because offline_access is set as a scope
-  });
-});
-```
-
-> RESPONSE SAMPLE
-
-```text
-HTTP/1.1 302 Found
-Location: https://auth0.com/#/login_page&state=STATE
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -317,6 +252,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 - The main difference between passive and active authentication is that the former happens in the browser through the [Auth0 Login Page](https://${account.namespace}/login) and the latter can be invoked from anywhere (a script, server to server, and so forth).
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### More Information
@@ -338,7 +274,7 @@ Content-Type: 'application/json'
   "username": "USERNAME",
   "password": "PASSWORD",
   "connection": "CONNECTION",
-  "scope": "openid",
+  "scope": "openid"
 }
 ```
 
@@ -351,46 +287,40 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+// Script uses auth0.js v8. See Remarks for details.
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  // Initialize client
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
+  });
+  
+  // Trigger login using redirect with credentials to enterprise connections 
+  webAuth.redirect.loginWithCredentials({
+    connection: 'Username-Password-Authentication',
+    username: 'testuser',
+    password: 'testpass',
+    scope: 'openid'
+  });
+
+  // Trigger login using popup mode with credentials to enterprise connections
+  webAuth.popup.loginWithCredentials({
+    connection: 'Username-Password-Authentication',
+    username: 'testuser',
+    password: 'testpass',
+    scope: 'openid'
+  });
+
+  // The client.login method allows for non redirect auth using custom database connections, using /oauth/token.
+  webAuth.client.login({
+    realm: 'tests',
+    username: 'testuser',
+    password: 'testpass',
+    scope: 'openid profile',
+    audience: 'urn:test'
   });
 </script>
-
-//trigger login with a db connection
-$('.login-dbconn').click(function () {
-  auth0.login({
-    connection: 'db-conn',
-    username:   $('.username').val(),
-    password:   $('.password').val(),
-  });
-});
-
-//trigger login with a db connection and avoid the redirect
-$('.login-dbconn').click(function () {
-  auth0.login({
-    connection: 'db-conn',
-    username:   $('.username').val(),
-    password:   $('.password').val(),
-  },
-  function (err, result) {
-    // store in cookies
-  });
-});
-```
-
-> RESPONSE SAMPLE:
-
-```json
-{
-  "id_token": "eyJ0eXAiOiJKV1Qi...",
-  "access_token": "sMjTAT...",
-  "token_type": "bearer"
-}
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -434,6 +364,7 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 
 - This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
 - The main difference between passive and active authentication is that the former happens in the browser through the [Auth0 Login Page](https://${account.namespace}/login) and the latter can be invoked from anywhere (a script, server to server, and so forth).
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### Error Codes
@@ -459,27 +390,35 @@ GET https://${account.namespace}/authorize?
   client_id=${account.clientId}&
   connection=CONNECTION&
   redirect_uri=${account.callback}&
-  state=STATE&
-  additional-parameter=ADDITIONAL_PARAMETERS
+  state=STATE
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+// Script uses auth0.js v8. See Remarks for details.
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  // Initialize client
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'code|token'
+    clientID:     '${account.clientId}'
+  });
+  
+  // Trigger login using redirect with credentials to enterprise connections 
+  webAuth.redirect.loginWithCredentials({
+    connection: 'Username-Password-Authentication',
+    username: 'testuser',
+    password: 'testpass',
+    scope: 'openid'
+  });
+
+  // Trigger login using popup mode with credentials to enterprise connections
+  webAuth.popup.loginWithCredentials({
+    connection: 'Username-Password-Authentication',
+    username: 'testuser',
+    password: 'testpass',
+    scope: 'openid'
   });
 </script>
-
-//trigger login with an enterprise connection
-$('.login-microsoft').click(function () {
-  auth0.login({
-    connection: 'contoso.com'
-  });
-});
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -519,6 +458,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 - If `response_type=token`, after the user authenticates, it will redirect to your application `callback URL` passing the `access_token` and `id_token` in the address `location.hash`. This is used for Single Page Apps and also on Native Mobile SDKs.
 - Additional parameters can be sent that will be passed to the provider.
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 ### More Information
 
