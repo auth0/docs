@@ -1,0 +1,29 @@
+changed:
+  -
+    title: "Updated Authentication API auth0.js scripts to v8"
+    tags:
+      - auth0.js
+      - api
+    description: |
+      The [Auth0 Authentication API](https://auth0.com/docs/api/authentication) auth0.js scripts have been updated to version 8.
+  -
+    title: "Hooks docs marked as Beta"
+    tags:
+      - hooks
+    description: |
+      [Hooks](https://auth0.com/docs/hooks) docs were marked as in Beta version.
+
+added:
+  -
+    title: "New doc: Connect Your Google App with Auth0"
+    tags:
+      - google apps
+      - connection
+    description: |
+      A [new doc](https://auth0.com/docs/connections/enterprise/google-apps) was created on how to connect Google Apps with Auth0.
+  -
+    title: "New doc: Reset Your Auth0 Account Password"
+    tags:
+      - reset password
+    description: |
+      A [new doc](https://auth0.com/docs/tutorials/reset-account-password) was created on how to reset your Auth0 account password.
