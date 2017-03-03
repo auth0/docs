@@ -246,12 +246,8 @@ Within the Users API some endpoints have scopes related to the current user (lik
 
 ## Keep reading
 
-[Calling APIs from a Service](/api-auth/grant/client-credentials)
-
-[Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
-
-[Information on the query string syntax](/api/management/v2/query-string-syntax)
-
-[Search for Users](/api/management/v2/user-search)
-
-[Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Calling APIs from a Service](/api-auth/grant/client-credentials)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Information on the query string syntax](/api/management/v2/query-string-syntax)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Search for Users](/api/management/v2/user-search)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)<br/>
