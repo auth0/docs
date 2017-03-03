@@ -1,7 +1,7 @@
 ---
 url: /hooks
 classes: topic-page
-title: Hooks
+title: Hooks (Beta)
 description: Working with Hooks
 ---
 
