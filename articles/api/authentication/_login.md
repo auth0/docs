@@ -199,36 +199,23 @@ GET https://${account.namespace}/authorize?
 // Script uses auth0.js v8. See Remarks for details.
 <script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
+  // Initialize Client
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
+  
+  // Calculate URL to redirect to
+  var url = webAuth.client.buildAuthorizeUrl({
+    clientID: '${account.clientId}', // string
+    responseType: 'token', // code or token
+    redirectUri: '${account.callback}',
+    state: 'YOUR_STATE'
+  });
+  
+  // Redirect to url
+  // ...
 </script>
-
-//trigger login using redirect with credentials to enterprise connections 
-webAuth.redirect.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-});
-
-//trigger login using popup mode with credentials to enterprise connections
-webAuth.popup.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-});
-
-// The client.login method allows for non redirect auth using custom database connections, using /oauth/token.
-webAuth.client.login({
-  realm: 'tests',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid profile',
-  audience: 'urn:test'
-});
 ```
 
 <%= include('../../_includes/_http-method', {
