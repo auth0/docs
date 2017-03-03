@@ -125,3 +125,5 @@ To use your newly-created Connection, you'll need to enable it for your Auth0 Cl
 ![Auth0 Client Connections](/media/articles/connections/enterprise/google/client-connection.png)
 
 At this point, your users will be able to log in using their Google App credentials.
+
+<%= include('../_quickstart-links.md') %>
