@@ -14,6 +14,7 @@ The features only available in Management API v1 include:
 * [Email](#email)
 * [Enterprise Users/Directory Searching](#enterprise-users/directory-searching)
 * [Impersonation](#impersonation)
+* [Rules Configuration](#rules-configuration)
 * [Searching via the Auth0 Appliance](#searching-via-the-auth0-appliance)
 
 ## Active Directory Connector Monitoring
@@ -52,6 +53,14 @@ GET `/api/enterpriseconnections/users?search={criteria}`
 Management API v1 includes an impersonation endpoint that generates a link that can be used only once to log in as a specific user for troubleshooting purposes.
 
 [`/users/{user_id}/impersonate`](/auth-api#impersonation)
+
+
+## Rules Configuration
+
+Management API v1 includes an endpoint that allows you to add values to a global `configuration` object that is accessible to **all** Rules.
+
+* To return all key/value pairs on the global `configuration` object: `GET /api/rules-configs`
+* To create or update a global `configuration` object: `POST /api/rules-configs`
 
 ## Searching via the Auth0 Appliance
 
