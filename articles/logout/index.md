@@ -36,7 +36,7 @@ Although this is not common practice, you can force the user to also log out of 
 https://${account.namespace}/v2/logout?federated
 ```
 
-The following Social providers support federated logout:
+The following identity providers support federated logout:
 
 * AOL
 * Evernote
