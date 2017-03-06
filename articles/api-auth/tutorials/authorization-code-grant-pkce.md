@@ -17,13 +17,25 @@ First, you need to generate and store a `code_verifier`.
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
-      <li class="active"><a href="#verifier-java" data-toggle="tab">Java</a></li>
+      <li class="active"><a href="#verifier-javascript" data-toggle="tab">Node.js</a></li>
+      <li><a href="#verifier-java" data-toggle="tab">Java</a></li>
       <li><a href="#verifier-swift" data-toggle="tab">Swift 3</a></li>
       <li><a href="#verifier-objc" data-toggle="tab">Objective-C</a></li>
     </ul>
   </div>
   <div class="tab-content">
-    <div id="verifier-java" class="tab-pane active">
+    <div id="verifier-javascript" class="tab-pane active">
+      <pre>
+<code class="javascript hljs">function base64URLEncode(str) {
+    return str.toString('base64')
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
+}
+
+var verifier = base64URLEncode(crypto.randomBytes(32));</code></pre>
+    </div>
+    <div id="verifier-java" class="tab-pane">
       <pre>
 <code class="java hljs">SecureRandom sr = new SecureRandom();
 byte[] code = new byte[32];
@@ -58,13 +70,22 @@ Using the `code_verifier`, generate a `code_challenge` that will be sent in the 
 <div class="code-picker">
   <div class="languages-bar">
     <ul>
-      <li class="active"><a href="#challenge-java" data-toggle="tab">Java</a></li>
+      <li class="active"><a href="#challenge-javascript" data-toggle="tab">Node.js</a></li>
+      <li><a href="#challenge-java" data-toggle="tab">Java</a></li>
       <li><a href="#challenge-swift" data-toggle="tab">Swift 3</a></li>
       <li><a href="#challenge-objc" data-toggle="tab">Objective-C</a></li>
     </ul>
   </div>
   <div class="tab-content">
-    <div id="challenge-java" class="tab-pane active">
+    <div id="challenge-javascript" class="tab-pane active">
+      <pre>
+<code class="javascript hljs">function sha256(buffer) {
+    return crypto.createHash('sha256').update(buffer).digest();
+}
+
+var challenge = base64URLEncode(sha256(verifier));</code></pre>
+    </div>
+    <div id="challenge-java" class="tab-pane">
       <pre>
 <code class="java hljs">byte[] bytes = verifier.getBytes("US-ASCII");
 MessageDigest md = MessageDigest.getInstance("SHA-256");
