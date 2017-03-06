@@ -18,7 +18,10 @@ For this flag to be visible, your Auth0 tenant needs to have "OAuth 2.0 API Auth
 The objective of this flag is to disable as many legacy features as possible, so you can run into the OIDC-conformant pipeline's breaking changes at configuration time rather than run time.
 Enabling this flag on a client with an `audience` parameter will have the following effects:
 
-* Authenticating with the [implicit grant](/api-auth/tutorials/adoption/implicit) will no longer return refresh tokens. Use [silent authentication](/api-auth/tutorials/silent-authentication) instead.
+* The following features are deprecated in favor of [silent authentication](/api-auth/tutorials/adoption/implicit):
+    - Refresh tokens on authentication with the [implicit grant](/api-auth/tutorials/adoption/implicit)
+    - /ssodata endpoint and `getSSOData()` method from Lock/auth0.js
+* [Single sign-on (SSO)](/api-auth/tutorials/adoption/single-sign-on) can only be performed from Auth0-hosted login pages.
 * Using `response_type=token` will only return an access token, not an ID token. Use `response_type=id_token` or `response_type=token id_token` instead.
 * ID tokens obtained with the implicit grant will be signed asymmetrically using RS256.
 * The /tokeninfo endpoint is disabled.

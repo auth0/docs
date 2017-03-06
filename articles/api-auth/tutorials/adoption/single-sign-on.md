@@ -39,3 +39,10 @@ The following flows are redirect-based and are capable of SSO:
 The following flows are request-based and are currently not capable of SSO:
 
 * [Password credentials and realm grants](/api-auth/grant/password)
+
+## Custom domains
+
+The Auth0-hosted login page is currently hosted at an Auth0 domain, so any SSO will be performed at an Auth0 domain instead of your organization's domain.
+This is only an aesthetic limitation and does not impact the security or functionality of SSO logins in any way.
+
+We plan on adding support for custom domains on login pages in future releases via CNAMEs.
