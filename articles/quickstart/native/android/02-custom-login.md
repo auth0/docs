@@ -12,7 +12,7 @@ This quickstart will show you how to add Auth0 login capabilities while using a 
   repo: 'auth0-android-sample',
   path: '02-Custom-Login',
   requirements: [
-    'Android Studio 2.2',
+    'Android Studio 2.3',
     'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]

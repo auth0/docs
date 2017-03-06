@@ -11,7 +11,7 @@ This tutorial will show you how to use Lock to get the user's profile data in yo
   repo: 'auth0-android-sample',
   path: '04-User-Profile',
   requirements: [
-    'Android Studio 2.2',
+    'Android Studio 2.3',
     'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
@@ -43,7 +43,7 @@ authClient.userInfo(accessToken)
                 .start(new BaseCallback<UserProfile, AuthenticationException>() {
                     @Override
                     public void onSuccess(final UserProfile info) {
-                        String userId = (String) info.getExtraInfo().get("sub");
+                        String userId = info.getId();
                         // fetch the user profile
                     }
 
@@ -97,16 +97,14 @@ Besides the defaults, you can handle more information that is contained within a
 The `userMetadata` map contains fields related to the user profile that can be added from the client-side (e.g. when editing the profile). We're going to edit this one in this tutorial. You can access its fields as follows:
 
 ```java
-//Make sure the key exists and the value is not null or the cast may throw.
 String country = (String) profile.getUserMetadata().get("country");
-boolean active = (boolean) profile.getUserMetadata().get("active");
 ```
 
 > The strings you use for subscripting the user_metadata map, and the variable types you handle, are up to you.
 
 ##### B. APP METADATA
 
-The `appMetadata` map contains fields that are usually added via a Rule, which is read-only for the native platform.
+The `appMetadata` map contains fields that are usually added via a Rule or Hook, which is read-only for the native platform.
 
 ##### C. EXTRA INFO
 

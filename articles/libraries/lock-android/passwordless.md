@@ -24,7 +24,7 @@ You'll need to add the `PasswordlessLockActivity` to your Manifest, inside the `
       <category android:name="android.intent.category.BROWSABLE" />
 
       <data
-        android:host="{YOUR_AUTH0_DOMAIN}"
+        android:host="${account.namespace}"
         android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
         android:scheme="https" />
     </intent-filter>
@@ -48,10 +48,11 @@ public class MainActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // Your own Activity code
-    Auth0 auth0 = new Auth0('${account.clientId}','${account.namespace}');
+    Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+    auth0.setOIDCConformant(true);
     lock = PasswordlessLock.newBuilder(auth0, callback)
-      //Customize Lock
-      .build(this);
+        //Customize Lock
+        .build(this);
   }
 
   @Override

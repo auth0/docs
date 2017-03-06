@@ -12,7 +12,7 @@ android {
   //..
 }
 dependencies {
-  compile 'com.auth0.android:lock:2.3.0'   
+  compile 'com.auth0.android:lock:2.4.0'   
 }
 ```
 

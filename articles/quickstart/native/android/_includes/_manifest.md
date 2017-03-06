@@ -17,7 +17,7 @@ Add the following code to your project's `AndroidManifest.xml`.
 
         <data
             android:host="${account.namespace}"
-            android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+            android:pathPrefix="/android/{YOUR_PACKAGE_NAME}/callback"
             android:scheme="https" />
     </intent-filter>
 </activity>

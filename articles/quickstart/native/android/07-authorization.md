@@ -12,7 +12,7 @@ This step demonstrates how to use Auth0 to create access roles for your users. W
   repo: 'auth0-android-sample',
   path: '07-Authorization',
   requirements: [
-    'Android Studio 2.2',
+    'Android Studio 2.3',
     'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
@@ -42,7 +42,7 @@ Lock lock = Lock.newBuilder(auth0, callback)
 
 ## Create A Rule To Assign Roles
 
-First, you need to create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Empty rule*" template, under *Empty*. Then, name the rule and replace the entire code with the next snippet:
+First, you need to create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Empty rule*" template under *Empty*. Then, name the rule and replace the entire code with the next snippet:
 
 ```java
 function (user, context, callback) {
@@ -55,7 +55,7 @@ function (user, context, callback) {
   //Check if the email has 'admin.com' domain and give the 'admin' role.
   //Otherwise, keep the default 'user' role.
   var role = 'user';
-  if (user.email.indexOf('@admin.com') > -1) {
+  if (user.email && user.email.indexOf('@admin.com') > -1) {
       role = 'admin';
   }
   //Set the role claim in the id_token
@@ -82,12 +82,12 @@ Next, the rule will check the user's email:
 
 ```java
 var role = 'user';
-if (user.email.indexOf('@admin.com') > -1) {
+if (user.email && user.email.indexOf('@admin.com') > -1) {
     role = 'admin';
 }
 ```
 
-By default, it says that if the user email contains `@admin.com` then he will be given an `admin` role, otherwise a regular `user` role. Use this or any other condition to decide the role. You can define more roles other than `admin` and `user`, depending on your product requirements.
+By default, it says that if the user email exists and contains `@admin.com` then he will be given an `admin` role, otherwise a regular `user` role. Use this or any other condition to decide the role. You can define more roles other than `admin` and `user`, depending on your product requirements.
 
 Finally, the rule will set the role claim value in the `id_token` for later verification.
 
@@ -147,7 +147,7 @@ private void showSettings() {
 }
 ```
 
-Log in using an email ending in '@admin.com' and you should be able to enter the `SettingsActivity`. Log in using an email with a different domain and this section should have the access blocked.
+Create and account and log in using an email ending in '@admin.com' and you should be able to enter the `SettingsActivity`. Log in using an email with a different domain and this section should have the access blocked.
 
 
 ## Restrict Content Based On Access Level

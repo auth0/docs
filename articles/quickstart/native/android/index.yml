@@ -3,7 +3,6 @@ alias:
   - Android
 language:
   - Java
-  - C
 hybrid: false
 image: /media/platforms/android.png
 tags:

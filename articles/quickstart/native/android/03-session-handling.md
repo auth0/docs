@@ -11,7 +11,7 @@ This tutorial will show you how to use Lock to maintain an active session with A
   repo: 'auth0-android-sample',
   path: '03-Session-Handling',
   requirements: [
-    'Android Studio 2.2',
+    'Android Studio 2.3',
     'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
@@ -36,10 +36,8 @@ Before launching Lock you need to ask for the `offline_access` scope in order to
 
 ```java
 Auth0 auth0 = new Auth0(getString(R.string.auth0_client_id), getString(R.string.auth0_domain));
-Map<String, Object> parameters = new HashMap<>();
-parameters.put("scope", "openid offline_access");
 Lock lock = Lock.newBuilder(auth0, callback)
-        .withAuthenticationParameters(parameters)
+        .withScope("openid offline_access")
         .build(this);
 startActivity(lock.newIntent(this));
 ```
@@ -62,24 +60,24 @@ private LockCallback callback = new AuthenticationCallback() {
 > In the seed project, the `SharedPreferences` is used in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE) to store the user credentials. This is done by a the class `CredentialsManager`, you can check the implementation in the project code. There are better and more secure ways to store tokens, but we won't cover them in this tutorial.
 
 
-## At Startup: Check `id_token` Existence
+## At Startup: Check `access_token` Existence
 
-The main purpose of storing this token is to save users from having to re-enter their login credentials when relaunching the app. Once the app has launched, we need to check for the existence of an `id_token` to see if we can automatically log the user in and redirect the user straight into the app’s main flow, skipping the login screen.
+The main purpose of storing this token is to save users from having to re-enter their login credentials when relaunching the app. Once the app has launched, we need to check for the existence of an `access_token` to see if we can automatically log the user in and redirect the user straight into the app’s main flow, skipping the login screen.
 
 To do so, we check whether this value exists at startup to either prompt for login information or to try to perform an automated login.
 
 ```java
-if (CredentialsManager.getCredentials(this).getIdToken() == null) {
+if (CredentialsManager.getCredentials(this).getAccessToken() == null) {
   // Prompt Login screen.
 } else {
   // Try to make an automatic login
 }
 ```
 
-## Validate an Existing `id_token`
+## Validate an Existing `access_token`
 
-If the `id_token` exists, we need to check whether it’s still valid. To do so we can:
-* Check that the elapsed time since the token was obtained is lesser than the `expires_in` value received in with the credentials.
+If the `access_token` exists, we need to check whether it’s still valid. To do so we can:
+* Check that the elapsed time since the token was obtained is lesser than the `expires_in` value received in with the credentials. For this to work we'll have to save the current time whenever we receive and store a new pair of credentials.
 * Decode the JWT token using a library like [JWTDecode.Android](https://github.com/auth0/JWTDecode.Android) and check the `exp` claim.
 * Call the Auth0 Authentication API and check the response.
 

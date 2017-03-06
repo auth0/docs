@@ -11,7 +11,7 @@ This tutorial will show you how to use Lock within your Android project to link 
   repo: 'auth0-android-sample',
   path: '05-Linking-Accounts',
   requirements: [
-    'Android Studio 2.2',
+    'Android Studio 2.3',
     'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]

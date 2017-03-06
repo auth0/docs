@@ -12,7 +12,7 @@ This tutorial demonstrates how to use a previously saved token to authenticate y
   repo: 'auth0-android-sample',
   path: '08-Calling-APIs',
   requirements: [
-    'Android Studio 2.2',
+    'Android Studio 2.3',
     'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
@@ -44,6 +44,7 @@ First, prepare the request. In this example we use the library [volley](https://
 
 ```java
 RequestQueue queue = Volley.newRequestQueue(this);
+//Replace the url with your own API endpoint
 String url = "YOUR API URL";
 ```
 
@@ -81,7 +82,7 @@ public class AuthorizationRequestObject extends JsonObjectRequest {
     public Map getHeaders() throws AuthFailureError {
         Map headers = new HashMap();
         if (accessToken != null) {
-            headers.put("Bearer " + accessToken, "Authorization");
+            headers.put("Authorization", "Bearer " + accessToken);
         }
         return headers;
     }
