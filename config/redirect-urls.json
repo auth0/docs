@@ -1695,6 +1695,9 @@
   {
     "from": "/libraries/lock-ios/use-your-own-ui",
     "to": "/libraries/lock-ios/v1/use-your-own-uis"
+  },
+  {
+    "from": "/quickstart/native/chrome-extension",
+    "to": "/quickstart/native/chrome"
   }
-
 ]
