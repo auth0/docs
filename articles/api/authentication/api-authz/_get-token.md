@@ -391,6 +391,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 ### Remarks
 
 - The scopes issued to the client may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
+- If you don't request specific scopes, all scopes defined for the audience will be returned due to the implied trust to the client in this grant. You can customize the scopes returned in a rule. For more information, refer to [Calling APIs from Highly Trusted Clients](/api-auth/grant/password).
 - To add realm support set the `grant_type` to `http://auth0.com/oauth/grant-type/password-realm`, and the `realm` to the realm the user belongs. This maps to a connection in Auth0. For example, if you have configured a database connection for your internal employees and you have named the connection `employees`, then use this value. For more information on how to implement this refer to: [Realm Support](/api-auth/tutorials/password-grant#realm-support).
 
 

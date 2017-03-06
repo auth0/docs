@@ -27,6 +27,10 @@ Realms allow you to keep separate user directories and specify which one to use 
 
 For more information on how to implement this extension grant refer to [Executing a Resource Owner Password Grant > Realm Support](/api-auth/tutorials/password-grant#realm-support).
 
+### Scopes
+
+Due to the implied trust in these grants (a user providing his or her password to a client), the `access_token` returned will include all of the available scopes defined for the audience API. A client can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customizing-the-returned-token).
+
 ### Rules
 
 [Rules](/rules) will run for the Password Exchange (including the Password Realm extension grant). There are two key differences in the behavior of rules in these flows:
@@ -35,6 +39,24 @@ For more information on how to implement this extension grant refer to [Executin
 - If you try to do MFA by specifying `context.multifactor` in your rule, the authentication flow will return an error. MFA support is coming soon, as noted below.
 
 If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then this is the indication that the rule is running during the password exchange.
+
+#### Customizing the returned token
+
+Inside a rule, you can change the returned scopes of the `access_token` or add claims to it with code like this:
+
+```javascript
+function(user, context, callback) {
+  
+  // add custom claims
+  context.accessToken['http://foo/bar'] = 'value';
+  
+  // change scope
+  context.accessToken.scope = 'scope1 scope2';
+  
+  callback(null, user, context);
+}
+
+```
 
 ## MFA Support
 
