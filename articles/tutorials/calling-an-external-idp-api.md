@@ -69,11 +69,14 @@ Using the Auth0 access token, call the [Get a User](/api/management/v2#!/Users/g
 
 ```har
 {
-  "method": "GET",
-  "url": "https://${account.namespace}/api/v2/users/USER_ID",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ]
+    "method": "GET",
+    "url": "https://${account.namespace}/api/v2/users/USER_ID",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer ABCD"
+    }]
 }
 ```
 
