@@ -20,12 +20,37 @@ articles:
 
   - title: "Clients"
     url: "/clients"
-
+  
   - title: "APIs"
-    url: "/apis"
+    url: "/api-auth"
     children:
-      - title: "API Authorization"
-        url: "/api-auth"
+
+      - title: "APIs Overview"
+        url: "/apis"
+        
+      - title: "Which OAuth Flow to Use"
+        url: "/api-auth/which-oauth-flow-to-use"
+
+      - title: "APIs &amp; Server-side Apps"
+        url: "/api-auth/grant/authorization-code"
+
+      - title: "APIs &amp; Mobile Apps"
+        url: "/api-auth/grant/authorization-code-pkce"
+
+      - title: "APIs &amp; Client-side Apps"
+        url: "/api-auth/grant/implicit"
+
+      - title: "APIs &amp; CLIs"
+        url: "/api-auth/grant/client-credentials"
+
+      - title: "APIs &amp; Trusted Clients"
+        url: "/api-auth/grant/password"
+        
+      - title: "Dynamic Client Registration"
+        url: "/api-auth/dynamic-client-registration"
+      
+      - title: "Verify Access Tokens"
+        url: "/api-auth/tutorials/verify-access-token"
 
   - title: "Connections"
     url: "/connections"
