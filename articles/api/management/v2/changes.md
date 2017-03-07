@@ -33,7 +33,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [POST /api/users/{user\_id}/send\_verification\_email](/api/v1#!#post--api-users--user_id--send_verification_email) | Not available. | TBD. |
 | [POST /api/users/{user\_id}/change\_password\_ticket](/api/v1#!#post--api-users--user_id--change_password_ticket) | None. | [POST /api/v2/tickets/password-change](/api/v2#!/tickets/post_password_change) |
 | [POST /api/users/{user\_id}/verification\_ticket](/api/v1#!#post--api-users--user_id--verification_ticket) | None. | [POST /api/v2/tickets/email-verification](/api/v2#!/tickets/post_email_verification) |
-| [POST /api/users/{user\_id}/public\_key](/api/v1#!#post--api-users--user_id--publickey) | Keys are created per device, not per user. | [POST /api/v2/device-credentials](/api/v2#!/Device_Credentials/post_device_credentials) |
+| [POST /api/users/{user\_id}/publickey](/api/v1#!#post--api-users--user_id--publickey) | Keys are created per device, not per user. | [POST /api/v2/device-credentials](/api/v2#!/Device_Credentials/post_device_credentials) |
 | [PUT /api/users/{user\_id}/email](/api/v1#!#put--api-users--user_id--email) | Removed. | [PATCH /api/v2/users/{id}](/api/v2#!/users/patch_users_by_id) also accepts `v2_id`. |
 | [PUT /api/users/{user\_id}/metadata](/api/v1#!#put--api-users--user_id--metadata) | Removed. | [PATCH /api/v2/users/{id}](/api/v2#!/users/patch_users_by_id) also accepts `v2_id` |
 | [PUT /api/users/{user\_id}/password](/api/v1#!#put--api-users--user_id--password) | Removed. | [PATCH /api/v2/users/{id}](/api/v2#!/users/patch_users_by_id) also accepts `v2_id` |
@@ -42,7 +42,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [DELETE /api/users](/api/v1#!#delete--api-users) | None. | [DELETE /api/v2/users](/api/v2#!/users/delete_users) |
 | [DELETE /api/users/{user\_id}](/api/v1#!#delete--api-users--user_id-) | None. | [DELETE /api/v2/users/{id}](/api/v2#!/users/delete_users_by_id) also accepts `v2_id` |
 | [DELETE /api/users/{user\_id}/refresh_tokens/{refresh\_token}](/api/v1#!#delete--api-users--user_id--refresh_tokens--refresh_token-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
-| [DELETE /api/users/{user\_id}/public_key?device={device}](/api/v1#!#delete--api-users--user_id--publickey-device--device-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
+| [DELETE /api/users/{user\_id}/publickey?device={device}](/api/v1#!#delete--api-users--user_id--publickey-device--device-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 | [POST /api/users/{user_id}/send_verification_email](/api/v1#!#post--api-users--user_id--send_verification_email) | None. | [POST /api/v2/jobs/verification-email](/api/v2#!/Jobs/post_verification_email) 
 
 
