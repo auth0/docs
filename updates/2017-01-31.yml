@@ -1,0 +1,9 @@
+added:
+  -
+    title: "Dynamic Client Registration"
+    tags:
+      - client
+      - OIDC
+      - pipeline2
+    description: |
+       A [new document](https://auth0.com/docs/api-auth/dynamic-client-registration) was created on Dynamic Clients with info on Third Party Client characteristics, how to enable dynamic registration and how to register a client, using the Management APIv2.

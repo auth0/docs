@@ -169,3 +169,17 @@ When logging in, the SAML identity provider uniquely identifies the user's sessi
 Occasionally, the `SessionIndex` value may not be present in the initial login assertion. When the user logs out, the request to the SAML identity provider will fail due to the missing value.
 
 In these cases, Auth0 may not be able to complete a logout request to the SAML identity provider even if the logout URL has been configured correctly.
+
+### SAML IdP logout
+
+When Auth0 is acting as a SAML Identity Provider, you can have the following scenarios:
+
+#### Single Logout Scenario
+
+If your Service Provider supports SAML Single logout, you will need to configure the Service Provider to call `https://${account.namespace}samlp/CLIENT_ID/logout` (also listed in the SAML IdP Metadata). BWhen a logout request is triggered by the Service Provider, a LogoutReuqest will be sent to this endpoint and Auth0 strart the SAML SLO flow notifying the existing session participants using a frontend channel (you can set the option `protocolBinging` to `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` (default) or `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`)
+
+To prevent a Session Participant for being notified, you can set `logout.slo_enabled` to `false`
+
+#### Non Single Logout Scenario
+
+If your Service Provider does not support SAML SLO, but provides a redirect URL where the user will be redirects after logging out of the SP, the best thing to do is configure the redirect URL to `https://${account.namespace}/logout`. This won't notify other session participants that a logout was initiated, but it will at remove the session from Auth0.

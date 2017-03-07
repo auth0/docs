@@ -1,4 +1,5 @@
 ---
+toc: true
 description: The GitHub Deployments extension allows you to deploy rules and database connection scripts from GitHub to Auth0.
 ---
 
@@ -105,7 +106,7 @@ You can mark rules as manual. In that case, the source control extension will no
 
 ![Manual Rules](/media/articles/extensions/github-deploy/manual-rules.png)
 
-You can control the rule order, status (`enabled`/`disabled`) and stage (`login_success`, `login_failure`, `user_registration`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
+You can control the rule order, status (`enabled`/`disabled`) and stage (`login_success`, `login_failure`, `pre_authorize`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
 
 __set-country.js__
 ```javascript

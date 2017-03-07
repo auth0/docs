@@ -1,4 +1,5 @@
 ---
+toc: true
 description: This page explains query string syntax, which you can use to construct custom queries when searching using Auth0's Management API.
 section: apis
 ---
@@ -39,6 +40,10 @@ Some examples of query string syntax are:
 * Where the field `description` has any non-null value:
 
     `_exists_: description`
+
+* Your query can search across more than one field by using the `AND` & `OR` condition. Where the username field is exactly `"john"` AND the field `description` has any non-null value:
+
+    `username: "john" AND _exists_: description` 
 
 ### Wildcards
 
@@ -92,7 +97,7 @@ Some examples of range queries are:
 
 * Last login date of 2015:
 
-    `last_login:[2015-01-01 TO 2015-12-31]
+    `last_login:[2015-01-01 TO 2015-12-31]`
 
 * Users who have logged in between 1-5 times:
 

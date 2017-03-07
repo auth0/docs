@@ -10,14 +10,14 @@ Customers who have purchased a platinum enterprise support plan that includes lo
 
 ## How to request
 
-* Customers must file a load testing request in writing, via the [Auth0 support center](https://support.auth0.com).
+* Customers must file a load testing request in writing, via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}).
 * Requests must be filed at least two (2) weeks in advance of the desired test date.
-* Requests must be approved in writing before any load/performance testing is conducted. 
+* Requests must be approved in writing before any load/performance testing is conducted.
 
 * Customers must have configured their own email provider within the Auth0 dashboard (Email -> Providers) before a load testing request will be approved.
 
 ## Test windows
-Approved load testing windows are subject to availability of testing windows on a first-come first-served basis. Customers are encouraged to submit requests well in advance of the 2-week advance notice period.  
+Approved load testing windows are subject to availability of testing windows on a first-come first-served basis. Customers are encouraged to submit requests well in advance of the 2-week advance notice period.
 
 Testing windows will have a scheduled start and end time assigned by Auth0 and all testing must begin and complete during the window.
 

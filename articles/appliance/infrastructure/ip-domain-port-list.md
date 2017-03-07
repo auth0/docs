@@ -116,7 +116,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
-    <td>Updates</td>
+    <td>Updates and web extensions</td>
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
@@ -124,7 +124,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
-    <td>GitHub</td>
+    <td>Examples</td>
     <td>Outbound</td>
     <td>github.com</td>
     <td>443</td>

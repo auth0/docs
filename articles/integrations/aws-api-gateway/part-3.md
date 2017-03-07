@@ -97,7 +97,7 @@ function (user, context, callback) {
 ```
 
 :::panel-info Rules
-[How to Work with Rules](/docs/rules#video-using-rules)
+[How to Work with Rules](/rules#video-using-rules)
 :::
 
 Be sure to update the `role` and `[principal]` ARN values with the ones for your integration.

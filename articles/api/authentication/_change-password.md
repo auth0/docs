@@ -21,18 +21,15 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+// Script uses auth0.js v8. See Remarks for details.
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
-</script>
-
-$('.change_password').click(function () {
-  auth0.changePassword({
+  
+  webAuth.changePassword({
     connection: 'CONNECTION',
     email:   'EMAIL'
   }, function (err, resp) {
@@ -41,9 +38,8 @@ $('.change_password').click(function () {
     }else{
       console.log(resp);
     }
-
   });
-});
+</script>
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -72,11 +68,17 @@ This endpoint only works for database connections.
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database connection configured to your client. |
 
 
+### Test with Postman
+
+<%= include('../../_includes/_test-with-postman') %>
+
+
 ### Remarks
 
 - If you are using Lock version 9 and above, **do not set the password field** or you will receive a *password is not allowed* error. You can only set the password if you are using Lock version 8.
 - If a password is provided, when the user clicks on the confirm password change link, the new password specified in this POST will be set for this user.
 - If a password is NOT provided, when the user clicks on the password change link they will be redirected to a page asking them for a new password.
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### More Information

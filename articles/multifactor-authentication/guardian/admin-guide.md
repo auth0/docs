@@ -100,7 +100,7 @@ More specifically, you will uncomment and populate the following line of the **C
 
 `var CLIENTS_WITH_MFA = ['{REPLACE_WITH_CLIENT_ID}'];'
 
-By setting `allowRememberBrowser: false`, the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure, especially from untrusted machines. See [here](/articles/multifactor-authentication/custom#change-the-frequency-of-authentication-requests) for details
+By setting `allowRememberBrowser: false`, the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure, especially from untrusted machines. See [here](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests) for details
 
 Once you have finished making your desired changes, click **Save**.
 

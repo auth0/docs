@@ -43,7 +43,7 @@ Enter a friendly name for the application and select **WEB APPLICATION AND/OR WE
 
 Proceed to the next screen and enter the following:
 
-* **SIGN-ON URL**: your application URL (completely arbitrary)
+* **SIGN-ON URL**: your application URL 
 * **APP ID URI**: https://**${account.tenant}**.onmicrosoft.com/yourapp
 
 **NOTE:** The **APP ID URI** is just a logical identifier, not a real URL. It is important to use the value as specified above in the **APP ID URI** field. For example, if the Microsoft Azure AD you've just created is **myorg.onmicrosoft.com**, you would enter https://**myorg.onmicrosoft.com***/yourapp* here.

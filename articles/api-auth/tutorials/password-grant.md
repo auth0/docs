@@ -5,7 +5,7 @@ description: How to execute a Resource Owner Password Grant
 # Execute the Resource Owner Password Grant
 
 ::: panel-danger Warning
-Support for Rules and Refresh Tokens will be available in a future release.
+Support for Refresh Tokens will be available in a future release.
 :::
 
 ## Configure your tenant for the Resource Owner Password Grant
@@ -110,3 +110,9 @@ Once the `access_token` has been obtained it can be used to make calls to the Re
   ]
 }
 ```
+
+## Verify the Token
+
+Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+
+For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).

@@ -6,7 +6,7 @@ description: Guide on implementing Passwordless authentication with Lock for And
 
 # Implementing Lock Passwordless
 
-`PasswordlessLockActivity` authenticates users by sending them an email or SMS (similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the email/SMS connection enabled and configured in your [Auth0 dashboard](https://manage.auth0.com/#/connections/passwordless).
+`PasswordlessLockActivity` authenticates users by sending them an email or SMS (similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the email/SMS connection enabled and configured in your [Auth0 dashboard](${manage_url}/#/connections/passwordless).
 
 You'll need to add the `PasswordlessLockActivity` to your Manifest, inside the `application` tag:
 
@@ -38,7 +38,7 @@ Also, you'll need to add *Internet* permission to your application:
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Then in any of your Activities, you need to initialize **PasswordlessLock**
+Then in any of your activities, you need to initialize **PasswordlessLock**
 
 ```java
 public class MainActivity extends Activity {
@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-Then, just start `PasswordlessLockActivity` from inside your `Activity`
+Then, just start `PasswordlessLock` from inside your activity.
 
 ```java
 startActivity(lock.newIntent(this));

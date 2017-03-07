@@ -12,7 +12,7 @@ The Auth0 `id_token` can be exchanged for another token, called a Delegation tok
 
 The type of the delegation token will vary depending on the target API with which it will be used.  For example, if it will be used for an application/API registered in Auth0, it will be a JWT token.  If the delegation token is for an application AddOn, it will vary by provider.  For example, if issued for Azure blob storage, it will be a SAS (Shared Access Signature).  If the delegation token is for the Firebase add on , it will be a JWT.
 
-Further information available at: [Delegation token request](https://github.com/auth0/auth0.js#delegation-token-request).
+Further information available at [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request). Please note that this example is for **version 7** of the `auth0js` library; delegation is *not* supported in version 8 of `auth0js`.
 
 ## How to get a delegation token
 
@@ -57,7 +57,7 @@ Consider the following scenario. You have two web applications: _appA_ and _appB
 
 A delegation token should be obtained and used when a client program needs to call the API of either a) another application/API registered in Auth0 or b) the API for an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
 
-* [Delegation token request example](https://github.com/auth0/auth0.js#delegation-token-request)
+* [Delegation token request example](/libraries/auth0js/v7#delegation-token-request). Please note that this example is for **version 7** of the `auth0js` library; delegation is *not* supported in version 8 of `auth0js`.
 
 * [Auth0.js example](/libraries/auth0js#12)
 

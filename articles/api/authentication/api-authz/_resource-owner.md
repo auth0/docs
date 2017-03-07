@@ -72,7 +72,7 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `client_id` <br/><span class="label label-danger">Required</span> | The `client_id` of your client |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the connection configured to your client |
 | `grant_type` <br/><span class="label label-danger">Required</span> | Use the value `password` |
 | `username` <br/><span class="label label-danger">Required</span> | The user's username |
@@ -82,7 +82,7 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 | `device` | You should set this to a string, if you are requesting a refresh token (`scope=offline_access`). |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
 

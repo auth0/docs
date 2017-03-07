@@ -1,4 +1,5 @@
 ---
+toc: true
 description: How to use metadata in rules.
 ---
 

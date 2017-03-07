@@ -1,0 +1,18 @@
+title: ASP.NET Core Web API
+alias:
+  - asp.net core webapi
+  - aspnet core webapi
+language:
+  - C#
+framework:
+  - ASP.NET Core
+thirdParty: false
+image: /media/platforms/asp.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/aspnet-core-webapi/dependencies
+articles:
+  - 04-authentication-rs256-legacy
+  - 05-authentication-hs256-legacy
+  - 06-authorization-legacy

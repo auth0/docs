@@ -33,6 +33,10 @@ This can be avoided by either switching how your id_tokens are signed, or by man
 
 ### Switching from HS256 to RS256
 
+::: panel-warning Before Changing the Signing Algorithm
+Please note that altering the signing algorithm for your client will immediately change the way your user's tokens are signed. This means that if you have already implemented JWT verification for your client somewhere, your tokens will not be verifiable until you update the logic to account for the new signing algorithm.
+:::
+
 To switch from HS256 to RS256 for a specific client, follow these instructions:
 1. Go to [Dashboard > Clients](https://manage.auth0.com/#/clients)
 1. Select your client
@@ -162,7 +166,8 @@ webAuth.passwordlessVerify({
 
 ## Refreshing Tokens
 
-Refreshing tokens is now done via the [renewAuth](/libraries/auth0js#using-renewauth-to-acquire-new-tokens) method. 
+In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken` and `refreshToken` methods were used to renew tokens. In [auth0.js v8](/libraries/auth0js#using-renewauth-to-acquire-new-tokens), 
+refreshing tokens is now done via the `renewAuth` method. If a user is already authenticated, `renewAuth` can acquire a new token for that user.
 
 ## User Management
 

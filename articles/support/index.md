@@ -17,19 +17,19 @@ Auth0's public [discussion forum](https://ask.auth0.com) offers support for __al
 ## Support Center
 
 :::panel-info Pricing
-For pricing information on the various subscription plans, please see your [Account Settings](${manage_url}/#/account/billing/subscription). 
+For pricing information on the various subscription plans, please see your [Account Settings](${manage_url}/#/account/billing/subscription).
 :::
 
-Additionally, paid subscribers can create a private ticket via [Support Center](https://support.auth0.com). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
+Additionally, paid subscribers can create a private ticket via [Support Center](${env.DOMAIN_URL_SUPPORT}). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
 
 [Learn more about creating tickets with Support Center](/support/tickets)
 
-Critical Production issues should always be reported via the [Support Center](https://support.auth0.com) for fastest response.
+Critical Production issues should always be reported via the [Support Center](${env.DOMAIN_URL_SUPPORT}) for fastest response.
 
 
 ### Ticket Response Times
 
-Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the discussion forum. Non-paying customers may still raise a private ticket via the Support Center. However, there is no support response SLA for these users, and tickets will be answered on a best effort basis after prioritization of paying subscribers' tickets. This generally means that the user will receive a response in a 2-5+ business days.
+Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the discussion forum. Non-paying customers may still raise a private ticket via the Support Center. However, there is no support response SLA for these users, and tickets will be answered on a best effort basis after prioritization of paying subscribers' tickets. 
 
 <table class="table">
   <thead>
@@ -42,6 +42,13 @@ Ticket response times will vary based on your support plan (shown below).  Note 
     </tr>
   </thead>
   <tbody>
+     <tr>
+      <th>Subscription Plan</th>
+      <td>Free</td>
+      <td>Developer, Developer Pro. Legacy plans: Gold, Silver and Home Grown</td>
+      <td>Enterprise</td>
+      <td>Addon to Enterprise</td>
+    </tr>
     <tr>
       <th>Ticket Prioritization</th>
       <td>Lowest</td>
@@ -124,15 +131,19 @@ Critical: Defined as an Auth0 issue severely impacting your live or in-productio
 - There is no workaround;
 - Application is in live, production status.
 
-Critical Production issues should always be reported via the [Support Center](https://support.auth0.com) for fastest response.
-
-Translation from former support plans to new:
+Critical Production issues should always be reported via the [Support Center](${env.DOMAIN_URL_SUPPORT}) for fastest response.
 
 - Subscriptions previously known as "Free" map to the current "Free" support classification
 - Subscriptions previously known as "Gold/Silver/Home Grown"  map to the current "Standard" support plan.
+- Customers that have Developer or Developer Pro subscriptions map to the current "Standard" support plan.
 - Support plans previously known as "Enterprise" and "Premium" support map to the current "Enterprise" support plan.
 - The "Preferred" support plan is a new plan available for purchase as of October 2016.
+
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.  Response times may also be delayed during periods of heavy ticket volume.
 
 If you have specific support requirements or are interested in the __Enterprise Support__ or __Preferred Support__ option, please [contact sales](https://auth0.com/?contact=true).
+
+### Support Languages
+
+We provide all technical support in English. We will however make an effort to accommodate other languages in the event we have staff that are fluent.

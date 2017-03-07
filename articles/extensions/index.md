@@ -1,6 +1,7 @@
 ---
 url: /extensions
 title: Auth0 Extensions
+toc: true
 description: Auth0 Extensions enable you to install applications or run commands/scripts that extend the functionality of the Auth0 base product.
 ---
 

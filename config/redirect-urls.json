@@ -696,19 +696,403 @@
     "to": "/quickstart/native/:platform"
   },
   {
-    "from": "/quickstart/hybrid/:platform/:api([^0-9]+)",
+    "from": "/quickstart/hybrid/:platform/aspnet-webapi",
     "to": "/quickstart/native/:platform"
   },
   {
-    "from": "/quickstart/spa/:platform/:api([^0-9]+)",
+    "from": "/quickstart/hybrid/:platform/aws",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/azure-blob-storage",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/azure-mobile-services",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/azure-sb",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/falcor",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/firebase",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/golang",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/hapi",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/java-spring-security",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/java",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/nginx",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/nodejs",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/php-laravel",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/php-symfony",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/php",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/python",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/rails",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/relay",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/ruby",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/salesforce-sandbox",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/salesforce",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/sap-odata",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/wcf-service",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/webapi-owin",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/aspnet-webapi",
     "to": "/quickstart/spa/:platform"
   },
   {
-    "from": "/quickstart/native/:platform/:api([^0-9]+)",
+    "from": "/quickstart/spa/:platform/aws",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/azure-blob-storage",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/azure-mobile-services",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/azure-sb",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/falcor",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/firebase",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/golang",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/hapi",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/java-spring-security",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/java",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/nginx",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/nodejs",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/php-laravel",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/php-symfony",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/php",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/python",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/rails",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/relay",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/ruby",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/salesforce-sandbox",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/salesforce",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/sap-odata",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/wcf-service",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/webapi-owin",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/aspnet-webapi",
     "to": "/quickstart/native/:platform"
   },
   {
-    "from": "/quickstart/backend/:platform/:api([^0-9]+)",
+    "from": "/quickstart/native/:platform/aws",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/azure-blob-storage",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/azure-mobile-services",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/azure-sb",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/falcor",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/firebase",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/golang",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/hapi",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/java-spring-security",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/java",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/nginx",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/nodejs",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/php-laravel",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/php-symfony",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/php",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/python",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/rails",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/relay",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/ruby",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/salesforce-sandbox",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/salesforce",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/sap-odata",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/wcf-service",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/webapi-owin",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/aspnet-webapi",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/aws",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/azure-blob-storage",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/azure-mobile-services",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/azure-sb",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/falcor",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/firebase",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/golang",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/hapi",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/java-spring-security",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/java",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/nginx",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/nodejs",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/php-laravel",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/php-symfony",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/php",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/python",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/rails",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/relay",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/ruby",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/salesforce-sandbox",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/salesforce",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/sap-odata",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/wcf-service",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/webapi-owin",
     "to": "/quickstart/backend/:platform"
   },
   {
@@ -838,6 +1222,10 @@
   },
   {
     "from": "/refresh-token",
+    "to": "/tokens/refresh-token"
+  },
+  {
+    "from": "/tokens/refresh_token",
     "to": "/tokens/refresh-token"
   },
   {
@@ -1163,5 +1551,153 @@
   {
     "from": "/connections",
     "to": "/identityproviders"
+  },
+  {
+    "from": "/anomaly-detection/brute-force-protection",
+    "to": "/anomaly-detection#brute-force-protection"
+  },
+  {
+    "from": "/quickstart/backend/webapi-owin/04-authentication-rs256-deprecated",
+    "to": "/quickstart/backend/webapi-owin/04-authentication-rs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/webapi-owin/05-authentication-hs256-deprecated",
+    "to": "/quickstart/backend/webapi-owin/05-authentication-hs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/webapi-owin/06-authorization-deprecated",
+    "to": "/quickstart/backend/webapi-owin/06-authorization-legacy"
+  },
+  {
+    "from": "/quickstart/backend/aspnet-core-webapi/04-authentication-rs256-deprecated",
+    "to": "/quickstart/backend/aspnet-core-webapi/04-authentication-rs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-deprecated",
+    "to": "/quickstart/backend/aspnet-core-webapi/05-authentication-hs256-legacy"
+  },
+  {
+    "from": "/quickstart/backend/aspnet-core-webapi/06-authorization-deprecated",
+    "to": "/quickstart/backend/aspnet-core-webapi/06-authorization-legacy"
+  },
+  {
+    "from": "/libraries/lock-android/error-messages",
+    "to": "/libraries/error-messages"
+  },
+  {
+    "from": "/api-auth/grant/using-rules",
+    "to": "/api-auth/tutorials/client-credentials/customize-with-hooks"
+  },
+  {
+    "from": "/auth0-hooks",
+    "to": "/hooks"
+  },
+  {
+    "from": "/auth0-hooks/cli/create-delete",
+    "to": "/hooks/cli/create-delete"
+  },
+  {
+    "from": "/auth0-hooks/cli/edit",
+    "to": "/hooks/cli/edit"
+  },
+  {
+    "from": "/auth0-hooks/cli/enable-disable",
+    "to": "/hooks/cli/enable-disable"
+  },
+  {
+    "from": "/auth0-hooks/cli",
+    "to": "/hooks/cli"
+  },
+  {
+    "from": "/auth0-hooks/cli/logs",
+    "to": "/hooks/cli/logs"
+  },
+  {
+    "from": "/auth0-hooks/dashboard",
+    "to": "/hooks/dashboard"
+  },
+  {
+    "from": "/auth0-hooks/dashboard/create-delete",
+    "to": "/hooks/dashboard/create-delete"
+  },
+  {
+    "from": "/auth0-hooks/dashboard/edit",
+    "to": "/hooks/dashboard/edit"
+  },
+  {
+    "from": "/auth0-hooks/dashboard/enable-disable",
+    "to": "/hooks/dashboard/enable-disable"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points",
+    "to": "/hooks/extensibility-points"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points/credentials-exchange",
+    "to": "/hooks/extensibility-points/credentials-exchange"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points/post-user-registration",
+    "to": "/hooks/extensibility-points/post-user-registration"
+  },
+  {
+    "from": "/auth0-hooks/extensibility-points/pre-user-registration",
+    "to": "/hooks/extensibility-points/pre-user-registration"
+  },
+  {
+    "from": "/auth0-hooks/overview",
+    "to": "/hooks/overview"
+  },
+  {
+    "from": "/libraries/lock-ios/delegation-api",
+    "to": "/libraries/lock-ios/v1/delegation-api"
+  },
+  {
+    "from": "/libraries/lock-ios/lock-ios-api",
+    "to": "/libraries/lock-ios/v1/lock-ios-api"
+  },
+  {
+    "from": "/libraries/lock-ios/logging",
+    "to": "/libraries/lock-ios/v1/logging"
+  },
+  {
+    "from": "/libraries/lock-ios/native-social-authentication",
+    "to": "/libraries/lock-ios/v1/native-social-authentication"
+  },
+  {
+    "from": "/libraries/lock-ios/password-reset-ios",
+    "to": "/libraries/lock-ios/v1/password-reset-ios"
+  },
+  {
+    "from": "/libraries/lock-ios/save-and-refresh-jwt-tokens",
+    "to": "/libraries/lock-ios/v1/save-and-refresh-jwt-tokens"
+  },
+  {
+    "from": "/libraries/lock-ios/sending-authentication-parameters",
+    "to": "/libraries/lock-ios/v1/sending-authentication-parameters"
+  },
+  {
+    "from": "/libraries/lock-ios/sms-lock-ios",
+    "to": "/libraries/lock-ios/v1/sms-lock-ios"
+  },
+  {
+    "from": "/libraries/lock-ios/sso-on-mobile-apps",
+    "to": "/libraries/lock-ios/v1/sso-on-mobile-apps"
+  },
+  {
+    "from": "/libraries/lock-ios/swift",
+    "to": "/libraries/lock-ios/v1/swift"
+  },
+  {
+    "from": "/libraries/lock-ios/touchid-authentication",
+    "to": "/libraries/lock-ios/v1/touchid-authentication"
+  },
+  {
+    "from": "/libraries/lock-ios/use-your-own-ui",
+    "to": "/libraries/lock-ios/v1/use-your-own-uis"
+  },
+  {
+    "from": "/quickstart/native/chrome-extension",
+    "to": "/quickstart/native/chrome"
   }
 ]

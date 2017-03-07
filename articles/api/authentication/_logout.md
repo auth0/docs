@@ -16,29 +16,20 @@ curl --request GET \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+// Script uses auth0.js v8. See Remarks for details.
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  // Initialize client
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
+  });
+  
+  webAuth.logout({
+    returnTo: 'YOUR_LOGOUT_URL',
+    client_id: '${account.clientId}'
   });
 </script>
-
-$('.logout-dbconn').click(function() {
-  //log the user out from their current browser session in your app
-  localStorage.removeItem('id_token');
-
-  //log the user out from Auth0
-  auth0.logout();
-
-  //log the user out from Auth0 and redirect to tenant-level whitelisted URL LOGOUT_URL
-  auth0.logout({ returnTo: 'LOGOUT_URL' }, { version: 'v2' });
-
-  //log the user out from Auth0 and redirect to client-level whitelisted URL LOGOUT_URL
-  auth0.logout({ returnTo: 'LOGOUT_URL', client_id: ${account.clientId} }, { version: 'v2' });
-});
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -61,7 +52,7 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 | `federated`      | Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 
-### Test this endpoint
+### Test with Authentication API Debugger
 
 <%= include('../../_includes/_test-this-endpoint') %>
 
@@ -75,6 +66,7 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 ### Remarks
 
 - Logging the user out of their identity provider is not common practice, so think about the user experience before you use the `federated` querystring parameter.
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 ### More Information
 

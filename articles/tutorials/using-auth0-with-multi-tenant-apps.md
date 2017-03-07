@@ -1,5 +1,6 @@
 ---
 description: This articles lists several existing multi-tenant applications and describes their implementations.
+toc: true
 ---
 
 # Using Auth0 with Multi-tenant Apps
@@ -12,7 +13,7 @@ Here are some examples of existing multi-tenant applications and descriptions of
 
 ## Slack
 
-### Authentication:
+### Authentication
 
 * Slack implements a login screen that asks for an email.
 * The email is then mapped to a Slack account:  `https://{account}.slack.com`.
@@ -21,7 +22,7 @@ Here are some examples of existing multi-tenant applications and descriptions of
 
 ![](/media/articles/saas/saas-01.png)
 
-### Authorization:
+### Authorization
 
 * With Slack, a user can belong to multiple teams or organizations. Each team can be considered a __tenant__.
 * You can switch from one team to another through an option in Slack.
@@ -54,7 +55,7 @@ The `User Profile` below captures the intent of the requirements described above
 
 ## Dropbox
 
-### Authentication:
+### Authentication
 
 * Dropbox asks for an email. If there is an organization with a domain that matches the email suffix, Dropbox will hide the password textbox and display a __Single Sign On Enabled__ message on the login screen.
 * When the user clicks on __Continue__, they will be redirected to the configured identity provider.
@@ -62,7 +63,7 @@ The `User Profile` below captures the intent of the requirements described above
 
 ![](/media/articles/saas/saas-03.png)
 
-### Authorization:
+### Authorization
 
 * Once a user is authenticated, they are granted access to the files they own and those that were shared with them.
 * Users are granted access to their personal account and to any organizations they belong to.
@@ -94,16 +95,16 @@ Storing all of the folders that the user has access to as part of the user profi
 
 ## Auth0
 
-### Authentication:
+### Authentication
 
 * Auth0 has a single [Dashboard](${manage_url}) for all tenants.
 * Auth0 supports Google, GitHub, Live and user/password authentication.
-* Auth0 also supports Enterprise connections for Platinum level subscriptions. You can request this by opening a [support ticket](https://support.auth0.com).
+* Auth0 also supports Enterprise connections for Platinum level subscriptions. You can request this by opening a [support ticket](${env.DOMAIN_URL_SUPPORT}).
 * Auth0 uses email domains for home realm discovery (see screen below), making it similar to the Dropbox experience.
 
 ![](/media/articles/saas/saas-05.png)
 
-### Authorization:
+### Authorization
 
 * A user can belong to multiple tenants and have different permissions on each (__user foo__ can be an __admin__ on __tenant bar__ and a __regular user__ of __tenant xyz__).
 * This is implemented by assigning a `user_id` property to an **account-level** entity if the user has access to everything or an **app-level** entity if the user has only app level permission.
@@ -142,15 +143,27 @@ A typical modern SaaS multi-tenant app has these features:
 
 ### One database connection or many
 
-A single database connection is often sufficient. Whether or not a user has access to a certain tenant can be handled with [metadata](/api/v1#!#put--api-users--user_id--metadata) instead of separate database connections.
+A single database connection is often sufficient. Whether or not a user has access to a certain tenant can be handled with [metadata](/metadata) instead of separate database connections. You can easily find users that have specific metadata values via our [user search API](/api/management/v2/user-search). For example, to fetch all users that belong to the `company1` tenant per the example given earlier, you could use this Lucene query:
 
-If you need to isolate a set of users (e.g. staging vs. prod environment), it may make sense to use different database connections. Even then, it would be better to create different accounts in Auth0. 
+```
+_exists_:app_metadata.permissions.company1
+````
 
-You may require a separate database connection if, for example,  **tenant-A** uses the built-in Auth0 user store but **tenant-B** has a set of users elsewhere that you want to authenticate. In this case, you could create a [custom db connection](/connections/database/mysql) for **tenant-B** and reference that association in your application.
+There are a few cases where storing users in multiple database connections might make sense:
+
+- If you need to isolate a set of users (e.g. staging vs. prod environment), it may make sense to use different database connections. However, we recommend you use [separate Auth0 tenants](https://auth0.com/docs/dev-lifecycle/setting-up-env) for this instead.
+
+- If your **tenant A** and **tenant B** only contain username/password users but **tenant C** uses an enterprise connection for its users (eg. Active Directory or SAML), then you might want separate database connections for **tenant A** and **tenant B**, but again, you could just use one database connection for both and use the metadata approach instead. In fact, you may have some tenants with a mixture of both database and enterprise (or even social) connections. Metadata provides a consistent way to categorize your users without the added complexity of multiple database connections.
+
+- If your tenants have different connection-level requirements. The best example is if they have different password policy requirements. So **tenant A** only requires the **Fair** password policy where **tenant B** requires the **Excellent** password policy and maybe a specific password history. Since these are settings at the connection level you would require multiple database connections to accomplish this.
+
+::: panel-warning Warning
+If you do decide to employ multiple database connections, be aware that there is currently a limit to how many _enabled_ database connections that Lock will support for a single client (at the time of this writing the limit was 50). Therefore we advise if you have multiple database connections _and_ you use Lock in your application, that you actually create _separate_ Auth0 clients for each of your tenants. Many would argue that multi-tenant SaaS applications should treat each tenant as separate applications anyway, even if it's the same physical application hosting all of them.
+:::
 
 ### A single Auth0 account for all tenants
 
-One account for all tenants is simpler and allows you to manage them in one place. 
+One account for all tenants is simpler and allows you to manage them in one place.
 
 Only if you want to share access to the dashboard with tenants would a separate Auth0 account per tenant be required. But to do so would require you to leverage the restricted API to create each new account. However, you can use the regular API to add applications and connections.
 

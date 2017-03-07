@@ -1,0 +1,8 @@
+added:
+  -
+    title: "SSO with Disqus"
+    tags:
+      - sso
+      - discus
+    description: |
+       A [new document](https://auth0.com/docs/integrations/disqus) was created on how to set up Single Sign On (SSO) integration with Disqus.

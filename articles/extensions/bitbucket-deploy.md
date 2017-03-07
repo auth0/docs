@@ -1,4 +1,5 @@
 ---
+toc: true
 description: The Bitbucket Deployments extension allows you to deploy Rules and Database Connection scripts from Bitbucket to Auth0.
 ---
 

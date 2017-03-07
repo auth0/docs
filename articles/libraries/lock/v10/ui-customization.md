@@ -41,7 +41,7 @@ var options = {
 ```
 
 ### Customizing Text
-The `languageDictionary` option allows customization of every piece of text displayed in the Lock. Defaults to {}. See below Language Dictionary Specification for the details.
+The `languageDictionary` option allows customization of every piece of text displayed in the Lock. Defaults to {}. See below for an example.
 
 ```js
 var options = {
@@ -51,6 +51,11 @@ var options = {
   },
 };
 ```
+
+::: panel-info Language Dictionary
+For a complete list of the items able to be customized using `languageDictionary`, see the [English Language Dictionary Specification](https://github.com/auth0/lock/blob/master/src/i18n/en.js) in the repository.
+:::
+
 ### Instantiating Lock
 Finally, you'll want to go ahead and instantiate your Lock, with the `options` object that you've defined with your custom options in it.
 
@@ -60,7 +65,7 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', options)
 ```
 
 ## Overriding CSS
-Customizing your Lock by overriding its CSS isn't the recommended method with Lock 10. The issue is that with new releases of Lock, some styling may change, leading to unintended problems if you are overriding the CSS. Additonally, it's possible to simply overlook use of styles in other places and while the change my look fine in one view, it might not in another.
+Customizing your Lock by overriding its CSS isn't the recommended method with Lock 10. The issue is that with new releases of Lock, some styling may change, leading to unintended problems if you are overriding the CSS. Additonally, it's possible to simply overlook use of styles in other places and while the change may look fine in one view, it might not in another.
 
 If you still intend to override CSS to further style your Lock, we recommend that you use a specific patch version of Lock rather than a major or minor version, so that you limit the amount of unexpected results that may occur when you alter the styles, and then another patch is deployed that might cause unexpected behavior in your UI due to the changes. This can be done by ensuring that you specify that patch verion (`x.y.z`) when including Lock, or downloading it.
 

@@ -1,4 +1,5 @@
 ---
+toc: true
 description: Server-side SSO with regular web applications.
 ---
 

@@ -1,0 +1,8 @@
+added:
+  -
+    title: "New doc on the changes in Auth0 Management APIv2 Tokens"
+    tags:
+      - apiv2
+      - token
+    description: |
+       A [new document](https://auth0.com/docs/api/management/v2/tokens-flows) was created on what changed in the flow for generating Auth0 Management APIv2 tokens, why, and how you can generate a long-lived token using [JWT.io](https://jwt.io/).
