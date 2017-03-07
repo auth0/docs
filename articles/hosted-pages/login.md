@@ -29,3 +29,99 @@ var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 ```
 
 Take a look at the default custom login page code to get a glimpse of the available configuration options. 
+
+### Using Auth0.js in a hosted login page
+
+When customizing the hosted login page you might want to use Auth0.js along with Lock (or instead of Lock) to perform authentication tasks, such as building an authorization URL to take the user to a specific connection, or logging in the user with credentials obtained from input elements in the HTML. When doing so, make sure to provide all the parameters provided in `config.internalOptions`
+
+This example uses [Auth0.js v8](/libraries/auth0js/v8) builds a link that takes the user directly to a specific connection:
+
+```html
+  [...]
+  <a id="direct-link" href="">A direct link to the IdP</a>
+  <script src="https://cdn.auth0.com/js/auth0/8.3.0/auth0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.core.min.js"></script>  
+  <script src="https://cdn.auth0.com/js/lock/10.11/lock.js"></script>
+  <script>
+    // standard config decoding as in the default template
+    var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+    
+    // builds an Auth0.js instance using config options
+    var authClient = new auth0.Authentication({
+      domain:       config.auth0Domain,
+      clientID:     config.clientID,
+      _disableDeprecationWarnings: true,
+      redirectUri: config.callbackURL,
+      responseType: config.extraParams.response_type || 
+        config.callbackOnLocationHash ? 'token' : 'code'
+    });
+    
+    // build an authorize URL specifying a connection
+    var buildDirectAuthUrl = function(connectionName) {
+      // using lodash to extend config.internalOptions with the connectionName
+      var options = _.extend({}, config.internalOptions, {
+        connection: connectionName
+      });
+      return authClient.buildAuthorizeUrl(options);
+    };
+    
+    window.getElementById('direct-link').href = buildDirectAuthUrl("my-idp-connection");
+``` 
+
+This sample uses [Auth0.js v7](/libraries/auth0js/v7) and shows a very simple username/password form instead of using Lock:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Sign In with Auth0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <form id="usernamepasswordform">
+    <label for="email">Email:</label>
+    <input id="email" type="text" />
+    <br />
+    <label for="password">Password:</label>
+    <input id="password" type="password" />
+    <br />
+    <button>Submit</button>
+  </form>  
+  <!--[if IE 8]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
+  <![endif]-->
+
+  <!--[if lte IE 9]>
+  <script src="https://cdn.auth0.com/js/base64.js"></script>
+  <script src="https://cdn.auth0.com/js/es5-shim.min.js"></script>
+  <![endif]-->
+
+  <script src="//cdn.auth0.com/w2/auth0-7.6.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
+  <script>
+    // Decode utf8 characters properly
+    var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+    
+    var auth0Client = new Auth0({
+        domain:       config.auth0Domain,
+        clientID:     config.clientID,
+        callbackURL:  config.callbackURL,
+        responseType: config.callbackOnLocationHash ? 'token' : 'code'
+    });
+    $('#usernamepasswordform').on('submit', function(e) {
+      // make sure to provide config.internalOptions
+      var options = $.extend({}, config.internalOptions, {
+        // assuming a single database-type connection
+        connection: 'Username-Password-Authentication',
+        username: $('#email').val(),
+        password: $('#password').val()
+      });
+      e.preventDefault();
+      auth0Client.login(options);
+    });
+  </script>
+</body>
+</html>
+``` 
