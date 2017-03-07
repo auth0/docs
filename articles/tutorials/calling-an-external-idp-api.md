@@ -27,7 +27,7 @@ You will need to create an Auth0 client that calls the Auth0 Management API on b
 4. Next, go to the [APIs](${manage_url}/#/apis) section of the Auth0 dashboard and select the **Auth0 Management API**.
 
   **NOTE:** If you do not see the **APIs** option in the left menu, you must enable it. Go to [Account Settings > Advanced](${manage_url}/#/account/advanced) and select **Enable APIs Section**.
-  
+
   ![Management Dashboard API Page](/media/articles/tutorials/calling-an-external-idp-api/api.png)
 
 
@@ -70,7 +70,7 @@ Using the Auth0 access token, call the [Get a User](/api/management/v2#!/Users/g
 ```har
 {
   "method": "GET",
-  "url": "https://${account.namespace}/api/v2/users/:user_id",
+  "url": "https://${account.namespace}/api/v2/users/USER_ID",
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ]
