@@ -1,13 +1,23 @@
 ---
-description: This page explains the basics of Auth0's APIs, the Management and Authentication API.
+description: This page explains the basics of Auth0's Management and Authentication APIs.
 section: apis
 ---
 
 # Auth0 APIs
-Auth0 exposes two APIs for developers to consume in their applications. The first API is the Authentication API and handles all the primary identity related functions. The second API is the Management API which enables you to automate various tasks in Auth0 such as creating users. Below you will find more information about each of these APIs.
+
+Auth0 exposes two APIs for developers to consume in their applications:
+
+* **Authentication**: Handles identity-related tasks;
+* **Management**: Handles management of your Auth0 account, including functions related to (but not limited to):
+
+    * Clients;
+    * Connections;
+    * Emails;
+    * Users.
 
 ## Authentication API
-The Authentication API exposes all of the identity functionality of Auth0 as well as all of the supported identity protocols such as OpenID Connect, OAuth, and SAML. Generally speaking you will consume this API through one of our SDKs like [Auth0.js](/libraries/auth0js) or libraries such as the [Lock](/libraries/lock) widget. However, if you are building all of your authentication UI manually you will likely interact with this API directly.
+
+The Authentication API exposes Auth0 identity functionality, as well as those of supported identity protocols (such as OpenID Connect, OAuth, and SAML). Typically, you would consume this API through one of the Auth0 SDKs, such as [Auth0.js](/libraries/auth0js), or a library, like [Lock](/libraries/lock). If you are building your authentication UI manually, you would need to interface directly with the Authentication API.
 
 <div class="api-info-wrapper">
   <div class="block-links">
@@ -36,7 +46,8 @@ The Authentication API exposes all of the identity functionality of Auth0 as wel
 </div>
 
 ## Management API v2
-The Auth0 Management API can be used to manage all aspects of your Auth0 account. You can use the API to automate the configuration of your environments and use this API for runtime tasks such as creating users.
+
+The Management API allows you to manage every aspect of your Auth0 account. For example, you can use the Management API to automate the configuration of your user environments or for runtime tasks such as user creation.
 
 <div class="api-info-wrapper">
   <div class="block-links">
@@ -64,5 +75,6 @@ The Auth0 Management API can be used to manage all aspects of your Auth0 account
   </div>
 </div>
 
-## Management API v1 (deprecated)
-The Auth0 Management API v1 contains various management functions for your Auth0 account. This API is **deprecated** and should not be used for new projects. If you have an existing app that uses the v1 Management API you can browse the [API explorer](/api/v1).
+### Management API v1 - DEPRECATED
+
+The Management API v1 is deprecated and **should not** be used for new projects. If your existing application uses Management API v1, you can reference its API explorer [here](/api/v1).
