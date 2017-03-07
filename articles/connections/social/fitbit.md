@@ -18,17 +18,24 @@ This doc refers to the client steps to connect your client. If you are looking t
 
 ## 1. Register a New Fitbit App
 
-Log into the [Fitbit's Developer site](https://dev.fitbit.com) and select **REGISTER AN APP**:
+Log in to the [Fitbit's Developer site](https://dev.fitbit.com), then select **REGISTER AN APP**:
 
-![](/media/articles/connections/social/fitbit/fitbit-register-oauth2.png)
+![](/media/articles/connections/social/fitbit/register-an-app.png)
 
-## 2. Enter Your Callback URL
+## 2. Complete the _Register an application_ form
 
-Complete the registration form with information about your new app. In the **Callback URL** field, enter:
+![](/media/articles/connections/social/fitbit/registration-form.png)
 
-  https://${account.namespace}/login/callback
+- **Application Name**- what you want to call your application
+- **Description**- describe what your application will be used for
+- **Application Website**- the URL of your application
+- **Organization**- the name of the associated organization
+- **Organization Website**- the URL of the associated organization
+- **OAuth 2.0 Application Type**- select **Client**, client applications authenticate using either the Authorization Code Grant Flow or the Implicit Grant Flow
+- **Callback URL**- this is the URL called after a request, in this field enter: `https://${account.namespace}/login/callback`
+- **Default Access Type**- the type of access granted to the application
 
-and click **Register**.
+When finished, click **Register**.
 
 ## 3. Copy Your New App's *Client ID* and *Client Secret*
 
@@ -38,7 +45,7 @@ From the **Edit Application** page, copy the `Client ID` and `Client Secret`:
 
 ## 4. Enter Your Client ID and Client Secret
 
-Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Fitbit**. Copy the `Client ID` and `Client Secret` from the **Manage My Apps** page of your app on Fitbit into the fields on this page on Auth0:
+Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Fitbit**. Copy the **Client ID** and **Client Secret** from the **Manage My Apps** page of your app on Fitbit into the fields on this page on Auth0:
 
 ![](/media/articles/connections/social/fitbit/fitbit-auth0-dashboard.png)
 
@@ -50,9 +57,13 @@ Go to the **Apps** tab of the Fitbit connection on your Auth0 Dashboard and sele
 
 ## 6. Test the Connection
 
- - Close the Settings window to return to the Connections > Social section of your Auth0 dashboard.
- - A TRY icon will now be displayed next to the Fitbit logo; click "TRY".
- - Finally, click "Grant access" to allow access.
+Close the Settings window to return to the Connections > Social section of your Auth0 dashboard. A **TRY** icon will now be displayed next to the Fitbit logo; click "TRY".
+
+![](/media/articles/connections/social/fitbit/try-button.png)
+
+This will bring you to the authorization page. Click the **Allow** button to grant access.
+
+![](/media/articles/connections/social/fitbit/auth-page.png)
 
 If you have configured everything correctly, you will see the "It works" page!
 
