@@ -1222,11 +1222,15 @@
   },
   {
     "from": "/refresh-token",
-    "to": "/tokens/refresh-token"
+    "to": "/tokens/refresh-token/legacy/refresh-token"
   },
   {
     "from": "/tokens/refresh_token",
-    "to": "/tokens/refresh-token"
+    "to": "/tokens/refresh-token/legacy/refresh-token"
+  },
+  {
+    "from": "/tokens/refresh-token",
+    "to": "/tokens/refresh-token/legacy/refresh-token"
   },
   {
     "from": "/tokens/access_token",
