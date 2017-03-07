@@ -62,7 +62,7 @@ Following the Node.js example of the previous section, the [jwt.verify()](https:
 The API needs to verify the signature. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 
 Remember that the signature is created using the header and the payload of the JWT, a secret and the hashing algorithm being used (as specified in the header: HMAC, SHA256 or RSA). The way to verify it, depends on the hashing algorithm:
-- For `HS256`, the API's __Signing Secret__ is used. You can find this information at your [API's Settings](https://${manage_url}/#/apis).
+- For `HS256`, the API's __Signing Secret__ is used. You can find this information at your [API's Settings](${manage_url}/#/apis). Note that the field is only displayed for APIs that use `HS256`.
 - For `RS256`, the tenant's JSON Web Key Set (JWKS) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 
 The most secure practice, and our recommendation, is to use `RS256`.

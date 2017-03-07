@@ -30,73 +30,45 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+// Script uses auth0.js v8. See Remarks for details.
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  // Initialize client
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
+  
+  // Send a verification code using email
+  webAuth.passwordlessStart({
+      connection: 'email',
+      send: 'code',
+      email: 'USER_EMAIL'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
+
+  // Send a link using email
+  webAuth.passwordlessStart({
+      connection: 'email',
+      send: 'link',
+      email: 'USER_EMAIL'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
+
+  // Send a verification code using SMS
+  webAuth.passwordlessStart({
+      connection: 'sms',
+      send: 'code',
+      phoneNumber: 'USER_PHONE_NUMBER'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
 </script>
-
-//EMAIL: request a link to be sent via email
-$('.request-email-link').click(function (ev) {
-  ev.preventDefault();
-  auth0.requestMagicLink({
-    email: $('.email-input').val()
-  }, function (err) {
-    if (err) {
-      alert(err.error_description);
-      return;
-    }
-    // the request was successful and you should receive
-    // an email with the link at the specified address
-  });
-});
-
-//EMAIL: request a code to be sent via email
-$('.request-email-code').click(function (ev) {
-  ev.preventDefault();
-
-  auth0.requestEmailCode({
-    email: $('.email-input').val()
-  }, function (err) {
-    if (err) {
-      alert(err.error_description);
-      return;
-    }
-    // the request was successful and you should receive
-    // an email with the code at the specified address
-  });
-});
-
-//SMS: request a code to be sent via SMS
-$('.request-sms-code').click(function (ev) {
-  ev.preventDefault();
-
-  auth0.requestSMSCode({
-    phoneNumber: $('.phone-input').val()
-  }, function (err) {
-    if (err) {
-      alert(err.error_description);
-      return;
-    }
-    // the request was successful and you should receive
-    // a SMS with the code at the specified phone number
-  });
-});
-```
-
-> RESPONSE SAMPLE:
-
-```JSON
-//for connection=email
-{
-  "_id": "5845818fe...",
-  "email": "test.account@passwordless.com",
-  "email_verified": false
-}
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -131,6 +103,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 ### Remarks
 
 - If you sent a verification code, using either email or SMS, after you get the code, you have to authenticate the user using the [/oauth/ro endpoint](#authenticate-user), using `email` or `phone_number` as the `username`, and the verification code as the `password`.
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### Error Codes
@@ -172,49 +145,45 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+// Script uses auth0.js v8. See Remarks for details.
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  // Initialize client
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
+  
+  // Verify code sent via email
+  webAuth.passwordlessVerify({
+      connection: 'email',
+      email: 'USER_EMAIL',
+      verificationCode: 'VERIFICATION_CODE_SENT'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
+
+  // Verify code sent within link using email
+  webAuth.passwordlessVerify({
+      connection: 'email',
+      email: 'USER_EMAIL',
+      verificationCode: 'VERIFICATION_CODE_SENT_WITHIN_LINK'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
+
+  // Verify code sent via SMS
+  webAuth.passwordlessVerify({
+      connection: 'sms',
+      phoneNumber: 'USER_PHONE_NUMBER',
+      verificationCode: 'VERIFICATION_CODE_SENT'
+    }, function (err,res) {
+      // handle errors or continue
+    }
+  );
 </script>
-
-//EMAIL: authenticate the user when you get the code, using email and code
-auth0.verifyEmailCode({
-  email: $('.email-input').val(),
-  code: $('.email-code-input').val()
-}, function (err, result) {
-  if (err) {
-    alert("something went wrong: " + err.error_description);
-    return;
-  }
-  alert('Hello');
-});
-
-//SMS: authenticate the user when you get the code, using phoneNumber and code
-auth0.verifySMSCode({
-  phoneNumber: $('.phone-input').val(),
-  code: $('.sms-code-input').val()
-}, function (err, result) {
-  if (err) {
-    alert("something went wrong: " + err.error_description);
-    return;
-  }
-  alert("Hello");
-});
-```
-
-> RESPONSE SAMPLE:
-
-```json
-{
-  "id_token": "eyJ0eXA...",
-  "access_token": "5CB7...",
-  "token_type": "bearer"
-}
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -258,6 +227,7 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 - The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 
 
 ### Error Codes

@@ -46,7 +46,7 @@ bower install auth0.js
 Include via our CDN:
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js"></script>
+<script src="${auth0js_urlv8}"></script>
 ```
 
 >Note that for production use, the latest patch release (for example, 8.0.0) is recommended, rather than the latest minor release indicated above.
@@ -305,7 +305,7 @@ The `signup` method accepts an `options` object that contains parameters for you
 
 ```html 
 <h2>Signup Database Connection</h2> 
-<input class="signup-username" /> 
+<input class="signup-email" /> 
 <input type="password" class="signup-password" /> 
 <input type="button" class="signup-db" value="Signup!" /> 
 <script type="text/javascript"> 

@@ -45,13 +45,11 @@ Having a token that never expires can be very risky, in case an attacher gets ho
 
 Yes you can. We added a text box (__Token Expiration (Seconds)__), at [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer), where you can set the new expiration time (in seconds) and click __Update & Regenerate Token__. A new token will be generated with your custom expiration time. Our recommendation however is not to use this and get a new token every 24 hours. You can easily automate this [following this process](/api/management/v2/tokens#1-get-a-token).
 
-Furthermore, you can generate a token using [JWT.io](https://jwt.io/).
-
-<div class="alert alert-danger">Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
-
-If you are set on generating a non-expiring token, you have the following options:
+Furthermore, you can generate a token using [JWT.io](https://jwt.io/):
 - Use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually type the claims and generate a token.
 - Use one of the [JWT.io libraries](https://jwt.io/#libraries-io).
+
+<div class="alert alert-danger">Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
 
 ### Use the JWT.io Debugger
 
@@ -73,7 +71,7 @@ To generate a token follow the next steps:
     "typ": "JWT"
   }
   ```
-4. Delete the dummy claims from the _Payload_ and add the following claims: `iss`, `aud`, `scope`, `iat`, `exp`, `jti`.
+4. Delete the dummy claims from the _Payload_ and add the following claims: `iss`, `aud`, `scope`, `iat`, `exp`.
 
   ```json
   {
@@ -81,8 +79,7 @@ To generate a token follow the next steps:
     "aud": "YOUR_GLOBAL_CLIENT_ID",
     "scope": "SPACE-SEPARATED-LIST-OF-SCOPES",
     "iat": CURRENT_TIMESTAMP,
-    "exp": EXPIRY_TIME,
-    "jti": "UNIQUE_JWT_ID"
+    "exp": EXPIRY_TIME
   }
   ```
 
@@ -97,8 +94,6 @@ To generate a token follow the next steps:
   - __iat__: The time at which the token was issued. It must be a number containing a `NumericDate` value, for example `1487260214` (which maps to `Thu, 16 Feb 2017 15:50:14 GMT`). You can use an [epoch converter](http://www.epochconverter.com/) to get this value.
 
   - __exp__: The time at which the token will expire. It must be a number containing a `NumericDate` value, for example `1518808520` (which maps to `Fri, 16 Feb 2018 19:15:20 GMT`).
-
-  - __jti__: The token's unique ID. Without this claim you will not be able to revoke the token, in case it gets compromised. This value must be unique.
 
 5. As you type the token on the left hand editor is automatically refreshed. When you are done copy this value.
 
@@ -118,8 +113,7 @@ To generate a token follow the next steps:
     globalClientSecret,
     { //options
       algorithm: 'HS256',
-      expiresIn: '1y',
-      jwtid: currentTimestamp.toString()
+      expiresIn: '1y'
     }
   );
 
@@ -132,39 +126,6 @@ To generate a token follow the next steps:
 
   - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)).
 
-  - The token needs to have the `jti` claim set. The reason is that without this you will not be able to revoke it in case it gets compromised. The claim is set with the `jwtid` option, for this library. In this example, we use the current timestamp (`jwtid: currentTimestamp.toString()`). You have to make sure that this value is unique.
-
   - We want this token in order to call the [Get all clients](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
 
   - The token expires in one year (`expiresIn: '1y'`).
-
-### How to revoke this token
-
-If the token has been compromised, you can blacklist it using the [Blacklist endpoint of the Management APIv2](/api/management/v2#!/Blacklists/post_tokens). The steps to follow are:
-
-1.  Get a Management APIv2 token (either by Auth0 or create it yourself) that includes the `blacklist:tokens` scope.
-
-1. Call the [Blacklist endpoint of the Management APIv2](/api/management/v2#!/Blacklists/post_tokens).
-
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/api/v2/blacklists/tokens",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" },
-    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"aud\":\"THE_TOKEN_AUDIENCE\",\"jti\": \"THE_TOKEN_ID\"}"
-  }
-}
-```
-
-The request parameters are:
-
-- `aud`: The audience of the token you want to blacklist. For this case, it is your __Global Client Id__.
-
-- `jti`: The unique ID of the token you want to blacklist. You should set this to the same value you used when you created your token.
-
-Note that you should set the Management APIv2 token you got at the first step, at the `Authorization` header.

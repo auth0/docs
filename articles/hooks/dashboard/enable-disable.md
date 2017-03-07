@@ -2,7 +2,7 @@
 description: How to enable or disable Hooks using the Management Dashboard
 ---
 
-# Enable or Disable Existing Hooks Using the Management Dashboard
+# Enable or Disable Existing Hooks Using the Dashboard&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
 
 You can use the Management Dashboard to enable/disable Hooks. Each extensibility point may be associated with **zero** or **one** active Hook.
 

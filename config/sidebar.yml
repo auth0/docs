@@ -12,71 +12,53 @@ articles:
       - title: Overview
         url: /overview
 
-      - title: "Clients"
-        url: "/clients"
-
-      - title: "APIs"
-        url: "/apis"
-
       - title: Developer Videos
         url: /videos
 
       - title: Architecture Scenarios
         url: /architecture-scenarios
 
-  - title: "Client Authentication"
-    url: "/client-auth"
+  - title: "Clients"
+    url: "/clients"
+
+  - title: "APIs"
+    url: "/apis"
     children:
+      - title: "API Authorization"
+        url: "/api-auth"
 
-      - title: "Overview"
-        url: "/client-auth"
-
-      - title: "For Mobile & Desktop Apps"
-        url: "/client-auth/mobile-desktop"
-
-      - title: "For Server-side Web Apps"
-        url: "/client-auth/server-side-web"
-
-      - title: "For Client-side Web Apps"
-        url: "/client-auth/client-side-web"
-
-  - title: "API Authorization"
-    url: "/api-auth"
+  - title: "Connections"
+    url: "/connections"
     children:
+      - title: "Username/Password Connection"
+        url: "/connections/database"
 
-      - title: "Which Flow to Use"
-        url: "/api-auth/which-oauth-flow-to-use"
+      - title: "Social Connections"
+        url: "/identityproviders#social"
+        children:
+          - title: "Custom Social Extensions"
+            url: "/extensions/custom-social-extensions"
 
-      - title: "From Server-side Apps"
-        url: "/api-auth/grant/authorization-code"
+      - title: "Custom Database Connections"
+        url: "/connections/database/mysql"
 
-      - title: "From Mobile Apps"
-        url: "/api-auth/grant/authorization-code-pkce"
+      - title: "Enterprise Identity Providers"
+        url: "/identityproviders#enterprise"
 
-      - title: "From Client-side Apps"
-        url: "/api-auth/grant/implicit"
+      - title: "Passwordless Authentication"
+        url: "/connections/passwordless"
+        children:
+          - title: "Overview"
+            url: "/connections/passwordless"
 
-      - title: "From a Service"
-        url: "/api-auth/grant/client-credentials"
+          - title: "Email Passwordless Authentication"
+            url: "/connections/passwordless/email"
 
-      - title: "From Trusted Clients"
-        url: "/api-auth/grant/password"
+          - title: "SMS Passwordless Authentication"
+            url: "/connections/passwordless/sms"
 
-      - title: "FAQ"
-        url: "/api-auth/faq"
-
-  - title: "Development Lifecycle"
-    url: "/dev-lifecycle"
-    children:
-
-      - title: "Setting Up Environments"
-        url: "/dev-lifecycle/setting-up-env"
-
-      - title: "Running and Developing Locally"
-        url: "/dev-lifecycle/local-testing-and-development"
-
-      - title: "Child Account Request Process"
-        url: "/dev-lifecycle/child-tenants"
+          - title: "FAQ"
+            url: "/connections/passwordless/faq"
 
   - title: "Rules"
     url: "/rules"
@@ -97,7 +79,7 @@ articles:
       - title: "Deploy Rules with GitLab"
         url: "/extensions/gitlab-deploy"
 
-  - title: "Hooks"
+  - title: "Hooks (Beta)"
     url: "/hooks"
     children:
 
@@ -110,124 +92,66 @@ articles:
       - title: "Using the Auth0 CLI"
         url: "/hooks/cli"
 
-      - title: "Using the Management Dashboard"
+      - title: "Using the Dashboard"
         url: "/hooks/dashboard"
 
-  - title: "Extensions"
-    url: "/extensions"
+  - title: "Email"
+    url: "/email"
     children:
-
       - title: "Overview"
-        url: "/extensions"
+        url: "/email"
 
-      - title: "Creating Extensions"
-        url: "/extensions/custom-extensions"
+      - title: "Custom Email Handling"
+        url: "/email/custom"
 
-      - title: "User Import / Export Extension"
-        url: "/extensions/user-import-export"
+      - title: "Customizing Your Emails"
+        url: "/email/templates"
 
-      - title: "Authorization Extension"
-        url: "/extensions/authorization-extension"
-
-  - title: "Professional Services"
-    url: "/services"
-
-  - title: "Anomaly Detection"
-    url: "/anomaly-detection"
-
-  - title: "Identity Providers"
-    url: "/identityproviders"
+  - title: "Password Policies"
+    url: "/connections/database/password-options"
     children:
+      - title: "Password Options"
+        url: "/connections/database/password-options"
 
-      - title: "Overview"
-        url: "/identityproviders"
+      - title: "Password Strength"
+        url: "/connections/database/password-strength"
 
-      - title: "Custom Social Connections"
-        url: "/extensions/custom-social-extensions"
-
-      - title: "Database Identity Providers"
-        url: "/connections/database"
-        children:
-
-          - title: "Custom Database"
-            url: "/connections/database/mysql"
-
-          - title: "Migrating Users to Auth0"
-            url: "/connections/database/migrating"
-
-          - title: "Password Strength"
-            url: "/connections/database/password-strength"
-
-          - title: "Password Options"
-            url: "/connections/database/password-options"
-
-          - title: "Rate Limits"
-            url: "/connections/database/rate-limits"
-
-          - title: "Usernames"
-            url: "/connections/database/require-username"
-
-  - title: "Single Sign-On"
-    url: "/sso"
-    children:
-
-      - title: "Overview"
-        url: "/sso"
-
-      - title: "Client-side (Single Page Apps)"
-        url: "/sso/single-page-apps-sso"
-
-      - title: "Server-side (Regular Web Apps)"
-        url: "/sso/regular-web-apps-sso"
-
-  - title: "User Profile"
+  - title: "User Management"
     url: "/user-profile"
     children:
-
-      - title: "Overview"
+      - title: "User Profiles"
         url: "/user-profile"
-        children:
 
-      - title: "Metadata"
+      - title: "User Metadata"
         url: "/metadata"
+
+      - title: "User Impersonation"
+        url: "/user-profile/user-impersonation"
+
+      - title: "Delegated Administration"
+        url: "/extensions/delegated-admin"
+
+      - title: "Authorization"
+        url: "/extensions/authorization-extension"
         children:
+          - title: "Groups"
+            url: "/extensions/authorization-extension#groups"
 
-          - title: "Updating with Lock"
-            url: "/metadata/lock"
+          - title: "Roles"
+            url: "/extensions/authorization-extension#roles"
 
-          - title: "Updating with API"
-            url: "/metadata/management-api"
-
-          - title: "Data Storage Guidance"
-            url: "/user-profile/user-data-storage"
-
-      - title: "Normalized User Profile"
-        url: "/user-profile/normalized"
-
-      - title: "Progressive Profiling"
-        url: "/user-profile/progressive-profiling"
-
-      - title: "Linking User Accounts"
-        url: "/link-accounts"
-        children:
-
-          - title: "User Initiated Account Linking"
-            url: "/link-accounts/user-initiated-linking"
-
-          - title: "Server Side Account Linking"
-            url: "/link-accounts/suggested-linking"
+          - title: "Permissions"
+            url: "/extensions/authorization-extension#permissions"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
     children:
-
       - title: "Overview"
         url: "/multifactor-authentication"
 
-      - title: "Auth0 Guardian"
+      - title: "Guardian"
         url: "/multifactor-authentication/guardian"
         children:
-
           - title: "For Administrators"
             url: "/multifactor-authentication/administrator"
 
@@ -235,7 +159,7 @@ articles:
             url: "/multifactor-authentication/developer"
 
           - title: "For Users"
-            url: "/multifactor-authentication/guardian/user-guide"
+            url: "/multifactor-authentication/user-guide"
 
       - title: "SMS"
         url: "/multifactor-authentication#mfa-with-sms"
@@ -246,116 +170,15 @@ articles:
       - title: "Duo Security"
         url: "/multifactor-authentication/duo"
 
-      # - title: "Custom MFA"
-      #   url: "/multifactor-authentication#mfa-using-a-custom-provider"
 
-        # children:
-        #
-        #   - title: "Admin Guide"
-        #     url: "/multifactor-authentication/google-auth/admin-guide"
-        #
-        #   - title: "Dev Guide"
-        #     url: "/multifactor-authentication/google-auth/dev-guide"
-        #
-        #   - title: "User Guide"
-        #     url: "/multifactor-authentication/google-auth/user-guide"
+  - title: "Anomaly Detection"
+    url: "/anomaly-detection"
 
-  - title: "Passwordless Authentication"
-    url: "/connections/passwordless"
-    children:
-
-      - title: "Overview"
-        url: "/connections/passwordless"
-
-      - title: "Email Passwordless Authentication"
-        url: "/connections/passwordless/email"
-
-      - title: "SMS Passwordless Authentication"
-        url: "/connections/passwordless/sms"
-
-      - title: "FAQ"
-        url: "/connections/passwordless/faq"
-
-  - title: "Email"
-    url: "/email"
-    children:
-
-      - title: "Overview"
-        url: "/email"
-
-      - title: "Custom Email Handling"
-        url: "/email/custom"
-
-      - title: "Customizing Your Emails"
-        url: "/email/templates"
-
-  - title: "Hosted Pages"
-    url: "/hosted-pages"
-    children:
-
-      - title: "Overview"
-        url: "/hosted-pages"
-
-      - title: "Hosted Login Page"
-        url: "/hosted-pages/login"
-
-      - title: "Hosted Password Reset Page"
-        url: "/hosted-pages/password-reset"
-
-      - title: "Hosted Guardian MFA Page"
-        url: "/hosted-pages/guardian"
-
-      - title: "Hosted Error Pages"
-        url: "/hosted-pages/error-pages"
-
-  - title: "Protocols"
-    url: "/protocols"
-    children:
-      - title: "OAuth 2.0"
-        url: "/protocols/oauth2"
-
-      - title: "OpenID Connect"
-        url: "/protocols/oidc"
-
-      - title: "SAML"
-        url: "/protocols/saml"
-
-      - title: "WS-Fed"
-        url: "/protocols/ws-fed"
-
-      - title: "LDAP"
-        url: "/protocols/ldap"
-
-  - title: "AD Connector"
-    url: "/connector"
-    children:
-
-      - title: "Overview"
-        url: "/connector"
-
-      - title: "Health Monitoring Extension"
-        url: "/extensions/adldap-connector"
-
-  - title: "CMS Plugins"
-    url: "/cms"
-    children:
-
-      - title: "Overview"
-        url: "/cms"
-
-      # - title: "Wordpress"
-      #   url: "/cms#wordpress-plugin"
-      #
-      # - title: "Joomla"
-      #   url: "/cms#joomla-extension"
-
-      - title: "SharePoint"
-        url: "https://github.com/auth0/auth0-sharepoint"
-        forceFullReload: true
-        external: true
-
-  - title: "Client Addons"
+  - title: "Addons/Third-Party Applications"
     url: "/addons"
+  
+  - title: "Professional Services"
+    url: "/services"
 
 apis:
 

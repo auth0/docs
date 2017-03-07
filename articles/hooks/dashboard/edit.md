@@ -2,7 +2,7 @@
 description: How to edit Hooks using the Management Dashboard
 ---
 
-# Edit Existing Hooks Using the Management Dashboard
+# Edit Existing Hooks Using the Dashboard&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
 
 You can edit the code for your existing Hook using the Webtask Editor. To open up the Webtask Editor:
 
