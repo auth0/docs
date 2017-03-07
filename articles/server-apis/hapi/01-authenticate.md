@@ -27,7 +27,7 @@ npm install --save hapi-auth-jwt2 jwks-rsa
 
 ## Configure hapi-auth-jwt2
 
-By default, your API will be set up to use RS256 as the algorithm for signing tokens. Since RS256 works by using a private/public keypair, tokens can be verified against the public key for your Auth0 account. This public key is accessible at [https://${account.namespace}.auth0.com/.well-known/jwks.json](https://${account.namespace}.auth0.com/.well-known/jwks.json).
+<%= include('_includes/_api_jwks_description') %>
 
 Set up the **hapi-auth-jwt2** plugin to fetch this public key through the **jwks-rsa** library.
 
@@ -103,9 +103,7 @@ server.route({
 
 ## Add Authorization
 
-So far, the API is only checking for whether the incoming request has valid authentication information. This solves the case of restricting endpoints such that only authenticated users can access them; however, it doesn't currently provide any way to check for **authorization**.
-
-Authorization can be added to your authenitcation flow by use of a **scope** claim in the `access_token` which provides some indication of what that token allows access to. For more information on how to add scopes to an `access_token`, see the [Scopes documentation](/scopes).
+<%= include('_includes/_api_scope_description') %>
 
 Individual routes can be configured to look for a particular `scope` in the `access_token` using `auth.scope`.
 
