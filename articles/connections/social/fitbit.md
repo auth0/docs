@@ -39,7 +39,7 @@ When finished, click **Register**.
 
 ## 3. Copy Your New App's *Client ID* and *Client Secret*
 
-From the **Edit Application** page, copy the `Client ID` and `Client Secret`:
+From the **Edit Application** page, copy the **Client ID** and **Client Secret**:
 
 ![](/media/articles/connections/social/fitbit/fitbit-manage-oauth2.png)
 
