@@ -1,55 +1,131 @@
 ---
 title: Authenticate
-description: This tutorial will show you how to use the Auth0 Node.js Hapi SDK to add authentication and authorization to your API.
+description: This tutorial demonstrates how to add authentication and authorization to a Hapi.js API
 ---
 
-In this tutorial you will learn how to use Auth0 to secure your [Hapi](http://hapijs.com/) API.
-
 <%= include('../../_includes/_package', {
-  org: 'auth0',
-  repo: 'node-auth0',
-  path: 'examples/hapi-api',
+  org: 'auth0-samples',
+  repo: 'auth0-hapi-api-samples',
+  path: '01-Authenticate-RS256',
   requirements: [
-    'Node.js 4.6.0',
-    'Hapi.js 13.5.3',
-    'hapi-auth-jwt 4.0.0'
+    'Hapi.js 16.0.0',
+    'hapi-auth-jwt 7.2.4'
   ]
 }) %>
 
-### 1. Add hapi-auth-jwt dependency
+<%= include('_includes/_api_auth_preamble') %>
 
-You need to add the hapi-auth-jwt dependency.
+This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done using the **hapi-auth-jwt2** plugin and can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
 
-Just run the following code to install the dependency and add it to your `package.json`
+## Install the Dependencies
 
-${snippet(meta.snippets.dependencies)}
+The **hapi-auth-jwt2** plugin can be used to verify incoming JWTs. The **jwks-rsa** library can be used alongside it to fetch your Auth0 public key and complete the verification process. Install these libraries with npm.
 
-### 2. Configure hapi-auth-jwt with your Auth0 account
+```bash
+npm install --save hapi-auth-jwt2 jwks-rsa
+```
 
-You need to set the ClientID and ClientSecret in `hapi-auth-jwt`'s configuration so that it can validate and sign [JWT](/jwt)s for you.
+## Configure hapi-auth-jwt2
 
-${snippet(meta.snippets.setup)}
+By default, your API will be set up to use RS256 as the algorithm for signing tokens. Since RS256 works by using a private/public keypair, tokens can be verified against the public key for your Auth0 account. This public key is accessible at [https://${account.namespace}.auth0.com/.well-known/jwks.json](https://${account.namespace}.auth0.com/.well-known/jwks.json).
 
-### 3. Secure your API
+Set up the **hapi-auth-jwt2** plugin to fetch this public key through the **jwks-rsa** library.
 
-Now, you need to specify one or more routes or paths that you want to protect so that only users with a valid JWT will be able to do the request.
+```js
+// server.js
 
-${snippet(meta.snippets.use)}
+const Hapi = require('hapi');
+const jwt = require('hapi-auth-jwt2');
+const jwksRsa = require('jwks-rsa');
 
-### 4. Call Your API
+const server = new Hapi.Server();
 
-You can now make requests against your secure API by providing the `Authorization` header in your requests with a valid JWT id_token.
+// ...
 
-```har
-{
-  "method": "GET",
-  "url": "http://localhost:8000/path_to_your_api",
-  "headers": [
-    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
-  ]
+server.register(jwt, err => {
+  if (err) throw err;
+  server.auth.strategy('jwt', 'jwt', 'required', {
+    complete: true,
+    // verify the access token against the
+    // remote Auth0 JWKS 
+    key: jwksRsa.hapiJwt2Key({
+      cache: true,
+      rateLimit: true,
+      jwksRequestsPerMinute: 5,
+      jwksUri: `https://${account.namespace}/.well-known/jwks.json`
+    }),
+    verifyOptions: {
+      audience: '{API_ID}',
+      issuer: `https://${account.namespace}/`,
+      algorithms: ['RS256']
+    },
+    validateFunc: validateUser
+  });
+  registerRoutes();
+});
+```
+
+The **hapi-auth-jwt2** plugin does the work of actually verifying that the JWT is valid. However, the `validateFunc` key requires some function that can do further checking. This might simply be a check to ensure the JWT has a `sub` claim, but your needs may vary in your own application.
+
+```js
+// server.js
+
+const validateUser = (decoded, request, callback) => {
+  // This is a simple check that the `sub` claim
+  // exists in the access token. Modify it to suit
+  // the needs of your application
+  if (decoded && decoded.sub) {
+    return callback(null, true);
+  }
+
+  return callback(null, false);
 }
 ```
 
-### 5. You're done!
+## Protect Individual Endpoints
 
-Now you have both your Hapi API secured with Auth0. Congrats, you're awesome!
+The configuration that is set up above for the **hapi-auth-jwt2** plugin specifies `required` as the third argument to the `strategy`. This means that all routes will require authentication by default. If you'd like to make a route public, you can simply pass `auth: false` to the route's `config`.
+
+```js
+// server.js
+
+server.route({
+  method: 'GET',
+  path: '/api/public',
+  config: {
+    auth: false,
+    handler: (req, res) => {
+      res({ message: "Hello from a public endpoint! You don't need to be authenticated to see this." });
+    }
+  }
+});
+```
+
+## Add Authorization
+
+So far, the API is only checking for whether the incoming request has valid authentication information. This solves the case of restricting endpoints such that only authenticated users can access them; however, it doesn't currently provide any way to check for **authorization**.
+
+Authorization can be added to your authenitcation flow by use of a **scope** claim in the `access_token` which provides some indication of what that token allows access to. For more information on how to add scopes to an `access_token`, see the [Scopes documentation](/scopes).
+
+Individual routes can be configured to look for a particular `scope` in the `access_token` using `auth.scope`.
+
+```js
+// server.js
+
+// ...
+
+server.route({
+  method: 'GET',
+  path: '/api/private/admin',
+  config: {
+    auth: {
+      scope: 'read:messages'
+    },
+    handler: (req, res) => {
+      res({ message: "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this." });
+    }
+  }
+});
+```
+
+With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
