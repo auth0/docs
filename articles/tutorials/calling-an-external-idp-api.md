@@ -49,6 +49,7 @@ You will need to create a service to execute the following three steps:
 
 The following code executes a client credentials exchange so that you receive an access token allowing access to the [Auth0 Management API](/api/management/v2#!).
 
+```har
 {
 	"method": "POST",
 	"url": "https://${account.namespace}.auth0.com/oauth/token",
@@ -67,6 +68,7 @@ The following code executes a client credentials exchange so that you receive an
 	"bodySize": -1,
 	"comment": ""
 }
+```
 
 ### 2. Obtain the User Profile
 
