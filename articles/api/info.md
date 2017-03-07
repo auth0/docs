@@ -8,7 +8,12 @@ section: apis
 Auth0 exposes two APIs for developers to consume in their applications:
 
 * **Authentication**: Handles identity-related tasks;
-* **Management**: Allows automation of Auth0 tasks such as user creation.
+* **Management**: Handles management of your Auth0 account, including functions related to (but not limited to):
+
+    * Clients;
+    * Connections;
+    * Emails;
+    * Users.
 
 ## Authentication API
 
