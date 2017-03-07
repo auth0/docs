@@ -12,7 +12,7 @@ Note that Auth0 will treat all identities as separate by default. For example: i
 
 You can implement functionality to enable a user to explicitly link accounts.  In this scenario, the user would log in with an initial provider, perhaps Google. Your application would provide a link or button to enable them to link another account to the first one.  The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the 2nd account is linked with the first.
 
-::: panel-info Notice: Feature Availability 
+::: panel-info Feature Availability 
 The **Account Linking** feature requires a paid subscription to the **Developer**, **Developer Pro** or **Enterprise** plan. It is not available as a free feature.
 
 [Click here](https://auth0.com/pricing) to learn more about Auth0 pricing plans.
