@@ -9,7 +9,7 @@ description: This tutorial demonstrates how to add authentication and authorizat
   path: '01-Authenticate-RS256',
   requirements: [
     'Hapi.js 16.0.0',
-    'hapi-auth-jwt 7.2.4'
+    'hapi-auth-jwt2 7.2.4'
   ]
 }) %>
 
