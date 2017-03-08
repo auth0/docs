@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   def self.from_token_payload payload
     # Returns a valid user, `nil` or raise
     # e.g.
-    #   self.find payload["sub"]
+    #   self.find_or_create_by auth_id: payload["sub"]
   end
 end
 ```
