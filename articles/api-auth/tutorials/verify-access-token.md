@@ -111,7 +111,7 @@ For example, a user management API might provide three endpoints to read, create
 
 If a request requests to access the `/create` endpoint, but the `scope` claim does NOT include the value `create:users`, then the API should reject the request with `403 Forbidden`.
 
-You can see how to do this, for a simple timesheets API in Node.js, in this document: [Check the Client permissions](/docs/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions).
+You can see how to do this, for a simple timesheets API in Node.js, in this document: [Check the Client permissions](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions).
 
 ## Sample Implementation
 
