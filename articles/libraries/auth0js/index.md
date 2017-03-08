@@ -208,6 +208,7 @@ In addition, _one_ of the two following options must be sent:
 * `phoneNumber`: a string containing the user's phone number, to which the code or link was delivered via SMS
 * `email`: a string containing the user's email, to which the code or link was delivered via email
 
+Additionally the values `redirectUri` and `responseType: 'token'` must be specified as options when initialising `WebAuth`.
 
 ```js
 webAuth.passwordlessVerify({
