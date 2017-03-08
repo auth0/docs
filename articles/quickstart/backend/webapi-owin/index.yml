@@ -10,6 +10,14 @@ image: /media/platforms/asp.png
 tags:
   - quickstart
 articles:
-  - 04-authentication-rs256-legacy
-  - 05-authentication-hs256-legacy
-  - 06-authorization-legacy
+  - 01-authentication
+  - 02-authorization
+  - 03-authentication-hs256
+previous_versions:
+  legacy:
+    title: 'Legacy'
+    articles:
+      - 01-authentication
+      - 02-authorization
+      - 03-authentication-hs256
+

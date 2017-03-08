@@ -131,7 +131,3 @@ As mentioned in the previous step, you will need to pass along an `id_token` in 
 Now you can use the `id_token` and pass it along in the Authorization header as a Bearer token:
 
 ![Authorized request in Postman](/media/articles/server-apis/webapi-owin/postman-authorized.png)
-
-## Next Step
-
-To learn how to allow only users in a certain role to access a particular endpoint, please continue with the [Authorization](/quickstart/backend/webapi-owin/06-authorization-deprecated) tutorial.

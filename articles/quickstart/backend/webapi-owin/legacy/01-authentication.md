@@ -17,7 +17,7 @@ budicon: 500
 
 Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using RS256.
 
-> If you want to use HS256 then please go to the [Authentication using HS256](/quickstart/backend/webapi-owin/05-authentication-hs256-deprecated) tutorial.
+> If you want to use HS256 then please go to the [Authentication using HS256](/quickstart/backend/webapi-owin/legacy/03-authentication-hs256) tutorial.
 
 ## 1. Configure JSON Web Token Signature Algorithm
 
@@ -126,4 +126,4 @@ Now you can use the `id_token` and pass it along in the Authorization header as 
 
 ## Next Step
 
-To learn how to allow only users in a certain role to access a particular endpoint, please continue with the [Authorization](/quickstart/backend/webapi-owin/06-authorization-deprecated) tutorial.
+To learn how to allow only users in a certain role to access a particular endpoint, please continue with the [Authorization](/quickstart/backend/webapi-owin/legacy/02-authorization) tutorial.
