@@ -2,7 +2,6 @@
 url: /services
 classes: topic-page
 title: Auth0 Professional Services
-toc: true
 description: Professional Services offered by Auth0.
 ---
 
