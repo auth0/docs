@@ -87,6 +87,23 @@ Initialize a new instance of the Auth0 client as follows:
 
 You can choose a method for login based on the type of auth you need in your application.
 
+### buildAuthorizeUrl(options)
+
+Builds and returns the `/authorize` url in order to initialize a new transaction.
+
+```js
+// Calculate URL to redirect to
+  var url = webAuth.client.buildAuthorizeUrl({
+    clientID: '${account.clientId}', // string
+    responseType: 'token', // code or token
+    redirectUri: '${account.callback}',
+    state: 'YOUR_STATE'
+  });
+  
+  // Redirect to url
+  // ...
+```  
+
 ### webAuth.authorize()
 
 The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below. 
