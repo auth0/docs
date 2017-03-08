@@ -32,39 +32,14 @@ In order to access the [Management APIv2](/api/management/v2) endpoints from a t
 - `scope=read:current_user update:current_user_metadata`
 :::
 
-## Enable dynamic registration
-
-In this section we will see how you can enable the dynamic registration feature for your tenant.
-
-By default, the feature is disabled for all tenants. To change this, you have to update some account settings, promote the connections you will use with your dynamic clients to **domain connections**, and update your client's login page (if you use Lock).
+## Enable dynamic client registration
 
 ::: panel-warning Security warning
 Auth0 supports Open Dynamic Registration, which means that if you enable this feature, **anyone** will be able to create clients in your tenant without a token.
 :::
 
-### Update tenant settings
-
-In order to enable the feature, you need to set the `enable_dynamic_client_registration` flag to `true` in your tenant's settings.
-
-You can update this flag using the [Update tenant settings endpoint](/api/management/v2#!/Tenants/patch_settings).
-
-```har
-{
-  "method": "PATCH",
-  "url": "https://${account.namespace}/api/v2/tenants/settings",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" },
-    { "name": "Authorization", "value": "Bearer API2_ACCESS_TOKEN" },
-    { "name": "Cache-Control", "value": "no-cache" }
-  ],
-  "postData": {
-      "mimeType": "application/json",
-      "text" : "{ \"flags\": { \"enable_dynamic_client_registration\": true } }"
-  }
-}
-```
-
-You need to update the `API2_ACCESS_TOKEN` with a valid Auth0 API2 token with the scope `update:tenant_settings`. See [How to get a Management APIv2 Token](/api/management/v2/tokens#how-to-get-a-management-apiv2-token) for details on how to do so.
+For security reasons, dynamic client registration is disabled by default.
+It can be enabled with the "OIDC Dynamic Client Registration" option [under your account's advanced settings](${manage_url}/#/account/advanced).
 
 ### Promote connections
 
