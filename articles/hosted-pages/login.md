@@ -32,9 +32,9 @@ Take a look at the default custom login page code to get a glimpse of the availa
 
 ### Using Auth0.js in a hosted login page
 
-When customizing the hosted login page you might want to use Auth0.js along with Lock (or instead of Lock) to perform authentication tasks, such as building an authorization URL to take the user to a specific connection, or logging in the user with credentials obtained from input elements in the HTML. When doing so, make sure to provide all the parameters provided in `config.internalOptions`
+When customizing the hosted login page you might want to use [Auth0.js](/libraries/auth0js) along with [Lock](/libraries/lock) (or instead of Lock) to perform authentication tasks, such as building an authorization URL to take the user to a specific connection, or logging in the user with credentials obtained from input elements in the HTML. When doing so, make sure to provide all the parameters provided in `config.internalOptions`.
 
-This example uses [Auth0.js v8](/libraries/auth0js/v8) builds a link that takes the user directly to a specific connection:
+This example builds a link that takes the user directly to a specific connection, using [Auth0.js v8](/libraries/auth0js):
 
 ```html
   [...]
@@ -68,7 +68,7 @@ This example uses [Auth0.js v8](/libraries/auth0js/v8) builds a link that takes 
     window.getElementById('direct-link').href = buildDirectAuthUrl("my-idp-connection");
 ``` 
 
-This sample uses [Auth0.js v7](/libraries/auth0js/v7) and shows a very simple username/password form instead of using Lock:
+This example shows a very simple username/password form, using [Auth0.js v7](/libraries/auth0js/v7) instead of Lock:
 
 ```html
 <!DOCTYPE html>
