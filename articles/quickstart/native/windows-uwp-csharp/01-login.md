@@ -6,20 +6,20 @@ budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0',
-  repo: 'Auth0.Windows.UWP',
-  path: 'samples/LoginClientSample.Cs',
+  org: 'auth0-community',
+  repo: 'auth0-uwp-oidc-samples',
+  path: '00-Starter-Seed',
   requirements: [
-    'Microsoft Visual Studio 2015',
-    'Windows 10 SDK (10.0.14393)'
+    'Microsoft Visual Studio 2017',
+    'Windows 10 SDK (10.0.10586.0)'
   ]
 }) %>
 
-This tutorial explains how to integrate Auth0 login with a Windows UWP (Universal Windows Platform) C# application. The Nuget package `Auth0.Windows.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
+This tutorial explains how to integrate the Auth0 OIDC Client with a Windows UWP (Universal Windows Platform) C# application. The Nuget package `Auth0.OidcClient.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
-## Install the Auth0.Windows.UWP NuGet Package
+## Install the Auth0.OidcClient.UWP NuGet Package
 
-Use the NuGet Package Manager Console (Tools -> Nuget Package Manager -> Package Manager Console) to install the Auth0.Windows.UWP package, running the command:
+Use the NuGet Package Manager Console (Tools -> NuGet Package Manager -> Package Manager Console) to install the Auth0.OidcClient.UWP package, running the command:
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -32,63 +32,77 @@ ${snippet(meta.snippets.dependencies)}
 </div>
 
 ## Integration
-There are three options to do the integration:
 
-1. Using the [Auth0 Login Widget](/libraries/lock) with the Web Authentication Broker (this is the simplest with only a few lines of code required).
-2. Using the [Auth0 Login Widget](/libraries/lock) with the Web Authentication Broker, but specifying a specific Connection.
-3. A custom user interface to ask username and password.
-
-### Option 1: Auth0 Lock
-
-To start, we recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project.
-Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
+To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, passing your Auth0 Domain and Client ID in the constructor. 
 
 ${snippet(meta.snippets.setup)}
+
+You can then call the `LoginAsync` method to log the user in:
 
 ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/windows-uwp-csharp/lock-widget-screenshot.png)
 
-### Option 2: Auth0 Lock with a Specific Connection
+## Accessing the User's Information
 
-If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
+The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.
 
-```cs
-var user = await auth0.LoginAsync("auth0waadtests.onmicrosoft.com") // connection name here
+### Authentication Error
+
+You can check the `IsError` property of the result to see whether the login has failed. The `ErrorMessage` will contain more information regarding the error which occurred.
+
+```csharp
+var loginResult = await client.LoginAsync();
+
+if (loginResult.IsError)
+{
+    Debug.WriteLine($"An error occurred during login: {loginResult.Error}")
+}
 ```
 
-> connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
+### Accessing the tokens
 
-### Option 3: Custom User Interface
+On successful login, the login result will contain the `id_token` and `access_token` in the `IdentityToken` and `AccessToken` properties respectively.
 
-The third option is to create your own custom user interface to prompt the user for their username and password. You can then pass this, along with the connection name to the `LoginAsync` method:
+```csharp
+var loginResult = await client.LoginAsync();
 
-```cs
-var user = await auth0.LoginAsync(
-  "my-db-connection",   // connection name here
-  "username",
-  "password");
+if (!loginResult.IsError)
+{
+    Debug.WriteLine($"id_token: {loginResult.IdentityToken}");
+    Debug.WriteLine($"access_token: {loginResult.AccessToken}");
+}
 ```
 
-### Scope
+### Obtaining the User Information
 
-Optionally you can specify the `scope` parameter. There are various possible values for `scope`:
+On successful login, the login result will contain the user information in the `User` property, which is a [ClaimsPrincipal](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx).
 
-* __scope: "openid"__ _(default)_ - It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id.
-* __scope: "openid {attr1} {attr2} {attrN}"__ - If you want only specific user's attributes to be part of the `id_token` (For example: `scope: "openid name email picture"`).
+To obtain information about the user, you can query the claims. You can for example obtain the user's name and email address from the `name` and `email` claims:
 
-You can get more information about this in the [Scopes documentation](/scopes).
+```csharp
+if (!loginResult.IsError)
+{
+    Debug.WriteLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
+    Debug.WriteLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
+}
+```
 
-## Capabilities (Optional)
+> [!Note]
+> The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
 
-In some cases, Auth0 may not be able to connect to an identity provider. Showing nothing more than a "Can't connect to the service" message. A reason for this may be that the identity provider endpoint resolves to an Intranet (that has an authenticated domain controller), home or work network. In this case it is required to enable the "Private Networks (Client & Server)" capability.
+You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 
-Use the Package Manifest (Solution Explorer > Package.appxmanifest) to enable the capability within the "Capabilities" tab.
+```csharp
+if (!loginResult.IsError)
+{
+    foreach (var claim in loginResult.User.Claims)
+    {
+        Debug.WriteLine($"{claim.Type} = {claim.Value}");
+    }
+}
+```
 
-## Accessing User Information
+## More Information
 
-The `Auth0User` has the following properties:
-
-* `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://www.newtonsoft.com/json)) containing all available user attributes (e.g.: `user.Profile["email"].ToString()`).
-* `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
-* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's APIs. For example, you could use this token to [Link Accounts](/link-accounts).
+For more information, please refer to the [Auth0 OIDC Client Documentation](https://auth0.github.io/auth0-oidc-client-net/).

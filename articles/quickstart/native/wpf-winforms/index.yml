@@ -23,3 +23,8 @@ seo_alias: wpf-winforms
 default_article: 01-login
 articles:
   - 01-login
+previous_versions:
+  legacy:
+    title: 'Legacy'
+    articles:
+      - 01-login

@@ -7,19 +7,19 @@ budicon: 448
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-winformsWPF-samples',
+  repo: 'auth0-WinFormsWPF-oidc-sampless',
   path: '00-Starter-Seed',
   requirements: [
-    'Microsoft Visual Studio 2015',
-    '.NET Framework 4.6.1'
+    'Microsoft Visual Studio 2017',
+    '.NET Framework 4.5.2'
   ]
 }) %>
 
-This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsOrWPF` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
+This tutorial explains how to integrate Auth0 with a WPF or Windows Forms application. The `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` NuGet packages helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
-## Install Auth0.WinformsOrWPF NuGet Package
+## Install Auth0.OidcClient.WPF or Auth0.OidcClient.WinForms NuGet Package
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.WinformsOrWPF package, running the command:
+Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` package, depending on whether you are building a WPF or Windows Forms application:
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -33,54 +33,76 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Integration
 
-There are three options to do the integration:
-
-1. Using [Auth0 Lock](/lock) inside a Web View (this is the simplest way with only a few lines of code required).
-2. Creating your own UI (more work, but higher control of the UI and overall experience).
-3. Using specific username and password.
-
-### Option 1: Auth0 Lock
-
-To start, we recommend using __Lock__. Here is a snippet of code to copy & paste on your project.
-Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
+To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, passing your Auth0 Domain and Client ID in the constructor. 
 
 ${snippet(meta.snippets.setup)}
+
+You can then call the `LoginAsync` method to log the user in:
 
 ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
 
-::: panel-warning Handle Exceptions
-**Please note** that an `UnauthorizedAccessException` will be thrown when the user cancels the authentication dialog, so you will need to wrap the call to `LoginAsync` in a try-catch block.
-:::
+## Accessing the User's Information
 
-::: panel-warning WPF Applications
-For __WPF__ apps you should use `auth0.LoginAsync(new WindowWrapper(new WindowInteropHelper(this).Handle))` instead of `auth0.LoginAsync(this)`
-:::
+The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.
 
-### Option 2: Custom User Interface
+### Authentication Error
 
-If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
+You can check the `IsError` property of the result to see whether the login has failed. The `ErrorMessage` will contain more information regarding the error which occurred.
 
-```cs
-var user = await auth0.LoginAsync(this, "auth0waadtests.onmicrosoft.com") // connection name here
+```csharp
+var loginResult = await client.LoginAsync();
+
+if (loginResult.IsError)
+{
+    Debug.WriteLine($"An error occurred during login: {loginResult.Error}")
+}
 ```
 
-> connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
+### Accessing the tokens
 
-### Option 3: Specific Username and Password
+On successful login, the login result will contain the `id_token` and `access_token` in the `IdentityToken` and `AccessToken` properties respectively.
 
-```cs
-var user = await auth0.LoginAsync(
-  "my-db-connection",   // connection name here
-  "username",
-  "password");
+```csharp
+var loginResult = await client.LoginAsync();
+
+if (!loginResult.IsError)
+{
+    Debug.WriteLine($"id_token: {loginResult.IdentityToken}");
+    Debug.WriteLine($"access_token: {loginResult.AccessToken}");
+}
 ```
 
-## Accessing User Information
+### Obtaining the User Information
 
-The `Auth0User` has the following properties:
+On successful login, the login result will contain the user information in the `User` property, which is a [ClaimsPrincipal](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx).
 
-* `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://components.xamarin.com/view/json.net/)) containing all available user attributes (e.g.: `user.Profile["email"].ToString()`).
-* `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
-* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this, for example, to [link user accounts](/link-accounts).
+To obtain information about the user, you can query the claims. You can for example obtain the user's name and email address from the `name` and `email` claims:
+
+```csharp
+if (!loginResult.IsError)
+{
+    Debug.WriteLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
+    Debug.WriteLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
+}
+```
+
+> [!Note]
+> The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
+
+You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
+
+```csharp
+if (!loginResult.IsError)
+{
+    foreach (var claim in loginResult.User.Claims)
+    {
+        Debug.WriteLine($"{claim.Type} = {claim.Value}");
+    }
+}
+```
+
+## More Information
+
+For more information, please refer to the [Auth0 OIDC Client Documentation](https://auth0.github.io/auth0-oidc-client-net/).
