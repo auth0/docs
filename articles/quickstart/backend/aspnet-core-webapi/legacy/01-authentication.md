@@ -6,4 +6,3 @@ budicon: 500
 ---
 
 <%= include('../_includes/_updating_notice') %>
-
