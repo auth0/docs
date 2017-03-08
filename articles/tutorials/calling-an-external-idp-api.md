@@ -51,22 +51,15 @@ The following code executes a client credentials exchange so that you receive an
 
 ```har
 {
-	"method": "POST",
-	"url": "https://${account.namespace}.auth0.com/oauth/token",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer ABCD"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{ \"client_id\": \"YOUR_CLIENT_ID\", \"client_secret\": \"YOUR_CLIENT_SECRET\", \"grant_type\": \"client_credentials\" }"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData":{
+    "mimeType": "application/json",
+    "text": "{ \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"audience\": \"https://${account.namespace}/api/v2/\", \"grant_type\": \"client_credentials\" }"
+  }
 }
 ```
 
