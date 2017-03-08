@@ -1,4 +1,5 @@
 ---
+title: The State Parameter
 description: Explains how to use the state parameter in authentication requests to help prevent XSRF attacks.
 ---
 
@@ -24,7 +25,7 @@ By using the state parameter to hold a value for verification, malicious request
 xyzABC123
 ```
 
-2. Save this string to a variable in [web storage.](/security/store-tokens#web-storage-localstorage-sessionstorage-)
+2. Save this string to a variable in [web storage](/security/store-tokens#web-storage-localstorage-sessionstorage-).
 
 ```
 auth0-authorize = xyzABC123
@@ -38,13 +39,13 @@ var encodedString = Base64.encode(string);
 tenant.auth0.com/authorize?...&state=encodedString
 ```
 
-4. After the request is sent and when the user is redirected back by Auth0 to the client and the state value will be included. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
+4. After the request is sent, the user is redirected back to the client by Auth0. The `state` value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
 
 ```
 /login/callback?...&state=encodedString
 ```
 
-5.  Decode this returned state value to compare to the previously stored value. If the values match then approve the request, else deny the request. Using this field can help prevent cross-site request forgery
+5.  Decode the returned `state` value and compare it to the one you stored earlier. If the values match, then approve the request, else deny it.
 
 ```
 // Decode the String
