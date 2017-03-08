@@ -28,7 +28,7 @@ npm install --save express-jwt jwks-rsa express-jwt-authz
 
 ## Configuration
 
-<%= include('_includes/_api_jwks_description') %>
+<%= include('_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-express-api-samples/tree/master/02-Authenticate-HS256' }) %>
 
 Configure the **express-jwt** middleware to use the remote JWKS for your Auth0 account.
 

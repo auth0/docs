@@ -27,7 +27,7 @@ npm install --save hapi-auth-jwt2 jwks-rsa
 
 ## Configure hapi-auth-jwt2
 
-<%= include('_includes/_api_jwks_description') %>
+<%= include('_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-hapi-api-samples/tree/master/02-Authenticate-HS256'}) %>
 
 Set up the **hapi-auth-jwt2** plugin to fetch this public key through the **jwks-rsa** library.
 
