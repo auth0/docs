@@ -95,17 +95,16 @@ guard let idToken = keychain.string(forKey: "id_token") else {
 // We still need to validate it!
 ```
 
-## Validate an existent idToken
+## Validate an existing idToken
 
-Then, if such a token exists, we need to check whether it's still valid, has expired, or is no longer valid for some other reason, such as being revoked. To do so, we'll use `Auth0` to fetch the user's profile based on the current `idToken` we've got:
+If such a token exists, we need to check whether it's still valid, has expired, or is no longer valid for some other reason. To do so, we'll use `Auth0` to fetch the user's profile based on the current `idToken` we've got:
 
 ```swift
 let keychain = A0SimpleKeychain(service: "Auth0")
 guard let idToken = keychain.string(forKey: "id_token") else {
-    // No idToken found, present Lock Login
+    // No idToken found, present Lock
     return
 }
-
 // Retrieve profile
 Auth0
      .authentication()
@@ -124,7 +123,7 @@ Auth0
 ## Dealing with a non-valid idToken
 
 How to deal with a non-valid idToken is up to you. You will normally choose between two scenarios:
-Either you ask users to re-enter theirs credentials, or you can use delegation with a [refresh_token((/refresh-token)) to obtain a new valid idToken again.
+Either you ask users to re-enter theirs credentials, or you can use `delegation` with a [refresh token](/refresh-token) to obtain a new valid idToken again.
 
 If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
 
@@ -161,10 +160,10 @@ Lock
 
 ### Use the refreshToken to get a new idToken
 
-We can use the `func renew(withRefreshToken refreshToken: String)` method in `Auth0` to yield fresh user's credentials.
+You can use the `delegation` method in `Auth0` to yield fresh user's credentials using the refreshToken.
 
 ```swift
-// ⚠️ idToken has expired or invalid
+// idToken has expired or invalid, see if we have a refreshToken
 let keychain = A0SimpleKeychain(service: "Auth0")
 guard let refreshToken = keychain.string(forKey: "refresh_token") else {
     keychain.clearAll()
@@ -179,7 +178,6 @@ Auth0
             // Just got a new idToken!
             // Don't forget to store it...
             guard let idToken = credentials["id_token"] as? String else { return }
-            self.storeTokens(idToken)
             keychain.setString(idToken, forKey: "id_token")
             // At this point, you can log the user into your app. e.g. by navigating to the corresponding screen
         case .failure(let error):
