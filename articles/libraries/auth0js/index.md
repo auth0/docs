@@ -89,7 +89,7 @@ You can choose a method for login based on the type of auth you need in your app
 
 ### buildAuthorizeUrl(options)
 
-Builds and returns the `/authorize` url in order to initialize a new transaction.
+Builds and returns the `/authorize` url in order to initialize a new transaction. Use this method if you want to implement browser based (passive) authentication.
 
 ```js
 // Calculate URL to redirect to
@@ -103,6 +103,8 @@ Builds and returns the `/authorize` url in order to initialize a new transaction
   // Redirect to url
   // ...
 ```  
+
+__NOTE__: The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
 
 ### webAuth.authorize()
 
