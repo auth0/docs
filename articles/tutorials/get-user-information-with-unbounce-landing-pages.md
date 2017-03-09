@@ -21,13 +21,13 @@ description: How to get user information with one-click social authentication on
 * Add a new JavaScript to your Unbounce landing page, select `Before Body End Tag` under `Placement` and add this code. Also make sure to check jQuery as a dependency.
 
 ```
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="application/javascript">
 
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:                 '${account.namespace}',
     clientID:               '${account.clientId}',
-    callbackURL:            'REPLACE_WITH_YOUR_UNBOUNCE_PAGE_URL', // e.g http://unbouncepages.com/changeit
+    redirectUri:            'REPLACE_WITH_YOUR_UNBOUNCE_PAGE_URL', // e.g http://unbouncepages.com/changeit
     responseType: 'token'
   });
 
@@ -44,15 +44,17 @@ description: How to get user information with one-click social authentication on
 
 ```
 $('#REPLACE_WITH_BUTTON_ID').bind('click', function() {
-  auth0.login({
+  webAuth.authorize({
     connection: 'REPLACE_WITH_CONNECTION_NAME',  // you get the connection name from Auth0 dashboard (expand social provider)
   });
 });
 
-  var result = auth0.parseHash(window.location.hash);
+// After authentication occurs, the parseHash method parses a URL hash fragment to extract the result of an Auth0 authentication response.
+
+  var result = webAuth.parseHash(window.location.hash);
 
   if (result && result.idToken) {
-    auth0.getProfile(result.idToken, function (err, profile) {
+    webAuth.getProfile(result.idToken, function (err, profile) {
       // normalized attributes from Auth0
       $('#INPUT_1').val(profile.name);
       $('#INPUT_2').val(profile.email);

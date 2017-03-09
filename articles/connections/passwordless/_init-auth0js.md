@@ -1,13 +1,11 @@
 Construct a new instance of the Auth0 client as follows:
 
 ```html
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  'use strict';
-  const auth0 = new Auth0({
-    clientID: '${account.clientId}',
-    domain: '${account.namespace}'<% if (withCallbackURL) { %>,
-    callbackURL: '${account.callback}'<%}%>
+var webAuth = new auth0.WebAuth({
+	domain: '${account.namespace}',
+    clientID: '${account.clientId}'
   });
   //...
 </script>
