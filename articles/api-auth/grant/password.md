@@ -42,7 +42,7 @@ If you wish to execute special logic unique to the Password exchange, you can lo
 
 #### Customizing the returned token
 
-Inside a rule, you can change the returned scopes of the `access_token` or add claims to it with code like this:
+Inside a rule, you can change the returned scopes of the `access_token` and/or add claims to it with code like this:
 
 ```javascript
 function(user, context, callback) {
@@ -51,7 +51,7 @@ function(user, context, callback) {
   context.accessToken['http://foo/bar'] = 'value';
   
   // change scope
-  context.accessToken.scope = 'scope1 scope2';
+  context.accessToken.scope = ['array', 'of', 'strings'];
   
   callback(null, user, context);
 }
