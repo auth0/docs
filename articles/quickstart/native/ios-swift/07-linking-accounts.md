@@ -59,7 +59,7 @@ import Auth0
 
 ```swift
 let id = ... // the id of the user
-let idToken = ... // the user idToken
+let idToken = ... // the user's idToken
 let otherUserToken = ... // the idToken from the account you want to link the user with
 Auth0
     .users(token: idToken)
@@ -95,7 +95,7 @@ Auth0
             }
 ```
 
-Once you have the profile you can retrieve the users identities through a management API call as follows:
+Once you have the `id` from the profile you can retrieve the users identities through a management API call as follows:
 
 ```swift
 Auth0
