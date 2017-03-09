@@ -6,7 +6,7 @@ description: This tutorial demonstrates how to integrate Lock in your iOS Swift 
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-ios-swift-sample',
+  repo: 'auth0-ios-swift-v2-sample',
   path: '01-Login',
   requirements: [
     'CocoaPods 1.1.1',
