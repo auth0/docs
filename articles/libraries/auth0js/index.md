@@ -87,25 +87,6 @@ Initialize a new instance of the Auth0 client as follows:
 
 You can choose a method for login based on the type of auth you need in your application.
 
-### buildAuthorizeUrl(options)
-
-Builds and returns the `/authorize` url in order to initialize a new transaction. Use this method if you want to implement browser based (passive) authentication.
-
-```js
-// Calculate URL to redirect to
-  var url = webAuth.client.buildAuthorizeUrl({
-    clientID: '${account.clientId}', // string
-    responseType: 'token', // code or token
-    redirectUri: '${account.callback}',
-    state: 'YOUR_STATE'
-  });
-  
-  // Redirect to url
-  // ...
-```  
-
-__NOTE__: The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
-
 ### webAuth.authorize()
 
 The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below. 
@@ -187,6 +168,25 @@ webAuth.client.login({
   audience: 'urn:test'
 });
 ```
+
+### buildAuthorizeUrl(options)
+
+The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in order to initialize a new transaction. Use this method if you want to implement browser based (passive) authentication.
+
+```js
+// Calculate URL to redirect to
+  var url = webAuth.client.buildAuthorizeUrl({
+    clientID: '${account.clientId}', // string
+    responseType: 'token', // code or token
+    redirectUri: '${account.callback}',
+    state: 'YOUR_STATE'
+  });
+  
+  // Redirect to url
+  // ...
+```  
+
+__NOTE__: The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
 
 ### Passwordless login
 
