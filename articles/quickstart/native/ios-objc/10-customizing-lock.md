@@ -3,7 +3,7 @@ title: Customizing Lock
 description: This tutorial will show you how to customize the Lock widget UI.
 ---
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-objc-sample',
   path: '10-Customizing-Lock',

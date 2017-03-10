@@ -3,7 +3,7 @@ title: Calling APIs
 description: This tutorial will show you how to use Auth0 to authenticate with your own API server.
 ---
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-objc-sample',
   path: '08-Calling-APIs',

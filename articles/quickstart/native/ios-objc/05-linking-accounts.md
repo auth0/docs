@@ -3,7 +3,7 @@ title: Linking Accounts
 description: This tutorial will show you how to link different user profiles, allowing different ways of signing in into a single profile.
 ---
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-objc-sample',
   path: '05-Linking-Accounts',

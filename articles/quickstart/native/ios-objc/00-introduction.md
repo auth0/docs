@@ -9,7 +9,7 @@ This is the very beginning of a simple, practical, multi-step quickstart that wi
 
 Here is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed) containing an empty project with only the required [dependencies](#dependencies) installed.
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-objc-sample',
   path: '00-Starter-Seed',
@@ -72,11 +72,30 @@ Then, run `pod install`.
 
 Make sure you complete these steps before going through any tutorial:
 
-#### 1. Create an application
+## 1. Create a Client
 
-<%= include('../../_includes/_new_app') %>_
+If you haven't already done so, create a new client application in your [Auth0 dashboard](${manage_url}/#/applications/${account.clientId}/settings) and choose **Native**.
 
-#### 2. Configure your callback URLs
+![App Dashboard](/media/articles/angularjs/app_dashboard.png)
+
+#### 2. Add your credentials
+
+Add your credentials in `Auth0.plist`. You have to create that file if it doesn't already exist in your project:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>ClientId</key>
+  <string>${account.clientId}</string>
+  <key>Domain</key>
+  <string>${account.namespace}</string>
+</dict>
+</plist>
+```
+
+#### 3. Configure your callback URLs
 
 Go to your [Client Dashboard](${manage_url}/#/applications/${account.clientId}/settings/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
 
@@ -102,29 +121,10 @@ In your application's `Info.plist` file, register your iOS Bundle Identifier as 
 </array>
 ```
 
-#### 3. Add your credentials
-
-Add your credentials in `Auth0.plist`. You have to create that file if it doesn't already exist in your project:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>ClientId</key>
-  <string>${account.clientId}</string>
-  <key>Domain</key>
-  <string>${account.namespace}</string>
-</dict>
-</plist>
-```
-
 ## Done!
 
 **You're all set up to start integrating Auth0 in your app!** 🎉
 
 The tutorial guides contained in this section will teach you the different things you can do with it. It's recommendable that you follow them sequentially in order, as they are progressive and there is content that usually needs to be learned from previous tutorials.
-
-Said that, we suggest you to start with the [login tutorial](01-login.md)...
 
 Have fun!

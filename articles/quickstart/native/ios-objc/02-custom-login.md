@@ -3,7 +3,7 @@ title: Custom Login
 description: This tutorial will teach you how to perform Login and Sign Up by using your own View Controllers, without using the Lock widget interface.
 ---
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-objc-sample',
   path: '02-Custom-Login',
@@ -129,12 +129,12 @@ You can retrieve your user profile information using the `Credentials` object yo
 
 ```objc
 [authApi userInfoWithToken:credentials.accessToken callback:callback:^(NSError * _Nullable error, A0UserProfile * _Nullable profile) {
-            if(error) {
-                // Something went wrong, let the user know
-            } else {
-                // You have your user profile object
-            }
-        }];
+    if(error) {
+        // Something went wrong, let the user know
+    } else {
+        // You have your user profile object
+    }
+}];
 ```
 
 You can use the `profile.name` to show the user's name or show the users profile picture in a `UIImageView`
@@ -144,7 +144,6 @@ You can use the `profile.name` to show the user's name or show the users profile
     dispatch_async(dispatch_get_main_queue(), ^{
         self.avatarImageView.image = [UIImage imageWithData:data];
     });
-
 }] resume];
 ```
 
@@ -158,21 +157,21 @@ If you are going to let the user sign in, you'll probably need to let the user t
 ```objc
 A0AuthenticationAPI *authApi = [[A0AuthenticationAPI alloc] initWithClientId:[Auth0InfoHelper Auth0ClientID] url:[Auth0InfoHelper Auth0Domain]];
 [authApi signUpWithEmail:@"email@foo.com"
-                    username:nil // by default the username is the users email
-                    password:@"1234"
-                  connection:@"Username-Password-Authentication"
-                userMetadata:@{ @"Country": @"Australia",
-                                @"Telephone": @"99 99 9999 9999"}
-                                 // Here you can include any extra information
-                                 // you need about the user
-                       scope:@"openid"
-                  parameters:nil
-                    callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
-                        if(error) {
-                            // Something went wrong, let the user know
-                        } else {
-                            // You signed up correctly, and you have the Credentials,
-                            // so no need to make the user login. They're already logged in.
-                        }
-                    }];
+          username:nil // by default the username is the users email
+          password:@"1234"
+        connection:@"Username-Password-Authentication"
+      userMetadata:@{ @"Country": @"Australia",
+                      @"Telephone": @"99 99 9999 9999"}
+                       // Here you can include any extra information
+                       // you need about the user
+             scope:@"openid"
+        parameters:nil
+          callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
+              if(error) {
+                  // Something went wrong, let the user know
+              } else {
+                  // You signed up correctly, and you have the Credentials,
+                  // so no need to make the user login. They're already logged in.
+              }
+          }];
 ```

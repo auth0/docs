@@ -3,7 +3,7 @@ title: Login
 description: This tutorial will show you how to integrate Lock in your iOS ObjectiveC project in order to present a login screen.
 ---
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-objc-sample',
   path: '01-Login',
@@ -58,8 +58,6 @@ self.emailLabel.text = profile.email
 > To learn how to save and manage the tokens and profile in detail, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens). Note that Lock on its own will not save these for you.
 
 Done. You've implemented Login and SignUp with Auth0 in your iOS ObjectiveC project. You're awesome!
-
-> You can also <a href="/package/native-mobile-samples/master?path=iOS/profile-sample-objc&type=replace&filePath=iOS/profile-sample-objc/ProfileSample/Info.plist${account.clientParam}">download</a> our sample project, which shows how to store/update your user profile with Auth0.
 
 ### Optional: Configure your Social Connections' Handlers
 

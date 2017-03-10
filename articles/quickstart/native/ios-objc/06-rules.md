@@ -3,7 +3,7 @@ title: Rules
 description: This tutorial will show you how to create a basic rule that you can use in your app.
 ---
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-objc-sample',
   path: '06-Rules',

@@ -3,7 +3,7 @@ title: Session Handling
 description: This tutorial will show you how to handle sessions in your app, with the aim of preventing the user from being asked for credentials each time the app is launched.
 ---
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-objc-sample',
   path: '03-Session-Handling',
@@ -78,33 +78,33 @@ Once you have stored the user's token, next time the app launches, you can use i
 
 ```objc
 if([keychain stringForKey:@"id_token"]){
-    // There is a token stored
-
-    [[A0Lock sharedLock].apiClient fetchUserProfileWithIdToken:[keychain stringForKey:@"id_token"]
-                                                       success:^(A0UserProfile * _Nonnull profile) {
-                                                           // You have successfully retreived the user's profile, you don't need to sign in again.
-                                                           // Let your user continue to the next step
-                                                       } failure:^(NSError * _Nonnull error) {
-                                                           // Something went wrong, let the user know
-                                                       }];
-    }
+  // There is a token stored
+  [[A0Lock sharedLock].apiClient fetchUserProfileWithIdToken:[keychain stringForKey:@"id_token"]
+               success:^(A0UserProfile * _Nonnull profile) {
+                   // You have successfully retreived the user's profile, you don't need to sign in again.
+                   // Let your user continue to the next step
+               } failure:^(NSError * _Nonnull error) {
+                   // Something went wrong, let the user know
+               }];
+  }
 ```
 
 If the `fetchUserProfileWithIdToken:` call is successful, you can continue as if the user had signed in. But, if it failed, there could be a number of reasons for it. One option is that it has expired, in which case you still have the option to refresh it, and keep the session valid:
 
 ```objc
-    [lock.apiClient fetchNewIdTokenWithRefreshToken:[keychain stringForKey:@"refresh_token"] parameters:nil success:^(A0Token * _Nonnull token) {
-        [self saveCredentials:token];
-        // Save the new credentials and use them instead.
-   	} failure:^(NSError * _Nonnull error) {
-   		[keychain clearAll]; // The saved token is invalid, delete them all from the keychain
-		// Something went wrong, let the user know
-	}];
+[lock.apiClient fetchNewIdTokenWithRefreshToken:[keychain stringForKey:@"refresh_token"] parameters:nil
+  success:^(A0Token * _Nonnull token) {
+    [self saveCredentials:token];
+    // Save the new credentials and use them instead.
+	} failure:^(NSError * _Nonnull error) {
+    [keychain clearAll]; // The saved token is invalid, delete them all from the keychain
+    // Something went wrong, let the user know
+}];
 ```
 
 If the `fetchNewIdTokenWithRefreshToken` call fails, it means your token has been revoked or for what ever reason it's become invalid. In this case, the user will have to sign in again.
 
->It's recommendable that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep on mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
+>It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep on mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
 
 ### 3. Sign out
 
@@ -114,7 +114,5 @@ Last, when you have to sign out, you only need to clear the keychain.
 A0SimpleKeychain* keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
 [keychain clearAll];
 ```
-
-### 3. And we are done
 
 Now you can let your user's persist their sign in session.

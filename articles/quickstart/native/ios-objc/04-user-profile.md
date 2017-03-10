@@ -3,7 +3,7 @@ title: User Profile
 description: This tutorial will show you how to access the user profile from within your app, as well as how to update it.
 ---
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-objc-sample',
   path: '04-User-Profile',
