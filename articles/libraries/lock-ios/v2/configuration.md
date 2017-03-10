@@ -2,11 +2,11 @@
 section: libraries
 toc: true
 url: /libraries/lock-ios/v2/configuration
-title: Lock for iOS and macOS v2 Configuration Options
-description: Behavior configuration options available with Lock v2 for iOS/macOS
+title: Lock for iOS v2 Configuration Options
+description: Behavior configuration options available with Lock v2 for iOS
 ---
 
-# Lock v2 for iOS and macOS - Configuration Options
+# Lock v2 for iOS - Configuration Options
 
 There are numerous options to configure Lock's behavior listed below. In addition, there are also quite a few options available to alter Lock's appearance and style in the [Style Customization Options](/libraries/lock-ios/v2/customization) page.
 
