@@ -39,6 +39,52 @@ Now that we saw what these tokens can be used for, let's see what they cannot be
 
 - __An `id_token` should not be used for API access__. Each token contains information on the intended audience (recipient). According to the OpenID Connect specification, the audience (claim `aud`) of each `id_token` must be the `client_id` of the client making the authentication request. If it isn't you shouldn't trust the token. An API, on the other hand, expects a token with the audience set to the API's unique identifier. So unless you are in control of both the client and the API, sending an `id_token` to an API will not work.
 
+## Compare Tokens
+
+To better understand what we just read, let's look at the contents of example tokens.
+
+The (decoded) contents of an `id_token` look like the following:
+
+```json
+{
+  "iss": "http://${account.namespace}/",
+  "sub": "auth0|123456",
+  "aud": "${account.clientId}",
+  "exp": 1311281970,
+  "iat": 1311280970,
+  "name": "Jane Doe",
+  "given_name": "Jane",
+  "family_name": "Doe",
+  "gender": "female",
+  "birthdate": "0000-10-31",
+  "email": "janedoe@example.com",
+  "picture": "http://example.com/janedoe/me.jpg"
+}
+```
+
+This token is meant for __authenticating the user to the client__. Note that the audience (`aud` claim) of the token is set to the client's identifier, which means that only this specific client should consume this token.
+
+For comparison, let's look at the contents of an `access_token`:
+
+```json
+{
+  "iss": "https://${account.namespace}/",
+  "sub": "auth0|123456",
+  "aud": [
+    "my-api-identifier",
+    "https://${account.namespace}/userinfo"
+  ],
+  "azp": "${account.clientId}",
+  "exp": 1489179954,
+  "iat": 1489143954,
+  "scope": "openid profile email address phone read:appointments email"
+}
+```
+
+This token is meant for __authorizing the user to the API__. As such, it is completely opaque to clients, meaning that clients should not care about the contents of this token. Note that the token does not contain any information about the user itself besides their ID (`sub` claim), it only contains authorization information about which actions the client is allowed to perform at the API (`scope` claim). 
+
+Since in many cases it is desirable to retrieve additional user information at the API, this token is also valid for calling the `/userinfo` API, which will return the user's profile information. So the intented audience (`aud` claim) of the token is either the API (`my-api-identifier`) or the `/userinfo` endpoint (`https://${account.namespace}/userinfo`).
+
 ## Keep reading
 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)<br/>
