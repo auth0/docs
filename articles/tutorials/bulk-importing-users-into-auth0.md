@@ -10,7 +10,7 @@ With this in mind, our [Management API has an endpoint](/api/management/v2#!/Job
 
 ## Pre-requisites
 
-Before you launch the import users job, a database (to which the users will be imported) must already exist.
+Before you launch the import users job, a database (to which the users will be imported) must already exist and it must be enabled for at least one client.
 
 ### Users schema
 The users file must have an array with the users' information in JSON format. The following [JSON schema](http://json-schema.org) describes valid users:
