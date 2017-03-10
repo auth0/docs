@@ -1,13 +1,13 @@
 ---
 section: libraries
 toc_title: Internationalization
-title: Internationalization in Lock v2 for iOS and macOS 
-description: Internationalization support in Lock v2 for iOS and macOS
+title: Internationalization in Lock v2 for iOS
+description: Internationalization support in Lock v2 for iOS
 ---
 
 # Internationalization
 
-By default, **Lock v2 for iOS and macOS** displays all text in English. If you wish to display text in another language, or you wish to alter the text values for your application, you may provide a `Lock.strings` file and define values to be used for the various text items that Lock might display.
+By default, **Lock v2 for iOS** displays all text in English. If you wish to display text in another language, or you wish to alter the text values for your application, you may provide a `Lock.strings` file and define values to be used for the various text items that Lock might display.
 
 More information about how to handle languages in Swift can be found in the Apple documentation on [Internationalization and Localization](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/Introduction/Introduction.html#//apple_ref/doc/uid/10000171i-CH1-SW1)
 

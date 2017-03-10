@@ -6,7 +6,7 @@ title: Migrating from v1 to v2 of Lock for iOS
 description: A migration guide to assist with migration from Lock v1 (Swift) to Lock v2 (Swift).
 ---
 
-# Migrating from Lock iOS and macOS v1 to v2
+# Migrating from Lock iOS v1 to v2
 
 Lock 2.0 is the latest major release of Lock iOS-OSX. This guide is provided in order to ease the transition of existing applications using Lock 1.x to the latest APIs.
 
