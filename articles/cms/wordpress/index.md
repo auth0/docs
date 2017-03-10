@@ -1,9 +1,9 @@
 ---
 url: /cms/wordpress
-description: This page explains the basics of the WordPress plugin.
+description: This page explains the basics of the Login by Auth0 WordPress plugin.
 ---
 
-# Auth0 WordPress plugin
+# Login by Auth0 WordPress Plugin
 
 Auth0 provides a WordPress Plugin to integrate your sites with your Auth0 account. These plugin enable Single Sign On for Enterprises, social login, user/password and passwordless login through all your instances.
 
@@ -18,7 +18,7 @@ Login features are implemented through a new Login Widget (powered by Auth0) tha
 - Reporting and Analytics
 
 
-## WordPress Plugin
+## Login by Auth0 WordPress Plugin
 
 - [How does it work?](/cms/wordpress/how-does-it-work)
 - [Installation](/cms/wordpress/installation)
