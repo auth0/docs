@@ -62,18 +62,32 @@ Now that the second login is handled, you will need to actually do the linking.
 
 To call the API, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same interface  as the `Http` module but automatically adds the authorization header to requests.
 
-First, add the `AUTH_PROVIDERS` from angular-jwt:
+First, configure **angular2-jwt** in your application module.
 
 ```typescript
 // app/app.module.ts
 
 import { AppComponent } from './app.component';
+import { Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+
+function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenName: 'id_token',
+  }), http, options);
+}
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  // ...
+  providers: [
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 ```
