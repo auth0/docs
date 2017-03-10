@@ -19,7 +19,7 @@ budicon: 546
 
 To make an authenticated request, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same interface as the `Http` module but automatically adds the authorization header to requests.
 
-First, add `AUTH_PROVIDERS` from `angular2-jwt`:
+First, configure **angular2-jwt** in your application module.
 
 ```typescript
 // app/app.module.ts
