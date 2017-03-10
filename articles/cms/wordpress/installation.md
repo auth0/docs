@@ -23,7 +23,7 @@ Click **Add New**.
 
 ![Where to Add New Plugins in WordPress](/media/articles/cms/wordpress/add-new.png)
 
-Search for the Auth0 plugin, and click **Install Now**.
+Search for the **Login By Auth0** plugin, and click **Install Now**.
 
 ![Install the plugin](/media/articles/cms/wordpress/install-plugin.png)
 
