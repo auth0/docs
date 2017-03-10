@@ -147,7 +147,7 @@ Besides storing the `idToken`, we need to store the `refreshToken`. Let's make a
 Lock
     .classic()
     .withOptions {
-        $0.scope = "openid offline_access"
+        $0.scope = "openid email offline_access"
         $0.parameters = ["device":"A_UNIQUE_ID"]
     }
     .onAuth {
@@ -171,7 +171,9 @@ guard let refreshToken = keychain.string(forKey: "refresh_token") else {
 }
 Auth0
     .authentication()
-    .delegation(withParameters: ["refresh_token": refreshToken])
+    .delegation(withParameters: ["refresh_token": refreshToken,
+                                         "scope": "openid email",
+                                         "api_type": "app"])
     .start { result in
         switch(result) {
         case .success(let credentials):
