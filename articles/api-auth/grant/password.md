@@ -40,15 +40,16 @@ Due to the implied trust in these grants (a user providing his or her password t
 
 If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then this is the indication that the rule is running during the password exchange.
 
-#### Customizing the returned token
+#### Customizing the returned tokens
 
-Inside a rule, you can change the returned scopes of the `access_token` and/or add claims to it with code like this:
+Inside a rule, you can change the returned scopes of the `access_token` and/or add claims to it (and the `id_token`) with code like this:
 
 ```javascript
 function(user, context, callback) {
   
-  // add custom claims
+  // add custom claims to access token and ID token
   context.accessToken['http://foo/bar'] = 'value';
+  context.idToken['http://fiz/baz'] = 'some other value';
   
   // change scope
   context.accessToken.scope = ['array', 'of', 'strings'];
@@ -57,6 +58,10 @@ function(user, context, callback) {
 }
 
 ```
+
+::: panel-warning Namespacing Custom Claims
+You must properly namespace your custom claims with URI format to avoid conflicting with spec claims.
+:::
 
 ## MFA Support
 
