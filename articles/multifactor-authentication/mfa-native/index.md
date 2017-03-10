@@ -1,12 +1,12 @@
 ---
 title: MFA on a Resource Owner endpoint
-description: How to enable your native iOS or Andriod app to use Multifactor Authentication.
+description: How to enable your native iOS or Android app to use Multifactor Authentication.
 url: /multifactor-authentication/mfa-native
 ---
 
 # Multifactor Authentication for Native Applications
 
-You can enable your native iOS or Andriod app to use Multifactor Authentication.
+You can enable your native iOS or Android app to use Multifactor Authentication.
 
 This tutorial demonstrates setting up MFA for iOS.
 
@@ -18,7 +18,7 @@ This tutorial uses the [iOS - Objective C](/quickstart/native/ios-objc) sample p
 
 ### Configure the sample project
 
-Open the `basic-sample/Info.plist` file and replace the `CLIENT_ID` and `TENANT` fields with your Auth0 account information.
+Open the `basic-sample/Info.plist` find and replace the `CLIENT_ID` and `TENANT` fields with your Auth0 account information.
 
 ```
 <key>Auth0ClientId</key>
