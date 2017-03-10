@@ -28,7 +28,7 @@ The auth0.js library can either be retrieved from Auth0's CDN or from npm.
 **CDN Link**
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0/8.0/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/auth0/8.3/auth0.min.js"></script>
 ```
 
 **npm**
