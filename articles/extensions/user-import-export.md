@@ -26,7 +26,7 @@ There are two ways of using this extension, they are described below:
 
 1. Select the Import option in the menu from the left.
 2. You may drop a valid JSON file ([schema and examples here](/tutorials/bulk-importing-users-into-auth0)) in the square area or click there to browse your files and search for a valid JSON file. This JSON file should contain the list of users that you are planning to import.
-3. Select the database connection where these users will be imported.
+3. Select the database connection where these users will be imported. Please make sure that the connection is enabled for at least one client.
 4. Click on the `Start importing users` blue button.
 
 ### Export of users
