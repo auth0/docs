@@ -143,18 +143,32 @@ You can add an `address` attribute to the user profile's `user_metadata` by crea
 
 To call the endpoint, you can use the [AuthHttp](https://github.com/auth0/angular2-jwt#sending-authenticated-requests) helper from `angular2-jwt` which provides the same interface as the `Http` module but automatically adds the authorization header to requests.
 
-First, add `AUTH_PROVIDERS` from `angular2-jwt`:
+First, configure **angular2-jwt** in your application module.
 
 ```typescript
 // app/app.module.ts
 
 import { AppComponent } from './app.component';
+import { Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+
+function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenName: 'id_token',
+  }), http, options);
+}
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  // ...
+  providers: [
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 ```
