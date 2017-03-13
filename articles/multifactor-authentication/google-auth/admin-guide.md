@@ -66,6 +66,12 @@ function (user, context, callback) {
 
 When you have finished editing the code snippet based on the requirements of your app, click **Save**.
 
+::: panel-info Note
+At this time Google Authenticator does not allow any customizations to the look and feel of the Google Authenticator screens.
+
+For other customization options [see Auth0 Guardian](/multifactor-authentication/administrator#customization). 
+:::
+
 ## Reset a MFA for a User
 
 If a user has lost their mobile device, you as an administrator will need to reset their MFA.
