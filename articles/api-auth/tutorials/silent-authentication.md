@@ -16,7 +16,7 @@ To initiate a silent authentication request, add the `prompt=none` parameter whe
 
 For example:
 
-```
+```text
 GET https://${account.namespace}/authorize
     ?response_type=code&
     client_id=...&
@@ -39,8 +39,8 @@ If the user was already logged in via SSO, Auth0 will respond exactly as if the 
 
 For example, when using the [Authorization Code Grant](/api-auth/grant/authorization-code) (`response_type=code`, used for regular web applications), Auth0 will respond with an authorization code that can be exchanged for an ID token and optionally an access token:
 
-```
-GET https://your_callback_url/
+```text
+GET ${account.callback}
     ?code=...&
     state=...&
     expires_in=...
