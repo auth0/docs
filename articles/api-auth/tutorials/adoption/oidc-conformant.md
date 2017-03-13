@@ -11,12 +11,8 @@ In order to make the transition to the [OIDC-conformant authentication pipeline]
 
 ![OIDC-conformant client setting](/media/articles/dashboard/oidc_conformant.png)
 
-For this flag to be visible, your Auth0 tenant needs to have "OAuth 2.0 API Authorization" enabled under [**Account settings > Advanced**](https://${manage_url}/#/account/advanced):
-
-[![OAuth 2.0 API Authorization setting](/media/articles/dashboard/oauth_api_authorization.png)](https://${manage_url}/#/account/advanced)
-
 The objective of this flag is to disable as many legacy features as possible, so you can run into the OIDC-conformant pipeline's breaking changes at configuration time rather than run time.
-Enabling this flag on a client with an `audience` parameter will have the following effects:
+Enabling this flag on a client will have the following effects:
 
 * The following features are deprecated in favor of [silent authentication](/api-auth/tutorials/adoption/implicit):
     - Refresh tokens on authentication with the [implicit grant](/api-auth/tutorials/adoption/implicit)

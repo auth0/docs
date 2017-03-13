@@ -51,7 +51,7 @@ Content-Type: application/json
 }</code></pre>
     <ul>
         <li>The endpoint to execute token exchanges is <code>/oauth/token</code>.</li>
-        <li><a href="/api-auth/tutorials/password-grant#realm-support">Auth0's own grant type</a> is used to authenticate users from a specific connection (<code>realm</code>).</li>
+        <li><a href="/api-auth/tutorials/password-grant#realm-support">Auth0's own grant type</a> is used to authenticate users from a specific connection (<code>realm</code>). The <a href="/api-auth/tutorials/password-grant">standard OIDC password grant</a> is also supported, but it does not accept Auth0-specific parameters such as <code>realm</code>.</li>
         <li><code>favorite_color</code> is no longer a valid scope.</li>
         <li>The <code>device</code> parameter is removed.</li>
         <li>The <code>audience</code> parameter is optional.</li>
@@ -186,6 +186,11 @@ Pragma: no-cache
     </div>
   </div>
 </div>
+
+## Standard password grant requests
+
+The Auth0 password realm grant is not defined by standard OIDC, but it is suggested as an alternative to the legacy resource owner endpoint because it supports the Auth0-specific `realm` parameter.
+The [standard OIDC grant is also supported](/api-auth/tutorials/password-grant) when using OIDC authentication.
 
 ## Further reading
 

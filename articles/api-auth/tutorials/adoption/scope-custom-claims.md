@@ -39,7 +39,7 @@ This would be the profile stored by Auth0:
   "email_verified": true,
   "user_id": "custom|123",
   "favorite_color": "blue",
-  "app_metadata": {
+  "user_metadata": {
     "preferred_contact": "email"
   }
 }
@@ -63,7 +63,7 @@ token claims to the client:
 ```
 
 Note that the `user_id` property is sent as `sub` in the ID token, and that `favorite_color` and
-`app_metadata` are not present in the OIDC response from Auth0. This is
+`user_metadata` are not present in the OIDC response from Auth0. This is
 because OIDC does not define standard claims to represent all the
 information in this user’s profile. We can, however, define a
 non-standard claim by namespacing it through a rule:
@@ -72,7 +72,7 @@ non-standard claim by namespacing it through a rule:
 function (user, context, callback) {
   const namespace = 'https://myapp.example.com/';
   context.idToken[namespace + 'favorite_color'] = user.favorite_color;
-  context.idToken[namespace + 'preferred_contact'] = user.app_metadata.preferred_contact;
+  context.idToken[namespace + 'preferred_contact'] = user.user_metadata.preferred_contact;
   callback(null, user, context);
 }
 ```
