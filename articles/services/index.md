@@ -7,7 +7,7 @@ description: Professional Services offered by Auth0.
 
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Auth0 Professional Services</h1>
+  <h1 class="anchor-heading">Auth0 Professional Services</h1>
   <p>
     The Auth0 Professional Services Portfolio consists of innovative, specialized service offerings designed to optimize customers investments on the Auth0 Platform. These offerings help customers deploy, implement and maintain solutions based on proven practices, avoiding common pitfalls and reducing risk.
   </p>
