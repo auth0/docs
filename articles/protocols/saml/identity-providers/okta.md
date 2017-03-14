@@ -116,7 +116,7 @@ You can test your Okta-Auth0 integration using the [Management Dashboard](${mana
 
 Go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider**. On the row associated with Okta, click the **play** icon to *Try* your Connection.
 
-![Test Okta Connection](/media/articles/saml/identity-providers/okta/try.png)
+![Test Okta Connection](/media/articles/saml/identity-providers/okta/test.png)
 
 If your test was successful, you'll see the **It works!** screen. If not, you'll see an error message containing details on what the issue might be.
 
