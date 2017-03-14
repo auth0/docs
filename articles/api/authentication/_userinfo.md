@@ -93,9 +93,11 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 - The auth0.js `parseHash` method, requires that your tokens are signed with `RS256`, rather than `HS256`. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
 - This API endpoint will return a HTTP Response Header that provides relevant data on the endpoint [rate limit](/policies/rate-limits). This includes numeric information detailing your status:
 
-* **X-RateLimit-Limit**: Request limit
-* **X-RateLimit-Remaining**: Requests available for the current time frame
-* **X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
+**X-RateLimit-Limit**: Request limit
+
+**X-RateLimit-Remaining**: Requests available for the current time frame
+
+**X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
 
 
 
@@ -191,9 +193,11 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 ### Remarks
 - This API endpoint will return a HTTP Response Header that provides relevant data on the endpoint [rate limit](/policies/rate-limits). This includes numeric information detailing your status:
 
-* **X-RateLimit-Limit**: Request limit
-* **X-RateLimit-Remaining**: Requests available for the current time frame
-* **X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
+**X-RateLimit-Limit**: Request limit
+
+**X-RateLimit-Remaining**: Requests available for the current time frame
+
+**X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
 
 ### More Information
 

@@ -73,9 +73,11 @@ Given an existing token, this endpoint will generate a new token signed with the
 - This endpoint limits up to 10 requests per minute from the same IP address with the same `user_id`.
 - This API endpoint will return a HTTP Response Header that provides relevant data on the endpoint [rate limit](/policies/rate-limits). This includes numeric information detailing your status:
 
-* **X-RateLimit-Limit**: Request limit
-* **X-RateLimit-Remaining**: Requests available for the current time frame
-* **X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
+**X-RateLimit-Limit**: Request limit
+
+**X-RateLimit-Remaining**: Requests available for the current time frame
+
+**X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
 
 
 ### More Information
