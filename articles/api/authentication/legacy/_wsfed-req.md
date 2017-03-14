@@ -14,7 +14,7 @@ curl --request GET \
 ```
 
 <% var acceptWSReqPath = '/wsfed/YOUR_CLIENT_ID'; %>
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": acceptWSReqPath,
   "link": "#accept-request20"
@@ -40,12 +40,12 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the field **Client** (select the client you want to use for the test) and **Connection** (the name of the configured identity provider).
 
@@ -80,8 +80,7 @@ curl --request GET \
 ```
 
 <% var getMetadataPath = '/wsfed/YOUR_CLIENT_ID/FederationMetadata/2007-06/FederationMetadata.xml'; %>
-<%=
-include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": getMetadataPath,
   "link": "#get-metadata21"
@@ -96,7 +95,7 @@ This endpoint returns the WS-Federation metadata.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### More Information

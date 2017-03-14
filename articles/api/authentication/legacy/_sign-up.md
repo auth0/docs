@@ -51,7 +51,7 @@ curl --request POST \
 }
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/dbconnections/signup",
   "link": "#signup"
@@ -78,7 +78,7 @@ This endpoint only works for database connections.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks

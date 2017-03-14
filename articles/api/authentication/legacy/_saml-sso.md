@@ -19,8 +19,7 @@ curl --request GET \
 ```
 
 <% var acceptReqPath = '/samlp/YOUR_CLIENT_ID'; %>
-<%=
-include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": acceptReqPath,
   "link": "#accept-request"
@@ -45,7 +44,7 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks
@@ -70,8 +69,7 @@ curl --request GET \
 ```
 
 <% var getMetadataPath = '/samlp/metadata/YOUR_CLIENT_ID'; %>
-<%=
-include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": getMetadataPath,
   "link": "#get-metadata"
@@ -92,7 +90,7 @@ This endpoint returns the SAML 2.0 metadata.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### More Information
@@ -117,8 +115,7 @@ curl --request POST \
 ```
 
 <% var idpInitPath = '/login/callback'; %>
-<%=
-include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": idpInitPath,
   "link": "#idp-initiated-sso-flow"
@@ -141,7 +138,7 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the field **Client** (select the client you want to use for the test) and **Connection** (the name of the configured identity provider).
 

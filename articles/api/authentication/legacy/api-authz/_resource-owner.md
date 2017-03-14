@@ -59,7 +59,7 @@ request(options, function (error, response, body) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/ro",
   "link": "#resource-owner"
@@ -88,7 +88,7 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test, and **Connection** to the name of the connection to use.
 

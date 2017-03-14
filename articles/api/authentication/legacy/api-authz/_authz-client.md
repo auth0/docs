@@ -34,7 +34,7 @@ HTTP/1.1 302 Found
 Location: ${account.callback}?code=AUTHORIZATION_CODE&state=STATE
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#authorization-code-grant"
@@ -59,7 +59,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 
@@ -105,7 +105,7 @@ HTTP/1.1 302 Found
 Location: ${account.callback}?code=AUTHORIZATION_CODE
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#authorization-code-grant-pkce-"
@@ -134,7 +134,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 
@@ -180,7 +180,7 @@ HTTP/1.1 302 Found
 Location: ${account.callback}#access_token=TOKEN&state=STATE&token_type=TYPE&expires_in=SECONDS
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#implicit-grant"
@@ -208,7 +208,7 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 

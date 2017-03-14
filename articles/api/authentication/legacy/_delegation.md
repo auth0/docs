@@ -27,7 +27,7 @@ curl --request POST \
 // For a version 7 sample refer to: https://auth0.com/docs/libraries/auth0js/v7#delegation-token-request
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/delegation",
   "link": "#delegation"
@@ -55,12 +55,12 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 

@@ -13,7 +13,7 @@ GET https://${account.namespace}/authorize?
   access_token=LOGGED_IN_USER_ACCESS_TOKEN
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#link"
@@ -94,7 +94,7 @@ xhr.onload = function() {
 xhr.send(params);
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/login/unlink",
   "link": "#unlink"
@@ -121,7 +121,7 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### More Information

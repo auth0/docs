@@ -41,7 +41,7 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#social"
@@ -70,7 +70,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 
@@ -144,7 +144,7 @@ xhr.send(params);
 }
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/access_token",
   "link": "#social-with-provider-s-access-token"
@@ -169,7 +169,7 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks
@@ -225,7 +225,7 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#database-ad-ldap-passive-"
@@ -250,7 +250,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 
@@ -335,7 +335,7 @@ curl --request POST \
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/ro",
   "link": "#database-ad-ldap-active-"
@@ -363,11 +363,11 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 
@@ -437,7 +437,7 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#enterprise-saml-and-others-"
@@ -463,7 +463,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 

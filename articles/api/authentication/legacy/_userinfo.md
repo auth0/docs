@@ -65,7 +65,7 @@ curl --request GET \
 }
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/userinfo",
   "link": "#get-user-info"
@@ -89,7 +89,7 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks
@@ -169,7 +169,7 @@ webAuth.parseHash(window.location.hash, function(err, authResult) {
 }
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/tokeninfo",
   "link": "#get-token-info"
@@ -191,7 +191,7 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks

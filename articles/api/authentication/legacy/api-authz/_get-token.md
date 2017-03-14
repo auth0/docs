@@ -67,7 +67,7 @@ Content-Type: application/json
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/token",
   "link": "#authorization-code"
@@ -93,12 +93,12 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ### Test with Postman
 
-<%= include('../../../_includes/_test-with-postman') %>
+<%= include('../../../../_includes/_test-with-postman') %>
 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 If you have just executed the [Authorization Code Grant](#authorization-code-grant) you should already have a code set at the **Authorization Code** field of the *OAuth2 / OIDC* tab. If so, click **OAuth2 Code Exchange**, otherwise follow the instructions.
 
@@ -167,7 +167,7 @@ Content-Type: application/json
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/token",
   "link": "#authorization-code-pkce-"
@@ -194,7 +194,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 If you have just executed the [Authorization Code Grant (PKCE)](#authorization-code-grant-pkce-) you should already have the **Authorization Code** and **Code Verifier** fields, of the *OAuth2 / OIDC* tab, set. If so, click **OAuth2 Code Exchange**, otherwise follow the instructions.
 
@@ -265,7 +265,7 @@ Content-Type: application/json
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/token",
   "link": "#client-credentials"
@@ -289,7 +289,7 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 
@@ -366,7 +366,7 @@ Content-Type: application/json
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/token",
   "link": "#resource-owner-password"
@@ -395,7 +395,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 

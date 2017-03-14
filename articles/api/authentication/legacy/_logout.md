@@ -32,7 +32,7 @@ curl --request GET \
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/v2/logout",
   "link": "#logout"
@@ -58,7 +58,7 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 
