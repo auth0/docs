@@ -60,7 +60,7 @@ This endpoint will trigger the login flow to link an existing account with a new
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/login/unlink
+POST https://${account.namespace}/unlink
 Content-Type: 'application/json'
 {
   "access_token": "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity access_token
@@ -70,13 +70,13 @@ Content-Type: 'application/json'
 
 ```shell
 curl --request POST \
-  --url 'https://${account.namespace}/login/unlink' \
+  --url 'https://${account.namespace}/unlink' \
   --header 'content-type: application/json' \
   --data '{"access_token": "LOGGED_IN_USER_ACCESS_TOKEN", "user_id": "LINKED_USER_ID"}'
 ```
 
 ```javascript
-var url = 'https://' + ${account.namespace} + '/login/unlink';
+var url = 'https://' + ${account.namespace} + '/unlink';
 var params = 'access_token=LOGGED_IN_USER_ACCESS_TOKEN&user_id=' + localStorage.getItem('user_id');
 
 var xhr = new XMLHttpRequest();
@@ -96,7 +96,7 @@ xhr.send(params);
 
 <%= include('../../../_includes/_http-method', {
   "http_method": "POST",
-  "path": "/login/unlink",
+  "path": "/unlink",
   "link": "#unlink"
 }) %>
 
