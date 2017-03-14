@@ -26,6 +26,10 @@ include('../../_includes/_http-method', {
   "link": "#accept-request"
 }) %>
 
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#accept-request">Authentication API Explorer (legacy)</a>.
+</div>
+
 Use this endpoint to accept a SAML request to initiate a login.
 
 Optionally, it accepts a connection parameter to login with a specific provider. If no connection is specified, the [Auth0 Login Page](/login_page) will be shown.
@@ -73,6 +77,10 @@ include('../../_includes/_http-method', {
   "link": "#get-metadata"
 }) %>
 
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#get-metadata">Authentication API Explorer (legacy)</a>.
+</div>
+
 This endpoint returns the SAML 2.0 metadata.
 
 ### Request Parameters
@@ -115,6 +123,10 @@ include('../../_includes/_http-method', {
   "path": idpInitPath,
   "link": "#idp-initiated-sso-flow"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#idp-initiated-sso-flow">Authentication API Explorer (legacy)</a>.
+</div>
 
 This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
 

@@ -28,7 +28,7 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   webAuth.changePassword({
     connection: 'CONNECTION',
     email:   'EMAIL'
@@ -53,6 +53,10 @@ curl --request POST \
 ```JSON
 "We've just sent you an email to reset your password."
 ```
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#change-password">Authentication API Explorer (legacy)</a>.
+</div>
 
 Given a user's `email` address and a `connection`, Auth0 will send a change password email.
 

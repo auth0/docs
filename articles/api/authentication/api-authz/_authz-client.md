@@ -40,6 +40,10 @@ Location: ${account.callback}?code=AUTHORIZATION_CODE&state=STATE
   "link": "#authorization-code-grant"
 }) %>
 
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#authorization-code-grant">Authentication API Explorer (legacy)</a>.
+</div>
+
 This is the OAuth 2.0 grant that regular web apps utilize in order to access an API.
 
 ### Request Parameters
@@ -106,6 +110,10 @@ Location: ${account.callback}?code=AUTHORIZATION_CODE
   "path": "/authorize",
   "link": "#authorization-code-grant-pkce-"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#authorization-code-grant-pkce-">Authentication API Explorer (legacy)</a>.
+</div>
 
 This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. Before starting with this flow, you need to generate and store a `code_verifier`, and using that, generate a `code_challenge` that will be sent in the authorization request.
 
@@ -177,6 +185,10 @@ Location: ${account.callback}#access_token=TOKEN&state=STATE&token_type=TYPE&exp
   "path": "/authorize",
   "link": "#implicit-grant"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#implicit-grant">Authentication API Explorer (legacy)</a>.
+</div>
 
 This is the OAuth 2.0 grant that Client-side web apps utilize in order to access an API.
 

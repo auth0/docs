@@ -1,5 +1,9 @@
 # Introduction
 
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy">Authentication API Explorer (legacy)</a>.
+</div>
+
 The Authentication API exposes the identity functionality of Auth0, as well as the supported identity protocols like [OpenID Connect](/protocols/oidc), [OAuth 2.0](/protocols/oauth2), and [SAML](/protocols/saml).
 
 Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually you will have to interact with this API directly.

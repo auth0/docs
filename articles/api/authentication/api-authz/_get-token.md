@@ -73,6 +73,10 @@ Content-Type: application/json
   "link": "#authorization-code"
 }) %>
 
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#authorization-code">Authentication API Explorer (legacy)</a>.
+</div>
+
 This is the OAuth 2.0 grant that regular web apps utilize in order to access an API. Use this endpoint to exchange an Authorization Code for a Token.
 
 
@@ -169,6 +173,10 @@ Content-Type: application/json
   "link": "#authorization-code-pkce-"
 }) %>
 
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#authorization-code-pkce-">Authentication API Explorer (legacy)</a>.
+</div>
+
 This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. Use this endpoint to exchange an Authorization Code for a Token.
 
 
@@ -262,6 +270,10 @@ Content-Type: application/json
   "path": "/oauth/token",
   "link": "#client-credentials"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#client-credentials">Authentication API Explorer (legacy)</a>.
+</div>
 
 This is the OAuth 2.0 grant that server processes utilize in order to access an API. Use this endpoint to directly request an `access_token` by using the Client Credentials (a Client Id and a Client Secret).
 
@@ -359,6 +371,10 @@ Content-Type: application/json
   "path": "/oauth/token",
   "link": "#resource-owner-password"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#resource-owner-password">Authentication API Explorer (legacy)</a>.
+</div>
 
 This is the OAuth 2.0 grant that highly trusted apps utilize in order to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form in the user-agent (browser). This information is later on sent to the client and Auth0. It is therefore imperative that the client is absolutely trusted with this information.
 

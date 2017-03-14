@@ -24,7 +24,7 @@ curl --request GET \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   webAuth.logout({
     returnTo: 'YOUR_LOGOUT_URL',
     client_id: '${account.clientId}'
@@ -37,6 +37,10 @@ curl --request GET \
   "path": "/v2/logout",
   "link": "#logout"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#logout">Authentication API Explorer (legacy)</a>.
+</div>
 
 Use this endpoint to logout a user. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter. The URL should be included in any the appropriate `Allowed Logout URLs` list:
 - If the `client_id` parameter is included, the `returnTo` URL must be listed in the `Allowed Logout URLs` set at the client level (see [Setting Allowed Logout URLs at the App Level](/logout#setting-allowed-logout-urls-at-the-app-level)).

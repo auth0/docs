@@ -20,6 +20,10 @@ curl --request GET \
   "link": "#accept-request20"
 }) %>
 
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#accept-request20">Authentication API Explorer (legacy)</a>.
+</div>
+
 This endpoint accepts a WS-Federation request to initiate a login.
 
 
@@ -82,6 +86,10 @@ include('../../_includes/_http-method', {
   "path": getMetadataPath,
   "link": "#get-metadata21"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#get-metadata21">Authentication API Explorer (legacy)</a>.
+</div>
 
 This endpoint returns the WS-Federation metadata.
 

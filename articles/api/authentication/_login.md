@@ -23,7 +23,7 @@ GET https://${account.namespace}/authorize?
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Trigger login with google
   webAuth.authorize({
     connection: 'google-oauth2'
@@ -46,6 +46,10 @@ GET https://${account.namespace}/authorize?
   "path": "/authorize",
   "link": "#social"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#social">Authentication API Explorer (legacy)</a>.
+</div>
 
 Use this endpoint to authenticate a user with a social provider. It will return a `302` redirect to the social provider specified in `connection`.
 
@@ -146,6 +150,10 @@ xhr.send(params);
   "link": "#social-with-provider-s-access-token"
 }) %>
 
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#social-with-provider-s-access-token">Authentication API Explorer (legacy)</a>.
+</div>
+
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
 
 
@@ -203,7 +211,7 @@ GET https://${account.namespace}/authorize?
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Calculate URL to redirect to
   var url = webAuth.client.buildAuthorizeUrl({
     clientID: '${account.clientId}', // string
@@ -211,7 +219,7 @@ GET https://${account.namespace}/authorize?
     redirectUri: '${account.callback}',
     state: 'YOUR_STATE'
   });
-  
+
   // Redirect to url
   // ...
 </script>
@@ -222,6 +230,10 @@ GET https://${account.namespace}/authorize?
   "path": "/authorize",
   "link": "#database-ad-ldap-passive-"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#database-ad-ldap-passive-">Authentication API Explorer (legacy)</a>.
+</div>
 
 Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to the [Auth0 Login Page](https://${account.namespace}/login) that will show the Login Widget where the user can login with email and password.
 
@@ -295,8 +307,8 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
-  // Trigger login using redirect with credentials to enterprise connections 
+
+  // Trigger login using redirect with credentials to enterprise connections
   webAuth.redirect.loginWithCredentials({
     connection: 'Username-Password-Authentication',
     username: 'testuser',
@@ -328,6 +340,10 @@ curl --request POST \
   "path": "/oauth/ro",
   "link": "#database-ad-ldap-active-"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#database-ad-ldap-active-">Authentication API Explorer (legacy)</a>.
+</div>
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
 
@@ -402,8 +418,8 @@ GET https://${account.namespace}/authorize?
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
-  // Trigger login using redirect with credentials to enterprise connections 
+
+  // Trigger login using redirect with credentials to enterprise connections
   webAuth.redirect.loginWithCredentials({
     connection: 'Username-Password-Authentication',
     username: 'testuser',
@@ -426,6 +442,10 @@ GET https://${account.namespace}/authorize?
   "path": "/authorize",
   "link": "#enterprise-saml-and-others-"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#enterprise-saml-and-others-">Authentication API Explorer (legacy)</a>.
+</div>
 
 Use this endpoint for passive authentication. It returns a `302` redirect to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
 

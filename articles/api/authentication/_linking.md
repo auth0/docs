@@ -19,6 +19,10 @@ GET https://${account.namespace}/authorize?
   "link": "#link"
 }) %>
 
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#link">Authentication API Explorer (legacy)</a>.
+</div>
+
 ::: panel-danger Deprecation Notice
 This endpoint is deprecated for account linking. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations#account-linking-removal).
 :::
@@ -95,6 +99,10 @@ xhr.send(params);
   "path": "/login/unlink",
   "link": "#unlink"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#unlink">Authentication API Explorer (legacy)</a>.
+</div>
 
 ::: panel-danger Deprecation Notice
 This endpoint is deprecated. The [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) should be used instead.

@@ -38,7 +38,7 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Send a verification code using email
   webAuth.passwordlessStart({
       connection: 'email',
@@ -76,6 +76,10 @@ curl --request POST \
   "path": "/passwordless/start",
   "link": "#get-code-or-link"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#get-code-or-link">Authentication API Explorer (legacy)</a>.
+</div>
 
 You have three options for [passwordless authentication](/connections/passwordless):
 - Send a verification code using email.
@@ -153,7 +157,7 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Verify code sent via email
   webAuth.passwordlessVerify({
       connection: 'email',
@@ -191,6 +195,10 @@ curl --request POST \
   "path": "/oauth/ro",
   "link": "#authenticate-user"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#authenticate-user">Authentication API Explorer (legacy)</a>.
+</div>
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
 

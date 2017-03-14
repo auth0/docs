@@ -25,15 +25,15 @@ curl --request GET \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Parse the URL and extract the access_token
   webAuth.parseHash(window.location.hash, function(err, authResult) {
     if (err) {
       return console.log(err);
     }
     webAuth.client.userInfo(authResult.accessToken, function(err, user) {
-        // This method will make a request to the /userinfo endpoint 
-        // and return the user object, which contains the user's information, 
+        // This method will make a request to the /userinfo endpoint
+        // and return the user object, which contains the user's information,
         // similar to the response below.
     });
   });
@@ -70,6 +70,10 @@ curl --request GET \
   "path": "/userinfo",
   "link": "#get-user-info"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#get-user-info">Authentication API Explorer (legacy)</a>.
+</div>
 
 Given the Auth0 `access token` obtained during login, this endpoint returns a user's profile.
 
@@ -170,6 +174,10 @@ webAuth.parseHash(window.location.hash, function(err, authResult) {
   "path": "/tokeninfo",
   "link": "#get-token-info"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#get-token-info">Authentication API Explorer (legacy)</a>.
+</div>
 
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
 

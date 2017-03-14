@@ -29,14 +29,14 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
-  webAuth.signup({ 
-    connection: 'CONNECTION', 
-    email: 'EMAIL', 
+
+  webAuth.signup({
+    connection: 'CONNECTION',
+    email: 'EMAIL',
     password: 'PASSWORD'
-  }, function (err) { 
-    if (err) return alert('Something went wrong: ' + err.message); 
-      return alert('success signup without login!') 
+  }, function (err) {
+    if (err) return alert('Something went wrong: ' + err.message);
+      return alert('success signup without login!')
   });
 </script>
 ```
@@ -56,6 +56,10 @@ curl --request POST \
   "path": "/dbconnections/signup",
   "link": "#signup"
 }) %>
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#signup">Authentication API Explorer (legacy)</a>.
+</div>
 
 Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication.
 
