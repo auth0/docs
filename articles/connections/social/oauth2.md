@@ -40,12 +40,12 @@ For example, the following code will retrieve the user profile from the **GitHub
 ```js
 function(access_token, ctx, callback) {
   request.get('https://api.github.com/user', {
-      'headers': {\
+      'headers': {
           'Authorization': 'Bearer ' + access_token,
           'User-Agent': 'Auth0'
         }
     }, function(e,r,b){
-    if( e ) return cb(e);
+    if( e ) return callback(e);
     if( r.statusCode !== 200 ) return callback(new Error('StatusCode:'+r.statusCode));
       callback(null,JSON.parse(b));
    });
