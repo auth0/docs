@@ -71,14 +71,12 @@ Given an existing token, this endpoint will generate a new token signed with the
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
 - Delegation is __not supported__ in version 8 of [auth0.js](/libraries/auth0js). For a sample in version 7 of the library, refer to [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request).
 - This endpoint limits up to 10 requests per minute from the same IP address with the same `user_id`.
-- This API endpoint will return a HTTP Response Header that provides relevant data on the endpoint [rate limit](/policies/rate-limits). This includes numeric information detailing your status:
-
-**X-RateLimit-Limit**: Request limit
-
-**X-RateLimit-Remaining**: Requests available for the current time frame
-
-**X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
+- This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:
+  `X-RateLimit-Limit`: Number of requests allowed per minute.
+  `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
+  `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 
 ### More Information
 - [Delegation Tokens](/tokens/delegation)
+- [Auth0 API Rate Limit Policy](/policies/rate-limits)
