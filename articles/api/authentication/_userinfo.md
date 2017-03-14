@@ -187,14 +187,12 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 
 
 ### Remarks
-- This API endpoint will return a HTTP Response Header that provides relevant data on the endpoint [rate limit](/policies/rate-limits). This includes numeric information detailing your status:
-
-**X-RateLimit-Limit**: Request limit
-
-**X-RateLimit-Remaining**: Requests available for the current time frame
-
-**X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
+- This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:
+  `X-RateLimit-Limit`: Number of requests allowed per minute.
+  `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
+  `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 ### More Information
 
 - [User Profile: In-Depth Details - API](/user-profile/user-profile-details#api)
+- [Auth0 API Rate Limit Policy](/policies/rate-limits)
