@@ -162,7 +162,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 ### Authentication API
 
-The following Auth0 Authenticaion API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Authentication API docs](/api/authentication).
+The following Auth0 Authenticaion API endpoints return rate limit-related headers:
 
 <table class="table">
   <tr>

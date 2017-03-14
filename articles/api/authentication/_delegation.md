@@ -70,6 +70,12 @@ Given an existing token, this endpoint will generate a new token signed with the
 - The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
 - Delegation is __not supported__ in version 8 of [auth0.js](/libraries/auth0js). For a sample in version 7 of the library, refer to [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request).
+- This endpoint limits up to 10 requests per minute from the same IP address with the same `user_id`.
+- This API endpoint will return a HTTP Response Header that provides relevant data on the endpoint [rate limit](/policies/rate-limits). This includes numeric information detailing your status:
+
+**X-RateLimit-Limit**: Request limit
+**X-RateLimit-Remaining**: Requests available for the current time frame
+**X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
 
 ### More Information
 - [Delegation Tokens](/tokens/delegation)

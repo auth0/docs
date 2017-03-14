@@ -91,6 +91,12 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 ### Remarks
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 - The auth0.js `parseHash` method, requires that your tokens are signed with `RS256`, rather than `HS256`. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
+- This API endpoint will return a HTTP Response Header that provides relevant data on the endpoint [rate limit](/policies/rate-limits). This includes numeric information detailing your status:
+
+**X-RateLimit-Limit**: Request limit
+**X-RateLimit-Remaining**: Requests available for the current time frame
+**X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
+
 
 
 ### More Information
@@ -180,6 +186,14 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 ### Test with Postman
 
 <%= include('../../_includes/_test-with-postman') %>
+
+
+### Remarks
+- This API endpoint will return a HTTP Response Header that provides relevant data on the endpoint [rate limit](/policies/rate-limits). This includes numeric information detailing your status:
+
+**X-RateLimit-Limit**: Request limit
+**X-RateLimit-Remaining**: Requests available for the current time frame
+**X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
 
 
 ### More Information

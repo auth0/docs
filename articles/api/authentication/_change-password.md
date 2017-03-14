@@ -79,6 +79,11 @@ This endpoint only works for database connections.
 - If a password is provided, when the user clicks on the confirm password change link, the new password specified in this POST will be set for this user.
 - If a password is NOT provided, when the user clicks on the password change link they will be redirected to a page asking them for a new password.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
+- This API endpoint will return a HTTP Response Header that provides relevant data on the endpoint [rate limit](/policies/rate-limits). This includes numeric information detailing your status:
+
+**X-RateLimit-Limit**: Request limit
+**X-RateLimit-Remaining**: Requests available for the current time frame
+**X-RateLimit-Reset**: Time until the rate limit resets (in UTC epoch seconds)
 
 
 ### More Information
