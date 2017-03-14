@@ -49,7 +49,7 @@ You must include a round-robin load balancer in your infrastructure when impleme
 
 We recommend a layer 7/application layer load balancer that supports:
 
-* HTTP health monitoring;
+* HTTP health monitoring. The [testall](/appliance/monitoring/testall) endpoint is an unauthenticated endpoint that will be used for monitoring by load balancers;
 * Awareness of websockets (this is required if using the Auth0 AD/LDAP Connector);
 * TCP/IP:
     * If your deployment requires geo-location data for users authenticating with Auth0, support for `proxy_protocols` (which append the remote UP address when opening a connection to the backend) will be exposed to the nodes. If `proxy_protocols` is not supported, the IP address information captured for individual logins will always appear as the Load Balancer IP address;
