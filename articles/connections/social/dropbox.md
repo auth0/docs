@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Dropbox
 connection: Dropbox
 image: /media/connections/dropbox.png
 seo_alias: dropbox

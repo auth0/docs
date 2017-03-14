@@ -1,4 +1,5 @@
 ---
+title: Connect your app to GitHub
 connection: Github
 image: /media/connections/github.png
 seo_alias: github
@@ -6,7 +7,7 @@ index: 7
 description: How to obtain a Client Id and Client Secret for GitHub.
 ---
 
-# Obtain a *Client Id* and *Client Secret* for GitHub
+# Connect your app to GitHub
 
 To configure a GitHub connection, you will need to register Auth0 with GitHub.
 

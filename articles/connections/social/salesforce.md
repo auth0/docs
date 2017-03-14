@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Salesforce
 connection: Salesforce
 image: /media/connections/salesforce.png
 seo_alias: salesforce
@@ -6,7 +7,7 @@ index: 6
 description: How to obtain a Client Id and Client Secret for Salesforce.
 ---
 
-# Obtain a *Client Id* and *Client Secret* for Salesforce
+# Connect your app to Salesforce
 
 To configure a Salesforce OAuth2 connection you will need to register your Auth0 tenant on their **Administer** panel.
 

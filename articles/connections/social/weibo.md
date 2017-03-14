@@ -1,11 +1,12 @@
 ---
+title: Connect your app to Weibo
 connection: Weibo
 image: /media/connections/weibo.png
 seo_alias: weibo
 description: How to obtain an App ID and App Secret for Weibo.
 ---
 
-# Obtaining an App ID and App Secret for Weibo
+# Connect your app to Weibo
 
 To configure a Weibo connection you will need to register Auth0 on the [Weibo App portal](http://open.weibo.com/apps).
 

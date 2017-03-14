@@ -1,4 +1,5 @@
 ---
+title: IBM DB2: Custom Login Script
 description: A custom callback script for those integrating with IBM DB2
 ---
 

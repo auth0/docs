@@ -1,5 +1,5 @@
 ---
-title: Connect Azure Active Directory with Auth0
+title: Connect your app to Microsoft Azure Active Directory
 connection: Azure Active Directory
 image: /media/connections/azure.png
 alias:
@@ -13,7 +13,7 @@ seo_alias: azure-active-directory
 description: How to obtain a ClientId and Client Secret for Microsoft Azure Active Directory.
 ---
 
-# Obtain a *ClientId* and *Client Secret* for Microsoft Azure Active Directory
+# Connect your app to Microsoft Azure Active Directory
 
 ::: panel-info Notice
 This page uses the current portal of the Azure Active Directory, for information on using the classic portal, [click here.](/connections/enterprise/azure-active-directory-classic)

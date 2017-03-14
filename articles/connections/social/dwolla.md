@@ -1,11 +1,12 @@
 ---
+title: Connect your app to Dwolla
 connection: Dwolla
 image: /media/connections/dwolla.png
 seo_alias: dwolla
 description: How to obtain a Client Id and Client Secret for Dwolla.
 ---
 
-# Obtain a *Client ID* and *Client Secret* for Dwolla
+# Connect your app to Dwolla
 
 To configure OAuth2 connections with Dwolla, you will need to register Auth0 on the Dwolla Developer portal.
 

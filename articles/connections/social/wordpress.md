@@ -1,4 +1,5 @@
 ---
+title: Connect your app to WordPress
 connection: WordPress
 image: /media/connections/wordpress.png
 seo_alias: wordpress
@@ -6,7 +7,7 @@ index: 11
 description: How to obtain a Client Id and Client Secret for WordPress.
 ---
 
-# Obtaining a Client ID and Client Secret for WordPress
+# Connect your app to WordPress
 
 To configure WordPress OAuth2 connections, you will need to register Auth0 with the [WordPress Developer Portal](http://developer.wordpress.com/).
 

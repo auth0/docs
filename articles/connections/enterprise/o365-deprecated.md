@@ -1,5 +1,5 @@
 ---
-title: Connecting Office 365 with Auth0 (Deprecated)
+title: Connect your app to Microsoft Office 365 (Deprecated)
 connection: Office 365 (Deprecated)
 image: /media/connections/office-365.png
 alias:
@@ -13,7 +13,7 @@ __Warning:__ The Office 365 connection is deprecated, you should use Windows Azu
 See [here](/office365-deprecated) for more details.
 :::
 
-# Obtain a *ClientId* and *Client Secret* for an Office 365 connection
+# Connect your app to Microsoft Office 365
 
 To configure Microsoft Office 365 connections, you need to a register an application in the Seller Dashboard.
 

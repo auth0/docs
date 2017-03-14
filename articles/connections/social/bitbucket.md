@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Bitbucket
 connection: Bitbucket
 image: /media/connections/bitbucket.png
 seo_alias: bitbucket
