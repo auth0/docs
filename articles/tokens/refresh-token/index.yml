@@ -1,0 +1,6 @@
+versioning:
+  baseUrl: tokens/refresh-token
+  current: legacy
+  versions:
+    - legacy
+    - preview
