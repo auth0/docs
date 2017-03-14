@@ -179,8 +179,8 @@ The possible responses are:
 
 | HTTP Status | Description |
 | --- | --- |
-| 200 | The refresh token is revoked or does not exist. The response body is empty. |
-| 400 | The required parameters were not sent in the request or the refresh token was not issued to the client making the revocation request (`"error": "invalid_request"`). |
+| 200 | The refresh token is revoked, does not exist, or was not issued to the client making the revocation request. The response body is empty. |
+| 400 | The required parameters were not sent in the request (`"error": "invalid_request"`). |
 | 401 | The request is not authorized (`"error": "invalid_client"`). Check that the client credentials (`client_id` and `client_secret`) are present in the request and hold valid values. |
 
 ### Use the Dashboard
