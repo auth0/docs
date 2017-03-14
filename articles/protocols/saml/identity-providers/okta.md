@@ -1,46 +1,72 @@
 ---
 title: Okta
-description: How to configure Okta as an identity provider.
+description: How to configure Okta for use as an identity provider.
 ---
 
-# Configure Okta as an Identity Provider
+# Configure Okta for Use as an Identity Provider
 
-## On Okta dashboard
+This article walks you through configuring Okta for use as an identity provider.
 
-Go to Okta dashboard and click on **Applications**. Click on **Create New App**.
+## Configure Your Okta Application
 
-![](/media/articles/saml/identity-providers/okta/okta-1.png)
+Log in to your Okta account. If you don't already have one, you will need to create one.
 
-Select **SAML 2.0**.
+On the general Okta dashboard, click **Admin**. This takes you to the Okta Admin Dashboard.
 
-![](/media/articles/saml/identity-providers/okta/okta-2.png)
+![](/media/articles/saml/identity-providers/okta/okta-dashboard.png)
 
-Enter the name of your app and optionally a Logo and click **Next**.
+Using the list of shortcuts at the right-hand side of the screen, click **Add Applications**.
 
-![](/media/articles/saml/identity-providers/okta/okta-3.png)
+![](/media/articles/saml/identity-providers/okta/okta-admin-dashboard.png)
 
-Enter the following values:
+On the *Add Application* page, select **Create New App**.
+
+![](/media/articles/saml/identity-providers/okta/create-new-app.png)
+
+On the *Create a New Application Integration* pop-up window, select the **Platform** for your application, and choose **SAML 2.0** as the *Sign on method*. Click **Create** to proceed.
+
+![](/media/articles/saml/identity-providers/okta/new-app-integration.png)
+
+You will now create your SAML integration. On the *General Settings* page, provide the following:
+
+* **App name**;
+* **App logo** (optional);
+* **App visibility**: select whether you want your users to see your application icon and in what settings.
+
+![](/media/articles/saml/identity-providers/okta/saml-general-settings.png)
+
+Click **Next** to proceed.
+
+Next, you will see the *SAML Settings* page. Enter the following values into the appropriate fields:
 
 * **Single sign on URL**: `https://${account.namespace}/login/callback`
 * **Audience URI (SP Entity ID)**: `urn:auth0:${account.tenant}:${connectionName}`
-* Add an Attribute Statement to map "email" to <%= "${user.email}" %>"
 
-![](/media/articles/saml/identity-providers/okta/okta-4.png)
+![](/media/articles/saml/identity-providers/okta/saml-settings.png)
 
-Select this is an internal application and then Finish.
+You will also need to add the following *Attribute Statement*:
 
-Click on **View Setup Instructions**
+* **Name**: email
+* **Name format** (optional): Unspecified
+* **Value**: <%= "${user.email}" %>"
 
-![](/media/articles/saml/identity-providers/okta/okta-5.png)
+At this point, you can click **Preview the SAML Assertion** to generate XML you can use to verify that your provided settings are correct.
 
-Take note of the following:
+Click **Next** to proceed.
 
-* **Identity Provider Single Sign-On URL**
-* **Download certificate**
+Lastly, answer *Are you a customer or partner?* by selecting **I'm an Okta customer adding an internal app**. Click **Finish**.
 
-![](/media/articles/saml/identity-providers/okta/okta-6.png)
+![](/media/articles/saml/identity-providers/okta/okta-support.png)
 
-## On Auth0 dashboard
+You'll be directed to the *Sign On* page for your newly-created app. Click on **View Setup Instructions** to complete the process.
+
+![](/media/articles/saml/identity-providers/okta/view-setup-instructions.png)
+
+Take note of the **Identity Provider Single Sign-On URL**, and download a copy of the X.509 certificate.
+
+![](/media/articles/saml/identity-providers/okta/config-info.png)
+
+## Configure Your Auth0 Client
 
 Go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** and click **+NEW**
 
