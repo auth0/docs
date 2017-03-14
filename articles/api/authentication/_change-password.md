@@ -79,6 +79,10 @@ This endpoint only works for database connections.
 - If a password is provided, when the user clicks on the confirm password change link, the new password specified in this POST will be set for this user.
 - If a password is NOT provided, when the user clicks on the password change link they will be redirected to a page asking them for a new password.
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
+- This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:
+  * `X-RateLimit-Limit`: Number of requests allowed per minute.
+  * `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
+  * `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 
 ### More Information
@@ -86,3 +90,4 @@ This endpoint only works for database connections.
 - [Changing a User's Password](/connections/database/password-change)
 - [Password Strength in Auth0 Database Connections](/connections/database/password-strength)
 - [Password Options in Auth0 Database Connections](/connections/database/password-options)
+- [Auth0 API Rate Limit Policy](/policies/rate-limits)

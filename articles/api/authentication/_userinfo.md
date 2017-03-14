@@ -91,10 +91,14 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 ### Remarks
 - The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
 - The auth0.js `parseHash` method, requires that your tokens are signed with `RS256`, rather than `HS256`. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
-
+- This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:
+  * `X-RateLimit-Limit`: Number of requests allowed per minute.
+  * `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
+  * `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 ### More Information
 - [Auth0.js v8 Reference: Extract the authResult and get user info](/libraries/auth0js#extract-the-authresult-and-get-user-info)
+- [Auth0 API Rate Limit Policy](/policies/rate-limits)
 
 
 ## Get Token Info
@@ -182,6 +186,13 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 <%= include('../../_includes/_test-with-postman') %>
 
 
+### Remarks
+- This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:
+  * `X-RateLimit-Limit`: Number of requests allowed per minute.
+  * `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
+  * `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+
 ### More Information
 
 - [User Profile: In-Depth Details - API](/user-profile/user-profile-details#api)
+- [Auth0 API Rate Limit Policy](/policies/rate-limits)
