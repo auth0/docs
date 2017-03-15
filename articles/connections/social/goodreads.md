@@ -32,8 +32,82 @@ Once the application is registered, the `Key` and `Secret` for your new app will
 
 ![](/media/articles/connections/social/goodreads/goodreads-register-3.png)
 
-### 4. Copy your *Consumer Key* and *Consumer Secret*
+## 4. Create the Goodreads connection
 
-Go to your Auth0 Dashboard and select **Connections > Social**, then choose [custom OAuth2 connections](/connections/social/oauth2) and add Goodreads (OAuth1) as a provider, you can check Bitbucket's [example](/oauth2-examples) since it also uses OAuth1. Copy the `Consumer Key` and `Consumer Secret` from the **Api Key** page of your app on Goodreads into the fields `client_id` and `client_secret`. The `requestTokenURL` would be http://www.goodreads.com/oauth/request_token, the `accessTokenURL` would be http://www.goodreads.com/oauth/access_token and the `userAuthorizationURL` would be http://www.goodreads.com/oauth/authorize.
+You will need to use [this endpoint of our Management API v2](/api/management/v2#!/Connections/post_connections) to create a custom `oauth1` connection for Goodreads.
+
+[Read our documentation on creating generic OAuth1 connections](/tutorials/adding-generic-oauth1-connection) for more information on the individual fields used in the sample payload to follow. For Goodreads, this is a sample payload to create the connection:
+
+```har
+ {
+     "method": "POST",
+     "url": "https://${account.namespace}/api/v2/connections",
+     "httpVersion": "HTTP/1.1",
+     "headers": [
+       {
+         "name": "Authorization",
+         "value": "Bearer YOUR_API_V2_TOKEN_HERE"
+       }
+     ],
+     "postData": {
+       "mimeType": "application/json",
+       "text": "{\"name\": \"custom-goodreads\",\"strategy\": \"oauth1\",\"enabled_clients\": [\"YOUR_ENABLED_CLIENT_ID\"],\"options\": {\"client_id\": \"YOUR_GOODREADS_KEY\",\"client_secret\": \"YOUR_GOODREADS_SECRET\",\"requestTokenURL\": \"http://www.goodreads.com/oauth/request_token\",\"accessTokenURL\": \"http://www.goodreads.com/oauth/access_token\",\"userAuthorizationURL\": \"http://www.goodreads.com/oauth/authorize\",\"scripts\": {\"fetchUserProfile\": \"function(token, tokenSecret, ctx, cb) {var OAuth = new require(\\\"oauth\\\").OAuth; var parser = require('xml2json'); var oauth = new OAuth(ctx.requestTokenURL, ctx.accessTokenURL, ctx.client_id, ctx.client_secret, \\\"1.0\\\", null, \\\"HMAC-SHA1\\\"); oauth.get(\\\"https://www.goodreads.com/api/auth_user\\\", token, tokenSecret, function(e, xml, r) { console.log(xml); if (e) return cb(e); if (r.statusCode !== 200) return cb(new Error(\\\"StatusCode: \\\" + r.statusCode)); try { var jsonResp = JSON.parse(parser.toJson(xml)); var user = jsonResp.GoodreadsResponse.user; cb(null, user); } catch (e) { console.log(e); cb(new UnauthorizedError(\\\"[+] fetchUserProfile: Goodreads fetch script failed. Check Webtask logs\\\")); } });}\"}}}"
+     }
+   }
+ ```
+ 
+__NOTE__: You have to replace `YOUR_API_V2_TOKEN_HERE` with a Management API v2 token. You can [get one from the dashboard](${manage_url}/#/apis/management/explorer) or [follow this process](/api/management/v2/tokens#get-a-token-manually) if this is the first time.
+
+This sample uses the following `fetchUserProfile` script, you can change it as you please:
+
+```js
+function(token, tokenSecret, ctx, cb) {
+    var OAuth = new require("oauth").OAuth;
+    var parser = require('xml2json');
+    var oauth = new OAuth(ctx.requestTokenURL, ctx.accessTokenURL, ctx.client_id, ctx.client_secret, "1.0", null, "HMAC-SHA1");
+    oauth.get("https://www.goodreads.com/api/auth_user", token, tokenSecret, function(e, xml, r) {
+        console.log(xml);
+        if (e) return cb(e);
+        if (r.statusCode !== 200) return cb(new Error("StatusCode: " + r.statusCode));
+        try {
+            var jsonResp = JSON.parse(parser.toJson(xml));
+            var user = jsonResp.GoodreadsResponse.user;
+            cb(null, user);
+        }
+        catch (e) {
+            console.log(e);
+            cb(new UnauthorizedError("[+] fetchUserProfile: Goodreads fetch script failed. Check Webtask logs"));
+        }
+    });
+}
+```
+
+
+::: panel-warning Goodreads returns limited user profile data
+If you have any [Rules](/rules) configured that rely on `user.email` for example, user authentication will likely fail - the sample Rule above currently only returns `user.id`, `user.name`, and `user.link` properties [from Goodreads' API](https://www.goodreads.com/api/index#auth.user). Please add appropriate error handling to any Rules or Hooks that may rely on other user-profile data that may be missing. You may use [our Real-time Webtask Logs extension](/extensions/realtime-webtask-logs) to help debug these sorts of issues further.
+:::
+
+If you do change the `fetchUserProfile` script, you can stringify the function easily for use in your `POST /api/v2/connections` payload as follows:
+
+```js
+JSON.stringify(`function(token, tokenSecret, ctx, cb) {
+    // fetch user profile
+}`);
+```
+
+## 5. Test the connection
+
+You can use the [/authorize endpoint](/api/authentication?shell#authorize-client) with custom `client_id` and `connection` parameters to test your connection. For example:
+
+```text
+https://${account.namespace}/authorize?
+  scope=YOUR_SCOPE&
+  response_type=YOUR_RESPONSE_TYPE&
+  client_id=YOUR_ENABLED_CLIENT_ID&
+  redirect_uri=${account.callback}&
+  connection=custom-goodreads&
+  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+```
+
 
 <%= include('../_quickstart-links.md') %>
