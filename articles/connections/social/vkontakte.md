@@ -1,4 +1,5 @@
 ---
+title: Connect your app to vKontakte
 connection: vKontakte
 image: /media/connections/vkontakte.png
 seo_alias: vkontakte

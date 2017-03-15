@@ -1,9 +1,9 @@
 ---
-title: Connect Azure Active Directory with Auth0 (Classic Portal)
+title: Connect your app to Azure Active Directory (Classic Portal)
 description: How to obtain a ClientId and Client Secret for a Microsoft Azure Active Directory with the Classic Portal.
 ---
 
-# Obtain a *ClientId* and *Client Secret* for a Microsoft Azure Active Directory- Classic Portal
+# Connect your app to Azure Active Directory (Classic Portal)
 
 ::: panel-info Notice
 This page uses the Azure Active Directory Classic Portal, for information on using the current portal, [click here.](/connections/enterprise/azure-active-directory)

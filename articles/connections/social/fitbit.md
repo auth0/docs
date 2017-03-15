@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Fitbit
 connection: Fitbit
 image: /media/connections/fitbit.png
 seo_alias: fitbit
@@ -6,7 +7,7 @@ index: 14
 description: How to obtain a Client Id and Client Secret for Fitbit.
 ---
 
-# Obtain a *Client ID* and *Client Secret* for Fitbit
+# Connect your app to Fitbit
 
 ::: panel-warning Fitbit has ended support for OAuth 1.0
 New connections with Fitbit will use OAuth 2.0. Please see the following documentation on [Using OAuth 2.0](https://dev.fitbit.com/docs/oauth2/) with Fitbit.

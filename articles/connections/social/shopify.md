@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Shopify
 connection: Shopify
 image: /media/connections/shopify.png
 seo_alias: shopify

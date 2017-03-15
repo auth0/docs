@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Microsoft Account
 connection: Microsoft Account
 image: /media/connections/ms.png
 index: 12

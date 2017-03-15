@@ -1,11 +1,12 @@
 ---
+title: Connect your app to Planning Center
 connection: Planning Center
 image: /media/connections/planning-center.png
 seo_alias: planning-center
 description: How to obtain a Client Id and Client Secret for Planning Center.
 ---
 
-# Obtain a *Client ID* and *Secret* for Planning Center
+# Connect your app to Planning Center
 
 To configure an OAuth2 connection with Planning Center Online, you will need to register Auth0 with Planning Center on their Developer portal.
 

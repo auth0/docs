@@ -1,11 +1,12 @@
 ---
+title: Connect your app to Yammer
 connection: Yammer
 image: /media/connections/yammer.png
 description: How to obtain the credentials required to configure your Auth0 connection to Yammer.
 seo_alias: yammer
 ---
 
-# Obtain an *App ID* and *App Secret* for Yammer
+# Connect your app to Yammer
 
 To configure Yammer for OAuth connections, you will need to register your Auth0 namespace on the Yammer Developer Center.
 

@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Google
 connection: Google
 index: 1
 image: /media/connections/google.png
@@ -10,7 +11,7 @@ alias:
 seo_alias: google
 ---
 
-# Connect Your Client to Google
+# Connect your app to Google
 
 To connect your Auth0 client to Google, you will need to generate a *Client ID* and *Client Secret* in a Google project, copy these keys into your Auth0 settings, and enable the Connection.
 

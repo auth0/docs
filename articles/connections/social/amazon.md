@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Amazon
 connection: Amazon Web Services
 image: /media/connections/amazon.png
 alias:
@@ -9,7 +10,7 @@ index: 9
 description: How to obtain a Client Id and Client Secret for Amazon.
 ---
 
-# Obtain a *Client Id* and *Client Secret* for Amazon
+# Connect your app to Amazon
 
 To configure an Amazon connection with Auth0, you will need to register your app on the Amazon portal.
 

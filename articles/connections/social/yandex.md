@@ -1,11 +1,12 @@
 ---
+title: Connect your app to Yandex
 connection: Yandex
 image: /media/connections/yandex.png
 seo_alias: yandex
 description: How to obtain an Application ID and Application Password for Yandex.
 ---
 
-# Obtaining an Application ID and Application Password for Yandex
+# Connect your app to Yandex
 
 To configure an Yandex connection you will need to register your Auth0 instance as a Yandex application.
 

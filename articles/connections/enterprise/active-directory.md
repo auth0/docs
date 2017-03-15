@@ -1,5 +1,5 @@
 ---
-title: Connect Active Directory with Auth0
+title: Connect your app to Active Directory
 connection: Active Directory
 image: /media/connections/ms.png
 alias:
@@ -8,8 +8,7 @@ seo_alias: active-directory
 description: How to connect to Active Directory with Auth0.
 ---
 
-
-# Connect Active Directory with Auth0
+# Connect your app to Active Directory
 
 Auth0 integrates with Active Directory/LDAP through the **Active Directory/LDAP Connector** that you install on your network.
 
