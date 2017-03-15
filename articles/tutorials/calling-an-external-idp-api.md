@@ -1,4 +1,4 @@
----
+g---
 title: Call an Identity Provider API
 description: How to call an Identity Provider API.
 ---
@@ -56,6 +56,38 @@ Replace these values:
 Within the user's `identities` array, there will be an `access_token` that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
 In most cases, the user will only have one identity, but if you have used the [account linking feature](/link-accounts), there may be more.
+
+In this sample response we can see that our user had only one identity (`google-oauth2`):
+
+```json
+{
+  "email": "john.doe@test.com",
+  "email_verified": true,
+  "name": "John Doe",
+  "given_name": "John",
+  "family_name": "Doe",
+  "picture": "https://myavatar/photo.jpg",
+  "gender": "male",
+  "locale": "en",
+  "updated_at": "2017-03-15T07:14:32.451Z",
+  "user_id": "google-oauth2|111199914890750704174",
+  "nickname": "john.doe",
+  "identities": [
+    {
+      "provider": "google-oauth2",
+      "access_token": "ya29.GlsPBCS6ahokDlgCYnVLnDKNE71HBXPEzNhAPoKJLAGKDSe1De3_xclahNcdZXoU-26hCpa8h6240TV86dtaEQ4ZWoeeZduHDq_yeu9QyQqUr--S9B2CR9YJrLTD",
+      "expires_in": 3599,
+      "user_id": "111199914890750704174",
+      "connection": "google-oauth2",
+      "isSocial": true
+    }
+  ],
+  "created_at": "2017-03-15T07:13:41.134Z",
+  "last_ip": "127.0.0.1",
+  "last_login": "2017-03-15T07:14:32.451Z",
+  "logins_count": 99
+}
+```
 
 <div class="alert alert-warning">
   <strong>Security Warning!</strong> Make sure that you don't expose the IdP access token to your client-side application.
