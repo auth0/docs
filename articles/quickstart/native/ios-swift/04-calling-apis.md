@@ -32,9 +32,13 @@ import Lock
 ```swift
 Lock
     .classic()
+    .withOptions {
+        $0.oidcConformant = true
+        $0.scope = "openid profile"
+    }
     .onAuth { credentials in
-        guard let idToken = credentials.idToken else { return }
-        // Good time to store the idToken that you will use next.
+      guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
+        // Good time to store the accessToken and idToken
     }
     .present(from: self)
 ```
@@ -43,10 +47,10 @@ In order to make authenticated requests, you can use any of the token strings in
 
 ## Attach the Token
 
-Supposing you have decided to use the `idToken` value, here is what you would do:
+Supposing you have decided to use the `accessToken` value, here is what you would do:
 
 ```swift
-let token  = ... // The idToken you stored after authentication
+let token  = ... // The accessToken you stored after authentication
 let url = URL(string: "your api url")!
 var request = URLRequest(url: url)
 // Configure your request here (method, body, etc)

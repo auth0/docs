@@ -40,26 +40,23 @@ import Lock
 ```swift
 Auth0
     .users(token: idToken)
-    .get(userId, fields: ["app_metadata"], include: true)
+    .get(userId, fields: [], include: true)
     .start { result in
         switch result {
         case .success(let user):
-            guard
-              let appMetadata = user["app_metadata"] as? [String: Any],
-              let roles = appMetadata["roles"] as? [String]
+        guard
+            let appMetadata = user["app_metadata"] as? [String: Any],
+            let roles = appMetadata["roles"] as? [String]
             else {
-              // Test failed, make sure you've configured your rule properly (check step 1 thoroughly)
-              return
+                return callback(SessionManagerError.missingRoles, nil)
             }
-            if roles == "admin" {
-                // User has admin access, grant them the power.
-            } else {
-                // Not an admin, deny the user.
-            }
+            callback(nil, roles.first)
+            break
         case .failure(let error):
-            // Handler error
+            callback(error, nil)
+            break
         }
-}
+    }
 ```
 
 ## Use the Rule
