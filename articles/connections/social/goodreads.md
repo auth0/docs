@@ -38,53 +38,23 @@ You will need to use [this endpoint of our Management API v2](/api/management/v2
 [Read our documentation on creating generic OAuth1 connections](/tutorials/adding-generic-oauth1-connection) for more information on the individual fields used in the sample payload to follow. For Goodreads, this is a sample payload to create the connection:
 
 ```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/api/v2/connections",
-  "httpVersion": "HTTP/1.1",
-  "headers": [{
-    "name": "Authorization",
-    "value": "Bearer YOUR_API_V2_TOKEN_HERE"
-  }],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{
-      \"name\": \"custom-goodreads\",
-      \"strategy\": \"oauth1\",
-      \"enabled_clients\": [\"YOUR_ENABLED_CLIENT_ID\"],
-      \"options\": {
-        \"client_id\": \"YOUR_GOODREADS_KEY\",
-        \"client_secret\": \"YOUR_GOODREADS_SECRET\",
-        \"requestTokenURL\": \"http://www.goodreads.com/oauth/request_token\",
-        \"accessTokenURL\": \"http://www.goodreads.com/oauth/access_token\",
-        \"userAuthorizationURL\": \"http://www.goodreads.com/oauth/authorize\",
-        \"scripts\": {
-          \"fetchUserProfile\": \"function(token, tokenSecret, ctx, cb) {
-            var OAuth = new require(\\\"oauth\\\").OAuth;
-            var parser = require('xml2json');
-            var oauth = new OAuth(ctx.requestTokenURL, ctx.accessTokenURL, ctx.client_id, ctx.client_secret, \\\"1.0\\\", null, \\\"HMAC-SHA1\\\");
-            oauth.get(\\\"https://www.goodreads.com/api/auth_user\\\", token, tokenSecret, function(e, xml, r) {
-              console.log(xml);
-              if (e) return cb(e);
-              if (r.statusCode !== 200) return cb(new Error(\\\"StatusCode: \\\" + r.statusCode));
-              try {
-                var jsonResp = JSON.parse(parser.toJson(xml));
-                var user = jsonResp.GoodreadsResponse.user;
-                cb(null, user);
-              }
-              catch (e) {
-                console.log(e);
-                cb(new UnauthorizedError(\\\"[+] fetchUserProfile: Goodreads fetch script failed. Check Webtask logs\\\"));
-              }
-            });
-          }\"
-        }
-      }
-    }"
-  }
-}
-```
-
+ {
+     "method": "POST",
+     "url": "https://${account.namespace}/api/v2/connections",
+     "httpVersion": "HTTP/1.1",
+     "headers": [
+       {
+         "name": "Authorization",
+         "value": "Bearer YOUR_API_V2_TOKEN_HERE"
+       }
+     ],
+     "postData": {
+       "mimeType": "application/json",
+       "text": "{\"name\": \"custom-goodreads\",\"strategy\": \"oauth1\",\"enabled_clients\": [\"YOUR_ENABLED_CLIENT_ID\"],\"options\": {\"client_id\": \"YOUR_GOODREADS_KEY\",\"client_secret\": \"YOUR_GOODREADS_SECRET\",\"requestTokenURL\": \"http://www.goodreads.com/oauth/request_token\",\"accessTokenURL\": \"http://www.goodreads.com/oauth/access_token\",\"userAuthorizationURL\": \"http://www.goodreads.com/oauth/authorize\",\"scripts\": {\"fetchUserProfile\": \"function(token, tokenSecret, ctx, cb) {var OAuth = new require(\\\"oauth\\\").OAuth; var parser = require('xml2json'); var oauth = new OAuth(ctx.requestTokenURL, ctx.accessTokenURL, ctx.client_id, ctx.client_secret, \\\"1.0\\\", null, \\\"HMAC-SHA1\\\"); oauth.get(\\\"https://www.goodreads.com/api/auth_user\\\", token, tokenSecret, function(e, xml, r) { console.log(xml); if (e) return cb(e); if (r.statusCode !== 200) return cb(new Error(\\\"StatusCode: \\\" + r.statusCode)); try { var jsonResp = JSON.parse(parser.toJson(xml)); var user = jsonResp.GoodreadsResponse.user; cb(null, user); } catch (e) { console.log(e); cb(new UnauthorizedError(\\\"[+] fetchUserProfile: Goodreads fetch script failed. Check Webtask logs\\\")); } });}\"}}}"
+     }
+   }
+ ```
+ 
 __NOTE__: You have to replace `YOUR_API_V2_TOKEN_HERE` with a Management API v2 token. You can [get one from the dashboard](${manage_url}/#/apis/management/explorer) or [follow this process](/api/management/v2/tokens#get-a-token-manually) if this is the first time.
 
 This sample uses the following `fetchUserProfile` script, you can change it as you please:
