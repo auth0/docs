@@ -151,7 +151,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 ### Web Authentication
 
-Finally, you can now perform the WebAuth authentication by specifying the social connection name, for example with Facebook.
+Finally, you can now perform webAuth authentication by specifying the social connection name, for example with Facebook.
 
 ```swift
 Auth0
