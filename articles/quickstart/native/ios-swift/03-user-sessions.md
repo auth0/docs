@@ -160,7 +160,7 @@ Lock
 
 ### Use the refreshToken to get a new idToken
 
-You can use the `delegation` method in `Auth0` to yield fresh user's credentials using the refreshToken.
+You can use the `refreshToken` in the `delegation` method to renew the user's idToken.
 
 ```swift
 // idToken has expired or invalid, see if we have a refreshToken
