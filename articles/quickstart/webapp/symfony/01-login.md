@@ -11,14 +11,14 @@ budicon: 448
   path: '00-Starter-Seed',
   requirements: [
     'PHP 5.3.9',
-    'Symfony 2.8'
+    'Symfony 3.*'
   ]
 }) %>
 
 If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate a Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
 
 ## Add HWIOAuthBundle to `composer.json`
-
+#this snippet need to be upgraed to "hwi/oauth-bundle": "^0.5.3", to make it compatible with symfony 3
 ${snippet(meta.snippets.dependencies)}
 
 and run `composer update`
@@ -43,7 +43,8 @@ hwi_oauth_login:
     prefix:   /login
 
 auth0_login:
-    pattern: /auth0/callback
+    #in symfony 3 pattern was changed to path
+    path: /auth0/callback
 ```
 
 ## Configure Auth0
@@ -62,7 +63,8 @@ Add this to your `app/config/config.yml`
 
 ```yml
 hwi_oauth:
-    firewall_name: secured_area
+    #in symfony 3 this option was renamed and changed into an array
+    firewall_names: [secured_area]
     resource_owners:
         auth0:
             type:                auth0
