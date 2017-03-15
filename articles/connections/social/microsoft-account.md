@@ -100,4 +100,6 @@ If you see the **It Works!** page, you have successfully configured your connect
 
 <%= include('../_quickstart-links.md') %>
 
-
+::: panel-warning Single log out 
+Microsoft connections does not support redirecting back to the application when the user is redirected to the logout url. That means than when you redirect the user to the logout endpoint with the federated param `https://${account.namespace}/v2/logout?federated`, the user will be redirected to the MSN homepage instead of redirecting them back to your application.
+:::
