@@ -57,7 +57,7 @@ Within the user's `identities` array, there will be an `access_token` that you c
 
 In most cases, the user will only have one identity, but if you have used the [account linking feature](/link-accounts), there may be more.
 
-In this sample response we can see that our user had only one identity (`google-oauth2`):
+In this sample response we can see that our user had only one identity: `google-oauth2`.
 
 ```json
 {
