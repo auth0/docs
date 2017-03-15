@@ -20,4 +20,5 @@ previous_versions:
       - 01-authentication
       - 02-authorization
       - 03-authentication-hs256
+      - 04-troubleshooting
 
