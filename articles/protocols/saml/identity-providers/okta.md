@@ -4,11 +4,11 @@ description: How to configure Okta for use as an identity provider.
 toc: true
 ---
 
-# Configure Okta for Use as an Identity Provider
+# Configure Okta as an Identity Provider
 
 This article walks you through configuring Okta for use as an identity provider.
 
-## Configure Your Okta Application
+## Configure Okta
 
 Log in to your Okta account. If you don't already have one, you will need to create one.
 
@@ -67,7 +67,7 @@ Take note of the **Identity Provider Single Sign-On URL**, and download a copy o
 
 ![Configuration Information](/media/articles/saml/identity-providers/okta/config-info.png)
 
-## Configure Your Auth0 Client
+## Configure Auth0
 
 At this point, you will configure the integration from the Auth0 side.
 
@@ -97,7 +97,7 @@ In the next dialog window, you'll be provided two options. If you are a domain a
 
 ![Auth0 Admin Instructions](/media/articles/saml/identity-providers/okta/admin-settings.png)
 
-## Grant Your Client(s) Access to the Connection
+## Enable Access to the Connection
 
 Now that you've created and configured your Connection, you'll need to enable access to the Connection for your Client(s).
 
@@ -111,7 +111,7 @@ Scroll down to the *Enterprise* section, and click the slider to enable your Okt
 
 ![Enable Connection for a Client](/media/articles/saml/identity-providers/okta/enable-connection.png)
 
-## Test Your Connection
+## Test your Connection
 
 You can test your Okta-Auth0 integration using the [Management Dashboard](${manage_url}) if you are an Okta user.
 
