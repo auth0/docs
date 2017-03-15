@@ -1,6 +1,7 @@
 ---
 title: Okta
 description: How to configure Okta for use as an identity provider.
+toc: true
 ---
 
 # Configure Okta for Use as an Identity Provider
