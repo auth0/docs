@@ -25,7 +25,10 @@ Add the `auth0.lock`, `angular-jwt` and `ui.router` module dependencies to your 
 
     lockProvider.init({
       clientID: '${account.clientId}',
-      domain: '${account.namespace}'
+      domain: '${account.namespace}',
+      options: {
+        _idTokenVerification: false
+      }
     });
 
     $urlRouterProvider.otherwise('/home');
