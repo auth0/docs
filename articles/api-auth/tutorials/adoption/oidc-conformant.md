@@ -3,9 +3,9 @@ title: OIDC-conformant clients
 description: List of breaking changes for OIDC-conformant clients
 ---
 
-<%= include('./_about.md') %>
-
 # OIDC-conformant clients
+
+<%= include('./_about.md') %>
 
 In order to make the transition to the [OIDC-conformant authentication pipeline](/api-auth/tutorials/adoption) more predictable, clients now include an option called "OIDC Conformant", available under **Advanced Settings > OAuth**:
 
