@@ -2,9 +2,9 @@
 title: Delegation and the OIDC-conformant pipeline
 ---
 
-<%= include('./_about.md') %>
-
 # Delegation and the OIDC-conformant pipeline
+
+<%= include('./_about.md') %>
 
 [Delegation](/api/authentication#delegation) is used for many operations, depending on your particular use case:
 
