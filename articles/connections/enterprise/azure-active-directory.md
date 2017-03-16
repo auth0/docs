@@ -23,6 +23,8 @@ To allow users to login using a Microsoft Azure Active Directory account, you mu
 
 **NOTE:** There is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.
 
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
 ## 1. Create a new application
 
 Login to Microsoft Azure and choose **Azure Active Directory** from the sidebar.
@@ -105,3 +107,5 @@ Click **SAVE** when you have finished.
 Signing keys are used by the identity provider to sign the authentication token it issues, and by the consumer application (Auth0 in this case) to validate the authenticity of the generated token.
 
 For security purposes, Azure AD’s signing key [rolls on a periodic basis](https://azure.microsoft.com/en-us/documentation/articles/active-directory-signing-key-rollover/). If this happens, **you do not need to take any action**. Auth0 will use the new key automatically.
+
+<%= include('../_quickstart-links.md') %>
