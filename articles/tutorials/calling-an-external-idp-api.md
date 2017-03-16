@@ -25,9 +25,15 @@ That's it! You can now see a token in your screen. Click __Copy Token__ to copy 
 
 Alternatively, you may want to automate this process. In this case, instead of manually copying the token, click on the [Test tab](${manage_url}/#/apis/management/test) and use the provided snippet. It's a `POST` operation to the [https://${account.namespace}/oauth/token](/api/authentication#client-credentials) endpoint.
 
+Note, that this token has by default an expiration time of 24 hours (86400 seconds). To change that, update the __Token Expiration (Seconds)__ field and click __Update & Regenerate Token__.
+
 <div class="alert alert-info">
   For details on the Management APIv2 token and the process to get one refer to <a href="/api/management/v2/tokens">The Auth0 Management APIv2 Token</a>.
 </div>
+
+::: panel-warning Security warning
+It should be noted that these tokens __cannot be revoked__. We recommend issuing short-lived tokens to minimize the risk. For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
+:::
 
 ### 2. Get the User Profile
 
