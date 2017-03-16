@@ -37,7 +37,7 @@ You can find more examples of common Rules on Github at <a href="https://github.
 ## Video: Using Rules
 Watch this video learn all about rules in just a few minutes.
 
-<%= include('../videos/_video', { id: 'g7dy1fpwc3' }) %>
+<%= include('../../videos/_video', { id: 'g7dy1fpwc3' }) %>
 
 ## Rule Syntax
 
