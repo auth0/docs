@@ -7,7 +7,7 @@ description: Rules are functions written in JavaScript that are executed in Auth
 # Rules
 
 <div class="alert alert-info">
-<strong>Heads up!</strong> If you are working with the <a href="/api-auth">API Authorization flows</a> and you are looking for the updated documentation, refer to <a href="/rules/preview">Rules</a>.
+<strong>Heads up!</strong> This article describes the latest Auth0 implementation, according to the <a href="/api-auth">API Authorization flows</a>. If you are looking for the legacy Rules doc refer to <a href="/rules">Rules</a>.
 </div>
 
 **Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
