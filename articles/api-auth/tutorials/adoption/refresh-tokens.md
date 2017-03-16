@@ -2,9 +2,9 @@
 title: OIDC-conformant refresh token use
 ---
 
-<%= include('./_about.md') %>
-
 # OIDC-conformant refresh tokens
+
+<%= include('./_about.md') %>
 
 There are two main changes to how refresh tokens are used in the OIDC-conformant authentication pipeline:
 
