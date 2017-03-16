@@ -1,4 +1,4 @@
-g---
+---
 title: Call an Identity Provider API
 description: How to call an Identity Provider API.
 ---
