@@ -692,6 +692,8 @@ By default, the default article for a version is the first article in the subdir
 
 ## Limitations
 
+### No sub-directories
+
 This versioning system has one major limitation: all articles for each version must exist in the same directory. For example, this is a valid hierarchy:
 
 
@@ -723,3 +725,20 @@ example/
 ```
 
 This limitation is a result of the implementation of `AutoVersionPlugin`, and how the paths are calculated for the different versions. Fixing this is possible, but makes things a little more tricky, so I decided to cut it from the first version of the feature. If it's a desired behavior we can always add it later.
+
+### Case Sensitive
+
+The folder name must match exactly the names listed in the yaml file. This is case sensitive. 
+
+For example, given the following yaml, naming the subdirectory `V9` instead of `v9` will result into a build error.
+
+```yaml
+versioning:
+  baseUrl: libraries/lock
+  current: v10
+  versions:
+    - v9
+    - v10
+  defaultArticles:
+    v1: article1
+```
