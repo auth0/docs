@@ -1,4 +1,5 @@
 ---
+title: Logout
 description: How to logout a user and optionally redirect them to an authorized URL.
 toc: true
 ---
@@ -48,7 +49,7 @@ The following identity providers support federated logout:
   * Apps
   * OAuth 2.0
 * LinkedIn
-* Microsoft
+* Microsoft (see note after this list)
   * Active Directory Federation Services
   * Office 365
   * Windows Azure Active Directory
@@ -57,6 +58,8 @@ The following identity providers support federated logout:
 * Twitter
 * Yahoo
 * Yammer
+
+__NOTE__: Microsoft connections do not support redirecting back to the application when the user is redirected to the logout URL. That means than when you redirect the user to the logout endpoint with the federated param `https://${account.namespace}/v2/logout?federated`, the user will be redirected to the MSN homepage instead of redirecting them back to your application.
 
 ::: panel-warning Clear your application session
 The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider. It does not log you out of your application! This is something that you should implement on your side. You need to log out the user from your application, by clearing their session. You might find [this video](/videos/session-and-cookies) helpful.
