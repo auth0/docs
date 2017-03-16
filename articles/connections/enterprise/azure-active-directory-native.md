@@ -17,7 +17,7 @@ description: How to setup native Azure Active Directory applications with Auth0 
 
 In addition to the **WS-Federation** and **OpenID Connect** flows, it's also possible to use the **Resource Owner** flow with Azure AD. This flow allows you to capture and validate a user's credentials (email and password) instead of showing the Azure AD login page. While this is not the recommended approach for security and SSO reasons, **Resource Owner** flow could be used in Native mobile scenarios or to batch process authentication with Azure AD.
 
-This setup will require two applications, a *Web Application and/or Web API* and a *Native Client Application*. From Azure AD's point of view, users will be authenticated using the *Native Client Application* to gain access to the *Web Application and/or Web API*.
+This setup will require two applications, a *Web Application and/or Web API* and a *Native Client Application*. From Azure AD's point of view, users will be authenticated using the *Native Client Application* to gain access to the *Web Application and/or Web API*. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ![](/media/articles/connections/enterprise/azure-active-directory/azure-ad-native-app.png)
 
@@ -69,3 +69,5 @@ Then in Auth0 instead of specifying the `App ID Uri` of your "Web Application an
 ```
 https://graph.windows.net
 ```
+
+<%= include('../_quickstart-links.md') %>
