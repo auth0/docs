@@ -23,7 +23,7 @@ In this article we will see how you can do either.
 ## Get a token manually
 
 <div class="alert alert-warning">
-  <strong>Heads up!</strong> Τhe Management APIv2 token, by default, has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or <a href="#automate-the-process">automate the process</a>.
+  <strong>Heads up!</strong> Τhe Management APIv2 token, by default, has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either <a href="#2-get-the-token">change the validity period of the token</a>, or <a href="#automate-the-process">automate the process</a>.
 </div>
 
 Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.
