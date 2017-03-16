@@ -30,6 +30,10 @@ The code for this should be kept in the `authService`, but it will be necessary 
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
       });
+      
+      lock.on('authorization_error', function (err) {
+        console.log(err);
+      });
     }
 
     return {
