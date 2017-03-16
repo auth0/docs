@@ -212,7 +212,9 @@ The `authService` is the place where all the calls to angular-auth0, and thus to
     }
 
     function handleParseHash() {
-      angularAuth0.parseHash(function(err, authResult) {
+      angularAuth0.parseHash(
+        { _idTokenVerification: false },
+        function(err, authResult) {
         if (err) {
           console.log(err);
         }
