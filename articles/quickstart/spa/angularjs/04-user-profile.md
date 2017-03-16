@@ -43,6 +43,10 @@ To get the user's profile, call the `getProfile` method on `lock`, passing in a 
         });
 
       });
+      
+      lock.on('authorization_error', function (err) {
+        console.log(err);
+      });
     }
 
   }
