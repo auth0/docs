@@ -67,6 +67,7 @@ You can also customize the text that `Lock` will display with the `languageDicti
   function config(lockProvider) {
 
     lockProvider.init({
+      _idTokenVerification: false,
       clientID: '${account.clientId}',
       domain: '${account.namespace}',
       options: {
