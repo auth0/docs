@@ -43,7 +43,7 @@ Click on **SAVE**. You will get a dialog with a **Continue** button and a link, 
 The information here is what the OneLogin admin needs to finish the configuration of the SAML application.
 
 * **SAML Consumer URL**: `https://${account.namespace}/login/callback`
-* **SAML Audience**: `urn:auth0:${account.tenant}:${connectionName}`
+* **SAML Audience**: `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME`
 
 Copy the values of the **post-back URL** and the **Entity ID** and head back to your [OneLogin](https://www.onelogin.com/) app. At the **Configuration** tab copy the **post-back URL** on the **ACS (Consumer) URL** input, the **Entity ID** on the **Audience** input, and set a valid regular expression on the **ACS (Consumer) URL Validator** input (e.g.  `[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)`).
 
