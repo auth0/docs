@@ -1125,5 +1125,9 @@ module.exports = [
   {
     from: '/libraries/lock-ios/use-your-own-ui',
     to: '/libraries/lock-ios/v1/use-your-own-uis'
+  },
+  {
+    from: '/api-auth/config/asking-for-access-tokens',
+    to: '/api-auth/tutorials/client-credentials'
   }
 ];

@@ -1,31 +1,30 @@
 ---
-description: How to enable API Authorization using the Auth0 Management API.  
+description: How to set up a Client Credentials Grant using the Management API.  
 ---
 
-# API Authorization: Using the Management API for setting up a Client Credentials Grant scenario
+# Set up a Client Credentials Grant using the Management API
 
 If you do not want to use the Auth0 Dashboard to enable API Authorization, you can achieve the same results using the Auth0 Management API.
 
 You will need the following:
 
-- Management APIv2 token with the following scopes:
-  - `create:resource_server`
-  - `create:client_grant`
-- `Client_Id` and `Client_Secret` for the client application which must already be created and visible in your [Auth0 dashboard](${manage_url}).
+- A Management APIv2 token. For details on how to get one refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+- The Client information (`Client_Id` and `Client_Secret`) for the Non Interactive Client that should already be created and visible in your [Auth0 dashboard](${manage_url}/#/clients).
 
-## Register your Resource Server
+## 1. Create your Resource Server
 
-The **Resource Server** entity represents the API that you want to issue access tokens for, identified by a friendly name and a URN identifier.
+Let's start by creating the Resource Server. This is the entity that represents the API that you want to issue access tokens for, identified by a friendly name and a URN identifier.
 
-The following restrictions that apply for the identifier:
-
+The following restrictions apply to the identifier:
 - It must be a valid URN.
 - It cannot be modified after creation.
 - It must be unique throughout your tenant.
 
-**NOTE:** Using your public API endpoint as an identifier is recommended.
+We recommend using your public API endpoint as an identifier.
 
-Let's start by creating the Resource Server that will represent your API. The following example uses _"My Sample API"_ as the name and _"https://my-api-uri"_ as the identifier.
+To create a Resource Server send a `POST` request to the [/resource-servers endpoint of the Management APIv2](/api/management/v2#!/Resource_Servers/post_resource_servers).
+
+The following example uses _"My Sample API"_ as the name and _"https://my-api-uri"_ as the identifier.
 
 ```har
 {
@@ -36,16 +35,16 @@ Let's start by creating the Resource Server that will represent your API. The fo
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"name\":\"My Sample API\",\"identifier\": \"https://my-api-urn\",\"signing_alg\": \"HS256\",\"scopes\": [{ \"value\": \"sample-scope\", \"description\": \"Description for Sample Scope\"}]}"
+    "text": "{\"name\":\"My Sample API\",\"identifier\": \"https://my-api-urn\",\"signing_alg\": \"RS256\",\"scopes\": [{ \"value\": \"sample-scope\", \"description\": \"Description for Sample Scope\"}]}"
   }
 }
 ```
 
 **NOTE:** You can include multiple scopes. This array represents the universe of scopes your API will support. You can modify this later by issuing a `PATCH` operation.
 
-Response:
+Sample response:
 
-```
+```json
 {
     "id": "56f0131ffdf1c311694f4cc7",
     "name": "My Sample API",
@@ -56,15 +55,25 @@ Response:
             "description": "Description for Sample Scope"
         }
     ],
-    "signing_alg": "HS256",
-    "signing_secret": "FF1prn9UxZotnFEfPVwEJhqqyRmwdSu5",
+    "signing_alg": "RS256",
+    "signing_secret": "FF1prn9UxZotnolsDVwEJhqqyRmwdSu5",
     "token_lifetime": 86400
 }
 ```
 
-## Authorize the consumer Client
+Note the following:
+- The `identifier` value (`https://my-api-urn`) will be used from now on as the `audience` for any OAuth 2.0 grant, that wants to access this API.
+- The algorithm that your API will use to sign tokens will be the __RS256__ (`signing_alg`).
+- The secret used to sign the tokens will be `FF1prn9UxZotnolsDVwEJhqqyRmwdSu5` (`signing_secret`).
+- The generated tokens will expire after `86400` seconds (`token_lifetime`).
 
-Now that the API and the Client are represented in Auth0, you can create a trust relationship between them.
+## 2. Authorize the Client
+
+Now that the API and the Client are defined in Auth0, you can create a trust relationship between them. To do so authorize the Client to access the API, while defining the scopes that should be given to the Client (meaning the actions the Client will be able to perform on the API).
+
+To authorize your Client send a `POST` request to the [/client-grants endpoint of the Management APIv2](/api/management/v2#!/Client_Grants/post_client_grants).
+
+The following example authorizes the Client with Id `${account.clientId}`, to access the API with Identifier `https://my-api-urn`, while granting the scope `sample-scope`.
 
 ```har
 {
@@ -75,19 +84,17 @@ Now that the API and the Client are represented in Auth0, you can create a trust
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"N99orgWBg8WDHOOfL4p6LXT7wEAliSik\",\"audience\": \"https://my-api-urn\",\"scope\":[\"sample-scope\"]}"
+    "text": "{\"client_id\": \"${account.clientId}\",\"audience\": \"https://my-api-urn\",\"scope\":[\"sample-scope\"]}"
   }
 }
 ```
 
-The `client_id` is the id of the consumer application, `audience` will be the identifier of the API, and `scope` is an array of strings, which must be a subset of those defined in the API.
+Sample response:
 
-Response:
-
-```
+```json
 {
     "id": "cgr_JGa6ZckLjnt60rWe",
-    "client_id": "N99orgWBg8WDHOOfL4p6LXT7wEAliSik",
+    "client_id": "${account.clientId}",
     "audience": "https://test-api",
     "scope": [
         "sample-scope"
@@ -95,10 +102,8 @@ Response:
 }
 ```
 
-Next, update your API to parse the token from the request and validate it. You will need to use the `signing_secret` of the API, which was used for signing the access tokens with the HS256 algorithm.
-
-## Request access tokens
+## 3. That's it!
 
 Now that all the elements are in place, you can request access tokens for your API from Auth0.
 
-For details on generating access tokens, see: [API Authorization: Asking for Access Tokens](/api-auth/config/asking-for-access-tokens)
+For details on how to do so, refer to [Execute a Client Credentials Grant](/api-auth/tutorials/client-credentials).
