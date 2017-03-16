@@ -11,6 +11,13 @@ Auth0 allows you to store **metadata**, or data related to each user that has no
 
 **NOTE**: An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
 
+### Working with Metadata
+
+You can manage your metadata in one of two ways:
+
+* Using [Rules](/rules);
+* Using the [Management API](/api/management/v2#!/Users/patch_users_by_id).
+
 ## Metadata Usage
 
 Suppose the following data is stored for a user with the email address `jane.doe@example.com`:
@@ -29,7 +36,7 @@ Suppose the following data is stored for a user with the email address `jane.doe
 
 **NOTE**: Any valid JSON snippet can be used as metadata.
 
-To read metadata, simply access the correct property. For example, if you want to work with the values of the following properties in your Rules or via a call to the Management API:
+To read metadata, simply access the correct property. For example, if you want to work with the values of the following properties in your [Rules](/rules) or via a call to the [Management API](/api/management/v2):
 
 ```js
 console.log(user.email); // "jane.doe@example.com"
