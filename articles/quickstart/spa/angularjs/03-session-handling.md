@@ -36,6 +36,10 @@ Once the user is authenticated, we need to create a client-side session for them
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
       });
+      
+      lock.on('authorization_error', function (err) {
+        console.log(err);
+      });
     }
   });
 
