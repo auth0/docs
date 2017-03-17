@@ -14,8 +14,6 @@ In the [previous step](/quickstart/spa/vanillajs/01-login), we enabled login wit
 
 ::: panel-info Version Requirements
 This quickstart and the accompanying sample demonstrate custom login with auth0.js version 8. If you are using auth0.js version 7, please see the [reference guide](https://auth0.com/docs/libraries/auth0js/v7) for the library, as well as the [legacy JavaScript custom login sample](https://github.com/auth0-samples/auth0-javascript-spa/tree/auth0js-v7/02-Custom-Login).
-
-Auth0.js version 8 verifies ID tokens during authentication transactions. Only tokens which are signed with the RS256 algorithm can be verified on the client side, meaning that your Auth0 client must be configured to sign tokens with RS256. See the [auth0.js migration guide](https://auth0.com/docs/libraries/auth0js/migration-guide#switching-from-hs256-to-rs256) for more details.
 :::
 
 
