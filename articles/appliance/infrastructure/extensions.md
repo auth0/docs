@@ -3,37 +3,57 @@ section: appliance
 description: Appliance infrastructure information about enabling Webtasks and Web Extensions
 ---
 
-# Enable Webtasks and Web Extensions
+# Enable Webtasks, Web Extensions, and User Search
 
-Beginning with version 8986, the Appliance supports web extensions. This is in addition to support for [Webtasks](appliance/webtasks).
+Beginning with version `8986`, the Appliance supports web extensions. This is in addition to support for [Webtasks](appliance/webtasks).
 
 :::panel-info Extensions
 Some of the [Extensions](/extensions) available to users of the Auth0 public cloud are unavailable in the Appliance. As such, these do not appear as options in the Appliance's Dashboard.
 :::
 
-## Requirements for Updating to Version 8986
+Beginning with version `10755`, the Appliance supports User Search using Elasticsearch. This allows you to use extensions that require User Search, including the [Delegated Admininstration extension](/extensions/delegated-admin)
 
-Your Development and/or Production environments must meet the following requirements before you can update to version 8986.
+## Requirements for Enabling User Search
 
-* All nodes in the cluster need outbound access using **Port 443** to:
+To enable User Search, you must increase the amount of storage available in your Development and/or Production environments.
+
+* If you have a *single non-Production/Development node*, you need an additional **50 GB** drive;
+* If you have a *three-node Production cluster*, you need an additional **100 GB** drive on *each* of your three Virtual Machines;
+* If you have a *Geographic High-Availability implementation*, you need an addtional **100 GB** drive on *each* of your six Virtual Machines.
+
+For all other configuration types, please consult with your Customer Success Engineer.
+
+## Enabling User Search
+
+Once you have added the additional drive(s), submit a Support ticket to request that Auth0:
+
+* Enable User Search;
+* Update your Appliance to version `10755` or above. Auth0 will work with you to upgrade your Development environment first, so that you can test the changes. Auth0 will coordinate the Production upgrade after you've concluded testing in Development.
+
+## Requirements for Enabling Webtasks
+
+Your Development and/or Production environments must meet the following requirements before you can enable Webtasks and update to version `8986` or above.
+
+* All nodes in the cluster have outbound access using **Port 443** to:
   * `docker.it.auth0.com` (or `52.9.124.234`)
     * Please note that version 8293 required outbound access to `docker.it.auth0.com` (or `52.9.124.234`) on Port **5000**.
   * `cdn.auth0.com`
-* All nodes should be able to communicate with other nodes in the same cluster using ports **8721** and **8701**.
-* The SSL certificates (issued by a **public** certificate authority) have the appropriate Webtask DNS entry. Examples:
+* All nodes are able to communicate with other nodes in the same cluster using ports **8721** and **8701**.
+* All SSL certificates (issued by a **public** certificate authority) have the appropriate Webtask DNS entry. Examples:
   * `webtask.<yourdomain>.com`
   * `webtask-dev.<yourdomain>.com`
 
-## Updating to Version 8986
+## Enabling Webtasks
 
-Once you have met the requirements for updating to version 8986, contact an Auth0 Customer Success Engineer to:
+Once you have met the requirements for enabling Webtasks, submit a Support ticket to request that Auth0:
 
 * Configure Webtasks (including switching your sandbox mode to `auth0-sandbox`)
-* Perform the upgrade. Auth0 will work with you to upgrade your Development environment first, so that you can test the changes. Afterwards, Auth0 will coordinate the Production upgrade.
+* Update your Appliance to version `8986`. Auth0 will work with you to upgrade your Development environment first, so that you can test the changes. Afterwards, Auth0 will coordinate the Production upgrade.
 
 ## Further Reading
 
 * [IP Address and Port Requirements](/appliance/infrastructure/ip-domain-port-list)
 * [Web Extensions](/extensions)
+* [Delegated Admininstration extension](/extensions/delegated-admin)
 * [Webtasks](appliance/webtasks)
 * [Version Change Logs](https://auth0.com/changelog/appliance)
