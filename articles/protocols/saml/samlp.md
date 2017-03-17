@@ -10,7 +10,7 @@ description: SAML Identity Provider Configuration
 These are the parameters used to configure a SAML Identity Provider:
 
 * The __post-back URL__ (also called __Assertion Consumer Service URL__) is: `https://${account.namespace}/login/callback`
-* The __Entity ID__ of the Service Provider is: `urn:auth0:${account.tenant}:${connectionName}` (default value). Use `connection.options.entityId` if available. You can obtain this value using the [Get a connection by its id APIv2 endpoint](/api/management/v2#!/Connections/get_connections_by_id):
+* The __Entity ID__ of the Service Provider is: `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME` (default value). Use `connection.options.entityId` if available. You can obtain this value using the [Get a connection by its id APIv2 endpoint](/api/management/v2#!/Connections/get_connections_by_id):
 
 ```har
 {
@@ -38,12 +38,12 @@ Optionally, assertions can be encrypted. Use this public key to configure the Id
 
 ## IdP-Initiated SSO
 
-If you want **IdP-Initiated SSO**, please make sure to include the `connection` parameter in the post-back URL: `https://${account.namespace}/login/callback?connection=${connectionName}`
+If you want **IdP-Initiated SSO**, please make sure to include the `connection` parameter in the post-back URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
 
 ## Metadata
 
 Some SAML Identity Providers can accept importing metadata directly with all the required information. You can access the metadata for your connection in Auth0 here:
 
 ```text
-https://${account.namespace}/samlp/metadata?connection=${connectionName}
+https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME
 ```
