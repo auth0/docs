@@ -4,7 +4,6 @@ connection: Email
 alias:
   - email
 seo_alias: email
-crews: crew-2
 ---
 
 # Authenticate users with using Passwordless Authentication via Email

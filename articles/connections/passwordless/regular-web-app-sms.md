@@ -1,6 +1,5 @@
 ---
 title: Using Passwordless Authentication in a Regular Web App with SMS
-crews: crew-2
 ---
 
 # Authenticate users with a one-time code via SMS in a Regular Web App

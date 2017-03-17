@@ -1,7 +1,6 @@
 ---
 title: Lock iOS v1 Passwordless Magic Links
 description: Using Passwordless Magic Links with Lock for iOS v1
-crews: crew-2
 ---
 
 # Lock iOS v1: Passwordless with Magic Link

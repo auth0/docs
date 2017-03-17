@@ -1,6 +1,5 @@
 ---
 title: Send one time codes via your own SMS Gateway
-crews: crew-2
 ---
 
 # Send one time codes via your own SMS Gateway

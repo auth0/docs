@@ -1,6 +1,5 @@
 ---
 title: Using Passwordless Authentication on Android with SMS
-crews: crew-2
 ---
 
 # Authenticate users with a one-time code via SMS

@@ -1,6 +1,5 @@
 ---
 title: Using Passwordless Authentication on a Regular Web Application
-crews: crew-2
 ---
 
 <%= include('./_introduction', { withFingerprint: false }) %>

@@ -6,7 +6,6 @@ alias:
   - ios-touchid
   - ios
 seo_alias: ios-touch-id-swift
-crews: crew-2
 ---
 
 <%= include('./_using-lock-ios-touchid', { language: 'swift' }) %>

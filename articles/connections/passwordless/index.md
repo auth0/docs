@@ -1,7 +1,6 @@
 ---
 title: Using Passwordless SMS & Email Authentication with Auth0
 url: /connections/passwordless
-crews: crew-2
 ---
 
 <%= include('./_introduction', { withFingerprint: false }) %>
