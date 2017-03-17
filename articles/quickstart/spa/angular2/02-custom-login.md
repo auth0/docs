@@ -30,7 +30,7 @@ The auth0.js library can either be retrieved from Auth0's CDN or from npm. You s
 ```html
 <!-- index.html  -->
 
-<script src="https://cdn.auth0.com/js/auth0/8.3/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/auth0/8.4/auth0.min.js"></script>
 ```
 
 **npm**
