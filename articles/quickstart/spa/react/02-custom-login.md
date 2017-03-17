@@ -28,7 +28,7 @@ The auth0.js library can either be retrieved from Auth0's CDN or from npm.
 **CDN Link**
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0/8.3/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/auth0/8.4/auth0.min.js"></script>
 ```
 
 **npm**
@@ -188,7 +188,7 @@ export default class AuthService extends EventEmitter {
   }
 
   parseHash(hash) {
-    this.auth0.parseHash({ hash }, (err, authResult) => {
+    this.auth0.parseHash({ hash, _idTokenVerification: false }, (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setToken(authResult.accessToken, authResult.idToken)
         browserHistory.replace('/home')
