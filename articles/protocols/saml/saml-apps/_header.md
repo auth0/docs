@@ -2,4 +2,4 @@
 
 ## SAML Configuration
 
-Use the following SAMLConfiguration:
+Use the following SAML configuration:
