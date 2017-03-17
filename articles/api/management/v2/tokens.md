@@ -1,6 +1,7 @@
 ---
 description: Details generating and using an Auth0 Management APIv2 token.
 section: apis
+crews: crew-2
 toc: true
 ---
 
@@ -230,7 +231,7 @@ You cannot change the default validity period, which is set to 24 hours. However
 
 __Can I refresh my token?__</br>
 You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
-  
+
 __My token was compromised! Can I revoke it?__</br>
 You cannot directly revoke a Management APIv2 token, but you can achieve a similar effect by deleting the client grant. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 client using the dashboard](${manage_url}/#/apis/management/authorized-clients).
 

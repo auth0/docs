@@ -1,5 +1,6 @@
 ---
 description: This page details Auth0 User Profiles, such as sources of profile data, normalized user profiles, caching, profile structure and custom profiles.
+crews: crew-2
 ---
 
 # User Profile: In-Depth Details

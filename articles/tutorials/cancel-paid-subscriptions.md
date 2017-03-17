@@ -1,5 +1,6 @@
 ---
 description: To cancel your Auth0 subscription, you can downgrade to a free subscription or close your account.
+crews: crew-2
 ---
 
 # Cancelling Your Auth0 Subscription
@@ -25,7 +26,7 @@ If you wish to cancel your Auth0 subscription, you have two options:
 
 ![](/media/articles/subscriptions/free-subscription.png)
 
-6. To confirm your subscription change, click **Subscribe Now**. 
+6. To confirm your subscription change, click **Subscribe Now**.
 
 ## Close Your Auth0 Account
 

@@ -145,7 +145,7 @@ If you have set the `options.mfa.return_enroll_settings` flag to true using the 
 
 ```
 {
-  "error": "a0.mfa_registration_required",  
+  "error": "a0.mfa_registration_required",
   "error_description": "User is not enrolled with google-authenticator",
 
   "mfa_settings": {

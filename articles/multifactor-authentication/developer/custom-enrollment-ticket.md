@@ -2,15 +2,15 @@
 description: Describes how to create an enrollment ticket from api
 ---
 
-## Custom Enrollment 
+## Custom Enrollment
 
-In addition to [directly sending emails to enroll users](/multifactor-authentication/administrator/guardian-enrollment-email), it is also possible to manage users' enrollments by creating _enrollment tickets_ via the [post_ticket API](/api/management/v2#!/Guardian/post_ticket). 
+In addition to [directly sending emails to enroll users](/multifactor-authentication/administrator/guardian-enrollment-email), it is also possible to manage users' enrollments by creating _enrollment tickets_ via the [post_ticket API](/api/management/v2#!/Guardian/post_ticket).
 
 This API will return an _enrollment ticket_ containing a `ticket_id` and a `ticket_url`, which can be used to enroll a user.
 
 The `ticket_url` can be delivered to the user -- for instance, via email -- and used to kick off the enrollment process.
 
-Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${manage_url}/#/guardian_mfa_page) to customize the Guardian widget's appearance: 
+Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${manage_url}/#/guardian_mfa_page) to customize the Guardian widget's appearance:
 
 ```html
 <!DOCTYPE html>
@@ -61,7 +61,7 @@ Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${m
     <div class="cell">
       <h4 class="message">Welcome! {{ userData.email }} enroll your device</h4>
       <div class="content">
-      
+
         <!-- WIDGET -->
         <div class="js-mfa-container mfa-container" id="container"></div>
       </div>
@@ -96,7 +96,7 @@ Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${m
           tenant: "{{ userData.tenant }}",
         },
         globalTrackingId: "{{ globalTrackingId }}"
-        
+
       });
     })();
   </script>

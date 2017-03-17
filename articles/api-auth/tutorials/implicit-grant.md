@@ -1,5 +1,6 @@
 ---
 description: How to execute an Implicit Grant flow from a SPA Client application.
+crews: crew-2
 ---
 
 # How to implement the Implicit Grant

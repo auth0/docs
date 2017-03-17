@@ -1,6 +1,7 @@
 ---
 description: Describes the major differences between Auth0's Management API v1 and Management API v2, and details the reasons for each change.
 section: apis
+crews: crew-2
 ---
 
 # Management API v1 vs v2
@@ -43,7 +44,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [DELETE /api/users/{user\_id}](/api/v1#!#delete--api-users--user_id-) | None. | [DELETE /api/v2/users/{id}](/api/v2#!/users/delete_users_by_id) also accepts `v2_id` |
 | [DELETE /api/users/{user\_id}/refresh_tokens/{refresh\_token}](/api/v1#!#delete--api-users--user_id--refresh_tokens--refresh_token-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 | [DELETE /api/users/{user\_id}/publickey?device={device}](/api/v1#!#delete--api-users--user_id--publickey-device--device-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
-| [POST /api/users/{user_id}/send_verification_email](/api/v1#!#post--api-users--user_id--send_verification_email) | None. | [POST /api/v2/jobs/verification-email](/api/v2#!/Jobs/post_verification_email) 
+| [POST /api/users/{user_id}/send_verification_email](/api/v1#!#post--api-users--user_id--send_verification_email) | None. | [POST /api/v2/jobs/verification-email](/api/v2#!/Jobs/post_verification_email)
 
 
 ### Client endpoints
@@ -66,7 +67,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [GET /api/connections/{connection}/users](/api/v1) | None. | * [GET  /api/v2/users](/api/v2#!/Users/get_users) |
 | [GET /api/connections/{connection}/users?search={criteria}](/api/v1) | None. | * [GET  /api/v2/users](/api/v2#!/Users/get_users) |
 
-*For appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"` 
+*For appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"`
 
 ### Rules endpoints
 | v1 Endpoint | Change | v2 Endpoint |
@@ -212,13 +213,13 @@ In Management API v2, all endpoints use [JSON schemas](http://json-schema.org) t
 For an example, see the methods in our [Management API v2 explorer](/api/v2).
 
 ## PATCH with null values
-In API v1, when updating field values, if the field is `null`, it will be saved as `null` in the database. In API v2, a `null` field will result in the field being deleted from the database. 
+In API v1, when updating field values, if the field is `null`, it will be saved as `null` in the database. In API v2, a `null` field will result in the field being deleted from the database.
 
-Example: `{metadata: {color: null}}` 
+Example: `{metadata: {color: null}}`
 
 Will be stored as follows:
 
-* When using API v1: `{metadata: {color: null}}` 
+* When using API v1: `{metadata: {color: null}}`
 * When using API v2: `{user_metadata: {}}`
 
 So, in API v1, the field's value is stored as `null`, but in API v2, the field is simply removed.

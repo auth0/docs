@@ -1,5 +1,6 @@
 ---
 description: Learn how to call APIs from client-side web apps using the OAuth 2.0 Implicit Grant.
+crews: crew-2
 ---
 
 # Call APIs from Client-side Web Apps

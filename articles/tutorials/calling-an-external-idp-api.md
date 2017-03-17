@@ -1,6 +1,7 @@
 ---
 title: Call an Identity Provider API
 description: How to call an Identity Provider API.
+crews: crew-2
 ---
 
 # Call an Identity Provider API
@@ -15,7 +16,7 @@ If you need access to the user's IdP access token, you will need to call the [Ge
 
 ## 1. Get a Token
 
-In order to access the [Management API](/api/management/v2), you need an access token. 
+In order to access the [Management API](/api/management/v2), you need an access token.
 
 If this is the first time you are trying to get a Management APIv2 Token, there is a little configuration required:
 1. Go to [Dashboard > APIs > Auth0 Management API > API Explorer](${manage_url}/#/apis/management/explorer).

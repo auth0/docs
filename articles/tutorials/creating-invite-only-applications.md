@@ -1,13 +1,14 @@
 ---
 description: This scenario demonstrates an invite-only sign-up implementation using the Auth0 Management API to customize the process and the email flow.
 toc: true
+crews: crew-2
 ---
 
 # Invite-only Applications
 
-Self-service provisioning is a common concept for SaaS applications. Users can register and pay and then begin using the application. 
+Self-service provisioning is a common concept for SaaS applications. Users can register and pay and then begin using the application.
 
-Other types of applications (such as Google Apps and Office 365) may not allow single users to register for an application. Instead, customers may be organizations that pay upfront for a number of users and only want to allow those users access to your application. In these cases, an invite-only workflow can be used. 
+Other types of applications (such as Google Apps and Office 365) may not allow single users to register for an application. Instead, customers may be organizations that pay upfront for a number of users and only want to allow those users access to your application. In these cases, an invite-only workflow can be used.
 
 ## Analystick scenario
 
@@ -15,13 +16,13 @@ Analystick is a multi-tenant SaaS solution offering analytics in the cloud. Thei
 
 This functionality can be achieved using an Enterprise Connection where you federate with your customer using ADFS/SAML-P/…. This will allow your customer to authenticate users with their own Active Directory which specifies who is to be given access to the application.
 
-The invite-only flow will be setup as follows: 
+The invite-only flow will be setup as follows:
 
-1. The tenant admnistrator will create new users in their subscription from within the application. 
-2. The application will call the Auth0 Management API to create these new users in a database connection. 
-3. The application will send out activation emails to these users. 
-4. When users click the activation link, they will be redirected to Auth0 where their email address will be set to validated. 
-5. After validation, Auth0 will redirect users to the application where they will be presented with a password reset form. 
+1. The tenant admnistrator will create new users in their subscription from within the application.
+2. The application will call the Auth0 Management API to create these new users in a database connection.
+3. The application will send out activation emails to these users.
+4. When users click the activation link, they will be redirected to Auth0 where their email address will be set to validated.
+5. After validation, Auth0 will redirect users to the application where they will be presented with a password reset form.
 6. The application will update each user's password in Auth0, after which they will be able to authenticate.
 
 ![](/media/articles/invite-only/invite-only-overview.png)
@@ -177,7 +178,7 @@ The `Users.CreateAsync` method is called to create the user in the database conn
 
 ### Emails
 
-Once the user is created, you will need to send the verification email. The email will contain a link to the account activation URL of the application (/activate/account) that contains the password reset form. To securely identify the user, a JWT token is appended to the URL. 
+Once the user is created, you will need to send the verification email. The email will contain a link to the account activation URL of the application (/activate/account) that contains the password reset form. To securely identify the user, a JWT token is appended to the URL.
 
 To generate the `verificationUrl`, call the `Tickets.CreateEmailVerificationTicketAsync` method on the SDK, set the return URL to that of the password reset form, and append the token.
 
@@ -185,7 +186,7 @@ To generate the `verificationUrl`, call the `Tickets.CreateEmailVerificationTick
 
 ![](/media/articles/invite-only/invite-only-disable-email.png)
 
-The backend will be sending out the email, so you will need to access an SMTP server. This example uses Mailtrap, but any SMTP server will do. 
+The backend will be sending out the email, so you will need to access an SMTP server. This example uses Mailtrap, but any SMTP server will do.
 
 After signing up with an email server, add these SMTP settings to the `web.config`:
 
@@ -199,7 +200,7 @@ After signing up with an email server, add these SMTP settings to the `web.confi
   </system.net>
 ```
 
-That is all that is required for user provisioning. 
+That is all that is required for user provisioning.
 
 Now go back to the user overview to start importing users.
 
@@ -211,7 +212,7 @@ Each user will receive a welcome email containing a link to activate their accou
 
 ### User Activation
 
-The link in the email template redirects to Auth0 for email verification. 
+The link in the email template redirects to Auth0 for email verification.
 
 After successful verification, Auth0 will redirect the user to the password reset form of the application with the user token included in the URL.
 
@@ -227,12 +228,12 @@ Once the user has entered their password, you should verify that the account has
 /// <returns></returns>
 public async Task<ActionResult> Activate(string userToken)
 {
-    dynamic metadata = JWT.JsonWebToken.DecodeToObject(userToken, 
+    dynamic metadata = JWT.JsonWebToken.DecodeToObject(userToken,
         ConfigurationManager.AppSettings["analystick:signingKey"]);
     var user = await GetUserProfile(metadata["id"]);
     if (user != null)
         return View(new UserActivationModel { Email = user.Email, UserToken = userToken });
-    return View("ActivationError", 
+    return View("ActivationError",
         new UserActivationErrorModel("Error activating user, could not find an exact match for this email address."));
 }
 
@@ -244,11 +245,11 @@ public async Task<ActionResult> Activate(string userToken)
 [HttpPost]
 public async Task<ActionResult> Activate(UserActivationModel model)
 {
-    dynamic metadata = JWT.JsonWebToken.DecodeToObject(model.UserToken, 
+    dynamic metadata = JWT.JsonWebToken.DecodeToObject(model.UserToken,
         ConfigurationManager.AppSettings["analystick:signingKey"], true);
     if (metadata == null)
     {
-        return View("ActivationError", 
+        return View("ActivationError",
             new UserActivationErrorModel("Unable to find the token."));
     }
 
@@ -275,20 +276,20 @@ public async Task<ActionResult> Activate(UserActivationModel model)
         return View("Activated");
     }
 
-    return View("ActivationError", 
+    return View("ActivationError",
         new UserActivationErrorModel("Error activating user, could not find an exact match for this email address."));
 }
 ```
 
 **NOTE:** Always validate the token first to be sure you are updating the correct user.
 
-Next, display a confirmation page where the user can click a link to sign in. 
+Next, display a confirmation page where the user can click a link to sign in.
 
 You can customize the rendering of Lock. Since you don’t want users to sign up, hide the Sign Up button which is visible by default:
 
 ```javascript
 var lock = new Auth0Lock(
-    '@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]', 
+    '@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]',
     '@System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"]', {
         auth: {
             redirectUrl: window.location.origin + '/signin-auth0'
@@ -363,6 +364,6 @@ Once users have completed the entire flow, they will be able to access the membe
 
 ### Summary
 
-This scenario has demonstrated an invite-only sign-up implementation using the Auth0 Management API to customize the sign-up process and the email flow. 
+This scenario has demonstrated an invite-only sign-up implementation using the Auth0 Management API to customize the sign-up process and the email flow.
 
 For more information about the Management API, see the [Management API Explorer](/api/v2) to try the various endpoints.

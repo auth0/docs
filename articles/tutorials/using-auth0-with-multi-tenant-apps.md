@@ -1,6 +1,7 @@
 ---
 description: This articles lists several existing multi-tenant applications and describes their implementations.
 toc: true
+crews: crew-2
 ---
 
 # Using Auth0 with Multi-tenant Apps
@@ -194,4 +195,3 @@ Here is an example that would model a simplified chat system like Slack:
   }
 }
 ```
-

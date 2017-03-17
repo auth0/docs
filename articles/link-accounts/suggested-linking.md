@@ -1,5 +1,6 @@
 ---
 description: How to link user accounts with server-side code.
+crews: crew-2
 ---
 
 # Account Linking from Server Side Code
@@ -12,8 +13,8 @@ The following steps implement suggested account linking for a Regular Web App:
 
 ## 1. Initial Login
 
-First, the user will authenticate to the website using either [Lock](https://github.com/auth0/lock), [Lock Passwordless](https://github.com/auth0/lock-passwordless), or [Auth0.js](/libraries/auth0js) and a custom UI. 
- 
+First, the user will authenticate to the website using either [Lock](https://github.com/auth0/lock), [Lock Passwordless](https://github.com/auth0/lock-passwordless), or [Auth0.js](/libraries/auth0js) and a custom UI.
+
 ![](/media/articles/link-accounts/regular-web-app-initial-login.png)
 
 The following is a sample login using Lock:
@@ -21,7 +22,7 @@ The following is a sample login using Lock:
 ```html
 <script src="${lock_url}"></script>
 <script type="text/javascript">
-  function signin() {    
+  function signin() {
     var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
     lock.show({
         callbackURL: '${account.callback}'
@@ -90,7 +91,7 @@ class Auth0Client {
           return reject('Error getting users: ' + response.statusCode + ' ' + body);
         } else {
           resolve(JSON.parse(body));
-        } 
+        }
       });
     });
   }
@@ -162,7 +163,7 @@ function _mergeMetadata(primaryUser, secondaryUser){
   };
   const mergedUserMetadata = _.merge({}, secondaryUser.user_metadata, primaryUser.user_metadata, customizerCallback);
   const mergedAppMetadata = _.merge({}, secondaryUser.app_metadata, primaryUser.app_metadata, customizerCallback);
-  
+
   return Promise.all([
     auth0.users.updateUserMetadata(primaryUser.user_id, mergedUserMetadata),
     auth0.users.updateAppMetadata(primaryUser.user_id, mergedAppMetadata)
@@ -206,7 +207,7 @@ class Auth0Client {
           return reject('Error linking accounts. Status code: ' + response.statusCode + '. Body: ' + JSON.stringify(body));
         } else {
           resolve(body);
-        } 
+        }
       });
     });
   }
@@ -250,7 +251,7 @@ class Auth0Client {
     return new Promise((resolve,reject) => {
       var reqOpts = {
         method: 'DELETE',
-        url: 'https://${account.namespace}/api/v2/users/' + rootUserId + 
+        url: 'https://${account.namespace}/api/v2/users/' + rootUserId +
             '/identities/' + targetUserProvider + '/' + targetUserId,
         headers: {
           'Authorization': 'Bearer ' + process.env.AUTH0_APIV2_TOKEN
@@ -263,7 +264,7 @@ class Auth0Client {
           return reject('Error unlinking accounts. Status: '+ response.statusCode + ' ' + JSON.stringify(body));
         } else {
           resolve(JSON.parse(body));
-        } 
+        }
       });
     });
   }

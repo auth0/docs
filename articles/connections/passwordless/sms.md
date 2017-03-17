@@ -6,6 +6,7 @@ image:
 alias:
   - sms
 seo_alias: sms
+crews: crew-2
 ---
 
 # Authenticate users with a one-time code via SMS

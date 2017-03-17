@@ -1,5 +1,6 @@
 ---
 description: Guide on how to use the hosted login page
+crews: crew-2
 ---
 
 # Hosted Login Page
@@ -16,7 +17,7 @@ In your [Auth0 Dashboard](${manage_url}/#/login_page), you can enable a custom H
 
 ![Hosted Login Page](/media/articles/hosted-pages/login.png)
 
-If you want to change some of the [configuration options](/libraries/lock/v10/customization) within Lock, you may do so _right on this page_, just make your changes and make sure to remember to hit the _Save_ button. 
+If you want to change some of the [configuration options](/libraries/lock/v10/customization) within Lock, you may do so _right on this page_, just make your changes and make sure to remember to hit the _Save_ button.
 
 Auth0 provides a whole set of configuration values in the `@@config@@` string that you can decode and use to adjust the hosted login page behavior:
 
@@ -28,7 +29,7 @@ var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 ...
 ```
 
-Take a look at the default custom login page code to get a glimpse of the available configuration options. 
+Take a look at the default custom login page code to get a glimpse of the available configuration options.
 
 ### Using Auth0.js in a hosted login page
 
@@ -40,22 +41,22 @@ This example builds a link that takes the user directly to a specific connection
   [...]
   <a id="direct-link" href="">A direct link to the IdP</a>
   <script src="https://cdn.auth0.com/js/auth0/8.3.0/auth0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.core.min.js"></script>  
+  <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.core.min.js"></script>
   <script src="https://cdn.auth0.com/js/lock/10.11/lock.js"></script>
   <script>
     // standard config decoding as in the default template
     var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
-    
+
     // builds an Auth0.js instance using config options
     var authClient = new auth0.Authentication({
       domain:       config.auth0Domain,
       clientID:     config.clientID,
       _disableDeprecationWarnings: true,
       redirectUri: config.callbackURL,
-      responseType: config.extraParams.response_type || 
+      responseType: config.extraParams.response_type ||
         config.callbackOnLocationHash ? 'token' : 'code'
     });
-    
+
     // build an authorize URL specifying a connection
     var buildDirectAuthUrl = function(connectionName) {
       // using lodash to extend config.internalOptions with the connectionName
@@ -64,9 +65,9 @@ This example builds a link that takes the user directly to a specific connection
       });
       return authClient.buildAuthorizeUrl(options);
     };
-    
+
     window.getElementById('direct-link').href = buildDirectAuthUrl("my-idp-connection");
-``` 
+```
 
 This example shows a very simple username/password form, using [Auth0.js v7](/libraries/auth0js/v7) instead of Lock:
 
@@ -88,7 +89,7 @@ This example shows a very simple username/password form, using [Auth0.js v7](/li
     <input id="password" type="password" />
     <br />
     <button>Submit</button>
-  </form>  
+  </form>
   <!--[if IE 8]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
   <![endif]-->
@@ -103,7 +104,7 @@ This example shows a very simple username/password form, using [Auth0.js v7](/li
   <script>
     // Decode utf8 characters properly
     var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
-    
+
     var auth0Client = new Auth0({
         domain:       config.auth0Domain,
         clientID:     config.clientID,
@@ -124,4 +125,4 @@ This example shows a very simple username/password form, using [Auth0.js v7](/li
   </script>
 </body>
 </html>
-``` 
+```

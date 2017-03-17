@@ -1,5 +1,6 @@
 ---
 description: Describes how to call APIs from highly trusted clients using the Resource Owner Password Grant.
+crews: crew-2
 ---
 
 # Calling APIs from Highly Trusted Clients
@@ -46,14 +47,14 @@ Inside a rule, you can change the returned scopes of the `access_token` and/or a
 
 ```javascript
 function(user, context, callback) {
-  
+
   // add custom claims to access token and ID token
   context.accessToken['http://foo/bar'] = 'value';
   context.idToken['http://fiz/baz'] = 'some other value';
-  
+
   // change scope
   context.accessToken.scope = ['array', 'of', 'strings'];
-  
+
   callback(null, user, context);
 }
 

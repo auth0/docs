@@ -1,5 +1,6 @@
 ---
 description: How to create and use a database connection using either the Auth0 user store or a custom database connection.
+crews: crew-2
 url: /connections/database
 ---
 

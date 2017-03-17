@@ -1,5 +1,6 @@
 ---
 title: Using Passwordless Authentication with a Magic Link via email on SPA
+crews: crew-2
 ---
 
 # Authenticate users with a Magic Link via e-mail on SPA

@@ -1,5 +1,6 @@
 ---
 description: Describes the Billing policy which governs requests for billing mechanisms within the Auth0 dashboard
+crews: crew-2
 ---
 
 # Billing Policy
@@ -74,6 +75,3 @@ Definitely. In the Dashboard, you can do this by going to the upper right corner
 ## How can I convert my account from a free trial to any other version?
 
 You can do this by heading to the upper right corner of the Dashboard, `Account Settings`. Then in the `Subscriptions` tab you can select the plan that best suits your needs. More information about this can be found there or in our [Pricing page](https://auth0.com/pricing/).
-
-
-
