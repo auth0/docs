@@ -191,7 +191,7 @@ window.addEventListener('load', function() {
 
 The service has several other utility functions that are necessary to complete authentication transactions.
 
-* The `parseHash` function is necessary for redirect-based authentication transactions which, in this example, include `signup` and `loginWithGoogle`.
+* The `parseHash` function is necessary to get the authentication result from the URL in redirect-based authentication transactions.
 * The `logout` function removes the user's tokens from local storage which effectively logs them out of the application.
 * The `setUser` function takes an authentication result object and sets the access token and ID token values into local storage
 * The `show_logged_in` function hides the login form and displays the **Log Out** button. This is called after the user authenticates to reflect that they are logged in.
