@@ -222,11 +222,11 @@ In addition, you can write your own rules that are applied after the rule that i
 
 ![Click Advanced Settings Link](/media/articles/extensions/authorization/adv-settings-link.png)
 
-2. Under **Application Metadata** add an item setting the **Key** to `required_roles` and in **Value** field list your roles in comma separated style. 
-
-3. Press **CREATE** button to add the field. When finished then click **Save Changes**. Now when you login from this client, in `context.clientMetadata` you will have the `required_roles` with the roles value string you entered.
+2. Under **Application Metadata** add an item setting the **Key** to `required_roles` and in **Value** field list your roles in comma separated style. Click the **CREATE** button to add the field.
 
 ![Example of required roles](/media/articles/extensions/authorization/required-roles.png)
+
+3. When finished click **Save Changes**. Now when you login from this client, in `context.clientMetadata` you will have the `required_roles` with the roles value string you entered.
 
 **Create a Rule that enforces client roles**
 
