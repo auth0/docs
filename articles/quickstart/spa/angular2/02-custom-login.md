@@ -105,9 +105,9 @@ All authentication transactions should be handled from an injectable service. Th
 
 The auth0.js methods for making authentication requests come from the `WebAuth` object. Create an instance of `auth0.WebAuth` and provide the domain, client ID, and callback URL for your client. A `responseType` of `token id_token` should also be specified.
 
-The `login` and `signup` methods should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `client.login` method. Since `client.login` is an XHR-based transaction, the authentication result is handled in a callback and the user's access token and ID token are saved into local storage if the transaction is successful.
+The `login` and `signup` methods should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `redirect.loginWithCredentials` method, and for `signup`, they are passed to `redirect.signupAndLogin`.
 
-The `signup` method is a redirect-based flow and the authentication result is handled by the `handleAuthentication` method. This method looks for an access token and ID token in the URL hash when the user is redirected back to the application. If those tokens are found, they are saved into local storage and the user is redirected to the home route.
+These methods are redirect-based and the authentication result is handled by the `parseHash` method. This method looks for an access token and ID token in the URL hash when the user is redirected back to the application. If those tokens are found, they are saved into local storage and the user is redirected to the home route.
 
 ```js
 import { Injectable } from '@angular/core';
@@ -146,19 +146,12 @@ export class Auth {
   }
 
   public login(username: string, password: string): void {
-    this.auth0.client.login({
-      realm: 'Username-Password-Authentication',
+    this.auth0.redirect.loginWithCredentials({
+      connection: 'Username-Password-Authentication',
       username,
       password
-    }, (err, authResult) => {
-      if (err) {
-        alert('Error: ' + err.description);
-        return;
-      }
-      if (authResult && authResult.idToken && authResult.accessToken) {
-        this.setUser(authResult);
-        this.router.navigate(['/home']);
-      }
+    }, err => {
+      if (err) return alert(err.description);
     });
   }
 
@@ -167,10 +160,8 @@ export class Auth {
       connection: 'Username-Password-Authentication',
       email,
       password,
-    }, function(err) {
-      if (err) {
-        alert('Error: ' + err.description);
-      }
+    }, err => {
+      if (err) return alert(err.description);
     });
   }
 
@@ -200,7 +191,7 @@ export class Auth {
 
 The service has several other utility methods that are necessary to complete authentication transactions.
 
-* The `handleAuthentication` method is necessary for redirect-based authentication transactions which, in this example, include `signup` and `loginWithGoogle`. This method needs to be called when the app starts so that the authentication result (which comes back in the hash of a redirection) is properly handled.
+* The `handleAuthentication` method is necessary to get the authentication result from the URL in redirect-based authentication transactions. This method needs to be called when the app starts so that the authentication result (which comes back in the hash of a redirection) is properly handled.
 * The `logout` method removes the user's tokens from local storage which effectively logs them out of the application.
 * The `setUser` method takes an authentication result object and sets the access token and ID token values into local storage
 * The `isAuthenticated` method uses `tokenNotExpired` from angular2-jwt to check for the user's authentication state based on the `id_token`'s expiry time.
