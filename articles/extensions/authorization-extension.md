@@ -218,7 +218,7 @@ In addition, you can write your own rules that are applied after the rule that i
 
 **How to set `required_roles`**
 
-⁠⁠⁠⁠1. To set the `context.clientMetadata` field with `required_roles`, first select your client [in the dashboard](${manage_url}/#/clients). This will bring you to the client's Settings, scroll down and click on the **Show Advance Settings** link at the bottom of the page. 
+⁠⁠⁠⁠1. To set the `context.clientMetadata` field with `required_roles`, first select your client [in the dashboard](${manage_url}/#/clients). This will bring you to the client's Settings, scroll down and click on the **Show Advanced Settings** link at the bottom of the page. 
 
 ![Click Advanced Settings Link](/media/articles/extensions/authorization/adv-settings-link.png)
 
