@@ -182,16 +182,12 @@ The `authService` is the place where all the calls to angular-auth0, and thus to
   function authService($state, angularAuth0, authManager) {
 
     function login(username, password) {
-      angularAuth0.client.login({
-        realm: 'Username-Password-Authentication',
+      angularAuth0.redirect.loginWithCredentials({
+        connection: 'Username-Password-Authentication',
         username: username,
         password: password,
-      }, function(err, authResult) {
-        if (err) alert(err.description);
-        if (authResult && authResult.idToken) {
-          setUser(authResult);
-          $state.go('home');
-        }
+      }, function(err) {
+        if (err) return alert(err.description);
       });
     }
 
@@ -200,6 +196,8 @@ The `authService` is the place where all the calls to angular-auth0, and thus to
         connection: 'Username-Password-Authentication',
         email: username,
         password: password
+      }, function(err) {
+        if (err) return alert(err.description);
       });
     }
 
@@ -250,7 +248,7 @@ The `authService` is the place where all the calls to angular-auth0, and thus to
 
 The service has several other utility methods that are necessary to complete authentication transactions.
 
-* The `handleParseHash` method is necessary for redirect-based authentication transactions which, in this example, include `signup` and `loginWithGoogle`. This method needs to be called when the app starts so that the authentication result (which comes back in the hash of a redirection) is properly handled.
+* The `handleParseHash` method is necessary to get the authentication result from the URL in redirect-based authentication transactions. This method needs to be called when the app starts so that the authentication result (which comes back in the hash of a redirection) is properly handled.
 * The `logout` method removes the user's tokens from local storage which effectively logs them out of the application.
 * The `setUser` method takes an authentication result object and sets the access token and ID token values into local storage
 * The `isAuthenticated` method checks for the user's authentication state based on the `id_token`'s expiry time.
