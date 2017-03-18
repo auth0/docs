@@ -15,11 +15,11 @@ Beginning with version `10755`, the Appliance supports User Search using Elastic
 
 ## Requirements for Enabling User Search
 
-To enable User Search, you must increase the amount of storage available in your Development and/or Production environments.
+To enable User Search, you must increase the amount of storage available in your Development and Production environments.
 
 * If you have a *single non-Production/Development node*, you need an additional **50 GB** drive;
 * If you have a *three-node Production cluster*, you need an additional **100 GB** drive on *each* of your three Virtual Machines;
-* If you have a *Geographic High-Availability implementation*, you need an addtional **100 GB** drive on *each* of your six Virtual Machines.
+* If you have a *Geographic High-Availability implementation*, you need an additional **100 GB** drive on *each* of your data nodes in the primary and secondary data centers.
 
 For all other configuration types, please consult with your Customer Success Engineer.
 
