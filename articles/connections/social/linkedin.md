@@ -1,4 +1,5 @@
 ---
+title: Connect your app to LinkedIn
 connection: LinkedIn
 index: 3
 image: /media/connections/linkedin.png

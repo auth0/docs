@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Yahoo!
 connection: Yahoo!
 image: /media/connections/yahoo.png
 seo_alias: yahoo
@@ -6,7 +7,7 @@ index: 15
 description: How to obtain a Consumer Key and Consumer Secret for Yahoo!
 ---
 
-# Obtaining a Client Key and Client Secret for Yahoo!
+# Connect your app to Yahoo!
 
 These steps will guide you through how to create an application with Yahoo! and how to add it as a social connection in the Auth0 Dashboard. 
 

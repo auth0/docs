@@ -6,6 +6,12 @@ description: Auth0 supports the linking of user accounts from various identity p
 
 # Linking Accounts
 
+::: panel-info Feature Availability 
+The **Account Linking** feature requires a paid subscription to the **Developer**, **Developer Pro** or **Enterprise** plan. It is not available as a free feature.
+
+[Click here](https://auth0.com/pricing) to learn more about Auth0 pricing plans.
+:::
+
 Auth0 supports the linking of user accounts from various identity providers, allowing a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile.
 
 Note that Auth0 will treat all identities as separate by default. For example: if a user logs in first against the Auth0 database and then via Google or Facebook, these two attempts would appear to Auth0 as two separate users.

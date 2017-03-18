@@ -69,7 +69,7 @@ In this step, you will configure Auth0 as a Service Provider to communicate with
 
   ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-7.png)
 
-**NOTE:** You can always access the metadata for an Auth0 SAML connection with this URL syntax: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
+**NOTE:** You can always access the metadata for an Auth0 SAML connection with this URL syntax: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
 
 ## 3. Configure the SalesForce Identity Provider
 
@@ -81,7 +81,7 @@ In this step, you will configure SalesForce with the metadata from Auth0 so it c
 4. Click on **Connected Apps**.
 5. Create a new Connected App and fill out the following fields:
 
-  **Entity ID:** `urn:auth0:${account.namespace}:${connectionName}`
+  **Entity ID:** `urn:auth0:${account.namespace}:YOUR_CONNECTION_NAME`
 
   **ACS URL:** `https://${account.namespace}/login/callback`
 

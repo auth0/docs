@@ -123,7 +123,7 @@ In the window that appears, metadata about this SAML provider (account 1) is dis
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-08.jpg)
 
-First, look for the second bullet in the list of information that tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:${connectionName}__.  
+First, look for the second bullet in the list of information that tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME__.  
 
 Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name.
 
@@ -131,13 +131,13 @@ In that same window, near the bottom, there is a line that says, _"You can acces
 
 Copy the URL below that line into your browser address bar.
 
-In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
+In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
 
 Once you go to that metadata URL, it will display the metadata for the Auth0 account 1 (service provider side of the federation. It will look something like the following with your account name in place of the 'xxxxx':
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-09.jpg)
 
-You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://${account.namespace}.auth0.com/login/callback?connection=${connectionName}__.
+You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://${account.namespace}.auth0.com/login/callback?connection=YOUR_CONNECTION_NAME__.
 
 Copy and save this URL. This is the URL on account 1 that will receive the SAML assertion from the IDP. In the next section you will give this URL to the IDP so it knows where to send the SAML assertion.
 
@@ -171,7 +171,7 @@ First remove the "//" at the beginning of the line to uncomment it.
 Next, replace the original value (urn:foo) with the **Entity ID** value you saved and copied in step 3 above. The new line 2 should look something like:
 
 ```
-    "audience":"urn:auth0:${account.tenant}:${connectionName}"
+    "audience":"urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME"
 ```
 
 7. Click on the blue **"SAVE"** button at the bottom of the screen

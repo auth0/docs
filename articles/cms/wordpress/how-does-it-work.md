@@ -55,3 +55,10 @@ The login flow is as follows:
 2. Auth0 can't find a user associated with the provided credentials, so it proceeds to call the migration endpoint.
 3. The Auth0-WordPress plugin find a user in your WordPress database with the provided username/email, so it verifies the password.
 4. Auth0 creates the user in your Auth0 account, authenticates the user, and logs them in.
+
+## More on the Login by Auth0 WordPress Plugin
+
+- [Installation](/cms/wordpress/installation)
+- [Configuration](/cms/wordpress/configuration)
+- [JWT Authentication](/cms/wordpress/jwt-authentication)
+- [Troubleshoot](/cms/wordpress/troubleshoot)

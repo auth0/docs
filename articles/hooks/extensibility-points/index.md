@@ -3,7 +3,7 @@ description: The extensibility points for use with Hooks
 url: /hooks/extensibility-points
 ---
 
-# Extensibility Points
+# Extensibility Points&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
 
 The following is a list of available extensibility points:
 

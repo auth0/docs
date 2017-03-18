@@ -1,5 +1,5 @@
 ---
-title: Connect ADFS with Auth0
+title: Connect your app to ADFS
 connection: ADFS
 image: /media/connections/ms.png
 alias:
@@ -9,7 +9,7 @@ seo_alias: adfs
 description: How to connect ADFS with Auth0.
 ---
 
-# Connect ADFS with Auth0
+# Connect your app to ADFS
 
 Provide this information to your ADFS administrator:
 

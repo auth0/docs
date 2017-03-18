@@ -29,6 +29,6 @@ Using the left-hand navigation menu, go to **Connections > Database**.
 
 ![Database Connections Page](/media/articles/appliance/admin/connections.png)
 
-Click the row corresponding to **Initial-Connection** (or the connection for which you are disabling sign-ups). You will be directed to the *Settings* page. Scroll to the bottom, and enable the slider corresponding to the row that reads **Diable Sign Ups**.
+Click the row corresponding to **Initial-Connection** (or the connection for which you are disabling sign-ups). You will be directed to the *Settings* page. Scroll to the bottom, and enable the slider corresponding to the row that reads **Disable Sign Ups**.
 
 ![Connections Settings Page](/media/articles/appliance/admin/disable-sign-ups.png)

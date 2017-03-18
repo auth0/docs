@@ -17,24 +17,27 @@ curl --request GET \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+// Script uses auth0.js v8. See Remarks for details.
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  // Initialize the Auth0 client
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
+  });
+  
+  // Parse the URL and extract the access_token
+  webAuth.parseHash(window.location.hash, function(err, authResult) {
+    if (err) {
+      return console.log(err);
+    }
+    webAuth.client.userInfo(authResult.accessToken, function(err, user) {
+        // This method will make a request to the /userinfo endpoint 
+        // and return the user object, which contains the user's information, 
+        // similar to the response below.
+    });
   });
 </script>
-
-auth0.getUserInfo(access_token, function (err, profile) {
-  if(err) {
-    // handle error
-    return;
-  }
-
-  alert('hello ' + profile.name);
-});
 ```
 
 > RESPONSE SAMPLE:
@@ -85,6 +88,19 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 <%= include('../../_includes/_test-with-postman') %>
 
 
+### Remarks
+- The sample auth0.js script uses the library version 8. If you are using auth0.js version 7, please see this [reference guide](/libraries/auth0js/v7).
+- The auth0.js `parseHash` method, requires that your tokens are signed with `RS256`, rather than `HS256`. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
+- This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:
+  * `X-RateLimit-Limit`: Number of requests allowed per minute.
+  * `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
+  * `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+
+### More Information
+- [Auth0.js v8 Reference: Extract the authResult and get user info](/libraries/auth0js#extract-the-authresult-and-get-user-info)
+- [Auth0 API Rate Limit Policy](/policies/rate-limits)
+
+
 ## Get Token Info
 
 <h5 class="code-snippet-title">Examples</h5>
@@ -105,23 +121,22 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
-  var auth0 = new Auth0({
+  var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
+    clientID:     '${account.clientId}'
   });
 </script>
 
-auth0.getProfile(idToken, function (err, profile) {
-  if(err) {
-    // handle error
-    return;
+webAuth.parseHash(window.location.hash, function(err, authResult) {
+  if (err) {
+    return console.log(err);
   }
 
-  alert('hello ' + profile.name);
+  webAuth.client.userInfo(authResult.accessToken, function(err, user) {
+    // Now you have the user's information
+  });
 });
 ```
 
@@ -171,6 +186,13 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 <%= include('../../_includes/_test-with-postman') %>
 
 
+### Remarks
+- This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:
+  * `X-RateLimit-Limit`: Number of requests allowed per minute.
+  * `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
+  * `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+
 ### More Information
 
 - [User Profile: In-Depth Details - API](/user-profile/user-profile-details#api)
+- [Auth0 API Rate Limit Policy](/policies/rate-limits)

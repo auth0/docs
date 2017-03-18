@@ -35,10 +35,9 @@ The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://too
 
 For details on how to implement this using Auth0, refer to [Executing an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant).
 
-## More reading
+## Keep reading
 
-- [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
-- [Executing an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant)
+- [How to implement an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant)
 - [How to configure an API in Auth0](/apis)
 - [Web App Quickstarts](/quickstart/webapp)
 - [Client Authentication for Server-side Web Apps](/client-auth/server-side-web)

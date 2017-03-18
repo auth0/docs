@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Amazon
 connection: Amazon Web Services
 image: /media/connections/amazon.png
 alias:
@@ -9,7 +10,7 @@ index: 9
 description: How to obtain a Client Id and Client Secret for Amazon.
 ---
 
-# Obtain a *Client Id* and *Client Secret* for Amazon
+# Connect your app to Amazon
 
 To configure an Amazon connection with Auth0, you will need to register your app on the Amazon portal.
 
@@ -30,11 +31,15 @@ Click on the **Register New Application** button and enter a **Name**, **Descrip
 
 Expand the **Web Settings** section. Enter your Auth0 JavaScript origin in the **Allowed JavaScript Origins** field and callback URLs in the **Allowed Return URLs** field. The JavaScript origin address for your app should be:
 
-    https://${account.namespace}/login/
+```text
+https://${account.namespace}/
+```
 
 and the callback address for your app should be:
 
-    https://${account.namespace}/login/callback
+```text
+https://${account.namespace}/callback
+```
 
 ### 4. Copy your *Client Id* and *Client Secret*
 

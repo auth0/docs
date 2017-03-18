@@ -1,10 +1,12 @@
 ---
+toc: true
+section: appliance
 description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience. 
 ---
 
 # Enterprise Support Guidance
 
-This document outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience.  It's relevant for customers only with enterprise subscription agreements which differ from the standard pay-as-you-go/self-service subscription offerings acquired directly from our website.
+This document outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience.  It's relevant for customers only with Enterprise Plan subscription agreements which differ from the standard pay-as-you-go/self-service subscription offerings acquired directly from our website.
 
 Refer to your subscription agreement to confirm which support offering was included in your subscription.
 
@@ -20,13 +22,13 @@ __Customer Success Manager__ - Your Auth0 Customer Success Manager is always a g
 
 ## For issues impacting or blocking production (SLA applied)
 
-### Standard Enterprise Support (Gold, Silver and Home Grown plans)
+### Enterprise Support (Enterprise plan)
 
-![](/media/articles/onboarding/standard-enterprise-support.png)
+![](https://docs.google.com/drawings/d/1rtsaGO511GtRGA0ubg0-ReTpwITBEKOUyS75e7SI3mc/pub?w=959&h=528)
 
-### Premium Enterprise Support (Enterprise and Platinum plans)
+### Preferred Support (Addon to Enterprise plan)
 
-![](/media/articles/onboarding/premium-enterprise-support.png)
+![](https://docs.google.com/drawings/d/1xd1oNTGDMbrScqeFVEb_9ykW8GLyDOBELenyZmiVCmA/pub?w=960&h=528)
 
 ### Using Support Center
 [Learn more about creating tickets with Support Center](/support/tickets)

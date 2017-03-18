@@ -16,6 +16,10 @@ Auth0 provides a _Sign in As_ feature for user impersonation, and provides the f
 - Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data.
 - Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works.
 
+<div class="alert alert-info">
+  <strong>Heads up!</strong> Any Rules that you've implemented will run when you impersonate a user, including any actions that update the user.
+</div>
+
 ## Use the Dashboard
 
 Navigate to the [Users](${manage_url}/#/users) page in the Management Dashboard and select the user you want to login as. Click on the __Sign in as User__ and select the client you want to log into using the dropdown menu.
@@ -33,7 +37,9 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 
 ![Links for User Impersonation](/media/articles/user-profile/signin-as-user-02.png)
 
-> Impersonating a user using the Management Dashboard will not return a [JWT](/jwt) to your application by default. You can achieve this by calling the [impersonation endpoint](/api/authentication/reference#impersonation) manually or in the [Advanced Settings](#advanced-settings). If calling the endpoint manually add `additionalParameters.scope: "openid"` to the request body.
+<div class="alert alert-info">
+Impersonating a user using the Dashboard will not return a <a href="/jwt">JWT</a> to your application by default. To achieve this, call the <a href="/api/authentication/reference#impersonation">impersonation endpoint</a> manually or in the <a href="#advanced-settings">Advanced Settings</a>. If you call the endpoint manually, add <code>additionalParameters.scope: "openid"</code> to the request body.
+</div>
 
 ### Advanced Settings
 
@@ -45,7 +51,7 @@ This reveals fields to make it easier to [impersonate a User using the Impersona
 
 * **Response mode**: `GET` or `POST`. This is only for server side apps, client side apps default to `GET`.
 * **Response type**: `Code` or `Token`. This is only for server side apps, client side apps default to `Token`.
-* **Scope**: This field will have `openid` in it is as default, [other scopes](/scopes) can be added as a list using whitespace as separator. 
+* **Scope**: This field will have `openid` in it is as default, [other scopes](/scopes) can be added as a list using whitespace as separator.
 * **State**: The `state` is an optional parameter. Learn more about [using the state parameter here](/protocols/oauth2/oauth-state).
 
 ## Use the Impersonation API
@@ -84,9 +90,9 @@ Alternatively, you can retrieve the `user_id` information from the Dashboard. Go
 
 ### Get an Authorization Code
 
-You are now ready to call the [Impersonation API](/api/authentication/reference#impersonation). 
+You are now ready to call the [Impersonation API](/api/authentication/reference#impersonation).
 
-The request should include an `Authorization` header with `Bearer YOUR_ACCESS_TOKEN`, where `YOUR_ACCESS_TOKEN` is the token you retrieved at the first step. 
+The request should include an `Authorization` header with `Bearer YOUR_ACCESS_TOKEN`, where `YOUR_ACCESS_TOKEN` is the token you retrieved at the first step.
 
 The data part of the request should include the following:
 
@@ -113,7 +119,7 @@ The `callback_url` must match what is defined in your [Client's Settings](${mana
 There are various possible values for `scope`:
 - `scope: 'openid'`: _(default)_ It will return, not only the Access Token, but also an [ID Token](/tokens/id-token) which is a _JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
 - `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the [ID Token](/tokens/id-token) (for example, `scope: 'openid name email picture'`).
-  
+
 You can get more information about this in the [Scopes documentation](/scopes).
 
 Your request should look like the following:

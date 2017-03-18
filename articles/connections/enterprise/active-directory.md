@@ -1,5 +1,5 @@
 ---
-title: Connect Active Directory with Auth0
+title: Connect your app to Active Directory
 connection: Active Directory
 image: /media/connections/ms.png
 alias:
@@ -8,8 +8,7 @@ seo_alias: active-directory
 description: How to connect to Active Directory with Auth0.
 ---
 
-
-# Connect Active Directory with Auth0
+# Connect your app to Active Directory
 
 Auth0 integrates with Active Directory/LDAP through the **Active Directory/LDAP Connector** that you install on your network.
 
@@ -25,6 +24,8 @@ Configuring an AD/LDAP connection in Auth0 requires two steps:
 2. Install the connector on your network.
 
 ### Create an AD/LDAP Connection in Auth0
+
+These are the steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 Select **Connections > Enterprise > AD/LDAP** from the Auth0 dashboard menu. Click the **+ CREATE NEW CONNECTION** button and name the connection.
 
@@ -49,3 +50,5 @@ Keep the **TICKET URL** on hand as you will need it later.
 ### Install the connector on your network
 
 Continue to the instructions on how to [Install the Connector](/connector).
+
+<%= include('../_quickstart-links.md') %>

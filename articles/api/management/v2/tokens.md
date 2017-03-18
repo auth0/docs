@@ -23,7 +23,7 @@ In this article we will see how you can do either.
 ## Get a token manually
 
 <div class="alert alert-warning">
-  <strong>Heads up!</strong> Τhe Management APIv2 token, by default, has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either [change the validity period of the token](#2-get-the-token), or <a href="#automate-the-process">automate the process</a>.
+  <strong>Heads up!</strong> Τhe Management APIv2 token, by default, has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either <a href="#2-get-the-token">change the validity period of the token</a>, or <a href="#automate-the-process">automate the process</a>.
 </div>
 
 Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.
@@ -223,16 +223,16 @@ __How long is the token valid for?__</br>
 The Management APIv2 token has by default a validity of __24 hours__. After that the token will expire and you will have to get a new one. If you get one manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) though, you can change the expiration time. However, having non-expiring tokens is not secure.
 
 __The old way of generating tokens was better, since the token never expired. Why was this changed?__</br>
-The old way of generating tokens was insecure since the tokens had an infinite lifespan and could not be revoked. The new way allows tokens to be generated with specific scopes, expirations, and with the ability to revoke tokens if they were to be breached. We decided to move to the most secure implementation because your security, and that of your users, is priority number one for us.
+The old way of generating tokens was insecure since the tokens had an infinite lifespan. The new implementation allows tokens to be generated with specific scopes and expirations. We decided to move to the most secure implementation because your security, and that of your users, is priority number one for us.
 
 __Can I change my token's validity period?__</br>
 You cannot change the default validity period, which is set to 24 hours. However, if you get a token manually from [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer) you can change the expiration time for the specific token. Note though, that your applications should use short-lived tokens to minimize security risks.
 
 __Can I refresh my token?__</br>
 You cannot renew a Management APIv2 token. A [new token](#2-get-the-token) should be created when the old one expires.
-
-__My token was compromised! Can I invalidate it?__</br>
-Sure. You can terminate the Management APIv2 tokens calling the [blacklist endpoint](/api/v2#!/Blacklists/post_tokens).
+  
+__My token was compromised! Can I revoke it?__</br>
+You cannot directly revoke a Management APIv2 token, but you can achieve a similar effect by deleting the client grant. You can do this either by [using our API](/api/management/v2#!/Client_Grants/delete_client_grants_by_id), or manually [deauthorize the APIv2 client using the dashboard](${manage_url}/#/apis/management/authorized-clients).
 
 __I need to invalidate all my tokens. How can I do that?__</br>
 All your tenant's Management APIv2 tokens are signed using the Client Secret of your non interactive client, hence if you change that, all your tokens will be invalidated. To do this, go to your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) and click the __Rotate__ icon <i class="notification-icon icon-budicon-171"></i>, or use the [Rotate a client secret](/api/management/v2#!/Clients/post_rotate_secret) endpoint.
@@ -244,14 +244,10 @@ __I can see some `current_user` scopes in my `id_token`. What is that?__</br>
 Within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the `id_token`, which are granted automatically to the logged in user.
 
 
-## More reading
+## Keep reading
 
-[Calling APIs from a Service](/api-auth/grant/client-credentials)
-
-[Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
-
-[Information on the query string syntax](/api/management/v2/query-string-syntax)
-
-[Search for Users](/api/management/v2/user-search)
-
-[Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Calling APIs from a Service](/api-auth/grant/client-credentials)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Information on the query string syntax](/api/management/v2/query-string-syntax)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Search for Users](/api/management/v2/user-search)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)<br/>

@@ -1,4 +1,5 @@
 ---
+toc: true
 description: This page explains how to setup and manage the Authorization Extension v2.
 ---
 
@@ -215,9 +216,21 @@ In addition to API access, you can also deploy a rule that reaches out to the ex
 
 In addition, you can write your own rules that are applied after the rule that is published by the extension. For example you can write a rule to control application access. One way to achieve this is to use the [Application Metadata](/rules/metadata-in-rules#reading-metadata) where you can specify on every client that roles are required.
 
-- For example, you can have **required_roles**: `Timesheet User,Timesheet Admin`
+**How to set `required_roles`**
 
-Then you can write a rule that enforces this logic:
+⁠⁠⁠⁠1. To set the `context.clientMetadata` field with `required_roles`, first select your client [in the dashboard](${manage_url}/#/clients). This will bring you to the client's Settings, scroll down and click on the **Show Advanced Settings** link at the bottom of the page. 
+
+![Click Advanced Settings Link](/media/articles/extensions/authorization/adv-settings-link.png)
+
+2. Under **Application Metadata** add an item setting the **Key** to `required_roles` and in **Value** field list your roles in comma separated style. Click the **CREATE** button to add the field.
+
+![Example of required roles](/media/articles/extensions/authorization/required-roles.png)
+
+3. When finished click **Save Changes**. Now when you login from this client, in `context.clientMetadata` you will have the `required_roles` with the roles value string you entered.
+
+**Create a Rule that enforces client roles**
+
+After setting `required_roles` you can write a rule that enforces this logic:
 
 ```js
 function (user, context, callback) {

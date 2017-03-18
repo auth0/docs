@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Facebook
 connection: Facebook
 index: 2
 image: /media/connections/facebook.png

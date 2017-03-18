@@ -1,4 +1,5 @@
 ---
+toc: true
 description: How to create and install a custom extension.
 ---
 

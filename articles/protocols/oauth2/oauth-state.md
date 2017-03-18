@@ -1,16 +1,23 @@
 ---
+title: The State Parameter
 description: Explains how to use the state parameter in authentication requests to help prevent XSRF attacks.
 ---
 
-# Using the State Parameter
+# The State Parameter
 
-The `state` parameter is one of the supported Auth0 [Authentication Parameters](/libraries/lock/v10/sending-authentication-parameters). This page is to help you understand how to utilize this this parameter which is useful to help mitigate [XSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery) and for providing any contextual information (such as a return url) that you might need after the authentication process is finished.
+The `state` parameter is one of the supported Auth0 [Authentication Parameters](/libraries/lock/v10/sending-authentication-parameters), used to help mitigate [XSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+
+A XSRF attack can occur when a malicious program causes a user's web browser to perform an unwanted action on a trusted site that the user is currently authenticated. This type of attack specifically target state-changing requests to initiate a type of action instead of getting user data because the attacker has no way to see the response of the forged request.
 
 For the most basic cases the `state` parameter should be a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) as shown in the example below.  **But this field can also be a [Base64](https://en.wikipedia.org/wiki/Base64) encoded json object that can hold multiple values [such as a return URL](/tutorials/redirecting-users).**
 
-**Here is a basic use case scenario:**
+## How to use the state parameter
 
-Note: Depending on the application type or framework this may be included for the developer. Also the exact structure of the requests may differ.
+By using the state parameter to hold a value for verification, malicious requests can be denied.
+
+![](/media/articles/protocols/CSRF_Diagram.png)
+
+**NOTE**: Depending on the application type or framework this may be included for the developer. Also the exact structure of the requests may differ.
 
 1. Before redirecting a request to the [IdP](/identityproviders), have the client generate a random string.
 
@@ -18,7 +25,7 @@ Note: Depending on the application type or framework this may be included for th
 xyzABC123
 ```
 
-2. Save this string to a variable in [web storage.](/security/store-tokens#web-storage-localstorage-sessionstorage-)
+2. Save this string to a variable in [web storage](/security/store-tokens#web-storage-localstorage-sessionstorage-).
 
 ```
 auth0-authorize = xyzABC123
@@ -32,13 +39,13 @@ var encodedString = Base64.encode(string);
 tenant.auth0.com/authorize?...&state=encodedString
 ```
 
-4. After the request is sent and when the user is redirected back by Auth0 to the client and the state value will be included. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
+4. After the request is sent, the user is redirected back to the client by Auth0. The `state` value will be included in this redirect. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
 
 ```
 /login/callback?...&state=encodedString
 ```
 
-5.  Decode this returned state value to compare to the previously stored value. If the values match then approve the request, else deny the request. Using this field can help prevent cross-site request forgery
+5.  Decode the returned `state` value and compare it to the one you stored earlier. If the values match, then approve the request, else deny it.
 
 ```
 // Decode the String
@@ -49,9 +56,9 @@ if(decodedString == auth0-authorize) {
 	// Request Denied
 }
 ```
-## Further Reading:
+## Further Reading
 
-[Protecting against other common threats.](/security/common-threats)
+[Protecting against other common threats](/security/common-threats)
 
-[Using the `state` paramter for redirecting users.](/tutorials/redirecting-users#using-the-state-parameter)
+[Using the `state` parameter for redirecting users](/tutorials/redirecting-users#using-the-state-parameter)
 

@@ -22,7 +22,7 @@ https://${account.namespace}/authorize?
     response_type=code&
     client_id=${account.clientId}&
     redirect_uri=${account.callback}&
-    state=YOUR_OPAQUE_VALUE}
+    state=YOUR_OPAQUE_VALUE
 ```
 
 Where:

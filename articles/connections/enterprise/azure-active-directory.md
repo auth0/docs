@@ -1,5 +1,5 @@
 ---
-title: Connect Azure Active Directory with Auth0
+title: Connect your app to Microsoft Azure Active Directory
 connection: Azure Active Directory
 image: /media/connections/azure.png
 alias:
@@ -13,7 +13,7 @@ seo_alias: azure-active-directory
 description: How to obtain a ClientId and Client Secret for Microsoft Azure Active Directory.
 ---
 
-# Obtain a *ClientId* and *Client Secret* for Microsoft Azure Active Directory
+# Connect your app to Microsoft Azure Active Directory
 
 ::: panel-info Notice
 This page uses the current portal of the Azure Active Directory, for information on using the classic portal, [click here.](/connections/enterprise/azure-active-directory-classic)
@@ -22,6 +22,8 @@ This page uses the current portal of the Azure Active Directory, for information
 To allow users to login using a Microsoft Azure Active Directory account, you must register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can [signup](https://azure.microsoft.com/en-us/free) for free. You can access the Azure management portal from your Microsoft service, or visit [https://manage.windowsazure.com](https://manage.windowsazure.com) and sign in to Azure using the global administrator account that was used to create the Office 365 organization.
 
 **NOTE:** There is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.
+
+This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Create a new application
 
@@ -71,7 +73,7 @@ Enter a name for the key and for the duration of the key select 1 or 2 years.
 
 ![Creating a Key](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2.png)
 
-Click on **Save** and the key will be displayed. Make sure to copy the value of this key before leaving this screen, this is your **Client Secret** used in the next step.
+Click on **Save** and the key will be displayed **make sure to copy the value of this key before leaving this screen** else you may need to create a new key. This value is used as the **Client Secret** in the next step.
 
 ![Creating a Key](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2b.png)
 
@@ -105,3 +107,5 @@ Click **SAVE** when you have finished.
 Signing keys are used by the identity provider to sign the authentication token it issues, and by the consumer application (Auth0 in this case) to validate the authenticity of the generated token.
 
 For security purposes, Azure AD’s signing key [rolls on a periodic basis](https://azure.microsoft.com/en-us/documentation/articles/active-directory-signing-key-rollover/). If this happens, **you do not need to take any action**. Auth0 will use the new key automatically.
+
+<%= include('../_quickstart-links.md') %>

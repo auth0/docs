@@ -2,11 +2,13 @@
 description: Explains how to install the Auth0 WordPress plugin.
 ---
 
-# WordPress Installation
+# Installation of the Login by Auth0 WordPress Plugin
 
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/wordpress-plugin-banner.png)
 
-There are two ways to install the Auth0-Wordpress plugin:
+**Note:** In order to install or customize plugins, you will need to use a self-hosted WordPress.org site. Using the WordPress.com site does not allow installing plugins.
+
+There are two ways to install the Login by Auth0 WordPress plugin:
 
 - Installing via the [WordPress Store](#installing-via-the-wordpress-store)
 - Uploading the [`wp-auth0` folder](#manually-uploading-the-plugin-file) to the `/wp-content/plugins` directory
@@ -21,17 +23,13 @@ Click **Add New**.
 
 ![Where to Add New Plugins in WordPress](/media/articles/cms/wordpress/add-new.png)
 
-Search for the Auth0 plugin, and click **Install Now**.
+Search for the **Login By Auth0** plugin, and click **Install Now**.
 
-![Installing New WordPress Plugins](/media/articles/cms/wordpress/search-and-install.png)
+![Install the plugin](/media/articles/cms/wordpress/install-plugin.png)
 
 Once the installation completes, click **Activate Plugin**.
 
-![Activating Installed WordPress Plugins](/media/articles/cms/wordpress/activate.png)
-
 At this point, your installation is complete, and you can now [configure the plugin](/cms/wordpress/configuration).
-
-![Installed Plugins List in the WordPress Dashboard](/media/articles/cms/wordpress/installed.png)
 
 ## Manually Uploading the Plugin File
 
@@ -63,4 +61,9 @@ Once the installation completes, click **Activate Plugin**.
 
 At this point, your installation is complete, and you can now [configure the plugin](/cms/wordpress/configuration).
 
-![Viewing Installed Plugins in the WordPress Dashboard](/media/articles/cms/wordpress/installed.png)
+## More on the Login by Auth0 WordPress Plugin
+
+- [How does it work?](/cms/wordpress/how-does-it-work)
+- [Configuration](/cms/wordpress/configuration)
+- [JWT Authentication](/cms/wordpress/jwt-authentication)
+- [Troubleshoot](/cms/wordpress/troubleshoot)

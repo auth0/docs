@@ -13,7 +13,7 @@ The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emai
 ![](/media/articles/email/index/emails-fields.png)
 
 
-**Note:** Only one template can be used for each template type (i.e. only one template for change passsword emails).
+**Note:** Only one template can be used for each template type (i.e. only one template for change password emails).
 
 ## Configuring *From*, *Subject*, *Redirect To*, and *URL Lifetime*
 
@@ -136,6 +136,10 @@ For example, you can refer to attributes in the template to control flow as foll
   Hi {{ user.name }}, ...
 {% endif %}
 ```
+
+##### Debugging Liquid Template Variables
+
+To assist your template development, we've added a custom `{% debug %}` liquid tag, which outputs a summary of the template variables available to your template when it was rendered.  _Remember to remove this tag from any "live" templates._
 
 #### Using Markdown Syntax
 

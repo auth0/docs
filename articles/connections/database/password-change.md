@@ -1,4 +1,5 @@
 ---
+title: Changing a User's Password
 description: This document explains the ways you can reset the passwords for users of your Auth0 clients.
 ---
 
@@ -29,7 +30,7 @@ To reset a user's password using the Authentication API, make a `POST` call spec
 ```har
 {
   "method": "POST",
-  "url": "https://YOURACCOUNT.auth0.com/dbconnections/change_password",
+  "url": "https://${account.namespace}/dbconnections/change_password",
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ],
@@ -67,7 +68,7 @@ Users will not receive notification that their password has been manually change
 ```har
 {
   "method": "PATCH",
-  "url": "https://${manage_url}/api/v2/users/{id}",
+  "url": "https://${account.namespace}/api/v2/users/USER_ID",
   "headers": [{
     "name": "Content-Type",
     "value": "application/json"

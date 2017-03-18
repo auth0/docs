@@ -2,7 +2,7 @@
 description: The pre-user-registration extensibility point for use with Hooks
 ---
 
-# Extensibility Point: Pre-User Registration
+# Extensibility Point: Pre-User Registration&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
 
 For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to:
 

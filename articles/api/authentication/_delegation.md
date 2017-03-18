@@ -23,47 +23,8 @@ curl --request POST \
 ```
 
 ```javascript
-<script src="${auth0js_url}"></script>
-<script type="text/javascript">
-  var auth0 = new Auth0({
-    domain:       '${account.namespace}',
-    clientID:     '${account.clientId}',
-    callbackURL:  '${account.callback}',
-    responseType: 'token'
-  });
-</script>
-
-//get a delegation token
-var options = {
-  id_token: "TOKEN", // The id_token you have now
-  api: 'API_TYPE', // This defaults to the first active addon if any or you can specify this
-  scope: "openid profile" // default: openid
-};
-
-auth0.getDelegationToken(options, function (err, delegationResult) {
-    // Call your API using delegationResult.id_token
-});
-
-//get the token for another API or App
-var options = {
-  id_token: "TOKEN", // The id_token you have now
-  api: 'auth0' // This is default when calling another app that doesn't have an addon
-  targetClientId: 'TARGET_CLIENT_ID'
-};
-
-auth0.getDelegationToken(options, function (err, delegationResult) {
-  // Call your API using delegationResult.id_token
-});
-```
-
-> RESPONSE SAMPLE:
-
-```json
-{
-  "token_type": "Bearer",
-  "expires_in": 36000,
-  "id_token": "eyJ0eXAi..."
-}
+// Delegation is not supported in version 8 of auth0.js.
+// For a version 7 sample refer to: https://auth0.com/docs/libraries/auth0js/v7#delegation-token-request
 ```
 
 <%= include('../../_includes/_http-method', {
@@ -108,6 +69,14 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 - The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
+- Delegation is __not supported__ in version 8 of [auth0.js](/libraries/auth0js). For a sample in version 7 of the library, refer to [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request).
+- This endpoint limits up to 10 requests per minute from the same IP address with the same `user_id`.
+- This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:
+  * `X-RateLimit-Limit`: Number of requests allowed per minute.
+  * `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
+  * `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+
 
 ### More Information
 - [Delegation Tokens](/tokens/delegation)
+- [Auth0 API Rate Limit Policy](/policies/rate-limits)

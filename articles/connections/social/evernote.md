@@ -1,11 +1,12 @@
 ---
+title: Connect your app to Evernote
 connection: Evernote
 image: /media/connections/evernote.png
 seo_alias: evernote
 description: How to obtain a Consumer Key and Consumer Secret for Evernote.
 ---
 
-# Obtain a *Consumer Key* and *Consumer Secret* for Evernote
+# Connect your app to Evernote
 
 To configure Evernote OAuth connections, you will need to create an API Key on the Evernote Developers portal.
 

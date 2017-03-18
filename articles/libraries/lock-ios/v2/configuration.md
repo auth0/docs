@@ -2,11 +2,11 @@
 section: libraries
 toc: true
 url: /libraries/lock-ios/v2/configuration
-title: Lock for iOS and macOS v2 Configuration Options
-description: Behavior configuration options available with Lock v2 for iOS/macOS
+title: Lock for iOS v2 Configuration Options
+description: Behavior configuration options available with Lock v2 for iOS
 ---
 
-# Lock v2 for iOS and macOS - Configuration Options
+# Lock v2 for iOS - Configuration Options
 
 There are numerous options to configure Lock's behavior listed below. In addition, there are also quite a few options available to alter Lock's appearance and style in the [Style Customization Options](/libraries/lock-ios/v2/customization) page.
 
@@ -94,7 +94,7 @@ Specify the type of identifier the login will require.  The default is either: `
 
 #### Custom Signup Fields
 
-When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in the [Metadata Documentation](/metadata).
+When signing up the default information requirements are the user's *email* and *password*. You can expand your data capture requirements as needed. Capturing additional signup fields here will store them in the `user_metadata`, which you can read more about in the [Metadata Documentation](/metadata). Note that you must specify the icon to use with your custom text field.
 
 ```swift
 .withOptions {
@@ -105,7 +105,10 @@ When signing up the default information requirements are the user's *email* and 
 }
 ```
 
-*Note: You must specify the icon to use with your custom text field.*
+::: panel-info Specifying Icons with LazyImage
+You can also specify icons from other bundles, such as in the following example:
+CustomTextField(name: "slack_handle", placeholder: "Slack Handle", icon: LazyImage(name: "ic_slack", bundle: Bundle(identifier: "CustomBundle")))
+:::
 
 ## Enterprise Options
 

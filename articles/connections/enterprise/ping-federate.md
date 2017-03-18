@@ -1,5 +1,5 @@
 ---
-title: Connecting PingFederate with Auth0
+title: Connect your app to PingFederate
 connection: PingFederate
 image: /media/connections/pingfederate.png
 public: false

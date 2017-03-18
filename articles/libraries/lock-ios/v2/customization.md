@@ -2,11 +2,11 @@
 section: libraries
 toc: true
 url: /libraries/lock-ios/v2/customization
-title: Lock for iOS and macOS v2 Style Customization Options
-description: Styling and customization options for the style of Lock v2 for iOS/macOS
+title: Lock for iOS v2 Style Customization Options
+description: Styling and customization options for the style of Lock v2 for iOS
 ---
 
-# Lock v2 for iOS and macOS - Style Customization Options 
+# Lock v2 for iOS - Style Customization Options 
 
 There are numerous options to configure Lock's style and appearance listed below. In addition, there are also quite a few options available to alter Lock's behavior and functionality in the [Behavior Configuration Options](/libraries/lock-ios/v2/configuration) page.
 
@@ -21,12 +21,11 @@ Lock
   .classic()
   .withStyle {
 	  $0.title = "Company LLC"
-	  $0.logo = LazyImage(named: "company_logo")
+	  $0.logo = LazyImage(name: "company_logo")
 	  $0.primaryColor = UIColor(red: 0.6784, green: 0.5412, blue: 0.7333, alpha: 1.0)
 	}
   .present(from: self)
 ```
-
 
 ## Header Style Options
 
@@ -56,7 +55,7 @@ Header logo image
 
 ```swift
 .withStyle {
-  $0.logo = lazyImage(named: "company_logo")
+  $0.logo = LazyImage(name: "company_logo")
 }
 ```	
 
@@ -140,7 +139,7 @@ Color used as the Lock primary color.
 
 ```swift
 .withStyle {
-  $0.primaryColor = UIColor.a0_orange
+  $0.primaryColor = UIColor.orange
 }
 ```
 
@@ -158,7 +157,7 @@ Color used as the Lock background color.
 
 ### oauth2
 
-OAuth2 custom connection styles by mapping a connection name with an `AuthStyle`
+Any non-db OAuth2 connection can have styles customized by mapping a connection name with an `AuthStyle`
 
 ```swift
 .withStyle {

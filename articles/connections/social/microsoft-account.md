@@ -1,4 +1,5 @@
 ---
+title: Connect your app to Microsoft Account
 connection: Microsoft Account
 image: /media/connections/ms.png
 index: 12
@@ -21,7 +22,7 @@ This doc refers to the client steps to connect your client. If you are looking t
 
 Login to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
 
-Click **Add an app**. 
+Click **Add an app**.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-1a.png)
 
@@ -65,11 +66,11 @@ Click **Save**.
 
 ## 5. Copy your *Client Id* and *Client Secret*
 
-Go to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** from the left menu. 
+Go to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** from the left menu.
 
 Select the **Microsoft** connection.
 
-Copy the `Client Id` and `Client Secret` you saved earlier into the fields on this page on Auth0. 
+Copy the `Client Id` and `Client Secret` you saved earlier into the fields on this page on Auth0.
 
 Click **Save**.
 
@@ -89,7 +90,7 @@ On the [Social Connections](${manage_url}/#/connections/social) page in the Auth
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-7.png)
 
-Click Yes to allow your Microsoft app to access your information. 
+Click Yes to allow your Microsoft app to access your information.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-8.png)
 
@@ -98,5 +99,3 @@ If you see the **It Works!** page, you have successfully configured your connect
 ![](/media/articles/connections/social/microsoft-account/ma-portal-9.png)
 
 <%= include('../_quickstart-links.md') %>
-
-

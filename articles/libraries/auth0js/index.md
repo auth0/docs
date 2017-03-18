@@ -46,7 +46,7 @@ bower install auth0.js
 Include via our CDN:
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js"></script>
+<script src="${auth0js_urlv8}"></script>
 ```
 
 >Note that for production use, the latest patch release (for example, 8.0.0) is recommended, rather than the latest minor release indicated above.
@@ -169,6 +169,25 @@ webAuth.client.login({
 });
 ```
 
+### buildAuthorizeUrl(options)
+
+The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in order to initialize a new transaction. Use this method if you want to implement browser based (passive) authentication.
+
+```js
+// Calculate URL to redirect to
+  var url = webAuth.client.buildAuthorizeUrl({
+    clientID: '${account.clientId}', // string
+    responseType: 'token', // code or token
+    redirectUri: '${account.callback}',
+    state: 'YOUR_STATE'
+  });
+  
+  // Redirect to url
+  // ...
+```  
+
+__NOTE__: The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
+
 ### Passwordless login
 
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
@@ -208,6 +227,7 @@ In addition, _one_ of the two following options must be sent:
 * `phoneNumber`: a string containing the user's phone number, to which the code or link was delivered via SMS
 * `email`: a string containing the user's email, to which the code or link was delivered via email
 
+Note that in order to use `passwordlessVerify`, the options `redirectUri `and `responseType: 'token' `must be specified when first initializing WebAuth.
 
 ```js
 webAuth.passwordlessVerify({
@@ -273,6 +293,16 @@ As shown above, the `client.userInfo` method can be called passing the returned 
 
 You can now do something else with this information as your application needs, such as acquire the user's entire set of profile information with the Management API, as described below.
 
+## Using `nonce`
+
+By default, `auth0.js` will generate a random `nonce` when you call `auth0.authorize`, store it in local storage, and pull it out in `auth0.parseHash`. The default behavior should work in most cases, but some use cases may require a developer to control the `nonce`.
+If you want to use a developer generated `nonce`, then you must provide it as an option to both `auth0.authorize` and `auth0.parseHash`.
+
+```js
+  auth0.authorize({nonce: '1234'});
+  auth0.parseHash({nonce:'1234'}, callback);
+```
+
 ## Logout
 
 To log out a user, use the `logout` method. This accepts an options object, which can include a `client_id`, and a `returnTo` URL. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter.
@@ -295,7 +325,7 @@ The `signup` method accepts an `options` object that contains parameters for you
 
 ```html 
 <h2>Signup Database Connection</h2> 
-<input class="signup-username" /> 
+<input class="signup-email" /> 
 <input type="password" class="signup-password" /> 
 <input type="button" class="signup-db" value="Signup!" /> 
 <script type="text/javascript"> 
