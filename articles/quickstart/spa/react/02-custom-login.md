@@ -236,7 +236,7 @@ export default class AuthService extends EventEmitter {
 
 The service has several other utility methods that are necessary to complete authentication transactions.
 
-* The `parseHash` method is necessary for redirect-based authentication transactions
+* The `parseHash` method is necessary to get the authentication result from the URL in redirect-based authentication transactions.
 * The `logout` method removes the user's tokens from local storage which effectively logs them out of the application.
 * The `setToken` method takes an authentication result object and sets the access token and ID token values into local storage
 * The `loggedIn` method uses the `isTokenExpired` utility from a `jwtHelper` file to check whether the user's ID token is expired. This is done to determine whether the user should be able to access the `Home` route.
