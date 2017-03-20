@@ -11,11 +11,19 @@ If you have any questions, please open a ticket in the [Auth0 Support Center](${
 
 ### On This Page
 
-* [Auth0 Support Coverage](#)
-  * [Definitions](#)
-* [Support for Browsers and Operating Systems](#)
-* [Support for Software Development Kits (SDKs) and Libraries](#)
-* [Support for Quickstarts and Samples](#)
+* [Auth0 Support Coverage](#auth0-support-coverate)
+  * [Definitions](#definitions)
+* [Support for Browsers](#browsers)
+* [Support for Operating Systems](#operating-systems)
+* [Support for Software Development Kits (SDKs) and Libraries](#software-development-kits-sdks-and-libraries)
+  * [Lock](#lock)
+  * [SDKs](#software-development-kits-sdks-)
+  * [Frameworks/Platform Integration SDKs](#frameworks-platform-integration-sdks)
+* [Support for Quickstarts and Samples](#quickstarts-and-samples)
+  * [Mobile/Native Applications](#mobile-native-applications)
+  * [Single Page Applications](#single-page-applications)
+  * [Regular Web Applications](#regular-web-applications)
+  * [Backends/APIs](#backends-apis)
 
 ## Auth0 Support Coverage
 
@@ -266,7 +274,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 </table>
 
 
-### Software Development Kits (SDKS)
+### Software Development Kits (SDKs)
 
 <table class="table">
   <tr>
@@ -392,6 +400,8 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 
 ## Quickstarts and Samples
 
+### Mobile/Native Applications
+
 <table class="table">
   <tr>
     <th></th>
@@ -491,7 +501,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
 </table>
 
-## Single Page Applications
+### Single Page Applications
 
 <table class="table">
   <tr>
@@ -562,7 +572,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
 </table>
 
-## Regular Web Applications
+### Regular Web Applications
 
 <table class="table">
   <tr>
@@ -681,7 +691,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
 </table>
 
-## Backends/APIs
+### Backends/APIs
 <table class="table">
   <tr>
     <th></th>
