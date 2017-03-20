@@ -10,7 +10,9 @@ toc: true
 <strong>Heads up!</strong> This article describes the latest Auth0 implementation, according to the <a href="/api-auth">API Authorization flows</a>. If you are looking for the legacy Rules doc refer to <a href="/rules">Rules</a>.
 </div>
 
-**Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
+**Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. They are executed after the authentication and before the authorization.
+
+Rules allow you to easily customize and extend Auth0's capabilities. They can be chained together for modular coding and can be turned on and off individually.
 
 ![](/media/articles/rules/flow.png)
 
@@ -29,7 +31,7 @@ Among many possibilities, Rules can be used to:
 * __Notify__ other systems through an API when a login happens in real-time.
 * Enable counters or persist other information. (For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).)
 * Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
-* Change tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`. At the moment you can do this for the [Password Exchange](/api-auth/grant/password#rules). This is possible because Rules run after the authentication and before the authorization.
+* Modify tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`. At the moment you can do this for the [Password Exchange](/api-auth/grant/password#rules).
 
 ## Video: Using Rules
 Watch this video learn all about rules in just a few minutes.
@@ -170,11 +172,11 @@ function(user, context, callback) {
 }
 ```
 
-The user will be granted three scopes: 'array', 'of', and 'strings'.
+The user will be granted three scopes: `array`, `of`, and `strings`.
 
 ### API Authorization: Add Claims
 
-This will add one custom namespaced claim at the `access_token`, and one at the `id_token`.
+This will add one custom namespaced claim at the `access_token`, and two at the `id_token`.
 
 ```js
 function(user, context, callback) {
