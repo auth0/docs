@@ -69,9 +69,19 @@ The `id_token` will contain only the claims specified as the value of the `scope
 
 ### Add Claims using Rules
 
-If you are using [OAuth 2.0 API Authorization](/api-auth), you can add arbitrary claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-namespace/claim-name'] = 'claim-value'`. 
+If you are using [OAuth 2.0 API Authorization](/api-auth), you can add arbitrary claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-namespace/claim-name'] = 'claim-value'`.
 
-Additionally, you can add custom claims for user metadata: `context.idToken['http://my-namespace/preferred_contact'] = user.user_metadata.preferred_contact`.
+Additionally, you can add custom claims for metadata: `context.idToken['http://my-namespace/preferred_contact'] = user.user_metadata.preferred_contact`.
+
+```js
+function (user, context, callback) {
+  const namespace = 'https://my-namespace/';
+  context.idToken[namespace + 'claim-name'] = 'claim-value'
+  context.idToken[namespace + 'favorite_color'] = user.favorite_color;
+  context.idToken[namespace + 'preferred_contact'] = user.user_metadata.preferred_contact;
+  callback(null, user, context);
+}
+```
 
 ## Token Lifetime
 
