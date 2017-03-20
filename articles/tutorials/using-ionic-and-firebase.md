@@ -1,6 +1,5 @@
 ---
 description: A tutorial for using Ionic Framework and Firebase.
-crews: crew-2
 ---
 
 ## Ionic Framework + Firebase Tutorial

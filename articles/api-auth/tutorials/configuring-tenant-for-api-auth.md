@@ -1,6 +1,5 @@
 ---
 description: How to configure you tenant to enable the new API Authorization Flows
-crews: crew-2
 ---
 
 # Configure your tenant for the new API Authorization flows

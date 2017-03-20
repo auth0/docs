@@ -1,6 +1,5 @@
 ---
 description: How an API can verify a bearer JWT access token
-crews: crew-2
 toc: true
 ---
 

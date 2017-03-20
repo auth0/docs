@@ -1,6 +1,5 @@
 ---
 title: User consent and third-party clients
-crews: crew-2
 ---
 
 # User consent and third-party clients

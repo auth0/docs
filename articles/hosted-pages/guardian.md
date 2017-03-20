@@ -1,6 +1,5 @@
 ---
 description: Guide on how to use the hosted Guardian MFA page
-crews: crew-2
 ---
 
 # Guardian Multifactor Login Page

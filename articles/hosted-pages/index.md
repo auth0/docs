@@ -1,6 +1,5 @@
 ---
 description: Overview of hosted pages with Auth0, and how to use them
-crews: crew-2
 ---
 
 # How to Use Hosted Pages with Auth0

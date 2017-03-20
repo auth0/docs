@@ -1,6 +1,5 @@
 ---
 title: Calling your APIs with Auth0 tokens
-crews: crew-2
 ---
 
 Calling your APIs with Auth0 tokens

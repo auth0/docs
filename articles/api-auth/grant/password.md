@@ -1,6 +1,5 @@
 ---
 description: Describes how to call APIs from highly trusted clients using the Resource Owner Password Grant.
-crews: crew-2
 ---
 
 # Calling APIs from Highly Trusted Clients

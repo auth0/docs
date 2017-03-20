@@ -1,6 +1,5 @@
 ---
 description: Describes how to call APIs from server processes using the Client Credentials Grant.
-crews: crew-2
 ---
 
 # Calling APIs from a Service

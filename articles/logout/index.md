@@ -1,7 +1,6 @@
 ---
 description: How to logout a user and optionally redirect them to an authorized URL.
 toc: true
-crews: crew-2
 ---
 
 # Logout
