@@ -1,0 +1,6 @@
+versioning:
+  baseUrl: client-auth
+  current: v2
+  versions:
+    - v1
+    - v2
