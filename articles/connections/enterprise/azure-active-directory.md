@@ -73,7 +73,7 @@ Enter a name for the key and for the duration of the key select 1 or 2 years.
 
 ![Creating a Key](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2.png)
 
-Click on **Save** and the key will be displayed **make sure to copy the value of this key before leaving this screen** else you may need to create a new key. This value is used as the **Client Secret** in the next step.
+Click on **Save** and the key will be displayed. **Make sure to copy the value of this key before leaving this screen**, otherwise you may need to create a new key. This value is used as the **Client Secret** in the next step.
 
 ![Creating a Key](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2b.png)
 
