@@ -35,9 +35,7 @@ The Authorization Code flow with PKCE can only be used for Native Clients.
 
 ![](/media/articles/client-auth/mobile-desktop/create-client.png)
 
-Once Auth0 creates the Client, navigate to the Client's **Settings** tab to add the following to the **Allowed Callback URLs** field:
-
-`https://${account.namespace}/mobile`
+Once Auth0 creates the Client, navigate to the Client's **Settings** tab to add the following to the **Allowed Callback URLs** field: `https://${account.namespace}/mobile`
 
 Scroll to the bottom of the page and click **Save**.
 
