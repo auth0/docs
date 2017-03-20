@@ -193,7 +193,7 @@ Use this to create the POST request:
 ```
 
 <div class="alert alert-info">
-You can use the <a href="https://www.npmjs.com/package/auth0-custom-db-testharness">auth0-custom-db-testharness library</a> to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
+You can use the <a href="https://www.npmjs.com/package/auth0-rules-testharness">auth0-rules-testharness library</a> to deploy, execute, and test the output of Rules using a Webtask sandbox environment.
 </div>
 
 ## Debugging
