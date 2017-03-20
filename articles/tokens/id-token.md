@@ -16,11 +16,11 @@ The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.i
 - The body, also called the payload, contains identity claims about a user.  There are some claims with registered names, for things like the issuer of the token, the subject of the token (who the claims are about), and the time of issuance.  Any number of additional claims with other names can be added. For the cases where the `id_token` is returned in URLs, care must be taken to keep the JWT within the browser size limitations for URLs.
 - The signature is used by the recipient to verify that the sender of the JWT is who it says and to ensure that the message wasn't changed along the way.
 
-## How to get an ID token
+## Get an ID token
 
 The `id_token` can be returned when calling any of the Auth0 functions which invoke authentication.  This includes calls to the Lock widget, to the auth0.js library, or the libraries for other languages. You can view the implementation details for retrieving the `id_token` at the [Lock web library](/libraries/lock) and [Auth0.js library](/libraries/auth0js) documents.
 
-## How to validate an ID token
+## Validate an ID token
 
 The way to validate an ID token depends on the hash algorithm used by your Client:
 - If you used `HS256` then the token is signed with the Client Secret, using the HMAC algorithm. You can verify the signature using the Client Secret value, which you can find at the _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings)_ page.
@@ -28,7 +28,7 @@ The way to validate an ID token depends on the hash algorithm used by your Clien
 
 To check or update the algorithm your Client uses go to _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm_. The most secure practice, and our recommendation, is to use `RS256`.
 
-## How to control the contents of an ID token
+## Control the contents of an ID token
 
 In order to retrieve an `id_token` the `responseType` should be set to `id_token`, both for client-side and server-side authentication flows.
 
@@ -58,11 +58,13 @@ lock.show();
 
 The `id_token` will contain only the claims specified as the value of the `scope` parameter.
 
-::: panel-warning Add claims using Rules
-If you are using [OAuth 2.0 API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth), you can add claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-custom/claim'] = 'some-value'`.
-:::
+### Add Claims using Rules
 
-## Lifetime
+If you are using [OAuth 2.0 API Authorization](/api-auth), you can add arbitrary claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-namespace/claim-name'] = 'claim-value'`. 
+
+Additionally, you can add custom claims for user metadata: `context.idToken['http://my-namespace/preferred_contact'] = user.user_metadata.preferred_contact`.
+
+## Token Lifetime
 
 The purpose of the `id_token` is to cache user information for better performance and experience, and by default, the token is valid for 36000 seconds, or 10 hours. You may change this setting as you see fit; if there are security concerns, you may certainly shorten the time period before the token expires, but remember that the `id_token` helps ensure optimal performance by reducing the need to contact the Identity Provider every time the user performs an action that requires an API call.
 
@@ -95,22 +97,13 @@ auth0.renewAuth({
 
 Once issued, tokens can not be revoked in the same fashion as cookies with session id’s for server-side sessions.  As a result, tokens should be issued for relatively short periods, and then [renewed](#lifetime) periodically if the user remains active.
 
-## More Information
+## Keep Reading
 
 * [Overview of JSON Web Tokens](/jwt)
 * [Silent Authentication for Single Page Apps](/api-auth/tutorials/silent-authentication)
-* [How to get, use and revoke a Refresh Token](/tokens/refresh-token)
-* [A writeup on the contents of a JSON Web Token](https://scotch.io/tutorials/the-anatomy-of-a-json-web-token)
-* [Wikipedia page on JSON Web Tokens](https://en.wikipedia.org/wiki/JSON_Web_Token)
 * [IETF RFC for JWT](https://tools.ietf.org/html/rfc7519)
 * [Debugger for viewing JSON Web Tokens](http://jwt.io/)
-* [Using JWTs as API keys](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/)
-* [Blacklisting JWTs](https://auth0.com/blog/2015/03/10/blacklist-json-web-token-api-keys/)
 * [Vulnerabilities in use of JWT’s by libraries](https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/)
 * [Cookies vs Tokens](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/)
 * [Ten things about tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
-* [Description of the JWT expiration](/applications)
-* [Discussion of web apps vs apis, cookies vs tokens](/apps-apis)
 * [What happens if the ID token is too large?](https://auth0.com/forum/t/id-token-is-too-large/3116)
-* [Why JWT is getting more popular](https://auth0.com/blog/2015/07/21/jwt-json-webtoken-logo/)
-* [Sample for altering scopes in a Rule](https://github.com/auth0/rules/blob/dff2a3e72f01d33af3086414be7cf115b19eea0c/rules/custom-scopes.md)
