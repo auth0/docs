@@ -1,7 +1,7 @@
 ---
-url: /rules
+title: Rules
+description: Learn what Rules are and how you can use them to customize and extend Auth0's capabilities.
 toc: true
-description: Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
 ---
 
 # Rules
@@ -29,10 +29,7 @@ Among many possibilities, Rules can be used to:
 * __Notify__ other systems through an API when a login happens in real-time.
 * Enable counters or persist other information. (For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).)
 * Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
-
-<div class="alert alert-info">
-You can find more examples of common Rules on Github at <a href="https://github.com/auth0/rules">auth0/rules</a>.
-</div>
+* Change tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`. At the moment you can do this for the [Password Exchange](/api-auth/grant/password#rules). This is possible because Rules run after the authentication and before the authorization.
 
 ## Video: Using Rules
 Watch this video learn all about rules in just a few minutes.
@@ -53,6 +50,10 @@ Because of the async nature of Node.js, it is important to always call the <code
 </div>
 
 ## Examples
+
+<div class="alert alert-info">
+You can find more examples of common Rules on Github at <a href="https://github.com/auth0/rules">auth0/rules</a>.
+</div>
 
 To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
 
@@ -155,7 +156,47 @@ This will cause a redirect to your callback url with an `error` querystring para
   Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a <code>SAMLResponse</code>.
 </div>
 
-### Create a new Rule using the Management API
+### API Authorization: Modify Scope
+
+This will override the returned scopes of the `access_token`. The rule will run after user authentication and before authorization.
+
+```js
+function(user, context, callback) {
+
+  // change scope
+  context.accessToken.scope = ['array', 'of', 'strings'];
+
+  callback(null, user, context);
+}
+```
+
+The user will be granted three scopes: 'array', 'of', and 'strings'.
+
+### API Authorization: Add Claims
+
+This will add one custom namespaced claim at the `access_token`, and one at the `id_token`.
+
+```js
+function(user, context, callback) {
+
+  // add custom claims to access token and ID token
+  context.accessToken['http://foo/bar'] = 'value';
+  context.idToken['http://fiz/baz'] = 'some other value';
+
+  // copy user metadata value in id_token
+  context.idToken['http://fiz/favorite_color'] = user.favorite_color;
+
+  callback(null, user, context);
+}
+```
+
+After this rule executes, the `access_token` will contain one additional namespaced claim: `http://foo/bar=value`.
+
+The `id_token` will contain two additional namespaced claims:
+- `http://fiz/baz=some other value`
+- `http://fiz/favorite_color = user.favorite_color`. Note that in this one we are copying the user metadata value in the `id_token`.
+
+## Create Rules with the Management API
 
 Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](/api/management/v2#!/Rules/post_rules).
 
@@ -200,7 +241,7 @@ Use this to create the POST request:
 You can use the <a href="https://www.npmjs.com/package/auth0-custom-db-testharness">auth0-custom-db-testharness library</a> to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
 </div>
 
-## Debugging
+## How to Debug Rules
 
 You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${manage_url}/#/rules/create)  provides two ways for seeing the output:
 
