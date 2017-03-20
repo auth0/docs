@@ -76,6 +76,9 @@ Note that this option only allows _verifiable_ first-party clients to skip conse
 ```
 127.0.0.1       myapp.local
 ```
+
+Once you do this, remember to update your [client configuration URLs](/clients#client-settings) (such as `Allowed Callback URLs`) to match the updated domain-mapping!
+
 :::
 
 Since third-party clients are assumed to be untrusted, they are not able to skip consent dialogs.
