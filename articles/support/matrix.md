@@ -213,26 +213,181 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 
 <table class="table">
   <tr>
-    <td>Quickstarts</td>
+    <th>Quickstarts</th>
     <td>Covers core use cases; fully supported</td>
   </tr>
   <tr>
-    <td>Certified</td>
+    <th>Certified</th>
     <td>Tested and fully supported</td>
   </tr>
   <tr>
-    <td>Features</td>
+    <th>Features</th>
     <td>May receive new features</td>
   </tr>
   <tr>
-    <td>Bug Fixes</td>
+    <th>Bug Fixes</th>
     <td>May receive bug fixes</td>
   </tr>
 <table>
 
 ### Lock
 
+<table class="table">
+  <tr>
+    <th>Library</th>
+    <th>Certified</th>
+    <th>Features</th>
+    <th>Bug Fixes</th>
+  </tr>
+  <tr>
+    <td>Lock.js</td>
+    <td>v10</td>
+    <td>v10</td>
+    <td>v9</td>
+  </tr>
+  <tr>
+    <td>Lock.swift</td>
+    <td>v2</td>
+    <td>v2</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Lock.iOS-macOS</td>
+    <td></td>
+    <td></td>
+    <td>v1</td>
+  </tr>
+  <tr>
+    <td>Lock.Android</td>
+    <td>v2</td>
+    <td>v2</td>
+    <td>v1</td>
+  </tr>
+</table>
 
-### Softward Development Kits (SDKS)
+
+### Software Development Kits (SDKS)
+
+<table class="table">
+  <tr>
+    <th>SDK</th>
+    <th>Certified</th>
+    <th>Features</th>
+    <th>Bug Fixes</th>
+  </tr>
+  <tr>
+    <td>auth0.js</td>
+    <td>v7, v8</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Auth0.Android</td>
+    <td></td>
+    <td>v1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Auth0.Swift</td>
+    <td></td>
+    <td>v1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Auth0.net</td>
+    <td></td>
+    <td>v3, v4</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Auth0-java</td>
+    <td></td>
+    <td>v1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>node-auth0</td>
+    <td></td>
+    <td>v2</td>
+    <td></td>
+  </tr>
+</table>
+
+### Frameworks/Platform Integration SDKs
+
+<table class="table">
+  <tr>
+    <th>SDK</th>
+    <th>Certified</th>
+    <th>Features</th>
+    <th>Bug Fixes</th>
+  </tr>
+  <tr>
+    <td>angular-auth0</td>
+    <td>X</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>angular-lock</td>
+    <td>X</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>auth0-servlet</td>
+    <td></td>
+    <td></td>
+    <td>v3</td>
+  </tr>
+  <tr>
+    <td>auth0-spring-mvc</td>
+    <td></td>
+    <td></td>
+    <td>v1</td>
+  </tr>
+  <tr>
+    <td>auth0-spring-security-mvc</td>
+    <td></td>
+    <td></td>
+    <td>v1</td>
+  </tr>
+  <tr>
+    <td>auth0-spring-security-api</td>
+    <td></td>
+    <td>v1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>auth0-aspnet-owin</td>
+    <td></td>
+    <td>v1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>auth0-aspnet</td>
+    <td></td>
+    <td>v1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Auth0.Windows.UWP</td>
+    <td></td>
+    <td></td>
+    <td>v0</td>
+  </tr>
+  <tr>
+    <td>Auth0.WinformsWPF</td>
+    <td></td>
+    <td></td>
+    <td>v0</td>
+  </tr>
+  <tr>
+    <td>auth0-oidc-client-net</td>
+    <td></td>
+    <td>v1</td>
+    <td></td>
+  </tr>
+</table>
 
 ## Quickstarts and Samples
