@@ -7,7 +7,7 @@ budicon: 500
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-mvc-sample',
-  path: '06-Authorization'
+  path: 'Legacy/06-Authorization'
 }) %>
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
@@ -16,32 +16,15 @@ Many identity providers will supply access claims, like roles or groups, with th
 
 ### Create a Rule to assign roles
 
-First, we will create a rule that assigns our users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and create an empty rule. Then, use the following code for your rule:
+First, we will create a rule that assigns our users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
 
-```js
-function (user, context, callback) {
-  var addRolesToUser = function(user, cb) {
-    if (user.email.indexOf('@example.com') > -1) {
-      cb(null, ['admin']);
-    } else {
-      cb(null, ['user']);
-    }
-  };
-
-  addRolesToUser(user, function(err, roles) {
-    if (err) {
-      callback(err);
-    } else {
-      context.idToken["https://schemas.quickstarts.com/roles"] = roles;     
-      callback(null, user, context);
-    }
-  });
-}
+```
+if (user.email.indexOf('@example.com') > -1)
 ```
 
-Update the code to check for your own email domain, or match the condition according to your needs. Notice that you can also set more roles other than `admin` and `user`, or customize the whole rule as you please.
+to match the condition that fits your needs. Notice that you can also set more roles other than `admin` and `user`, or customize the whole rule as you please.
 
-This quickstart uses `https://schemas.quickstarts.com` for the claim namespace, but it is suggested that you use a namespace related to your own Auth0 tenant for your claims, e.g `https://schemas.YOUR_TENANT_NAME.com`
+By default, it says that if the user email contains `@example.com` he will be given an `admin` role, otherwise a regular `user` role.
 
 ## Restrict an action based on a user's roles
 
@@ -52,18 +35,18 @@ This will ensure proper integration with the existing role-based authorization i
 So change the existing middleware registration in the `Startup` class to extract the roles and add the claims:
 
 ```csharp
-var options = new Auth0AuthenticationOptions()
+var options = new Auth0AuthenticationOptions
 {
-    Domain = auth0Domain,
-    ClientId = auth0ClientId,
-    ClientSecret = auth0ClientSecret,
-
+    ClientId = System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"],
+    ClientSecret = System.Configuration.ConfigurationManager.AppSettings["auth0:ClientSecret"],
+    Domain = System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"],
+    RedirectPath = new PathString("/Auth0Account/ExternalLoginCallback"),
     Provider = new Auth0AuthenticationProvider
     {
         OnAuthenticated = context =>
         {
             // Get the user's country
-            JToken countryObject = context.User["https://schemas.quickstarts.com/country"];
+            JToken countryObject = context.User["country"];
             if (countryObject != null)
             {
                 string country = countryObject.ToObject<string>();
@@ -72,7 +55,7 @@ var options = new Auth0AuthenticationOptions()
             }
 
             // Get the user's roles
-            var rolesObject = context.User["https://schemas.quickstarts.com/roles"];
+            var rolesObject = context.User["app_metadata"]["roles"];
             if (rolesObject != null)
             {
                 string[] roles = rolesObject.ToObject<string[]>();
@@ -81,7 +64,6 @@ var options = new Auth0AuthenticationOptions()
                     context.Identity.AddClaim(new Claim(ClaimTypes.Role, role, ClaimValueTypes.String, context.Connection));
                 }
             }
-
 
             return Task.FromResult(0);
         }
