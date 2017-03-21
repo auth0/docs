@@ -88,3 +88,18 @@ Request Parameters:
 ::: panel-info Arbitrary Claims
 To improve Client application compatibility, Auth0 returns profile information using an [OIDC-defined structured claim format](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that arbitrary claims to ID or access tokens must conform to a namespaced format to avoid collisions with standard OIDC claims. For example, if your namespace is `https://foo.com/` and you want to add an arbitrary claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, not `myclaim`.
 :::
+
+As an example, your HTML snippet for your authorization URL might look as follows:
+
+```html
+<a href="https://${account.namespace}/authorize?
+  audience=appointments:api&
+  scope=appointments%20contacts&
+  response_type=code&
+  client_id=${account.clientId}&
+  code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&
+  code_challenge_method=S256&
+  redirect_uri=com.myclientapp://myclientapp.com/callback">
+  Sign In
+</a>
+```
