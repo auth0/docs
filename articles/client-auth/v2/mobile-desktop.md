@@ -11,7 +11,7 @@ You can authenticate users of your mobile/desktop applications by:
 * Using the [Lock](/libraries/lock) client libraries;
 * Calling the Auth0 OAuth 2.0 endpoints.
 
-This article will cover how to call the Auth0 OAuch 2.0 endpoints using the [Authorization Code Grant Flow using Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce).
+This article will cover how to call the Auth0 OAuch 2.0 endpoints using [Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication process.
 
 ## Overview
 
@@ -49,12 +49,62 @@ To implement the Authorization Code Grant Flow using Proof Key for Code Exchange
 
 1. Create a random key (called the **code verifier**) and its transformed value (called the **code challenge**)
 2. Obtain the user's authorization
-3. Obtain an access token
-4. Call the API using the new access token
+3. Obtain the ID token
 
 Step 1: Create a Random Key and the Code Challenge
 
 You will need to generate and store a `code_verifier`, which is a cryptographically random key that, along with its transformed value (called the `code_challenge`), will be sent to Auth0 for an `authorization_code`.
+
+To generate the `code_verifier`, embed the following into your code:
+
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li class="active"><a href="#verifier-javascript" data-toggle="tab">Node.js</a></li>
+      <li><a href="#verifier-java" data-toggle="tab">Java</a></li>
+      <li><a href="#verifier-swift" data-toggle="tab">Swift 3</a></li>
+      <li><a href="#verifier-objc" data-toggle="tab">Objective-C</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="verifier-javascript" class="tab-pane active">
+      <pre>
+<code class="javascript hljs">function base64URLEncode(str) {
+    return str.toString('base64')
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
+}
+
+var verifier = base64URLEncode(crypto.randomBytes(32));</code></pre>
+    </div>
+    <div id="verifier-java" class="tab-pane">
+      <pre>
+<code class="java hljs">SecureRandom sr = new SecureRandom();
+byte[] code = new byte[32];
+sr.nextBytes(code);
+String verifier = Base64.encodeToString(code, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
+    </div>
+    <div id="verifier-swift" class="tab-pane">
+      <pre>
+<code class="swift hljs">var buffer = [UInt8](repeating: 0, count: 32)
+_ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
+let verifier = Data(bytes: buffer).base64EncodedString()
+    .replacingOccurrences(of: "+", with: "-")
+    .replacingOccurrences(of: "/", with: "_")
+    .trimmingCharacters(in: .whitespaces)</code></pre>
+    </div>
+    <div id="verifier-objc" class="tab-pane">
+      <pre>
+<code class="objc hljs">NSMutableData *data = [NSMutableData dataWithLength:32];
+int result __attribute__((unused)) = SecRandomCopyBytes(kSecRandomDefault, 32, data.mutableBytes);
+NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
+                        stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
+                        stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
+                             stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
+    </div>
+  </div>
+</div>
 
 Step 2: Authorize the User
 
@@ -115,7 +165,7 @@ Location: https://YOUR_APP/callback?code=AUTHORIZATION_CODE
 
 Note the authorization code included at the end of the included URL.
 
-## Obtain an ID Token
+Step 3: Obtain an ID Token
 
 Using the authorization code obtained in step 2, you can obtain the ID token by making the appropriate `POST` call to the [tokens endpoint](api/authentication#authorization-code-pkce-).
 
@@ -205,3 +255,22 @@ The exact claims contained in the `id_token` will depend on the `scope` paramete
 ### Keep the User Logged In
 
 Auth0 assists in authenticating a user, but your application must keep track of whether or not a user is logged in. You can keep a global variable or a singleton object inside your application to do this. You can also use this object to store information about the user (such as name and profile image) so that you can deliver a personalized user experience within your application.
+
+## Example Use Cases
+
+This section covers use cases that illustrate the authentication process using PKCE.
+
+### Basic Authentication Request
+
+This is the most basic request you can make to the `/authorize` endpoint. The user sees the Lock screen and can sign in with any configured Connection.
+
+The initial authorization URL is as follows:
+
+```text
+https://${account.namespace}/authorize?
+    response_type=code&
+    client_id=${account.clientId}&
+    code_challenge=CODE_CHALLENGE&
+    code_challenge_method=S256&
+    redirect_uri=${account.callback}
+```
