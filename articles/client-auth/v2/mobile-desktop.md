@@ -163,3 +163,24 @@ Auth0's `id_token` is a [JSON Web Token (JWT)](/jwt) of type **Bearer** containi
 If you would like additional information on JWTs, please visit our section on [JWT section](/jwt).
 
 Once you've decoded the JWT, you can extract user information from the `id_token` payload. The JSON payload contains the user claims (attributes), as well as metadata.
+
+##### The `id_token` Payload
+
+Your `id_token` payload will look something like this:
+
+```json
+{
+  "name": "John Smith",
+  "email": "jsmith@example.com",
+  "picture": "https://example.com/profile-pic.png",
+  "iss": "https://auth0user.auth0.com/",
+  "sub": "auth0|581...",
+  "aud": "xvt...",
+  "exp": 1478113129,
+  "iat": 1478077129
+}
+```
+
+::: panel-info Debugging a JWT
+The [JWT.io website](https://jwt.io) has a debugger that allows you to debug any JSON Web Token. This is useful if you want to quckly decode a JWT to see the information it contains.
+:::
