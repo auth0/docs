@@ -51,7 +51,7 @@ To implement the Authorization Code Grant Flow using Proof Key for Code Exchange
 2. Obtain the user's authorization
 3. Obtain the ID token
 
-Step 1: Create a Random Key and the Code Challenge
+### Create a Random Key and the Code Challenge
 
 You will need to generate and store a `code_verifier`, which is a cryptographically random key that, along with its transformed value (called the `code_challenge`), will be sent to Auth0 for an `authorization_code`.
 
@@ -164,7 +164,7 @@ NSString *challenge = [[[[hash base64EncodedStringWithOptions:0]
   </div>
 </div>
 
-Step 2: Authorize the User
+### Authorize the User
 
 Once you've created the `code_verifier` and the `code_challenge` that you include in the authorization request, you'll need to obtain the user's authorization. This is technically the beginning of the authorization flow, and this step may include one or more of the following processes:
 
@@ -223,7 +223,7 @@ Location: https://YOUR_APP/callback?code=AUTHORIZATION_CODE
 
 Note the authorization code included at the end of the included URL.
 
-Step 3: Obtain an ID Token
+### Obtain an ID Token
 
 Using the authorization code obtained in step 2, you can obtain the ID token by making the appropriate `POST` call to the [tokens endpoint](api/authentication#authorization-code-pkce-).
 
