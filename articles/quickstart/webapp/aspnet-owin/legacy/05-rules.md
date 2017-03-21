@@ -7,42 +7,28 @@ budicon: 173
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-mvc-sample',
-  path: '05-Rules'
+  path: 'Legacy/05-Rules'
 }) %>
 
 <%= include('../_includes/_rules-introduction') %>
 
-One thing to note is that for OIDC-conformant clients, all clams must be namespaced. So alter the code for the rule to namespace the claim:
-
-```js
-function (user, context, callback) {
-  if (context.request.geoip) {
-    context.idToken['https://schemas.quickstarts.com/country'] = context.request.geoip.country_name;
-  }
-
-  callback(null, user, context);
-}
-```
-
-This quickstart uses `https://schemas.quickstarts.com` for the claim namespace, but it is suggested that you use a namespace related to your own Auth0 tenant for your claims, e.g `https://schemas.YOUR_TENANT_NAME.com`
-
 ## Add the country as a claim
 
-The Auth0 middleware will not add the country as a claim, so you will need to do this manually. You can alter the middleware registration in the `Startup` class to add an `OnAuthenticated` event handler which extracts the country from the `User` object and add it as a claim.
+The Auth0 OAuth2 middleware will not add the country as a claim, so you will need to do this manually. You can alter the middleware registration in the `Startup` class to pass in an `Auth0AuthenticationOptions`, and then add an `OnAuthenticated` event handler which extracts the country from the `User` object and add it as a claim:
 
 ```csharp
-var options = new Auth0AuthenticationOptions()
+var options = new Auth0AuthenticationOptions
 {
-    Domain = auth0Domain,
-    ClientId = auth0ClientId,
-    ClientSecret = auth0ClientSecret,
-
+    ClientId = System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"],
+    ClientSecret = System.Configuration.ConfigurationManager.AppSettings["auth0:ClientSecret"],
+    Domain = System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"],
+    RedirectPath = new PathString("/Auth0Account/ExternalLoginCallback"),
     Provider = new Auth0AuthenticationProvider
     {
         OnAuthenticated = context =>
         {
             // Get the user's country
-            JToken countryObject = context.User["https://schemas.quickstarts.com/country"];
+            JToken countryObject = context.User["country"];
             if (countryObject != null)
             {
                 string country = countryObject.ToObject<string>();

@@ -7,7 +7,7 @@ budicon: 448
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnet-owin-mvc-sample',
-  path: '02-Custom-Login'
+  path: 'Legacy/02-Custom-Login'
 }) %>
 
 ## Add the Auth0 Authentication SDK
@@ -101,33 +101,29 @@ public class AccountController : Controller
         {
             try
             {
-                string auth0Domain = ConfigurationManager.AppSettings["auth0:Domain"];
-                string auth0ClientId = ConfigurationManager.AppSettings["auth0:ClientId"];
-                string auth0ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"];
-
                 AuthenticationApiClient client =
                     new AuthenticationApiClient(
-                        new Uri($"https://{auth0Domain}/"));
+                        new Uri($"https://{ConfigurationManager.AppSettings["auth0:Domain"]}/"));
 
-                var result = await client.GetTokenAsync(new ResourceOwnerTokenRequest
+                var result = await client.AuthenticateAsync(new AuthenticationRequest
                 {
-                    ClientId = auth0ClientId,
-                    ClientSecret = auth0ClientSecret,
-                    Scope = "openid profile",
-                    Realm = "Username-Password-Authentication", // Specify the correct name of your DB connection
+                    ClientId = ConfigurationManager.AppSettings["auth0:ClientId"],
+                    Scope = "openid",
+                    Connection = "Database-Connection", // Specify the correct name of your DB connection
                     Username = vm.EmailAddress,
                     Password = vm.Password
                 });
 
                 // Get user info from token
-                var user = await client.GetUserInfoAsync(result.AccessToken);
+                var user = await client.GetTokenInfoAsync(result.IdToken);
 
                 // Create claims principal
                 var claimsIdentity = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.NameIdentifier, user.UserId, "http://www.w3.org/2001/XMLSchema#string", $"https://{auth0Domain}/"),
-                    new Claim(ClaimTypes.Name, user.FullName ?? user.Email, "http://www.w3.org/2001/XMLSchema#string", $"https://{auth0Domain}/"),
-                }, CookieAuthenticationDefaults.AuthenticationType);
+                    new Claim(ClaimTypes.NameIdentifier, user.UserId),
+                    new Claim(ClaimTypes.Name, user.FullName ?? user.Email),
+                    new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "ASP.NET Identity", "http://www.w3.org/2001/XMLSchema#string")
+                }, DefaultAuthenticationTypes.ApplicationCookie);
 
                 // Sign user into cookie middleware
                 AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, claimsIdentity);
