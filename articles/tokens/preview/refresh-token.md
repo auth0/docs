@@ -166,6 +166,18 @@ Where:
 
 The client should match the one the refresh token was issued for.
 
+::: panel-info Revoke a token without the Client Secret
+For clients that cannot keep the `client_secret` safe (for example, mobile apps), the `/oauth/revoke` endpoint supports passing instead the parameter `tokenEndpointAuthMethod: none` within the request body:
+
+```json
+{
+"token" : YOUR_REFRESH_TOKEN,
+"client_id" : ${account.clientId},
+"tokenEndpointAuthMethod": "none"
+}
+```
+:::
+
 If the request is valid, the refresh token is revoked and the response is `HTTP 200`, with an empty response body. Otherwise, the response body contains the error code and description.
 
 ```json
