@@ -184,3 +184,22 @@ Your `id_token` payload will look something like this:
 ::: panel-info Debugging a JWT
 The [JWT.io website](https://jwt.io) has a debugger that allows you to debug any JSON Web Token. This is useful if you want to quckly decode a JWT to see the information it contains.
 :::
+
+The payload's claims can include some or all of the following:
+
+| Parameter | Description |
+|:------------------|:---------|
+| name | The name of the user which is returned from the Identity Provider. |
+| email | The email address of the user which is returned from the Identity Provider. |
+| picture | The profile picture of the user which is returned from the Identity Provider. |
+| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format (identity provider)&#124;(unique id in the provider), e.g. github&#124;1234567890. |
+| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued `id_token`, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+
+The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. An Auth0 `id_token` will always include the **registered claims** and the `sub` claim, but the others depends on the `scope`.
+
+#### Keep the User Logged In
+
+Auth0 assists in authenticating a user, but your application must keep track of whether or not a user is logged in. You can keep a global variable or a singleton object inside your application to do this. You can also use this object to store information about the user (such as name and profile image) so that you can deliver a personalized user experience within your application.
