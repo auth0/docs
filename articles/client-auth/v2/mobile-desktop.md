@@ -138,3 +138,28 @@ Request Parameters:
 * `code_verifier`: The cryptographically random key used to generate the `code_challenge` passed to the `/authorize` endpoint
 * `code`: The authorization code received from the initial `authorize` call
 * `redirect_uri`: the `redirect_uri` passed to `/authorize` (these two values must match exactly)
+
+If all goes well, you'll receive an HTTP 200 response with the following payload:
+
+```json
+{
+  "access_token":"eyJz93a...k4laUWw",
+  "refresh_token":"GEbRxBN...edjnXbL",
+  "id_token":"eyJ0XAi...4faeEoQ",
+  "token_type":"Bearer",
+  "expires_in":86400
+}
+```
+
+Note that Auth0 includes the `refresh_token` only if you've:
+
+* Included the `offline_access` scope in your initial call to the `authorize` endpoint;
+* Enabled **Allow Offline Access** for your API in the using the [API Settings tab](${manage_url}/#/apis) in the Auth0 Dashboard.
+
+#### The `id_token`
+
+Auth0's `id_token` is a [JSON Web Token (JWT)](/jwt) of type **Bearer** containing information about the user. You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the `id_token`.
+
+If you would like additional information on JWTs, please visit our section on [JWT section](/jwt).
+
+Once you've decoded the JWT, you can extract user information from the `id_token` payload. The JSON payload contains the user claims (attributes), as well as metadata.
