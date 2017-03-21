@@ -18,7 +18,7 @@ description: Learn about various topics regarding how to handle sensitive data w
 <%= include('../_includes/_topic-links', { links: [
   'security/store-tokens',
   'security/token-exp',
-  'tokens/refresh-token'
+  'tokens/refresh-token/legacy/refresh-token'
 ] }) %>
 
 ## Preventing Security Attacks

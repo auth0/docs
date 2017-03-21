@@ -787,8 +787,8 @@ module.exports = [
     to: '/tutorials/step-up-authentication'
   },
   {
-    from: ['/refresh-token', '/tokens/refresh_token'],
-    to: '/tokens/refresh-token'
+    from: ['/refresh-token', '/tokens/refresh_token', '/tokens/refresh-token'],
+    to: '/tokens/refresh-token/legacy/refresh-token'
   },
   {
     from: '/tokens/access_token',
