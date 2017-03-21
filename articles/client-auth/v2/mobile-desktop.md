@@ -116,3 +116,25 @@ Note the authorization code included at the end of the included URL.
 ### Step 3: Obtain an ID Token
 
 Using the authorization code obtained in step 2, you can obtain the ID token by making the appropriate `POST` call to the [tokens endpoint](api/authentication#authorization-code-pkce-).
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+  }
+}
+```
+
+Request Parameters:
+
+* `grant_type`: Set this field to `authorization_code`
+* `client_id`: Your application's Client ID
+* `code_verifier`: The cryptographically random key used to generate the `code_challenge` passed to the `/authorize` endpoint
+* `code`: The authorization code received from the initial `authorize` call
+* `redirect_uri`: the `redirect_uri` passed to `/authorize` (these two values must match exactly)
