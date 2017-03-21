@@ -17,7 +17,9 @@ This article will cover how to call the Auth0 OAuch 2.0 endpoints using the [Aut
 
 Auth0 exposes OAuth 2.0 endpoints that you can use to authenticate users. You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an `id_token` that contains the user's profile information.
 
+::: panel-info Auth0 Quickstarts
 Please note that, instead of following this tutorial, you can use any of Auth0's client libraries. These encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started with any of these.
+:::
 
 ## Register Your Client
 
@@ -113,7 +115,7 @@ Location: https://YOUR_APP/callback?code=AUTHORIZATION_CODE
 
 Note the authorization code included at the end of the included URL.
 
-### Step 3: Obtain an ID Token
+## Obtain an ID Token
 
 Using the authorization code obtained in step 2, you can obtain the ID token by making the appropriate `POST` call to the [tokens endpoint](api/authentication#authorization-code-pkce-).
 
@@ -156,7 +158,7 @@ Note that Auth0 includes the `refresh_token` only if you've:
 * Included the `offline_access` scope in your initial call to the `authorize` endpoint;
 * Enabled **Allow Offline Access** for your API in the using the [API Settings tab](${manage_url}/#/apis) in the Auth0 Dashboard.
 
-#### The `id_token`
+### The `id_token`
 
 Auth0's `id_token` is a [JSON Web Token (JWT)](/jwt) of type **Bearer** containing information about the user. You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the `id_token`.
 
@@ -164,7 +166,7 @@ If you would like additional information on JWTs, please visit our section on [J
 
 Once you've decoded the JWT, you can extract user information from the `id_token` payload. The JSON payload contains the user claims (attributes), as well as metadata.
 
-##### The `id_token` Payload
+#### The `id_token` Payload
 
 Your `id_token` payload will look something like this:
 
@@ -200,6 +202,6 @@ The payload's claims can include some or all of the following:
 
 The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. An Auth0 `id_token` will always include the **registered claims** and the `sub` claim, but the others depends on the `scope`.
 
-#### Keep the User Logged In
+### Keep the User Logged In
 
 Auth0 assists in authenticating a user, but your application must keep track of whether or not a user is logged in. You can keep a global variable or a singleton object inside your application to do this. You can also use this object to store information about the user (such as name and profile image) so that you can deliver a personalized user experience within your application.
