@@ -103,3 +103,16 @@ As an example, your HTML snippet for your authorization URL might look as follow
   Sign In
 </a>
 ```
+
+If all goes well, you'll receive an HTTP 302 response:
+
+```text
+HTTP/1.1 302 Found
+Location: https://YOUR_APP/callback?code=AUTHORIZATION_CODE
+```
+
+Note the authorization code included at the end of the included URL.
+
+### Step 3: Obtain an ID Token
+
+Using the authorization code obtained in step 2, you can obtain the ID token by making the appropriate `POST` call to the [tokens endpoint](api/authentication#authorization-code-pkce-).
