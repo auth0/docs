@@ -55,6 +55,8 @@ To implement the Authorization Code Grant Flow using Proof Key for Code Exchange
 
 You will need to generate and store a `code_verifier`, which is a cryptographically random key that, along with its transformed value (called the `code_challenge`), will be sent to Auth0 for an `authorization_code`.
 
+#### Code Verifier
+
 To generate the `code_verifier`, embed the following into your code:
 
 <div class="code-picker">
@@ -105,6 +107,8 @@ NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
     </div>
   </div>
 </div>
+
+#### Code Challenge
 
 To create the `code_challenge` that accompanies the `code_verifier`, embed the following into your code:
 
@@ -322,7 +326,9 @@ This section covers use cases that illustrate the authentication process using P
 
 This is the most basic request you can make to the `/authorize` endpoint. The user sees the Lock screen and can sign in with any configured Connection.
 
-The initial authorization URL is as follows:
+We assume that your app is capable of generating the appropriate [code verifier](#code-verifier) and [code challenge](#code-challenge).
+
+Therefore, the initial authorization URL is as follows:
 
 ```text
 https://${account.namespace}/authorize?
@@ -330,5 +336,109 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=${account.callback}
+    redirect_uri=https://${account.namespace}/mobile
+```
+
+After the user provides submits their credentials, your app receives an HTTP 302 response with a URL containing the authorization code at the end: `https://YOUR_APP/callback?code=AUTHORIZATION_CODE`
+
+Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](api/authentication#authorization-code-pkce-) endpoint.
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+  }
+}
+```
+
+If all goes well, you'll receive an HTTP 200 response with the following payload:
+
+```json
+{
+  "access_token":"eyJz93a...k4laUWw",
+  "refresh_token":"GEbRxBN...edjnXbL",
+  "id_token":"eyJ0XAi...4faeEoQ",
+  "token_type":"Bearer",
+  "expires_in":86400
+}
+```
+
+By extracting the `id_token`, you'll see something similar to the following once you've decoded the payload:
+
+```json
+{
+  "iss": "https://auth0user.auth0.com/",
+  "sub": "auth0|581...",
+  "aud": "xvt9...",
+  "exp": 1478112929,
+  "iat": 1478076929
+}
+```
+
+### Request the User's Name and Profile Picture
+
+In addition to the usual authentication, this example shows you how you can request additional user details.
+
+We assume that your app is capable of generating the appropriate [code verifier](#code-verifier) and [code challenge](#code-challenge).
+
+To return the user's `name` and `picture`, add the appropriate scopes to your call to the `/authorize` endpoint. Therefore, the initial authorization URL is as follows:
+
+```text
+https://${account.namespace}/authorize?
+    scope=openid%20name%20picture&
+    response_type=code&
+    client_id=${account.clientId}&
+    code_challenge=CODE_CHALLENGE&
+    code_challenge_method=S256&
+    redirect_uri=https://${account.namespace}/mobile
+```
+
+After the user provides submits their credentials, your app receives an HTTP 302 response with a URL containing the authorization code at the end: `https://YOUR_APP/callback?code=AUTHORIZATION_CODE`
+
+Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](api/authentication#authorization-code-pkce-) endpoint.
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+  }
+}
+```
+
+If all goes well, you'll receive an HTTP 200 response with the following payload:
+
+```json
+{
+  "access_token":"eyJz93a...k4laUWw",
+  "refresh_token":"GEbRxBN...edjnXbL",
+  "id_token":"eyJ0XAi...4faeEoQ",
+  "token_type":"Bearer",
+  "expires_in":86400
+}
+```
+
+By extracting the `id_token`, which now contains the additional `name` and `picture` claims you requested, you'll see something similar to the following once you've decoded the payload:
+
+```json
+{
+  "name": "auth0user@...",
+  "picture": "https://example.com/profile-pic.png",
+  "iss": "https://auth0user.auth0.com/",
+  "sub": "auth0|581...",
+  "aud": "xvt...",
+  "exp": 1478113129,
+  "iat": 1478077129
+}
 ```
