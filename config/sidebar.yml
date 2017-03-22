@@ -341,7 +341,7 @@ libraries:
         url: "/libraries/auth0js/v8"
 
       - title: "Migration Guide v8"
-        url: "/libraries/auth0js/v8/migration-guide"
+        url: "/libraries/auth0js/migration-guide"
 
       - title: "Auth0.js v7"
         url: "/libraries/auth0js/v7"
