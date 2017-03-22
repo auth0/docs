@@ -16,10 +16,10 @@ Rules allow you to easily customize and extend Auth0's capabilities. They can be
 
 ![](/media/articles/rules/flow.png)
 
-* **Step 1:** An app initiates an authentication request to Auth0.
-* **Step 2:** Auth0 routes the request to an Identity Provider through a configured connection.
-* **Step 3:** The user authenticates successfully.
-* **Step 4:** The `user` object representing the logged in user is passed through the Rules pipeline, and returned to the app.
+1. An app initiates an authentication request to Auth0.
+1. Auth0 routes the request to an Identity Provider through a configured connection.
+1. The user authenticates successfully.
+1. The tokens ([id_token](/tokens/id-token) and/or [access_token](/tokens/access-token)) pass through the Rules pipeline, and are sent to the app.
 
 Among many possibilities, Rules can be used to:
 
@@ -29,9 +29,9 @@ Among many possibilities, Rules can be used to:
 * Reuse information from existing databases or APIs for migration scenarios.
 * Keep a __white-list of users__ and deny access based on email.
 * __Notify__ other systems through an API when a login happens in real-time.
-* Enable counters or persist other information. (For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).)
+* Enable counters or persist other information. For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).
 * Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
-* Modify tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`. At the moment you can do this for the [Password Exchange](/api-auth/grant/password#rules).
+* Modify tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`.
 
 ## Video: Using Rules
 Watch this video learn all about rules in just a few minutes.
@@ -42,34 +42,31 @@ Watch this video learn all about rules in just a few minutes.
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure)).
+* user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
 
-* `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. (A complete list of context properties is available here: [Context Argument Properties in Rules](/rules/context).)
-* `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0 (or an error).
+* `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
-<div class="alert alert-info">
-Because of the async nature of Node.js, it is important to always call the <code>callback</code> function, or else the script will timeout.
-</div>
+* `callback`: a function to send back potentially modified tokens back to Auth0, or an error. Because of the async nature of Node.js, it is important to always call the `callback` function, or else the script will timeout.
 
 ## Examples
 
-<div class="alert alert-info">
-You can find more examples of common Rules on Github at <a href="https://github.com/auth0/rules">auth0/rules</a>.
-</div>
-
 To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
 
-### *Hello World*
+### Hello World
 
-This rule will add a `hello` attribute to all users authenticating through any provider.
+This rule will add a `hello` claim (with the value `hello`) to the `id_token` that will be afterwards sent to the application.
 
 ```js
 function (user, context, callback) {
-  user.hello = 'world';
+  context.idToken["http://mynamespace/hello"] = "world";
   console.log('===> set "hello" for ' + user.name);
   callback(null, user, context);
 }
 ```
+
+Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to ID tokens or access tokens.
+
+Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 
 <div class="alert alert-info">
   You can add <code>console.log</code> lines for <a href="#debugging">debugging</a> or use the <a href="/extensions/realtime-webtask-logs">Real-time Webtask Logs Extension</a>.
@@ -82,57 +79,67 @@ In this example, all authenticated users will get a **guest** role, but `johnfoo
 
 ```js
 function (user, context, callback) {
-  user.roles = [];
-  // only johnfoo is admin
   if (user.email === 'johnfoo@gmail.com') {
-    user.roles.push('admin');
+    context.idToken["http://mynamespace/roles"] = ['admin', 'guest'];
+  }else{
+    context.idToken["http://mynamespace/roles"] = ['guest'];
   }
-
-  // all users are guest
-  user.roles.push('guest');
 
   callback(null, user, context);
 }
 ```
 
-At the beginning of the rules pipeline, John's `user` object will be:
+At the beginning of the rules pipeline, John's `context` object will be:
 
-```js
+```json
 {
-  "email": "johnfoo@gmail.com",
-  "family_name": "Foo",
-  "user_id": "google-oauth2|103547991597142817347"
+  clientID: 'YOUR_CLIENT_ID',
+  clientName: 'YOUR_CLIENT_NAME',
+  clientMetadata: {},
+  connection: 'YOUR_CONNECTION_NAME',
+  connectionStrategy: 'auth0',
+  protocol: 'oidc-implicit-profile', // protocol used for authentication: OAuth 2.0 Implicit Grant
+  accessToken: {},
+  idToken: {},
   //... other properties ...
 }
 ```
 
-The `context` object will be:
+After the rule executes, the output that the application will receive is the following `context` object:
 
-```js
+```json
 {
-  "clientID": "...client_id_of_the_app...",
-  "clientName": "my app",
-  "clientMetadata": {
-    "myKey1": "myValue2",
-    "myKey2": "myValue2"
-  }
-  "connection": "google-oauth2"
+  clientID: 'YOUR_CLIENT_ID',
+  clientName: 'YOUR_CLIENT_NAME',
+  clientMetadata: {},
+  connection: 'YOUR_CONNECTION_NAME',
+  connectionStrategy: 'auth0',
+  protocol: 'oidc-implicit-profile', // protocol used for authentication: OAuth 2.0 Implicit Grant
+  accessToken: {},
+  idToken: { 'http://mynamespace/roles': [ 'admin', 'guest' ] },
+  //... other properties ...
 }
 ```
 
-After the rule executes, the output that the application will receive is the following `user` object:
+When your application receives the `id_token`, it will verify and decode it, in order to access this added custom claim. The payload of the decoded `id_token` should be similar to the following sample:
 
-```js
+```json
 {
-  "email": "johnfoo@gmail.com",
-  "family_name": "Foo",
-  "user_id": "google-oauth2|103547991597142817347",
-
-  //... other props ...
-
-  "roles": ["guest", "admin"]  // NEW PROPERTY ADDED BY THE RULE
+  "iss": "https://${account.namespace}/",
+  "sub": "auth0|USER_ID",
+  "aud": "YOUR_CLIENT_ID",
+  "exp": 1490226805,
+  "iat": 1490190805,
+  "nonce": "...",
+  "at_hash": "...",
+  "http://mynamespace/roles": [
+    "admin",
+    "guest"
+  ]
 }
 ```
+
+For more information on the `id_token` refer to [ID Token](/tokens/id-token).
 
 <div class="alert alert-info">
 Properties added in a rule are <strong>not persisted</strong> in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
@@ -140,11 +147,11 @@ Properties added in a rule are <strong>not persisted</strong> in the Auth0 user 
 
 ### Deny access based on a condition
 
-In addition to adding and removing properties from the user object, you can return an *access denied* error.
+In addition to adding claims to the `id_token`, you can return an *access denied* error.
 
 ```js
 function (user, context, callback) {
-  if (user.roles.indexOf('admin') === -1) {
+  if (context.idToken["http://mynamespace/roles"].indexOf('admin') === -1) {
     return callback(new UnauthorizedError('Only admins can use this'));
   }
 
@@ -157,6 +164,20 @@ This will cause a redirect to your callback url with an `error` querystring para
 <div class="alert alert-info">
   Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a <code>SAMLResponse</code>.
 </div>
+
+### Copy User Metadata to ID Token
+
+This will read the `favorite_color` user metadata, and add it as a namespaced claim at the `id_token`.
+
+```js
+function(user, context, callback) {
+
+  // copy user metadata value in id_token
+  context.idToken['http://fiz/favorite_color'] = user.favorite_color;
+
+  callback(null, user, context);
+}
+```
 
 ### API Authorization: Modify Scope
 
@@ -174,29 +195,21 @@ function(user, context, callback) {
 
 The user will be granted three scopes: `array`, `of`, and `strings`.
 
-### API Authorization: Add Claims
+### API Authorization: Add Claims to Access Tokens
 
-This will add one custom namespaced claim at the `access_token`, and two at the `id_token`.
+This will add one custom namespaced claim at the `access_token`.
 
 ```js
 function(user, context, callback) {
 
-  // add custom claims to access token and ID token
+  // add custom claims to access token
   context.accessToken['http://foo/bar'] = 'value';
-  context.idToken['http://fiz/baz'] = 'some other value';
-
-  // copy user metadata value in id_token
-  context.idToken['http://fiz/favorite_color'] = user.favorite_color;
 
   callback(null, user, context);
 }
 ```
 
 After this rule executes, the `access_token` will contain one additional namespaced claim: `http://foo/bar=value`.
-
-The `id_token` will contain two additional namespaced claims:
-- `http://fiz/baz=some other value`
-- `http://fiz/favorite_color = user.favorite_color`. Note that in this one we are copying the user metadata value in the `id_token`.
 
 ## Create Rules with the Management API
 

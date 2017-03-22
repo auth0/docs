@@ -14,10 +14,10 @@ toc: true
 
 ![](/media/articles/rules/flow.png)
 
-* **Step 1:** An app initiates an authentication request to Auth0.
-* **Step 2:** Auth0 routes the request to an Identity Provider through a configured connection.
-* **Step 3:** The user authenticates successfully.
-* **Step 4:** The `user` object representing the logged in user is passed through the Rules pipeline, and returned to the app.
+1. An app initiates an authentication request to Auth0.
+1. Auth0 routes the request to an Identity Provider through a configured connection.
+1. The user authenticates successfully.
+1. The `user` object representing the logged in user is passed through the Rules pipeline, and returned to the app.
 
 Among many possibilities, Rules can be used to:
 
@@ -39,14 +39,11 @@ Watch this video learn all about rules in just a few minutes.
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure)).
+* user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
 
-* `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. (A complete list of context properties is available here: [Context Argument Properties in Rules](/rules/context).)
-* `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0 (or an error).
+* `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
-<div class="alert alert-info">
-Because of the async nature of Node.js, it is important to always call the <code>callback</code> function, or else the script will timeout.
-</div>
+* `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0, or an error. Because of the async nature of Node.js, it is important to always call the `callback` function, or else the script will timeout.
 
 ## Examples
 
