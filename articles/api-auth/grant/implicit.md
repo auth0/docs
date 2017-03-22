@@ -34,7 +34,7 @@ Once the user authenticates, the client app receives the `access_token` in the h
 
 For details on how to implement this using Auth0, refer to [Execute an Implicit Grant](/api-auth/tutorials/implicit-grant).
 
-### Rules
+## Rules
 
 [Rules](/rules) will run for the Implicit grant. There are two key differences in the behavior of rules in these flows:
 
@@ -42,7 +42,7 @@ For details on how to implement this using Auth0, refer to [Execute an Implicit 
 
 If you wish to execute special logic unique to the Implicit grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-implicit-profile`, then the rule is running during the Implicit grant.
 
-#### Customize the returned tokens
+### Customize the returned tokens
 
 <%= include('../../_includes/_api-auth-customize-tokens') %>
 
