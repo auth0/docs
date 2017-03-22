@@ -1129,5 +1129,9 @@ module.exports = [
   {
     from: '/api-auth/config/asking-for-access-tokens',
     to: '/api-auth/tutorials/client-credentials'
+  },
+  {
+    from: '/libraries/auth0js',
+    to: '/libraries/auth0js/v8'
   }
 ];
