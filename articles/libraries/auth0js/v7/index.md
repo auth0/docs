@@ -2,7 +2,6 @@
 section: libraries
 toc: true
 description: How to install, initialize and use auth0.js v7
-url: /libraries/auth0js/v7
 ---
 
 # Auth0.js v7 Reference
