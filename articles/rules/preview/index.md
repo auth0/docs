@@ -93,14 +93,14 @@ At the beginning of the rules pipeline, John's `context` object will be:
 
 ```json
 {
-  clientID: 'YOUR_CLIENT_ID',
-  clientName: 'YOUR_CLIENT_NAME',
-  clientMetadata: {},
-  connection: 'YOUR_CONNECTION_NAME',
-  connectionStrategy: 'auth0',
-  protocol: 'oidc-implicit-profile', // protocol used for authentication: OAuth 2.0 Implicit Grant
-  accessToken: {},
-  idToken: {},
+  "clientID": "YOUR_CLIENT_ID",
+  "clientName": "YOUR_CLIENT_NAME",
+  "clientMetadata": {},
+  "connection": "YOUR_CONNECTION_NAME",
+  "connectionStrategy": "auth0",
+  "protocol": "oidc-implicit-profile", // protocol used for authentication: OAuth 2.0 Implicit Grant
+  "accessToken": {},
+  "idToken": {},
   //... other properties ...
 }
 ```
@@ -109,14 +109,14 @@ After the rule executes, the `context` object will have the added namespaced cla
 
 ```json
 {
-  clientID: 'YOUR_CLIENT_ID',
-  clientName: 'YOUR_CLIENT_NAME',
-  clientMetadata: {},
-  connection: 'YOUR_CONNECTION_NAME',
-  connectionStrategy: 'auth0',
-  protocol: 'oidc-implicit-profile', // protocol used for authentication: OAuth 2.0 Implicit Grant
-  accessToken: {},
-  idToken: { 'http://mynamespace/roles': [ 'admin', 'guest' ] },
+  "clientID": "YOUR_CLIENT_ID",
+  "clientName": "YOUR_CLIENT_NAME",
+  "clientMetadata": {},
+  "connection": "YOUR_CONNECTION_NAME",
+  "connectionStrategy": "auth0",
+  "protocol": "oidc-implicit-profile", // protocol used for authentication: OAuth 2.0 Implicit Grant
+  "accessToken": {},
+  "idToken": { "http://mynamespace/roles": [ "admin", "guest" ] },
   //... other properties ...
 }
 ```
