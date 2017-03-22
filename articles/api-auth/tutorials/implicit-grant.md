@@ -108,6 +108,12 @@ Once your API receives a request with a Bearer `access_token`, the first thing t
 
 For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
+## Optional: Customize the Tokens
+
+<%= include('../../_includes/_api-auth-customize-tokens') %>
+
+If you wish to execute special logic unique to the Implicit grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-implicit-profile`, then the rule is running during the Implicit grant.
+
 ## Keep reading
 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Implicit Grant overview](/api-auth/grant/implicit)<br/>

@@ -1,4 +1,4 @@
-Inside a rule, you can change the returned scopes of the `access_token` and/or add claims to it (and the `id_token`) with code like this:
+You can use [Rules](/rules) to change the returned scopes of the `access_token` and/or add claims to it (and the `id_token`) with a script like this:
 
 ```javascript
 function(user, context, callback) {
@@ -12,7 +12,6 @@ function(user, context, callback) {
 
   callback(null, user, context);
 }
-
 ```
 
 ::: panel-warning Namespacing Custom Claims

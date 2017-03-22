@@ -116,3 +116,9 @@ Once the `access_token` has been obtained it can be used to make calls to the Re
 Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 For details on the validations that should be performed by the API, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+
+## Optional: Customize the Tokens
+
+<%= include('../../_includes/_api-auth-customize-tokens') %>
+
+If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then the rule is running during the password exchange.

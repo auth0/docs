@@ -39,10 +39,6 @@ Due to the implied trust in these grants (a user providing his or her password t
 
 If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then the rule is running during the password exchange.
 
-#### Customize the returned tokens
-
-<%= include('../../_includes/_api-auth-customize-tokens') %>
-
 ## MFA Support
 
 MFA support is coming soon.

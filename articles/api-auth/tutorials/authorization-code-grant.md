@@ -116,6 +116,12 @@ Once your API receives a request with a Bearer `access_token`, the first thing t
 
 For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
+## Optional: Customize the Tokens
+
+<%= include('../../_includes/_api-auth-customize-tokens') %>
+
+If you wish to execute special logic unique to the Authorization Code grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code grant.
+
 ## More reading
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
