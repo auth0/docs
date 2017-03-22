@@ -42,6 +42,8 @@ For details on how to implement this using Auth0, refer to [Execute an Implicit 
 
 If you wish to execute special logic unique to the Implicit grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-implicit-profile`, then the rule is running during the Implicit grant.
 
+For details on how to implement this, refer to [How to implement the Implicit Grant: Customize the Tokens](/api-auth/tutorials/implicit-grant#optional-customize-the-tokens).
+
 ## Keep reading
 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant)<br/>

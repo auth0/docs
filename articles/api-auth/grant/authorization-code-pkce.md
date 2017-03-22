@@ -42,7 +42,9 @@ For details on how to implement this using Auth0, refer to [Execute an Authoriza
 
 <%= include('../../_includes/_api-auth-rules') %>
 
-If you wish to execute special logic unique to the Authorization Code (PKCE) grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code (PKCE) grant.
+If you wish to execute special logic unique to the Authorization Code grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code grant.
+
+For details on how to implement this, refer to [Execute an Authorization Code Grant Flow with PKCE: Customize the Tokens](/api-auth/tutorials/authorization-code-grant-pkce#optional-customize-the-tokens).
 
 ## Read more
 
