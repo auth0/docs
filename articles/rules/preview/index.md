@@ -98,7 +98,7 @@ At the beginning of the rules pipeline, John's `context` object will be:
   "clientMetadata": {},
   "connection": "YOUR_CONNECTION_NAME",
   "connectionStrategy": "auth0",
-  "protocol": "oidc-implicit-profile", // protocol used for authentication: OAuth 2.0 Implicit Grant
+  "protocol": "oidc-implicit-profile",
   "accessToken": {},
   "idToken": {},
   //... other properties ...
@@ -114,7 +114,7 @@ After the rule executes, the `context` object will have the added namespaced cla
   "clientMetadata": {},
   "connection": "YOUR_CONNECTION_NAME",
   "connectionStrategy": "auth0",
-  "protocol": "oidc-implicit-profile", // protocol used for authentication: OAuth 2.0 Implicit Grant
+  "protocol": "oidc-implicit-profile",
   "accessToken": {},
   "idToken": { "http://mynamespace/roles": [ "admin", "guest" ] },
   //... other properties ...
