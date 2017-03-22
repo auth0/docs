@@ -4,7 +4,7 @@ connection: Facebook
 index: 2
 image: /media/connections/facebook.png
 seo_alias: facebook
-description: This page shows you how to connect your Auth0 app to Facebook. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: This page shows you how to connect your custom app to Facebook. Learn how Auth0 can easily help you adding Facebook Login to your app.
 ---
 
 # Connect your app to Facebook
