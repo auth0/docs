@@ -42,7 +42,7 @@ Watch this video learn all about rules in just a few minutes.
 
 A Rule is a function with the following arguments:
 
-* user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
+* `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
 
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
@@ -54,7 +54,7 @@ To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/ru
 
 ### Hello World
 
-This rule will add a `hello` claim (with the value `hello`) to the `id_token` that will be afterwards sent to the application.
+This rule will add a `hello` claim (with the value `world`) to the `id_token` that will be afterwards sent to the application.
 
 ```js
 function (user, context, callback) {
@@ -64,7 +64,7 @@ function (user, context, callback) {
 }
 ```
 
-Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to ID tokens or access tokens.
+Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an `id_token` or `access_token`.
 
 Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 
@@ -105,7 +105,7 @@ At the beginning of the rules pipeline, John's `context` object will be:
 }
 ```
 
-After the rule executes, the output that the application will receive is the following `context` object:
+After the rule executes, the `context` object will have the added namespaced claim as part of the `id_token`:
 
 ```json
 {
@@ -121,7 +121,7 @@ After the rule executes, the output that the application will receive is the fol
 }
 ```
 
-When your application receives the `id_token`, it will verify and decode it, in order to access this added custom claim. The payload of the decoded `id_token` should be similar to the following sample:
+When your application receives the `id_token`, it will verify and decode it, in order to access this added custom claim. The payload of the decoded `id_token` will be similar to the following sample:
 
 ```json
 {
@@ -151,15 +151,15 @@ In addition to adding claims to the `id_token`, you can return an *access denied
 
 ```js
 function (user, context, callback) {
-  if (context.idToken["http://mynamespace/roles"].indexOf('admin') === -1) {
-    return callback(new UnauthorizedError('Only admins can use this'));
+  if (context.clientID === "BANNED_CLIENT_ID") {
+    return callback(new UnauthorizedError('Access to this application has been temporarily revoked'));
   }
 
   callback(null, user, context);
 }
 ```
 
-This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
+This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Access%20to%20this%20application%20has%20been%20temporarily%20revoked`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
 
 <div class="alert alert-info">
   Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a <code>SAMLResponse</code>.
