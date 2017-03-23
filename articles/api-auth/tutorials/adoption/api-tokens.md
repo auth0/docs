@@ -43,7 +43,7 @@ of example tokens which conform to the OIDC specification:
 
 The above is an ID token, which is meant for **authenticating** the user
 to the **client**. Note that the audience (aud claim) of the token is
-set to the client’s identifier, which means that only this specific
+set to the client's identifier, which means that only this specific
 client should consume this token.
 
 The ID token can be thought of as no more than a performance
@@ -52,7 +52,7 @@ without making additional network requests after authentication has
 completed. It should not be used to obtain access to any resources or
 make authorization decisions.
 
-For comparison, let’s look at the contents of an access token that could
+For comparison, let's look at the contents of an access token that could
 be returned in the same authentication flow:
 
 ```json
@@ -76,9 +76,7 @@ that clients should not care about the contents of this token. Note that
 the token does not contain any information about the user itself besides
 their ID (`sub` claim), it only contains authorization information about
 which actions the client is allowed to perform at the API (scope). Since
-in many cases it’s desirable to retrieve additional user information at
-the API, this token is also valid for calling the /userinfo API (provided that the API for which the `access_token` is issued, uses `RS256` as signing algorithm), which
-will return the user’s profile information.
+in many cases it's desirable to retrieve additional user information, this token is also valid for calling the [/userinfo API](/api/authentication#get-user-info) (provided that the API for which the `access_token` is issued, uses `RS256` as signing algorithm), which will return the user's profile information.
 
 [Note that the `scope` parameter has a different behavior than in the legacy pipeline](/api-auth/tutorials/adoption/scope-custom-claims).
 It determines the permissions that an authorized client should have for
