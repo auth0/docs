@@ -75,4 +75,4 @@ If the Auth0 appliance does not perform as expected, you can contact your Auth0 
 
 You will be asked to set up a Dev/Test (non-Production) environment, as well as a Production environment.
 
-For the Production environment, the number of virtual machines required to host the Auth0 Appliance depends on the expected traffic and the desired availability. In some scenarios, a single node is sufficient. For a highly-available configuration, the Production environment requires a minimum of three network load-balanced Appliance instances and one for the Dev/Test (non-Production) environment (which also does *not* required any special load balancing logic/sticky sessions).
+For the Production environment, the number of virtual machines required to host the Auth0 Appliance depends on the expected traffic and the desired availability. For a highly-available configuration, the Production environment requires a minimum of three network load-balanced Appliance instances and one for the Dev/Test (non-Production) environment (which also does *not* required any special load balancing logic/sticky sessions).
