@@ -47,7 +47,7 @@ https://${account.namespace}/authorize?
     prompt=none
 ```
 
-:::panel-info
+:::panel-info Authorization Call Parameters
 Refer to the [tutorial on using Implict Grants](/api-auth/tutorials/implicit-grant#1-get-the-user-s-authorization) for information on the authorization call's parameters.
 :::
 
