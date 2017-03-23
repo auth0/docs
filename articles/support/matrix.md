@@ -9,6 +9,8 @@ For customers with valid [subscriptions](${manage_url}/#/account/billing/subscri
 
 If you have any questions, please open a ticket in the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}).
 
+Auth0 provides support in alignment with the [Terms of Service](https://auth0.com/terms).
+
 ### On This Page
 
 * [Auth0 Support Coverage](#auth0-support-coverate)
@@ -44,23 +46,23 @@ Throughout this article, we will use the following terms to indicate the varying
 
 <table class="table">
   <tr>
-    <th>Quickstarts/Docs Provided</th>
-    <td>The Auth0 Developer Success Engineering (DSE) team will support these items, and bugs will be fixed.</td>
+    <th>Supported</th>
+    <td>***</td>
+    <td>Auth0 has formally tested, will support, and provide both new features and bug fixes (if applicable) for these items.</td>
   </tr>
   <tr>
-    <th>Certified</th>
-    <td>Auth0 has formally tested, will support, and provide bug fixes (if applicable) for these items.</td>
-  </tr>
-  <tr>
-    <th>Bug Fixes</th>
-    <td>Auth0 has <i>not</i> formally tested, but will support and provide bug fixes (if applicable) these items.</td>
+    <th>Sustained</th>
+    <td>**</td>
+    <td>Auth0 has <i>not</i> formally tested, but will support and may provide bug fixes (if applicable) for these items.</td>
   </tr>
   <tr>
     <th>Best Effort</th>
+    <td>*</td>
     <td>Auth0 may provide assistance if the appropriate resources are available.</td>
   </tr>
   <tr>
     <th>Community</th>
+    <td></td>
     <td>Auth0 does <i>not</i> support these items, and all assistance regarding these items will come from the general community.</td>
   </tr>
 </table>
@@ -74,29 +76,29 @@ This section covers the browsers that Auth0 will support when using the Auth0 Da
 The following matrix lists the level of support Auth0 will provide with regards to the Internet browser you have chosen when using the [Auth0 Dashboard](${manage_url}).
 
 <div class="alert alert-info">
-  At this time, Auth0 only supports use of the Dashboard with non-mobile browsers.
+  At this time, Auth0 only supports use of the Dashboard with desktop browsers.
 </div>
 
 <table class = "table">
   <tr>
     <td>Apple Safari</td>
-    <td>Bug Fixes</td>
+    <td>**</td>
   </tr>
   <tr>
     <td>Google Chrome</td>
-    <td>Certified</td>
+    <td>***</td>
   </tr>
   <tr>
-    <td>Microsoft Internet Explorer</td>
-    <td>Not Supported</td>
+    <td>Microsoft Internet Explorer 10</td>
+    <td>TBD</td>
   </tr>
   <tr>
     <td>Microsoft Edge</td>
-    <td>Not Supported</td>
+    <td></td>
   </tr>
   <tr>
     <td>Mozilla Firefox</td>
-    <td>Bug Fixes</td>
+    <td>**</td>
   </tr>
 </table>
 
@@ -107,28 +109,28 @@ The following matrix lists the level of support Auth0 will provide with regards 
 * Using [Lock](/libraries/lock);
 * Performing authentication transactions.
 
-#### Non-Mobile Browsers
+#### Desktop Browsers
 
 <table class = "table">
   <tr>
     <td>Apple Safari</td>
-    <td>Bug Fixes</td>
+    <td>**</td>
   </tr>
   <tr>
     <td>Google Chrome</td>
-    <td>Certified</td>
+    <td>***</td>
   </tr>
   <tr>
-    <td>Microsoft Internet Explorer</td>
-    <td>Bug Fixes for Version 10 (or later)</td>
+    <td>Microsoft Internet Explorer 10</td>
+    <td>**</td>
   </tr>
   <tr>
     <td>Microsoft Edge</td>
-    <td>Not Supported</td>
+    <td>**</td>
   </tr>
   <tr>
     <td>Mozilla Firefox</td>
-    <td>Bug Fixes</td>
+    <td>**</td>
   </tr>
 </table>
 
@@ -137,17 +139,21 @@ The following matrix lists the level of support Auth0 will provide with regards 
 <table class = "table">
   <tr>
     <td>Apple Safari for iOS 9 (or later)</td>
-    <td>Certified</td>
+    <td>***</td>
   </tr>
   <tr>
-    <td>Google Chrome for Android Kit Kit (4.4) or later</td>
-    <td>Certified</td>
+    <td>Google Chrome for Android KitKit (4.4) or later</td>
+    <td>***</td>
   </tr>
 </table>
 
 ## Operating Systems
 
 This section covers the operating systems that Auth0 will support when using the Auth0 Dashboard or Lock Library, or executing authentication transactions.
+
+<div class="alert alert-info">
+  Auth0 support is limited to the most recent version of the operating systems listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
+</div>
 
 ### Auth0 Dashboard
 
@@ -156,19 +162,19 @@ The following matrix lists the level of support Auth0 will provide with regards 
 <table class="table">
   <tr>
     <td>Apple MacOS (when using Google Chrome as your browser)</td>
-    <td>Certified</td>
+    <td>***</td>
   </tr>
   <tr>
     <td>Apple MacOS (when using any browser besides Google Chrome)</td>
-    <td>Bug Fixes</td>
+    <td>**</td>
   </tr>
   <tr>
     <td>Linux (Ubuntu)</td>
-    <td>Bug Fixes</td>
+    <td>**</td>
   </tr>
   <tr>
     <td>Microsoft Windows</td>
-    <td>Bug Fixes</td>
+    <td>**</td>
   </tr>
 </table>
 
@@ -179,37 +185,16 @@ The following matrix lists the level of support Auth0 will provide with regards 
 * Using [Lock](/libraries/lock);
 * Performing authentication transactions.
 
-#### Non-Mobile Operating Systems
-
-<table class="table">
-<tr>
-  <td>Apple MacOS El Capitan (or later)</td>
-  <td>Certified</td>
-</tr>
-<tr>
-  <td>Linux (Ubuntu)</td>
-  <td>Bug Fixes</td>
-</tr>
-<tr>
-  <td>Linux (non-Ubuntu)</td>
-  <td>Best Effort</td>
-</tr>
-<tr>
-  <td>Microsoft Windows 8/10</td>
-  <td>Bug Fixes</td>
-</tr>
-</table>
-
 #### Mobile Operating Systems
 
 <table class="table">
 <tr>
   <td>Apple iOS 9 (or later)</td>
-  <td>Certified</td>
+  <td>***</td>
 </tr>
 <tr>
-  <td>Google Android Kit Kat (4.4) or later</td>
-  <td>Certified</td>
+  <td>Google Android KitKat (4.4) or later</td>
+  <td>***</td>
 </tr>
 </table>
 
@@ -220,10 +205,6 @@ The following matrix lists the level of support Auth0 will provide with regards 
 In this section covering SDKs and Libraries, we will use the following terms to indicate the varying levels of support Auth0 will provide.
 
 <table class="table">
-  <tr>
-    <th>Quickstarts</th>
-    <td>Covers core use cases; fully supported</td>
-  </tr>
   <tr>
     <th>Certified</th>
     <td>Tested and fully supported</td>
@@ -323,12 +304,16 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 
 ### Frameworks/Platform Integration SDKs
 
+<div class="alert alert-info">
+  Auth0 reserves the right to downgrade support for an SDK to Community-Supported at any time.
+</div>
+
 <table class="table">
   <tr>
     <th>SDK</th>
     <th>Certified</th>
     <th>Features</th>
-    <th>Bug Fixes</th>
+    <th>Community-Supported</th>
   </tr>
   <tr>
     <td>angular-auth0</td>
@@ -410,91 +395,97 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Community Support Only</th>
   </tr>
   <tr>
-    <td>Android</td>
+    <td>[Android](/quickstart/native/android)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Chrome Extension</td>
+    <td>[Chrome Extension](/quickstart/native/chrome)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Cordova</td>
+    <td>[Cordova](/quickstart/native/cordova)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Electron</td>
+    <td>[Electron](/quickstart/native/electron)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Ionic</td>
+    <td>[Ionic](/quickstart/native/ionic)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Ionic 2</td>
+    <td>[Ionic 2](/quickstart/native/ionic2)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>macOS - Objective-C</td>
+    <td>[macOS - Objective-C](/quickstart/native/ios-objc)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>macOS - Swift</td>
+    <td>[macOS - Swift](/quickstart/native/ios-swift)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>React Native - Android</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>React Native - macOS</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Phonegap</td>
+    <td>[Phonegap](/quickstart/native/phonegap)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Windows Universal App C#</td>
+    <td>[React Native - Android](/quickstart/native/react-native-android)</td>
+    <td></td>
+    <td>X</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>[React Native - macOS](/quickstart/native/react-native-ios)</td>
+    <td></td>
+    <td>X</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>[Windows Universal App C#](/quickstart/native/windows-uwp-csharp)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Windows Universal App JavaScript</td>
+    <td>[Windows Universal App JavaScript](/quickstart/native/windows-uwp-javascript)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Windows Phone</td>
+    <td>[Windows Phone](/quickstart/native/windowsphone)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>WPF/Winforms</td>
+    <td>[WPF/Winforms](/quickstart/native/wpf-winforms)</td>
+    <td></td>
+    <td></td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <td>[Xamarin](/quickstart/native/Xamarin)</td>
     <td></td>
     <td></td>
     <td>X</td>
@@ -511,61 +502,67 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Community Support Only</th>
   </tr>
   <tr>
-    <td>Angular 1.x</td>
+    <td>[Angular 1.x](/quickstart/spa/angularjs)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Angular 2</td>
+    <td>[Angular 2](/quickstart/spa/angular2)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Aurelia</td>
+    <td>[Aurelia](/quickstart/spa/aurelia)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Cycle.js</td>
+    <td>[Cycle.js](/quickstart/spa/cyclejs)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Ember</td>
+    <td>[Ember](/quickstart/spa/emberjs)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>JavaScript</td>
+    <td>[Ember 2](/quickstart/spa/ember2js)</td>
+    <td></td>
+    <td></td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <td>[JavaScript](/quickstart/spa/vanilla)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>jQuery</td>
+    <td>[jQuery](/quickstart/spa/jquery)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>React</td>
+    <td>[React](/quickstart/spa/react)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Socket.io</td>
+    <td>[Socket.io](/quickstart/spa/socket-io)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Vue.js</td>
+    <td>[Vue.js](/quickstart/spa/vuejs)</td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -582,109 +579,109 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Community Support Only</th>
   </tr>
   <tr>
-    <td>Apache</td>
+    <td>[Apache](/quickstart/webapp/apache)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>ASP Classic</td>
+    <td>[ASP Classic](/quickstart/webapp/asp-classic)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>ASP.NET (OWIN)</td>
+    <td>[ASP.NET (OWIN)](/quickstart/webapp/aspnet-owin)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>ASP.NET (System.Web)</td>
+    <td>[ASP.NET (System.Web)](/quickstart/webapp/aspnet)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>ASP.NET Core</td>
+    <td>[ASP.NET Core](/quickstart/webapp/aspnet-core)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Go</td>
+    <td>[Go](/quickstart/webapp/golang)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Java</td>
+    <td>[Java](/quickstart/webapp/java)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Java Spring MVC</td>
+    <td>[Java Spring MVC](/quickstart/webapp/java-spring-mvc)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Java Spring Security</td>
+    <td>[Java Spring Security](/quickstart/webapp/java-spring-security-mvc)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>NancyFX</td>
+    <td>[NancyFX](/quickstart/webapp/nancyfx)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Node.js</td>
+    <td>[Node.js](/quickstart/webapp/nodejs)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>PHP</td>
+    <td>[PHP](/quickstart/webapp/php)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>PHP (Laravel)</td>
+    <td>[PHP (Laravel)](/quickstart/webapp/laravel)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>PHP (Symfony)</td>
+    <td>[PHP (Symfony)](/quickstart/webapp/symfony)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Play 2 Scala</td>
+    <td>[Play 2 Scala](/quickstart/webapp/scala)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Python</td>
+    <td>[Python](/quickstart/webapp/python)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Ruby on Rails</td>
+    <td>[Ruby on Rails](/quickstart/webapp/rails)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>ServiceStack</td>
+    <td>[ServiceStack](/quickstart/webapp/servicestack)</td>
     <td></td>
     <td></td>
     <td>X</td>
@@ -700,103 +697,103 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Community Support Only</th>
   </tr>
   <tr>
-    <td>.NET WCF</td>
+    <td>[.NET WCF](/quickstart/backend/wcf-service)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>ASP.NET Core Web API</td>
+    <td>[ASP.NET Core Web API](/quickstart/backend/aspnet-core-webapi)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>ASP.NET Web API (OWIN)</td>
+    <td>[ASP.NET Web API (OWIN)](/quickstart/backend/webapi-owin)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>ASP.NET Web API (System.Web)</td>
+    <td>[ASP.NET Web API (System.Web)](/quickstart/backend/aspnet-webapi)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Falcor</td>
+    <td>[Falcor](/quickstart/backend/falcor)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Go</td>
+    <td>[Go](/quickstart/backend/golang)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Hapi.js</td>
+    <td>[Hapi.js](/quickstart/backend/hapi)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Java Spring Security</td>
+    <td>[Java Spring Security](/quickstart/backend/java-spring-security)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Nginx</td>
+    <td>[Nginx](/quickstart/backend/nginx)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Node.js (Express)</td>
+    <td>[Node.js (Express)](/quickstart/backend/nodejs)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>PHP</td>
+    <td>[PHP](/quickstart/backend/php)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>PHP (Laravel)</td>
+    <td>[PHP (Laravel)](/quickstart/backend/php-laravel)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>PHP (Symfony)</td>
+    <td>[PHP (Symfony)](/quickstart/backend/php-symfony)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Python</td>
+    <td>[Python](/quickstart/backend/python)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Relay</td>
+    <td>[Relay](/quickstart/backend/relay)</td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>Ruby</td>
+    <td>[Ruby](/quickstart/backend/ruby)</td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>Ruby on Rails</td>
+    <td>[Ruby on Rails](/quickstart/backend/rails)</td>
     <td></td>
     <td>X</td>
     <td></td>
