@@ -37,15 +37,19 @@ To initiate a silent authentication request, include the `prompt` parameter in y
 
 ```text
 https://${account.namespace}/authorize?
-    audience=YOUR_API_AUDIENCE&
     scope=YOUR_SCOPE&
     response_type=YOUR_RESPONSE_TYPE&
     client_id=4rO4qfTUOr1QafUxUGtGRYPqZfPVpuFa&
     redirect_uri=https://YOUR_APP/callback&
-    nonce=YOUR_CRYPTOGRAPHIC_NONCE
-    state=YOUR_OPAQUE_VALUE
+    nonce=YOUR_CRYPTOGRAPHIC_NONCE&
+    state=YOUR_OPAQUE_VALUE&
+    connection=CONNECTION_NAME&
     prompt=none
 ```
+
+:::panel-info
+Refer to the [tutorial on using Implict Grants](/api-auth/tutorials/implicit-grant#1-get-the-user-s-authorization) for information on the authorization call's parameters.
+:::
 
 For requests received with the parameter `prompt=none`, Auth0 redirects to the `redirect_uri` specified. There are two possible outcomes:
 
@@ -94,7 +98,7 @@ The following is a list of possible `ERROR_CODE` values, as defined by the [Open
 * `consent_required`: the user is logged in to Auth0, but hasn't consented to authorizing the client app;
 * `interaction_required`: the user is logged in to Auth0, but needs to be redirected elsewhere before Auth0 can complete authentication (for example, if a [redirect rule](/rules/redirect) exists).
 
-If your user triggers any of these errors, your app must redirect to the Auth0 login page so that they can authenticate using a URL without the `prompt` parameter.
+If your user triggers any of these errors, your app must redirect the user to the Auth0 login page so that they can authenticate using a URL without the `prompt` parameter.
 
 ## Refresh Expired Access Tokens
 
@@ -103,7 +107,7 @@ Access tokens are opaque to clients, which means they are unable to inspect the 
 1. Read the `expires_in` hash parameter included in Auth0's successful authentication response. This parameter indicates how long the token is valid (in seconds).
 2. Ignore expiration dates; in the event that your API rejects a request from the client (for example, it returns an HTTP 401 response), renew the access token.
 
-If the access token expires, you can use silent authentication to retrieve a new token without user interaction if the user's SSO session is still valid. With single page applications, you can use the `renewAuth` method of the [auth0.js library](/libraries/auth0js) to do so without disrupting the UX experience at all.
+If the access token expires, you can use silent authentication to retrieve a new token without user interaction if the user's SSO session is still valid. With single page applications, you can use the `renewAuth` method of the [auth0.js library](/libraries/auth0js) to do so without disrupting the UX experience.
 
 ## Single Logout
 
