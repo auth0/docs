@@ -16,7 +16,7 @@ When a user logs in, Auth0 will return to the application an `access_token`, an 
 
 - The `access_token` is used to securely call the API on behalf of the user.
 
-- The `id_token` is consumed only by the client and contains user profile data. Alternatively the user profile can be obtained by calling the `/userinfo` endpoint in the Auth0 Authentication API with the `access_token`.
+- The `id_token` is consumed only by the client and contains user profile data. Alternatively the user profile can be obtained by calling the `/userinfo` endpoint in the Auth0 Authentication API with the `access_token` (provided that the API for which the `access_token` is issued, uses `RS256` as signing algorithm).
 
 - The `refresh_token` can be used in order to obtain a new `access_token` whenever a previous one expires. Note that a `refresh_token` will only be present in the response if you included the `offline_access` scope and enabled **Allow Offline Access** for your API in the [Dashboard](${manage_url}).
 
