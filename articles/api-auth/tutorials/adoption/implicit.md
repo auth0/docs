@@ -71,7 +71,7 @@ Location: https://app.example.com/#
     &refresh_token=8xLOxBtZp8
     &token_type=Bearer</code></pre>
     <ul>
-        <li>The returned access token is only valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
+        <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>.</li>
         <li>A refresh token will be returned only if a <code>device</code> parameter was passed and the <code>offline_access</code> scope was requested.</li>
     </ul>
     </div>
@@ -84,7 +84,7 @@ Location: https://app.example.com/#
     &id_token=eyJ...
     &token_type=Bearer</code></pre>
     <ul>
-        <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> and optionally the resource server specified by the <code>audience</code> parameter.</li>
+        <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the `audience` param uses `RS256` as signing algorithm) and optionally the resource server specified by the <code>audience</code> parameter.</li>
         <li>If using <code>response_type=id_token</code>, Auth0 will only return an ID token.</li>
         <li>Refresh tokens are not allowed in the implicit grant. <a href="/api-auth/tutorials/silent-authentication">Use <code>prompt=none</code> instead</a>.</li>
     </ul>
@@ -165,7 +165,7 @@ Location: https://app.example.com/#
     "scope": "openid email"
 }</code></pre>
         <ul>
-            <li>The returned access token is a JWT valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> as well as the resource server specified by the <code>audience</code> parameter.</li>
+            <li>The returned access token is a JWT valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a>(provided that the API specified by the `audience` param uses `RS256` as signing algorithm) as well as the resource server specified by the <code>audience</code> parameter.</li>
             <li>Note that an opaque access token could still be returned if /userinfo is the only specified audience.</li>
         </ul>
     </div>
