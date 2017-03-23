@@ -77,7 +77,7 @@ the token does not contain any information about the user itself besides
 their ID (`sub` claim), it only contains authorization information about
 which actions the client is allowed to perform at the API (scope). Since
 in many cases it’s desirable to retrieve additional user information at
-the API, this token is also valid for calling the /userinfo API, which
+the API, this token is also valid for calling the /userinfo API (provided that the API for which the `access_token` is issued, uses `RS256` as signing algorithm), which
 will return the user’s profile information.
 
 [Note that the `scope` parameter has a different behavior than in the legacy pipeline](/api-auth/tutorials/adoption/scope-custom-claims).
