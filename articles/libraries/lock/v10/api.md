@@ -158,7 +158,7 @@ Rather than simply failing to login, and Lock closing.
 ## hide()
 
 ```js
-hide([callback])
+hide()
 ```
 
 The `hide` method closes the widget if it is currently open. The widget closes itself under most circumstances, so this method would primarily be invoked in specific use cases only. For instance, one might wish to listen for the `unrecoverable_error` event and then `hide` the Lock and redirect to their own custom error page. Another example is users who are implementing [popup mode](/libraries/lock/v10/popup-mode), and might need to manually `hide` the widget after the `authenticated` event fires.
