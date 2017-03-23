@@ -36,11 +36,7 @@ For details on how to implement this using Auth0, refer to [Execute an Implicit 
 
 ## Rules
 
-[Rules](/rules) will run for the Implicit grant. There are two key differences in the behavior of rules in these flows:
-
-<%= include('../../_includes/_api-auth-rules') %>
-
-If you wish to execute special logic unique to the Implicit grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-implicit-profile`, then the rule is running during the Implicit grant.
+[Rules](/rules) will run for the Implicit grant. If you wish to execute special logic unique to the Implicit grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-implicit-profile`, then the rule is running during the Implicit grant.
 
 For details on how to implement this, refer to [How to implement the Implicit Grant: Customize the Tokens](/api-auth/tutorials/implicit-grant#optional-customize-the-tokens).
 
