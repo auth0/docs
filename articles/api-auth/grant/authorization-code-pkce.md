@@ -42,26 +42,16 @@ For details on how to implement this using Auth0, refer to [Execute an Authoriza
 
 For details on how to implement this, refer to [Execute an Authorization Code Grant Flow with PKCE: Customize the Tokens](/api-auth/tutorials/authorization-code-grant-pkce#optional-customize-the-tokens).
 
-## Read more
+## Keep reading
 
-[Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
-
-[How to configure an API in Auth0](/apis)
-
-[Mobile/Native App Quickstarts](/quickstart/native)
-
-[Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
-
-[Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
-
-[Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
-
-[The OAuth 2.0 protocol](/protocols/oauth2)
-
-[The OpenID Connect protocol](/protocols/oidc)
-
-[Tokens used by Auth0](/tokens)
-
-[RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
-
-[RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)
+- [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
+- [How to configure an API in Auth0](/apis)
+- [Mobile/Native App Quickstarts](/quickstart/native)
+- [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
+- [Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
+- [Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
+- [The OAuth 2.0 protocol](/protocols/oauth2)
+- [The OpenID Connect protocol](/protocols/oidc)
+- [Tokens used by Auth0](/tokens)
+- [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+- [RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)
