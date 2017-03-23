@@ -5,7 +5,9 @@ toc: true
 
 # Client-Side SSO on Single Page Applications
 
+:::panel-warning Prerequisites
 This article assumes that you have already created an Auth0 Client (with its type set to **Single Page Web Applications**) with the **OIDC Conformant** flag enabled.
+:::
 
 To bypass displaying the Lock screen when logging in a user (a process known as [*silent authentication*](#silent-authentication)), you must:
 
