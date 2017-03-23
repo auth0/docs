@@ -386,7 +386,7 @@ By extracting the `id_token`, which now contains the additional `name` and `pict
 
 You can send a user directly to the GitHub authentication screen by passing the `connection` parameter and setting its value to `github`.
 
-::: Logins with Social Providers
+:::panel-info Logins with Social Providers
 While this example shows how to log in users via GitHub, you can just as easily request that a user log in with other Social providers, such as Google or Facebook.
 
 To do this, configure the appropriate Connection in the [Auth0 Dashboard](${manage_url}/#/connections/social) and change the `connection` value of the call to `/authorize` to the name of the Connection (`google-oauth2` for Google, `facebook` for Facebook, and so on). You can get the Connection's name from the *Settings* tab of the [Connections](${manage_url}/#/connections/social) page.
