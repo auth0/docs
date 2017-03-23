@@ -35,7 +35,8 @@ Due to the implied trust in these grants (a user providing his or her password t
 
 [Rules](/rules) will run for the Password Exchange (including the Password Realm extension grant). There are two key differences in the behavior of rules in these flows:
 
-<%= include('../../_includes/_api-auth-rules') %>
+- Redirect rules won't work. If you try to do a [redirect](/rules/redirect) by specifying `context.redirect` in your rule, the authentication flow will return an error.
+- If you try to do MFA by specifying `context.multifactor` in your rule, the authentication flow will return an error.
 
 If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then the rule is running during the password exchange.
 
