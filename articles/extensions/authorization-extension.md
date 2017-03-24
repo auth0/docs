@@ -320,7 +320,7 @@ The extension also allows you to config Amazon S3 as a storage provider. In orde
 }
 ```
 
-> Note regarding concurrency: Webtask Storage is a file based storage platform, which means writes in parallel can cause issues. The storage logic tries to take this into account as much as possible, but if you automate the creation of groups/roles/permissions we suggest you make sequential calls to the API.
+> Note regarding concurrency: Amazon S3 is a file based storage platform, which means writes in parallel can cause issues. The storage logic tries to take this into account as much as possible, but if you automate the creation of groups/roles/permissions we suggest you make sequential calls to the API.
 
 ## Troubleshooting
 
