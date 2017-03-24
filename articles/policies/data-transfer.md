@@ -10,7 +10,7 @@ All data in your Auth0 account is always under your control and is [available th
 
 If you are opting to move out from our service, then you might want to check [this section](/moving-out). Please notice that in order to make this request you must be signed in to the Developer plan for one month.
 
-## Frequently asked requests that are not allowed
+## Frequently made requests that are not supported
 
 * Transfering data from a non-production account to a production account.
 
