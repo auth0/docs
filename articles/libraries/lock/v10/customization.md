@@ -57,7 +57,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [redirectUrl](#redirecturl-string-) | The URL to redirect to after auth |
 | [responseMode](#responsemode-string-) | Option to send response as POST |
 | [responseType](#responsetype-string-) | Response as a code or token |
-| [sso](#sso-boolean-) | Whether or not to attempt to fetch SSO data when Lock is shown |
+| [sso](#sso-boolean-) | Whether or not to Single Sign On behavior in Lock |
 
 ### Database Options
 
@@ -531,7 +531,7 @@ var options = {
 
 #### sso {Boolean}
 
- When Lock is initialized it will make a request to obtain SSO data if this flag is set to true. The Auth0 SSO session (cookie) will be created regardless of this option if SSO is enabled for you client.
+Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the client's or tenant' settings.
 
 ::: panel-warning Multifactor authentication
 Failing to set this to true will result in multifactor authentication not working correctly.
