@@ -161,7 +161,7 @@ Lock
 
 ### Use the refreshToken to get a new accessToken
 
-You can use the `func renew(withRefreshToken refreshToken: String)` method in `Auth0` to yield fresh user's credentials.
+You can use the `func (withRefreshToken refreshToken: String, scope: String? = nil)` method in `Auth0` to yield fresh user's credentials.
 
 ```swift
 // accessToken has expired or invalid
@@ -172,7 +172,7 @@ guard let refreshToken = keychain.string(forKey: "refresh_token") else {
 }
 Auth0
     .authentication()
-    .renew(withRefreshToken: refreshToken)
+    .renew(withRefreshToken: refreshToken, scope: "openid profile")
     .start { result in
         switch(result) {
         case .success(let credentials):
