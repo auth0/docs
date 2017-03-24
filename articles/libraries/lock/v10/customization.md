@@ -57,7 +57,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [redirectUrl](#redirecturl-string-) | The URL to redirect to after auth |
 | [responseMode](#responsemode-string-) | Option to send response as POST |
 | [responseType](#responsetype-string-) | Response as a code or token |
-| [sso](#sso-boolean-) | Whether or not to Single Sign On behavior in Lock |
+| [sso](#sso-boolean-) | Whether or not to enable Single Sign On behavior in Lock |
 
 ### Database Options
 
