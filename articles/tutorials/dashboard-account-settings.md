@@ -4,7 +4,7 @@ url: /dashboard-account-settings
 ---
 # Account Settings in the Auth0 Management Dashboard
 
-This page explains all the features and settings that can be changed in the [Account Settings](${manage_url}/#/account) page of the dashboard
+This page explains all the features and settings that can be changed in the [Account Settings](${manage_url}/#/account) page of the dashboard.
 
 ## General
 
@@ -14,7 +14,7 @@ Here you can view the fields set for your account. If you have multiple accounts
 
 ### Multifactor 
 
-Here you can choose use Multifactor Authentication for login into your Auth0 account. Click on the **Enroll your device now** link to set this up.
+Here you can choose to use Multifactor Authentication for login into your Auth0 account. Click on the **Enroll your device now** link to set this up.
 
 See the [Multifactor Authentication in Auth0](/multifactor-authentication) docs to learn more.
 
