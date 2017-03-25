@@ -81,7 +81,7 @@ The **Global Client ID** and **Global Client Secret** are used to generate token
 
 **Change Password flow v2**: Turning this on enables a new version of the change password flow. The previous alternative has been deprecated and we strongly recommend enabling v2. This flag is presented only for backwards compatibility and once enabled you won't be able to disable it. 
 
-You can configure how the Change Password widget will look like at the [Password Reset](${manage_url}/#/password_reset) tab inside the [Hosted Pages](${manage_url}/#/login_page section of the dashboard.
+You can configure how the Change Password widget will look like at the [Password Reset](${manage_url}/#/password_reset) tab inside the [Hosted Pages](${manage_url}/#/login_page) section of the dashboard.
 
 **Enable Client Connections**: This flag determines whether all current connections shall be enabled when a new [Client](${manage_url}/#/clients) is created.
 
