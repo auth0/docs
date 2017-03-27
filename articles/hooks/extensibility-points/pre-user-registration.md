@@ -20,14 +20,17 @@ This allows you to implement scenarios including (but not limited to):
 
 ```js
 module.exports = function (user, context, cb) {
-  // call the callback with an error to signal failure
-  // an object with optional `user.user_metadata` and `user.app_metadata` properties.
-  cb(null, {
-    user: {
-      user_metadata: { foo: 'bar', baz: 17 },
-      app_metadata: { vip: true, brownie_points: 2 }
-    }
-  });
+  var response = {};
+
+  // Add user or app metadata to the newly created user
+  // response.user = {
+  //   user_metadata: { foo: 'bar' },
+  //   app_metadata: { vip: true, score: 7 }
+  // };
+
+  response.user = user;
+
+  cb(null, response);
 };
 ```
 
