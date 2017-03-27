@@ -1,0 +1,7 @@
+versioning:
+  baseUrl: libraries/auth0js
+  current: v8
+  versions:
+    - v7
+    - v8
+    
