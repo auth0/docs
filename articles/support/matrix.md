@@ -401,91 +401,91 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <td></td>
   </tr>
   <tr>
-    <td>[Chrome Extension](/quickstart/native/chrome)</td>
+    <td><a href="/quickstart/native/chrome">Chrome Extension</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Cordova](/quickstart/native/cordova)</td>
+    <td><a href="/quickstart/native/cordova">Cordova</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Electron](/quickstart/native/electron)</td>
+    <td><a href="/quickstart/native/electron">Electron</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Ionic](/quickstart/native/ionic)</td>
+    <td><a href="/quickstart/native/ionic">Ionic</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Ionic 2](/quickstart/native/ionic2)</td>
+    <td><a href="/quickstart/native/ionic2">Ionic 2</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[macOS - Objective-C](/quickstart/native/ios-objc)</td>
+    <td><a href="/quickstart/native/ios-objc">macOS - Objective-C</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[macOS - Swift](/quickstart/native/ios-swift)</td>
+    <td><a href="/quickstart/native/ios-swift">macOS - Swift</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Phonegap](/quickstart/native/phonegap)</td>
+    <td><a href="/quickstart/native/phonegap">Phonegap</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[React Native - Android](/quickstart/native/react-native-android)</td>
+    <td><a href="/quickstart/native/react-native-android">React Native - Android</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[React Native - macOS](/quickstart/native/react-native-ios)</td>
+    <td><a href="/quickstart/native/react-native-ios">React Native - macOS</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Windows Universal App C#](/quickstart/native/windows-uwp-csharp)</td>
+    <td><a href="/quickstart/native/windows-uwp-csharp">Windows Universal App C#</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Windows Universal App JavaScript](/quickstart/native/windows-uwp-javascript)</td>
+    <td><a href="/quickstart/native/windows-uwp-javascript">Windows Universal App JavaScript</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Windows Phone](/quickstart/native/windowsphone)</td>
+    <td><a href="/quickstart/native/windowsphone">Windows Phone</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[WPF/Winforms](/quickstart/native/wpf-winforms)</td>
+    <td><a href="/quickstart/native/wpf-winforms">WPF/Winforms</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Xamarin](/quickstart/native/Xamarin)</td>
+    <td><a href="/quickstart/native/xamarin">Xamarin</a></td>
     <td></td>
     <td></td>
     <td>X</td>
@@ -502,67 +502,67 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Community Support Only</th>
   </tr>
   <tr>
-    <td>[Angular 1.x](/quickstart/spa/angularjs)</td>
+    <td><a href="/quickstart/spa/angularjs">Angular 1.x</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Angular 2](/quickstart/spa/angular2)</td>
+    <td><a href="/quickstart/spa/angular2">Angular 2</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Aurelia](/quickstart/spa/aurelia)</td>
+    <td><a href="/quickstart/spa/aurelia">Aurelia</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Cycle.js](/quickstart/spa/cyclejs)</td>
+    <td><a href="/quickstart/spa/cyclejs">Cycle.js</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Ember](/quickstart/spa/emberjs)</td>
+    <td><a href="/quickstart/spa/emberjs">Ember</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Ember 2](/quickstart/spa/ember2js)</td>
+    <td><a href="/quickstart/spa/ember2js">Ember 2</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[JavaScript](/quickstart/spa/vanilla)</td>
+    <td><a href="/quickstart/spa/vanilla">JavaScript</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[jQuery](/quickstart/spa/jquery)</td>
+    <td><a href="/quickstart/spa/jquery">jQuery</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[React](/quickstart/spa/react)</td>
+    <td><a href="/quickstart/spa/react">React</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Socket.io](/quickstart/spa/socket-io)</td>
+    <td><a href="/quickstart/spa/socket-io">Socket.io</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Vue.js](/quickstart/spa/vuejs)</td>
+    <td><a href="/quickstart/spa/vuejs">Vue.js</a></td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -579,109 +579,109 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Community Support Only</th>
   </tr>
   <tr>
-    <td>[Apache](/quickstart/webapp/apache)</td>
+    <td><a href="/quickstart/webapp/apache">Apache</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[ASP Classic](/quickstart/webapp/asp-classic)</td>
+    <td><a href="/quickstart/webapp/asp-classic">ASP Classic</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[ASP.NET (OWIN)](/quickstart/webapp/aspnet-owin)</td>
+    <td><a href="/quickstart/webapp/aspnet-owin">ASP.NET (OWIN)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[ASP.NET (System.Web)](/quickstart/webapp/aspnet)</td>
+    <td><a href="/quickstart/webapp/aspnet">ASP.NET (System.Web)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[ASP.NET Core](/quickstart/webapp/aspnet-core)</td>
+    <td><a href="/quickstart/webapp/aspnet-core">ASP.NET Core</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Go](/quickstart/webapp/golang)</td>
+    <td><a href="/quickstart/webapp/golang">Go</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Java](/quickstart/webapp/java)</td>
+    <td><a href="/quickstart/webapp/java">Java</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Java Spring MVC](/quickstart/webapp/java-spring-mvc)</td>
+    <td><a href="/quickstart/webapp/java-spring-mvc">Java Spring MVC</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Java Spring Security](/quickstart/webapp/java-spring-security-mvc)</td>
+    <td><a href="/quickstart/webapp/java-spring-security-mvc">Java Spring Security</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[NancyFX](/quickstart/webapp/nancyfx)</td>
+    <td><a href="/quickstart/webapp/nancyfx">NancyFX</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Node.js](/quickstart/webapp/nodejs)</td>
+    <td><a href="/quickstart/webapp/nodejs">Node.js</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[PHP](/quickstart/webapp/php)</td>
+    <td><a href="/quickstart/webapp/php">PHP</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[PHP (Laravel)](/quickstart/webapp/laravel)</td>
+    <td><a href="/quickstart/webapp/laravel">PHP (Laravel)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[PHP (Symfony)](/quickstart/webapp/symfony)</td>
+    <td><a href="/quickstart/webapp/symfony">PHP (Symfony)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Play 2 Scala](/quickstart/webapp/scala)</td>
+    <td><a href="/quickstart/webapp/scala">Play 2 Scala</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Python](/quickstart/webapp/python)</td>
+    <td><a href="/quickstart/webapp/python">Python</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Ruby on Rails](/quickstart/webapp/rails)</td>
+    <td><a href="/quickstart/webapp/rails">Ruby on Rails</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[ServiceStack](/quickstart/webapp/servicestack)</td>
+    <td><a href="/quickstart/webapp/servicestack">ServiceStack</a></td>
     <td></td>
     <td></td>
     <td>X</td>
@@ -698,102 +698,119 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <td>[.NET WCF](/quickstart/backend/wcf-service)</td>
+    <td><a href="/quickstart/backend/wcf-service">.NET WCF</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td>[ASP.NET Core Web API](/quickstart/backend/aspnet-core-webapi)</td>
+    <td><a href="/quickstart/backend/aspnet-core-webapi">ASP.NET Core Web API</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[ASP.NET Web API (OWIN)](/quickstart/backend/webapi-owin)</td>
+    <td><a href="/quickstart/backend/webapi-owin">ASP.NET Web API (OWIN)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[ASP.NET Web API (System.Web)](/quickstart/backend/aspnet-webapi)</td>
+    <td><a href="/quickstart/backend/aspnet-webapi">ASP.NET Web API (System.Web)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[Falcor](/quickstart/backend/falcor)</td>
+    <td><a href="/quickstart/backend/falcor">Falcor</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td>[Go](/quickstart/backend/golang)</td>
+    <td><a href="/quickstart/backend/golang">Go</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[Hapi.js](/quickstart/backend/hapi)</td>
+    <td><a href="/quickstart/backend/hapi">Hapi.js</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[Java Spring Security](/quickstart/backend/java-spring-security)</td>
+    <td><a href="/quickstart/backend/java-spring-security">Java Spring Security</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[Nginx](/quickstart/backend/nginx)</td>
+    <td><a href="/quickstart/backend/nginx">Nginx</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td>[Node.js (Express)](/quickstart/backend/nodejs)</td>
+    <td><a href="/quickstart/backend/nodejs">Node.js (Express)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[PHP](/quickstart/backend/php)</td>
+    <td><a href="/quickstart/backend/php">PHP</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[PHP (Laravel)](/quickstart/backend/php-laravel)</td>
+    <td><a href="/quickstart/backend/php-laravel">PHP (Laravel)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[PHP (Symfony)](/quickstart/backend/php-symfony)</td>
+    <td><a href="/quickstart/backend/php-symfony">PHP (Symfony)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[Python](/quickstart/backend/python)</td>
+    <td><a href="/quickstart/backend/python">Python</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[Relay](/quickstart/backend/relay)</td>
+    <td><a href="/quickstart/backend/relay">Relay</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td>[Ruby](/quickstart/backend/ruby)</td>
+    <td><a href="/quickstart/backend/ruby">Ruby</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>[Ruby on Rails](/quickstart/backend/rails)</td>
+    <td><a href="/quickstart/backend/rails">Ruby on Rails</a></td>
     <td></td>
     <td>X</td>
     <td></td>
