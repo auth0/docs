@@ -4,47 +4,16 @@ description: Describes the Data Transfer Policy which governs requests for trans
 
 # Data Transfer Policy
 
-The following policy governs requests for transfer of data from one Auth0 account to another.
+At this time, Auth0 will not transfer data from one Auth0 account to another. This applies to both Cloud and Appliance customers.
 
-## Requests Allowed
+All data in your Auth0 account is always under your control and is [available through the Management API](/api/v2) at any time. The only information which is not available through the API are the password hashes of your [Auth0-hosted database users](/connections/database) and private keys, for security reasons.
 
+If you are opting to move out from our service, then you might want to check [this section](/moving-out). Please notice that in order to make this request you must be signed in to the Developer plan for one month.
 
-Auth0 will transfer customer data from one account to another in the following situations:
+## Frequently made requests that are not supported
 
-* Account move from US to EU hosting environment due to Safe Harbor invalidation.  This is allowed for any plan.
+* Transfering data from a non-production account to a production account.
 
-* Account move from US or EU regions and want to switch to the Australia Region.  This is allowed for any plan.
+* Renaming an account.
 
-* If you are opting to move out from our service, then you might want to check [this section](/moving-out). Please notice that in order to make this request you must be signed in to the Silver plan for one month.
-
-## Frequently asked requests that are not allowed
-
-* Transfer of data from one non-production account to a production account prior to transition to production status.
-
-* Rename of an account.
-
-* Rename of a database connection.
-
-## Limitations
-
-The following limitations apply to data transfers:
-
-* The data transfer must be done to a new, empty account.  We unfortunately cannot undertake merges of data into accounts that already contain data.
-
-* The data transfer must bring all the data from the source to the destination.  We unfortunately cannot undertake partial data transfers (such as a subset of the users).
-
-* The data transfer must be for either all data in the account or all users in the account.
-
-* Requests for transfers must be filed via the Auth0 support center (${env.DOMAIN_URL_SUPPORT}) at least five (5) business days in advance of the desired timeframe for the transfer.
-
-* Requests should include
-
-  * Source account name and region (US, EU, AU)
-  * Destination account name and region (US, EU, AU)
-  * Desired timeframe (at least 5 business days from time of request)
-  * Whether to transfer all data in the account or just all users
-
-
-## Customer’s responsibility
-
-Auth0 will make every effort to ensure the integrity of the data transfer, however it is the customer’s responsibility to validate the correctness of the data transfer and notify Auth0 about any issues.
+* Renaming a database connection.
