@@ -1063,6 +1063,10 @@ module.exports = [
     to: '/hooks/extensibility-points'
   },
   {
+    from: '/auth0-hooks/extensibility-points/client-credentials-exchange',
+    to: '/hooks/extensibility-points/client-credentials-exchange'
+  },
+  {
     from: '/auth0-hooks/extensibility-points/credentials-exchange',
     to: '/hooks/extensibility-points/credentials-exchange'
   },

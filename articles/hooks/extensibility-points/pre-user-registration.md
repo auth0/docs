@@ -31,7 +31,7 @@ module.exports = function (user, context, cb) {
 };
 ```
 
-The default response object is as follows:
+The default response object every time the Hook runs is as follows:
 
 ```json
 {
@@ -62,7 +62,6 @@ Metadata property names must not:
 * **user** [object] - the logged-in user
 * **user.email** [string] - user's email address
 * **user.emailVerified** [Boolean] - indicator for whether user's email has been verified
-* **user.id** [string] - the user's unique identifier
 * **user.password** [string] - user's password
 * **user.phone** [string] - user's phone number
 * **user.phoneVerified** [Boolean] - indicator for whether user's phone number has been verified
