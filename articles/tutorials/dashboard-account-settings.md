@@ -55,7 +55,7 @@ Comprehensive usage reporting is now available in [Support Center](https://suppo
 
 The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section explains about how to build apps and extensions on top of webtask.
 
-[Learn more about Webtasks](/appliance/webtasks).
+[Learn more about Webtasks](https://webtask.io/).
 
 ## Advanced
 
