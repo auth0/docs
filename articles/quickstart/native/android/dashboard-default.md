@@ -9,7 +9,7 @@ description: This tutorial will show you how to integrate Lock v2 in your Androi
   repo: 'auth0-android-sample',
   path: '01-Login',
   requirements: [
-    'Android Studio 2.2',
+    'Android Studio 2.3',
     'Android SDK 24',
     'Emulator - Nexus 5X - Android 6.0'
   ]
@@ -24,4 +24,3 @@ description: This tutorial will show you how to integrate Lock v2 in your Androi
 <%= include('_includes/_manifest') %>
 
 <%= include('_includes/_login') %>
-

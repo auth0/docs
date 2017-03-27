@@ -13,9 +13,10 @@ We need to store the tokens in a secure storage after a successful authenticatio
 ## Using a non-expired id_token
 
 ```java
-String idToken = // Retrieve id_token from the secure storage
-Auth0 auth0 = // create account
+Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
 
+String idToken = // Retrieve id_token from the secure storage
 AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 client.delegationWithIdToken(idToken)
   .setScope("openid email")
@@ -36,9 +37,10 @@ client.delegationWithIdToken(idToken)
 ## Using refresh_token
 
 ```java
-String refreshToken = // Retrieve refresh_token from the secure storage
-Auth0 auth0 = // create account
+Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
 
+String refreshToken = // Retrieve refresh_token from the secure storage
 AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 client.renewAuth(refreshToken)
   .addParameter("scope", "openid email")

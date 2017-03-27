@@ -19,7 +19,7 @@ Auth0.Android is available through [Gradle](https://gradle.org/). To install it,
 
 ```gradle
 dependencies {
-    compile "com.auth0.android:auth0:1.5.0"
+    compile "com.auth0.android:auth0:1.6.0"
 }
 ```
 
@@ -41,6 +41,7 @@ Method one is to simply create an instance of `Auth0` with your client informati
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+account.setOIDCConformant(true);
 ```
 
 ### 2) Client Information Read from XML
@@ -59,6 +60,7 @@ And then create your new Auth0 instance by passing an Android Context:
 
 ```java
 Auth0 account = new Auth0(context);
+account.setOIDCConformant(true);
 ```
 
 ## Using the Authentication API
@@ -190,6 +192,7 @@ To get started, create a new `UsersAPIClient` instance by passing it the `accoun
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+account.setOIDCConformant(true);
 UsersAPIClient users = new UsersAPIClient(account, "token");
 ```
 
@@ -286,7 +289,7 @@ Also register the intent filters inside your activity's tag, so you can receive 
 
         <activity
             android:name="com.mycompany.MainActivity"
-            android:theme="@style/MyAppTheme">
+            android:theme="@style/MyAppTheme"
             android:launchMode="singleTask">
 
             <intent-filter>
@@ -402,7 +405,7 @@ WebAuthProvider.init(account)
                 .withScheme("myapp")
                 .start(this);
 ```
-              
+
 **Scheme must be lowercase**. Remember to update your intent-filter after changing this setting.
 
 ### Specify state

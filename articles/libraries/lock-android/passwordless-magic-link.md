@@ -62,9 +62,9 @@ All you need to do is choose **Liquid** as the SMS Syntax and make sure the mess
 
 ```liquid
 {% if send == 'link_ios' or send == 'link_android' %}
-Your verification link is: {{ link }}
+    Your verification link is: {{ link }}
 {% else %}
-Your verification code is: {{ code }}
+    Your verification code is: {{ code }}
 {% endif %}
 ```
 
@@ -76,9 +76,9 @@ Otherwise, if we'll use a passwordless connection via Email, we'll need to make 
 
 ```liquid
 {% if send == 'link' or send == 'link_ios' or send == 'link_android' %}
-Your verification link is: {{ link }}
+    Your verification link is: {{ link }}
 {% elsif send == 'code' %}
-Your verification code is: {{ code }}
+    Your verification code is: {{ code }}
 {% endif %}
 ```
 
@@ -134,10 +134,11 @@ public class MyActivity extends AppCompatActivity {
   private PasswordlessLock lock;
 
   @Override
-  @SuppressWarnings("ConstantConditions")
   protected void onCreate(@Nullable Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      lock = PasswordlessLock.newBuilder(getAccount(), callback)
+      Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+      auth0.setOIDCConformant(true);
+      lock = PasswordlessLock.newBuilder(auth0, callback)
             .useLink()
             .build(this);
   }
@@ -145,9 +146,7 @@ public class MyActivity extends AppCompatActivity {
   @Override
   public void onDestroy() {
       super.onDestroy();
-      if (lock != null) {
-          lock.onDestroy(this);
-      }
+      lock.onDestroy(this);
   }
 
   private void showPasswordlessLock() {

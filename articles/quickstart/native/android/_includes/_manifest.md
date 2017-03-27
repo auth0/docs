@@ -17,19 +17,16 @@ Add the following code to your project's `AndroidManifest.xml`.
 
         <data
             android:host="${account.namespace}"
-            android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+            android:pathPrefix="/android/{YOUR_PACKAGE_NAME}/callback"
             android:scheme="https" />
     </intent-filter>
 </activity>
-
-<activity android:name="com.auth0.android.lock.provider.WebViewActivity"/>
 ```
 
-Add the following permissions:
+Add the following permission:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
 > Do not add `<android:noHistory="true">` to the `LockActivity` as this will alter the correct functionality of **Lock**.
