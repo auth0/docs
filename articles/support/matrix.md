@@ -272,32 +272,32 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <td>Auth0.Android</td>
-    <td></td>
     <td>v1</td>
+    <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Auth0.Swift</td>
-    <td></td>
     <td>v1</td>
+    <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Auth0.net</td>
-    <td></td>
     <td>v3, v4</td>
+    <td></td>
     <td></td>
   </tr>
   <tr>
     <td>Auth0-java</td>
-    <td></td>
     <td>v1</td>
+    <td></td>
     <td></td>
   </tr>
   <tr>
     <td>node-auth0</td>
-    <td></td>
     <td>v2</td>
+    <td></td>
     <td></td>
   </tr>
 </table>
@@ -317,38 +317,38 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <td>angular-auth0</td>
-    <td>X</td>
     <td></td>
+    <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>angular-lock</td>
-    <td>X</td>
     <td></td>
+    <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td>auth0-servlet</td>
     <td></td>
+    <td>X</td>
     <td></td>
-    <td>v3</td>
   </tr>
   <tr>
     <td>auth0-spring-mvc</td>
     <td></td>
+    <td>X</td>
     <td></td>
-    <td>v1</td>
   </tr>
   <tr>
     <td>auth0-spring-security-mvc</td>
     <td></td>
+    <td>X</td>
     <td></td>
-    <td>v1</td>
   </tr>
   <tr>
     <td>auth0-spring-security-api</td>
+    <td>X</td>
     <td></td>
-    <td>v1</td>
     <td></td>
   </tr>
   <tr>
@@ -377,8 +377,8 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <td>auth0-oidc-client-net</td>
+    <td>X</td>
     <td></td>
-    <td>v1</td>
     <td></td>
   </tr>
 </table>
@@ -395,7 +395,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Community Support Only</th>
   </tr>
   <tr>
-    <td>[Android](/quickstart/native/android)</td>
+    <td><a href="/quickstart/native/android">Android</a></td>
     <td></td>
     <td>X</td>
     <td></td>
