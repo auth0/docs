@@ -431,13 +431,13 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <td></td>
   </tr>
   <tr>
-    <td><a href="/quickstart/native/ios-objc">macOS - Objective-C</a></td>
+    <td><a href="/quickstart/native/ios-objc">iOS - Objective-C</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td><a href="/quickstart/native/ios-swift">macOS - Swift</a></td>
+    <td><a href="/quickstart/native/ios-swift">iOS - Swift</a></td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -455,7 +455,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <td></td>
   </tr>
   <tr>
-    <td><a href="/quickstart/native/react-native-ios">React Native - macOS</a></td>
+    <td><a href="/quickstart/native/react-native-ios">React Native - iOS</a></td>
     <td></td>
     <td>X</td>
     <td></td>
