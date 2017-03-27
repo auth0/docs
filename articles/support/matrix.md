@@ -697,119 +697,102 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Community Support Only</th>
   </tr>
   <tr>
-    <td>[.NET WCF](/quickstart/backend/wcf-service)</td>
     <td><a href="/quickstart/backend/wcf-service">.NET WCF</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[ASP.NET Core Web API](/quickstart/backend/aspnet-core-webapi)</td>
     <td><a href="/quickstart/backend/aspnet-core-webapi">ASP.NET Core Web API</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[ASP.NET Web API (OWIN)](/quickstart/backend/webapi-owin)</td>
     <td><a href="/quickstart/backend/webapi-owin">ASP.NET Web API (OWIN)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[ASP.NET Web API (System.Web)](/quickstart/backend/aspnet-webapi)</td>
     <td><a href="/quickstart/backend/aspnet-webapi">ASP.NET Web API (System.Web)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Falcor](/quickstart/backend/falcor)</td>
     <td><a href="/quickstart/backend/falcor">Falcor</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Go](/quickstart/backend/golang)</td>
     <td><a href="/quickstart/backend/golang">Go</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Hapi.js](/quickstart/backend/hapi)</td>
     <td><a href="/quickstart/backend/hapi">Hapi.js</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Java Spring Security](/quickstart/backend/java-spring-security)</td>
     <td><a href="/quickstart/backend/java-spring-security">Java Spring Security</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Nginx](/quickstart/backend/nginx)</td>
     <td><a href="/quickstart/backend/nginx">Nginx</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Node.js (Express)](/quickstart/backend/nodejs)</td>
     <td><a href="/quickstart/backend/nodejs">Node.js (Express)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[PHP](/quickstart/backend/php)</td>
     <td><a href="/quickstart/backend/php">PHP</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[PHP (Laravel)](/quickstart/backend/php-laravel)</td>
     <td><a href="/quickstart/backend/php-laravel">PHP (Laravel)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[PHP (Symfony)](/quickstart/backend/php-symfony)</td>
     <td><a href="/quickstart/backend/php-symfony">PHP (Symfony)</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Python](/quickstart/backend/python)</td>
     <td><a href="/quickstart/backend/python">Python</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Relay](/quickstart/backend/relay)</td>
     <td><a href="/quickstart/backend/relay">Relay</a></td>
     <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
-    <td>[Ruby](/quickstart/backend/ruby)</td>
     <td><a href="/quickstart/backend/ruby">Ruby</a></td>
     <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
-    <td>[Ruby on Rails](/quickstart/backend/rails)</td>
     <td><a href="/quickstart/backend/rails">Ruby on Rails</a></td>
     <td></td>
     <td>X</td>
