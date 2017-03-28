@@ -213,7 +213,7 @@ If all goes well, you'll receive an HTTP 302 response:
 
 ```text
 HTTP/1.1 302 Found
-Location: https://YOUR_APP/callback?code=AUTHORIZATION_CODE
+Location: https://${account.namespace}/mobile?code=AUTHORIZATION_CODE
 ```
 
 Note the authorization code included at the end of the included URL.
@@ -365,7 +365,7 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=https://YOUR_APP/callback&
+    redirect_uri=https://${account.namespace}/mobile&
     connection=github
 ```
 
