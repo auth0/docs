@@ -116,15 +116,15 @@ As a workaround, look for an `access_token`, `id_token`, or `error` in the hash 
 ```js
 // app/auth.service.ts
 
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
 constructor(public router: Router) {
   this
     .router
     .events
-    .filter(event => event.constructor.name === 'NavigationStart')
-    .filter(event => (/access_token|id_token|error/).test(event.url))
+    .filter(event => event instanceof NavigationStart)
+    .filter((event: NavigationStart) => (/access_token|id_token|error/).test(event.url))
     .subscribe(() => {
       this.lock.resumeAuth(window.location.hash, (error, authResult) => {
         if (error) return console.log(error);
