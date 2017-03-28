@@ -618,8 +618,182 @@ Content-Type: application/json
 | `otp` <br/><span class="label label-danger">Required</span> | OTP Code provided by the user. |
 
 #### Verify MFA using an OOB challenge
+To verify MFA using an OOB challenge (e.g. Push / SMS) your app must make a request to `oauth/token`
+with `grant_type=http://auth0.com/oauth/grant-type/mfa-oob` including the `oob_code` you got from challenge response and the `mfa_token` you got as
+part of `mfa_required` error.
+The response to this request depends on the status of the underlying challenge verification:
+
+* If the challenge have been accepted and verified: is going to be the same as the one for `password` or `http://auth0.com/oauth/grant-type/password-realm`
+grant types.
+
+* If the challenge has been rejected, you will get an `invalid_grant` error which means that the challenge was rejected by the user. In such case you should stop
+polling, this response is final.
+
+* If the challenge verification is still pending (meaning it has not been accepted nor rejected) you will get an `authorization_pending` error, meaning that
+you must retry the same request a few seconds later to get the result. If you make too many requests per minute you will end up getting an `slow_down` error meaning that you should slow down your request rate.
+
+When challenge response includes a `binding_method: prompt` your app needs to prompt the user for the `binding_code` and send it as part of the request,
+the `binding_code` is a piece of information (usually a 6 digit number similar to an otp) included as part of the challenge sent. This piece of information
+must be ommited if challenge response did not included a `binding_method`. In this case the response will be immediate, i.e. you will get an
+`invalid_grant` or an access token as response.
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+POST https://${account.namespace}/oauth/token
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "client_secret": "${account.clientSecret}",
+  "mfa_token": "MFA_TOKEN",
+  "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-oob",
+  "oob_code": "OOB_CODE",
+  "binding_code": "BINDING_CODE"
+}
+```
+
+```shell
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/token' \
+  --header 'content-type: application/json' \
+  --data '{"mfa_token":"MFA_TOKEN", "oob_code": "OOB_CODE", "binding_code": "BINDING_CODE", "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-oob", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/json' },
+  body:
+   { mfa_token: 'MFA_TOKEN',
+     oob_code: "OOB_CODE",
+     binding_code: "BINDING_CODE"
+     grant_type: 'http://auth0.com/oauth/grant-type/mfa-oob',
+     client_id: '${account.clientId}',
+     client_secret: '${account.clientSecret}' },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> RESPONSE SAMPLE FOR PENDING CHALLENGE:
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "error":"authorization_pending",
+  "error_description":"Authorization pending: please repeat the request in a few seconds."
+}
+```
+
+> RESPONSE SAMPLE FOR VERIFIED CHALLENGE:
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "access_token":"eyJz93a...k4laUWw",
+  "token_type":"Bearer",
+  "expires_in":86400
+}
+```
+
+> RESPONSE SAMPLE FOR REJECTED CHALLENGE:
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "error":"invalid_grant",
+  "error_description":"MFA Authorization rejected."
+}
+```
+
+##### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-oob`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
+| `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you got from `mfa_required` error. |
+| `oob_code` <br/><span class="label label-danger">Required</span> | The oob code got from challenge request. |
+| `binding_code`| A code used to bind the side channel (used to deliver the challenge) with the main channel you are using to authenticate, this is usually an otp-like code delivered as part of the challenge message. |
 
 #### Verify MFA using a recovery code
+Some MFA providers (currently only Guardian) support using a recovery code to login. This method is supposed to be used
+to authenticate when the device you enrolled is not handy or you cannot get the challenge or accept it.
+To verify MFA using a recovery code your app must prompt the user to get the recovery code, and then make a request to `oauth/token`
+with `grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code` including the collected recovery code and the `mfa_token` you got as
+part of `mfa_required` error. If the recovery code is accepted the response is going to be the same as the one for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types, it might also include a `recovery_code` field, in such case, your
+application must show that field to the end-user for him to store securely; the old recovery code will stop working.
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+POST https://${account.namespace}/oauth/token
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "client_secret": "${account.clientSecret}",
+  "mfa_token": "MFA_TOKEN",
+  "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code",
+  "recovery_code": "RECOVERY_CODE"
+}
+```
+
+```shell
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/token' \
+  --header 'content-type: application/json' \
+  --data '{"mfa_token":"MFA_TOKEN", "recovery_code":"RECOVERY_CODE", "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/json' },
+  body:
+   { mfa_token: 'MFA_TOKEN',
+     recovery_code: 'RECOVERY_CODE',
+     grant_type: 'http://auth0.com/oauth/grant-type/mfa-recover-code',
+     client_id: '${account.clientId}',
+     client_secret: '${account.clientSecret}' },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> RESPONSE SAMPLE FOR OTP:
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "access_token":"eyJz93a...k4laUWw",
+  "token_type":"Bearer",
+  "expires_in":86400,
+  "recovery_code": "abcdefg"
+}
+```
+
+##### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-otp`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
+| `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you got from `mfa_required` error. |
+| `recovery_code` <br/><span class="label label-danger">Required</span> | Recovery code provided by end-user. |
 
 ### More Information
 - [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
