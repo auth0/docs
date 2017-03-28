@@ -17,27 +17,29 @@ Suppose you have three applications:
 
 If you've implemented SSO and the user logs in to *any* of the three applications, the user should automatically be logged in to the other applications.
 
+This article shows you how to implement OIDC-compliant Single Sign On via [Silent Authentication](/api-auth/tutorials/silent-authentication) for your Single Page Applications using [this sample](#).
+
 ## Implement SSO on Your SPA
 
 :::panel-warning Prerequisites
 This article assumes that you have already created an Auth0 Client (with its type set to **Single Page Web Applications**) with the **OIDC Conformant** flag enabled.
 :::
 
-This article shows you how to implement OIDC-compliant Single Sign On for your Single Page Applications using [this sample](#). Please feel free to download the sample and work through the examples on your local environment as you read this doc.
-
 ### Get Started with the IUDC-Compliance Single Sign On Sample
 
-If you would like to follow along using the Auth0-provided sample, please use the following instructions to get set up.
+Please feel free to download the sample and work through the examples on your local environment as you read this doc. The following instructions will help you set up the sample SPA on your local environment.
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This document assumes that you're using port 3000 when running the sample. If you are using a different port, you'll need to indicate this wherever the sample mentions port 3000.
+  <strong>Heads up!</strong> This document assumes that you're using port 3000 when running the sample. If you are using a different port, you'll need to indicate this wherever the sample (or this article) mentions port 3000.
 </div>
 
 1. You can clone the necessary files from [Auth0-Samples](#) to your local environment.
 2. Add `http://localhost:3000` to the Allowed Callback URLs field of your [Auth0 Client](${manage_url}/#/clients) Settings.
-3. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in the Settings tab of your [Auth0 Client's Dashboard page](${manage_url}/#/clients). If you are using a port other than `3000`, you will need to update the `redirectUri` as well.
+3. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in the Settings tab of your [Auth0 Client's Dashboard page](${manage_url}/#/clients).
 4. Once you've made the configuration changes detailed in steps 2 and 3, start up a web server in the root of the repository at port `3000` .
 5. Browse to `http://localhost:3000` to view the client side of the sample.
+
+  ![Home page before logging in](/media/articles/sso/v2/spa/before-login.png)
 
 ## Configure Silent Authentication
 
@@ -78,6 +80,18 @@ For requests received with the parameter `prompt=none`, Auth0 redirects to the `
 * If the user is already logged in via SSO, Auth0 sends a successful authentication response;
 * If the user is not logged in via SSO (and therefore Auth0 cannot silently authenticate the user), Auth0 sends an error response.
 
+When you run the sample app for the first time, you will not have a valid access token. As such, the SSO login process errors when attempting silent authentication.
+
+![Prompt to begin silent authentication](/media/articles/sso/v2/spa/begin-silent-auth.png)
+
+You will then see the Lock screen, which allows you to provide the required credentials.
+
+![Lock screen](/media/articles/sso/v2/spa/lock.png)
+
+Once you've provided correct credentials, the app will indicate if you've successfully acquired a token.
+
+![Home page after logging in](/media/articles/sso/v2/spa/logged-in.png)
+
 #### Auth0's Successful Authentication Response
 
 If the user is logged in via SSO already, Auth0 responds as if the user had manually authenticated using the SSO login page. You can extract the `access_token` from the hash fragment of the returned URL:
@@ -109,6 +123,10 @@ $(function () {
 ```
 
 The response for a call made *without* the `prompt=none` parameter is indistinguishable from the response for a call made *with* the parameter.
+
+You can test this using the sample app. If you're already logged in, you can request an updated token by clicking the **Click here to renew it** link.
+
+At this point, the app silently authenticates you, gets the new token, and updates the page to reflect your new token expiration datetime. Notice that you *did not* see the Lock screen asking for your credentials.
 
 #### Auth0's Error (Unsuccessful Authentication) Response
 
