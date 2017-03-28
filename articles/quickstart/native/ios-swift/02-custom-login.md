@@ -149,7 +149,9 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 }
 ```
 
-Finally, perform webauth social authentication by specifying a social connection, for instance, Facebook:
+### Web Authentication
+
+Finally, you can now perform webAuth authentication by specifying the social connection name, for example with Facebook.
 
 ```swift
 Auth0
@@ -166,4 +168,25 @@ Auth0
     }
 ```
 
-Once you get the `credentials` object, upon a successful authentication, you deal with them as usual.
+Once you obtain the `credentials` object upon a successful authentication, you can deal with them as usual.
+
+#### Connection Scopes
+
+If you need additional provider permissions these can be specified using the `connectionScope` method and providing
+a comma separated list of provider permissions.
+
+```swift
+Auth0
+    .webAuth()
+    .connection("facebook")
+    .connectionScope("public_profile,email,user_friends,user_birthday")
+    .scope("openid")
+    .start { result in
+        switch result {
+        case .success(let credentials):
+            // You've got your credentials
+        case .failure(let error):
+            // Handle the error
+        }
+    }
+```
