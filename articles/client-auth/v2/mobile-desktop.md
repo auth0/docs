@@ -260,15 +260,7 @@ Auth0 assists in authenticating a user, but your application must keep track of 
 
 ## The `id_token`
 
-Auth0's `id_token` is a [JSON Web Token (JWT)](/jwt) of type **Bearer** containing information about the user. You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the `id_token`.
-
-If you would like additional information on JWTs, please visit our section on [JWT section](/jwt).
-
-Once you've decoded the JWT, you can extract user information from the `id_token` payload. The JSON payload contains the user claims (attributes), as well as metadata.
-
-### The `id_token` Payload
-
-Your `id_token` payload will look something like this:
+Once you've decoded the Access Token, you can extract user information from the `id_token` payload. The JSON payload contains the user claims (attributes), as well as metadata, and it will look something like this:
 
 ```json
 {
@@ -283,24 +275,7 @@ Your `id_token` payload will look something like this:
 }
 ```
 
-::: panel-info Debugging a JWT
-The [JWT.io website](https://jwt.io) has a debugger that allows you to debug any JSON Web Token. This is useful if you want to quckly decode a JWT to see the information it contains.
-:::
-
-The payload's claims can include some or all of the following:
-
-| Parameter | Description |
-|:------------------|:---------|
-| name | The name of the user which is returned from the Identity Provider. |
-| email | The email address of the user which is returned from the Identity Provider. |
-| picture | The profile picture of the user which is returned from the Identity Provider. |
-| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format `(identity provider)&#124;(unique id in the provider)`, e.g. `github&#124;1234567890`. |
-| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued `id_token`, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-| iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
-
-The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. An Auth0 `id_token` will always include the **registered claims** and the `sub` claim, but the others depends on the `scope`.
+For additional details, please see our docs [on the ID Token and its claims](/tokens/id-token#id-token-payload)
 
 ## Example Use Cases
 
