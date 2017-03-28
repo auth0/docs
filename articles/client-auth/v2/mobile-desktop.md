@@ -275,7 +275,7 @@ Once you've decoded the Access Token, you can extract user information from the 
 }
 ```
 
-For additional details, please see our docs [on the ID Token and its claims](/tokens/id-token#id-token-payload)
+For additional details, please see our docs [on the ID Token and its claims](/tokens/id-token#id-token-payload).
 
 ## Example Use Cases
 
@@ -296,12 +296,12 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=https://${account.namespace}/mobile
+    redirect_uri=${account.namespace}/mobile
 ```
 
 After the user provides submits their credentials, your app receives an HTTP 302 response with a URL containing the authorization code at the end: `https://YOUR_APP/callback?code=AUTHORIZATION_CODE`
 
-Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](api/authentication#authorization-code-pkce-) endpoint.
+Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
 
 ```har
 {
@@ -312,7 +312,7 @@ Using the authorization code, you can obtain the ID token by making a `POST` cal
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://${account.namespace}/mobile\", }"
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.namespace}/mobile\", }"
   }
 }
 ```
@@ -365,14 +365,14 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=https://${account.namespace}/mobile&
+    redirect_uri=https://YOUR_APP/callback&
     connection=github
 ```
 
 After the user authenticates, GitHub redirects them back to the specified `redirect_uri` with the `id_token` and `token_type` passed as parameters in the included hash fragment.
 
 ```text
-https://YOUR_AUTH0_DOMAIN/mobile
+https://YOUR_APP/callback
   #id_token=eyJ0...
   &token_type=Bearer
 ```
