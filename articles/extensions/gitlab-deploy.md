@@ -136,7 +136,7 @@ You can mark rules as manual. In that case, the source control extension will no
 
 ![Mark rules as manual](/media/articles/extensions/gitlab-deploy/manual-rule.png)
 
-You can also control the Rule order, status (`enabled`/`disabled`) and stage (for now, only `login_success` is available) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
+You can also control the Rule order and status (`enabled`/`disabled`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
 
 __set-country.js__
 ```javascript
