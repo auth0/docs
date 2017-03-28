@@ -188,15 +188,7 @@ https://${account.namespace}/authorize?
     redirect_uri=${account.namespace}/mobile
 ```
 
-Request Parameters:
-
-* `audience`: The unique identifier of the target API. Use the __Identifier__ value in [API Settings](${manage_url}/#/apis). If you don't see this page in the Dashboard, enable the __Enable APIs Section__ toggle at [Account Settings > Advanced](${manage_url}/#/account/advanced).
-* `scope`: The [scopes](/scopes) for which you want to request authorization. Each scope must be separated from the others using a whitespace character. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) for users (such as `profile` and `email`), custom claims conforming to a namespaced format (see note below on Arbitrary Claims), and any scopes supported by the target API. Include (at the very least) `openid`.
-* `response_type`: The credential type you want Auth0 to return (code or token). For authentication using PKCE, this value must be set to `code`.
-* `client_id`: Your Client's ID. You can find this value in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
-* `redirect_uri`: The URL to which Auth0 will redirect the browser after user authorization. This URL must be specified as a valid callback URL in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
-* `code_challenge`: the generated challenge associated with the `code_verifier`.
-* `code_challenge_method`: the method used to generate the challenge. The PKCE spec defines two methods (`S256` and `plain`), but Auth0 only supports `S256`.
+Please see [this page](/api-auth/tutorials/authorization-code-grant-pkce#3-get-the-user-s-authorization) for detailed information on the User Authorization request parameters.
 
 ::: panel-info Arbitrary Claims
 To improve Client application compatibility, Auth0 returns profile information using an [OIDC-defined structured claim format](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that arbitrary claims to ID or access tokens must conform to a namespaced format to avoid collisions with standard OIDC claims. For example, if your namespace is `https://foo.com/` and you want to add an arbitrary claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, not `myclaim`.
@@ -244,13 +236,7 @@ Using the authorization code obtained in step 2, you can obtain the ID token by 
 }
 ```
 
-Request Parameters:
-
-* `grant_type`: Set this field to `authorization_code`
-* `client_id`: Your application's Client ID
-* `code_verifier`: The cryptographically random key used to generate the `code_challenge` passed to the `/authorize` endpoint
-* `code`: The authorization code received from the initial `authorize` call
-* `redirect_uri`: the `redirect_uri` passed to `/authorize` (these two values must match exactly)
+Please refer to [this page](/api-auth/tutorials/authorization-code-grant-pkce#4-exchange-the-authorization-code-for-an-access-token) for additional details on the ID Token request parameters.
 
 If all goes well, you'll receive an HTTP 200 response with the following payload:
 
