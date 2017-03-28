@@ -76,7 +76,7 @@ Auth0
 
 ## Retrieve Linked Accounts
 
-Linked accounts, a.k.a. user's identities, can be easily retrieved by fetching the user'z profile, a process that we already know from the [user profile](/quickstart/native/ios-swift/02-custom-login) tutorial:
+Linked accounts, a.k.a. user's identities, can be easily retrieved by fetching the user's profile, a process that we already know from the [user profile](/quickstart/native/ios-swift/02-custom-login) tutorial:
 
 ```swift
 import Lock
