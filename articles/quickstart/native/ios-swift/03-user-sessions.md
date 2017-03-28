@@ -136,7 +136,7 @@ However, in this tutorial, we'll focus on the latter scenario, where we still wa
 
 In this case, we're going to leverage the `refreshToken`. The refresh token is another token string contained within the `Credentials` object that comes upon a successful login, which doesn't expire, and whose main purpose is retrieving a new valid `idToken`.
 
->It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep in mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
+>It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You have to keep in mind, for example, that even though the refresh token cannot expire, it can be revoked.**
 
 ### Store the refreshToken
 
