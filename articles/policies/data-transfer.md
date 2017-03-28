@@ -16,4 +16,4 @@ If you are opting to move out from our service, then you might want to check [th
 
 * Renaming an account.
 
-* Renaming a database connection.
+* Renaming a connection.
