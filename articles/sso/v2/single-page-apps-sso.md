@@ -5,17 +5,7 @@ toc: true
 
 # Client-Side SSO on Single Page Applications
 
-:::panel-warning Prerequisites
-This article assumes that you have already created an Auth0 Client (with its type set to **Single Page Web Applications**) with the **OIDC Conformant** flag enabled.
-:::
-
-To bypass displaying the Lock screen when logging in a user (a process known as [*silent authentication*](#silent-authentication)), you must:
-
-* Enable the **Use Auth0 instead of the IdP to do Single Sign On** flag in the [Auth0 Client's settings tab](${manage_url});
-* Have a SSO cookie for the tenant's domain (in other words, the user has previously signed in and their saved cookie is still valid);
-* Pass the name of the user's Connection to Auth0 for authentication. You can do this by:
-  * Including it as a parameter when calling the `signin` function of the [auth0.js library](/libraries/auth0js);
-  * Passing the `connection` query string parameter when calling the [Authentication API's `/authorize` endpoint](/api/authentication#login).
+Single Page Applications (SPA) are user-friendly apps that load a single HTML page that dynamically updates as the users interacts with the app. If your SPA is associated with other apps or sites that asks for any type of authentication, you can do so by implementing OIDC-compliant Single Sign On, which ensures both security and ease of use.
 
 ## What SSO Looks Like
 
@@ -26,6 +16,38 @@ Suppose you have three applications:
 * App 3: app3.com (regular web app)
 
 If you've implemented SSO and the user logs in to *any* of the three applications, the user should automatically be logged in to the other applications.
+
+## Implement SSO on Your SPA
+
+:::panel-warning Prerequisites
+This article assumes that you have already created an Auth0 Client (with its type set to **Single Page Web Applications**) with the **OIDC Conformant** flag enabled.
+:::
+
+This article shows you how to implement OIDC-compliant Single Sign On for your Single Page Applications using [this sample](#). Please feel free to download the sample and work through the examples on your local environment as you read this doc.
+
+### Get Started with the IUDC-Compliance Single Sign On Sample
+
+If you would like to follow along using the Auth0-provided sample, please use the following instructions to get set up.
+
+<div class="alert alert-info">
+  <strong>Heads up!</strong> This document assumes that you're using port 3000 when running the sample. If you are using a different port, you'll need to indicate this wherever the sample mentions port 3000.
+</div>
+
+1. You can clone the necessary files from [Auth0-Samples](#) to your local environment.
+2. Add `http://localhost:3000` to the Allowed Callback URLs field of your [Auth0 Client](${manage_url}/#/clients) Settings.
+3. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in the Settings tab of your [Auth0 Client's Dashboard page](${manage_url}/#/clients). If you are using a port other than `3000`, you will need to update the `redirectUri` as well.
+4. Once you've made the configuration changes detailed in steps 2 and 3, start up a web server in the root of the repository at port `3000` .
+5. Browse to `http://localhost:3000` to view the client side of the sample.
+
+## Configure Silent Authentication
+
+To bypass displaying the Lock screen when logging in a user (a process known as [*silent authentication*](#silent-authentication)), you must:
+
+* Enable the **Use Auth0 instead of the IdP to do Single Sign On** flag in the [Auth0 Client's settings tab](${manage_url});
+* Have a SSO cookie for the tenant's domain (in other words, the user has previously signed in and their saved cookie is still valid);
+* Pass the name of the user's Connection to Auth0 for authentication. You can do this by:
+  * Including it as a parameter when calling the `signin` function of the [auth0.js library](/libraries/auth0js);
+  * Passing the `connection` query string parameter when calling the [Authentication API's `/authorize` endpoint](/api/authentication#login).
 
 ## Silent Authentication
 
