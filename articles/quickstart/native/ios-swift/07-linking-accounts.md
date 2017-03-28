@@ -43,7 +43,7 @@ Lock
     .present(from: self)
 ```
 
-Upon success, you need to store the `dToken` value for later use, which is the `idToken` for the secondary account that the user is linking with.
+Upon success, you need to store the `idToken` value for later use, which is the `idToken` for the secondary account that the user is linking with.
 
 ## Link an Account
 
