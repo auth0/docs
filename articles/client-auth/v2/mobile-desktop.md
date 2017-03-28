@@ -185,7 +185,7 @@ https://${account.namespace}/authorize?
     client_id=${account.clientId}&
     code_challenge=CODE_CHALLENGE&
     code_challenge_method=S256&
-    redirect_uri=${account.callback}/mobile
+    redirect_uri=${account.namespace}/mobile
 ```
 
 Request Parameters:
@@ -212,7 +212,7 @@ As an example, your HTML snippet for your authorization URL might look as follow
   client_id=${account.clientId}&
   code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&
   code_challenge_method=S256&
-  redirect_uri=com.myclientapp://myclientapp.com/callback">
+  redirect_uri=https://${account.namespace}/mobile">
   Sign In
 </a>
 ```
@@ -239,7 +239,7 @@ Using the authorization code obtained in step 2, you can obtain the ID token by 
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://${account.namespace}/mobile\", }"
   }
 }
 ```
@@ -351,7 +351,7 @@ Using the authorization code, you can obtain the ID token by making a `POST` cal
   ],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://${account.namespace}/mobile\", }"
   }
 }
 ```
