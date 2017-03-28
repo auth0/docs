@@ -518,7 +518,7 @@ Content-Type: application/json
   "link": "#resource-owner-password"
 }) %>
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
@@ -549,6 +549,73 @@ and the ones that the app supports. If your app does not support any of the chal
 `unsupported_challenge_type` error will be returned.
 
 #### Verify MFA using OTP
+To verify MFA using an OTP code your app must prompt the user to get the otp code, and then make a request to `oauth/token`
+with `grant_type=http://auth0.com/oauth/grant-type/mfa-otp` including the collected otp code and the `mfa_token` you got as
+part of `mfa_required` error. The response is going to be the same as the one for `password` or `http://auth0.com/oauth/grant-type/password-realm`
+grant types.
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+POST https://${account.namespace}/oauth/token
+Content-Type: 'application/json'
+{
+  "client_id": "${account.clientId}",
+  "client_secret": "${account.clientSecret}",
+  "mfa_token": "MFA_TOKEN",
+  "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-otp",
+  "otp": "OTP_CODE"
+}
+```
+
+```shell
+curl --request POST \
+  --url 'https://${account.namespace}/oauth/token' \
+  --header 'content-type: application/json' \
+  --data '{"mfa_token":"MFA_TOKEN", "otp":"OTP_CODE", "grant_type": "grant_type=http://auth0.com/oauth/grant-type/mfa-otp", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"}'
+```
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://${account.namespace}/oauth/token',
+  headers: { 'content-type': 'application/json' },
+  body:
+   { mfa_token: 'MFA_TOKEN',
+     otp: 'OTP_CODE',
+     grant_type: 'http://auth0.com/oauth/grant-type/mfa-otp',
+     client_id: '${account.clientId}',
+     client_secret: '${account.clientSecret}' },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+> RESPONSE SAMPLE FOR OTP:
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "access_token":"eyJz93a...k4laUWw",
+  "token_type":"Bearer",
+  "expires_in":86400
+}
+```
+
+##### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-otp`. |
+| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
+| `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you got from `mfa_required` error. |
+| `otp` <br/><span class="label label-danger">Required</span> | OTP Code provided by the user. |
 
 #### Verify MFA using an OOB challenge
 
