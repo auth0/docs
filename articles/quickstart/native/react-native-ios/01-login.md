@@ -36,16 +36,10 @@ First you need to run the following command to install **react-native-lock**
 npm install --save react-native-lock
 ```
 
-Then install [rnpm](https://github.com/rnpm/rnpm)
-
-```bash
-npm install rnpm -g
-```
-
 After that, link **react-native-lock** with your iOS project:
 
 ```bash
-rnpm link react-native-lock
+react-native link react-native-lock
 ```
 
 If you get the following warning.
