@@ -34,8 +34,8 @@ Please feel free to download the sample and work through the examples on your lo
 </div>
 
 1. You can clone the necessary files from [Auth0-Samples](#) to your local environment.
-2. Add `http://localhost:3000` to the Allowed Callback URLs field of your [Auth0 Client](${manage_url}/#/clients) Settings.
-3. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in the Settings tab of your [Auth0 Client's Dashboard page](${manage_url}/#/clients).
+2. Add `http://localhost:3000` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${client.accountId}/settings).
+3. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in your [Auth0 Client's Settings page](${manage_url}/#/clients/${client.accountId}/settingss).
 4. Once you've made the configuration changes detailed in steps 2 and 3, start up a web server in the root of the repository at port `3000` .
 5. Browse to `http://localhost:3000` to view the client side of the sample.
 
@@ -45,11 +45,11 @@ Please feel free to download the sample and work through the examples on your lo
 
 To bypass displaying the Lock screen when logging in a user (a process known as [*silent authentication*](#silent-authentication)), you must:
 
-* Enable the **Use Auth0 instead of the IdP to do Single Sign On** flag in the [Auth0 Client's settings tab](${manage_url});
+* Enable the **Use Auth0 instead of the IdP to do Single Sign On** flag in the [Auth0 Client's settings page](${manage_url}/#/clients/${client.accountId}/settings);
 * Have a SSO cookie for the tenant's domain (in other words, the user has previously signed in and their saved cookie is still valid);
 * Pass the name of the user's Connection to Auth0 for authentication. You can do this by:
   * Including it as a parameter when calling the `signin` function of the [auth0.js library](/libraries/auth0js);
-  * Passing the `connection` query string parameter when calling the [Authentication API's `/authorize` endpoint](/api/authentication#login).
+  * Passing the `connection` query string parameter when calling the [Authentication API's `/authorize` endpoint](/api/authentication#implicit-grant).
 
 ## Silent Authentication
 
