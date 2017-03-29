@@ -46,7 +46,12 @@ Scopes allow you to define the API data accessible to your client applications. 
 * `read:samples`
 * `delete:samples`
 
-As an example, we'll add two scopes: `read:calendar` and `read:contacts`. You can think of each one as a microservice.
+For our sample application, we'll add two scopes:
+
+* `read:calendar`;
+* `read:contacts`.
+
+You can think of each one as a microservice.
 
 ![](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/new-scopes.png)
 
