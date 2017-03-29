@@ -152,9 +152,9 @@ Office products support [Modern Authentication](https://support.office.com/en-us
 
 1. Go to your Office 365 SSO Integration settings in Auth0, and copy the client ID from the URL. The URL will look like this:
 ```
-https://manage.auth0.com/#/externalapps/{the client id}/settings
+${manage_url}/#/externalapps/YOUR_CLIENT_ID/settings
 ```
-You will need the "client id" part of the segment.
+You will need the `YOUR_CLIENT_ID` part of the segment.
 
 2. Go to the **Rules** section and create a new rule. Start from the **Empty** template, name it `Set Issuer for Office 365 SSO Integration` and write code similar to this to set the issuer according to the domain of the user's email:
 
