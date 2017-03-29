@@ -33,9 +33,9 @@ The following properties are available for the `context` object:
 * `sso`: this object will contain information about the SSO transaction (if available)
   - `with_auth0`: when a user signs in with SSO to an application where the `Use Auth0 instead of the IdP to do Single Sign On` setting is enabled.
   - `with_dbconn`: an SSO login for a user that logged in through a database connection.
-  - `current_clients`: ? 
-* `access_token`: ?
-* `id_token`: ?
+  - `current_clients`: client IDs using SSO.
+* `access_token`: used to add custom namespaced claims to the `access_token`.
+* `id_token`: used to add custom namespaced claims to the `id_token`.
 * `sessionID`: unique id for the authentication session.
 * `request`: an object containing useful information of the request. It has the following properties:
   - `userAgent`: the user-agent of the client that is trying to log in.
@@ -56,5 +56,50 @@ The following properties are available for the `context` object:
 ## Sample Object
 
 ```js
-
+{
+  clientID: 'q2hn...pXmTUA',
+  clientName: 'Default App',
+  clientMetadata: {},
+  connection: 'Username-Password-Authentication',
+  connectionStrategy: 'auth0',
+  samlConfiguration: {},
+  jwtConfiguration: {},
+  protocol: 'oidc-basic-profile',
+  stats: { loginsCount: 111 },
+  sso: { with_auth0: false, with_dbconn: false, current_clients: [] },
+  accessToken: {},
+  idToken: {},
+  sessionID: 'jYA5wG...BNT5Bak',
+  request:
+  {
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
+    ip: '188.6.125.49',
+    hostname: 'mydomain.auth0.com',
+    query: 
+    {
+      scope: 'openid',
+      response_type: 'code',
+      connection: 'Username-Password-Authentication',
+      sso: 'true',
+      protocol: 'oauth2',
+      audience: 'my-api',
+      state: 'nB7rfBCL41nppFxqLQ-3cO75XO1QRFyD',
+      client_id: 'q2hn...pXmTUA',
+      redirect_uri: 'http://localhost/callback',
+      device: 'Browser'
+    },
+    body: {},
+    geoip:
+    {
+      country_code: 'GR',
+      country_code3: 'GRC',
+      country_name: 'Greece',
+      city_name: 'Athens',
+      latitude: 136.9733,
+      longitude: 125.7233,
+      time_zone: 'Europe/Athens',
+      continent_code: 'EU'
+    }
+  }
+}
 ```
