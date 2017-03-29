@@ -209,31 +209,37 @@ We're using the Lock for signing in users, but for enterprise connections like A
 
 Before showing the Lock we're adding a button to allow login with Azure AD connection.
 
-> Note: Lock v10 does not support adding custom buttons yet, so this must be done using [Lock v9](https://auth0.com/docs/libraries/lock/v9). 
-
 ```js
-lock.once('signin ready', function () {
-    var link = $('<a class="a0-zocial a0-waad" href="#">'
-        + '<span>Login with Azure AD</span></a>');
-    link.on('click', function () {
-        lock.getClient().login({ 
-            connection: 'fabrikamcorporation.onmicrosoft.com'
-            // repeat any needed custom auth params here, such as 
-            // state, responseType and callbackURL.
-            // Only domain and clientID are carried over from
-            // Lock instance.
-            // , responseType: 'code'
-            // , callbackURL: ...
-            // , ...
-        });
-    });
+import Auth0Lock from 'auth0-lock';
+import Auth0js from 'auth0-js';
 
-    var iconList = $(this.$container).find('.a0-iconlist');
-    iconList.append(link);
+const YOUR_AUTH0_CONNECTION_AZURE_AD_NAME = 'fabrikamcorp-waad'
+
+lock.once('signin ready', function() {
+    var buttonList = $('#auth0-lock-container-' + lock.id).find('.auth0-lock-social-buttons-container');
+
+    //Azure AD custom button
+    buttonList.append(
+        $('<button type="button" data-provider="windows">')
+            .addClass('auth0-lock-social-button auth0-lock-social-big-button')
+            .append('<div class="auth0-lock-social-button-icon">')
+            .append('<div class="auth0-lock-social-button-text">Log in with Azure AD</div>')
+            .on('click', function() {
+                var webAuth = new Auth0js.WebAuth({domain, clientID});
+
+                webAuth.authorize({
+                    connection: YOUR_AUTH0_CONNECTION_AZURE_AD_NAME,
+                    responseType: 'code',
+                    // repeat any needed custom auth params here, such as 
+                    // state, responseType and callbackURL.
+                    // , responseType: 'code'
+                    // , redirectUri: ...
+                    // , ...
+                });
+            })
+    );
 });
 lock.show({
-    connections: ['google-oauth2', 'facebook', 'windowslive'],
-    socialBigButtons: true,
     callbackURL: window.location.origin + '/signin-auth0'
 });
 ```
