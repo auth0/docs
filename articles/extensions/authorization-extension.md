@@ -18,7 +18,7 @@ The Auth0 Authorization Extension provides user authorization support in Auth0. 
 First make sure you have a Client created that can support the Authorization extension. Supported client types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Clients with no type assigned or non-interactive clients are not supported.
 
 <div class="alert alert-info">
-  Installing this extension creates an `auth0-authz` Client for your account. <strong>Do not delete this client!</strong> If you uninstall the extension at a later date, it will automatically delete this Client as well.
+  Installing this extension creates an `auth0-authz` client for your account. <strong>Do not delete this client!</strong> If you uninstall the extension at a later date, it will automatically delete this client as well.
 </div>
 
 To install the Authorization extension, click on the "Auth0 Authorization" box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app.
