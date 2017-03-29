@@ -44,24 +44,35 @@ curl --request GET \
 
 ```json
 {
-  "sub": "auth0|58433cab4c07kl1b49a5a3d7",
-  "name": "test.account@userinfo.com",
-  "nickname": "test.account",
-  "picture": "https://s.gravatar.com/avatar/dummy.png",
-  "updated_at": "1484946121",
+  "email_verified": false,
   "email": "test.account@userinfo.com",
-  "email_verified": false
+  "clientID": "q2hnj2iu...",
+  "updated_at": "2016-12-05T15:15:40.545Z",
+  "name": "test.account@userinfo.com",
+  "picture": "https://s.gravatar.com/avatar/dummy.png",
+  "user_id": "auth0|58454...",
+  "nickname": "test.account",
+  "identities": [
+    {
+      "user_id": "58454...",
+      "provider": "auth0",
+      "connection": "Username-Password-Authentication",
+      "isSocial": false
+    }
+  ],
+  "created_at": "2016-12-05T11:16:59.640Z",
+  "sub": "auth0|58454..."
 }
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/userinfo",
   "link": "#get-user-info"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#get-user-info">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#get-user-info">Authentication API Explorer</a>.
 </div>
 
 Given the Auth0 `access token` obtained during login, this endpoint returns a user's profile.
@@ -78,7 +89,7 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks
@@ -158,14 +169,14 @@ webAuth.parseHash(window.location.hash, function(err, authResult) {
 }
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/tokeninfo",
   "link": "#get-token-info"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#get-token-info">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#get-token-info">Authentication API Explorer</a>.
 </div>
 
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
@@ -180,7 +191,7 @@ This endpoint validates a JSON Web Token (signature and expiration) and returns 
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks

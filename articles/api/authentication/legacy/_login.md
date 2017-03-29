@@ -41,14 +41,14 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#social"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#social">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#social">Authentication API Explorer</a>.
 </div>
 
 Use this endpoint to authenticate a user with a social provider. It will return a `302` redirect to the social provider specified in `connection`.
@@ -70,7 +70,7 @@ Use this endpoint to authenticate a user with a social provider. It will return 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 
@@ -144,14 +144,14 @@ xhr.send(params);
 }
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/access_token",
   "link": "#social-with-provider-s-access-token"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#social-with-provider-s-access-token">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#social-with-provider-s-access-token">Authentication API Explorer</a>.
 </div>
 
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
@@ -169,7 +169,7 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks
@@ -225,14 +225,14 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#database-ad-ldap-passive-"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#database-ad-ldap-passive-">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#database-ad-ldap-passive-">Authentication API Explorer</a>.
 </div>
 
 Use this endpoint for browser based (passive) authentication. It returns a `302` redirect to the [Auth0 Login Page](https://${account.namespace}/login) that will show the Login Widget where the user can login with email and password.
@@ -250,7 +250,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 
@@ -335,14 +335,14 @@ curl --request POST \
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/ro",
   "link": "#database-ad-ldap-active-"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#database-ad-ldap-active-">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#database-ad-ldap-active-">Authentication API Explorer</a>.
 </div>
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
@@ -363,11 +363,11 @@ Use this endpoint for API-based (active) authentication. Given the user credenti
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 
@@ -437,14 +437,14 @@ GET https://${account.namespace}/authorize?
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#enterprise-saml-and-others-"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#enterprise-saml-and-others-">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#enterprise-saml-and-others-">Authentication API Explorer</a>.
 </div>
 
 Use this endpoint for passive authentication. It returns a `302` redirect to the SAML Provider (or Windows Azure AD and the rest, as specified in the `connection`) to enter their credentials.
@@ -463,7 +463,7 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 

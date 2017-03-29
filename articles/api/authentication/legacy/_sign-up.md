@@ -51,14 +51,14 @@ curl --request POST \
 }
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/dbconnections/signup",
   "link": "#signup"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#signup">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#signup">Authentication API Explorer</a>.
 </div>
 
 Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication.
@@ -78,7 +78,7 @@ This endpoint only works for database connections.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks

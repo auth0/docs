@@ -14,14 +14,14 @@ curl --request GET \
 ```
 
 <% var acceptWSReqPath = '/wsfed/YOUR_CLIENT_ID'; %>
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": acceptWSReqPath,
   "link": "#accept-request20"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#accept-request20">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#accept-request20">Authentication API Explorer</a>.
 </div>
 
 This endpoint accepts a WS-Federation request to initiate a login.
@@ -40,12 +40,12 @@ This endpoint accepts a WS-Federation request to initiate a login.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the field **Client** (select the client you want to use for the test) and **Connection** (the name of the configured identity provider).
 
@@ -80,15 +80,14 @@ curl --request GET \
 ```
 
 <% var getMetadataPath = '/wsfed/YOUR_CLIENT_ID/FederationMetadata/2007-06/FederationMetadata.xml'; %>
-<%=
-include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": getMetadataPath,
   "link": "#get-metadata21"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#get-metadata21">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#get-metadata21">Authentication API Explorer</a>.
 </div>
 
 This endpoint returns the WS-Federation metadata.
@@ -96,7 +95,7 @@ This endpoint returns the WS-Federation metadata.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### More Information

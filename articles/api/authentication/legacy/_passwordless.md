@@ -71,14 +71,14 @@ curl --request POST \
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/passwordless/start",
   "link": "#get-code-or-link"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#get-code-or-link">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#get-code-or-link">Authentication API Explorer</a>.
 </div>
 
 You have three options for [passwordless authentication](/connections/passwordless):
@@ -101,7 +101,7 @@ You have three options for [passwordless authentication](/connections/passwordle
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks
@@ -190,14 +190,14 @@ curl --request POST \
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/ro",
   "link": "#authenticate-user"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#authenticate-user">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#authenticate-user">Authentication API Explorer</a>.
 </div>
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
@@ -217,12 +217,12 @@ Once you have a verification code, use this endpoint to login the user with thei
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (use `sms` or `email`).
 

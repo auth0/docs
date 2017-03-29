@@ -59,14 +59,14 @@ request(options, function (error, response, body) {
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/oauth/ro",
   "link": "#resource-owner"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#resource-owner">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#resource-owner">Authentication API Explorer</a>.
 </div>
 
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
@@ -88,7 +88,7 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test, and **Connection** to the name of the connection to use.
 

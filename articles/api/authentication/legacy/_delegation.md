@@ -27,14 +27,14 @@ curl --request POST \
 // For a version 7 sample refer to: https://auth0.com/docs/libraries/auth0js/v7#delegation-token-request
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/delegation",
   "link": "#delegation"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#delegation">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#delegation">Authentication API Explorer</a>.
 </div>
 
 Delegated authentication is used when an entity wants to call another entity on behalf of the user. For example, a user logs into an application and then calls an API. The application exchanges the token of the logged in user with a token that is signed with the API secret to call the API.
@@ -55,12 +55,12 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 

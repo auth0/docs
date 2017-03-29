@@ -13,14 +13,14 @@ GET https://${account.namespace}/authorize?
   access_token=LOGGED_IN_USER_ACCESS_TOKEN
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#link"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#link">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#link">Authentication API Explorer</a>.
 </div>
 
 ::: panel-danger Deprecation Notice
@@ -94,14 +94,14 @@ xhr.onload = function() {
 xhr.send(params);
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/unlink",
   "link": "#unlink"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#unlink">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#unlink">Authentication API Explorer</a>.
 </div>
 
 ::: panel-danger Deprecation Notice
@@ -121,7 +121,7 @@ Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### More Information

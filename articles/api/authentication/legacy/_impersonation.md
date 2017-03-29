@@ -54,14 +54,14 @@ https:/YOUR_DOMAIN/users/IMPERSONATOR_ID/impersonate?&bewit=WFh0MUtm...
 
 <% var path = '/users/{user_id}/impersonate'; %>
 <%=
-include('../../_includes/_http-method', {
+include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": path,
   "link": "#impersonation"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#impersonation">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#impersonation">Authentication API Explorer</a>.
 </div>
 
 ::: panel-warning Advanced Feature

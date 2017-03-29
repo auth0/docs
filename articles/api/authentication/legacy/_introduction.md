@@ -1,7 +1,7 @@
 # Introduction
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication">Authentication API Explorer</a>.
 </div>
 
 The Authentication API exposes the identity functionality of Auth0, as well as the supported identity protocols like [OpenID Connect](/protocols/oidc), [OAuth 2.0](/protocols/oauth2), and [SAML](/protocols/saml).

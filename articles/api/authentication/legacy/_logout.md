@@ -4,7 +4,7 @@
 
 ```http
 GET https://${account.namespace}/v2/logout?
-  client_id=${account.clientId}&
+  client_id={account.clientId}&
   returnTo=LOGOUT_URL
 ```
 
@@ -32,14 +32,14 @@ curl --request GET \
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/v2/logout",
   "link": "#logout"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#logout">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#logout">Authentication API Explorer</a>.
 </div>
 
 Use this endpoint to logout a user. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter. The URL should be included in any the appropriate `Allowed Logout URLs` list:
@@ -58,7 +58,7 @@ Use this endpoint to logout a user. If you want to navigate the user to a specif
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the fields **Client** (select the client you want to use for the test) and **Connection** (the name of the social connection to use).
 

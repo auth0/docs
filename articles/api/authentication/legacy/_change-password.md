@@ -42,7 +42,7 @@ curl --request POST \
 </script>
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/dbconnections/change_password",
   "link": "#change-password"
@@ -55,7 +55,7 @@ curl --request POST \
 ```
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#change-password">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#change-password">Authentication API Explorer</a>.
 </div>
 
 Given a user's `email` address and a `connection`, Auth0 will send a change password email.
@@ -74,7 +74,7 @@ This endpoint only works for database connections.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks

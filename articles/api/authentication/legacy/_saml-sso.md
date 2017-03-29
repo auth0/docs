@@ -19,15 +19,14 @@ curl --request GET \
 ```
 
 <% var acceptReqPath = '/samlp/YOUR_CLIENT_ID'; %>
-<%=
-include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": acceptReqPath,
   "link": "#accept-request"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#accept-request">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#accept-request">Authentication API Explorer</a>.
 </div>
 
 Use this endpoint to accept a SAML request to initiate a login.
@@ -45,7 +44,7 @@ Optionally, it accepts a connection parameter to login with a specific provider.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### Remarks
@@ -70,15 +69,14 @@ curl --request GET \
 ```
 
 <% var getMetadataPath = '/samlp/metadata/YOUR_CLIENT_ID'; %>
-<%=
-include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "GET",
   "path": getMetadataPath,
   "link": "#get-metadata"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#get-metadata">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#get-metadata">Authentication API Explorer</a>.
 </div>
 
 This endpoint returns the SAML 2.0 metadata.
@@ -92,7 +90,7 @@ This endpoint returns the SAML 2.0 metadata.
 
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
+<%= include('../../../_includes/_test-with-postman') %>
 
 
 ### More Information
@@ -117,15 +115,14 @@ curl --request POST \
 ```
 
 <% var idpInitPath = '/login/callback'; %>
-<%=
-include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": idpInitPath,
   "link": "#idp-initiated-sso-flow"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#idp-initiated-sso-flow">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#idp-initiated-sso-flow">Authentication API Explorer</a>.
 </div>
 
 This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity Provider. The connection corresponding to the identity provider is specified in the querystring. The user will be redirected to the application that is specified in the SAML Provider IdP-Initiated Sign On section.
@@ -141,7 +138,7 @@ This endpoint accepts an IdP-Initiated Sign On SAMLResponse from a SAML Identity
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the field **Client** (select the client you want to use for the test) and **Connection** (the name of the configured identity provider).
 

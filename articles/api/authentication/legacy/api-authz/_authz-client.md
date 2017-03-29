@@ -34,14 +34,14 @@ HTTP/1.1 302 Found
 Location: ${account.callback}?code=AUTHORIZATION_CODE&state=STATE
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#authorization-code-grant"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#authorization-code-grant">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#authorization-code-grant">Authentication API Explorer</a>.
 </div>
 
 This is the OAuth 2.0 grant that regular web apps utilize in order to access an API.
@@ -59,7 +59,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 
@@ -105,14 +105,14 @@ HTTP/1.1 302 Found
 Location: ${account.callback}?code=AUTHORIZATION_CODE
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#authorization-code-grant-pkce-"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#authorization-code-grant-pkce-">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#authorization-code-grant-pkce-">Authentication API Explorer</a>.
 </div>
 
 This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. Before starting with this flow, you need to generate and store a `code_verifier`, and using that, generate a `code_challenge` that will be sent in the authorization request.
@@ -134,7 +134,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 
@@ -180,14 +180,14 @@ HTTP/1.1 302 Found
 Location: ${account.callback}#access_token=TOKEN&state=STATE&token_type=TYPE&expires_in=SECONDS
 ```
 
-<%= include('../../../_includes/_http-method', {
+<%= include('../../../../_includes/_http-method', {
   "http_method": "GET",
   "path": "/authorize",
   "link": "#implicit-grant"
 }) %>
 
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This is the latest version. If you are looking for the legacy version refer to <a href="/api/authentication/legacy#implicit-grant">Authentication API Explorer (legacy)</a>.
+  <strong>Heads up!</strong> This is the legacy version. If you are looking for the latest version refer to <a href="/api/authentication/#implicit-grant">Authentication API Explorer</a>.
 </div>
 
 This is the OAuth 2.0 grant that Client-side web apps utilize in order to access an API.
@@ -204,13 +204,11 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that Auth0 includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`. |
-| `connection` | The name of the connection configured to your client. |
-| `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none`. |
 
 
 ### Test with Authentication API Debugger
 
-<%= include('../../../_includes/_test-this-endpoint') %>
+<%= include('../../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 
