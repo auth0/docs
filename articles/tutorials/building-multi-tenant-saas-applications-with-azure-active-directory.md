@@ -217,6 +217,16 @@ const YOUR_AUTH0_CONNECTION_AZURE_AD_NAME = 'fabrikamcorp-waad';
 const YOUR_AUTH0_DOMAIN = 'fabrikamcorp.auth0.com';
 const YOUR_AUTH0_CLIENTID = '2d8C6oCsRI6dw8V0rmvcE8GtkBaLvi8v';
 
+let redirectUrl = 'https://fabrikamcorp.com/api/auth0callback';
+
+var lock = new Auth0Lock(clientId, domain, {
+    sso: false,
+    auth: {
+        redirect: true,
+        redirectUrl: redirectUrl,
+    },
+});
+
 function createReadyCallback(btnText) {
     var buttonList = $('#auth0-lock-container-' + lock.id).find('.auth0-lock-social-buttons-container');
 
