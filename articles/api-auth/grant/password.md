@@ -44,7 +44,8 @@ For details on how to implement this, refer to [Execute the Resource Owner Passw
 
 ## MFA Support
 
-MFA support is coming soon.
+For details on how to implement this, refer to [Execute the Resource Owner Password Grant: Customize the Tokens]((/api-auth/tutorials/multifactor-resource-owner-password).
+
 
 ## Use Case
 
