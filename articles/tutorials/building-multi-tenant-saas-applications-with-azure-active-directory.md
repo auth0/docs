@@ -213,9 +213,11 @@ Before showing the Lock we're adding a button to allow login with Azure AD conne
 import Auth0Lock from 'auth0-lock';
 import Auth0js from 'auth0-js';
 
-const YOUR_AUTH0_CONNECTION_AZURE_AD_NAME = 'fabrikamcorp-waad'
+const YOUR_AUTH0_CONNECTION_AZURE_AD_NAME = 'fabrikamcorp-waad';
+const YOUR_AUTH0_DOMAIN = 'fabrikamcorp.auth0.com';
+const YOUR_AUTH0_CLIENTID = '2d8C6oCsRI6dw8V0rmvcE8GtkBaLvi8v';
 
-lock.once('signin ready', function() {
+function createReadyCallback(btnText) {
     var buttonList = $('#auth0-lock-container-' + lock.id).find('.auth0-lock-social-buttons-container');
 
     //Azure AD custom button
@@ -223,9 +225,9 @@ lock.once('signin ready', function() {
         $('<button type="button" data-provider="windows">')
             .addClass('auth0-lock-social-button auth0-lock-social-big-button')
             .append('<div class="auth0-lock-social-button-icon">')
-            .append('<div class="auth0-lock-social-button-text">Log in with Azure AD</div>')
+            .append($('<div class="auth0-lock-social-button-text">').text(btnText))
             .on('click', function() {
-                var webAuth = new Auth0js.WebAuth({domain, clientID});
+                var webAuth = new Auth0js.WebAuth({YOUR_AUTH0_DOMAIN, YOUR_AUTH0_CLIENTID});
 
                 webAuth.authorize({
                     connection: YOUR_AUTH0_CONNECTION_AZURE_AD_NAME,
@@ -238,7 +240,9 @@ lock.once('signin ready', function() {
                 });
             })
     );
-});
+}
+lock.on('signin ready', createReadyCallback('Log in with Azure AD'));
+lock.on('signup ready', createReadyCallback('Sign up with Azure AD'));
 lock.show({
     callbackURL: window.location.origin + '/signin-auth0'
 });
