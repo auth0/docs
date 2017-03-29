@@ -4,7 +4,16 @@
 
 # Represent Multiple APIs as a Single Resource Server
 
-This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0.
+If you have multiple APIs, you can treat them as a single Resource Server. Doing this allows you to implement one authentication flow, and you can control access to the individual APIs by assigning the appropriate scopes.
+
+This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](#) if you would like to follow along as you read.
+
+In the sample application, we have:
+
+* 2 Node.js APIs called `contacts` and `calendars`;
+* 1 resource server representing the 2 APIs mentioned above. This is the Auth0 API we will call `Organizer Service`;
+* Namespaced scopes to access the APIs. We will work with two (`read:contacts` and `read:calendar`), but you can create any number of scopes when you implement your specific business scenario;
+* The [Implicit Grant flow](/api-auth/grant/implicit), which we use to obtain an `access_token` that works with both APIs.
 
 ## Create the Auth0 API
 
@@ -20,7 +29,7 @@ Click **Create API**.
 
 You will be prompted to provide a **name** and **identifier**, as well as choose the **signing algorithm**, for your new API.
 
-For the purposes of this article, we'll call our API `Auth0API` and set its unique identifier to `auth0api`. By default, the signing algorithm for the tokens this API issues is **RS256**, which we will leave as is.
+For the purposes of this article, we'll call our API `Organizer Service` and set its unique identifier to `organize`. By default, the signing algorithm for the tokens this API issues is **RS256**, which we will leave as is.
 
 ![](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/create-new-api.png)
 
