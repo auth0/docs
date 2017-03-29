@@ -6,7 +6,10 @@ description: This tutorial will show you how to use the Auth0 Go SDK to add auth
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-golang-web-api',
-  path: '00-Starter-Seed'
+  path: '00-Starter-Seed',
+  requirements: [
+		'Go 1.5.3 and up'
+	]
 }) %>
 
 ### 1. Install the `go-jwt-middleware` dependency
