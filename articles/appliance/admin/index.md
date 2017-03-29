@@ -16,4 +16,4 @@ This document covers factors Auth0 Appliance administrators should be aware of w
 * [Monitoring & Performing Health Checks on Load Balancers](/appliance/admin/monitoring);
 * [Limiting SSH Access](/appliance/admin/limiting-ssh-access);
 * [Updating the Appliance](/appliance/admin/updating-the-appliance);
-* [Configuring Custom Error Pages](/custom-error-pages).
+* [Configuring Custom Error Pages](/hosted-pates/custom-error-pages).
