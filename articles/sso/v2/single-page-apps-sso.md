@@ -33,8 +33,8 @@ Please feel free to [download the sample](https://github.com/auth0-samples/oidc-
   <strong>Heads up!</strong> This document assumes that you're using port 3000 when running the sample. If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the <i>auth0-variables.js</i>, <i>callback.html</i>, and <i>index.js</i> files) and configure your Auth0 Client.
 </div>
 
-1. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${client.accountId}/settings).
-2. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in your [Auth0 Client's Settings page](${manage_url}/#/clients/${client.accountId}/settingss).
+1. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients).
+2. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in your [Auth0 Client's Settings page](${manage_url}/#/clientss).
 3. Once you've made the configuration changes detailed in steps 2 and 3, start up a web server in the root of the repository at port `3000` .
 4. Browse to `http://localhost:3000` to view the client side of the sample.
 
@@ -48,7 +48,7 @@ Because client applications cannot query Auth0 directly to determine if users ar
 
 To bypass displaying the Lock screen when logging in a user (a process known as [*silent authentication*](#silent-authentication)), you must:
 
-* Enable the **Use Auth0 instead of the IdP to do Single Sign On** flag in the [Auth0 Client's settings page](${manage_url}/#/clients/${client.accountId}/settings);
+* Enable the **Use Auth0 instead of the IdP to do Single Sign On** flag in the [Auth0 Client's settings page](${manage_url}/#/clients);
 * Have a SSO cookie for the tenant's domain (in other words, the user has previously signed in and their saved cookie is still valid);
 * Pass the name of the user's Connection to Auth0 for authentication. You can do this by:
   * Including it as a parameter when calling the `signin` function of the [auth0.js library](/libraries/auth0js);
