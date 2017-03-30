@@ -14,13 +14,13 @@ description: This tutorial will show you how assign roles to your users, and use
   ]
 }) %>
 
-Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative, which is to create a rule for assigning different roles to different users.
-
-> This tutorial assumes that you've already read the [rules tutorial](06-rules.md) and you know how to implement a basic rule in your app.
+> This tutorial assumes that you've already read the [rules tutorial](/quickstart/native/ios-objc/06-rules) and you know how to implement a basic rule in your app.
 
 ### Before Starting
 
-It's required that you've got [Lock](https://github.com/auth0/Lock.iOS-OSX) integrated in your project. You can check out the [login tutorial](01-login.md) for more information about this process.
+This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. If you're not sure, check out [this tutorial](/quickstart/native/ios-objc/01-login) first.
+
+Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative, which is to create a rule for assigning different roles to different users.
 
 ### 1. Create a Rule to Assigning Roles
 
@@ -38,14 +38,13 @@ By default, if the user email contains `@example.com` the user will be given an 
 
 To test the rule, use the following code snippet once you've gotten the user profile.
 
-> Check out the [login](01-login.md) and [user profile](04-user-profile.md) tutorials for more information on how to get the user profile.
+> Check out the [login](/quickstart/native/ios-objc/01-login) and [user profile](/quickstart/native/ios-objc/04-user-profile) tutorials for more information on how to get the user profile.
 
 ```objc
 #import <Lock/Lock.h>
 ```
 
 ```objc
-
 if([self.userProfile.appMetadata[@"roles"] containsObject:@"admin"]){
     //this user has admin access
 } else {

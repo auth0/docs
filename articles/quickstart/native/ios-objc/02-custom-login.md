@@ -21,25 +21,13 @@ description: This tutorial will teach you how to perform Login and Sign Up by us
 Your first step is to add [Auth0 Swift Toolkit](https://github.com/auth0/Auth0.swift) into your project, which is a library that contains helper functions that will allow you to perform basic authentication operations (such as login, sign up, or retrieve and update profiles) against the Auth0 API in a very easy manner.
 This toolkit is written in Swift, but you can incorporate it on your Objective-C project just fine. Xcode will automatically generate a header file you can include in your source and will enable you to use it's classes and methods as if they were native Objective-C code.
 
-#### i. Carthage
+#### Cocoapods
 
-If you are using Carthage, add the following line to the `Cartfile`:
-
-```ruby
-github "auth0/Auth0.swift" "~> 1.2"
-```
-
-Then, run `carthage bootstrap`.
-
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
-
-#### ii. Cocoapods
-
-If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
+Add these lines to your `Podfile`:
 
 ```ruby
 use_frameworks!
-pod 'Auth0', '~> 1.2'
+pod 'Auth0', '~> 1.4'
 ```
 
 Remember to add the `use_frameworks!` line, since it's necessary for Swift pods to be included on Xcode even if it's an Objective-C project.
@@ -47,7 +35,7 @@ Then, run `pod install`.
 
 > For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
 
-### 2. Set up your Credentials
+### Set up your Credentials
 
 Add your credentials in `Auth0.plist`. You have to create that file if it doesn't already exist in your project:
 
@@ -64,68 +52,36 @@ Add your credentials in `Auth0.plist`. You have to create that file if it doesn'
 </plist>
 ```
 
-Then you'll need to create a `Auth0InfoHelper` class to handle this properties. With the following methods:
+### Implement the Login
+
+First, import the `Auth0` module
 
 ```objc
-+ (NSDictionary*) readAuth0Plist {
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Auth0" ofType:@"plist"]];
-
-    return dict;
-}
+@import Auth0;
 ```
 
-This will open the `Auth0.plist` file and load it in a dictionary. Then you'll need to create a method to read each value:
+And, in order to perform a login with a database connection:
 
 ```objc
-+ (NSString*) Auth0ClientID {
-    return [[Auth0InfoHelper readAuth0Plist] objectForKey:@"ClientId"];
-}
-
-+ (NSURL*) Auth0Domain {
-    return [NSURL a0_URLWithDomain: [[Auth0InfoHelper readAuth0Plist] objectForKey:@"Domain"]];
-}
-```
-
-In the Domain case, we call an extension of `NSURL` included in the [Auth0 Swift Toolkit](https://github.com/auth0/Auth0.swift). It makes sure the URL we are instantiating has an `https` scheme included.
-
-### 3. Implement the Login
-
-Now, to the actual Login.
-
-Import both the helper class and the [Auth0 Swift Toolkit](https://github.com/auth0/Auth0.swift) header file:
-
-```objc
-#import "Auth0-Swift.h"
-#import "Auth0InfoHelper.h"
-```
-
-And, in order to perform the actual login:
-
-```objc
-A0AuthenticationAPI *authApi = [[A0AuthenticationAPI alloc] initWithClientId:[Auth0InfoHelper Auth0ClientID] url:[Auth0InfoHelper Auth0Domain]];
+A0AuthenticationAPI *authApi = [[A0AuthenticationAPI alloc] init];
 
 [authApi loginWithUsername:@"email@foo.com" password:@"1234" connection:@"Username-Password-Authentication" scope:@"openid" parameters:@{} callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
-    if(error){
+    if(error) {
         // Something went wrong, let the user know
-    } else{
+    } else {
         // Logged in successfully, you may continue
-        // Use the A0Credentials instance to access the user profile
-        // information
+        // Use the A0Credentials instance to access the user profile information
     }
 }];
 ```
 
 Basically, `credentials` contains token-related information; you will normally store this object for later use. On the other hand, `error` contains the authentication error information that you might want to keep track of.
 
-> For further reference on the `credentials` and `error` objects, check the [Credentials](https://github.com/auth0/Auth0.objc/blob/master/Auth0/Authentication/Credentials.Objc) and [Authentication](https://github.com/auth0/Auth0.Objc/blob/master/Auth0/Authentication/Authentication.objc) files documentation.
+> For further reference on the `credentials` object, check the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) documentation.
 
-### Done!
+### Retrieve the User Profile
 
-It is that simple.
-
-### Optional I: Retrieve the User Profile
-
-You can retrieve your user profile information using the `Credentials` object you just obtained. For that you can keep your `A0AuthenticationAPI` object or instanciate a new one, and then call:
+You can retrieve your user profile information using the `Credentials` object you just obtained. For that you can keep your `A0AuthenticationAPI` object or instantiate a new one, and then call:
 
 ```objc
 [authApi userInfoWithToken:credentials.accessToken callback:callback:^(NSError * _Nullable error, A0UserProfile * _Nullable profile) {
@@ -147,15 +103,15 @@ You can use the `profile.name` to show the user's name or show the users profile
 }] resume];
 ```
 
+> For further reference on the `profile` object, check the [UserProfile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) documentation.
 
-> For further reference on the `profile` and `error` objects, check the [UserProfile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/UserProfile.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Authentication.swift) files documentation.
-
-### Optional II: Implement a Sign Up
+### Implement a Sign Up
 
 If you are going to let the user sign in, you'll probably need to let the user to register first. And creating a user is as easy as sign in:
 
 ```objc
-A0AuthenticationAPI *authApi = [[A0AuthenticationAPI alloc] initWithClientId:[Auth0InfoHelper Auth0ClientID] url:[Auth0InfoHelper Auth0Domain]];
+A0AuthenticationAPI *authApi = [[A0AuthenticationAPI alloc] init];
+
 [authApi signUpWithEmail:@"email@foo.com"
           username:nil // by default the username is the users email
           password:@"1234"
@@ -175,3 +131,64 @@ A0AuthenticationAPI *authApi = [[A0AuthenticationAPI alloc] initWithClientId:[Au
               }
           }];
 ```
+
+## Perform Social Authentication
+
+First, go to your [Client Dashboard](${manage_url}/#/applications/${account.clientId}/settings/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
+
+```shell
+{YOUR_APP_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_APP_BUNDLE_IDENTIFIER}/callback
+```
+
+In your application's `Info.plist` file, register your iOS Bundle Identifier as a custom scheme. To do so, open the `Info.plist` as source code, and add this chunk of code under the main `<dict>` entry:
+
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>None</string>
+        <key>CFBundleURLName</key>
+        <string>auth0</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>{YOUR_APP_BUNDLE_IDENTIFIER}</string>
+        </array>
+    </dict>
+</array>
+```
+
+Remember to replace all the `{YOUR_APP_BUNDLE_IDENTIFIER}` appearances with your actual app's bundle identifier, which you can get from your project settings.
+
+> The **Auth0.swift** toolkit will only handle URLs with your Auth0 domain as host, for instance: `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
+
+Then, add the following function in your application's `AppDelegate`:
+
+```swift
+@import Auth0;
+```
+
+```objc
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+    return [A0WebAuth resumeAuthWithURL:url options:options];
+}
+```
+
+### Web Authentication
+
+Finally, you can now perform webAuth authentication by specifying the social connection name, for example with Facebook.
+
+```objc
+A0WebAuth *webAuth = [[A0WebAuth alloc] init];
+[webAuth setConnection:@"facebook"];
+[webAuth setScope:@"openid"];
+[webAuth start:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
+    if (error) {
+      // Handle Error
+    } else {
+      // You've got your credentials
+    }
+}];
+```
+
+Once you obtain the `credentials` object upon a successful authentication, you can deal with them as usual.

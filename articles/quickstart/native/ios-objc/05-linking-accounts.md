@@ -14,11 +14,7 @@ description: This tutorial will show you how to link different user profiles, al
   ]
 }) %>
 
-### Let's Begin
-
-#### Be Familiar with Auth0
-
-This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](/quickstart/native/ios-objc/01-login) first.**
+This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. If you're not sure, check out the [login tutorial](/quickstart/native/ios-objc/01-login) first.
 
 ### 1. Setting Up
 
@@ -47,12 +43,12 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 
 You might prefer to avoid the Lock UI and only show the sign in options of third parties. If that's the case, you're encouraged to read the [Custom Login](/quickstart/native/ios-objc/02-custom-login) tutorial. Anyway, here is a quick outline.
 
-Check that you have set up the [Callback URL](/quickstart/native/ios-objc/00-introduction#2-configure-your-callback-urls)
+Check that you have set up the [Callback URL](/quickstart/native/ios-objc/00-introduction#3-configure-your-callback-urls)
 
 Set up your AppDelegate to handle the URL redirection:
 
 ```objc
-- (BOOL) application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
     return [A0WebAuth resumeAuthWithURL:url options:options];
 }
 ```

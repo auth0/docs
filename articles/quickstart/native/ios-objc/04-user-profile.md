@@ -14,15 +14,11 @@ description: This tutorial will show you how to access the user profile from wit
   ]
 }) %>
 
-### In the Beginning
-
-#### Be Familiar with Auth0
-
-This tutorial assumes you are already familiar with Auth0 and how to Sign up and Login using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](/quickstart/native/ios-objc/01-login) first.**
+This tutorial assumes you are already familiar with Auth0 and how to Sign up and Login using Lock or Auth0 Toolkit. If you're not sure, check out the [login tutorial](/quickstart/native/ios-objc/01-login) first.
 
 ### 1. Remember Me?
 
-To get your user's information, you will need the user's token. You can get it either after your login ([Login tutorial](01-login.md)) or by getting it from your Keychain ([Session Handling tutorial](03-session-handling.md)).
+To get your user's information, you will need the user's token. You can get it either after your login [Login tutorial](/quickstart/native/ios-objc/01-login) or by getting it from your Keychain [Session Handling tutorial](/quickstart/native/ios-objc/03-session-handling).
 Once you have the user's token, you can use it to restore the user's profile:
 
 ```objc
@@ -85,7 +81,6 @@ A0ManagementAPI *authApi = [[A0ManagementAPI alloc] initWithToken:userToken url:
     } else {
         // The user was updated on the server, create a new instance of the
         // profile with the new information and use this one from now on
-
         self.userProfile = [[A0UserProfile alloc] initWithDictionary:data];
     }
 }];

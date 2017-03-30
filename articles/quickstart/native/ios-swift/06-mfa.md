@@ -29,4 +29,4 @@ If you want to use MFA in **all** of your clients, the easiest you can do is dis
 if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
 ```
 
-> For more information on how to configure Lock in your app, take a look at the [login tutorial](01-login).
+> For more information on how to configure Lock in your app, take a look at the [login tutorial](/quickstart/native/ios-swift/01-login).

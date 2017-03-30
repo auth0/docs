@@ -18,7 +18,7 @@ budicon: 280
 
 ## Before Starting
 
-This tutorial assumes you're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, review the [Login Tutorial](/quickstart/native/ios-swift/01-login) first.**
+This tutorial assumes you're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. If you're not sure, review the [login tutorial](/quickstart/native/ios-swift/01-login) first.
 
 ### Add the SimpleKeychain Dependency
 

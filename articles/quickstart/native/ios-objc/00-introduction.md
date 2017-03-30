@@ -41,19 +41,6 @@ It's recommended that, as a starting point for your project, you download the [s
 
 Otherwise, if you're starting an empty project of your own, or if you want to add authentication to an existing project from yours, you have to make sure you install them:
 
-#### Carthage
-
-If you are using Carthage, add the following lines to your `Cartfile`:
-
-```ruby
-github "auth0/Lock.iOS-OSX" ~> 1.28
-github "auth0/Auth0.swift" ~> 1.2
-```
-
-Then, run `carthage bootstrap`.
-
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
-
 #### Cocoapods
 
 If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
@@ -61,7 +48,7 @@ If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `P
 ```ruby
 use_frameworks!
 pod 'Lock', '~> 1.28'
-pod 'Auth0', '~> 1.2'
+pod 'Auth0', '~> 1.4'
 ```
 
 Then, run `pod install`.
@@ -121,9 +108,7 @@ In your application's `Info.plist` file, register your iOS Bundle Identifier as 
 </array>
 ```
 
-## Done!
-
-**You're all set up to start integrating Auth0 in your app!** 🎉
+**You're all set up to start integrating Auth0 in your app!**
 
 The tutorial guides contained in this section will teach you the different things you can do with it. It's recommendable that you follow them sequentially in order, as they are progressive and there is content that usually needs to be learned from previous tutorials.
 

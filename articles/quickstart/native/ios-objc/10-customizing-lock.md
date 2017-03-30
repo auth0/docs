@@ -16,7 +16,7 @@ description: This tutorial will show you how to customize the Lock widget UI.
 
 ### Before Starting
 
-You need the [Lock](https://github.com/auth0/Lock.iOS-OSX) library integrated in your project. Make sure you've followed the [login tutorial](01-login.md) and you know how to present the login dialog.
+This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. If you're not sure, check out the [login tutorial](/quickstart/native/ios-objc/01-login).
 
 ### 1. Create a Theme
 

@@ -14,37 +14,19 @@ description: This tutorial will show you how to handle sessions in your app, wit
   ]
 }) %>
 
-### In the Beginning
+This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. If you're not sure, check out the [login tutorial](/quickstart/native/ios-objc/01-login).
 
-#### i. Be familiar with Auth0
-
-This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](/quickstart/native/ios-objc/01-login) first.**
-
-#### ii. Add the SimpleKeychain dependency
-
+#### Add the SimpleKeychain dependency
 
 We're going to use the [SimpleKeychain](https://github.com/auth0/SimpleKeychain) library to help us manage user credentials. Make sure you integrate it before proceeding.
 
-##### a. Carthage
+##### Cocoapods
 
-If you are using Carthage, add the following line to the `Cartfile`:
-
-```ruby
-github "auth0/SimpleKeychain"
-```
-
-Then, run `carthage bootstrap`.
-
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
-
-##### b. Cocoapods
-
-If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
+Add these lines to your `Podfile`:
 
 ```ruby
 pod 'SimpleKeychain', '~> 0.7'
 ```
-
 Then, run `pod install`.
 
 > For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
@@ -63,14 +45,14 @@ Once your user successfully signs in, you'll have a reference to a 'A0Token' obj
 > The `idToken` is a string representing, basically, the user's [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
 
 ```objc
-- (void) saveCredentials:(A0Token* ) token {
-    A0SimpleKeychain* keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
+- (void)saveCredentials:(A0Token *)token {
+    A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
     [keychain setString:token.idToken forKey:@"id_token"];
     [keychain setString:token.refreshToken forKey:@"refresh_token"];
 }
 ```
 
-We'll be storing the 'refresh_token' too, which we'll use to get a new token, once the current one has expired.
+We'll be storing the [refresh token](/refresh-token) too, which we'll use to get a new token, once the current one has expired.
 
 ### 2. Don't I know you from somewhere?
 
@@ -81,7 +63,7 @@ if([keychain stringForKey:@"id_token"]){
   // There is a token stored
   [[A0Lock sharedLock].apiClient fetchUserProfileWithIdToken:[keychain stringForKey:@"id_token"]
                success:^(A0UserProfile * _Nonnull profile) {
-                   // You have successfully retreived the user's profile, you don't need to sign in again.
+                   // You have successfully retrieved the user's profile, you don't need to sign in again.
                    // Let your user continue to the next step
                } failure:^(NSError * _Nonnull error) {
                    // Something went wrong, let the user know
