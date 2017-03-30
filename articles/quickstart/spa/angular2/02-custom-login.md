@@ -125,7 +125,7 @@ export class Auth {
     domain: '${account.namespace}',
     clientID: '${account.clientId}',
     // specify your desired callback URL
-    callbackURL: 'http://localhost:3000',
+    redirectUri: 'http://localhost:3000',
     responseType: 'token id_token'
   });
 
