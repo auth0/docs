@@ -5,8 +5,7 @@ toc: true
 
 # Using Auth0 with Multi-tenant Apps
 
-
-Multi-tenancy refers to a principle in software architecture where a single instance of the software runs on a server, serving multiple client organizations (referred to as tenants).
+*Multi-tenancy* refers to the software architecture principle where a single instance of software runs on a server that is accessible to multiple client organizations (each referred to as a *tenant*).
 
 
 Here are some examples of existing multi-tenant applications and descriptions of their implementations.
@@ -194,4 +193,3 @@ Here is an example that would model a simplified chat system like Slack:
   }
 }
 ```
-
