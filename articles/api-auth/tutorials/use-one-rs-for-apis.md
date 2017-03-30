@@ -17,6 +17,8 @@ In the sample application, we have:
 * Namespaced scopes to access the APIs. We will work with two (`read:contacts` and `read:calendar`), but you can create any number of scopes when you implement your specific business scenario;
 * The [Implicit Grant flow](/api-auth/grant/implicit), which we use to obtain an `access_token` that works with both APIs.
 
+Please see the `README` for additional information on setting up the sample on your local environment.
+
 ## Create the Auth0 API
 
 Log in to your Auth0 Dashboard, and navigate to the APIs section.
@@ -66,6 +68,41 @@ At this point, you've:
 
 You are now ready to provide access to your APIs by granting access tokens to the Auth0 API. By including specific scopes, you can control a client's application to some or all of the APIs represented by the Auth0 API.
 
+:::panel-info Authorization Flows
+
+The rest of this article covers use of the [Implicit Grant](/api-auth/grant/implicit) to reflect the sample. You can, however, use whichever flow best suits your needs.
+
 * If you have a **Non Interactive Client**, you can authorize it to request access tokens to your API by executing a [client credentials exchange](/api-auth/grant/client-credentials).
-* If you are building a **Single Page App**, you can access the APIs using an [Implicit Grant](/api-auth/grant/implicit).
 * If you are building a **Native App**, you can implement the use of [Authorization Codes using PKCE](/api-auth/grant/authorization-code-pkce).
+:::
+
+The app initiates the flow and redirects the browser to Auth0 (specifically to the ``/authorize` endpoint), so the user can authenticate.
+
+```text
+https://YOUR_AUTH0_DOMAIN/authorize?
+scope=read:contacts%20read:calendar&
+audience=organize&
+response_type=id_token%20token&
+client_id=YOUR_CLIENT_ID&
+redirect_uri=http://localhost:3000&
+nonce=NONCE
+```
+The SPA executes this call whenever the user clicks **Login**.
+
+![SPA Home before Login](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/home.png)
+
+:::panel-info Request Parameters
+For additional information on the call's parameters, refer to the [docs on executing an implementing the Implicit Grant](/api-auth/grant/implicit#1-get-the-user-s-authorization).
+:::
+
+Lock handles the login process (you can log in with a user that exists in a [Connection](/identityproviders) enabled for your Auth0 Client).
+
+![SPA Login](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/lock.png)
+
+Next, Auth0 authenticates the user. If this is the first time the user goes through this flow, they will be asked to consent to the scopes that are given to the Client (such as post messages or list contacts).
+
+If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an `access_token` in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is be done using JavaScript (see the `getAccessToken` function located in `index.html` for the sample app). The app can then use the `access_token` to call the API on behalf of the user.
+
+After logging in, you can see buttons that allow you to call either of your APIs.
+
+![SPA Home after Login](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/apis.png)
