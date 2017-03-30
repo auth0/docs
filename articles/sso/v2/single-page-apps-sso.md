@@ -79,6 +79,8 @@ For requests received with the parameter `prompt=none`, Auth0 redirects to the `
 * If the user is already logged in via SSO, Auth0 sends a successful authentication response;
 * If the user is not logged in via SSO (and therefore Auth0 cannot silently authenticate the user), Auth0 sends an error response.
 
+Regardless of which outcome occurs, the sample app's `postMessage` function sends Auth0's response from the iframe back to the main page, allowing it to act based on the response.
+
 When you run the sample app for the first time, you will not have a valid access token. As such, the SSO login process errors when attempting silent authentication.
 
 ![Prompt to begin silent authentication](/media/articles/sso/v2/spa/begin-silent-auth.png)
@@ -90,6 +92,8 @@ You will then see the Lock screen, which allows you to provide the required cred
 Once you've provided correct credentials, the app will indicate if you've successfully acquired a token.
 
 ![Home page after logging in](/media/articles/sso/v2/spa/logged-in.png)
+
+If silent authentication succeeds, however, the app stores the token and its expiration date in your local storage.
 
 #### Auth0's Successful Authentication Response
 
