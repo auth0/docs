@@ -26,12 +26,12 @@ The flow starts by collecting end-user credentials and sending them to Auth0, as
 2. The Client forwards the credentials to Auth0.
 3. Auth0 validates the credentials and executes any applicable [rules](/rules).
 4. If any rule triggers MFA for the current user, an error code of `mfa_required` is returned. The error will additionally contain an `mfa_token` property.
-5. The Client will then make a request to the [MFA challenge](/api/authentication#resource-owner-password) endpoint, specifying the challenge types it supports. Valid challenge types are: [OTP](#challenge-type-otp-), [OOB and binding method `prompt`](#challenge-type-oob-and-binding-method-prompt-), [OOB with no binding method](#challenge-type-oob-with-no-binding-method)
+5. The Client will then make a request to the [MFA challenge](/api/authentication#resource-owner-password) endpoint, specifying the challenge types it supports. Valid challenge types are: [OTP](#challenge-type-otp), [OOB and binding method `prompt`](#challenge-type-oob-and-binding-method-prompt), [OOB with no binding method](#challenge-type-oob-with-no-binding-method)
 6. Auth0 sends a response containing the `challenge_type` derived from the types supported by the Client and the specific user. Additionally, extra information, such as `binding_method` may be included to assist in resolving the challenge and displaying the correct UI to the user.
 
 To execute MFA, follow the next steps according to the challenge type you will use:
-- [OTP](#challenge-type-otp-)
-- [OOB and binding method `prompt`](#challenge-type-oob-and-binding-method-prompt-)
+- [OTP](#challenge-type-otp)
+- [OOB and binding method `prompt`](#challenge-type-oob-and-binding-method-prompt)
 - [OOB with no binding method](#challenge-type-oob-with-no-binding-method)
 
 ## Execute Multifactor
