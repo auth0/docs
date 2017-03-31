@@ -35,8 +35,8 @@ For multi-node clusters, Auth0 recommends deploying the Appliance virtual machin
 
 ## For AWS Users
 
-* The **M4.Large** instance is the minimum VM [instance size](https://aws.amazon.com/ec2/instance-types/) that will meet Auth0's requirements.
+* The *recommended* instance size is **M4.xlarge**. At a minimum, the M4.large [instance size](https://aws.amazon.com/ec2/instance-types/) can be used.
 * Auth0 will need the following pieces of information to share the AMI with you:
     * AWS account number;
     * AWS region name.
-* If your production and development/test environments are within separate AWS accounts/regions, Auth0 will require the credentials for both environments.
+* If your production and development/test environments are within separate AWS accounts/regions, Auth0 will require the account number for both environments.
