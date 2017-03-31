@@ -54,5 +54,5 @@ For details on how to implement multifactor authentication, refer to [Multifacto
 
 ## Tutorials
 
- - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
- - [Executing a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+ - [How to Execute a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+ - [How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
