@@ -9,7 +9,7 @@ description: This tutorial demonstrates how to use the Auth0 Angular 1.x SDK to 
   path: '02-Custom-Login',
   requirements: [
     'AngularJS 1.5.8',
-    'Angular-auth0 2.0.0-beta.1'
+    'angular-auth0 2.0.0-beta.1'
   ]
 }) %>
 

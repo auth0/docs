@@ -9,7 +9,7 @@ description: This tutorial demonstrates how to add Multifactor Authentication to
   path: '09-MFA',
   requirements: [
     'AngularJS 1.5.8',
-    'Angular-lock 1.0.2'
+    'angular-lock 2.0.2'
   ]
 }) %>
 

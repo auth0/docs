@@ -9,7 +9,7 @@ description: This tutorial demonstrates how to display the user's profile
   path: '04-User-Profile',
   requirements: [
     'AngularJS 1.5.8',
-    'Angular-lock 1.0.2'
+    'angular-lock 2.0.2'
   ]
 }) %>
 

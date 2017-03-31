@@ -9,7 +9,7 @@ description: This tutorial demonstrates how to assign roles to your users, and u
   path: '07-Authorization',
   requirements: [
     'AngularJS 1.5.8',
-    'Angular-lock 1.0.2'
+    'angular-lock 2.0.2'
   ]
 }) %>
 

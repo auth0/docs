@@ -9,7 +9,7 @@ description: This tutorial demonstrates how to use Auth0 rules to extend what Au
   path: '06-Rules',
   requirements: [
     'AngularJS 1.5.8',
-    'Angular-lock 1.0.2'
+    'angular-lock 2.0.2'
   ]
 }) %>
 

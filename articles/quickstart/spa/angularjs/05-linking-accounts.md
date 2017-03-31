@@ -9,7 +9,7 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular 1.x 
   path: '05-Linking-Accounts',
   requirements: [
     'AngularJS 1.5.8',
-    'Angular-lock 1.0.2'
+    'angular-lock 2.0.2'
   ]
 }) %>
 
