@@ -41,8 +41,8 @@ export class AuthService {
       console.log(error);
     });
 
-    this.storage.get('access_token').then(token => {
-      this.accessToken = token;
+    this.storage.get('id_token').then(token => {
+      this.idToken = token;
     });
 
     this.lock.on('authenticated', authResult => {
