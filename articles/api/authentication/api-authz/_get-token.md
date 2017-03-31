@@ -401,7 +401,11 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 ## Resource Owner Password and MFA
 
-In addition to username and password, you may also ask your users to provide an additional factor as proof of identity before issuing the requested tokens. In this case, the Resource Owner Password endpoint will return an `mfa_required` error along with an `mfa_token`. You can the `mfa_token` to request a challenge for the possession factor and validate it accordingly.
+In addition to username and password, you may also ask your users to provide an additional factor as proof of identity before issuing the requested tokens. 
+
+The first step, is to request a challenge based on the challenge types supported by the Client application and the end-user (see next paragraph). This is an optional step, since it is not required if you already know that `otp` is supported.
+
+Next, you have to verify the MFA, using the `/oauth/token` endpoint and the challenge type specified in the first step: an OTP code, a recovery code, or an OOB challenge.
 
 ### MFA Challenge Request
 
@@ -577,6 +581,7 @@ To verify MFA using an OTP code your app must prompt the user to get the OTP cod
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you received from `mfa_required` error. |
 | `otp` <br/><span class="label label-danger">Required</span> | OTP Code provided by the user. |
+
 
 ### Verify MFA using an OOB challenge
 
