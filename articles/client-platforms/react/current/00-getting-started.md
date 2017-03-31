@@ -1,5 +1,5 @@
 ---
 title: Getting Started
-description: Angular 2 quickstart overview
+description: React quickstart overview
 budicon: 715
 ---

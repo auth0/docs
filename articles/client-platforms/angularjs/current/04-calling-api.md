@@ -1,6 +1,6 @@
 ---
 title: Calling an API
-description: This tutorial demonstrates how to use angular2-jwt in an AngularJS application to make authenticated API calls
+description: This tutorial demonstrates how to use angular-jwt in an AngularJS application to make authenticated API calls
 budicon: 546
 ---
 
@@ -9,7 +9,7 @@ budicon: 546
   repo: 'auth0-angular-samples',
   path: '04-Calling-Api',
   requirements: [
-    'Angular 2+'
+    'Angular 1.6'
   ]
 }) %>
 
