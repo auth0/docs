@@ -11,7 +11,7 @@ budicon: 448
   path: '00-Starter-Seed/WindowsPhoneSilverlight',
   requirements: [
     'Microsoft Visual Studio 2015',
-    'Auth0.WindowsPhone 1.4.1'
+    'Auth0.WindowsPhone 1.5.0'
   ]
 }) %>
 
