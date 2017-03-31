@@ -401,7 +401,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 ## Resource Owner Password and MFA
 
-In addition to username and password, Auth0 may also require the end-user to provide an additional factor as proof of identity before issuing the requested scopes. In this case, the Resource Owner Password endpoint will return an `mfa_required` error along with an `mfa_token`. You can use these tokens to request a challenge for the possession factor and validate it accordingly.
+In addition to username and password, you may also ask your users to provide an additional factor as proof of identity before issuing the requested tokens. In this case, the Resource Owner Password endpoint will return an `mfa_required` error along with an `mfa_token`. You can the `mfa_token` to request a challenge for the possession factor and validate it accordingly.
 
 ### MFA Challenge Request
 
@@ -478,10 +478,12 @@ Content-Type: application/json
 <%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/mfa/challenge",
-  "link": "#resource-owner-password"
+  "link": "#resource-owner-password-and-mfa"
 }) %>
 
-Based on the previous response, the Resource Owner must provide a possession factor in order to get the requested scopes. The first step is to request an MFA challenge. This endpoint lets you request a challenge based on the challenge types supported by the Client application and the end-user. The challenge type indicates the channel or mechanism on which to get the challenge and thus prove posession. For details on the supported challenge types refer to [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+This endpoint lets you request a challenge based on the challenge types supported by the Client application and the end-user. The challenge type indicates the channel or mechanism on which to get the challenge and thus prove possession. 
+
+For details on the supported challenge types refer to [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
 
 #### Request Parameters
 
@@ -495,8 +497,7 @@ Based on the previous response, the Resource Owner must provide a possession fac
 #### Remarks
 
 - If you already know that `otp` is supported by the end-user and you don't want to request a different factor, you can skip this step an go directly to __Verify MFA using OTP__ below.
-- This mechanism does not support enrollment, the end-user must be enrolled with
-the preferred method before being able to execute this flow. Otherwise, you will get a `unsupported_challenge_type` error.
+- This mechanism does not support enrollment, the end-user must be enrolled with the preferred method before being able to execute this flow. Otherwise, you will get a `unsupported_challenge_type` error.
 - Auth0 will choose the challenge type based on the types the end user is enrolled with and the ones that the app supports. If your app does not support any of the challenge types the user has enrolled with, an `unsupported_challenge_type` error will be returned.
 
 #### More Information
@@ -559,7 +560,13 @@ Content-Type: application/json
 }
 ```
 
-To verify MFA using an OTP code your app must prompt the user to get the otp code, and then make a request to `oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-otp` including the collected otp code and the `mfa_token` you received as part of `mfa_required` error. The response is going to be the same as the one for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types.
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#resource-owner-password-and-mfa"
+}) %>
+
+To verify MFA using an OTP code your app must prompt the user to get the OTP code, and then make a request to `/oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-otp` including the collected OTP code and the `mfa_token` you received as part of `mfa_required` error. The response is going to be the same as the one for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types.
 
 #### Request Parameters
 
@@ -648,21 +655,21 @@ Content-Type: application/json
 }
 ```
 
-To verify MFA using an OOB challenge (e.g. Push / SMS) your app must make a request to `oauth/token`
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#resource-owner-password-and-mfa"
+}) %>
+
+To verify MFA using an OOB challenge (e.g. Push / SMS) your app must make a request to `/oauth/token`
 with `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`. Include the `oob_code` you received from the challenge response, as well as the `mfa_token` you received as part of `mfa_required` error.
+
 The response to this request depends on the status of the underlying challenge verification:
+- If the challenge has been accepted and verified: it will be the same as for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types.
+- If the challenge has been rejected, you will get an `invalid_grant` error, meaning that the challenge was rejected by the user. At this point you should stop polling, as this response is final.
+- If the challenge verification is still pending (meaning it has not been accepted nor rejected) you will get an `authorization_pending` error, meaning that you must retry the same request a few seconds later. If you request too frequently you will get a `slow_down` error.
 
-* If the challenge has been accepted and verified: it will be the same as for `password` or `http://auth0.com/oauth/grant-type/password-realm`
-grant types.
-
-* If the challenge has been rejected, you will get an `invalid_grant` error, meaning that the challenge was rejected by the user. At this point you should stop
-polling, as this response is final.
-
-* If the challenge verification is still pending (meaning it has not been accepted nor rejected) you will get an `authorization_pending` error, meaning that
-you must retry the same request a few seconds later. If you request too frequently you will get a `slow_down` error.
-
-When the challenge response includes a `binding_method: prompt` your app needs to prompt the user for the `binding_code` and send it as part of the request.
-The `binding_code` is a usually a 6 digit number (similar to an otp) included as part of the challenge.  No `binding_code` is necessary if the challenge response did not include a `binding_method`. In this scenario the response will be immediate -- you will receive an `invalid_grant` or an access token as response.
+When the challenge response includes a `binding_method: prompt` your app needs to prompt the user for the `binding_code` and send it as part of the request. The `binding_code` is a usually a 6 digit number (similar to an OTP) included as part of the challenge.  No `binding_code` is necessary if the challenge response did not include a `binding_method`. In this scenario the response will be immediate; you will receive an `invalid_grant` or an `access_token` as response.
 
 #### Request Parameters
 
@@ -673,7 +680,7 @@ The `binding_code` is a usually a 6 digit number (similar to an otp) included as
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you received from the `mfa_required` error. |
 | `oob_code` <br/><span class="label label-danger">Required</span> | The oob code received from the challenge request. |
-| `binding_code`| A code used to bind the side channel (used to deliver the challenge) with the main channel you are using to authenticate. This is usually an otp-like code delivered as part of the challenge message. |
+| `binding_code`| A code used to bind the side channel (used to deliver the challenge) with the main channel you are using to authenticate. This is usually an OTP-like code delivered as part of the challenge message. |
 
 ### Verify MFA using a recovery code
 
@@ -731,10 +738,15 @@ Content-Type: application/json
 }
 ```
 
-Some MFA providers (such as Guardian) support using a recovery code to login. This method is supposed to be used
-to authenticate when the device you enrolled is not available, or you cannot received the challenge or accept it, for instance, due to connectivity issues.
-To verify MFA using a recovery code your app must prompt the user for the recovery code, and then make a request to `oauth/token`
-with `grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code`. Include the collected recovery code and the `mfa_token` from the `mfa_required` error. If the recovery code is accepted the response will be the same as for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types. It might also include a `recovery_code` field, which the Client application must display to the end-user to be stored securely for future use.
+<%= include('../../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/oauth/token",
+  "link": "#resource-owner-password-and-mfa"
+}) %>
+
+Some MFA providers (such as Guardian) support using a recovery code to login. This method is supposed to be used to authenticate when the device you enrolled is not available, or you cannot received the challenge or accept it, for instance, due to connectivity issues.
+
+To verify MFA using a recovery code your app must prompt the user for the recovery code, and then make a request to `oauth/token` with `grant_type=http://auth0.com/oauth/grant-type/mfa-recovery-code`. Include the collected recovery code and the `mfa_token` from the `mfa_required` error. If the recovery code is accepted the response will be the same as for `password` or `http://auth0.com/oauth/grant-type/password-realm` grant types. It might also include a `recovery_code` field, which the Client application must display to the end-user to be stored securely for future use.
 
 #### Request Parameters
 
