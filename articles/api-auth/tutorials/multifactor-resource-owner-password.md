@@ -10,7 +10,7 @@ Highly-trusted applications can use the [Resource Owner Password Grant](https://
 
 2. Client configured to execute one of the resource owner password grant flows as described [here](https://auth0.com/docs/api-auth/tutorials/password-grant).
 
-3. End users `enrolled with MFA. 
+3. End users `enrolled with MFA.
 
 ## Initiating Multifactor Authentication
 The flow starts by collecting end-user credentials and sending them to the Authorization Server as described in [Resource Owner Password Grant](https://auth0.com/docs/api-auth/grant/password). Both [password](https://auth0.com/docs/api-auth/tutorials/password-grant) and [password-realm](https://auth0.com/docs/api-auth/tutorials/password-grant#realm-support) grant types are available.
@@ -23,25 +23,33 @@ The flow starts by collecting end-user credentials and sending them to the Autho
 6. The Authorization Server sends a response containing the `challenge_type` derived from the types supported by the Client and the specific user. Additionally, extra information, such as `binding_method` may be included to assist in resolving the challenge and displaying the correct UI to the user.
 
 ## Executing Multifactor
-### Challenge Type 'OTP' 
+### Challenge Type 'OTP'
+![Resource Owner MFA OTP](/media/articles/api-auth/challenge-type-otp.png)
+
 For this type of challenge, the client must get an `otp` code from a OTP Generator app such as Google Authenticator, Microsoft Authenticator, etc.
 
 7. The Client application prompts the end user to enter an otp code.
 8. The end user enters their otp into the Client application.
 9. The Client application forwards the otp code to the authorization server using [`grant_type=http://auth0.com/oauth/grant-type/mfa-otp`](#link to api) and includes the `mfa_token` obtained in step 4 above.
 10. The Authorization Server validates the provided otp and returns the access/refresh token.
+11. The Client can use the access_token to call the Resource Server on behalf of the Resource Owner.
 
 NOTE: If it's already known that the user supports OTP, then steps 5 and 6 above are optional.
 
 ### Challenge type 'OOB' and binding method 'prompt'
+![Resource Owner MFA OOB Prompt](/media/articles/api-auth/challenge-type-oob-with-binding-method.png)
+
 This challenge type, together with `prompt` binding method, indicates that the challenge will be delivered to the user using a side channel (such as SMS) and that a `binding_code` is needed to bind the side channel to the one being authenticated. The binding code is sent as part of the challenge message and it is usually an otp-like code composed of 6 numeric digits.
 
 7. The Client application prompts the user for the `binding_code` and stores the `oob_code` from step 6 for future use.
 8. The end user receives the challenge on the side channel and enters the `binding_code` into the Client application.
 9. The Client application forwards the `binding_code` to the Authorization Server using [`grant_type=http://auth0.com/oauth/grant-type/mfa-oob`](#link to api) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 10. The Authorization Server validates the `binding_code` and `oob_code` and returns the access/refresh token.
+11. The Client can use the access_token to call the Resource Server on behalf of the Resource Owner.
 
 ### Challenge type 'OOB' with no binding method
+![Resource Owner MFA OOB](/media/articles/api-auth/challenge-type-oob-no-binding-method.png)
+
 In this scenario, the challenge will be sent using a side channel, however, there is no need for a `binding_code`. Currently, the only mechanism supported for this scenario is Push Notification with the Guardian Provider.
 
 7. The Client application asks the user to accept the delivered challenge and keeps the `oob_code` from step 6 for future use.
@@ -51,8 +59,11 @@ In this scenario, the challenge will be sent using a side channel, however, ther
   d. `slow_down` error: if the polling is too frequent.
   b. access/refresh token: if the challenge has been accepted; polling should be stopped at this point.
   c. `invalid_grant` error: if the challenge has been rejected; polling should be stopped at this point.
+11. The Client can use the access_token to call the Resource Server on behalf of the Resource Owner.
 
 ## Using recovery codes
+![Resource Owner MFA Recovery](/media/articles/api-auth/recovery-code.png)
+
 Some providers support using a recovery code to login in case the enrolled device is not available, or if lack of connectivity prevents receiving an otp code or push notification.
 
 Using a recovery code is similar to using an otp code to login -- the main difference is that a new recovery code will be generated, and that the application must display this new recovery code to the user for secure storage.
@@ -63,6 +74,7 @@ Using a recovery code is similar to using an otp code to login -- the main diffe
 7. The end user enters their recovery code into the Client application.
 8. The Client application forwards the recovery code to the Authorization Server using [`grant_type=http://auth0.com/oauth/grant-type/mfa-otp`](#link to api) and includes the `mfa_token` from step 4.
 9. The Authorization Server validates the recovery code and returns the access/refresh token.
+10. The Client can use the access_token to call the Resource Server on behalf of the Resource Owner
 
 NOTE: This flow is currently only available for the Guardian Provider.
 
