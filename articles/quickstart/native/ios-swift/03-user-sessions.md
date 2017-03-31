@@ -123,7 +123,7 @@ Auth0
 ## Dealing with a non-valid idToken
 
 How to deal with a non-valid idToken is up to you. You will normally choose between two scenarios:
-Either you ask users to re-enter theirs credentials, or you can use `delegation` with a [refresh token](/refresh-token) to obtain a new valid idToken again.
+Either you ask users to re-enter their credentials, or you can use `delegation` with a [refresh token](/refresh-token) to obtain a new valid idToken again.
 
 If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
 
