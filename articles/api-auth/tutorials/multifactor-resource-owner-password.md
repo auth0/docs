@@ -19,7 +19,7 @@ The flow starts by collecting end-user credentials and sending them to the Autho
 2. The Client forwards the credentials to the Authorization Server
 3. The Authorization Server validates the credentials and executes any applicable [rules](https://auth0.com/docs/rules).
 4. If any rule triggers MFA for current user, an error code of `mfa_required` is returned. The error will additionally contain an `mfa_token` property.
-5. The Client will then make a request to the [MFA challenge](#link-to-the-api) endpoint, specifying the challenge types it supports. Valid challenge types are listed below.
+5. The Client will then make a request to the [MFA challenge](/docs/api/authentication#resource-owner-password) endpoint, specifying the challenge types it supports. Valid challenge types are listed below.
 6. The Authorization Server sends a response containing the `challenge_type` derived from the types supported by the Client and the specific user. Additionally, extra information, such as `binding_method` may be included to assist in resolving the challenge and displaying the correct UI to the user.
 
 ## Executing Multifactor
@@ -30,7 +30,7 @@ For this type of challenge, the client must get an `otp` code from a OTP Generat
 
 7. The Client application prompts the end user to enter an otp code.
 8. The end user enters their otp into the Client application.
-9. The Client application forwards the otp code to the authorization server using [`grant_type=http://auth0.com/oauth/grant-type/mfa-otp`](#link to api) and includes the `mfa_token` obtained in step 4 above.
+9. The Client application forwards the otp code to the authorization server using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` obtained in step 4 above.
 10. The Authorization Server validates the provided otp and returns the access/refresh token.
 11. The Client can use the access_token to call the Resource Server on behalf of the Resource Owner.
 
@@ -43,7 +43,7 @@ This challenge type, together with `prompt` binding method, indicates that the c
 
 7. The Client application prompts the user for the `binding_code` and stores the `oob_code` from step 6 for future use.
 8. The end user receives the challenge on the side channel and enters the `binding_code` into the Client application.
-9. The Client application forwards the `binding_code` to the Authorization Server using [`grant_type=http://auth0.com/oauth/grant-type/mfa-oob`](#link to api) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
+9. The Client application forwards the `binding_code` to the Authorization Server using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 10. The Authorization Server validates the `binding_code` and `oob_code` and returns the access/refresh token.
 11. The Client can use the access_token to call the Resource Server on behalf of the Resource Owner.
 
@@ -53,7 +53,7 @@ This challenge type, together with `prompt` binding method, indicates that the c
 In this scenario, the challenge will be sent using a side channel, however, there is no need for a `binding_code`. Currently, the only mechanism supported for this scenario is Push Notification with the Guardian Provider.
 
 7. The Client application asks the user to accept the delivered challenge and keeps the `oob_code` from step 6 for future use.
-8. The Client application polls the Authorization Server using [`grant_type=http://auth0.com/oauth/grant-type/mfa-oob`](#link to api) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
+8. The Client application polls the Authorization Server using [grant_type=http://auth0.com/oauth/grant-type/mfa-oob](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` (from step 4) and `oob_code` (from step 6).
 10. The Authorization Server validates the provided `oob_code`, the `mfa_token` and returns:
   a. `pending_authentication` error: if the challenge has not been accepted nor rejected.
   d. `slow_down` error: if the polling is too frequent.
@@ -72,7 +72,7 @@ Using a recovery code is similar to using an otp code to login -- the main diffe
 5. End user chooses to use the recovery code.
 6. The Client prompts the end user to enter recovery code.
 7. The end user enters their recovery code into the Client application.
-8. The Client application forwards the recovery code to the Authorization Server using [`grant_type=http://auth0.com/oauth/grant-type/mfa-otp`](#link to api) and includes the `mfa_token` from step 4.
+8. The Client application forwards the recovery code to the Authorization Server using [grant_type=http://auth0.com/oauth/grant-type/mfa-otp](/docs/api/authentication#resource-owner-password) and includes the `mfa_token` from step 4.
 9. The Authorization Server validates the recovery code and returns the access/refresh token.
 10. The Client can use the access_token to call the Resource Server on behalf of the Resource Owner
 
@@ -140,7 +140,7 @@ function mfaChallenge(mfa_token) {
         // Ask the user to accept the challenge and start polling (see MFA OOB without binding code grant request)
         mfaOOB(mfa_token, body.oob_code)
       } else {
-        console.error('Unsupported binding_method :');
+        console.error('Unsupported binding_method');
       }
     } else {
       console.error('Something went wrong');
