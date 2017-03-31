@@ -393,6 +393,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 - The scopes issued to the client may differ from the scopes requested. In this case, a `scope` parameter will be included in the response JSON.
 - If you don't request specific scopes, all scopes defined for the audience will be returned due to the implied trust to the client in this grant. You can customize the scopes returned in a rule. For more information, refer to [Calling APIs from Highly Trusted Clients](/api-auth/grant/password).
 - To add realm support set the `grant_type` to `http://auth0.com/oauth/grant-type/password-realm`, and the `realm` to the realm the user belongs. This maps to a connection in Auth0. For example, if you have configured a database connection for your internal employees and you have named the connection `employees`, then use this value. For more information on how to implement this refer to: [Realm Support](/api-auth/tutorials/password-grant#realm-support).
+- In addition to username and password, Auth0 may also require the end-user to provide an additional factor as proof of identity before issuing the requested scopes. In this case, the request described above will return an `mfa_required` error along with an `mfa_token`. You can use these tokens to request a challenge for the possession factor and validate it accordingly. For details refer to [Resource Owner Password and MFA](#resource-owner-password-and-mfa).
 
 ### More Information
 - [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
@@ -400,21 +401,9 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 ## Resource Owner Password and MFA
 
-In addition to username and password, Auth0 may also require the end-user to provide an additional factor as proof of identity before issuing the requested scopes. In this case, the request described above will return an `mfa_required` error along with an `mfa_token`. You can use these tokens to request a challenge for the possession factor and validate it accordingly.
+In addition to username and password, Auth0 may also require the end-user to provide an additional factor as proof of identity before issuing the requested scopes. In this case, the Resource Owner Password endpoint will return an `mfa_required` error along with an `mfa_token`. You can use these tokens to request a challenge for the possession factor and validate it accordingly.
 
-> MFA REQUIRED RESPONSE SAMPLE:
-
-```JSON
-HTTP/1.1 403 Forbidden
-Content-Type: application/json
-{
-  "error": "mfa_required",
-  "error_description": "Multifactor authentication required",
-  "mfa_token": "eyJ0eXAiOiJKV1QiLCJhbGci....D3QCiQ"
-}
-```
-
-### MFA Challenge Request (OPTIONAL)
+### MFA Challenge Request
 
 <h5 class="code-snippet-title">Examples</h5>
 
@@ -425,7 +414,7 @@ Content-Type: 'application/json'
   "client_id": "${account.clientId}",
   "client_secret": "${account.clientSecret}",
   "mfa_token": "MFA_TOKEN",
-  "challenge_type": "oob otp"
+  "challenge_type": "oob|otp"
 }
 ```
 
@@ -501,7 +490,7 @@ Based on the previous response, the Resource Owner must provide a possession fac
 | `mfa_token` <br/><span class="label label-danger">Required</span> | Token got together with `mfa_required` error for Resource Owner Password flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
-| `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types.|
+| `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
 
 #### Remarks
 
@@ -509,6 +498,11 @@ Based on the previous response, the Resource Owner must provide a possession fac
 - This mechanism does not support enrollment, the end-user must be enrolled with
 the preferred method before being able to execute this flow. Otherwise, you will get a `unsupported_challenge_type` error.
 - Auth0 will choose the challenge type based on the types the end user is enrolled with and the ones that the app supports. If your app does not support any of the challenge types the user has enrolled with, an `unsupported_challenge_type` error will be returned.
+
+#### More Information
+
+- [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password)
+- [Multifactor Authentication in Auth0](/multifactor-authentication)
 
 ### Verify MFA using OTP
 
