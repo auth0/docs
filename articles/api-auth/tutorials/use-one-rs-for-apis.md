@@ -6,7 +6,7 @@
 
 If you have multiple APIs, you can treat them as a single Resource Server. Doing this allows you to implement just one authentication flow. You can then control access to the individual APIs by assigning the appropriate scopes.
 
-This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](#) if you would like to follow along as you read.
+This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](https://github.com/auth0-samples/auth0-api-auth-implicit-sample) if you would like to follow along as you read.
 
 ## The Sample Application
 
