@@ -127,7 +127,7 @@ Go to `/config/initializers/session_store.rb` and add the following:
 Rails.application.config.session_store :cache_store
 ```
 
-Go to `/config/enviroments/development.rb` and add the following:
+Go to `/config/environments/development.rb` and add the following:
 
 ```ruby
 config.cachestore = :memorystore
