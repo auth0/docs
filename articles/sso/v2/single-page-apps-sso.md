@@ -132,6 +132,8 @@ You can test this using the sample app. If you're already logged in, you can req
 
 At this point, the app silently authenticates you, gets the new token, and updates the page to reflect your new token expiration datetime. Notice that you *did not* see the Lock screen asking for your credentials.
 
+### Further Actions
+
 If your authentication flow triggers an error (indicating unsuccessful authentication) at any point, you'll need to [handle the error(s)](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) before moving on.
 
 If your access tokens expire, you can [refresh them](/api-auth/tutorials/silent-authentication#refresh-expired-tokens).
