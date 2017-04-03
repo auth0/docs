@@ -8,14 +8,26 @@ toc: true
 
 You can authenticate users of your mobile/desktop applications by:
 
-* Using the [Lock](/libraries/lock) client libraries;
-* Calling the Auth0 [Authentication API](/api/authentication) endpoints.
+* Using [Lock](/libraries/lock), a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface;
+* Using one of the [Auth0 SDKs](docs/libraries/auth0js), which are client-side libraries that *do not* include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
+* Calling the Auth0 [Authentication API](/api/authentication) endpoints, which allows you to integrate with Auth0 without requiring the user of Auth0's libraries.
 
 This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints using [Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication process.
 
+If you would like to implement this functionality using either Lock or one of the Auth0 SDKs, please refer to the following resources:
+
+* Lock
+  * [Lock for Web](/libraries/lock)
+  * [Lock for iOS](/libraries/lock-ios)
+  * [Lock for Android](/libraries/lock-android)
+* Auth0 SDK
+  * [Auth0 SDK for Web](/libraries/auth0js)
+  * [Auth0 SDK for iOS](/libraries/auth0-swift)
+  * [Auth0 SDK for Android](/libraries/auth0-android)
+
 ## Overview
 
-Auth0 exposes OAuth 2.0 endpoints that you can use to authenticate users. You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an `id_token` that contains the user's profile information.
+Auth0 exposes OAuth 2.0 endpoints that you can use to authenticate users. You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an [ID Token](/tokens/id-token) that contains the user's profile information.
 
 ::: panel-info Auth0 Quickstarts
 Please note that, instead of following this tutorial, you can use any of Auth0's client libraries. These encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started with any of these.
@@ -37,7 +49,10 @@ The Authorization Code flow with PKCE can only be used for Native Clients.
 
 ![](/media/articles/client-auth/mobile-desktop/create-client.png)
 
-Once Auth0 creates the Client, navigate to the Client's **Settings** tab to add the following to the **Allowed Callback URLs** field: `https://${account.namespace}/mobile`
+Once Auth0 creates the Client, navigate to the Client's **Settings** tab to:
+
+* Add the following URL to the **Allowed Callback URLs** field: `https://${account.namespace}/mobile`;
+* Enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
 
 Scroll to the bottom of the page and click **Save**.
 
@@ -45,7 +60,7 @@ Scroll to the bottom of the page and click **Save**.
 
 ## Implement Authentication
 
-To implement the Authorization Code Grant Flow using Proof Key for Code Exchange, you will need to execute the following steps:
+To implement the [Authorization Code Grant Flow using Proof Key for Code Exchange](/api-auth/grant/authorization-code-pkce), you will need to execute the following steps:
 
 1. Create a random key (called the **code verifier**) and its transformed value (called the **code challenge**)
 2. Obtain the user's authorization
@@ -188,6 +203,8 @@ https://${account.namespace}/authorize?
     redirect_uri=${account.namespace}/mobile
 ```
 
+Note that the sample Authorization URL doesn't include an `audience` parameter. In this scenario, your app needs to authenticate only the user, not access an API, so we omit `audience`.
+
 Please see [this page](/api-auth/tutorials/authorization-code-grant-pkce#3-get-the-user-s-authorization) for detailed information on the User Authorization request parameters.
 
 ::: panel-info Arbitrary Claims
@@ -198,8 +215,7 @@ As an example, your HTML snippet for your authorization URL might look as follow
 
 ```html
 <a href="https://${account.namespace}/authorize?
-  audience=appointments:api&
-  scope=appointments%20contacts&
+  scope=openid%20profile&
   response_type=code&
   client_id=${account.clientId}&
   code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&
@@ -251,12 +267,8 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
 ```
 
 :::panel-info Access Tokens
-You can use `access_token` to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
+You can use the `access_token` to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
 :::
-
-### Keep the User Logged In
-
-Auth0 assists in authenticating a user, but your application must keep track of whether or not a user is logged in. You can keep a global variable or a singleton object inside your application to do this. You can also use this object to store information about the user (such as name and profile image) so that you can deliver a personalized user experience within your application.
 
 ## The `id_token`
 
@@ -299,7 +311,7 @@ https://${account.namespace}/authorize?
     redirect_uri=${account.namespace}/mobile
 ```
 
-After the user provides submits their credentials, your app receives an HTTP 302 response with a URL containing the authorization code at the end: `https://YOUR_APP/callback?code=AUTHORIZATION_CODE`
+After the user provides submits their credentials, your app receives an HTTP 302 response with a URL containing the authorization code at the end: `https://${account.namespace}/callback?code=AUTHORIZATION_CODE`
 
 Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
 
@@ -369,12 +381,34 @@ https://${account.namespace}/authorize?
     connection=github
 ```
 
-After the user authenticates, GitHub redirects them back to the specified `redirect_uri` with the `id_token` and `token_type` passed as parameters in the included hash fragment.
+After the user provides submits their credentials, your app receives an HTTP 302 response with a URL containing the authorization code at the end: `https://${account.namespace}/callback?code=AUTHORIZATION_CODE`
 
-```text
-https://YOUR_APP/callback
-  #id_token=eyJ0...
-  &token_type=Bearer
+Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.namespace}/mobile\" }"
+  }
+}
+```
+
+If all goes well, you'll receive an HTTP 200 response with the following payload:
+
+```json
+{
+  "access_token":"eyJz93a...k4laUWw",
+  "refresh_token":"GEbRxBN...edjnXbL",
+  "id_token":"eyJ0XAi...4faeEoQ",
+  "token_type":"Bearer",
+  "expires_in":86400
+}
 ```
 
 You can pull the user's name, profile picture, and email address from the `name`, `picture`, and `email` claims of the returned `id_token`. Note that the `sub` claim contains the user's unique ID as returned from GitHub:

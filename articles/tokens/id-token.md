@@ -7,7 +7,7 @@ description: How to obtain, use and renew an id_token.
 
 ## Overview
 
-Auth0's `id_token` is a [JSON Web Token (JWT)](/jwt) of type **Bearer** containing information about the user (such as name and email address) represented in the form of *claims*. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](#validate-an-id-token).
+The ID token, usually referred to in our docs as `id_token`, is a [JSON Web Token (JWT)](/jwt) that contains user profile information (like the user's name, email, and so forth), represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](#validate-an-id-token).
 
 You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the `id_token`.
 
