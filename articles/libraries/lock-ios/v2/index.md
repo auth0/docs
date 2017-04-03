@@ -1,7 +1,6 @@
 ---
 section: libraries
 toc: true
-url: /libraries/lock-ios
 title: Lock v2 for iOS
 description: A widget that provides a frictionless login and signup experience for your native iOS apps.
 mobileimg: media/articles/libraries/lock-ios.png
@@ -9,11 +8,11 @@ mobileimg: media/articles/libraries/lock-ios.png
 
 # Lock v2 for iOS
 
+<%= include('../_includes/_lock-version') %>
+
 You're looking at the documentation for the easiest way of securing your iOS apps!
 
 Lock is an embeddable login form, which is configurable to your needs and ready for use in your mobile applications. It's easier than ever to add social identity providers to Lock, as well, allowing your users to login seamlessly using whichever providers make sense for your application. Check out the basic usage guide below for more information!
-
-<%= include('_includes/_lock-version') %>
 
 ## Requirements
 

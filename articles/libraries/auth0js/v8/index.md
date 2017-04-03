@@ -2,7 +2,6 @@
 section: libraries
 toc: true
 description: How to install, initialize and use auth0.js v8
-url: /libraries/auth0js
 ---
 
 # Auth0.js v8 Reference
@@ -10,7 +9,7 @@ url: /libraries/auth0js
 Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
 
 <div class="alert alert-info">
-  This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the <a href="/libraries/auth0js/v7">v7 reference guide</a>, or take a look at the <a href="/libraries/auth0js/migration-guide">v8 migration guide</a>
+  This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the <a href="/libraries/auth0js/v7">v7 reference guide</a>, or take a look at the <a href="/libraries/auth0js/v8/migration-guide">v8 migration guide</a>
 </div>
 
 ## Ready-to-go example
@@ -69,19 +68,18 @@ Initialize a new instance of the Auth0 client as follows:
 
 #### Available parameters
 
-##### Required
+There are two required parameters that must be passed in the `options` object when instantiating `webAuth`, and more that are optional.
 
-* **domain** {string}: Your Auth0 account domain (ex. myaccount.auth0.com)
-* **client\_id** {string}: Your Auth0 client\_id
-
-##### Optional
-
-* **redirectUri** {string}: The default redirectUri used. Defaults to an empty string (none).
-* **scope** {string}: The default scope used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details about them.
-* **audience** {string}: The default audience used for requesting API Access.
-* **responseType** {string}: The default responseType used, 'token' or 'code'. Defaults to 'token', unless a `redirectUri` is provided, then defaults to 'code'.
-* **responseMode** {string}: This option is omitted by default. Can be set to 'form_post' in order to send the token or code to the `redirectUri` via POST.
-* **_disableDeprecationWarnings** {boolean}: Disables the deprecation warnings, defaults to false.
+| **Parameter** | **Required** | **Description** |
+| --- | --- | --- |
+| `domain` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com) |
+| `client_id` | required | (String) Your Auth0 client\_id |
+| `redirectUri` | optional | (String)  The default `redirectUri` used. Defaults to an empty string (none). |
+| `scope` | optional | (String)  The default scope(s) used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
+| `audience` | optional | (String)  The default audience used for requesting API access. |
+| `responseType` | optional | (String)  The default `responseType` used. The value must be `'token'` or `'code'`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
+| `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. |
+| `_disableDeprecationWarnings` | optional | (Boolean)  Disables the deprecation warnings, defaults to `false`. |
 
 ## Login
 
@@ -89,7 +87,16 @@ You can choose a method for login based on the type of auth you need in your app
 
 ### webAuth.authorize()
 
-The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below. 
+The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited in the examples below. This method can take a variety of parameters via the `options` object. 
+
+| **Parameter** | **Required** | **Description** |
+| --- | --- | --- |
+| `audience` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com). |
+| `scope` | required | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
+| `response_type` | required | (String) The value must be `'token'` or `'code'`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
+| `client_id` | optional | (String)  Your Auth0 client ID. |
+| `state` | recommended | (String)  An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `redirect_uri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 
 For hosted login, one must call the `authorize` endpoint:
 
@@ -99,7 +106,9 @@ webAuth.authorize({
 });
 ```
 
-For social logins, the connection will need to be specified:
+If `authorize` is called without any parameters, it will use those which were set when `webAuth` was instantiated. The first required parameter, `client_id`, will be thus passed into `authorize`. The second required parameter is `response_type`, and this will either be acquired from the same place, or, if it was never set, default to `token` in most cases.
+
+For social logins, the `connection` parameter will need to be specified:
 
 ```js
 webAuth.authorize({
@@ -159,6 +168,14 @@ webAuth.popup.loginWithCredentials({
 
 The `client.login` method allows for non redirect auth using custom database connections, using /`oauth/token`.
 
+| **Parameter** | **Required** | **Description** |
+| --- | --- | --- |
+| `username` | required | (String) The username to present for authentication |
+| `password` | required | (String) The password to prevent for authentication |
+| `realm` | required | (String) The name of the database connection against which to authenticate. |
+| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
+| `audience` | optional | (String) Your Auth0 account domain (ex. myaccount.auth0.com). |
+
 ```js
 webAuth.client.login({
   realm: 'tests',
@@ -194,15 +211,16 @@ Passwordless authentication allows users to log in by receiving a one-time passw
 
 #### Start passwordless
 
-The `passwordlessStart` method requires several options:
+The `passwordlessStart` method requires several parameters to be passed within its `options` object:
 
-* `connection`: a string that specifies how to send the code/link to the user. Value must be either `email` or `sms`.
-* `send`: a string, value must be either 'code' or 'link'. If null, a link will be sent.
+| **Parameter** | **Required** | **Description** |
+| --- | --- | --- |
+| `connection` | required | (String) Specifies how to send the code/link to the user. Value must be either `email` or `sms`. |
+| `send` | required | (String) Value must be either `code` or `link`. If `null`, a link will be sent. |
+| `phoneNumber` | optional | (String) The user's phone number for delivery of a code or link via SMS. |
+| `email` | optional | (String) The user's email for delivery of a code or link via email. |
 
-In addition, _one_ of the two following options must be sent:
-
-* `phoneNumber`: a string containing the user's phone number for delivery of a code or link via SMS.
-* `email`: a string containing the user's email for delivery of a code or link via email.
+Note that exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to start the Passwordless transaction. 
 
 ```js
 webAuth.passwordlessStart({
@@ -217,17 +235,20 @@ webAuth.passwordlessStart({
 
 #### Verify passwordless
 
-The `passwordlessVerify` method requires several options:
+The `passwordlessVerify` method requires several paramters to be sent in its `options` object:
 
-* `connection`: a string that specifies how to send the code/link to the user. Value must be either `email` or `sms` and the same with the one used at `passwordlessStart`.
-* `verificationCode`: a string, the code sent to the user as a code or within a link.
+| **Parameter** | **Required** | **Description** |
+| --- | --- | --- |
+| `connection` | required | (String) Specifies how to send the code/link to the user. Value must be either `email` or `sms` and the same as the value passed to `passwordlessStart`. |
+| `verificationCode` | required | (String) The code sent to the user, either as a code or embedded in a link. |
+| `phoneNumber` | optional | (String) The user's phone number to which the code or link was delivered via SMS. |
+| `email` | optional | (String) The user's email to which the code or link was delivered via email. |
 
-In addition, _one_ of the two following options must be sent:
+Note that, as with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction. 
 
-* `phoneNumber`: a string containing the user's phone number, to which the code or link was delivered via SMS
-* `email`: a string containing the user's email, to which the code or link was delivered via email
-
-Note that in order to use `passwordlessVerify`, the options `redirectUri `and `responseType: 'token' `must be specified when first initializing WebAuth.
+::: panel-info passwordlessVerify required WebAuth options
+In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
+:::
 
 ```js
 webAuth.passwordlessVerify({
@@ -244,15 +265,25 @@ webAuth.passwordlessVerify({
 
 After authentication occurs, the `parseHash` method parses a URL hash fragment to extract the result of an Auth0 authentication response. 
 
+The `parseHash` method takes an `options` object that contains the following parameters:
+
+| **Parameter** | **Required** | **Description** |
+| --- | --- | --- |
+| `state` | optional | (String) An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
+| `nonce` | optional | (String) Used to verify the `id_token`
+| `hash` | optional | (String) The URL hash (if not provided, `window.location.hash` will be used by default) |
+
 ::: panel-info RS256 Requirement
 This method requires that your tokens are signed with RS256 rather than HS256. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
 :::
 
-The contents of the authResult object returned by `parseHash` depend upon which authentication parameteres were used. It can include:
+The contents of the authResult object returned by `parseHash` depend upon which authentication parameters were used. It can include:
 
-* `accessToken` - an access token for the API, specified by the `audience`
-* `expiresIn` - a string containing the expiration time (in seconds) of the `accessToken`
-* `idToken` - an ID Token JWT containing user profile information
+| **Item** | **Description** |
+| --- | --- | 
+| `accessToken` | An access token for the API, specified by the `audience` |
+| `expiresIn` |  A string containing the expiration time (in seconds) of the `accessToken` |
+| `idToken` |  An id token JWT containing user profile information |
 
 ```js
 auth0.parseHash(window.location.hash, function(err, authResult) {
@@ -305,7 +336,13 @@ If you want to use a developer generated `nonce`, then you must provide it as an
 
 ## Logout
 
-To log out a user, use the `logout` method. This accepts an options object, which can include a `client_id`, and a `returnTo` URL. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter.
+To log out a user, use the `logout` method. This method accepts an options object, which can include the following parameters.
+
+| **Parameter** | **Required** | **Description** |
+| --- | --- | --- |
+| `returnTo` | optional | (String) URL to redirect the user to after the logout. |
+| `client_id` | optional | (String) Your Auth0 client ID |
+| `federated` | optional | (Querystring parameter) Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 ::: panel-info returnTo parameter
 Note that if the `client_id` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}). 
@@ -321,7 +358,16 @@ webAuth.logout({
 
 ## Sign up
  
-The `signup` method accepts an `options` object that contains parameters for your signup. Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form. 
+To sign up a user, use the `signup` method. This method accepts an options object, which can include the following parameters.
+
+| **Parameter** | **Required** | **Description** |
+| --- | --- | --- |
+| `client_id` | required | (String) Your Auth0 client ID |
+| `email` | required | (String) User's email address |
+| `password` | required | (String) User's desired password |
+| `connection` | required | (String) The database connection name on your client upon which to attempt user account creation |
+
+Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form. 
 
 ```html 
 <h2>Signup Database Connection</h2> 
@@ -345,7 +391,7 @@ The `signup` method accepts an `options` object that contains parameters for you
 
 ## Using renewAuth to acquire new tokens
 
-The `renewAuth` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain.
+The `renewAuth` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
 
 
 ```js
@@ -359,7 +405,7 @@ webAuth.renewAuth({
 });
 ```
 
-::: panel-info postMessage
+::: panel-info postMessage Parameter
 This will use postMessage to comunicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behaviour is needed.
 :::
 
