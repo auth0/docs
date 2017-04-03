@@ -1,12 +1,14 @@
 ---
-  description: How to use multiple APIs and represent them as a single Resource Server in Auth0.
+  description: How to use multiple APIs and represent them as a single API in Auth0.
 ---
 
-# Represent Multiple APIs as a Single Resource Server
+# How to Manage Multiple APIs Using a Single Auth0 API
 
-If you have multiple APIs, you can treat them as a single Resource Server. Doing this allows you to implement just one authentication flow. You can then control access to the individual APIs by assigning the appropriate scopes.
+To simplify your authentication process, you can create a single [API](/apis) using the Auth0 Dashboard to represent all of your existing APIs. Doing this allows you to implement just one authentication flow. You can then control access to the individual APIs by assigning the appropriate scopes.
 
 This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](https://github.com/auth0-samples/auth0-api-auth-implicit-sample) if you would like to follow along as you read.
+
+<%= include('../../../_includes/_package', { org: 'auth0-samples', repo: 'auth0-api-auth-implicit-sample', path: '01-Login' }) %>
 
 ## The Sample Application
 
