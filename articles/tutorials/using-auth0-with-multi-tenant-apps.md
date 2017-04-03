@@ -146,7 +146,7 @@ A single database connection is often sufficient. Whether or not a user has acce
 
 ```
 _exists_:app_metadata.permissions.company1
-````
+```
 
 There are a few cases where storing users in multiple database connections might make sense:
 
