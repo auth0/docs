@@ -9,36 +9,37 @@ Single Page Applications (SPA) are user-friendly apps that load a single HTML pa
 
 ## What SSO Looks Like
 
-Suppose you have three applications:
+Suppose you have two applications:
 
 * App 1: app1.com (single page app)
-* App 2: app2.com (single page app)
-* App 3: app3.com (regular web app)
+* App 2: app3.com (regular web app)
 
-If you've implemented SSO and the user logs in to *any* of the three applications, the user should automatically be logged in to the other applications.
+If you've implemented SSO and the user logs in either of the two applications, the user should automatically be logged in to the other application.
 
-This article shows you how to implement OIDC-compliant Single Sign On via [Silent Authentication](/api-auth/tutorials/silent-authentication) for your Single Page Applications using [this sample](https://github.com/auth0-samples/oidc-sso-sample). This process involves
+This article shows you how to implement OIDC-compliant Single Sign On via [Silent Authentication](/api-auth/tutorials/silent-authentication) for your Single Page Applications using [this sample](https://github.com/auth0-samples/oidc-sso-sample).
 
-## Implement SSO on Your SPA
-
-:::panel-warning Prerequisites
-This article assumes that you have already created an Auth0 Client (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled.
-:::
-
-### Get Started with the OIDC-Compliant Single Sign On Sample
-
-Please feel free to [download the sample](https://github.com/auth0-samples/oidc-sso-sample) and work through the examples on your local environment as you read this doc. The following instructions will help you set up the sample SPA on your local environment.
+## Configure the OIDC-Compliant Single Sign On Sample
 
 <div class="alert alert-info">
   <strong>Heads up!</strong> This document assumes that you're using port 3000 when running the sample. If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the <i>auth0-variables.js</i>, <i>callback.html</i>, and <i>index.js</i> files) and configure your Auth0 Client.
 </div>
 
-1. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
-2. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in your [Auth0 Client's Settings page](${manage_url}/#/clients/${account.clientId}/settingss).
-3. Once you've made the configuration changes detailed in steps 2 and 3, start up a web server in the root of the repository at port `3000` .
-4. Browse to `http://localhost:3000` to view the client side of the sample.
+If you don't already have an Auth0 Client (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one.
+
+1. Go to the [Auth0 Dashboard](${manage_url}) and click on [Clients](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Client**.
+2. The **Create Client** window will open, allowing you to enter the name of your new Client. Choose **Single Page Web Applications** as the **Client Type**. When done, click on **Create** to proceed.
+3. Navigate to the [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+4. Scroll to the bottom of the [Settings](${manage_url}/#/clients/${account.clientId}/settings) page, where you'll find the *Advanced Settings* section. Under the *OAuth* tab, enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
+
+Now that you've configured your Auth0 Client, you can continue configuring your sample.
+
+1. Update the `auth0-variables.js` file included in the sample repository with your Auth0 Domain and the ID of the Auth0 Client you're using. These values can be found in your [Auth0 Client's Settings page](${manage_url}/#/clients/${account.clientId}/settings).
+2. Once you've made the configuration changes detailed in steps 2 and 3, start up a web server in the root of the repository at port `3000` .
+3. Browse to `http://localhost:3000` to view the client side of the sample.
 
   ![Home page before logging in](/media/articles/sso/v2/spa/before-login.png)
+
+Please feel free to [download the sample](https://github.com/auth0-samples/oidc-sso-sample) and work through the examples on your local environment as you read this doc.
 
 ## Silent Authentication
 
@@ -56,7 +57,7 @@ To bypass displaying the Lock screen when logging in a user (a process known as 
 
 ### Initiate a Silent Authentication Request
 
-To initiate a silent authentication request, include the `prompt` parameter in your [authorization URL](/api/authentication#implicit-grant) and set it to `none` when redirecting users to the [Authentication API's `/authorize` endpoint](/api/authentication#login).
+To initiate a silent authentication request, include the `prompt` parameter in your [authorization URL](/api/authentication#implicit-grant) and set it to `none` when redirecting users to the [Authentication API's `/authorize` endpoint](/api/authentication#implicit-grant).
 
 ```text
 https://${account.namespace}/authorize?
@@ -71,7 +72,7 @@ https://${account.namespace}/authorize?
 ```
 
 :::panel-info Authorization Call Parameters
-Refer to the [tutorial on using Implict Grants](/api-auth/tutorials/implicit-grant#1-get-the-user-s-authorization) for information on the authorization call's parameters.
+Refer to the [tutorial on using the Implict Grant](/api-auth/tutorials/implicit-grant#1-get-the-user-s-authorization) for information on the authorization call's parameters.
 :::
 
 For requests received with the parameter `prompt=none`, Auth0 redirects to the `redirect_uri` specified. There are two possible outcomes:
@@ -79,7 +80,7 @@ For requests received with the parameter `prompt=none`, Auth0 redirects to the `
 * If the user is already logged in via SSO, Auth0 sends a successful authentication response;
 * If the user is not logged in via SSO (and therefore Auth0 cannot silently authenticate the user), Auth0 sends an error response.
 
-Regardless of which outcome occurs, the sample app's `postMessage` function sends Auth0's response from the iframe back to the main page, allowing it to act based on the response.
+Regardless of which outcome occurs, the sample app's [`postMessage` function](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) sends Auth0's response from the iframe back to the main page, allowing it to act based on the response.
 
 When you run the sample app for the first time, you will not have a valid access token. As such, the SSO login process errors when attempting silent authentication.
 
@@ -131,26 +132,9 @@ You can test this using the sample app. If you're already logged in, you can req
 
 At this point, the app silently authenticates you, gets the new token, and updates the page to reflect your new token expiration datetime. Notice that you *did not* see the Lock screen asking for your credentials.
 
-#### Auth0's Error (Unsuccessful Authentication) Response
+If your authentication flow triggers an error (indicating unsuccessful authentication) at any point, you'll need to [handle the error(s)](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) before moving on.
 
-If the user is not logged in via SSO, or if the SSO session has expired, Auth0 redirects to the specified `redirect_uri` and responds with an error. Auth0 returns error response parameters in a hash fragment.
-
-The following is a list of possible `ERROR_CODE` values, as defined by the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#AuthError):
-
-* `login_required`: the user isn't logged in to Auth0, so Auth0 was unable to authenticate the user;
-* `consent_required`: the user is logged in to Auth0, but hasn't consented to authorizing the client app;
-* `interaction_required`: the user is logged in to Auth0, but needs to be redirected elsewhere before Auth0 can complete authentication (for example, if a [redirect rule](/rules/redirect) exists).
-
-If your user triggers any of these errors, your app must redirect the user to the Auth0 login page so that they can authenticate using a URL without the `prompt` parameter.
-
-## Refresh Expired Access Tokens
-
-Access tokens are opaque to clients, which means they are unable to inspect the tokens' contents to determine their expiration dates. There are two ways you can handle this limitation:
-
-1. Read the `expires_in` hash parameter included in Auth0's successful authentication response. This parameter indicates how long the token is valid (in seconds).
-2. Ignore expiration dates; in the event that your API rejects a request from the client (for example, it returns an HTTP 401 response), renew the access token.
-
-If the access token expires, you can use silent authentication to retrieve a new token without user interaction if the user's SSO session is still valid. With single page applications, you can use the `renewAuth` method of the [auth0.js library](/libraries/auth0js) to do so without disrupting the UX experience.
+If your access tokens expire, you can [refresh them](/api-auth/tutorials/silent-authentication#refresh-expired-tokens).
 
 ## Single Logout
 
