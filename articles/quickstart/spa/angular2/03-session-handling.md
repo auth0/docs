@@ -1,6 +1,6 @@
 ---
 title: Session Handling
-description: This tutorial will show you how to integrate Auth0 with angular2 to add session handling and logout to your web app.
+description: This tutorial will show you how to integrate Auth0 with Angular to add session handling and logout to your web app.
 budicon: 280
 ---
 
