@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: This quickstart guide demonstrates how to add authentication to an Angular 1.x application using Auth0
+description: This quickstart guide demonstrates how to add authentication to an AngularJS application using Auth0
 ---
 
 This quickstart guide demonstrates how to add authentication to an Angular 1.x application using Auth0.

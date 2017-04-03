@@ -1,11 +1,12 @@
-title: Angular 2
+title: Angular 2+
 image: /media/platforms/angular.png
 alias:
   - angular2
-  - angularjs
+  - angular
 language:
   - Javascript
 framework:
+  - Angular
   - Angular 2
 tags:
   - quickstart

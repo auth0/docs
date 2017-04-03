@@ -1,6 +1,6 @@
 ---
 title: Single Sign-On
-description: This tutorial demonstrates how to use single sign on in Angular 1.x applications
+description: This tutorial demonstrates how to use single sign on in AngularJS applications
 ---
 
 <%= include('../../../_includes/_package', {
