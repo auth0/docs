@@ -1,0 +1,8 @@
+versioning:
+    baseUrl:
+    current: OIDC-conformant
+    versions:
+      - non-OIDC-conformant
+      - OIDC-conformant
+    defaultArticles:
+      non-OIDC-conformant: index
