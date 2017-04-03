@@ -2,7 +2,7 @@ versioning:
     baseUrl: client-auth
     current: oidc
     versions:
-      - non-oidc
+      - legacy
       - oidc
     defaultArticles:
       oidc: index
