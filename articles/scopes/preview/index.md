@@ -8,61 +8,117 @@ description: Overview of scopes with a client-side authorization transaction.
 <strong>Heads up!</strong> This article describes the latest Auth0 implementation, according to the <a href="/api-auth">API Authorization flows</a>. If you are looking for the legacy Scopes doc refer to <a href="/scopes">Scopes</a>.
 </div>
 
-When initiating a [client-side authorization transaction](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) through the [`/authorize` endpoint](/api/authentication/reference#social),
-only an opaque `access_token` will be returned by default.
-To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
+In OpenID Connect (OIDC) we have the notion of __scopes__, or __claims__. These are strings, sent as part of the `scope` request parameter. These claims can be standard (as defined by the specification) or custom.
 
-## Example (implicit flow)
 
-The following URL logs a user in using Google and requests a JWT that authenticates the user.
+Scopes are used in the following cases:
 
-<pre>
-https://example.auth0.com/authorize
-  ?response_type=token
-  &client_id=${account.clientId}
-  &redirect_uri=http://jwt.io&connection=google-oauth2
-  &<strong>scope=openid</strong>
-</pre>
+- When you want to get an `id_token` in the response. In this case, you need to include `openid` as part of the `scope` request parameter: `scope=openid`.
 
-After a successful transaction, the user would be redirected here:
+- When you want to get additional user information, like email or picture. For details refer to [Standard Claims](#standard-claims).
 
-<a href="http://jwt.io/#access_token=s213Mvz1QW7XpjoX&id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuYXV0aDAuY29tLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8MTEyMzk2MzA5MDk2MDM2MzAwMTA5IiwiYXVkIjoiakdNb3cwS08zV0RKRUxXOFhJeG9scWIxWElpdGprWUwiLCJleHAiOjE0Mzc1NjAzODEsImlhdCI6MTQzNzUxMDM4MX0.Rg9nV2j11epQawEB6tvlhnc4ZLBWJ-93YrtdGqBh6NA&token_type=Bearer&state=mep7BLYt1lAsLC94">
-<pre>
-http://jwt.io/
-  #access_token=s213Mvz1QW7XpjoX
-  &<strong>id_token=eyJ0...</strong>
-  &token_type=Bearer
-  &state=mep7BLYt1lAsLC94
-</pre>
-</a>
+- When you want to access an API. In this case, you need to define custom scopes for your API and add these values  as part of the `scope` request parameter, for example: `scope=read:contacts`.
+
+
+## Standard Claims
+
+OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These are user attributes, intended to supply the client with user details such as email, name and picture.
+
+This information can be returned in the `id_token` or in the response from [the /userinfo endpoint](/api/authentication#get-user-info).
+
+__NOTE__: The `updated_at` claim is returned as a [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) instead of an [ISO 8601 date string](https://en.wikipedia.org/wiki/ISO_8601) for consistency with the `exp`, `iat` and `nbf` claims.
+
+### Example: Asking for Standard Claims
+
+In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and get back an `id_token` that contains the user's name, nickname, profile picture and email information.
+
+The following apply:
+- `scope=openid`: will only return the `iss`, `sub`, `aud`, `exp`, `iat` and `at_hash` claims.
+- `scope=openid profile`: will return the claims listed above, plus `name`, `nickname`, `picture` and `updated_at`.
+- `scope=openid profile email`: will return the claims listed above, plus `email` and `email_verified`.
+
+To initiate the authentication flow, send the user to the authorization URL and request an `id_token`:
+
+```text
+https://${account.namespace}/authorize?
+  audience=YOUR_API_AUDIENCE&
+  scope=openid%20profile%20email&
+  response_type=id_token&
+  client_id=${account.clientId}&
+  redirect_uri=${account.callback}&
+  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+  state=YOUR_OPAQUE_VALUE
+```
+
+__NOTE__: For details on the params and how to implement this flow refer to [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant).
+
+Notice that we included three values at the `scope` param: `openid`, `profile` (to get `name`, `nickname` and `picture`) and email (to get the `email` claim).
+
+After Auth0 has redirected back to the app, you can extract the `id_token` from the hash fragment of the URL.
 
 When decoded, this token contains the following claims:
 
 ```json
 {
-  "iss": "https://example.auth0.com/",
-  "sub": "google-oauth2|112396309096036300109",
-  "aud": "jGMow0KO3WDJELW8XIxolqb1XIitjkYL",
-  "exp": 1437560381,
-  "iat": 1437510381
+  "name": "John Doe",
+  "nickname": "john.doe",
+  "picture": "https://myawesomeavatar.com/avatar.png",
+  "updated_at": "2017-03-30T15:13:40.474Z",
+  "email": "john.doe@test.com",
+  "email_verified": false,
+  "iss": "https://${account.namespace}/",
+  "sub": "auth0|USER-ID",
+  "aud": "${account.clientId}",
+  "exp": 1490922820,
+  "iat": 1490886820,
+  "nonce": "crypto-value",
+  "at_hash": "IoS3ZGppJKUn3Bta_LgE2A"
 }
 ```
 
-## Requesting specific claims
+Your app now can retrieve these values and personalize the UI.
 
-The attributes included in the issued token can be controlled with the `scope` parameter as follows:
+## Custom Claims
 
-* `scope=openid`: will only return `iss`, `sub`, `aud`, `exp` and `iat` claims.
-* `scope=openid email nickname favorite_food`: will return claims for `openid` in addition to the `email`, `nickname` and `favorite_food` fields if they are available.
-* `scope=openid profile` (not recommended): will return all the user attributes in the token.
-This can cause problems when sending or receiving tokens in URLs (e.g. when using `response_type=token`) and will likely create an unnecessarily large token(especially with Azure AD which returns a fairly long JWT).
-Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
+In order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format. This is to avoid possible collisions with standard OIDC claims.
 
-> The `scope` parameter can used in the same way when calling the [Resource Owner endpoint](/api/authentication/reference#resource-owner).
+### Example: Add Custom Claims
 
+Suppose an identity provider returns a `favorite_color` claim as part of the user’s profile, and that we’ve used the Auth0 management API to set application-specific information for this user. We also save the `preferred_contact` information as part of the `user_metadata`.
 
-## Further reading
+This would be the profile stored by Auth0:
 
-* [Sending a `scope` parameter with Lock](/libraries/lock/sending-authentication-parameters#scope-string-)
-* [Retrieving the full user profile with an `access_token`](/api/authentication/reference#get-user-info)
-* [Validating a JWT and obtaining the full user profile](/api/authentication/reference#get-token-info)
+```json
+{
+  "email": "jane@example.com",
+  "email_verified": true,
+  "user_id": "custom|123",
+  "favorite_color": "blue",
+  "user_metadata": {
+    "preferred_contact": "email"
+  }
+}
+```
+
+In order to add these claims to the `id_token` we need to create a rule to customize the token, and add these scopes using namespaced format in the rule.
+
+Sample Rule:
+
+```js
+function (user, context, callback) {
+  const namespace = 'https://myapp.example.com/';
+  context.idToken[namespace + 'favorite_color'] = user.favorite_color;
+  context.idToken[namespace + 'preferred_contact'] = user.user_metadata.preferred_contact;
+  callback(null, user, context);
+}
+```
+
+Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant.
+
+While this is not mandatory according to the specification, Auth0 will always enforce namespacing, meaning that any non-namespaced claims will be silently excluded from tokens.
+
+If you need to add custom claims to the access token, the same applies but using `context.accessToken` instead.
+
+## API Scopes
+
+Each API has a set of defined permissions. Clients can request a subset of those defined permissions when they initiate an authorization flow, and include them in the access token as part of the scope request parameter.
