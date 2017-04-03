@@ -1,8 +1,8 @@
 versioning:
     baseUrl: client-auth
-    current: OIDC
+    current: oidc
     versions:
-      - non-OIDC
-      - OIDC
+      - non-oidc
+      - oidc
     defaultArticles:
-      OIDC: index
+      oidc: index
