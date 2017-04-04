@@ -20,14 +20,14 @@ articles:
 
   - title: "Clients"
     url: "/clients"
-  
+
   - title: "APIs"
     url: "/api-auth"
     children:
 
       - title: "APIs Overview"
         url: "/apis"
-        
+
       - title: "Which OAuth Flow to Use"
         url: "/api-auth/which-oauth-flow-to-use"
 
@@ -45,10 +45,10 @@ articles:
 
       - title: "APIs & Trusted Clients"
         url: "/api-auth/grant/password"
-        
+
       - title: "Dynamic Client Registration"
         url: "/api-auth/dynamic-client-registration"
-      
+
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
 
@@ -58,8 +58,8 @@ articles:
       - title: "Username/Password Connection"
         url: "/connections/database"
 
-      - title: "Social Connections"
-        url: "/identityproviders#social"
+      - title: "Social / Enterprise Connections"
+        url: "/identityproviders"
         children:
           - title: "Custom Social Extensions"
             url: "/extensions/custom-social-extensions"
@@ -67,19 +67,16 @@ articles:
       - title: "Custom Database Connections"
         url: "/connections/database/mysql"
 
-      - title: "Enterprise Identity Providers"
-        url: "/identityproviders#enterprise"
-
       - title: "Passwordless Authentication"
         url: "/connections/passwordless"
         children:
           - title: "Overview"
             url: "/connections/passwordless"
 
-          - title: "Email Passwordless Authentication"
+          - title: "Using Email"
             url: "/connections/passwordless/email"
 
-          - title: "SMS Passwordless Authentication"
+          - title: "Using SMS"
             url: "/connections/passwordless/sms"
 
           - title: "FAQ"
@@ -201,7 +198,7 @@ articles:
 
   - title: "Addons/Third-Party Applications"
     url: "/addons"
-  
+
   - title: "Professional Services"
     url: "/services"
 
