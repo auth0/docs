@@ -2,16 +2,15 @@
 section: libraries
 toc: true
 description: How to install, initialize and use auth0.js v8
-url: /libraries/auth0js
 ---
+
+<div class="alert alert-info">
+  This document covers the most up-to-date version of auth0.js - version 8. We recommend using this version, but if you are already using version 7, you can access it using the dropdown at the top of this document. If you are interested in upgrading to this version, take a look at the <a href="/libraries/auth0js">v8 migration guide</a>.
+</div>
 
 # Auth0.js v8 Reference
 
 Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
-
-<div class="alert alert-info">
-  This document covers the most up-to-date version of auth0.js - version 8. If you are already using version 7, you can take a look at the <a href="/libraries/auth0js/v7">v7 reference guide</a>, or take a look at the <a href="/libraries/auth0js/migration-guide">v8 migration guide</a>
-</div>
 
 ## Ready-to-go example
 
@@ -89,13 +88,13 @@ You can choose a method for login based on the type of auth you need in your app
 
 ### webAuth.authorize()
 
-The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below. 
+The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below.
 
 For hosted login, one must call the `authorize` endpoint:
 
 ```js
-webAuth.authorize({ 
-  //Any additional options can go here 
+webAuth.authorize({
+  //Any additional options can go here
 });
 ```
 
@@ -109,13 +108,13 @@ webAuth.authorize({
 
 ### webAuth.popup.authorize()
 
-For popup authentication the `popup.authorize` method can be used. 
+For popup authentication the `popup.authorize` method can be used.
 
 Hosted login with popup:
 
 ```js
-webAuth.popup.authorize({ 
-  //Any additional options can go here 
+webAuth.popup.authorize({
+  //Any additional options can go here
 });
 ```
 
@@ -181,7 +180,7 @@ The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in ord
     redirectUri: '${account.callback}',
     state: 'YOUR_STATE'
   });
-  
+
   // Redirect to url
   // ...
 ```  
@@ -242,7 +241,7 @@ webAuth.passwordlessVerify({
 
 ## Extract the authResult and get user info
 
-After authentication occurs, the `parseHash` method parses a URL hash fragment to extract the result of an Auth0 authentication response. 
+After authentication occurs, the `parseHash` method parses a URL hash fragment to extract the result of an Auth0 authentication response.
 
 ::: panel-info RS256 Requirement
 This method requires that your tokens are signed with RS256 rather than HS256. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
@@ -308,7 +307,7 @@ If you want to use a developer generated `nonce`, then you must provide it as an
 To log out a user, use the `logout` method. This accepts an options object, which can include a `client_id`, and a `returnTo` URL. If you want to navigate the user to a specific URL after the logout, set that URL at the `returnTo` parameter.
 
 ::: panel-info returnTo parameter
-Note that if the `client_id` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}). 
+Note that if the `client_id` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}).
 However, if the `client_id` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
 :::
 
@@ -320,28 +319,28 @@ webAuth.logout({
 ```
 
 ## Sign up
- 
-The `signup` method accepts an `options` object that contains parameters for your signup. Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form. 
 
-```html 
-<h2>Signup Database Connection</h2> 
-<input class="signup-email" /> 
-<input type="password" class="signup-password" /> 
-<input type="button" class="signup-db" value="Signup!" /> 
-<script type="text/javascript"> 
-    $('.signup-db').click(function (e) { 
-        e.preventDefault(); 
-        webAuth.signup({ 
-            connection: 'Username-Password-Authentication', 
-            email: $('.signup-email').val(), 
+The `signup` method accepts an `options` object that contains parameters for your signup. Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
+
+```html
+<h2>Signup Database Connection</h2>
+<input class="signup-email" />
+<input type="password" class="signup-password" />
+<input type="button" class="signup-db" value="Signup!" />
+<script type="text/javascript">
+    $('.signup-db').click(function (e) {
+        e.preventDefault();
+        webAuth.signup({
+            connection: 'Username-Password-Authentication',
+            email: $('.signup-email').val(),
             password: $('.signup-password').val()
-        }, function (err) { 
-            if (err) return alert('Something went wrong: ' + err.message); 
-            return alert('success signup without login!') 
-        }); 
-    }); 
-</script> 
-``` 
+        }, function (err) {
+            if (err) return alert('Something went wrong: ' + err.message);
+            return alert('success signup without login!')
+        });
+    });
+</script>
+```
 
 ## Using renewAuth to acquire new tokens
 
@@ -363,7 +362,7 @@ webAuth.renewAuth({
 This will use postMessage to comunicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behaviour is needed.
 :::
 
-The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe. 
+The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe.
 
 This callback page should only parse the URL hash and post it to the parent document, so that your application can take action depending on the outcome of the silent authentication attempt. The callback page should be something like the following one. It will parse the URL hash and post it to the parent document:
 
@@ -409,7 +408,7 @@ If attempting to set up a password reset functionality, you'll use the `changePa
 
 The user will then receive an email which will contain a link that they can follow to reset their password.
 
-## User management 
+## User management
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 

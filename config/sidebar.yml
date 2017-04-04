@@ -335,7 +335,7 @@ libraries:
     children:
 
       - title: "Auth0.js v8"
-        url: "/libraries/auth0js"
+        url: "/libraries/auth0js/v8"
 
       - title: "Migration Guide v8"
         url: "/libraries/auth0js/migration-guide"
