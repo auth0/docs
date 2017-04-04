@@ -244,11 +244,11 @@ libraries:
     url: "/libraries"
 
   - title: "Lock for Web"
-    url: "/libraries/lock"
+    url: "/libraries/lock/v10"
     children:
 
       - title: "Overview"
-        url: "/libraries/lock"
+        url: "/libraries/lock/v10"
 
       - title: "Configuration Options"
         url: "/libraries/lock/v10/customization"
@@ -275,11 +275,11 @@ libraries:
         url: "/libraries/lock/v10/popup-mode"
 
   - title: "Lock for iOS"
-    url: "/libraries/lock-ios"
+    url: "/libraries/lock-ios/v2"
     children:
 
       - title: "Overview"
-        url: "/libraries/lock-ios"
+        url: "/libraries/lock-ios/v2"
 
       - title: "Styles Customization"
         url: "/libraries/lock-ios/v2/customization"
@@ -335,10 +335,10 @@ libraries:
     children:
 
       - title: "Auth0.js v8"
-        url: "/libraries/auth0js"
+        url: "/libraries/auth0js/v8"
 
       - title: "Migration Guide v8"
-        url: "/libraries/auth0js/migration-guide"
+        url: "/libraries/auth0js/v8/migration-guide"
 
       - title: "Auth0.js v7"
         url: "/libraries/auth0js/v7"

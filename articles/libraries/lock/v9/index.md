@@ -1,10 +1,13 @@
 ---
 section: libraries
 description: Lock V9 documentation
-url: /libraries/lock/v9
+title: Lock 9 for Web
+toc: true
 ---
 
 <%= include('../_includes/_lock-version-9') %>
+
+# Lock 9 for Web
 
 ![Lock Image](/media/articles/libraries/lock/v9/lock-landing.png)
 

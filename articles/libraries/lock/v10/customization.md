@@ -7,6 +7,7 @@ description: Lock 10 has many configurable options that allow you to change the 
 <%= include('../_includes/_lock-version') %>
 
 # Lock: Configurable Options
+
 The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the Lock widget behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
 
 ```js
