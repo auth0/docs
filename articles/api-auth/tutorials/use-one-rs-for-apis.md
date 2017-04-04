@@ -8,18 +8,41 @@ To simplify your authentication process, you can create a single [API](/apis) us
 
 This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](https://github.com/auth0-samples/auth0-api-auth-implicit-sample) if you would like to follow along as you read.
 
-<%= include('../../../_includes/_package', { org: 'auth0-samples', repo: 'auth0-api-auth-implicit-sample', path: '01-Login' }) %>
-
 ## The Sample Application
 
-In the sample application, we have:
+The sample application contains:
 
-* 2 Node.js APIs called `contacts` and `calendars`;
-* 1 resource server representing the 2 APIs mentioned above. This is the Auth0 API we will call `Organizer Service`;
-* Namespaced scopes to access the APIs. We will work with two (`read:contacts` and `read:calendar`), but you can create any number of scopes when you implement your specific business scenario;
-* The [Implicit Grant flow](/api-auth/grant/implicit), which we use to obtain an `access_token` that works with both APIs.
+* 1 Single Page Application (SPA);
+* 2 APIs (called `contacts` and `calendar`).
+
+We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced scopes to demonstrate how you can use the [Implicit Grant](/api-auth/grant/implicit) to access the `calendar` and `contacts` APIs from the SPA. The SPA also uses [Lock](/libraries/lock) to implement the signin screen.
 
 Please see the `README` for additional information on setting up the sample on your local environment.
+
+## The Auth0 Client
+
+If you don't already have an Auth0 Client (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one. This represents your application.
+
+1. In the [Auth0 Dashboard](${manage_url}), click on [Clients](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Client**.
+2. The **Create Client** window will open, allowing you to enter the name of your new Client. Choose **Single Page Web Applications** as the **Client Type**. When done, click on **Create** to proceed.
+3. Navigate to the [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+4. Scroll to the bottom of the [Settings](${manage_url}/#/clients/${account.clientId}/settings) page, where you'll find the *Advanced Settings* section. Under the *OAuth* tab, enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
+
+### Enabling a Connection for Your Client
+
+Connections are sources of users to your application, and if you don't have a sample Connection you can use with your newly-created Client, you will need to configure one. For the purposes of this sample, we'll create a Database Connection.
+
+1. In the [Auth0 Dashboard](${manage_url}), click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand navigation bar. Click **Create Client**.
+2. Click **Create DB Connection**. Provide a **Name** for your Connection, and click **Create** to proceed.
+3. Once your Connection is ready, click over to the *Clients* tab, and enable the Connection for your Client.
+
+### Create a Test User
+
+If you're working with a newly-created Connection, you won't have any users associated with the Connection. Before you can test your sample's login process, you'll need to create and associate a user with your Connection.
+
+1. In the [Auth0 Dashboard](${manage_url}), click on [Users](${manage_url}/#/users) in the left-hand navigation bar. Click **Create User**.
+2. Provide the requested information about the new user (**email address** and **password**), and select your newly-created **Connection**.
+3. Click **Save** to proceed.
 
 ## Create the Auth0 API
 
@@ -61,10 +84,7 @@ You can think of each one as a microservice.
 
 ![](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/new-scopes.png)
 
-At this point, you've:
-
-* Fully configured your Auth0 API;
-* Added the scopes that correspond to the multiple APIs that the Auth0 API represents.
+Add these two scopes to your API and **Save** your changes.
 
 ## Grant Access to the Auth0 API
 
@@ -76,9 +96,11 @@ The rest of this article covers use of the [Implicit Grant](/api-auth/grant/impl
 
 * If you have a **Non Interactive Client**, you can authorize it to request access tokens to your API by executing a [client credentials exchange](/api-auth/grant/client-credentials).
 * If you are building a **Native App**, you can implement the use of [Authorization Codes using PKCE](/api-auth/grant/authorization-code-pkce).
+
+For a full list of available Authorization flows, see [API Authorization](/api-auth).
 :::
 
-The app initiates the flow and redirects the browser to Auth0 (specifically to the ``/authorize` endpoint), so the user can authenticate.
+The app initiates the flow and redirects the browser to Auth0 (specifically to the `/authorize` endpoint), so the user can authenticate.
 
 ```text
 https://YOUR_AUTH0_DOMAIN/authorize?
@@ -89,21 +111,48 @@ client_id=YOUR_CLIENT_ID&
 redirect_uri=http://localhost:3000&
 nonce=NONCE
 ```
+
+For additional information on the call's parameters, refer to the [docs on executing an implementing the Implicit Grant](/api-auth/tutorials/implicit-grant#1-get-the-user-s-authorization).
+
 The SPA executes this call whenever the user clicks **Login**.
 
 ![SPA Home before Login](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/home.png)
 
-:::panel-info Request Parameters
-For additional information on the call's parameters, refer to the [docs on executing an implementing the Implicit Grant](/api-auth/grant/implicit#1-get-the-user-s-authorization).
-:::
-
-Lock handles the login process (you can log in with a user that exists in a [Connection](/identityproviders) enabled for your Auth0 Client).
+Lock handles the login process.
 
 ![SPA Login](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/lock.png)
 
-Next, Auth0 authenticates the user. If this is the first time the user goes through this flow, they will be asked to consent to the scopes that are given to the Client (such as post messages or list contacts).
+Next, Auth0 authenticates the user. If this is the first time the user goes through this flow, they will be asked to consent to the scopes that are given to the Client. In this case, the user's asked to consent to the app reading their contacts and calendar.
 
-If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an `access_token` in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is be done using JavaScript (see the `getAccessToken` function located in `index.html` for the sample app). The app can then use the `access_token` to call the API on behalf of the user.
+![Consent Screen](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/consent-screen.png)
+
+If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an `access_token` in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is done using JavaScript.
+
+```js
+function getParameterByName(name) {
+  var match = RegExp('[#&]' + name + '=([^&]*)').exec(window.location.hash);
+  return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function getAccessToken() {
+  return getParameterByName('access_token');
+}
+
+function getIdToken() {
+  return getParameterByName('id_token');
+}
+
+$(function () {
+  var access_token = getAccessToken();
+  if (access_token) {
+    $('#app').show();
+  } else {
+    return
+  }
+});
+```
+
+The app can then use the `access_token` to call the API on behalf of the user.
 
 After logging in, you can see buttons that allow you to call either of your APIs.
 
