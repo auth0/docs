@@ -6,3 +6,4 @@ versioning:
     - oidc
   defaultArticles:
     legacy: index
+    oidc: index
