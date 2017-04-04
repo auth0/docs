@@ -58,7 +58,7 @@ articles:
       - title: "Username/Password Connection"
         url: "/connections/database"
 
-      - title: "Social and Enterprise Identity Providers"
+      - title: "Social / Enterprise Connections"
         url: "/identityproviders"
         children:
           - title: "Custom Social Extensions"
@@ -73,10 +73,10 @@ articles:
           - title: "Overview"
             url: "/connections/passwordless"
 
-          - title: "Email Passwordless Authentication"
+          - title: "Using Email"
             url: "/connections/passwordless/email"
 
-          - title: "SMS Passwordless Authentication"
+          - title: "Using SMS"
             url: "/connections/passwordless/sms"
 
           - title: "FAQ"
