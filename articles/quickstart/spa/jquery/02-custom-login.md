@@ -167,13 +167,14 @@ $(document).ready(function() {
       show_logged_in();
     } else {
       auth.parseHash({ _idTokenVerification: false }, function(err, authResult) {
+        if (err) {
+          alert('Error: ' + err.errorDescription);
+          show_sign_in();
+        }
         if (authResult && authResult.accessToken && authResult.idToken) {
           window.location.hash = '';
           setUser(authResult);
           show_logged_in();
-        } else if (authResult && authResult.error) {
-          alert('error: ' + authResult.error);
-          show_sign_in();
         }
       });
     }
