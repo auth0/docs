@@ -134,14 +134,13 @@ export class Auth {
 
   public handleAuthentication(): void {
     this.auth0.parseHash({ _idTokenVerification: false }, (err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
-        localStorage.setItem('access_token', authResult.accessToken);
-        localStorage.setItem('id_token', authResult.idToken);
-        this.router.navigate(['/home']);
-      } else if (authResult && authResult.error) {
-        alert('Error: ' + authResult.error);
+      if (err) {
+        alert('Error: ' + err);
       }
+      window.location.hash = '';
+      localStorage.setItem('access_token', authResult.accessToken);
+      localStorage.setItem('id_token', authResult.idToken);
+      this.router.navigate(['/home']);
     });
   }
 
