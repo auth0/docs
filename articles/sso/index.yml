@@ -5,4 +5,4 @@ versioning:
     - legacy
     - oidc
   defaultArticles:
-    legacy: index
+    legacy: sso

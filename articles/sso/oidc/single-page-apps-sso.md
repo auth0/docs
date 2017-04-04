@@ -12,7 +12,7 @@ Single Page Applications (SPA) are user-friendly apps that load a single HTML pa
 Suppose you have two applications:
 
 * App 1: app1.com (single page app)
-* App 2: app3.com (regular web app)
+* App 2: app2.com (regular web app)
 
 If you've implemented SSO and the user logs in either of the two applications, the user should automatically be logged in to the other application.
 
