@@ -28,9 +28,9 @@ If you don't already have an Auth0 Client (of type **Single Page Web Application
 3. Navigate to the [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 4. Scroll to the bottom of the [Settings](${manage_url}/#/clients/${account.clientId}/settings) page, where you'll find the *Advanced Settings* section. Under the *OAuth* tab, enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
 
-### Enabling a Connection for Your Client
+### Enable a Connection for Your Client
 
-Connections are sources of users to your application, and if you don't have a sample Connection you can use with your newly-created Client, you will need to configure one. For the purposes of this sample, we'll create a Database Connection.
+[Connections](/identityproviders) are sources of users to your application, and if you don't have a sample Connection you can use with your newly-created Client, you will need to configure one. For the purposes of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
 
 1. In the [Auth0 Dashboard](${manage_url}), click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand navigation bar. Click **Create Client**.
 2. Click **Create DB Connection**. Provide a **Name** for your Connection, and click **Create** to proceed.
@@ -137,19 +137,6 @@ function getParameterByName(name) {
 function getAccessToken() {
   return getParameterByName('access_token');
 }
-
-function getIdToken() {
-  return getParameterByName('id_token');
-}
-
-$(function () {
-  var access_token = getAccessToken();
-  if (access_token) {
-    $('#app').show();
-  } else {
-    return
-  }
-});
 ```
 
 The app can then use the `access_token` to call the API on behalf of the user.
