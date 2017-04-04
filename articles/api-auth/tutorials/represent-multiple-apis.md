@@ -2,7 +2,7 @@
   description: How to use multiple APIs and represent them as a single API in Auth0.
 ---
 
-# How to Manage Multiple APIs Using a Single Auth0 API
+# How to Represent Multiple APIs Using a Single Auth0 API
 
 To simplify your authentication process, you can create a single [API](/apis) using the Auth0 Dashboard to represent all of your existing APIs. Doing this allows you to implement just one authentication flow. You can then control access to the individual APIs by assigning the appropriate scopes.
 
@@ -54,13 +54,13 @@ Please see [APIs](/apis) for detailed information on working with APIs in the Da
 
 Click **Create API**.
 
-![](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/dashboard-apis.png)
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/dashboard-apis.png)
 
 You will be prompted to provide a **name** and **identifier**, as well as choose the **signing algorithm**, for your new API.
 
 For the purposes of this article, we'll call our API `Organizer Service` and set its unique identifier to `organize`. By default, the signing algorithm for the tokens this API issues is **RS256**, which we will leave as is.
 
-![](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/create-new-api.png)
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/create-new-api.png)
 
 Once you've provided the required details, click **Create** to proceed.
 
@@ -68,7 +68,7 @@ Once you've provided the required details, click **Create** to proceed.
 
 After Auth0 creates your API, you'll be directed to its *Quick Start* page. At this point, you'll need to create the appropriate **Scopes**, which you can do via the *Scopes* page.
 
-![](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/scopes-page.png)
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/scopes-page.png)
 
 Scopes allow you to define the API data accessible to your client applications. You'll need one scope for each API represented and action. For example, if you want to `read` and `delete` from an API called `samples`, you'll need to create the following scopes:
 
@@ -82,7 +82,7 @@ For our sample application, we'll add two scopes:
 
 You can think of each one as a microservice.
 
-![](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/new-scopes.png)
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/new-scopes.png)
 
 Add these two scopes to your API and **Save** your changes.
 
@@ -116,15 +116,15 @@ For additional information on the call's parameters, refer to the [docs on execu
 
 The SPA executes this call whenever the user clicks **Login**.
 
-![SPA Home before Login](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/home.png)
+![SPA Home before Login](/media/articles/api-auth/tutorials/represent-multiple-apis/home.png)
 
 Lock handles the login process.
 
-![SPA Login](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/lock.png)
+![SPA Login](/media/articles/api-auth/tutorials/represent-multiple-apis/lock.png)
 
 Next, Auth0 authenticates the user. If this is the first time the user goes through this flow, they will be asked to consent to the scopes that are given to the Client. In this case, the user's asked to consent to the app reading their contacts and calendar.
 
-![Consent Screen](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/consent-screen.png)
+![Consent Screen](/media/articles/api-auth/tutorials/represent-multiple-apis/consent-screen.png)
 
 If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an `access_token` in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is done using JavaScript.
 
@@ -156,4 +156,4 @@ The app can then use the `access_token` to call the API on behalf of the user.
 
 After logging in, you can see buttons that allow you to call either of your APIs.
 
-![SPA Home after Login](/media/articles/api-auth/tutorials/multiple-apis-one-resource-server/apis.png)
+![SPA Home after Login](/media/articles/api-auth/tutorials/represent-multiple-apis/apis.png)
