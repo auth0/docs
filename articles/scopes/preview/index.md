@@ -1,5 +1,7 @@
 ---
-description: Overview of scopes with a client-side authorization transaction.
+title: Scopes
+description: Overview of scopes.
+toc: true
 ---
 
 # Scopes
@@ -17,7 +19,7 @@ Scopes are used in the following cases:
 
 - When you want to get additional user information, like email or picture. For details refer to [Standard Claims](#standard-claims).
 
-- When you want to access an API. In this case, you need to define custom scopes for your API and add these values  as part of the `scope` request parameter, for example: `scope=read:contacts`.
+- When you want to access an API. In this case, you need to define custom scopes for your API and add these values  as part of the `scope` request parameter, for example: `scope=read:contacts`. For details refer to [API Scopes](#api-scopes).
 
 
 ## Standard Claims
@@ -121,4 +123,21 @@ If you need to add custom claims to the access token, the same applies but using
 
 ## API Scopes
 
-Each API has a set of defined permissions. Clients can request a subset of those defined permissions when they initiate an authorization flow, and include them in the access token as part of the scope request parameter.
+Scopes allow you to define the API data accessible to your client applications. When you create an API in Auth0, you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
+
+Once you create an API and define the scopes, the client applications can request these defined permissions when they initiate an authorization flow, and include them in the access token as part of the scope request parameter.
+
+If you wanted to expand [our example](#example-asking-for-standard-claims) to include also the `read:contacts` permission, then to initiate the authentication flow, using Implicit Grant, you would use something like this:
+
+```text
+https://${account.namespace}/authorize?
+  audience=YOUR_API_AUDIENCE&
+  scope=openid%20profile%20email%20read:contacts&
+  response_type=id_token&
+  client_id=${account.clientId}&
+  redirect_uri=${account.callback}&
+  nonce=YOUR_CRYPTOGRAPHIC_NONCE
+  state=YOUR_OPAQUE_VALUE
+```
+
+For more information on how to define an API in Auth0 dashboard refer to [APIs Overview](/apis).
