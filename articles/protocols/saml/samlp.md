@@ -26,8 +26,8 @@ These are the parameters used to configure a SAML Identity Provider:
 ```
   __NOTE__: You need to replace the `ACCESS_TOKEN` header value, with a Management APIv2 Token. For information on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 
-* The __SAML Request Binding__ (sent to the IdP from Auth0): `HTTP-Redirect`
-* The __SAML Response Binding__ (how the SAML token is received by Auth0 from IdP): `HTTP-Post`
+* The __SAML Request Binding__ (also called the __Protocol Binding__): sent to the IdP from Auth0, set as either `HTTP-Redirect` or `HTTP-Post`
+* The __SAML Response Binding__ : how the SAML token is received by Auth0 from IdP, set as `HTTP-Post`
 * The __NameID format__: `unspecified`
 * The SAML assertion, and the SAML response can be individually or simultaneously signed.
 * The __SingleLogout service URL__, where the SAML Identity Provider will send logout requests and responses, is: `https://${account.namespace}/logout`. Note: SAML logout requests must be signed by the Identity Provider.
