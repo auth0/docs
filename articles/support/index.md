@@ -133,16 +133,11 @@ Ticket response times will vary based on your support plan (shown below).  Note 
 
 Auth0's Business Hours are as follows:
 
-<table class="table">
-  <tr>
-    <th>Standard Business Hours</th>
-    <th>Critical Support Hours</th>
-  </tr>
-  <tr>
-    <td>Monday, 7am - Friday, 6pm Pacific Time</br> 24/5 coverage during this period</td>
-    <td>Standard Support: 24/5</br> Enterprise and Preferred Support: 24/7/265</td>
-  </tr>
-</table>
+**Standard Business Hours**
+Monday, 7am - Friday, 6pm Pacific Time | 24/5 coverage during this period
+
+**Critical Support Hours**
+Standard Support: 24/5 | Enterprise and Preferred Support: 24/7/265
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.  Response times may also be delayed during periods of heavy ticket volume.
 
