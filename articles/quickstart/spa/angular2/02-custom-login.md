@@ -135,7 +135,7 @@ export class Auth {
   public handleAuthentication(): void {
     this.auth0.parseHash({ _idTokenVerification: false }, (err, authResult) => {
       if (err) {
-        alert(`Error: ${err.errorDescription}`)
+        alert(`Error: <%= "${err.errorDescription}" %>`)
       }
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
