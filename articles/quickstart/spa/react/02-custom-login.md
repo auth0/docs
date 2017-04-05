@@ -181,7 +181,7 @@ export default class AuthService extends EventEmitter {
   parseHash(hash) {
     this.auth0.parseHash({ hash, _idTokenVerification: false }, (err, authResult) => {
       if (err) {
-        alert(`Error: ${err.errorDescription}`)
+        alert(`Error: <%= "${err.errorDescription}" %>`)
       }
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setToken(authResult.accessToken, authResult.idToken)
