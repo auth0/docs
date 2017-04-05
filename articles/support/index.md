@@ -51,11 +51,11 @@ Auth0's public [question and answer community](https://ask.auth0.com) offers sup
 
 ## Support Center
 
-In addition to the Auth0 Community, paid subscribers can create a private ticket via [Support Center](${env.DOMAIN_URL_SUPPORT}). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
+In addition to the Auth0 Community, paid subscribers can create a private ticket via [Support Center](https://support.auth0.com/). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
 
 [Learn more about creating tickets with Support Center](/support/tickets)
 
-Critical Production issues should always be reported via the [Support Center](${env.DOMAIN_URL_SUPPORT}) for fastest response.
+Critical Production issues should always be reported via the [Support Center](https://support.auth0.com/) for fastest response.
 
 ### Ticket Response Times
 
@@ -78,7 +78,7 @@ Ticket response times will vary based on your support plan (shown below).  Note 
       <td>Enterprise with Preferred Support Option</td>
     </tr>
     <tr>
-      <th>[Support Hours](#support-hours)</th>
+    <th><a href="#support-hours">Support Hours</a></th>
       <td>Standard: 24 hours per day, Monday - Friday</td>
       <td>Standard: 24 hours per day, Monday - Friday / Critical Outage: 24 Hours Per Day, 7 days per week, 365 days per year</td>
       <td>Standard: 24 hours per day, Monday - Friday / Critical Outage: 24 Hours Per Day, 7 days per week, 365 days per year</td>
@@ -146,7 +146,7 @@ Critical: Defined as an Auth0 issue severely impacting your live or in-productio
 - There is no workaround;
 - Application is in live, production status.
 
-Critical Production issues should always be reported via the [Support Center](${env.DOMAIN_URL_SUPPORT}) for fastest response.
+Critical Production issues should always be reported via the [Support Center](https://support.auth0.com/) for fastest response.
 
 #### Legacy Subscription Plan Mapping
 
