@@ -10,37 +10,46 @@ description: Customizing the appearance of your Lock widget can be important for
 You can customize the appearance of your Lock widget in a few different ways. The best and safest way to do so is with the provided JavaScript options.
 
 ## JavaScript Options
+
 You can set up a variety of customizations to your Lock via the `options` parameter when you instantiate your Lock. Some of them allow you to customize your UI. The UI customization options are a work in progress - we expect to be adding more as we go. 
 
 First, you'll define the `options` object, containing whichever options you're wanting to customize. Then you'll need to include that options object as the third parameter when you instantiate Lock; more on that below.
 
 ### Theming Options
+
 There are a couple of theming options currently available, namespaced under the `theme` property.
 
 #### logo {String}
+
+![Lock - Theme - Logo](/media/articles/libraries/lock/v10/customization/lock-theme-logo.png)
+
 The value for `logo` is an URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
 
 ```js
 var options = {
   theme: {
-    logo: 'https://example.com/assets/logo.png'
+    logo: 'https://example.com/logo.png'
   }  
 };
 ```
 
 #### primaryColor {String}
+
+![Lock - Theme - Primary Color](/media/articles/libraries/lock/v10/customization/lock-theme-primarycolor.png)
+
 The `primaryColor` property defines the primary color of the Lock; all colors used in the widget will be calculated from it. This option is useful when providing a custom `logo`, to ensure all colors go well together with the `logo`'s color palette. Defaults to `#ea5323`.
 
 ```js
 var options = {
   theme: {
-    logo: 'https://example.com/assets/logo.png',
-    primaryColor: 'green'
+    logo: 'https://example.com/logo.png',
+    primaryColor: '#31324F'
   }  
 };
 ```
 
 ### Customizing Text
+
 The `languageDictionary` option allows customization of every piece of text displayed in the Lock. Defaults to {}. See below for an example.
 
 ```js
@@ -52,11 +61,14 @@ var options = {
 };
 ```
 
+![Lock - Language Dictionary](/media/articles/libraries/lock/v10/customization/lock-languagedictionary.png)
+
 ::: panel-info Language Dictionary
 For a complete list of the items able to be customized using `languageDictionary`, see the [English Language Dictionary Specification](https://github.com/auth0/lock/blob/master/src/i18n/en.js) in the repository.
 :::
 
 ### Instantiating Lock
+
 Finally, you'll want to go ahead and instantiate your Lock, with the `options` object that you've defined with your custom options in it.
 
 ```js
@@ -65,6 +77,7 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', options)
 ```
 
 ## Overriding CSS
+
 Customizing your Lock by overriding its CSS isn't the recommended method with Lock 10. The issue is that with new releases of Lock, some styling may change, leading to unintended problems if you are overriding the CSS. Additonally, it's possible to simply overlook use of styles in other places and while the change may look fine in one view, it might not in another.
 
 If you still intend to override CSS to further style your Lock, we recommend that you use a specific patch version of Lock rather than a major or minor version, so that you limit the amount of unexpected results that may occur when you alter the styles, and then another patch is deployed that might cause unexpected behavior in your UI due to the changes. This can be done by ensuring that you specify that patch verion (`x.y.z`) when including Lock, or downloading it.
