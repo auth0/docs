@@ -68,3 +68,62 @@ In addition to the Auth0 Community, paid subscribers can create a private ticket
 [Learn more about creating tickets with Support Center](/support/tickets)
 
 Critical Production issues should always be reported via the [Support Center](https://support.auth0.com/) for fastest response.
+
+## Ticket Response Times
+
+Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the [Auth0 Community](https://ask.auth0.com).
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Standard Support</th>
+      <th>Enterprise Support</th>
+      <th>Preferred Support</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+      <th>Subscription Plan</th>
+      <td>Developer, Developer Pro. Legacy plans: Gold, Silver and Home Grown</td>
+      <td>Enterprise</td>
+      <td>Enterprise with Preferred Support Option</td>
+    </tr>
+    <tr>
+      <th><a href="#support-hours">Support Hours</a></th>
+      <td>Standard: 24 hours per day, Monday - Friday</td>
+      <td>Standard: 24 hours per day, Monday - Friday / Critical Outage: 24 Hours Per Day, 7 days per week, 365 days per year</td>
+      <td>Standard: 24 hours per day, Monday - Friday / Critical Outage: 24 Hours Per Day, 7 days per week, 365 days per year</td>
+    </tr>
+    <tr>
+      <th>First Response Time Target</th>
+      <td>2 Business Days</td>
+      <td>Standard: 3 business hours / Critical Outage: 1 hour</td>
+      <td>Standard: 1 business hour / Critical Outage: 1 hour</td>
+    </tr>
+    <tr>
+      <th>Subsequent Response Time Target</th>
+      <td>Standard: 2 business days</td>
+      <td>Standard: 1 business day / Critical Outage: ongoing within support hours</td>
+      <td>Standard: 1 business hour / Critical Outage: ongoing within support hours</td>
+    </tr>
+    <tr>
+      <th>Ticket Response Channels</th>
+      <td class="warning">Support Center</td>
+      <td class="success">Support Center, chat, web conference</td>
+      <td class="success">Support Center, chat, web conference</td>
+    </tr>
+    <tr>
+      <th><a href="/onboarding/sprint#sprint-benefits-by-support-plan">Onboarding Experience</a></th>
+      <td>Self-service in app and email</td>
+      <td>Sprint</td>
+      <td>Sprint Preferred</td>
+    </tr>
+    <tr>
+      <th><a href="/onboarding/sprint#what-happens-after-the-sprint-program-finishes-">Ongoing Customer Success Engagement</a> </th>
+      <td>Not Included</td>
+      <td>Customer Success Team </td>
+      <td>Allocated Customer Success Manager</td>
+    </tr>
+  </tbody>
+</table>
