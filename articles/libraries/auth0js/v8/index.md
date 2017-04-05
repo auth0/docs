@@ -469,7 +469,7 @@ var auth0Manage = new auth0.Management({
 
 ### Getting the user profile
 
-In order to get the user profile data, use the `getUser()` method, with the `userId` and a callback as parameters. The method returns the user profile. Note that the `userID` required here will be the part after the delimiter if using the `user_id` fetched from the `client.userInfo` method.
+In order to get the user profile data, use the `getUser()` method, with the `userId` and a callback as parameters. The method returns the user profile. Note that the `userID` required here will be the same one fetched from the `client.userInfo` method.
 
 ```js
 auth0Manage.getUser(userId, cb);
