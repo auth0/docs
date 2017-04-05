@@ -56,19 +56,19 @@ The outcome of these obligations is a Success Plan that will be co-managed by yo
       <th>Architecture guidance</th>
       <td>delivered via online assets and webinars</td>
       <td>delivered via online assets and webinars, with CSM able to co-ordinate other limited guidance</td>
-      <td>Delivered in [Jumpstart services engagement](/docs/services/jumpstart)</td>
+      <td>Delivered in <a href="/services/jumpstart">Jumpstart services engagement</a></td>
     </tr>
     <tr>
       <th>Auth0 foundations training</th>
       <td>delivered via online assets and webinars</td>
       <td>delivered via online assets and webinars, with CSM able to co-ordinate other limited training</td>
-      <td>Delivered in [Jumpstart services engagement](/docs/services/jumpstart)</td>
+      <td>Delivered in <a href="/services/jumpstart">Jumpstart services engagement</a></td>
     </tr>
     <tr>
       <th>Auth0 advanced training</th>
-      <td>Limited online assets and optional [Services Engagement](/docs/services#educate) for additional fee</td>
-      <td>Limited online assets and optional [Services Engagement](/docs/services#educate) for additional fee</td>
-      <td>Limited online assets and optional [Services Engagement](/docs/services#educate) for additional fee</td>
+      <td>Limited online assets and optional <a href="/services#educate">Services Engagement</a> for additional fee</td>
+      <td>Limited online assets and optional <a href="/services#educate">Services Engagement</a> for additional fee</td>
+      <td>Limited online assets and optional <a href="/services#educate">Services Engagement</a> for additional fee</td>
     </tr>
     <tr>
       <th>Success Plan</th>
