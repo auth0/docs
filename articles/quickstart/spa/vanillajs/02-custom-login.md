@@ -24,7 +24,7 @@ Include the auth0.js library in your application. It can be retrieved from Auth0
 ```html
 <!-- index.html -->
 
-<script type="text/javascript" src="https://cdn.auth0.com/js/auth0/8.4/auth0.min.js"></script>
+<script src="${auth0js_urlv8}"></script>
 ```
 
 ## Create a Login Template
