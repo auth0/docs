@@ -1142,6 +1142,6 @@ module.exports = [
     to: '/libraries/lock-ios/v2'
   },
     from: '/sso',
-    to: '/sso/legacy/'
+    to: '/sso/legacy'
   }
 ];
