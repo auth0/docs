@@ -31,13 +31,12 @@ Auth0 provides support in alignment with the [Terms of Service](https://auth0.co
 
 Official support provided by Auth0 is limited to the languages, platforms, versions, and technologies specifically listed as such on this page. Anything that is *not* listed, or listed as **community-supported**, is ineligible for Auth0 support.
 
-In the event that you have questions involving unsupported items, you may:
+In the event that you have questions involving unsupported items, you may post your question on the Auth0 public forum.
 
-* Post your question on the Auth0 public forum;
-* Seek direct assistance by contacting the developers responsible for the items (such as specific libraries or software development kits (SDKs).
+For community-supported items, you can seek assistance by contacting the developers responsible for those items (such as submitting issues on the GitHub repositories for the specific libraries or software development kits (SDKs)).
 
 <div class="alert alert-info">
-  Auth0 support is limited to the most recent version of the technologies listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
+  Auth0 support is limited to the most recent version of the technologies listed (unless otherwise specified). If you are using an older version, you will be required to upgrade prior to seeking support.
 </div>
 
 ### Definitions
@@ -90,11 +89,11 @@ The following matrix lists the level of support Auth0 will provide with regards 
   </tr>
   <tr>
     <td>Microsoft Internet Explorer 10</td>
-    <td>TBD</td>
+    <td>**</td>
   </tr>
   <tr>
     <td>Microsoft Edge</td>
-    <td></td>
+    <td>**</td>
   </tr>
   <tr>
     <td>Mozilla Firefox</td>
@@ -390,103 +389,86 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 <table class="table">
   <tr>
     <th></th>
-    <th>Quickstart Provided + Auth0 Support</th>
     <th>Bug Fixes Provided</th>
     <th>Community Support Only</th>
   </tr>
   <tr>
     <td><a href="/quickstart/native/android">Android</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/chrome">Chrome Extension</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/cordova">Cordova</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/electron">Electron</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/ionic">Ionic</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/ionic2">Ionic 2</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/ios-objc">iOS - Objective-C</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/ios-swift">iOS - Swift</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/phonegap">Phonegap</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/react-native-android">React Native - Android</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/react-native-ios">React Native - iOS</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/windows-uwp-csharp">Windows Universal App C#</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/windows-uwp-javascript">Windows Universal App JavaScript</a></td>
-    <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/windowsphone">Windows Phone</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/wpf-winforms">WPF/Winforms</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/native/xamarin">Xamarin</a></td>
-    <td></td>
     <td></td>
     <td>X</td>
   </tr>
@@ -497,73 +479,61 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 <table class="table">
   <tr>
     <th></th>
-    <th>Quickstart + Auth0 Support</th>
     <th>Bug Fixes Provided</th>
     <th>Community Support Only</th>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/angularjs">Angular 1.x</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/angular2">Angular 2</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/aurelia">Aurelia</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/cyclejs">Cycle.js</a></td>
-    <td></td>
     <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/emberjs">Ember</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/ember2js">Ember 2</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/vanilla">JavaScript</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/jquery">jQuery</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/react">React</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/socket-io">Socket.io</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/vuejs">Vue.js</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
@@ -574,115 +544,96 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 <table class="table">
   <tr>
     <th></th>
-    <th>Quickstart + Auth0 Support</th>
     <th>Bug Fixes Provided</th>
     <th>Community Support Only</th>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/apache">Apache</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/asp-classic">ASP Classic</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/aspnet-owin">ASP.NET (OWIN)</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/aspnet">ASP.NET (System.Web)</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/aspnet-core">ASP.NET Core</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/golang">Go</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/java">Java</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/java-spring-mvc">Java Spring MVC</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/java-spring-security-mvc">Java Spring Security</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/nancyfx">NancyFX</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/nodejs">Node.js</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/php">PHP</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/laravel">PHP (Laravel)</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/symfony">PHP (Symfony)</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/scala">Play 2 Scala</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/python">Python</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/rails">Ruby on Rails</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/servicestack">ServiceStack</a></td>
-    <td></td>
     <td></td>
     <td>X</td>
   </tr>
@@ -692,109 +643,91 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 <table class="table">
   <tr>
     <th></th>
-    <th>Quickstart + Auth0 Support</th>
     <th>Bug Fixes</th>
     <th>Community Support Only</th>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/wcf-service">.NET WCF</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/aspnet-core-webapi">ASP.NET Core Web API</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/webapi-owin">ASP.NET Web API (OWIN)</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/aspnet-webapi">ASP.NET Web API (System.Web)</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/falcor">Falcor</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/golang">Go</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/hapi">Hapi.js</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/java-spring-security">Java Spring Security</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/nginx">Nginx</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/nodejs">Node.js (Express)</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/php">PHP</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/php-laravel">PHP (Laravel)</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/php-symfony">PHP (Symfony)</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/python">Python</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/relay">Relay</a></td>
     <td></td>
-    <td></td>
     <td>X</td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/ruby">Ruby</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/rails">Ruby on Rails</a></td>
-    <td></td>
     <td>X</td>
     <td></td>
   </tr>
