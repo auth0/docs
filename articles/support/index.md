@@ -66,3 +66,5 @@ Auth0's public [question and answer community](https://ask.auth0.com) offers sup
 In addition to the Auth0 Community, paid subscribers can create a private ticket via [Support Center](${env.DOMAIN_URL_SUPPORT}). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
 
 [Learn more about creating tickets with Support Center](/support/tickets)
+
+Critical Production issues should always be reported via the [Support Center](https://support.auth0.com/) for fastest response.
