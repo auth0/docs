@@ -1,6 +1,6 @@
 ---
 title: Multifactor Authentication
-description: This tutorial demonstartes how to add Multifactor Authentication to your Angular 2 app with Auth0.
+description: This tutorial demonstartes how to add Multifactor Authentication to your Angular app with Auth0.
 budicon: 243
 ---
 

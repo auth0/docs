@@ -1,6 +1,6 @@
 ---
 title: Custom Login
-description: This tutorial demonstrates how to use the Auth0 Angular 1.x SDK to add authentication and authorization to your mobile app.
+description: This tutorial demonstrates how to use the Auth0 AngularJS SDK to add authentication and authorization to your mobile app.
 ---
 
 <%= include('../../../_includes/_package', {

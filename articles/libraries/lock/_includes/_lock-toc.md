@@ -1,6 +1,6 @@
 ## Lock: Table of Contents
 
-* [Getting Started With Lock](/libraries/lock#lock-10-installation) - Methods of installation and an example app setup
+* [Getting Started With Lock](/libraries/lock/v10#lock-10-installation) - Methods of installation and an example app setup
 * [Lock Configuration Options](/libraries/lock/v10/customization) -  Altering Lock's behavior for your project's needs
 * [Lock UI Customization](/libraries/lock/v10/ui-customization) - Customizing Lock's look and feel
 * [Lock API Reference](/libraries/lock/v10/api) - The Lock API reference

@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   def self.from_token_payload payload
     # Returns a valid user, `nil` or raise
     # e.g.
-    #   self.find payload["sub"]
+    #   self.find_or_create_by auth_id: payload["sub"]
   end
 end
 ```
@@ -96,7 +96,7 @@ config.token_audience = -> { Rails.application.secrets.auth0_client_id }
 ```
 
 ```ruby
-config.token_secret_signature_key = -> { JWT.base64url_decode Rails.application.secrets.auth0_client_secret }
+config.token_secret_signature_key = -> { Rails.application.secrets.auth0_client_secret }
 ```
 
 ### 4. Call Your API

@@ -16,7 +16,7 @@ Click on any scenario to get more information.
 <section class="architecture-scenarios-content">
   <div class="showcase-section clearfix">
     <h5>Application Configurations</h5>
-    <p>These scenarios describe the different type of technology architectures you application may use, and how Auth0 can help for each of those</p>
+    <p>These scenarios describe the different type of technology architectures your application may use, and how Auth0 can help for each of those</p>
     <% cache.find('articles/architecture-scenarios/application', {sort: 'order'}).forEach(article => { %>
       <a href="<%- article.url %>" class="architecture-scenarios-card">
         <article>

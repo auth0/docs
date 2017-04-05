@@ -4,10 +4,6 @@ description: How to execute a Resource Owner Password Grant
 
 # Execute the Resource Owner Password Grant
 
-::: panel-danger Warning
-Support for Refresh Tokens will be available in a future release.
-:::
-
 ## Configure your tenant for the Resource Owner Password Grant
 
 The Password Grant relies on a connection capable of authenticating users via username and password. In order to indicate which connection the Password Grant should use you need to set the value of the `default_directory` tenant setting.

@@ -1,6 +1,6 @@
 ---
 title: Linking Accounts
-description: This tutorial demonstrates how to integrate Auth0 with Angular 1.x to link accounts
+description: This tutorial demonstrates how to integrate Auth0 with AngularJS to link accounts
 ---
 
 <%= include('../../../_includes/_package', {

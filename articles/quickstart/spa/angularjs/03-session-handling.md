@@ -1,6 +1,6 @@
 ---
 title: Session Handling
-description: This tutorial demonstrates how to integrate Auth0 with Angular 1.x to add session handling and logout to your web app.
+description: This tutorial demonstrates how to integrate Auth0 with AngularJS to add session handling and logout to your web app.
 ---
 
 <%= include('../../../_includes/_package', {

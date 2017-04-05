@@ -28,7 +28,7 @@ The auth0.js library can either be retrieved from Auth0's CDN or from npm. You s
 ```html
 <!-- index.html  -->
 
-<script src="https://cdn.auth0.com/js/auth0/8.4/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/auth0/8.5/auth0.min.js"></script>
 ```
 
 **npm**
@@ -85,7 +85,7 @@ Create a template with a `form` which allows users to pass in their email and pa
       Log In
   </button>
   <button
-    type="submit"
+    type="button"
     class="btn btn-default"
     (click)="auth.signup(username.value, password.value)">
       Sign Up
@@ -125,7 +125,7 @@ export class Auth {
     domain: '${account.namespace}',
     clientID: '${account.clientId}',
     // specify your desired callback URL
-    callbackURL: 'http://localhost:3000',
+    redirectUri: 'http://localhost:3000',
     responseType: 'token id_token'
   });
 
@@ -134,13 +134,14 @@ export class Auth {
 
   public handleAuthentication(): void {
     this.auth0.parseHash({ _idTokenVerification: false }, (err, authResult) => {
+      if (err) {
+        alert(`Error: ${err.errorDescription}`)
+      }
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         localStorage.setItem('access_token', authResult.accessToken);
         localStorage.setItem('id_token', authResult.idToken);
         this.router.navigate(['/home']);
-      } else if (authResult && authResult.error) {
-        alert('Error: ' + authResult.error);
       }
     });
   }

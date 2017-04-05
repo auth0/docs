@@ -62,6 +62,10 @@ In the `login` method, call `lock.show()` to display the login widget.
           localStorage.setItem('profile', JSON.stringify(profile));
 
         });
+        
+        lock.on('authorization_error', function(error) {
+          console.log(error);
+        });
       });
     }
 
@@ -123,6 +127,7 @@ Add the Lock widget and the **angular-jwt** helper library by referencing `auth0
       options: {
         auth: {
           redirect: false,
+          sso: false,
           params: {
             scope: 'openid',
             device: 'Mobile device'

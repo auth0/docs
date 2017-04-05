@@ -175,8 +175,6 @@ Click the edit icon beside the **Authorization Type**, and select *AWS_IAM*. Now
 
 Our Single Page Application (SPA) will access web API methods from a domain different from that of the page. The *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to allow access to the AWS API Gateway. Typically, the browser will first issue an `OPTIONS` request to see what actions the site will permit.
 
-> See [Enable CORS for a Method in API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html) for details.
-
 Select `/pets` under Resources, and click **Create Method**. In the drop-down, select **OPTIONS**, and click the **checkmark** to save the setting.
 
 ![Create Options Method](/media/articles/integrations/aws-api-gateway/part-2/create-options-method.png)

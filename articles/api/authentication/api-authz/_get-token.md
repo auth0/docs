@@ -105,6 +105,10 @@ If you have just executed the [Authorization Code Grant](#authorization-code-gra
 1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant). Click **OAuth2 Code Exchange**.
 
 
+### Error Codes
+
+For the complete error code reference for this endpoint refer to [Errors > POST /oauth/token](#post-oauth-token).
+
 ### More Information
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
@@ -197,6 +201,11 @@ If you have just executed the [Authorization Code Grant (PKCE)](#authorization-c
 1. At the *OAuth2 / OIDC* tab, set the field **Authorization Code** to the code you retrieved from [Authorization Code Grant](#authorization-code-grant-pkce-), and the **Code Verifier** to the key. Click **OAuth2 Code Exchange**.
 
 
+### Error Codes
+
+For the complete error code reference for this endpoint refer to [Errors > POST /oauth/token](#post-oauth-token).
+
+
 ### More Information
 
 - [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
@@ -285,6 +294,10 @@ This is the OAuth 2.0 grant that server processes utilize in order to access an 
 
 1. At the *OAuth2 / OIDC* tab, click **OAuth2 Client Credentials**.
 
+
+### Error Codes
+
+For the complete error code reference for this endpoint refer to [Errors > POST /oauth/token](#post-oauth-token).
 
 ### More Information
 
@@ -394,6 +407,10 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 - If you don't request specific scopes, all scopes defined for the audience will be returned due to the implied trust to the client in this grant. You can customize the scopes returned in a rule. For more information, refer to [Calling APIs from Highly Trusted Clients](/api-auth/grant/password).
 - To add realm support set the `grant_type` to `http://auth0.com/oauth/grant-type/password-realm`, and the `realm` to the realm the user belongs. This maps to a connection in Auth0. For example, if you have configured a database connection for your internal employees and you have named the connection `employees`, then use this value. For more information on how to implement this refer to: [Realm Support](/api-auth/tutorials/password-grant#realm-support).
 - In addition to username and password, Auth0 may also require the end-user to provide an additional factor as proof of identity before issuing the requested scopes. In this case, the request described above will return an `mfa_required` error along with an `mfa_token`. You can use these tokens to request a challenge for the possession factor and validate it accordingly. For details refer to [Resource Owner Password and MFA](#resource-owner-password-and-mfa).
+
+### Error Codes
+
+For the complete error code reference for this endpoint refer to [Errors > POST /oauth/token](#post-oauth-token).
 
 ### More Information
 - [Calling APIs from Highly Trusted Clients](/api-auth/grant/password)
