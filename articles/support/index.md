@@ -135,8 +135,8 @@ Auth0's Business Hours are as follows:
 
 <table class="table">
   <tr>
-    <td>Standard Business Hours</td>
-    <td>Critical Support Hours</td>
+    <th>Standard Business Hours</th>
+    <th>Critical Support Hours</th>
   </tr>
   <tr>
     <td>Monday, 7am - Friday, 6pm Pacific Time</br> 24/5 coverage during this period</td>
