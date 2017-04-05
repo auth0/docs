@@ -1140,5 +1140,8 @@ module.exports = [
   {
     from: '/libraries/lock-ios',
     to: '/libraries/lock-ios/v2'
+  },
+    from: '/sso',
+    to: '/sso/legacy/index'
   }
 ];

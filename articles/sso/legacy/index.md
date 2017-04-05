@@ -1,5 +1,4 @@
 ---
-url: /sso
 toc: true
 description: Introduction to Single Sign On (SSO) with Auth0.
 ---
