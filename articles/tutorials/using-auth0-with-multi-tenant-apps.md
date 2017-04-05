@@ -1,5 +1,5 @@
 ---
-description: This articles describes how to implement and use Auth0 with multi-tenancy.
+description: This articles describes ways to implement and use Auth0 with multi-tenancy.
 toc: true
 ---
 
