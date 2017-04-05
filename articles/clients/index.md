@@ -101,7 +101,7 @@ Once you have configured your Client, some common next steps to take are:
 
   **NOTE**: For background theory on client authentication flows, refer to [Client Authentication](/client-auth).
 
-- Use our latest [API Authorization](/api-auth) features to **call an API**. You need to [configure your tenant for the new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth).
+- Use our latest [API Authorization](/api-auth) features to **call an API**.
 
 - **Use [our APIs](/api/info)**.
 
