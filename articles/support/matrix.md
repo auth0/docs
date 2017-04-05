@@ -88,7 +88,7 @@ The following matrix lists the level of support Auth0 will provide with regards 
     <td>***</td>
   </tr>
   <tr>
-    <td>Microsoft Internet Explorer 10</td>
+    <td>Microsoft Internet Explorer 11</td>
     <td>**</td>
   </tr>
   <tr>
