@@ -141,3 +141,29 @@ Standard Support: 24/5 | Enterprise and Preferred Support: 24/7/265
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.  Response times may also be delayed during periods of heavy ticket volume.
 
 If you have specific support requirements or are interested in the __Enterprise Support__ or __Preferred Support__ option, please [contact sales](https://auth0.com/?contact=true).
+
+## Ticket Severity
+
+Standard: Defined as an Auth0 issue impacting your live or in-production systems or your ability to progress to production where:
+
+- Business processes and functions are degraded;
+- A group or groups of users are impacted;
+- There is a reasonable workaround;
+- Application is not yet in live, production status.
+
+Critical: Defined as an Auth0 issue severely impacting your live or in-production systems where:
+
+- Major business processes and functions are stopped for all or most users;
+- Majority of users are significantly impacted, for example: unable to log in;
+- There is no workaround;
+- Application is in live, production status.
+
+Critical Production issues should always be reported via the [Support Center](https://support.auth0.com/) for fastest response.
+
+### Legacy Subscription Plan Mapping
+
+- Subscriptions previously known as "Free" map to the current "Free" support classification
+- Subscriptions previously known as "Gold/Silver/Home Grown"  map to the current "Standard" support plan.
+- Customers that have Developer or Developer Pro subscriptions map to the current "Standard" support plan.
+- Support plans previously known as "Enterprise" and "Premium" support map to the current "Enterprise" support plan.
+- The "Preferred" support plan is a new plan available for purchase as of October 2016.
