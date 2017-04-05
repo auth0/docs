@@ -52,3 +52,17 @@ The Auth0 Support Center offers ticketed support, where dedicated support specia
 Customers with an Enterprise subscription plan receive extended support hours (including an option to add 24/7 availability) with quicker response times, as well as onboarding assistance.
 
 Please contact the [Auth0 Sales Team](sales@auth0.com) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
+
+## Support Channels
+
+Auth0 offers the following support channels.
+
+### Auth0 Community
+
+Auth0's public [question and answer community](https://ask.auth0.com) offers support for __all__ subscribers. All customers, even those on free accounts, can use our public [discussion forum](https://ask.auth0.com) to search existing questions and receive support from our engineers if their question has not already been asked. Response times to questions may vary.
+
+### Support Center
+
+In addition to the Auth0 Community, paid subscribers can create a private ticket via [Support Center](${env.DOMAIN_URL_SUPPORT}). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
+
+[Learn more about creating tickets with Support Center](/support/tickets)
