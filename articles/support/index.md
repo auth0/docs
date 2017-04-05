@@ -167,3 +167,22 @@ Critical Production issues should always be reported via the [Support Center](ht
 - Customers that have Developer or Developer Pro subscriptions map to the current "Standard" support plan.
 - Support plans previously known as "Enterprise" and "Premium" support map to the current "Enterprise" support plan.
 - The "Preferred" support plan is a new plan available for purchase as of October 2016.
+
+### Support Languages
+
+We provide all technical support in English, but we will make an effort to accommodate other languages if possible.
+
+## Pricing
+
+For pricing information on Auth0's subscription plans, please see [Pricing Page] or your [Account Settings](${manage_url}/#/account/billing/subscription).
+
+## Additional Support Resources
+
+### Auth0 Status
+The [Auth0 status page](https://status.auth0.com) contains information on current production status and will be updated during an outage.  After an outage, a root-cause analysis is performed and made available via the page.
+
+Please check the [status page](https://status.auth0.com) before filing a ticket.  If the status page contains a notification about an outage, our team will already be working on restoring service as quickly as possible.  Once the issue is resolved, the status page will be updated to reflect that.  There is a button on the page to subscribe to notifications of any changes.  A root-cause analysis will be published to the status page once an investigation has been done.
+
+### Whitehat Support Tickets
+
+All customers, even those with free subscription plans, may report security concerns via [Auth0 Whitehat](https://auth0.com/whitehat).
