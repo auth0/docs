@@ -118,3 +118,7 @@ For details on the validations that should be performed by the API, refer to [Ve
 <%= include('../../_includes/_api-auth-customize-tokens') %>
 
 If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then the rule is running during the password exchange.
+
+## Optional: Configure MFA
+
+In case you need stronger authentication, than username and password, you can configure MultiFactor Authentication (MFA) using the Resource Owner Password Grant. For details on how to implement this refer to [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
