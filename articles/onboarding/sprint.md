@@ -54,14 +54,14 @@ The outcome of these obligations is a Success Plan that will be co-managed by yo
     </tr>
     <tr>
       <th>Architecture guidance</th>
-      <td>delivered via online assets and webinars</td>
-      <td>delivered via online assets and webinars, with CSM able to co-ordinate other limited guidance</td>
+      <td>Delivered via online assets and webinars</td>
+      <td>Delivered via online assets and webinars, with CSM able to co-ordinate other limited guidance</td>
       <td>Delivered in <a href="/services/jumpstart">Jumpstart services engagement</a></td>
     </tr>
     <tr>
       <th>Auth0 foundations training</th>
-      <td>delivered via online assets and webinars</td>
-      <td>delivered via online assets and webinars, with CSM able to co-ordinate other limited training</td>
+      <td>Delivered via online assets and webinars</td>
+      <td>Delivered via online assets and webinars, with CSM able to co-ordinate other limited training</td>
       <td>Delivered in <a href="/services/jumpstart">Jumpstart services engagement</a></td>
     </tr>
     <tr>
@@ -117,8 +117,8 @@ The table below outlines examples of the different ongoing engagement delivered 
     </tr>
       <tr>
       <th>Success Plan management and review</th>
-      <td>At key subscription milestones and when off plan</td>
-      <td>Annual reviews and when off plan</td>
+      <td>When off plan</td>
+      <td>At key subscription milestones, annual reviews and when off plan</td>
       <td>Ongoing with allocated Customer Success Manager</td>
     </tr>
     <tr>
