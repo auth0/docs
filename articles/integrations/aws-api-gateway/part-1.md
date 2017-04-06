@@ -98,7 +98,11 @@ In the [AWS Lambda Console](https://console.aws.amazon.com/lambda), select **Cre
 
 ![Get Started with Lambda](/media/articles/integrations/aws-api-gateway/part-1/lambda-get-started-now.png)
 
-On the *Select blueprint* screen, click **Skip** (without selecing a particular blueprint). You will then be prompted to *Configure triggers*. Click **Next** to proceed. You do not have to do so at this point.
+On the *Select blueprint* screen, click **Blank Function**.
+
+![Blank function template](/media/articles/integrations/aws-api-gateway/part-1/lambda-blank-function.png)
+
+You will then be prompted to *Configure triggers*. Click **Next** to proceed. You do not have to do so at this point.
 
 Finally, you will be asked to *Configure function*.
 
@@ -136,7 +140,7 @@ exports.handler = function(event, context) {
 
 For *Role*, select *APIGatewayLambdaExecRole*. Leave all other settings at their default values.
 
-![Lambda Handler](/media/articles/integrations/aws-api-gateway/part-1/lambda-handler-role.png)
+![Configure Lambda function](/media/articles/integrations/aws-api-gateway/part-1/configure-function2.png)
 
 Click **Next** to review the information you provided. If all looks correct, click **Create function**.
 
