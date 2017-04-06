@@ -1,4 +1,4 @@
-# POST /oauth/token
+# POST /oauth/access_token
 
 ### HTTP 400
 
