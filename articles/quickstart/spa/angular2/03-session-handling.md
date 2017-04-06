@@ -9,7 +9,7 @@ budicon: 280
   repo: 'auth0-angularjs2-systemjs-sample',
   path: '03-Session-Handling',
   requirements: [
-    'Angular 2.0.1'
+    'Angular 2.4.10'
   ]
 }) %>
 
