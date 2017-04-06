@@ -11,12 +11,12 @@ Auth0 allows you to store **metadata**, or data related to each user that has no
 
 **NOTE**: An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
 
-### Working with Metadata
+### How to Read, Create or Edit Metadata
 
-You can manage your metadata in one of two ways:
+You can manage your metadata by either:
 
-* Using [Rules](/rules);
-* Using the [Management API](/api/management/v2#!/Users/patch_users_by_id).
+* [Using Rules](/rules/metadata-in-rules)
+* [Auth0's Management API](/metadata/management-api)
 
 ## Metadata Usage
 
@@ -97,6 +97,7 @@ The following fields may not be stored in the `app_metadata` field:
 ## Further Reading
 
 * [User Data Storage Guidance](/user-profile/user-data-storage)
-* [Using Metadata in Rules](/metadata/rules)
-* [Using Metadata with Management APIv2](/metadata/apiv2)
+* [User Metadata in Rules](/rules/metadata-in-rules)
+* [Using Metadata with Auth0's Management API](/metadata/management-api)
+* [Management API: Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id)
 * [Using Metadata with Auth0 Lock](/metadata/lock)
