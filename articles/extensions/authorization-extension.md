@@ -206,27 +206,6 @@ Click the **Explorer** section to see the API endpoints that can be called.
 
 ![Explorer](/media/articles/extensions/authorization/api-explorer.png)
 
-### Securing the API
-
-::: panel-warning Notice
-You must complete the following step to secure this API endpoint.
-:::
-
-In order to secure this API you must also create a rule that controls who is allowed to request a token for using this API. Generally, the API is only used from non-interactive clients (i.e. other server apps) so you can simply deny all user requests for a token using the following rule.
-
-```js
-function (user, context, callback) {
-  var audience = "";
-  audience = audience || (context.request.query && context.request.query.audience);
-  audience = audience || (context.request.body && context.request.body.audience);
-
-  if (audience === "urn:auth0-authz-api") {
-    return callback(new UnauthorizedError("no_end_users"));
-  }
-  callback(null, user, context);
-}
-```
-
 ## Rule Behavior for the Authorization Extension
 
 In addition to API access, you can also deploy a rule that reaches out to the extension each time a user logs in. Once the rule is enabled, it will do the following:
