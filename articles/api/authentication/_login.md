@@ -170,6 +170,11 @@ Given the social provider's `access_token` and the `connection`, this endpoint w
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
 
 
+### Error Codes
+
+For the complete error code reference for this endpoint refer to [Errors > POST /oauth/access_token](#post-oauth-access_token).
+
+
 ### More Information
 - [Call an Identity Provider API](/tutorials/calling-an-external-idp-api)
 - [Identity Provider Access Tokens](/tokens/idp)
