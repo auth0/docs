@@ -29,9 +29,9 @@ You can get started by either downloading the seed project or if you would like 
 
 </div>
 
-## 2. Add `InAppBrowser` Plugin
+## 2. Add `InAppBrowser` and `WhiteList` Plugin
 
-You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
+You must install the `InAppBrowser` and `WhiteList` plugins from Cordova to be able to show the Login popup and communicate with Auth0 endpoints. For that, just run the following commands:
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -42,6 +42,10 @@ and then add the following configuration to the `config.xml` file:
   <param name="ios-package" value="CDVInAppBrowser" />
   <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
 </feature>
+
+<!-- Allow links to auth0 -->
+<allow-navigation href="*.auth0.com" />
+<access origin="*.auth0.com" />
 ```
 
 ## 3. Follow the Front End Quickstarts
@@ -58,11 +62,13 @@ Follow the [quickstart guide](/quickstart/spa) for the specific technology you a
 
 This means that the `InAppBrowser` plugin wasn't installed successfully by Cordova. Try any of the following:
 
-* Reinstall the `InAppBrowser` plugin
+* Reinstall the plugins
 
 ```bash
 cordova plugin remove cordova-plugin-inappbrowser
+cordova plugin remove cordova-plugin-whitelist
 cordova plugin add cordova-plugin-inappbrowser
+cordova plugin add cordova-plugin-whitelist
 ```
 * Remove the platform and re add it
 
@@ -84,10 +90,12 @@ cordova platform add android
 iOS:
 ```bash
 cp plugins/cordova-plugin-inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
+cp plugins/cordova-plugin-whitelist/src/ios/* platforms/ios/[yourAppName]/Plugins/cordova-plugin-whitelist/
 ```
 Android:
 ```bash
 cp plugins/cordova-plugin-inappbrowser/src/android/* platforms/android/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
+cp plugins/cordova-plugin-whitelist/src/android/* platforms/android/[yourAppName]/Plugins/cordova-plugin-whitelist/
 ```
 
 #### Blank page with an OK after signin
