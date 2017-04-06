@@ -46,7 +46,7 @@ btn_login.addEventListener('click', function() {
 <button type="submit" id="btn-login">Sign In</button>
 ```
 
-After authentication, Auth0 will redirect the user back to your application with an identifying token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
+After authentication, Auth0 will redirect the user back to your application with an identifying token.
 
 In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh:
 
