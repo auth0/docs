@@ -44,8 +44,23 @@ and then add the following configuration to the `config.xml` file:
 </feature>
 
 <!-- Allow links to auth0 -->
-<allow-navigation href="*.auth0.com" />
 <access origin="*.auth0.com" />
+```
+
+In addition to the whitelist, you must update the [Content Security Policy](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/#content-security-policy) in your application to match the requirements of your application. Please note that you'll need to set the CSP in every page of the application for SPAs this usually the `index.html`. To do so add teh following to the `<head>` of the `.html` files in your application:
+
+```xml
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * https://${account.namespace}.auth0.com is required to make calls to the authentication api
+    * https://cdn.auth0.com/ is needed to load scripts from Auth0
+    * Create your own at http://cspisawesome.com
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com https://${account.namespace}.auth0.com; style-src 'self' 'unsafe-inline' https://cdn.auth0.com; media-src *; img-src https:; font-src https://cdn.auth0.com;" />
 ```
 
 ## 3. Follow the Front End Quickstarts
