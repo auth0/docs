@@ -73,6 +73,8 @@ Click the **SAVE** button at the top to save these changes.
 
 If you want to allow users from external organizations (i.e. other Azure directories) to log in, you will need to enable the **Multi-Tenant** flag for this application. In the **Settings** section, click **Properties**. Locate the **Multi-tenanted** toggle at the bottom and select **Yes**. Finally click the **SAVE** button at the top to save these changes.
 
+![Enable Multi-tenanted](/media/articles/connections/enterprise/azure-active-directory/enable-multi-tenanted.png)
+
 ## 4. Create the key
 
 Next you will need to create a key which will be used as the **Client Secret** in the Auth0 connection. Click on **Keys** from the **Settings** menu.
@@ -93,9 +95,11 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
 Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. Select **Windows Azure AD**. In the **Configuration** tab you will configure global settings, including data about the app registration you just created in Auth0.
 
+![Dashboard Config](/media/articles/connections/enterprise/azure-active-directory/azure-ad-5-1.png)
+
 For the **Client ID**, this value is stored as the **Application ID** in Azure AD.
 
-![Application ID](/media/articles/connections/enterprise/azure-active-directory/azure-ad-5-1.png)
+![Application ID](/media/articles/connections/enterprise/azure-active-directory/azure-ad-5-2.png)
 
 For the **Client Secret** use the value that was shown for the key when you created it in the previous step.
 
@@ -105,15 +109,19 @@ Click **SAVE** when you have finished.
 
 ## 6. Create Connections
 
-After configuring the global settings that link Auth0 to the app registration in Azure AD, you will create one or more connections. Go to the **Connections** tab and click on the **CREATE NEW CONNECTION** button.
+After configuring the global settings that link Auth0 to the app registration in Azure AD, you will create one or more connections. Go to [Connections->Enterprise](${manage_url}/#/connections/enterprise) and click on the **CREATE NEW** button next to **Microsoft Azure AD**.
+
+![Add connection](/media/articles/connections/enterprise/azure-active-directory/add-new-connection.png)
 
 Set the name of the **Microsoft Azure AD Domain** and under **Domain Aliases** put any email domain that corresponds to the connection. 
 
-**Multi-tenant applications**: if you are creating [multi-tenant applications](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory) where you want to dynamically accept users from new directories, you will setup only connection and enable the **Use the common endpoint** toggle. By enabling this flag, Auth0 will redirect users to Azure's common login endpoint, and Azure itself will be doing *Home Realm Discovery* based on the domain of the email address. 
+![Connection settings](/media/articles/connections/enterprise/azure-active-directory/connection-settings.png)
 
-Choose the protocol. **Open ID Connect** is the default, and should be selected in the majority of cases. This is independent of the protocol that your application will use to connect to Auth0. 
+**Multi-tenant applications**: if you are creating [multi-tenant applications](/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory) where you want to dynamically accept users from new directories, you will setup only one connection and enable the **Use Common Endpoint** toggle. By enabling this flag, Auth0 will redirect users to Azure's common login endpoint, and Azure itself will be doing *Home Realm Discovery* based on the domain of the email address. 
 
-Complete the **App ID Uri** field if you intent to use active authentication ([/oauth/ro](/api/authentication#database-ad-ldap-active-).
+Then choose the protocol. **Open ID Connect** is the default, and should be selected in the majority of cases. This is independent of the protocol that your application will use to connect to Auth0. 
+
+Next complete the **App ID Uri** field if you intend to use [active authentication](/api/authentication#database-ad-ldap-active-).
 
 Click the **SAVE** button. Auth0 will provide you with an URL that you will need to give to the Azure AD administrator. This URL will allow the administrator to *give consent* to the application so that users can log in. 
 
