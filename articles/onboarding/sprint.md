@@ -79,7 +79,7 @@ The outcome of these obligations is a Success Plan that will be co-managed by yo
   </tbody>
 </table>
 
-**Live sessions are delivered remotely via web conference.*
+* *Live sessions are delivered remotely via web conference.*
 
 #### Timing
 
@@ -129,4 +129,5 @@ The table below outlines examples of the different ongoing engagement delivered 
     </tr>
   </tbody>
 </table>
-**Live sessions are delivered remotely via web conference.*
+
+* *Live sessions are delivered remotely via web conference.*
