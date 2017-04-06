@@ -1143,6 +1143,6 @@ module.exports = [
   },
   {
     from: '/sso',
-    to: '/legacy/index'
+    to: '/sso/legacy/index'
   }
 ];
