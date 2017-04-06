@@ -58,13 +58,7 @@ All the available configurable parameters are supported, see [User configurable 
 
 After authentication, the `protect` function will handle the token parsing and store it to `localStorage`.
 
-## 4. Configure Secure Calls to Your API
-
-To configure secure calls to the API you are creating, you need to decorate all your newly secured component's HTTP calls with the [JSON Web Token](/jwt) that has been stored in `localStorage`. To do that, you can set a decorator that will be called on each HTTP request and where you can add the `Authorization` header.
-
-${snippet(meta.snippets.securize)}
-
-## 5. Retrieve the User Profile and Display User Information
+## 4. Retrieve the User Profile and Display User Information
 
 Once a component is protected, it is given a `props` object that contains a `token$` stream that can be used to either:
 - be decoded to get some basic information about your user (sub, nickname ... depending on your `authParams.scope` setting);
@@ -78,7 +72,7 @@ ${snippet(meta.snippets.query)}
 
 To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
-## 6. Implement the Logout
+## 5. Implement the Logout
 
 To log out, you simply need to send the `logout` action to the Auth0 driver.
 
