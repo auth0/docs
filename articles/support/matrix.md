@@ -317,43 +317,43 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   <tr>
     <td>angular-auth0</td>
     <td></td>
-    <td>X</td>
+    <td>v2</td>
     <td></td>
   </tr>
   <tr>
     <td>angular-lock</td>
     <td></td>
-    <td>X</td>
+    <td>v2</td>
     <td></td>
   </tr>
   <tr>
     <td>auth0-servlet</td>
     <td></td>
-    <td>X</td>
+    <td>v3</td>
     <td></td>
   </tr>
   <tr>
     <td>auth0-spring-mvc</td>
     <td></td>
-    <td>X</td>
+    <td>v1</td>
     <td></td>
   </tr>
   <tr>
     <td>auth0-spring-security-mvc</td>
     <td></td>
-    <td>X</td>
+    <td>v1</td>
     <td></td>
   </tr>
   <tr>
     <td>auth0-spring-security-api</td>
-    <td>X</td>
+    <td>v1</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td>auth0-aspnet-owin</td>
     <td></td>
-    <td>v1</td>
+    <td>v2</td>
     <td></td>
   </tr>
   <tr>
@@ -366,17 +366,17 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <td>Auth0.Windows.UWP</td>
     <td></td>
     <td></td>
-    <td>v0</td>
+    <td>v1</td>
   </tr>
   <tr>
     <td>Auth0.WinformsWPF</td>
     <td></td>
     <td></td>
-    <td>v0</td>
+    <td>v0.9</td>
   </tr>
   <tr>
     <td>auth0-oidc-client-net</td>
-    <td>X</td>
+    <td>v1</td>
     <td></td>
     <td></td>
   </tr>
