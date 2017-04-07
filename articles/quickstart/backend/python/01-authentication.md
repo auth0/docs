@@ -17,7 +17,7 @@ flask-cors
 
 ## Create the JWT Validation Decorator
 
-By default, your API will be set up to use RS256 as the algorithm for signing tokens. Since RS256 works by using a private/public keypair, tokens can be verified against the public key for your Auth0 account. This public key is accessible at [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json).
+<%= include('../_includes/_api_jwks_description_no_link') %>
 
 Add a decorator which verifies the `access_token` against your JWKS.
 
