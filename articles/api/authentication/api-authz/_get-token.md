@@ -376,6 +376,10 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 | `scope` | String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace. |
 | `realm` | String value of the realm the user belongs. Set this if you want to add realm support at this grant. For more information on what realms are refer to [Realm Support](/api-auth/grant/password#realm-support). |
 
+### Request headers
+| Parameter        | Description |
+|:-----------------|:------------|
+| `auth0-forwarded-for` | End user ip as an string value. Set this if you want brute force protection to work in server side scenarios. For more information on how and when to use this header refer to [Using resource owner password from server side](/api-auth/tutorials/using-resource-owner-password-from-server-side). |
 
 ### Test with Authentication API Debugger
 
@@ -401,7 +405,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 
 ## Resource Owner Password and MFA
 
-In addition to username and password, you may also ask your users to provide an additional factor as proof of identity before issuing the requested tokens. 
+In addition to username and password, you may also ask your users to provide an additional factor as proof of identity before issuing the requested tokens.
 
 The first step, is to request a challenge based on the challenge types supported by the Client application and the end-user (see next paragraph). This is an optional step, since it is not required if you already know that `otp` is supported.
 
@@ -485,7 +489,7 @@ Content-Type: application/json
   "link": "#resource-owner-password-and-mfa"
 }) %>
 
-This endpoint lets you request a challenge based on the challenge types supported by the Client application and the end-user. The challenge type indicates the channel or mechanism on which to get the challenge and thus prove possession. 
+This endpoint lets you request a challenge based on the challenge types supported by the Client application and the end-user. The challenge type indicates the channel or mechanism on which to get the challenge and thus prove possession.
 
 For details on the supported challenge types refer to [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
 
