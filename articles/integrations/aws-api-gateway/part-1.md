@@ -238,11 +238,7 @@ In the left pane, select `/pets` and then click the **CreateMethod** button.
 
 ![Create Pets Method](/media/articles/integrations/aws-api-gateway/part-1/create-pets-method.png)
 
-In the drop-down, select *GET* and click the checkmark button.
-
-![Get Pets Method](/media/articles/integrations/aws-api-gateway/part-1/pets-method-get.png)
-
-Provide the following configuration values for the `GET` method:
+In the drop-down, select *GET* and click the checkmark button. Provide the following configuration values for the `GET` method:
 
 * **Integration type**: Lambda Function;
 * **Lambda Region**: Region you are located in;
