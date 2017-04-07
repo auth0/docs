@@ -15,4 +15,5 @@ snippets:
   setup: server-apis/rails/setup
   use: server-apis/rails/use
 articles:
-  - authenticate
+  - 00-getting-started
+  - 01-authentication
