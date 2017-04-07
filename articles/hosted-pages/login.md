@@ -77,12 +77,13 @@ When calling `authorize`, you can also pass other parameters by URL as required.
 webAuth.authorize({
   login_hint: "Here is a cool hint"
 });
+```
 
 The value of `login_hint` can be accessed within the Hosted Login Page code via `config.extraParams.login_hint`.
 
 You can take a look at the `@@config@@` object in further detail to help you further determine how to use it:
 
-```javascript
+```
 // Decode configuration options
 var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 
