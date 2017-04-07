@@ -31,6 +31,8 @@ The Password Dictionary option, when enabled, allows the use of a password dicti
 
 Additionally, you can use the text area here and add your own prohibited passwords, one per line. These can be items that are specific to your company, or passwords that your own research has shown you are commonly used in general or at your company in specific.
 
+Note that Auth0 uses case-insensitive comparison with the Password Dictionary feature.
+
 ## Personal Data
 
 Enabling this option will force a user that is setting their password to not set passwords that contain any part of the user's personal data. This includes:
