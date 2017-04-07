@@ -1,5 +1,5 @@
 ---
-title: Authenticate
+title: Authentication
 description: This tutorial demonstrates how to add authentication and authorization to an Express.js API
 ---
 
