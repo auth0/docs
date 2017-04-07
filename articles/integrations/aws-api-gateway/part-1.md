@@ -111,7 +111,7 @@ Finally, you will be asked to *Configure function*.
 Populate the appropriate fields with the following information:
 
 * **Name**: `GetPetInfo`
-* **Runtime**: Node.js
+* **Runtime**: Node.js 6.10
 
 Paste the following code to read pet information from the DynamoDB table into the **Lambda function code** area.
 
@@ -138,7 +138,7 @@ exports.handler = function(event, context) {
 };
 ```
 
-For *Role*, select *APIGatewayLambdaExecRole*. Leave all other settings at their default values.
+For *Role*, select **Choose an existing role**. Next, choose **APIGatewayLambdaExecRole** as the *Existing Role*. Leave all other settings at their default values.
 
 ![Configure Lambda function](/media/articles/integrations/aws-api-gateway/part-1/configure-function2.png)
 
@@ -187,6 +187,8 @@ Test the function by clicking the *Actions* drop-down and choosing **Configure s
 ```
 
 You should see an empty return result (`{}`).
+
+![Execution Result](/media/articles/integrations/aws-api-gateway/part-1/execution-result-update.png)
 
 Return to your `GetPetInfo` Lambda function and click **Test** again. You should now see a single pet.
 
@@ -303,6 +305,8 @@ Return to the *GET* method, and click **Test** again to see that the response bo
 ]
 ```
 
+![Get Method Request Test](/media/articles/integrations/aws-api-gateway/part-1/get-method-request-test2.png)
+
 #### Method: `OPTIONS`
 
 Instead of creating a lambda function that performs no action, you can create an `OPTIONS` method on the API Gateway.
@@ -312,6 +316,9 @@ In the left pane, select `/pets`, and click **CreateMethod**. In the drop down, 
 ![Configure Options Method](/media/articles/integrations/aws-api-gateway/part-1/options-method.png)
 
 Leaving the Response Body blank, click **Test**. You should receive a Response Body indicating `no data`.
+
+![Options Test](/media/articles/integrations/aws-api-gateway/part-1/options-test.png)
+
 
 At this point, the AWS Lambda functions and the Amazon API Gateway methods are defined with no security.
 
