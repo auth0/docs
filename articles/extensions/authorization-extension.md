@@ -206,6 +206,27 @@ Click the **Explorer** section to see the API endpoints that can be called.
 
 ![Explorer](/media/articles/extensions/authorization/api-explorer.png)
 
+### Securing API Access
+
+::: panel-warning Notice
+In order to protect this API from unauthorized access you must have the rule called `auth0-authorization-restrict-access` in your account. This rule is added by the authorization extension.
+:::
+
+The rule prevents users from generating tokens. Tokens for this API should only be generated for non-interactive clients. If the rule is removed or deleted you can add it back manually. 
+
+```
+function (user, context, callback) {
+  var req = context.request;
+  if (req.query && req.query.audience === "urn:auth0-authz-api") {
+    return callback(new UnauthorizedError());
+  }
+  if (req.body && req.body.audience === "urn:auth0-authz-api") {
+    return callback(new UnauthorizedError());
+  }
+  callback(null, user, context);
+}
+```
+
 ## Rule Behavior for the Authorization Extension
 
 In addition to API access, you can also deploy a rule that reaches out to the extension each time a user logs in. Once the rule is enabled, it will do the following:
