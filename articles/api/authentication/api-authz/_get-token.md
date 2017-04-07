@@ -379,7 +379,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 ### Request headers
 | Parameter        | Description |
 |:-----------------|:------------|
-| `auth0-forwarded-for` | End user ip as an string value. Set this if you want brute force protection to work in server side scenarios. For more information on how and when to use this header refer to [Using resource owner password from server side](/api-auth/tutorials/using-resource-owner-password-from-server-side). |
+| `auth0-forwarded-for` | End-user ip as a string value. Set this if you want brute-force protection to work in server-side scenarios. For more information on how and when to use this header, refer to [Using resource owner password from server-side](/api-auth/tutorials/using-resource-owner-password-from-server-side). |
 
 ### Test with Authentication API Debugger
 
@@ -489,7 +489,7 @@ Content-Type: application/json
   "link": "#resource-owner-password-and-mfa"
 }) %>
 
-This endpoint lets you request a challenge based on the challenge types supported by the Client application and the end-user. The challenge type indicates the channel or mechanism on which to get the challenge and thus prove possession.
+This endpoint lets you request a challenge based on the challenge types supported by the Client application and the end user. The challenge type indicates the channel or mechanism on which to get the challenge and thus prove possession.
 
 For details on the supported challenge types refer to [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
 
