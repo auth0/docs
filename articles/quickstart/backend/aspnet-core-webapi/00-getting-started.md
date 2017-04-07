@@ -5,17 +5,6 @@ description: This Quickstart will guide you through the various tasks related to
 budicon: 715
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-webapi-sample',
-  path: '00-Starter-Seed',
-  requirements: [
-    '.NET Core 1.0',
-    'Visual Studio 2015 Update 3 (Optional)',
-    'Visual Studio Code (Optional)'
-  ]
-}) %>
-
 <%= include('../../../_includes/_api_auth_intro') %>
 
 This Quickstart will guide you through the various tasks related to using Auth0-issued Access Tokens to secure your ASP.NET Core Web API.
