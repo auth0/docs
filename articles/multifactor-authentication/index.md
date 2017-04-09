@@ -66,3 +66,6 @@ You may [configure rules](/rules) for custom MFA processes, which allow you to d
 ## MFA Using a Custom Provider
 
 For a detailed look at implementing a custom MFA provider, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey) as an introduction.
+
+## NEED TO HIGHLIGHT DIFFERENCES BETWEEN PRIVATE SAAS AND CLOUD
+
