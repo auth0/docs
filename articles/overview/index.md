@@ -14,7 +14,7 @@ You can connect any application (written in any language or on any stack) to Aut
 * **Custom** credentials: username + passwords
 * **Social** network logins: Google, Facebook, Twitter, and any OAuth2, OAuth1 or OpenID Connect provider
 * **Enterprise** directories: LDAP, Google Apps, Office 365, ADFS, AD, SAML-P, WS-Federation, etc.
-* **Passwordless** systems: TouchID, one time codes on SMS, or email
+* **Passwordless** systems: Touch ID, one time codes on SMS, or email
 
 ## Video: Developer Overview
 This video will give you a quick walkthrough of Auth0 and how it will help save you time adding identity to your application.
