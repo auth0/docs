@@ -172,7 +172,7 @@ articles:
             url: "/multifactor-authentication/developer"
 
           - title: "For Users"
-            url: "/multifactor-authentication/user-guide"
+            url: "/multifactor-authentication/guardian/user-guide"
 
       - title: "SMS"
         url: "/multifactor-authentication"
