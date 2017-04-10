@@ -242,24 +242,15 @@ If you wish to execute special logic unique to the Authorization Code (PKCE) gra
 
 ## Read more
 
-[Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
-
-[How to configure an API in Auth0](/apis)
-
-[Mobile/Native App Quickstarts](/quickstart/native)
-
-[Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
-
-[Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
-
-[Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
-
-[The OAuth 2.0 protocol](/protocols/oauth2)
-
-[The OpenID Connect protocol](/protocols/oidc)
-
-[Tokens used by Auth0](/tokens)
-
-[RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
-
-[RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)
+- [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
+- [How to configure an API in Auth0](/apis)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Mobile/Native App Quickstarts](/quickstart/native)
+- [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
+- [Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
+- [Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
+- [The OAuth 2.0 protocol](/protocols/oauth2)
+- [The OpenID Connect protocol](/protocols/oidc)
+- [Tokens used by Auth0](/tokens)
+- [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+- [RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)
