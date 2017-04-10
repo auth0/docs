@@ -55,11 +55,6 @@ Throughout this article, we will use the following terms to indicate the varying
     <td>Auth0 has <i>not</i> formally tested, but will support and may provide bug fixes (if applicable) for these items.</td>
   </tr>
   <tr>
-    <th>Best Effort</th>
-    <td>*</td>
-    <td>Auth0 may provide assistance if the appropriate resources are available.</td>
-  </tr>
-  <tr>
     <th>Community</th>
     <td></td>
     <td>Auth0 does <i>not</i> support these items, and all assistance regarding these items will come from the general community.</td>
@@ -79,6 +74,10 @@ The following matrix lists the level of support Auth0 will provide with regards 
 </div>
 
 <table class = "table">
+  <tr>
+    <td></td>
+    <td><a href="#definitions">Level of Support</a></td>
+  </tr>
   <tr>
     <td>Apple Safari</td>
     <td>**</td>
@@ -112,6 +111,10 @@ The following matrix lists the level of support Auth0 will provide with regards 
 
 <table class = "table">
   <tr>
+    <td></td>
+    <td><a href="#definitions">Level of Support</a></td>
+  </tr>
+  <tr>
     <td>Apple Safari</td>
     <td>**</td>
   </tr>
@@ -137,6 +140,10 @@ The following matrix lists the level of support Auth0 will provide with regards 
 
 <table class = "table">
   <tr>
+    <td></td>
+    <td><a href="#definitions">Level of Support</a></td>
+  </tr>
+  <tr>
     <td>Apple Safari for iOS 9 (or later)</td>
     <td>***</td>
   </tr>
@@ -159,6 +166,10 @@ This section covers the operating systems that Auth0 will support when using the
 The following matrix lists the level of support Auth0 will provide with regards to the operating system you have chosen when using the [Auth0 Dashboard](${manage_url}).
 
 <table class="table">
+  <tr>
+    <td></td>
+    <td><a href="#definitions">Level of Support</a></td>
+  </tr>
   <tr>
     <td>Apple MacOS (when using Google Chrome as your browser)</td>
     <td>***</td>
@@ -187,19 +198,23 @@ The following matrix lists the level of support Auth0 will provide with regards 
 #### Mobile Operating Systems
 
 <table class="table">
-<tr>
-  <td>Apple iOS 9 (or later)</td>
-  <td>***</td>
-</tr>
-<tr>
-  <td>Google Android KitKat (4.4) or later</td>
-  <td>***</td>
-</tr>
+  <tr>
+    <td></td>
+    <td><a href="#definitions">Level of Support</a></td>
+  </tr>
+  <tr>
+    <td>Apple iOS 9 (or later)</td>
+    <td>***</td>
+  </tr>
+  <tr>
+    <td>Google Android KitKat (4.4) or later</td>
+    <td>***</td>
+  </tr>
 </table>
 
 ## Software Development Kits (SDKs) and Libraries
 
-### Definitions
+### Support Level Definitions
 
 In this section covering SDKs and Libraries, we will use the following terms to indicate the varying levels of support Auth0 will provide.
 
@@ -221,6 +236,10 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 ### Lock
 
 <table class="table">
+  <tr>
+    <td></td>
+    <td colspan="3"><a href="#support-level-definitions">Level of Support</a></td>
+  </tr>
   <tr>
     <th>Library</th>
     <th>Certified</th>
@@ -257,6 +276,10 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 ### Software Development Kits (SDKs)
 
 <table class="table">
+  <tr>
+    <td></td>
+    <td colspan="3"><a href="#support-level-definitions">Level of Support</a></td>
+  </tr>
   <tr>
     <th>SDK</th>
     <th>Certified</th>
@@ -308,6 +331,10 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 </div>
 
 <table class="table">
+  <tr>
+    <td></td>
+    <td colspan="3"><a href="#support-level-definitions">Level of Support</a></td>
+  </tr>
   <tr>
     <th>SDK</th>
     <th>Certified</th>
@@ -387,6 +414,10 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 ### Mobile/Native Applications
 
 <table class="table">
+  <tr>
+    <td></td>
+    <td colspan="3"><a href="#support-level-definitions">Level of Support</a></td>
+  </tr>
   <tr>
     <th></th>
     <th>Bug Fixes Provided</th>
@@ -478,6 +509,10 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 
 <table class="table">
   <tr>
+    <td></td>
+    <td colspan="2"><a href="#support-level-definitions">Level of Support</a></td>
+  </tr>
+  <tr>
     <th></th>
     <th>Bug Fixes Provided</th>
     <th>Community Support Only</th>
@@ -542,6 +577,10 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 ### Regular Web Applications
 
 <table class="table">
+  <tr>
+    <td></td>
+    <td colspan="2"><a href="#support-level-definitions">Level of Support</a></td>
+  </tr>
   <tr>
     <th></th>
     <th>Bug Fixes Provided</th>
@@ -641,6 +680,10 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 
 ### Backends/APIs
 <table class="table">
+  <tr>
+    <td></td>
+    <td colspan="2"><a href="#support-level-definitions">Level of Support</a></td>
+  </tr>
   <tr>
     <th></th>
     <th>Bug Fixes</th>
