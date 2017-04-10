@@ -118,4 +118,4 @@ Then users can log in with Username and Password.
 
 Password policies for database connections can be configured in the dashboard. For more information, see: [Password Strength in Auth0 Database Connections](/connections/database/password-strength).
 
-If required for implementation of custom signup forms, the configured password policies, along with other connection information, can be retrieved from the the [Management v2 API](https://auth0.com/docs/api/management/v2#!/Connections/get_connections_by_id). The result can be parsed client-side, and will contain information about the current password policy (or policies) configured in the dashboard for that connection.
+If required for implementation of custom signup forms, the configured password policies, along with other connection information, can be retrieved from the the [Management v2 API](/api/management/v2#!/Connections/get_connections_by_id). The result can be parsed client-side, and will contain information about the current password policy (or policies) configured in the dashboard for that connection.
