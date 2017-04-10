@@ -54,5 +54,6 @@ For details on how to implement multifactor authentication, refer to [Multifacto
 
 ## Tutorials
 
- - [How to Execute a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
- - [How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
+- [How to Execute a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+- [How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)

@@ -120,6 +120,7 @@ If you wish to execute special logic unique to the Implicit grant, you can look 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)<br/>
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)<br/>
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[How to configure an API in Auth0](/apis)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)<br/>
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Single Page App Quickstarts](/quickstart/spa)<br/>
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[ID Token](/tokens/id-token)<br/>
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)<br/>

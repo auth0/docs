@@ -46,6 +46,7 @@ For details on how to implement this, refer to [Execute an Authorization Code Gr
 
 - [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
 - [How to configure an API in Auth0](/apis)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Mobile/Native App Quickstarts](/quickstart/native)
 - [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
 - [Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
