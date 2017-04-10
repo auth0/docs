@@ -123,7 +123,7 @@ The following matrix lists the level of support Auth0 will provide with regards 
     <td class="text-center">***</td>
   </tr>
   <tr>
-    <td class="text-center">Microsoft Internet Explorer 10</td>
+    <td class="text-center">Microsoft Internet Explorer 10/11</td>
     <td class="text-center">**</td>
   </tr>
   <tr>
@@ -158,7 +158,7 @@ The following matrix lists the level of support Auth0 will provide with regards 
 This section covers the operating systems that Auth0 will support when using the Auth0 Dashboard or Lock Library, or executing authentication transactions.
 
 <div class="alert alert-info">
-  Auth0 support is limited to the most recent version of the operating systems listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
+  Auth0 support for the Dashboard and Lock and Authentication is limited to the most recent version of the operating systems listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
 </div>
 
 ### Auth0 Dashboard
@@ -220,12 +220,8 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 
 <table class="table">
   <tr>
-    <th class="text-center">Certified</th>
-    <td class="text-center">Tested and fully supported</td>
-  </tr>
-  <tr>
-    <th class="text-center">Features</th>
-    <td class="text-center">May receive new features</td>
+    <th class="text-center">Sustained</th>
+    <td class="text-center">Tested; receives features updates and bug fixes</td>
   </tr>
   <tr>
     <th class="text-center">Bug Fixes</th>
@@ -238,35 +234,30 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 <table class="table">
   <tr>
     <td class="text-center"></td>
-    <td colspan="3" class="text-center"><a href="#support-level-definitions">Level of Support</a></td>
+    <td colspan="2" class="text-center"><a href="#support-level-definitions">Level of Support</a></td>
   </tr>
   <tr>
     <th class="text-center">Library</th>
-    <th class="text-center">Certified</th>
-    <th class="text-center">Features</th>
+    <th class="text-center">Sustained</th>
     <th class="text-center">Bug Fixes</th>
   </tr>
   <tr>
     <td class="text-center">Lock.js</td>
-    <td class="text-center">v10</td>
     <td class="text-center">v10</td>
     <td class="text-center">v9</td>
   </tr>
   <tr>
     <td class="text-center">Lock.swift</td>
     <td class="text-center">v2</td>
-    <td class="text-center">v2</td>
     <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">Lock.iOS-macOS</td>
     <td class="text-center"></td>
-    <td class="text-center"></td>
     <td class="text-center">v1</td>
   </tr>
   <tr>
     <td class="text-center">Lock.Android</td>
-    <td class="text-center">v2</td>
     <td class="text-center">v2</td>
     <td class="text-center">v1</td>
   </tr>
@@ -278,48 +269,41 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 <table class="table">
   <tr>
     <td class="text-center"></td>
-    <td colspan="3" class="text-center"><a href="#support-level-definitions">Level of Support</a></td>
+    <td colspan="2" class="text-center"><a href="#support-level-definitions">Level of Support</a></td>
   </tr>
   <tr>
     <th class="text-center">SDK</th>
-    <th class="text-center">Certified</th>
-    <th class="text-center">Features</th>
+    <th class="text-center">Sustained</th>
     <th class="text-center">Bug Fixes</th>
   </tr>
   <tr>
     <td class="text-center">auth0.js</td>
     <td class="text-center">v7, v8</td>
     <td class="text-center"></td>
-    <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">Auth0.Android</td>
     <td class="text-center">v1</td>
-    <td class="text-center"></td>
     <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">Auth0.Swift</td>
     <td class="text-center">v1</td>
     <td class="text-center"></td>
-    <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">Auth0.net</td>
     <td class="text-center">v3, v4</td>
-    <td class="text-center"></td>
     <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">Auth0-java</td>
     <td class="text-center">v1</td>
     <td class="text-center"></td>
-    <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">node-auth0</td>
     <td class="text-center">v2</td>
-    <td class="text-center"></td>
     <td class="text-center"></td>
   </tr>
 </table>
@@ -337,37 +321,31 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <th class="text-center">SDK</th>
-    <th class="text-center">Certified</th>
-    <th class="text-center">Features</th>
+    <th class="text-center">Sustained</th>
     <th class="text-center">Community-Supported</th>
   </tr>
   <tr>
     <td class="text-center">angular-auth0</td>
-    <td class="text-center"></td>
     <td class="text-center">v2</td>
     <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">angular-lock</td>
-    <td class="text-center"></td>
     <td class="text-center">v2</td>
     <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">auth0-servlet</td>
-    <td class="text-center"></td>
     <td class="text-center">v3</td>
     <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">auth0-spring-mvc</td>
-    <td class="text-center"></td>
     <td class="text-center">v1</td>
     <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">auth0-spring-security-mvc</td>
-    <td class="text-center"></td>
     <td class="text-center">v1</td>
     <td class="text-center"></td>
   </tr>
@@ -375,36 +353,30 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <td class="text-center">auth0-spring-security-api</td>
     <td class="text-center">v1</td>
     <td class="text-center"></td>
-    <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">auth0-aspnet-owin</td>
-    <td class="text-center"></td>
     <td class="text-center">v2</td>
     <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">auth0-aspnet</td>
-    <td class="text-center"></td>
     <td class="text-center">v1</td>
     <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center">Auth0.Windows.UWP</td>
     <td class="text-center"></td>
-    <td class="text-center"></td>
     <td class="text-center">v1</td>
   </tr>
   <tr>
     <td class="text-center">Auth0.WinformsWPF</td>
-    <td class="text-center"></td>
     <td class="text-center"></td>
     <td class="text-center">v0.9</td>
   </tr>
   <tr>
     <td class="text-center">auth0-oidc-client-net</td>
     <td class="text-center">v1</td>
-    <td class="text-center"></td>
     <td class="text-center"></td>
   </tr>
 </table>
@@ -420,7 +392,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <th class="text-center"></th>
-    <th class="text-center">Bug Fixes Provided</th>
+    <th class="text-center">Auth0 Supported</th>
     <th class="text-center">Community Support Only</th>
   </tr>
   <tr>
@@ -514,7 +486,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <th class="text-center"></th>
-    <th class="text-center">Bug Fixes Provided</th>
+    <th class="text-center">Auth0 Supported</th>
     <th class="text-center">Community Support Only</th>
   </tr>
   <tr>
@@ -583,7 +555,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <th class="text-center"></th>
-    <th class="text-center">Bug Fixes Provided</th>
+    <th class="text-center">Auth0 Supported</th>
     <th class="text-center">Community Support Only</th>
   </tr>
   <tr>
@@ -686,7 +658,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <th class="text-center"></th>
-    <th class="text-center">Bug Fixes</th>
+    <th class="text-center">Auth0 Supported</th>
     <th class="text-center">Community Support Only</th>
   </tr>
   <tr>
