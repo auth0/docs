@@ -174,15 +174,11 @@ articles:
           - title: "For Users"
             url: "/multifactor-authentication/guardian/user-guide"
 
-      - title: "SMS"
-        url: "/multifactor-authentication"
-
       - title: "Google Authenticator"
         url: "/multifactor-authentication/google-authenticator"
 
       - title: "Duo Security"
         url: "/multifactor-authentication/duo"
-
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
