@@ -7,4 +7,4 @@ description: Appliance infrastructure overview
 
 The typical Auth0 Appliance production deployment is a three-node clusters that allows for high availability. The following diagram outlines the typical architecture.
 
-![](/media/articles/appliance/appliance-infrastructure.png)
+![](/media/articles/appliance/overview.png)
