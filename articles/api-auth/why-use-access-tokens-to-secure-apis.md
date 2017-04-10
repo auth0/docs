@@ -7,7 +7,7 @@ description: Explains the differences between access token and ID token and why 
 
 There is much confusion on the Web about the differences between the OpenID Connect and OAuth 2.0 specifications, and their respective tokens. As a result many developers publish insecure applications, compromising their users security. The contradicting implementations between identity providers do not help either.
 
-This article is an attempt to clear what is what and explain why you should always use an access token to secure an API, and never an ID token.
+This article is an attempt to clear what is what and explain why you should always use an **access token** to secure an API, and never an ID token.
 
 ## Two complementary specifications
 
@@ -15,20 +15,20 @@ OAuth 2.0 is used to __grant authorization__. It enables you to authorize the We
 
 OpenID Connect builds on OAuth 2.0. It enables you, the user, to verify your identity and give some basic profile information, without sharing your credentials.
 
-An example is a to-do application, that lets you log in using your Google account, and can push your to-do items as calendar entries, at your Google Calendar. The part where you authenticate your identity is implemented via OpenID Connect, while the part where you authorize the to-do application to modify your calendar by adding entries, is implemented via OAuth 2.0.
+An example is a to-do application which lets you log in using your Google account and can push your to-do items, as calendar entries, to your Google Calendar. The part where you authenticate your identity is implemented via OpenID Connect, while the part where you authorize the to-do application to modify your calendar by adding entries, is implemented via OAuth 2.0.
 
 > OpenID Connect is about who someone is. OAuth 2.0 is about what they are allowed to do.
 
-You may noticed the _"without sharing your credentials"_ part, at our definitions of the two specifications earlier. What you do share in both cases, is tokens.
+You may have noticed the _"without sharing your credentials"_ part, in our definitions of the two specifications earlier. What you do share in both cases are **tokens**.
 
-OpenID Connect issues an identity token, known as `id_token`, while OAuth 2.0 issues an `access_token`.
+OpenID Connect issues an identity token, known as an `id_token`, while OAuth 2.0 issues an `access_token`.
 
 ## How to use each token
 
 The `id_token` is a [JWT](/jwt) and is meant for the client only. In the example we used earlier, when you authenticate using Google, an `id_token` is sent from Google to the to-do application, that says who you are. The to-do application can parse [the token's contents](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and use this information, like your name and your profile picture, to customize the user experience.
 
 ::: panel-warning Security warning
-You must never use the info in an `id_token` unless you have validated it! For more information refer to: [How to validate an ID token](/tokens/id-token#how-to-validate-an-id-token). For a list of libraries you can use to verify a JWT refer to [JWT.io](https://jwt.io/).
+You must never use the info in an `id_token` unless you have validated it! For more information refer to: [How to validate an ID token](/tokens/id-token#how-to-validate-an-id-token). For a list of libraries you can use to verify a JWT refer to [jwt.io](https://jwt.io/).
 :::
 
 The `access_token` can be any type of token (not necessarily a JWT) and is meant for the API. Its purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the `scope` that has been granted). In the example we used earlier, after you authenticate, and provide your consent that the to-do application can have read/write access to your calendar, an `access_token` is sent from Google to the to-do application. Each time the to-do application wants to access your Google Calendar it will make a request to the Google Calendar API, using this `access_token` in an HTTP `Authorization` header.
@@ -39,7 +39,7 @@ The `access_token` can be any type of token (not necessarily a JWT) and is meant
 
 ## How NOT to use each token
 
-Now that we saw what these tokens can be used for, let's see what they cannot be used for.
+Now that we've seen what these tokens can be used for, let's see what they cannot be used for.
 
 - __An `access_token` cannot be used for authentication__. It holds no information about the user. It cannot tell us if the user has authenticated and when.
 
