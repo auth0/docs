@@ -4,25 +4,25 @@ title: Using Passwordless Authentication with a one-time code via email on Regul
 
 # Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
 
-<%= include('./_introduction-email', { isMobile: false }) %>
+<%= include('../../_introduction-email', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('./_setup-email') %>
+<%= include('../../_setup-email') %>
 
-<%= include('./_setup-callback', {spa:false} )%>
+<%= include('../../_setup-callback', {spa:false} )%>
 
 ## Implementation
 
-### Use Auth0 UI widget (Lock)
+### Use Lock (the Auth0 UI widget)
 
-<%= include('../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-node-passwordless-sample',
   path: ''
 }) %>
 
-<%= include('./_init-passwordless-lock') %>
+<%= include('../../_init-passwordless-lock') %>
 
 Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the server-side authentication:
 
@@ -57,7 +57,7 @@ Once the user enters the code received by email, Lock will authenticate the user
 
 ### Use your own UI
 
-<%= include('../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-node-passwordless-sample',
   path: ''
@@ -65,36 +65,43 @@ Once the user enters the code received by email, Lock will authenticate the user
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('./_init-auth0js', {withCallbackURL:true} ) %>
+<%= include('../../_init-auth0js_v8', {redirectUri:true} ) %>
 
-You must provide a way for the user to enter an email to which the one-time code will be sent. Then you can begin the passwordless authentication as follows:
+You must provide a way for the user to enter a address to which the email will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.email`):
 
 ```js
 function sendEmail(){
   var email = $('input.email').val();
-  auth0.requestEmailCode( { email:email }, function(err) {
+
+  webAuth.passwordlessStart({
+    connection: 'email',
+    send: 'code',
+    email: email
+  }, function (err,res) {
     if (err) {
-      alert('error sending e-mail: '+ err.error_description);
-      return;
+      // Handle error
     }
-    // the request was successful and you should
-    // receive the passcode to the specified email
+    // Hide the input and show the code entry screen
     $('.enter-email').hide();
     $('.enter-code').show();
   });
 }
 ```
 
-This will send an email containing the one-time code. The user must now enter the code into your custom UI. Then you can continue with the login as follows:
+This will send an email to the provided address. The user must now enter the code they received into your custom UI. Then you can continue with the login as follows (assuming the name of your form inputs as `input.email` and `input.code`):
 
 ```js
 function login(){
   var email = $('input.email').val();
   var code = $('input.code').val();
-  //submit the passcode to authenticate the phone
-  auth0.verifyEmailCode({ email: email, code: code }, function(err){
-    if (err){
-      alert('code verification failed. ' + err.statusCode + ' '+ err.error);
+  
+  webAuth.passwordlessVerify({
+    connection: 'email',
+    email: email,
+    verificationCode: code
+  }, function (err,res) {
+    if (err) {
+      // Handle error
     }
   });
 };
@@ -102,4 +109,6 @@ function login(){
 
 If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor.
 
-**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
+**NOTE:** You can follow up with any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
+
+Check out the [Auth0.js SDK reference documentation](/libraries/auth0js) for more information.

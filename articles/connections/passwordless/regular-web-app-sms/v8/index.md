@@ -4,25 +4,25 @@ title: Using Passwordless Authentication in a Regular Web App with SMS
 
 # Authenticate users with a one-time code via SMS in a Regular Web App
 
-<%= include('./_introduction-sms', { isMobile: false }) %>
+<%= include('../../_introduction-sms', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('./_setup-sms-twilio') %>
+<%= include('../../_setup-sms-twilio') %>
 
-<%= include('./_setup-callback', {spa:false} ) %>
+<%= include('../../_setup-callback', {spa:false} ) %>
 
 ## Implementation
 
-### Use Auth0 UI widget (Lock)
+### Use Lock (the Auth0 UI widget)
 
-<%= include('../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-node-passwordless-sample',
   path: ''
 }) %>
 
-<%= include('./_init-passwordless-lock') %>
+<%= include('../../_init-passwordless-lock') %>
 
 Then you can trigger the login widget with the following code:
 
@@ -57,7 +57,7 @@ Once the user enters the code received via SMS, Lock will authenticate the user 
 
 ### Use your own UI
 
-<%= include('../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-node-passwordless-sample',
   path: ''
@@ -65,39 +65,50 @@ Once the user enters the code received via SMS, Lock will authenticate the user 
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('./_init-auth0js', {withCallbackURL:true} ) %>
+<%= include('../../_init-auth0js_v8', {redirectUri:true} ) %>
 
-You must provide a way for the user to enter a phone number to which the one-time code will be sent via SMS. Then you can begin the passwordless authentication as follows:
+You must provide a way for the user to enter a phone number to which the SMS will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.phone-number`):
 
 ```js
 function sendSMS(){
-  var phoneNumber = $('input.phone-number').val();
-  auth0.requestSMSCode({ phoneNumber:phoneNumber}, function(err) {
+  var phone = $('input.phone-number').val();
+
+  webAuth.passwordlessStart({
+    connection: 'sms',
+    send: 'code',
+    phoneNumber: phone
+  }, function (err,res) {
     if (err) {
-      alert('error sending SMS: '+ err.error_description);
-      return;
+      // Handle error
     }
-    // the request was successful and you should
-    // receive the passcode to the specified phone
+    // Hide the input and show the code entry screen
     $('.enter-phone').hide();
     $('.enter-code').show();
   });
 }
 ```
 
-This will send an SMS containing the one-time code. The user must now enter the code into your custom UI. Then you can continue with the login as follows:
+This will send an SMS to the provided phone number. The user must now enter the code they received into your custom UI. Then you can continue with the login as follows (assuming the name of your form inputs as `input.phone-number` and `input.code`):
 
 ```js
 function login(){
   var phone = $('input.phone-number').val();
   var code = $('input.code').val();
-  //submit the passcode to authenticate the phone
-  auth0.verifySMSCode({ phoneNumber: phone, code: code }, function(err){
-    alert('code verification failed. ' + err.statusCode + ' '+ err.error);
+  
+  webAuth.passwordlessVerify({
+    connection: 'sms',
+    phoneNumber: phone,
+    verificationCode: code
+  }, function (err,res) {
+    if (err) {
+      // Handle error
+    }
   });
 };
 ```
 
-If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor.
+If authentication is successful, the user will be redirected to the `redirectUri` specified in the Auth0 constructor.
 
-**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
+**NOTE:** You can follow up with any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
+
+Check out the [Auth0.js SDK reference documentation](/libraries/auth0js) for more information.

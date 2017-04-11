@@ -4,25 +4,25 @@ title: Using Passwordless Authentication with a one-time code via email on SPA
 
 # Authenticate users with a one-time code via e-mail on SPA
 
-<%= include('./_introduction-email', { isMobile: false }) %>
+<%= include('../../_introduction-email', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('./_setup-email') %>
+<%= include('../../_setup-email') %>
 
-<%= include('./_setup-cors') %>
+<%= include('../../_setup-cors') %>
 
 ## Implementation
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-passwordless-sample',
   path: ''
 }) %>
 
-<%= include('./_init-passwordless-lock') %>
+<%= include('../../_init-passwordless-lock') %>
 
 Then you can trigger the login with the following code:
 
@@ -62,7 +62,7 @@ Once the user enters the code received by email, Lock will authenticate them and
 
 ### Use your own UI
 
-<%= include('../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-passwordless-sample',
   path: ''
@@ -70,7 +70,7 @@ Once the user enters the code received by email, Lock will authenticate them and
 
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('./_init-auth0js', {withCallbackURL:false} ) %>
+<%= include('../../_init-auth0js', {withCallbackURL:false} ) %>
 
 You must provide a way for the user to enter the email to which the one-time code will be sent. Then you can begin the passwordless authentication with the following code:
 
