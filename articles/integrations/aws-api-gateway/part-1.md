@@ -1,8 +1,8 @@
 ---
-title: Amazon API Gateway Tutorial - Set Up the Amazon API Gateway
+title: AWS API Gateway Tutorial - Set Up the Amazon API Gateway
 description: Step 1 of Amazon API Gateway Tutorial
 ---
-# Amazon API Gateway Tutorial
+# AWS API Gateway Tutorial
 ## Step 1 - Set up the Amazon API Gateway
 
 After completing this step, you will have:
@@ -98,7 +98,11 @@ In the [AWS Lambda Console](https://console.aws.amazon.com/lambda), select **Cre
 
 ![Get Started with Lambda](/media/articles/integrations/aws-api-gateway/part-1/lambda-get-started-now.png)
 
-On the *Select blueprint* screen, click **Skip** (without selecing a particular blueprint). You will then be prompted to *Configure triggers*. Click **Next** to proceed. You do not have to do so at this point.
+On the *Select blueprint* screen, click **Blank Function**.
+
+![Blank function template](/media/articles/integrations/aws-api-gateway/part-1/lambda-blank-function.png)
+
+You will then be prompted to *Configure triggers*. Click **Next** to proceed. You do not have to do so at this point.
 
 Finally, you will be asked to *Configure function*.
 
@@ -107,7 +111,7 @@ Finally, you will be asked to *Configure function*.
 Populate the appropriate fields with the following information:
 
 * **Name**: `GetPetInfo`
-* **Runtime**: Node.js
+* **Runtime**: Node.js 6.10
 
 Paste the following code to read pet information from the DynamoDB table into the **Lambda function code** area.
 
@@ -134,9 +138,9 @@ exports.handler = function(event, context) {
 };
 ```
 
-For *Role*, select *APIGatewayLambdaExecRole*. Leave all other settings at their default values.
+For *Role*, select **Choose an existing role**. Next, choose **APIGatewayLambdaExecRole** as the *Existing Role*. Leave all other settings at their default values.
 
-![Lambda Handler](/media/articles/integrations/aws-api-gateway/part-1/lambda-handler-role.png)
+![Configure Lambda function](/media/articles/integrations/aws-api-gateway/part-1/configure-function2.png)
 
 Click **Next** to review the information you provided. If all looks correct, click **Create function**.
 
@@ -183,6 +187,8 @@ Test the function by clicking the *Actions* drop-down and choosing **Configure s
 ```
 
 You should see an empty return result (`{}`).
+
+![Execution Result](/media/articles/integrations/aws-api-gateway/part-1/execution-result-update.png)
 
 Return to your `GetPetInfo` Lambda function and click **Test** again. You should now see a single pet.
 
@@ -232,11 +238,7 @@ In the left pane, select `/pets` and then click the **CreateMethod** button.
 
 ![Create Pets Method](/media/articles/integrations/aws-api-gateway/part-1/create-pets-method.png)
 
-In the drop-down, select *GET* and click the checkmark button.
-
-![Get Pets Method](/media/articles/integrations/aws-api-gateway/part-1/pets-method-get.png)
-
-Provide the following configuration values for the `GET` method:
+In the drop-down, select *GET* and click the checkmark button. Provide the following configuration values for the `GET` method:
 
 * **Integration type**: Lambda Function;
 * **Lambda Region**: Region you are located in;
@@ -299,6 +301,8 @@ Return to the *GET* method, and click **Test** again to see that the response bo
 ]
 ```
 
+![Get Method Request Test](/media/articles/integrations/aws-api-gateway/part-1/get-method-request-test2.png)
+
 #### Method: `OPTIONS`
 
 Instead of creating a lambda function that performs no action, you can create an `OPTIONS` method on the API Gateway.
@@ -308,6 +312,9 @@ In the left pane, select `/pets`, and click **CreateMethod**. In the drop down, 
 ![Configure Options Method](/media/articles/integrations/aws-api-gateway/part-1/options-method.png)
 
 Leaving the Response Body blank, click **Test**. You should receive a Response Body indicating `no data`.
+
+![Options Test](/media/articles/integrations/aws-api-gateway/part-1/options-test.png)
+
 
 At this point, the AWS Lambda functions and the Amazon API Gateway methods are defined with no security.
 
