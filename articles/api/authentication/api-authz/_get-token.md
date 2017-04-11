@@ -379,7 +379,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 ### Request headers
 | Parameter        | Description |
 |:-----------------|:------------|
-| `auth0-forwarded-for` | End-user ip as a string value. Set this if you want brute-force protection to work in server-side scenarios. For more information on how and when to use this header, refer to [Using resource owner password from server-side](/api-auth/tutorials/using-resource-owner-password-from-server-side). |
+| `auth0-forwarded-for` | End-user IP as a string value. Set this if you want brute-force protection to work in server-side scenarios. For more information on how and when to use this header, refer to [Using resource owner password from server-side](/api-auth/tutorials/using-resource-owner-password-from-server-side). |
 
 ### Test with Authentication API Debugger
 
