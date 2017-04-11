@@ -122,3 +122,7 @@ If you wish to execute special logic unique to the Password exchange, you can lo
 ## Optional: Configure MFA
 
 In case you need stronger authentication, than username and password, you can configure MultiFactor Authentication (MFA) using the Resource Owner Password Grant. For details on how to implement this refer to [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+
+## Optional: Configure Anomaly Detection
+
+When using this flow from server-side applications, some anomaly detection features might fail because of the particularities of this scenario. For details on how to implement this, while avoiding some common issues, refer to [Using Resource Owner Password from Server side](/api-auth/tutorials/using-resource-owner-password-from-server-side).
