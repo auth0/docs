@@ -1,8 +1,8 @@
 ---
-title: Amazon API Gateway Tutorial - Set Up the Amazon API Gateway
+title: AWS API Gateway Tutorial - Set Up the Amazon API Gateway
 description: Step 1 of Amazon API Gateway Tutorial
 ---
-# Amazon API Gateway Tutorial
+# AWS API Gateway Tutorial
 ## Step 1 - Set up the Amazon API Gateway
 
 After completing this step, you will have:
