@@ -12,8 +12,8 @@ Auth0 offers the following support plans:
 
 <table class="table">
   <tr>
-    <th>No Support</th>
-    <td>Auth0 does *not* provide support to customers with a **free** subscription.</td>
+    <th>No Plan</th>
+    <td>Customers with Auth0's free subscription plan can seek support through the Auth0 Community.</td>
   </tr>
   <tr>
     <th>Standard Support</th>
@@ -31,12 +31,12 @@ Auth0 offers the following support plans:
 
 ### No Support
 
-Customers with Auth0's free subscription plan can seek support through the Auth0 Community. Response times may vary.
+Customers with Auth0's free subscription plan can seek support through the Auth0 Community. Response times may vary and are not guaranteed.
 
 :::panel-info Trial Subscriptions
 New Auth0 customers receive Standard Support during the 22-day trial period (customers may check on how many trial days they have left by logging into the [Dashboard](${manage_url})). If necessary, customers may request a one-day trial extension using the [Auth0 Support Center](https://support.auth0.com/).
 
-At the end of the trial period, customers who have not opted to purchase a paid subscription can use the Auth0 Community for assistance. They will no longer have access to the [Support Center](https://support.auth0.com/).
+At the end of the trial period, customers who have not opted to purchase a paid subscription can use the Auth0 Community for assistance. They will no longer be able to access to and open tickets in the [Support Center](https://support.auth0.com/).
 :::
 
 ### Standard Support
@@ -46,11 +46,11 @@ Customers with a paid Auth0 subscription plan receive Standard Support, which of
 * Auth0 Community;
 * Auth0 Support Center.
 
-The Auth0 Support Center offers ticketed support, where dedicated support specialists are available to provide assistance.
+The Auth0 Support Center offers ticketed support, where support specialists are available to provide assistance.
 
 ### Enterprise Support (with or without Preferred Support)
 
-Customers with an Enterprise subscription plan receive extended support hours (including an option to add 24/7 availability) with quicker response times, as well as onboarding assistance.
+Customers with an Enterprise subscription plan receive extended support hours for outages, quicker response times, and Auth0 Sprint onboarding assistance.
 
 Please contact the [Auth0 Sales Team](sales@auth0.com) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
 
@@ -60,7 +60,7 @@ Auth0 offers the following support channels.
 
 ### Auth0 Community
 
-Auth0's public [question and answer community](https://ask.auth0.com) offers support for __all__ subscribers. All customers, even those on free accounts, can use our public [discussion forum](https://ask.auth0.com) to search existing questions and receive support from our engineers if their question has not already been asked. Response times to questions may vary.
+Auth0's public [question and answer community](https://ask.auth0.com) offers support for __all__ subscribers. All customers, even those on free accounts, can search existing through questions and post a new question if theirs hasn't been answered. There are no guaranteed response times for questions posted.
 
 ### Support Center
 
@@ -106,7 +106,7 @@ Ticket response times will vary based on your support plan (shown below).  Note 
       <th>Subsequent Response Time Target</th>
       <td>Standard: 2 business days</td>
       <td>Standard: 1 business day / Critical Outage: ongoing within support hours</td>
-      <td>Standard: 1 business hour / Critical Outage: ongoing within support hours</td>
+      <td>Standard: 4 business hours / Critical Outage: ongoing within support hours</td>
     </tr>
     <tr>
       <th>Ticket Response Channels</th>
@@ -134,7 +134,7 @@ Ticket response times will vary based on your support plan (shown below).  Note 
 Auth0's Business Hours are as follows:
 
 **Standard Business Hours**
-Monday, 7am - Friday, 6pm Pacific Time | 24/5 coverage during this period
+Monday, 6:00 am CST/UTC+8 hours - Friday, 6:00 pm PDT/UTC-7 hours | 24/5 coverage during this period
 
 **Critical Support Hours**
 Standard Support: 24/5 | Enterprise and Preferred Support: 24/7/265
