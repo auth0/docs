@@ -2,6 +2,10 @@
 title: Using Passwordless Authentication in a Regular Web App with SMS
 ---
 
+<div class="alert alert-info">
+This document covers Passwordless Authentication, and uses an older version of auth0.js. If at all possible, we recommend using the newest version of auth0.js instead. You can see a copy of this Passwordless documentation that uses the latest version of auth0.js using the dropdown at the top of this document. If you are interested in upgrading the version of Auth0.js used in your app, take a look at the most recent <a href="/libraries/auth0js/v8/migration-guide">migration guide</a>.
+</div>
+
 # Authenticate users with a one-time code via SMS in a Regular Web App
 
 <%= include('../../_introduction-sms', { isMobile: false }) %>

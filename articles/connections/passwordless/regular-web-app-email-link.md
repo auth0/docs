@@ -2,6 +2,10 @@
 title: Using Passwordless Authentication with a magic link via email on Regular Web Apps
 ---
 
+<div class="alert alert-info">
+This document covers Passwordless Authentication with Magic Links, and uses the auth0.js v7 SDK. The newest version of auth0.js (v8) does not yet include this functionality.
+</div>
+
 # Passwordless Authentication with a magic link via e-mail on Regular Web Apps
 
 <%= include('./_introduction-email-magic-link') %>

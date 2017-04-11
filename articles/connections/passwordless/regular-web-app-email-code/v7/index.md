@@ -2,6 +2,10 @@
 title: Using Passwordless Authentication with a one-time code via email on Regular Web Apps
 ---
 
+<div class="alert alert-info">
+This document covers Passwordless Authentication, and uses an older version of auth0.js. If at all possible, we recommend using the newest version of auth0.js instead. You can see a copy of this Passwordless documentation that uses the latest version of auth0.js using the dropdown at the top of this document. If you are interested in upgrading the version of Auth0.js used in your app, take a look at the most recent <a href="/libraries/auth0js/v8/migration-guide">migration guide</a>.
+</div>
+
 # Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
 
 <%= include('../../_introduction-email', { isMobile: false }) %>
@@ -65,43 +69,36 @@ Once the user enters the code received by email, Lock will authenticate the user
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('../../_init-auth0js_v8', {redirectUri:true} ) %>
+<%= include('../../_init-auth0js', {withCallbackURL:true} ) %>
 
-You must provide a way for the user to enter a address to which the email will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.email`):
+You must provide a way for the user to enter an email to which the one-time code will be sent. Then you can begin the passwordless authentication as follows:
 
 ```js
 function sendEmail(){
   var email = $('input.email').val();
-
-  webAuth.passwordlessStart({
-    connection: 'email',
-    send: 'code',
-    email: email
-  }, function (err,res) {
+  auth0.requestEmailCode( { email:email }, function(err) {
     if (err) {
-      // Handle error
+      alert('error sending e-mail: '+ err.error_description);
+      return;
     }
-    // Hide the input and show the code entry screen
+    // the request was successful and you should
+    // receive the passcode to the specified email
     $('.enter-email').hide();
     $('.enter-code').show();
   });
 }
 ```
 
-This will send an email to the provided address. The user must now enter the code they received into your custom UI. Then you can continue with the login as follows (assuming the name of your form inputs as `input.email` and `input.code`):
+This will send an email containing the one-time code. The user must now enter the code into your custom UI. Then you can continue with the login as follows:
 
 ```js
 function login(){
   var email = $('input.email').val();
   var code = $('input.code').val();
-  
-  webAuth.passwordlessVerify({
-    connection: 'email',
-    email: email,
-    verificationCode: code
-  }, function (err,res) {
-    if (err) {
-      // Handle error
+  //submit the passcode to authenticate the phone
+  auth0.verifyEmailCode({ email: email, code: code }, function(err){
+    if (err){
+      alert('code verification failed. ' + err.statusCode + ' '+ err.error);
     }
   });
 };
@@ -109,6 +106,4 @@ function login(){
 
 If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor.
 
-**NOTE:** You can follow up with any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
-
-Check out the [Auth0.js SDK reference documentation](/libraries/auth0js) for more information.
+**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
