@@ -15,7 +15,7 @@ If you have decided to purchase an Appliance that is hosted in a dedicated area 
     * **Important**: Please finalize DNS names prior to Appliance deployment.
 * **SMTP Settings** (including the hostname, port number, username, and password). Auth0 will work with you to enter your settings. For additional details, please see the [SMTP section of the Appliance infrastructure manual](/appliance/infrastructure/security#smtp);
 * **Administrator(s) email address** for App tenant for non-production and Production environments.
-* **Custom Domains (optional)**: If you want to use a custom domain with your customer-facing applications, you'll need to manage the DNS and certificate (signed by a public certificate authority) yourself. This means that you'll own two and be responsible for the following two pieces of the configuration:
+* **Custom Domains (optional)**: If you want to use a custom domain with your customer-facing applications, you'll need to manage the DNS and certificate (signed by a public certificate authority) yourself. This means that you'll own and be responsible for the following two pieces of the configuration:
 
   * Registering the custom domain(s) and uploading the accompanying certificate(s) to the Auth0 Dashboard. You'll also be responsible for keeping your certificates up-to-date;
   * Adding the appropriate entries to your DNS that aliases the Auth0 identity (e.g. `identity.\<yourname\>.com` => `identity.\<yourname\>.auth0.com`)
