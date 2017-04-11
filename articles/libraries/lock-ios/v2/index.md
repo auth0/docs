@@ -198,7 +198,7 @@ Lock
 - 1Password support
 - Passwordless Authentication (SMS & Email)
 - Secure Token storage and automatic token refresh
-- Remember me like feature using TouchID
+- Remember me like feature using Touch ID
 - Universal Link support for browser based Auth
 - Improved UI Styling
 - Bundle more i18n translation in Lock.framework

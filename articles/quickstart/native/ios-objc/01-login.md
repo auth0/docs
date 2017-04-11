@@ -42,7 +42,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 [![Lock.png](/media/articles/native-platforms/ios-objc/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](/quickstart/native/ios-objc/02-custom-login).
-> Or, you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios/v1/sms-lock-ios) or [TouchID](/libraries/lock-ios/v1/touchid-authentication).
+> Or, you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios/v1/sms-lock-ios) or [Touch ID](/libraries/lock-ios/v1/touchid-authentication).
 
 As you can see, upon successful authentication, the `onAuthenticationBlock` callback will yield the user's `profile` and `token`.
 
