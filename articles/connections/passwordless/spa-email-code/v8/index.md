@@ -74,7 +74,7 @@ Once the user enters the code received by email, Lock will authenticate them and
 
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('../../_init-auth0js_v8') %>
+<%= include('../../_init-auth0js_v8', {redirectUri:false} ) %>
 
 You must provide a way for the user to enter a address to which the email will be sent. Then you can begin the passwordless authentication as follows (assuming the name of your form input as `input.email`):
 
