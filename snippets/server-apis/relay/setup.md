@@ -1,11 +1,29 @@
 ```js
-var express       = require('express');
-var graphqlHttp   = require('express-graphql');
-var schema        = require('./schema/schema');
-var jwt           = require('express-jwt');
+// server.js
 
-var authenticate = jwt({
-  secret: '<%= account.clientSecret %>',
-  audience: '<%= account.clientId %>'
+const express = require('express');
+const app = express();
+const graphqlHttp   = require('express-graphql');
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
+
+// Authentication middleware. When used, the
+// access token must exist and be verified against
+// the Auth0 JSON Web Key Set
+const authenticate = jwt({
+  // Dynamically provide a signing key
+  // based on the kid in the header and 
+  // the singing keys provided by the JWKS endpoint.
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${account.namespace}/.well-known/jwks.json`
+  }),
+
+  // Validate the audience and the issuer.
+  audience: '{API_ID}',
+  issuer: `https://${account.namespace}/`,
+  algorithms: ['RS256']
 });
 ```

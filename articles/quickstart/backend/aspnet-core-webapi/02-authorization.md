@@ -1,5 +1,5 @@
 ---
-title: API Authorization
+title: Authorization
 description: This tutorial will show you how authorize or deny a user to access certain API endpoints based on the scope of the access token.
 budicon: 500
 ---

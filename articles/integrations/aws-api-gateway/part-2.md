@@ -128,6 +128,9 @@ Click **Apply Policy**.
 
 Since the API Gateway will assume this role on behalf of the user, the trust policy needs to permit this action. To do so, edit the role's *Trust Relationships* by navigating to this tab on the role's *Summary* page.
 
+![Edit trust policy](/media/articles/integrations/aws-api-gateway/part-2/edit-trust-policy.png)
+
+
 The final trust relationship should look similar to the following:
 
 ```js
@@ -158,6 +161,8 @@ The final trust relationship should look similar to the following:
   ]
 }
 ```
+
+![Trust policy](/media/articles/integrations/aws-api-gateway/part-2/trust-relationship.png)
 
 At this point, you will need to set the *Authorization Settings* on the [API Gateway](https://console.aws.amazon.com/apigateway).
 
@@ -218,15 +223,15 @@ Finally, repeat the above steps to enable CORS for the *POST* and *GET* methods.
 
 Return to the **Resources** view for your API. Click on **Actions**, and select **DEPLOY API**.
 
-![Choose Deployment Stage](/media/articles/integrations/aws-api-gateway/part-2/choose-deploy-stage.png)
+![Deploy API](/media/articles/integrations/aws-api-gateway/part-2/deploy-api.png)
 
 Select **New Stage** for Deploy State, and name the stage `Test`. Click the **Deploy** button.
 
+![Choose Deployment Stage](/media/articles/integrations/aws-api-gateway/part-2/choose-deploy-stage.png)
+
+On the result page, navigate to **SDK Generation**. Select *JavaScript* as the **Platform**. Click the **Generate SDK** button.
+
 ![Test Stage Editor](/media/articles/integrations/aws-api-gateway/part-2/test-stage-editor.png)
-
-On the result page, you will see a tab for **SDK Generation**. Click the tab and select *JavaScript* for the platform. Click the **Generate SDK** button.
-
-![Generate SDK](/media/articles/integrations/aws-api-gateway/part-2/sdk-generation.png)
 
 Save the downloaded zip file for later use.
 

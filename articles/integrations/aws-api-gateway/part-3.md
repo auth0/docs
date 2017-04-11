@@ -56,22 +56,29 @@ Update `pets/login/login.js` as follows to get an AWS delegation token from the 
 
 ```js
 auth.signin(params, function(profile, token) {
-    store.set('profile', profile);
-    store.set('token', token);
+  //Set user as admin if they did not use a social login.
+  profile.isAdmin = !profile.identities[0].isSocial;
+  store.set('profile', profile);
+  store.set('token', token);
 
-// set admin and get delegation token from identity token.
-profile.isAdmin = !profile.identities[0].isSocial;
-var options = getOptionsForRole(profile.isAdmin, token);
+  // get delegation token from identity token.
+  var options = getOptionsForRole(profile.isAdmin, token);
 
-auth.getToken(options)
+  // TODO: Step 3: Enable this section once you setup AWS delegation.
+  /*
+  auth.getToken(options)
     .then(
       function(delegation)  {
-        store.set('awstoken', delegation.Credentials);  //add to local storage
+        store.set('awstoken', delegation.Credentials);
         $location.path("/");
       },
     function(err) {
        console.log('failed to acquire delegation token', err);
   });
+  */
+  // TODO: Step 3: Remove this redirect after you add the get token API.
+  $location.path("/");
+
 }, function(error) {
   console.log("There was an error logging in", error);
 });
@@ -140,6 +147,7 @@ Open the `index.html` file located in the root of your `pets` folder to add all 
 <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
 <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
 <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+<script type="text/javascript" src="lib/moment/moment.js"></script>
 <script type="text/javascript" src="lib/url-template/url-template.js"></script>
 <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
 <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>

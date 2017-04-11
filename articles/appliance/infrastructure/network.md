@@ -9,6 +9,10 @@ This document details the requirements for the network on which the Appliance ru
 
 > Auth0 Appliance can only be deployed in 1 NIC.
 
+In on-premise environment, all virtual machines should be in the same LAN in order for database replication to work properly. No other appliance cluster (Dev/Test) should be running on this subnet. 
+
+In AWS Cloud environment, Auth0 supports and recommends cross-LAN availability zones.
+
 ## IP Addresses
 
 Each Appliance virtual machine (VM) must have its own private static IP address and outbound access. This can be accomplished through:

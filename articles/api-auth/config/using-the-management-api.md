@@ -1,4 +1,5 @@
 ---
+title: Set up a Client Credentials Grant using the Management API
 description: How to set up a Client Credentials Grant using the Management API.  
 ---
 

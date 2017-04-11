@@ -155,15 +155,6 @@ articles:
 
       - title: "Authorization"
         url: "/extensions/authorization-extension"
-        children:
-          - title: "Groups"
-            url: "/extensions/authorization-extension#groups"
-
-          - title: "Roles"
-            url: "/extensions/authorization-extension#roles"
-
-          - title: "Permissions"
-            url: "/extensions/authorization-extension#permissions"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
@@ -181,17 +172,13 @@ articles:
             url: "/multifactor-authentication/developer"
 
           - title: "For Users"
-            url: "/multifactor-authentication/user-guide"
-
-      - title: "SMS"
-        url: "/multifactor-authentication#mfa-with-sms"
+            url: "/multifactor-authentication/guardian/user-guide"
 
       - title: "Google Authenticator"
         url: "/multifactor-authentication/google-authenticator"
 
       - title: "Duo Security"
         url: "/multifactor-authentication/duo"
-
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
