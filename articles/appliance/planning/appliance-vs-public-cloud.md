@@ -9,7 +9,7 @@ While most features are available to you regardless of your deployment choice, t
 
 ## Current Limitations for Customers Using the Appliance
 
-1. Multifactor Authentication (MFA) is only available for TOTP and HOTP-style factorization. Guardian and SMS-based MFA is *not* available.
+1. Multifactor Authentication (MFA) is only available using Google Authenticator over TOTP and HOTP-style factorization. Google Duo, Guardian, and SMS-based MFA are *not* available.
 2. Breached Password Detection is unavailable.
 3. The Appliance supports a fixed Webtask module model. It does *not* support all of the available Webtask NPM modules.
 4. The Appliance limits tenant log retention.
