@@ -1,18 +1,34 @@
 ---
-description: How to integrate Auth0 with Amazon Cognito for mobile applications.
+description: How to integrate Auth0 with Amazon Cognito using an OpenID Connect Provider.
 ---
 
-# Integrating Auth0 with Amazon Cognito for Mobile Apps.
+# Integrate Auth0 with Amazon Cognito
 
 **Amazon Cognito** is a backend as a service that lets you focus on writing a fantastic user experience for your client app (native or web).
 
-In this document, I’ll explain how you can integrate your mobile app with two solutions: Auth0 to get authentication with either [Social Providers](/identityproviders#social) (Facebook, Twitter, etc.), [Enterprise providers](/identityproviders#enterprise) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code
+This document will explain how you can integrate your app with two solutions: Auth0 to get authentication with either [Social Providers](/identityproviders#social) (Facebook, Twitter, etc.), [Enterprise providers](/identityproviders#enterprise) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code.
 
-## Configuring Amazon Web Services
+## Configure Amazon Web Services
+
 ### Create a new OpenID Connect Provider
-The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 domain (_accountName_.auth0.com) and your _clientId_ and use them to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home):
 
-![IDP Creation](/media/articles/scenarios/amazon-cognito/IDPCreation.gif)
+The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 **domain** (YOUR_ACCOUNT_NAME.auth0.com) and your **clientId** these values can be found in the [Settings of your chosen Client](${manage_url}#/clients/). These values will be used to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home).
+
+1. In the [IAM Console](https://console.aws.amazon.com/iam/home) click on the **Identity Providers** link in the left sidebar. Click the **Create Provider** button.
+
+![Create Provider](/media/articles/scenarios/amazon-cognito/create-provider.png)
+
+2. Next you will choose the provider type, select **OpenID Connect** from the dropdown. For the **Provider URL** enter: `https://YOUR_ACCOUNT_NAME.auth0.com` and for **Audience** enter your **ClientId** ([find your ClientID](${manage_url}#/clients/)).
+
+![Configure Provider](/media/articles/scenarios/amazon-cognito/configure-provider.png)
+
+3. This will bring you to the **Verify Provider Information** screen, click the **Create** button.
+
+![Verify Provider](/media/articles/scenarios/amazon-cognito/verify-provider.png)
+
+4. Then you will be able to click on your newly created provider to find the **Provider ARN** which will be used in a later step.
+
+5. Use the Thumbprint to verify the server certificate of your IdP. To learn how, see [Obtaining the Thumbprint for an OpenID Connect Identity Provider](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html). 
 
 > It's not necessary to set up an IAM role after creating the identity provider. If you don't have one already, Cognito will create a default IAM role in the next step.
 
@@ -24,83 +40,51 @@ To obtain the Auth0 Dashboard's Thumbprint value:
 4. Convert the fingerprint to a thumbprint by removing all of the `:` characters.
 5. Use the computed thumbprint when calling the `aws iam create-open-id-connect-provider` command.
 
-Please do **not** use the certificate thumbprint shown on the Auth0 Application Dashboard.
-
 ### Create a Cognito Identity Pool
+
 Now, you need to create an Identity Pool in the [Cognito Console](https://console.aws.amazon.com/cognito/home). This will be used to log in to Amazon Cognito using the Auth0 Identity Provider that you created in the previous step.
 
-![Cognito Pool Creation](/media/articles/scenarios/amazon-cognito/IDPCognito.gif)
+1. Sign in to the [Cognito Console.](https://console.aws.amazon.com/cognito/home)
 
-> Please take a note of the ARN selected in the end of the gif. We’ll use it later on!
+2. Click **Manage Federated Identities** to start creating a new identity pool.
 
-### Grab the Role ARN
-Finally, grab the ARN of the role that was automatically created in the previous step from the [IAM console](https://console.aws.amazon.com/iam/home).
+3. For **Identity Pool Name**, specify a name for the pool e.g. `Auth0`. Under **Authentication Providers**, click the **OpenID** tab and select the name of the provider you created in the previous steps.
 
-![Grab Role ARN](/media/articles/scenarios/amazon-cognito/Roles.gif)
+![Create Identity Pool](/media/articles/scenarios/amazon-cognito/identity-pool.png)
 
-# Configuring Auth0
-### Configure your application
-Amazon will use the public signing key from the OpenID Provider Metadata (https://subscription.auth0.com/.well-known/jwks.json) to validate the signature of the JSON Web Token.
+Click **Create Pool**.
 
-By default Auth0 will use the HS256 signature algorithm which is not supported in this scenario (this will result in "Invalid login token" errors). Go to your application in the dashboard, press "Show Advanced Settings" and change the algorithm to RS256:
+4. This will bring up a confirmation page for allowing access to your resources. By default, Amazon Cognito creates a new role with limited permissions - end users only have access to Cognito Sync and Mobile Analytics. You can modify the roles if your application needs access to other AWS resources, such as S3 or DynamoDB.
 
-![](/media/articles/scenarios/amazon-cognito/cdn-amazon-cognito-rs256.png)
+![Confirmation page](/media/articles/scenarios/amazon-cognito/allow-role.png)
 
-## Code time!
-Now it’s time to start coding our app. In this case, we’ll be using Swift, but the same sample applies to Objective-C as well.
+Click **Allow** to finish creating the new identity pool.
 
-### Adding the Needed Dependencies
+5. Click **Edit Identity Pool** to view the the Identity Pool ID.
 
-Add the following dependencies to your `Podfile`
+![View the Identity Pool ID](/media/articles/scenarios/amazon-cognito/pool-id.png)
 
-```ruby
-pod "Lock", "~> 2.4"
-pod "JWTDecode"
-pod "SimpleKeychain"
-pod "AWSCore"
-pod "AWSCognito"
-```
-### Logging the User In
-We’ll use [Auth0 Lock for iOS](https://github.com/auth0/lock) to log the user in. You can read detailed instructions on how to implement it in [this documentation page](/native-platforms/ios-swift).
-Once the user is successfully logged in with Auth0, we’ll send their credentials to Amazon Cognito:
+6. Finally, grab the ARN of the role that was automatically created in the previous step from the [IAM console](https://console.aws.amazon.com/iam/home) this value will be used when sending credentials to Cognito.
 
-```swift
-let authController = A0LockViewController()
-authController.onAuthenticationBlock = {(profile:A0UserProfile!, token:A0Token!) -> () in
-  // Save Tokens and Credentials into the keychain as you'd regularly do
-  // ...
+![Role ARN](/media/articles/scenarios/amazon-cognito/role-arn.png)
 
-  let provider = AWSCognitoCredentialsProvider.credentialsWithRegionType(
-    AWSRegionType.USEast1,
-    // Your AWS Account ID
-    accountId: Constants.AWSAccountID.value,
-    // This is the ARN from Cognito Identity Pool
-    identityPoolId: Constants.CognitoPoolID.value,
-    unauthRoleArn: '',
-    // This is the ARN from the Role
-    authRoleArn: Constants.CognitoRoleAuth.value);
+## Auth0 Configuration
 
+Amazon will use the public signing key from the [OpenID Provider Metadata](https://subscription.auth0.com/.well-known/jwks.json) to validate the signature of the JSON Web Token.
 
-  let configuration = AWSServiceConfiguration(region: AWSRegionType.USEast1, credentialsProvider: self.provider);
-  AWSServiceManager.defaultServiceManager().setDefaultServiceConfiguration(configuration)
+By default Auth0 will use the HS256 signature algorithm which is not supported in this scenario (this will result in "Invalid login token" errors). Go to your client in the [dashboard](${manage_url}/#/clients), click the **Show Advanced Settings** link and then **OAuth** and change the algorithm to **RS256**.
 
-  // Set here the Auth0 URL you've set when creating the OpenID Connect Provider
-  provider.logins = ['samples.auth0.com': token.idToken]
-  self.provider.getIdentityId().continueWithBlock { (task: BFTask!) -> AnyObject! in
-      self.provider.refresh()
-      if (task.error != nil) {
-          // Fail
-      } else {
-          // Logged in with Cognito successfully
-      }
-      return nil
-  }
-}
-```
+![Change to RS256](/media/articles/scenarios/amazon-cognito/jwt-algorithm.png)
 
-### Using Cognito
+## Implementation
 
-Now, the user is logged in to Cognito through Auth0. You can now store information in Cognito that only this user will be able to use.
+You can use [Auth0 Lock](https://github.com/auth0/lock) to log the user in. You can read detailed instructions on how to implement Lock in [the libraries documentation](/libraries#lock-login-signup-widgets).
+
+Once the user is successfully logged in with Auth0, the next step is to send their credentials to Amazon Cognito [see the Cognito docs](http://docs.aws.amazon.com/cognito/latest/developerguide/open-id.html) to see how to implement this with depending on the platform.
+
+Cognito takes the ID token that you obtain from the OIDC identity provider and uses it to manufacture unique Cognito IDs for each person who uses your app. When the user is logged in to Cognito through Auth0 you can store information in Cognito that only this user will be able to access. 
+
+For example (with Swift):
 
 ```swift
 let cognitoSync = AWSCognito.defaultCognito()
@@ -117,12 +101,8 @@ dataset.synchronize().continueWithBlock { (task) -> AnyObject! in
 dataset.setString(self.textValue.text, forKey: "value")
 dataset.synchronize()
 ```
-## Let’s see how it works!
 
-![Cognito working](/media/articles/scenarios/amazon-cognito/CognitoSample.gif)
+## Further Reading
 
-## Final Thoughts
-
-That’s it! Now, your users can login with Github or any other identity provider using a native UI and save their information with Cognito easily.
-
-Happy coding :).
+* [Amazon Cognito: Open ID Connect Providers](http://docs.aws.amazon.com/cognito/latest/developerguide/open-id.html)
+* [Amazon IAM: Creating OpenID Connect (OIDC) Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
