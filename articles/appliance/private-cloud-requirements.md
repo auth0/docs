@@ -19,6 +19,7 @@ If you have decided to purchase an Appliance that is hosted in a dedicated area 
 
   * Registering the custom domain(s) and uploading the accompanying certificate(s) to the Auth0 Dashboard. You'll also be responsible for keeping your certificates up-to-date;
   * Adding the appropriate entries to your DNS that aliases the Auth0 identity (e.g. `identity.\<yourname\>.com` => `identity.\<yourname\>.auth0.com`)
+  * **Note**: Webtask does not currently support your custom domain.
 
 ## Further Reading
 
