@@ -515,11 +515,6 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <td class="text-center">X</td>
   </tr>
   <tr>
-    <td class="text-center"><a href="/quickstart/spa/ember2js">Ember 2</a></td>
-    <td class="text-center"></td>
-    <td class="text-center">X</td>
-  </tr>
-  <tr>
     <td class="text-center"><a href="/quickstart/spa/vanilla">JavaScript</a></td>
     <td class="text-center">X</td>
     <td class="text-center"></td>
@@ -662,22 +657,12 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th class="text-center">Community Support Only</th>
   </tr>
   <tr>
-    <td class="text-center"><a href="/quickstart/backend/wcf-service">.NET WCF</a></td>
-    <td class="text-center"></td>
-    <td class="text-center">X</td>
-  </tr>
-  <tr>
     <td class="text-center"><a href="/quickstart/backend/aspnet-core-webapi">ASP.NET Core Web API</a></td>
     <td class="text-center">X</td>
     <td class="text-center"></td>
   </tr>
   <tr>
     <td class="text-center"><a href="/quickstart/backend/webapi-owin">ASP.NET Web API (OWIN)</a></td>
-    <td class="text-center">X</td>
-    <td class="text-center"></td>
-  </tr>
-  <tr>
-    <td class="text-center"><a href="/quickstart/backend/aspnet-webapi">ASP.NET Web API (System.Web)</a></td>
     <td class="text-center">X</td>
     <td class="text-center"></td>
   </tr>
