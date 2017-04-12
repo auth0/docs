@@ -7,11 +7,11 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.auth0.example")
+@ComponentScan(basePackages = "com.auth0")
 @EnableAutoConfiguration
 @PropertySources({
 		@PropertySource("classpath:application.properties"),
-		@PropertySource("classpath:auth0.properties.example")
+		@PropertySource("classpath:auth0.properties")
 })
 /*
  * Your application class
