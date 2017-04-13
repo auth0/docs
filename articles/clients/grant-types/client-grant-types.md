@@ -91,7 +91,7 @@ For third-party Clients, Auth0 limits used of the Password Exchange flows by def
   </tr>
   <tr>
     <td>`http://auth0.com/oauth/legacy/grant-type/ro`</td>
-    <td></td>
+    <td>`http://auth0.com/oauth/grant-type/password-realm`</td>
   </tr>
   <tr>
     <td>`http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer`</td>
