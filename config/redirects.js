@@ -1140,5 +1140,9 @@ module.exports = [
   {
     from: '/libraries/lock-ios',
     to: '/libraries/lock-ios/v2'
+  },
+  {
+    from: '/protocols/oauth2/oauth-implicit-protocol',
+    to: '/api-auth/tutorials/implicit-grant'
   }
 ];
