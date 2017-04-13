@@ -12,7 +12,7 @@ Error messages are returned in the standard format:
 {
   "error": "error_code",
   "error_description": "the description of the erorr.",
-  "error_uri": "${docsUrl}/errors/dbconnections/self_change_password"
+  "error_uri": "https://auth0.com/docs/errors/dbconnections/self_change_password"
 }
 ```
 
