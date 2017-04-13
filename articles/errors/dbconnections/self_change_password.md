@@ -14,6 +14,7 @@ Error messages are returned in the standard format:
   "error_description": "the description of the erorr.",
   "error_uri": "${docsUrl}/errors/dbconnections/self_change_password"
 }
+```
 
 
 ## Error Codes
