@@ -33,7 +33,7 @@ You have to provide a login script to authenticate the user that will execute ea
   When creating users, Auth0 calls the <code>get_user</code> script before the <code>create</code> script. Be sure that you have implemented both.
 </div>
 
-These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
+These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 
 This tutorial uses **MySQL** as an example. In the **Templates** drop-down, select **MySQL**:
 
