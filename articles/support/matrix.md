@@ -7,9 +7,7 @@ toc: true
 
 For customers with valid [subscriptions](${manage_url}/#/account/billing/subscription), this article covers the features, platforms, and software configurations that are eligible for Auth0 support.
 
-If you have any questions, please open a ticket in the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}).
-
-Auth0 provides support in alignment with the [Terms of Service](https://auth0.com/terms).
+Auth0 provides support in alignment with the [Terms of Service](https://auth0.com/terms) and Pricing and Support plans.
 
 ## On This Page
 
@@ -52,7 +50,7 @@ Throughout this article, we will use the following terms to indicate the varying
   <tr>
     <th>Sustained</th>
     <td>**</td>
-    <td>Auth0 has <i>not</i> formally tested, but will support and may provide bug fixes (if applicable) for these items.</td>
+    <td>Auth0 will support and may provide bug fixes (if applicable) for these items.</td>
   </tr>
   <tr>
     <th>Community</th>
@@ -220,7 +218,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 
 <table class="table">
   <tr>
-    <th>Sustained</th>
+    <th>Supported</th>
     <td>Tested; receives features updates and bug fixes</td>
   </tr>
   <tr>
@@ -238,7 +236,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <th>Library</th>
-    <th>Sustained</th>
+    <th>Supported</th>
     <th>Bug Fixes</th>
   </tr>
   <tr>
@@ -273,7 +271,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <th>SDK</th>
-    <th>Sustained</th>
+    <th>Supported</th>
     <th>Bug Fixes</th>
   </tr>
   <tr>
@@ -321,7 +319,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   </tr>
   <tr>
     <th>SDK</th>
-    <th>Sustained</th>
+    <th>Supported</th>
     <th>Community-Supported</th>
   </tr>
   <tr>
