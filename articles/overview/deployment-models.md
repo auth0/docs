@@ -1,5 +1,6 @@
 ---
 description: This page explains the differences of the four different deployment models in which Auth0 is offered.
+toc: true
 ---
 
 # Auth0 Deployment Models
@@ -13,14 +14,14 @@ Auth0 is offered in 4 deployment models:
 
 The following table describes operational and feature differences between each of these models.
 
+## Operational Differences
+
 <table class="table">
     <thead>
         <tr>
             <th class="info">Where It Runs</th>
-            <th class="info">Auth0's Infrastructure</th>
-            <th class="info"></th>
-            <th class="info">Customer's Infrastructure</th>
-            <th class="info"></th>
+            <th class="info" colspan="2">Auth0's Infrastructure</th>
+            <th class="info" colspan="2">Customer's Infrastructure</th>
         </tr>
         <tr>
             <th>How It Runs</th>
@@ -73,13 +74,29 @@ The following table describes operational and feature differences between each o
             <td></td>
             <td></td>
         </tr>
+    </tbody>
+</table>
+
+## Feature Differences
+
+<table>
+    <thead>
         <tr>
-            <th class="info">Features</th>
-            <td class="info"></td>
-            <td class="info"></td>
-            <td class="info"></td>
-            <td class="info"></td>
+        <tr>
+            <th class="info">Where It Runs</th>
+            <th class="info" colspan="2">Auth0's Infrastructure</th>
+            <th class="info" colspan="2">Customer's Infrastructure</th>
         </tr>
+        </tr>
+        <tr>
+            <th>How It Runs</th>
+            <th>Multi-Tenant</th>
+            <th>Dedicated</th>
+            <th>Cloud</th>
+            <th>On-Premises</th>
+        </tr>
+    </thead>
+    <tbody>
         <tr>
             <th>SSO Lifetime</th>
             <td>Default Settings</td>
