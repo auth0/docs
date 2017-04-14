@@ -88,11 +88,25 @@ The following table describes operational and feature differences between each o
             <td>Configurable</td>
         </tr>
         <tr>
-            <th>Search</th>
+            <th>User Search</th>
+            <td>Lucene queries</td>
+            <td>Simple attribute search or Lucene queries</td>
+            <td>Simple attribute search or Lucene queries</td>
+            <td>Simple attribute search or Lucene queries</td>
+        </tr>
+        <tr>
+            <th>Tenant Log Search</th>
             <td>Lucene queries</td>
             <td>Simple attribute search</td>
             <td>Simple attribute search</td>
             <td>Simple attribute search</td>
+        </tr>
+        <tr>
+            <th>Log Retention</th>
+            <td>Up to 30 days (depends on subscription plan)</td>
+            <td>Limited to 30 days</td>
+            <td>Limited to 30 days</td>
+            <td>Limited to 30 days</td>
         </tr>
         <tr>
             <th>Code Sandbox</th>
@@ -104,9 +118,9 @@ The following table describes operational and feature differences between each o
         <tr>
             <th>Webtask</th>
             <td>Multi-Tenant</td>
-            <td>Dedicated</td>
-            <td>Cloud</td>
-            <td>On-Premises</td>
+            <td>Dedicated (Fixed NPM modules)</td>
+            <td>Dedicated (Fixed NPM modules)</td>
+            <td>On-Premises (Fixed NPM modules)</td>
         </tr>
         <tr>
             <th>Anomaly Detection</th>
@@ -139,9 +153,9 @@ The following table describes operational and feature differences between each o
         <tr>
             <th>Custom Domains</th>
             <td class="danger">No</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
+            <td class="success">Yes <sup>**</sup></td>
+            <td class="success">Yes <sup>**</sup></td>
+            <td class="success">Yes <sup>**</sup></td>
         </tr>
         <tr>
             <th>Shared Resources Among Multiple Customers</th>
@@ -150,7 +164,30 @@ The following table describes operational and feature differences between each o
             <td class="danger">No</td>
             <td class="danger">No</td>
         </tr>
+        <tr>
+          <th>MFA</th>
+          <td>Yes</td>
+          <td>Google Authenticator, Google Duo over TOTP/HOTP. Guardian is *not* available.</td>
+          <td>Google Authenticator, Google Duo over TOTP/HOTP. Guardian is *not* available.</td>
+          <td>Google Authenticator, Google Duo over TOTP/HOTP. Guardian is *not* available.</td>
+        </tr>
+        <tr>
+          <th>Internet Restricted</th>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Optional <sup>***</sup></td>
+        </tr>
     </tbody>
 </table>
 
-<sup>*</sup>__NOTE:__ See the [Auth0 Appliance: Extensions page](/appliance/extensions) to learn more about configuring extensions with the Appliance.
+<sup>*</sup>See the [Auth0 Appliance: Extensions page](/appliance/extensions) to learn more about configuring extensions with the Appliance.
+
+<sup>**</sup>See [Appliance Custom Domains](/appliance/custom-domains) for details. If your Appliance is histed in the Auth0 Private Cloud, see [Private Cloud Requirements](/appliance/private-cloud-requirements).
+
+<sup>***</sup>You may choose to operate the Appliance in an Internet-restricted environment. If you do so, you will *not* have access to:
+
+* Extensions;
+* Lock (requires access to the CDN hosting Lock);
+* Management/Authentication API Explorers (requires access to the CDN hosting the API Explorers);
+* Quickstarts (requires access to GitHub).
