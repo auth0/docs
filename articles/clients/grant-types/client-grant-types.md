@@ -55,7 +55,7 @@ For existing Clients, Auth0 will populate the `grant_type` property with the cor
 
 At creation, new Clients (regardless of whether the owning tenant exists or is new), will be assigned the appropriate default grant type depending on the following two Client flags:
 
-* `oidc_conformant`: This flag is `true` if you've enabled the **OIDC Conformant** slider in the *Advanced Settings* section of your Client Settings page.
+* `oidc_conformant`: This flag is `true` if you've enabled the [**OIDC Conformant** slider](/api-auth/tutorials/adoption/oidc-conformant) in the *Advanced Settings* section of your Client Settings page.
 * `is_first_party`: By default, all new Clients will have this flag set to `true`.
 
 If `is_first_party` is `true`, the Client can use the following grant types (regardless of whether `oidc_conformant` is `true` or `false`):
@@ -87,7 +87,7 @@ For third-party Clients, Auth0 limits used of the Password Exchange flows by def
 <table class="table">
   <tr>
     <th>If you want to use this legacy grant type...</th>
-    <th>Consider using one of these instead</th>
+    <th>Consider using...</th>
   </tr>
   <tr>
     <td>`http://auth0.com/oauth/legacy/grant-type/ro`</td>
@@ -99,7 +99,7 @@ For third-party Clients, Auth0 limits used of the Password Exchange flows by def
   </tr>
   <tr>
     <td>`http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token`</td>
-    <td></td>
+    <td>The `oauth/token` endpoint to [obtain refresh tokens](/api-auth/tutorials/adoption/refresh-tokens)</td>
   </tr>
   <tr>
     <td>`http://auth0.com/oauth/legacy/grant-type/delegation/id_token`</td>
