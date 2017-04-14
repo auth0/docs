@@ -25,7 +25,7 @@ You may deploy the Appliance in several different configurations and use several
 
 ![](/media/articles/appliance/ha-options.png)
 
-[Auth0 Deployment Models](/deployment) provides additional details and explains the differences between each of the Appliance deployment models and the standard multi-tenant cloud deployment.
+[Auth0 Deployment Models](/deployment-models) provides additional details and explains the differences between each of the Appliance deployment models and the standard multi-tenant cloud deployment.
 
 ## Maintenance and Connectivity
 
