@@ -79,14 +79,12 @@ The following table describes operational and feature differences between each o
 
 ## Feature Differences
 
-<table>
+<table class="table">
     <thead>
-        <tr>
         <tr>
             <th class="info">Where It Runs</th>
             <th class="info" colspan="2">Auth0's Infrastructure</th>
             <th class="info" colspan="2">Customer's Infrastructure</th>
-        </tr>
         </tr>
         <tr>
             <th>How It Runs</th>
