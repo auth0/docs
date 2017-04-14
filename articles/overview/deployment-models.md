@@ -62,10 +62,10 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Uptime SLA Provided</th>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="danger">No</td>
-            <td class="danger">No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>No</td>
         </tr>
         <tr>
             <th>Support Channels & Levels</th>
@@ -139,45 +139,45 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Anomaly Detection</th>
-            <td class="success">Brute Force and Breached Passwords</td>
-            <td class="success">Brute Force</td>
-            <td class="success">Brute Force</td>
-            <td class="success">Brute Force</td>
+            <td>Brute Force and Breached Passwords</td>
+            <td>Brute Force</td>
+            <td>Brute Force</td>
+            <td>Brute Force</td>
         </tr>
         <tr>
             <th>Extensions</th>
-            <td class="success">Yes</td>
-            <td class="success">Yes <sup>*</sup></td>
-            <td class="success">Yes <sup>*</sup></td>
-            <td class="success">Yes <sup>*</sup></td>
+            <td>Yes</td>
+            <td>Yes <sup>*</sup></td>
+            <td>Yes <sup>*</sup></td>
+            <td>Yes <sup>*</sup></td>
         </tr>
         <tr>
             <th>Geolocation</th>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <th>Connecting IP Address Filtering Restrictions</th>
-            <td class="danger">No</td>
-            <td class="danger">No</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <th>Custom Domains</th>
-            <td class="danger">No</td>
-            <td class="success">Yes <sup>**</sup></td>
-            <td class="success">Yes <sup>**</sup></td>
-            <td class="success">Yes <sup>**</sup></td>
+            <td>No</td>
+            <td>Yes <sup>**</sup></td>
+            <td>Yes <sup>**</sup></td>
+            <td>Yes <sup>**</sup></td>
         </tr>
         <tr>
             <th>Shared Resources Among Multiple Customers</th>
-            <td class="success">Yes</td>
-            <td class="danger">No</td>
-            <td class="danger">No</td>
-            <td class="danger">No</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
         </tr>
         <tr>
           <th>MFA</th>
