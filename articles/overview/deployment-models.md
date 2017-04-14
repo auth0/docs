@@ -182,9 +182,9 @@ The following table describes operational and feature differences between each o
         <tr>
           <th>MFA</th>
           <td>Yes</td>
-          <td>Google Authenticator, Google Duo over TOTP/HOTP. Guardian is *not* available.</td>
-          <td>Google Authenticator, Google Duo over TOTP/HOTP. Guardian is *not* available.</td>
-          <td>Google Authenticator, Google Duo over TOTP/HOTP. Guardian is *not* available.</td>
+          <td>Google Authenticator, Duo over TOTP/HOTP. Guardian is *not* available.</td>
+          <td>Google Authenticator, Duo over TOTP/HOTP. Guardian is *not* available.</td>
+          <td>Google Authenticator, Duo over TOTP/HOTP. Guardian is *not* available.</td>
         </tr>
         <tr>
           <th>Internet Restricted</th>
@@ -198,7 +198,7 @@ The following table describes operational and feature differences between each o
 
 <sup>*</sup>See the [Auth0 Appliance: Extensions page](/appliance/extensions) to learn more about configuring extensions with the Appliance.
 
-<sup>**</sup>See [Appliance Custom Domains](/appliance/custom-domains) for details. If your Appliance is histed in the Auth0 Private Cloud, see [Private Cloud Requirements](/appliance/private-cloud-requirements).
+<sup>**</sup>See [Appliance Custom Domains](/appliance/custom-domains) for details. If your Appliance is hosted in the Auth0 Private Cloud, see [Private Cloud Requirements](/appliance/private-cloud-requirements).
 
 <sup>***</sup>You may choose to operate the Appliance in an Internet-restricted environment. If you do so, you will *not* have access to:
 
