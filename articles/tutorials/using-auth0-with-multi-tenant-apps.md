@@ -94,7 +94,7 @@ The overall architecture includes the following features:
 * Support for Enterprise connections;
 * Home realm discovery using email domains.
 
-Becuase a user can have access to multiple apps, each with its own permissions level (for example, the user can be an admin for App A, but just a regular user on App B), we show this by assigning a `user_id` property to an **account-level** entity (for administrative permissions) or an **app-level** entity (for user-level permissions).
+Because a user can have access to multiple apps, each with its own permissions level (for example, the user can be an admin for App A, but just a regular user on App B), we show this by assigning a `user_id` property to an **account-level** entity (for administrative permissions) or an **app-level** entity (for user-level permissions).
 
 ##### Auth0 User Profile
 
