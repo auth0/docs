@@ -46,8 +46,8 @@ then be used to initiate the login process.
 
 script.
   var auth0 = new auth0.WebAuth({
-    domain: '${acccount.namespace}',
-    clientID: '${acccount.clientId}',
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
     redirectUri: 'http://localhost:3000/callback'
   });
 ```
