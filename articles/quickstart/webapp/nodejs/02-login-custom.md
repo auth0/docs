@@ -9,7 +9,7 @@ budicon: 448
   repo: 'auth0-nodejs-webapp-sample',
   path: '02-Custom-Login',
   requirements: [
-    'NodeJS 4.3 or superior',
+    'NodeJS 4.3 or higher',
     'Express 4.11'
   ]
 }) %>
@@ -31,7 +31,7 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     // auth0.js
-    script(src="<script src="${auth0js_url}"></script>")
+    script(src="<script src="${auth0js_urlv8}"></script>")
   body
     block content
 ```
@@ -45,10 +45,10 @@ then be used to initiate the login process.
 // views/index.jade
 
 script.
-  var auth0 = new Auth0({
-    domain:      '#{env.AUTH0_DOMAIN}',
-    clientID:    '#{env.AUTH0_CLIENT_ID}',
-    callbackURL: '#{env.AUTH0_CALLBACK_URL}',
+  var auth0 = new auth0.WebAuth({
+    domain: '${acccount.namespace}',
+    clientID: '${acccount.clientId}',
+    redirectUri: 'http://localhost:3000/callback'
   });
 ```
 
@@ -61,12 +61,11 @@ Here is an example of how to use `.signin()` to log in with Google.
 // views/index.jade
 
 script.
-
-  ...
-
+  // ...
   function signinGoogle() {
-    auth0.signin({
+    auth0.authorize({
       connection: 'google-oauth2',
+      responseType: 'code'
     });
   }
 ```
@@ -79,19 +78,18 @@ Logging in with a username and password is very similar to the previous case, bu
 // views/index.jade
 
 script.
-
-  ...
-
+  // ...
   function signinDb() {
-    auth0.signin({
+    auth0.redirect.loginWithCredentials({
       connection: 'Username-Password-Authentication',
       username: document.getElementById('username').value,
       password: document.getElementById('password').value,
+      responseType: 'code'
     });
   }
 ```
 
-## Putting it all together
+## Putting it All Together
 
 We can now add some input fields and buttons to make a complete custom login page.
 
@@ -99,7 +97,6 @@ We can now add some input fields and buttons to make a complete custom login pag
 extends layout
 
 block content
-
   h1= title
   p Welcome to #{title}
   br
@@ -115,23 +112,25 @@ block content
   button(onclick="signinDb()") Log In
 
   script.
-    var auth0 = new Auth0({
-        domain:      '#{env.AUTH0_DOMAIN}',
-        clientID:    '#{env.AUTH0_CLIENT_ID}',
-        callbackURL: '#{env.AUTH0_CALLBACK_URL}',
-      });
+    var auth0 = new auth0.WebAuth({
+      domain: '#{env.AUTH0_DOMAIN}',
+      clientID: '#{env.AUTH0_CLIENT_ID}',
+      redirectUri: '#{env.AUTH0_CALLBACK_URL}'
+    });
 
     function signinGoogle() {
-      auth0.signin({
+      auth0.authorize({
         connection: 'google-oauth2',
+        responseType: 'code'
       });
     }
 
     function signinDb() {
-      auth0.signin({
+      auth0.redirect.loginWithCredentials({
         connection: 'Username-Password-Authentication',
         username: document.getElementById('username').value,
         password: document.getElementById('password').value,
+        responseType: 'code'
       });
     }
 ```
