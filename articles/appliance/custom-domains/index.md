@@ -8,7 +8,7 @@ description: How to set up custom domains for your Appliances
 
 Beginning with Appliance Build 5XXX, you may configure custom domains using the Management Dashboard.
 
-Custom domains allow you to expose one or more arbitrary DNS names for a tenant. Conventionally, Auth0 uses a three-part domain name for access, and it is the third portion of the domain name that varies depending on the tenant.
+Custom domains allow you to expose one or more arbitrary DNS names for a tenant. Conventionally, Auth0 uses a three-part domain name for access, and it is the first portion of the domain name that varies depending on the tenant.
 
 The root tenant authority (RTA) is a special domain that is configured when the cluster is first set up. It is a privileged tenant from which certain manage operations for the cluster are available. The RTA is sometimes called the configuration domain, and all users that have access to the Management Dashboard belong to an application in the RTA.
 
@@ -51,3 +51,8 @@ Each of the custom domains (in this example, there are two) has its own certific
 ## Configuring Custom Domains
 
 You may configure custom domains for your tenants via the [custom domains set-up area](/appliance/dashboard/tenants#custom-domains) of the [tenants page in the Appliance configuration area](/appliance/dashboard/tenants).
+
+## Custom Domains for Appliance's Hosted in Auth0’s Private Cloud
+
+If your Appliance is hosted in Auth0’s private cloud, your domains will end in *auth0.com*. If you want to use a custom domain with your customer-facing applications, see [Information Requirements for Setting Up the Appliance in Auth0's Private Cloud](/appliance/private-cloud-requirements).
+
