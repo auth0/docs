@@ -180,13 +180,13 @@ refreshing tokens is now done via the `renewAuth` method. If a user is already a
 
 Delegation is now done via the `delegation` method, which takes an `options` object containing the following potential parameters:
 
-* client_id <required> - a string; the Auth0 client identifier
-* grant_type <required> - a string; must be `urn:ietf:params:oauth:grant-type:jwt-bearer`
-* id_token <required> - a string; either a valid id_token or a valid refresh_token is required
-* refresh_token <optional> - a string; either a valid refresh_token or a valid id_token is required
-* target <optional> - a string; the target client id of the delegation
-* scope <optional> - a string; either `'openid'` or `'openid profile email'`
-* api_type <optional> - a string; the api to be called
+* client_id (required) - a string; the Auth0 client identifier
+* grant_type (required) - a string; must be `urn:ietf:params:oauth:grant-type:jwt-bearer`
+* id_token (required) - a string; either a valid id_token or a valid refresh_token is required
+* refresh_token - a string; either a valid refresh_token or a valid id_token is required
+* target - a string; the target client id of the delegation
+* scope - a string; either `'openid'` or `'openid profile email'`
+* api_type - a string; the api to be called
 
 ```js
 webAuth.delegation({
