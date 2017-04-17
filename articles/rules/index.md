@@ -62,7 +62,7 @@ if (!global.bar) {
 }
 ```
 
-Rules containing shared functions should be placed at the top of the Rules list in the Management Dashboard. If this is not the case, calling these functions results in an undefined function error when the Rules execute.
+Rules containing shared functions should be placed at the top of the [Rules list in the Management Dashboard](${manage_url}/#/rules). If this is not the case, calling these functions results in an undefined function error when the Rules execute.
 
 ## Examples
 
