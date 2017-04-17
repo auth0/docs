@@ -69,10 +69,7 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Support Channels & Levels</th>
-            <td>Same across all models</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="4">Same across all models</td>
         </tr>
     </tbody>
 </table>
