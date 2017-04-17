@@ -174,7 +174,7 @@ export class Auth {
 
   public isAuthenticated(): boolean {
     // Check whether the id_token is expired or not
-    return tokenNotExpired();
+    return tokenNotExpired('id_token');
   }
 
   public logout(): void {
