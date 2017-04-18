@@ -82,6 +82,29 @@ For requests received with the parameter `prompt=none`, Auth0 redirects to the `
 
 Regardless of which outcome occurs, the sample app's [`postMessage` function](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) sends Auth0's response from the iframe back to the main page, allowing it to act based on the response.
 
+### Using the Auth0.js library
+
+Users of the `Auth0.js` library have access to [the `renewAuth` method](https://github.com/auth0/auth0.js#api), which attempts to get a new token from Auth0 by using silent authentication or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
+
+This method can be used to detect a locally unauthenticated user's SSO session status, or to renew an authenticated user's access token. The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
+
+```js
+auth0.renewAuth({
+  audience: 'https://mystore.com/api/v2',
+  scope: 'read:order write:order',
+  redirectUri: 'https://example.com/auth/silent-callback',
+
+  // this will use postMessage to comunicate between the silent callback
+  // and the SPA. When false the SDK will attempt to parse the url hash
+  // should ignore the url hash and no extra behaviour is needed.
+  usePostMessage: true
+  }, function (err, authResult) {
+    // Renewed tokens or error
+});
+```
+
+#### Run the Sample Application
+
 When you run the sample app for the first time, you will not have a valid access token. As such, the SSO login process errors when attempting silent authentication.
 
 ![Prompt to begin silent authentication](/media/articles/sso/v2/spa/begin-silent-auth.png)
