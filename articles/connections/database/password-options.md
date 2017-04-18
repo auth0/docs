@@ -53,7 +53,7 @@ Password options are associated with a Database connection so these values can b
 
 For example here is what a MySQL database connection may look like after setting a password policy:
 
-``
+```json
 {
   "id": "con_9dKKcib71UMRiHHW",
   "options": {
@@ -80,7 +80,7 @@ For example here is what a MySQL database connection may look like after setting
     "ztIyxRuiK7Pr2VTzEGvRqxfuh7DgePbF"
   ]
 }
-``
+```
 
 If you are [creating a connection](/api/management/v2#!/Connections/post_connections) or [updating an existing connection](/api/management/v2#!/Connections/patch_connections_by_id) using the Management API you can update the password policy for the connection using these fields.
 
