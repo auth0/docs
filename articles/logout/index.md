@@ -127,11 +127,13 @@ When providing the URL list, you can:
 
 #### Facebook Users
 
-If you are using Facebook, please be aware of the additional requirements (including encoding the `returnTo` parameter) when triggering a logout:
+If you are using Facebook, please be aware of the additional requirements when triggering a logout.
+
+Also make sure to encode the `returnTo` parameter.
 
 ```text
 https://${account.namespace}/v2/logout?federated&
-      returnTo=url_encode(https://${account.namespace}/logout?returnTo=http://www.example.com)
+      returnTo=https%3A%2F%2F${account.namespace}%2Flogout%3FreturnTo%3Dhttp%3A%2F%2Fwww.example.com
       &access_token=[facebook access_token]
 ```
 
