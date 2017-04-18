@@ -34,8 +34,8 @@ The following properties are available for the `context` object:
   - `with_auth0`: when a user signs in with SSO to an application where the `Use Auth0 instead of the IdP to do Single Sign On` setting is enabled.
   - `with_dbconn`: an SSO login for a user that logged in through a database connection.
   - `current_clients`: client IDs using SSO.
-* `access_token`: used to add custom namespaced claims to the `access_token`.
-* `id_token`: used to add custom namespaced claims to the `id_token`.
+* `accessToken`: used to add custom namespaced claims to the `access_token`.
+* `idToken`: used to add custom namespaced claims to the `id_token`.
 * `sessionID`: unique id for the authentication session.
 * `request`: an object containing useful information of the request. It has the following properties:
   - `userAgent`: the user-agent of the client that is trying to log in.
