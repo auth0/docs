@@ -34,7 +34,7 @@ Auth0 offers the following support plans:
 Customers with Auth0's free subscription plan can seek support through the Auth0 Community. Response times may vary and are not guaranteed.
 
 :::panel-info Trial Subscriptions
-New Auth0 customers receive Standard Support during the 22-day trial period (customers may check on how many trial days they have left by logging into the [Dashboard](${manage_url})). If necessary, customers may request a one-day trial extension using the [Auth0 Support Center](https://support.auth0.com/).
+New Auth0 customers receive Standard Support during the 22-day trial period (customers may check on how many trial days they have left by logging into the [Dashboard](${manage_url})). 
 
 At the end of the trial period, customers who have not opted to purchase a paid subscription can use the Auth0 Community for assistance. They will no longer be able to access or open tickets in the [Support Center](https://support.auth0.com/).
 :::
