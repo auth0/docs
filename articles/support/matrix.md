@@ -1,4 +1,5 @@
 ---
+title: Auth0 Product Support Matrix
 description: This doc covers what features, platforms, and software configurations Auth0 supports.
 toc: true
 ---
@@ -33,8 +34,7 @@ In the event that you have questions involving unsupported items, you may post y
 
 For community-supported items, you can seek assistance by contacting the developers responsible for those items (such as submitting issues on the GitHub repositories for the specific libraries or software development kits (SDKs)).
 
-<div class="alert alert-info">
-  Auth0 support is limited to the most recent version of the technologies listed (unless otherwise specified). If you are using an older version, you will be required to upgrade prior to seeking support.
+<div class="alert alert-info">Auth0 support is limited to the most recent version of the technologies listed (unless otherwise specified). If you are using an older version, you will be required to upgrade prior to seeking support.
 </div>
 
 ### Definitions
