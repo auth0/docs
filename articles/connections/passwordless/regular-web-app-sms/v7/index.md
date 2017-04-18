@@ -2,27 +2,31 @@
 title: Using Passwordless Authentication in a Regular Web App with SMS
 ---
 
+<div class="alert alert-info">
+This document covers Passwordless Authentication, and uses an older version of auth0.js. If at all possible, we recommend using the newest version of auth0.js instead. You can see a copy of this Passwordless documentation that uses the latest version of auth0.js using the dropdown at the top of this document. If you are interested in upgrading the version of Auth0.js used in your app, take a look at the most recent <a href="/libraries/auth0js/v8/migration-guide">migration guide</a>.
+</div>
+
 # Authenticate users with a one-time code via SMS in a Regular Web App
 
-<%= include('./_introduction-sms', { isMobile: false }) %>
+<%= include('../../_introduction-sms', { isMobile: false }) %>
 
 ## Setup
 
-<%= include('./_setup-sms-twilio') %>
+<%= include('../../_setup-sms-twilio') %>
 
-<%= include('./_setup-callback', {spa:false} ) %>
+<%= include('../../_setup-callback', {spa:false} ) %>
 
 ## Implementation
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-node-passwordless-sample',
   path: ''
 }) %>
 
-<%= include('./_init-passwordless-lock') %>
+<%= include('../../_init-passwordless-lock') %>
 
 Then you can trigger the login widget with the following code:
 
@@ -57,7 +61,7 @@ Once the user enters the code received via SMS, Lock will authenticate the user 
 
 ### Use your own UI
 
-<%= include('../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-node-passwordless-sample',
   path: ''
@@ -65,7 +69,7 @@ Once the user enters the code received via SMS, Lock will authenticate the user 
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('./_init-auth0js', {withCallbackURL:true} ) %>
+<%= include('../../_init-auth0js', {withCallbackURL:true} ) %>
 
 You must provide a way for the user to enter a phone number to which the one-time code will be sent via SMS. Then you can begin the passwordless authentication as follows:
 

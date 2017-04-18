@@ -1144,5 +1144,21 @@ module.exports = [
   {
     from: '/protocols/oauth2/oauth-implicit-protocol',
     to: '/api-auth/tutorials/implicit-grant'
+  },
+  {
+    from: '/connections/passwordless/spa-sms',
+    to: '/connections/passwordless/spa-sms/v8'
+  },
+  {
+    from: '/connections/passwordless/spa-email-code',
+    to: '/connections/passwordless/spa-email-code/v8'
+  },
+  {
+    from: '/connections/passwordless/regular-web-app-sms',
+    to: '/connections/passwordless/regular-web-app-sms/v8'
+  },
+  {
+    from: '/connections/passwordless/regular-web-app-email-code',
+    to: '/connections/passwordless/regular-web-app-email-code/v8'
   }
 ];
