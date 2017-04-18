@@ -97,7 +97,7 @@ Individual routes can be configured to look for a particular `scope` in the `acc
 
 server.route({
   method: 'GET',
-  path: '/api/private/admin',
+  path: '/api/private',
   config: {
     auth: {
       scope: 'read:messages'
