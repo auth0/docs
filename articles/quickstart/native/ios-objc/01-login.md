@@ -98,7 +98,7 @@ To use Safari for the default Google social connection, add the following before
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
-A0SafariAuthenticator *safari = [[A0SafariAuthenticator alloc] initWithLock:lock connectionName:@"google-oauth2"];
+A0SafariAuthenticator *safari = [[A0SafariAuthenticator alloc] initWithLock:lock connectionName:@"google-oauth2" useUniversalLink:NO];
 [lock registerAuthenticators:@[safari]];   
 ```
 
