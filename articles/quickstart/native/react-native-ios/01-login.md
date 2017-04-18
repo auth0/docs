@@ -30,7 +30,7 @@ gem install cocoapods
 
 ## Adding Lock
 
-First you need to run the following command to install **react-native-lock**
+First, you need to run the following command to install **react-native-lock**
 
 ```bash
 npm install --save react-native-lock
@@ -54,7 +54,7 @@ If you get the following warning.
     - Remove the build settings from the target.
 ```
 
-Click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the value `$(inherited)` for **all** configurations .
+Click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the value `$(inherited)` for **all** configurations.
 
 Another error you might have while trying to run the project, if you are using a `react-native` version `>=0.26.0`
 
@@ -63,7 +63,7 @@ Another error you might have while trying to run the project, if you are using a
         ___clang_call_terminate in libReact.a(RCTJSCExecutor.o)
 ```
 
-To solve it, click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the flag `-lc++` for **all** configurations .
+To solve it, click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the flag `-lc++` for **all** configurations.
 
 ## Implement the Login
 
