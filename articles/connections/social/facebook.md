@@ -43,7 +43,7 @@ Enter the following URL in the **Valid OAuth redirect URIs** field:
 
 `https://${account.namespace}/login/callback`
 
-(If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Account Name** in the top right corner. Your Auth0 domain is this name (for example `abc-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://abc-enterprises.auth0.com/login/callback`)
+__NOTE__: If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Account Name** in the top right corner. Your Auth0 domain is this name (for example `abc-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://abc-enterprises.auth0.com/login/callback`.
 
 ![Enter OAuth redirect URI](/media/articles/connections/social/facebook/facebook-3b.png)
 
