@@ -63,7 +63,7 @@ For example here is what a MySQL database connection may look like after setting
     },
     "password_dictionary": {
       "enable": true,
-      "dictionary": [ // If using a custom dictionary, the entries will appear here
+      "dictionary": [ 
         "entry1",
         "entry2"
       ]
