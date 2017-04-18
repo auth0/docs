@@ -23,7 +23,7 @@ GET https://${account.namespace}/authorize?
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Trigger login with google
   webAuth.authorize({
     connection: 'google-oauth2'
@@ -146,6 +146,10 @@ xhr.send(params);
   "link": "#social-with-provider-s-access-token"
 }) %>
 
+::: panel-danger Deprecation Notice
+  </br>This feature uses a legacy authorization flow. Please see [Client Grant Types](/clients/grant-types/client-grant-types) for information on enabling a legacy flow for use with your Client.
+:::
+
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
 
 
@@ -203,7 +207,7 @@ GET https://${account.namespace}/authorize?
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Calculate URL to redirect to
   var url = webAuth.client.buildAuthorizeUrl({
     clientID: '${account.clientId}', // string
@@ -211,7 +215,7 @@ GET https://${account.namespace}/authorize?
     redirectUri: '${account.callback}',
     state: 'YOUR_STATE'
   });
-  
+
   // Redirect to url
   // ...
 </script>
@@ -295,8 +299,8 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
-  // Trigger login using redirect with credentials to enterprise connections 
+
+  // Trigger login using redirect with credentials to enterprise connections
   webAuth.redirect.loginWithCredentials({
     connection: 'Username-Password-Authentication',
     username: 'testuser',
@@ -402,8 +406,8 @@ GET https://${account.namespace}/authorize?
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
-  // Trigger login using redirect with credentials to enterprise connections 
+
+  // Trigger login using redirect with credentials to enterprise connections
   webAuth.redirect.loginWithCredentials({
     connection: 'Username-Password-Authentication',
     username: 'testuser',
