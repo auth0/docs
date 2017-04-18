@@ -1,6 +1,6 @@
 ---
-title: Authentication
-description: This tutorial demonstrates how to add authentication to a Hapi.js API
+title: Authorization
+description: This tutorial demonstrates how to add authorization to a Hapi.js API
 ---
 
 <%= include('../../../_includes/_package', {
@@ -86,17 +86,27 @@ const validateUser = (decoded, request, callback) => {
 
 The configuration that is set up above for the **hapi-auth-jwt2** plugin specifies `required` as the third argument to the `strategy`. This means that all routes will require authentication by default. If you'd like to make a route public, you can simply pass `auth: false` to the route's `config`.
 
+<%= include('../_includes/_api_scope_description') %>
+
+Individual routes can be configured to look for a particular `scope` in the `access_token` using `auth.scope`.
+
 ```js
 // server.js
 
+// ...
+
 server.route({
   method: 'GET',
-  path: '/api/public',
+  path: '/api/private/admin',
   config: {
-    auth: false,
+    auth: {
+      scope: 'read:messages'
+    },
     handler: (req, res) => {
-      res({ message: "Hello from a public endpoint! You don't need to be authenticated to see this." });
+      res({ message: "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this." });
     }
   }
 });
 ```
+
+With this configuration in place, only valid `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
