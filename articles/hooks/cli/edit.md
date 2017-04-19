@@ -16,6 +16,10 @@ You can edit the code of your Hook using the [Webtask Editor](https://webtask.io
 
 If the CLI cannot open the Editor window automatically, you can copy and paste the provided link into your web browser.
 
+:::panel-info Using the Webtask Editor
+Please see the [Webtask docs](https://webtask.io/docs/editor) for detailed information on using the Webtask Editor.
+:::
+
 ## Manipulate Secrets
 
 If you [provisioned a secret to your Hook](/hooks/cli/create-delete#provision-secrets-to-new-hooks) during creation, you can manipulate it by clicking on the **wrench** at the top left of the Webtask Editor window and selecting **Secrets** from the dropdown menu.

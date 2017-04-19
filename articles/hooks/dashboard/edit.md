@@ -15,6 +15,12 @@ You can edit the code for your existing Hook using the [Webtask Editor](https://
 
   ![Webtask Editor](/media/articles/hooks/webtask-editor.png)
 
+  :::panel-info Using the Webtask Editor
+  Please see the [Webtask docs](https://webtask.io/docs/editor) for detailed information on using the Webtask Editor.
+  :::
+
+  If you created your Hook early on during the beta testing period, your Webtask Editor window might not populate with the schema required to successfully use the Test Runner. If that is the case, you'll need to save the Hook's code, delete the Hook, and create a new Hook using your existing code.
+
 ## Rename Your Hook
 
 You can rename your Hook using the Management Dashboard.
