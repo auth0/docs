@@ -32,18 +32,20 @@ Throughout this article, we will use the following terms to indicate the varying
       <th width="70%">Description</th>
     </tr>
   <thead>
-  <tr>
-    <td><div class="label label-primary">Supported</div></td>
-    <td>Auth0 has formally tested, will support, and provide both new features and bug fixes (if applicable) for these items.</td>
-  </tr>
-  <tr>
-    <td><div class="label label-warning">Sustained</div></td>
-    <td>Auth0 will support and may provide bug fixes (if applicable) for these items.</td>
-  </tr>
-  <tr>
-    <td><div class="label label-default">Community Supported</div></td>
-    <td>Auth0 does <i>not</i> support these items, and all assistance regarding these items will come from the general community.</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td><div class="label label-primary">Supported</div></td>
+      <td>Auth0 has formally tested, will support, and provide both new features and bug fixes (if applicable) for these items.</td>
+    </tr>
+    <tr>
+      <td><div class="label label-warning">Sustained</div></td>
+      <td>Auth0 will support and may provide bug fixes (if applicable) for these items.</td>
+    </tr>
+    <tr>
+      <td><div class="label label-default">Community Supported</div></td>
+      <td>Auth0 does <i>not</i> support these items, and all assistance regarding these items will come from the general community.</td>
+    </tr>
+  </tbody>
 </table>
 
 ## Browsers
@@ -54,36 +56,40 @@ This section covers the browsers that Auth0 will support when using the Auth0 Da
 
 The following matrix lists the level of support Auth0 will provide with regards to the Internet browser you have chosen when using the [Auth0 Dashboard](${manage_url}).
 
+<table class="table">
+  <thead>
+    <tr>
+      <th width="80%">Browser</th>
+      <th width="20%">Level of Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apple Safari</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+    <tr>
+      <td>Google Chrome</td>
+      <td><div class="label label-primary">Supported</div></td>
+    </tr>
+    <tr>
+      <td>Microsoft Internet Explorer 11</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+    <tr>
+      <td>Microsoft Edge</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+    <tr>
+      <td>Mozilla Firefox</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+  </tbody>
+</table>
+
 <div class="alert alert-info">
   At this time, Auth0 only supports use of the Dashboard with desktop browsers.
 </div>
-
-<table class = "table">
-  <tr>
-    <td></td>
-    <td><a href="#definitions">Level of Support</a></td>
-  </tr>
-  <tr>
-    <td>Apple Safari</td>
-    <td>**</td>
-  </tr>
-  <tr>
-    <td>Google Chrome</td>
-    <td>***</td>
-  </tr>
-  <tr>
-    <td>Microsoft Internet Explorer 11</td>
-    <td>**</td>
-  </tr>
-  <tr>
-    <td>Microsoft Edge</td>
-    <td>**</td>
-  </tr>
-  <tr>
-    <td>Mozilla Firefox</td>
-    <td>**</td>
-  </tr>
-</table>
 
 ### Browser Compatibility: Auth0 Lock and Authentication
 
@@ -94,48 +100,56 @@ The following matrix lists the level of support Auth0 will provide with regards 
 
 #### Desktop Browsers
 
-<table class = "table">
-  <tr>
-    <td></td>
-    <td><a href="#definitions">Level of Support</a></td>
-  </tr>
-  <tr>
-    <td>Apple Safari</td>
-    <td>**</td>
-  </tr>
-  <tr>
-    <td>Google Chrome</td>
-    <td>***</td>
-  </tr>
-  <tr>
-    <td>Microsoft Internet Explorer 10/11</td>
-    <td>**</td>
-  </tr>
-  <tr>
-    <td>Microsoft Edge</td>
-    <td>**</td>
-  </tr>
-  <tr>
-    <td>Mozilla Firefox</td>
-    <td>**</td>
-  </tr>
+<table class="table">
+  <thead>
+    <tr>
+      <th width="80%">Browser</th>
+      <th width="20%">Level of Support</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apple Safari</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+    <tr>
+      <td>Google Chrome</td>
+      <td><div class="label label-primary">Supported</div></td>
+    </tr>
+    <tr>
+      <td>Microsoft Internet Explorer 10/11</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+    <tr>
+      <td>Microsoft Edge</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+    <tr>
+      <td>Mozilla Firefox</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+  </tbody>
 </table>
 
 #### Mobile Browsers
 
-<table class = "table">
-  <tr>
-    <td></td>
-    <td><a href="#definitions">Level of Support</a></td>
-  </tr>
-  <tr>
-    <td>Apple Safari for iOS 9 (or later)</td>
-    <td>***</td>
-  </tr>
-  <tr>
-    <td>Google Chrome for Android KitKit (4.4) or later</td>
-    <td>***</td>
-  </tr>
+<table class="table">
+  <thead>
+    <tr>
+      <th width="80%">Mobile browser</th>
+      <th width="20%">Level of Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apple Safari for iOS 9 (or later)</td>
+      <td><div class="label label-primary">Supported</div></td>
+    </tr>
+    <tr>
+      <td>Google Chrome for Android KitKit (4.4) or later</td>
+      <td><div class="label label-primary">Supported</div></td>
+    </tr>
+  </tbody>
 </table>
 
 ## Operating Systems
@@ -151,26 +165,30 @@ This section covers the operating systems (OS) that Auth0 will support when usin
 The following matrix lists the level of support Auth0 will provide with regards to the operating system you have chosen when using the [Auth0 Dashboard](${manage_url}).
 
 <table class="table">
-  <tr>
-    <td></td>
-    <td><a href="#definitions">Level of Support</a></td>
-  </tr>
-  <tr>
-    <td>Apple MacOS (when using Google Chrome as your browser)</td>
-    <td>***</td>
-  </tr>
-  <tr>
-    <td>Apple MacOS (when using any browser besides Google Chrome)</td>
-    <td>**</td>
-  </tr>
-  <tr>
-    <td>Linux (Ubuntu)</td>
-    <td>**</td>
-  </tr>
-  <tr>
-    <td>Microsoft Windows</td>
-    <td>**</td>
-  </tr>
+  <thead>
+    <tr>
+      <th width="80%">OS</th>
+      <th width="20%">Level of Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apple MacOS (when using Google Chrome as your browser)</td>
+      <td><div class="label label-primary">Supported</div></td>
+    </tr>
+    <tr>
+      <td>Apple MacOS (when using any browser besides Google Chrome)</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+    <tr>
+      <td>Linux (Ubuntu)</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+    <tr>
+      <td>Microsoft Windows</td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+  </tbody>
 </table>
 
 ### OS Compatibility: Auth0 Lock and Authentication
@@ -183,18 +201,22 @@ The following matrix lists the level of support Auth0 will provide with regards 
 #### Mobile Operating Systems
 
 <table class="table">
-  <tr>
-    <td></td>
-    <td><a href="#definitions">Level of Support</a></td>
-  </tr>
-  <tr>
-    <td>Apple iOS 9 (or later)</td>
-    <td>***</td>
-  </tr>
-  <tr>
-    <td>Google Android KitKat (4.4) or later</td>
-    <td>***</td>
-  </tr>
+  <thead>
+    <tr>
+      <th width="80%">OS</th>
+      <th width="20%">Level of Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apple iOS 9 (or later)</td>
+      <td><div class="label label-primary">Supported</div></td>
+    </tr>
+    <tr>
+      <td>Google Android KitKat (4.4) or later</td>
+      <td><div class="label label-primary">Supported</div></td>
+    </tr>
+  </tbody>
 </table>
 
 ## Software Development Kits (SDKs) and Libraries
