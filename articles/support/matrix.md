@@ -26,19 +26,22 @@ For community-supported items, you can seek assistance by contacting the develop
 Throughout this article, we will use the following terms to indicate the varying levels of support Auth0 will provide.
 
 <table class="table">
+  <thead>
+    <tr>
+      <th width="30%">Label</th>
+      <th width="70%">Description</th>
+    </tr>
+  <thead>
   <tr>
-    <th>Supported</th>
-    <td>***</td>
+    <td><div class="label label-primary">Supported</div></td>
     <td>Auth0 has formally tested, will support, and provide both new features and bug fixes (if applicable) for these items.</td>
   </tr>
   <tr>
-    <th>Sustained</th>
-    <td>**</td>
+    <td><div class="label label-warning">Sustained</div></td>
     <td>Auth0 will support and may provide bug fixes (if applicable) for these items.</td>
   </tr>
   <tr>
-    <th>Community</th>
-    <td></td>
+    <td><div class="label label-default">Community Supported</div></td>
     <td>Auth0 does <i>not</i> support these items, and all assistance regarding these items will come from the general community.</td>
   </tr>
 </table>
