@@ -52,7 +52,7 @@ Throughout this article, we will use the following terms to indicate the varying
 
 This section covers the browsers that Auth0 will support when using the Auth0 Dashboard or Lock Library, or executing authentication transactions.
 
-### Browser Compatibility: Auth0 Dashboard
+### Auth0 Dashboard
 
 The following matrix lists the level of support Auth0 will provide with regards to the Internet browser you have chosen when using the [Auth0 Dashboard](${manage_url}).
 
@@ -91,7 +91,7 @@ The following matrix lists the level of support Auth0 will provide with regards 
   At this time, Auth0 only supports use of the Dashboard with desktop browsers.
 </div>
 
-### Browser Compatibility: Auth0 Lock and Authentication
+### Auth0 Lock and Authentication
 
 The following matrix lists the level of support Auth0 will provide with regards to the Internet browser you have chosen when you are:
 
@@ -160,7 +160,7 @@ This section covers the operating systems (OS) that Auth0 will support when usin
   Auth0 support for the Dashboard and Lock and Authentication is limited to the most recent version of the operating systems listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
 </div>
 
-### OS Compatibility: Auth0 Dashboard
+### Auth0 Dashboard
 
 The following matrix lists the level of support Auth0 will provide with regards to the operating system you have chosen when using the [Auth0 Dashboard](${manage_url}).
 
@@ -191,7 +191,7 @@ The following matrix lists the level of support Auth0 will provide with regards 
   </tbody>
 </table>
 
-### OS Compatibility: Auth0 Lock and Authentication
+### Auth0 Lock and Authentication
 
 The following matrix lists the level of support Auth0 will provide with regards to the operating system you have chosen when you are:
 
