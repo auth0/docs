@@ -65,12 +65,12 @@ The following matrix lists the level of support Auth0 will provide with regards 
   </thead>
   <tbody>
     <tr>
-      <td>Apple Safari</td>
-      <td><div class="label label-warning">Sustained</div></td>
-    </tr>
-    <tr>
       <td>Google Chrome</td>
       <td><div class="label label-primary">Supported</div></td>
+    </tr>
+    <tr>
+      <td>Apple Safari</td>
+      <td><div class="label label-warning">Sustained</div></td>
     </tr>
     <tr>
       <td>Microsoft Internet Explorer 11</td>
@@ -109,12 +109,12 @@ The following matrix lists the level of support Auth0 will provide with regards 
   </thead>
   <tbody>
     <tr>
-      <td>Apple Safari</td>
-      <td><div class="label label-warning">Sustained</div></td>
-    </tr>
-    <tr>
       <td>Google Chrome</td>
       <td><div class="label label-primary">Supported</div></td>
+    </tr>
+    <tr>
+      <td>Apple Safari</td>
+      <td><div class="label label-warning">Sustained</div></td>
     </tr>
     <tr>
       <td>Microsoft Internet Explorer 10/11</td>
