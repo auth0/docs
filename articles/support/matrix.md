@@ -53,7 +53,7 @@ Throughout this article, we will use the following terms to indicate the varying
     <td>Auth0 will support and may provide bug fixes (if applicable) for these items.</td>
   </tr>
   <tr>
-    <th>Community</th>
+    <th>Community Supported</th>
     <td></td>
     <td>Auth0 does <i>not</i> support these items, and all assistance regarding these items will come from the general community.</td>
   </tr>
@@ -309,7 +309,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
 ### Frameworks/Platform Integration SDKs
 
 <div class="alert alert-info">
-  Auth0 reserves the right to downgrade support for an SDK to Community-Supported at any time.
+  Auth0 reserves the right to downgrade support for an SDK to Community Supported at any time.
 </div>
 
 <table class="table">
@@ -391,7 +391,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   <tr>
     <th></th>
     <th>Auth0 Supported</th>
-    <th>Community Support Only</th>
+    <th>Community Supported</th>
   </tr>
   <tr>
     <td><a href="/quickstart/native/android">Android</a></td>
@@ -485,7 +485,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   <tr>
     <th></th>
     <th>Auth0 Supported</th>
-    <th>Community Support Only</th>
+    <th>Community Supported</th>
   </tr>
   <tr>
     <td><a href="/quickstart/spa/angularjs">Angular 1.x</a></td>
@@ -549,7 +549,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   <tr>
     <th></th>
     <th>Auth0 Supported</th>
-    <th>Community Support Only</th>
+    <th>Community Supported</th>
   </tr>
   <tr>
     <td><a href="/quickstart/webapp/apache">Apache</a></td>
@@ -652,7 +652,7 @@ In this section covering SDKs and Libraries, we will use the following terms to 
   <tr>
     <th></th>
     <th>Auth0 Supported</th>
-    <th>Community Support Only</th>
+    <th>Community Supported</th>
   </tr>
   <tr>
     <td><a href="/quickstart/backend/aspnet-core-webapi">ASP.NET Core Web API</a></td>
