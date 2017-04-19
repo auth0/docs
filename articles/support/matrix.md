@@ -226,28 +226,28 @@ toc: true
         <td>v10</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
+      <tr class="light-top-border">
+        <td></td>
+        <td>v9</td>
+        <td><div class="label label-warning">Bug fixes</div></td>
+      </tr>
+      <tr>
+        <td>Lock.Android</td>
+        <td>v2</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr class="light-top-border">
+        <td></td>
+        <td>v1</td>
+        <td><div class="label label-warning">Bug fixes</div></td>
+      </tr>
       <tr>
         <td>Lock.swift</td>
         <td>v2</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>Lock.Android</td>
-        <td>v2</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td>Lock.js</td>
-        <td>v9</td>
-        <td><div class="label label-warning">Bug fixes</div></td>
-      </tr>
-      <tr>
         <td>Lock.iOS-macOS</td>
-        <td>v1</td>
-        <td><div class="label label-warning">Bug fixes</div></td>
-      </tr>
-      <tr>
-        <td>Lock.Android</td>
         <td>v1</td>
         <td><div class="label label-warning">Bug fixes</div></td>
       </tr>
@@ -271,8 +271,8 @@ toc: true
         <td>v8</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
-      <tr>
-        <td>auth0.js</td>
+      <tr class="light-top-border">
+        <td></td>
         <td>v7</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
@@ -291,8 +291,8 @@ toc: true
         <td>v4</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
-      <tr>
-        <td>Auth0.net</td>
+      <tr class="light-top-border">
+        <td></td>
         <td>v3</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
