@@ -14,7 +14,7 @@ Auth0 provides support in alignment with the [Terms of Service](https://auth0.co
 
 Official support provided by Auth0 is limited to the languages, platforms, versions, and technologies specifically listed as such on this page. Anything that is *not* listed, or listed as **community-supported**, is ineligible for Auth0 support.
 
-In the event that you have questions involving unsupported items, you may post your question on the Auth0 public forum.
+In the event that you have questions involving unsupported items, you may post your question on the [Auth0 public forum](https://community.auth0.com/).
 
 For community-supported items, you can seek assistance by contacting the developers responsible for those items (such as submitting issues on the GitHub repositories for the specific libraries or software development kits (SDKs)).
 
