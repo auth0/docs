@@ -54,8 +54,6 @@ This section covers the browsers that Auth0 will support when using the Auth0 Da
 
 ### Auth0 Dashboard
 
-The following matrix lists the level of support Auth0 will provide with regards to the Internet browser you have chosen when using the [Auth0 Dashboard](${manage_url}).
-
 <table class="table">
   <thead>
     <tr>
@@ -92,11 +90,6 @@ The following matrix lists the level of support Auth0 will provide with regards 
 </div>
 
 ### Auth0 Lock and Authentication
-
-The following matrix lists the level of support Auth0 will provide with regards to the Internet browser you have chosen when you are:
-
-* Using [Lock](/libraries/lock);
-* Performing authentication transactions.
 
 #### Desktop Browsers
 
@@ -162,8 +155,6 @@ This section covers the operating systems (OS) that Auth0 will support when usin
 
 ### Auth0 Dashboard
 
-The following matrix lists the level of support Auth0 will provide with regards to the operating system you have chosen when using the [Auth0 Dashboard](${manage_url}).
-
 <table class="table">
   <thead>
     <tr>
@@ -192,13 +183,6 @@ The following matrix lists the level of support Auth0 will provide with regards 
 </table>
 
 ### Auth0 Lock and Authentication
-
-The following matrix lists the level of support Auth0 will provide with regards to the operating system you have chosen when you are:
-
-* Using [Lock](/libraries/lock);
-* Performing authentication transactions.
-
-#### Mobile Operating Systems
 
 <table class="table">
   <thead>
