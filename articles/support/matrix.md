@@ -10,22 +10,6 @@ For customers with valid [subscriptions](${manage_url}/#/account/billing/subscri
 
 Auth0 provides support in alignment with the [Terms of Service](https://auth0.com/terms) and Pricing and Support plans.
 
-## On This Page
-
-* [Auth0 Support Coverage](#auth0-support-coverate)
-  * [Definitions](#definitions)
-* [Support for Browsers](#browsers)
-* [Support for Operating Systems](#operating-systems)
-* [Support for Software Development Kits (SDKs) and Libraries](#software-development-kits-sdks-and-libraries)
-  * [Lock](#lock)
-  * [SDKs](#software-development-kits-sdks-)
-  * [Frameworks/Platform Integration SDKs](#frameworks-platform-integration-sdks)
-* [Support for Quickstarts and Samples](#quickstarts-and-samples)
-  * [Mobile/Native Applications](#mobile-native-applications)
-  * [Single Page Applications](#single-page-applications)
-  * [Regular Web Applications](#regular-web-applications)
-  * [Backends/APIs](#backends-apis)
-
 ## Auth0 Support Coverage
 
 Official support provided by Auth0 is limited to the languages, platforms, versions, and technologies specifically listed as such on this page. Anything that is *not* listed, or listed as **community-supported**, is ineligible for Auth0 support.
