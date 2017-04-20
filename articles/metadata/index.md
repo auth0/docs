@@ -94,9 +94,9 @@ The following fields may not be stored in the `app_metadata` field:
 * `user_id`
 * `loginsCount`
 
-## Metadata Size Limits
+### Metadata Size Limits
 
-Currently, Auth0 limits the size of your user metadata to 16 MB. Please note that, when using Rules and/or the Management Dashboard, your metadata limits may be lower.
+Currently, Auth0 limits the total size of your user metadata to 16 MB. However, when using Rules and/or the Management Dashboard, your metadata limits may be lower.
 
 ## Further Reading
 
