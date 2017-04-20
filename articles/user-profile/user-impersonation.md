@@ -90,9 +90,11 @@ Alternatively, you can retrieve the `user_id` information from the Dashboard. Go
 
 ### Get an Authorization Code
 
-You are now ready to call the [Impersonation API](/api/authentication/reference#impersonation).
+Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](//api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Account Settings](${manage_url}/#/account) and clicking on the **Advanced** tab. 
 
-The request should include an `Authorization` header with `Bearer YOUR_ACCESS_TOKEN`, where `YOUR_ACCESS_TOKEN` is the token you retrieved at the first step.
+![Global Client Information](/media/articles/user-profile/global-client-info.png)
+
+You can now send a request to the [impersonation endpoint](/api/authentication/reference#impersonation) by sending an Authorization header with Bearer <TOKEN_FROM_MANAGEMENT_API_V1>. 
 
 The data part of the request should include the following:
 
