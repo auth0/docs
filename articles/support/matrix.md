@@ -276,32 +276,32 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Bug Fixes</th>
   </tr>
   <tr>
-    <td>auth0.js</td>
+    <td><a href="https://github.com/auth0/auth0.js">Auth0.js</a></td>
     <td>v7, v8</td>
     <td></td>
   </tr>
   <tr>
-    <td>Auth0.Android</td>
+    <td><a href="https://github.com/auth0/Auth0.Android">Auth0 Android</a></td>
     <td>v1</td>
     <td></td>
   </tr>
   <tr>
-    <td>Auth0.Swift</td>
+    <td><a href="https://github.com/auth0/Auth0.Swift">Auth0 Swift</a></td>
     <td>v1</td>
     <td></td>
   </tr>
   <tr>
-    <td>Auth0.net</td>
+    <td><a href="https://github.com/auth0/Auth0.net">Auth0 .NET</a></td>
     <td>v3, v4</td>
     <td></td>
   </tr>
   <tr>
-    <td>Auth0-java</td>
+    <td><a href="https://github.com/auth0/Auth0-java">Auth0 Java</a></td>
     <td>v1</td>
     <td></td>
   </tr>
   <tr>
-    <td>node-auth0</td>
+    <td><a href="https://github.com/auth0/Auth0-java">Auth0 Node</a></td>
     <td>v2</td>
     <td></td>
   </tr>
