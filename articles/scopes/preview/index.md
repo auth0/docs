@@ -10,16 +10,13 @@ toc: true
 <strong>Heads up!</strong> This article describes the latest Auth0 implementation, according to the <a href="/api-auth">API Authorization flows</a>. If you are looking for the legacy Scopes doc refer to <a href="/scopes">Scopes</a>.
 </div>
 
-In OpenID Connect (OIDC) we have the notion of __scopes__, or __claims__. These are strings, sent as part of the `scope` request parameter. These claims can be standard (as defined by the specification) or custom.
+In OpenID Connect (OIDC) we have the notion of __claims__. These are strings, sent as part of the `scope` request parameter. These claims can be standard (as defined by the specification) or custom.
 
-
-Scopes are used in the following cases:
-
-- When you want to get an `id_token` in the response. In this case, you need to include `openid` as part of the `scope` request parameter: `scope=openid`.
+Claims are used in the following cases:
 
 - When you want to get additional user information, like email or picture. For details refer to [Standard Claims](#standard-claims).
 
-- When you want to access an API. In this case, you need to define custom scopes for your API and add these values  as part of the `scope` request parameter, for example: `scope=read:contacts`. For details refer to [API Scopes](#api-scopes).
+- When you want to have granular access control to your API. In this case, you need to define custom scopes for your API and add these values  as part of the `scope` request parameter, for example: `scope=read:contacts`. For details refer to [API Scopes](#api-scopes).
 
 
 ## Standard Claims
@@ -117,7 +114,9 @@ function (user, context, callback) {
 
 Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant.
 
-While this is not mandatory according to the specification, Auth0 will always enforce namespacing, meaning that any non-namespaced claims will be silently excluded from tokens.
+<div class="alert alert-info">
+  While this is not mandatory according to the specification, Auth0 will always enforce namespacing, meaning that any non-namespaced claims will be silently excluded from tokens.
+</div>
 
 If you need to add custom claims to the access token, the same applies but using `context.accessToken` instead.
 
@@ -133,7 +132,7 @@ If you wanted to expand [our example](#example-asking-for-standard-claims) to in
 https://${account.namespace}/authorize?
   audience=YOUR_API_AUDIENCE&
   scope=openid%20profile%20email%20read:contacts&
-  response_type=id_token&
+  response_type=id_token%20token&
   client_id=${account.clientId}&
   redirect_uri=${account.callback}&
   nonce=YOUR_CRYPTOGRAPHIC_NONCE
