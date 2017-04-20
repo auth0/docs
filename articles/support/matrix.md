@@ -240,22 +240,23 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Bug Fixes</th>
   </tr>
   <tr>
-    <td>Lock.js</td>
+    <td><a href="https://github.com/auth0/lock">Lock.js</a></td>
     <td>v10</td>
     <td>v9</td>
   </tr>
+  
   <tr>
-    <td>Lock.swift</td>
+    <td><a href="https://github.com/auth0/Lock.swift">Lock for iOS v2</a></td>
     <td>v2</td>
     <td></td>
   </tr>
   <tr>
-    <td>Lock.iOS-macOS</td>
+    <td><a href="https://github.com/auth0/Lock.swift/tree/v1">Lock for iOS v1</a></td>
     <td></td>
     <td>v1</td>
   </tr>
   <tr>
-    <td>Lock.Android</td>
+    <td><a href="https://github.com/auth0/Lock.Android">Lock.Android</a></td>
     <td>v2</td>
     <td>v1</td>
   </tr>
