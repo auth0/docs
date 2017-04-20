@@ -80,7 +80,7 @@ The following example authorizes the Client with Id `${account.clientId}`, to ac
 ```har
 {
   "method": "POST",
-  "url": "https://${account.namespace}.auth0.com/api/v2/client-grants",
+  "url": "https://${account.namespace}/api/v2/client-grants",
   "headers": [
     { "name": "Content-Type", "value": "application/json" },
     { "name": "authorization", "value": "Bearer Auth0_MGMT_API_ACCESS_TOKEN" }
