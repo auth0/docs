@@ -5,11 +5,11 @@ description: How to set up a Client Credentials Grant using the Management API.
 
 # Set up a Client Credentials Grant using the Management API
 
-If you do not want to use the Auth0 Dashboard to enable API Authorization, you can achieve the same results using the Auth0 Management API.
+If you do not want to use the Auth0 Dashboard to create a Resource Server or you need to create one programmatically, you can use our Management API v2.
 
 You will need the following:
 
-- A Management APIv2 token. For details on how to get one refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+- A Management APIv2 token with the appropriate scopes. For details on how to get one refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 - The Client information (`Client_Id` and `Client_Secret`) for the Non Interactive Client that should already be created and visible in your [Auth0 dashboard](${manage_url}/#/clients).
 
 ## 1. Create your Resource Server
@@ -23,16 +23,17 @@ The following restrictions apply to the identifier:
 
 We recommend using your public API endpoint as an identifier.
 
-To create a Resource Server send a `POST` request to the [/resource-servers endpoint of the Management APIv2](/api/management/v2#!/Resource_Servers/post_resource_servers).
+To create a Resource Server send a `POST` request to the [/resource-servers endpoint of the Management APIv2](/api/management/v2#!/Resource_Servers/post_resource_servers) with an `access_token` that has the resource server scope (`scope:resource_server`).
 
 The following example uses _"My Sample API"_ as the name and _"https://my-api-uri"_ as the identifier.
 
 ```har
 {
   "method": "POST",
-  "url": "https://${account.namespace}.auth0.com/api/v2/resource-servers",
+  "url": "https://${account.namespace}/api/v2/resource-servers",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "authorization", "value": "Bearer Auth0_MGMT_API_ACCESS_TOKEN" }
   ],
   "postData": {
     "mimeType": "application/json",
@@ -70,9 +71,9 @@ Note the following:
 
 ## 2. Authorize the Client
 
-Now that the API and the Client are defined in Auth0, you can create a trust relationship between them. To do so authorize the Client to access the API, while defining the scopes that should be given to the Client (meaning the actions the Client will be able to perform on the API).
+Now that the API and the Client are defined in Auth0, you can create a trust relationship between them. To do so, authorize the Client to access the API, while defining the scopes that should be given to the Client (meaning the actions the Client will be able to perform on the API).
 
-To authorize your Client send a `POST` request to the [/client-grants endpoint of the Management APIv2](/api/management/v2#!/Client_Grants/post_client_grants).
+To authorize your Client send a `POST` request to the [/client-grants endpoint of the Management APIv2](/api/management/v2#!/Client_Grants/post_client_grants) with an `access_token` that has the create client grants scope (`create:client_grantss`).
 
 The following example authorizes the Client with Id `${account.clientId}`, to access the API with Identifier `https://my-api-urn`, while granting the scope `sample-scope`.
 
@@ -81,7 +82,8 @@ The following example authorizes the Client with Id `${account.clientId}`, to ac
   "method": "POST",
   "url": "https://${account.namespace}.auth0.com/api/v2/client-grants",
   "headers": [
-    { "name": "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "authorization", "value": "Bearer Auth0_MGMT_API_ACCESS_TOKEN" }
   ],
   "postData": {
     "mimeType": "application/json",
