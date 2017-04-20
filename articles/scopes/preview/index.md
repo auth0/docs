@@ -25,8 +25,6 @@ OpenID Connect specifies a set of [standard claims](https://openid.net/specs/ope
 
 This information can be returned in the `id_token` or in the response from [the /userinfo endpoint](/api/authentication#get-user-info).
 
-__NOTE__: The `updated_at` claim is returned as a [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) instead of an [ISO 8601 date string](https://en.wikipedia.org/wiki/ISO_8601) for consistency with the `exp`, `iat` and `nbf` claims.
-
 ### Example: Asking for Standard Claims
 
 In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and get back an `id_token` that contains the user's name, nickname, profile picture and email information.
