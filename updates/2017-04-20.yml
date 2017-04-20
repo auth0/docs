@@ -1,0 +1,7 @@
+added:
+  -
+    title: "P2 version of Scopes"
+    tags:
+      - scopes
+    description: |
+      The OIDC Conformant version of the [Scopes](https://auth0.com/docs/scopes) document was released. It is available at [Scopes](https://auth0.com/docs/preview/scopes).
