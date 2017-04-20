@@ -11,13 +11,13 @@ Other types of applications (such as Google Apps and Office 365) may not allow s
 
 ## Analystick scenario
 
-Analystick is a multi-tenant SaaS solution offering analytics in the cloud. Their customers send them a list of users (with their given name, family name and email address) that can access the application.
+Analystick is a multi-tenant SaaS solution offering analytics in the cloud. Their customers send them a list of users (with their given name, family name, and email address) that can access the application.
 
 This functionality can be achieved using an Enterprise Connection where you federate with your customer using ADFS/SAML-P/…. This will allow your customer to authenticate users with their own Active Directory which specifies who is to be given access to the application.
 
 The invite-only flow will be setup as follows: 
 
-1. The tenant admnistrator will create new users in their subscription from within the application. 
+1. The tenant administrator will create new users in their subscription from within the application. 
 2. The application will call the Auth0 Management API to create these new users in a database connection. 
 3. The application will send out activation emails to these users. 
 4. When users click the activation link, they will be redirected to Auth0 where their email address will be set to validated. 

@@ -34,7 +34,6 @@ Enabling this flag on a client will have the following effects:
     - Custom claims must be namespaced and added to ID tokens or access tokens via rules.
     - Custom scope values can be defined by a [resource server (API)](/api-auth/tutorials/adoption/api-tokens).
 * OIDC-conformant clients cannot be the source or target client of a [delegation request](/api-auth/tutorials/adoption/delegation).
-* The `updated_at` claim is returned as a [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) instead of an [ISO 8601 date string](https://en.wikipedia.org/wiki/ISO_8601) for consistency with the `exp`, `iat` and `nbf` claims.
 
 ## I don't want to make all these changes at once!
 
