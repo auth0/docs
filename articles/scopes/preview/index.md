@@ -40,7 +40,6 @@ To initiate the authentication flow, send the user to the authorization URL and 
 
 ```text
 https://${account.namespace}/authorize?
-  audience=YOUR_API_AUDIENCE&
   scope=openid%20profile%20email&
   response_type=id_token&
   client_id=${account.clientId}&
@@ -55,7 +54,7 @@ Notice that we included three values at the `scope` param: `openid`, `profile` (
 
 After Auth0 has redirected back to the app, you can extract the `id_token` from the hash fragment of the URL.
 
-When decoded, this token contains the following claims:
+When decoded, the `id_token` contains the following claims:
 
 ```json
 {
@@ -122,7 +121,7 @@ If you need to add custom claims to the access token, the same applies but using
 
 ## API Scopes
 
-Scopes allow you to define the API data accessible to your client applications. When you create an API in Auth0, you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
+Scopes allow you to define the API data accessible to your client applications. When you [create an API in Auth0](/apis), you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
 
 Once you create an API and define the scopes, the client applications can request these defined permissions when they initiate an authorization flow, and include them in the access token as part of the scope request parameter.
 
@@ -139,4 +138,10 @@ https://${account.namespace}/authorize?
   state=YOUR_OPAQUE_VALUE
 ```
 
-For more information on how to define an API in Auth0 dashboard refer to [APIs Overview](/apis).
+Note the differences between the two examples. In the latest, we want to get an `access_token`, that will allow us to access the API, with the rights to do specific actions. To do so, we changed two parameters and added a new one:
+
+- `audience`: New parameter added for this example. Its value is the unique identifier of the API we want to get access to.
+
+- `scope`: We appended the value `read:contacts`. This denotes the rights that we want to be granted at the API (in this case, read contact information).
+
+- `response_type`: We appended the value `token`. This tells the Authorization Server (Auth0 in our case) to issue an `access_token` as well, not only an `id_token`. The `access_token` will be sent to the API as credentials.
