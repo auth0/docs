@@ -209,11 +209,9 @@ To revoke the user's access to an authorized application, and hence invalidate t
 
 ## Rules
 
-Rules will run for the [Refresh Token Exchange](#use-a-refresh-token). There is a key difference in the behavior of rules in this flow:
+Rules will run for the [Refresh Token Exchange](#use-a-refresh-token). To execute special logic, you can look at the `context.protocol` property in your rule. If the value is `oauth2-refresh-token`, then this is the indication that the rule is running during the [Refresh Token Exchange](#use-a-refresh-token).
 
-- If you try to do a [redirect](/rules/redirect) with `context.redirect`, the authentication flow will return an error.
-
-If you wish to execute special logic unique to the [Refresh Token Exchange](#use-a-refresh-token), you can look at the `context.protocol` property in your rule. If the value is `oauth2-refresh-token`, then this is the indication that the rule is running during the Refresh Token exchange.
+<div class="alert alert-warning">If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.redirect</code>, the authentication flow will return an error.</div>
 
 ## SDK Support
 
