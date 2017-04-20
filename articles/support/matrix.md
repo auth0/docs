@@ -324,57 +324,57 @@ In this section covering SDKs and Libraries, we will use the following terms to 
     <th>Community-Supported</th>
   </tr>
   <tr>
-    <td>angular-auth0</td>
+    <td><a href="https://github.com/auth0/angular-auth0">Angular Auth0</a></td>
     <td>v2</td>
     <td></td>
   </tr>
   <tr>
-    <td>angular-lock</td>
+    <td><a href="https://github.com/auth0/angular-lock">Angular Lock</a></td>
     <td>v2</td>
     <td></td>
   </tr>
   <tr>
-    <td>auth0-servlet</td>
+    <td><a href="https://github.com/auth0/auth0-servlet">Auth0 Servlet</a></td>
     <td>v3</td>
     <td></td>
   </tr>
   <tr>
-    <td>auth0-spring-mvc</td>
+    <td><a href="https://github.com/auth0/auth0-spring-mvc">Auth0 Spring MVC</a></td>
     <td>v1</td>
     <td></td>
   </tr>
   <tr>
-    <td>auth0-spring-security-mvc</td>
+    <td><a href="https://github.com/auth0/auth0-spring-security-mvc">Auth0 Spring Security MVC</a></td>
     <td>v1</td>
     <td></td>
   </tr>
   <tr>
-    <td>auth0-spring-security-api</td>
+    <td><a href="https://github.com/auth0/auth0-spring-security-api">Auth0 Spring Security API</a></td>
     <td>v1</td>
     <td></td>
   </tr>
   <tr>
-    <td>auth0-aspnet-owin</td>
+    <td><a href="https://github.com/auth0/auth0-aspnet-owin">Auth0 ASP.NET 4.5 Owin</a></td>
     <td>v2</td>
     <td></td>
   </tr>
   <tr>
-    <td>auth0-aspnet</td>
+    <td><a href="https://github.com/auth0/auth0-aspnet">Auth0 ASP.NET</a></td>
     <td>v1</td>
     <td></td>
   </tr>
   <tr>
-    <td>Auth0.Windows.UWP</td>
+    <td><a href="https://github.com/auth0/Auth0.Windows.UWP">Auth0 with UWP applications</a></td>
     <td></td>
     <td>v1</td>
   </tr>
   <tr>
-    <td>Auth0.WinformsWPF</td>
+    <td><a href="https://github.com/auth0/Auth0.WinformsWPF">Auth0 auth client for Winforms and WPF</a></td>
     <td></td>
     <td>v0.9</td>
   </tr>
   <tr>
-    <td>auth0-oidc-client-net</td>
+    <td><a href="https://github.com/auth0/auth0-oidc-client-net">OIDC Client for .NET Desktop and Mobile applications</a></td>
     <td>v1</td>
     <td></td>
   </tr>
