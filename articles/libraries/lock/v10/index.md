@@ -6,8 +6,6 @@ description: A widget that provides a frictionless login and signup experience f
 img: media/articles/libraries/lock-web.png
 ---
 
-<%= include('../_includes/_lock-version') %>
-
 # Lock 10 for Web
 
 You're looking at the documentation for the _easiest_ way of securing your website and mobile apps!

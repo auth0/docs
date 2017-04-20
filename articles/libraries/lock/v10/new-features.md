@@ -3,8 +3,6 @@ section: libraries
 description: Describes the new features with Lock V10.
 ---
 
-<%= include('../_includes/_lock-version') %>
-
 # New Features in Lock 10
 
 ## Custom Sign Up Fields

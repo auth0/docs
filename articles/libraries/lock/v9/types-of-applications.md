@@ -3,9 +3,9 @@ section: libraries
 description: Explains the types of applications that can be used with Lock.
 ---
 
-<%= include('../_includes/_lock-version-9') %>
-
 # Lock: Types of applications
+
+<%= include('../_includes/_lock-version-9') %>
 
 You can use Auth0 Lock with both Single Page Apps and with Regular WebApps. In this section we'll learn how to use it with each of them.
 
