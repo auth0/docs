@@ -11,21 +11,24 @@ Once you successfully authenticate a user with an external Identity Provider (Id
   This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to <a href="/identityproviders">Identity Providers Supported by Auth0</a>, where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the connection.
 </div>
 
-If you need access to the user's IdP access token, you will need to call the [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint of the [Auth0 Management API](/api/management/v2) with the `read:user_idp_tokens` scope. This document provides details on the recommended method to do so.
+If you need access to the user's IdP access token, you will need to call the [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint of the [Auth0 Management API](/api/management/v2) with the `read:user_idp_tokens` scope. This document provides details on the recommended method for calling the Management API and requesting the IDP access token.
 
 ## 1. Get a Token
 
-In order to access the [Management API](/api/management/v2), you need an access token. 
+You will need an access token to call the [Management API](/api/management/v2).
 
-If this is the first time you are trying to get a Management APIv2 Token, there is a little configuration required:
+If this is the first time you are requesting a Management APIv2 Token, you'll need to create and configure a test Client that can be used to call the API.
+
 1. Go to [Dashboard > APIs > Auth0 Management API > API Explorer](${manage_url}/#/apis/management/explorer).
 2. Click __Create & Authorize a Test Client__.
 
-That's it! You can now see a token in your screen. Click __Copy Token__ to copy it.
+Once you've created the Client, you now have an access token that can be used to interact with the Management API. Click __Copy Token__.
 
-Alternatively, you may want to automate this process. In this case, instead of manually copying the token, click on the [Test tab](${manage_url}/#/apis/management/test) and use the provided snippet. It's a `POST` operation to the [https://${account.namespace}/oauth/token](/api/authentication#client-credentials) endpoint.
+### Automate the Token Request
 
-Note, that this token has by default an expiration time of 24 hours (86400 seconds). To change that, update the __Token Expiration (Seconds)__ field and click __Update & Regenerate Token__.
+You may want to automate the token request process instead of manually copying and pasting the token. If this is the case, click on the [Test tab](${manage_url}/#/apis/management/test) and use the provided snippet. It's a `POST` operation to the [https://${account.namespace}/oauth/token](/api/authentication#client-credentials) endpoint.
+
+The token you receive has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the __Token Expiration (Seconds)__ field and click __Update & Regenerate Token__.
 
 <div class="alert alert-info">
   For details on the Management APIv2 token and the process to get one refer to <a href="/api/management/v2/tokens">The Auth0 Management APIv2 Token</a>.
@@ -37,7 +40,7 @@ It should be noted that these tokens __cannot be revoked__. We recommend issuing
 
 ### 2. Get the User Profile
 
-Using the access token, call the [Get a User](/api/management/v2#!/Users/get_users_by_id) endpoint to get the user profile:
+Using the access token you obtained in step 1, call the [Get a User](/api/management/v2#!/Users/get_users_by_id) endpoint to get the user profile:
 
 ```har
 {
