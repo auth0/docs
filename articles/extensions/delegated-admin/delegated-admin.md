@@ -1,6 +1,6 @@
 ---
 description: The Delegated Administration extension allows you to expose the Users dashboard to a group of users, without allowing them access to the dashboard.
-url: /delegated-admin
+url: /extensions/delegated-admin
 toc: true
 ---
 
