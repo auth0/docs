@@ -4,8 +4,6 @@ toc: true
 description: Lock 9 to Lock 10 Migration Guide
 ---
 
-<%= include('../_includes/_lock-version') %>
-
 # Lock 9 to Lock 10 Migration Guide
 
 The following instructions assume you are migrating from **Lock 9** to the latest **Lock 10**. If you are upgrading from a preview release of Lock 10, please refer to the [preview changes](#upgrading-from-preview-releases). Otherwise, read on!

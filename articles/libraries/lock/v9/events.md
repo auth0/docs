@@ -3,9 +3,9 @@ section: libraries
 description: Lock V9 API syntax
 ---
 
-<%= include('../_includes/_lock-version-9') %>
-
 ## Lock: API syntax
+
+<%= include('../_includes/_lock-version-9') %>
 
 ```js
 var lock = new Auth0Lock(clientID, domain).

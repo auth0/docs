@@ -3,8 +3,6 @@ section: libraries
 description: How to use Lock V10 with auth0.js
 ---
 
-<%= include('../_includes/_lock-version') %>
-
 # Using Lock With auth0.js
 
 By nature, Lock and the Auth0.js SDK are very different things. Lock provides a UI that is customizable, to an extent, with behavior that is customizable, to an extent. It is an easily deployed, easily used interface for Auth0 authentication in custom applications. For simple uses, Lock is all that is necessary, sometimes. However, if more customization is requiredin an application's signup, authentication, and user management process, then functionality from the SDK can be used alongside Lock to meet those needs.

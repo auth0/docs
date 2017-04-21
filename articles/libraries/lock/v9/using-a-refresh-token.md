@@ -3,9 +3,9 @@ section: libraries
 description: Getting and using a refresh token with Lock.
 ---
 
-<%= include('../_includes/_lock-version-9') %>
-
 # Lock: Refresh tokens
+
+<%= include('../_includes/_lock-version-9') %>
 
 Mostly when building mobile apps, we want to show the signin page only once and then leave the user logged in forever. For those cases, it makes sense to have a `refreshToken`. A `refreshToken` lets us get a new `id_token` (`JWT`) anytime we want.
 

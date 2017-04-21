@@ -3,8 +3,6 @@ section: libraries
 description: Lock V10 documentation on setting authentication parameters.
 ---
 
-<%= include('../_includes/_lock-version') %>
-
 # Lock: Authentication Parameters
 
 You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `'foo'`.
