@@ -4,8 +4,6 @@ description: This tutorial will show you how can test your API using Postman
 budicon: 500
 ---
 
-## Calling the API
-
 In order to make calls to your API, you will need to obtain an `access_token`. An `access_token` can be obtained in a number of ways, depending on the type of application you are building. These are referred to as authorization grant flows, and you can refer to the [API Authorization section](/api-auth) for more information of the types of flows and to determine which one is most appropriate for your client application.
 
 Once you have obtained an `access_token` you can pass that along in the `Authorization` header of requests to your API as a Bearer token.
@@ -33,7 +31,7 @@ During development, you may want to test your API with Postman. If you make a re
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 
-As mentioned in the previous step, you will need to pass along an `access_token` in the HTTP Authorization header. A quick and easy way to obtain an `access_token` for test purposes is from the __Test__ tab of your API settings:
+As mentioned, you will need to pass along an `access_token` in the HTTP Authorization header. A quick and easy way to obtain an `access_token` for test purposes is from the __Test__ tab of your API settings:
 
 ![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-access-token.png)
 

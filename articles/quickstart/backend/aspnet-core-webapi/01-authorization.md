@@ -28,19 +28,13 @@ To use Auth0 Access Tokens with ASP.NET Core you will use the JWT Middleware. Ad
 Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
-This was already done for you in the seed project, so no need to add it if you are using the seed project as a starting point.
-
-That's all you need to start working with Auth0 in your Web API!
-
-Please continue with the [Authentication](/quickstart/backend/aspnet-core-webapi/01-authentication) tutorial to secure your Web API.
-
 ## Configuration
 
 <%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample/tree/master/03-Authentication-HS256' }) %>
 
-The ASP.NET Core JWT middleware will handle the downloading of the JSON Web Key Set (JWKS) file for you, and will automatically verify the `access_token` signature using the public key from the JWKS.
+The ASP.NET Core JWT middleware will handle downloading the JSON Web Key Set (JWKS) file containing the public key for you, and will use that to verify the `access_token` signature.
 
-Do add the JWT middleware to your application's middleware pipeline, go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 API Identifier as the `Audience`, and the full path to your Auth0 domain as the `Authority`:
+To add the JWT middleware to your application's middleware pipeline, go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 API Identifier as the `Audience`, and the full path to your Auth0 domain as the `Authority`:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -59,9 +53,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms.
-
-To secure an endpoint you only need to decorate your controller action with the `[Authorize]` attribute:
+The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. To secure an endpoint you only need to decorate your controller action with the `[Authorize]` attribute:
 
 ```csharp
 [Route("api")]
@@ -83,9 +75,9 @@ The JWT middleware above verifies that the `access_token` included in the reques
 
 Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `create` access to that resource if they are an **administrator**.
 
-To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including ones called `read:messages` and `create:messages`, which will be used in this example.
+To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and select the **Scopes** tab. In this area you can define any scopes you wish. For this sample you can define ones called `read:messages` and `create:messages`.
 
-To ensure that n `access_token` contains the correct `scope` you can make use of the new Policy-Based Authorization in ASP.NET Core.
+To ensure that an `access_token` contains the correct `scope` you can make use of the Policy-Based Authorization in ASP.NET Core.
 
 ::: panel-info ASP.NET Core Policy-Based Authorization
 For a better understanding of the code which follows, it is suggested that you read the ASP.NET Core documentation on [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies).
