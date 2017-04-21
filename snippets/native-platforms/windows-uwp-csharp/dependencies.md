@@ -1,3 +1,3 @@
 ```powershell
-Install-Package Auth0.Windows.UWP
+Install-Package Auth0.OidcClient.UWP
 ```
