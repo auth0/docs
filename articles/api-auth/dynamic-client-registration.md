@@ -17,7 +17,7 @@ Third party clients have the following characteristics:
 
 - To authenticate users using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
 
-- They cannot skip user consent when consuming APIs. This is for security purposes, as anyone can create a client, but each client relays on the final user to provide consent.
+- They cannot skip user consent when consuming APIs. This is for security purposes, as anyone can create a client, but each client relies on the final user to provide consent.
 
 - They cannot use [ID tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should get a Management APIv2 Token (see the *How to get a Management APIv2 Token* panel for details). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.
   - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
