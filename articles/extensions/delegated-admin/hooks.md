@@ -1,120 +1,11 @@
 ---
-description: The Delegated Administration extension allows you to expose the Users dashboard to a group of users, without allowing them access to the dashboard.
+description: How to customize the behavior of the Delegated Administration extension using Hooks
 toc: true
 ---
 
-# Delegated Administration - v2
+# Delegated Administration: Hooks
 
-The **Delegated Administration** extension allows you to expose the [Users Dashboard](${manage_url}/#/users) to a group of users, without having to provide access to them to the [dashboard](${manage_url}/#/). Instead the [Users Dashboard](${manage_url}/#/users) is exposed as an Auth0 client. Let's see how this is done.
-
-**NOTE**: This extension is available on the public cloud. On the [appliance](/appliance), it is available beginning with version 10755 when User search is enabled.
-
-## Create a Client
-
-Let's start with creating a new client application. Navigate to [Clients](${manage_url}/#/clients) and click on the **+Create Client** button. Set a name (we will name ours *Users Dashboard*) and choose *Single Page Web Applications* as client type. Click on **Create**.
-
-![Create a Client](/media/articles/extensions/delegated-admin/create-client.png)
-
-Click on the *Settings* tab and set the **Allowed Callback URLs**. This varies based on your location.
- 
-| Location | Allowed Callback URL |
-| --- | --- |
-| USA | `https://${account.tenant}.us.webtask.io/auth0-delegated-admin/login` |
-| Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin/login` |
-| Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin/login` |
-
-Copy the **Client ID** value.
-
-Navigate to *Settings > Show Advanced Settings > OAuth* and paste the **Client ID** value to the **Allowed APPs / APIs** field.
-
-Set the **JsonWebToken Signature Algorithm** to *RS256*.
-
-![Change JsonWebToken Signature Algorithm](/media/articles/extensions/delegated-admin/set-rs256.png)
-
-Save your changes.
-
-### Enable Connections on the Client
-
-When you create a new client, by default all the connections are enabled. This is something you want to change in this case, for security reasons. The approach we follow in this tutorial is to disable all connections, create a new Database Connection and enable only this one for our new client application. But you could do the same with another type of connection, like AD, ADFS, and so forth.
-
-Navigate to the *Connections* tab and disable all the connections using the switch.
-
-Following that, navigate to [Database Connections](${manage_url}/#/connections/database) and click on **+Create DB Connection**. Set a name for your connection, we will name ours *Helpdesk*.
-
-![Create DB Connection](/media/articles/extensions/delegated-admin/create-connection.png)
-
-Navigate to the *Settings* tab of the new connection and enable the **Disable Sign Ups** option. This way we avoid another security concern: if some malicious user gets hold of the link, signing up will not be possible.
-
-![Disable Sign Ups](/media/articles/extensions/delegated-admin/disable-signup.png)
-
-Enable this new connection for your client (*Users Dashboard* in our case) and add at least one user.
-
-### Assign the right Roles to your Users
-
-Access to the extension requires your users to have the right roles:
-
- - `Delegated Admin - User`: These users can search for users, create users, open users and execute actions on these users (like Delete, Block, and so forth).
- - `Delegated Admin - Administrator`: These users can additional see all logs in an account and configure Hooks.
-
-Only users that have these roles defined in `user.roles`, `user.app_metadata.roles` or `user.app_metadata.authorization.roles` will be able to use the extension. You could manually set these roles in your users or use a rule in order to do this. The following rule shows how users from the `IT Department` are given the `Delegated Admin - Administrator` role while `Department Managers` are given the `Delegated Admin - User` role.
-
-```js
-function (user, context, callback) {
- if (context.clientID === 'CLIENT_ID') {
-   if (user.groups && user.groups.indexOf('IT Department') > -1) {
-     user.roles = user.roles || [ ];
-     user.roles.push('Delegated Admin - Administrator');
-     return callback(null, user, context);
-   } else if (user.app_metadata && user.app_metadata.isDepartmentManager && user.app_metadata.department && user.app_metadata.department.length) {
-     user.roles = user.roles || [ ];
-     user.roles.push('Delegated Admin - User');
-     return callback(null, user, context);
-   }
-
-   return callback(new UnauthorizedError('You are not allowed to use this application.'));
- }
-
- callback(null, user, context);
-}
-```
-
-## Install the Extension
-
-We are now ready to setup our new extension. Before we do so head back to your new Client and copy the **Client ID** value.
-
-To install and configure this extension, click on the **Delegated Administration** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the dashboard. The **Install Extension** window will open.
-
-![Install Extension](/media/articles/extensions/delegated-admin/install-extension.png)
-
-Set the following configuration variables:
-
-- **EXTENSION_CLIENT_ID**: The **Client ID** value of the Client you will use.
-- **TITLE**: Optionally, you can set a title for your Client. It will be displayed at the header of the page.
-- **CUSTOM_CSS**: Optionally, you can set a css file, to customize the look and feel of your Client.
-
-Once you have provided this information, click **Install**. Your extension is now ready to use!
-
-If you navigate back to the [Clients](${manage_url}/#/clients) view, you will see that there is an additional client created.
-
-![](/media/articles/extensions/delegated-admin/two-clients.png)
-
-The `auth0-delegated-admin` client is created automatically when you install the extension. It's a client authorized to access the [Management API](/api/management/v2) and you shouldn't modify it.
-
-## Use the Extension
-
-To access your newly created dashboard, navigate to *[Extensions](${manage_url}/#/extensions) > Installed Extensions* and click on the **Delegated Administration Dashboard**. A new tab will open and display the login prompt.
-
-![](/media/articles/extensions/delegated-admin/login-prompt.png)
-
-Notice that there is no Sign Up option. That's because we disabled it earlier.
-
-Once you provide valid credentials you are navigated to the *Delegated Administration Dashboard*.
-
-![](/media/articles/extensions/delegated-admin/standard-dashboard.png)
-
-### Configure Hooks
-
-Users with the `Delegated Admin - Administrator` role will see a *Configure* option in the top-right dropdown. On the Configuration page you can manage the different hooks and queries in the dashboard, which allows you to customize the behavior of the dashboard.
+Users with the `Delegated Admin - Administrator` role will see a *Configure* option in the top-right dropdown. On the Configuration page, you can manage the different Hooks and queries using the Dashboard.
 
 ![](/media/articles/extensions/delegated-admin/dashboard-configuration.png)
 
@@ -134,80 +25,80 @@ function(ctx, callback) {
 
 The context object will expose a few helpers and information about the current request. The following methods and properties are available in every hook.
 
-**Logging**
+**1. Logging**
 
-In order to log a message to the Webtask logs (which you can view using the Realtime Webtask Logs extension) you can call the `log` method:
+  To add a message to the Webtask logs (which you can view using the Realtime Webtask Logs extension), you can call the `log` method:
 
-```js
-ctx.log('Hello there', someValue, otherValue);
-```
+  ```js
+  ctx.log('Hello there', someValue, otherValue);
+  ```
 
-**Caching**
+**2. Caching**
 
-If at some point you need to cache something (like a long list of departments), you can store this list on the context's `global` object. This object will be available until the Webtask container recycles.
+  To cache something (such as a long list of departments), you can store it on the context's `global` object. This object will be available until the Webtask container recycles.
 
-```js
-ctx.global.departments = [ 'IT', 'HR', 'Finance' ];
-```
+  ```js
+  ctx.global.departments = [ 'IT', 'HR', 'Finance' ];
+  ```
 
-**Custom Data**
+**3. Custom Data**
 
-You can also store custom data within the extension. This is currently limited to around 400kb.
+  You can store custom data within the extension. This is field is limited to 400kb of data.
 
-```js
-var data = {
-  departments: [ 'IT', 'HR', 'Finance' ]
-};
+  ```js
+  var data = {
+    departments: [ 'IT', 'HR', 'Finance' ]
+  };
 
-ctx.write(data)
-  .then(function() {
-    ...
-  })
-  .catch(function(err) {
-    ...
-  });
-```
+  ctx.write(data)
+    .then(function() {
+      ...
+    })
+    .catch(function(err) {
+      ...
+    });
+  ```
 
-And then to read the data:
+  To read the data:
 
-```js
-ctx.read()
-  .then(function(data) {
-    ...
-  })
-  .catch(function(err) {
-    ...
-  });
-```
+  ```js
+  ctx.read()
+    .then(function(data) {
+      ...
+    })
+    .catch(function(err) {
+      ...
+    });
+  ```
 
-**Payload and Request**
+**4. Payload and Request**
 
-Every hook exposes the current payload and/or request with specific information. The request will always contain the user that is logged in to the dashboard:
+  Each Hook exposes the current payload and/or request with specific information. The request will always contain information about the user that is logged in to the Users Dashboard:
 
-```js
-var currentUser = ctx.request.user;
-```
+  ```js
+  var currentUser = ctx.request.user;
+  ```
 
-**Remote Calls**
+**5. Remote Calls**
 
-At some point you might want to call an external service to validate data, to load memberships from a remote location (an API), ... This is possible using the request module:
+  You might want to call an external service to validate data or to load memberships from a remote location, such as an API. This is possible using the request module:
 
-```js
-function(ctx, callback) {
-  var request = require('request');
-  request('http://api.mycompany.com/departments', function (error, response, body) {
-    if (error) {
-      return callback(error);
-    }
+  ```js
+  function(ctx, callback) {
+    var request = require('request');
+    request('http://api.mycompany.com/departments', function (error, response, body) {
+      if (error) {
+        return callback(error);
+      }
 
-    ...
-  });
-}
-```
+      ...
+    });
+  }
+  ```
 
 #### Filter Hook
 
-By default, users with the `Delegated Admin - User` role will see all users in an Auth0 account. This could be fine if the dashboard is used by your Helpdesk department. But if you want to delegate administration to your departments (Finance, HR, IT, and so forth) or to your customers, your vendors, or your offices you'll want to filter the data users can see. With the **Filter Hook** you can decide how the list of users is filtered.
+By default, users with the **Delegated Admin - User** see all users in an Auth0 account. However, you can filter the data users can see using the **Filter Hook**.
 
 Hook contract:
 
