@@ -1,6 +1,6 @@
 ---
-title: Authentication
-name: Shows how to secure your API using the standard JWT middeware
+title: Authorization
+name: Shows how to secure your API using the standard OWIN JWT middeware
 budicon: 500
 ---
 
