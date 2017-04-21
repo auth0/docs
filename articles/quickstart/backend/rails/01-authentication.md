@@ -6,8 +6,7 @@ description: This tutorial demonstrates how to add authentication to Ruby on Rai
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-rubyonrails-api-samples',
-  path: '01-Authenticate-RS256',
-  branch: 'OIDC',
+  path: '01-Authenticate-RS256'
   requirements: [
     'Ruby 2.1.8',
     'Rails 4.2.5.1'
