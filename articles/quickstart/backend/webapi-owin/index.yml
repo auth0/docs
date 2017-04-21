@@ -11,6 +11,6 @@ tags:
   - quickstart
 articles:
   - 00-getting-started
-  - 01-authentication
-  - 02-authorization
+  - 01-authorization
+  - 02-using
   - 03-troubleshooting

@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 name: Introduction to the Quickstart, and configuring environment
-description: This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET Core Web API.
+description: This Quickstart will guide you through the various tasks related to using Auth0-issued access tokens to secure your ASP.NET Core Web API.
 budicon: 715
 ---
 
