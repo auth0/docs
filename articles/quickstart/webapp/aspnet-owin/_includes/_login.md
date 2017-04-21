@@ -6,87 +6,104 @@ The easiest way to enable authentication with Auth0 in your ASP.NET MVC applicat
 Install-Package Auth0-ASPNET-Owin
 ```
 
-Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware, external cookie middleware as well as the Auth0 middleware:
+Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware as well as the Auth0 middleware:
 
 ```cs
 public void Configuration(IAppBuilder app)
 {
-    // Register the cookie middleware
+    // Configure Auth0 parameters
+    string auth0Domain = ConfigurationManager.AppSettings["auth0:Domain"];
+    string auth0ClientId = ConfigurationManager.AppSettings["auth0:ClientId"];
+    string auth0ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"];
+
+    // Set Cookies as default authentication type
+    app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
     app.UseCookieAuthentication(new CookieAuthenticationOptions
     {
-        AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+        AuthenticationType = CookieAuthenticationDefaults.AuthenticationType,
         LoginPath = new PathString("/Account/Login")
     });
 
-    // Register external cookie middleware. This cookie is used to temporarily store information about a user logging in with a third party login provider
-    app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-
-    // Register the Auth0 (OAuth 2.0) middleware
-    app.UseAuth0Authentication(
-        clientId: System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"],
-        clientSecret: System.Configuration.ConfigurationManager.AppSettings["auth0:ClientSecret"],
-        domain: System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"]);
-
+    // Configure Auth0 authentication
+    var options = new Auth0AuthenticationOptions()
+    {
+        Domain = auth0Domain,
+        ClientId = auth0ClientId,
+        ClientSecret = auth0ClientSecret,
+    };
+    app.UseAuth0Authentication(options);
 }
 ```
 
-It is important that you register all 3 these pieces of middleware as all of them are required for the authentication to work. The Auth0 middleware  will handle the OAuth 2.0 authentication with Auth0. Once the user has authenticated, their identity will be temporarily stored in the external cookie. The Auth0 middleware will redirect the user back to `/Auth0Account/ExternalLoginCallback` action which will, in turn, [retrieve the user's identity from the external cookie](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample/blob/master/01-Login/MvcApplication/MvcApplication/Controllers/Auth0AccountController.cs#L30) and [sign the user into the cookie middleware](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample/blob/master/01-Login/MvcApplication/MvcApplication/Controllers/Auth0AccountController.cs#L38).
-
-All of this will be handled automatically for you by the Auth0 middleware and `Auth0AccountController` class which was added to your project when you installed the `Auth0-ASPNET-Owin` NuGet package, but it is important that you register all 3 pieces of middleware correctly as per the code sample above.
+It is important that you register both pieces of middleware as both of them are required for the authentication to work. The Auth0 middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
 ## Add Login and Logout Methods
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
-For the `Login` action, you can simply return the Login view which we will create in the next step. For the `Logout` action you will need to sign the user out of the Authentication Manager and then redirect them back to the home page:
+The `Login` action will return a `ChallengeResult` which will instruct the OWIN middleware to challenge the particular piece of Authentication middleware (in the case the "Auth0" middleware) to authenticate. 
+
+For the `Logout` action you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as Auth0. For more information you can refer to the Auth0 [Logout](https://auth0.com/docs/logout) documentation.
 
 ```cs
 public class AccountController : Controller
 {
-    public ActionResult Login()
+    public ActionResult Login(string returnUrl)
     {
-        return View();
+        return new ChallengeResult("Auth0", returnUrl ?? Url.Action("Index", "Home"));
     }
 
     [Authorize]
-    public ActionResult Logout()
+    public void Logout()
     {
-        HttpContext.GetOwinContext().Authentication.SignOut();
+        HttpContext.GetOwinContext().Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
+        HttpContext.GetOwinContext().Authentication.SignOut(new AuthenticationProperties
+        {
+            RedirectUri = Url.Action("Index", "Home")
+        }, "Auth0");
+    }
 
-        return RedirectToAction("Index", "Home");
+    [Authorize]
+    public ActionResult Claims()
+    {
+        return View();
     }
 }
 ```
 
-## Add the Login View
+You will also need to add the following code for the `ChallengeResult` class to your project:
 
-For the Login view, you can embed the [Auth0 Lock component](/libraries/lock). You can use the sample code below which adds a `<div>` to your view and then initializes the Lock component to display inside the view.
+```csharp
+internal class ChallengeResult : HttpUnauthorizedResult
+{
+    private const string XsrfKey = "XsrfId";
 
-``` html
-@using System.Configuration
-@{
-    ViewBag.Title = "Login";
-}
+    public ChallengeResult(string provider, string redirectUri)
+        : this(provider, redirectUri, null)
+    {
+    }
 
+    public ChallengeResult(string provider, string redirectUri, string userId)
+    {
+        LoginProvider = provider;
+        RedirectUri = redirectUri;
+        UserId = userId;
+    }
 
-<div id="root" style="width: 320px; margin: 40px auto;">
-</div>
+    public string LoginProvider { get; set; }
+    public string RedirectUri { get; set; }
+    public string UserId { get; set; }
 
-<script type="text/javascript" src="${lock_url}"></script>
-<script>
-    var lock = new Auth0Lock('@ConfigurationManager.AppSettings["auth0:ClientId"]', '@ConfigurationManager.AppSettings["auth0:Domain"]',
+    public override void ExecuteResult(ControllerContext context)
+    {
+        var properties = new AuthenticationProperties { RedirectUri = RedirectUri };
+        if (UserId != null)
         {
-            container: 'root',
-            auth: {
-                redirectUrl: window.location.origin + '/signin-auth0',
-                responseType: 'code',
-                params: {
-                    scope: 'openid'
-                }
-            }
-        });
-    lock.show();
-</script>
+            properties.Dictionary[XsrfKey] = UserId;
+        }
+        context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
+    }
+}
 ```
 
 ## Add Login and Logout Links

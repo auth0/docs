@@ -1,12 +1,13 @@
 ---
 title: Getting Started
 name: Introduction to the Quickstart, and configuring environment
+description: This Quickstart will guide you through the various tasks related to using Auth0-issued Access Tokens to secure your ASP.NET (OWIN) Web API.
 budicon: 715
 ---
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
-This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET (OWIN) Web API.
+This Quickstart will guide you through the various tasks related to using Auth0-issued Access Tokens to secure your ASP.NET (OWIN) Web API.
 
 ## Seed and Samples
 
@@ -32,18 +33,3 @@ Also update the `web.config` file in your project with the correct **Domain** an
   <add key="Auth0ApiIdentifier" value="YOUR_API_IDENTIFIER" />
 </appSettings>
 ```
-
-## 3. Install Dependencies
-
-To use Auth0 Access Tokens with ASP.NET Core you will use the JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package. Also install the `Auth0.OpenIdConnectSigningKeyResolver` NuGet package which will assist you in verifying the token signature.
-
-```bash
-Install-Package Microsoft.Owin.Security.Jwt
-Install-Package Auth0.OpenIdConnectSigningKeyResolver
-```
-
-The seed project contains both these NuGet packages, but if you are adding it to your own existing project you will only need to add the one which is relevant for your scenario.
-
-That's all you need to start working with Auth0 in your Web API!
-
-Please continue with the [Authentication](/quickstart/backend/webapi-owin/01-authentication) tutorial to secure your Web API.

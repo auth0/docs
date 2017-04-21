@@ -33,7 +33,7 @@ Add a new `Profile` action to the `AccountController` and extract the relevant c
 
 ```csharp
 [Authorize]
-public ActionResult Profile()
+public ActionResult UserProfile()
 {
     var claimsIdentity = User.Identity as ClaimsIdentity;
 
@@ -74,7 +74,7 @@ Next create a view. For the view, display a user profile card at the top with th
 </div>
 ```
 
-Now when you log in and then go to the URL `/Account/Profile` you will see all the users's profile displayed.
+Now when you log in and then go to the URL `/Account/UserProfile` you will see all the users's profile displayed.
 
 ## Displaying the user's name in the navigation bar
 
@@ -96,6 +96,6 @@ else
 </ul>
 ```
 
-Now, after the user has signed it you will be able to see the user's name in the top right corner of the Navbar:
+Now, after the user has logged in you will be able to see their name in the top right corner of the navigation bar:
 
 ![](/media/articles/server-platforms/aspnet-owin/navbar-userprofile.png)
