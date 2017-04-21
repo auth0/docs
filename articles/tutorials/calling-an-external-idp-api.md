@@ -5,15 +5,22 @@ description: How to call an Identity Provider API.
 
 # Call an Identity Provider API
 
-Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user's profile. You can use this token to call the IdP's API.
+Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user profile it returns. You can then use this token to call the IdP's API.
 
 <div class="alert alert-info">
-  This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to <a href="/identityproviders">Identity Providers Supported by Auth0</a>, where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the connection.
+  This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to <a href="/identityproviders">Identity Providers Supported by Auth0</a>, where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the Connection.
 </div>
 
-If you need access to the user's IdP access token, you will need to call the [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint of the [Auth0 Management API](/api/management/v2) with the `read:user_idp_tokens` scope. This document provides details on the recommended method for calling the Management API and requesting the IDP access token.
+## Required Steps
 
-## 1. Get a Token
+To get access to the user's IdP access token, you will need to:
+
+1. Obtain an access token that allows you to call the [Auth0 Management API](/api/management/v2).
+2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint using the access token obtained in step one (the token must have the `read:user_idp_tokens` scope). This returns the user's profile, which contains the IdP access token.
+3. Extract the IdP access token.
+4. Use the IdP access token to call the IdP's API.
+
+### 1. Get a Token
 
 You will need an access token to call the [Management API](/api/management/v2).
 
@@ -24,7 +31,7 @@ If this is the first time you are requesting a Management APIv2 Token, you'll ne
 
 Once you've created the Client, you now have an access token that can be used to interact with the Management API. Click __Copy Token__.
 
-### Automate the Token Request
+#### Automate the Token Request
 
 You may want to automate the token request process instead of manually copying and pasting the token. If this is the case, click on the [Test tab](${manage_url}/#/apis/management/test) and use the provided snippet. It's a `POST` operation to the [https://${account.namespace}/oauth/token](/api/authentication#client-credentials) endpoint.
 
