@@ -1,5 +1,5 @@
 ---
-order: 02
+order: 04
 title: Mobile + API
 image: /media/articles/architecture-scenarios/mobile-api.png
 extract: Mobile Application ("Client") which talks to an API ("Resource Server"). The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.
@@ -7,6 +7,8 @@ description: Explains the architecture scenario with a mobile application client
 ---
 
 # Mobile + API
+
+<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 
 ![Mobile + API Flow](/media/articles/architecture-scenarios/mobile-api.png)
 

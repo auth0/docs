@@ -1,5 +1,5 @@
 ---
-order: 01
+order: 04
 title: Business to Consumer Identity Scenarios
 image: /media/articles/architecture-scenarios/b2c.png
 extract: Usually eCommerce or SAAS applications which have end users (consumers) as customers and the application typically used OpenID Connect as a protocol to communicate with Auth0.
@@ -7,6 +7,8 @@ description: Explains the architecture scenario B2C with an eCommerce or SAAS ap
 ---
 
 # Business to Consumer Idenity Scenarios
+
+<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 
 ![](/media/articles/architecture-scenarios/b2c.png)
 
