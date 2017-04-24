@@ -6,8 +6,13 @@ budicon: 280
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-sample',
-  path: '04-Storing-Tokens'
+  repo: 'auth0-aspnetcore-mvc-samples',
+  path: 'Quickstart/03-Storing-Tokens',
+  requirements: [
+    '.NET Core 1.1.0',
+    'ASP.NET Core 1.1.1',
+    'Microsoft.AspNetCore.Authentication.OpenIdConnect 1.1.1'
+  ]
 }) %>
 
 The OIDC middleware in ASP.NET Core will automatically Decode the ID Token returned from Auth0 and will automatically add the claims contained in the ID Token as claims on the `ClaimsIdentity`.

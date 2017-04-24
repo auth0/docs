@@ -6,8 +6,13 @@ budicon: 448
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-sample',
-  path: '03-Login-Custom'
+  repo: 'auth0-aspnetcore-mvc-samples',
+  path: 'Quickstart/02-Login-Custom',
+  requirements: [
+    '.NET Core 1.1.0',
+    'ASP.NET Core 1.1.1',
+    'Auth0.AuthenticationApi 4.0.0'
+  ]
 }) %>
 
 
@@ -15,7 +20,7 @@ budicon: 448
 
 To log in the user you will be using the Auth0 Authentication SDK for .NET, so install the NuGet package:
 
-```bash
+```text
 Install-package Auth0.AuthenticationApi
 ```
 
@@ -126,17 +131,18 @@ public class AccountController : Controller
       {
         AuthenticationApiClient client = new AuthenticationApiClient(new Uri($"https://{_auth0Settings.Domain}/"));
 
-        var result = await client.AuthenticateAsync(new AuthenticationRequest
+        var result = await client.GetTokenAsync(new ResourceOwnerTokenRequest
         {
-          ClientId = _auth0Settings.ClientId,
-          Scope = "openid",
-          Connection = "Database-Connection", // Specify the correct name of your DB connection
-          Username = vm.EmailAddress,
-          Password = vm.Password
+            ClientId = _auth0Settings.ClientId,
+            ClientSecret = _auth0Settings.ClientSecret,
+            Scope = "openid profile",
+            Realm = "Username-Password-Authentication", // Specify the correct name of your DB connection
+            Username = vm.EmailAddress,
+            Password = vm.Password
         });
 
         // Get user info from token
-        var user = await client.GetTokenInfoAsync(result.IdToken);
+        var user = await client.GetUserInfoAsync(result.AccessToken);
 
         // Create claims principal
         var claimsPrincipal = new ClaimsPrincipal(new ClaimsIdentity(new[]
