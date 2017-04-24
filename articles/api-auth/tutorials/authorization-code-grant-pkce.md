@@ -89,7 +89,7 @@ var challenge = base64URLEncode(sha256(verifier));</code></pre>
       <pre>
 <code class="java hljs">byte[] bytes = verifier.getBytes("US-ASCII");
 MessageDigest md = MessageDigest.getInstance("SHA-256");
-md.update(input, 0, input.length);
+md.update(bytes, 0, bytes.length);
 byte[] digest = md.digest();
 String challenge = Base64.encodeToString(digest, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
     </div>
