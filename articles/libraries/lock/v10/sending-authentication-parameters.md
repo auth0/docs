@@ -69,4 +69,3 @@ The `state` parameter is an arbitrary state value that will be mantained across 
 
 [Click here to learn more about how to send/receive the state parameter.](/protocols/oauth-state)
 
-<%= include('../_includes/_lock-toc') %>
