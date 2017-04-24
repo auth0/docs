@@ -97,7 +97,7 @@ A popup will display the URL to use to impersonate the user. You can copy the UR
 ![Impersonate a User](/media/articles/user-profile/signin-as-user-02.png)
 
 ::: panel-info Impersonation API
-You can also use the [Impersonation API](/api/authentication/reference#impersonation) to impersonate a user. The API generates a link that you can used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
+You can also use the [Impersonation API](/api/authentication/reference#impersonation) to impersonate a user. The API generates a link that you can use once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
 :::
 
 Please see [User Impersonation](/user-profile/user-impersonation) for more information about impersonating a user.
