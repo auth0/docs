@@ -1,12 +1,14 @@
 ---
-order: 04
+order: 07
 title: Business to Business + Enterprise Identity Scenarios
 image: /media/articles/architecture-scenarios/b2b-b2e.png
 extract: This is essentially a hybrid between B2B and B2E where you have a larger SAAS application, like Zendesk for example, where users are grouped into companies.
 description: Explains the architecture scenario of a hybrid between B2B and B2E where you have a larger SAAS application.
 ---
 
-# Business to Business + Enterprise Identity Scenarios
+# Business to Business + Enterprise Identity Scenarios&nbsp;<span class="btn btn-warning btn-sm">under construction</span>
+
+<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 
 ![](/media/articles/architecture-scenarios/b2b-b2e.png)
 

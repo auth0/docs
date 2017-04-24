@@ -1,12 +1,14 @@
 ---
-order: 03
+order: 06
 title: Business to Enterprise Identity Scenarios
 image: /media/articles/architecture-scenarios/b2e.png
 extract: Large organization who wants to federate their existing enterprise directory service to allow employees to log in to applications using their existing enterprise credentials.
 description: Explains the architecture scenario of B2E with a large organization that wants to extend their existing enterprise directory service.
 ---
 
-# Business to Enterprise Identity Scenarios
+# Business to Enterprise Identity Scenarios&nbsp;<span class="btn btn-warning btn-sm">under construction</span>
+
+<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 
 ![](/media/articles/architecture-scenarios/b2e.png)
 
@@ -27,4 +29,3 @@ The following is a list of articles on this website which will help you to imple
 * [SAML](/saml-configuration)
 * [What is SSO (Single Sign On)?](/sso)
 * [Auth0 SSO Dashboard (sample)](https://github.com/auth0-samples/auth0-sso-dashboard)
-
