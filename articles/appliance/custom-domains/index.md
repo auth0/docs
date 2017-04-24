@@ -4,9 +4,9 @@ section: appliance
 description: How to set up custom domains for your Appliances
 ---
 
-# Custom Domains
+# Appliance: Custom Domains
 
-Beginning with Appliance Build 5XXX, you may configure custom domains using the Management Dashboard.
+If you are using **Appliance Build 5XXX** or later, you may configure custom domains using the Management Dashboard.
 
 Custom domains allow you to expose one or more arbitrary DNS names for a tenant. Conventionally, Auth0 uses a three-part domain name for access, and it is the first portion of the domain name that varies depending on the tenant.
 
@@ -55,4 +55,3 @@ You may configure custom domains for your tenants via the [custom domains set-up
 ## Custom Domains for Appliance's Hosted in Auth0’s Private Cloud
 
 If your Appliance is hosted in Auth0’s private cloud, your domains will end in *auth0.com*. If you want to use a custom domain with your customer-facing applications, see [Information Requirements for Setting Up the Appliance in Auth0's Private Cloud](/appliance/private-cloud-requirements).
-
