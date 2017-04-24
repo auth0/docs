@@ -92,7 +92,7 @@ function (user, context, callback) {
 
     if (plays >= 100 && user.roles.indexOf('playlist_editor') < 0){
       user.app_metadata.roles.push('playlist_editor');
-      auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+      auth0.users.updateAppMetadata({ id: user.user_id }, user.app_metadata)
         .then(function(){
           callback(null, user, context);
         })
@@ -101,7 +101,7 @@ function (user, context, callback) {
 
     else if (plays < 100 && user.roles.indexOf('playlist_editor') >= 0){
       user.app_metadata.roles = [];
-      auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+      auth0.users.updateAppMetadata({ id: user.user_id }, user.app_metadata)
         .then(function(){
           callback(null, user, context);
         })

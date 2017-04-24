@@ -102,7 +102,7 @@ function(user, context, callback){
   user.app_metadata.roles.push('administrator');
 
   // persist the app_metadata update
-  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+  auth0.users.updateAppMetadata({ id: user.user_id }, user.app_metadata)
     .then(function(){
       callback(null, user, context);
     })
@@ -186,7 +186,7 @@ function(user, context, callback){
   user.app_metadata.roles.push('admin');
 
   // persist the app_metadata update
-  var appMetadataPromise  = auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
+  var appMetadataPromise  = auth0.users.updateAppMetadata({ id: user.user_id }, user.app_metadata);
 
   // persist the user_metadata update
   var userMetadataPromise = auth0.users.updateUserMetadata({ id: user.user_id }, user.user_metadata);
@@ -280,7 +280,7 @@ function(user, context, callback){
   user.app_metadata.roles = null;
 
   // persist the app_metadata update
-  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+  auth0.users.updateAppMetadata({ id: user.user_id }, user.app_metadata)
     .then(function(){
       callback(null, user, context);
     })
@@ -322,7 +322,7 @@ function(user, context, callback){
   }
 
   // persist the app_metadata update
-  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+  auth0.users.updateAppMetadata({ id: user.user_id }, user.app_metadata)
     .then(function(){
       callback(null, user, context);
     })

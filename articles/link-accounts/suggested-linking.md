@@ -165,7 +165,7 @@ function _mergeMetadata(primaryUser, secondaryUser){
   
   return Promise.all([
     auth0.users.updateUserMetadata({ id: primaryUser.user_id }, mergedUserMetadata),
-    auth0.users.updateAppMetadata(primaryUser.user_id, mergedAppMetadata)
+    auth0.users.updateAppMetadata({ id: primaryUser.user_id }, mergedAppMetadata)
   ]).then(result => {
     //save result in primary user in session
     primaryUser.user_metadata = result[0].user_metadata;
