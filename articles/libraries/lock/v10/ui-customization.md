@@ -91,7 +91,3 @@ At this time, Auth0 doesn't offer any alternative pre-made CSS themes for Lock 1
 If you're looking for more detailed information while working to customize Lock for your application, check out the [configuration options](/libraries/lock/v10/customization) page or the [Lock API](/libraries/lock/v10/api) page!
 
 If you have specific theming options that you would like to see added, let us know. We are working on improving the customization options that are available through JavaScript, and this list will be updated as new options are added.
-
-<%= include('../_includes/_lock-toc') %>
-
-
