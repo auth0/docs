@@ -6,16 +6,20 @@ toc: true
 
 # Delegated Administration
 
-The **Delegated Administration** extension allows you to grant a select group of people administrative permissions to the [Users page](${manage_url}/#/users) *without* providing access to any other area of the Management Dashboard.
-
-To do this, the extension exposes the [Users Dashboard](${manage_url}/#/users) as an Auth0 client.
+The **Delegated Administration** extension allows you to grant a select group of people administrative permissions to the [Users page](${manage_url}/#/users) *without* providing access to any other area of the Management Dashboard by exposing the [Users Dashboard](${manage_url}/#/users) as an Auth0 client.
 
 :::panel-info Appliance Availability
 The Delegated Administration extension is available for [Appliance](/appliance) customers who:
 
-* Are running build 10755 or later;
+* Are running build **10755** or later;
 * Have User Search enabled.
 :::
+
+Prior to configuring the extension, you will need to:
+
+* [Create and configure an Auth0 Client](/create-a-client);
+* [Enable a Connection on the Client](/enable-a-connection-on-the-client);
+* [Add a user to the Connection](/add-a-user-to-the-new-connection).
 
 ## Create a Client
 
@@ -47,7 +51,7 @@ Set the **JsonWebToken Signature Algorithm** to *RS256*.
 
 Click **Save Changes** to proceed.
 
-### Enable Connections on the Client
+### Enable a Connection on the Client
 
 When you create a new Client, Auth0 enables all [Connections](/identityproviders) associated with your account by default. For the purposes of this tutorial, we will disable all Connections (this helps keep our Client secure, since no one can add themselves using one of our existing Connections), create a new Database Connection, and enable only the newly-created Database Connection. However, you can choose to use any type of Connection.
 
@@ -69,7 +73,7 @@ Navigate to the *Settings* tab of your new Connection and enable the **Disable S
 
 Under the *Clients Using This Connection* section, enable this Connection for your *Users Dashboard* Client.
 
-### Add a User to Your New Connection
+### Add a User to the New Connection
 
 You will need to add at least one user to your Connection. You can do this via the [Users page](${manage_url}/#/users), where you can specify the Connection for the user during the configuration process.
 
@@ -147,3 +151,8 @@ Because we disabled signups for this Connection during the configuration period,
 Once you provide valid credentials, you'll be redirected to the *Delegated Administration Dashboard*.
 
 ![](/media/articles/extensions/delegated-admin/standard-dashboard.png)
+
+## Keep Reading
+
+* [Customizing the Delegated Administration Extension Using Hooks](/extensions/delegated-admin/hooks)
+* [Managing Users in the Delegated Administration Extension Dashboard](/extensions/delegated-admin/manage-users)

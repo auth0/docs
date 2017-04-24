@@ -5,11 +5,11 @@ toc: true
 
 # Delegated Administration: Hooks
 
-Users with the `Delegated Admin - Administrator` role will see a *Configure* option in the top-right dropdown. On the Configuration page, you can manage the different Hooks and queries using the Dashboard.
+If you are a user with the `Delegated Admin - Administrator` role in your User Profile, log in to the Delegated Administration Dashboard, and click on your name in the top right corner, you'll see a  *Configure* option. On the Configuration page, you can manage the different Hooks and queries that allow you to customize the behavior of the Delegated Administration extension.
 
 ![](/media/articles/extensions/delegated-admin/dashboard-configuration.png)
 
-#### Signature
+## Hooks Signature
 
 Hooks always have the following signature:
 
@@ -23,11 +23,11 @@ function(ctx, callback) {
 }
 ```
 
-The context object will expose a few helpers and information about the current request. The following methods and properties are available in every hook.
+The context object will expose a few helpers and information about the current request. The following methods and properties are available in every Hook.
 
 **1. Logging**
 
-  To add a message to the Webtask logs (which you can view using the Realtime Webtask Logs extension), you can call the `log` method:
+  To add a message to the Webtask logs (which you can view using the [Realtime Webtask Logs](/extensions/realtime-webtask-logs) extension), call the `log` method:
 
   ```js
   ctx.log('Hello there', someValue, otherValue);
@@ -73,7 +73,7 @@ The context object will expose a few helpers and information about the current r
 
 **4. Payload and Request**
 
-  Each Hook exposes the current payload and/or request with specific information. The request will always contain information about the user that is logged in to the Users Dashboard:
+  Each Hook exposes the current payload and/or request with specific information. The request will always contain information about the user that is logged into the Users Dashboard:
 
   ```js
   var currentUser = ctx.request.user;
@@ -81,7 +81,7 @@ The context object will expose a few helpers and information about the current r
 
 **5. Remote Calls**
 
-  You might want to call an external service to validate data or to load memberships from a remote location, such as an API. This is possible using the request module:
+  If you want to call an external service (such as an API) to validate data or to load memberships, you can do this using the `request` module.
 
   ```js
   function(ctx, callback) {
@@ -96,16 +96,18 @@ The context object will expose a few helpers and information about the current r
   }
   ```
 
-#### Filter Hook
+## The Filter Hook
 
-By default, users with the **Delegated Admin - User** see all users in an Auth0 account. However, you can filter the data users can see using the **Filter Hook**.
+By default, users with the **Delegated Admin - User** role see *all* users associated with the Auth0 account. However, you can filter the data users see using the **Filter Hook**.
 
-Hook contract:
+### The Hook contract:
 
- - `ctx`: The context object.
- - `callback(error, query)`: The callback to which you can return an error or the [lucene query](/api/management/v2/query-string-syntax) which should be used when filtering the users. The extension will send this query to the [`GET Users` endpoint](/api/management/v2#!/Users/get_users) of the Management API.
+ - `ctx`: The context object
+ - `callback(error, query)`: The callback to which you can return an error or the [lucene query](/api/management/v2/query-string-syntax) used when filtering the users. The extension will send this query to the [`GET Users` endpoint](/api/management/v2#!/Users/get_users) of the Management API
 
-Example: If **Kelly** manages the Finance department, she should only see the users that are also part of the Finance department. So we'll filter the users based on the department of the current user.
+### Example
+
+If **Kelly** manages the Finance department, she should only see the users that are also part of the Finance department. We'll filter the users with respect to the department of the current user.
 
 ```js
 function(ctx, callback) {
@@ -125,23 +127,23 @@ function(ctx, callback) {
 }
 ```
 
-::: panel-warning Quotes may lead to errors
-Do not use single or double quotes, or any other special characters such as `+` or `-` in your department or group name, on which you'll want to filter. This might cause issues with the Lucene query, resulting in unexpected behavior.
+::: panel-warning Using Special Characters
+Do not use single quotes, double quotes, or any other special characters (such as `+` or `-`) in any term on which you'll want to filter. This might cause issues with the Lucene query.
 :::
 
-If this hook is not configured, **all users** will be returned.
+If you do not configure this Hook, the search returns **all users**.
 
-#### Access Hook
+## The Access Hook
 
 While the **Filter Hook** only applies filtering logic you'll need a second layer of logic to determine if the current user is allowed to access a specific user. This is what the **Access Hook** allows you to do, determine if the current user is allowed to read, delete, block, unblock, etc a specific user.
 
-Hook contract:
+### The Hook contract:
 
- - `ctx`: The context object.
-   - `payload`: The payload object.
-     - `action`: The current action (eg: `delete:user`) that is being executed.
+ - `ctx`: The context object
+   - `payload`: The payload object
+     - `action`: The current action (eg: `delete:user`) that is being executed
      - `user`: The user on which the action is being executed
- - `callback(error)`: The callback to which you can return an error if access is denied.
+ - `callback(error)`: The callback to which you can return an error if access is denied
 
 Example: **Kelly** manages the Finance department and she should only be able to access users within her department.
 
@@ -203,7 +205,7 @@ Hook contract:
      - `connection`: The name of the user.
  - `callback(error, user)`: The callback to which you can return an error and the user object that should be sent to the Management API.
 
-Example: **Kelly** manages the Finance department. When she creates users, these users should be assigned to the same department she's in.
+Example: **Kelly** manages the Finance department. When she creates users, these users should be assigned to her department.
 
 ```js
 function(ctx, callback) {
@@ -235,18 +237,20 @@ function(ctx, callback) {
 }
 ```
 
-**NOTE**: Creating users is only supported in Database Connections
+:::panel-warning
+Auth0 only supports user creation with Database Connections.
+:::
 
-#### Memberships Query
+## The Memberships Query Hook
 
-When creating a new user the UI will show a picklist where you can choose the memberships you want to assign to a user. These memberships are defined using the **Memberships Query**.
+When creating a new user, the UI shows a drop-down where you can choose the membership(s) you want assigned to a user. These memberships are then defined using the **Memberships Query**.
 
-Hook contract:
+### The Hook contract:
 
- - `ctx`: The context object.
- - `callback(error, { createMemberships: true/false, memberships: [ ...] })`: The callback to which you can return an error and an object containing the membership configuration.
+ - `ctx`: The context object
+ - `callback(error, { createMemberships: true/false, memberships: [ ...] })`: The callback to which you can return an error and an object containing the membership configuration
 
-Example: Users of the IT department should be able to create users in other departments. Users from other departments, should only see their own department.
+Example: Users of the IT department should be able to create users in other departments. Users from other departments should only be able to create users for their own departments.
 
 ```js
 function(ctx, callback) {
@@ -263,9 +267,12 @@ function(ctx, callback) {
 }
 ```
 
-**NOTE**: This query is only used in the UI. If assigning users to specific departments needs to be enforced, this will happen in the Create Hook. If only 1 membership is returned, the membership field in the UI will not be displayed.
+**Notes**:
 
-You can also allow the end user to enter any value they wish for the memberships by setting `createMemberships` to true.
+* Because you can only use this query in the UI, you'll need to assign memberships using the *Create Users* function if you need to enforce the assigning of users to specific departments.
+* If there is only one membership possible, this field will not show in the UI.
+
+You can allow the end user to enter any value `memberships` by setting `createMemberships` to true.
 
 ```js
 function(ctx, callback) {
@@ -281,14 +288,14 @@ function(ctx, callback) {
 }
 ```
 
-#### Settings Query
+## The Settings Query Hook
 
 The **Settings Query** allows you to customize the look and feel of the extension.
 
-Hook contract:
+### The Hook contract:
 
- - `ctx`: The context object.
- - `callback(error, settings)`: The callback to which you can return an error and a settings object.
+ - `ctx`: The context object
+ - `callback(error, settings)`: The callback to which you can return an error and a settings object
 
 Example:
 
@@ -310,97 +317,3 @@ function(ctx, callback) {
   });
 }
 ```
-
-### Manage Users
-
-There are two available views, *Users* and *Logs*. At the *Users* view you can see the users displayed and perform certain actions on them.
-
-Keep in mind that by default all users are displayed, but you can constrain that by configuring a [filter hook](#filter-hook).
-
-In the table below you can see all the options you can perform on a user, which ones are available via the [dashboard](${manage_url}/#/) and which via the extension. Once more, keep in mind that this is the superset of the actions a user can perform using the extension. It can always be constrained by configuring an [access hook](#access-hook).
-
-<table class="table">
-    <tr>
-        <th>Action</th>
-        <th> Available via Dashboard </th>
-        <th> Available via Extension </th>
-    </tr>
-    <tr>
-        <th>Create user</th>
-        <th>Yes</th>
-        <th>Yes</th>
-    </tr>
-    <tr>
-        <th>Contact user</th>
-        <th>Yes</th>
-        <th>No</th>
-    </tr>
-    <tr>
-        <th>Sign in as user</th>
-        <th>Yes</th>
-        <th>No</th>
-    </tr>
-    <tr>
-        <th>Block user</th>
-        <th>Yes</th>
-        <th>Yes</th>
-    </tr>
-    <tr>
-        <th>Delete user</th>
-        <th>Yes</th>
-        <th>Yes</th>
-    </tr>
-    <tr>
-        <th>Send verification email</th>
-        <th>Yes</th>
-        <th>Yes</th>
-    </tr>
-    <tr>
-        <th>Change email</th>
-        <th>Yes</th>
-        <th>Yes</th>
-    </tr>
-    <tr>
-        <th>Change password</th>
-        <th>Yes</th>
-        <th>Yes</th>
-    </tr>
-    <tr>
-        <th>Reset password</th>
-        <th>No</th>
-        <th>Yes</th>
-    </tr>
-</table>
-
-Notice the new *Reset Password* option available via the extension. This option will send an email to the user allowing them to choose a new password. To do this click on a user and select *Actions > Reset Password*.
-
-![](/media/articles/extensions/delegated-admin/reset-pass-01.png)
-
-This will send an email to the user, containing a link to change the password.
-
-At the *Logs* view you can see log data of authentications made by your users (this tab is only visible to users with the `Delegated Admin - Administrator` role). The contents of this view are a subset of the data displayed in the [Logs Dashboard](${manage_url}/#/logs), which also displays data for the actions taken in the dashboard by the administrators.
-
-### Create Users
-
-You can create a new user by selecting the **+ Create User** button at the *Users* view. The information you need to specify are email and password. Depending on your role you may or may not be able to set the *Department* that the new user belongs to.
-
-For example, users with the `Delegated Admin - Administrator` role can see the **Department** field and select any of its values.
-
-![](/media/articles/extensions/delegated-admin/create-user-admin.png)
-
-On the other hand, Kelly who has the `Delegated Admin - User` role and belongs to the Finance department, cannot see this field. The user she will create will be automatically assigned to the Finance department.
-
-![](/media/articles/extensions/delegated-admin/create-user-kelly.png)
-
-## Customize the dashboard
-
-You can use the **Title** and **Custom_CSS** variables to customize the look and feel of your dashboard.
-
-Navigate to the [Extensions](${manage_url}/#/extensions) page and go to the settings of the **Delegated Administration** extension. We are going to set a custom title and a custom css file:
-
-- Set the **TITLE** to `Finance User Management`.
-- Set the **CUSTOM_CSS** to `https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css`.
-
-Save your changes, navigate to the extension and login. The dashboard now looks like that:
-
-![](/media/articles/extensions/delegated-admin/custom-dashboard.png)
