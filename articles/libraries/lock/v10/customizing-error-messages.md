@@ -35,5 +35,3 @@ var lock = new Auth0Lock(
 ```
 
 These errors will be shown on the widget header.
-
-<%= include('../_includes/_lock-toc') %>

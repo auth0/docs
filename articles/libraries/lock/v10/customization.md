@@ -817,8 +817,6 @@ var options = {
 };
 ```
 
-<%= include('../_includes/_lock-toc') %>
-
 <!-- Vars-->
 
 [authparams-link]: /libraries/lock/v10/sending-authentication-parameters

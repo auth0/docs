@@ -74,5 +74,3 @@ var client = new Auth0({
 ```
 
 If you need further detail about usage, check out the [Auth0.js v7 Reference](/libraries/auth0js/v7).
-
-<%= include('../_includes/_lock-toc') %>
