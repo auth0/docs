@@ -1,3 +1,8 @@
+---
+description: How to manage users in the Delegated Administration extension
+toc: true
+---
+
 # Delegated Administration: Manage Users
 
 In the Client exposed by the Delegated Administration extension, there are two views available: *Users* and *Logs*. On the *Users* view, you can see the display and modify users associated with your Auth0 account.
@@ -69,7 +74,7 @@ This will send an email to the user, containing a link to change the password.
 
 If your profile indicates that you have the `Delegated Admin - Administrator` role, the *Logs* view allows you to see a list of authentications made by your users (this tab is only visible to users with the `Delegated Admin - Administrator` role). The contents of this view are a subset of the data displayed in the [Logs Dashboard](${manage_url}/#/logs). The Log Dashboard also displays data on administrative actions taken in the Dashboard.
 
-### Create Users
+## Create Users
 
 You can create a new user by selecting the **+ Create User** button on the *Users* view. You need to specify are email and password. Depending on your role, you may not be able to set the *Department* to which the new user belongs.
 
