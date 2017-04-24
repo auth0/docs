@@ -117,7 +117,7 @@ For third-party Clients, Auth0 limits used of the Password Exchange flows by def
   </tr>
   <tr>
     <td>`http://auth0.com/oauth/legacy/grant-type/access_token`</td>
-    <td>Contact Support for assistance.</td>
+    <td>Use browser-based social authentication.</td>
   </tr>
 </table>
 
