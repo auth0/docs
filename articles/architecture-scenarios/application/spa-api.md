@@ -6,7 +6,7 @@ extract: Single Page Web Application "Client" which talks to an API ("Resource S
 description: Explains the architecture scenario with a Single Page Web Application to an API using OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.
 ---
 
-# SPA + API&nbsp;<span class="btn btn-warning btn-sm">under construction</span>
+# SPA + API
 
 <div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 

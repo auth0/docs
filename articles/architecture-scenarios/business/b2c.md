@@ -6,7 +6,7 @@ extract: Usually eCommerce or SAAS applications which have end users (consumers)
 description: Explains the architecture scenario B2C with an eCommerce or SAAS application.
 ---
 
-# Business to Consumer Idenity Scenarios&nbsp;<span class="btn btn-warning btn-sm">under construction</span>
+# Business to Consumer Idenity Scenarios
 
 <div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 

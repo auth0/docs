@@ -6,7 +6,7 @@ extract: Large organization who wants to federate their existing enterprise dire
 description: Explains the architecture scenario of B2E with a large organization that wants to extend their existing enterprise directory service.
 ---
 
-# Business to Enterprise Identity Scenarios&nbsp;<span class="btn btn-warning btn-sm">under construction</span>
+# Business to Enterprise Identity Scenarios
 
 <div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 

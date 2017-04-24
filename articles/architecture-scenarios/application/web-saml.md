@@ -6,7 +6,7 @@ extract: Traditional web application which needs to authenticate users using SAM
 description: Explains the architecture scenario of using a traditional web application to authenticate users using SAML2.
 ---
 
-# Regular Web App (using SAML)&nbsp;<span class="btn btn-warning btn-sm">under construction</span>
+# Regular Web App (using SAML)
 
 <div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 

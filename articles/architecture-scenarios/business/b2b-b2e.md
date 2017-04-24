@@ -6,7 +6,7 @@ extract: This is essentially a hybrid between B2B and B2E where you have a large
 description: Explains the architecture scenario of a hybrid between B2B and B2E where you have a larger SAAS application.
 ---
 
-# Business to Business + Enterprise Identity Scenarios&nbsp;<span class="btn btn-warning btn-sm">under construction</span>
+# Business to Business + Enterprise Identity Scenarios
 
 <div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 

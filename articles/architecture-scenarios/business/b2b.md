@@ -6,7 +6,7 @@ extract: In this scenario you usually have a larger SAAS application, like Zende
 description: Explains the architecture scenario of B2B with large SAAS application.
 ---
 
-# Business to Business Identity Scenarios&nbsp;<span class="btn btn-warning btn-sm">under construction</span>
+# Business to Business Identity Scenarios
 
 <div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 

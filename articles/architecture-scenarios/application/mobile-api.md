@@ -6,7 +6,7 @@ extract: Mobile Application ("Client") which talks to an API ("Resource Server")
 description: Explains the architecture scenario with a mobile application client communicating with an API.
 ---
 
-# Mobile + API&nbsp;<span class="btn btn-warning btn-sm">under construction</span>
+# Mobile + API
 
 <div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 
