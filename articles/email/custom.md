@@ -43,7 +43,7 @@ function (user, context, callback) {
 
     // Email sent flag persisted in the user's profile.
     user.app_metadata.verification_email_sent = true;
-    auth0.users.updateUserMetadata(user.user_id, user.app_metadata)
+    auth0.users.updateUserMetadata({ id: user.user_id }, user.app_metadata)
       .then(function() {
         callback(null, user, context);
       })
