@@ -223,7 +223,7 @@ toc: true
     </thead>
     <tbody>
       <tr>
-        <td>Lock.js</td>
+        <td><a href="https://github.com/auth0/lock">Lock.js</a></td>
         <td>v10</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
@@ -233,7 +233,7 @@ toc: true
         <td><div class="label label-warning">Bug fixes</div></td>
       </tr>
       <tr>
-        <td>Lock.Android</td>
+        <td><a href="https://github.com/auth0/Lock.Android">Lock.Android</a></td>
         <td>v2</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
@@ -243,12 +243,12 @@ toc: true
         <td><div class="label label-warning">Bug fixes</div></td>
       </tr>
       <tr>
-        <td>Lock.swift</td>
+        <td><a href="https://github.com/auth0/Lock.swift">Lock for iOS v2</a></td>
         <td>v2</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>Lock.iOS-macOS</td>
+        <td><a href="https://github.com/auth0/Lock.swift/tree/v1">Lock for iOS v1</a></td>
         <td>v1</td>
         <td><div class="label label-warning">Bug fixes</div></td>
       </tr>
@@ -326,57 +326,57 @@ toc: true
     </thead>
     <tbody>
       <tr>
-        <td>angular-auth0</td>
+        <td><a href="https://github.com/auth0/angular-auth0">Angular Auth0</a></td>
         <td>v2</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>angular-lock</td>
+        <td><a href="https://github.com/auth0/angular-lock">Angular Lock</a></td>
         <td>v2</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>auth0-servlet</td>
+        <td><a href="https://github.com/auth0/auth0-servlet">Auth0 Servlet</a></td>
         <td>v3</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>auth0-spring-mvc</td>
+        <td><a href="https://github.com/auth0/auth0-spring-mvc">Auth0 Spring MVC</a></td>
         <td>v1</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>auth0-spring-security-mvc</td>
+        <td><a href="https://github.com/auth0/auth0-spring-security-mvc">Auth0 Spring Security MVC</a></td>
         <td>v1</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>auth0-spring-security-api</td>
+        <td><a href="https://github.com/auth0/auth0-spring-security-api">Auth0 Spring Security API</a></td>
         <td>v1</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>auth0-aspnet-owin</td>
+        <td><a href="https://github.com/auth0/auth0-aspnet-owin">Auth0 ASP.NET 4.5 Owin</a></td>
         <td>v2</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>auth0-aspnet</td>
+        <td><a href="https://github.com/auth0/auth0-aspnet">Auth0 ASP.NET</a></td>
         <td>v1</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>auth0-oidc-client-net</td>
+        <td><a href="https://github.com/auth0/auth0-oidc-client-net">OIDC Client for .NET Desktop and Mobile applications</a></td>
         <td>v1</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td>Auth0.Windows.UWP</td>
+        <td><a href="https://github.com/auth0/Auth0.Windows.UWP">Auth0 with UWP applications</a></td>
         <td>v1</td>
         <td><div class="label label-default">Community</div></td>
       </tr>
       <tr>
-        <td>Auth0.WinformsWPF</td>
+        <td><a href="https://github.com/auth0/Auth0.WinformsWPF">Auth0 auth client for Winforms and WPF</a></td>
         <td>v0.9</td>
         <td><div class="label label-default">Community</div></td>
       </tr>
