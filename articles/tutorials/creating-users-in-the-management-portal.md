@@ -29,3 +29,7 @@ Click on the "Create User" button near the top right-hand side of the screen.
 At this point, the user is created, and you will be directed to the newly-created user's profile.
 
 ![](/media/articles/users/user-profile.png)
+
+::: panel-info Pending Users
+The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+:::
