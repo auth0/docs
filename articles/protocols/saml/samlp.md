@@ -38,7 +38,7 @@ Optionally, assertions can be encrypted. Use this public key to configure the Id
 
 ## IdP-Initiated SSO
 
-If you want **IdP-Initiated SSO**, please make sure to include the `connection` parameter in the post-back URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
+[Click here to learn more about IdP-Initiated SSO]()
 
 ## Metadata
 
