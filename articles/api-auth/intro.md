@@ -159,7 +159,7 @@ __More information: [Delegation](/api-auth/tutorials/adoption/delegation)__
 
 ### Passwordless
 
-__More information: []()__
+Our new implementation does not support passwordless authentication. We are currently evaluating this feature and our approach. We plan on supporting this in future releases.
 
 ### Other Authentication API endpoints
 
@@ -175,8 +175,7 @@ __More information: []()__
 ## How to use the new flows
 
 To use the new pipeline, at least one of the following should apply:
-- The client is flagged as __OIDC Conformant__
-OR
+- The client is flagged as __OIDC Conformant__, or
 - The `audience` parameter is set in the [/authorize](/api/authentication#authorize-client) or [/token](/api/authentication#get-token) endpoints
 
 If none of these applies, then the legacy flows will be used.
@@ -295,14 +294,14 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
 
 ## Keep Reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read the [Adoption Guide](/api-auth/tutorials/adoption) which details all changes and provides suggestions on how to adapt your existing applications<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;Read the [Adoption Guide](/api-auth/tutorials/adoption) which details all changes and provides suggestions on how to adapt your existing applications.<br/>
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Visit our [API Authorization index](/api-auth) to find information on the various OAuth 2.0 grants, which one you should implement, details on how to do so, and several other useful information<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;Visit our [API Authorization index](/api-auth) to find information on the various OAuth 2.0 grants, which one you should implement, details on how to do so, and several other useful information.<br/>
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Access Token](/tokens/access-token)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Access Token](/tokens/access-token).<br/>
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Refresh Token](/tokens/preview/refresh-token)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Refresh Token](/tokens/preview/refresh-token).<br/>
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read about [OAuth 2.0](/protocols/oauth2) and [OIDC](/protocols/oidc)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;Read about [OAuth 2.0](/protocols/oauth2) and [OIDC](/protocols/oidc).<br/>
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Learn why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Learn why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).<br/>
