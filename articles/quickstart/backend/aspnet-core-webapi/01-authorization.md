@@ -7,11 +7,13 @@ budicon: 500
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-webapi-sample',
-  path: '01-Authentication',
+  repo: 'auth0-aspnetcore-webapi-samples',
+  path: 'Quickstart/01-Authorization',
   requirements: [
-    '.NET Core 1.0',
-    'Visual Studio 2015 Update 3 (Optional)',
+    '.NET Core 1.1',
+    'ASP.NET Core 1.1',
+    'Microsoft.AspNetCore.Authentication.JwtBearer 1.1.1'
+    'Visual Studio 2017 (Optional)',
     'Visual Studio Code (Optional)'
   ]
 }) %>
@@ -30,7 +32,7 @@ Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 
 ## Configuration
 
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample/tree/master/03-Authentication-HS256' }) %>
+<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
 
 The ASP.NET Core JWT middleware will handle downloading the JSON Web Key Set (JWKS) file containing the public key for you, and will use that to verify the `access_token` signature.
 
@@ -149,7 +151,7 @@ public class MessagesController : Controller
 
     [Authorize("create:messages")]
     [HttpPost]
-    public IActionResult Create(Message message)
+    public IActionResult Create([FromBody] Message message)
     {
         // Create a new message
     }
