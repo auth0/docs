@@ -26,7 +26,9 @@ You can now define your resource server APIs as entities separate from clients u
 
 This lets you decouple your resource server APIs from the client applications that consume them and also lets you define third-party clients that you might not control or even fully trust (keep reading for more info).
 
-__More Information: [APIs Overview](/apis).__
+<div class="auth0-notification frendly">
+  <strong>More Information: <a href="/apis">APIs Overview</a>.</strong>
+</div>
 
 ### Third-Party Clients
 
