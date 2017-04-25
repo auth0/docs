@@ -8,7 +8,7 @@ toc: true
 
 As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document will present an overview of these changes, explain why they were made and point you to other detailed tutorials to help you adopt these changes.
 
-We will start by reviewing the new features, continue with what changed and how you can distinguish which authentication flow is used (the latest or the legacy). Towards the end of this doc, you can find a summarizing table and links for further reading.
+We will start by reviewing the [new features](#what-s-new), continue with [what changed](#what-is-changing) and how you can [distinguish which authentication flow is used](#how-to-use-the-new-flows) (the latest or the legacy). Towards the end of this doc, you can find a [summarizing table](#legacy-vs-new) and [links for further reading](#keep-reading).
 
 If you are new to Auth0, go through the [What’s New](#what-s-new) section of this doc. There you can find all the cool new features we introduced, like the ability to create APIs, call them from services, or enable external parties or partners to access protected resources at your API in a secure way. Then head off to the [How to use the new flows](#how-to-use-the-new-flows) section and make sure that your new implementation follows our latest, and more secure, authentication pipeline.
 
@@ -80,25 +80,25 @@ Not all [OAuth 2.0 grants](/protocols/oauth2#authorization-grant-types) support 
 <table class="table">
   <thead>
     <tr>
-      <th>OAuth 2.0 Grant</th>
-      <th>Supports SSO?</th>
+      <th><strong>OAuth 2.0 Grant</strong></th>
+      <th><strong>Supports SSO?</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>[Authorization Code](/api-auth/grant/authorization-code)</th>
+      <th><a href="/api-auth/grant/authorization-code">Authorization Code</a></th>
       <td>Yes</td>
     </tr>
     <tr>
-      <th>[Authorization Code (PKCE)](/api-auth/grant/authorization-code-pkce)</th>
+      <th><a href="/api-auth/grant/authorization-code-pkce">Authorization Code (PKCE)</a></th>
       <td>Yes</td>
     </tr>
     <tr>
-      <th>[Implicit](/api-auth/grant/implicit)</th>
-      <td>Yes/td>
+      <th><a href="/api-auth/grant/implicit">Implicit</a></th>
+      <td>Yes</td>
     </tr>
     <tr>
-      <th>[Resource Owner Password](/api-auth/grant/password)</th>
+      <th><a href="/api-auth/grant/password">Resource Owner Password</a></th>
       <td>No</td>
     </tr>
   </tbody>
