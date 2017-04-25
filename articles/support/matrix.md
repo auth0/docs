@@ -307,6 +307,11 @@ toc: true
         <td>v2</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-python">Auth0 Python</a></td>
+        <td>v2</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
     </tbody>
   </table>
 
