@@ -47,6 +47,8 @@ The User Details page has links for five tabs:
 
 #### User Details: Details
 
+**Note:** The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+
 The Details tab contains three sections that provide a high-level overview of the information in the user's profile:
 
 1. **User Identity** provides at-a-glance details about the user, including their email address, associated Connections, and access rights.
