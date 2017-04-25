@@ -12,7 +12,7 @@ budicon: 500
   requirements: [
     '.NET Core 1.1',
     'ASP.NET Core 1.1',
-    'Microsoft.AspNetCore.Authentication.JwtBearer 1.1.1'
+    'Microsoft.AspNetCore.Authentication.JwtBearer 1.1.1',
     'Visual Studio 2017 (Optional)',
     'Visual Studio Code (Optional)'
   ]
