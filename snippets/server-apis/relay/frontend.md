@@ -1,5 +1,5 @@
 ```js
-var token = localStorage.getItem('id_token');
+const token = localStorage.getItem('access_token');
 
 Relay.injectNetworkLayer(
   new Relay.DefaultNetworkLayer('http://localhost:3000/graphql', {

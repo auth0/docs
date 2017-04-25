@@ -6,7 +6,7 @@ description: How to send events to Keen IO from Auth0.
 
 [Keen IO](http://keen.io) provides a service to capture and analyze events generated in your apps. In their words:
 
-> Anlytics transforms data into answers – the kind of answers every company deserves. Unfortunately, a lot of companies a) can't find an analytics service that's right for their specific needs, and b) don't have the resources to develop their own analytics infrastructure. That's why we started Keen IO. Basically, we built it, so you don't have to. And we made it powerful, flexible, and scalable enough that you can use it however you need to – even if those needs change over time.large number of anayltics services with a single, simple to use API. 
+> Analytics transforms data into answers – the kind of answers every company deserves. Unfortunately, a lot of companies a) can't find an analytics service that's right for their specific needs, and b) don't have the resources to develop their own analytics infrastructure. That's why we started Keen IO. Basically, we built it, so you don't have to. And we made it powerful, flexible, and scalable enough that you can use it however you need to – even if those needs change over time.
 
 This example shows how you can very easily connect Auth0 to __Keen IO__ and stream `signup` events. 
 

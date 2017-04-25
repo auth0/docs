@@ -36,7 +36,7 @@ Where:
 * `grant_type`: This must be `client_credentials`.
 * `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
 * `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
-* `audience`: The value of the **Id** field on the [Settings tab of the API](${manage_url}/#/apis).
+* `audience`: The value of the **Identifier** field on the [Settings tab of the API](${manage_url}/#/apis).
 
 The response contains a [signed JSON Web Token](/jwt), the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
 
@@ -63,7 +63,7 @@ If you [decode the `access_token`](https://jwt.io/#debugger-io) you will see tha
 
 ## Modify Scopes and Claims
 
-You can change the scopes and add custom claims to the `access_token` you got, using [Hooks](/hooks). 
+You can change the scopes and add custom claims to the `access_token` you got, using [Hooks](/hooks).
 
 Hooks allow you to customize the behavior of Auth0 using Node.js code. They are actually Webtasks, associated with specific extensibility points of the Auth0 platform (like the Client Credentials grant). Auth0 invokes the Hooks at runtime to execute your custom logic.
 
@@ -80,6 +80,7 @@ For details on the validations that should be performed by the API, refer to [Ve
 
 - [Calling APIs from a Service](/api-auth/grant/client-credentials)
 - [How to configure an API in Auth0](/apis)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
 - [How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
 - [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks).

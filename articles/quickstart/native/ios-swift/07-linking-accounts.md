@@ -43,7 +43,7 @@ Lock
     .present(from: self)
 ```
 
-Upon success, you need to store the `dToken` value for later use, which is the `idToken` for the secondary account that the user is linking with.
+Upon success, you need to store the `idToken` value for later use, which is the `idToken` for the secondary account that the user is linking with.
 
 ## Link an Account
 
@@ -59,7 +59,7 @@ import Auth0
 
 ```swift
 let id = ... // the id of the user
-let idToken = ... // the user idToken
+let idToken = ... // the user's idToken
 let otherUserToken = ... // the idToken from the account you want to link the user with
 Auth0
     .users(token: idToken)
@@ -76,7 +76,7 @@ Auth0
 
 ## Retrieve Linked Accounts
 
-Linked accounts, a.k.a. user's identities, can be easily retrieved by fetching the user'z profile, a process that we already know from the [user profile](/quickstart/native/ios-swift/02-custom-login) tutorial:
+Linked accounts, a.k.a. user's identities, can be easily retrieved by fetching the user's profile, a process that we already know from the [user profile](/quickstart/native/ios-swift/02-custom-login) tutorial:
 
 ```swift
 import Lock
@@ -95,7 +95,7 @@ Auth0
             }
 ```
 
-Once you have the profile you can retrieve the users identities through a management API call as follows:
+Once you have the `id` from the profile you can retrieve the users identities through a management API call as follows:
 
 ```swift
 Auth0

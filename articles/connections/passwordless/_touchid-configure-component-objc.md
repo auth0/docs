@@ -32,7 +32,7 @@ authentication.authenticate = ^(NSString *jwt, A0ErrorBlock block) {
     }];
 
     [client loginWithIdToken:jwt deviceName:deviceName parameters:parameters success:^(A0UserProfile *profile, A0Token *token) {
-        // User is authenticated with Auth0 & TouchID
+        // User is authenticated with Auth0 & Touch ID
     } failure:^(NSError *error){
         block(error);
     }];

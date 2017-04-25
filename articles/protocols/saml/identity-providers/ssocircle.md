@@ -58,7 +58,7 @@ If you click **Continue**, you will be shown the SAML Identity Provider Configur
 
 ![SAML Configuration Info Display](/media/articles/saml/identity-providers/ssocircle/saml-config-info.png)
 
-> In general, you can access the metadata for an Auth0 SAML connection using a URL with the following format: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
+> In general, you can access the metadata for an Auth0 SAML connection using a URL with the following format: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
 
 You will need to provide this metadata to SSOCircle at a later point during the configuration process.
 

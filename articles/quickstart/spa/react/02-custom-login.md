@@ -17,8 +17,6 @@ In the [previous step](/quickstart/spa/react/01-login), we enabled login with Au
 
 ::: panel-info Version Requirements
 This quickstart and the accompanying sample demonstrate custom login with auth0.js version 8. If you are using auth0.js version 7, please see the [reference guide](https://auth0.com/docs/libraries/auth0js/v7) for the library, as well as the [legacy React custom login sample](https://github.com/auth0-samples/auth0-react-sample/tree/auth0js-v7/02-Custom-Login).
-
-Auth0.js version 8 verifies ID tokens during authentication transactions. Only tokens which are signed with the RS256 algorithm can be verified on the client side, meaning that your Auth0 client must be configured to sign tokens with RS256. See the [auth0.js migration guide](https://auth0.com/docs/libraries/auth0js/migration-guide#switching-from-hs256-to-rs256) for more details.
 :::
 
 ## Getting Started
@@ -28,7 +26,7 @@ The auth0.js library can either be retrieved from Auth0's CDN or from npm.
 **CDN Link**
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0/8.3/auth0.min.js"></script>
+<script src="${auth0js_urlv8}"></script>
 ```
 
 **npm**
@@ -124,9 +122,9 @@ All authentication transactions should be handled from a service. The service re
 
 The auth0.js methods for making authentication requests come from the `WebAuth` object. Create an instance of `auth0.WebAuth` and provide the domain, client ID, and callback URL (as the redirect URI) for your client. A `responseType` of `token id_token` should also be specified.
 
-The `login` and `signup` methods should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `client.login` method. Since `client.login` is an XHR-based transaction, the authentication result is handled in a callback and the user's access token and ID token are saved into local storage if the transaction is successful.
+The `login` and `signup` methods should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `redirect.loginWithCredentials` method, and for `signup`, they are passed to `redirect.signupAndLogin`.
 
-The `signup` method is a redirect-based flow and the authentication result is handled by the `parseHash` method. This method looks for an access token and ID token in the URL hash when the user is redirected back to the application. If those tokens are found, they are saved into local storage and the user is redirected to the home route.
+These methods are redirect-based and the authentication result is handled by the `parseHash` method. This method looks for an access token and ID token in the URL hash when the user is redirected back to the application. If those tokens are found, they are saved into local storage and the user is redirected to the home route.
 
 ```javascript
 // src/utils/AuthService.js
@@ -153,19 +151,12 @@ export default class AuthService extends EventEmitter {
   }
 
   login(username, password) {
-    this.auth0.client.login({
-      realm: 'Username-Password-Authentication',
+    this.auth0.redirect.loginWithCredentials({
+      connection: 'Username-Password-Authentication',
       username,
       password
-    }, (err, authResult) => {
-      if (err) {
-        alert('Error: ' + err.description)
-        return
-      }
-      if (authResult && authResult.idToken && authResult.accessToken) {
-        this.setToken(authResult.accessToken, authResult.idToken)
-        browserHistory.replace('/home')
-      }
+    }, err => {
+      if (err) return alert(err.description)
     })
   }
 
@@ -188,19 +179,20 @@ export default class AuthService extends EventEmitter {
   }
 
   parseHash(hash) {
-    this.auth0.parseHash({ hash }, (err, authResult) => {
+    this.auth0.parseHash({ hash, _idTokenVerification: false }, (err, authResult) => {
+      if (err) {
+        alert(`Error: <%= "${err.errorDescription}" %>`)
+      }
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setToken(authResult.accessToken, authResult.idToken)
-        browserHistory.replace('/home')
         this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
           if (error) {
             console.log('Error loading the Profile', error)
           } else {
             this.setProfile(profile)
+            browserHistory.replace('/home')
           }
         })
-      } else if (authResult && authResult.error) {
-        alert('Error: ' + authResult.error)
       }
     })
   }
@@ -245,7 +237,7 @@ export default class AuthService extends EventEmitter {
 
 The service has several other utility methods that are necessary to complete authentication transactions.
 
-* The `parseHash` method is necessary for redirect-based authentication transactions which, in this example, include `signup` and `loginWithGoogle`.
+* The `parseHash` method is necessary to get the authentication result from the URL in redirect-based authentication transactions.
 * The `logout` method removes the user's tokens from local storage which effectively logs them out of the application.
 * The `setToken` method takes an authentication result object and sets the access token and ID token values into local storage
 * The `loggedIn` method uses the `isTokenExpired` utility from a `jwtHelper` file to check whether the user's ID token is expired. This is done to determine whether the user should be able to access the `Home` route.

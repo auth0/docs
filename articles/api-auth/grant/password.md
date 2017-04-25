@@ -29,43 +29,23 @@ For more information on how to implement this extension grant refer to [Executin
 
 ### Scopes
 
-Due to the implied trust in these grants (a user providing his or her password to a client), the `access_token` returned will include all of the available scopes defined for the audience API. A client can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customizing-the-returned-token).
+Due to the implied trust in these grants (a user providing his or her password to a client), the `access_token` returned will include all of the available scopes defined for the audience API. A client can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
 
 ### Rules
 
 [Rules](/rules) will run for the Password Exchange (including the Password Realm extension grant). There are two key differences in the behavior of rules in these flows:
 
 - Redirect rules won't work. If you try to do a [redirect](/rules/redirect) by specifying `context.redirect` in your rule, the authentication flow will return an error.
-- If you try to do MFA by specifying `context.multifactor` in your rule, the authentication flow will return an error. MFA support is coming soon, as noted below.
+- If you try to do MFA by specifying `context.multifactor` in your rule, the authentication flow will return an error.
 
-If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then this is the indication that the rule is running during the password exchange.
+If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then the rule is running during the password exchange.
 
-#### Customizing the returned tokens
-
-Inside a rule, you can change the returned scopes of the `access_token` and/or add claims to it (and the `id_token`) with code like this:
-
-```javascript
-function(user, context, callback) {
-
-  // add custom claims to access token and ID token
-  context.accessToken['http://foo/bar'] = 'value';
-  context.idToken['http://fiz/baz'] = 'some other value';
-
-  // change scope
-  context.accessToken.scope = ['array', 'of', 'strings'];
-
-  callback(null, user, context);
-}
-
-```
-
-::: panel-warning Namespacing Custom Claims
-You must properly namespace your custom claims with URI format to avoid conflicting with spec claims.
-:::
+For details on how to implement this, refer to [Execute the Resource Owner Password Grant: Customize the Tokens](/api-auth/tutorials/password-grant#optional-customize-the-tokens).
 
 ## MFA Support
 
-MFA support is coming soon.
+For details on how to implement multifactor authentication, refer to [Multifactor Αuthentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+
 
 ## Use Case
 
@@ -74,5 +54,7 @@ MFA support is coming soon.
 
 ## Tutorials
 
- - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
- - [Executing a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+- [How to Execute a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+- [How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [How to use Resource Owner Password Grant from the server side together with Anomaly Detection](/api-auth/tutorials/using-resource-owner-password-from-server-side)

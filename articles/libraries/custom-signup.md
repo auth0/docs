@@ -118,8 +118,4 @@ Then users can log in with Username and Password.
 
 Password policies for database connections can be configured in the dashboard. For more information, see: [Password Strength in Auth0 Database Connections](/connections/database/password-strength).
 
-The configured password policies, along with other connection information, can be retrieved publicly by accessing a JSONP file at the following URL:
-
-`https://cdn.auth0.com/client/${account.clientId}.js`
-
-This file can then be parsed client-side to find the current password policy configured in the dashboard. For an example, see: [Custom signup with password policy](https://github.com/auth0/auth0-password-policy-sample).
+If required for implementation of custom signup forms, the configured password policies, along with other connection information, can be retrieved from the the [Management v2 API](/api/management/v2#!/Connections/get_connections_by_id). The result can be parsed client-side, and will contain information about the current password policy (or policies) configured in the dashboard for that connection.

@@ -147,7 +147,7 @@ You can mark rules as manual. In that case, the source control extension will no
 
 ![Mark rules as manual](/media/articles/extensions/visual-studio-ts/manual-rule.png)
 
-You can also control the Rule order, status (`enabled`/`disabled`) and stage (for now, only `login_success` is available) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
+You can also control the Rule order and status (`enabled`/`disabled`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
 
 __set-country.js__
 ```javascript
@@ -191,4 +191,3 @@ To track your deployments, navigate to the [Extensions](${manage_url}/#/extensio
 If a deployment fails, you can examine the details of the deployment to determine why. Details are also available for successful deployments.
 
 If you configured a **Slack Incoming Webhook**, you will be notified on Slack anytime a deployment occurs.
-

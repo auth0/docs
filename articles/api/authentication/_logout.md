@@ -4,7 +4,7 @@
 
 ```http
 GET https://${account.namespace}/v2/logout?
-  client_id={account.clientId}&
+  client_id=${account.clientId}&
   returnTo=LOGOUT_URL
 ```
 

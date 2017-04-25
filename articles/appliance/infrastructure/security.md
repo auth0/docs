@@ -44,7 +44,7 @@ PARENT
 
 If you are behind a transparent proxy, you will need to:
 
-* obtain certificate(s) for your proxy;
+* obtain certificate(s) for your proxy created by a public certificate authority.
 * add an exception so that the Appliance instance(s) may get through the proxy unauthenticated.
 
 ## HTTPS

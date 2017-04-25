@@ -1,4 +1,5 @@
 ---
+title: Hosted Login Page
 description: Guide on how to use the hosted login page
 crews: crew-2
 ---
@@ -17,19 +18,78 @@ In your [Auth0 Dashboard](${manage_url}/#/login_page), you can enable a custom H
 
 ![Hosted Login Page](/media/articles/hosted-pages/login.png)
 
-If you want to change some of the [configuration options](/libraries/lock/v10/customization) within Lock, you may do so _right on this page_, just make your changes and make sure to remember to hit the _Save_ button.
+### Customizing Lock in the Hosted Login Page
 
-Auth0 provides a whole set of configuration values in the `@@config@@` string that you can decode and use to adjust the hosted login page behavior:
+If you want to change some of the [configuration options](/libraries/lock/v10/customization) within Lock, you may do so _right on this page_, just make your changes and make sure to remember to hit the _Save_ button. Remember that any changes to behaviors or appearance "hard coded" on this page into Lock's configuration here will apply to all users that access this Hosted Login Page, regardless of connection or client.
 
-```javascript
+### The @@config@@ Object
+
+Auth0 provides a whole set of configuration values in the `@@config@@` string that is used to adjust the hosted login page's behavior in a more dynamic way - many of these values are passed from your app to the Hosted Login Page.
+
+The `@@config@@` object is the vehicle by which the Hosted Login page can be customized at runtime. It contains a varety of configuration options. Note that the below examples assume that the `authorize` endpoint, and the Hosted Lock page, are being called via [Auth0.js v8](/libraries/auth0js/v8).
+
+#### Customizing Lock text on the Hosted Login page
+
+The `@@config@@` object contains a property called `dict` which can be used to set the text displayed in various parts of the Lock widget, similarly to the [languageDictionary](/libraries/lock/v10/customization#languagedictionary-object-) property in Lock itself. In order to pass your custom `languageDictionary` values to the Hosted Login Page, call `authorize` with the parameter `lang`.
+
+```
+webAuth.authorize({
+  lang: {
+    signin: {
+      title: "Login to Awesomeness"
+    }
+  }
+});
+```
+
+::: panel-info Default Lock Title
+By default, the Lock widget's title is set to be the Client Name (i.e. "Default App") can be overridden with a `config.dict.signin.title` value, as exhibited above. If you wish, you can also customize the `languageDictionary` definition that is on the Hosted Login Page by default, and arrange your `lang`/`dict` object however you see fit.
+:::
+
+You can define your `languageDictionary` object for use in Lock on the Hosted Login Page as follows:
+
+```
+languageDictionary = {
+  title: config.dict.signin.title
+};
+```
+
+Check the See English language [Language Dictionary Specification](https://github.com/auth0/lock/blob/master/src/i18n/en.js) for more information about values that can be defined here.
+
+
+#### Redirect URI
+
+You can also pass the `redirect_uri` option to `authorize`, and access it within the Hosted Login Page editor by referring to `config.callbackURL`.
+
+```
+webAuth.authorize({
+  redirect_uri: "http://example.com/foo"
+});
+```
+
+Note that, as always, any redirect URL is going to need to be in the Allowed Redirect URLs, in the Client settings section of the [Auth0 Management Dashboard](${manage_url}).
+
+#### Passing extraParams
+
+When calling `authorize`, you can also pass other parameters by URL as required. If you choose to make customizations to your Hosted Lock Page, you can use `extraParams` to pass other values into the Hosted Lock page. The restriction is that those values need to not be keyed the same as any normal `authorize` parameters, as `extraParams` is filled from the parameters which are "extra" beyond those normally accepted by the endpoint. Below is a quick example:
+
+```
+webAuth.authorize({
+  login_hint: "Here is a cool hint"
+});
+```
+
+The value of `login_hint` can be accessed within the Hosted Login Page code via `config.extraParams.login_hint`.
+
+You can take a look at the `@@config@@` object in further detail to help you further determine how to use it:
+
+```
 // Decode configuration options
 var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 
 // now use the config object to tailor the behavior of the hosted login page
 ...
 ```
-
-Take a look at the default custom login page code to get a glimpse of the available configuration options.
 
 ### Using Auth0.js in a hosted login page
 
@@ -38,35 +98,35 @@ When customizing the hosted login page you might want to use [Auth0.js](/librari
 This example builds a link that takes the user directly to a specific connection, using [Auth0.js v8](/libraries/auth0js):
 
 ```html
-  [...]
-  <a id="direct-link" href="">A direct link to the IdP</a>
-  <script src="https://cdn.auth0.com/js/auth0/8.3.0/auth0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.core.min.js"></script>
-  <script src="https://cdn.auth0.com/js/lock/10.11/lock.js"></script>
-  <script>
-    // standard config decoding as in the default template
-    var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+[...]
+<a id="direct-link" href="">A direct link to the IdP</a>
+<script src="https://cdn.auth0.com/js/auth0/8.3.0/auth0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.core.min.js"></script>  
+<script src="https://cdn.auth0.com/js/lock/10.11/lock.js"></script>
+<script>
+  // standard config decoding as in the default template
+  var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 
-    // builds an Auth0.js instance using config options
-    var authClient = new auth0.Authentication({
-      domain:       config.auth0Domain,
-      clientID:     config.clientID,
-      _disableDeprecationWarnings: true,
-      redirectUri: config.callbackURL,
-      responseType: config.extraParams.response_type ||
-        config.callbackOnLocationHash ? 'token' : 'code'
+  // builds an Auth0.js instance using config options
+  var authClient = new auth0.Authentication({
+    domain:       config.auth0Domain,
+    clientID:     config.clientID,
+    _disableDeprecationWarnings: true,
+    redirectUri: config.callbackURL,
+    responseType: config.extraParams.response_type ||
+      config.callbackOnLocationHash ? 'token' : 'code'
+  });
+
+  // build an authorize URL specifying a connection
+  var buildDirectAuthUrl = function(connectionName) {
+    // using lodash to extend config.internalOptions with the connectionName
+    var options = _.extend({}, config.internalOptions, {
+      connection: connectionName
     });
+    return authClient.buildAuthorizeUrl(options);
+  };
 
-    // build an authorize URL specifying a connection
-    var buildDirectAuthUrl = function(connectionName) {
-      // using lodash to extend config.internalOptions with the connectionName
-      var options = _.extend({}, config.internalOptions, {
-        connection: connectionName
-      });
-      return authClient.buildAuthorizeUrl(options);
-    };
-
-    window.getElementById('direct-link').href = buildDirectAuthUrl("my-idp-connection");
+  window.getElementById('direct-link').href = buildDirectAuthUrl("my-idp-connection");
 ```
 
 This example shows a very simple username/password form, using [Auth0.js v7](/libraries/auth0js/v7) instead of Lock:

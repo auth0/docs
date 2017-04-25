@@ -35,10 +35,17 @@ The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://too
 
 For details on how to implement this using Auth0, refer to [Executing an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant).
 
+## Rules
+
+[Rules](/rules) will run for the Authorization Code grant. If you wish to execute special logic unique to the Authorization Code grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code grant.
+
+For details on how to implement this, refer to [Execute an Authorization Code Grant Flow: Customize the Tokens](/api-auth/tutorials/authorization-code-grant#optional-customize-the-tokens).
+
 ## Keep reading
 
 - [How to implement an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant)
 - [How to configure an API in Auth0](/apis)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Web App Quickstarts](/quickstart/webapp)
 - [Client Authentication for Server-side Web Apps](/client-auth/server-side-web)
 - [Authentication API: GET /authorize](/api/authentication?http#authorization-code-grant)

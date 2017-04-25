@@ -1,5 +1,5 @@
 ---
-title: MFA on a Resource Owner endpoint
+title: Multifactor Authentication for Native Applications
 description: How to enable your native iOS or Android app to use Multifactor Authentication.
 url: /multifactor-authentication/mfa-native
 ---

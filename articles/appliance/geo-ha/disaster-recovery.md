@@ -92,7 +92,7 @@ The following table details some of the ways in which the Geographic High-Availa
 
 ## Geographic High-Availability Appliance Testing
 
-To test the Geographic High-Availability Appliance (GEO HA) failover/failback procedure, Auth0 will:
+To test the Geographic High-Availability Appliance (GEO HA) failover/failback procedure, you should:
 
 1. Take all nodes in the primary data center offline.
 2. Run tests against the global load balancer to ensure that traffic gets rerouted to the secondary site.

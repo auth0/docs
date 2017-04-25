@@ -140,22 +140,6 @@ You can access this session information in the ember templates by using `{{sessi
 </div>
 ```
 
-## 6. Using a JWT token to make API requests
-
-To make an API request, add the user's [JWT token](/jwt) to an `Authorization` HTTP header:
-
-```js
-fetch('/api/foo', {
-  method: 'GET',
-  cache: false,
-  headers: {
-    'Authorization': 'Bearer <%= "${session.data.authenticated.jwt}" %>'
-  }
-}).then(function (response) {
-  // use response
-});
-```
-
 <%= include('../_includes/_persisting_state') %>
 
 ### Additional Information

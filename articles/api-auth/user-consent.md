@@ -70,6 +70,17 @@ Location: https://fabrikam.com/contoso_social#
 
 Only first-party clients can skip the consent dialog, assuming the resource server they are trying to access on behalf of the user has the "Allow Skipping User Consent" option enabled.
 
+::: panel-warning Consent can't be skipped on localhost
+Note that this option only allows _verifiable_ first-party clients to skip consent at the moment. As `localhost` is never a verifiable first-party (because any malicious application may run on `localhost` for a user), Auth0 will always display the consent dialog for clients running on `localhost` regardless of whether they are marked as first-party clients. During development, you can work around this by modifying your `/etc/hosts` file (which is supported on Windows as well as Unix-based OS's) to add an entry such as the following:
+
+```
+127.0.0.1       myapp.dev
+```
+
+Once you do this, remember to update your [client configuration URLs](/clients#client-settings) (such as `Allowed Callback URLs`) to match the updated domain-mapping!
+
+:::
+
 Since third-party clients are assumed to be untrusted, they are not able to skip consent dialogs.
 
 ## Password-based flows

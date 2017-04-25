@@ -166,6 +166,18 @@ Where:
 
 The client should match the one the refresh token was issued for.
 
+::: panel-info Revoke a token without the Client Secret
+For clients that cannot keep the `client_secret` safe (for example, mobile apps), the `/oauth/revoke` endpoint supports passing instead the parameter `tokenEndpointAuthMethod: none` within the request body:
+
+```json
+{
+"token" : YOUR_REFRESH_TOKEN,
+"client_id" : ${account.clientId},
+"tokenEndpointAuthMethod": "none"
+}
+```
+:::
+
 If the request is valid, the refresh token is revoked and the response is `HTTP 200`, with an empty response body. Otherwise, the response body contains the error code and description.
 
 ```json
@@ -197,12 +209,9 @@ To revoke the user's access to an authorized application, and hence invalidate t
 
 ## Rules
 
-Rules will run for the [Refresh Token Exchange](#use-a-refresh-token). There are two key differences in the behavior of rules in this flow:
+Rules will run for the [Refresh Token Exchange](#use-a-refresh-token). To execute special logic, you can look at the `context.protocol` property in your rule. If the value is `oauth2-refresh-token`, then this is the indication that the rule is running during the [Refresh Token Exchange](#use-a-refresh-token).
 
-- If you try to do a [redirect](/rules/redirect) with `context.redirect`, the authentication flow will return an error.
-- If you try to do MFA by setting `context.multifactor`, the authentication flow will return an error.
-
-If you wish to execute special logic unique to the [Refresh Token Exchange](#use-a-refresh-token), you can look at the `context.protocol` property in your rule. If the value is `oauth2-refresh-token`, then this is the indication that the rule is running during the Refresh Token exchange.
+<div class="alert alert-warning">If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.redirect</code>, the authentication flow will return an error.</div>
 
 ## SDK Support
 

@@ -1,3 +1,8 @@
-```powershell
-Install-Package Auth0.WinformsOrWPF
+```text
+Auth0.OidcClient.WPF
+```
+or 
+
+```text
+Auth0.OidcClient.WinForms
 ```

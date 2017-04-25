@@ -4,9 +4,7 @@ toc: true
 description: Details on the Lock V10 API.
 ---
 
-<%= include('../_includes/_lock-version') %>
-
-# API
+# Lock: API Reference
 
 Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! If you're looking for information about events emitted by Lock, they're listed under the [on()](#on-event-callback-) method section!
 
@@ -158,7 +156,7 @@ Rather than simply failing to login, and Lock closing.
 ## hide()
 
 ```js
-hide([callback])
+hide()
 ```
 
 The `hide` method closes the widget if it is currently open. The widget closes itself under most circumstances, so this method would primarily be invoked in specific use cases only. For instance, one might wish to listen for the `unrecoverable_error` event and then `hide` the Lock and redirect to their own custom error page. Another example is users who are implementing [popup mode](/libraries/lock/v10/popup-mode), and might need to manually `hide` the widget after the `authenticated` event fires.
@@ -211,4 +209,3 @@ lock.on("authenticated", function(authResult) {
 - `authorization_error`: emitted when authorization fails. Has the error as its only argument.
 - `hash_parsed`: _Note that this is a low level event for advanced use cases, and `authenticated` and `authorization_error` should be preferred when possible._ Every time a new Auth0Lock object is initialized in redirect mode (the default), it will attempt to parse the hash part of the URL, looking for the result of a login attempt. After that, this event will be emitted with `null` if it couldn't find anything in the hash. It will be emitted with the same argument as the `authenticated` event after a successful login or with the same argument as `authorization_error` if something went wrong. This event won't be emitted in [popup mode](/libraries/lock/v10/popup-mode), because in popup mode, there is no need to parse the URL's hash part.
 
-<%= include('../_includes/_lock-toc') %>

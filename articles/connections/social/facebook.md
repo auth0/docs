@@ -4,7 +4,7 @@ connection: Facebook
 index: 2
 image: /media/connections/facebook.png
 seo_alias: facebook
-description: This page shows you how to connect your Auth0 app to Facebook. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: This page shows you how to connect your custom app to Facebook. Learn how Auth0 can easily help you adding Facebook Login to your app.
 ---
 
 # Connect your app to Facebook
@@ -42,6 +42,8 @@ This will bring up **Client OAuth Settings** for **Facebook Login**.
 Enter the following URL in the **Valid OAuth redirect URIs** field:
 
 `https://${account.namespace}/login/callback`
+
+__NOTE__: If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Account Name** in the top right corner. Your Auth0 domain is this name (for example `abc-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://abc-enterprises.auth0.com/login/callback`.
 
 ![Enter OAuth redirect URI](/media/articles/connections/social/facebook/facebook-3b.png)
 

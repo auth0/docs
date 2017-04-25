@@ -36,26 +36,23 @@ With PKCE, the Client creates, for every authorization request, a cryptographica
 
 For details on how to implement this using Auth0, refer to [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce).
 
-## Read more
+## Rules
 
-[Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
+[Rules](/rules) will run for the Authorization Code (PKCE) grant. If you wish to execute special logic unique to the Authorization Code grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code grant.
 
-[How to configure an API in Auth0](/apis)
+For details on how to implement this, refer to [Execute an Authorization Code Grant Flow with PKCE: Customize the Tokens](/api-auth/tutorials/authorization-code-grant-pkce#optional-customize-the-tokens).
 
-[Mobile/Native App Quickstarts](/quickstart/native)
+## Keep reading
 
-[Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
-
-[Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
-
-[Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
-
-[The OAuth 2.0 protocol](/protocols/oauth2)
-
-[The OpenID Connect protocol](/protocols/oidc)
-
-[Tokens used by Auth0](/tokens)
-
-[RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
-
-[RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)
+- [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
+- [How to configure an API in Auth0](/apis)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Mobile/Native App Quickstarts](/quickstart/native)
+- [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
+- [Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
+- [Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
+- [The OAuth 2.0 protocol](/protocols/oauth2)
+- [The OpenID Connect protocol](/protocols/oidc)
+- [Tokens used by Auth0](/tokens)
+- [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+- [RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)

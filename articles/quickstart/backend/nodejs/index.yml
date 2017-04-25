@@ -15,6 +15,5 @@ snippets:
   setup: server-apis/nodejs/setup
   use: server-apis/nodejs/use
 articles:
-  - 01-getting-started
-  - 02-authenticate-hs256
-  - 03-authenticate-rs256
+  - 00-getting-started
+  - 01-authorization

@@ -3,8 +3,6 @@ section: libraries
 description: Details about Popup Mode with Lock V10.
 ---
 
-<%= include('../_includes/_lock-version') %>
-
 # Popup Mode
 
 ## The Default: Redirect Mode
@@ -65,5 +63,3 @@ var options = {
 ```
 
 **Redirect mode is recommended whenever possible to avoid potential browser compatibility issues.**
-
-<%= include('../_includes/_lock-toc') %>

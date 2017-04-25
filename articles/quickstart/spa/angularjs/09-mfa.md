@@ -1,6 +1,6 @@
 ---
 title: Multifactor Authentication
-description: This tutorial demonstrates how to add Multifactor Authentication to your Angular 1.x app
+description: This tutorial demonstrates how to add Multifactor Authentication to your AngularJS app
 ---
 
 <%= include('../../../_includes/_package', {

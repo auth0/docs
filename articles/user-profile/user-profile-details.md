@@ -48,6 +48,8 @@ The User Profile object then has two **metadata** sub-objects, one called `user_
 
 ::: panel-info Metadata Data Limits
 Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties.
+
+In addition, please be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store. 
 :::
 
 ::: panel-danger Usage of Metadata

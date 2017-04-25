@@ -6,9 +6,9 @@ description: This page explains how to setup and manage the Authorization Extens
 # Auth0 Authorization Extension
 
 ::: panel-warning Notice
-This page explains how to use version 2 and later of the Authorization Extension, [click here for documentation of version 1.](/extensions/authorization-extension-v1)
+This page explains how to use Authorization Extension version 2 and later. [Click here for documentation of version 1.](/extensions/authorization-extension-v1)
 
-[Click here for information about upgrading your Authorization Extension version](#migration-from-v1-to-v2-of-the-authorization-extension-breaking-changes-)
+[Click here for information about upgrading your Authorization Extension.](#migration-from-v1-to-v2-of-the-authorization-extension-breaking-changes-)
 :::
 
 The Auth0 Authorization Extension provides user authorization support in Auth0. Currently the extension supports authorizations for Users using Groups, Roles and Permissions.
@@ -16,6 +16,10 @@ The Auth0 Authorization Extension provides user authorization support in Auth0. 
 ## How to Install
 
 First make sure you have a Client created that can support the Authorization extension. Supported client types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Clients with no type assigned or non-interactive clients are not supported.
+
+<div class="alert alert-info">
+  Installing this extension creates an `auth0-authz` client for your account. <strong>Do not delete this client!</strong> If you uninstall the extension at a later date, it will automatically delete this client as well.
+</div>
 
 To install the Authorization extension, click on the "Auth0 Authorization" box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app.
 
@@ -216,9 +220,21 @@ In addition to API access, you can also deploy a rule that reaches out to the ex
 
 In addition, you can write your own rules that are applied after the rule that is published by the extension. For example you can write a rule to control application access. One way to achieve this is to use the [Application Metadata](/rules/metadata-in-rules#reading-metadata) where you can specify on every client that roles are required.
 
-- For example, you can have **required_roles**: `Timesheet User,Timesheet Admin`
+**How to set `required_roles`**
 
-Then you can write a rule that enforces this logic:
+⁠⁠⁠⁠1. To set the `context.clientMetadata` field with `required_roles`, first select your client [in the dashboard](${manage_url}/#/clients). This will bring you to the client's Settings, scroll down and click on the **Show Advanced Settings** link at the bottom of the page.
+
+![Click Advanced Settings Link](/media/articles/extensions/authorization/adv-settings-link.png)
+
+2. Under **Application Metadata** add an item setting the **Key** to `required_roles` and in **Value** field list your roles in comma separated style. Click the **CREATE** button to add the field.
+
+![Example of required roles](/media/articles/extensions/authorization/required-roles.png)
+
+3. When finished click **Save Changes**. Now when you login from this client, in `context.clientMetadata` you will have the `required_roles` with the roles value string you entered.
+
+**Create a Rule that enforces client roles**
+
+After setting `required_roles` you can write a rule that enforces this logic:
 
 ```js
 function (user, context, callback) {
@@ -277,4 +293,3 @@ If this happens, chances are you created roles and permissions for one applicati
 ### My application/client is not shown in the dropdown when setting up the extension
 
 The supported client types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Clients with no type assigned or non-interactive clients are not supported.
-

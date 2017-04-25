@@ -16,9 +16,11 @@ description: This page lists SAML Configurations for various SSO integrations in
   "passthroughClaimsWithNoMapping": false,
   "mapUnknownClaimsAsIs": false,
   "mapIdentities": false,
+  "signatureAlgorithm": "rsa-sha256",
+  "digestAlgorithm": "sha256",
   "nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:email",
   "nameIdentifierProbes": [
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
   ],
 }
 ```

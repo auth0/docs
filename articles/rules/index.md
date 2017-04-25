@@ -48,6 +48,22 @@ A Rule is a function with the following arguments:
 Because of the async nature of Node.js, it is important to always call the <code>callback</code> function, or else the script will timeout.
 </div>
 
+### Global Functions
+
+If you need to use a function in multiple Rules, you can place the shared function in its own Rule. Within this rule, assign the function to the global object so that you can later call the function in a separate rule.
+
+```js
+if (!global.foo) {
+  global.foo = function () { };
+}
+
+if (!global.bar) {
+  global.bar = function (baz) { };
+}
+```
+
+Rules containing shared functions should be placed at the top of the [Rules list in the Management Dashboard](${manage_url}/#/rules). If this is not the case, calling these functions results in an undefined function error when the Rules execute.
+
 ## Examples
 
 To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
@@ -193,7 +209,7 @@ Use this to create the POST request:
 ```
 
 <div class="alert alert-info">
-You can use the <a href="https://www.npmjs.com/package/auth0-custom-db-testharness">auth0-custom-db-testharness library</a> to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
+You can use the <a href="https://www.npmjs.com/package/auth0-rules-testharness">auth0-rules-testharness library</a> to deploy, execute, and test the output of Rules using a Webtask sandbox environment.
 </div>
 
 ## Debugging

@@ -35,7 +35,7 @@ Open your app's `AndroidManifest.xml` file and add the following permission.
 
 You can set up your Auth0 credentials and initiate Auth0 in one of two ways:
 
-### 1) Client Information In-Line
+### 1) Client information in-line
 
 Method one is to simply create an instance of `Auth0` with your client information.
 
@@ -43,7 +43,7 @@ Method one is to simply create an instance of `Auth0` with your client informati
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 ```
 
-### 2) Client Information Read from XML
+### 2) Client information read from XML
 
 Method two is to save your client information in the `strings.xml` file using the following names:
 
@@ -93,7 +93,7 @@ authentication
 Note that the default scope used is `openid`
 :::
 
-### Passwordless Login
+### Passwordless login
 
 Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification.
 
@@ -141,7 +141,7 @@ authentication
 Note that the default scope used is `openid`
 :::
 
-### Signing up with database connection
+### Sign up with database connection
 
 Signing up with a database connection is similarly easy. Call the `signUp` method passing the user's given email, chosen password, and the connection name to initiate the signup process.
 
@@ -161,7 +161,7 @@ authentication
     });
 ```
 
-### Getting user information
+### Get user information
 
 To get the information associated with a given user's `access_token`, you can call the `userInfo` endpoint, passing the token.
 
@@ -181,6 +181,30 @@ authentication
   });
 ```
 
+### Password Resets
+
+To initiate a password reset for a user, call `resetPassword` with the user's email address and the database connection name as parameters.
+
+```java
+String connectionName = "Username-Password-Authentication";
+authentication
+  .resetPassword("foo@bar.com", connectionName)
+  .start(new AuthenticationCallback<Void>() {
+    @Override
+    public void onSuccess(Void payload) {
+      //Password Reset requested
+    }
+
+    @Override
+    public void onFailure(AuthenticationException error) {
+      //Request failed
+    }
+  });
+```
+
+::: panel-info Request Failures
+Note that password reset requests will fail on network related errors, but will not fail if the designated email does not exist in the database (for security reasons).
+:::
 
 ## Using the Management API
 

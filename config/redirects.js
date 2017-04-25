@@ -718,11 +718,6 @@ module.exports = [
     status: 302
   },
   {
-    from: '/libraries/lock/v10',
-    to: '/libraries/lock',
-    status: 302
-  },
-  {
     from: '/libraries/lock/v10/installation',
     to: '/libraries/lock#lock-10-installation',
     status: 302
@@ -1063,6 +1058,10 @@ module.exports = [
     to: '/hooks/extensibility-points'
   },
   {
+    from: '/auth0-hooks/extensibility-points/client-credentials-exchange',
+    to: '/hooks/extensibility-points/client-credentials-exchange'
+  },
+  {
     from: '/auth0-hooks/extensibility-points/credentials-exchange',
     to: '/hooks/extensibility-points/credentials-exchange'
   },
@@ -1129,5 +1128,37 @@ module.exports = [
   {
     from: '/api-auth/config/asking-for-access-tokens',
     to: '/api-auth/tutorials/client-credentials'
+  },
+  {
+    from: '/libraries/auth0js',
+    to: '/libraries/auth0js/v8'
+  },
+  {
+    from: '/libraries/lock',
+    to: '/libraries/lock/v10'
+  },
+  {
+    from: '/libraries/lock-ios',
+    to: '/libraries/lock-ios/v2'
+  },
+  {
+    from: '/protocols/oauth2/oauth-implicit-protocol',
+    to: '/api-auth/tutorials/implicit-grant'
+  },
+  {
+    from: '/connections/passwordless/spa-sms',
+    to: '/connections/passwordless/spa-sms/v8'
+  },
+  {
+    from: '/connections/passwordless/spa-email-code',
+    to: '/connections/passwordless/spa-email-code/v8'
+  },
+  {
+    from: '/connections/passwordless/regular-web-app-sms',
+    to: '/connections/passwordless/regular-web-app-sms/v8'
+  },
+  {
+    from: '/connections/passwordless/regular-web-app-email-code',
+    to: '/connections/passwordless/regular-web-app-email-code/v8'
   }
 ];

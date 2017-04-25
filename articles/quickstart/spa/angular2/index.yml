@@ -1,11 +1,12 @@
-title: Angular 2
+title: Angular 2+
 image: /media/platforms/angular.png
 alias:
   - angular2
-  - angularjs
+  - angular
 language:
   - Javascript
 framework:
+  - Angular
   - Angular 2
 tags:
   - quickstart
@@ -29,6 +30,5 @@ articles:
   - 05-linking-accounts
   - 06-rules
   - 07-authorization
-  - 08-calling-apis
   - 09-mfa
   - 10-customizing-lock
