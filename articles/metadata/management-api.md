@@ -1,5 +1,6 @@
 ---
 description: How to update metadata through the Auth0 Management API.
+crews: crew-2
 ---
 
 # Using Metadata with Auth0's Management API

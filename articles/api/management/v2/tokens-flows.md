@@ -1,6 +1,7 @@
 ---
 description: Describes what changed in the flow for generating Auth0 Management APIv2 tokens and why.
 section: apis
+crews: crew-2
 toc: true
 ---
 

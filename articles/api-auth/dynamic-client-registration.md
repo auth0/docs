@@ -1,5 +1,6 @@
 ---
 description: How to dynamically register Clients with Auth0, using the Management APIv2.
+crews: crew-2
 toc: true
 ---
 

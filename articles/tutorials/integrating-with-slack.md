@@ -1,5 +1,6 @@
 ---
 description: How to integrate and configure Auth0 with Slack.
+crews: crew-2
 ---
 
 # Integrate Auth0 with Slack

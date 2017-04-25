@@ -1,6 +1,7 @@
 ---
 title: Hosted Login Page
 description: Guide on how to use the hosted login page
+crews: crew-2
 ---
 
 # Hosted Login Page
@@ -16,7 +17,6 @@ This login page will be a basic login page for your client, and will use Lock to
 In your [Auth0 Dashboard](${manage_url}/#/login_page), you can enable a custom Hosted Login Page by simply flipping the toggle switch, that allows you to customize the look and feel and behavior of the Hosted Login Page.
 
 ![Hosted Login Page](/media/articles/hosted-pages/login.png)
-
 
 ### Customizing Lock in the Hosted Login Page
 
@@ -149,7 +149,7 @@ This example shows a very simple username/password form, using [Auth0.js v7](/li
     <input id="password" type="password" />
     <br />
     <button>Submit</button>
-  </form>  
+  </form>
   <!--[if IE 8]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
   <![endif]-->

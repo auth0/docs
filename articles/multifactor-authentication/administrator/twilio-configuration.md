@@ -2,7 +2,7 @@
 description: Configuring Twilio for Guardian
 ---
 
-# Configuring Twilio for Guardian SMS 
+# Configuring Twilio for Guardian SMS
 
 When initially setting up SMS, you have up to 100 SMS to be used for testing. This limit can be removed by setting up a Twilio account. To prevent malicious login attempts, your users will always be limited to up to 10 SMS/Hour (replenishing one message an hour, up to 10).
 
@@ -18,9 +18,9 @@ You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basi
 
 Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
 
-Choose your **SMS Source**. 
+Choose your **SMS Source**.
 
-* If you choose **Use From**, you will need to enter the **From** phone number that users will see as the sender of the SMS. You may also configure this in Twilio. 
+* If you choose **Use From**, you will need to enter the **From** phone number that users will see as the sender of the SMS. You may also configure this in Twilio.
 
 * If you choose **Use Copilot **, you will need to enter a [Copilot SID](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
 

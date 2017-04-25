@@ -1,5 +1,6 @@
 ---
 description: Explains what Connections are and how they are associated with Auth0 Clients.
+crews: crew-2
 ---
 
 # Client Connections

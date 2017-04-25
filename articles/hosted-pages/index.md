@@ -7,7 +7,7 @@ description: Overview of hosted pages with Auth0, and how to use them
 Auth0 provides you the ability to create beautiful hosted pages to which you can redirect to provide functionality for your users. These pages include [Login](/hosted-pages/login), [Password Reset](/hosted-pages/password-reset), [Guardian Multifactor](/hosted-pages/guardian), and [Error pages](/hosted-pages/error-pages).
 
 ## Security Considerations
- 
+
 Using Auth0 hosted pages for your authentication, rather than externally hosting them, provides seamless XSRF protection, preventing third party impersonation or hijacking of sessions. The use of hosted pages provides a significantly easier to implement, secure solution for authentication, allowing you to worry about other things, like the security of your application.
 
 ## How to Customize Hosted Pages
@@ -19,7 +19,7 @@ You can customize your hosted pages from within your [Auth0 Dashboard](${manage_
 * [Guardian Multifactor Authentication Page](/hosted-pages/guardian)
 * [Error Pages](/error-pages)
 
-## How to Use Version Control to Manage Your Hosted Pages 
+## How to Use Version Control to Manage Your Hosted Pages
 
 It is possible to use version control software to manage the source code of the hosted pages discussed here. Auth0 provides extensions for the following tools which can be used to manage the source of your hosted pages:
 

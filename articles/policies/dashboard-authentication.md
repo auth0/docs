@@ -1,5 +1,6 @@
 ---
 description: Describes the Dashboard Authentication Policy which governs requests for special authentication mechanisms for the Auth0 dashboard.
+crews: crew-2
 ---
 
 # Dashboard Authentication Policy
@@ -8,9 +9,9 @@ The following policy governs requests for special authentication mechanisms for 
 
 ## Multifactor Authentication
 
-Any customer can enable multifactor authentication to be implemented for dashboard access to their account. 
+Any customer can enable multifactor authentication to be implemented for dashboard access to their account.
 
-To enable multifactor authentication go to your [Account Settings page](${manage_url}/#/account) and scroll down to the **Multifactor** section. Click the **Enroll Your Device Now** link to get started. The process to setting up each form of authentication is the same as using MFA with a client, [click here for more information on each type of authentication.](/multifactor-authentication) 
+To enable multifactor authentication go to your [Account Settings page](${manage_url}/#/account) and scroll down to the **Multifactor** section. Click the **Enroll Your Device Now** link to get started. The process to setting up each form of authentication is the same as using MFA with a client, [click here for more information on each type of authentication.](/multifactor-authentication)
 
 ### Unenrolling a Device from Multifactor
 

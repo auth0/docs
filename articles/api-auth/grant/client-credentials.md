@@ -19,7 +19,7 @@ With **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://to
 1. The application authenticates with Auth0 using its __Client Id__ and __Client Secret__.
 
 1. Auth0 validates this information and returns an `access_token`.
- 
+
 1. The application can use the `access_token` to call the API on behalf of itself.
 
   __NOTE__: In OAuth 2.0 terms, the non interactive app is the _Client_, the end user the _Resource Owner_, the API the _Resource Server_, the browser the _User Agent_, and Auth0 the _Authorization Server_.
