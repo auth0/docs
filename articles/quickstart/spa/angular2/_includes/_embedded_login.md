@@ -1,22 +1,28 @@
-<%= include('../../_includes/_auth_service_description') %>
+## Install auth0.js
 
-## Install the Lock Widget
-
-The only dependency required to power a basic login solution is Auth0's [Lock widget](/lock) which can be installed using npm.
+When a user initiates an authentication flow in your application, be it with a button or link click, they should be redirected to Auth0's hosted login page. Triggering this redirection requires the **auth0.js** library which can be installed with npm.
 
 ```bash
-npm install --save auth0-lock
+npm install auth0-js
 ```
 
-The Lock widget can also be retrieved from Auth0's CDN.
+The auth0.js library can also be retrieved from Auth0's CDN.
 
 ```html
-<script src="https://cdn.auth0.com/js/lock/10.14/lock.min.js"></script>
+<!-- index.html  -->
+
+<script src="https://cdn.auth0.com/js/auth0/8.4/auth0.min.js"></script>
 ```
 
 Create an injectable authentication service for your application. The naming is at your discretion, but in these examples it will be called `AuthService` and the filename will be `auth.service.ts`. An instance of the Lock widget can be created in the service and its configuration can be controlled there.
 
-<%= include('../../_includes/_auth_service_methods') %>
+There are several methods that must be defined in the service, including:
+
+* `login` - makes a call for the Lock widget to be opened
+* `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
+* `setSession` - sets the `access_token`, `id_token`, and a time at which the `access_token` will expire
+* `logout` - removes the user's tokens from browser storage
+* `isAuthenticated` - checks whether the expiry time for the `access_token` has passed
 
 ```js
 // src/app/auth/auth.service.ts
@@ -25,47 +31,43 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
-declare var Auth0Lock: any;
+declare var auth0: any;
 
 @Injectable()
 export class AuthService {
 
-  lock = new Auth0Lock(${account.clientId}, ${account.namespace}, {
-    oidcConformant: true,
-    autoclose: true,
-    auth: {
-      redirectUrl: 'http://localhost:4200/callback',
-      responseType: 'token id_token',
-      audience: `https://${account.namespace}/userinfo`
-    }
+  auth0 = new auth0.WebAuth({
+    clientID: '${account.clientId}',
+    domain: '${account.namespace}'
   });
 
   constructor(public router: Router) {}
 
   public login(): void {
-    this.lock.show();
+    this.auth0.authorize({
+      responseType: 'token id_token',
+      redirectUri: 'http://localhost:4200/callback',
+      audience: `https://${account.namespace}/userinfo`,
+      scope: 'openid',
+    });
   }
 
   public handleAuthentication(): void {
-    this.lock.on('authenticated', (authResult) => {
+    this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
+        window.location.hash = '';
         this.setSession(authResult);
-        this.router.events
-          .filter(event => event.url === '/callback')
-          .subscribe(() => {
-            this.router.navigate(['/']);
-          });
-      } else if (authResult && authResult.error) {
-        alert(`Error: <%= "${authResult.error}" %>`);
+        this.router.navigate(['/home']);
+      } else if (err) {
+        this.router.navigate(['/home']);
+        alert(`Error: <%= "${err.error}" %>`);
       }
     });
   }
 
   private setSession(authResult): void {
     // Set the time that the access token will expire at
-    let expiresAt = JSON.stringify(
-      (authResult.expiresIn * 1000) + new Date().getTime()
-    );
+    let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
@@ -90,7 +92,29 @@ export class AuthService {
 }
 ```
 
-<%= include('../../_includes/_auth_service_method_description') %>
+## Use the Authentication Service in Components
+
+With the authentication service in place, it can now be used throughout the application. The first place it should be used is in the app's root component. It's in this component that the `handleAuthentication` method needs to be called.
+
+```js
+// src/app/app.component.ts
+
+import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  constructor(public auth: AuthService) {
+    auth.handleAuthentication();
+  }
+
+}
+```
 
 ## Use the Authentication Service in Components
 
@@ -226,3 +250,11 @@ export class AppComponent {
 
 }
 ```
+
+## Hosted Login Limitations
+
+Auth0's hosted login page provides the best overall security for authentication transactions and is also necessary if you wish to add single sign-on to your application. One of the limitations of the hosted login page is that it necessitates a redirect to Auth0's domain, meaning users are taken off your site to complete the transaction.
+
+As an alternative, you may also embed the Lock widget in your application directly. It should be noted, however, that embedding Lock within your application will not allow you to provide single sign-on for your users, nor will it promote security best practices.
+
+Follow the [**Embedded Login**]() step to learn more about embedding the Lock widget in your app.

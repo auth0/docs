@@ -6,7 +6,7 @@ description: This tutorial demonstrates how to use single sign on in AngularJS a
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '11-Single-Sign-On'
+  path: '11-Single-Sign-On',
   requirements: [
     'AngularJS 1.5.8',
     'angular-lock 2.0.2'
@@ -167,7 +167,7 @@ Note that you will also likely need to call the existing `logout` method from th
     vm.logoutFromAuth0 = function() {
       angularAuth0.logout({
         returnTo: 'http://localhost:3000/',
-        client_id: ${account.clientId}
+        client_id: '${account.clientId}'
       });
       authService.logout();
     }
