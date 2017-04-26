@@ -6,7 +6,11 @@ description: This tutorial demonstrates how to integrate Auth0 with AngularJS to
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '05-Linking-Accounts'
+  path: '05-Linking-Accounts',
+  requirements: [
+    'AngularJS 1.5.8',
+    'angular-lock 2.0.2'
+  ]
 }) %>
 
 <%= include('../../../_includes/_linking_accounts') %>

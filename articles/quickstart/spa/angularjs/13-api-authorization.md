@@ -6,7 +6,11 @@ description: This tutorial demonstrates how to use API authorization
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '13-OAuth2-Authorization'
+  path: '13-OAuth2-Authorization',
+  requirements: [
+    'AngularJS 1.5.8',
+    'angular-lock 2.0.2'
+  ]
 }) %>
 
 <%= include('../../../_includes/_api_auth_intro') %>
