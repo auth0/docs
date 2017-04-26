@@ -17,7 +17,7 @@ Auth0 allows you to store **metadata**, or data related to each user that has no
 You can manage your metadata by either:
 
 * [Using Rules](/rules/metadata-in-rules)
-* [Auth0's Management API](/metadata/management-api)
+* [Auth0 APIs](/metadata/management-api)
 
 ## Metadata Usage
 
