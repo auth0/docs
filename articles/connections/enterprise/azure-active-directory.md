@@ -120,7 +120,7 @@ For the **Client Secret** use the value that was shown for the key when you crea
 
 Click **SAVE** when you have finished.
 
-## 6. Create Connections
+## 7. Create Connections
 
 After configuring the global settings that link Auth0 to the app registration in Azure AD, you will create one or more connections. Go to [Connections->Enterprise](${manage_url}/#/connections/enterprise) and click on the **CREATE NEW** button next to **Microsoft Azure AD**.
 
