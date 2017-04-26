@@ -38,7 +38,7 @@ Optionally, assertions can be encrypted. Use this public key to configure the Id
 
 ## IdP-Initiated SSO
 
-[Click here to learn more about IdP-Initiated SSO]()
+[Click here to learn more about IdP-Initiated SSO](/protocols/saml/idp-initiated-sso)
 
 ## Metadata
 
