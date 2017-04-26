@@ -70,7 +70,7 @@ To use token introspection, make a `POST` call to the [Authorization API](/api/a
 	}],
 	"queryString": [],
 	"postData": {
-		"mimeType": "application/x-www-form-urlencoded",
+		"mimeType": "application/json",
 		"text": "{ \"token\": \"TOKEN_VALUE\", \"client_assertion_type\": \"ASSERTION_TYPE\", \"client_assertion\": \"ASSERTION\" }"
 	},
 	"headersSize": -1,
