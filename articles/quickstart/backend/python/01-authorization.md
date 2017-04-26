@@ -1,13 +1,24 @@
 ---
-title: Authentication
-description: This tutorial will show you how to use the Auth0 to add authentication to your Python API.
+title: Authorization
+description: This tutorial will show you how to use the Auth0 to add authorization to your Python API.
 ---
+
+<%= include('../../../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-python-api-samples',
+  path: '00-Starter-Seed',
+  requirements: [
+    'flask 0.11.1',
+    'python-jose 1.3.2',
+    'flask-cors 3.0.2'
+  ]
+}) %>
 
 <%= include('../_includes/_api_auth_preamble') %>
 
 ## Install the Dependencies
 
-This quickstart demonstrates how to add authentication to your Python API using Flask. Add the following dependencies to your `requirements.txt`:
+This quickstart demonstrates how to add authorization to your Python API using Flask. Add the following dependencies to your `requirements.txt`:
 
 ```python
 flask
@@ -23,21 +34,18 @@ Add a decorator which verifies the `access_token` against your JWKS.
 
 ```python
 import json
-import os
+from os import environ as env, path
 import urllib
 
-from dotenv import Dotenv
+from dotenv import load_dotenv
 from functools import wraps
 from flask import Flask, request, jsonify, _app_ctx_stack
 from flask_cors import cross_origin
 from jose import jwt
 
-try:
-    env = Dotenv('./.env')
-    auth0_domain = env['AUTH0_DOMAIN']
-    api_audience = env['API_ID']
-except IOError:
-    env = os.environ
+load_dotenv(path.join(path.dirname(__file__), '.env'))
+auth0_domain = env['AUTH0_DOMAIN']
+api_audience = env['API_ID']
 
 app = Flask(__name__)
 
