@@ -5,13 +5,13 @@ crews: crew-2
 
 # Metadata with Auth0 APIs
 
-**Management API**
+### Management API
 
 Using Auth0's Management APIv2, you can create a user and set both their `app_metadata` and `user_metadata`. You can also update these two fields.
 
 **Note:** The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
 
-**Authentication API**
+### Authentication API
 
 Using the [Authentication API Signup endpoint](/api/authentication?javascript#signup) you can create a new user for database connections and set the `user_metadata` field.
 
