@@ -6,8 +6,8 @@ budicon: 280
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-aspnet-owin-mvc-sample',
-  path: '03-Storing-Tokens'
+  repo: 'auth0-aspnet-owin-mvc-samples',
+  path: 'Quickstart/03-Storing-Tokens'
 }) %>
 
 

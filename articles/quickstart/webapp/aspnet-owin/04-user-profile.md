@@ -6,8 +6,8 @@ budicon: 292
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-aspnet-owin-mvc-sample',
-  path: '04-User-Profile'
+  repo: 'auth0-aspnet-owin-mvc-samples',
+  path: 'Quickstart/04-User-Profile'
 }) %>
 
 ## Getting the profile
