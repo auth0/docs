@@ -92,7 +92,13 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
 ![Creating a Key](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2b.png)
 
-## 5. Copy the Client ID and Client Secret to Auth0
+## 5 Configure Reply URLs for you Azure AD Application.
+Next you need to ensure that your **Auth0** tenant url is listed in allowed reply urls for the created application.
+Navigate to Azure AD -> Apps registrations -> Your app -> Setttings -> Reply URLs and add callback url of your Auth0 account to the list of allowed urls. It has the following format `https://<accountname>.<region>.auth0.com/login/callback` (`region` part is omitted if Auth0 account has been created in US region.
+
+Without this step, Azure AD administrator can't *give consent* to your app (Step .6) - App consent page will end up with a "Bad request" error. Fine print in the footer of this error page can be used to identify the exact tenant name and missing callback url.
+
+## 6. Copy the Client ID and Client Secret to Auth0
 
 Login to your [Auth0 Dashboard](${manage_url}), and select the **Connections > Enterprise** menu option. Select **Windows Azure AD**. In the **Configuration** tab you will configure global settings, including data about the app registration you just created in Auth0.
 
@@ -108,7 +114,7 @@ For the **Client Secret** use the value that was shown for the key when you crea
 
 Click **SAVE** when you have finished.
 
-## 6. Create Connections
+## 7. Create Connections
 
 After configuring the global settings that link Auth0 to the app registration in Azure AD, you will create one or more connections. Go to [Connections->Enterprise](${manage_url}/#/connections/enterprise) and click on the **CREATE NEW** button next to **Microsoft Azure AD**.
 
