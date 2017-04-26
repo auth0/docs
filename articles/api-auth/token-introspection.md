@@ -59,7 +59,6 @@ To use token introspection, make a `POST` call to the [Authorization API](/api/a
 * **Client Assertion**: a JWT signed with your API's private key so that Auth0 can validate its signature using the associated public key.
 
 ```curl
-
 curl --request POST \
 	--url 'https://${account.namespace}/oauth/introspect' \
 	--header 'authorization: Bearer ABCD' \
