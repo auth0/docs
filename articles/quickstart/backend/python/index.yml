@@ -13,4 +13,4 @@ snippets:
   use: server-apis/python/use
 articles:
   - 00-getting-started
-  - 01-authentication
+  - 01-authorization
