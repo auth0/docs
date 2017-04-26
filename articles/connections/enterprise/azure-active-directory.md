@@ -92,7 +92,7 @@ Click on **Save** and the key will be displayed. **Make sure to copy the value o
 
 ![Creating a Key](/media/articles/connections/enterprise/azure-active-directory/azure-ad-4-2b.png)
 
-+## 5. Configure Reply URLs
+## 5. Configure Reply URLs
 
  Next you need to ensure that your Auth0 callback URL is listed in allowed reply URLs for the created application. Navigate to **Azure Active Directory** -> **Apps registrations** and select your app. Then click **Settings** -> **Reply URLs** and add:
 
