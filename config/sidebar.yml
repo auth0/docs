@@ -22,8 +22,14 @@ articles:
     url: "/clients"
 
   - title: "APIs"
-    url: "/api-auth"
+    url: "/api-auth/intro"
     children:
+
+      - title: "OIDC Conformant Authentication"
+        url: "/api-auth/intro"
+
+      - title: "Docs Index"
+        url: "/api-auth"
 
       - title: "APIs Overview"
         url: "/apis"
@@ -185,21 +191,21 @@ articles:
 
   - title: "Addons/Third-Party Applications"
     url: "/addons"
-  
+
   - title: "Support"
     url: "/support"
     children:
       - title: "Support Matrix"
         url: "/support/matrix"
-      
+
       - title: "SLA"
         url: "/support/sla"
-      
+
       - title: "Tickets"
         url: "/support/tickets"
-        
+
       - title: "Manage Subscription"
-        url: "/support/subscription"        
+        url: "/support/subscription"
 
   - title: "Professional Services"
     url: "/services"
