@@ -6,8 +6,8 @@ budicon: 448
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-aspnet-owin-mvc-sample',
-  path: '02-Custom-Login'
+  repo: 'auth0-aspnet-owin-mvc-samples',
+  path: 'Quickstart/02-Custom-Login'
 }) %>
 
 ## Add the Auth0 Authentication SDK

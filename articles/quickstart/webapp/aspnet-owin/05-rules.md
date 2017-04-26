@@ -6,8 +6,8 @@ budicon: 173
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-aspnet-owin-mvc-sample',
-  path: '05-Rules'
+  repo: 'auth0-aspnet-owin-mvc-samples',
+  path: 'Quickstart/05-Rules'
 }) %>
 
 <%= include('../_includes/_rules-introduction') %>
