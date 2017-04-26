@@ -37,6 +37,4 @@ For additional information about the pages contained in the Appliance configurat
 
 [CLI](/appliance/dashboard/cli)
 
-[Root Certificates](/appliance/dashboard/root-certificates)
-
 [OSS Components](/appliance/dashboard/oss-components)
