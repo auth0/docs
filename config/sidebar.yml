@@ -28,6 +28,9 @@ articles:
       - title: "OIDC Conformant Authentication"
         url: "/api-auth/intro"
 
+      - title: "Adoption Guide"
+        url: "/api-auth/tutorials/adoption"
+
       - title: "Docs Index"
         url: "/api-auth"
 
