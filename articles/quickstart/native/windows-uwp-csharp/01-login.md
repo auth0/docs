@@ -8,32 +8,55 @@ budicon: 448
 <%= include('../../../_includes/_package', {
   org: 'auth0-community',
   repo: 'auth0-uwp-oidc-samples',
-  path: '00-Starter-Seed',
+  path: 'Quickstart/00-Starter-Seed',
   requirements: [
     'Microsoft Visual Studio 2017',
-    'Windows 10 SDK (10.0.10586.0)'
+    'Windows 10 SDK (10.0.10586.0)',
+    'Auth0.OidcClient.UWP 1.0.0'
   ]
 }) %>
 
-This tutorial explains how to integrate the Auth0 OIDC Client with a Windows UWP (Universal Windows Platform) C# application. The Nuget package `Auth0.OidcClient.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
+This tutorial explains how to integrate the Auth0 OIDC Client with a Windows UWP (Universal Windows Platform) C# application. The NuGet package `Auth0.OidcClient.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
 ## Install the Auth0.OidcClient.UWP NuGet Package
 
-Use the NuGet Package Manager Console (Tools -> NuGet Package Manager -> Package Manager Console) to install the Auth0.OidcClient.UWP package, running the command:
+Use the NuGet Package Manager Console (Tools -> NuGet Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.UWP` package, running the command:
 
 ${snippet(meta.snippets.dependencies)}
 
 ## Set Up the Auth0 Callback URL
 
-<div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
+For UWP applications, the callback URL needs to be in the format **ms-app://SID**, where **SID** is the **Package SID** for your application. Assuming you have associated your application with and application on the Windows Store, you can go to the Windows Developer Centre, go to the settings for your application, and then go to the App management > App identity section, where you will see the **Package SID** listed.
 
-<pre><code>https://${account.namespace}/mobile</pre></code>
+Alternatively - or if you have not associated your application with the Store yet - you can obtain the value by calling the `Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` method. So for example, in the `OnLaunched` method of your application, you can add the following line of code:
+
+```csharp
+protected override void OnLaunched(LaunchActivatedEventArgs e)
+{
+#if DEBUG
+    if (System.Diagnostics.Debugger.IsAttached)
+    {
+        System.Diagnostics.Debug.WriteLine(Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri());
+    }
+#endif
+    
+    // rest of code omitted for brevity
+}
+```
+
+This will print out the callback URL to your Debug window in Visual Studio. 
+
+<div class="setup-callback">
+<p>Once you have the correct callback URL, go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the value of the callback URL, e.g.:</p>
+
+<pre><code>ms-app://S-1-xxx...</pre></code>
 </div>
+
+This is a bit of a painful process to obtain this URL, but it is important to use this URL otherwise the SSO will not function correctly.
 
 ## Integration
 
-To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, passing your Auth0 Domain and Client ID in the constructor. 
+To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID: 
 
 ${snippet(meta.snippets.setup)}
 
