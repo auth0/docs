@@ -8,13 +8,13 @@ crews: crew-2
 
 Auth0 shows a login page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request.
 
-The basic login page for your Client will use Lock to provide your users with an attractive interface and smooth authentication process. This login page is one of your most secure authentication options, as well as one of the easiest to implement.
+You can customize this login page to suit your needs. You can change its colors, display fewer/more fields, and so on.
 
 :::panel-info Connections Using External Identity Providers
 If the authentication request includes a specifiction Connection that uses an external identity provider, the hosted login page may not display. Instead, Auth0 directs the user to the identity provider's login page.
 :::
 
-## Custom Hosted Login Page
+## Enable Hosted Login Page
 
 In the [Auth0 Dashboard](${manage_url}), you can enable a custom Hosted Login Page by navigating to [Hosted Pages](${manage_url}/#/login_page) and enabling the **Customize Login Page** toggle.
 
@@ -22,13 +22,15 @@ In the [Auth0 Dashboard](${manage_url}), you can enable a custom Hosted Login Pa
 
 ### Customize Lock in the Hosted Login Page
 
+The basic login page for your Client will use Lock to provide your users with an attractive interface and smooth authentication process.
+
 If you want to change any of Lock's [configurable options](/libraries/lock/v10/customization), you can do so using the [Hosted Pages](${manage_url}/#/login_page). When you're done, click **Save** to persist your changes.
 
-All changes to Lock's appearance and/or behavior on this page applies to *all* users shown this login page, regardless of Client or Connection.
+All changes to Lock's appearance and/or behavior using this page applies to *all* users shown this login page, regardless of Client or Connection.
 
 ### The `config` Object
 
-The `config` object contains a set of configuration values that adjusts the hosted login page's behavior at runtime. The values in `config` pass from your app to your hosted login page.
+The `config` object contains the set of configuration values that adjusts the hosted login page's behavior at runtime. Many of the values in `config` pass from your app to your hosted login page.
 
 You can examine the contents of the `config` object using the following:
 
@@ -38,7 +40,7 @@ var config = JSON.parse(decodeURIComponent(escape(window.atob('config'))));
 ```
 
 :::panel-info The Authorize Endpoint
-The following examples demonstrating changes to the `config` object assume that you call the `authorize` endpoint and the Hosted Lock page via [Auth0.js v8](/libraries/auth0js/v8).
+The following examples demonstrating changes to the `config` object assume that you call the [`authorize` endpoint](/api/authentication#authorization-code-grant) and the Hosted Lock page via [Auth0.js v8](/libraries/auth0js/v8).
 :::
 
 #### Customize Text Displayed in Lock on a Hosted Login Page
@@ -75,7 +77,7 @@ Check the [English Language Dictionary Specification](https://github.com/auth0/l
 
 #### Pass in Redirect URI
 
-You can also pass the `redirect_uri` option to `authorize`, and access it within the Hosted Login Page editor by referring to `config.callbackURL`.
+You can pass the `redirect_uri` option to `authorize`, and access it within the Hosted Login Page editor by referring to `config.callbackURL`.
 
 You can pass a value for `redirect_uri` to the `authorize` endpoint and access it in the Hosted Login Page editor using `config.callbackURL`.
 
