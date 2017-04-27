@@ -5,7 +5,7 @@ toc: true
 
 # Token Introspection
 
-Auth0 supports [OAuth 2.0 Token Introspection](https://tools.ietf.org/html/rfc7662), which allows you to ask Auth0 for details about any access tokens presented to your API. In addition to asking Auth0 about the *state* of the access token (whether it is active or not), you can request information about the token's scopes and the context in which it was issued (such as who issued the token and to whom the token was issued).
+Auth0 supports [OAuth 2.0 Token Introspection](https://tools.ietf.org/html/rfc7662), which allows a protected resource to query an Authorization Server (Auth0) to request the status of an OAuth 2.0 token (whether it is active or not). The protected resource can also obtain information such as the token's scopes and the context in which it was issued (such as who issued the token and to whom the token was issued).
 
 ## Create an API Record with Auth0
 
