@@ -61,9 +61,7 @@ curl --request POST \
 
 Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication.
 
-This endpoint only works for database connections.
-
-The `user_metadata` field is optional, this must be a string containing no more than 10 fields and less than 500 characters. 
+This endpoint only works for database connections. 
 
 
 ### Request Parameters
@@ -74,7 +72,7 @@ The `user_metadata` field is optional, this must be a string containing no more 
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `password` <br/><span class="label label-danger">Required</span> | The user's desired password. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database configured to your client. |
-| `user_metadata`        | The [user metadata](/metadata) to be associated with the user. |
+| `user_metadata`        | The [user metadata](/metadata) to be associated with the user. Optional field, when set is must be a string containing no more than 10 fields and less than 500 characters. |
 
 
 ### Test with Postman
