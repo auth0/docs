@@ -33,6 +33,10 @@ To create a new user and their corresponding User Profile, click the [Users](${m
 
 Fill in the required information and click **Save** to create the new user. For more information refer to: [Creating Users via the Management Dashboard](/tutorials/creating-users-in-the-management-portal).
 
+::: panel-info Pending Users
+The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+:::
+
 ### View Users
 
 The [Users](${manage_url}/#/users) page lists the users who are associated with your apps. To open a particular user, click the user profile picture or name in the "Name" column. The User Details page will open and display information for that user.

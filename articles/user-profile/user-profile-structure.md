@@ -6,6 +6,10 @@ description: This page lists the attributes that are available on the User Profi
 
 The following attributes are available on the [User Profile](/user-profile):
 
+::: panel-info Pending Users
+The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+:::
+
 * `app_metadata`: the custom fields storing information about a user. These attributes contain information that influences the user's access;
 
 * `blocked`*: the `true/false` value indicating if the user has been blocked;
