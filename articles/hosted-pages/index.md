@@ -4,7 +4,7 @@ description: Overview of hosted pages with Auth0, and how to use them
 
 # Auth0 Hosted Pages
 
-Auth0 offers you the ability to display customized pages containing Auth0-related functionality and to which your users can be redirected. You can create the following types of hosted pages:
+Auth0 offers you the ability to display customized pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process. You can create the following types of hosted pages:
 
 * [Login](/hosted-pages/login)
 * [Password Reset](/hosted-pages/password-reset)

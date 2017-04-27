@@ -41,6 +41,8 @@ var config = JSON.parse(decodeURIComponent(escape(window.atob('config'))));
 
 :::panel-info The Authorize Endpoint
 The following examples demonstrating changes to the `config` object assume that you call the [`authorize` endpoint](/api/authentication#authorization-code-grant) and the Hosted Lock page via [Auth0.js v8](/libraries/auth0js/v8).
+
+Please note that you **must** pass the parsed `config` object to the `authorize` endpoint.
 :::
 
 #### Customize Text Displayed in Lock on a Hosted Login Page
