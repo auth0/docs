@@ -11,7 +11,7 @@ Auth0 offers you the ability to display customized pages containing Auth0-relate
 * [Guardian Multifactor](/hosted-pages/guardian)
 * [Error pages](/hosted-pages/error-pages)
 
-While Auth0 hosts your custom pages, you can still manage your pages using the version control system of your choice.
+While Auth0 hosts your custom pages, you can still [manage your pages using the version control system of your choice](/hosted-pages/version-control).
 
 ## Why Use Hosted Pages
 
