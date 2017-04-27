@@ -2,6 +2,7 @@
 section: appliance
 description: >
   Learn how to use the Management Dashboard to configure things like your Applications, Connections, Users, and Rules.
+url: /appliance/dashboard
 ---
 
 # Appliance Management Dashboard
@@ -29,6 +30,8 @@ For additional information about the pages contained in the Appliance configurat
 [Updates](/appliance/dashboard/updates)
 
 [Activity](/appliance/dashboard/activity)
+
+[Instrumentation](/appliance/dashboard/instrumentation)
 
 [Rate Limiting](/appliance/dashboard/rate-limiting)
 
