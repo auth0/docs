@@ -78,4 +78,4 @@ curl --request POST \
 
 Please see [this doc on getting an access token](/api/management/v2/tokens) for the Management API.
 
-You can use token introspection to request information for **access** and **refresh** tokens.
+You can use token introspection to request information for [**JWT access** tokens](/tokens/access-token), non-JWT access tokens, and [**refresh** tokens](/tokens/preview/refresh-token).
