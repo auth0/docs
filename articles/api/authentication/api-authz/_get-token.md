@@ -868,8 +868,8 @@ Content-Type: application/json
 | Parameter        | Description |
 |:-----------------|:------------|
 | `token` <br/><span class="label label-danger">Required</span> | The access token presented to the protected resource |
-| `client_assertion` | The JWT signed signed with your API's private key |
-| `client_assertion_type` | The type of client assertion used |
+| `client_assertion` <br/><span class="label label-danger">Required</span> | The JWT signed signed with your API's private key |
+| `client_assertion_type` <br/><span class="label label-danger">Required</span> | The type of client assertion used |
 
 ### Request Headers
 
