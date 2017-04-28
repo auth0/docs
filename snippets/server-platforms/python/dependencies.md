@@ -3,4 +3,5 @@ Add the following dependencies to your `requirements.txt` and run `pip install -
 ```js
 flask
 requests
+auth0-python
 ```
