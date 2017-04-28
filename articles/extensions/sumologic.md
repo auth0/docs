@@ -67,7 +67,7 @@ To help us (and our customers) visualize these logs, we spent some time creating
 
 ![](/media/articles/extensions/sumologic/auth0-dashboard.png)
 
-If you're a Sumo Logic customer and are interested in trying out this dashboard, you can find details on  installing the Auth0 App for the Sumo Logic extension here:
+If you're a Sumo Logic customer and are interested in trying out this dashboard, you can find details on installing the Auth0 App for the Sumo Logic extension here:
 
 [Install the Auth0 App](https://help.sumologic.com/Send_Data/Data_Types/Auth0/02Install_the_Auth0_App)
 
