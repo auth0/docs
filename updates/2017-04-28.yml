@@ -7,4 +7,4 @@ added:
       - api-auth
       - api
     description: |
-      A [new tutorial](/api-auth/tutorials/represent-multiple-apis) was added showing how to represent multiple APIs using a single Auth0 API.
+      A [new tutorial](https://auth0.com/docs/api-auth/tutorials/represent-multiple-apis) was added showing how to represent multiple APIs using a single Auth0 API.
