@@ -137,7 +137,7 @@ Auth0's Business Hours are as follows:
 Monday, 6:00 am CST/UTC+8 hours - Friday, 6:00 pm PDT/UTC-7 hours | 24/5 coverage during this period
 
 **Critical Support Hours**
-Standard Support: 24/5 | Enterprise and Preferred Support: 24/7/265
+Standard Support: 24/5 | Enterprise and Preferred Support: 24/7/365
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.  Response times may also be delayed during periods of heavy ticket volume.
 
