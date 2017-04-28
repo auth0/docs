@@ -1,0 +1,12 @@
+How to Represent Multiple APIs Using a Single Auth0 API
+
+added:
+  -
+    title: "Added Tutorial on Representing Multiple APIs Using a Single Auth0 API"
+    tags:
+      - tutorial
+      - spa
+      - api-auth
+      - api
+    description: |
+      A [new tutorial](/api-auth/tutorials/represent-multiple-apis) was added showing how to represent multiple APIs using a single Auth0 API.
