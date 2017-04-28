@@ -118,3 +118,44 @@ class SecuredPingController < ActionController::API
   end
 end
 ```
+
+## Configuring Scopes
+
+The `JsonWebToken.verify` method above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+
+Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**.
+
+To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including one called `read:messages`, which will be used in this example.
+
+## Protect Individual Endpoints
+
+To look for a particular `scope` provide an array of required scopes and check if the required ones are present in the given `access_token` by being part of the `payload`.
+
+In this example the SCOPES array for the given key `/restricted_resource` is intersected with the scopes coming in the payload, to determine if it contains one or more items from the other array.
+
+```rb
+# app/controllers/concerns/secured.rb
+
+  SCOPES = {
+    '/restricted_resource' => ['read:messages'],
+    '/another_resource'    => ['some:scope', 'some:other_scope']
+  }
+
+  private
+
+  def authenticate_request!
+    @auth_payload, @auth_header = auth_token
+
+    render json: { errors: ['Insufficient scope'] }, status: :unauthorized unless scope_included
+  rescue JWT::VerificationError, JWT::DecodeError
+    render json: { errors: ['Not Authenticated'] }, status: :unauthorized
+  end
+
+  def scope_included
+    # The intersection of the scopes included in the given JWT and the ones in the SCOPES hash needed to access
+    # the PATH_INFO, should contain at least one element
+    (String(@auth_payload['scope']).split(' ') & (SCOPES[request.env['PATH_INFO']])).any?
+  end
+```
+
+With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
