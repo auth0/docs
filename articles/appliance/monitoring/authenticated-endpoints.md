@@ -7,7 +7,7 @@ description: Overview of using the authenticated endpoint with the Appliance
 
 For calls to the testing endpoints that return detailed information, Auth0 requires these requests to be authenticated using a key generated using the Appliance Dashboard. This key is used in the request header of the call sent to the endpoint.
 
-### Generating the API Key
+## Generating the API Key
 
 To generate an API Key for use the authenticated testing endpoints, navigate to the [Settings](/appliance/dashboard/settings) page of your Appliance Dashboard. There, you will find an [API Keys section](/appliance/dashboard/settings#api-keys) that allows you to generate new keys.
 
@@ -21,7 +21,7 @@ You will be prompted to confirm the new key generation. If confirmed, you will s
 
  > You may only use one key at a time. If you generate a new key, all applications and services using the old key will fail.
 
-### Available Endpoints
+## Available Endpoints
 
 The following authenticated endpoints are available for you to use:
 
@@ -37,40 +37,31 @@ The following authenticated endpoints are available for you to use:
 
 Your call might look something like the following:
 
-```har
-{
-	"method": "GET",
-	"url": "http://10.1.0.248:9110/status/cpu",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "user",
-		"value": "api_keys_health:YOUR_API_KEY"
-	}],
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
-}
 ```
-
-```
-curl --user
-api_keys_health:S9ranHlz0qQmIs0NgcYb8hU3MLKcBB4Khth2pom5VzLryYeW -v http://10.1.0.248:9110/status/cpu
+curl -v http://127.0.0.1:9110/status/cpu
+--user api_keys_health:YOUR_API_KEY
 ```
 
 You may also make the call via https, though you will have to make the following modifications to your call:
  * Add "health" to the URL path;
  * Remove the port number from the IP address used.
 
-```
-curl -k --user
-api_keys_health:S9ranHlz0qQmIs0NgcYb8hU3MLKcBB4Khth2pom5VzLryYeW -v https://10.1.0.248/health/status/cpu
-```
+For example, 'http://10.1.0.248:9110/status/cpu` becomes `https://10.1.0.248/health/status/cpu`.
 
-### Endpoint Responses
+## Access from Outside the Appliance
 
-Calls to authenticated endpoints may result in one of the following status codes:
+If you'd like to access these endpoints from outside the Appliance, you can do so using your `manage` domain.
 
-* 204: There are no issues with the resource;
-* 429: Too many requests have been made to the resource;
-* 520: There is an issue with the resource.
+| Internal Access | External Access |
+| --------------- | --------------- |
+| http://10.1.0.248:9110/status/cpu **or** https://10.1.0.248/health/status/cpu | https://${manage_url}/health/status/cpu |
+
+## Endpoint Responses
+
+Calls to authenticated endpoints will return in one of the following status codes:
+
+| Response Code | Response |
+| ------------- | -------- |
+| 204 | There are no issues with the resource. |
+| 429 | Too many requests have been made to the resource. |
+| 520 | There is an issue with the resource. |
