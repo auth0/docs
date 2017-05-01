@@ -3,13 +3,13 @@ section: appliance
 description: Overview of using the authenticated endpoint with the Appliance
 ---
 
-# Using Authenticated Testing Endpoints
+# Appliance: Using Authenticated Testing Endpoints
 
-For tests that provide detailed information, Auth0 requires that these requests be authenticated using a key generated in your Appliance configuration area. This key is used in the request header of the call sent to the endpoint.
+For calls to the testing endpoints that return detailed information, Auth0 requires these requests to be authenticated using a key generated using the Appliance Dashboard. This key is used in the request header of the call sent to the endpoint.
 
 ### Generating the API Key
 
-To generate an API Key for use the authenticated testing endpoints, navigate to the [Settings](/appliance/dashboard/settings) page of your Appliance configuration area. There, you will find an [API Keys section](/appliance/dashboard/settings#api-keys) that allows you to generate new keys.
+To generate an API Key for use the authenticated testing endpoints, navigate to the [Settings](/appliance/dashboard/settings) page of your Appliance Dashboard. There, you will find an [API Keys section](/appliance/dashboard/settings#api-keys) that allows you to generate new keys.
 
 During the first use, you will see a that there is no key. To generate your first key, click on the "Generate" button at the far right of the row.
 
@@ -25,17 +25,33 @@ You will be prompted to confirm the new key generation. If confirmed, you will s
 
 The following authenticated endpoints are available for you to use:
 
-* /status/cpu
-* /status/memory
-* /status/disk
-* /status/services
-* /status/network
-* /status/internet
-* /status/email
-* /status/db
-* /status/replicaset
+* GET /status/cpu
+* GET /status/memory
+* GET /status/disk
+* GET /status/services
+* GET /status/network
+* GET /status/internet
+* GET /status/email
+* GET /status/db
+* GET /status/replicaset
 
 Your call might look something like the following:
+
+```har
+{
+	"method": "GET",
+	"url": "http://10.1.0.248:9110/status/cpu",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "user",
+		"value": "api_keys_health:YOUR_API_KEY"
+	}],
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
 
 ```
 curl --user
