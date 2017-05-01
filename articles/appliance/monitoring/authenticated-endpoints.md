@@ -19,7 +19,9 @@ You will be prompted to confirm the new key generation. If confirmed, you will s
 
 ![](/media/articles/appliance/api-keys/key.png)
 
- > You may only use one key at a time. If you generate a new key, all applications and services using the old key will fail.
+:::panel-warning Changing Your API Key
+You may only use one key at a time. If you generate a new key, all applications and services using the old key will fail.
+:::
 
 ## Available Endpoints
 
@@ -37,7 +39,7 @@ The following authenticated endpoints are available for you to use:
 
 Your call might look something like the following:
 
-```
+```text
 curl -v http://127.0.0.1:9110/status/cpu
 --user api_keys_health:YOUR_API_KEY
 ```
@@ -46,7 +48,7 @@ You may also make the call via https, though you will have to make the following
  * Add "health" to the URL path;
  * Remove the port number from the IP address used.
 
-For example, 'http://10.1.0.248:9110/status/cpu` becomes `https://10.1.0.248/health/status/cpu`.
+For example, `http://10.1.0.248:9110/status/cpu` becomes `https://10.1.0.248/health/status/cpu`.
 
 ## Access from Outside the Appliance
 
@@ -54,7 +56,7 @@ If you'd like to access these endpoints from outside the Appliance, you can do s
 
 | Internal Access | External Access |
 | --------------- | --------------- |
-| http://10.1.0.248:9110/status/cpu **or** https://10.1.0.248/health/status/cpu | https://${manage_url}/health/status/cpu |
+| http://10.1.0.248:9110/status/cpu **or** https://10.1.0.248/health/status/cpu |  ${manage_url}/health/status/cpu |
 
 ## Endpoint Responses
 
