@@ -5,13 +5,15 @@ crews: crew-2
 
 # Account Linking Using Server Side Code
 
-In this tutorial, you will use server-side code to facilitate account linking on a regular web application. Your code will:
+In this tutorial, you will use server-side code to facilitate account linking on a regular web application. Rather than automating the entire account linking process, you're engaging the user and asking them for permission before proceeding. Your code will:
 
 1. Authenticate the user;
 2. Search for and identify users using their email addresses;
-3. Prompt the user to link their accounts.
+3. Prompt the user to link their accounts;
+4. Verify and merge metadata;
+5. Link the accounts.
 
-Rathan than automating the entire account linking process, you're engaging the user and asking them for permission before proceeding.
+Additionally, this tutorial will show you how you can unlink accounts at a later time.
 
 :::panel-info Sample Code
 You can find sample code for this tutorial in the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) repo on Github.
@@ -21,11 +23,12 @@ You can find sample code for this tutorial in the [Auth0 Node.js Regular Web App
 
 To authenticate the user, you can use one of the following:
 
-* [Lock](https://github.com/auth0/lock), [Lock Passwordless](https://github.com/auth0/lock-passwordless), or [Auth0.js](/libraries/auth0js) and a custom UI.
+* [Lock](/libraries/lock/v10);
+* [Auth0 SDK for Web](/libraries/auth0js) with your custom UI.
 
 ![](/media/articles/link-accounts/regular-web-app-initial-login.png)
 
-The following is a sample login using Lock:
+The following HTML snippet demonstrates how to implement login using Lock:
 
 ```html
 <script src="${lock_url}"></script>
@@ -44,13 +47,13 @@ The following is a sample login using Lock:
 <button onclick="signin()">Login</a>
 ```
 
-In the typical Regular Web App usage of Lock, a **redirectUrl** is passed to `Auth0Lock`, which is then handled server-side. After successful authentication, a **session** is created containing the profile of the authenticated user.
+When using Lock in a regular web application, the **redirectUrl** passes to `Auth0Lock`. The URL is then handled server-side. Successful authentication results in a new **session** containing the profile of an authenticated user.
 
-**NOTE:** You can refer to the [Regular Web App Node.js Quickstart](/quickstart/webapp/nodejs) for more details. You can also see the [Passwordless for Regular Web Apps Tutorials](/connections/passwordless/regular-web-app) for examples of passwordless login.
+**NOTE:** Refer to the [Regular Web App Node.js Quickstart](/quickstart/webapp/nodejs) for additional authentication details.
 
-## 2. Search for users with same verified email
+## Step 2: Search for Users With Identical Email Addresses
 
-As the page loads after login, invoke a custom endpoint that returns a list of suggested users for linking:
+During the post-login page load, your app invokes a custom endpoint that returns a list of users that could be linked together. This is done using the following code:
 
 ```js
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
@@ -71,7 +74,7 @@ router.get('/suggested-users',ensureLoggedIn, (req,res) => {
 });
 ```
 
-This endpoint will use the Management API v2 [List or search users endpoint](/api/v2#!/Users/get_users) for matching users with same verified email:
+To get a list of all of the user records with the same email address, your app calls the Management API's [List or Search for Users endpoint](/api/v2#!/Users/get_users):
 
 ```js
 const request = require('request');
@@ -103,19 +106,24 @@ class Auth0Client {
       });
     });
   }
+}
 ```
 
-## 3. Display matches and suggest linking the accounts
+## Step 3: Prompt the User to Link Accounts
 
-At this point the user can choose which account to link to:
+If Auth0 returns one or more records with matching email addresses, the user sees the list, as well as the following message prompting them to link the accounts: `We noticed there are other registered users with the same verified e-mail address as EMAIL_ADDRESS. Do you want to link the accounts?`
+
+If the user wants to link a given account, they can click **Link** next to the appropriate account.
 
 ![](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
 
-## 4. Verify and merge metadata before linking
+## Step 4: Verify and Merge Metadata
 
-When the user clicks on the **Link** button, your custom endpoint for linking accounts is invoked. Before calling`linkAccounts`, you can implement additional verification or retrieve the secondary account metadata for merging. This metadata is discarded after linking.
+The user clicking on **Link** invokes your custom endpoint for account linking. However, before calling `linkAccounts`, you can verify or retrieve metadata from secondary accounts and merge them into the metadata fields for the primary account. After the accounts are linked, the metadata for the secondary accounts is discarded.
 
-Also, you can select which identity will be used as the primary account and which as the secondary when calling the account linking. This choice will depend on which set of attributes you wish to retain in the primary profile.
+Additionally, when calling `linkAccounts`, you can select the primary account identity. Your choice will depend on which set of attributes you want to retain in the user's profile.
+
+The following code snippet shows how you can implement both features.
 
 ```js
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
@@ -148,9 +156,11 @@ router.post('/link-accounts/:targetUserId', ensureLoggedIn, (req,res,next) => {
 });
 ```
 
-In the example above, the email is verified again because the `targetUserId` could have been tampered with on the client side.
+In the example above, you'll notice that the email address is verified a second time. This is to ensure that `targetUserId` hasn't been tampered with on the client side.
 
-In the following example, the `user_metadata` and `app_metadata` from the secondary account are merged into the primary account using the [node Auth0 SDK for API V2](https://github.com/auth0/node-auth0/tree/v2) for updating the metadata on the primary profile.
+### Merging Metadata
+
+The following example shows explicitly how the `user_metadata` and `app_metadata` from the secondary account gets merged into the primary account using the [Node.js Auth0 SDK for API V2](https://github.com/auth0/node-auth0/tree/v2).
 
 ```js
 const _ = require('lodash');
@@ -183,9 +193,11 @@ function _mergeMetadata(primaryUser, secondaryUser){
 }
 ```
 
-## 5. Link the accounts
+## Step 5: Link Accounts
 
-To link accounts, call the Auth0 Management API v2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using a [Management API v2 token](/api/v2/tokens) with `update:users` scope in the Authorization header:
+Once you've found the user accounts, prompted the user to merge the selected accounts, and verified/merged the metadata associated with the primary and secondary identities, you're ready to actually link the accounts.
+
+To link accounts, your app needs to call the Management API's [Link a User Account endpoint](/api/v2#!/Users/post_identities). You need to call the API using a [Management API Access Token](/api/management/v2/tokens) with the `update:users` scope:
 
 ```js
 const request = require('request');
@@ -225,9 +237,11 @@ class Auth0Client {
 module.exports = new Auth0Client();
 ```
 
-## 6. Unlinking Accounts
+## Unlinking Accounts
 
-Unlinking accounts server-side within a Regular Web App requires a custom endpoint to update the user in session with the new array of identities:
+If, at any point in the future, you need to unlink two or more user accounts, you can do so.
+
+First, you need custom endpoint to update the user in session with the new array of identities (each of which represent a separate user account):
 
 ```js
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
@@ -248,7 +262,7 @@ router.post('/unlink-accounts/:targetUserProvider/:targetUserId',ensureLoggedIn,
 });
 ```
 
-Then invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using an [API v2 token](/api/v2/tokens) with `update:users` scope for authorization:
+Then, invoke the Management API v2 [Unlink a User Account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using an [Management API Access Token](/api/v2/tokens) with the `update:users` scope:
 
 ```js
 const request = require('request');
