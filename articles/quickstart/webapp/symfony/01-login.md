@@ -43,7 +43,7 @@ hwi_oauth_login:
     prefix:   /login
 
 auth0_login:
-    pattern: /auth0/callback
+    path:    /auth0/callback
 ```
 
 ## Configure Auth0
@@ -62,7 +62,7 @@ Add this to your `app/config/config.yml`
 
 ```yml
 hwi_oauth:
-    firewall_name: secured_area
+    firewall_names: [secured_area]
     resource_owners:
         auth0:
             type:                auth0
