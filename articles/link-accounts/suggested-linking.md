@@ -1,19 +1,27 @@
 ---
-description: How to link user accounts with server-side code.
+description: How to link user accounts using server-side code.
 crews: crew-2
 ---
 
-# Account Linking from Server Side Code
+# Account Linking Using Server Side Code
 
-In this scenario, you will search for users with same verified email address, (as with an automatic linking rule). However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
+In this tutorial, you will use server-side code to facilitate account linking on a regular web application. Your code will:
 
-**NOTE:** You can find sample code for this at the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) sample on Github.
+1. Authenticate the user;
+2. Search for and identify users using their email addresses;
+3. Prompt the user to link their accounts.
 
-The following steps implement suggested account linking for a Regular Web App:
+Rathan than automating the entire account linking process, you're engaging the user and asking them for permission before proceeding.
 
-## 1. Initial Login
+:::panel-info Sample Code
+You can find sample code for this tutorial in the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) repo on Github.
+:::
 
-First, the user will authenticate to the website using either [Lock](https://github.com/auth0/lock), [Lock Passwordless](https://github.com/auth0/lock-passwordless), or [Auth0.js](/libraries/auth0js) and a custom UI.
+## Step 1: Authenticate the User
+
+To authenticate the user, you can use one of the following:
+
+* [Lock](https://github.com/auth0/lock), [Lock Passwordless](https://github.com/auth0/lock-passwordless), or [Auth0.js](/libraries/auth0js) and a custom UI.
 
 ![](/media/articles/link-accounts/regular-web-app-initial-login.png)
 
