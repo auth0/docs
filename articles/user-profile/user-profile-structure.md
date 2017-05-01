@@ -44,7 +44,7 @@ The User Details page will show “pending” when a user is first created until
 
 * `phone_verified`: the `true/false` value indicating whether the user's phone number has been verified (only valid for users with SMS connections);
 
-* `picture`: the user's profile picture;
+* `picture`: the user's profile picture, [click here to learn more about the picture field](/user-profile/user-picture);
 
 * `updated_at`: the timestamp of when the user's profile was last updated/modified;
 

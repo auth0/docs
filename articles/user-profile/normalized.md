@@ -14,10 +14,12 @@ The attributes that Auth0 maps to a common schema are listed below.
 
 Fields that are always generated:
 
-* **`name`**: the user's full name.
+* **`name`**: the user's full name. 
 * **`nickname`**: the user's username.
-* **`picture`**: the URL of the user's picture. If unavailable, Auth0 uses the Gravatar image associated with the user's email address.
+* **`picture`**: the URL of the [user's picture](/user-profile/user-picture). If unavailable, Auth0 uses the Gravatar image associated with the user's email address. 
 * **`user_id`**: the user's unique identifier. This is unique per Connection, but the same for all apps that authenticate via that Connection.
+
+A user's `name`, 'nickname', and `picture` attributes are not directly editable, however you can update the fields in the `user_metadata` to update them for your front-end as desired. [Click here for more details for changing a user's picture](/user-profile/user-picture#change-a-users-picture); the `name`, 'nickname' fields can be updated in the same way.
 
 Fields that are generated when the details are available:
 
