@@ -10,23 +10,31 @@ description: How to develop and test Auth0 applications.
 Please see [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for information on structuring your development, test, and production environments when using Auth0.
 :::
 
-## Client-side applications and JWT
+## Client-Side Applications Using JSON Web Tokens (JWT)
 
-This is usually the easiest scenario to test.
-One of the benefits of [JSON Web Tokens](/jwt) is that they are stateless, which means that an application that consumes them only cares about the JWT's contents and not any previous state such as a session cookie.
+Because [JSON Web Tokens (JWT)](/jwt) are stateless (that is, the app that consumes them cares only about its contents, not any of its previous states), this is one of the easiest scenarios to test locally.
 
-There are mainly three approaches to obtaining JWTs for testing:
+You can obtain JWTs for testing using any of the following methods:
 
-1. Manually generate a JWT with the needed data, and sign it with your Auth0 application's client secret.
-   If you omit the `exp` claim from a token, most JWT libraries will interpret it as a token which never expires, though it's possible some libraries might reject it.
-   The benefit of this approach is that it does not require Internet access or intervention from Auth0 at all.
+1. Manually [generate a JWT](https://jwt.io#libraries-io) with the needed data, and sign it with your [Auth0 client secret](${manage_url}/#/clients/${account.clientId}/settings). Omit the `exp` claim from a token; most JWT libraries will interpret it as a token which never expires (it's possible some libraries might reject a perpetual token). **This method doesn't require Internet access or Auth0 intervention.**
 
-2. Create a dummy user in a database connection, and programatically log in with this user through the [resource owner endpoint](/api/authentication/reference#resource-owner).
-   In order to get a JWT back, [make sure to set the correct `scope` value](/scopes).
-   The benefit of this approach is that it will [execute any rules](/rules) that you have configured on your Auth0 account.
+2. Create a test user for a database [connection](/identityproviders), and programatically log this user in by making the appropriate call to the Authentication API's [Resource Owner endpoint](/api/authentication/reference#resource-owner). To return a JWT, [set the correct `scope` value](/scopes). Using this approach, any rules you've configured will run.
 
-3. Use a browser bot (e.g. Selenium) which logs a dummy user in and retrieves a JWT.
-   This approach may take some effort to develop and maintain, but it will also execute any [redirection rules](/rules/redirect) or [MFA prompts](/multifactor-authentication) that you have configured on your Auth0 account.
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/ro",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"CLIENT_ID\",\"username\": \"USERNAME\", \"password\": \"PASSWORD\", \"connection\": \"CONNECTION\", \"grant_type\": \"GRANT_TYPE\", \"scope\":\"openid\" }"
+  }
+}
+```
+
+3. Use a browser bot (e.g. Selenium) to play the role of a user, log in and retrieve a JWT. While this is approach may take some effort to develop and maintain, it will allow you to test any [redirection rules](/rules/redirect) or [MFA prompts](/multifactor-authentication) that you have configured.
 
 ## Server-side applications and sessions
 
