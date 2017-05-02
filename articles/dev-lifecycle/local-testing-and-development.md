@@ -6,9 +6,9 @@ description: How to develop and test Auth0 applications.
 
  In most cases, authenticating users through Auth0 requires an Internet connection. However, you can still develop and test apps that use Auth0 locally. In some cases, you might not need access to an Internet connection.
 
-> For more information about structuring separate Auth0 environments for development, testing and production, [please refer to this document](/dev-lifecycle/setting-up-env).
-
+:::panel-info Development Environments
 Please see [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for information on structuring your development, test, and production environments when using Auth0.
+:::
 
 ## Client-side applications and JWT
 
