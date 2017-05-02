@@ -6,7 +6,7 @@ description: How to use the user_metadata to change a user's picture field and h
 
 Auth0 [normalizes](/user-profile/normalized) common profile properties in the User Profile, this includes the `name` and `picture` field and more. The picture field is populated by either the social provider profile picture or the Gravatar image associated with the user's email address. By default all database users will have a placeholder image with their initials. When you authenticate the user, this picture field is referred by as `user.picture`.
 
-![User Picture](/media/articles/user-profile/user-profile.png)
+![User Picture](/media/articles/user-profile/user-picture.png)
 
 ## Change a User's Picture
 
