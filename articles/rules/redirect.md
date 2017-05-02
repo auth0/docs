@@ -149,7 +149,7 @@ function(user, context, callback) {
 
 ## Caveats
 
-You can redirect a user **once** per authentication flow.
+You can redirect a user **once** per authentication flow. For example, if you have one rule that redirects a user, you cannot invoke a second rule to redirect the user at a later time.
 
 Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner) authentication endpoint. This is because the endpoint returns a JSON result. Redirect rules work _only_ with browser based protocols.
 
