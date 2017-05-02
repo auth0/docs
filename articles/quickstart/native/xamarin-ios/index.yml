@@ -5,6 +5,7 @@ framework:
   - Xamarin
 hybrid: false
 image: /media/platforms/xamarin.png
+logo_name: xamarin
 tags:
   - quickstart
 snippets:
