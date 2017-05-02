@@ -1,0 +1,17 @@
+title: Xamarin (iOS)
+language:
+  - C#
+framework:
+  - Xamarin
+hybrid: false
+image: /media/platforms/xamarin.png
+tags:
+  - quickstart
+snippets:
+  dependencies: native-platforms/xamarin-ios/dependencies
+  setup: native-platforms/xamarin-ios/setup
+  use: native-platforms/xamarin-ios/use
+seo_alias: xamarin-ios
+default_article: 01-login
+articles:
+  - 01-login
