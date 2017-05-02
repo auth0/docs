@@ -22,31 +22,9 @@ Lock is an embeddable login form, which is configurable to your needs and ready 
 
 ## Install
 
-You have two choices for installation - [Carthage](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos) or [CocoaPods](http://guides.cocoapods.org/using/getting-started.html). You will need to install `Lock` for use logging in and signing up users. If you wish to access user profile information, you will also need the `Auth0` library.
+<%= include('../_includes/_dependencies') %>
 
-### Installation Using Carthage
-
-Add the following line to your `Cartfile`:
-
-```
-github "auth0/Lock.iOS-OSX" ~> 2.0
-github "auth0/Auth0.swift" ~> 1.2
-```
-
-Then run `carthage bootstrap`.
-
-### Installation Using CocoaPods
-
-Add the following line to your `Podfile`:
-
-```ruby
-pod "Lock", "~> 2.0"
-pod "Auth0", "~> 1.2"
-```
-
-Then run `pod install`.
-
-## Setup 
+## Setup
 
 ### Integrate with your Application
 
@@ -86,7 +64,7 @@ In your application bundle you can add a `plist` file named `Auth0.plist` that w
 </plist>
 ```
 
-## Implementation of Lock
+## Implementation of Lock Classic
 
 Lock Classic handles authentication using Database, Social, and Enterprise connections.
 
@@ -100,6 +78,44 @@ Lock
       // Save the Credentials object
     }
     .present(from: self)
+```
+
+## Implementation of Lock Passwordless
+
+Lock Classic handles passwordless authentication using email and sms connections.
+
+To show Lock, add the following snippet in your `UIViewController`.
+
+```swift
+Lock
+    .passwordless()
+    // withConnections, withOptions, withStyle, etc
+    .onAuth { credentials in
+      // Save the Credentials object
+    }
+    .present(from: self)
+```
+
+Passwordless can only be used with a single connection and will prioritize the use of email connections over sms.
+
+#### Passwordless Method
+
+When using Lock passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](https://auth0.com/docs/clients/enable-universal-links) you can add the following:
+
+```swift
+.withOptions {
+    $0.passwordlessMethod = .magicLink
+}
+```
+
+#### Activity callback
+
+If you are using Lock passwordless and have specified the `.magicLink` option to send the user a universal link then you will need to add the following to your `AppDelegate.swift`:
+
+```swift
+func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    return Lock.continueAuth(using: userActivity)
+}
 ```
 
 ## Use Auth0.Swift Library to access user profile
@@ -164,7 +180,7 @@ You can see the complete set of styling options to alter the appearance of Lock 
 
 ## Configuration Options
 
-There are numerous options to configure Lock's behavior. Below is an example of Lock configured to allow it to be closable, to limit it to only usernames (and not emails), and to only show the Login and Reset Password screens. 
+There are numerous options to configure Lock's behavior. Below is an example of Lock configured to allow it to be closable, to limit it to only usernames (and not emails), and to only show the Login and Reset Password screens.
 
 ```swift
 Lock
@@ -192,16 +208,8 @@ Lock
         $0.logHttpRequest = true
     }
 ```
-## Future roadmap of Lock v2 for iOS
 
-- Native Authentication with third party SDKs (Facebook, Google, Twitter)
-- 1Password support
-- Passwordless Authentication (SMS & Email)
-- Secure Token storage and automatic token refresh
-- Remember me like feature using Touch ID
-- Universal Link support for browser based Auth
-- Improved UI Styling
-- Bundle more i18n translation in Lock.framework
+<%= include('../_includes/_roadmap') %>
 
 ## Other Resources
 
