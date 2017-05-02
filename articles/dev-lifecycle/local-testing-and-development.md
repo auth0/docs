@@ -20,19 +20,19 @@ You can obtain JWTs for testing using any of the following methods:
 
 2. Create a test user for a database [connection](/identityproviders), and programatically log this user in by making the appropriate call to the Authentication API's [Resource Owner endpoint](/api/authentication/reference#resource-owner). To return a JWT, [set the correct `scope` value](/scopes). Using this approach, any rules you've configured will run.
 
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/ro",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"client_id\": \"CLIENT_ID\",\"username\": \"USERNAME\", \"password\": \"PASSWORD\", \"connection\": \"CONNECTION\", \"grant_type\": \"GRANT_TYPE\", \"scope\":\"openid\" }"
-  }
-}
-```
+    ```har
+    {
+      "method": "POST",
+      "url": "https://${account.namespace}/oauth/ro",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "postData": {
+        "mimeType": "application/json",
+        "text": "{\"client_id\": \"CLIENT_ID\",\"username\": \"USERNAME\", \"password\": \"PASSWORD\", \"connection\": \"CONNECTION\", \"grant_type\": \"GRANT_TYPE\", \"scope\":\"openid\" }"
+      }
+    }
+    ```
 
 3. Use a browser bot (e.g. Selenium) to play the role of a user, log in and retrieve a JWT. While this is approach may take some effort to develop and maintain, it will allow you to test any [redirection rules](/rules/redirect) or [MFA prompts](/multifactor-authentication) that you have configured.
 
