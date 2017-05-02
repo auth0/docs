@@ -10,7 +10,7 @@ Auth0 [normalizes](/user-profile/normalized) common profile properties in the Us
 
 ## Change a User's Picture
 
-At this stage this attribute is not directly editable, however you can use the `user_metadata` picture attribute in your front-end as desired. To persist a different picture in the user's profile, you can set the URL to a new photo in the user object as `user.user_metadata.picture`. This will override the default picture and will be available in your app as `user.picture`. The `user_metadata` field can be updated by [calling the Management API v2 endpoint](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id) with the `id` of the specified user.
+At this stage this attribute is not directly editable, however you can use the `user_metadata` picture attribute in your front-end as desired. To persist a different picture in the user's profile, you can set the URL to a new photo in the user object as `user.user_metadata.picture`. This will override the default picture and will be available in your app as `user.picture`. The `user_metadata` field can be updated by [calling the Management API v2 endpoint](/api/management/v2#!/Users/patch_users_by_id) with the `id` of the specified user.
 
 For example, if your app provides a way to upload profile pictures, once the picture is uploaded, you can set the URL to the picture in `user.user_metadata.picture`.
 
