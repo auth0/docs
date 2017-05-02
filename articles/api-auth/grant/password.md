@@ -34,7 +34,7 @@ This grant type can eliminate the need for the client to store the user credenti
 
 For details on how to implement this using Auth0, refer to [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
-### Realm Support
+## Realm Support
 
 A extension grant that offers similar functionality with the **Resource Owner Password Grant**, including the ability to indicate a specific realm, is the `http://auth0.com/oauth/grant-type/password-realm`.
 
@@ -42,11 +42,11 @@ Realms allow you to keep separate user directories and specify which one to use 
 
 For more information on how to implement this extension grant refer to [Executing a Resource Owner Password Grant > Realm Support](/api-auth/tutorials/password-grant#realm-support).
 
-### Scopes
+## Scopes
 
 Due to the implied trust in these grants (a user providing his or her password to a client), the `access_token` returned will include all of the available scopes defined for the audience API. A client can request a restricted set of scopes by using the `scope` parameter, or you can restrict the returned scopes by using a [rule](#customize-the-returned-token).
 
-### Rules
+## Rules
 
 [Rules](/rules) will run for the Password Exchange (including the Password Realm extension grant). There are two key differences in the behavior of rules in these flows:
 
