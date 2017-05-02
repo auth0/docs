@@ -25,13 +25,13 @@ state = {
 }
 ```
 
-To send the `state` parameter, [add it to the `options` object](/libraries/lock/v10/sending-authentication-parameters). For additonal information on where to modify `options`, please see the doc on [Getting Started with Lock](/libraries/lock/v10#start-using-lock)
+To send the `state` parameter, [add it to the `options` object](/libraries/lock/v10/sending-authentication-parameters). For additonal information on where to modify `options`, please see the doc on [Getting Started with Lock](/libraries/lock/v10#start-using-lock).
 
 After a successful request, you can used the `return_url` encapsulated in the returned `state` value to redirect users to the appropriate URL.
 
 ### Store the Desired URL in Web Storage
 
-You can store the desired URL in web storage to be used after authentication. Storing a URL using this method is similar to [storing a JWT](/security/store-tokens#where-to-store-your-jwts).  You can then create the necessary logic to obtain the stored URL to redirect your users after successful authentication
+You can store the desired URL in web storage to be used after authentication. Storing a URL using this method is similar to [storing a JWT](/security/store-tokens#where-to-store-your-jwts).  You can then create the necessary logic to obtain the stored URL to redirect your users after successful authentication.
 
 ### Use Rules
 
