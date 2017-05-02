@@ -106,6 +106,6 @@ When setting this field with the [Authentication API Signup endpoint](/api/authe
 * [User Data Storage Guidance](/user-profile/user-data-storage)
 * [User Metadata in Rules](/rules/metadata-in-rules)
 * [Metadata with Auth0 APIs](/metadata/management-api)
-* [Change a User's Picture](/user-profile/user-picture#change-a-users-picture)
+* [Change a User's Picture](/user-profile/user-picture#change-a-user-s-picture)
 * [Management API: Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id)
 * [Using Metadata with Auth0 Lock](/metadata/lock)
