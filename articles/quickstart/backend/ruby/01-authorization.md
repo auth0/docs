@@ -1,6 +1,6 @@
 ---
-title: Authentication
-description: This tutorial demonstrates how to add authentication to Ruby API
+title: Authorization
+description: This tutorial demonstrates how to add authentication and authorization to Ruby API
 ---
 
 <%= include('../../../_includes/_package', {
@@ -27,8 +27,6 @@ bundle install
 
 ## Create a JsonWebToken Class
 
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-rubyonrails-api-samples/tree/OIDC/02-Authentication-HS256' }) %>
-
 Create a class called `JsonWebToken` which decodes and verifies the incoming `access_token` taken from the `Authorization` header of the request. The public key for your Auth0 tenant can be fetched to verify the token.
 
 ```rb
@@ -43,16 +41,17 @@ class JsonWebToken
     JWT.decode(token, nil,
                true, # Verify the signature of this token
                algorithm: 'RS256',
-               iss: Sinatra::Application.settings.auth0_domain,
+               iss: 'https://${account.namespace}/'
                verify_iss: true,
-               aud: Sinatra::Application.settings.auth0_api_audience,
+               # auth0_api_audience is the identifier for the API set up in the Auth0 dashboard
+               aud: auth0_api_audience
                verify_aud: true) do |header|
       jwks_hash[header['kid']]
     end
   end
 
   def self.jwks_hash
-    jwks_raw = Net::HTTP.get URI("#{Sinatra::Application.settings.auth0_domain}.well-known/jwks.json")
+    jwks_raw = Net::HTTP.get URI("https://${account.namespace}/.well-known/jwks.json")
     jwks_keys = Array(JSON.parse(jwks_raw)['keys'])
     Hash[
       jwks_keys
@@ -69,7 +68,7 @@ class JsonWebToken
 end
 ```
 
-## Define a Secured Concern
+## Define an authentincate! method
 
 Create an `authenticate!` method to run before each endpoint which looks for the `access_token` in the `Authorization` header of an incoming request. If the token is present, it should be passed to `JsonWebToken.verify`.
 
@@ -99,15 +98,15 @@ end
 
 The `JsonWebToken.verify` method above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
-Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**.
+Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or `write` access to that resource if they are an **administrator**.
 
 To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including one called `read:messages`, which will be used in this example.
 
 ## Protect Individual Endpoints
 
-To look for a particular `scope` provide an array of required scopes and check if the required ones are present in the given `access_token` by being part of the `payload`.
+To look for a particular `scope` in an `access_token`, provide an array of required scopes and check if they are present in the payload of the token.
 
-In this example the SCOPES array for the given key `/restricted_resource` is intersected with the scopes coming in the payload, to determine if it contains one or more items from the other array. 
+In this example the `SCOPES` array for the given key `/restricted_resource` is intersected with the scopes coming in the payload, to determine if it contains one or more items from the other array.
 
 ```rb
 # lib/jwt/json_web_token.rb

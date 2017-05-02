@@ -129,9 +129,9 @@ To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url
 
 ## Protect Individual Endpoints
 
-To look for a particular `scope` provide an array of required scopes and check if the required ones are present in the given `access_token` by being part of the `payload`.
+To look for a particular `scope` in an `access_token`, provide an array of required scopes and check if they are present in the payload of the token.
 
-In this example the SCOPES array for the given key `/restricted_resource` is intersected with the scopes coming in the payload, to determine if it contains one or more items from the other array.
+In this example the `SCOPES` array for the given key `/restricted_resource` is intersected with the scopes coming in the payload, to determine if it contains one or more items from the other array.
 
 ```rb
 # app/controllers/concerns/secured.rb
