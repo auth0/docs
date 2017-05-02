@@ -32,7 +32,7 @@ function (user, context, callback) {
 }
 ```
 
-Once all rules have finished executing, the user will be redirected to the specified URL. 
+Once all rules have finished executing, the user will be redirected to the specified URL.
 
 Auth0 will also pass a state value in that URL, for example `https://example.com/foo?state=abc123`.
 
@@ -148,6 +148,8 @@ function(user, context, callback) {
 ```
 
 ## Caveats
+
+You can redirect a user **once** per authentication flow.
 
 Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner) authentication endpoint. This is because the endpoint returns a JSON result. Redirect rules work _only_ with browser based protocols.
 
