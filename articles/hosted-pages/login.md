@@ -1,6 +1,7 @@
 ---
 title: Hosted Login Page
 description: Guide on how to use the hosted login page
+toc: true
 crews: crew-2
 ---
 
