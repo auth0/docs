@@ -40,26 +40,40 @@ You can obtain JWTs for testing using any of the following methods:
 
 Unless your server-side application allows the generation of artificial sessions for testing, you'll need a way to perform a login through Auth0 manually. One way to do this is to make the appropriate call to the Authentication API's [Resource Owner endpoint](/api/authentication/reference#resource-owner)
 
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/ro",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"CLIENT_ID\",\"username\": \"USERNAME\", \"password\": \"PASSWORD\", \"connection\": \"CONNECTION\", \"grant_type\": \"GRANT_TYPE\", \"scope\":\"openid\" }"
+  }
+}
+```
+
 ## Log in as a User for Testing
 
 If you need to simulate the user login process to your application, but you don't have access to a set of user credentials, you can use the [impersonation endpoint](/api/authentication/reference#impersonation) to generate a link allowing you to log in as a specific user.
 
-    ```har
-    {
-      "method": "POST",
-      "url": "https://${account.namespace}/users/{user_id}/impersonate",
-      "headers": [
-        { "name": "Content-Type", "value": "application/json" }
-      ],
-      "postData": {
-        "mimeType": "application/json",
-        "text": "{\"protocol\": \"PROTOCOL\",\"impersonator_id\": \"IMPERSONATOR_ID\", \"client\": \"CLIENT_ID\", \"additionalParameters\": [\"response_type\": \"CODE\",\"state\": \"STATE\"]}"
-      }
-    }
-    ```
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/users/{user_id}/impersonate",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"protocol\": \"PROTOCOL\",\"impersonator_id\": \"IMPERSONATOR_ID\", \"client\": \"CLIENT_ID\", \"additionalParameters\": [\"response_type\": \"CODE\",\"state\": \"STATE\"]}"
+  }
+}
+```
 
 ## Auth0 and `localhost`
 
-If you need to develop an application locally, it's possible to use `localhost` or other domains which Auth0 cannot access (e.g. intranets) as callback URLs.
-Since Auth0 [uses OpenID Connect](/protocols) as its main identity protocol, it never makes a call directly to your application's server.
-Instead, it redirects users in a browser to an endpoint of your application (which must be listed in the "Allowed Callback URLs" list) with specific information in the query string or hash fragment, depending on the type of application.
+If you're developing your application locally, you can use `localhost` and other domains inaccessible by Auth0 (such as those on an intranet) as callback URLs.
+
+Because Auth0's main identity protocol is [OpenID Connect](/protocols), Auth0 never needs to directly call your application's server. Instead, Auth0 redirects users to your application's endpoint(s) with required information contained in a query string or hash fragment.
