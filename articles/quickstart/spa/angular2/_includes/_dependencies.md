@@ -1,19 +1,26 @@
 ## Add the Dependencies
 
-To integrate your Angular 2 application with Auth0, you will need to add the following two dependencies:
+There are several ways to integrate Auth0 in your Angular 2 application. If you want to use either the hosted login page or build a custom login UI yourself, you will require the **auth0.js library**.
 
-- [Lock Widget](https://github.com/auth0/lock) is the default authentication widget provided by Auth0.
+```bash
+npm install --save auth0-js
+```
 
-  From [npm](https://npmjs.org):
+If you want to embed Auth0's Lock widget directly in your application, you will require the Lock library.
 
-  `npm install --save auth0-lock`
+```bash
+npm install --save auth0-lock
+```
 
-  Or the Auth0 CDN:
+The auth0.js library and Lock widget can also be retrieved from Auth0's CDN.
 
-  `<script src="${lock_url}"></script>`
+```html
+<script src="https://cdn.auth0.com/js/auth0/8.4/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.14/lock.min.js"></script>
+```
 
-- [angular2-jwt](https://github.com/auth0/angular2-jwt) is a helper library for working with [JWTs](http://jwt.io/introduction) in your Angular 2 applications.
+To help with making calls to secured endpoints on your own resource server, install the **angular2-jwt** library.
 
-  From [npm](https://npmjs.org):
-
-  `npm install --save angular2-jwt`
+```bash
+npm install --save angular2-jwt
+```

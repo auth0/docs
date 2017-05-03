@@ -167,7 +167,7 @@ Note that you will also likely need to call the existing `logout` method from th
     vm.logoutFromAuth0 = function() {
       angularAuth0.logout({
         returnTo: 'http://localhost:3000/',
-        client_id: ${account.clientId}
+        client_id: '${account.clientId}'
       });
       authService.logout();
     }
