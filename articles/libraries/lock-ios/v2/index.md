@@ -20,8 +20,6 @@ Lock is an embeddable login form, which is configurable to your needs and ready 
 - Xcode 8
 - Swift 3.0
 
-## Install
-
 <%= include('../_includes/_dependencies') %>
 
 ## Setup
