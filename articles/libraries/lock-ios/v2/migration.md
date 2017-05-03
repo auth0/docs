@@ -160,16 +160,16 @@ In v1 to show Lock Passwordless from a `UIViewController` you'd need to use eith
 **Email**
 
 ```swift
-A0Lock *lock = [A0Lock sharedLock];
-A0EmailLockViewController *controller = [lock newEmailViewController];
-controller.useMagicLink = YES;
-controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+let lock = A0Lock.shared()
+let controller: A0EmailLockViewController = lock.newEmailViewController()
+controller.useMagicLink = true
+controller.onAuthenticationBlock = { (profile, token) in
     // Do something with token & profile. e.g.: save them.
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
-    [self dismissViewControllerAnimated:YES completion:nil];
-};
-[lock presentEmailController:controller fromController:self];
+    self.dismiss(animated: true, completion: nil)
+}
+lock.presentEmailController(controller, from: self)
 ```
 
 **SMS**
@@ -198,7 +198,7 @@ Lock
     .present(from: self)
 ```
 
-Passwordless can only be used with a single connection and will prioritize the use of email connections over sms.
+**Note:** Passwordless can only be used with a single connection and will prioritize the use of email connections over sms.
 
 #### Configuration options
 
