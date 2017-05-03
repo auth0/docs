@@ -37,7 +37,7 @@ Create a class called `JsonWebToken` which decodes and verifies the incoming `ac
 
 # frozen_string_literal: true
 class JsonWebToken
-  def self.decode(token)
+  def self.verify(token)
     JWT.decode(token, nil,
                true, # Verify the signature of this token
                algorithm: 'RS256',
@@ -69,7 +69,7 @@ end
 
 ## Define a Secured Concern
 
-Create a Concern called `Secured` which looks for the `access_token` in the `Authorization` header of an incoming request. If the token is present, it should be passed to `JsonWebToken.decode`.
+Create a Concern called `Secured` which looks for the `access_token` in the `Authorization` header of an incoming request. If the token is present, it should be passed to `JsonWebToken.verify`.
 
 ```rb
 # app/controllers/concerns/secured.rb
@@ -97,7 +97,7 @@ module Secured
   end
 
   def auth_token
-    JsonWebToken.decode(http_token)
+    JsonWebToken.verify(http_token)
   end
 end
 ```
@@ -121,7 +121,7 @@ end
 
 ## Configure Scopes
 
-The `JsonWebToken.decode` method above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
+The `JsonWebToken.verify` method above verifies that the `access_token` included in the request is valid; however, it doesn't yet include any mechanism for checking that the token has the sufficient **scope** to access the requested resources.
 
 Scopes provide a way for you to define which resources should be accessible by the user holding a given `access_token`. For example, you might choose to permit `read` access to a `messages` resource if a user has a **manager** access level, or a `write` access to that resource if they are an **administrator**.
 
