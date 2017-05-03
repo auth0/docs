@@ -27,7 +27,7 @@ After creating the new client, you will be brought to it's **Quick Start** secti
 
 ![](/media/articles/api/tokens/navigate-button.png)
 
-This will bring you to the [APIs section](${manage_url}/#/apis) under **Auth0 Management API** in the **Non Interactive Clients** section. (To enable the APIs section of the sidebar, go to Account Settings > Advanced > Enable APIs Section)
+This will bring you to the [APIs section](${manage_url}/#/apis) under **Auth0 Management API** in the **Non Interactive Clients** section.
 
 ![Authorize Client](/media/articles/api/tokens/authorize-noninteractive.png)
 

@@ -59,7 +59,7 @@ lock.show();
 The `id_token` will contain only the claims specified as the value of the `scope` parameter.
 
 ::: panel-warning Add claims using Rules
-If you are using [OAuth 2.0 API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth), you can add claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-custom/claim'] = 'some-value'`.
+If you are using [OAuth 2.0 API Authorization](/api-auth), you can add claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-custom/claim'] = 'some-value'`.
 :::
 
 ## Lifetime

@@ -34,5 +34,4 @@ For more information on how to implement this extension grant refer to [Executin
 
 ## Tutorials
 
- - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
  - [Executing a Resource Owner Password Grant](/api-auth/tutorials/password-grant)

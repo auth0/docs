@@ -24,7 +24,6 @@ The application will usually store the information about the user's session (i.e
 
 The following is a list of articles on this website which will help you to implement this scenario:
 
-* [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
 * [Calling APIs from Client-side Web Apps](/api-auth/grant/implicit)
 * [Executing the Implicit Grant Flow](/api-auth/tutorials/implicit-grant)
 * [Mitigating replay attacks when using the implicit grant](/api-auth/tutorials/nonce)

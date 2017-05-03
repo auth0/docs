@@ -26,11 +26,7 @@ If you would like to follow along with this Quickstart you can download the [see
 
 The final project after each of the steps is also available in the [Sample repository](https://github.com/auth0-samples/auth0-aspnet-owin-webapi-sample). You can find the final result for each step in the relevant folder inside the repository.
 
-## 1. Enable OAuth 2.0 API Authorization
-
-<%= include('../../_includes/_configure_oauth2aas') %>
-
-## 2. Create a Resource Server (API)
+## 1. Create a Resource Server (API)
 
 In the [APIs section](${manage_url}/#/apis) of the Auth0 Dashboard, click the **Create API** button. Provide a **Name** and **Identifier** for your API. Be sure to choose the RS256 signing algorithm.
 
@@ -45,7 +41,7 @@ Also update the `web.config` file in your project with the correct **Domain** an
 </appSettings>
 ```
 
-## 3. Install Dependencies
+## 2. Install Dependencies
 
 To use Auth0 Access Tokens with ASP.NET Core you will use the JWT Middleware which is available in the `Microsoft.Owin.Security.Jwt` NuGet package. Also install the `Auth0.OpenIdConnectSigningKeyResolver` NuGet package which will assist you in verifying the token signature.
 

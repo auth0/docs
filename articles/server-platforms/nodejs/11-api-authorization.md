@@ -9,11 +9,7 @@ At some point, your APIs may need to allow limited access to users, servers, or 
 
 ### Before Starting
 
-## 1. Enable OAuth 2.0 API Authorization
-
-<%= include('../../_includes/_configure_oauth2aas') %>
-
-## 2. Create an Application
+## 1. Create an Application
 
 <%= include('_includes/_new_regular_webapp_client') %>
 
@@ -21,7 +17,7 @@ At some point, your APIs may need to allow limited access to users, servers, or 
 
 Be sure to register the URL of your app in the Allowed Callback URLs in your Client Settings.
 
-## 3. Create a Resource Server (API)
+## 2. Create a Resource Server (API)
 
 <%= include('../../_includes/_new_api') %>
 

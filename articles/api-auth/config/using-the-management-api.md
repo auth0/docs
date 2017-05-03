@@ -1,10 +1,10 @@
 ---
-description: How to enable API Authorization using the Auth0 Management API.  
+description: Using the Management API for setting up a Client Credentials Grant scenario.  
 ---
 
 # API Authorization: Using the Management API for setting up a Client Credentials Grant scenario
 
-If you do not want to use the Auth0 Dashboard to enable API Authorization, you can achieve the same results using the Auth0 Management API.
+If you do not want to use the Auth0 Dashboard you can achieve the same results using the Auth0 Management API.
 
 You will need the following:
 

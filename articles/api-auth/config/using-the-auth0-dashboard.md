@@ -12,10 +12,6 @@ description: How to set up a Client Credentials Grant using the Auth0 Dashboard
 
 3. Navigate to the [API section](${manage_url}/#/apis) and create a new API.
 
-::: panel-info Enable APIs Section
-If you can't see the [API section](${manage_url}/#/apis) in the left hand menu of the dashboard then you will have to enable it. Navigate to your [Account Advanced Settings](${manage_url}/#/account/advanced), scroll down to the *Settings* section and toggle the **Enable APIs Section** switch.
-:::
-
 Enter a friendly name and an identifier. Ideally, this identifier should be the public endpoint of the API, but any valid URN is acceptable. This API will be represented by your **Resource Server**.
 
 The selection of the **Signing Algorithm** will dictate how the API will validate the access tokens it receives:

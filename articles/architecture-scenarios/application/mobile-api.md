@@ -26,7 +26,6 @@ The application will usually store the information about the user's session (i.e
 
 The following is a list of articles on this website which will help you to implement this scenario:
 
-* [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
 * [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
 * [Executing an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
 * [Native Apps Quickstarts](/quickstart/native/)

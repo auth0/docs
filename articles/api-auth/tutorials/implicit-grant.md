@@ -91,6 +91,5 @@ $('#get-appointments').click(function(e) {
 
 - [Implicit Grant overview](/api-auth/grant/implicit)
 - [Authentication API Explorer](/api/authentication#implicit-grant)
-- [How to configure your tenant for the new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth)
 - [Mitigate replay attacks](/api-auth/tutorials/nonce)
 - [Silent Authentication for SPAs](/api-auth/tutorials/silent-authentication)

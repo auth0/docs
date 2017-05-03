@@ -10,10 +10,6 @@ At some point, your APIs may need to allow limited access to users, servers, or 
 
 ### Before Starting
 
-## Enable OAuth 2.0 API Authorization
-
-<%= include('../../_includes/_configure_oauth2aas') %>
-
 ## Create an Application
 
 <%= include('../_includes/_new_app_no_sample') %>

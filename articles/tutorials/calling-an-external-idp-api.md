@@ -28,8 +28,6 @@ You will need to create an Auth0 client that calls the Auth0 Management API on b
 
   ![Management Dashboard API Page](/media/articles/tutorials/calling-an-external-idp-api/api.png)
 
-  **NOTE:** If you do not see the **APIs** option in the left menu, you must enable it. Go to [Account Settings > Advanced](${manage_url}/#/account/advanced) and select **Enable APIs Section**.
-
 5. Select the **Non Interactive Clients** tab and authorize the app you just created. You will then be able to choose the required `read:user_idp_tokens` scope. Click **Update**.
 
 ![Management Dashboard API Authorization](/media/articles/tutorials/calling-an-external-idp-api/authorize-client.png)

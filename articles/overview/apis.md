@@ -20,13 +20,7 @@ For example, an API that holds a user's appointments, may accept two different l
 
 ## How to configure an API in Auth0
 
-If this is your first API, you will have to enable the API functionality first.
-
-Navigate to your [Account Advanced Settings](${manage_url}/#/account/advanced), scroll down to the *Settings* section and toggle the **Enable APIs Section** switch.
-
-![Enable APIs Section](/media/articles/api/overview/enable-api-section.png)
-
-Click on the [APIs menu option](${manage_url}/#/apis) on the left.
+Click on the [APIs menu option](${manage_url}/#/apis) on the sidebar.
 
 > The API tab will already have one API created automatically, the **Auth0 Management API**. For more details on the features of the Management API and its available endpoints, refer to: [Management API](/api/management/v2).
 
