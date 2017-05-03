@@ -39,6 +39,8 @@ The ASP.NET Core JWT middleware will handle downloading the JSON Web Key Set (JW
 To add the JWT middleware to your application's middleware pipeline, go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 API Identifier as the `Audience`, and the full path to your Auth0 domain as the `Authority`:
 
 ```csharp
+// Startup.cs
+
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 {
     loggerFactory.AddConsole(Configuration.GetSection("Logging"));
@@ -58,6 +60,8 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. To secure an endpoint you only need to decorate your controller action with the `[Authorize]` attribute:
 
 ```csharp
+// Controllers/PingController.cs
+
 [Route("api")]
 public class PingController : Controller
 {
@@ -88,6 +92,8 @@ For a better understanding of the code which follows, it is suggested that you r
 Create a new Authorization Requirement called `HasScopeRequirement`. This requirement will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope. If it does then the Authorization Requirement is met.
 
 ```csharp
+// HasScopeRequirement.cs
+
 public class HasScopeRequirement : AuthorizationHandler<HasScopeRequirement>, IAuthorizationRequirement
 {
     private readonly string issuer;
@@ -120,6 +126,8 @@ public class HasScopeRequirement : AuthorizationHandler<HasScopeRequirement>, IA
 Next, you can define a policy for each of the scopes in your application in the `ConfigureServices` method of your `Startup` class:
 
 ```csharp
+// Startup.cs
+
 public void ConfigureServices(IServiceCollection services)
 {
     // Add framework services.
@@ -139,6 +147,8 @@ public void ConfigureServices(IServiceCollection services)
 Finally, to ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `Authorize` attribute, and pass the name of the Policy for that `scope` in the `policy` parameter:
 
 ```csharp
+// Controllers/MessagesController.cs
+
 [Route("api/messages")]
 public class MessagesController : Controller
 {
