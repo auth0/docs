@@ -80,7 +80,7 @@ Lock
 
 ## Implementation of Lock Passwordless
 
-Lock Classic handles passwordless authentication using email and sms connections.
+Lock Passwordless handles passwordless authentication using email and sms connections.
 
 To show Lock, add the following snippet in your `UIViewController`.
 
@@ -98,7 +98,7 @@ Passwordless can only be used with a single connection and will prioritize the u
 
 #### Passwordless Method
 
-When using Lock passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](https://auth0.com/docs/clients/enable-universal-links) you can add the following:
+When using Lock passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](/clients/enable-universal-links) you can add the following:
 
 ```swift
 .withOptions {
