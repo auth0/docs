@@ -23,7 +23,9 @@ Click on the "Create User" button near the top right-hand side of the screen.
 
   When finished, click "Save".
 
-> The connection you use must be associated with a Client, otherwise you will receive an error message that says, "The connection is disabled". You can enable connections for Clients from the [Management Dashboard](${manage_url}), in the Client Settings -> Connections area, or from the Connection Settings -> Clients area.
+<div class="auth0-notification frendly"><i class="notification-icon icon-budicon-266"></i>
+     &nbsp;The connection you use must be associated with a Client, otherwise you will receive an error message that says, <em>The connection is disabled</em>. You can enable connections for Clients from the <a href="${manage_url}">Dashboard</a>, in <em> Client Settings > Connections</em>, or from the <em>Connection Settings > Clients</em>.
+</div>
 
 ![](/media/articles/users/create-user.png)
 
