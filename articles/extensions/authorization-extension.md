@@ -77,7 +77,7 @@ If you have users that receive groups from the Identity Provider (such as Active
 
 ### Persistence
 
-You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/tokeninfo` endpoint](/api/authentication/reference#get-token-info) to retrieve this information after the user has logged in.
+You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/userinfo` endpoint](/api/authentication/reference#get-user-info) to retrieve this information after the user has logged in.
 
 ## Setup the Authorization Extension
 
