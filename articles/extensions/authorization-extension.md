@@ -61,15 +61,17 @@ Here you can configure:
 
 ### Token Contents
 
-**Storing Additional Data in Tokens**:
+#### Storing Additional Data in Tokens
 
-If you want to store data on Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces. **Note**: when calling the `/authorize` endpoint or configuring Lock, you will also have to specify the information you want in the `scope`: `groups`, `permissions` and/or `roles`.
+If you want to store data on Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces. 
+
+**ΝΟΤΕ**: when calling the `/authorize` endpoint or configuring Lock, you will also have to specify the information you want in the `scope`: `groups`, `permissions` and/or `roles`.
 
 ::: panel-warning Notice
 Storing too much data in the token can cause performance issues or even prevent the token to be issued. Make sure you only choose to store the data that you'll really need. If this data can grow too large, consider using persistence instead of adding it to the token.
 :::
 
-**Passthroughs**:
+#### Passthroughs
 
 If you have users that receive groups from the Identity Provider (such as Active Directory) then you can merge these groups (in order to preserve them) with the groups defined in your Authorization Extension. Use the toggle buttons to choose which to merge of Groups, Roles and Permissions.
 
