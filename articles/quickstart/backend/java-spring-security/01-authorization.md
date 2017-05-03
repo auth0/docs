@@ -21,6 +21,8 @@ This tutorial demonstrates how to protect your Spring Security API endpoints and
 Start by configuring your API to use the RS256 signing algorithm. If you downloaded the seed project above, `RS256` is configured by default.
 
 ```java
+// src/main/java/com/auth0/example/AppConfig.java
+
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -39,6 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 This example assumes one entity called **Photos** and implements CRUD methods for it, along with a **login** route. The former will require authentication and specific scopes, while the latter won't. In the `AppConfig` class, edit the snippet to add the route matchers. The `hasAuthority()` method provides a way to specify the required scope for the resource.
 
 ```java
+// src/main/java/com/auth0/example/AppConfig.java
+
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -79,6 +83,8 @@ Next, edit the `AppConfig.java` file to configure which endpoints are secure and
 To test your endpoints, start the API and send the relevant HTTP requests.
 
 ```java
+// src/main/java/com/auth0/example/PhotosController.java
+
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
