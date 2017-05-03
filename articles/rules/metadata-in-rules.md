@@ -141,7 +141,7 @@ function(user, context, callback){
   user.user_metadata.preferences.fontSize = 12;
 
   // persist the user_metadata update
-  auth0.users.updateUserMetadata({ id: user.user_id }, user.user_metadata)
+  auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
     .then(function(){
       callback(null, user, context);
     })
@@ -189,7 +189,7 @@ function(user, context, callback){
   var appMetadataPromise  = auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
 
   // persist the user_metadata update
-  var userMetadataPromise = auth0.users.updateUserMetadata({ id: user.user_id }, user.user_metadata);
+  var userMetadataPromise = auth0.users.updateUserMetadata(user.user_id, user.user_metadata);
 
   // using q library to wait for all promises to complete
   q.all([userMetadataPromise, appMetadataPromise])
@@ -363,7 +363,7 @@ function(user, context, callback){
   delete user.user_metadata.preferences.color;
 
   // persist the user_metadata update
-  auth0.users.updateUserMetadata({ id: user.user_id }, user.user_metadata)
+  auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
     .then(function(){
       callback(null, user, context);
     })
