@@ -28,7 +28,7 @@ As you can see, upon successful authentication, the `onAuth` callback will yield
 > For further reference on the `credentials` object, please see:
 [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift)
 >
-> We will cover the storing of the users credentials in a later chapter.  By default Lock will not store this for you.
+> We will cover the storage of the user's credentials in a later chapter.  By default Lock will not store this for you.
 
 This sets you up for handling Database connections.
 
