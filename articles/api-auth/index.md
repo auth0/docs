@@ -154,6 +154,13 @@ Using Auth0, you can easily support different flows in your own APIs without wor
     </p>
   </li>
   <li>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/token-introspection">Token Introspection</a>
+    <p>
+      Learn how to use token introspection to make authorization decisions based on the metadata attached to an access token.
+    </p>
+  </li>
+  <li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/verify-access-token">Verify Access Tokens</a>
     <p>
       Learn what an API has to do in order to verify a Bearer Access Token.
