@@ -7,7 +7,7 @@ budicon: 448
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-community',
-  repo: 'auth0-xamarin-ios-oidc-samples',
+  repo: 'auth0-xamarin-android-oidc-samples',
   path: 'Quickstart/01-Login',
   requirements: [
     'Visual Studio 2017 or Visual Studio for Mac',
