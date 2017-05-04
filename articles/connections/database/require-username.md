@@ -34,4 +34,12 @@ The default allowed length for usernames is between 1 and 15 characters. However
 
 ### Allowed Characters
 
-The username field only allows letters (upper and lowercase A through Z, letters with accent marks not accepted), numbers, and the underscore (`_`) symbol. All other symbols (`@`, `.`, `,`, etc.) are not allowed.
+The username field accepts the following characters:
+
+* Alphanumeric characters (without accent marks);
+* The underscore (_) character;
+* The plus (+) character;
+* The minus (-) character;
+* The dot (.) character;
+
+No other characters/symbols are allowed.
