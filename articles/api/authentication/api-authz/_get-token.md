@@ -768,40 +768,45 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token from the `mfa_required` error. |
 | `recovery_code` <br/><span class="label label-danger">Required</span> | Recovery code provided by the end-user. |
 
+<<<<<<< 56e417448ed71f6845eac900603a1ce0ccbe3000
 ## Refresh Token
+=======
+## Token Introspection
+
+[Token introspection](/api-auth/token-introspection) allows a protected resource to query an Authorization Server (Auth0) to request information about an access token presented to it, such as its status (whether it is active or not), its scopes, and the context in which it was issued (such as who issued the token and to whom the token was issued).
 
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/oauth/token
-Content-Type: 'application/json'
+POST https://${account.namespace}/oauth/introspect
+Content-Type: 'application/application/x-www-form-urlencoded'
 {
-  "grant_type": "refresh_token",
-  "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}",
-  "refresh_token": "YOUR_REFRESH_TOKEN"
+  "token": "eyJz93a...k4laUWw",
+  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+  "client_assertion": "ey..."
 }
 ```
 
 ```shell
 curl --request POST \
-  --url 'https://${account.namespace}/oauth/token' \
-  --header 'content-type: application/json' \
-  --data '{"grant_type":"refresh_token","client_id": "${account.clientId}","client_secret": "${account.clientSecret}","refresh_token": "YOUR_REFRESH_TOKEN"}'
+  --url 'https://${account.namespace}/oauth/introspect' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data '{"token":"eyJz93a...k4laUWw", "client_assertion_type":"urn:ietf:params:oauth:client-assertion-type:jwt-bearer", "client_assertion":"ey..."}'
 ```
 
 ```javascript
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://${account.namespace}/oauth/token',
-  headers: { 'content-type': 'application/json' },
+  url: 'https://${account.namespace}/oauth/introspect',
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
   body:
-   { grant_type: 'refresh_token',
-     client_id: '${account.clientId}',
-     client_secret: '${account.clientSecret}',
-     refresh_token: 'YOUR_REFRESH_TOKEN'},
-  json: true };
+  {
+    token: 'eyJz93a...k4laUWw',
+    client_assertion_type: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+    client_assertion: 'ey...'
+  },
+  json: false };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -810,8 +815,7 @@ request(options, function (error, response, body) {
 });
 ```
 
-> RESPONSE SAMPLE:
-
+> RESPONSE SAMPLE FOR INACTIVE/REVOKED TOKEN:
 ```JSON
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -832,6 +836,53 @@ Content-Type: application/json
 
 Use this endpoint to refresh an access token, using the refresh token you got during authorization.
 
+=======
+  "active": "false"
+}
+```
+
+> RESPONSE SAMPLE FOR ACTIVE NON-JWT ACCESS TOKEN:
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "token_type": "access_token",
+  "sub": "Z5O3upPC88QrAjx00dis",
+  "iat": 1419350238,
+  "exp": 1419356238,
+  "aud": "https://protected.example.net/resource",
+  "iss": "https://server.example.com/"
+ }
+```
+
+> RESPONSE SAMPLE FOR ACTIVE JWT ACCESS TOKEN:
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "token_type": "access_token",
+  "scope": "read write dolphin",
+  "exp": 1419356238,
+  "iat": 1419350238,
+  "sub": "Z5O3upPC88QrAjx00dis",
+  "aud": "https://protected.example.net/resource",
+  "iss": "https://server.example.com/"
+ }
+```
+
+> RESPONSE SAMPLE FOR ACTIVE REFRESH TOKEN:
+```JSON
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "token_type": "refresh_token",
+  "scope": "read write dolphin",
+  "sub": "Z5O3upPC88QrAjx00dis",
+  "iss": "https://server.example.com/",
+  "aud": "https://protected.example.net/resource",
+  "jti": ""
+ }
+```
 
 ### Request Parameters
 
@@ -857,3 +908,13 @@ Use this endpoint to refresh an access token, using the refresh token you got du
 ### More Information
 
 - [Refresh Token](/tokens/preview/refresh-token)
+=======
+| `token` <br/><span class="label label-danger">Required</span> | The access token presented to the protected resource |
+| `client_assertion` <br/><span class="label label-danger">Required</span> | The JWT signed signed with your API's private key |
+| `client_assertion_type` <br/><span class="label label-danger">Required</span> | The type of client assertion used |
+
+### Request Headers
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `content-type` | Set to `application/x-www-form-urlencoded` |
