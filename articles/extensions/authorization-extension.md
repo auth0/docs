@@ -21,7 +21,7 @@ First make sure you have a Client created that can support the Authorization ext
   Installing this extension creates an `auth0-authz` client for your account. <strong>Do not delete this client!</strong> If you uninstall the extension at a later date, it will automatically delete this client as well.
 </div>
 
-To install the Authorization extension, click on the "Auth0 Authorization" box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app.
+To install the Authorization extension, click on the "Auth0 Authorization" box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app. You will also need to choose where to store the data which is documented under [Storage Types](#storage-types).
 
 ![Install Authorization Extension](/media/articles/extensions/authorization/app-install-v2.png)
 
@@ -277,14 +277,54 @@ And then clicking **Import/Export**.
 
 Use this form to copy and/or paste, or edit JSON data and then click either the **IMPORT** or **EXPORT** button when finished, depending on your use case.
 
-## Storage
+## Storage Types
 
-The extension uses the internal Webtask storage capabilities, which are limited to 500 KB. Here are some examples of what this means in terms of scenarios:
+### Webtask Storage
+
+The extension will use Webtask Storage by default, which is limited to 500 KB. Here are some examples of what this means in terms of scenarios:
 
  - If you have 1000 groups and 3000 users, where each user is member of 3 groups about 475 KB of data would be used.
  - If you have 20 groups and 7000 users, where each user is member of 3 groups about 480 KB of data would be used.
 
-Think you need more? [Contact support.](${env.DOMAIN_URL_SUPPORT})
+### Amazon S3
+
+The extension also allows you to config Amazon S3 as a storage provider. In order to use Amazon S3 you will need to:
+
+ 1. Create an S3 bucket
+ 2. Create an IAM user and get the Key ID and Key for that user
+ 3. Create a policy for the IAM user which allows the user to make changes to the bucket
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteObject",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::NAME-OF-YOUR-BUCKET/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::NAME-OF-YOUR-BUCKET"
+            ],
+            "Condition": {}
+        }
+    ]
+}
+```
+
+> Note regarding concurrency: Amazon S3 is a file based storage platform, which means writes in parallel can cause issues. The storage logic tries to take this into account as much as possible, but if you automate the creation of groups/roles/permissions we suggest you make sequential calls to the API.
 
 ## Troubleshooting
 
