@@ -7,7 +7,6 @@
 
 Auth0 provides many authentication and authorization flows that suit your needs, and depending on your use case, you may wish to limit the use of certain grant types for a particular Client. Auth0 includes a `grant_type` property on each Client for this purpose.
 
-
 ## Grant Types
 
 The following is a list of grant types valid for Auth0 Clients. Each of the items represents one of the three types of authorization flows.
@@ -46,8 +45,11 @@ To edit the `grant_type` property for your Auth0 Client, you'll need to make the
 As of TBD, new Auth0 customers **cannot** add *any* of the legacy grant types to their Clients. Only customers as of TBD can add legacy grant types to their existing Clients.
 :::
 
-Auth0 requires the `grant_type` property. Attempting to use *any* flow with a Client lacking the appropriate `grant_type` for that flow will result in errors.
+Auth0 requires the `grant_type` property. Attempting to use *any* flow with a Client lacking the appropriate `grant_type` for that flow (or with the field empty) will result in the following error:
 
+```text
+Grant type `grant_type` not allowed for the client.
+```
 
 ### Existing Clients
 
@@ -55,20 +57,31 @@ To avoid changes in functionality for current Auth0 customers, we will populate 
 
 ### New Clients
 
-When creating a new Client via the [Management Dashboard](${manage_url}), Auth0 sets the following two flags as follows:
+Depending on whether a newly-created Client is **public** or **confidential**, the Client will have varying access to grant types.
 
-* `oidc_conformant`: `false`
-* `is_first_party`: `true`
+### Public Clients
 
-Auth0 then assigns the appropriate default grant type based on the values of these flags.
+Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. They can be set to the following grant types:
 
-If you would like to specify alternate values for either of these two options when you create the Client, you will need to [create the client via the Management API](/api/management/v2#!/Clients/post_clients).
+* `implicit`;
+* `authorization_code`;
+* `refresh_token`.
 
-Please note that you can toggle the value of `oidc_conformant` at any time using the Management Dashboard in the *Advanced Settings* section of your [Client Settings page](${manage_url}/#/clients/${account.clientId}/settings).
+### Confidential Clients
 
-### Determine Client Grant Type
+Confidential Clients, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Non-Interactive Clients. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. Confidential Clients can be set to the following grant types:
 
-If `is_first_party` is `true`, the Client can use the following grant types (regardless of whether `oidc_conformant` is `true` or `false`):
+
+* `implicit`;
+* `authorization_code`;
+* `refresh_token`;
+* `client_credentials`.
+
+### Trusted First-Party Clients
+
+When creating a new Client via the [Management Dashboard](${manage_url}), Auth0 sets the `is_first_party` flag to `true`.
+
+The Client can therefore use any of the following grant types:
 
 * `implicit`
 * `authorization_code`
@@ -80,24 +93,12 @@ If `is_first_party` is `true`, the Client can use the following grant types (reg
 * `http://auth0.com/oauth/grant-type/mfa-otp`
 * `http://auth0.com/oauth/grant-type/mfa-recovery-code`
 
-If `is_first_party` is `false` **and** the `oidc_conformant` flag is `true`, the Client can use the following grant types:
-
-* `implicit`
-* `authorization_code`
-* `client_credentials`
-* `refresh_token`
-* `http://auth0.com/oauth/grant-type/mfa-oob`
-* `http://auth0.com/oauth/grant-type/mfa-otp`
-* `http://auth0.com/oauth/grant-type/mfa-recovery-code`
-
-For third-party Clients, Auth0 limits used of the Password Exchange flows by default. To use this flow, you must explicitly enable it by making the appropriate `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) of the [Management API](/api/management/v2).
-
 ## Secure Alternatives to the Legacy Grant Types
 
 <table class="table">
   <tr>
-    <th>If you want to use this legacy grant type...</th>
-    <th>You should...</th>
+    <th>Legacy Grant Type</th>
+    <th>Alternative</th>
   </tr>
   <tr>
     <td>Resource Owner Password Credentials flow (`http://auth0.com/oauth/legacy/grant-type/ro`)</td>
@@ -105,7 +106,7 @@ For third-party Clients, Auth0 limits used of the Password Exchange flows by def
   </tr>
   <tr>
     <td>`http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer`</td>
-    <td>Contact Support for assistance.</td>
+    <td>This feature is disabled by default due to security implications. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities.</td>
   </tr>
   <tr>
     <td>`http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token`</td>
@@ -113,7 +114,7 @@ For third-party Clients, Auth0 limits used of the Password Exchange flows by def
   </tr>
   <tr>
     <td>`http://auth0.com/oauth/legacy/grant-type/delegation/id_token`</td>
-    <td>Contact Support for assistance.</td>
+    <td>This feature is disabled by default due to security implications. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities.</td>
   </tr>
   <tr>
     <td>`http://auth0.com/oauth/legacy/grant-type/access_token`</td>
