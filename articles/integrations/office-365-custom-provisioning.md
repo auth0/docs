@@ -106,7 +106,7 @@ function (user, context, callback) {
         user.app_metadata.office365_provisioned = true;
         user.app_metadata.office365_upn = context.userPrincipalName;
         user.app_metadata.office365_immutable_id = context.immutableId;
-        auth0.users.updateAppMetadata({ id: user.user_id }, user.app_metadata)
+        auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
         .then(function() {
           // Wait a little bit, it takes some time before the user is created.
           setTimeout(function() {
