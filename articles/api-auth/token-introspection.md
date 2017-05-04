@@ -5,9 +5,13 @@ toc: true
 
 # Token Introspection
 
-In OAuth 2.0, the clients don't need to know anything about the content or structure of the token. However, there may be metadata attached to the token the client would find useful, such as the token's validity, the approved scopes, and the context in which the token was issued. Protected resources, such as an API, can use these pieces of information to make authorization decisions based on the tokens it receives. One protocol that allows protected resources to query an authorization server to determine the set of metadata for a given token is *token introspection*.
+In OAuth 2.0, the clients don't need to know anything about the content or structure of the token. However, there may be metadata attached to the token the client would find useful, such as the token's validity, the approved scopes, and the context in which the token was issued.
 
-Auth0 supports [OAuth 2.0 Token Introspection](https://tools.ietf.org/html/rfc7662), which allows a protected resource to query an Authorization Server (Auth0) to request the status of an OAuth 2.0 token (whether it is active or not). The protected resource can also obtain information such as the token's scopes and the context in which it was issued (such as who issued the token and to whom the token was issued). This is especially useful for Application Specific Passwords (ASPs), which utilizes non-JWT tokens.
+Protected resources, such as an API, can use token metadata to make authorization decisions. One protocol that allows protected resources to query an authorization server to determine the set of metadata for a given token is *token introspection*.
+
+Auth0 supports [OAuth 2.0 Token Introspection](https://tools.ietf.org/html/rfc7662), which allows a protected resource to query an Authorization Server (Auth0) to request the status of an OAuth 2.0 token (whether it is active or not).
+
+Additionally, the protected resource can also obtain information such as the token's scopes and the context in which it was issued (such as who issued the token and to whom the token was issued). This is especially useful for Application Specific Passwords (ASPs), which utilizes non-JWT tokens.
 
 Because token instrospection is a means by which an API can verify a token, you do not need to configure any addition verification flows performed by the API. Additionally, for any existing authorization flows involving JWT access tokens, you do not need to update your processes to use token introspection.
 
