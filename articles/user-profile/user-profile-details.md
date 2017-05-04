@@ -48,6 +48,8 @@ The User Profile object then has two **metadata** sub-objects, one called `user_
 
 ::: panel-info Metadata Data Limits
 Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties.
+
+In addition, please be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store. 
 :::
 
 ::: panel-danger Usage of Metadata
@@ -116,6 +118,10 @@ The authentication flows supported by Auth0 includes an optional parameter that 
 The User Profile can also be modified through the Auth0 Management Dashboard. The dashboard allows administrators to manually edit portions of the User Profile for a particular user. This mechanism can be used to alter the `user_metadata` and `app_metadata` portions of the User Profile.
 
 In the Auth0 dashboard, click on "Users", then the user to be edited, then "EDIT". The User Profile attributes within USER metadata and APP metadata can be edited by specifying profile data in JSON format with a key (attribute name) and value (value of the attribute). Pressing "SAVE" will save the information to the Auth0 cache of User Profile information for the user where it will be visible by client applications integrated with Auth0. This "SAVE" will not alter information in the core user profile which is provided by the Connection.
+
+::: panel-info Pending Users
+The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+:::
 
 ### Management API
 

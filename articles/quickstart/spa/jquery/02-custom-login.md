@@ -26,7 +26,7 @@ Include the auth0.js library in your application. It can be retrieved from Auth0
 ```html
 <!-- index.html -->
 
-<script type="text/javascript" src="https://cdn.auth0.com/js/auth0/8.4/auth0.min.js"></script>
+<script src="${auth0js_urlv8}"></script>
 ```
 
 ## Create a Login Template
@@ -167,13 +167,14 @@ $(document).ready(function() {
       show_logged_in();
     } else {
       auth.parseHash({ _idTokenVerification: false }, function(err, authResult) {
+        if (err) {
+          alert('Error: ' + err.errorDescription);
+          show_sign_in();
+        }
         if (authResult && authResult.accessToken && authResult.idToken) {
           window.location.hash = '';
           setUser(authResult);
           show_logged_in();
-        } else if (authResult && authResult.error) {
-          alert('error: ' + authResult.error);
-          show_sign_in();
         }
       });
     }

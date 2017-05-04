@@ -26,6 +26,3 @@ For database connections Auth0 limits certain types of repeat login attempts dep
 To protect the health of the system overall, putting these restrictions in place help mitigate the load on our systems. Due to the high amount of customization Auth0 provides, we risk degradation of service from users that may perform high load stress or benchmark tests, as well as the possibility of bad code causing users to login multiple times.
 
 [Click here to learn more about API Rate Limits](/rate-limits)
-
-
-

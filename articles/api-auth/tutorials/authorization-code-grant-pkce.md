@@ -89,7 +89,7 @@ var challenge = base64URLEncode(sha256(verifier));</code></pre>
       <pre>
 <code class="java hljs">byte[] bytes = verifier.getBytes("US-ASCII");
 MessageDigest md = MessageDigest.getInstance("SHA-256");
-md.update(input, 0, input.length);
+md.update(bytes, 0, bytes.length);
 byte[] digest = md.digest();
 String challenge = Base64.encodeToString(digest, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
     </div>
@@ -144,8 +144,8 @@ Where:
 
 * `scope`: The [scopes](/scopes) that you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
 
-  ::: panel-info Arbitrary Claims
-  In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add arbitrary claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add an arbitrary claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
+  ::: panel-info Custom claims format
+  Auth0 returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`. You can [add namespaced claims using Rules](#optional-customize-the-tokens).
   :::
 
 * `response_type`: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be `code`.
@@ -242,24 +242,15 @@ If you wish to execute special logic unique to the Authorization Code (PKCE) gra
 
 ## Read more
 
-[Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
-
-[How to configure an API in Auth0](/apis)
-
-[Mobile/Native App Quickstarts](/quickstart/native)
-
-[Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
-
-[Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
-
-[Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
-
-[The OAuth 2.0 protocol](/protocols/oauth2)
-
-[The OpenID Connect protocol](/protocols/oidc)
-
-[Tokens used by Auth0](/tokens)
-
-[RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
-
-[RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)
+- [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
+- [How to configure an API in Auth0](/apis)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Mobile/Native App Quickstarts](/quickstart/native)
+- [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
+- [Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
+- [Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
+- [The OAuth 2.0 protocol](/protocols/oauth2)
+- [The OpenID Connect protocol](/protocols/oidc)
+- [Tokens used by Auth0](/tokens)
+- [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+- [RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)

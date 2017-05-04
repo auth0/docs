@@ -1,6 +1,7 @@
 ---
 description: This page lists several examples of user search queries using query string syntax.
 section: apis
+crews: crew-2
 ---
 
 # User Search
@@ -10,6 +11,10 @@ As an Auth0 admin you can search different fields of your users using [query str
 The `user_metadata`, `app_metadata` or the [normalized user profile](/user-profile/normalized) fields are searchable. Note that users have read/write access to the `user_metadata` field but only read-only access to the `app_metadata` field.
 
 Auth0 User Search uses [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
+
+::: panel-warning Default Sort 
+If there is no default sort field specified some users that have never logged in may not appear. No default sort field may also result in duplicate records returned and the order of list of users may appear random.
+:::
 
 ## In the Dashboard
 

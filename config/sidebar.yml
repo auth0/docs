@@ -20,14 +20,14 @@ articles:
 
   - title: "Clients"
     url: "/clients"
-  
+
   - title: "APIs"
     url: "/api-auth"
     children:
 
       - title: "APIs Overview"
         url: "/apis"
-        
+
       - title: "Which OAuth Flow to Use"
         url: "/api-auth/which-oauth-flow-to-use"
 
@@ -45,10 +45,10 @@ articles:
 
       - title: "APIs & Trusted Clients"
         url: "/api-auth/grant/password"
-        
+
       - title: "Dynamic Client Registration"
         url: "/api-auth/dynamic-client-registration"
-      
+
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
 
@@ -58,8 +58,8 @@ articles:
       - title: "Username/Password Connection"
         url: "/connections/database"
 
-      - title: "Social Connections"
-        url: "/identityproviders#social"
+      - title: "Social / Enterprise Connections"
+        url: "/identityproviders"
         children:
           - title: "Custom Social Extensions"
             url: "/extensions/custom-social-extensions"
@@ -67,19 +67,16 @@ articles:
       - title: "Custom Database Connections"
         url: "/connections/database/mysql"
 
-      - title: "Enterprise Identity Providers"
-        url: "/identityproviders#enterprise"
-
       - title: "Passwordless Authentication"
         url: "/connections/passwordless"
         children:
           - title: "Overview"
             url: "/connections/passwordless"
 
-          - title: "Email Passwordless Authentication"
+          - title: "Using Email"
             url: "/connections/passwordless/email"
 
-          - title: "SMS Passwordless Authentication"
+          - title: "Using SMS"
             url: "/connections/passwordless/sms"
 
           - title: "FAQ"
@@ -158,15 +155,6 @@ articles:
 
       - title: "Authorization"
         url: "/extensions/authorization-extension"
-        children:
-          - title: "Groups"
-            url: "/extensions/authorization-extension#groups"
-
-          - title: "Roles"
-            url: "/extensions/authorization-extension#roles"
-
-          - title: "Permissions"
-            url: "/extensions/authorization-extension#permissions"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
@@ -184,10 +172,7 @@ articles:
             url: "/multifactor-authentication/developer"
 
           - title: "For Users"
-            url: "/multifactor-authentication/user-guide"
-
-      - title: "SMS"
-        url: "/multifactor-authentication#mfa-with-sms"
+            url: "/multifactor-authentication/guardian/user-guide"
 
       - title: "Google Authenticator"
         url: "/multifactor-authentication/google-authenticator"
@@ -195,13 +180,27 @@ articles:
       - title: "Duo Security"
         url: "/multifactor-authentication/duo"
 
-
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
 
   - title: "Addons/Third-Party Applications"
     url: "/addons"
   
+  - title: "Support"
+    url: "/support"
+    children:
+      - title: "Support Matrix"
+        url: "/support/matrix"
+      
+      - title: "SLA"
+        url: "/support/sla"
+      
+      - title: "Tickets"
+        url: "/support/tickets"
+        
+      - title: "Manage Subscription"
+        url: "/support/subscription"        
+
   - title: "Professional Services"
     url: "/services"
 
@@ -247,11 +246,11 @@ libraries:
     url: "/libraries"
 
   - title: "Lock for Web"
-    url: "/libraries/lock"
+    url: "/libraries/lock/v10"
     children:
 
       - title: "Overview"
-        url: "/libraries/lock"
+        url: "/libraries/lock/v10"
 
       - title: "Configuration Options"
         url: "/libraries/lock/v10/customization"
@@ -278,11 +277,11 @@ libraries:
         url: "/libraries/lock/v10/popup-mode"
 
   - title: "Lock for iOS"
-    url: "/libraries/lock-ios"
+    url: "/libraries/lock-ios/v2"
     children:
 
       - title: "Overview"
-        url: "/libraries/lock-ios"
+        url: "/libraries/lock-ios/v2"
 
       - title: "Styles Customization"
         url: "/libraries/lock-ios/v2/customization"
@@ -338,10 +337,10 @@ libraries:
     children:
 
       - title: "Auth0.js v8"
-        url: "/libraries/auth0js"
+        url: "/libraries/auth0js/v8"
 
       - title: "Migration Guide v8"
-        url: "/libraries/auth0js/migration-guide"
+        url: "/libraries/auth0js/v8/migration-guide"
 
       - title: "Auth0.js v7"
         url: "/libraries/auth0js/v7"

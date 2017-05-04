@@ -103,7 +103,7 @@ You can mark rules as manual. In that case, the source control extension will no
 
 ![](/media/articles/extensions/bitbucket-deploy/manual-rules.png)
 
-You can control the Rule order, status (`enabled`/`disabled`) and stage (for now, only `login_success` is available) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
+You can control the Rule order and status (`enabled`/`disabled`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
 
 __set-country.js__
 ```javascript

@@ -1,5 +1,6 @@
 ---
 description: How to blacklist user attributes that you do not want persisting in Auth0 databases.
+crews: crew-2
 ---
 
 # Blacklisting Attributes

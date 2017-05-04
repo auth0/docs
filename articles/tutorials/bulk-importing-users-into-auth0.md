@@ -1,5 +1,6 @@
 ---
 description: How to bulk import users using the Management API endpoint.
+crews: crew-2
 ---
 
 # Bulk Import Users to Auth0 Using a Job
@@ -110,7 +111,7 @@ If it works, you will get a response similar to the following one:
 }
 ```
 
-The returned entity represents the import job. 
+The returned entity represents the import job.
 
 Once the job finishes, whether it failed or was successful, the owner of the Auth0 account that the job is being run on will get an e-mail notifying them about the result.
 
@@ -124,5 +125,4 @@ You can query a job's status using the [GET /api/v2/jobs/{id} endpoint](/api/man
 
 ### Retrieving Failed Entries
 
-You can query and retrieve details on failed entries via the API using the [GET /api/v2/jobs/{id}/errors endpoint](/api/management/v2#!/Jobs/get_errors). 
-
+You can query and retrieve details on failed entries via the API using the [GET /api/v2/jobs/{id}/errors endpoint](/api/management/v2#!/Jobs/get_errors).

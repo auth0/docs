@@ -1,6 +1,6 @@
 ---
 title: Session Handling
-description: This tutorial will show you how to integrate Auth0 with angular2 to add session handling and logout to your web app.
+description: This tutorial will show you how to integrate Auth0 with Angular to add session handling and logout to your web app.
 budicon: 280
 ---
 
@@ -9,7 +9,7 @@ budicon: 280
   repo: 'auth0-angularjs2-systemjs-sample',
   path: '03-Session-Handling',
   requirements: [
-    'Angular 2.0.1'
+    'Angular 2.4.10'
   ]
 }) %>
 
@@ -54,7 +54,7 @@ import { tokenNotExpired } from 'angular2-jwt';
 public authenticated() {
   // Check if there's an unexpired JWT
   // It searches for an item in localStorage with key == 'id_token' by default
-  return tokenNotExpired();
+  return tokenNotExpired('id_token');
 }
 ```
 

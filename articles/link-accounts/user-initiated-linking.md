@@ -1,5 +1,6 @@
 ---
 description: How to provide a UI for the user to authenticate to their other accounts and link these to their primary account.
+crews: crew-2
 ---
 
 # User Initiated Account Linking
@@ -20,13 +21,13 @@ The following is a sample login using Lock:
 
 ```html
 <script src="${lock_url}"></script>
-<script type="text/javascript">  
+<script type="text/javascript">
   //Log in using Lock in Redirect Mode
   function login(){
     lock.show();
   }
 
-  //handle redirection from iDP after login  
+  //handle redirection from iDP after login
   $(document).ready(function() {
     var hash = lock.parseHash();
     if (hash) {
@@ -68,7 +69,7 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
   <script src="${lock_url}"></script>
   <script type="text/javascript">
     var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-  
+
     function linkPasswordAccount(connection){
       var opts = {
         rememberLastLogin: false,
@@ -93,7 +94,7 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
         if (hash.error) {
           alert('There was an error logging in ' + hash.error );
         } else {
-          // there is already a logged in user, the hash comes from a linking account operation, 
+          // there is already a logged in user, the hash comes from a linking account operation,
           // and we should continue with the linking procedure
           if (isUserLoggedIn){
             linkAccount(hash.id_token);
@@ -116,9 +117,9 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
     function linkPasswordlessSMS(){
       // Initialize Passwordless Lock instance
       var lock = new Auth0LockPasswordless( '#{env.AUTH0_CLIENT_ID}', '#{env.AUTH0_DOMAIN}' );
-  
-      var opts = { 
-        autoclose: true, 
+
+      var opts = {
+        autoclose: true,
         rememberLastLogin: false,
         dict:{
           phone: {
@@ -137,13 +138,13 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
   <button onclick="linkPasswordlessSMS()">SMS</a>
   ```
 
-## 3. Perform linking by calling the Auth0 Management API 
+## 3. Perform linking by calling the Auth0 Management API
 
 In the `linkAccount` function, call the Management API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using both of the JWTs:
 
 ```js
 function linkAccount(secondaryJWT){
-  // At this point you can fetch the secondary user_metadata for merging 
+  // At this point you can fetch the secondary user_metadata for merging
   // with the primary account. Otherwise it will be lost after linking the accounts
   var primaryJWT = localStorage.getItem('id_token');
   var primaryUserId = localStorage.getItem('user_id');

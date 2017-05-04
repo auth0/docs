@@ -45,7 +45,7 @@ def requires_auth(f):
                 client_secret,
                 audience=client_id
             )
-        except jwt.ExpiredSignature:
+        except jwt.ExpiredSignatureError:
             return handle_error({'code': 'token_expired',
                                 'description': 'token is expired'}, 401)
         except jwt.InvalidAudienceError:

@@ -26,7 +26,7 @@ To enable either Push Notifications or SMS verification, move the appropriate sl
 
 ![](/media/articles/mfa/guardian-both.png)
 
-Once you have enabled either option, you will be presented with the **Customize MFA** code snippet that is applied automatically as a new [Rule](/rules). This rule will be executed in Auth0 as part of the transaction everytime a user authenticates to your application. By default, Auth0 enables Guardian for everything, but you may edit the rule so that MFA is applied only to some clients or users, as shown below. 
+Once you have enabled either option, you will be presented with the **Customize MFA** code snippet that is applied automatically as a new [Rule](/rules). This rule will be executed in Auth0 as part of the transaction everytime a user authenticates to your application. By default, Auth0 enables Guardian for everything, but you may edit the rule so that MFA is applied only to some clients or users, as shown below.
 
 
 ```js
@@ -40,7 +40,7 @@ function (user, context, callback) {
       context.multifactor = {
         provider: 'guardian', //required
 
-        // optional, defaults to true. Set to false to force MFA authentication every time. 
+        // optional, defaults to true. Set to false to force MFA authentication every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
         allowRememberBrowser: false
       };
@@ -103,7 +103,7 @@ All MFA related events are recorded for audit purposes. For example, each time a
 You can view events in the [Logs](${manage_url}/#/logs) sections of the dashboard.
 
 ![](/media/articles/mfa/logs.png)
- 
+
 Here are all the possible events related to MFA:
 
 | Event Name  | Description |
@@ -126,4 +126,3 @@ Here are all the possible events related to MFA:
 | `gd_recovery_rate_limit_exceed` | When recovery validation fails because rate limit is exceeded |
 
 These events can also be searched using the [Management APIv2](/api/management/v2#!/Logs) using [query string syntax](/api/management/v2/query-string-syntax). You can search  criteria using the `q` parameter or you can search by a specific log ID.
-

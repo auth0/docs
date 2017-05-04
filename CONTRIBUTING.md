@@ -19,7 +19,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Escaping Strings](#escaping-strings)
   * [Screenshots](#screenshots)
   * [Front Matter](#front-matter)
-  
+
 [Versioning](#versioning)
 
 [Finishing](#finishing)
@@ -32,6 +32,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 
 [Quickstarts](#quickstarts)
   * [Creating Quickstarts](#creating-quickstarts)
+  * [Versioning Quickstarts](#versioning-quickstarts)
   * [Quickstart Guidelines](#quickstart-guidelines)
   * [Seed Projects](#seed-projects)
 
@@ -349,6 +350,66 @@ The `title` will generally be a single word like Introduction or Login as it wil
 
 After you publish the doc update, the new quickstart will automatically appear on both docs and manage.
 
+### Versioning Quickstarts
+The filesystem structure for a versioned quickstart looks like this:
+
+```
+react/
+  _details/
+    legacy.md
+    oidc.md
+  _includes/
+    _dependencies.md
+  legacy/
+    00-getting-started.md
+    01-login.md
+    02-custom-login.md
+  oidc/
+    00-getting-started.md
+    01-login.md
+    02-custom-login.md
+  dashboard-default.md
+  index.yml
+```
+
+In this case `react` is the name of the quickstart that has versions, and the two versions available are `legacy` and `oidc`.
+
+To create a versioned topic, the `react/index.yml` file must contain a `versions` property witha neste a set of versions. Here's an example `index.yml`:
+
+```yaml
+---
+title: React
+default_article: dashboard-default
+current_version: oidc
+versions:
+  legacy:
+    title: OIDC
+    articles:
+      - 00-getting-started
+      - 01-login
+      - 02-custom-login
+  oidc:
+    title: OIDC
+    articles:
+      - 00-getting-started
+      - 01-login
+      - 02-custom-login
+---
+```
+
+Take notice to the additional properties on a versioned quickstart:
+
+* `current_version` -- The name of the current version. This must be present in the `versions` array.
+* `versions` -- An array of all versions of the quickstart.  Each version must have a title and articles property.
+
+Versions details are used to communicate the differences in versions to the customer. OIDC and Legacy have defaults, however, you can set customize any version details by including a markdown file in the `_details` folder with a the corresponding version name.
+
+```
+react/
+  _details/
+    version-name.md
+```
+
 ### Quickstart Guidelines
 Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
 
@@ -644,6 +705,8 @@ When writing docs you can use the following variables instead of hard-coding the
 | `account.callback`     | The first callback URL of the current Auth0 app.   | `http://YOUR_APP.auth0.com/callback`   |
 
 # Versioning
+> **NOTE:** For Versioning Quickstarts view [Versioning Quickstarts](#versioning-quickstarts)
+
 Building on the system we established for Quickstarts, topic versioning is controlled by adding metadata to `index.yml` files. The filesystem structure for a versioned topic looks like this:
 
 ```
@@ -728,7 +791,7 @@ This limitation is a result of the implementation of `AutoVersionPlugin`, and ho
 
 ### Case Sensitive
 
-The folder name must match exactly the names listed in the yaml file. This is case sensitive. 
+The folder name must match exactly the names listed in the yaml file. This is case sensitive.
 
 For example, given the following yaml, naming the subdirectory `V9` instead of `v9` will result into a build error.
 

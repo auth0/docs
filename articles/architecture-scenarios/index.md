@@ -16,27 +16,83 @@ Click on any scenario to get more information.
 <section class="architecture-scenarios-content">
   <div class="showcase-section clearfix">
     <h5>Application Configurations</h5>
-    <p>These scenarios describe the different type of technology architectures you application may use, and how Auth0 can help for each of those</p>
-    <% cache.find('articles/architecture-scenarios/application', {sort: 'order'}).forEach(article => { %>
-      <a href="<%- article.url %>" class="architecture-scenarios-card">
-        <article>
-          <header class="architecture-scenarios__img">
-              <figure><img src="<%- article.image %>"></figure>
-            </header>
-            <div class="architecture-scenarios__text">
-              <h3><%- article.title %></h3>
-              <p><%- article.extract %></p>
-            </div>
-            <footer class="architecture-scenarios__link">
-              <span>Read more</span>
-            </footer>
-          </article>
-      </a>
-    <% }); %>
+    <p>These scenarios describe the different type of technology architectures your application may use, and how Auth0 can help for each of those.</p>
+    <a href="/architecture-scenarios/application/server-api" class="architecture-scenarios-card">
+      <article>
+        <header class="architecture-scenarios__img">
+          <figure><img src="/media/articles/architecture-scenarios/server-api.png"></figure>
+        </header>
+        <div class="architecture-scenarios__text">
+          <h3>Server Client + API</h3>
+          <p>Server to server communication where a server “Client” needs to make secure calls to an API (“Resource Server”), but on behalf of the client vs. a user.</p>
+        </div>
+        <footer class="architecture-scenarios__link">
+          <span>Read more</span>
+        </footer>
+      </article>
+    </a>
+    <a href="/architecture-scenarios/application/web-app-sso" class="architecture-scenarios-card">
+      <article>
+        <header class="architecture-scenarios__img">
+          <figure><img src="/media/articles/architecture-scenarios/web-oidc.png"></figure>
+        </header>
+        <div class="architecture-scenarios__text">
+          <h3>Single Sign-On for Regular Web Apps</h3>
+          <p>Traditional web application which needs to authenticate users using OpenID Connect.</p>
+        </div>
+        <footer class="architecture-scenarios__link">
+          <span>Read more</span>
+        </footer>
+      </article>
+    </a>
   </div>
+
+
   <div class="showcase-section clearfix">
-    <h5>Business Scenarios</h5>
-    <p>These scenarios describe the type of businesses which implement Auth0, and how Auth0 can help in each of those business scenarios</p>
+    <h5>More Scenarios Coming Soon</h5>
+    <p>These scenarios are under construction and will soon be updated. Some describe the different type of technology architectures your application may use, while others describe the type of businesses which implement Auth0, and how Auth0 can help in each of those scenarios.</p>
+    <a href="/architecture-scenarios/application/spa-api" class="architecture-scenarios-card">
+      <article>
+        <header class="architecture-scenarios__img">
+          <figure><img src="/media/articles/architecture-scenarios/spa-api.png"></figure>
+        </header>
+        <div class="architecture-scenarios__text">
+          <h3>SPA + API</h3>
+          <p>Single Page Web Application "Client" which talks to an API ("Resource Server"). The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.</p>
+        </div>
+        <footer class="architecture-scenarios__link">
+          <span>Read more</span>
+        </footer>
+      </article>
+    </a>
+    <a href="/architecture-scenarios/application/mobile-api" class="architecture-scenarios-card">
+      <article>
+        <header class="architecture-scenarios__img">
+          <figure><img src="/media/articles/architecture-scenarios/mobile-api.png"></figure>
+        </header>
+        <div class="architecture-scenarios__text">
+          <h3>Mobile + API</h3>
+          <p>Mobile Application ("Client") which talks to an API ("Resource Server"). The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.</p>
+        </div>
+        <footer class="architecture-scenarios__link">
+          <span>Read more</span>
+        </footer>
+      </article>
+    </a>
+    <a href="/architecture-scenarios/application/web-saml" class="architecture-scenarios-card">
+      <article>
+        <header class="architecture-scenarios__img">
+          <figure><img src="/media/articles/architecture-scenarios/web-saml.png"></figure>
+        </header>
+        <div class="architecture-scenarios__text">
+          <h3>Regular Web App (using SAML)</h3>
+          <p>Traditional web application which needs to authenticate users using SAML2.</p>
+        </div>
+        <footer class="architecture-scenarios__link">
+          <span>Read more</span>
+        </footer>
+      </article>
+    </a>
     <% cache.find('articles/architecture-scenarios/business', {sort: 'order'}).forEach(article => { %>
       <a href="<%- article.url %>" class="architecture-scenarios-card">
         <article>

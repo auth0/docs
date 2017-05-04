@@ -1,5 +1,5 @@
 ---
-order: 01
+order: 03
 title: SPA + API
 image: /media/articles/architecture-scenarios/spa-api.png
 extract: Single Page Web Application "Client" which talks to an API ("Resource Server"). The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.
@@ -7,6 +7,8 @@ description: Explains the architecture scenario with a Single Page Web Applicati
 ---
 
 # SPA + API
+
+<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 
 ![SPA + API Flow](/media/articles/architecture-scenarios/spa-api.png)
 
@@ -24,7 +26,6 @@ The application will usually store the information about the user's session (i.e
 
 The following is a list of articles on this website which will help you to implement this scenario:
 
-* [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
 * [Calling APIs from Client-side Web Apps](/api-auth/grant/implicit)
 * [Executing the Implicit Grant Flow](/api-auth/tutorials/implicit-grant)
 * [Mitigating replay attacks when using the implicit grant](/api-auth/tutorials/nonce)

@@ -15,12 +15,14 @@ file://\*
 As stated before, the seed project contains all the required Bower dependencies and has the references added to the `index.html` file. If you would rather integrate Auth0 into an existing Ionic application instead of using our seed project, you will need to add the following Bower dependencies to your application:
 
 ```bash
-bower install --save auth0-lock angular-lock angular-jwt
+bower install --save auth0-lock auth0.js angular-lock angular-jwt
 ```
 
 You will also need to add the references to the libraries to your application's `index.html`:
 
 ```html
+<!-- auth0.js -->
+<script src="lib/auth0.js/build/auth0.js"></script>
 <!-- Auth0 Lock -->
 <script src="lib/auth0-lock/build/lock.min.js"></script>
 <!-- lock-angular -->
@@ -31,6 +33,7 @@ You will also need to add the references to the libraries to your application's 
 
 The purpose of each of these references are as follows:
 
+ - **auth0.js** communicates with Auth0's APIs and necessary for angular-lock
  - **auth0-lock** is the default authentication widget provided by Auth0
  - **angular-lock**: Auth0's wrapper for using Lock with Angular
  - **angular-jwt**: Library that contains several useful services which make using JSON Web Tokens in Angular apps easy

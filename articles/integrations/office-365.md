@@ -130,3 +130,64 @@ Fabrikam can now host a simple website, like `http://office.fabrikamcorp.com` wh
 For users without Kerberos this will immediately show the login page. Users on a domain-joined machine will immediately be signed in to Office 365.
 
 <%= include('./_office-365-deep-linking') %>
+
+## Handling multiple domains
+
+If you have multiple domains associated to your Microsoft account, you will have to run the PowerShell script once for each domain, choosing a different `IssuerUri` for each domain. The `IssuerUri` is an arbitrary value, but it makes sense to make it match the domain and at least have a consistent naming convention. Here's the script that Fabrikam would use for its `contoso.com` domain:
+
+```powershell
+$cred = Get-Credential
+Connect-MsolService –Credential $cred
+
+Set-MsolDomainAuthentication
+    -DomainName "contoso.com"
+    -FederationBrandName "contoso.com"
+    -IssuerUri "urn:contoso.com"
+    [...other options remain the same for all domains...]
+```
+
+### Multiple domains and products using Legacy Authentication
+
+Office products support [Modern Authentication](https://support.office.com/en-us/article/How-modern-authentication-works-for-Office-2013-and-Office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) ("ADAL") and/or "Legacy" authentication (depending on product and version number). Every response sent by Auth0 to Office 365 includes a fixed "Issuer" attribute that is `urn:{your Auth0 account}`. If your setup requires that one or more Office products use legacy authentication, you will have to create a rule that changes the `Issuer` dynamically depending on the domain. To do this:
+
+1. Go to your Office 365 SSO Integration settings in Auth0, and copy the client ID from the URL. The URL will look like this:
+```
+${manage_url}/#/externalapps/YOUR_CLIENT_ID/settings
+```
+You will need the `YOUR_CLIENT_ID` part of the segment.
+
+2. Go to the **Rules** section and create a new rule. Start from the **Empty** template, name it `Set Issuer for Office 365 SSO Integration` and write code similar to this to set the issuer according to the domain of the user's email:
+
+```JavaScript
+function (user, context, callback) {
+  const office365ClientId = 'xxxxxx'; // put the right client id
+  if (context.clientID !== office365ClientId)
+      return callback(null, user, context);
+
+  var getIssuerURI = function(domain) {
+    // write code that returns the right issuer URI
+    // for each domain
+    if (domain === 'fabrikam.be') {
+      return 'urn:fabrikam.be';
+    } else if (domain === 'contoso.com') {
+      return 'urn:contoso.com';
+    }
+    return null;
+  }
+  
+  var domain = (user.userPrincipalName || user.email).split('@')[1];
+
+  // set the issuer according to the domain from
+  // the user's email address
+  var issuer = getIssuerURI(domain);
+
+  if (issuer) {
+    context.samlConfiguration = context.samlConfiguration || {};
+    context.samlConfiguration.issuer = issuer;
+  }
+
+  callback(null, user, context);
+}
+``` 
+
+Remember to set the right `office365ClientId` and adjust the mapping logic according to the IssuerURIs selected for each domain.

@@ -4,23 +4,19 @@ description: How to execute a Resource Owner Password Grant
 
 # Execute the Resource Owner Password Grant
 
-::: panel-danger Warning
-Support for Refresh Tokens will be available in a future release.
-:::
-
-## Configure your tenant for the Resource Owner Password Grant
+## Configure your tenant
 
 The Password Grant relies on a connection capable of authenticating users via username and password. In order to indicate which connection the Password Grant should use you need to set the value of the `default_directory` tenant setting.
 
-1. Open the Management Dashboard and browse to your [Account Settings](${manage_url}/#/account).
-1. Scroll down to the Settings section and locate the "Default Directory" setting.
+1. Open the [Dashboard](${manage_url}) and browse to your [Account Settings](${manage_url}/#/account).
+1. Scroll down to the _Settings_ section and locate the __Default Directory__ setting.
 1. Enter the name of the connection you would like to use. Keep in mind that only connections capable of authenticating users via username and password can be used (i.e. database connections, AD, LDAP, Windows Azure AD, ADFS)
 
-  ![Update Default Directory](/media/articles/api-auth/default-directory-setting.png)
+![Update Default Directory](/media/articles/api-auth/default-directory-setting.png)
 
-## Execute the flow
+## Ask for a Token
 
-In order to execute the flow the client needs to acquire the Resource Owner's credentials, usually this will be through the use of an interactive form. Once the client has the credentials it needs to forward them to Auth0 with a POST to the token endpoint.
+In order to execute the flow the client needs to acquire the Resource Owner's credentials, usually this will be through the use of an interactive form. Once the client has the credentials it needs to forward them to Auth0 with a `POST` to the [/oauth/token endpoint of Auth0's Authentication API](/api/authentication#resource-owner-password).
 
 ```har
 {
@@ -39,14 +35,14 @@ In order to execute the flow the client needs to acquire the Resource Owner's cr
 Where:
 
 * `grant_type`: This must be `password`.
-* `username`: Resource Owner's identifier.
-* `password`: Resource Owner's secret.
-* `audience`: API Identifier that the client is requesting access to.
-* `client_id`: Client ID of the client making the request.
-* `client_secret`: Client Secret of the client making the request. Required when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA).
-* `scope`: String value of the different scopes the client is asking for. Multiple scopes are separated with whitespace.
+* `username`: The end user's identifier.
+* `password`: The end user's password.
+* `audience`: The value of the **Identifier** field on the [Settings tab of the API](${manage_url}/#/apis).
+* `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
+* `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients). This is required when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA).
+* `scope`: String value of the different [scopes](/scopes) the client is asking for. Multiple scopes are separated with whitespace.
 
-The response from `/oauth/token` (if successful) contains an `access_token`, for example:
+The response contains a [signed JSON Web Token](/jwt), the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
 
 ```js
 {
@@ -96,7 +92,7 @@ To use this variation you will have to change the following request parameters:
 You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), [Passwordless](/connections/passwordless), [Active Directory/LDAP](/connections/enterprise/active-directory), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
 :::
 
-## Use the Access Token
+## Use the token
 
 Once the `access_token` has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
@@ -111,7 +107,7 @@ Once the `access_token` has been obtained it can be used to make calls to the Re
 }
 ```
 
-## Verify the Token
+## Verify the token
 
 Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
@@ -122,3 +118,24 @@ For details on the validations that should be performed by the API, refer to [Ve
 <%= include('../../_includes/_api-auth-customize-tokens') %>
 
 If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then the rule is running during the password exchange.
+
+## Optional: Configure MFA
+
+In case you need stronger authentication, than username and password, you can configure MultiFactor Authentication (MFA) using the Resource Owner Password Grant. For details on how to implement this refer to [Multifactor Authentication and Resource Owner Password](/api-auth/tutorials/multifactor-resource-owner-password).
+
+## Optional: Configure Anomaly Detection
+
+When using this flow from server-side applications, some anomaly detection features might fail because of the particularities of this scenario. For details on how to implement this, while avoiding some common issues, refer to [Using Resource Owner Password from Server side](/api-auth/tutorials/using-resource-owner-password-from-server-side).
+
+## Keep reading
+
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Call APIs from Highly Trusted Clients](/api-auth/grant/password)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to configure an API in Auth0](/apis)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to use Resource Owner Password Grant from the server side together with Anomaly Detection](/api-auth/tutorials/using-resource-owner-password-from-server-side)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Authentication API: POST /oauth/token](/api/authentication#resource-owner-password)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OAuth 2.0 protocol](/protocols/oauth2)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OpenID Connect protocol](/protocols/oidc)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[Tokens used by Auth0](/tokens)<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;[RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)<br/>

@@ -6,7 +6,7 @@ You will need an `Auth0Lock` instance to receive your Auth0 credentials and an o
 
 Your app will need to listen for Lock's `authenticated` event and have a callback registered to handle authentication. The callback has a single parameter that will have the user's authentication information and it will be invoked once the user is redirected after authenticating.
 
-There is a property on the object that gets returned by Auth0 called `idToken` which is a [JSON Web Token](https://jwt.io/introduction) identifying the user. It is this token that can be used to give an indication in your Angular 2 application that the user is authenticated, and it is also used to access resources from an API.
+There is a property on the object that gets returned by Auth0 called `idToken` which is a [JSON Web Token](https://jwt.io/introduction) identifying the user. It is this token that can be used to give an indication in your Angular 2 application that the user is authenticated.
 
 For now, store the `idToken` attribute into `localStorage`.
 
@@ -43,7 +43,7 @@ export class Auth {
   public authenticated() {
     // Check if there's an unexpired JWT
     // This searches for an item in localStorage with key == 'id_token'
-    return tokenNotExpired();
+    return tokenNotExpired('id_token');
   }
 
   public logout() {
@@ -116,15 +116,15 @@ As a workaround, look for an `access_token`, `id_token`, or `error` in the hash 
 ```js
 // app/auth.service.ts
 
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
 constructor(public router: Router) {
   this
     .router
     .events
-    .filter(event => event.constructor.name === 'NavigationStart')
-    .filter(event => (/access_token|id_token|error/).test(event.url))
+    .filter(event => event instanceof NavigationStart)
+    .filter((event: NavigationStart) => (/access_token|id_token|error/).test(event.url))
     .subscribe(() => {
       this.lock.resumeAuth(window.location.hash, (error, authResult) => {
         if (error) return console.log(error);

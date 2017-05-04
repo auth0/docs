@@ -4,9 +4,8 @@ toc: true
 description: Lock 10 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
 ---
 
-<%= include('../_includes/_lock-version') %>
+# Lock: Configuration Options
 
-# Lock: Configurable Options
 The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the Lock widget behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
 
 ```js
@@ -57,7 +56,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [redirectUrl](#redirecturl-string-) | The URL to redirect to after auth |
 | [responseMode](#responsemode-string-) | Option to send response as POST |
 | [responseType](#responsetype-string-) | Response as a code or token |
-| [sso](#sso-boolean-) | Whether or not to attempt to fetch SSO data and set cookie |
+| [sso](#sso-boolean-) | Whether or not to enable Single Sign On behavior in Lock |
 
 ### Database Options
 
@@ -531,7 +530,7 @@ var options = {
 
 #### sso {Boolean}
 
- When Lock is initialized it will make a request to obtain SSO data. If the `sso` option is set to `true`, the data is fetched and a cookie is set after a successful login.
+Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the client's or tenant' settings.
 
 ::: panel-warning Multifactor authentication
 Failing to set this to true will result in multifactor authentication not working correctly.
@@ -817,8 +816,6 @@ var options = {
   languageBaseUrl: "http://www.example.com"
 };
 ```
-
-<%= include('../_includes/_lock-toc') %>
 
 <!-- Vars-->
 

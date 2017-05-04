@@ -11,9 +11,11 @@ description: Explains how to securely store tokens used in token-based authentic
 
 ## Where to Store Your JWTs
 
-We strongly recommend that you store your tokens in session storage/local storage or a cookie.
+With token-based auth, you are given the choice of where to store the JWT. We strongly recommend that you store your tokens in local storage/session storage or a cookie. 
 
-### Web Storage (localStorage/sessionStorage)
+### Web Storage (local storage/session storage)
+
+Commonly, the JWT is placed in the browsers local storage and this works well for most use cases. There are some issues with storing JWTs in local storage to be aware of. Unlike cookies, local storage is sandboxed to a specific domain and its data cannot be accessed by any other domain including sub-domains.
 
 When logging in a user with a username and password, the response body contains the `access_token` JWT. Then you need to handle this response in the client side code. This token can then be stored in localStorage or sessionStorage.
 
@@ -27,7 +29,7 @@ Both `localStorage` and `sessionStorage` both extend `Storage`. The only differe
 
 ### Using Cookies
 
-You can also use cookies to store the JWT. The exact way to set a cookie depends on the client side language you are using.
+You can also use cookies to store the JWT. But the max size of a cookie is only 4kb so that may be problematic if you have many claims attached to the token. The exact way to set a cookie depends on the client side language you are using.
 
 There are different options to control the lifetime of a cookie:
 
@@ -38,4 +40,8 @@ There are different options to control the lifetime of a cookie:
 
 **Additional Resources:**
 
-[Auth0 Blog: 10 Things You Should Know about Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
+* [Understanding Sessions & Cookies Video](/videos/session-and-cookies)
+* [Auth0 Blog: 10 Things You Should Know about Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
+* [Auth0 Blog: Cookies vs Tokens: The Definitive Guide](https://auth0.com/blog/cookies-vs-tokens-definitive-guide/)
+
+* From Stormpath: [Where to Store your JWTs – Cookies vs HTML5 Web Storage](https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage)

@@ -23,6 +23,8 @@ description: Working with Hooks
   Hooks will eventually replace Rules, the current Auth0 extensibility method. Currently, you can use both Hooks and Rules, but Auth0 will implement new functionality in Hooks.
 </p>
 
+If you created your Hook early on during the beta testing period, your Webtask Editor window might not populate with the schema required to successfully use the Test Runner. If that is the case, you'll need to save the Hook's code, delete the Hook, and create a new Hook using your existing code.
+
 <h2>Work with Hooks</h2>
 
 <ul class="topic-links">
@@ -50,3 +52,6 @@ description: Working with Hooks
     </p>
   </li>
 </ul>
+
+<h2>Use the Webtask Editor</h2>
+You can edit Hooks directly using the Webtask Editor. Please see the [Webtask documentation](https://webtask.io/docs/editor) for detailed information.

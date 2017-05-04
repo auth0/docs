@@ -7,7 +7,7 @@ Add the code below to the `index.html` file to include the Lock widget library a
 <head>
 
   <!-- Auth0 lock script -->
-  <script src="https://cdn.auth0.com/js/lock/10.8/lock.min.js"></script>
+  <script src="${lock_url}"></script>
 
   <!-- Setting the right viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -46,7 +46,7 @@ btn_login.addEventListener('click', function() {
 <button type="submit" id="btn-login">Sign In</button>
 ```
 
-After authentication, Auth0 will redirect the user back to your application with an identifying token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
+After authentication, Auth0 will redirect the user back to your application with an identifying token.
 
 In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh:
 

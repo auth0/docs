@@ -6,7 +6,11 @@ description: This tutorial demonstrates how to use passwordless authentication
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '12-Passwordless'
+  path: '12-Passwordless',
+  requirements: [
+    'AngularJS 1.5.8',
+    'angular-lock 2.0.2'
+  ]
 }) %>
 
 ## Passwordless Authentication
@@ -26,7 +30,7 @@ Start by enabling a passwordless authentication connection in your Auth0 dashboa
 Install and reference the necessary libraries.
 
 ```bash
-bower install angular-lock-passwordless
+bower install angular-lock-passwordless --save
 ```
 
 ```html

@@ -1,5 +1,5 @@
 ---
-order: 02
+order: 04
 title: Mobile + API
 image: /media/articles/architecture-scenarios/mobile-api.png
 extract: Mobile Application ("Client") which talks to an API ("Resource Server"). The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.
@@ -7,6 +7,8 @@ description: Explains the architecture scenario with a mobile application client
 ---
 
 # Mobile + API
+
+<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
 
 ![Mobile + API Flow](/media/articles/architecture-scenarios/mobile-api.png)
 
@@ -26,7 +28,6 @@ The application will usually store the information about the user's session (i.e
 
 The following is a list of articles on this website which will help you to implement this scenario:
 
-* [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
 * [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
 * [Executing an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
 * [Native Apps Quickstarts](/quickstart/native/)

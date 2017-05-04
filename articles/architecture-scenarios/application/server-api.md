@@ -1,5 +1,5 @@
 ---
-order: 03
+order: 02
 title: Server Client + API
 image: /media/articles/architecture-scenarios/server-api.png
 extract: Server to server communication where a server “Client” needs to make secure calls to an API (“Resource Server”), but on behalf of the client vs. a user.
@@ -70,7 +70,7 @@ Using different grants types (or flows), these participants will interact to gra
 
 ### Client Credentials Grant
 
-OAuth 2 provides several *grant types* for different use cases. In this particular use case where a cron job will be uploading timesheets via an API, there is now interactive user (or resource owner) who grants permission to the cron job to access the API.
+OAuth 2 provides several *grant types* for different use cases. In this particular use case where a cron job will be uploading timesheets via an API, there is no interactive user (or resource owner) who grants permission to the cron job to access the API.
 
 The cron job is also not making the API calls on behalf of any user. Instead there is a machine-to-machine authorization and the client (i.e. the cron job) makes calls to the Resource Server (i.e. the API) on its own behalf.
 
@@ -155,7 +155,7 @@ You will see the **Timesheets Import Job** client listed, and it should have acc
 
 ![Authorize Client](/media/articles/architecture-scenarios/server-api/authorize-client.png)
 
-You will also need to specify which scopes will included in access tokens which are issued to the client when the client authorizes with Auth0.
+You will also need to specify which scopes will be included in access tokens which are issued to the client when the client authorizes with Auth0.
 
 Expand the settings for the client by clicking on the down arrow to the far right, and you will see the list of available scopes. The cron job will only require the `create:timesheets` scope as it will simply create new timesheets based on the timesheet entries in the external system.
 

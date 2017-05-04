@@ -52,8 +52,9 @@ Auth0 does email the dashboard owner when this block is triggered. Within this e
 
 Both of these anomaly types depend on the IP address of the user. Because of this, the following use cases are *not* supported:
 
-1.  Using the [Resource Owner](/api/authentication#resource-owner) from the backend of the application. Using this call does not get the IP address of the user.
-2.  Authenticating many users from the same IP address. For instance, users that are behind a proxy are more likely to reach these limits and trigger the associated protection. It is possible to configure a whitelist for the proxy's IP and CIDR range and avoid erroneously triggering the protection.
+1. Using the [Resource Owner](/api/authentication#resource-owner) from the backend of the application. Using this call does not get the IP address of the user. See point 2 below as an alternative.
+2. Using [Resource Owner Password Grant](/api-auth/grant/password) from the backend of the application. Using this call does not get the IP address of the user, however, you can [configure your client and send the IP address of the user as part of the request](/api-auth/tutorials/using-resource-owner-password-from-server-side) to make brute-force protection work correctly.
+3. Authenticating many users from the same IP address. For example, users that are behind a proxy are more likely to reach these limits and trigger the associated protection. It is possible to configure a whitelist for the proxy's IP and CIDR range and avoid erroneously triggering the protection.
 
 ### Breached Password Detection
 
@@ -65,6 +66,7 @@ Auth0 tracks large security breaches that are happening on major third party sit
 
 **Actions:**
 * Send an email to the affected user
+* Send an email to dashboard owners immediately, and/or have a daily/weekly/monthly summary
 * Block login attempts for suspected user accounts using that username and password combination
 
 This block remains in place until the user changes their password.
@@ -77,11 +79,19 @@ To customize the **actions** that get taken from the **triggers**, go to the [An
 
 You can use the toggle to disable all the actions of a certain shield. Or to enable/disable certain actions, click on the shield that has the action in it that you wish to change.
 
-![](/media/articles/anomaly-detection/changing-actions.png)
-
 Then you can use the toggle to enable/disable an action.
 
+### Brute-force Protection
+
+![](/media/articles/anomaly-detection/brute-force-shield.png)
+
 Here you can also add any IP addresses to the **Whitelist** field to avoid erroneously triggering the protection.
+
+Click **Save** when you have finished.
+
+### Breached-password Detection
+
+![](/media/articles/anomaly-detection/breached-password-shield.png)
 
 Click **Save** when you have finished.
 

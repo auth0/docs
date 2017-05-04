@@ -1,16 +1,23 @@
 ---
-description: How to update metadata through the Auth0 Management API.
+description: How to update metadata through the Auth0 Management API and Authentication API.
+crews: crew-2
 ---
 
-# Using Metadata with Auth0's Management API
+# Metadata with Auth0 APIs
+
+### Management API
 
 Using Auth0's Management APIv2, you can create a user and set both their `app_metadata` and `user_metadata`. You can also update these two fields.
 
 **Note:** The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
 
-## Set User Metadata Fields on Creation
+### Authentication API
 
-For example, to create a user with the following profile details:
+Using the [Authentication API Signup endpoint](/api/authentication?javascript#signup) you can create a new user for database connections and set the `user_metadata` field.
+
+## Management API: Set Metadata Fields on Creation
+
+To create a user with the following profile details:
 
 ```json
 {
@@ -50,7 +57,7 @@ you would make the following `POST` call to the Management API to create the use
 }
 ```
 
-## Update User Metadata
+## Management API: Update User Metadata
 
 You can update a user's metadata by making the appropriate `PATCH` call to the Management API.
 

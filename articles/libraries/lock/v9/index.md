@@ -1,8 +1,11 @@
 ---
 section: libraries
 description: Lock V9 documentation
-url: /libraries/lock/v9
+title: Lock 9 for Web
+toc: true
 ---
+
+# Lock 9 for Web
 
 <%= include('../_includes/_lock-version-9') %>
 

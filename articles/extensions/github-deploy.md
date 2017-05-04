@@ -106,7 +106,7 @@ You can mark rules as manual. In that case, the source control extension will no
 
 ![Manual Rules](/media/articles/extensions/github-deploy/manual-rules.png)
 
-You can control the rule order, status (`enabled`/`disabled`) and stage (`login_success`, `login_failure`, `pre_authorize`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
+You can control the rule order and status (`enabled`/`disabled`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
 
 __set-country.js__
 ```javascript
@@ -132,10 +132,6 @@ You can find examples in [this GitHub repository](https://github.com/auth0-sampl
 #### Set the order
 
 Multiple rules of the same order are not allowed. To avoid conflicts, you can create a JSON file for each rule and assign a value for `order`. If you leave enough space between these values, re-ordering them without conflicts will be easier. For example, if you have three rules, instead of setting their order to `1`, `2`, `3`, you can set them to `10`, `20`, `30`. This way, to move the `30` rule before the `20`, you can simply change its `order` to any value between `11` and `19`.
-
-#### Set the stage
-
-After you deploy a rule, you cannot change its stage. You would have to create a new rule with a new name and updated stage, and then delete the original rule. For the `user_registration` and `login_failure` stages, only a single rule is allowed.
 
 ## Track deployments
 

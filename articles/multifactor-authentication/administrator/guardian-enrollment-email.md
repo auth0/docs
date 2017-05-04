@@ -8,7 +8,7 @@ With this, an administrator can send an email to a user with a link for register
 To send this email:
 
 1. Find and select the user in the [Users](${manage_url}/#/users) section of the dashboard.
-2. Click on the **Actions** button on the top right of the screen. 
+2. Click on the **Actions** button on the top right of the screen.
 3. Select **Send Enrollment Email (Guardian)** from the dropdown.
 
  ![](/media/articles/mfa/guardian-send-enrollment-email.png)
@@ -29,8 +29,8 @@ To edit the rule, go to the **Multifactor Auth** section and edit appropriately.
 function (user, context, callback) {
 
   context.multifactor = {
-    provider: 'guardian', 
-    selfServiceEnrollment: false, 
+    provider: 'guardian',
+    selfServiceEnrollment: false,
   };
 
   callback(null, user, context);

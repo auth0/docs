@@ -4,6 +4,7 @@ connection: Google Apps
 image: /media/connections/googleapps.png
 seo_alias: google-apps
 description: Connecting Google Apps with Auth0.
+crews: crew-2
 ---
 
 # Connect Your Google App with Auth0

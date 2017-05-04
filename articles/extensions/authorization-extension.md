@@ -6,9 +6,9 @@ description: This page explains how to setup and manage the Authorization Extens
 # Auth0 Authorization Extension
 
 ::: panel-warning Notice
-This page explains how to use version 2 and later of the Authorization Extension, [click here for documentation of version 1.](/extensions/authorization-extension-v1)
+This page explains how to use Authorization Extension version 2 and later. [Click here for documentation of version 1.](/extensions/authorization-extension-v1)
 
-[Click here for information about upgrading your Authorization Extension version](#migration-from-v1-to-v2-of-the-authorization-extension-breaking-changes-)
+[Click here for information about upgrading your Authorization Extension.](#migration-from-v1-to-v2-of-the-authorization-extension-breaking-changes-)
 :::
 
 The Auth0 Authorization Extension provides user authorization support in Auth0. Currently the extension supports authorizations for Users using Groups, Roles and Permissions.
@@ -16,6 +16,10 @@ The Auth0 Authorization Extension provides user authorization support in Auth0. 
 ## How to Install
 
 First make sure you have a Client created that can support the Authorization extension. Supported client types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Clients with no type assigned or non-interactive clients are not supported.
+
+<div class="alert alert-info">
+  Installing this extension creates an `auth0-authz` client for your account. <strong>Do not delete this client!</strong> If you uninstall the extension at a later date, it will automatically delete this client as well.
+</div>
 
 To install the Authorization extension, click on the "Auth0 Authorization" box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app. You will also need to choose where to store the data which is documented under [Storage Types](#storage-types).
 
@@ -57,21 +61,23 @@ Here you can configure:
 
 ### Token Contents
 
-**Storing Additional Data in Tokens**:
+#### Storing Additional Data in Tokens
 
-If you want to store data on Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces.
+If you want to store data on Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces. 
+
+**ΝΟΤΕ**: when calling the `/authorize` endpoint or configuring Lock, you will also have to specify the information you want in the `scope`: `groups`, `permissions` and/or `roles`.
 
 ::: panel-warning Notice
 Storing too much data in the token can cause performance issues or even prevent the token to be issued. Make sure you only choose to store the data that you'll really need. If this data can grow too large, consider using persistence instead of adding it to the token.
 :::
 
-**Passthroughs**:
+#### Passthroughs
 
 If you have users that receive groups from the Identity Provider (such as Active Directory) then you can merge these groups (in order to preserve them) with the groups defined in your Authorization Extension. Use the toggle buttons to choose which to merge of Groups, Roles and Permissions.
 
 ### Persistence
 
-You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/tokeninfo` endpoint](/api/authentication/reference#get-token-info) to retrieve this information after the user has logged in.
+You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/userinfo` endpoint](/api/authentication/reference#get-user-info) to retrieve this information after the user has logged in.
 
 ## Setup the Authorization Extension
 
@@ -208,7 +214,7 @@ In addition to API access, you can also deploy a rule that reaches out to the ex
 
 1. Determine the user's group membership, roles and permissions using information provided by the Extension;
 2. Optionally store the user's groups, roles and permissions info as part of the `app_metadata`, to enable this [see details below](#persistence);
-3. Add the user's groups, roles and permissions to the outgoing token (which can be requested via the **OpenID Groups** scope) [see details below](#token-contents);
+3. Add the user's groups, roles and permissions to the outgoing token (which can be requested via the `openid groups permissions roles` scope), [see Token Contents above](#token-contents);
 
 > Note: Since this logic is part of a rule it will only be executed in the context of a login. If users are added to or removed from a group this will only be reflected within Auth0 after this user logs in again (eg: in the user's `app_metadata` or when calling the `/userinfo` endpoint).
 

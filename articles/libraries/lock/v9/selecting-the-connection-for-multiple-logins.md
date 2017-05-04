@@ -3,9 +3,9 @@ section: libraries
 description: Describes different options for selecting the connection in Auth0 when there are multiple login options for Lock v9.
 ---
 
-<%= include('../_includes/_lock-version-9') %>
-
 # Selecting the connection in Auth0 for multiple login options
+
+<%= include('../_includes/_lock-version-9') %>
 
 Auth0 allows you to offer your users multiple ways of authenticating. This is especially important with SaaS, multitenant apps in which a single app is used by many different organizations, each one potentially using different systems: LDAP, Active Directory, Google Apps, or username/password stores.
 

@@ -1,5 +1,6 @@
 ---
 description: This page lists different ways of how to update your application's client secret.
+crews: crew-2
 ---
 
 # Changing your application's client_secret

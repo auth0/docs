@@ -18,7 +18,7 @@ budicon: 280
 
 ## Before Starting
 
-This tutorial assumes you're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, review the [Login Tutorial](/quickstart/native/ios-swift/01-login) first.**
+This tutorial assumes you're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. If you're not sure, review the [login tutorial](/quickstart/native/ios-swift/01-login) first.
 
 ### Add the SimpleKeychain Dependency
 
@@ -95,17 +95,16 @@ guard let idToken = keychain.string(forKey: "id_token") else {
 // We still need to validate it!
 ```
 
-## Validate an existent idToken
+## Validate an existing idToken
 
-Then, if such a token exists, we need to check whether it's still valid, has expired, or is no longer valid for some other reason, such as being revoked. To do so, we'll use `Auth0` to fetch the user's profile based on the current `idToken` we've got:
+If such a token exists, we need to check whether it's still valid, has expired, or is no longer valid for some other reason. To do so, we'll use `Auth0` to fetch the user's profile based on the current `idToken` we've got:
 
 ```swift
 let keychain = A0SimpleKeychain(service: "Auth0")
 guard let idToken = keychain.string(forKey: "id_token") else {
-    // No idToken found, present Lock Login
+    // No idToken found, present Lock
     return
 }
-
 // Retrieve profile
 Auth0
      .authentication()
@@ -124,7 +123,7 @@ Auth0
 ## Dealing with a non-valid idToken
 
 How to deal with a non-valid idToken is up to you. You will normally choose between two scenarios:
-Either you ask users to re-enter theirs credentials, or you can use delegation with a [refresh_token((/refresh-token)) to obtain a new valid idToken again.
+Either you ask users to re-enter their credentials, or you can use `delegation` with a [refresh token](/refresh-token) to obtain a new valid idToken again.
 
 If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
 
@@ -136,7 +135,7 @@ However, in this tutorial, we'll focus on the latter scenario, where we still wa
 
 In this case, we're going to leverage the `refreshToken`. The refresh token is another token string contained within the `Credentials` object that comes upon a successful login, which doesn't expire, and whose main purpose is retrieving a new valid `idToken`.
 
->It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep in mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
+>It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You have to keep in mind, for example, that even though the refresh token cannot expire, it can be revoked.**
 
 ### Store the refreshToken
 
@@ -148,7 +147,7 @@ Besides storing the `idToken`, we need to store the `refreshToken`. Let's make a
 Lock
     .classic()
     .withOptions {
-        $0.scope = "openid offline_access"
+        $0.scope = "openid email offline_access"
         $0.parameters = ["device":"A_UNIQUE_ID"]
     }
     .onAuth {
@@ -161,10 +160,10 @@ Lock
 
 ### Use the refreshToken to get a new idToken
 
-We can use the `func renew(withRefreshToken refreshToken: String)` method in `Auth0` to yield fresh user's credentials.
+You can use the `refreshToken` in the `delegation` method to renew the user's idToken.
 
 ```swift
-// ⚠️ idToken has expired or invalid
+// idToken has expired or invalid, see if we have a refreshToken
 let keychain = A0SimpleKeychain(service: "Auth0")
 guard let refreshToken = keychain.string(forKey: "refresh_token") else {
     keychain.clearAll()
@@ -172,14 +171,15 @@ guard let refreshToken = keychain.string(forKey: "refresh_token") else {
 }
 Auth0
     .authentication()
-    .delegation(withParameters: ["refresh_token": refreshToken])
+    .delegation(withParameters: ["refresh_token": refreshToken,
+                                         "scope": "openid email",
+                                         "api_type": "app"])
     .start { result in
         switch(result) {
         case .success(let credentials):
             // Just got a new idToken!
             // Don't forget to store it...
             guard let idToken = credentials["id_token"] as? String else { return }
-            self.storeTokens(idToken)
             keychain.setString(idToken, forKey: "id_token")
             // At this point, you can log the user into your app. e.g. by navigating to the corresponding screen
         case .failure(let error):

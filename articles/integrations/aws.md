@@ -199,7 +199,7 @@ Where:
 * **target** identifies this API endpoint in Auth0 (often the same as client_id).
 * **api_type** must be aws
 
-Additionally, AWS requires two additional parameters, **role** and **principal**. To modify the `role` and `principal` strings, specify the appropriate values via [Rules](${manage_url}/#/rules):
+Additionally, AWS requires two additional parameters, **role** and **principal**. To modify the `role` and `principal` strings, specify the appropriate ARN values where the sample currently says `[omitted]` via [Rules](${manage_url}/#/rules). If you do not have these values, please see [Copy the ARN Values](/aws-api-setup#copy-the-arn-values) section of the AWS setup doc.
 
 ```js
 function (user, context, callback) {

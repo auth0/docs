@@ -1,0 +1,146 @@
+---
+  description: How to use multiple APIs and represent them as a single API in Auth0.
+---
+
+# How to Represent Multiple APIs Using a Single Auth0 API
+
+To simplify your authentication process, you can create a single [API](/apis) using the Auth0 Dashboard to represent all of your existing APIs. Doing this allows you to implement just one authentication flow. You can then control access to the individual APIs by assigning the appropriate scopes.
+
+This article shows you how to use and represent multiple APIs as a single Resource Server in Auth0 using a [sample application you can download](https://github.com/auth0-samples/auth0-api-auth-implicit-sample) if you would like to follow along as you read.
+
+## The Sample Application
+
+The sample application contains:
+
+* 1 Single Page Application (SPA);
+* 2 APIs (called `contacts` and `calendar`).
+
+We will represent the two APIs using just one Auth0 API called `Organizer Service`. We will then create two namespaced scopes to demonstrate how you can use the [Implicit Grant](/api-auth/grant/implicit) to access the `calendar` and `contacts` APIs from the SPA. The SPA also uses [Lock](/libraries/lock) to implement the signin screen.
+
+Please see the `README` for additional information on setting up the sample on your local environment.
+
+## The Auth0 Client
+
+If you don't already have an Auth0 Client (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one. This represents your application.
+
+1. In the [Auth0 Dashboard](${manage_url}), click on [Clients](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Client**.
+2. The **Create Client** window will open, allowing you to enter the name of your new Client. Choose **Single Page Web Applications** as the **Client Type**. When done, click on **Create** to proceed.
+3. Navigate to the [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
+4. Scroll to the bottom of the [Settings](${manage_url}/#/clients/${account.clientId}/settings) page, where you'll find the *Advanced Settings* section. Under the *OAuth* tab, enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
+
+### Enable a Connection for Your Client
+
+[Connections](/identityproviders) are sources of users to your application, and if you don't have a sample Connection you can use with your newly-created Client, you will need to configure one. For the purposes of this sample, we'll create a simple [Database Connection](/connections/database) that asks only for the user's email address and a password.
+
+1. In the [Auth0 Dashboard](${manage_url}), click on [Connections > Database](${manage_url}/#/connections/database) in the left-hand navigation bar. Click **Create Client**.
+2. Click **Create DB Connection**. Provide a **Name** for your Connection, and click **Create** to proceed.
+3. Once your Connection is ready, click over to the *Clients* tab, and enable the Connection for your Client.
+
+### Create a Test User
+
+If you're working with a newly-created Connection, you won't have any users associated with the Connection. Before you can test your sample's login process, you'll need to create and associate a user with your Connection.
+
+1. In the [Auth0 Dashboard](${manage_url}), click on [Users](${manage_url}/#/users) in the left-hand navigation bar. Click **Create User**.
+2. Provide the requested information about the new user (**email address** and **password**), and select your newly-created **Connection**.
+3. Click **Save** to proceed.
+
+## Create the Auth0 API
+
+Log in to your Auth0 Dashboard, and navigate to the APIs section.
+
+::: panel-info Auth0 APIs
+Please see [APIs](/apis) for detailed information on working with APIs in the Dashboard.
+:::
+
+Click **Create API**.
+
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/dashboard-apis.png)
+
+You will be prompted to provide a **name** and **identifier**, as well as choose the **signing algorithm**, for your new API.
+
+For the purposes of this article, we'll call our API `Organizer Service` and set its unique identifier to `organize`. By default, the signing algorithm for the tokens this API issues is **RS256**, which we will leave as is.
+
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/create-new-api.png)
+
+Once you've provided the required details, click **Create** to proceed.
+
+### Configure the Auth0 API
+
+After Auth0 creates your API, you'll be directed to its *Quick Start* page. At this point, you'll need to create the appropriate **Scopes**, which you can do via the *Scopes* page.
+
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/scopes-page.png)
+
+Scopes allow you to define the API data accessible to your client applications. You'll need one scope for each API represented and action. For example, if you want to `read` and `delete` from an API called `samples`, you'll need to create the following scopes:
+
+* `read:samples`
+* `delete:samples`
+
+For our sample application, we'll add two scopes:
+
+* `read:calendar`;
+* `read:contacts`.
+
+You can think of each one as a microservice.
+
+![](/media/articles/api-auth/tutorials/represent-multiple-apis/new-scopes.png)
+
+Add these two scopes to your API and **Save** your changes.
+
+## Grant Access to the Auth0 API
+
+You are now ready to provide access to your APIs by granting access tokens to the Auth0 API. By including specific scopes, you can control a client's application to some or all of the APIs represented by the Auth0 API.
+
+:::panel-info Authorization Flows
+
+The rest of this article covers use of the [Implicit Grant](/api-auth/grant/implicit) to reflect the sample. You can, however, use whichever flow best suits your needs.
+
+* If you have a **Non Interactive Client**, you can authorize it to request access tokens to your API by executing a [client credentials exchange](/api-auth/grant/client-credentials).
+* If you are building a **Native App**, you can implement the use of [Authorization Codes using PKCE](/api-auth/grant/authorization-code-pkce).
+
+For a full list of available Authorization flows, see [API Authorization](/api-auth).
+:::
+
+The app initiates the flow and redirects the browser to Auth0 (specifically to the `/authorize` endpoint), so the user can authenticate.
+
+```text
+https://YOUR_AUTH0_DOMAIN/authorize?
+scope=read:contacts%20read:calendar&
+audience=organize&
+response_type=id_token%20token&
+client_id=YOUR_CLIENT_ID&
+redirect_uri=http://localhost:3000&
+nonce=NONCE
+```
+
+For additional information on the call's parameters, refer to the [docs on executing an implementing the Implicit Grant](/api-auth/tutorials/implicit-grant#1-get-the-user-s-authorization).
+
+The SPA executes this call whenever the user clicks **Login**.
+
+![SPA Home before Login](/media/articles/api-auth/tutorials/represent-multiple-apis/home.png)
+
+Lock handles the login process.
+
+![SPA Login](/media/articles/api-auth/tutorials/represent-multiple-apis/lock.png)
+
+Next, Auth0 authenticates the user. If this is the first time the user goes through this flow, they will be asked to consent to the scopes that are given to the Client. In this case, the user's asked to consent to the app reading their contacts and calendar.
+
+![Consent Screen](/media/articles/api-auth/tutorials/represent-multiple-apis/consent-screen.png)
+
+If the user consents, Auth0 continues the authentication process, and upon completion, redirects them back to the app with an `access_token` in the hash fragment of the URI. The app can now extract the tokens from the hash fragment. In a Single Page Application (SPA) this is done using JavaScript.
+
+```js
+function getParameterByName(name) {
+  var match = RegExp('[#&]' + name + '=([^&]*)').exec(window.location.hash);
+  return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function getAccessToken() {
+  return getParameterByName('access_token');
+}
+```
+
+The app can then use the `access_token` to call the API on behalf of the user.
+
+After logging in, you can see buttons that allow you to call either of your APIs.
+
+![SPA Home after Login](/media/articles/api-auth/tutorials/represent-multiple-apis/apis.png)

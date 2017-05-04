@@ -19,7 +19,7 @@ With **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://to
 1. The application authenticates with Auth0 using its __Client Id__ and __Client Secret__.
 
 1. Auth0 validates this information and returns an `access_token`.
- 
+
 1. The application can use the `access_token` to call the API on behalf of itself.
 
   __NOTE__: In OAuth 2.0 terms, the non interactive app is the _Client_, the end user the _Resource Owner_, the API the _Resource Server_, the browser the _User Agent_, and Auth0 the _Authorization Server_.
@@ -32,6 +32,7 @@ For details on how to implement this using Auth0, refer to [Execute a Client Cre
 
 - [How to implement a Client Credentials flow](/api-auth/tutorials/client-credentials)
 - [How to configure an API in Auth0](/apis)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
 - [How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
 - [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks).

@@ -27,8 +27,8 @@ The best option to choose will depend on the needs of your app. Check out the [W
 The Lock widget is a simple way to integrate Auth0 into existing projects and provide the frictionless login and signup experience that you want for your app. Lock provides a customizable UI for your users to use to authenticate with your app.
 
 <%= include('../_includes/_topic-links', { links: [
-  'libraries/lock',
-  'libraries/lock-ios',
+  'libraries/lock/v10',
+  'libraries/lock-ios/v2',
   'libraries/lock-android'
 ] }) %>
 
@@ -37,7 +37,7 @@ The Lock widget is a simple way to integrate Auth0 into existing projects and pr
 These client-side SDKs for Auth0 allow you to trigger the authentication process, parse JWTs, and authenticate requests to your APIs. There is no UI or widget provided, so these SDKs are for use when you need to implement a custom UI, or already have one that you'd like to integrate Auth0 into.
 
 <%= include('../_includes/_topic-links', { links: [
-  'libraries/auth0js',
+  'libraries/auth0js/v8',
   'libraries/auth0-swift',
   'libraries/auth0-android'
 ] }) %>

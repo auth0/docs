@@ -1,4 +1,4 @@
-title: Angular 1.x
+title: AngularJS
 alias:
   - angular
   - angularjs
@@ -25,7 +25,6 @@ articles:
   - 05-linking-accounts
   - 06-rules
   - 07-authorization
-  - 08-calling-apis
   - 09-mfa
   - 10-customizing-lock
   - 11-sso

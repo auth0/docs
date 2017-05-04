@@ -35,7 +35,7 @@ function (user, context, callback) {
         // issuer: 'Label on Google Authenticator App', // optional
         // key: '{YOUR_KEY_HERE}', //  optional, the key to use for TOTP. by default one is generated for you
 
-        // optional, defaults to true. Set to false to force Google Authenticator every time. 
+        // optional, defaults to true. Set to false to force Google Authenticator every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
         allowRememberBrowser: false
       };
@@ -51,7 +51,7 @@ When you have finished editing the code snippet based on the requirements of you
 ::: panel-info Note
 At this time Google Authenticator does not allow any customizations to the look and feel of the Google Authenticator screens.
 
-For other customization options [see Auth0 Guardian](/multifactor-authentication/administrator#customization). 
+For other customization options [see Auth0 Guardian](/multifactor-authentication/administrator#customization).
 :::
 
 ### Configuring Google Authenticator for Select Users
@@ -75,4 +75,3 @@ function (user, context, callback) {
 ```
 
 Once you have finished making your desired changes, click **SAVE** so that they persist.
-

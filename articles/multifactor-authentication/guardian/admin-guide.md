@@ -2,14 +2,14 @@
 description: How to enable and use Push Notifications and SMS for Guardian MFA.
 ---
 
-# Guardian for Administrators 
+# Guardian for Administrators
 
 Guardian is Auth0's multifactor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication your users will always need their mobile device in order to login.
 
 This page explains how to enable and use Push Notifications and SMS for MFA for signing in your users.
 
 For information for your users on Guardian, how to download the app, and common questions, see: [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
- 
+
 ## Support for Push Notifications
 
 To enable Push Notifications MFA for sign in and sign up for your application by your users, go to the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
@@ -18,8 +18,8 @@ To enable Push Notifications MFA for sign in and sign up for your application by
 
 For your users to utilize this type of MFA, they will need a supported mobile device. The device must have either the Guardian app installed, the Google Authenticator app installed, or an app that supports scanning Time-based One-time Password(TOTP) codes to use with Guardian. Here are the available options:
 
-| **OS** | **Guardian** | **Google Authenticator** | 
-| --- | --- | --- | 
+| **OS** | **Guardian** | **Google Authenticator** |
+| --- | --- | --- |
 | **iOS** | Requires iOS 9.0 or later| Requires iOS 5.0 or later |
 | **Android** | Requires Android API version 18 or later| Requires Android version 2.1 or later |
 | **Windows** | Guardian codes are supported using the Microsoft Authenticator app available for Windows 10 Mobile and Windows Phone 8/8.1 | Unsupported |
@@ -34,11 +34,11 @@ Users that were previously registered before you enabled MFA will need to comple
 
 ## Support for SMS
 
-You can enable SMS messages to use as a form of multifactor authentication. This is also under the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. By toggling the **SMS** slider, you can enable using SMS for sign in and sign up for your application. SMS can be used as your only form of MFA or in addition to Push Notifications. 
+You can enable SMS messages to use as a form of multifactor authentication. This is also under the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. By toggling the **SMS** slider, you can enable using SMS for sign in and sign up for your application. SMS can be used as your only form of MFA or in addition to Push Notifications.
 
 Your users must have a device capable of using SMS to use this option. If your users are unable to always receive SMS messages (such as when traveling), they will be unable sign up with SMS and unable to login without the recovery code.
 
-When your users sign up with SMS, they enter their phone number's country code and mobile phone number. 
+When your users sign up with SMS, they enter their phone number's country code and mobile phone number.
 
 ![](/media/articles/mfa/sms.png)
 
@@ -60,9 +60,9 @@ You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basi
 
 Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
 
-Choose your **SMS Source**. 
+Choose your **SMS Source**.
 
-* If you choose **Use From**, you will need to enter the **From** phone number that users will see as the sender of the SMS. You may also configure this in Twilio. 
+* If you choose **Use From**, you will need to enter the **From** phone number that users will see as the sender of the SMS. You may also configure this in Twilio.
 
 * If you choose **Use Copilot **, you will need to enter a [Copilot SID](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
 
@@ -83,7 +83,7 @@ function (user, context, callback) {
       context.multifactor = {
         provider: 'guardian', //required
 
-        // optional, defaults to true. Set to false to force MFA authentication every time. 
+        // optional, defaults to true. Set to false to force MFA authentication every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
         allowRememberBrowser: false
       };
@@ -107,7 +107,7 @@ Once you have finished making your desired changes, click **Save**.
 ## Customizing the Guardian Screen
 
 You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate setting changes from the Guardian page's link to [Account Settings](${manage_url}/#/account). You can also reach the Account Settings page by clicking on your user name on the top right of the page and then selecting **Account Settings** from the dropdown menu.
- 
+
 ![](/media/articles/mfa/guardian-logo-and-name-settings.png)
 
  * **Friendly Name**: the name of the app that you want displayed to users
@@ -115,12 +115,12 @@ You may change the logo and the friendly name that is displayed to your users. T
 
 Auth0 recommends using a logo image that is at least 100x100 pixels, although an image that is 200x200 pixels ensures quality viewing in devices with Retina or high DPI displays.
 
-## Tracking your Users MFA Events 
+## Tracking your Users MFA Events
 
 In the [Logs](${manage_url}/#/logs) section of the dashboard, you can see the various events related to your users signing up and signing in using MFA.
 
 ![](/media/articles/mfa/logs.png)
- 
+
 Here are all the possible events related to MFA:
 
 | Event Type  | Description |
@@ -141,7 +141,7 @@ Here are all the possible events related to MFA:
 | `gd_recovery_failed` | Failed recovery |
 | `gd_otp_rate_limit_exceed` | When One Time Password fails validation because rate limit is exceeded |
 | `gd_recovery_rate_limit_exceed` | When recovery validation fails because rate limit is exceeded |
- 
+
 These events can also be searched using the [Management APIv2](/api/management/v2#!/Logs) using [query string syntax](/api/management/v2/query-string-syntax). You can search criteria using the `q` parameter or you can search by a specific log ID.
 
 ### Examples searching with the `q` parameter
@@ -161,7 +161,7 @@ If a user has lost their mobile device, they will need their recovery code to be
 To reset a user's MFA:
 
 1.  Find and select the user in the [Users](${manage_url}/#/users) section of the dashboard.
-2. Once you have selected the affected user, click on the **Actions** button on the top right of the screen. 
+2. Once you have selected the affected user, click on the **Actions** button on the top right of the screen.
 3. Select **Reset Multi Factor (Auth0)** from the dropdown.
 4. There will be a pop up box to confirm your decision.  Click **YES, RESET IT** to reset the user's MFA.
 

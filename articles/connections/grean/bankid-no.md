@@ -4,11 +4,12 @@ connection: Norwegian BankID
 image: /media/articles/connections/grean/bankid-no.png
 seo_alias: bankid
 description: Connecting Norwegian BankID with Auth0 through Grean's easyID service
+crews: crew-2
 ---
 
 # Log in with Norwegian BankID through Auth0
 
-When you need to know the legal identity of your Norwegian users, your choice is BankID jointly offered by the Norwegian banks. The BankID technology by itself is rather complicated to integrate, but through [Grean's easyID service](https://grean.com/easyid) 
+When you need to know the legal identity of your Norwegian users, your choice is BankID jointly offered by the Norwegian banks. The BankID technology by itself is rather complicated to integrate, but through [Grean's easyID service](https://grean.com/easyid)
 you may avoid the integration trouble.
 
 Below is an outline of the steps to get ready to accept Norwegian BankID logins, but you may also view [a short screen cast](https://grean.com/easyid/auth0/2016/12/07/easyid-and-auth0.html) at Grean's website.
@@ -17,7 +18,7 @@ Below is an outline of the steps to get ready to accept Norwegian BankID logins,
 
 ## 1. Create an account with Grean easyID
 
-Go to [grean.com/easyid](https://grean.com/easyid) and click the sign-up button. 
+Go to [grean.com/easyid](https://grean.com/easyid) and click the sign-up button.
 
 Once registered you will be asked to create your tenant.
 
@@ -46,7 +47,7 @@ Click **Proceed**.
 
 If you are not already logged in to Auth0 in this session, you will be prompted to do so in the popup window.
 
-Once logged in you must grant Grean easyID consent to create connections and read the clients. 
+Once logged in you must grant Grean easyID consent to create connections and read the clients.
 
 **Note:** If you have more than one Auth0 tenant, remember to select the right one in the dialog.
 
@@ -58,7 +59,7 @@ Click the check mark in the green area at the bottom to allow Grean easyID to se
 
 Go to the **Connections > Enterprise** section and open the **ADFS** connections to see the connections for Norwegian BankID created from the previous steps.
 
-**Note:** One connection has been created for each kind of authentication supported by Norwegian BankID: 
+**Note:** One connection has been created for each kind of authentication supported by Norwegian BankID:
 Browser based and mobile. The mobile method requires a special SIM card issued by a Norwegian provider.
 
 ![ADFS connections created](/media/articles/connections/grean/adfs-connections-no.png)
@@ -76,9 +77,3 @@ To start accepting real BankID logins from real legal persons, you must first en
 Once this agreement is in place you will receive a certificate to upload to Grean easyID. Go to the **IDENTITY SERVICES** tab and open the **NO BankID** section. This is where you will upload your organization's BankID certificate.
 
 ![Identity Service production](/media/articles/connections/grean/no-bankid-prod.png)
-
-
-
-
-
-

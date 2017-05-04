@@ -9,8 +9,7 @@ description: How to add an Appliance node in the backup node
 
 ## Prerequisites
 
-* A cluster with two or more nodes;
-    * At least one node must **not** be assigned a `backup` role.
+* Backup can be configured on single or multiple-node setups. In multi-node setups, the backup must be placed on a non-primary device. 
 * **A separate, dedicated backup device** with sufficient space to store the backups on the node that you are assigning to the `backup` role.
 
 ## Adding a Node to the Backup Role

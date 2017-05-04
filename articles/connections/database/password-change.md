@@ -1,6 +1,7 @@
 ---
 title: Changing a User's Password
 description: This document explains the ways you can reset the passwords for users of your Auth0 clients.
+crews: crew-2
 ---
 
 # Changing a User's Password

@@ -120,7 +120,7 @@ Although you cannot alter Lock's behavior, you can configure several [basic opti
 
 ![](/media/articles/libraries/lock/lock-phantom.png)
 
-### When to Use Lock
+### When to use Lock
 
 Consider using **Lock** if:
 
@@ -144,7 +144,7 @@ With Auth0's library for [Web](/libraries/auth0js), or with native libraries for
 
 Unlike with **Lock**, neither of these options includes a user interface. You will have complete control over the user experience for signup and authentication flow, and for the UI aspects of layout, look and feel, branding, internationalization, RTL support, and more.
 
-### When to Use a Custom User Interface
+### When to use a custom user interface
 
 Consider implementing a custom user interface in conjunction with an Auth0 library or the Authentication API for your app if:
 
@@ -156,5 +156,4 @@ Consider implementing a custom user interface in conjunction with an Auth0 libra
 
 ## See Also
 
-* [What is SSO](/sso)
-* [Single Sign On with username/password logins](/sso/sso-username-password)
+You can also see specific examples of the usage of both Lock and Auth0 SDKs for a wide variety of programming languages and platforms in our [Quickstarts](/). These guides may further assist you in your decision about which to use for your specific app needs.

@@ -3,9 +3,9 @@ section: libraries
 description: Guide to migrate from Auth0 Widget to Auth0 Lock.
 ---
 
-<%= include('../_includes/_lock-version-9') %>
-
 # Lock: Migration Guide
+
+<%= include('../_includes/_lock-version-9') %>
 
 This guide will walk you through the needed changes to migrate from **Auth0Widget** to **Auth0Lock**.
 

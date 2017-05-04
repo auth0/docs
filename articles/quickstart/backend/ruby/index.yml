@@ -12,4 +12,5 @@ snippets:
   setup: server-apis/ruby/setup
   use: server-apis/ruby/use
 articles:
-  - authenticate
+  - 00-getting-started
+  - 01-authorization

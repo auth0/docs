@@ -1,17 +1,15 @@
 ```html
-<script src="${lock_url}"></script>
+<script src="${auth0js_url}"></script>
 <script>
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-
+var auth = new auth0.WebAuth({domain: '${account.namespace}', clientID: '${account.clientId}'});
 
 function signin() {
-  lock.show({
-      callbackURL: 'http://localhost:CHANGE-TO-YOUR-PORT/callback'
-    , responseType: 'code'
-    , authParams: {
-      scope: 'openid name email' //Details: https:///scopes
-    }
-  });
+     auth.authorize({
+         audience: API_AUDIENCE,
+         scope: 'openid profile',
+         responseType: 'code',
+         redirectUri: '${account.callback}'
+     });
 }
 </script>
 
