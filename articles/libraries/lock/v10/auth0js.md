@@ -20,11 +20,11 @@ In the past, a version of auth0.js was included automatically with Lock; at this
 If you included the Lock script from the Auth0 CDN, you will need to also include the auth0.js script before Lock:
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0/8.0.0/auth0.min.js"></script>
-<script src="https://cdn.auth0.com/js/lock/10.9.0/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.12.0/lock.min.js"></script>
 ```
 
-If you installed Lock from npm, you should include `auth0-js` in your project dependencies and import it to pin the `auth0-js` version you're using. Before instantiating the `Auth0` object, you will need to require `auth0-js`:
+If you installed Lock from npm, you should include `auth0-js` in your project dependencies and import it to pin the `auth0-js` version you're using. Before instantiating the `webAuth` object, you will need to require `auth0-js`:
 
 ```js
 var auth0 = require('auth0-js');
@@ -32,16 +32,16 @@ var auth0 = require('auth0-js');
 
 ### Initiating auth0.js
 
-Then, to use `auth0.js`, simply instantiate a new `Auth0` object:
+Then, to use `auth0.js`, simply instantiate a new `webAuth` object:
 
 ```js
-var auth0 = new Auth0({
-  domain: "${account.namespace}",
-  clientID: "${account.clientId}"
+var webAuth = new auth0.WebAuth({
+	domain: "${account.namespace}",
+	clientID: "${account.clientId}"
 });
 ```
 
-If you need further detail about usage, check out the [Auth0.js v8 Reference](/libraries/auth0js).
+If you need further detail about usage, check out the [Auth0.js v8 Reference](/libraries/auth0js/v8).
 
 ## Using auth0.js v7
 
