@@ -15,6 +15,10 @@ Additionally, the protected resource can also obtain information such as the tok
 
 Because token instrospection is a means by which an API can verify a token, you do not need to configure any addition verification flows performed by the API. Additionally, for any existing authorization flows involving JWT access tokens, you do not need to update your processes to use token introspection.
 
+## Token Types
+
+You can use token introspection to request information for [**JWT access** tokens](/tokens/access-token), non-JWT access tokens, and [**refresh** tokens](/tokens/preview/refresh-token).
+
 ## Create an API Record with Auth0
 
 To use token introspection, you must set up an [API](/apis) that represents your protected resource(s).
@@ -68,8 +72,6 @@ To use token introspection, make a `POST` call to the [Authorization API](/api/a
 * **Client Assertion**: A JWT signed with your API's private key so that Auth0 can validate its signature using the associated public key;
 * **Client Assertion Type**: The specific type of client assertion used (in this case, it's a JWT). Set this to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
 
-Note that we're using assertions (instead of secrets) for client authentication.
-
 <div class="alert alert-info">
   <strong>Client Authentication</strong> </br>Note that we're using assertions (instead of secrets) for client authentication.
 </div>
@@ -83,5 +85,3 @@ curl --request POST \
 ```
 
 Please see [this doc on getting an access token](/api/management/v2/tokens) for the Management API.
-
-You can use token introspection to request information for [**JWT access** tokens](/tokens/access-token), non-JWT access tokens, and [**refresh** tokens](/tokens/preview/refresh-token).
