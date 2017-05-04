@@ -101,23 +101,23 @@ The Client can therefore use any of the following grant types:
     <th>Alternative</th>
   </tr>
   <tr>
-    <td>Resource Owner Password Credentials flow (`http://auth0.com/oauth/legacy/grant-type/ro`)</td>
+    <td>Resource Owner Password Credentials flow (http://auth0.com/oauth/legacy/grant-type/ro)</td>
     <td>Use the <a href="/api/authentication#authorization-code">`/oauth/token` endpoint</a> with a grant type of `password`. See <a href="/api-auth/tutorials/adoption/password">Resource Owner Password Credentials Exchange</a> and <a href="/api-auth/tutorials/password-grant">Executing the Resource Owner Password Grant</a> for additional information.</td>
   </tr>
   <tr>
-    <td>`http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer`</td>
+    <td>http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer</td>
     <td>This feature is disabled by default due to security implications. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities.</td>
   </tr>
   <tr>
-    <td>`http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token`</td>
+    <td>http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token</td>
     <td>Use the `oauth/token` endpoint to <a href="/api-auth/tutorials/adoption/refresh-tokens">obtain refresh tokens</a>. See <a href="/api-auth/tutorials/adoption/refresh-tokens">OIDC-conformant refresh tokens</a> for additional information.</td>
   </tr>
   <tr>
-    <td>`http://auth0.com/oauth/legacy/grant-type/delegation/id_token`</td>
+    <td>http://auth0.com/oauth/legacy/grant-type/delegation/id_token</td>
     <td>This feature is disabled by default due to security implications. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities.</td>
   </tr>
   <tr>
-    <td>`http://auth0.com/oauth/legacy/grant-type/access_token`</td>
+    <td>http://auth0.com/oauth/legacy/grant-type/access_token</td>
     <td>Use browser-based social authentication.</td>
   </tr>
 </table>
