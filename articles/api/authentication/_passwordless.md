@@ -38,7 +38,7 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Send a verification code using email
   webAuth.passwordlessStart({
       connection: 'email',
@@ -153,7 +153,7 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
+
   // Verify code sent via email
   webAuth.passwordlessVerify({
       connection: 'email',
@@ -191,6 +191,10 @@ curl --request POST \
   "path": "/oauth/ro",
   "link": "#authenticate-user"
 }) %>
+
+::: panel-danger Deprecation Notice
+</br>This feature uses a legacy authorization flow. Please see [Client Grant Types](/clients/grant-types/client-grant-types) for information on enabling a legacy flow for use with your Client.
+:::
 
 Once you have a verification code, use this endpoint to login the user with their phone number/email and verification code. This is active authentication, so the user must enter the code in your app.
 

@@ -33,6 +33,10 @@ curl --request POST \
   "link": "#delegation"
 }) %>
 
+::: panel-danger Deprecation Notice
+</br>This feature uses a legacy authorization flow. Please see [Client Grant Types](/clients/grant-types/client-grant-types) for information on enabling a legacy flow for use with your Client.
+:::
+
 Delegated authentication is used when an entity wants to call another entity on behalf of the user. For example, a user logs into an application and then calls an API. The application exchanges the token of the logged in user with a token that is signed with the API secret to call the API.
 
 Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API or across different APIs that are secured with different secrets.
