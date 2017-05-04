@@ -20,12 +20,6 @@ This document covers Passwordless Authentication, and uses an older version of a
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-node-passwordless-sample',
-  path: ''
-}) %>
-
 <%= include('../../_init-passwordless-lock') %>
 
 Then you can trigger the login widget with the following code:
