@@ -280,8 +280,6 @@ The extension will use Webtask Storage by default, which is limited to 500 KB. H
  - If you have 1000 groups and 3000 users, where each user is member of 3 groups about 475 KB of data would be used.
  - If you have 20 groups and 7000 users, where each user is member of 3 groups about 480 KB of data would be used.
 
-> Note regarding concurrency: Webtask Storage is a file based storage platform, which means writes in parallel can cause issues. The storage logic tries to take this into account as much as possible, but if you automate the creation of groups/roles/permissions we suggest you make sequential calls to the API.
-
 ### Amazon S3
 
 The extension also allows you to config Amazon S3 as a storage provider. In order to use Amazon S3 you will need to:
