@@ -20,12 +20,6 @@ This document covers Passwordless Authentication, and uses the most up-to-date v
 
 ### Use Lock (the Auth0 UI widget)
 
-<%= include('../../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-node-passwordless-sample',
-  path: ''
-}) %>
-
 <%= include('../../_init-passwordless-lock') %>
 
 Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the server-side authentication:

@@ -20,12 +20,6 @@ This document covers Passwordless Authentication, and uses an older version of a
 
 ### Use Lock (the Auth0 UI widget)
 
-<%= include('../../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-passwordless-sample',
-  path: ''
-}) %>
-
 <%= include('../../_init-passwordless-lock') %>
 
 You can then trigger the login widget with the following code:

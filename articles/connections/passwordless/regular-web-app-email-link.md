@@ -20,12 +20,6 @@ This document covers Passwordless Authentication with Magic Links, and uses the 
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-node-passwordless-sample',
-  path: ''
-}) %>
-
 <%= include('./_init-passwordless-lock') %>
 
 Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the authentication on the server-side:
