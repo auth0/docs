@@ -110,4 +110,6 @@ You can access that value of `login_hint` using `config.extraParams.login_hint`.
 
 ### Use Auth0.js in the Hosted Login Page
 
-Within the Hosted Login page, you can use the the [Auth0.js library](/libraries/auth0js) or instead of [Lock](/libraries/lock) to perform authentication using a custom UI. You can also use Auth0.js _in addition_ to Lock, for authentication or user management tasks. Read more about either of them in their documentation (linked above) or see the [Using Auth0.js in the Hosted Login Page](/hosted-pages/hosted-login-auth0js) documentation for examples of implementing Auth0.js in the Hosted Login page.
+Within the Hosted Login page, you can use the the [Auth0.js library](/libraries/auth0js), instead of [Lock](/libraries/lock), to perform authentication using a custom UI. You can also use Auth0.js _in addition_ to Lock, for authentication or user management tasks.
+
+Read more about either of them in their documentation (linked above) or see the [Using Auth0.js in the Hosted Login Page](/hosted-pages/hosted-login-auth0js) documentation for examples of implementing Auth0.js in the Hosted Login page.
