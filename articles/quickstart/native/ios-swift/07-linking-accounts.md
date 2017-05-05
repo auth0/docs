@@ -36,6 +36,10 @@ import Lock
 ```swift
 Lock
     .classic()
+    .withOptions {
+        $0.oidcConformant = true
+        $0.scope = "openid profile"
+    }
     .onAuth { credentials in
         guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
         // Store accessToken to retrieve user profile, store idToken for linking
@@ -44,12 +48,11 @@ Lock
 ```
 
 Upon success, you need to store the `idToken` value for later use, which is the `idToken` for the secondary account that the user is linking with.
-
 ## Link an Account
 
 Linking an account is simple. You have a user, and another account you want to link with that user. All you need to grab is these three values:
 
-- `id`: The `id` from the user that is logged in.
+- `id`: The `id` from the user that is logged in, you can get this from the User's Profile.
 - `idToken`: The `idToken` obtained upon your user login.
 - `otherUserToken`: The `idToken` from the account you want to link the user with. This is the value you stored in step 1.
 
@@ -85,14 +88,14 @@ import Lock
 ```swift
 Auth0
     .authentication()
-        .userInfo(token: accessToken)
-        .start { result in
-            switch(result) {
-            case .success(let profile):
-                // Store profile
-            case .failure(let error):
-                // Handle error
-            }
+    .userInfo(token: accessToken)
+    .start { result in
+        switch(result) {
+        case .success(let profile):
+            // Store profile
+        case .failure(let error):
+            // Handle error
+        }
 ```
 
 Once you have the `id` from the profile you can retrieve the users identities through a management API call as follows:

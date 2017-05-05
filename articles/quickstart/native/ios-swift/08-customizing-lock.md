@@ -40,6 +40,10 @@ You can make use of the `withStyle` method when initializing Lock:
 ```swift
 Lock
     .classic()
+    .withOptions {
+            $0.oidcConformant = true
+            $0.scope = "openid profile"
+    }
     .withStyle {
         $0.title = "Phantom Inc."
         $0.headerBlur = .extraLight
