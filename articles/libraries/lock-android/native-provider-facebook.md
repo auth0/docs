@@ -12,8 +12,10 @@ You can use Facebook AuthProvider to log in with or without **Lock**. Make sure 
 The Lock-Facebook is available through [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To install it, simply add the following line to your `build.gradle`:
 
 ```gradle
-compile 'com.auth0.android:lock-facebook:3.1.0'
+compile 'com.auth0.android:lock-facebook:3.+'
 ```
+
+_You can check for the latest version on the repository [Readme](https://github.com/auth0/Lock-Facebook.Android#install), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock-facebook%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/lock-facebook)._
 
 ## Requirements
 
