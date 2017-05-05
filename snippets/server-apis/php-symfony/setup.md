@@ -1,6 +1,6 @@
 ```yml
 jwt_auth:
-    client_id:     ${account.clientId}
-    client_secret: ${account.clientSecret}
-    secret_base64_encoded: false
+    domain: ${account.namespace}
+    authorized_issuer: https://${account.namespace}/
+    api_identifier: {API_IDENTIFIER}
 ```
