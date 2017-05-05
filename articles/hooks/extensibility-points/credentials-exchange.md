@@ -15,19 +15,6 @@ Please see [Calling APIs from a Service](/api-auth/grant/client-credentials) for
 
 You can implement a Hook for this extensibility point using either the Dashboard or the Auth0 CLI. For detailed steps refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
 
-### Parameters
-
-* **audience** [string] - audience claim of the token
-* **cb** [function] - function (parameters: error, accessTokenClaims)
-* **client** [object] - information about the Client
-* **client.id** [string] - Client ID
-* **client.metadata** [object] - [Client metadata](/rules/metadata-in-rules#reading-client_metadata)
-* **client.name** [string] - name of the Client
-* **client.tenant** [string] - name of the Auth0 Tenant
-* **context** [object] - additional authorization context
-* **context.webtask** [object] - the context in which the Webtask runs
-* **scope** [array|undefined] - array of strings representing the scope claim *or* undefined
-
 ### Types of Claims
 
 You can add the following as claims to the issued token:
@@ -40,17 +27,32 @@ You can add the following as claims to the issued token:
 
 The extensibility point will ignore all other response object properties.
 
-## Starter Code
+## Starter Code and Parameters
 
 ```js
+/**
+@param {object} client - information about the client
+@param {string} client.name - name of client
+@param {string} client.id - client id
+@param {string} client.tenant - Auth0 tenant name
+@param {object} client.metadata - client metadata
+@param {array|undefined} scope - array of strings representing the scope claim or undefined
+@param {string} audience - token's audience claim
+@param {object} context - additional authorization context
+@param {object} context.webtask - webtask context
+@param {function} cb - function (error, accessTokenClaims)
+*/
 module.exports = function(client, scope, audience, context, cb) {
-    var access_token = {};
-    access_token.scope = scope;
-    // Modify scopes or add extra claims
-    // access_token['https://example.com/claim'] = 'bar';
-    // access_token.scope.push('extra');
-    cb(null, access_token);
-  };
+  var access_token = {};
+  access_token.scope = scope;
+
+  // Modify scopes or add extra claims
+  // access_token['https://example.com/claim'] = 'bar';
+  // access_token.scope.push('extra');
+
+  cb(null, access_token);
+};
+
 ```
 
 The default response object every time you run this Hook is as follows:
