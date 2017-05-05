@@ -1,5 +1,6 @@
 ---
 description: The credentials-exchange extensibility point for use with Hooks
+toc: true
 ---
 
 # Extensibility Point: Credentials Exchange&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
@@ -9,6 +10,35 @@ The `credentials-exchange` extensibility point allows you to change the scopes a
 ::: panel-info Client Credentials Grant
 Please see [Calling APIs from a Service](/api-auth/grant/client-credentials) for more information on the Client Credentials Grant.
 :::
+
+## How to Implement This
+
+You can implement a Hook for this extensibility point using either the Dashboard or the Auth0 CLI. For detailed steps refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
+
+### Parameters
+
+* **audience** [string] - audience claim of the token
+* **cb** [function] - function (parameters: error, accessTokenClaims)
+* **client** [object] - information about the Client
+* **client.id** [string] - Client ID
+* **client.metadata** [object] - [Client metadata](/rules/metadata-in-rules#reading-client_metadata)
+* **client.name** [string] - name of the Client
+* **client.tenant** [string] - name of the Auth0 Tenant
+* **context** [object] - additional authorization context
+* **context.webtask** [object] - the context in which the Webtask runs
+* **scope** [array|undefined] - array of strings representing the scope claim *or* undefined
+
+### Types of Claims
+
+You can add the following as claims to the issued token:
+
+* The `scope` property of the response object;
+* Any properties with namespaced property names:
+
+  * URLs with HTTP or HTTPS schemes
+  * URLs with hostnames that *aren't* auth0.com, webtask.io, webtask.run, or the associated subdomain names
+
+The extensibility point will ignore all other response object properties.
 
 ## Starter Code
 
@@ -31,29 +61,60 @@ The default response object every time you run this Hook is as follows:
 }
 ```
 
-You can add the following as claims to the issued token:
+### Example: Add Scope to the Access Token
 
-* The `scope` property of the response object;
-* Any properties with namespaced property names:
+This example shows you how to use the Hook to add an additional scope to the scopes already existing on the access token.
 
-  * URLs with HTTP or HTTPS schemes
-  * URLs with hostnames that *aren't* auth0.com, webtask.io, webtask.run, or the associated subdomain names
+```js
+module.exports = function(client, scope, audience, context, cb) {
+    // Scopes to be added
+    var access_token = {};
 
-The extensibility point will ignore all other response object properties.
+    // Get the scope that's currently on the access token
+    // and add it to the object we're working with
+    access_token.scope = scope;
 
-## How to Implement This
+    // Append the `read:resource` scope
+    access_token.scope.push('read:resource');
 
-You can implement a Hook for this extensibility point using either the Dashboard or the Auth0 CLI. For detailed steps refer to [Using Hooks with Client Credentials Grant](/api-auth/tutorials/client-credentials/customize-with-hooks).
+    // Callback to indicate completion and to return new
+    // array of scopes
+    cb(null, access_token);
+};
+```
 
-## Parameters
+Using the test runner, we see that the response is as follows:
 
-* **audience** [string] - audience claim of the token
-* **cb** [function] - function (parameters: error, accessTokenClaims)
-* **client** [object] - information about the Client
-* **client.id** [string] - Client ID
-* **client.metadata** [object] - [Client metadata](/rules/metadata-in-rules#reading-client_metadata)
-* **client.name** [string] - name of the Client
-* **client.tenant** [string] - name of the Auth0 Tenant
-* **context** [object] - additional authorization context
-* **context.webtask** [object] - the context in which the Webtask runs
-* **scope** [array|undefined] - array of strings representing the scope claim *or* undefined
+```json
+{
+  "scope": [
+    "read:connections",
+    "read:resource"
+  ]
+}
+```
+
+### Example: Add a Claim to the Access Token
+
+This example show you have to add a namespaced claim and its value to the access token.
+
+```js
+module.exports = function(client, scope, audience, context, cb) {
+    // Claims to be added
+    var access_token = {};
+
+    // New claim to add to the token
+    access_token['https://example.com/foo'] = 'bar';
+
+    // Callback to indicate completion and to return new claim
+    cb(null, access_token);
+  };
+```
+
+Using the test runner, we see that the response is as follows:
+
+```json
+{
+  "https://example.com/foo": "bar"
+}
+```
