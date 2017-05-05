@@ -83,7 +83,7 @@ module.exports = function(client, scope, audience, context, cb) {
 };
 ```
 
-Using the test runner, we see that the response is as follows:
+Using the [test runner](https://webtask.io/docs/editor/runner), we see that the response is as follows:
 
 ```json
 {
@@ -111,7 +111,7 @@ module.exports = function(client, scope, audience, context, cb) {
   };
 ```
 
-Using the test runner, we see that the response is as follows:
+Using the [test runner](https://webtask.io/docs/editor/runner), we see that the response is as follows:
 
 ```json
 {

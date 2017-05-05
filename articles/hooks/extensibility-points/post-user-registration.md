@@ -23,3 +23,28 @@ module.exports = function (user, context, cb) {
 :::panel-warning Response Object
 The Post-User Registration extensibility point ignores any response object.
 :::
+
+### Example: Integrate with Slack
+
+```js
+module.exports = function (user, context, cb) {
+  // Don't run if user has already signed up
+  if (context.stats.loginsCount > 1) return cb(null, user, context);
+
+  // Get your Slack's hook URL from https://slack.com/services/10525858050
+  var SLACK_HOOK = 'YOUR SLACK HOOK URL';
+
+  // Post the new user's name and email address to the selected channel
+  var slack = require('slack-notify')(SLACK_HOOK);
+  var message = 'New User: ' + (user.name || user.email) + ' (' + user.email + ')';
+  var channel = '#some_channel';
+
+  slack.success({
+   text: message,
+   channel: channel
+  });
+
+  // Return immediately; the request to the Slack API will continue on the sandbox
+  cb(null, user, context);
+};
+```
