@@ -23,10 +23,10 @@ To use Lock's UI or your own UI via the [Auth0.Android library](https://github.c
 Lock is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Lock* add these lines to your `build.gradle` dependencies file:
 
 ```gradle
-compile 'com.auth0.android:lock:2.3.0'
+compile 'com.auth0.android:lock:2.+'
 ```
 
-_You can check for the latest version on the repository [Releases](https://github.com/auth0/Lock.Android/releases) tab, in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/lock)._
+_You can check for the latest version on the repository [Readme](https://github.com/auth0/Lock.Android#install), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/lock)._
 
 After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
@@ -39,16 +39,16 @@ You need to fill in a few settings in your [Auth0 Dashboard](${manage_url}) befo
 Head over to your Auth0 Dashboard and go to the client's settings. Add the following URL to the client's "Allowed Callback URLs"
 
 ```text
-https://{YOUR_AUTH0_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
+https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
-Be sure to change the URL to add your Auth0 domain and your app package name!
+Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
 ### Keystores and key hashes
 
-You will need a [Keystore](https://developer.android.com/studio/publish/app-signing.html) for signing your Android app. If you already have one, you can continue and skip the instructions about acquiring one. 
+You will need a [Keystore](https://developer.android.com/studio/publish/app-signing.html) for signing your Android app. If you already have one, you can continue and skip the instructions about acquiring one.
 
-During development, you can use the default "android debug keystore" to sign your application. For instructions on how to generate the key hashes using this keystore, use our [Android Keystores and Key Hashes Guide](/libraries/lock-android/keystore). 
+During development, you can use the default "android debug keystore" to sign your application. For instructions on how to generate the key hashes using this keystore, use our [Android Keystores and Key Hashes Guide](/libraries/lock-android/keystore).
 
 For a release keystore, replace the file, alias, store password and key password with your own values.
 
@@ -64,7 +64,7 @@ Add the `android.permission.INTERNET` permission to the Manifest to allow Lock t
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Add `LockActivity` to your Manifest, replacing the `host` attribute with your `${account.namespace}` domain and the `{YOUR_APP_PACKAGE_NAME}` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
+Add `LockActivity` to your Manifest, using `"${account.namespace}"` as the `host` attribute  domain and `"{YOUR_APP_PACKAGE_NAME}"` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
 
 ```xml
 <activity
@@ -97,7 +97,7 @@ Add `LockActivity` to your Manifest, replacing the `host` attribute with your `$
 Create an `Auth0` instance to hold your account details, which are the `AUTH0_CLIENT_ID` and the `AUTH0_DOMAIN`.
 
 ```java
-Auth0 auth0 = new Auth0('${account.clientId}','${account.namespace}');
+Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
 ```
 
 ### Authentication callback
@@ -139,7 +139,7 @@ public class MainActivity extends Activity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // Your own Activity code
-    Auth0 auth0 = new Auth0('${account.clientId}','${account.namespace}');
+    Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     lock = Lock.newBuilder(auth0, callback)
       // ... Options
       .build(this);

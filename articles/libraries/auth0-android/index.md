@@ -19,9 +19,13 @@ Auth0.Android is available through [Gradle](https://gradle.org/). To install it,
 
 ```gradle
 dependencies {
-    compile "com.auth0.android:auth0:1.5.0"
+    compile "com.auth0.android:auth0:1.+"
 }
 ```
+
+_You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0)._
+
+After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
 ## Permissions
 
@@ -332,6 +336,8 @@ Also register the intent filters inside your activity's tag, so you can receive 
     </application>
 ```
 
+Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+
 Make sure the Activity's `launchMode` is declared as `singleTask` or the result won't come back after the authentication.
 
 When you launch the `WebAuthProvider` you'll expect a result back. To capture the response override the `onNewIntent` method and call `WebAuthProvider.resume()` with the received intent. If a previous authentication was initiated using the provider, the response data will try to be parsed.
@@ -426,7 +432,7 @@ WebAuthProvider.init(account)
                 .withScheme("myapp")
                 .start(this);
 ```
-              
+
 **Scheme must be lowercase**. Remember to update your intent-filter after changing this setting.
 
 ### Specify state

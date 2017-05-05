@@ -11,8 +11,8 @@ This tutorial will show you how to use Lock within your Android project to link 
   repo: 'auth0-android-sample',
   path: '05-Linking-Accounts',
   requirements: [
-    'Android Studio 2.2',
-    'Android SDK 24',
+    'Android Studio 2.3',
+    'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>
@@ -59,7 +59,7 @@ public void onAuthentication(Credentials secondaryCredentials) {
 }
 ```
 
-> Remember to instantiate the `auth0` object with `auth0 = new Auth0(${account.clientId}, ${account.namespace});`
+> Remember to instantiate the `auth0` object with `auth0 = new Auth0("${account.clientId}", "${account.namespace}");`
 > Also, bear in mind that the `App.getInstance().getUserCredentials().getIdToken()` method depends on how you stored your user's `Credentials`.
 
 ## Link an Account
@@ -90,7 +90,7 @@ public void onSuccess(final UserProfile payload) {
 The unlink process is similar to the linking one, the only difference being that you need to specify the `identityId` and `provider` to unlink the connections. Additionally, as the first parameter, you need to use the main connection's `idToken`.
 
 ```java
-UsersAPIClient client = new UsersAPIClient(mAuth0, App.getInstance().getUserCredentials().getIdToken());
+UsersAPIClient client = new UsersAPIClient(auth0, App.getInstance().getUserCredentials().getIdToken());
 client.unlink(primaryUserId, secondaryUserId, secondaryProvider);
 ```
 
