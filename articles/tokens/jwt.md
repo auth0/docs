@@ -36,7 +36,7 @@ Therefore, a JWT typically looks like the following.
 
 `xxxxx.yyyyy.zzzzz`
 
-Let's break down the different parts.
+Let's break down the different parts:
 
 ### Header
 
@@ -135,3 +135,22 @@ Regarding usage, JWT is used at Internet scale. This highlights the ease of clie
 
 ![Comparing the length of an encoded JWT and an encoded SAML](/media/articles/jwt/comparing-jwt-vs-saml2.png)
 _Comparison of the length of an encoded JWT and an encoded SAML_
+
+## JWT Best Practices
+
+* **Keep it secret. Keep it safe.** The signing key should be treated like any other credentials and revealed only to services that absolutely need it.
+
+* **Do not add sensitive data to the payload.** Tokens are signed to protect against manipulation and are easily decoded. Add the bare minimum number of claims to the payload for best performance and security.
+
+* **Give tokens an expiration.** Technically, once a token is signed – it is valid forever – unless the signing key is changed or expiration explicitly set. This could pose potential issues so have a strategy for expiring and/or revoking tokens.
+
+* **Embrace HTTPS.** Do not send tokens over non-HTTPS connections as those requests can be intercepted and tokens compromised.
+
+* **Consider all of your authorization use cases.** Adding a secondary token verification system that ensure tokens were generated from your server, for example, may not be common practice, but may be necessary to meet your requirements.
+
+## Additional Resources
+
+* [How to Implement Token Based Authentication](/tokens/jwt-auth)
+* [JWT Handbook](https://auth0.com/e-books/jwt-handbook)
+* [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
+* [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/angularjs-authentication-with-cookies-vs-token/)
