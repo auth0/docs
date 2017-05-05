@@ -11,8 +11,8 @@ This tutorial will show you how to use Lock to maintain an active session with A
   repo: 'auth0-android-sample',
   path: '03-Session-Handling',
   requirements: [
-    'Android Studio 2.2',
-    'Android SDK 24',
+    'Android Studio 2.3',
+    'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>

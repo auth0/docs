@@ -41,6 +41,7 @@ Head over to your Auth0 Dashboard and go to the client's settings. Add the follo
 ```text
 https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
+
 Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
 ### Keystores and key hashes

@@ -12,9 +12,11 @@ android {
   //..
 }
 dependencies {
-  compile 'com.auth0.android:lock:2.0.0'   
+  compile 'com.auth0.android:lock:2.+'
 }
 ```
+
+_You can check for the latest version on the repository [Readme](https://github.com/auth0/Lock.Android#install), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/lock)._
 
 Then, run **Sync Project with Gradle Files** inside Android Studio or `./gradlew clean assembleDebug` from the command line.
 

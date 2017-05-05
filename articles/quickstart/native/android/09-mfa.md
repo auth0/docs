@@ -9,8 +9,8 @@ budicon: 243
   repo: 'auth0-android-sample',
   path: '09-MFA',
   requirements: [
-    'Android Studio 2.2',
-    'Android SDK 24',
+    'Android Studio 2.3',
+    'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>
