@@ -1,4 +1,4 @@
-title: PHP (Symfony) API
+title: Symfony API
 thirdParty: false
 alias:
   - symfony
@@ -14,4 +14,4 @@ snippets:
   setup: server-apis/php-symfony/setup
   use: server-apis/php-symfony/use
 articles:
-  - authenticate
+  - 01-authorization
