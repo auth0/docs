@@ -113,7 +113,7 @@ cp plugins/cordova-plugin-inappbrowser/src/android/* platforms/android/[yourAppN
 cp plugins/cordova-plugin-whitelist/src/android/* platforms/android/[yourAppName]/Plugins/cordova-plugin-whitelist/
 ```
 
-#### Blank page with an OK after signin
+#### Blank page with an "OK" after signing
 
 This may be caused by the default setting like below
 
