@@ -7,12 +7,14 @@ description: How to customize the user sign-up form with additional fields using
 
 In some cases, you may want to customize the user sign up form with more fields other than email and password.
 
-:::panel-info
+:::panel-info Hosted Login Pages
+
 Auth0 offers a [hosted login page](/hosted-pages/login) option that you can use instead of designing your own custom sign up page. If you want to offer sign up and log in options, and you only need to customize the following fields, the Hosted Login Page might be an easier option to implement:
 
 * Client Name
 * Logo
 * Background Color
+
 :::
 
 ## Using Lock
