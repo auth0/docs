@@ -37,7 +37,8 @@ You can examine the contents of the `config` object using the following:
 
 ```js
 // Decode configuration options
-var config = JSON.parse(decodeURIComponent(escape(window.atob('config'))));
+var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+
 ```
 
 :::panel-info The Authorize Endpoint
