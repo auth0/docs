@@ -46,6 +46,10 @@ A Rule is a function with the following arguments:
 
 <div class="alert alert-info">
 Because of the async nature of Node.js, it is important to always call the <code>callback</code> function, or else the script will timeout.
+
+Due to the asynchronous nature of Node.js, you <strong>must</strong> call the <code>callback</code> function. If not, this acts as a blocker and the next rule will not execute.
+
+The entire rules sequence must complete within <strong>20 seconds</strong>, otherwise the process times out.
 </div>
 
 ### Global Functions
