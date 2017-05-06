@@ -18,41 +18,15 @@ You can obtain JWTs for testing using any of the following methods:
 
 1. Manually [generate a JWT](https://jwt.io#libraries-io) with the needed data, and sign it with your [Auth0 client secret](${manage_url}/#/clients/${account.clientId}/settings). Omit the `exp` claim from a token; most JWT libraries will interpret it as a token which never expires (it's possible some libraries might reject a perpetual token). **This method doesn't require Internet access.**
 
-2. Create a test user for a database [connection](/identityproviders), and programatically log this user in by making the appropriate call to the Authentication API's [Resource Owner endpoint](/api/authentication/reference#resource-owner). To return a JWT, [set the correct `scope` value](/scopes). Using this approach, you can also test the [rules](/rules) that are a part of your flow.
-
-    ```har
-    {
-      "method": "POST",
-      "url": "https://${account.namespace}/oauth/ro",
-      "headers": [
-        { "name": "Content-Type", "value": "application/json" }
-      ],
-      "postData": {
-        "mimeType": "application/json",
-        "text": "{\"client_id\": \"CLIENT_ID\",\"username\": \"USERNAME\", \"password\": \"PASSWORD\", \"connection\": \"CONNECTION\", \"grant_type\": \"GRANT_TYPE\", \"scope\":\"openid\" }"
-      }
-    }
-    ```
+2. Create a test user for a database [connection](/identityproviders), and programatically log this user in. Essentially, you are using the recommended process for [calling an API using a highly-trusted client](/api-auth/grant/password). For detailed implementation instructions, see [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
 3. Use a browser bot (e.g. Selenium) to play the role of a user, log in and retrieve a JWT. While this is approach may take some effort to develop and maintain, it will allow you to test any [redirection rules](/rules/redirect) or [MFA prompts](/multifactor-authentication) that you have configured.
 
 ## Use Sessions with Server-Side Applications
 
-Unless your server-side application allows the generation of artificial sessions for testing, you'll need a way to perform a login through Auth0 manually. One way to do this is to make the appropriate call to the Authentication API's [Resource Owner endpoint](/api/authentication/reference#resource-owner)
+Unless your server-side application allows the generation of artificial sessions for testing, you'll need a way to perform a login through Auth0 manually.
 
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/ro",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"client_id\": \"CLIENT_ID\",\"username\": \"USERNAME\", \"password\": \"PASSWORD\", \"connection\": \"CONNECTION\", \"grant_type\": \"GRANT_TYPE\", \"scope\":\"openid\" }"
-  }
-}
-```
+For a high-level overview of how to do this, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code). For detailed implementation instructions, see [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant).
 
 ## Log In as a User for Testing
 
