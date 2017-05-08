@@ -45,9 +45,7 @@ A Rule is a function with the following arguments:
 * `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0 (or an error).
 
 <div class="alert alert-info">
-Due to the asynchronous nature of Node.js, you <strong>must</strong> call the <code>callback</code> function. If not, this acts as a blocker and the next rule will not execute.
-
-The entire rules sequence must complete within <strong>20 seconds</strong>, otherwise the process times out.
+Due to the asynchronous nature of Node.js, you <strong>must</strong> call the <code>callback</code> function. If not, this acts as a blocker and the next rule will not execute. The entire rules sequence must complete within <strong>20 seconds</strong>, otherwise the process times out.
 </div>
 
 ### Global Functions
