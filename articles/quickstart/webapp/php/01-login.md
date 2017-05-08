@@ -24,11 +24,18 @@ ${snippet(meta.snippets.dependencies)}
 ## Configure Auth0 PHP Plugin
 
 ```php
-use Auth0\SDK\API\Authentication;
+use Auth0\SDK\Auth0;
 
-$auth0 = new Authentication('${account.namespace}', '${account.clientId}');
-
-$auth0Oauth = $auth0->get_oauth_client('${account.clientSecret}', '${account.callback}');
+$auth0 = new Auth0([
+  'domain' => '${account.namespace}',
+  'client_id' => '${account.clientId}',
+  'client_secret' => '${account.clientSecret}',
+  'redirect_uri' => '${account.callback}',
+  'audience' => 'urn:test:api',
+  'persist_id_token' => true,
+  'persist_access_token' => true,
+  'persist_refresh_token' => true,
+]);
 ```
 
 ## Add Auth0 Callback Handler
@@ -39,7 +46,7 @@ Now, we can call `$auth0->getUser()` to retrieve the user information. If we cal
 // callback.php
 
 ...
-$userInfo = $auth0Oauth->getUser();
+$userInfo = $auth0->getUser();
 
 if (!$userInfo) {
     // We have no user info
@@ -74,7 +81,7 @@ You can access the user information via the `getUser` method from Auth0
 ```php
 <?php
 ...
-$userInfo = $auth0Oauth->getUser();
+$userInfo = $auth0->getUser();
 ?>
 <html>
   <body class="home">
