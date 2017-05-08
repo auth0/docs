@@ -5,6 +5,10 @@ description: Brief introduction to the iOS Objective-C tutorials.
 
 This is the very beginning of a simple, practical, multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
 
+**Note:** Lock 2.x is now the main branch of Lock and uses Swift. These quickstarts utilize Lock 1.x the Objective-C branch.
+- If you want to move to Lock 2.x with Swift then take a look at the [Swift QuickStart Guide](/quickstart/native/ios-swift).  
+- If you would like to use Lock 2.x with Objective-C, then take a look at the [Hybrid Lock 2 Chapter](/quickstart/native/ios-objc/01-hybrid-lock-2)
+
 ## Seed Project
 
 Here is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed) containing an empty project with only the required [dependencies](#dependencies) installed.
