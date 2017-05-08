@@ -18,6 +18,24 @@ budicon: 448
 
 This tutorial explains how to integrate the Auth0 OIDC Client with a Xamarin iOS C# application. The NuGet package `Auth0.OidcClient.iOS` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
+## Switching token signature algorithm to RS256
+
+The Auth0 OIDC Client requires that the __JsonWebToken Signature Algorithm__ for your client be set to `RS256`.
+
+::: panel-warning Before Changing the Signing Algorithm
+Please note that altering the signing algorithm for your client will immediately change the way your user's tokens are signed. This means that if you have already implemented JWT verification for your client somewhere, your tokens will not be verifiable until you update the logic to account for the new signing algorithm.
+:::
+
+To switch from HS256 to RS256 for a specific client, follow these instructions:
+1. Go to [Dashboard > Clients](https://manage.auth0.com/#/clients)
+1. Select your client
+1. Go to _Settings_
+1. Click on __Show Advanced Settings__
+1. Click on the _OAuth_ tab in Advanced Settings
+1. Change the __JsonWebToken Signature Algorithm__ to `RS256`
+
+Remember that if the token is being validated anywhere else, changes might be needed there as well in order to comply.
+
 ## Install the Auth0.OidcClient.iOS NuGet Package
 
 ${snippet(meta.snippets.dependencies)}
