@@ -62,7 +62,7 @@ This is an example of the XML representation of your `info.plist` file after you
         <string>Auth0</string>
         <key>CFBundleURLSchemes</key>
         <array>
-            <string>{YOUR_BUNDLE_IDENTIFIER}</string>
+            <string>YOUR_BUNDLE_IDENTIFIER</string>
         </array>
     </dict>
 </array>
@@ -70,7 +70,11 @@ This is an example of the XML representation of your `info.plist` file after you
 
 Next, go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
 
-`{YOUR_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback`
+```text
+YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback
+```
+
+Replace `YOUR_BUNDLE_IDENTIFIER` in the code sample above with the actual Bundle Identifier for your application, e.g. `com.mycompany.myapplication`.
 
 Finally, you will need to handle the callback to your application in your `AppDelegate` by calling the `Send` method of the `ActivityMediator` singleton, passing along the url sent in. This will allow the Auth0 OIDC Client library to complete the authentication process:
 
@@ -146,8 +150,9 @@ if (!loginResult.IsError)
 }
 ```
 
-> [!Note]
-> The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
+::: panel-info Scopes
+The exact claims returned will depend on the scopes that were requested. For more information see the [Using Scopes](https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html) in the Auth0 OIDC Client documentation.
+::: 
 
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 
