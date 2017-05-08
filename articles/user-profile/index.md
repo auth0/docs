@@ -127,3 +127,13 @@ To permanently delete a user, navigate to the [Users](${manage_url}/#/users) pag
 ![Delete a User](/media/articles/user-profile/delete-user.png)
 
 A popup will warn you that the action cannot be undone and prompt you to confirm that you want to delete the user. Click the "Yes, Delete It" button to confirm. This will permanently delete the user.
+
+## User Access to Clients
+
+Inside a single tenant (Auth0 account) the users are shared between clients. The idea here is that the all the clients in a single tenant will usually belong to the same app. 
+
+For total separation You can create a new account. To do this click on tenant name on top right of the dashboard and select **New Account** . If you have multiple tenants, you can easily switch between them from the accounts menu.
+
+If you need to restrict some users to certain clients you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which client the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md). 
+
+You can also restrict users from clients by configuring a new connection and only giving access to a specific client. To enable client access for a connection go to the the **Settings** section for a connection and click on the "Clients" tab, here you can enable/disable any client.

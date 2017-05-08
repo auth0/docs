@@ -36,3 +36,8 @@ At this point, the user is created, and you will be directed to the newly-create
 ::: panel-info Pending Users
 The User Details page will show `pending` when a user is first created until they have logged in for the first time.
 :::
+
+## Further Reading
+
+[Learn more about managing your Users](/user-profile)
+
