@@ -11,7 +11,7 @@ description: This tutorial will show you how to use the Auth0 Go SDK to add auth
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done in the `jwtCheck` middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
+This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done in the `checkJwt` middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
 
 ## Install the Dependencies
 
@@ -27,7 +27,7 @@ go get "github.com/gorilla/mux"
 
 <%= include('../_includes/_api_jwks_description_no_link') %>
 
-Configure the **jwtCheck** middleware to use the remote JWKS for your Auth0 account.
+Configure the **checkJwt** middleware to use the remote JWKS for your Auth0 account.
 
 ```go
 // main.go
@@ -35,7 +35,7 @@ const JWKS_URI = "https://{DOMAIN}/.well-known/jwks.json"
 const AUTH0_API_ISSUER = "https://{DOMAIN}.auth0.com/"
 const AUTH0_API_AUDIENCE = "{API_IDENTIFIER}"
 
-func jwtCheck(h http.Handler) http.Handler {
+func checkJwt(h http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		client := auth0.NewJWKClient(auth0.JWKClientOptions{URI: JWKS_URI})
 		audience := AUTH0_API_AUDIENCE
@@ -94,7 +94,7 @@ Next, let's implement this `checkScope` function in our middleware. We'll omit t
 
 ```go
 // main.go
-func jwtCheck(h http.Handler) http.Handler {
+func checkJwt(h http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     // Validate the access_token
 		if err != nil {
@@ -119,7 +119,7 @@ func jwtCheck(h http.Handler) http.Handler {
 
 ## Protect Individual Endpoints
 
-Individual routes can now be protected with the `jwtCheck` middleware. Below is an example showing two routes, one which is publicaly accessible, and one that is protected with the `jwtCheck` middlewware. The protected route will require both a valid `access_token` and the `read:messages` scope before returning the requested resource.
+Individual routes can now be protected with the `checkJwt` middleware. Below is an example showing two routes, one which is publicaly accessible, and one that is protected with the `checkJwt` middlewware. The protected route will require both a valid `access_token` and the `read:messages` scope before returning the requested resource.
 
 ```go
 // main.js
@@ -136,9 +136,9 @@ func main() {
 	}))
 
 	// This route is only accessible if the user has a valid access_token with the read:messages scope
-	// We are wrapping the jwtCheck middleware around the handler function which will check for a
+	// We are wrapping the checkJwt middleware around the handler function which will check for a
 	// valid token and scope.
-	r.Handle("/api/private", jwtCheck(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	r.Handle("/api/private", checkJwt(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		response := Response{
 			Message: "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.",
 		}
