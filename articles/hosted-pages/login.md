@@ -37,7 +37,8 @@ You can examine the contents of the `config` object using the following:
 
 ```js
 // Decode configuration options
-var config = JSON.parse(decodeURIComponent(escape(window.atob('config'))));
+var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+
 ```
 
 :::panel-info The Authorize Endpoint
@@ -85,7 +86,7 @@ You can pass the `redirect_uri` option to `authorize`, and access it within the 
 You can pass a value for `redirect_uri` to the `authorize` endpoint and access it in the Hosted Login Page editor using `config.callbackURL`.
 
 <div class="alert alert-info">
-Make sure that you've added any redirect URLs you're using to the **Allowed Redirect URLs** field on the [Client's settings page](${manage_url}/#/clients/${account.clientId}/settings).
+Make sure that you've added any redirect URLs you're using to the **Allowed Redirect URLs** field on the <a href="${manage_url}/#/clients/${account.clientId}/settings">Client's settings page</a>.
 </div>
 
 ```
