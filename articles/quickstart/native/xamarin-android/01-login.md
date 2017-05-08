@@ -18,7 +18,7 @@ budicon: 448
 
 This tutorial explains how to integrate the Auth0 OIDC Client with a Xamarin Android C# application. The NuGet package `Auth0.OidcClient.Android` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
-### Switching token signature algorithm to RS256
+## Switching token signature algorithm to RS256
 
 The Auth0 OIDC Client requires that the __JsonWebToken Signature Algorithm__ for your client be set to `RS256`.
 
@@ -54,7 +54,7 @@ Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Pac
 
 ## Integration
 
-To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID: 
+To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID, and also passing the Android Activity from which you are executing the code: 
 
 ${snippet(meta.snippets.setup)}
 
@@ -83,7 +83,7 @@ This will launch the web browser and take the user to the Auth0 Lock screen:
 
 ### 3. Process the redirect response
 
-After the user has authenticated, they will be redirected back to your application at the **Callback URL** that was registered before. You will need to register an intent which will handle this callback URL.
+After the user has logged in, they will be redirected back to your application at the **Callback URL** that was registered before. You will need to register an intent which will handle this callback URL.
 
 ```csharp
 [Activity(Label = "AndroidSample", MainLauncher = true, Icon = "@drawable/icon",
@@ -158,8 +158,9 @@ if (!loginResult.IsError)
 }
 ```
 
-> [!Note]
-> The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
+::: panel-info Scopes
+The exact claims returned will depend on the scopes that were requested. For more information see the [Using Scopes](https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html) in the Auth0 OIDC Client documentation.
+::: 
 
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 
