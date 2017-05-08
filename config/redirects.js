@@ -1110,10 +1110,6 @@ module.exports = [
     to: '/libraries/lock-ios/v1/sms-lock-ios'
   },
   {
-    from: '/libraries/lock-ios/sso-on-mobile-apps',
-    to: '/libraries/lock-ios/v1/sso-on-mobile-apps'
-  },
-  {
     from: '/libraries/lock-ios/swift',
     to: '/libraries/lock-ios/v1/swift'
   },
