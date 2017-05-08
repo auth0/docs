@@ -18,6 +18,24 @@ budicon: 448
 
 This tutorial explains how to integrate the Auth0 OIDC Client with a Xamarin Android C# application. The NuGet package `Auth0.OidcClient.Android` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
+### Switching token signature algorithm to RS256
+
+The Auth0 OIDC Client requires that the __JsonWebToken Signature Algorithm__ for your client be set to `RS256`.
+
+::: panel-warning Before Changing the Signing Algorithm
+Please note that altering the signing algorithm for your client will immediately change the way your user's tokens are signed. This means that if you have already implemented JWT verification for your client somewhere, your tokens will not be verifiable until you update the logic to account for the new signing algorithm.
+:::
+
+To switch from HS256 to RS256 for a specific client, follow these instructions:
+1. Go to [Dashboard > Clients](https://manage.auth0.com/#/clients)
+1. Select your client
+1. Go to _Settings_
+1. Click on __Show Advanced Settings__
+1. Click on the _OAuth_ tab in Advanced Settings
+1. Change the __JsonWebToken Signature Algorithm__ to `RS256`
+
+Remember that if the token is being validated anywhere else, changes might be needed there as well in order to comply.
+
 ## Install the Auth0.OidcClient.Android NuGet Package
 
 ${snippet(meta.snippets.dependencies)}
@@ -30,9 +48,9 @@ Since callback URLs can be manipulated, you will need to add your application's 
 
 Go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
 
-`{YOUR_ANDROID_PACKAGE_NAME}://${account.namespace}/android/{YOUR_ANDROID_PACKAGE_NAME}/callback`
+`YOUR_ANDROID_PACKAGE_NAME://${account.namespace}/android/YOUR_ANDROID_PACKAGE_NAME/callback`
 
-Ensure that the Callback URL is all in lowercase.
+Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Package Name for your application, e.g. `com.mycompany.myapplication`. **Also, ensure that the Callback URL is in lowercase.**
 
 ## Integration
 
@@ -50,30 +68,18 @@ ${snippet(meta.snippets.use)}
 
 ### 2. Launch the browser to authorize the user
 
-You will need to navigate the user to the authorization URL in the system browser. You can use the [Chrome Custom Tabs Manager](https://developer.chrome.com/multidevice/android/customtabs) to achieve this.
+After calling `PrepareLoginAsync`, the `StartUrl` property of the returned `AuthorizeState` will contain the URL to which you need to send the user for logging in. You can create a new intent, specifying the `StartUrl` as the destination, and then call `StartActivity`, passing the intent in order to launch the web browser:
 
-Ensure that you have installed the Custom Tabs Support Library:
-
-```text
-Install-Package Xamarin.Android.Support.CustomTabs
+```csharp
+var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
+var intent = new Intent(Intent.ActionView, uri);
+intent.AddFlags(ActivityFlags.NoHistory);
+StartActivity(intent);
 ```
 
-Then create a custom tabs intent, and launch the authorization URL which was returned in the `AuthorizeState`:
+This will launch the web browser and take the user to the Auth0 Lock screen:
 
-```
-var customTabs = new CustomTabsActivityManager(this); // this == your Activity
-
-// build custom tab
-var builder = new CustomTabsIntent.Builder(customTabs.Session)
-    .SetToolbarColor(Color.Argb(255, 52, 152, 219))
-    .SetShowTitle(true)
-    .EnableUrlBarHiding();
-
-var customTabsIntent = builder.Build();
-customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
-
-customTabsIntent.LaunchUrl(this, Android.Net.Uri.Parse(authorizeState.StartUrl));
-```
+<div class="phone-mockup"><img src="/media/articles/native-platforms/xamarin-android/lock-widget-screenshot.png" alt="Lock UI"></div>
 
 ### 3. Process the redirect response
 
@@ -85,16 +91,16 @@ After the user has authenticated, they will be redirected back to your applicati
 [IntentFilter(
     new[] { Intent.ActionView },
     Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-    DataScheme = "{YOUR_ANDROID_PACKAGE_NAME}",
+    DataScheme = "YOUR_ANDROID_PACKAGE_NAME",
     DataHost = "@string/auth0_domain",
-    DataPathPrefix = "/android/{YOUR_ANDROID_PACKAGE_NAME}/callback")]
+    DataPathPrefix = "/android/YOUR_ANDROID_PACKAGE_NAME/callback")]
 public class MainActivity : Activity
 {
     // Code omitted
 }
 ```
 
-Replace `{YOUR_ANDROID_PACKAGE_NAME}` in the code sample above with the actual Package Name for your application. Also ensure that all the text for the `DataScheme`, `DataHost` and `DataPathPrefix` is in lower case.
+Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Package Name for your application, e.g. `com.mycompany.myapplication`. Also ensure that all the text for the `DataScheme`, `DataHost` and `DataPathPrefix` is in lower case.
 
 Now write code to handle the intent. You can do this by overriding the `OnNewIntent` method. Inside the method you need to call the `ProcessResponseAsync` method, passing along the `DataString` from the intent, as well as the `AuthorizeState` which was previously stored when you called `PrepareLoginAsync`:
 
