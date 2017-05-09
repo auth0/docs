@@ -5,13 +5,11 @@
 
 # Client Grant Types
 
-Auth0 provides many authentication and authorization flows that suit your needs, and depending on your use case, you may wish to limit the use of certain grant types for a particular Client. Auth0 includes a `grant_type` property on each Client for this purpose.
+Auth0 provides many authentication and authorization flows that suit your needs, and depending on your use case, you may wish to limit the use of certain grant types for a particular Client. Auth0 includes a `grant_types` property on each Client for this purpose.
 
 ## Grant Types
 
-The following is a list of grant types valid for Auth0 Clients. Each of the items represents one of the three types of authorization flows.
-
-There are three possible types of authorization flows:
+The following is a list of grant types valid for Auth0 Clients. There are three possible types of authorization flows:
 
 * Auth0 extension;
 * Auth0 legacy;
@@ -37,15 +35,15 @@ The following is a list of legacy `grant_types`:
 * `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
 * `http://auth0.com/oauth/legacy/grant-type/access_token`
 
-## Edit the `grant_type` Property
+## Edit the `grant_types` Property
 
-To edit the `grant_type` property for your Auth0 Client, you'll need to make the appropriate call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) of the [Management API](/api/management/v2).
+To edit the `grant_types` property for your Auth0 Client, you'll need to make the appropriate call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) of the [Management API](/api/management/v2).
 
 :::panel-warning Legacy Grant Types
 As of TBD, new Auth0 customers **cannot** add *any* of the legacy grant types to their Clients. Only customers as of TBD can add legacy grant types to their existing Clients.
 :::
 
-Auth0 requires the `grant_type` property. Attempting to use *any* flow with a Client lacking the appropriate `grant_type` for that flow (or with the field empty) will result in the following error:
+Auth0 requires the `grant_types` property to use the various flows. Attempting to use *any* flow with a Client lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
 
 ```text
 Grant type `grant_type` not allowed for the client.
@@ -61,7 +59,7 @@ Depending on whether a newly-created Client is **public** or **confidential**, t
 
 ### Public Clients
 
-Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. They can be set to the following grant types:
+Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. By default, Public Clients are created with the following `grant_types`:
 
 * `implicit`;
 * `authorization_code`;
@@ -69,7 +67,7 @@ Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`
 
 ### Confidential Clients
 
-Confidential Clients, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Non-Interactive Clients. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. Confidential Clients can be set to the following grant types:
+Confidential Clients, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Non-Interactive Clients. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Clients are created with the following `grant_types`:
 
 
 * `implicit`;
@@ -79,13 +77,8 @@ Confidential Clients, indicated by the `token_endpoint_auth_method` flag set to 
 
 ### Trusted First-Party Clients
 
-When creating a new Client via the [Management Dashboard](${manage_url}), Auth0 sets the `is_first_party` flag to `true`.
+Trusted first-party clients can additionally use the following `grant_types`:
 
-The Client can therefore use any of the following grant types:
-
-* `implicit`
-* `authorization_code`
-* `client_credentials`
 * `password`
 * `refresh_token`
 * `http://auth0.com/oauth/grant-type/password-realm`
