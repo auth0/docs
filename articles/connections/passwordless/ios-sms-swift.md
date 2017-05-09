@@ -4,7 +4,8 @@ title: Using Passwordless Authentication on iOS with SMS in Swift
 
 <div class="alert alert-info">
 <strong>Legacy Flow</strong>
-</br>This feature uses a legacy authorization flow. Please see <a href="/clients/grant-types/client-grant-types">Client Grant Types</a> for information on enabling a legacy flow for use with your Client.
+</br>
+This feature is disabled by default for new tenants as of (date) due to security implications. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see <a href="/clients/grant-types/client-grant-types">Client Grant Types</a> for more information.
 </div>
 
 <%= include('./_using-lock-ios-sms', { language: 'swift' }) %>
