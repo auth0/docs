@@ -128,6 +128,12 @@ The following diagram shows this process:
 
 ![How a JSON Web Token works](/media/articles/jwt/jwt-diagram.png)
 
+## How to implement JWT
+
+The safest way to implement JWT-based authentication, is to use one of the existing open source libraries. In [JWT.io](https://jwt.io/#libraries-io) you can find several, for .NET, Python, Java, Ruby, Objective-C, Swift, PHP, and more.
+
+To verify JWT (or manually create one), you can use the [JWT.io Debugger](https://jwt.io/#debugger-io).
+
 ## JWT vs SWT vs SAML
 
 Let's talk about the benefits of **JSON Web Tokens (JWT)** when compared to **Simple Web Tokens (SWT)** and **Security Assertion Markup Language Tokens (SAML)**.
