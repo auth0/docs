@@ -12,6 +12,7 @@ toc: true
 <%= include('../videos/_video', { id: 'dxfz716cw9' }) %>
 
 ## What is JSON Web Token?
+
 JSON Web Token (JWT) is an open standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the **HMAC** algorithm) or a public/private key pair using **RSA**.
 
 Let's explain some concepts of this definition further.
@@ -20,7 +21,8 @@ Let's explain some concepts of this definition further.
 
 - **Self-contained**: The payload contains all the required information about the user, avoiding the need to query the database more than once.
 
-## When should you use JSON Web Tokens?
+## What a JSON Web Token is used for?
+
 Here are some scenarios where JSON Web Tokens are useful:
 
 - **Authentication**: This is the most common scenario for using JWT. Once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token. Single Sign On is a feature that widely uses JWT nowadays, because of its small overhead and its ability to be easily used across different domains.
@@ -28,6 +30,7 @@ Here are some scenarios where JSON Web Tokens are useful:
 - **Information Exchange**: JSON Web Tokens are a good way of securely transmitting information between parties, because as they can be signed, for example using public/private key pairs, you can be sure that the senders are who they say they are. Additionally, as the signature is calculated using the header and the payload, you can also verify that the content hasn't been tampered with.
 
 ## What is the JSON Web Token structure?
+
 JSON Web Tokens consist of three parts separated by dots (`.`), which are:
 
 - Header
@@ -81,6 +84,7 @@ An example of payload could be:
 The payload is then **Base64Url** encoded to form the second part of the JSON Web Token.
 
 ### Signature
+
 To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.
 
 For example if you want to use the HMAC SHA256 algorithm, the signature will be created in the following way:
@@ -106,6 +110,7 @@ If you want to play with JWT and put these concepts into practice, you can use [
 ![JWT.IO Debugger](/media/articles/jwt/legacy-app-auth-5.png)
 
 ## How do JSON Web Tokens work?
+
 In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned and must be saved locally (typically in local storage, but cookies can be also used), instead of the traditional approach of creating a session in the server and returning a cookie.
 
 Whenever the user wants to access a protected route or resource, the user agent should send the JWT, typically in the **Authorization** header using the **Bearer** schema. The content of the header should look like the following:
@@ -123,7 +128,7 @@ The following diagram shows this process:
 
 ![How a JSON Web Token works](/media/articles/jwt/jwt-diagram.png)
 
-## Why should we use JSON Web Tokens?
+## JWT vs SWT vs SAML
 
 Let's talk about the benefits of **JSON Web Tokens (JWT)** when compared to **Simple Web Tokens (SWT)** and **Security Assertion Markup Language Tokens (SAML)**.
 
@@ -138,7 +143,7 @@ Regarding usage, JWT is used at Internet scale. This highlights the ease of clie
 ![Comparing the length of an encoded JWT and an encoded SAML](/media/articles/jwt/comparing-jwt-vs-saml2.png)
 _Comparison of the length of an encoded JWT and an encoded SAML_
 
-## JWT Best Practices
+## Best Practices
 
 * **Keep it secret. Keep it safe.** The signing key should be treated like any other credentials and revealed only to services that absolutely need it.
 
@@ -150,7 +155,7 @@ _Comparison of the length of an encoded JWT and an encoded SAML_
 
 * **Consider all of your authorization use cases.** Adding a secondary token verification system that ensure tokens were generated from your server, for example, may not be common practice, but may be necessary to meet your requirements.
 
-## Additional Resources
+## Read More
 
 * [JWT Handbook](https://auth0.com/e-books/jwt-handbook)
 * [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
