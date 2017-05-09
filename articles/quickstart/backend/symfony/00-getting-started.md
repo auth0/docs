@@ -1,7 +1,6 @@
 ---
 title: Getting Started
-name: Introduction to the Quickstart, and configuring environment
-description: Getting started with authentication for a PHP API
+description: Getting started with authentication for a Symfony API
 budicon: 715
 ---
 
