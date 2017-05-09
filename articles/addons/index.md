@@ -52,8 +52,6 @@ The key to this integration is the [/delegation endpoint](/api/authentication#de
 
 See the Delegation documentation to learn more about how to call this endpoint:
 
-[Delegation Tokens](/tokens/delegation)
-
 [Lock Android: Delegation API](/libraries/lock-android/delegation-api)
 
 [Lock iOS: Delegation API](/libraries/lock-ios/delegation-api)
