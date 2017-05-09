@@ -95,10 +95,6 @@ intent.AddFlags(ActivityFlags.NoHistory);
 StartActivity(intent);
 ```
 
-This will launch the web browser and take the user to the Auth0 Lock screen:
-
-<div class="phone-mockup"><img src="/media/articles/native-platforms/xamarin-android/lock-widget-screenshot.png" alt="Lock UI"></div>
-
 #### 3. Handle the Callback URL
 
 After the user has logged in, they will be redirected back to your application at the **Callback URL** that was registered before. You will need to register an intent which will handle this callback URL.
@@ -110,7 +106,7 @@ After the user has logged in, they will be redirected back to your application a
     new[] { Intent.ActionView },
     Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
     DataScheme = "YOUR_ANDROID_PACKAGE_NAME",
-    DataHost = "@string/auth0_domain",
+    DataHost = "${account.namespace}",
     DataPathPrefix = "/android/YOUR_ANDROID_PACKAGE_NAME/callback")]
 public class MainActivity : Activity
 {
