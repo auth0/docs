@@ -29,8 +29,9 @@ If this is the first time you are requesting a Management APIv2 Token, you'll ne
 
 1. Go to [Dashboard > APIs > Auth0 Management API > API Explorer](${manage_url}/#/apis/management/explorer).
 2. Click __Create & Authorize a Test Client__.
+3. Go to the *Scopes* tab to set the ones that can be assigned by the API.
 
-Once you've created the Client, you now have an access token that can be used to interact with the Management API. Click __Copy Token__.
+Once you've created the Client, you now have an access token that can be used to interact with the Management API. It can be found on the *API Explorer* page. Click __Copy Token__ so that you can use it at a later point.
 
 #### Automate the Token Request
 
