@@ -163,7 +163,7 @@ The following table lists the codes associated with the appropriate log events.
     <td><code>fd</code></td>
     <td>Failed Delegation</td>
     <td>Failed to generate delegation token</td>
-    <td><a href="/tokens/delegation">Delegation Tokens</a></td>
+    <td></td>
   </tr>
   <tr>
     <td><code>fdu</code></td>
