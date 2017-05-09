@@ -81,6 +81,7 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
     return Lock.continueAuth(using: userActivity)
 }
 ```
+
 ### Usage
 
 `Lock` by default will handle Email/Password, Enterprise & Social authentication based on your client's connections enabled in your [Auth0 Dashboard](${manage_url}) under "Connections" in your client settings.
@@ -198,7 +199,9 @@ Lock
     .present(from: self)
 ```
 
-**Note:** Passwordless can only be used with a single connection and will prioritize the use of email connections over sms.
+**Notes:**
+- Passwordless can only be used with a single connection and will prioritize the use of email connections over sms.  
+- The `audience` option is not available in Passwordless.
 
 #### Configuration options
 
