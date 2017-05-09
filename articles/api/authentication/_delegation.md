@@ -78,5 +78,4 @@ Given an existing token, this endpoint will generate a new token signed with the
 
 
 ### More Information
-- [Delegation Tokens](/tokens/delegation)
 - [Auth0 API Rate Limit Policy](/policies/rate-limits)
