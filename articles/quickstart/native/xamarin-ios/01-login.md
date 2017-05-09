@@ -50,7 +50,7 @@ First you will need to register the URL Type:
 2. Under **URL Types**, click the **Add URL Type** button
 3. Set the **Identifier** as `Auth0`, the **URL Schemes** the same as your application's **Bundle Identifier**, and the **Role** as `None`
 
-This is an example of the XML representation of your `info.plist` file after you have added the URL Type:
+This is an example of the XML representation of your `Info.plist` file after you have added the URL Type:
 
 ```xml
 <key>CFBundleURLTypes</key>
