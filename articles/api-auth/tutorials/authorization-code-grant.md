@@ -4,6 +4,8 @@ description: How to execute an Authorization Code Grant flow from a Regular Web 
 
 # Execute an Authorization Code Grant Flow
 
+<%= include('../../_includes/_pipeline2') %>
+
 <div class="alert alert-info">
   This tutorial will help you implement the Authorization Code grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code">Calling APIs from Server-side Web Apps</a>.
 </div>
