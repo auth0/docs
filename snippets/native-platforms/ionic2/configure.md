@@ -8,7 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ProfilePage } from '../pages/profile/profile';
 import { PingPage } from '../pages/ping/ping';
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
-import { AuthService } from '../services/auth/auth.service';
+import { AuthService } from '../services/auth.service';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 
