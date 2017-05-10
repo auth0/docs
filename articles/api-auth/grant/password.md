@@ -4,6 +4,8 @@ description: Describes how to call APIs from highly trusted clients using the Re
 
 # Calling APIs from Highly Trusted Clients
 
+<%= include('../../_includes/_pipeline2') %>
+
 Highly trusted mobile apps and Client-side web apps can use the **Resource Owner Password Grant** to access an API. In this flow the end-user is asked to fill in credentials (username/password) typically using an interactive form. This information is later on sent to the Client and the Authorization Server. It is therefore imperative that the Client is absolutely trusted with this information.
 
 ## Overview
