@@ -76,7 +76,7 @@ Your app now can retrieve these values and personalize the UI.
 
 ## Custom Claims
 
-In order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format. This is to avoid possible collisions with standard OIDC claims.
+In order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). This is to avoid possible collisions with standard OIDC claims.
 
 ### Example: Add Custom Claims
 
