@@ -21,8 +21,6 @@ Add the following code to your project's `AndroidManifest.xml`.
             android:scheme="https" />
     </intent-filter>
 </activity>
-
-<activity android:name="com.auth0.android.lock.provider.WebViewActivity"/>
 ```
 
 Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
