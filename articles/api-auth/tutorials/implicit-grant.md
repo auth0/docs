@@ -4,6 +4,8 @@ description: How to execute an Implicit Grant flow from a SPA Client application
 
 # How to implement the Implicit Grant
 
+<%= include('../../_includes/_pipeline2') %>
+
 <div class="alert alert-info">
   This tutorial will help you implement the Implicit Grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/implicit">Call APIs from Client-side Web Apps</a>.
 </div>
