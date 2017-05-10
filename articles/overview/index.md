@@ -25,7 +25,7 @@ This video will give you a quick walkthrough of Auth0 and how it will help save 
 
 The default [protocol](/protocols) between your application(s) and Auth0 is **OpenID Connect**, a modern, lightweight, simple to use, and simple to integrate protocol.
 
-<%= include('../_includes/_pipeline2.md') %>
+<%= include('../_includes/_pipeline2') %>
 
 Auth0 ships SDKs for all major platforms (.NET, Java, PHP, Python, node, iOS, and many more), but the use of Auth0 SDKs is not mandatory.
 
