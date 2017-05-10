@@ -6,6 +6,8 @@ crews: crew-2
 
 # Set up a Client Credentials Grant using the Management API
 
+<%= include('../../_includes/_pipeline2') %>
+
 If you do not want to use the Auth0 Dashboard to create a Resource Server or you need to create one programmatically, you can use our Management API v2.
 
 You will need the following:
