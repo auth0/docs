@@ -2,9 +2,9 @@
 description: How to request tokens for your applications.
 ---
 
-# How to implement the Client Credentials Grant
-
 <%= include('../../_includes/_pipeline2') %>
+
+# How to implement the Client Credentials Grant
 
 ## Prerequisites
 
