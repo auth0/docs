@@ -21,7 +21,7 @@ This tutorial explains how to integrate the Auth0 OIDC Client with a Xamarin app
 
 ## Switching token signature algorithm to RS256
 
-The Auth0 OIDC Client requires that the __JsonWebToken Signature Algorithm__ for your client be set to `RS256`.
+The Auth0 OIDC Client requires that the __JsonWebToken Signature Algorithm__ for your client is set to `RS256`.
 
 ::: panel-warning Before Changing the Signing Algorithm
 Please note that altering the signing algorithm for your client will immediately change the way your user's tokens are signed. This means that if you have already implemented JWT verification for your client somewhere, your tokens will not be verifiable until you update the logic to account for the new signing algorithm.
@@ -272,4 +272,4 @@ if (!loginResult.IsError)
 
 ## More Information
 
-For more information, please refer to the [Auth0 OIDC Client Documentation](https://auth0.github.io/auth0-oidc-client-net/).
+For more information, please refer to the [Auth0 OIDC Client Documentation](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).
