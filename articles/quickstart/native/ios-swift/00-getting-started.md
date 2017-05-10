@@ -8,7 +8,7 @@ This quickstart guide contains individual steps which demonstrate how to use var
 
 ## About the Sample Applications
 
-The code snippets within this quickstart guide are based on the downloadable samples. Within each of these samples, you will find a very simple application which utilizes a few ViewControllers.
+Each step within this quickstart guide (starting with **Login**) contains a downloadable sample which demonstrates the topic being covered. Within each of these samples, you will find a very simple application which utilizes a few ViewControllers.
 
 It should be noted that a simplistic application is used in the samples and snippets intentionally. The focus of this quickstart guide is on how to use Auth0 in an application in general rather than on how to approach various architectural scenarios.
 
