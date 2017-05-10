@@ -3,9 +3,9 @@ title: Call APIs from Highly Trusted Clients
 description: Describes how to call APIs from highly trusted clients using the Resource Owner Password Grant.
 ---
 
-# Call APIs from Highly Trusted Clients
-
 <%= include('../../_includes/_pipeline2') %>
+
+# Call APIs from Highly Trusted Clients
 
 In order to access an API from a highly trusted [mobile app](/quickstart/native) or [client-side web app](/quickstart/spa), you need to implement the OAuth 2.0 **Resource Owner Password Grant**.
 
