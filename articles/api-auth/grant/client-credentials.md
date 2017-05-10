@@ -4,6 +4,8 @@ description: Describes how to call APIs from server processes using the Client C
 
 # Calling APIs from a Service
 
+<%= include('../../_includes/_pipeline2') %>
+
 The OAuth 2.0 grant that machine-to-machine interfaces utilize in order to access an API, is the **Client Credentials Grant**. In this document we will see how this flow works.
 
 <div class="alert alert-info">
