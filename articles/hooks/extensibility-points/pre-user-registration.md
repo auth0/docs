@@ -6,7 +6,7 @@ description: The pre-user-registration extensibility point for use with Hooks
 
 For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to:
 
-* Prevent creation of a database user;
+* Prevent account creation for a social user;
 * Add custom `app_metadata` or `user_metadata` to a newly-created user.
 
 This allows you to implement scenarios including (but not limited to):
@@ -69,6 +69,43 @@ Metadata property names must not:
 
 * Start with the `$` character;
 * Contain the `.` character.
+
+### Example: Prevent a Social User From Signing Up
+
+```js
+module.exports = function (user, context, cb) {
+
+  // initialize app_metadata
+  user.app_metadata = user.app_metadata || {};
+
+  // if it is the first login (and therefore a signup) and it is a social login
+  if (context.stats.loginsCount === 1 && user.identities[0].isSocial) {
+
+    // turn on the flag
+    user.app_metadata.is_signup = true;
+
+    // store the app_metadata
+    auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+      .then(function(){
+        // throw error
+        return cb('Signup disabled');
+      })
+      .catch(function(err){
+        cb(err);
+      });
+
+    return;
+  }
+
+  // if flag is enabled, throw error
+  if (user.app_metadata.is_signup) {
+    return cb('Signup disabled');
+  }
+
+  // else it is a non social login or it is not a signup
+  cb(null, response);
+}
+```
 
 ### Example: Add Metadata to New Users
 
