@@ -6,6 +6,8 @@ toc: true
 
 # Multifactor Authentication and Resource Owner Password
 
+<%= include('../../_includes/_pipeline2') %>
+
 Highly-trusted applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials to be submitted to Auth0. In some scenarios, however, stronger authentication may be required. This document outlines using [multifactor authentication](/multifactor-authentication) with the [Resource Owner Password Grant](/api-auth/grant/password).
 
 ## Prerequisites
