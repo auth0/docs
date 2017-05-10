@@ -1,8 +1,10 @@
 ## Configure the Manifest File
 
-Add the following code to your project's `AndroidManifest.xml`.
+Add the following code to your project's `AndroidManifest.xml`. This will ask for the INTERNET permission and register an Intent-Filter to handle web authentication.
 
 ```xml
+<uses-permission android:name="android.permission.INTERNET" />
+
 <activity
     android:name="com.auth0.android.lock.LockActivity"
     android:label="@string/app_name"
@@ -23,13 +25,16 @@ Add the following code to your project's `AndroidManifest.xml`.
 </activity>
 ```
 
+It's super important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
+
+
+The URL defined in the intent-filter will be called from the browser whenever you perform a successful web authentication. This URL must be whitelisted in the "Allowed Callback URLs" section of the [Client settings](https://manage.auth0.com/#/clients) and it should look similar to this:
+
+```
+https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+```
+
 Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
-Add the following permissions:
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-```
 
 > Do not add `<android:noHistory="true">` to the `LockActivity` as this will alter the correct functionality of **Lock**.
