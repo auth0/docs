@@ -11,7 +11,7 @@ This tutorial has been tested with the following:
 * NodeJS 6.3
 * npm 3.10.3
 * @cycle/xstream-run 3.0.3
-* cyclejs-auth0 2.0.0
+* cyclejs-auth0 3.0.0
 :::
 
 
@@ -58,11 +58,11 @@ All the available configurable parameters are supported, see [User configurable 
 
 After authentication, the `protect` function will handle the token parsing and store it to `localStorage`.
 
-## 4. Retrieve the User Profile and Display User Information
+## 4. Retrieve and display the User's Information
 
-Once a component is protected, it is given a `props` object that contains a `token$` stream that can be used to either:
+Once a component is protected, it is given a `props` object that contains a `tokens$` stream that can be used to either:
 - be decoded to get some basic information about your user (sub, nickname ... depending on your `authParams.scope` setting);
-- send a `getProfile` request to the Auth0 lock to retrieve a full profile.
+- send a `getUserInfo` request to the Auth0 lock to retrieve a full profile.
 
 ${snippet(meta.snippets.query)}
 
