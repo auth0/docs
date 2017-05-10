@@ -2,6 +2,8 @@
 description: Describes how to call APIs from regular web apps using the  Authentication Code Grant.
 ---
 
+<%= include('../../_includes/_pipeline2') %>
+
 # Calling APIs from Server-side Web Apps
 
 In order to access an API from a [regular web app](/quickstart/webapp), you need to implement the **Authorization Code** OAuth 2.0 grant. In this document we will see how this flow works.

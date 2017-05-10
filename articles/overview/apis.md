@@ -6,6 +6,8 @@ description: Learn the basics of APIs, their role in OAuth and how to configure 
 crews: crew-2
 ---
 
+<%= include('../_includes/_pipeline2') %>
+
 # APIs
 
 ## Overview

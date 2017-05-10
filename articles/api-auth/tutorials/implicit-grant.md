@@ -2,6 +2,8 @@
 description: How to execute an Implicit Grant flow from a SPA Client application.
 ---
 
+<%= include('../../_includes/_pipeline2') %>
+
 # How to implement the Implicit Grant
 
 <div class="alert alert-info">

@@ -2,6 +2,8 @@
 description: How to execute an Authorization Code Grant flow with PKCE for a Mobile Application
 ---
 
+<%= include('../../_includes/_pipeline2') %>
+
 # Execute an Authorization Code Grant Flow with PKCE
 
 <div class="alert alert-info">

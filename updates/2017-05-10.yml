@@ -1,0 +1,10 @@
+added:
+  -
+    title: "Introducing OIDC Conformant Authentication"
+    tags:
+      - authentication
+      - oauth
+      - oidc
+      - pipeline
+    description: |
+      A [new doc](https://auth0.com/docs/api-auth/intro) was added that presents an overview of the latest changes in Auth0's authentication flows, explains why they were made and points to other detailed tutorials to help the users adopt these changes.
