@@ -4,6 +4,8 @@ description: How to keep users logged in to your application
 
 # Silent Authentication
 
+<%= include('../../_includes/_pipeline2') %>
+
 There are two main participants involved in a [single sign-on (SSO)](/sso) scenario: an Authorization Server (Auth0), and multiple client applications.
 
 For privacy reasons, client applications cannot query Auth0 directly to determine if a user has logged in via SSO. This means that users must be redirected to Auth0 for SSO authentication.
