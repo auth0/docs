@@ -3,9 +3,9 @@ title: Call APIs from Client-side Web Apps
 description: Learn how to call APIs from client-side web apps using the OAuth 2.0 Implicit Grant.
 ---
 
-# Call APIs from Client-side Web Apps
-
 <%= include('../../_includes/_pipeline2') %>
+
+# Call APIs from Client-side Web Apps
 
 In order to access an API from a [client-side app](/quickstart/spa) (typically a Single Page Application or a Mobile Application), you need to implement the OAuth 2.0 **Implicit Grant**. In this document we will see how this flow works.
 
