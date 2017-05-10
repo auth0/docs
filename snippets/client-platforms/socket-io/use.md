@@ -1,21 +1,23 @@
 ```js
 var userProfile;
-var userToken = localStorage.getItem('userToken');;
+var userToken = localStorage.getItem('userToken');
+var accessToken = localStorage.getItem('accessToken');
 
 lock.on('authenticated', function(authResult) {
-    lock.getProfile(authResult.idToken, function(error, profile) {
+    lock.getUserInfo(authResult.accessToken, function(error, profile) {
         if (error) {
             // Handle error
             return;
         }
         localStorage.setItem('userToken', authResult.idToken);
+        localStorage.setItem('accessToken', authResult.accessToken);
         userProfile = profile;
         userToken = authResult.idToken;
     });
 });
 
-if (userToken) {
-    lock.getProfile(userToken, function (err, profile) {
+if (userToken && accessToken) {
+    lock.getUserInfo(accessToken, function (err, profile) {
         if (err) {
             return alert('There was an error getting the profile: ' + err.message);
         }        

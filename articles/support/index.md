@@ -34,7 +34,7 @@ Auth0 offers the following support plans:
 Customers with Auth0's free subscription plan can seek support through the Auth0 Community. Response times may vary and are not guaranteed.
 
 :::panel-info Trial Subscriptions
-New Auth0 customers receive Standard Support during the 22-day trial period (customers may check on how many trial days they have left by logging into the [Dashboard](${manage_url})). 
+New Auth0 customers receive Standard Support during the 22-day trial period (customers may check on how many trial days they have left by logging into the [Dashboard](${manage_url})).
 
 At the end of the trial period, customers who have not opted to purchase a paid subscription can use the Auth0 Community for assistance. They will no longer be able to access or open tickets in the [Support Center](https://support.auth0.com/).
 :::
@@ -69,6 +69,30 @@ In addition to the Auth0 Community, paid subscribers can create a private ticket
 [Learn more about creating tickets with Support Center](/support/tickets)
 
 Critical Production issues should always be reported via the [Support Center](https://support.auth0.com/) for fastest response.
+
+#### Add Support-Only Users
+
+You can support-only to your Auth0 account. This will allow them to open, view, and comment on Suppoer Center tickets, receive relevant notifications, and see service details.  They do not, however, have full administration access to the Auth0 Dashboard.
+
+You can add support-only users via the Support Center. Click on your name in the top right, and click **Support Center Users**.
+
+![](/media/articles/support/support-center-users.png)
+
+If this is the first time you've used this feature or there are no support-only users, you'll be redirected immediately to a screen that allows you to invite users.
+
+![](/media/articles/support/invite-users.png)
+
+Provide the user's email address, select the Auth0 service to which they should have support access, and click **Send Invitation**. Auth0 will then send the user an email inviting them to register for and log into the Support Center.
+
+Administrative accounts will be able to see details about support-only accounts.
+
+![](/media/articles/support/manage-users.png)
+
+Using this page, you can:
+
+* Search for users;
+* See the account details for users;
+* Revoke privileges.
 
 ## Ticket Response Times
 
@@ -137,7 +161,7 @@ Auth0's Business Hours are as follows:
 Monday, 6:00 am CST/UTC+8 hours - Friday, 6:00 pm PDT/UTC-7 hours | 24/5 coverage during this period
 
 **Critical Support Hours**
-Standard Support: 24/5 | Enterprise and Preferred Support: 24/7/265
+Standard Support: 24/5 | Enterprise and Preferred Support: 24/7/365
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.  Response times may also be delayed during periods of heavy ticket volume.
 

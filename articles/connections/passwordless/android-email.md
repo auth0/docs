@@ -14,12 +14,6 @@ title: Using Passwordless Authentication on Anroid with e-mail
 
 ### Using Auth0 Lock
 
-<%= include('../../_includes/_package', {
-  org: 'auth0',
-  repo: 'Mobile-Samples.Android',
-  path: 'Passwordless-Email/Lock'
-}) %>
-
 <%= include('./_introduction-lock', { repository: 'Lock.Android', platform: 'Android', docsUrl: 'lock-android' }) %>
 
 Begin by adding the Lock e-mail library to your `build.gradle` file:

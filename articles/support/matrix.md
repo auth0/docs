@@ -303,7 +303,12 @@ toc: true
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td><a href="https://github.com/auth0/Auth0-java">Auth0 Node</a></td>
+        <td><a href="https://github.com/auth0/node-auth0">Auth0 Node</a></td>
+        <td>v2</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-python">Auth0 Python</a></td>
         <td>v2</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>

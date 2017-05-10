@@ -17,13 +17,15 @@ Add the following code to your project's `AndroidManifest.xml`.
 
         <data
             android:host="${account.namespace}"
-            android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+            android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
             android:scheme="https" />
     </intent-filter>
 </activity>
 
 <activity android:name="com.auth0.android.lock.provider.WebViewActivity"/>
 ```
+
+Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
 Add the following permissions:
 

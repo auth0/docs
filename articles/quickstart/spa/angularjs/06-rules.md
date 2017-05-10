@@ -6,7 +6,11 @@ description: This tutorial demonstrates how to use Auth0 rules to extend what Au
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '06-Rules'
+  path: '06-Rules',
+  requirements: [
+    'AngularJS 1.5.8',
+    'angular-lock 2.0.2'
+  ]
 }) %>
 
 <%= include('../_includes/_rules-introduction') %>

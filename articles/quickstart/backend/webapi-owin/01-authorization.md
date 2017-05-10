@@ -6,8 +6,8 @@ budicon: 500
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-aspnet-owin-webapi-sample',
-  path: '01-Authentication/WebApi',
+  repo: 'auth0-aspnet-owin-webapi-samples',
+  path: 'Quickstart/01-Authorization',
   requirements: [
     'Microsoft Visual Studio 2015 Update 3',
     'Microsoft.Owin.Security.Jwt NuGet Package V3.0.1',
@@ -31,7 +31,7 @@ Install-Package Auth0.OpenIdConnectSigningKeyResolver
 
 ## Configuration
 
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnet-owin-webapi-sample/tree/master/03-Authentication-HS256/WebApi' }) %>
+<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnet-owin-webapi-samples/tree/master/Samples/hs256' }) %>
 
 The `Auth0.OpenIdConnectSigningKeyResolver` package which you installed will automatically download the JSON Web Key Set which was used to sign the RS256 tokens by interrogating the OpenID Connect Configuration endpoint (at `/.well-known/openid-configuration`). You can then use it subsequently to resolve the Issuer Signing Key, as will be demonstrated in the JWT registration code below.
 

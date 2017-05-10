@@ -167,13 +167,12 @@ Where:
 The client should match the one the refresh token was issued for.
 
 ::: panel-info Revoke a token without the Client Secret
-For clients that cannot keep the `client_secret` safe (for example, mobile apps), the `/oauth/revoke` endpoint supports passing instead the parameter `tokenEndpointAuthMethod: none` within the request body:
+For clients that cannot keep the `client_secret` safe (for example, mobile apps), the `/oauth/revoke` endpoint supports passing no `client_secret` but the client itself must have the property `tokenEndpointAuthMethod` set to `none`, so the client can perform the following request:
 
 ```json
 {
 "token" : YOUR_REFRESH_TOKEN,
-"client_id" : ${account.clientId},
-"tokenEndpointAuthMethod": "none"
+"client_id" : ${account.clientId}
 }
 ```
 :::

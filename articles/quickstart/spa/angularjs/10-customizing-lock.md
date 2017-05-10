@@ -6,7 +6,11 @@ description: This tutorial demonstrates how to customize the Lock widget
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '10-Customizing-Lock'
+  path: '10-Customizing-Lock',
+  requirements: [
+    'AngularJS 1.5.8',
+    'angular-lock 2.0.2'
+  ]
 }) %>
 
 Using Lock is easy, but you may want to customize your login UI. There are several options available for this.

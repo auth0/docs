@@ -229,6 +229,7 @@ export default class AuthService extends EventEmitter {
 
   logout() {
     // Clear user token and profile data from localStorage
+    localStorage.removeItem('access_token')
     localStorage.removeItem('id_token')
     localStorage.removeItem('profile')
   }

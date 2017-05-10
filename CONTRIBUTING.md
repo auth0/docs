@@ -127,15 +127,19 @@ Alerts should be used to display brief versioning information. For example:
 
 ```html
 <div class="alert alert-info">
+Due to the asynchronous nature of Node.js, you <strong>must</strong> call the <code>callback</code> function. If not, this acts as a blocker and the next rule will not execute. The entire rules sequence must complete within <strong>20 seconds</strong>, otherwise the process times out.
+</div>
+
+<div class="alert alert-warning">
   <strong>Heads up!</strong> This document uses an outdated version of Lock (version 9). Learn how to <a href="/libraries/lock/v10/migration-guide">migrate to version 10</a>, or, if you're new to Lock, start out with the <a href="/libraries/lock">Lock 10 Documentation</a>.
 </div>
 ```
 
 looks like this:
 
-![Alert displaying version info](/media/readme/alert-version.png)
+![Alert displaying version info](https://cloud.githubusercontent.com/assets/6318057/25852886/40cfde98-34a1-11e7-9a89-f0d13c8c1f7a.png)
 
-[Styleguide: Alerts](http://styleguide.auth0.com/#alert)
+See all the different types of alerts in the [Auth0 Styleguide](http://styleguide.auth0.com/#/components/alerts)
 
 ### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
@@ -745,9 +749,11 @@ The `versioning` object has the following properties:
 
 ## User interface
 
-When a user views an article within a versioned topic, a banner will be added to the top of the page:
+When a user views an article within a versioned topic, a select will be added after the main title:
 
-![screen shot 2017-02-15 at 10 31 41 am](https://cloud.githubusercontent.com/assets/1576/22981261/f8c641fa-f369-11e6-9bf0-3a20865cb508.png)
+![Versioned article Select UI](https://cloud.githubusercontent.com/assets/6318057/25853436/23e93e44-34a3-11e7-8627-1a0364eb9b2c.png)
+
+It is recommended to add an alert after the version selector for outdated articles.
 
 The user can navigate between versions of the topic by selecting a new version from the drop-down box. If an article with the same filename is present in the newly-selected version, the user will navigate to that article. If no article with the same filename is present, they will instead receive a HTTP redirect (302) to the *default article* for that version.
 

@@ -2,46 +2,32 @@
 description: Overview of hosted pages with Auth0, and how to use them
 ---
 
-# How to Use Hosted Pages with Auth0
+# Auth0 Hosted Pages
 
-Auth0 provides you the ability to create beautiful hosted pages to which you can redirect to provide functionality for your users. These pages include [Login](/hosted-pages/login), [Password Reset](/hosted-pages/password-reset), [Guardian Multifactor](/hosted-pages/guardian), and [Error pages](/hosted-pages/error-pages).
+Auth0 offers you the ability to display customized pages containing Auth0-related functionality and to which Auth0 redirects your users during the authorization process. You can create the following types of hosted pages:
 
-## Security Considerations
+* [Login](/hosted-pages/login)
+* [Password Reset](/hosted-pages/password-reset)
+* [Guardian Multifactor](/hosted-pages/guardian)
+* [Error pages](/hosted-pages/error-pages)
 
-Using Auth0 hosted pages for your authentication, rather than externally hosting them, provides seamless XSRF protection, preventing third party impersonation or hijacking of sessions. The use of hosted pages provides a significantly easier to implement, secure solution for authentication, allowing you to worry about other things, like the security of your application.
+While Auth0 hosts your custom pages, you can still [manage your pages using the version control system of your choice](/hosted-pages/version-control).
 
-## How to Customize Hosted Pages
+## Why Use Hosted Pages
 
-You can customize your hosted pages from within your [Auth0 Dashboard](${manage_url}). See the following pages for specific instructions about each type of hosted page:
+Hosted pages are an easy to implement and secure. For example, using Auth0 hosted pages instead of hosting them externally provides seamless XSRF protection. This helps prevent third party impersonation or the hijacking of sessions.
+
+## How to Enable and Customize Hosted Pages
+
+To enable a particular type of hosted page, navigate to the [Hosted Pages section of the Auth0 Dashboard](${manage_url}/#/login_page) (note that Error Page settings are located under [Account Settings](${manage_url}/#/account)). Click on the slider to enable the page.
+
+## Customize Your Hosted Page
+
+In the Auth0 Dashboard, you'll see an HTML editor, as well as a *Preview* tab, for each of the hosted page types. You can either use the editor to create your HTML or paste in the HTML you've created elsewhere.
+
+For detailed instructions on how to customize each type of hosted page, please see the following docs:
 
 * [Login Page](/hosted-pages/login)
 * [Password Reset Page](/hosted-pages/password-reset)
 * [Guardian Multifactor Authentication Page](/hosted-pages/guardian)
 * [Error Pages](/error-pages)
-
-## How to Use Version Control to Manage Your Hosted Pages
-
-It is possible to use version control software to manage the source code of the hosted pages discussed here. Auth0 provides extensions for the following tools which can be used to manage the source of your hosted pages:
-
-* [GitLab Extension](/extensions/gitlab-deploy#deploy-hosted-pages)
-* [GitHub Extension](/extensions/github-deploy#deploy-hosted-pages)
-* [BitBucket Extension](/extensions/bitbucket-deploy#deploy-hosted-pages)
-* [Visual Studio Team Services Extension](/extensions/visual-studio-team-services-deploy#deploy-hosted-pages)
-
-You should take a look at the documentation for the extension that you would like to use, to learn the details about implementing source control for your hosted pages with that specific extension. However, in general, deploying hosted pages with these tools will require just a few steps:
-
-1. Create a folder within your version control repository with the appropriate name (`pages`).
-1. Create an HTML page (`login.html`, `password_reset.html`, `guardian_multifactor.html`, or `error_page.html`).
-1. Create a JSON file (with the same name, but with the `.json` file extension) for each hosted page that you wish to source control. To enable the page, the JSON file would contain the following:
-
-```json
-{
-  "enabled": true
-}
-```
-
-**File Naming Example:**
-```text
-your-repo/pages/error_page.html
-your-repo/pages/error_page.json
-```

@@ -9,7 +9,7 @@ budicon: 448
   repo: 'auth0-angularjs2-systemjs-sample',
   path: '02-Custom-Login',
   requirements: [
-    'Angular 2.0.1'
+    'Angular 2.4.10'
   ]
 }) %>
 

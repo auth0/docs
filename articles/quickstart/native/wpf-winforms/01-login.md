@@ -6,9 +6,9 @@ budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-WinFormsWPF-oidc-sampless',
-  path: '00-Starter-Seed',
+  org: 'auth0-community',
+  repo: 'auth0-WinFormsWPF-oidc-samples',
+  path: 'Quickstart/00-Starter-Seed',
   requirements: [
     'Microsoft Visual Studio 2017',
     '.NET Framework 4.5.2'

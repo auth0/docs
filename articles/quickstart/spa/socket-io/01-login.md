@@ -4,17 +4,6 @@ description: This tutorial demonstrates how to use the Auth0 Socket.io SDK to ad
 budicon: 448
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-socket.io-samples',
-  path: '00-Starter-Seed',
-  requirements: [
-    'Socket.io 1.4.5',
-    'NodeJS 5.0.0'
-  ]
-}) %>
-
-
 ## 1. Set up the Allowed Origin (CORS) in Auth0
 
 <div class="setup-origin">

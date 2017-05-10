@@ -31,7 +31,7 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     // auth0.js
-    script(src="<script src="${auth0js_urlv8}"></script>")
+    script(src="${auth0js_urlv8}")
   body
     block content
 ```

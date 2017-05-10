@@ -7,11 +7,13 @@ budicon: 500
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-aspnetcore-webapi-sample',
-  path: '01-Authentication',
+  repo: 'auth0-aspnetcore-webapi-samples',
+  path: 'Quickstart/01-Authorization',
   requirements: [
-    '.NET Core 1.0',
-    'Visual Studio 2015 Update 3 (Optional)',
+    '.NET Core 1.1',
+    'ASP.NET Core 1.1',
+    'Microsoft.AspNetCore.Authentication.JwtBearer 1.1.1',
+    'Visual Studio 2017 (Optional)',
     'Visual Studio Code (Optional)'
   ]
 }) %>
@@ -30,13 +32,15 @@ Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 
 ## Configuration
 
-<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample/tree/master/03-Authentication-HS256' }) %>
+<%= include('../_includes/_api_jwks_description', { sampleLink: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-samples/tree/master/Samples/hs256' }) %>
 
 The ASP.NET Core JWT middleware will handle downloading the JSON Web Key Set (JWKS) file containing the public key for you, and will use that to verify the `access_token` signature.
 
 To add the JWT middleware to your application's middleware pipeline, go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 API Identifier as the `Audience`, and the full path to your Auth0 domain as the `Authority`:
 
 ```csharp
+// Startup.cs
+
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 {
     loggerFactory.AddConsole(Configuration.GetSection("Logging"));
@@ -56,6 +60,8 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/) and [Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/) mechanisms. To secure an endpoint you only need to decorate your controller action with the `[Authorize]` attribute:
 
 ```csharp
+// Controllers/PingController.cs
+
 [Route("api")]
 public class PingController : Controller
 {
@@ -86,6 +92,8 @@ For a better understanding of the code which follows, it is suggested that you r
 Create a new Authorization Requirement called `HasScopeRequirement`. This requirement will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope. If it does then the Authorization Requirement is met.
 
 ```csharp
+// HasScopeRequirement.cs
+
 public class HasScopeRequirement : AuthorizationHandler<HasScopeRequirement>, IAuthorizationRequirement
 {
     private readonly string issuer;
@@ -118,6 +126,8 @@ public class HasScopeRequirement : AuthorizationHandler<HasScopeRequirement>, IA
 Next, you can define a policy for each of the scopes in your application in the `ConfigureServices` method of your `Startup` class:
 
 ```csharp
+// Startup.cs
+
 public void ConfigureServices(IServiceCollection services)
 {
     // Add framework services.
@@ -137,6 +147,8 @@ public void ConfigureServices(IServiceCollection services)
 Finally, to ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `Authorize` attribute, and pass the name of the Policy for that `scope` in the `policy` parameter:
 
 ```csharp
+// Controllers/MessagesController.cs
+
 [Route("api/messages")]
 public class MessagesController : Controller
 {
@@ -149,7 +161,7 @@ public class MessagesController : Controller
 
     [Authorize("create:messages")]
     [HttpPost]
-    public IActionResult Create(Message message)
+    public IActionResult Create([FromBody] Message message)
     {
         // Create a new message
     }

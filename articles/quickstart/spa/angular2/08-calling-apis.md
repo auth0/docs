@@ -9,7 +9,7 @@ budicon: 546
   repo: 'auth0-angularjs2-systemjs-sample',
   path: '08-Calling-Api',
   requirements: [
-    'Angular 2.0.1'
+    'Angular 2.4.10'
   ]
 }) %>
 

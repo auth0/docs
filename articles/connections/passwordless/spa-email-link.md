@@ -20,12 +20,6 @@ This document covers Passwordless Authentication with Magic Links, and uses the 
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-passwordless-sample',
-  path: ''
-}) %>
-
 <%= include('./_init-passwordless-lock') %>
 
 Then you can trigger the passwordless authentication using a magic link with the following code:

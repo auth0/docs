@@ -21,6 +21,6 @@ A brief description:
 - [**Lock**](https://github.com/auth0/Lock.iOS-OSX) is a widget that is easy to present in your app. It contains default templates (that can be customized) for login with email/password, signup, social providers integration, and password recovery.
 - [**Auth0.swift**](https://github.com/auth0/Auth0.swift) is a toolkit that lets you communicate efficiently with many of the basic [Auth0 API](/api/info) functions.
 
-<%= include('_includes/_dependencies') %>
+<%= include('../../../libraries/lock-ios/_includes/_dependencies') %>
 
 <%= include('_includes/_config') %>

@@ -24,14 +24,14 @@ You'll need to add the `PasswordlessLockActivity` to your Manifest, inside the `
       <category android:name="android.intent.category.BROWSABLE" />
 
       <data
-        android:host="{YOUR_AUTH0_DOMAIN}"
+        android:host="${account.namespace}"
         android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
         android:scheme="https" />
     </intent-filter>
 </activity>
 ```
 
-Make sure the Activity's `launchMode` is declared as `"singleTask"` or the result won't come back after the authentication.
+Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name. Make sure the Activity's `launchMode` is declared as `"singleTask"` or the result won't come back after the authentication.
 
 Also, you'll need to add *Internet* permission to your application:
 ```xml
@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // Your own Activity code
-    Auth0 auth0 = new Auth0('${account.clientId}','${account.namespace}');
+    Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     lock = PasswordlessLock.newBuilder(auth0, callback)
       //Customize Lock
       .build(this);

@@ -1,6 +1,8 @@
 ---
 section: libraries
+title: Auth0.js v7 to v8 Migration Guide
 description: How to migrate from auth0.js v7 to auth0.js v8
+toc: true
 ---
 
 # Auth0.js v7 to v8 Migration Guide
@@ -180,17 +182,19 @@ refreshing tokens is now done via the `renewAuth` method. If a user is already a
 
 Delegation is now done via the `delegation` method, which takes an `options` object containing the following potential parameters:
 
-* clientID <optional> - a string; the Auth0 client identifier
-* idToken <optional> - a string; either a valid idToken or a valid refreshToken is required
-* refreshToken <optional> - a string; either a valid refreshToken or a valid idToken is required
-* target <optional> - a string; the target client id of the delegation
-* scope <optional> - a string; either `'openid'` or `'openid profile email'`
-* apiType <optional> - a string; the api to be called
+* __client_id__ (required): a string; the Auth0 client identifier
+* __grant_type__ (required): a string; must be `urn:ietf:params:oauth:grant-type:jwt-bearer`
+* __id_token__ (required): a string; either a valid id_token or a valid refresh_token is required
+* __refresh_token__: a string; either a valid refresh_token or a valid id_token is required
+* __target__: a string; the target client id of the delegation
+* __scope__: a string; either `'openid'` or `'openid profile email'`
+* __api_type__: a string; the api to be called
 
 ```js
 webAuth.delegation({
-  clientID: '${account.clientId}',
-  idToken: 'valid idToken here',
+  client_id: '${account.clientId}',
+  grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+  id_token: 'valid idToken here',
   target: 'target client id here',
   scope: 'openid'
 });

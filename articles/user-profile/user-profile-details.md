@@ -119,6 +119,10 @@ The User Profile can also be modified through the Auth0 Management Dashboard. Th
 
 In the Auth0 dashboard, click on "Users", then the user to be edited, then "EDIT". The User Profile attributes within USER metadata and APP metadata can be edited by specifying profile data in JSON format with a key (attribute name) and value (value of the attribute). Pressing "SAVE" will save the information to the Auth0 cache of User Profile information for the user where it will be visible by client applications integrated with Auth0. This "SAVE" will not alter information in the core user profile which is provided by the Connection.
 
+::: panel-info Pending Users
+The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+:::
+
 ### Management API
 
 The Auth0 Management API provides access to read, update, and delete User Profiles stored in the Auth0 database.

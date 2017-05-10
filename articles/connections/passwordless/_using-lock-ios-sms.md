@@ -1,7 +1,5 @@
 # Authenticate users with a one-time code via SMS
 
-<%= include('./_ios-language-picker') %>
-
 <%= include('./_introduction-sms', { isMobile: true }) %>
 
 ## Setup
