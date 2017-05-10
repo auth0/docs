@@ -1,7 +1,5 @@
 # Authenticate users with Touch ID
 
-<%= include('./_ios-language-picker') %>
-
 A feature specific to iOS is the support for *Touch ID*, which allows users to authenticate with their fingerprint (biometric authentication).
 
 ![](/media/articles/connections/passwordless/passwordless-touchid-start.png)
