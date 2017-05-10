@@ -4,6 +4,8 @@ description: How to execute an Authorization Code Grant flow with PKCE for a Mob
 
 # Execute an Authorization Code Grant Flow with PKCE
 
+<%= include('../../_includes/_pipeline2') %>
+
 <div class="alert alert-info">
   This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code-pkce">Calling APIs from Mobile Apps</a>.
 </div>
