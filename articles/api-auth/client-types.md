@@ -2,9 +2,9 @@
 title: Public and confidential clients
 ---
 
-# Client and application types
-
 <%= include('../_includes/_pipeline2') %>
+
+# Client and application types
 
 The OAuth 2.0 specification [defines two types of clients](https://tools.ietf.org/html/rfc6749#section-2.1): public and confidential.
 When creating a client through the management dashboard, Auth0 will ask you what type of application it represents and use that information to determine the client type.
