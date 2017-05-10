@@ -5,6 +5,8 @@ crews: crew-2
 
 # Set up a Client Credentials Grant using the Dashboard
 
+<%= include('../../_includes/_pipeline2') %>
+
 1. Open the Auth0 Management Dashboard and browse to the [Clients section](${manage_url}/#/clients).
 
 2. Create a new client of type **Non Interactive** for each of the applications that will consume the API you want to generate access tokens for.
