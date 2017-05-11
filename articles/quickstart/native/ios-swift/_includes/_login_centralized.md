@@ -1,5 +1,7 @@
 The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [centralized login page](https://auth0.com/docs/hosted-pages/login).
 
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Lock UI"></div>
+
 <%= include('_dependency_centralized') %>
 
 ## Adding the callback
@@ -48,7 +50,7 @@ Auth0
 }
 ```
 
-As you can see, upon successful authentication the user's `credentials` will be returned.
+Upon successful authentication the user's `credentials` will be returned.
 
 > For further reference on the `credentials` object, please see:
 [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift)
