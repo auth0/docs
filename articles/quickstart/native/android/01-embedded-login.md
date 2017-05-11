@@ -1,10 +1,10 @@
 ---
 title: Login
-description: This tutorial will show you how to integrate Lock v2 in your Android project in order to present an Embedded login screen.
+description: This tutorial will show you how to integrate Lock v2 in your Android project in order to present an Embedded Login screen.
 budicon: 448
 ---
 
-This tutorial will show you how to integrate Lock v2 in your Android project in order to present an Embedded login screen.
+This tutorial will show you how to integrate Lock v2 in your Android project in order to present an Embedded Login screen.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',

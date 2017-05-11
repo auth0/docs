@@ -13,12 +13,12 @@ snippets:
   setup: native-platforms/android/setup
   use: native-platforms/android/use
 seo_alias: android
-default_article: getting-started
+default_article: dashboard-default
 articles:
   - getting-started
   - 00-centralized-login
   - 01-embedded-login
-  - 02-custom-login
+  - 02-custom-login-form
   - 03-session-handling
   - 04-user-profile
   - 05-linking-accounts
