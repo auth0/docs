@@ -12,8 +12,8 @@ Lock has many methods, features, and configurable options. This reference is des
 * [getUserInfo()](#getuserinfo-) - Obtaining the profile of a logged in user
 * [show()](#show-) - Showing the Lock widget
 * [on()](#on-) - Listening for events
-* [resumeAuth()](#resumeauth-) - 
-* [logout()](#logout-) - 
+* [resumeAuth()](#resumeauth-) - Use to complete authentication flow when `autoParseHash` is false
+* [logout()](#logout-) - Log out the user
 
 ## Auth0Lock
 
@@ -230,7 +230,7 @@ lock.resumeAuth(hash, function(error, authResult) {
 
 ## logout()
 
-Logs out the user
+Logs out the user.
 
 - **options** {Object}: This is optional and follows the same rules as [auth0.js logout](https://auth0.com/docs/libraries/auth0js#logout)
 
