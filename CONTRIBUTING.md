@@ -751,9 +751,16 @@ The `versioning` object has the following properties:
 
 When a user views an article within a versioned topic, a select will be added after the main title:
 
-![Versioned article Select UI](https://cloud.githubusercontent.com/assets/6318057/25853436/23e93e44-34a3-11e7-8627-1a0364eb9b2c.png)
+![Versioned article Select UI](https://cloud.githubusercontent.com/assets/6318057/25916081/cf14663a-3599-11e7-92ea-c4fbadd45741.png)
 
-It is recommended to add an alert after the version selector for outdated articles.
+If the document is outdated you can add an alert **(after the main title)** using the following HTML structure:
+
+```
+<div class="alert alert-warning version-alert">
+  This document uses an older version of auth0.js. We recommend you to
+  <a href="/libraries/auth0js/v8/migration-guide">upgrade to the latest version</a>.
+</div>
+```
 
 The user can navigate between versions of the topic by selecting a new version from the drop-down box. If an article with the same filename is present in the newly-selected version, the user will navigate to that article. If no article with the same filename is present, they will instead receive a HTTP redirect (302) to the *default article* for that version.
 
