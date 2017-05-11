@@ -113,3 +113,7 @@ public class MyActivity extends Activity {
 
 
 There are many options to customize the authentication using WebAuthProvider. Make sure to check them [here](/articles/libraries/auth0-android#implementing-web-based-auth).
+
+<div class="phone-mockup">
+  <img src="/media/articles/native-platforms/android/centralized-login-android.png" alt="Mobile example screenshot" />
+</div>
