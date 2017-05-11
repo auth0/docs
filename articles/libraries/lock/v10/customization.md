@@ -560,7 +560,7 @@ The new fields are rendered below the regular sign up input fields in the order 
 
 #### Text Fields
 
-A `validator` function can also be provided.
+Text fields are the default type of additional signup field. Note that a `validator` function can also be provided.
 
 ```js
 var options = {
@@ -588,6 +588,8 @@ var options = {
 
 
 #### Select Field
+
+The signup field `type: "select"` will allow you to use select elements for the user to choose a value from. 
 
 ```js
 var options = {
@@ -629,6 +631,21 @@ var options = {
       // first arg instead of null
       cb(null, prefill);
     }
+  }]
+}
+```
+
+#### Checkbox Field
+
+The third type of custom signup field is the `type: "checkbox"`. The `prefill` value can determine the default state of the checkbox (`true` or `false`), and it is required.
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    type: "checkbox",
+    name: "newsletter",
+    prefill: "true",
+    placeholder: "I hereby agree that I want to receive marketing emails from your company"
   }]
 }
 ```
@@ -814,6 +831,16 @@ Overrides the language source url for Auth0's provided translations. By default,
 ```js
 var options = {
   languageBaseUrl: "http://www.example.com"
+};
+```
+
+### hashCleanup {Boolean}
+
+When the `hashCleanup` option is enabled, it will remove the hash part of the callback url after the user authentication. It defaults to true.
+
+```js
+var options = {
+  hashCleanup: false
 };
 ```
 
