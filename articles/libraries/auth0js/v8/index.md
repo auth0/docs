@@ -6,7 +6,7 @@ description: How to install, initialize and use auth0.js v8
 <div class="alert alert-info">
 This document covers the most up-to-date version of auth0.js - version 8. We recommend using this version, but if you are already using version 7, you can access it using the dropdown at the top of this document. If you are interested in upgrading to this version, take a look at the <a href="/libraries/auth0js/v8/migration-guide">v8 migration guide</a>.
 </div>
- 
+
 # Auth0.js v8 Reference
 
 Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
@@ -86,12 +86,12 @@ You can choose a method for login based on the type of auth you need in your app
 
 ### webAuth.authorize()
 
-The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited in the examples below. This method can take a variety of parameters via the `options` object. 
+The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited in the examples below. This method can take a variety of parameters via the `options` object.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `audience` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com). |
-| `scope` | required | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
+| `scope` | required | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
 | `response_type` | required | (String) The value must be `'token'` or `'code'`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `client_id` | optional | (String)  Your Auth0 client ID. |
 | `state` | recommended | (String)  An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
@@ -100,8 +100,8 @@ The `authorize` method can be used for logging in users via the [Hosted Login Pa
 For hosted login, one must call the `authorize` endpoint:
 
 ```js
-webAuth.authorize({ 
-  //Any additional options can go here 
+webAuth.authorize({
+  //Any additional options can go here
 });
 ```
 
@@ -117,13 +117,13 @@ webAuth.authorize({
 
 ### webAuth.popup.authorize()
 
-For popup authentication the `popup.authorize` method can be used. 
+For popup authentication the `popup.authorize` method can be used.
 
 Hosted login with popup:
 
 ```js
-webAuth.popup.authorize({ 
-  //Any additional options can go here 
+webAuth.popup.authorize({
+  //Any additional options can go here
 });
 ```
 
@@ -203,10 +203,10 @@ The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in ord
     redirectUri: '${account.callback}',
     state: 'YOUR_STATE'
   });
-  
+
   // Redirect to url
   // ...
-```  
+```
 
 __NOTE__: The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
 
@@ -225,7 +225,7 @@ The `passwordlessStart` method requires several parameters to be passed within i
 | `phoneNumber` | optional | (String) The user's phone number for delivery of a code or link via SMS. |
 | `email` | optional | (String) The user's email for delivery of a code or link via email. |
 
-Note that exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to start the Passwordless transaction. 
+Note that exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to start the Passwordless transaction.
 
 ```js
 webAuth.passwordlessStart({
@@ -249,7 +249,7 @@ The `passwordlessVerify` method requires several paramters to be sent in its `op
 | `phoneNumber` | optional | (String) The user's phone number to which the code or link was delivered via SMS. |
 | `email` | optional | (String) The user's email to which the code or link was delivered via email. |
 
-Note that, as with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction. 
+Note that, as with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
 
 ::: panel-info passwordlessVerify required WebAuth options
 In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
@@ -268,7 +268,7 @@ webAuth.passwordlessVerify({
 
 ## Extract the authResult and get user info
 
-After authentication occurs, the `parseHash` method parses a URL hash fragment to extract the result of an Auth0 authentication response. 
+After authentication occurs, the `parseHash` method parses a URL hash fragment to extract the result of an Auth0 authentication response.
 
 The `parseHash` method takes an `options` object that contains the following parameters:
 
@@ -285,7 +285,7 @@ This method requires that your tokens are signed with RS256 rather than HS256. F
 The contents of the authResult object returned by `parseHash` depend upon which authentication parameters were used. It can include:
 
 | **Item** | **Description** |
-| --- | --- | 
+| --- | --- |
 | `accessToken` | An access token for the API, specified by the `audience` |
 | `expiresIn` |  A string containing the expiration time (in seconds) of the `accessToken` |
 | `idToken` |  An id token JWT containing user profile information |
@@ -350,7 +350,7 @@ To log out a user, use the `logout` method. This method accepts an options objec
 | `federated` | optional | (Querystring parameter) Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 ::: panel-info returnTo parameter
-Note that if the `client_id` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}). 
+Note that if the `client_id` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}).
 However, if the `client_id` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
 :::
 
@@ -362,7 +362,7 @@ webAuth.logout({
 ```
 
 ## Sign up
- 
+
 To sign up a user, use the `signup` method. This method accepts an options object, which can include the following parameters.
 
 | **Parameter** | **Required** | **Description** |
@@ -372,27 +372,27 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | `password` | required | (String) User's desired password |
 | `connection` | required | (String) The database connection name on your client upon which to attempt user account creation |
 
-Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form. 
+Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
 
-```html 
-<h2>Signup Database Connection</h2> 
-<input class="signup-email" /> 
-<input type="password" class="signup-password" /> 
-<input type="button" class="signup-db" value="Signup!" /> 
-<script type="text/javascript"> 
-    $('.signup-db').click(function (e) { 
-        e.preventDefault(); 
-        webAuth.signup({ 
-            connection: 'Username-Password-Authentication', 
-            email: $('.signup-email').val(), 
+```html
+<h2>Signup Database Connection</h2>
+<input class="signup-email" />
+<input type="password" class="signup-password" />
+<input type="button" class="signup-db" value="Signup!" />
+<script type="text/javascript">
+    $('.signup-db').click(function (e) {
+        e.preventDefault();
+        webAuth.signup({
+            connection: 'Username-Password-Authentication',
+            email: $('.signup-email').val(),
             password: $('.signup-password').val()
-        }, function (err) { 
-            if (err) return alert('Something went wrong: ' + err.message); 
-            return alert('success signup without login!') 
-        }); 
-    }); 
-</script> 
-``` 
+        }, function (err) {
+            if (err) return alert('Something went wrong: ' + err.message);
+            return alert('success signup without login!')
+        });
+    });
+</script>
+```
 
 ## Using renewAuth to acquire new tokens
 
@@ -414,7 +414,7 @@ webAuth.renewAuth({
 This will use postMessage to comunicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behaviour is needed.
 :::
 
-The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe. 
+The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe.
 
 This callback page should only parse the URL hash and post it to the parent document, so that your application can take action depending on the outcome of the silent authentication attempt. The callback page should be something like the following one. It will parse the URL hash and post it to the parent document:
 
@@ -460,7 +460,7 @@ If attempting to set up a password reset functionality, you'll use the `changePa
 
 The user will then receive an email which will contain a link that they can follow to reset their password.
 
-## User management 
+## User management
 
 The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 

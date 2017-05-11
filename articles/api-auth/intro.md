@@ -56,7 +56,7 @@ __More information: [Calling your APIs with Auth0 tokens](/api-auth/tutorials/ad
 
 Historically, you were able to define and request arbitrary application-specific claims. From now on, your client can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), as [defined by the OIDC Specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims), or any scopes supported by your [API](/apis).
 
-In order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims.
+In order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims.
 
 To customize the tokens, use Hooks for Client Credentials, and Rules for the rest of the grants:
 - __Client Credentials__: [Customize Tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
