@@ -87,6 +87,8 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | --- | --- |
 | [clientBaseUrl](#clientbaseurl-string-) | Override your client's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
+| [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
+| [leeway](#leeway-integer-) | Add leeway for clock skew to JWT expiration times |
 
 ---
 
@@ -708,7 +710,7 @@ var options = {
 };
 ```
 
-### initialScreen {string}
+### initialScreen {String}
 
 The name of the screen that will be shown when the widget is opened. Valid values are `login`, `signUp`, and `forgotPassword`. If this option is left unspecified, the widget will default to the first screen that is available from that list.
 
@@ -841,6 +843,16 @@ When the `hashCleanup` option is enabled, it will remove the hash part of the ca
 ```js
 var options = {
   hashCleanup: false
+};
+```
+
+### leeway {Integer}
+
+The `leeway` option can be set to an integer - a value in seconds - which can be used to account for clock skew in JWT expirations. Typically the value is no more than a minute or two at maximum.
+
+```js
+var options = {
+  leeway: 30
 };
 ```
 
