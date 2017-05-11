@@ -57,7 +57,29 @@ Header logo image
 .withStyle {
   $0.logo = LazyImage(name: "company_logo")
 }
-```	
+``` 
+
+### headerCloseIcon
+
+The "close" icon in the header can be altered.
+
+```swift
+.withStyle {
+  $0.headerCloseIcon = lazyImage(named: "ic_close")
+}
+``` 
+
+### headerBackIcon
+
+The "back" icon in the header can be altered.
+
+```swift
+.withStyle {
+  $0.headerBackIcon = lazyImage(named: "ic_close")
+}
+``` 
+
+
 
 ## Title Style Options
 
@@ -109,7 +131,7 @@ Color used as the Lock disabled component color.
 
 ```swift
 .withStyle {
-  $0.disabledColor = UIColor ( red: 0.8902, green: 0.898, blue: 0.9059, alpha: 1.0 )
+  $0.disabledColor = UIColor(red: 0.8902, green: 0.898, blue: 0.9059, alpha: 1.0)
 }
 ```
 
@@ -119,7 +141,7 @@ Color used as the Lock disabled component text color.
 
 ```swift
 .withStyle {
-  $0.disabledTextColor = UIColor ( red: 0.5725, green: 0.5804, blue: 0.5843, alpha: 1.0 )
+  $0.disabledTextColor = UIColor(red: 0.5725, green: 0.5804, blue: 0.5843, alpha: 1.0)
 }
 ```	
 
@@ -152,6 +174,16 @@ Color used as the Lock background color.
 ```swift
 .withStyle {
   $0.backgroundColor = UIColor.white
+}
+```
+
+### backgroundImage
+
+Image used as the Lock background
+
+```swift
+.withStyle {
+  $0.backgroundColor = LazyImage?
 }
 ```
 
