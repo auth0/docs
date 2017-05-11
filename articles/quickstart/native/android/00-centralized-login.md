@@ -9,7 +9,7 @@ This tutorial will show you how to integrate the Auth0 Centralized Login in your
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
-  path: '00-centralized-login',
+  path: '00-Centralized-Login',
   requirements: [
     'Android Studio 2.3',
     'Android SDK 25',

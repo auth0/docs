@@ -10,7 +10,7 @@ This quickstart will show you how to add Auth0 login capabilities while using a 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
-  path: '02-custom-login-form',
+  path: '02-Custom-Login-Form',
   requirements: [
     'Android Studio 2.3',
     'Android SDK 25',
