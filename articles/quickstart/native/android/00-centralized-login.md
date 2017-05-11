@@ -21,7 +21,7 @@ This tutorial will show you how to integrate the Auth0 Centralized Login in your
 __
 
 
-### Start the authentication
+## Start the Authentication
 
 In our login method we create a new `Auth0` instance to hold the credentials. Then by using the `WebAuthProvider` class we can authenticate with any connection enabled for our client in the Auth0 dashboard. After calling `WebAuthProvider#start` the browser will launch and show Lock, and the final result will be received in the callback we pass.
 
@@ -51,7 +51,7 @@ private void login() {
 ```
 
 
-### Capture the result
+## Capture the Result
 
 The browser will redirect to our application with the authentication result and we need to send it back to the `WebAuthProvider` in order to parse it and get the actual tokens. To do so, we need to register in our Activity an **Intent-Filter** that will capture the call to the **Callback URL** specified by the provider. This URL is built using our Domain and application's Package Name and it must be whitelisted in the "Allowed Callback URLs" section of the [Client settings](https://manage.auth0.com/#/clients). The URL should look similar to this:
 
@@ -93,7 +93,7 @@ Edit the `AndroidManifest.xml` file to add the INTERNET permission and an Intent
     </application>
 ```
 
-It's super important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
+It's very important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
 
 
 Next, override the `onNewIntent` method in your activity. Here is where the result arrives. Redirect the received intent to the `WebAuthProvider#resume` method, which will return true if the data could be parsed correctly, and will call the `AuthCallback` given in the start call.
@@ -112,7 +112,7 @@ public class MyActivity extends Activity {
 ```
 
 
-There are many options to customize the authentication using WebAuthProvider. Make sure to check them [here](/articles/libraries/auth0-android#implementing-web-based-auth).
+There are many options to customize the authentication using `WebAuthProvider`. Make sure to check them [here](/articles/libraries/auth0-android#implementing-web-based-auth).
 
 <div class="phone-mockup">
   <img src="/media/articles/native-platforms/android/centralized-login-android.png" alt="Mobile example screenshot" />
