@@ -20,7 +20,7 @@ Rules are functions written in JavaScript that are executed in Auth0 as part of 
 
 ## Before Starting
 
-Make sure you have completed either the [Login](01-login) or the [Custom Login](02-custom-login) examples.
+Make sure you have completed either the [Embedded Login](01-embedded-login) or the [Custom Login Form](02-custom-login-form) examples.
 
 ## Create a Rule
 
@@ -38,7 +38,7 @@ This is just a basic template. You can edit it to meet your business needs. Once
 
 ## Test the Rule
 
-To see the newly created rule working, just implement a login and check the user profile information (you can find out how to do this in the [user profile tutorial](04-user-profile)).
+To see the newly created rule working, just implement a login and check the user profile information (you can find out how to do this in the [user profile](04-user-profile)) tutorial.
 
 You can access the `country` added by the rule within the `extraInfo` HashMap from the `UserProfile` object you receive in the callback:
 

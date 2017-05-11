@@ -1,16 +1,16 @@
 ---
-title: Custom Login
-description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
+title: Custom Login Form
+description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login form.
 seo_alias: android
 budicon: 448
 ---
 
-This quickstart will show you how to add Auth0 login capabilities while using a customized login screen.
+This quickstart will show you how to add Auth0 login capabilities while using a customized login form.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
-  path: '02-Custom-Login',
+  path: '02-Custom-Login-Form',
   requirements: [
     'Android Studio 2.3',
     'Android SDK 25',
@@ -28,25 +28,11 @@ https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 
 Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
-## Add The Auth0 Android Dependency
 
-Your first step is to add [Auth0 Android](https://github.com/auth0/Auth0.Android) into your project, which is basically the library that will manage the login process, via [Auth0](https://auth0.com/) Authentication Client.
+<%= include('_includes/_auth0') %> __
 
-#### i. Gradle
 
-Add to your app's module Gradle file:
-
-```gradle
-compile 'com.auth0.android:auth0:1.+'
-```
-
-_You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0)._
-
-Then, run "Sync project with Gradle files" inside Android Studio or `./gradlew clean assembleDebug` from the command line.
-
-> For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
-
-### 2. Configure Your Manifest File
+### Configure Your Manifest File
 
 You need to add the following permissions inside the `AndroidManifest.xml`:
 
@@ -98,7 +84,7 @@ In this example we're logging in using an Auth0 Database Connection called "User
 
 This requires an extra configuration step, as we need to capture the result that comes back from the browser once the user authenticates correctly.
 
-First, edit the `AndroidManifest.xml` file and include an Intent-Filter. This will capture any fired intent matching the **callback url** we've defined at the beginning of the article, and redirect the result to our activity. Without this, even if the authentication in the browser succeed, we won't receive any data.
+First, edit the `AndroidManifest.xml` file and include an Intent-Filter. This will capture any fired intent matching the **Callback URL** we've defined at the beginning of the article, and redirect the result to our activity. Without this, even if the authentication in the browser succeed, we won't receive any data.
 
 ```xml
 <application android:theme="@style/AppTheme">

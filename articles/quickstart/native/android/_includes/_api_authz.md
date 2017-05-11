@@ -1,6 +1,6 @@
 ## Configuring Your Application
 
-## Dependences
+## Dependencies
 
 This quickstart uses the Auth0.Android SDK to help you add authentication and API authorization to your Android app. To install it, simply add the following line to your module build.gradle file:
 
@@ -22,13 +22,8 @@ Next, Syncronize bundle.gradle in Android Studio or run `./gradlew clean assembl
 First, you need to update `AndroidManifest.xml` with the following:
 
 ```xml
-...
-
 <activity android:name=".MainActivity" android:launchMode="singleTask">
     <intent-filter>
-...
-
-
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
@@ -36,13 +31,8 @@ First, you need to update `AndroidManifest.xml` with the following:
             android:host="${account.namespace}"
             android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
             android:scheme="https" />
-
-...
-
     </intent-filter>
 </activity>
-
-...
 ```
 
 Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.

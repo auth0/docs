@@ -19,7 +19,7 @@ This tutorial will show you how to use Lock to get the user's profile data in yo
 
 ## Before Starting
 
-Be sure that you have completed the [Basic Login](/quickstart/native/android/01-login) and the [Session Handling](/quickstart/native/android/03-session-handling) Quickstarts.
+Be sure that you have completed the [Basic Login](/quickstart/native/android/01-embedded-login) and the [Session Handling](/quickstart/native/android/03-session-handling) Quickstarts.
 
 ## Request User Data
 
