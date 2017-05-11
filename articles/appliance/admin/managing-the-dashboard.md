@@ -36,7 +36,9 @@ function (user, context, callback) {
 
 ```
 
-> The default user `root@auth0.com` has access to the Appliance and its configuration area. Please remember to reset this user's default password or disable the user via the Auth0 Dashboard.
+> The default user `root@auth0.com` has access to the Appliance and its configuration area. To prevent unauthorized access with this account, you should block this user via the Auth0 Dashboard. 
+
+To block the user, click *Actions*. Then, in the drop-down menu that appears, click *Block User*.
 
 ### Restricting Access to the Dashboard
 
