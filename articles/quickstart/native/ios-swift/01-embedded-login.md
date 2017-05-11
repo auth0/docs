@@ -1,6 +1,6 @@
 ---
-title: Login
-description: This tutorial demonstrates how to integrate Lock in your iOS Swift project in order to present a login screen.
+title: Embedded Login
+description: This tutorial demonstrates how to integrate Embedded Lock in your iOS Swift project in order to present a login screen.
 budicon: 448
 ---
 
@@ -15,4 +15,4 @@ budicon: 448
   ]
 }) %>
 
-<%= include('_includes/_login') %>
+<%= include('_includes/_login_embedded') %>

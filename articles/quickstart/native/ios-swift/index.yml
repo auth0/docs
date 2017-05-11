@@ -12,8 +12,9 @@ tags:
 seo_alias: swift
 default_article: dashboard-default
 articles:
-  - 00-getting-started
-  - 01-login
+  - getting-started
+  - 00-centralized-login
+  - 01-embedded-login
   - 02-custom-login
   - 03-user-sessions
   - 05-authorization

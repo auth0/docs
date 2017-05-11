@@ -1,3 +1,8 @@
+
+The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [centralized login page](https://auth0.com/docs/hosted-pages/login).
+
+<%= include('_dependency_embedded') %>
+
 ## Implement the Login
 
 First, import the `Lock` module in the file where you want to present the login dialog:
@@ -6,7 +11,7 @@ First, import the `Lock` module in the file where you want to present the login 
 import Lock
 ```
 
-Then, configure and present the login screen, like this:
+Then, configure and present the hosted login screen, like this:
 
 ```swift
 Lock

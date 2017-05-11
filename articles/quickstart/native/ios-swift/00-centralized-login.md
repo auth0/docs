@@ -1,7 +1,7 @@
 ---
 title: Centralized Login
-default: true
-description: This tutorial demonstrates how to integrate Centralized Lock in your iOS Swift project in order to present a login screen.
+description: This tutorial demonstrates how to integrate Centralized Lock in your iOS Swift project to present a hosted Lock login.
+budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
@@ -14,7 +14,5 @@ description: This tutorial demonstrates how to integrate Centralized Lock in you
     'iPhone 6 - iOS 10.2 (14C89)'
   ]
 }) %>
-
-<%= include('getting-started') %>
 
 <%= include('_includes/_login_centralized') %>
