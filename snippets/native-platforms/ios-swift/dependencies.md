@@ -1,4 +1,4 @@
 ```ruby
 use_frameworks!
-pod 'Lock', '~> 1.28'
+pod 'Auth0', '~> 2.2'
 ```

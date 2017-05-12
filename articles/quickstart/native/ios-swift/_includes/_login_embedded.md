@@ -1,3 +1,5 @@
+<%= include('_dependency_embedded') %>
+
 ## Implement the Login
 
 First, import the `Lock` module in the file where you want to present the login dialog:
@@ -6,11 +8,15 @@ First, import the `Lock` module in the file where you want to present the login 
 import Lock
 ```
 
-Then, configure and present the login screen, like this:
+Then, configure and present the embedded login widget:
 
 ```swift
 Lock
     .classic()
+    .withOptions {
+        $0.oidcConformant = true
+        $0.scope = "openid profile"
+    }
     .onAuth { credentials in
         // Do something with credentials e.g.: save them.
         // Lock will not save these objects for you.
@@ -20,8 +26,6 @@ Lock
 ```
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_2_login.png" alt="Lock UI"></div>
-
-> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own custom login](/quickstart/native/ios-swift/02-custom-login).
 
 As you can see, upon successful authentication, the `onAuth` callback will yield the user's `credentials`.
 

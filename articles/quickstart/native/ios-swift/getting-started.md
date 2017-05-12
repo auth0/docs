@@ -1,19 +1,8 @@
 ---
 title: Getting Started
-description: Short Introduction to the Auth0 iOS Swift Quickstarts.
-budicon: 715
+description: Initial steps to integrate Auth0 in an iOS Swift application.
+budicon: 448
 ---
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-swift-v2-sample',
-  path: '00-Centralized-Login',
-  requirements: [
-    'CocoaPods 1.2.1',
-    'Version 8.3.2 (8E2002)',
-    'iPhone 7 - iOS 10.3 (14E269)'
-  ]
-}) %>
 
 This multistep quickstart guide will walk you through managing authentication in your iOS Swift apps with Auth0.
 
@@ -38,5 +27,3 @@ If you haven't already done so, create a new client application in your [Auth0 d
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 <%= include('_includes/_config') %>
-
-<%= include('_includes/_login_centralized') %>
