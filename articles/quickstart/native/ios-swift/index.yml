@@ -17,7 +17,6 @@ default_article: dashboard-default
 articles:
   - getting-started
   - 00-centralized-login
-  - 01-embedded-login
   - 03-user-sessions
   - 05-authorization
   - 07-linking-accounts
