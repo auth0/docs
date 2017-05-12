@@ -28,8 +28,7 @@ description: Professional Services offered by Auth0.
 <%= include('../_includes/_topic-links', { links: [
   'services/pair-programming',
   'services/private-saas-configuration',
-  'services/code-review',
-  'services/custom-extensions'
+  'services/code-review'
 ] }) %>
 
 ## Educate
