@@ -7,12 +7,15 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular 2 to
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-angularjs2-systemjs-sample',
-  path: '01-Login',
+  repo: 'auth0-angular-samples',
+  path: '00-Centralized-Login',
   requirements: [
-    'Angular 2.0.1'
+    'Angular 2+'
   ]
 }) %>
 
 <%= include('../../../_includes/_callback_url') %>
+
+<%= include('_includes/_centralized_login') %>
+
 
