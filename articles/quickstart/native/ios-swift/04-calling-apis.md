@@ -51,7 +51,7 @@ In order to make authenticated requests, you can use any of the token strings in
 
 ## Attach the Token
 
-Supposing you have decided to use the `accessToken` value, here is what you would do:
+Supposing you need to use the `accessToken` value, here is what you would do:
 
 ```swift
 let token  = ... // The accessToken you stored after authentication
