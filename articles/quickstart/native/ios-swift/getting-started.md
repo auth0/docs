@@ -18,7 +18,7 @@ Each tutorial will require you to use either the [Auth0.swift](https://github.co
 
 A brief description:
 
-- [**Auth0.swift**](https://github.com/auth0/Auth0.swift) is a toolkit that lets you communicate efficiently with many the [Auth0 API](/api/info) functions and enables you to integrate centralized Lock.
+- [**Auth0.swift**](https://github.com/auth0/Auth0.swift) is a toolkit that lets you communicate efficiently with many the [Auth0 API](/api/info) functions and enables you to integrate centralized Login.
 
 - [**Lock**](https://github.com/auth0/Lock.iOS-OSX) is a native widget that is easy to embed in your app. It contains default templates (that can be customized) for login with email/password, signup, social providers integration, and password recovery.
 

@@ -8,7 +8,7 @@ First, import the `Lock` module in the file where you want to present the login 
 import Lock
 ```
 
-Then, configure and present the embedded lock widget:
+Then, configure and present the embedded login widget:
 
 ```swift
 Lock

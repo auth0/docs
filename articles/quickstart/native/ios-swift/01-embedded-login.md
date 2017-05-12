@@ -9,9 +9,9 @@ budicon: 448
   repo: 'auth0-ios-swift-v2-sample',
   path: '01-Embedded-Login',
   requirements: [
-    'CocoaPods 1.1.1',
-    'Version 8.2 (8C38)',
-    'iPhone 6 - iOS 10.2 (14C89)'
+    'CocoaPods 1.2.1',
+    'Version 8.3.2 (8E2002)',
+    'iPhone 7 - iOS 10.3 (14E269)'
   ]
 }) %>
 

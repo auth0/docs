@@ -9,9 +9,9 @@ budicon: 546
   repo: 'auth0-ios-swift-v2-sample',
   path: '04-Calling-APIs',
   requirements: [
-    'CocoaPods 1.1.1',
-    'Version 8.2 (8C38)',
-    'iPhone 6 - iOS 10.2 (14C89)'
+    'CocoaPods 1.2.1',
+    'Version 8.3.2 (8E2002)',
+    'iPhone 7 - iOS 10.3 (14E269)'
   ]
 }) %>
 
@@ -42,7 +42,7 @@ Auth0
             print("Error: \(error)")
         case .success(let credentials):
             guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
-            // Good time to store the accessToken and idToken
+            // Good time to store the tokens
         }
 }
 ```

@@ -1,7 +1,7 @@
 ---
 title: Centralized Login
 default: true
-description: This tutorial demonstrates how to integrate Centralized Lock in your iOS Swift project in order to present a login screen.
+description: This tutorial demonstrates how to integrate Centralized Login in your iOS Swift project in order to present a login screen.
 ---
 
 <%= include('../../../_includes/_package', {
