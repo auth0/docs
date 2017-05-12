@@ -16,7 +16,7 @@ snippets:
 default_article: dashboard-default
 articles:
   - getting-started
-  - 00-centralized-login
+  - 00-login
   - 03-user-sessions
   - 05-authorization
   - 07-linking-accounts
