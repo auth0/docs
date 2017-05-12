@@ -30,4 +30,4 @@ If you haven't already done so, create a new client application in your [Auth0 d
 
 <%= include('_includes/_credentials') %>
 
-<%= include('00-centralized-login') %>
+<%= include('_includes/_centralized_login') %>
