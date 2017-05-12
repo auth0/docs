@@ -23,8 +23,6 @@ default_article: dashboard-default
 articles:
   - getting-started
   - 00-centralized-login
-  - 01-embedded-login
-  - 02-custom-login-form
   - 03-user-profile
-  - 04-calling-api
+  - 04-calling-an-api
   - 05-authorization

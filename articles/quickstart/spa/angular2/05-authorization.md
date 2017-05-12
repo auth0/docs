@@ -4,15 +4,6 @@ description: This tutorial demonstrates how to add authorization and access cont
 budicon: 546
 ---
 
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-angular-samples',
-  path: '05-Authorization',
-  requirements: [
-    'Angular 2+'
-  ]
-}) %>
-
 <%= include('../_includes/_authz_preamble') %>
 
 <%= include('../_includes/_authz_assigning_role') %>
@@ -22,7 +13,11 @@ budicon: 546
 Install the **jwt-decode** library so that the user's `id_token` can easily be decoded.
 
 ```bash
+# installation with npm
 npm install --save jwt-decode
+
+# installation with yarn
+yarn add jwt-decode
 ```
 
 Create methods for checking the user's `role` and whether it is equal to `admin`.
@@ -102,21 +97,3 @@ export const ROUTES: Routes = [
 The user will now be redirected to the main route unless they have a `role` of `admin`.
 
 <%= include('../_includes/_authz_client_routes_disclaimer') %>
-
-<%= include('../_includes/_authz_api_access_control') %>
-
-```js
-// src/app/auth/auth.service.ts
-
-lock = new Auth0Lock(${account.clientId}, ${account.namespace}, {
-  // ...
-  auth: {
-    // ...
-    params: {
-      scope: 'openid read:messages'
-    }
-  }
-});
-```
-
-<%= include('../_includes/_authz_api_access_control_end') %>

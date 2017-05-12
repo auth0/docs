@@ -1,5 +1,5 @@
 ---
-title: Centralized Login
+title: Login
 description: This tutorial demonstrates how to add user login to an Angular 2+ application with Auth0
 budicon: 448
 ---
@@ -189,9 +189,3 @@ Create a component named `CallbackComponent` and populate it with a loading indi
 > This example assumes some kind of loading spinner is available in an `assets` directory. See the downloadable sample for a demonstration.
 
 After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/home` route.
-
-## A Note on Centralized Login
-
-Auth0's centralized login page provides the fastest, most secure, and most feature-rich way to add authentication to your application. If you wish to remove the need to redirect users to Auth0's centralized login page, you can embed the Auth0's Lock widget or a build a custom login form directly in your application.
-
-Follow the [**Embedded Login**]() step to learn more about embedding Auth0's Lock widget in your app.

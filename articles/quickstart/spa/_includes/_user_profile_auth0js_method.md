@@ -1,0 +1,1 @@
+The auth0.js library provides a method called `client.userInfo` which will make a call to the `/userinfo` endpoint and retrieve the user's information. The user's `access_token` must be passed to this method as the first argument. A callback passed as the second argument should have parameters for a potential `error` and a `profile`.

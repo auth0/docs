@@ -19,49 +19,42 @@ budicon: 292
 
 The `access_token` requires a `scope` of `openid profile` to successfully retrieve the user's information. Add this to your Lock instance.
 
-```js
+```ts
 // src/app/auth/auth.service.ts
 
-lock = new Auth0Lock(${account.clientId}, ${account.namespace}, {
+auth0 = new auth0.WebAuth({
   // ...
-  auth: {
-    // ...
-    params: {
-      scope: 'openid profile'
-    }
-  }
+  scope: 'openid profile'
 });
 ``` 
 
 ## Make a Call for the User's Info
 
-<%= include('../_includes/_user_profile_lock_method') %>
+<%= include('../_includes/_user_profile_auth0js_method') %>
 
 Add a method which calls `getUserInfo` to the `AuthService`.
 
-```js
+```ts
 // src/app/auth/auth.service.ts
 
 // ...
 userProfile: any;
 
-constructor(private router: Router) {}
-
 //...
 public getProfile(cb): void {
-  let accessToken = localStorage.getItem('access_token');
-  if (!accessToken) {
-    throw 'Access token must exist to fetch profile';
-  }
-
-  let self = this;
-  this.lock.getUserInfo(accessToken, (err, profile) => {
-    if (profile) {
-      self.userProfile = profile;
+    const accessToken = localStorage.getItem('access_token');
+    if (!accessToken) {
+      throw new Error('Access token must exist to fetch profile');
     }
-    cb(err, profile);
-  });
-}
+
+    const self = this;
+    this.auth0.client.userInfo(accessToken, (err, profile) => {
+      if (profile) {
+        self.userProfile = profile;
+      }
+      cb(err, profile);
+    });
+  }
 ```
 
 <%= include('../_includes/_user_profile_in_memory') %>
@@ -72,7 +65,7 @@ The way your user's information gets displayed depends on the needs of your appl
 
 Create a new component called `ProfileComponent`.
 
-```js
+```ts
 // src/app/profile/profile.component.ts
 
 import { Component, OnInit } from '@angular/core';
