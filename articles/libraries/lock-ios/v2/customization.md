@@ -163,61 +163,7 @@ Color used as the Lock primary color.
 }
 ```
 
-## Other Style Options
-
-### textColor
-
-The color for the text in the body.
-
-```swift
-.withStyle {
-  $0.textColor = UIColor.black
-}
-```
-
-### backgroundColor
-
-Color used as the Lock background color.
-
-```swift
-.withStyle {
-  $0.backgroundColor = UIColor.white
-}
-```
-
-### backgroundImage
-
-Image used as the Lock background
-
-```swift
-.withStyle {
-  $0.backgroundColor = LazyImage?
-}
-```
-
-### oauth2
-
-Any non-db OAuth2 connection can have styles customized by mapping a connection name with an `AuthStyle`
-
-```swift
-.withStyle {
-  $0.oauth2["slack"] = AuthStyle(
-    name: "Slack",
-    color: UIColor(red: 0.4118, green: 0.8078, blue: 0.6588, alpha: 1.0),
-    withImage: LazyImage(name: "ic_slack")
-  )
-}
-```
-
-### seperatorTextColor
-
-Social separator label color.
-
-```swift
-.withStyle {
-  $0.seperatorTextColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.54)
-}
-```
+## Input Field Styles
 
 ### inputTextColor
 
@@ -225,7 +171,7 @@ The color of input field text.
 
 ```swift
 .withStyle {
-  $0.backgroundColor = UIColor.black
+  $0.inputTextColor = UIColor.black
 }
 ```
 
@@ -289,35 +235,7 @@ The color of the input field icons.
 }
 ```
 
-### secondaryButtonColor
-
-The color of secondary buttons.
-
-```swift
-.withStyle {
-  $0.secondaryButtonColor = UIColor.black
-}
-```
-
-### tabTextColor
-
-The color of the text on the database login tab.
-
-```swift
-.withStyle {
-  $0.tabTextColor = UIColor(red: 0.3608, green: 0.4, blue: 0.4353, alpha: 0.6)
-}
-```
-
-### tabTintColor
-
-The color of the tinting on the database login tab.
-
-```swift
-.withStyle {
-  $0.tabTintColor = UIColor(red: 0.3608, green: 0.4, blue: 0.4353, alpha: 0.6)
-}
-```
+## Status Bar Styles
 
 ### UIStatusBarAnimation
 
@@ -356,5 +274,91 @@ The Lock Passwordless Search Bar style.
 ```swift
 .withStyle {
   $0.UISearchBarStyle = .default
+}
+```
+
+## Other Style Options
+
+### textColor
+
+The color for the text in the body.
+
+```swift
+.withStyle {
+  $0.textColor = UIColor.black
+}
+```
+
+### backgroundColor
+
+Color used as the Lock background color.
+
+```swift
+.withStyle {
+  $0.backgroundColor = UIColor.white
+}
+```
+
+### backgroundImage
+
+Image used as the Lock background
+
+```swift
+.withStyle {
+  $0.backgroundColor = LazyImage?
+}
+```
+
+### oauth2
+
+Any non-db OAuth2 connection can have styles customized by mapping a connection name with an `AuthStyle`
+
+```swift
+.withStyle {
+  $0.oauth2["slack"] = AuthStyle(
+    name: "Slack",
+    color: UIColor(red: 0.4118, green: 0.8078, blue: 0.6588, alpha: 1.0),
+    withImage: LazyImage(name: "ic_slack")
+  )
+}
+```
+
+### seperatorTextColor
+
+Social separator label color.
+
+```swift
+.withStyle {
+  $0.seperatorTextColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.54)
+}
+```
+
+### secondaryButtonColor
+
+The color of secondary buttons.
+
+```swift
+.withStyle {
+  $0.secondaryButtonColor = UIColor.black
+}
+```
+
+### tabTextColor
+
+The color of the text on the database login tab.
+
+```swift
+.withStyle {
+  $0.tabTextColor = UIColor(red: 0.3608, green: 0.4, blue: 0.4353, alpha: 0.6)
+}
+```
+
+### tabTintColor
+
+The color of the tinting on the database login tab.
+
+```swift
+.withStyle {
+  $0.tabTintColor = UIColor(red: 0.3608, green: 0.4, blue: 0.4353, alpha: 0.6)
 }
 ```
