@@ -4,7 +4,16 @@ description: Short Introduction to the Auth0 Android Quickstarts.
 budicon: 715
 ---
 
-This multistep quickstart guide will walk you through managing authentication in your android apps with Auth0.
+<%= include('../../../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-android-sample',
+  path: '00-Centralized-Login',
+  requirements: [
+    'Android Studio 2.3',
+    'Android SDK 25',
+    'Emulator - Nexus 5X - Android 6.0'
+  ]
+}) %>
 
 ## Sample Projects
 
