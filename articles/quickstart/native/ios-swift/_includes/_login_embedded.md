@@ -27,8 +27,6 @@ Lock
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_2_login.png" alt="Lock UI"></div>
 
-> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want to create your own [Custom Login Form](/quickstart/native/ios-swift/02-custom-login-form).
-
 As you can see, upon successful authentication, the `onAuth` callback will yield the user's `credentials`.
 
 > For further reference on the `credentials` object, please see:
