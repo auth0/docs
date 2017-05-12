@@ -31,7 +31,7 @@ Auth0
     .login(
         usernameOrEmail: "email@foo.com",
         password: "123456",
-        connection: "Username-Password-Authentication",
+        realm: "Username-Password-Authentication",
         scope: "openid profile"
     )
     .start { result in
@@ -74,9 +74,7 @@ Auth0
 
 ## Implement a Sign Up
 
-Including a register process in your app is also a piece of cake.
-
-First, don't forget to import the toolkit module in your register form view controller:
+First, import the `Auth0` module in the file where you want to present the Sign Up dialog:
 
 ```swift
 import Auth0
