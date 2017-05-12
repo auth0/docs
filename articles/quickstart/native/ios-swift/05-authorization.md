@@ -34,7 +34,7 @@ By default, it says that if a user email contains `@example.com`, that user will
 ## Test the Rule
 
 ```swift
-import Lock
+import Auth0
 ```
 
 ```swift

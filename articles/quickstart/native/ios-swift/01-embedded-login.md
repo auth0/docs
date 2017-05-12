@@ -1,6 +1,6 @@
 ---
 title: Embedded Login
-description: This tutorial demonstrates how to integrate Embedded Lock in your iOS Swift project in order to present a login screen.
+description: This tutorial demonstrates how to integrate Embedded Login in your iOS Swift project in order to present a login widget.
 budicon: 448
 ---
 

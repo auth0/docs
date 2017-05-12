@@ -1,6 +1,3 @@
-
-The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [centralized login page](https://auth0.com/docs/hosted-pages/login).
-
 <%= include('_dependency_embedded') %>
 
 ## Implement the Login
@@ -11,11 +8,15 @@ First, import the `Lock` module in the file where you want to present the login 
 import Lock
 ```
 
-Then, configure and present the hosted login screen, like this:
+Then, configure and present the embedded lock widget:
 
 ```swift
 Lock
     .classic()
+    .withOptions {
+        $0.oidcConformant = true
+        $0.scope = "openid profile"
+    }
     .onAuth { credentials in
         // Do something with credentials e.g.: save them.
         // Lock will not save these objects for you.
@@ -26,7 +27,7 @@ Lock
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_2_login.png" alt="Lock UI"></div>
 
-> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own custom login](/quickstart/native/ios-swift/02-custom-login).
+> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want to create your own [Custom Login Form](/quickstart/native/ios-swift/02-custom-login-form).
 
 As you can see, upon successful authentication, the `onAuth` callback will yield the user's `credentials`.
 

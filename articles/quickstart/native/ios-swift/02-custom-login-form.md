@@ -1,13 +1,13 @@
 ---
-title: Custom Login
-description: This tutorial demonstrates how to perform Login and Sign Up by using your own View Controllers, without using the Lock widget interface.
+title: Custom Login Form
+description: This tutorial demonstrates how to perform Login and Sign Up by creating your own Login form.
 budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-v2-sample',
-  path: '02-Custom-Login',
+  path: '02-Custom-Login-Form',
   requirements: [
     'CocoaPods 1.1.1',
     'Version 8.2 (8C38)',
@@ -82,7 +82,7 @@ First, don't forget to import the toolkit module in your register form view cont
 import Auth0
 ```
 
-Then, all you have to do is:
+Next add the following:
 
 ```swift
 Auth0

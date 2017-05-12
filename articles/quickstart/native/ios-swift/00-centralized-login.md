@@ -1,6 +1,6 @@
 ---
 title: Centralized Login
-description: This tutorial demonstrates how to integrate Centralized Lock in your iOS Swift project to present a hosted Lock login.
+description: This tutorial demonstrates how to integrate Centralized Login in your iOS Swift project to present a hosted Lock page.
 budicon: 448
 ---
 

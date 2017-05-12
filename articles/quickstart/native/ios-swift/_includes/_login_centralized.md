@@ -1,6 +1,6 @@
 The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [centralized login page](https://auth0.com/docs/hosted-pages/login).
 
-<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Lock UI"></div>
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Hosted Login Page"></div>
 
 <%= include('_dependency_centralized') %>
 
@@ -10,9 +10,7 @@ Auth0 will need to handle the callback of this authentication, add the following
 
 First, import the `Auth0` module:
 
-```swift
-import Auth0
-```
+${snippet(meta.snippets.setup)}
 
 Then, add the following `UIApplicationDelegate` method:
 
@@ -26,29 +24,13 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 ## Implement the Login
 
-First, import the `Auth0` module in the file where you want to present the hosted login page.
+First, import the `Auth0` module in the file where you want to present the hosted login page:
 
-```swift
-import Auth0
-```
+${snippet(meta.snippets.setup)}
 
 Then present the hosted login screen, like this:
 
-```swift
-Auth0
-    .webAuth()
-    .start {
-        switch $0 {
-        case .failure(let error):
-            // Handle the error
-            print("Error: \(error)")
-        case .success(let credentials):
-            // Do something with credentials e.g.: save them.
-            // Auth0 will automatically dismiss the hosted login page
-            print("Credentials: \(credentials)")
-        }
-}
-```
+${snippet(meta.snippets.use)}
 
 Upon successful authentication the user's `credentials` will be returned.
 
