@@ -34,7 +34,7 @@ Then present the hosted login screen, like this:
 ```swift
 Auth0
     .webAuth()
-    .scope = "openid profile"
+    .scope("openid profile")
     .start {
         switch $0 {
         case .failure(let error):

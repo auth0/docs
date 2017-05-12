@@ -139,7 +139,7 @@ Besides storing the `accessToken`, you need to store the `refreshToken`. Let's m
 ```swift
 Auth0
     .webAuth()
-    .scope = "openid profile offline_access"
+    .scope("openid profile offline_access")
     .start {
         switch $0 {
         case .failure(let error):
