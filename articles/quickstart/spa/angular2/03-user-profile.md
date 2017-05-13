@@ -17,7 +17,7 @@ budicon: 292
 
 ## Request the Profile Scope
 
-The `access_token` requires a `scope` of `openid profile` to successfully retrieve the user's information. Add this to your Lock instance.
+The `access_token` requires a `scope` of `openid profile` to successfully retrieve the user's information. Add this to your `WebAuth` instance.
 
 ```ts
 // src/app/auth/auth.service.ts
