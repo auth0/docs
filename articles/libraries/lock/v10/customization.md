@@ -50,6 +50,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [auth](#auth-object-) | The auth object contains the below auth options |
+| [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue
 | [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
 | [params](#params-object-) | Option to send parameters at login |
 | [redirect](#redirect-boolean-) | Whether or not to use redirect mode |
@@ -87,6 +88,8 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | --- | --- |
 | [clientBaseUrl](#clientbaseurl-string-) | Override your client's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
+| [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
+| [leeway](#leeway-integer-) | Add leeway for clock skew to JWT expiration times |
 
 ---
 
@@ -293,9 +296,9 @@ Theme options are grouped in the `theme` property of the `options` object.
 Allows the customization of buttons in Lock. Each custom connection whose button you desire to customize should be listed by name, each with their own set of parameters. The customizable parameters are listed below:
 
 - **displayName** {String}: The name to show instead of the connection name when building the button title, such as `LOGIN WITH MYCONNECTION` for login).
-- **primaryColor** {String}: The button's background color. Defaults to "#eb5424".
-- **foregroundColor** {String}: The button's text color. Defaults to "#FFFFFF".
-- **icon** {String}: The URL of the icon for this connection. For example: "http://site.com/logo.png".
+- **primaryColor** {String}: The button's background color. Defaults to `#eb5424`.
+- **foregroundColor** {String}: The button's text color. Defaults to `#FFFFFF`.
+- **icon** {String}: The URL of the icon for this connection. For example: `http://site.com/logo.png`.
 
 ```js
 var options = {
@@ -435,6 +438,18 @@ var options = {
 };
 ```
 
+#### autoParseHash {Boolean}
+
+When `autoParseHash` is set to `true`, Lock will parse the `window.location.hash` string when instantiated. If set to `false`, you'll have to manually resume authentication using the [resumeAuth](/libraries/lock/v10/api#resumeauth-) method.
+
+```js
+var options = {
+  auth: {
+    autoParseHash: false
+  }
+};  
+```
+
 #### connectionScopes {Object}
 
 This option allows you to set scopes to be sent to the oauth2/social connection for authentication.
@@ -560,7 +575,7 @@ The new fields are rendered below the regular sign up input fields in the order 
 
 #### Text Fields
 
-A `validator` function can also be provided.
+Text fields are the default type of additional signup field. Note that a `validator` function can also be provided.
 
 ```js
 var options = {
@@ -588,6 +603,8 @@ var options = {
 
 
 #### Select Field
+
+The signup field `type: "select"` will allow you to use select elements for the user to choose a value from. 
 
 ```js
 var options = {
@@ -629,6 +646,21 @@ var options = {
       // first arg instead of null
       cb(null, prefill);
     }
+  }]
+}
+```
+
+#### Checkbox Field
+
+The third type of custom signup field is the `type: "checkbox"`. The `prefill` value can determine the default state of the checkbox (`true` or `false`), and it is required.
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    type: "checkbox",
+    name: "newsletter",
+    prefill: "true",
+    placeholder: "I hereby agree that I want to receive marketing emails from your company"
   }]
 }
 ```
@@ -691,7 +723,7 @@ var options = {
 };
 ```
 
-### initialScreen {string}
+### initialScreen {String}
 
 The name of the screen that will be shown when the widget is opened. Valid values are `login`, `signUp`, and `forgotPassword`. If this option is left unspecified, the widget will default to the first screen that is available from that list.
 
@@ -814,6 +846,26 @@ Overrides the language source url for Auth0's provided translations. By default,
 ```js
 var options = {
   languageBaseUrl: "http://www.example.com"
+};
+```
+
+### hashCleanup {Boolean}
+
+When the `hashCleanup` option is enabled, it will remove the hash part of the callback url after the user authentication. It defaults to true.
+
+```js
+var options = {
+  hashCleanup: false
+};
+```
+
+### leeway {Integer}
+
+The `leeway` option can be set to an integer - a value in seconds - which can be used to account for clock skew in JWT expirations. Typically the value is no more than a minute or two at maximum.
+
+```js
+var options = {
+  leeway: 30
 };
 ```
 
