@@ -9,13 +9,13 @@ import Auth0 from 'auth0-js';
 
 const auth0Config = {
   // needed for auth0
-  clientID: 'KeqqwaYkUfLiyTyMHiU06uaU1AjvDnX1',
+  clientID: '${account.clientId}',
 
   // needed for auth0cordova
-  clientId: 'KeqqwaYkUfLiyTyMHiU06uaU1AjvDnX1',
-  domain: 'seiyria-auth0-samples.auth0.com',
+  clientId: '${account.clientId}',
+  domain: '${account.namespace}',
   callbackURL: location.href,
-  packageIdentifier: 'io.ionic.starter.auth0'
+  packageIdentifier: 'YOUR_PACKAGE_ID'
 };
 
 
@@ -96,6 +96,6 @@ export class AuthService {
     this.accessToken = null;
     this.user = null;
   }
-}
 
+}
 ```

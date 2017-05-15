@@ -46,19 +46,13 @@ To set up or get your package identifier (used several times throughout this tut
 
 You'll need these libraries:
 
-* **[angular2-jwt](https://github.com/auth0/angular2-jwt)** to make authenticated HTTP requests
-
 * **[auth0-js](https://github.com/auth0/auth0.js)** to get profile information from Auth0
 
 * **[@auth0-cordova](https://github.com/auth0/auth0-cordova)** to handle authentication with Auth0
 
 ```bash
-npm install angular2-jwt auth0-js @auth0/cordova --save
+npm install auth0-js @auth0/cordova --save
 ```
-
-After **angular2-jwt** is installed, it needs to be configured and included in the `providers` array in your application's `@NgModule`.
-
-${snippet(meta.snippets.configure)}
 
 After **@auth0-cordova** is installed, it needs to be configured by modifying your `app.component.ts` to set up URL redirects:
 
@@ -78,15 +72,9 @@ You'll also need to install the `CustomURLScheme` from Cordova to handle redirec
 ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/{YOUR_PACKAGE_ID}/callback
 ```
 
-## Set Up Auth0 Variables
-
-It's best to separate your variables out so they're not interspersed throughout your code. We'll create an `auth0-variables.ts` file to hold them (replace `YOUR_PACKAGE_ID` with your app identifier):
-
-${snippet(meta.snippets.variables)}
-
 ## Create an Authentication Service and Configure Auth0
 
-To coordinate authentication tasks, it's best to set up an injectable service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication state.
+To coordinate authentication tasks, it's best to set up an injectable service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication state. Be sure to replace `YOUR_PACKAGE_ID` with your apps identifier in the configuration block.
 
 ${snippet(meta.snippets.use)}
 
@@ -105,12 +93,6 @@ The `AuthService` is now accessible in the view and can be used to conditionally
 ${snippet(meta.snippets.profiletemplate)}
 
 ![auth0 lock](/media/articles/native-platforms/ionic2/ionic2-auth-5.png)
-
-## Make Authenticated HTTP Requests
-
-To make HTTP requests to a secure endpoint, simply use `AuthHttp` which will automatically attach the JWT as an `Authorization` header.
-
-${snippet(meta.snippets.http)}
 
 ### Troubleshooting
 

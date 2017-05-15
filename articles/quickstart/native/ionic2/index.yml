@@ -13,9 +13,7 @@ image: /media/platforms/ionic.jpeg
 tags:
   - quickstart
 snippets:
-  configure: native-platforms/ionic2/configure
   cordova: native-platforms/ionic2/cordova
-  http: native-platforms/ionic2/http
   profile: native-platforms/ionic2/profile
   profiletemplate: native-platforms/ionic2/profiletemplate
   use: native-platforms/ionic2/use
