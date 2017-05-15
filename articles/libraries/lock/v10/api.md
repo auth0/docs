@@ -214,7 +214,7 @@ lock.on("authenticated", function(authResult) {
 
 ## resumeAuth()
 
-If you set the [auth.autoParseHash](/library/lock/v10/customization) option to `false`, you'll need to call this method to complete the authentication flow. This method is useful when you're using a client-side router that uses a `#` to handle urls (angular2 with `useHash`, or react-router with `hashHistory`).
+If you set the [auth.autoParseHash](/libraries/lock/v10/customization#autoparsehash-boolean-) option to `false`, you'll need to call this method to complete the authentication flow. This method is useful when you're using a client-side router that uses a `#` to handle urls (angular2 with `useHash`, or react-router with `hashHistory`).
 
 - **hash** {String}: The hash fragment received from the redirect.
 - **callback** {Function}: Will be invoked after the parse is done. Has an error (if any) as the first argument and the authentication result as the second one. If there is no hash available, both arguments will be `null`.
@@ -232,7 +232,7 @@ lock.resumeAuth(hash, function(error, authResult) {
 
 Logs out the user.
 
-- **options** {Object}: This is optional and follows the same rules as [auth0.js logout](https://auth0.com/docs/libraries/auth0js#logout)
+- **options** {Object}: This is optional and follows the same rules as [auth0.js logout](/libraries/auth0js#logout)
 
 ```js
 lock.logout({ 

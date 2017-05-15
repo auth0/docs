@@ -50,6 +50,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [auth](#auth-object-) | The auth object contains the below auth options |
+| [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue
 | [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
 | [params](#params-object-) | Option to send parameters at login |
 | [redirect](#redirect-boolean-) | Whether or not to use redirect mode |
@@ -295,9 +296,9 @@ Theme options are grouped in the `theme` property of the `options` object.
 Allows the customization of buttons in Lock. Each custom connection whose button you desire to customize should be listed by name, each with their own set of parameters. The customizable parameters are listed below:
 
 - **displayName** {String}: The name to show instead of the connection name when building the button title, such as `LOGIN WITH MYCONNECTION` for login).
-- **primaryColor** {String}: The button's background color. Defaults to "#eb5424".
-- **foregroundColor** {String}: The button's text color. Defaults to "#FFFFFF".
-- **icon** {String}: The URL of the icon for this connection. For example: "http://site.com/logo.png".
+- **primaryColor** {String}: The button's background color. Defaults to `#eb5424`.
+- **foregroundColor** {String}: The button's text color. Defaults to `#FFFFFF`.
+- **icon** {String}: The URL of the icon for this connection. For example: `http://site.com/logo.png`.
 
 ```js
 var options = {
@@ -435,6 +436,18 @@ var options = {
    sso: true
   }
 };
+```
+
+#### autoParseHash {Boolean}
+
+When `autoParseHash` is set to `true`, Lock will parse the `window.location.hash` string when instantiated. If set to `false`, you'll have to manually resume authentication using the [resumeAuth](/libraries/lock/v10/api#resumeauth-) method.
+
+```js
+var options = {
+  auth: {
+    autoParseHash: false
+  }
+};  
 ```
 
 #### connectionScopes {Object}
