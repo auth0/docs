@@ -21,17 +21,17 @@ More information about this versioning scheme can be found at [semver](http://se
 
 ### Production Usage
 
-Auth0 provides links to our [Content Delivery Network (CDN)](http://en.wikipedia.org/wiki/Content_delivery_network) where we serve some of our libraries. The way you reference a component in your code will impact whether and when you automatically pick up changes.  For instance, Auth0 Lock can be found at the following URLs:
+Auth0 provides links to our [Content Delivery Network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network) where we serve some of our libraries. The way you reference a component in your code will impact whether and when you automatically pick up changes.  For instance, Auth0 Lock can be found at the following URLs:
 
 ```js
 <!-- major release -->
-<script src="http://cdn.auth0.com/example/1/library.js"></script>
+<script src="https://cdn.auth0.com/example/1/library.js"></script>
 
 <!-- minor release -->
-<script src="http://cdn.auth0.com/example/1.0/library.js"></script>
+<script src="https://cdn.auth0.com/example/1.0/library.js"></script>
 
 <!-- patch release (recommended for production) -->
-<script src="http://cdn.auth0.com/example/1.0.1/library.js"></script>
+<script src="https://cdn.auth0.com/example/1.0.1/library.js"></script>
 ```
 
 If you link to the major release (the first script) and we release a new minor, you will get the update as soon as it is released. We encourage this practice for development environments and experimenting with Auth0. 
