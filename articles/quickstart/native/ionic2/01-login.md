@@ -17,7 +17,15 @@ budicon: 448
 
 ## Overview
 
-To integrate Auth0 in a native Ionic app, you can use the `@auth0/cordova` package available on npm. This package provides an interface with cordova which allows you to use the [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636) spec. PKCE is recommended for native applications to mitigate the threat of authorization code interception.
+To integrate Auth0 in a hybrid Ionic app, you can use the `@auth0/cordova` package available on npm. This package provides an interface with cordova which allows you to use the [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636) spec. PKCE is recommended for native applications to mitigate the threat of authorization code interception.
+
+## Set Up Your Package Identifier
+
+To set up or get your package identifier (used several times throughout this tutorial), you should take a look at your config.xml and get it from this line:
+
+```xml
+<widget id="YOUR_PACKAGE_ID" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+```
 
 ## Set Up the Client
 
@@ -28,7 +36,7 @@ To integrate Auth0 in a native Ionic app, you can use the `@auth0/cordova` packa
 
 <p>Make sure that <b>Allowed Origin (CORS)</b> has the following value:</p>
 
-<pre><code>file://\*</code></pre>
+<pre><code>file://*</code></pre>
 
 <p>Lastly, make sure that <b>Client Type</b> is set to Native</p>
 
@@ -97,20 +105,6 @@ The `AuthService` is now accessible in the view and can be used to conditionally
 ${snippet(meta.snippets.profiletemplate)}
 
 ![auth0 lock](/media/articles/native-platforms/ionic2/ionic2-auth-5.png)
-
-## Optional: Implement Refresh Tokens
-
-[Refresh tokens](/refresh-token) are special tokens that are used to retrieve a new JWT for the user so that they can remain authenticated.
-
-In Angular 1.x, obtaining a new JWT with a refresh token can be accomplished using HTTP interceptors. However, Angular 2 doesn't have the concept of HTTP interceptors, so another approach is needed. There are several different ways to implement token refreshing in Angular 2, and one of them is to use observables. This code in the `AuthService` handles refresh tokens:
-
-${snippet(meta.snippets.refresh)}
-
-When the user logs in, a refresh gets scheduled with an interval equal to the amount of time the JWT is valid for. If the user closes the application, their state will be lost and the scheduled refresh will no longer exist the next time they open it. We need a slightly different approach for setting up a refresh when the application is first opened again because the amount of time that the JWT is valid for (if there is still an unexpired JWT in local storage) will be less than that of a "fresh" token. We need to first check for an unexpired JWT, and if there is one, schedule a one-time refresh to take place when the JWT expires.
-
-To run the token refresh when the application is started, call the `startupTokenRefresh` method when the app is ready.
-
-${snippet(meta.snippets.configurerefresh)}
 
 ## Make Authenticated HTTP Requests
 

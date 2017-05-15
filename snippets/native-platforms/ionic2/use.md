@@ -1,31 +1,27 @@
 ```js
 // src/services/auth.service.ts
 
-import { JwtHelper, tokenNotExpired } from 'angular2-jwt';
 import { Injectable, NgZone } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Auth0Vars } from '../auth0-variables';
 
 import Auth0Cordova from '@auth0/cordova';
 import Auth0 from 'auth0-js';
 
 const auth0Config = {
   // needed for auth0
-  clientID: Auth0Vars.AUTH0_CLIENT_ID,
+  clientID: 'KeqqwaYkUfLiyTyMHiU06uaU1AjvDnX1',
 
   // needed for auth0cordova
-  clientId: Auth0Vars.AUTH0_CLIENT_ID,
-  domain: Auth0Vars.AUTH0_DOMAIN,
-  callbackURL: Auth0Vars.AUTH0_CALLBACK_URL,
-  packageIdentifier: Auth0Vars.AUTH0_APPLICATION_PACKAGE_NAME
+  clientId: 'KeqqwaYkUfLiyTyMHiU06uaU1AjvDnX1',
+  domain: 'seiyria-auth0-samples.auth0.com',
+  callbackURL: location.href,
+  packageIdentifier: 'io.ionic.starter.auth0'
 };
 
 
 @Injectable()
 export class AuthService {
-  jwtHelper = new JwtHelper();
   auth0 = new Auth0.WebAuth(auth0Config);
-  refreshSubscription$: Subscription;
   accessToken: string;
   idToken: string;
   user: any;
@@ -54,7 +50,8 @@ export class AuthService {
   }
 
   public isAuthenticated() {
-    return tokenNotExpired('id_token', this.idToken);
+    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    return Date.now() < expiresAt;
   }
 
   public login() {
@@ -71,7 +68,9 @@ export class AuthService {
 
       this.setIdToken(authResult.idToken);
       this.setAccessToken(authResult.accessToken);
-      this.setStorageVariable('refresh_token', authResult.refreshToken);
+
+      const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+      this.setStorageVariable('expires_at', expiresAt);
 
       this.auth0.client.userInfo(this.accessToken, (err, profile) => {
         if(err) {
@@ -84,8 +83,6 @@ export class AuthService {
           this.user = profile;
         });
       });
-
-      this.scheduleRefresh();
     });
   }
 
@@ -93,50 +90,12 @@ export class AuthService {
     window.localStorage.removeItem('profile');
     window.localStorage.removeItem('access_token');
     window.localStorage.removeItem('id_token');
-    window.localStorage.removeItem('refresh_token');
+    window.localStorage.removeItem('expires_at');
 
     this.idToken = null;
     this.accessToken = null;
     this.user = null;
-
-    this.unscheduleRefresh();
-  }
-
-  public scheduleRefresh() {
-    let source = Observable.of(this.idToken).flatMap(
-      token => {
-        // The delay to generate in this case is the difference
-        // between the expiry time and the issued at time
-        let jwtIat = this.jwtHelper.decodeToken(token).iat;
-        let jwtExp = this.jwtHelper.decodeToken(token).exp;
-        let iat = new Date(0);
-        let exp = new Date(0);
-
-        let delay = (exp.setUTCSeconds(jwtExp) - iat.setUTCSeconds(jwtIat));
-
-        return Observable.interval(delay);
-      });
-
-    this.refreshSubscription$ = source.subscribe(() => {
-      this.getNewJwt();
-    });
-  }
-
-  public unscheduleRefresh() {
-    if(!this.refreshSubscription$) return;
-    this.refreshSubscription$.unsubscribe();
-  }
-
-  public getNewJwt() {
-    const token = this.getStorageVariable('refresh_token');
-
-    this.auth0.refreshToken(token, (err, delegationRequest) => {
-      if(err) {
-        throw err;
-      }
-
-      this.setIdToken(delegationRequest.id_token);
-    });
   }
 }
+
 ```
