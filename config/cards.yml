@@ -38,22 +38,22 @@
     - title: "Lock for Android"
       url: "/libraries/lock-android"
 
-- id: "identity-glossary"
-  title: "Identity Glossary"
+- id: "authentication-flows"
+  title: "Authentication Flows"
   icon: "icon-budicon-715"
   color: "oil"
-  description: "Learn the protocols and terminologies for identity."
-  url: "/topics/identity-glossary"
+  description: "Learn about our new authentication flows and how you can adopt them."
+  url: "/api-auth/intro"
   articles:
 
-    - title: "Protocols"
-      url: "/protocols"
+    - title: "Introduction"
+      url: "/api-auth/intro"
 
-    - title: "Tokens"
-      url: "/tokens"
+    - title: "Adoption Guide"
+      url: "/api-auth/tutorials/adoption"
 
-    - title: "JWT"
-      url: "/jwt"
+    - title: "API Authorization"
+      url: "/api-auth"
 
 
 - id: "guides"
@@ -64,13 +64,13 @@
   url: "/topics/guides"
   articles:
 
-    - title: "API Auth"
-      url: "/api-auth"
+    - title: "Tokens"
+      url: "/tokens"
 
-    - title: "Refresh Tokens"
-      url: "/refresh-token"
+    - title: "JWT"
+      url: "/jwt"
 
-    - title: "Importing and Migrating"
+    - title: "Import and Migrate"
       url: "/connections/database/migrating"
 
 - id: "apis"

@@ -1,20 +1,22 @@
 ---
 title: Custom Login
-description: This tutorial demonstrates how to use the Auth0 Angular 1.x SDK to add authentication and authorization to your mobile app.
+description: This tutorial demonstrates how to use the Auth0 AngularJS SDK to add authentication and authorization to your mobile app.
 ---
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '02-Custom-Login'
+  path: '02-Custom-Login',
+  requirements: [
+    'AngularJS 1.5.8',
+    'angular-auth0 2.0.0-beta.1'
+  ]
 }) %>
 
 The previous step explained how you can log users into your application using the [Lock Widget](/libraries/lock). While Lock provides the simplest way to add authentication to your app, you also have the option of creating your own custom user interface.
 
 ::: panel-info Version Requirements
 This quickstart and the accompanying sample demonstrate custom login with auth0.js version 8 and angular-auth0 version 2. If you are using auth0.js version 7, please see the [reference guide](/libraries/auth0js/v7) for the library, as well as the [legacy AngularJS custom login sample](https://github.com/auth0-samples/auth0-angularjs-sample/tree/auth0js-v7/02-Custom-Login).
-
-Auth0.js version 8 verifies ID tokens during authentication transactions. Only tokens which are signed with the RS256 algorithm can be verified on the client side, meaning that your Auth0 client must be configured to sign tokens with RS256. See the [auth0.js migration guide](/libraries/auth0js/migration-guide#switching-from-hs256-to-rs256) for more details.
 :::
 
 ## Add auth0.js
@@ -22,7 +24,7 @@ Auth0.js version 8 verifies ID tokens during authentication transactions. Only t
 To implement a custom login screen, the **auth0.js** library and **angular-auth0** wrapper are required. Install these packages, along with angular-jwt, and add them to your project.
 
 ```bash
-bower install angular-auth0#2.0.0-beta.1 angular-jwt
+bower install angular-auth0#2.0.0-beta.1 angular-jwt --save
 ```
 
 ```html
@@ -184,16 +186,12 @@ The `authService` is the place where all the calls to angular-auth0, and thus to
   function authService($state, angularAuth0, authManager) {
 
     function login(username, password) {
-      angularAuth0.client.login({
-        realm: 'Username-Password-Authentication',
+      angularAuth0.redirect.loginWithCredentials({
+        connection: 'Username-Password-Authentication',
         username: username,
         password: password,
-      }, function(err, authResult) {
-        if (err) alert(err.description);
-        if (authResult && authResult.idToken) {
-          setUser(authResult);
-          $state.go('home');
-        }
+      }, function(err) {
+        if (err) return alert(err.description);
       });
     }
 
@@ -202,6 +200,8 @@ The `authService` is the place where all the calls to angular-auth0, and thus to
         connection: 'Username-Password-Authentication',
         email: username,
         password: password
+      }, function(err) {
+        if (err) return alert(err.description);
       });
     }
 
@@ -212,7 +212,9 @@ The `authService` is the place where all the calls to angular-auth0, and thus to
     }
 
     function handleParseHash() {
-      angularAuth0.parseHash(function(err, authResult) {
+      angularAuth0.parseHash(
+        { _idTokenVerification: false },
+        function(err, authResult) {
         if (err) {
           console.log(err);
         }
@@ -250,7 +252,7 @@ The `authService` is the place where all the calls to angular-auth0, and thus to
 
 The service has several other utility methods that are necessary to complete authentication transactions.
 
-* The `handleParseHash` method is necessary for redirect-based authentication transactions which, in this example, include `signup` and `loginWithGoogle`. This method needs to be called when the app starts so that the authentication result (which comes back in the hash of a redirection) is properly handled.
+* The `handleParseHash` method is necessary to get the authentication result from the URL in redirect-based authentication transactions. This method needs to be called when the app starts so that the authentication result (which comes back in the hash of a redirection) is properly handled.
 * The `logout` method removes the user's tokens from local storage which effectively logs them out of the application.
 * The `setUser` method takes an authentication result object and sets the access token and ID token values into local storage
 * The `isAuthenticated` method checks for the user's authentication state based on the `id_token`'s expiry time.

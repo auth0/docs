@@ -33,7 +33,7 @@ authentication.authenticate = { (jwt, block) in
         deviceName: device,
         parameters: parameters,
         success: { (profile, token) in
-            // User is authenticated with Auth0 & TouchID
+            // User is authenticated with Auth0 & Touch ID
         },
         failure: { error in block(error) })
 }

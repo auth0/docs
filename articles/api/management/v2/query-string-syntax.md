@@ -2,6 +2,7 @@
 toc: true
 description: This page explains query string syntax, which you can use to construct custom queries when searching using Auth0's Management API.
 section: apis
+crews: crew-2
 ---
 
 # Query String Syntax
@@ -43,7 +44,7 @@ Some examples of query string syntax are:
 
 * Your query can search across more than one field by using the `AND` & `OR` condition. Where the username field is exactly `"john"` AND the field `description` has any non-null value:
 
-    `username: "john" AND _exists_: description` 
+    `username: "john" AND _exists_: description`
 
 ### Wildcards
 

@@ -47,7 +47,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `audience` <br/> | The unique identifier of the target API you want to access. |
-| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
+| `scope` | The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
 | `response_type` <br/><span class="label label-danger">Required</span> | Indicates to Auth0 which OAuth 2.0 flow you want to perform. Use `code` for Authorization Code Grant Flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that Auth0 includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
@@ -192,6 +192,8 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that Auth0 includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`. |
+| `connection` | The name of the connection configured to your client. |
+| `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none`. |
 
 
 ### Test with Authentication API Debugger

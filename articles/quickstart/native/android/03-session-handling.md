@@ -11,8 +11,8 @@ This tutorial will show you how to use Lock to maintain an active session with A
   repo: 'auth0-android-sample',
   path: '03-Session-Handling',
   requirements: [
-    'Android Studio 2.2',
-    'Android SDK 24',
+    'Android Studio 2.3',
+    'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>
@@ -28,7 +28,7 @@ Those objects are the keys needed to keep the user connected, as they will be us
 
 ## Before Starting
 
-Be sure that you have completed the [Login](/quickstart/native/android/01-login) quickstart.
+Be sure that you have completed the [Embedded Login](/quickstart/native/android/01-embedded-login) quickstart.
 
 Before launching Lock you need to ask for the `offline_access` scope in order to get a valid `refresh_token` in the response. Locate the snippet were you're initializing Lock and add the `withScope("openid offline_access")` line.
 
@@ -66,10 +66,9 @@ The main purpose of storing this token is to save users from having to re-enter 
 To do so, we check whether this value exists at startup to either prompt for login information or to try to perform an automated login.
 
 ```java
-if(CredentialsManager.getCredentials(this).getIdToken() == null) {
+if (CredentialsManager.getCredentials(this).getIdToken() == null) {
   // Prompt Login screen.
-}
-else {
+} else {
   // Try to make an automatic login
 }
 ```
@@ -105,8 +104,7 @@ How you deal with a non-valid idToken is up to you. You will normally choose bet
 First, for both cases, you need to instantiate an `AuthenticationAPIClient`:
 
 ```java
-AuthenticationAPIClient client = new AuthenticationAPIClient(
-      new Auth0("${account.clientId}", "${account.namespace}"));
+AuthenticationAPIClient client = new AuthenticationAPIClient(new Auth0("${account.clientId}", "${account.namespace}"));
 ```
 
 ### i. Using a non-expired idToken

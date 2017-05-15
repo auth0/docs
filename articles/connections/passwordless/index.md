@@ -32,6 +32,7 @@ See the following tutorials for a step-by-step guide on how to implement passwor
 
  - [Authenticate users with a one time code via SMS](/connections/passwordless/android-sms)
  - [Authenticate users with a one time code via e-mail](/connections/passwordless/android-email)
+ - [Authenticate users with Magic Link](/libraries/lock-android/passwordless-magic-link)
 
 ### Passwordless API
 

@@ -33,6 +33,10 @@ To create a new user and their corresponding User Profile, click the [Users](${m
 
 Fill in the required information and click **Save** to create the new user. For more information refer to: [Creating Users via the Management Dashboard](/tutorials/creating-users-in-the-management-portal).
 
+::: panel-info Pending Users
+The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+:::
+
 ### View Users
 
 The [Users](${manage_url}/#/users) page lists the users who are associated with your apps. To open a particular user, click the user profile picture or name in the "Name" column. The User Details page will open and display information for that user.
@@ -97,7 +101,7 @@ A popup will display the URL to use to impersonate the user. You can copy the UR
 ![Impersonate a User](/media/articles/user-profile/signin-as-user-02.png)
 
 ::: panel-info Impersonation API
-You can also use the [Impersonation API](/api/authentication/reference#impersonation) to impersonate a user. The API generates a link that you can used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
+You can also use the [Impersonation API](/api/authentication/reference#impersonation) to impersonate a user. The API generates a link that you can use once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
 :::
 
 Please see [User Impersonation](/user-profile/user-impersonation) for more information about impersonating a user.
@@ -123,3 +127,13 @@ To permanently delete a user, navigate to the [Users](${manage_url}/#/users) pag
 ![Delete a User](/media/articles/user-profile/delete-user.png)
 
 A popup will warn you that the action cannot be undone and prompt you to confirm that you want to delete the user. Click the "Yes, Delete It" button to confirm. This will permanently delete the user.
+
+## User Access to Clients
+
+Inside a single tenant (Auth0 account) the users are shared between clients. The idea here is that the all the clients in a single tenant will usually belong to the same app. 
+
+For total separation you can create a new account. To do this click on tenant name on top right of the dashboard and select **New Account** . If you have multiple tenants, you can easily switch between them from the accounts menu.
+
+If you need to restrict some users to certain clients you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which client the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md). 
+
+You can also restrict users from clients by configuring a new connection and only giving access to a specific client. To enable client access for a connection go to the the **Settings** section for a connection and click on the **Clients** tab, here you can enable/disable any client.

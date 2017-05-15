@@ -1,14 +1,16 @@
 ## Configuring Your Application
 
-## Dependences
+## Dependencies
 
 This quickstart uses the Auth0.Android SDK to help you add authentication and API authorization to your Android app. To install it, simply add the following line to your module build.gradle file:
 
 ```gradle
 dependencies {
-    compile "com.auth0.android:auth0:1.1.0"
+    compile "com.auth0.android:auth0:1.+"
 }
 ```
+
+_You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0)._
 
 Next, Syncronize bundle.gradle in Android Studio or run `./gradlew clean assembleDebug` from the command line.
 
@@ -20,28 +22,21 @@ Next, Syncronize bundle.gradle in Android Studio or run `./gradlew clean assembl
 First, you need to update `AndroidManifest.xml` with the following:
 
 ```xml
-...
-
 <activity android:name=".MainActivity" android:launchMode="singleTask">
     <intent-filter>
-...
-
-
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
         <data
-            android:host="{YOUR AUTH0 DOMAIN}"
-            android:pathPrefix="/android/{YOUR PACKAGE NAME}/callback"
+            android:host="${account.namespace}"
+            android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
             android:scheme="https" />
-
-...
-
     </intent-filter>
 </activity>
-
-...
 ```
+
+Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+
 
 Also include following permission:
 
@@ -51,29 +46,32 @@ Also include following permission:
 
 Finally, open the Dashboard and make sure the Allowed Callback URLs for your client contains a URL with the following format:
 
-`https://{YOUR_AUTH0_DOMAIN}/android/{YOUR PACKAGE NAME}/callback`
+`https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
+
+Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+
 
 ## Initiate Authentication and Authorization
 
 First create an instance of Auth0 with your client information:
 
 ```java
-Auth0 account = new Auth0("{YOUR_CLIENT_ID}", "{YOUR_DOMAIN}");
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 ```
 
-Next, you need to use the WebAuthProvider to initate the authentication and authorization. You also need to define a constant like `WEB_REQ_CODE` that holds the request code (an `int`), that will be sent back with the intent once the auth is finished in the webview:
+Next, you need to use the `WebAuthProvider` to initiate the authentication and authorization. You also need to define a constant like `WEB_REQ_CODE` that holds the request code (an `int`), that will be sent back with the intent once the auth is finished in the Browser:
 
 ```java
-public static final int WEB_REQ_CODE=1234;
+public static final int WEB_REQ_CODE = 123;
 
 public void startAuth() {
 
     Map<String, Object> params = new HashMap<String, Object>();
-    params.put("audience", "{YOUR API IDENTIFIER}");
+    params.put("audience", "{YOUR_API_IDENTIFIER}");
 
     WebAuthProvider.init(account)
             .withConnection("Username-Password-Authentication")
-            .withScope("openid profile {API SCOPES}")
+            .withScope("openid profile {API_SCOPES}")
             .withParameters(params)
             .start(MainActivity.this, authCallback , WEB_REQ_CODE);
 }

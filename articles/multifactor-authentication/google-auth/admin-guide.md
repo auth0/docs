@@ -26,8 +26,8 @@ If you enable Google Authenticator while using another provider for MFA, all oth
 
 Your users must have a supported device to use the Google Authenticator app. If some of your users have an unsupported device type, they may be able to use Auth0's Guardian app instead of Google Authenticator. [Click here for information on using Guardian.](/multifactor-authentication/guardian/admin-guide)
 
-| **OS** | **Google Authenticator** | 
-| --- | --- | 
+| **OS** | **Google Authenticator** |
+| --- | --- |
 | **iOS** | Requires iOS 5.0 or later |
 | **Android** | Requires Android version 2.1 or later |
 | **Windows** | Unsupported |
@@ -53,7 +53,7 @@ function (user, context, callback) {
         // issuer: 'Label on Google Authenticator App', // optional
         // key: '{YOUR_KEY_HERE}', //  optional, the key to use for TOTP. by default one is generated for you
 
-        // optional, defaults to true. Set to false to force Google Authenticator every time. 
+        // optional, defaults to true. Set to false to force Google Authenticator every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
         allowRememberBrowser: false,
       };
@@ -69,7 +69,7 @@ When you have finished editing the code snippet based on the requirements of you
 ::: panel-info Note
 At this time Google Authenticator does not allow any customizations to the look and feel of the Google Authenticator screens.
 
-For other customization options [see Auth0 Guardian](/multifactor-authentication/administrator#customization). 
+For other customization options [see Auth0 Guardian](/multifactor-authentication/administrator#customization).
 :::
 
 ## Reset a MFA for a User
@@ -79,7 +79,7 @@ If a user has lost their mobile device, you as an administrator will need to res
 To reset a user's MFA:
 
 1.  Find and select the user in the [Users](${manage_url}/#/users) section of the dashboard.
-2. Once you have selected the affected user click on the **Actions** button on the top right of the screen. 
+2. Once you have selected the affected user click on the **Actions** button on the top right of the screen.
 3. Select **Reset Multi Factor (Google)** from the dropdown.
 4. There will be a pop up box to confirm your decision, click **YES, RESET IT** to reset the user's MFA.
 
@@ -89,7 +89,7 @@ The next time the user logs in they will need to resetup their MFA just like a n
 
 ## Disabling Google Authenticator
 
-Google Authenticator can be disabled from the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard then by clicking the link to use a different provider. 
+Google Authenticator can be disabled from the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard then by clicking the link to use a different provider.
 
 ![](/media/articles/mfa/change-provider.png)
 

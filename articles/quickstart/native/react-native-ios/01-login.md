@@ -30,22 +30,16 @@ gem install cocoapods
 
 ## Adding Lock
 
-First you need to run the following command to install **react-native-lock**
+First, you need to run the following command to install **react-native-lock**
 
 ```bash
 npm install --save react-native-lock
 ```
 
-Then install [rnpm](https://github.com/rnpm/rnpm)
-
-```bash
-npm install rnpm -g
-```
-
 After that, link **react-native-lock** with your iOS project:
 
 ```bash
-rnpm link react-native-lock
+react-native link react-native-lock
 ```
 
 If you get the following warning.
@@ -60,7 +54,7 @@ If you get the following warning.
     - Remove the build settings from the target.
 ```
 
-Click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the value `$(inherited)` for **all** configurations .
+Click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the value `$(inherited)` for **all** configurations.
 
 Another error you might have while trying to run the project, if you are using a `react-native` version `>=0.26.0`
 
@@ -69,7 +63,7 @@ Another error you might have while trying to run the project, if you are using a
         ___clang_call_terminate in libReact.a(RCTJSCExecutor.o)
 ```
 
-To solve it, click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the flag `-lc++` for **all** configurations .
+To solve it, click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the flag `-lc++` for **all** configurations.
 
 ## Implement the Login
 
@@ -83,7 +77,7 @@ ${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/reactnative-ios/Lock-Widget-Screenshot.png)](https://auth0.com)
 
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-ios#sms-passwordless), [Email](https://github.com/auth0/react-native-lock-ios#email-passwordless) or [TouchID](https://github.com/auth0/react-native-lock#touchid-ios-only)
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-ios#sms-passwordless), [Email](https://github.com/auth0/react-native-lock-ios#email-passwordless) or [Touch ID](https://github.com/auth0/react-native-lock#touchid-ios-only)
 
 On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
 

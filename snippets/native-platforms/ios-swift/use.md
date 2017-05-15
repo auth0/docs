@@ -1,13 +1,15 @@
 ```swift
-import Lock
-
-let controller = A0Lock.sharedLock().newLockViewController()
-controller.closable = true
-controller.onAuthenticationBlock = { (profile, token) in
-  // Do something with token & profile. e.g.: save them.
-  // Lock will not save the Token and the profile for you.
-  // And dismiss the ViewController
-  self.dismissViewControllerAnimated(true, completion: nil)
+Auth0
+    .webAuth()
+    .start {
+        switch $0 {
+        case .failure(let error):
+            // Handle the error
+            print("Error: \(error)")
+        case .success(let credentials):
+            // Do something with credentials e.g.: save them.
+            // Auth0 will automatically dismiss the hosted login page
+            print("Credentials: \(credentials)")
+        }
 }
-self.presentViewController(controller, animated: true, completion: nil)
 ```

@@ -6,7 +6,11 @@ description: This tutorial demonstrates how to display the user's profile
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '04-User-Profile'
+  path: '04-User-Profile',
+  requirements: [
+    'AngularJS 1.5.8',
+    'angular-lock 2.0.2'
+  ]
 }) %>
 
 Auth0 provides a profile object for your users and you can obtain it from Lock's `getProfile` method.
@@ -42,6 +46,10 @@ To get the user's profile, call the `getProfile` method on `lock`, passing in a 
           deferredProfile.resolve(profile);
         });
 
+      });
+      
+      lock.on('authorization_error', function (err) {
+        console.log(err);
       });
     }
 

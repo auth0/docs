@@ -6,17 +6,17 @@ description: How to configure PingFederate 7 as an identity provider.
 
 Most options are the default values. You will just need to press __Next__ in most screens. If metadata import fails for some reason, keep these values at hand. These are the most important configuration parameters:
 
-* __EntityID:__ `urn:auth0:${account.tenant}:${connectionName}`
+* __EntityID:__ `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME`
 * __Assertion Consumer Service URL:__ `https://${account.namespace}/login/callback`
 * __Logout URL:__ `https://${account.namespace}/logout`
 * __HTTP-Redirect__ binding for SAML Request
 * __HTTP-POST__ binding for SAML Response
 
-> If you want **IdP-Initiated SSO**, please make sure to include the connection parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=${connectionName}`
+> If you want **IdP-Initiated SSO**, please make sure to include the connection parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
 
 ### 1. Download Auth0 Metadata File
 
-Download the metadata file from [here](https://${account.namespace}/samlp/metadata?connection=${connectionName}). This will be used in [step 3](#3-configure-the-__sp-connection__) and it is used to automatically import information about your partner.
+Download the metadata file from [here](https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME). This will be used in [step 3](#3-configure-the-__sp-connection__) and it is used to automatically import information about your partner.
 
 ### 2. Create a new __SP Connection__
 
@@ -34,7 +34,7 @@ Select __Browser SSO__ as the __Connection Options__:
 
 ![](/media/articles/saml/identity-providers/ping7/ping-3.png)
 
-Upload the [__metadata file__](https://${account.namespace}/samlp/metadata?connection=${connectionName}) you downloaded in step 1. The __Entity ID__, __Connection Name__ and the __Base URL__ will be automatically completed based on the information from the metadata file. You can also complete other relevant information from your partner:
+Upload the [__metadata file__](https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME) you downloaded in step 1. The __Entity ID__, __Connection Name__ and the __Base URL__ will be automatically completed based on the information from the metadata file. You can also complete other relevant information from your partner:
 
 ![](/media/articles/saml/identity-providers/ping7/ping-4.png)
 

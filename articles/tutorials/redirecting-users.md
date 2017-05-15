@@ -4,17 +4,19 @@ description: How to handle returning users after authentication.
 
 # Redirect Users After Login
 
-In order to give your application's users a good experience, it is necessary to handle how users are redirected back to your application after authentication.
+To make your login process as easy-to-use and seamless as possible, you'll need provide Auth0 with explicit information on redirecting users back to your application after authentication.
 
-The `redirect_uri` field is meant to be used for a callback url, which is not necesarily the URL you want to bring users to after authentication. Callback URLs are invoked by Auth0 after the authentication process and where your application is then routed. Since callback URLs can be manipulated for security only whitelisted URLs set in the `Allowed Callback URLs` field of a Client's Settings will be recognized as valid. 
+When implementing Auth0, please note that the `redirect_uri` field is actually used as a callback URL. Auth0 invokes callback URLs after the authentication process and are where your application gets routed. Because callback URLs can be manipulated by unauthorized parties, Auth0 recognizes only whitelisted URLs set in the `Allowed Callback URLs` field of a [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings) as valid.
 
-If you want to redirect your users to another page on your site that is not the callback url, there are a few options on how to do so:
+The callback URL is not necessarily the same URL to which you want users redirected after authentication.
 
-## Store the desired URL in the `state` parameter
+## Redirect Users to a Non-Callback URL
 
-The `state` parameter is one of the supported Auth0 [Authentication Parameters](/libraries/lock/v10/sending-authentication-parameters). You can use this field to hold multiple values such as a JSON object that holds the URL you want to bring the user to. 
+If you want to redirect authenticated users to a URL that is *not* the callback URL, you can do so using one of the following methods.
 
-For example:
+### Store the Desired URL in the `state` Parameter
+
+The [`state` parameter](/protocols/oauth-state) is one of the supported Auth0 [Authentication Parameters](/libraries/lock/v10/sending-authentication-parameters). You can use this field to hold multiple values such as a JSON object that holds the URL you want to bring the user to.
 
 ```
 state = {
@@ -23,17 +25,14 @@ state = {
 }
 ```
 
-When the state value is returned after a successful request, you can use the `return_url` contained in the `state` to redirect the user to the desired URL. 
+To send the `state` parameter, [add it to the `options` object](/libraries/lock/v10/sending-authentication-parameters). For additonal information on where to modify `options`, please see the doc on [Getting Started with Lock](/libraries/lock/v10#start-using-lock).
 
-[Click here to learn more about using the state parameter.](/protocols/oauth-state)
+After a successful request, you can used the `return_url` encapsulated in the returned `state` value to redirect users to the appropriate URL.
 
-## Store the redirect URL in web storage
+### Store the Desired URL in Web Storage
 
-Another option is to store the desired redirect URL in web storage to be used after authentication. The way this could be stored is similar to [how you would store a JWT](/security/store-tokens#where-to-store-your-jwts). Like with the `state` parameter, this will hold the URL you want to bring your users to. After authentication you can create logic to redirect your users and use this field for where you will redirect your users.
+You can store the desired URL in web storage to be used after authentication. Storing a URL using this method is similar to [storing a JWT](/security/store-tokens#where-to-store-your-jwts).  You can then create the necessary logic to obtain the stored URL to redirect your users after successful authentication.
 
-## Additional Information
+### Use Rules
 
-These are just a few suggestions and there are other ways you can configure your application to handle redirecting your users after authentication. 
-
-[Redirects can also be configured for users using rules](/rules/redirect) to programatically redirect users *before* an authentication transaction is complete, allowing the implementation of custom authentication flows which require input on behalf of the user.
-
+You can [configure redirection using Rules](/rules/redirect) so that Auth0 redirects users *before* the authentication translation completes. This option has the added benefit of allowing you to implement custom authentication flows that require the user's input.

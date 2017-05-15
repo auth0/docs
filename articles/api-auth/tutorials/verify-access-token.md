@@ -3,6 +3,8 @@ description: How an API can verify a bearer JWT access token
 toc: true
 ---
 
+<%= include('../../_includes/_pipeline2') %>
+
 # Verify Access Tokens
 
 When an API receives a request with a bearer access token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
@@ -120,16 +122,12 @@ You can find a sample API implementation, in Node.js, in [Server Client + API: N
 This document is part the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api), an implementation of a Client Credentials grant for a hypothetical scenario. For more information on the complete solution refer to [Server + API Architecture Scenario](/architecture-scenarios/application/server-api).
 
 
-## More information
+## Read more
 
-[RFC 7519 - JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519)
-
-[JSON Web Tokens (JWT) in Auth0](/jwt)
-
-[APIs in Auth0](/apis)
-
-[Tokens used by Auth0](/tokens)
-
-[Server Client + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions)
-
-[How to implement API authentication and authorization scenarios](/api-auth)
+- [RFC 7519 - JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519)
+- [JSON Web Tokens (JWT) in Auth0](/jwt)
+- [APIs in Auth0](/apis)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Tokens used by Auth0](/tokens)
+- [Server Client + API: Node.js Implementation for the API](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions)
+- [How to implement API authentication and authorization scenarios](/api-auth)

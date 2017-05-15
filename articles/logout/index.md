@@ -127,11 +127,13 @@ When providing the URL list, you can:
 
 #### Facebook Users
 
-If you are using Facebook, please be aware of the additional requirements (including encoding the `returnTo` parameter) when triggering a logout:
+If you are using Facebook, please be aware of the additional requirements when triggering a logout.
+
+Also make sure to encode the `returnTo` parameter.
 
 ```text
 https://${account.namespace}/v2/logout?federated&
-      returnTo=url_encode(https://${account.namespace}/logout?returnTo=http://www.example.com)
+      returnTo=https%3A%2F%2F${account.namespace}%2Flogout%3FreturnTo%3Dhttp%3A%2F%2Fwww.example.com
       &access_token=[facebook access_token]
 ```
 
@@ -181,8 +183,13 @@ To log out a user from both Auth0 and their SAML identity provider, they must be
 The external SAML identity provider will need to know where to send SAML logout responses. The __SingleLogout service URL__ that will consume this response is the following:
 
 ```text
-https://${account.namespace}/logout
+https://${account.namespace}/v2/logout
 ```
+
+When viewing the logout metadata for your Auth0 Connection, you might notice two `SingleLogoutService` bindings.
+
+* The first is the **SAML Request Binding** (also known as the **Protocol Binding**), which is used for the transaction from Auth0 to the IdP. If the IdP provides a choice, select `HTTP-Redirect`.
+* The second is the **SAML Response Binding**, which is used for transactions from the IdP to Auth0. It indicates to Auth0 what protocol the IdP will use to respond. If the IdP provides a choice, indicate that `HTTP-POST ` should be used for Authentication Assertions.
 
 ### Unable to Logout Using a SAML Identity Provider
 

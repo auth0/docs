@@ -1,7 +1,10 @@
 ---
 description: How to dynamically register Clients with Auth0, using the Management APIv2.
+crews: crew-2
 toc: true
 ---
+
+<%= include('../_includes/_pipeline2') %>
 
 # Dynamic Client Registration
 
@@ -17,7 +20,7 @@ Third party clients have the following characteristics:
 
 - To authenticate users using [Lock](/libraries/lock), you will have to use a version greater than `10.7`.
 
-- They cannot skip user consent when consuming APIs. This is for security purposes, as anyone can create a client, but each client relays on the final user to provide consent.
+- They cannot skip user consent when consuming APIs. This is for security purposes, as anyone can create a client, but each client relies on the final user to provide consent.
 
 - They cannot use [ID tokens](/tokens/id-token) to invoke [Management APIv2](/api/management/v2) endpoints. Instead, they should get a Management APIv2 Token (see the *How to get a Management APIv2 Token* panel for details). Note that the client should be granted the `current_user_*` scopes, as required by each endpoint.
   - `read:current_user`: [List or search users](/api/management/v2#!/Users/get_users), [Get a user](/api/management/v2#!/Users/get_users_by_id), [Get user Guardian enrollments](/api/management/v2#!/Users/get_enrollments)
@@ -215,7 +218,7 @@ Where:
 - `scope` (optional): The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Set this parameter if you need API access.
 
   ::: panel-info Custom claims namespaced format
-  In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
+  In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
   :::
 
 - `response_type`: The response type. For Implicit Grant you can either use `token` or `id_token token`. This will specify the type of token you will receive at the end of the flow. Use `token` to get only an `access_token`, or `id_token token` to get both an `id_token` and an `access_token`.

@@ -11,9 +11,8 @@ default_article: dashboard-default
 articles:
   - 00-intro
   - 01-login
-  - 02-login-embedded-lock
-  - 03-login-custom
-  - 04-storing-tokens
-  - 05-user-profile
-  - 07-rules
-  - 08-authorization
+  - 02-login-custom
+  - 03-storing-tokens
+  - 04-user-profile
+  - 05-rules
+  - 06-authorization

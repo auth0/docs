@@ -2,6 +2,8 @@
 title: Public and confidential clients
 ---
 
+<%= include('../_includes/_pipeline2') %>
+
 # Client and application types
 
 The OAuth 2.0 specification [defines two types of clients](https://tools.ietf.org/html/rfc6749#section-2.1): public and confidential.

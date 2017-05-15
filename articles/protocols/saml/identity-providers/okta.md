@@ -41,7 +41,7 @@ Click **Next** to proceed.
 Next, you will see the *SAML Settings* page. Enter the following values into the appropriate fields:
 
 * **Single sign on URL**: `https://${account.namespace}/login/callback`
-* **Audience URI (SP Entity ID)**: `urn:auth0:${account.tenant}:${connectionName}`
+* **Audience URI (SP Entity ID)**: `urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME`
 
 ![SAML Integration Configure SAML](/media/articles/saml/identity-providers/okta/saml-settings.png)
 
@@ -125,9 +125,9 @@ If your test was successful, you'll see the **It works!** screen. If not, you'll
 
 ## IdP Initiated SignOn
 
-Okta provides an Application Portal/Launcher for their users. If you would like to support the Okta Application Portal/Launcher, change the **Single sign on URL** in the Okta dashboard to `https://${account.namespace}/login/callback?connection=CONNECTIONNAME`
+Okta provides an Application Portal/Launcher for their users. If you would like to support the Okta Application Portal/Launcher, change the **Single sign on URL** in the Okta dashboard to `https://${account.namespace}/login/callback?connection=YOUR_CONNECTION_NAME`
 
-Be sure to change `CONNECTIONNAME` to the name of your Auth0 Connection.
+Be sure to change `YOUR_CONNECTION_NAME` to the name of your Auth0 Connection.
 
 Lastly, you'll need to select the Client to which the Auth0 redirects after it validates the SAML Response.
 

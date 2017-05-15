@@ -55,7 +55,7 @@ API requests to selected Authentication or Management API endpoints will return 
 
 ### Management API v2
 
-Please note that there is a 50 requests per second limit on all [Management API v2](/api/management/v2) calls per tenant. The limit is set by tenant and not by endpoint.
+Please note that there is a 50 requests per second limit on all [Management API v2](/api/management/v2) calls per tenant. **This includes calls made via [Rules](/rules).** The limit is set by tenant and not by endpoint.
 
 The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
 

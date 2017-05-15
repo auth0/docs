@@ -1,5 +1,5 @@
 ---
-title: MFA on a Resource Owner endpoint
+title: Multifactor Authentication for Native Applications
 description: How to enable your native iOS or Android app to use Multifactor Authentication.
 url: /multifactor-authentication/mfa-native
 ---
@@ -145,7 +145,7 @@ If you have set the `options.mfa.return_enroll_settings` flag to true using the 
 
 ```
 {
-  "error": "a0.mfa_registration_required",  
+  "error": "a0.mfa_registration_required",
   "error_description": "User is not enrolled with google-authenticator",
 
   "mfa_settings": {

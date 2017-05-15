@@ -3,13 +3,14 @@
 The easiest way to add authentication to any app with Auth0 is to use the Lock widget. To use the Lock widget in your Angular 1.x apps, and to help manage authentication related tasks, you will need to install several libraries:
 
 * auth0-lock
+* auth0.js
 * angular-lock
 * angular-jwt
 
 **Installing Dependencies with npm**
 
 ```bash
-npm install angular-lock angular-jwt
+npm install auth0-js angular-lock angular-jwt --save
 ```
 
 or
@@ -17,7 +18,7 @@ or
 **Installing Dependencies with Bower**
 
 ```bash
-bower install auth0-lock angular-lock angular-jwt
+bower install auth0-lock auth0.js angular-lock angular-jwt --save
 ```
 
 Once installed, the scripts for these libraries can be included in your project.
@@ -25,7 +26,8 @@ Once installed, the scripts for these libraries can be included in your project.
 **After Installation with npm**
 
 ```html
-<script type="text/javascript" src="https://cdn.auth0.com/js/lock/10.8/lock.min.js"></script>
+<script src="${lock_url}"></script>
+<script src="node_modules/auth0-js/build/auth0.js"></script>
 <script src="node_modules/angular-lock/dist/angular-lock.js"></script>
 <script src="node_modules/angular-jwt/dist/angular-jwt.js"></script>
 ```
@@ -36,6 +38,7 @@ or,
 
 ```html
 <script src="bower_components/auth0-lock/build/lock.js"></script>
+<script src="bower_components/auth0.js/build/auth0.js"></script>
 <script src="bower_components/angular-lock/dist/angular-lock.js"></script>
 <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
 ```

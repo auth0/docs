@@ -1,7 +1,7 @@
 ---
-title: Auth0 Angular 1.x Tutorial
+title: Auth0 AngularJS Tutorial
 default: true
-description: This tutorial demonstrates how to use the Auth0 with Angular 1.x applications
+description: This tutorial demonstrates how to use the Auth0 with AngularJS applications
 ---
 
 <%= include('../../../_includes/_package', {

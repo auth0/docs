@@ -1,3 +1,3 @@
 <div class="alert alert-info">
-  <strong>Heads up!</strong> This document uses the latest version of Lock (version 10). If you are still using version 9, check out the <a href="/libraries/lock/v10/migration-guide">Lock 9 to Lock 10 migration guide</a>, or the <a href="/libraries/lock/v9">Lock 9 Documentation</a>.
+This document uses the latest version of Lock - version 10. We recommend using this version, but if you are already using version 9, you can access it using the dropdown at the top of this document. If you are interested in upgrading to this version, take a look at the <a href="/libraries/lock/v10/migration-guide">Lock 9 to Lock 10 migration guide</a>.
 </div>

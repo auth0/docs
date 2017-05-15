@@ -7,6 +7,16 @@ description: How to customize the user sign-up form with additional fields using
 
 In some cases, you may want to customize the user sign up form with more fields other than email and password.
 
+:::panel-info Hosted Login Pages
+
+Auth0 offers a [hosted login page](/hosted-pages/login) option that you can use instead of designing your own custom sign up page. If you want to offer sign up and log in options, and you only need to customize the following fields, the Hosted Login Page might be an easier option to implement:
+
+* Client Name
+* Logo
+* Background Color
+
+:::
+
 ## Using Lock
 
 Lock 10 supports [custom fields signup](/libraries/lock/v10/customization#additionalsignupfields-array-).
@@ -54,7 +64,7 @@ For further reference, here is our [documentation on progressive profiling](/use
 **NOTE**:  `name` and `color` are custom fields.
 
 ::: panel-info Custom field validation
-There is currently no way to validate user-supplied custom fields when signing up. Validation must be done from an Auth0 [Rule](/rules) at login, or with custom logic in your application.
+There is currently no way to validate user-supplied custom fields when signing up. Validation must be done from an Auth0 [Rule](/rules) at login, or with custom, **server-side** logic in your application.
 :::
 
 ### 2. Send the Form Data
@@ -118,8 +128,4 @@ Then users can log in with Username and Password.
 
 Password policies for database connections can be configured in the dashboard. For more information, see: [Password Strength in Auth0 Database Connections](/connections/database/password-strength).
 
-The configured password policies, along with other connection information, can be retrieved publicly by accessing a JSONP file at the following URL:
-
-`https://cdn.auth0.com/client/${account.clientId}.js`
-
-This file can then be parsed client-side to find the current password policy configured in the dashboard. For an example, see: [Custom signup with password policy](https://github.com/auth0/auth0-password-policy-sample).
+If required for implementation of custom signup forms, the configured password policies, along with other connection information, can be retrieved from the the [Management v2 API](/api/management/v2#!/Connections/get_connections_by_id). The result can be parsed client-side, and will contain information about the current password policy (or policies) configured in the dashboard for that connection.

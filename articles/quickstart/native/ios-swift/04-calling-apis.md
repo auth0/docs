@@ -1,6 +1,6 @@
 ---
 title: Calling APIs
-description: This tutorial will show you how to manage tokens to make authenticated API calls, using NSURLSession.
+description: This tutorial will show you how to manage tokens to make authenticated API calls, using URLSession.
 budicon: 546
 ---
 
@@ -9,9 +9,9 @@ budicon: 546
   repo: 'auth0-ios-swift-v2-sample',
   path: '04-Calling-APIs',
   requirements: [
-    'CocoaPods 1.1.1',
-    'Version 8.2 (8C38)',
-    'iPhone 6 - iOS 10.2 (14C89)'
+    'CocoaPods 1.2.1',
+    'Version 8.3.2 (8E2002)',
+    'iPhone 7 - iOS 10.3 (14E269)'
   ]
 }) %>
 
@@ -23,30 +23,38 @@ In this tutorial, you'll learn how to get a token, attach it to a request (using
 
 In order to make an authenticated request, you first need to obtain a token, against which your API can compare to detect whether or not the request is properly authenticated.
 
-You should already know how to get an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance from the [login tutorial](/quickstart/native/ios-swift/01-login). Anyway, here's a quick recap:
+You should already know how to get an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance from the [Centralized Login Guide](/quickstart/native/ios-swift/00-centralized-login). Anyway, here's a quick recap:
+
+First, import the `Auth0` module in the file where you want to present the hosted login page.
+
+${snippet(meta.snippets.setup)}
+
+Then present the hosted login screen, like this:
 
 ```swift
-import Lock
+Auth0
+    .webAuth()
+    .scope("openid profile")
+    .start {
+        switch $0 {
+        case .failure(let error):
+            // Handle the error
+            print("Error: \(error)")
+        case .success(let credentials):
+            guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
+            // Good time to store the tokens
+        }
+}
 ```
 
-```swift
-Lock
-    .classic()
-    .onAuth { credentials in
-        guard let idToken = credentials.idToken else { return }
-        // Good time to store the idToken that you will use next.
-    }
-    .present(from: self)
-```
-
-In order to make authenticated requests, you can use any of the token strings inside that `Credentials` instance you just obtained; which one depends on the application usage.
+In order to make authenticated requests, you can use any of the token strings inside that `Credentials` instance you just obtained. Which one depends on the application usage.
 
 ## Attach the Token
 
-Supposing you have decided to use the `idToken` value, here is what you would do:
+Supposing you need to use the `accessToken` value, here is what you would do:
 
 ```swift
-let token  = ... // The idToken you stored after authentication
+let token  = ... // The accessToken you stored after authentication
 let url = URL(string: "your api url")!
 var request = URLRequest(url: url)
 // Configure your request here (method, body, etc)
@@ -56,7 +64,7 @@ let task = URLSession.shared.dataTask(with: request) { data, response, error in
 }
 ```
 
-Notice that how you configure your authorization header should match the standards that you're using in your API; this is just an example of what it could look like.
+Notice that how you configure your authorization header should match the standards that you're using in your API. This is just an example of what it could look like.
 
 ## Send the Request
 

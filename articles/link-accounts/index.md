@@ -2,11 +2,12 @@
 url: /link-accounts
 title: Linking User Accounts
 description: Auth0 supports the linking of user accounts from various identity providers, allowing a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile.
+crews: crew-2
 ---
 
 # Linking Accounts
 
-::: panel-info Feature Availability 
+::: panel-info Feature Availability
 The **Account Linking** feature requires a paid subscription to the **Developer**, **Developer Pro** or **Enterprise** plan. It is not available as a free feature.
 
 [Click here](https://auth0.com/pricing) to learn more about Auth0 pricing plans.

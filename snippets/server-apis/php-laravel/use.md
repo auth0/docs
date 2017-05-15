@@ -1,5 +1,5 @@
 ```php
-Route::get('/api/protected', array('middleware' => 'auth0.jwt', function() {
-    return "Hello " . Auth0::jwtuser()->name;
-}));
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:api');
 ```

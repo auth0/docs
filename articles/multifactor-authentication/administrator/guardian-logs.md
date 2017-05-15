@@ -1,7 +1,7 @@
 ---
 description: Guardian Logging
 ---
-## Tracking your Users' MFA Events 
+## Tracking your Users' MFA Events
 
 In the [Logs](${manage_url}/#/logs) section of the dashboard, you can see the various events related to your users signing up and signing in using MFA.
 

@@ -3,9 +3,9 @@ section: libraries
 description: Lock V9 guide to initialization.
 ---
 
-<%= include('../_includes/_lock-version-9') %>
-
 # Lock: Initialization
+
+<%= include('../_includes/_lock-version-9') %>
 
 ```javascript
 // Initialize with clientID and domain

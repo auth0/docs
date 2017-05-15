@@ -1,12 +1,16 @@
 ---
 title: Single Sign-On
-description: This tutorial demonstrates how to use single sign on in Angular 1.x applications
+description: This tutorial demonstrates how to use single sign on in AngularJS applications
 ---
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '11-Single-Sign-On'
+  path: '11-Single-Sign-On',
+  requirements: [
+    'AngularJS 1.5.8',
+    'angular-lock 2.0.2'
+  ]
 }) %>
 
 Single sign-on (SSO) makes it possible for a user to log into one client and then automatically be logged into other clients, regardless of the platform, technology, or domain the user is using. It works by means of a central authentication service, which Auth0 provides, which means you can easily implement SSO in your Angular apps.

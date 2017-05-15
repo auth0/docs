@@ -11,7 +11,7 @@ This tutorial has been tested with the following:
 * NodeJS 6.3
 * npm 3.10.3
 * @cycle/xstream-run 3.0.3
-* cyclejs-auth0 1.1.0
+* cyclejs-auth0 3.0.0
 :::
 
 
@@ -20,7 +20,7 @@ ${include('../\_callback')}
 
 ## 1. Install the `cyclejs-auth0` Package
 
-To install both `cyclejs-auth0` and the `cyclic-router` (needed to parse the token sent by Auth0), from the command line, run:
+To install `cyclejs-auth0` from the command line, run:
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -58,17 +58,11 @@ All the available configurable parameters are supported, see [User configurable 
 
 After authentication, the `protect` function will handle the token parsing and store it to `localStorage`.
 
-## 4. Configure Secure Calls to Your API
+## 4. Retrieve and display the User's Information
 
-To configure secure calls to the API you are creating, you need to decorate all your newly secured component's HTTP calls with the [JSON Web Token](/jwt) that has been stored in `localStorage`. To do that, you can set a decorator that will be called on each HTTP request and where you can add the `Authorization` header.
-
-${snippet(meta.snippets.securize)}
-
-## 5. Retrieve the User Profile and Display User Information
-
-Once a component is protected, it is given a `props` object that contains a `token$` stream that can be used to either:
+Once a component is protected, it is given a `props` object that contains a `tokens$` stream that can be used to either:
 - be decoded to get some basic information about your user (sub, nickname ... depending on your `authParams.scope` setting);
-- send a `getProfile` request to the Auth0 lock to retrieve a full profile.
+- send a `getUserInfo` request to the Auth0 lock to retrieve a full profile.
 
 ${snippet(meta.snippets.query)}
 
@@ -78,7 +72,7 @@ ${snippet(meta.snippets.query)}
 
 To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
-## 6. Implement the Logout
+## 5. Implement the Logout
 
 To log out, you simply need to send the `logout` action to the Auth0 driver.
 

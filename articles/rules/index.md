@@ -43,7 +43,25 @@ A Rule is a function with the following arguments:
 
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
-* `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0, or an error. Because of the async nature of Node.js, it is important to always call the `callback` function, or else the script will timeout.
+<div class="alert alert-info">
+Due to the asynchronous nature of Node.js, you <strong>must</strong> call the <code>callback</code> function. If not, this acts as a blocker and the next rule will not execute. The entire rules sequence must complete within <strong>20 seconds</strong>, otherwise the process times out.
+</div>
+
+### Global Functions
+
+If you need to use a function in multiple Rules, you can place the shared function in its own Rule. Within this rule, assign the function to the global object so that you can later call the function in a separate rule.
+
+```js
+if (!global.foo) {
+  global.foo = function () { };
+}
+
+if (!global.bar) {
+  global.bar = function (baz) { };
+}
+```
+
+Rules containing shared functions should be placed at the top of the [Rules list in the Management Dashboard](${manage_url}/#/rules). If this is not the case, calling these functions results in an undefined function error when the Rules execute.
 
 ## Examples
 
@@ -194,7 +212,7 @@ Use this to create the POST request:
 ```
 
 <div class="alert alert-info">
-You can use the <a href="https://www.npmjs.com/package/auth0-custom-db-testharness">auth0-custom-db-testharness library</a> to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
+You can use the <a href="https://www.npmjs.com/package/auth0-rules-testharness">auth0-rules-testharness library</a> to deploy, execute, and test the output of Rules using a Webtask sandbox environment.
 </div>
 
 ## How to Debug Rules
@@ -263,6 +281,6 @@ For security reasons, the Rules code runs in a JavaScript sandbox based on [webt
 
 For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire).
 
-## Further reading
+## Read more
 
 * [Redirecting users from within rules](/rules/redirect)

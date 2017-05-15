@@ -18,7 +18,7 @@ Then you can use the slider to turn on Duo.
 If you enable Duo while using another provider for MFA, all other providers will be disabled. All customizations and enrolled users in other MFA will be lost. Be careful as this action cannot be reverted.
 :::
 
-### Customize Duo 
+### Customize Duo
 
 After you toggle the slider to enable using Duo, a portal displays a code editing textbox containing the following code snippet for you to use:
 
@@ -37,7 +37,7 @@ function (user, context, callback) {
         skey: 'nZLxq8GK7....saKCOLPnh',
         host: 'api-3....049.duosecurity.com',
 
-        // optional, defaults to true. Set to false to force DuoSecurity every time. 
+        // optional, defaults to true. Set to false to force DuoSecurity every time.
         // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
         allowRememberBrowser: false,
 
@@ -59,7 +59,7 @@ function (user, context, callback) {
 
 #### Changing the Required Fields
 
-Required fields that you **must** replace to use Duo are: `ikey`, `skey` and `host`. 
+Required fields that you **must** replace to use Duo are: `ikey`, `skey` and `host`.
 
 1. To get these fields first [login to your Duo account](https://admin.duosecurity.com/login).
 
@@ -71,7 +71,7 @@ Required fields that you **must** replace to use Duo are: `ikey`, `skey` and `ho
 
 5. Then you will be brought to the **Auth API** page under your Appications, you should see a **Details** section.
 
-6. Under the **Details** section you will see: 
+6. Under the **Details** section you will see:
 
 * **Integration key** - use this for your `ikey` field
 * **Secret key** - use this for your `skey` field
@@ -92,11 +92,10 @@ If you need to change the settings for logging in with Duo for one of your users
 
 ## Disabling Duo
 
-Duo can be disabled from the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard then by clicking the link to use a different provider. 
+Duo can be disabled from the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard then by clicking the link to use a different provider.
 
 ![](/media/articles/mfa/change-provider.png)
 
 Toggle the slider button to disable Duo, then a confirmation popup will appear.
 
 By disabling Duo you will lose all customizations, but your previously enrolled users will still be visible in your Duo settings.
-

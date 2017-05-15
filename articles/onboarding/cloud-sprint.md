@@ -64,4 +64,4 @@ Pre-Production Checklist:  This list will walk through basic checks to make in A
 ### Step 6 - Achieve First Value Goal
 **When?**  30-45 days after signing your subscription agreement.
 
-**What?** Ultimately, this is the goal our team will be focussed on moving towards as the outcome of the onboarding process.  It’s something we’ll agree on with you in Step 1.
+**What?** Ultimately, this is the goal our team will be focused on moving towards as the outcome of the onboarding process.  It’s something we’ll agree on with you in Step 1.

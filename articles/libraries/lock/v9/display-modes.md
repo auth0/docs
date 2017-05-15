@@ -3,9 +3,9 @@ section: libraries
 description: Lock V9 document on the display modes, overlay and embedded mode
 ---
 
-<%= include('../_includes/_lock-version-9') %>
-
 # Lock: Display Modes
+
+<%= include('../_includes/_lock-version-9') %>
 
 You can display Lock embedded or as a modal dialog with an overlay
 

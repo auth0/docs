@@ -4,9 +4,11 @@ description: Overview of scopes with a client-side authorization transaction.
 
 # Scopes
 
-When initiating a [client-side authorization transaction](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) through the [`/authorize` endpoint](/api/authentication/reference#social),
-only an opaque `access_token` will be returned by default.
-To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
+<div class="alert alert-info">
+<strong>Heads up!</strong> If you are working with the <a href="/api-auth">API Authorization flows</a> and you are looking for the updated documentation, refer to <a href="/scopes/preview">Scopes</a>.
+</div>
+
+When initiating a client-side authorization transaction through the [`/authorize` endpoint](/api/authentication/reference#social), only an opaque `access_token` will be returned by default. To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
 
 ## Example (implicit flow)
 
@@ -50,9 +52,7 @@ The attributes included in the issued token can be controlled with the `scope` p
 
 * `scope=openid`: will only return `iss`, `sub`, `aud`, `exp` and `iat` claims.
 * `scope=openid email nickname favorite_food`: will return claims for `openid` in addition to the `email`, `nickname` and `favorite_food` fields if they are available.
-* `scope=openid profile` (not recommended): will return all the user attributes in the token.
-This can cause problems when sending or receiving tokens in URLs (e.g. when using `response_type=token`) and will likely create an unnecessarily large token(especially with Azure AD which returns a fairly long JWT).
-Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
+* `scope=openid profile`: will return all the user attributes in the token.
 
 > The `scope` parameter can used in the same way when calling the [Resource Owner endpoint](/api/authentication/reference#resource-owner).
 

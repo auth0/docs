@@ -14,4 +14,5 @@ snippets:
   setup: server-apis/hapi/setup
   use: server-apis/hapi/use
 articles:
-  - authenticate
+  - 00-getting-started
+  - 01-authorization

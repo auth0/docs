@@ -12,15 +12,15 @@ Rules are functions written in JavaScript that are executed in Auth0 as part of 
   repo: 'auth0-android-sample',
   path: '06-Rules',
   requirements: [
-    'Android Studio 2.2',
-    'Android SDK 24',
+    'Android Studio 2.3',
+    'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>
 
 ## Before Starting
 
-Make sure you have completed either the [Login](01-login) or the [Custom Login](02-custom-login) examples.
+Make sure you have completed either the [Embedded Login](01-embedded-login) or the [Custom Login Form](02-custom-login-form) examples.
 
 ## Create a Rule
 
@@ -38,12 +38,13 @@ This is just a basic template. You can edit it to meet your business needs. Once
 
 ## Test the Rule
 
-To see the newly created rule working, just implement a login and check the user profile information (you can find out how to do this in the [user profile tutorial](04-user-profile)).
+To see the newly created rule working, just implement a login and check the user profile information (you can find out how to do this in the [user profile](04-user-profile)) tutorial.
 
-You can access the `country` added by the rule within the `extraInfo` hashmap from the `userProfile` object you receive in the callback (named payload by default):
+You can access the `country` added by the rule within the `extraInfo` HashMap from the `UserProfile` object you receive in the callback:
 
 ```java
-client.tokenInfo(${account.clientId})
+String idToken = credentials.getIdToken();
+client.tokenInfo(idToken)
     .start(new BaseCallback<UserProfile, AuthenticationException>() {
 
   @Override
@@ -51,8 +52,8 @@ client.tokenInfo(${account.clientId})
     runOnUiThread(new Runnable() {
       public void run() {
         // Get the country from the user profile
-        if (payload.getExtraInfo().containsKey("country")){
-          String country = (String) payload.getExtraInfo().get("country");
+        if (userProfile.getExtraInfo().containsKey("country")){
+          String country = (String) userProfile.getExtraInfo().get("country");
           //Show the country
         }
       }

@@ -17,8 +17,6 @@ In the [previous step](/quickstart/spa/jquery/01-login), we enabled login with t
 
 ::: panel-info Version Requirements
 This quickstart and the accompanying sample demonstrate custom login with auth0.js version 8. If you are using auth0.js version 7, please see the [reference guide](https://auth0.com/docs/libraries/auth0js/v7) for the library, as well as the [legacy jQuery custom login sample](https://github.com/auth0-samples/auth0-jquery-samples/tree/auth0js-v7/02-Custom-Login).
-
-Auth0.js version 8 verifies ID tokens during authentication transactions. Only tokens which are signed with the RS256 algorithm can be verified on the client side, meaning that your Auth0 client must be configured to sign tokens with RS256. See the [auth0.js migration guide](https://auth0.com/docs/libraries/auth0js/migration-guide#switching-from-hs256-to-rs256) for more details.
 :::
 
 ## Getting Started
@@ -28,7 +26,7 @@ Include the auth0.js library in your application. It can be retrieved from Auth0
 ```html
 <!-- index.html -->
 
-<script type="text/javascript" src="https://cdn.auth0.com/js/auth0/8.1/auth0.min.js"></script>
+<script src="${auth0js_urlv8}"></script>
 ```
 
 ## Create a Login Template
@@ -96,9 +94,9 @@ All authentication transactions should be handled from a single JavaScript file 
 
 The auth0.js methods for making authentication requests come from the `WebAuth` object. Create an instance of `auth0.WebAuth` and provide the domain, client ID, and callback URL (as the redirect URI) for your client. A `responseType` of `token id_token` should also be specified.
 
-The `login` and `signup` functions should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `client.login` method. Since `client.login` is an XHR-based transaction, the authentication result is handled in a callback and the user's access token and ID token are saved into local storage if the transaction is successful.
+The `login` and `signup` functions should take the username and password input supplied by the user and pass it to the appropriate auth0.js methods. In the case of `login`, these values are passed to the `redirect.loginWithCredentials` method, and for `signup`, they are passed to `redirect.signupAndLogin`.
 
-The `signup` method is a redirect-based flow and the authentication result is handled by the `parseHash` function. This function looks for an access token and ID token in the URL hash when the user is redirected back to the application. If those tokens are found, they are saved into local storage and the UI changes to reflect that the user has logged in.
+These methods are redirect-based and the authentication result is handled by the `parseHash` function. This function looks for an access token and ID token in the URL hash when the user is redirected back to the application. If those tokens are found, they are saved into local storage and the UI changes to reflect that the user has logged in.
 
 ```js
 // app.js
@@ -120,19 +118,12 @@ $(document).ready(function() {
   function login() {
     var username = $('#username').val();
     var password = $('#password').val();
-    auth.client.login({
-      realm: 'Username-Password-Authentication',
+    auth.redirect.loginWithCredentials({
+      connection: 'Username-Password-Authentication',
       username: username,
       password: password,
-    }, function(err, authResult) {
-      if (err) {
-        alert("something went wrong: " + err.message);
-        return
-      }
-      if (authResult && authResult.idToken && authResult.accessToken) {
-        setUser(authResult);
-        show_logged_in();
-      }
+    }, function(err) {
+      if (err) return alert(err.description);
     });
   }
 
@@ -144,7 +135,7 @@ $(document).ready(function() {
       email: username,
       password: password,
     }, function(err) {
-      if (err) alert("something went wrong: " + err.message);
+      if (err) return alert(err.description);
     });
   }
 
@@ -175,14 +166,15 @@ $(document).ready(function() {
     if (token) {
       show_logged_in();
     } else {
-      auth.parseHash(function(err, authResult) {
+      auth.parseHash({ _idTokenVerification: false }, function(err, authResult) {
+        if (err) {
+          alert('Error: ' + err.errorDescription);
+          show_sign_in();
+        }
         if (authResult && authResult.accessToken && authResult.idToken) {
           window.location.hash = '';
           setUser(authResult);
           show_logged_in();
-        } else if (authResult && authResult.error) {
-          alert('error: ' + authResult.error);
-          show_sign_in();
         }
       });
     }
@@ -201,7 +193,7 @@ $(document).ready(function() {
 
 The service has several other utility functions that are necessary to complete authentication transactions.
 
-* The `parseHash` function is necessary for redirect-based authentication transactions which, in this example, include `signup` and `loginWithGoogle`.
+* The `parseHash` function is necessary to get the authentication result from the URL in redirect-based authentication transactions.
 * The `logout` function removes the user's tokens from local storage which effectively logs them out of the application.
 * The `setUser` function takes an authentication result object and sets the access token and ID token values into local storage
 * The `show_logged_in` function hides the login form and displays the **Log Out** button. This is called after the user authenticates to reflect that they are logged in.

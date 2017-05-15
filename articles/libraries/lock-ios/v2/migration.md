@@ -74,7 +74,13 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 #### Application is asked to continue a User Activity
 
-Lock v2 does not yet have support for Universal iOS Links so there is no need to notify Lock of this application event.
+If you are using Lock passwordless and have specified the `.magicLink` option to send the user a universal link then you will need to add the following to your `AppDelegate.swift`:
+
+```swift
+func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    return Lock.continueAuth(using: userActivity)
+}
+```
 
 ### Usage
 
@@ -126,7 +132,7 @@ Lock
   .present(from: self)
 ```
 
-So, in the `onAuth` callback, you'd only recieve the credentials of the user when the authentication is successful. 
+So, in the `onAuth` callback, you'd only recieve the credentials of the user when the authentication is successful.
 > In constrast with Lock v1, in v2, Lock will dismiss itself so there is no need to call `dismissViewController(animated:, completion:)` in any of the callbacks.
 
 In the case you need to know about the errors or signup there are the corresponding `onError` and `onSignUp` callbacks that can be employed.
@@ -147,6 +153,55 @@ Lock
 ```
 
 > The callback `onSignUp` is only called when the "login after signup" is disabled
+
+#### Passwordless mode (Email & SMS connections)
+
+In v1 to show Lock Passwordless from a `UIViewController` you'd need to use either:
+
+**Email**
+
+```swift
+let lock = A0Lock.shared()
+let controller: A0EmailLockViewController = lock.newEmailViewController()
+controller.useMagicLink = true
+controller.onAuthenticationBlock = { (profile, token) in
+    // Do something with token & profile. e.g.: save them.
+    // Lock will not save the Token and the profile for you.
+    // And dismiss the UIViewController.
+    self.dismiss(animated: true, completion: nil)
+}
+lock.presentEmailController(controller, from: self)
+```
+
+**SMS**
+
+```swift
+let lock = A0Lock.shared()
+let controller: A0SMSLockViewController = lock.newSMSViewController()
+controller.useMagicLink = true
+controller.onAuthenticationBlock = { (profile, token) in
+    // Do something with token & profile. e.g.: save them.
+    // Lock will not save the Token and the profile for you.
+    // And dismiss the UIViewController.
+    self.dismiss(animated: true, completion: nil)
+}
+lock.presentSMSController(controller, from: self)
+```
+
+In V2 both email and sms now use the same method:
+
+```swift
+Lock
+    .passwordless()
+    .onAuth { credentials in
+      print("Authenticated!")
+    }
+    .present(from: self)
+```
+
+**Notes:**
+- Passwordless can only be used with a single connection and will prioritize the use of email connections over sms.  
+- The `audience` option is not available in Passwordless.
 
 #### Configuration options
 
@@ -228,13 +283,4 @@ Auth0.authentication()
   }
 ```
 
-## Features which are still in the roadmap for v2:
-
-- Native Authentication with third party SDKs (Facebook, Google, Twitter)
-- 1Password support
-- Passwordless Authentication (SMS & Email)
-- Secure Token storage and automatic token refresh
-- Remember me like feature using TouchID
-- Universal Link support for browser based Auth
-- Improved UI Styling
-- Bundle more i18n translation in Lock.framework
+<%= include('../_includes/_roadmap') %>

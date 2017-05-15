@@ -37,4 +37,4 @@ Auth0's Lock widget and `auth0.js` library are used throughout these quickstarts
 `<script src="${lock_url}"></script>`
 
 **auth0.js**
-`<script src="${auth0js_url}"></script>`
+`<script src="${auth0js_urlv8}"></script>`

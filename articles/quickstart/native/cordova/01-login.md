@@ -29,9 +29,9 @@ You can get started by either downloading the seed project or if you would like 
 
 </div>
 
-## 2. Add `InAppBrowser` Plugin
+## 2. Add `InAppBrowser` and `WhiteList` Plugin
 
-You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
+You must install the `InAppBrowser` and `WhiteList` plugins from Cordova to be able to show the Login popup and communicate with Auth0 endpoints. For that, just run the following commands:
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -42,6 +42,25 @@ and then add the following configuration to the `config.xml` file:
   <param name="ios-package" value="CDVInAppBrowser" />
   <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
 </feature>
+
+<!-- Allow links to auth0 -->
+<access origin="*.auth0.com" />
+```
+
+In addition to the whitelist, you must update the [Content Security Policy](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/#content-security-policy) in your application to match the requirements of your application. Please note that you'll need to set the CSP in every page of the application for SPAs this usually the `index.html`. To do so add teh following to the `<head>` of the `.html` files in your application:
+
+```xml
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * https://${account.namespace}.auth0.com is required to make calls to the authentication api
+    * https://cdn.auth0.com/ is needed to load scripts from Auth0
+    * Create your own at http://cspisawesome.com
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com https://${account.namespace}.auth0.com; style-src 'self' 'unsafe-inline' https://cdn.auth0.com; media-src *; img-src https:; font-src https://cdn.auth0.com;" />
 ```
 
 ## 3. Follow the Front End Quickstarts
@@ -58,11 +77,13 @@ Follow the [quickstart guide](/quickstart/spa) for the specific technology you a
 
 This means that the `InAppBrowser` plugin wasn't installed successfully by Cordova. Try any of the following:
 
-* Reinstall the `InAppBrowser` plugin
+* Reinstall the plugins
 
 ```bash
 cordova plugin remove cordova-plugin-inappbrowser
+cordova plugin remove cordova-plugin-whitelist
 cordova plugin add cordova-plugin-inappbrowser
+cordova plugin add cordova-plugin-whitelist
 ```
 * Remove the platform and re add it
 
@@ -84,10 +105,12 @@ cordova platform add android
 iOS:
 ```bash
 cp plugins/cordova-plugin-inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
+cp plugins/cordova-plugin-whitelist/src/ios/* platforms/ios/[yourAppName]/Plugins/cordova-plugin-whitelist/
 ```
 Android:
 ```bash
 cp plugins/cordova-plugin-inappbrowser/src/android/* platforms/android/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
+cp plugins/cordova-plugin-whitelist/src/android/* platforms/android/[yourAppName]/Plugins/cordova-plugin-whitelist/
 ```
 
 #### Blank page with an OK after signin

@@ -2,13 +2,15 @@
 description: How to execute an Authorization Code Grant flow from a Regular Web application
 ---
 
+<%= include('../../_includes/_pipeline2') %>
+
 # Execute an Authorization Code Grant Flow
+
+The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quickstart/webapp) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access the API using the token.
 
 <div class="alert alert-info">
   This tutorial will help you implement the Authorization Code grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code">Calling APIs from Server-side Web Apps</a>.
 </div>
-
-The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quickstart/webapp) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access the API using the token.
 
 
 ## 1. Get the User's Authorization
@@ -31,7 +33,9 @@ Where:
 
 * `scope`: The [scopes](/scopes) which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
 
-  __NOTE__: In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
+  ::: panel-info Custom claims namespaced format
+  Auth0 returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`. You can [add namespaced claims using Rules](#optional-customize-the-tokens).
+  :::
 
 * `response_type`: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be `code`.
 
@@ -116,11 +120,18 @@ Once your API receives a request with a Bearer `access_token`, the first thing t
 
 For details on the validations that should be performed refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
+## Optional: Customize the Tokens
+
+<%= include('../../_includes/_api-auth-customize-tokens') %>
+
+If you wish to execute special logic unique to the Authorization Code grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code grant.
+
 ## More reading
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
 - [How to refresh a token](/tokens/preview/refresh-token)
 - [How to configure an API in Auth0](/apis)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Web App Quickstarts](/quickstart/webapp)
 - [Client Authentication for Server-side Web Apps](/client-auth/server-side-web)
 - [Authentication API: GET /authorize](/api/authentication?http#authorization-code-grant)

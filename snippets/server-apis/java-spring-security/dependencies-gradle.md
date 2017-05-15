@@ -1,8 +1,3 @@
 ```groovy
-dependencies {
-  /*
-   * Existing dependencies
-   */
-  compile 'com.auth0:auth0-spring-security-api:0.3.3'
-}
+compile 'com.auth0:auth0-spring-security-api:1.0.0-rc.2'
 ```

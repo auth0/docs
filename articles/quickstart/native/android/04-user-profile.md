@@ -11,15 +11,15 @@ This tutorial will show you how to use Lock to get the user's profile data in yo
   repo: 'auth0-android-sample',
   path: '04-User-Profile',
   requirements: [
-    'Android Studio 2.2',
-    'Android SDK 24',
+    'Android Studio 2.3',
+    'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
 }) %>
 
 ## Before Starting
 
-Be sure that you have completed the [Basic Login](/quickstart/native/android/01-login) and the [Session Handling](/quickstart/native/android/03-session-handling) Quickstarts.
+Be sure that you have completed the [Basic Login](/quickstart/native/android/01-embedded-login) and the [Session Handling](/quickstart/native/android/03-session-handling) Quickstarts.
 
 ## Request User Data
 
@@ -30,7 +30,7 @@ AuthenticationAPIClient client = new AuthenticationAPIClient(
 new Auth0("${account.clientId}", "${account.namespace}"));
 ```
 
-> It's suggested that you add both the `Auth0DomainID` and `Auth0ClientID` to the `strings.xml` file rather than hardcode them in the manifest.
+> It's suggested that you add both the Auth0's `ClientId` and `Domain` to the `strings.xml` file rather than hardcoding them.
 
 
 Then, use your previously stored credentials (in this example, stored in the Application Singleton) to request the data.

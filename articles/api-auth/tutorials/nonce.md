@@ -2,6 +2,8 @@
 description: How to securely generate and validate a cryptographic nonce for use with the Implicit Grant
 ---
 
+<%= include('../../_includes/_pipeline2') %>
+
 # Mitigate replay attacks when using the Implicit Grant
 
 When using the [Implicit Grant](/api-auth/grant/implicit), a cryptographic nonce must be sent on authentication requests in order to mitigate replay attacks [as required by the OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#ImplicitAuthRequest).

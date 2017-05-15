@@ -1,1 +1,3 @@
-To install this plugin run `composer require auth0/login:"~4.0"`
+```bash
+composer require auth0/login:"~5.0"
+```

@@ -10,6 +10,7 @@ Content-Type: 'application/json'
   "email": "EMAIL",
   "password": "PASSWORD",
   "connection": "CONNECTION",
+  "user_metadata": "{ plan: 'silver', team_id: 111 }"
 }
 ```
 
@@ -17,7 +18,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/dbconnections/signup' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "email":"EMAIL", "password":"PASSWORD", "connection":"CONNECTION"}'
+  --data '{"client_id":"${account.clientId}", "email":"EMAIL", "password":"PASSWORD", "connection":"CONNECTION", "user_metadata":"{ plan: 'silver', team_id: 111 }"}'
 ```
 
 ```javascript
@@ -33,7 +34,8 @@ curl --request POST \
   webAuth.signup({ 
     connection: 'CONNECTION', 
     email: 'EMAIL', 
-    password: 'PASSWORD'
+    password: 'PASSWORD',
+    user_metadata: '{ plan: 'silver', team_id: 111 }'
   }, function (err) { 
     if (err) return alert('Something went wrong: ' + err.message); 
       return alert('success signup without login!') 
@@ -59,7 +61,7 @@ curl --request POST \
 
 Given a user's credentials, and a `connection`, this endpoint will create a new user using active authentication.
 
-This endpoint only works for database connections.
+This endpoint only works for database connections. 
 
 
 ### Request Parameters
@@ -70,6 +72,7 @@ This endpoint only works for database connections.
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `password` <br/><span class="label label-danger">Required</span> | The user's desired password. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database configured to your client. |
+| `user_metadata`        | The [user metadata](/metadata) to be associated with the user. Optional field, when set is must be a string containing no more than 10 fields and less than 500 characters. |
 
 
 ### Test with Postman
@@ -86,3 +89,4 @@ This endpoint only works for database connections.
 - [Password Strength in Auth0 Database Connections](/connections/database/password-strength)
 - [Password Options in Auth0 Database Connections](/connections/database/password-options)
 - [Adding Username for Database Connections](/connections/database/require-username)
+- [User Metadata](/metadata)

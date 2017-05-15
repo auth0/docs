@@ -16,8 +16,6 @@ Standard claims
 
 The OIDC specification defines a [set of standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users that can be returned in ID tokens or in the response from /userinfo.
 
-In the OIDC-conformant authentication pipeline, the `updated_at` claim is returned as a [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) instead of an [ISO 8601 date string](https://en.wikipedia.org/wiki/ISO_8601) for consistency with the `exp`, `iat` and `nbf` claims.
-
 Custom claims
 -------------
 

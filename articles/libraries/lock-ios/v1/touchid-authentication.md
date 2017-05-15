@@ -1,10 +1,10 @@
 ---
 section: libraries
-toc_title: TouchID Authentication
-description: How to implement TouchID authentication with Lock iOS.
+toc_title: Touch ID Authentication
+description: How to implement Touch ID authentication with Lock iOS.
 ---
 
-# Lock iOS: TouchID Authentication
+# Lock iOS: Touch ID Authentication
 
 <%= include('../_includes/_lock-version-1') %>
 

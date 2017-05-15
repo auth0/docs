@@ -102,3 +102,11 @@ If the identity provider requires Basic Authentication, you can be use the __Cus
     "Authorization" : "Basic MTIzNDU2OmFiY2RlZg=="
 }
 ```
+
+## Additional Steps
+
+Depending on which social providers you are you using, there may be additional steps in the provider configuration to enable the connection.
+
+### WordPress
+
+You will need to add the associated **Plugin** in WordPress for the social connection. For example, to enable login with Slack the Slack plugin will need to be enabled in WordPress (make sure you’re logged in as an Administrator).

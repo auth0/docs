@@ -1,5 +1,6 @@
 ---
 description: This page explains the differences of the four different deployment models in which Auth0 is offered.
+toc: true
 ---
 
 # Auth0 Deployment Models
@@ -13,14 +14,14 @@ Auth0 is offered in 4 deployment models:
 
 The following table describes operational and feature differences between each of these models.
 
+## Operational Differences
+
 <table class="table">
     <thead>
         <tr>
             <th class="info">Where It Runs</th>
-            <th class="info">Auth0's Infrastructure</th>
-            <th class="info"></th>
-            <th class="info">Customer's Infrastructure</th>
-            <th class="info"></th>
+            <th class="info" colspan="2">Auth0's Infrastructure</th>
+            <th class="info" colspan="2">Customer's Infrastructure</th>
         </tr>
         <tr>
             <th>How It Runs</th>
@@ -61,25 +62,36 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Uptime SLA Provided</th>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="danger">No</td>
-            <td class="danger">No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>No</td>
         </tr>
         <tr>
             <th>Support Channels & Levels</th>
-            <td>Same across all models</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="4">Same across all models</td>
+        </tr>
+    </tbody>
+</table>
+
+## Feature Differences
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="info">Where It Runs</th>
+            <th class="info" colspan="2">Auth0's Infrastructure</th>
+            <th class="info" colspan="2">Customer's Infrastructure</th>
         </tr>
         <tr>
-            <th class="info">Features</th>
-            <td class="info"></td>
-            <td class="info"></td>
-            <td class="info"></td>
-            <td class="info"></td>
+            <th>How It Runs</th>
+            <th>Multi-Tenant</th>
+            <th>Dedicated</th>
+            <th>Cloud</th>
+            <th>On-Premises</th>
         </tr>
+    </thead>
+    <tbody>
         <tr>
             <th>SSO Lifetime</th>
             <td>Default Settings</td>
@@ -88,11 +100,25 @@ The following table describes operational and feature differences between each o
             <td>Configurable</td>
         </tr>
         <tr>
-            <th>Search</th>
+            <th>User Search</th>
+            <td>Lucene queries</td>
+            <td>Simple attribute search or Lucene queries</td>
+            <td>Simple attribute search or Lucene queries</td>
+            <td>Simple attribute search or Lucene queries</td>
+        </tr>
+        <tr>
+            <th>Tenant Log Search</th>
             <td>Lucene queries</td>
             <td>Simple attribute search</td>
             <td>Simple attribute search</td>
             <td>Simple attribute search</td>
+        </tr>
+        <tr>
+            <th>Log Retention</th>
+            <td>Up to 30 days (depends on subscription plan)</td>
+            <td>Limited to 30 days</td>
+            <td>Limited to 30 days</td>
+            <td>Limited to 30 days</td>
         </tr>
         <tr>
             <th>Code Sandbox</th>
@@ -104,53 +130,76 @@ The following table describes operational and feature differences between each o
         <tr>
             <th>Webtask</th>
             <td>Multi-Tenant</td>
-            <td>Dedicated</td>
-            <td>Cloud</td>
-            <td>On-Premises</td>
+            <td>Dedicated (Fixed NPM modules)</td>
+            <td>Dedicated (Fixed NPM modules)</td>
+            <td>On-Premises (Fixed NPM modules)</td>
         </tr>
         <tr>
             <th>Anomaly Detection</th>
-            <td class="success">Brute Force and Breached Passwords</td>
-            <td class="success">Brute Force</td>
-            <td class="success">Brute Force</td>
-            <td class="success">Brute Force</td>
+            <td>Brute Force and Breached Passwords</td>
+            <td>Brute Force</td>
+            <td>Brute Force</td>
+            <td>Brute Force</td>
         </tr>
         <tr>
             <th>Extensions</th>
-            <td class="success">Yes</td>
-            <td class="success">Yes <sup>*</sup></td>
-            <td class="success">Yes <sup>*</sup></td>
-            <td class="success">Yes <sup>*</sup></td>
+            <td>Yes</td>
+            <td>Yes <sup>*</sup></td>
+            <td>Yes <sup>*</sup></td>
+            <td>Yes <sup>*</sup></td>
         </tr>
         <tr>
             <th>Geolocation</th>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <th>Connecting IP Address Filtering Restrictions</th>
-            <td class="danger">No</td>
-            <td class="danger">No</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <th>Custom Domains</th>
-            <td class="danger">No</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
+            <td>No</td>
+            <td>Yes <sup>**</sup></td>
+            <td>Yes <sup>**</sup></td>
+            <td>Yes <sup>**</sup></td>
         </tr>
         <tr>
             <th>Shared Resources Among Multiple Customers</th>
-            <td class="success">Yes</td>
-            <td class="danger">No</td>
-            <td class="danger">No</td>
-            <td class="danger">No</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+        </tr>
+        <tr>
+          <th>MFA</th>
+          <td>Yes</td>
+          <td>Google Authenticator, Duo over TOTP/HOTP. Guardian is <i>not</i> available.</td>
+          <td>Google Authenticator, Duo over TOTP/HOTP. Guardian is <i>not</i> available.</td>
+          <td>Google Authenticator, Duo over TOTP/HOTP. Guardian is <i>not</i> available.</td>
+        </tr>
+        <tr>
+          <th>Internet Restricted</th>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Optional <sup>***</sup></td>
         </tr>
     </tbody>
 </table>
 
-<sup>*</sup>__NOTE:__ See the [Auth0 Appliance: Extensions page](/appliance/extensions) to learn more about configuring extensions with the Appliance.
+<sup>*</sup>See the [Auth0 Appliance: Extensions page](/appliance/extensions) to learn more about configuring extensions with the Appliance.
+
+<sup>**</sup>See [Appliance Custom Domains](/appliance/custom-domains) for details. If your Appliance is hosted in the Auth0 Private Cloud, see [Private Cloud Requirements](/appliance/private-cloud-requirements).
+
+<sup>***</sup>You may choose to operate the Appliance in an Internet-restricted environment. If you do so, you will *not* have access to:
+
+* Extensions;
+* Lock (requires access to the CDN hosting Lock);
+* Management/Authentication API Explorers (requires access to the CDN hosting the API Explorers);
+* Quickstarts (requires access to GitHub).

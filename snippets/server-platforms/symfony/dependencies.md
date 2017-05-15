@@ -2,7 +2,7 @@
 
     "require": {
         ...
-        "hwi/oauth-bundle": "0.4.*@dev",
+        "hwi/oauth-bundle": "^0.5.3",
     },
 
 ```

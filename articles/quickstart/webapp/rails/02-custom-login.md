@@ -20,7 +20,9 @@ The [login](/quickstart/webapp/rails/01-login) step explains how to log a user i
 
 Add the following dependencies to your `Gemfile` and run `bundle install`:
 
-${snippet(meta.snippets.dependencies)}
+```js
+gem 'auth0'
+```
 
 ## Create a Login Form
 
@@ -36,7 +38,6 @@ ${snippet(meta.snippets.dependencies)}
       ${ '<%= submit_tag("Login", class: "btn btn-success btn-lg") %>' }
       ${ '<%= submit_tag("Sign up", name: "signup", class:"btn btn-success btn-lg") %>' }
   ${' <% end %> '}
-  ${ '<%= link_to "Login with Google" , controller: :auth0, action: :google_authorize %>' }
 </div>
 ```
 

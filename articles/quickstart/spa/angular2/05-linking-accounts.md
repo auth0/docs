@@ -1,6 +1,6 @@
 ---
 title: Linking Accounts
-description: This tutorial will show you how to integrate Auth0 with Angular 2 to link accounts.
+description: This tutorial will show you how to integrate Auth0 with Angular to link accounts.
 budicon: 345
 ---
 
@@ -9,7 +9,7 @@ budicon: 345
   repo: 'auth0-angularjs2-systemjs-sample',
   path: '05-Linking-Accounts',
   requirements: [
-    'Angular 2.0.1'
+    'Angular 2.4.10'
   ]
 }) %>
 

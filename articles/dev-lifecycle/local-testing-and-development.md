@@ -2,41 +2,52 @@
 description: How to develop and test Auth0 applications.
 ---
 
-# Running and Developing Locally
+# Work with Auth0 Locally
 
-Authenticating users through Auth0 in most cases requires an Internet connection, but it's still possible to develop and test applications that use Auth0 locally, even without Internet access in some cases.
+ In most cases, authenticating users through Auth0 requires an Internet connection. However, you can still develop and test apps that use Auth0 locally. In some cases, you might not need access to an Internet connection.
 
-> For more information about structuring separate Auth0 environments for development, testing and production, [please refer to this document](/dev-lifecycle/setting-up-env).
+:::panel-info Development Environments
+Please see [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for information on structuring your development, test, and production environments when using Auth0.
+:::
 
-## Client-side applications and JWT
+## Use JSON Web Tokens (JWT) with Client-Side Applications
 
-This is usually the easiest scenario to test.
-One of the benefits of [JSON Web Tokens](/jwt) is that they are stateless, which means that an application that consumes them only cares about the JWT's contents and not any previous state such as a session cookie.
+Because [JSON Web Tokens (JWT)](/jwt) are stateless (that is, the app that consumes them cares only about its contents, not any of its previous states), this is one of the easiest scenarios to test locally.
 
-There are mainly three approaches to obtaining JWTs for testing:
+You can obtain JWTs for testing using any of the following methods:
 
-1. Manually generate a JWT with the needed data, and sign it with your Auth0 application's client secret.
-   If you omit the `exp` claim from a token, most JWT libraries will interpret it as a token which never expires, though it's possible some libraries might reject it.
-   The benefit of this approach is that it does not require Internet access or intervention from Auth0 at all.
+1. Manually [generate a JWT](https://jwt.io#libraries-io) with the needed data, and sign it with your [Auth0 client secret](${manage_url}/#/clients/${account.clientId}/settings). Omit the `exp` claim from a token; most JWT libraries will interpret it as a token which never expires (it's possible some libraries might reject a perpetual token). **This method doesn't require Internet access.**
 
-2. Create a dummy user in a database connection, and programatically log in with this user through the [resource owner endpoint](/api/authentication/reference#resource-owner).
-   In order to get a JWT back, [make sure to set the correct `scope` value](/scopes).
-   The benefit of this approach is that it will [execute any rules](/rules) that you have configured on your Auth0 account.
+2. Create a test user for a database [connection](/identityproviders), and programatically log this user in. Essentially, you are using the recommended process for [calling an API using a highly-trusted client](/api-auth/grant/password). For detailed implementation instructions, see [Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
-3. Use a browser bot (e.g. Selenium) which logs a dummy user in and retrieves a JWT.
-   This approach may take some effort to develop and maintain, but it will also execute any [redirection rules](/rules/redirect) or [MFA prompts](/multifactor-authentication) that you have configured on your Auth0 account.
+3. Use a browser bot (e.g. Selenium) to play the role of a user, log in and retrieve a JWT. While this is approach may take some effort to develop and maintain, it will allow you to test any [redirection rules](/rules/redirect) or [MFA prompts](/multifactor-authentication) that you have configured.
 
-## Server-side applications and sessions
+## Use Sessions with Server-Side Applications
 
-Unless your server-side application provides a way to generate "fake" sessions for testing, you will need to perform an actual login through Auth0.
-The easiest way to do this is through the [resource owner endpoint](/api/authentication/reference#resource-owner).
+Unless your server-side application allows the generation of artificial sessions for testing, you'll need a way to perform a login through Auth0 manually.
 
-## Logging in as any user for testing
+For a high-level overview of how to do this, see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code). For detailed implementation instructions, see [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant).
 
-If you need to simulate a user logging in to your application but don't have access to their credentials, you can use the [impersonation endpoint](/api/authentication/reference#impersonation) to generate a link which will log you in as any given user to your application.
+## Log In as a User for Testing
 
-## Auth0 and `localhost`
+If you need to simulate the user login process to your application, but you don't have access to a set of user credentials, you can use the [impersonation endpoint](/api/authentication/reference#impersonation) to generate a link allowing you to log in as a specific user.
 
-If you need to develop an application locally, it's possible to use `localhost` or other domains which Auth0 cannot access (e.g. intranets) as callback URLs.
-Since Auth0 [uses OpenID Connect](/protocols) as its main identity protocol, it never makes a call directly to your application's server.
-Instead, it redirects users in a browser to an endpoint of your application (which must be listed in the "Allowed Callback URLs" list) with specific information in the query string or hash fragment, depending on the type of application.
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/users/{user_id}/impersonate",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"protocol\": \"PROTOCOL\",\"impersonator_id\": \"IMPERSONATOR_ID\", \"client\": \"CLIENT_ID\", \"additionalParameters\": [\"response_type\": \"CODE\",\"state\": \"STATE\"]}"
+  }
+}
+```
+
+## Use Local Domains with Auth0
+
+If you're developing your application locally, you can use `localhost` and other domains inaccessible by Auth0 (such as those on an intranet) as callback URLs.
+
+Because Auth0's main identity protocol is [OpenID Connect](/protocols), Auth0 never needs to directly call your application's server. Instead, Auth0 redirects users to your application's endpoint(s) with required information contained in a query string or hash fragment.

@@ -4,6 +4,7 @@ connection: Danish NemID
 image: /media/articles/connections/grean/nemid_black.png
 seo_alias: nemid
 description: Connecting Danish NemID with Auth0 through Grean's easyID service
+crews: crew-2
 ---
 
 # Log in with Danish NemID through Auth0
@@ -11,19 +12,19 @@ description: Connecting Danish NemID with Auth0 through Grean's easyID service
 When you need to know the legal identity of your Danish users, your choice is NemID  offered by the Danish Government. NemID exists in
 both a version private citizens and one for employees of an organization.
 
-The NemID technology by itself is proprietary and takes quite a bit of work to understand and integrate, but through [Grean's easyID service](https://grean.com/easyid) 
+The NemID technology by itself is proprietary and takes quite a bit of work to understand and integrate, but through [Grean's easyID service](https://grean.com/easyid)
 you may avoid the integration trouble.
 
-Below is an outline of the steps to get ready to accept Danish NemID logins, but you may also view 
+Below is an outline of the steps to get ready to accept Danish NemID logins, but you may also view
 [a short screen cast](https://grean.com/easyid/auth0/2016/12/07/easyid-and-auth0.html) at Grean's website.
 
-**NOTE:** While the technical integration complexity is simple, to use Danish BankID in production you will have to go through a formal process to 
-register and obtain the necessary certificate to identify yourself to your users. 
+**NOTE:** While the technical integration complexity is simple, to use Danish BankID in production you will have to go through a formal process to
+register and obtain the necessary certificate to identify yourself to your users.
 More on this proceess can be found once you sign into the easyID service, and with the help of Grean.
 
 ## 1. Create an account with Grean easyID
 
-Go to [grean.com/easyid](https://grean.com/easyid) and click the sign-up button. 
+Go to [grean.com/easyid](https://grean.com/easyid) and click the sign-up button.
 
 Once registered you will be asked to create your tenant.
 
@@ -52,7 +53,7 @@ Click **Proceed**.
 
 If you are not already logged in to Auth0 in this session, you will be prompted to do so in the popup window.
 
-Once logged in you must grant Grean easyID consent to create connections and read the details of your clients. 
+Once logged in you must grant Grean easyID consent to create connections and read the details of your clients.
 
 **Note:** If you have more than one Auth0 tenant, remember to select the right one. in the dialog.
 
@@ -62,7 +63,7 @@ Click the check mark in the green area at the bottom to allow Grean easyID to se
 
 ## 5. Verify the connections
 
-Go to the **Connections > Enterprise** section and open the **ADFS** connections to see the connections for 
+Go to the **Connections > Enterprise** section and open the **ADFS** connections to see the connections for
 Danish NemID  created from the previous steps.
 
 **Note:** One connection has been created for each kind of authentication supported by NemID:
@@ -75,17 +76,17 @@ on easyID.
 
 ## 6. Create your test users
 
-With the above setup you will be ready to start testing. But first you must create one or more test users or get some from Grean. 
+With the above setup you will be ready to start testing. But first you must create one or more test users or get some from Grean.
 See more in the documentation in your easyID tenant.
 
 ## 7. Enable production use
 
-To start accepting real NemID logins from real legal persons, you must first enter into a formal agreement with Nets, 
-the company providing the service under contract from the Danish Government. More on this here (in Danish): 
+To start accepting real NemID logins from real legal persons, you must first enter into a formal agreement with Nets,
+the company providing the service under contract from the Danish Government. More on this here (in Danish):
 [https://www.nets.eu/dk-da/l%C3%B8sninger/nemid/nemid-tjenesteudbyder/Pages/bestil.aspx](https://www.nets.eu/dk-da/l%C3%B8sninger/nemid/nemid-tjenesteudbyder/Pages/bestil.aspx)
 
-Once this agreement is in place you will receive a certificate to upload to Grean easyID. Go to the **IDENTITY SERVICES** tab 
-and open the **DK NemID** section. This is where you will upload your organization's BankID certificate and provide the rest of the 
+Once this agreement is in place you will receive a certificate to upload to Grean easyID. Go to the **IDENTITY SERVICES** tab
+and open the **DK NemID** section. This is where you will upload your organization's BankID certificate and provide the rest of the
 needed information.
 
 ![Identity Service production](/media/articles/connections/grean/dk-nemid-prod.png)

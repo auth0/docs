@@ -53,9 +53,9 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 
 - **Client Secret**: A string used to sign and validate `id_tokens` for authentication flows and to gain access to select Auth0 API endpoints. By default, the value is hidden, so check the **Reveal Client Secret** box to see this value.
 
-::: panel-warning Keep it safe
-While the Client ID is considered public information, the Client Secret **must be kept confidential**. If anyone can access your Client Secret they can issue  tokens and access resources they shouldn't.
-:::
+  ::: panel-warning Keep it safe
+  While the Client ID is considered public information, the Client Secret **must be kept confidential**. If anyone can access your Client Secret they can issue  tokens and access resources they shouldn't.
+  :::
 
 - **Description**: A free-text description of the Client's purpose with a maximum of 140 characters.
 
@@ -101,7 +101,7 @@ Once you have configured your Client, some common next steps to take are:
 
   **NOTE**: For background theory on client authentication flows, refer to [Client Authentication](/client-auth).
 
-- Use our latest [API Authorization](/api-auth) features to **call an API**. You need to [configure your tenant for the new API Authorization flows](/api-auth/tutorials/configuring-tenant-for-api-auth).
+- Use our latest [API Authorization](/api-auth) features to **call an API**.
 
 - **Use [our APIs](/api/info)**.
 
