@@ -5,5 +5,5 @@ versioning:
     - v1
     - v2
   defaultArticles:
-    v7: index
-    v8: index
+    v1: index
+    v2: index
