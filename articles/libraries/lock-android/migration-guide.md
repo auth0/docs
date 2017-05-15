@@ -21,6 +21,7 @@ In v1, when an authentication was successful, you could obtain the UserProfile f
 
 ```java
 Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
 String accessToken = credentials.getAccessToken();
 AuthenticationAPIClient apiClient = new AuthenticationAPIClient(auth0);
 

@@ -48,7 +48,8 @@ public class MainActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // Your own Activity code
-    Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+    Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+    auth0.setOIDCConformant(true);
     lock = PasswordlessLock.newBuilder(auth0, callback)
       //Customize Lock
       .build(this);

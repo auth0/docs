@@ -10,34 +10,12 @@ When an authentication is performed with the `offline_access` scope included, th
 We need to store the tokens in a secure storage after a successful authentication. Keep in mind that refresh tokens **never expire**. To request a new token you'll need to use `auth0.android`'s `AuthenticationAPIClient`. Don't forget to request the same scope used in the first login call.
 
 
-## Using a non-expired id_token
-
-```java
-String idToken = // Retrieve id_token from the secure storage
-Auth0 auth0 = // create account
-
-AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
-client.delegationWithIdToken(idToken)
-  .setScope("openid email")
-  .start(new BaseCallback<Delegation, AuthenticationException>() {
-    @Override
-    public void onSuccess(Delegation delegation) {
-        //SUCCESS
-        String idToken = delegation.getIdtoken();
-    }
-
-    @Override
-    public void onFailure(AuthenticationException error) {
-        //FAILURE
-    }
-  });
-```
-
 ## Using refresh_token
 
 ```java
 String refreshToken = // Retrieve refresh_token from the secure storage
-Auth0 auth0 = // create account
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
 
 AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 client.renewAuth(refreshToken)
@@ -54,4 +32,28 @@ client.renewAuth(refreshToken)
         //FAILURE
     }
 });
+```
+
+## Using a non-expired id_token
+
+```java
+String idToken = // Retrieve id_token from the secure storage
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
+
+AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
+client.delegationWithIdToken(idToken)
+  .setScope("openid email")
+  .start(new BaseCallback<Delegation, AuthenticationException>() {
+    @Override
+    public void onSuccess(Delegation delegation) {
+        //SUCCESS
+        String idToken = delegation.getIdtoken();
+    }
+
+    @Override
+    public void onFailure(AuthenticationException error) {
+        //FAILURE
+    }
+  });
 ```

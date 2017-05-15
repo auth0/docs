@@ -45,6 +45,7 @@ Method one is to simply create an instance of `Auth0` with your client informati
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
 ```
 
 ### 2) Client information read from XML
@@ -63,6 +64,7 @@ And then create your new Auth0 instance by passing an Android Context:
 
 ```java
 Auth0 account = new Auth0(context);
+auth0.setOIDCConformant(true);
 ```
 
 ## Using the Authentication API
@@ -314,7 +316,7 @@ Also register the intent filters inside your activity's tag, so you can receive 
 
         <activity
             android:name="com.mycompany.MainActivity"
-            android:theme="@style/MyAppTheme">
+            android:theme="@style/MyAppTheme"
             android:launchMode="singleTask">
 
             <intent-filter>
