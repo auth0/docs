@@ -43,13 +43,13 @@ Or our CDN:
 
 ```html
 <!-- Latest major release -->
-<script src="http://cdn.auth0.com/js/lock-9.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock-9.min.js"></script>
 
 <!-- Latest minor release -->
-<script src="http://cdn.auth0.com/js/lock-9.x.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock-9.x.min.js"></script>
 
 <!-- Latest patch release (recommended for production) -->
-<script src="http://cdn.auth0.com/js/lock-9.x.y.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock-9.x.y.min.js"></script>
 ```
 
 Replace `.x` and `.y` with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock).
