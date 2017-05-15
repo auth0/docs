@@ -52,7 +52,9 @@ Furthermore, you can generate a token using [JWT.io](https://jwt.io/):
 - Use the [JWT.io Debugger](https://jwt.io/#debugger-io) to manually type the claims and generate a token.
 - Use one of the [JWT.io libraries](https://jwt.io/#libraries-io).
 
-<div class="alert alert-danger">Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.</div>
+::: warning
+Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.
+:::
 
 ### Use the JWT.io Debugger
 
