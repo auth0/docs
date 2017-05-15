@@ -305,7 +305,7 @@ Image used as the Lock background
 
 ```swift
 .withStyle {
-  $0.backgroundColor = LazyImage?
+  $0.backgroundImage = LazyImage(name: "company_logo")
 }
 ```
 
