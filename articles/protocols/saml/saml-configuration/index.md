@@ -34,9 +34,9 @@ The following documentation cover the different aspects of SAML configuration:
 
 * [SAML Design Considerations]()
 * [Configure Auth0 as a Service Provider](/saml-configuration/auth0-as-service-provider)
-* [Configure Auth0 as an Identity Provider]()
-* [Configure Auth0 as Both Service and Identity Provider]()
-* [Special Configuration Topics]()
+* [Configure Auth0 as an Identity Provider](/saml-configuration/auth0-as-identity-provider)
+* [Configure Auth0 as Both Service and Identity Provider](/saml-configuration/auth0-as-identity-and-service-provider)
+* [Special Configuration Scenarios](/saml-configuration/special-configuration-scenarios)
 * [Customize SAML Assertions]()
-* [Logout]()
+* [Logout](/saml-configuration/logout)
 * [Troubleshoot]()

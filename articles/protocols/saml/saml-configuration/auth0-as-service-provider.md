@@ -1,5 +1,5 @@
 ---
-  description: How to configure Auth0 for use as a SAML service Provider
+  description: How to configure Auth0 for use as a SAML service provider
 ---
 
 # Configure Auth0 as a Service Provider
@@ -11,4 +11,14 @@ This video provides an overview of how to configure Auth0 for use as a SAML serv
 
 When Auth0 serves as the SAML service provider, you need to use an Auth0 Connection to configure the service provider side of each SAML federation.
 
-We have detailed instructions for the following providers:
+Finally, you'll configure the Identity Provider (IdP) portion of your SAML setup. We have docs for the following providers:
+
+* [ADFS](/adfs)
+* [Okta](/okta)
+* [OneLogin](/onelogin)
+* [Ping7](/ping7)
+* [SalesForce](/saml/identity-providers/salesforce)
+* [SiteMinder](/siteminder)
+* [SSOCircle](/ssocircle)
+
+If you are using any other SAML-compliant IdP with Auth0 as the Service Provider, you can use the [Generic Service Provider Configuration Instructions](/saml-sp-generic).

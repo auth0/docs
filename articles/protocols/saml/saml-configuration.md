@@ -95,7 +95,9 @@ An alternative sequence is called Identity-Provider-Initiated Single Sign On whe
 If Auth0 is acting as a Service Provider, the following is needed to support IDP-Initiated Single Sign On.
 
 * Ensure the IDP includes the connection parameter in the ACS (Assertion Consumer Service) URL.
-* In the connection configuration, use the IDP-Initiated tab to specify 1) the application to which the user will be redirected after IDP login, 2) the protocol by which to return to that application and 3) any query parameters to pass to the application.
+* In the Connection configuration window during setup, use the IDP-Initiated tab to specify 1) the application to which the user will be redirected after IDP login, 2) the protocol by which to return to that application and 3) any query parameters to pass to the application.
+
+![](https://cdn2.auth0.com/docs/media/articles)/saml/identity-providers/okta/configure-new-connection.png)
 
 #### Auth0 as Identity Provider
 If Auth0 is acting as an Identity Provider, the following is needed to support IDP-initiated Single Sign On.
