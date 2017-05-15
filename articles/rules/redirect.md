@@ -12,7 +12,7 @@ Rules can also be used to programatically redirect users before an authenticatio
 * Implementing custom verification mechanisms (e.g. proprietary multifactor authentication providers).
 * Forcing users to change passwords.
 
-::: panel-danger Caution
+::: panel-warning Caution
 Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner), the [Password exchange](/api-auth/grant/password) or the [Refresh Token exchange](/tokens/preview/refresh-token#rules). You can detect these cases by checking `context.protocol`:
 - For Password exchange: `context.protocol === 'oauth2-password'`
 - For Refresh Token exchange: `context.protocol === 'oauth2-refresh-token'`
@@ -56,7 +56,7 @@ How you extract the `state` parameter depends entirely on the server you redirec
 
 When a user has been redirected to the `/continue` endpoint, **all rules will be run again.**
 
-::: panel-danger Caution
+::: panel-warning Caution
 Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will lose the context of the login transaction and the user will not be able to login due to to an `invalid_request` error.
 :::
 

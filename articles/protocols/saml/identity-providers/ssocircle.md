@@ -7,7 +7,7 @@ description: Tutorial for creating an Auth0 app that uses SAML SSO with SSOCircl
 
 This tutorial will create a sample application that uses Auth0 for SAML Single Sign On (SSO), authenticating users against identity provider **SSOCircle**.
 
-::: panel-danger Deprecation Notice
+::: panel-warning Deprecation Notice
 As of July 8, 2016, SSOCircle supports integration via [manual configuration using public settings](http://www.ssocircle.com/en/idp-tips-tricks/public-idp-configuration/). If you have previously used account-specific metadata, your integration will still function, though this usage is now deprecated.
 :::
 

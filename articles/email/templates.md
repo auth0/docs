@@ -143,7 +143,7 @@ To assist your template development, we've added a custom `{% debug %}` liquid t
 
 #### Using Markdown Syntax
 
-::: panel-danger Deprecation Notice
+::: panel-warning Deprecation Notice
 Use of Markdown in email templates has been deprecated, so you will no longer be able to add new Markdown formatting. If you have an existing template in Markdown, you will be able to toggle from Markdown to Liquid, but changing this setting will result in  you losing any existing Markdown, as well as the ability to use Markdown.
 :::
 

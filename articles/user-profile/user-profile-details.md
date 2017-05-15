@@ -52,7 +52,7 @@ Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. Howe
 In addition, please be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store. 
 :::
 
-::: panel-danger Usage of Metadata
+::: warning
 Please note that an authenticated user can modify data in their profile's `user_metadata`, but they can't modify anything in their `app_metadata`.
 :::
 

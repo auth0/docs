@@ -62,7 +62,7 @@ Please see the [Change User Password for DB Connections](/api/authentication/ref
 
 To reset a user's password using the Management API, make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
-::: panel-danger Notice
+::: warning
 Users will not receive notification that their password has been manually changed.
 :::
 
@@ -113,7 +113,7 @@ After submitting the new password, the user will be able to login with their new
 
 ## Manually Setting a User's Password
 
-::: panel-danger Notice
+::: warning
 Users will not receive notification that their password has been manually changed.
 :::
 
