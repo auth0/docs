@@ -34,10 +34,10 @@ Include via our CDN (Replace `.x` and `.y` with the latest minor and patch relea
 
 ```html
 <!-- Latest minor release -->
-<script src="http://cdn.auth0.com/js/lock/10.x/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.x/lock.min.js"></script>
 
 <!-- Latest patch release (recommended for production) -->
-<script src="http://cdn.auth0.com/js/lock/10.x.y/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.x.y/lock.min.js"></script>
 ```
 
 ::: panel-warning Version Locking
