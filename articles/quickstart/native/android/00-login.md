@@ -1,15 +1,15 @@
 ---
-title: Centralized Login
+title: Login
 description: This tutorial will show you how to integrate the Auth0 Centralized Login in your Android project in order to present the login box.
 budicon: 448
 ---
 
-This tutorial will show you how to integrate the Auth0 Centralized Login in your Android project in order to present the login box.
+This tutorial will show you how to integrate the Auth0 Login in your Android project in order to present the login box.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
-  path: '00-Centralized-Login',
+  path: '00-Login',
   requirements: [
     'Android Studio 2.3',
     'Android SDK 25',
@@ -20,5 +20,4 @@ This tutorial will show you how to integrate the Auth0 Centralized Login in your
 <%= include('_includes/_auth0') %>
 __
 
-<%= include('_includes/_centralized_login') %>
-
+<%= include('_includes/_login') %>

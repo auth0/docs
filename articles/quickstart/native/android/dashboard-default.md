@@ -7,7 +7,7 @@ budicon: 715
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
-  path: '00-Centralized-Login',
+  path: '00-Login',
   requirements: [
     'Android Studio 2.3',
     'Android SDK 25',
@@ -39,4 +39,4 @@ If you haven't already done so, create a new client application in your [Auth0 d
 
 <%= include('_includes/_credentials') %>
 
-<%= include('_includes/_centralized_login') %>
+<%= include('_includes/_login') %>

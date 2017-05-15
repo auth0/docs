@@ -16,7 +16,7 @@ seo_alias: android
 default_article: dashboard-default
 articles:
   - getting-started
-  - 00-centralized-login
+  - 00-login
   - 01-embedded-login
   - 02-custom-login-form
   - 03-session-handling
