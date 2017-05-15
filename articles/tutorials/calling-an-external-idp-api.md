@@ -107,6 +107,6 @@ In this sample response we can see that our user had only one identity: `google-
 }
 ```
 
-<div class="alert alert-warning">
+::: warning
   <strong>Security Warning!</strong> Make sure that you don't expose the IdP access token to your client-side application.
-</div>
+:::

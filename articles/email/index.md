@@ -5,7 +5,9 @@ description: Auth0 built-in email services.
 
 # Emails in Auth0
 
-<div class="alert alert-warning"><strong>Warning!</strong> Auth0's built-in email provider is not supported for use in a production environment and should be used for testing only.</div>
+::: warning
+<strong>Warning!</strong> Auth0's built-in email provider is not supported for use in a production environment and should be used for testing only.
+:::
 
 When you first create your application Auth0 provides a built-in email provider to send emails. This includes verification emails, welcome emails, change password emails, and blocked account emails. This is meant to be used for testing purposes only, and has several restrictions:
 
