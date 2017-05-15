@@ -7,7 +7,7 @@ description: Appliance infrastructure information about enabling Webtasks and We
 
 Beginning with version `8986`, the Appliance supports web extensions. This is in addition to support for [Webtasks](appliance/webtasks).
 
-:::panel-info Extensions
+:::panel Extensions
 Some of the [Extensions](/extensions) available to users of the Auth0 public cloud are unavailable in the Appliance. As such, these do not appear as options in the Appliance's Dashboard.
 :::
 

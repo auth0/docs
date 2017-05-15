@@ -72,7 +72,7 @@ Once you have configured the AWS IAM role, you will add a policy to `auth0-api-r
 
 > For more information on this process, please see [User Access Permissions for Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html).
 
-::: panel-info Getting the Gateway API ARN
+::: panel Getting the Gateway API ARN
 
 Before you begin, you will need the ARN for your Gateway API:
 

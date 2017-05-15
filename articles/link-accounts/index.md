@@ -7,7 +7,7 @@ crews: crew-2
 
 # Linking Accounts
 
-::: panel-info Feature Availability
+::: panel Feature Availability
 The **Account Linking** feature requires a paid subscription to the **Developer**, **Developer Pro** or **Enterprise** plan. It is not available as a free feature.
 
 [Click here](https://auth0.com/pricing) to learn more about Auth0 pricing plans.

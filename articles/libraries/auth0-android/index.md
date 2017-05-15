@@ -93,7 +93,7 @@ authentication
     });
 ```
 
-::: panel-info Scope
+::: panel Scope
 Note that the default scope used is `openid`
 :::
 
@@ -141,7 +141,7 @@ authentication
     });
 ```
 
-::: panel-info Scope
+::: panel Scope
 Note that the default scope used is `openid`
 :::
 
@@ -206,7 +206,7 @@ authentication
   });
 ```
 
-::: panel-info Request Failures
+::: panel Request Failures
 Note that password reset requests will fail on network related errors, but will not fail if the designated email does not exist in the database (for security reasons).
 :::
 
@@ -263,7 +263,7 @@ users
     });
 ```
 
-::: panel-info Unlinking - Metadata
+::: panel Unlinking - Metadata
 Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
 :::
 
@@ -397,7 +397,7 @@ WebAuthProvider.init(account)
                 .start(this, authCallback);
 ```
 
-::: panel-info Scope
+::: panel Scope
 Note that the default scope used is `openid`
 :::
 

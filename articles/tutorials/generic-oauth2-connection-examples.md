@@ -123,7 +123,7 @@ To create the incoming link, use the following settings:
   * **Public Key**: The RSA keypair previously generated in step 1 (copy and paste the entire `.pub` file)
   * **Consumer Callback URL**: `https://${account.namespace}/login/callback`
 
-:::panel-info Updating Settings
+:::panel Updating Settings
 If you need to modify these settings after you've created the application link, you can do so via the **Incoming Authentication** section of the link's settings.
 :::
 

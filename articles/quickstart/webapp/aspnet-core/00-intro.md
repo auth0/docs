@@ -5,7 +5,7 @@ description: Introduction to the quickstart guide and configuring the environmen
 budicon: 715
 ---
 
-::: panel-info System Requirements
+::: panel System Requirements
 This tutorial and seed project have been tested with the following:
 
 * .NET Core 1.1.0

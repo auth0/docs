@@ -33,7 +33,7 @@ Where:
 
 * `scope`: The [scopes](/scopes) which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
 
-  ::: panel-info Custom claims namespaced format
+  ::: panel Custom claims namespaced format
   Auth0 returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`. You can [add namespaced claims using Rules](#optional-customize-the-tokens).
   :::
 

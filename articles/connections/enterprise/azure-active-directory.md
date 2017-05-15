@@ -16,7 +16,7 @@ crews: crew-2
 
 # Connect your app to Microsoft Azure Active Directory
 
-::: panel-info Notice
+::: panel Notice
 This page uses the current portal of the Azure Active Directory, for information on using the classic portal, [click here.](/connections/enterprise/azure-active-directory-classic)
 :::
 

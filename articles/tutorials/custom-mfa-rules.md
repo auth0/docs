@@ -4,7 +4,7 @@ description: You can add step-up authentication to your app with Auth0's extensi
 
 # Step-Up Authentication with Custom Multifactor Authentication Rules
 
-::: panel-info Notice
+::: panel Notice
 Auth0 now supports `amr` and `acr` claims with `acr_values` for step-up authentication. This approach allows for more control with MFA.
 
 [Click here for details.](/tutorials/step-up-authentication) 

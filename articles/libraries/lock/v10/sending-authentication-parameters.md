@@ -17,7 +17,7 @@ var options = {
 
 The following parameters are supported: `access_token`, `scope`, `protocol`, `device`, `request_id`, `nonce` and `state`.
 
-::: panel-info Note
+::: panel Note
 This would be analogous to triggering the login with `https://${account.namespace}/authorize?state=foo&...`.
 :::
 
@@ -59,7 +59,7 @@ authProvider.init({
 });
 ```
 
-::: panel-info Connection Scopes
+::: panel Connection Scopes
 There is also a `connectionScopes` configuration option for Lock 10, which allows you to specify scopes on any specific connection. This will be useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request additional permissions or attributes. Read more about it on the [Lock Configuration Options](/libraries/lock/v10/customization#connectionscopes-object-) page.
 :::
 

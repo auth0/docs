@@ -29,7 +29,7 @@ Third party clients have the following characteristics:
   - `delete:current_user_device_credentials`: [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id)
   - `update:current_user_identities`: [Link a user account](/api/management/v2#!/Users/post_identities), [Unlink a user identity](/api/management/v2#!/Users/delete_provider_by_user_id)
 
-::: panel-info How to get a Management APIv2 Token
+::: panel How to get a Management APIv2 Token
 In order to access the [Management APIv2](/api/management/v2) endpoints from a third party client, you need a Management APIv2 Token. To get one you can use any of the [API Authorization Flows](/api-auth), with the following request parameters:
 - `audience=https://${account.namespace}/api/v2/`
 - `scope=read:current_user update:current_user_metadata`
@@ -217,7 +217,7 @@ Where:
 - `audience` (optional): The target API for which the Client Application is requesting access on behalf of the user. Set this parameter if you need API access.
 - `scope` (optional): The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Set this parameter if you need API access.
 
-  ::: panel-info Custom claims namespaced format
+  ::: panel Custom claims namespaced format
   In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
   :::
 

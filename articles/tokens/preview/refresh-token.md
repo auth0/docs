@@ -80,7 +80,7 @@ Refresh tokens must be stored securely by an application since they allow a user
 
 For more information on how to implement this using Authorization Code Grant refer to [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant). For other grants refer to [API Authorization](/api-auth).
 
-::: panel-info Troubleshooting
+::: panel Troubleshooting
 If the response did not include a refresh token, check that you comply with the [Restrictions](#restrictions) listed in this document.
 :::
 
@@ -126,7 +126,7 @@ The response will include a new `access_token`, its type, its lifetime (in secon
 }
 ```
 
-::: panel-info Rate limits
+::: panel Rate limits
 You should only ask for a new token if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it's a bad practice to call the endpoint to get a new `access_token` every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
@@ -166,7 +166,7 @@ Where:
 
 The client should match the one the refresh token was issued for.
 
-::: panel-info Revoke a token without the Client Secret
+::: panel Revoke a token without the Client Secret
 For clients that cannot keep the `client_secret` safe (for example, mobile apps), the `/oauth/revoke` endpoint supports passing no `client_secret` but the client itself must have the property `tokenEndpointAuthMethod` set to `none`, so the client can perform the following request:
 
 ```json

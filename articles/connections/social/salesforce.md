@@ -43,7 +43,7 @@ Copy the `Consumer Key` and `Consumer Secret` from the **Connected App** page of
 
 ![](/media/articles/connections/social/salesforce/salesforce-register-4.png)
 
-:: panel-info Salesforce Community Auth
+:: panel Salesforce Community Auth
 
 Authenticating users in a Salesforce community uses different endpoints that the regular Salesforce app.
 

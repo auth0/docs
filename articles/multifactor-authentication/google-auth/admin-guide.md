@@ -4,7 +4,7 @@ description:  Using Google Authenticator with Auth0 for administrators
 
 # Google Authenticator for Administrators
 
-::: panel-info Note:
+::: panel Note:
 This page refers to using Google Authenticator instead of Auth0 Guardian. Google Authenticator can also be used with Guardian (your users choose which to use) when **Push Notifications** is enabled. [Click here for more information on Guardian.](/multifactor-authentication/guardian)
 :::
 
@@ -18,7 +18,7 @@ Then you can use the slider to turn on Google Authenticator.
 
 ![](/media/articles/mfa/toggle-google-auth.png)
 
-::: panel-info Note
+::: panel Note
 If you enable Google Authenticator while using another provider for MFA, all other providers will be disabled. All customizations and enrolled users in other MFA will be lost. Be careful as this action cannot be reverted.
 :::
 
@@ -66,7 +66,7 @@ function (user, context, callback) {
 
 When you have finished editing the code snippet based on the requirements of your app, click **Save**.
 
-::: panel-info Note
+::: panel Note
 At this time Google Authenticator does not allow any customizations to the look and feel of the Google Authenticator screens.
 
 For other customization options [see Auth0 Guardian](/multifactor-authentication/administrator#customization).

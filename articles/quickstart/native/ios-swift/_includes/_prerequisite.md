@@ -1,4 +1,4 @@
-::: panel-info System Requirements
+::: panel System Requirements
 These tutorials and seed projects have been tested with the following:
 
 * CocoaPods 1.2.1

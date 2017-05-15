@@ -14,7 +14,7 @@ Auth0 generates access tokens in [JSON Web Token (JWT)](/jwt) format, an industr
 - The set of claims contains verifiable security statements such as the identity of the user and the permissions they are allowed.
 - The signature is used to validate that the token is trustworthy and has not been tampered with.
 
-::: panel-info Opaque token format
+::: panel Opaque token format
 The [Auth0 Management API v1](/api/management/v1) (which has been deprecated) uses an opaque token format in which claims are referenced in a separate database, rather than directly in the token.
 :::
 

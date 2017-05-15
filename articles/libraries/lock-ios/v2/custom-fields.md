@@ -21,13 +21,13 @@ When signing up the default information requirements are the user's *email* and 
 }
 ```
 
-::: panel-info Side Custom Text Field Icons
+::: panel Side Custom Text Field Icons
 Note: You must specify the icon to use with your custom text field.
 :::
 
 Thats it! If you have enabled users Sign Up in the Application's Dashboard, after they complete the basic fields (email/username, password) and hit Submit, they will be prompted to fill the remaining fields.
 
-::: panel-info Required Custom Fields
+::: panel Required Custom Fields
 Note that the user must fill _all_ of the custom fields before being able to complete signup.
 :::
 

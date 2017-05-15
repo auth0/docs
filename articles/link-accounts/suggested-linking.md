@@ -16,7 +16,7 @@ In this tutorial, you will use server-side code to facilitate account linking on
 
 Additionally, this tutorial will show you how you can unlink accounts at a later time.
 
-:::panel-info Sample Code
+:::panel Sample Code
 You can find sample code for this tutorial in the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) repo on Github.
 :::
 

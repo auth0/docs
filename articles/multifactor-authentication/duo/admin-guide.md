@@ -14,7 +14,7 @@ Then you can use the slider to turn on Duo.
 
 ![](/media/articles/mfa/toggle-duo.png)
 
-::: panel-info Note
+::: panel Note
 If you enable Duo while using another provider for MFA, all other providers will be disabled. All customizations and enrolled users in other MFA will be lost. Be careful as this action cannot be reverted.
 :::
 

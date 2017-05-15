@@ -41,13 +41,13 @@ When a user authorizes a client application, the application can also indicate w
 
 Subsequently when the client passes along the access token when making requests to the API, the API can query the `scope` claim to ensure that the required permissions were granted in order to call the particular API endpoint.
 
-::: panel-info What is an Access Token?
+::: panel What is an Access Token?
 An access token (also referred to as `access_token`) is an opaque string representing an authorization issued to the client. It may denote an identifier used to retrieve the authorization information or may self-contain the authorization information (e.g. the user's identity, permissions, etc.) in a verifiable manner.
 
 It is quite common for access tokens to be implemented as [JSON Web Tokens](/jwt).
 :::
 
-::: panel-info What are Scopes?
+::: panel What are Scopes?
 Each access token may include a list of the permissions that have been granted to the client. When a client authenticates with Auth0, it will specify the list of scopes (or permissions) it is requesting. If those scopes are authorized, then the access token will contain a list of authorized scopes.
 
 For example, the timesheet API may accept four different levels of authorization: reading timesheets (scope `read:timesheets`), creating timesheets (scope `create:timesheets`), deleting timesheets (scope `delete:timesheets`) and approving timesheets (scope `approve:timesheets`).
@@ -177,7 +177,7 @@ In this section we will see how we can implement an API for our scenario.
 
 First we need to define the endpoints of our API.
 
-::: panel-info What is an API endpoint?
+::: panel What is an API endpoint?
 An **API endpoint** is a unique URL that represents an object. In order to interact with this object you need to point your client towards that URL. For example, if you had an API that could return either order or customers, you might configure two endpoints: `/orders` and `/customers`. Your client would interact with these endpoints using different HTTP methods, for example `POST /orders` to create a new order, or `GET /orders` to retrieve the dataset of one or more orders.
 :::
 

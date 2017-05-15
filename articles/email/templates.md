@@ -23,7 +23,7 @@ For each type of email, you can customize the **From Address**, the **Subject**,
 
 Users will see the sender's address in the **From Address** field when receiving an email from Auth0. If you do not configure a **From Address** for your emails your emails will be sent from the email address of the first owner of your Auth0 account.
 
-::: panel-info Domain blacklist
+::: panel Domain blacklist
 For security purposes, you may not send customized emails from any `@auth0.com` address. If you are an appliance user, you may configure a similar domain blacklist.
 :::
 
@@ -86,7 +86,7 @@ You can set up a different Redirect To URLs based on your Client ID. For example
 {% if application.clientID == '${account.clientId}' %} http://jwt.io {% else %} http://auth0.com {% endif %}
 ```
 
-::: panel-info SPA Issue
+::: panel SPA Issue
 For some single-page apps, the redirect to url can sometimes contain a hash that may be removed. This results in the **redirect To** url not working as expected. For more information, see: [Single-Page App Email Redirect Issue](/email/spa-redirect).
 :::
 

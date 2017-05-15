@@ -150,7 +150,7 @@ To be able to use your own SMTP server:
 
 Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.
 
-::: panel-info Test services
+::: panel Test services
 SMTP makes it easy to setup test services that allow you to test that your setup is working without spamming your users. For more information, see: [Set up a Test SMTP Provider](/email/testing) .
 :::
 

@@ -89,7 +89,7 @@ var options = {
 
 ![Lock - Language Dictionary](/media/articles/libraries/lock/v10/customization/lock-languagedictionary.png)
 
-::: panel-info Language Dictionary
+::: panel Language Dictionary
 For a complete list of the items able to be customized using `languageDictionary`, see the [English Language Dictionary Specification](https://github.com/auth0/lock/blob/master/src/i18n/en.js) in the repository.
 :::
 

@@ -11,7 +11,7 @@ Auth0 shows a login page whenever something (or someone) triggers an authenticat
 
 You can customize this login page to suit your needs. You can change its colors, display fewer/more fields, and so on.
 
-:::panel-info Connections Using External Identity Providers
+:::panel Connections Using External Identity Providers
 If the authentication request includes a specifiction Connection that uses an external identity provider, the hosted login page may not display. Instead, Auth0 directs the user to the identity provider's login page.
 :::
 
@@ -41,7 +41,7 @@ var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 
 ```
 
-:::panel-info The Authorize Endpoint
+:::panel The Authorize Endpoint
 The following examples demonstrating changes to the `config` object assume that you call the [`authorize` endpoint](/api/authentication#authorization-code-grant) and the Hosted Lock page via [Auth0.js v8](/libraries/auth0js/v8).
 
 Please note that you **must** pass the parsed `config` object to the `authorize` endpoint.
@@ -63,7 +63,7 @@ webAuth.authorize({
 });
 ```
 
-::: panel-info Lock's Default Title
+::: panel Lock's Default Title
 By default, the Lock widget's title is set to be the Client Name (e.g. "Default App"). You can override this by providing a value to the `config.dict.signin.title` property as shown below.
 
 You can also customize the `languageDictionary` definition on the Hosted Login Page and rearrange your `lang`/`dict` object.

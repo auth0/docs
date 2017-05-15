@@ -14,7 +14,7 @@ Extensions make use of Webtasks. When you activate a Webtask in the Appliance, y
 
 `webtask.<auth0applianceurl>`
 
-:::panel-info Enable Webtasks
+:::panel Enable Webtasks
 To enable Webtasks, go to the [Webtasks Settings page of the Management Dashboard](${manage_url}/#/account/webtasks).
 :::
 

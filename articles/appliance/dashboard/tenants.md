@@ -5,7 +5,7 @@ description: Overview of the Appliance Dashboard Tenants page
 
 # Auth0 Appliance Dashboard: Tenants
 
-::: panel-info Appliance Dashboard Navigation
+::: panel Appliance Dashboard Navigation
 
 For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
 

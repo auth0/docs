@@ -5,7 +5,7 @@ description: This quickstart guide will walk you through the various tasks relat
 budicon: 715
 ---
 
-::: panel-info System Requirements
+::: panel System Requirements
 This tutorial and seed project have been tested with the following:
 
 * Microsoft Visual Studio 2017

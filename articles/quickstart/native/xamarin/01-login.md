@@ -5,7 +5,7 @@ description: This tutorial will show you how to use the Auth0 Xamarin SDK to add
 budicon: 448
 ---
 
-::: panel-info System Requirements
+::: panel System Requirements
 This tutorial has been tested with the following:
 * Microsoft Visual Studio 2015
 * Xamarin for Visual Studio 4.2
@@ -49,7 +49,7 @@ ${snippet(meta.snippets.setup)}
 
 ${snippet(meta.snippets.use)}
 
-::: panel-info Component info
+::: panel Component info
 `Xamarin.Auth0Client` is built on top of the `WebRedirectAuthenticator` in the Xamarin.Auth component. All rules for standard authenticators apply regarding how the UI will be displayed.
 :::
 

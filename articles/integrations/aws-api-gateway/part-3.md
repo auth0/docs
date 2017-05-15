@@ -103,7 +103,7 @@ function (user, context, callback) {
 }
 ```
 
-:::panel-info Rules
+:::panel Rules
 [How to Work with Rules](/rules#video-using-rules)
 :::
 

@@ -7,7 +7,7 @@ budicon: 715
 
 This multi-step quickstart will guide you through the process of managing authentication in your Java Servlet Web Application with Auth0.
 
-::: panel-info System Requirements
+::: panel System Requirements
 These tutorials and seed projects have been tested with the following:
 - Java 7 or above
 - Maven 3.0.x or above

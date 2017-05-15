@@ -6,7 +6,7 @@ description: A guide on installing the AD/LDAP Connector on different platforms.
 
 This document covers how to install the AD/LDAP Connector on non-Microsoft Platforms.
 
-:::panel-info Prerequisites
+:::panel Prerequisites
 Prior to installing the AD/LDAP Connector, please ensure that you have already installed [Git](https://git-scm.com/download/linux), [Node.js](https://nodejs.org), and [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm).
 :::
 

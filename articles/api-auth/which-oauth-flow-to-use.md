@@ -14,7 +14,7 @@ Follow this flow to identify the grant that best matches your case.
 
 ![Flowchart for OAuth 2.0 Grants](/media/articles/api-auth/oauth2-grants-flow.png)
 
-::: panel-info Quick refresher - OAuth 2.0 terminology
+::: panel Quick refresher - OAuth 2.0 terminology
 - **Resource Owner**: the entity that can grant access to a protected resource. Typically this is the end-user.
 - **Client**: an application requesting access to a protected resource on behalf of the Resource Owner.
 - **Resource Server**: the server hosting the protected resources. This is the API you want to access.

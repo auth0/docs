@@ -48,7 +48,7 @@ If an SSO cookie is present you can also sign the user in silently, i.e. without
 
 ## How to Implement SSO with Auth0
 
-::: panel-info Enabling Identity Providers
+::: panel Enabling Identity Providers
 Prior to enabling SSO for a given Client, you must first [configure the Identity Provider(s)](/identityproviders) you want to use.
 :::
 

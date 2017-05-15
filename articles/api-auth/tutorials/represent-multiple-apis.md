@@ -48,7 +48,7 @@ If you're working with a newly-created Connection, you won't have any users asso
 
 Log in to your Auth0 Dashboard, and navigate to the APIs section.
 
-::: panel-info Auth0 APIs
+::: panel Auth0 APIs
 Please see [APIs](/apis) for detailed information on working with APIs in the Dashboard.
 :::
 
@@ -90,7 +90,7 @@ Add these two scopes to your API and **Save** your changes.
 
 You are now ready to provide access to your APIs by granting access tokens to the Auth0 API. By including specific scopes, you can control a client's application to some or all of the APIs represented by the Auth0 API.
 
-:::panel-info Authorization Flows
+:::panel Authorization Flows
 
 The rest of this article covers use of the [Implicit Grant](/api-auth/grant/implicit) to reflect the sample. You can, however, use whichever flow best suits your needs.
 

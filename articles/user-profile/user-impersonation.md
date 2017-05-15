@@ -26,7 +26,7 @@ Navigate to the [Users](${manage_url}/#/users) page in the Management Dashboard 
 
 ![Click Sign in as User](/media/articles/user-profile/signin-as-user-01.png)
 
-::: panel-info I can't see this button
+::: panel I can't see this button
 In order to see this button the following conditions should apply:
 - Impersonation should be enabled for your account (see panel at the top of this page)
 - The Clients registered in the account must have at least one __callback URL__ listed
@@ -157,7 +157,7 @@ ${account.callback}/?code=AUTHORIZATION_CODE&state=STATE_VALUE
 - `state` should match the `state` value you sent with your request
 - `code` is the authorization code you need
 
-::: panel-info Single Page Apps
+::: panel Single Page Apps
 The process described applies to Regular Web Applications. In case yours is a Single Page Application (SPA) you would have to use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication/reference#impersonation). Once you do this Auth0 will redirect to your SPA _Callback URL_ with Access Token and ID Token in the `#` params. You can read more on the OAuth2 Implicit flow [here](/protocols/oauth2/oauth-implicit-protocol).
 :::
 

@@ -7,7 +7,7 @@ crews: crew-2
 
 In the event of an authorization error, you may choose to display to your users either the default Auth0 error page or a customized error page. This doc will show you how to enable the use of a customized error page.
 
-:::panel-info Default Error Pages
+:::panel Default Error Pages
 You can choose to display to your users the default Auth0 error page. For additional information, see [Error Pages](/hosted-pages/error-pages)
 :::
 

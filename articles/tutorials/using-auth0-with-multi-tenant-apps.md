@@ -58,7 +58,7 @@ Your app asks the user to provide their email.
 
 Once authenticated, the user has access to files that they own, as well as any that were shared with them. Account-wise, the user has access to their personal account and the accounts of any organizations to which they belong.
 
-:::panel-info Using Company Roles
+:::panel Using Company Roles
 Storing explicit details regarding a user's permissions levels in the `user_profile` may be unwieldy due to its large size. As such, you might consider doing this at the `company` level, rather than at the `user` level.
 :::
 

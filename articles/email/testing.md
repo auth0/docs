@@ -18,7 +18,7 @@ You can either setup your own SMTP server, or use a services like [mailtrap.io](
 * [FakeSMTP](https://nilhcem.github.io/FakeSMTP/)
 * [Haraka](https://haraka.github.io/)
 
-::: panel-info Note
+::: panel Note
 Auth0 has only tested [mailtrap.io](https://mailtrap.io/) in this scenario.
 :::
 

@@ -15,7 +15,7 @@ description: This tutorial demonstrates how to use the Auth0 AngularJS SDK to ad
 
 The previous step explained how you can log users into your application using the [Lock Widget](/libraries/lock). While Lock provides the simplest way to add authentication to your app, you also have the option of creating your own custom user interface.
 
-::: panel-info Version Requirements
+::: panel Version Requirements
 This quickstart and the accompanying sample demonstrate custom login with auth0.js version 8 and angular-auth0 version 2. If you are using auth0.js version 7, please see the [reference guide](/libraries/auth0js/v7) for the library, as well as the [legacy AngularJS custom login sample](https://github.com/auth0-samples/auth0-angularjs-sample/tree/auth0js-v7/02-Custom-Login).
 :::
 

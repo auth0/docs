@@ -33,7 +33,7 @@ To create a new user and their corresponding User Profile, click the [Users](${m
 
 Fill in the required information and click **Save** to create the new user. For more information refer to: [Creating Users via the Management Dashboard](/tutorials/creating-users-in-the-management-portal).
 
-::: panel-info Pending Users
+::: panel Pending Users
 The User Details page will show “pending” when a user is first created until they have logged in for the first time.
 :::
 
@@ -100,7 +100,7 @@ A popup will display the URL to use to impersonate the user. You can copy the UR
 
 ![Impersonate a User](/media/articles/user-profile/signin-as-user-02.png)
 
-::: panel-info Impersonation API
+::: panel Impersonation API
 You can also use the [Impersonation API](/api/authentication/reference#impersonation) to impersonate a user. The API generates a link that you can use once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
 :::
 

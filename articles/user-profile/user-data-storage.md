@@ -8,7 +8,7 @@ toc: true
 
 Auth0 provides multiple places to store data used to authenticate a Client's users. This document covers best practices on how to store your data securely and efficiently. Additionally, this document uses a sample Client (a mobile music application) that reflects the end-to-end user experience of using Auth0 with an external database to illustrate specific topics.
 
-:::panel-info Example: Mobile Music Application
+:::panel Example: Mobile Music Application
 The sample Client is a basic iOS app utilizing the [Auth0 iOS seed project](/quickstart/native/ios-swift). The backend uses the [Node.js API](/quickstart/backend/nodejs). See the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api) for a visualization of the Client's overall structure.
 :::
 

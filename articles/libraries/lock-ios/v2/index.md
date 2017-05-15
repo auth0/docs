@@ -174,7 +174,7 @@ Lock provides many styling options to help you apply your own brand identity to 
 }
 ```
 
-::: panel-info Styling Customization Options
+::: panel Styling Customization Options
 You can see the complete set of styling options to alter the appearance of Lock for your app in the [Customization Guide](/libraries/lock-ios/v2/customization).
 :::
 
@@ -192,7 +192,7 @@ Lock
     }
 ```
 
-::: panel-info Behavior Configuration Options
+::: panel Behavior Configuration Options
 You can see the complete set of behavior configuration options to alter the way Lock works for your app in the [Configuration Guide](/libraries/lock-ios/v2/configuration).
 :::
 

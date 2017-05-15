@@ -15,7 +15,7 @@ You can edit the code for your existing Hook using the [Webtask Editor](https://
 
   ![Webtask Editor](/media/articles/hooks/webtask-editor.png)
 
-  :::panel-info Using the Webtask Editor
+  :::panel Using the Webtask Editor
   Please see the [Webtask docs](https://webtask.io/docs/editor) for detailed information on using the Webtask Editor.
   :::
 
@@ -37,7 +37,7 @@ You can edit the code for your existing Hook using the [Webtask Editor](https://
 
   ![](/media/articles/hooks/webtask-runner4.png)
 
-  :::panel-info Test Runner Schema
+  :::panel Test Runner Schema
   If you created your Hook early on during the beta testing period, your Webtask Editor/Test Runner window might not populate with the schema required to successfully use the Test Runner. If that is the case, you'll need to save the Hook's code, delete the Hook, and create a new Hook using your existing code.
   :::
 

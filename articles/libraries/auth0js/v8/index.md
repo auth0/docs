@@ -251,7 +251,7 @@ The `passwordlessVerify` method requires several paramters to be sent in its `op
 
 Note that, as with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
 
-::: panel-info passwordlessVerify required WebAuth options
+::: panel passwordlessVerify required WebAuth options
 In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
 :::
 
@@ -278,7 +278,7 @@ The `parseHash` method takes an `options` object that contains the following par
 | `nonce` | optional | (String) Used to verify the `id_token`
 | `hash` | optional | (String) The URL hash (if not provided, `window.location.hash` will be used by default) |
 
-::: panel-info RS256 Requirement
+::: panel RS256 Requirement
 This method requires that your tokens are signed with RS256 rather than HS256. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
 :::
 
@@ -349,7 +349,7 @@ To log out a user, use the `logout` method. This method accepts an options objec
 | `client_id` | optional | (String) Your Auth0 client ID |
 | `federated` | optional | (Querystring parameter) Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
-::: panel-info returnTo parameter
+::: panel returnTo parameter
 Note that if the `client_id` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}).
 However, if the `client_id` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
 :::
@@ -410,7 +410,7 @@ webAuth.renewAuth({
 });
 ```
 
-::: panel-info postMessage Parameter
+::: panel postMessage Parameter
 This will use postMessage to comunicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behaviour is needed.
 :::
 
@@ -499,6 +499,6 @@ The `linkUser` method accepts two parameters, the primary user id and the second
 auth0Manage.linkUser(userId, secondaryUserToken, cb);
 ```
 
-::: panel-info Linking - Metadata
+::: panel Linking - Metadata
 Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata, and if they are ever unlinked, the secondary account will likewise not retain the primary account's metadata when it becomes separate again.
 :::

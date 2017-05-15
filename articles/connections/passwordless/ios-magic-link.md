@@ -9,7 +9,7 @@ Using [Lock v1 for iOS](/libraries/lock-ios/v1), you can implement a Passwordles
 
 [Click here](https://github.com/auth0/Mobile-Samples.iOS) for iOS sample applications.
 
-::: panel-info Universal Links
+::: panel Universal Links
 Before beginning this tutorial, [enable Universal Links](/clients/enable-universal-links/) between your iOS application and Auth0 Client.
 :::
 
@@ -25,7 +25,7 @@ iOS needs to know which domains your application handles. To configure this:
 
 ## Pass callbacks to Lock
 
-::: panel-info Callbacks to the Lock
+::: panel Callbacks to the Lock
 If you've already implemented [Lock v1 for iOS](https://auth0.com/blog/how-to-implement-slack-like-login-on-ios-with-auth0/), you have already configured callbacks to the Auth0 Lock Library.
 :::
 

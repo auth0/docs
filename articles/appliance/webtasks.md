@@ -8,7 +8,7 @@ description: How to use Webtasks on the Appliance
 
 Beginning with Build 7247, you may use the Appliance's version of [Webtasks](http://webtask.io/) to execute your rules and custom database logic.
 
-::: panel-info Prerequisites
+::: panel Prerequisites
 Prior to working with Webtasks, please ensure that you have configured the:
 
 * [Appliance Command Line Interface (CLI)](/appliance/cli/configure-cli);

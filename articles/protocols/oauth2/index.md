@@ -14,7 +14,7 @@ According to [OAuth‘s website](http://oauth.net/about/) the protocol is not un
 
 To get access to the protected resources OAuth 2.0 uses **access tokens**. An access token is a string representing the granted permissions.
 
-::: panel-info Access Token Format
+::: panel Access Token Format
 By default, Auth0 generates access tokens, for [API Authorization scenarios](/api-auth), in [JSON Web Token (JWT)](/jwt) format. JWTs contain three parts: a header, a payload, and a signature:
  - The header contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
  - The payload contains a set of claims, which are statements about the permissions that should be allowed, and other information like the intended audience and the expiration time.
@@ -98,7 +98,7 @@ The request parameters of the Authorization endpoint are:
 
 This endpoint is used by the **Authorization Code** and the **Implicit** [grant types](#authorization-grant-types). The authorization server needs to know which grant type the client wants to use, since it affects the kind of credential it will issue: for **Authorization Code** grant it will issue an authorization code  (which later can be exchanged with an access token), while for **Implicit** grant it will issue an **access token**.
 
-::: panel-info Authorization Code vs Access Token
+::: panel Authorization Code vs Access Token
 An authorization code is an opaque string, meant to be exchanged with an access token at the [token endpoint](#token-endpoint). An access token is an opaque string (or a [JWT](/jwt) in Auth0 implementation) that denotes who has authorized which permissions (scopes) to which client application.
 :::
 
@@ -108,7 +108,7 @@ In order to inform the authorization server which grant type to use, the `respon
 
 - For **Implicit** grant set `response_type=token`. This way the response will include an access token. An alternative is to set `response_type=id_token token`. In this case the response will include both an access token and an ID token.
 
-::: panel-info ID Token
+::: panel ID Token
 The ID Token is a JWT that contains information about the logged in user. It was introduced by **OpenID Connect**. For more information refer to [OpenID Connect](/protocols/oidc) and [ID Token](/tokens/id-token).
 :::
 

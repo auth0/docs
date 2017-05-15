@@ -108,7 +108,7 @@ The payload above contains the following claims:
 
 The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an `id_token` issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
 
-::: panel-info Debugging a JWT
+::: panel Debugging a JWT
 The [JWT.io website](https://jwt.io) has a handy debugger which will allow you to debug any JSON Web Token. This is useful is you quickly want to decode a JWT to see the information contained in the token.
 :::
 
@@ -198,7 +198,7 @@ https://${account.namespace}/authorize
   &connection=github
 ```
 
-::: panel-info Log in with other social providers
+::: panel Log in with other social providers
 You can just as easily request a user log in with other social providers, like Google or Facebook. All you have to do is configure the corresponding connection in the [dashboard](${manage_url}/#/connections/social) and change the `connection` value of this call to `/authorize` with the name of the connection to use (`google-oauth2` for Google, `facebook` for Facebook, and so forth). You can get the connection's name from the _Settings_ of the connection in the [dashboard](${manage_url}/#/connections/social). For more info:
 - [Identity Providers Supported by Auth0](/identityproviders)
 - [Social Login using the Authentication API](/api/authentication#social)

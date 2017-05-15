@@ -10,7 +10,7 @@ Auth0 allows you to test a Social Identity Provider without specifying your own 
 
 For production environments, make sure to [follow the steps for your chosen provider](/identityproviders) to obtain the Client ID and Client secret from the provider, this will avoid the [limitations](#limitations-of-developer-keys) of using developer keys.
 
-::: panel-info Client ID and Client Secret
+::: panel Client ID and Client Secret
 The exact terminology of a Client ID / Client Secret may differ between various Identity Providers. For example, Twitter refers to these as a Consumer Key / Consumer Secret and LinkedIn refers to an API Key / Secret Key.
 :::
 

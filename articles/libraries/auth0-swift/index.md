@@ -13,7 +13,7 @@ Auth0.swift is a client-side library for [Auth0](http://auth0.com).
 
 iOS 9+ and Xcode 8 (Swift 3.0)
 
-::: panel-info Swift 2.3
+::: panel Swift 2.3
 For Swift 2.3 you need to use [v1@swift-2.3](https://github.com/auth0/Auth0.swift/tree/v1@swift-2.3) branch.
 :::
 
@@ -230,7 +230,7 @@ Auth0
    }
 ```
 
-::: panel-info Unlinking - Metadata
+::: panel Unlinking - Metadata
 Note that when accounts are linked, the secondary account's metadata is not merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
 :::
 
