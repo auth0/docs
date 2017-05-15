@@ -68,10 +68,9 @@ To execute MFA, follow the next steps according to the challenge type you will u
 
 For this type of challenge, the Client must get an `otp` code from a OTP Generator app such as Google Authenticator, Microsoft Authenticator, and so forth.
 
-<div class="auth0-notification frendly">
-  <i class="notification-icon icon-budicon-266"></i>&nbsp;
-  If it's already known that the user supports OTP, then steps 5 and 6 above are optional.
-</div>
+::: note
+If it's already known that the user supports OTP, then steps 5 and 6 above are optional.
+:::
 
 7. The Client application prompts the end user to enter an otp code.
 

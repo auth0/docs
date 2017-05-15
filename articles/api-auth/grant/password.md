@@ -28,9 +28,10 @@ This grant type can eliminate the need for the client to store the user credenti
  1. Auth0 validates the information and returns an `access_token`, and optionally a `refresh_token`.
  1. The client can use the `access_token` to call the API on behalf of the end user.
 
- <div class="auth0-notification frendly"><i class="notification-icon icon-budicon-266"></i>
-    &nbsp;In OAuth 2.0 terms, the client app is the <em>Client</em>, the end user the <em>Resource Owner</em>, the API the <em>Resource Server</em>, the browser the <em>User Agent</em>, and Auth0 the <em>Authorization Server</em>.
- </div>
+ ::: note
+In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+:::
+
 
 ## How to implement the flow
 

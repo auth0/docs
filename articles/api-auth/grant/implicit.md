@@ -29,9 +29,10 @@ Once the user authenticates, the client app receives the `access_token` in the h
 
  1. The app can use the `access_token` to call the API on behalf of the user.
 
-  <div class="auth0-notification frendly"><i class="notification-icon icon-budicon-266"></i>
-     &nbsp;In OAuth 2.0 terms, the web app is the <em>Client</em>, the end user the <em>Resource Owner</em>, the API the <em>Resource Server</em>, the browser the <em>User Agent</em>, and Auth0 the <em>Authorization Server</em>.
-  </div>
+
+::: note
+In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+:::
 
 ## How to implement the flow
 
