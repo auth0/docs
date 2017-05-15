@@ -72,6 +72,7 @@ var options = {
     }
   }
 };
+```
 
 ### Customizing Text
 
