@@ -1,5 +1,5 @@
 ---
-title: Login
+title: Embedded Login
 description: This tutorial will show you how to integrate Lock v2 in your Android project in order to present an Embedded Login screen.
 budicon: 448
 ---
@@ -21,7 +21,7 @@ This tutorial will show you how to integrate Lock v2 in your Android project in 
 
 <%= include('_includes/_manifest') %>
 
-<%= include('_includes/_login') %>
+<%= include('_includes/_lock_login') %>
 
 ### Optional: Log In with Social Connections
 
