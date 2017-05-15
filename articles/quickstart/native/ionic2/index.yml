@@ -1,12 +1,13 @@
-title: Ionic 2
+title: Ionic 2+
 logo_name: ionic
 alias:
   - ionic2
+  - ionic3
 language:
   - Typescript
 framework:
-  - Ionic2
-  - Angular2
+  - Ionic3
+  - Angular4
   - Cordova
 hybrid: true
 image: /media/platforms/ionic.jpeg
