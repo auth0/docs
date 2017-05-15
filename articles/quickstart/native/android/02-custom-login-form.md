@@ -50,6 +50,7 @@ First, you'll need to instantiate the Authentication API:
 ```java
 private void login(String email, String password) {
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+    auth0.setOIDCConformant(true);
     AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 
     // proper login
@@ -117,7 +118,7 @@ First, edit the `AndroidManifest.xml` file and include an Intent-Filter. This wi
 
 Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
-It's super important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
+It's very important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
 
 Second, override the `onNewIntent` method in your activity. Here is where the result arrives. Redirect the received intent to the `WebAuthProvider#resume` method.
 
@@ -140,6 +141,7 @@ Now perform the login by calling `WebAuthProvider#init`. If no connection name i
 ```java
 private void login() {
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+    auth0.setOIDCConformant(true);
     WebAuthProvider.init(auth0)
                   .withConnection("twitter")
                   .start(MainActivity.this, new AuthCallback() {
