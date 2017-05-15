@@ -1,98 +1,101 @@
 ```js
-// src/services/auth/auth.service.ts
+// src/services/auth.service.ts
 
-import { Storage } from '@ionic/storage';
-import { AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
 import { Injectable, NgZone } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subscription } from 'rxjs';
 
-// Avoid name not found warnings
-declare var Auth0: any;
-declare var Auth0Lock: any;
+import Auth0Cordova from '@auth0/cordova';
+import Auth0 from 'auth0-js';
+
+const auth0Config = {
+  // needed for auth0
+  clientID: '${account.clientId}',
+
+  // needed for auth0cordova
+  clientId: '${account.clientId}',
+  domain: '${account.namespace}',
+  callbackURL: location.href,
+  packageIdentifier: 'YOUR_PACKAGE_ID'
+};
+
 
 @Injectable()
 export class AuthService {
-
-  jwtHelper: JwtHelper = new JwtHelper();
-  auth0 = new Auth0({clientID: Auth0Vars.AUTH0_CLIENT_ID, domain: Auth0Vars.AUTH0_DOMAIN });
-  lock = new Auth0Lock(Auth0Vars.AUTH0_CLIENT_ID, Auth0Vars.AUTH0_DOMAIN, {
-    auth: {
-      redirect: false,
-      params: {
-        scope: 'openid profile offline_access',
-        device: 'my-device'
-      },
-      sso: false
-    }
-  });
-  storage: Storage = new Storage();
-  refreshSubscription: any;
-  user: Object;
-  zoneImpl: NgZone;
+  auth0 = new Auth0.WebAuth(auth0Config);
   accessToken: string;
   idToken: string;
-  
-  constructor(private authHttp: AuthHttp, zone: NgZone) {
-    this.zoneImpl = zone;
-    // Check if there is a profile saved in local storage
-    this.storage.get('profile').then(profile => {
-      this.user = JSON.parse(profile);
-    }).catch(error => {
-      console.log(error);
-    });
+  user: any;
 
-    this.storage.get('id_token').then(token => {
-      this.idToken = token;
-    });
+  constructor(public zone: NgZone) {
+    this.user = this.getStorageVariable('profile');
+    this.idToken = this.getStorageVariable('id_token');
+  }
 
-    this.lock.on('authenticated', authResult => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.storage.set('access_token', authResult.accessToken);
-        this.storage.set('id_token', authResult.idToken);
-        this.storage.set('refresh_token', authResult.refreshToken);
-        this.accessToken = authResult.accessToken;
-        this.idToken = authResult.idToken;
+  private getStorageVariable(name) {
+    return JSON.parse(window.localStorage.getItem(name));
+  }
 
-        // Fetch profile information
-        this.lock.getUserInfo(this.accessToken, (error, profile) => {
-          if (error) {
-            // Handle error
-            alert(error);
-            return;
-          }
+  private setStorageVariable(name, data) {
+    window.localStorage.setItem(name, JSON.stringify(data));
+  }
 
-          profile.user_metadata = profile.user_metadata || {};
-          this.storage.set('profile', JSON.stringify(profile));
-          this.user = profile;
-        });
+  private setIdToken(token) {
+    this.idToken = token;
+    this.setStorageVariable('id_token', token);
+  }
 
-        this.lock.hide();
+  private setAccessToken(token) {
+    this.accessToken = token;
+    this.setStorageVariable('access_token', token);
+  }
 
-        this.zoneImpl.run(() => this.user = authResult.profile);
-        // // Schedule a token refresh
-        this.scheduleRefresh();
+  public isAuthenticated() {
+    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    return Date.now() < expiresAt;
+  }
+
+  public login() {
+    const client = new Auth0Cordova(auth0Config);
+
+    const options = {
+      scope: 'openid profile offline_access'
+    };
+
+    client.authorize(options, (err, authResult) => {
+      if(err) {
+        throw err;
       }
 
-    });    
+      this.setIdToken(authResult.idToken);
+      this.setAccessToken(authResult.accessToken);
+
+      const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+      this.setStorageVariable('expires_at', expiresAt);
+
+      this.auth0.client.userInfo(this.accessToken, (err, profile) => {
+        if(err) {
+          throw err;
+        }
+
+        profile.user_metadata = profile.user_metadata || {};
+        this.setStorageVariable('profile', profile);
+        this.zone.run(() => {
+          this.user = profile;
+        });
+      });
+    });
   }
 
-  public authenticated() { 
-    return tokenNotExpired('id_token', this.idToken);
-  }
-  
-  public login() {
-    // Show the Auth0 Lock widget
-    this.lock.show();
-  }
-  
   public logout() {
-    this.storage.remove('profile');
-    this.storage.remove('access_token');
-    this.storage.remove('id_token');
+    window.localStorage.removeItem('profile');
+    window.localStorage.removeItem('access_token');
+    window.localStorage.removeItem('id_token');
+    window.localStorage.removeItem('expires_at');
+
     this.idToken = null;
-    this.storage.remove('refresh_token');
-    this.zoneImpl.run(() => this.user = null);
-    // Unschedule the token refresh
-    this.unscheduleRefresh();
+    this.accessToken = null;
+    this.user = null;
   }
+
+}
 ```
