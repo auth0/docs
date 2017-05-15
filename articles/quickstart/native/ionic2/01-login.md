@@ -17,7 +17,7 @@ budicon: 448
 
 ## Overview
 
-To integrate Auth0 in a hybrid Ionic app, you can use the `@auth0/cordova` package available on npm. This package provides an interface with cordova which allows you to use the [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636) spec. PKCE is recommended for native applications to mitigate the threat of authorization code interception.
+To integrate Auth0 in a hybrid Ionic app, you can use the `@auth0/cordova` package available on npm. This package provides an interface with cordova which allows you to use the [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636) spec. PKCE is recommended for native and hybrid applications to mitigate the threat of authorization code interception.
 
 ## Set Up Your Package Identifier
 
