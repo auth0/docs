@@ -18,7 +18,7 @@ budicon: 280
 
 ## Before Starting
 
-This tutorial assumes you're using the Auth0 library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, review the [Centralized Login Guide](/quickstart/native/ios-swift/00-centralized-login).**
+This tutorial assumes you're using the Auth0 library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, review the [Login Guide](/quickstart/native/ios-swift/00-login).**
 
 ### Add the SimpleKeychain Dependency
 
@@ -80,7 +80,7 @@ To do so, first, you retrieve its value from the `accessToken` key stored in the
 let keychain = A0SimpleKeychain(service: "Auth0")
 guard let accessToken = keychain.string(forKey: "access_token") else {
     // accessToken doesn't exist, user has to enter their credentials to log in
-    // Present Centralized Login
+    // Present the Login
     return
 }
 // accessToken exists
@@ -94,7 +94,7 @@ Then, if such a token exists, you need to check whether it's still valid, has ex
 ```swift
 let keychain = A0SimpleKeychain(service: "Auth0")
 guard let accessToken = keychain.string(forKey: "access_token") else {
-    // No accessToken found, present Centralized Login
+    // No accessToken found, present the Login
     return
 }
 
