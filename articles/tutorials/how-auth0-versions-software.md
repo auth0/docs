@@ -11,13 +11,13 @@ We believe versioning is a crucial part of our offering. By providing a consiste
 
 > This scheme is used in [Auth0 Lock](https://github.com/auth0/lock), [Auth0 AD Connector](https://github.com/auth0/ad-ldap-connector), [Auth0.js](https://github.com/auth0/auth0.js) and SDKs.
 
-[Semantic versioning](https://semver.org) (also known as semver) is a versioning strategy whose main feature is making breaking changes discoverable. A version is composed of 3 numbers separated by dots: `{major}.{minor}.{patch}`. For instance, `2.12.5`, `0.1.0` and `10.5.35` are valid semver numbers. 
+[Semantic versioning](http://semver.org) (also known as semver) is a versioning strategy whose main feature is making breaking changes discoverable. A version is composed of 3 numbers separated by dots: `{major}.{minor}.{patch}`. For instance, `2.12.5`, `0.1.0` and `10.5.35` are valid semver numbers. 
 
 - The first number represents a **major change**: **the library API has changed in a non-backwards compatible way**. When the major part of a version is bumped, the public API of that library has changed. For example, code and functionality previously marked as deprecated is removed from the code base.
 - The second number represents a **minor change**: **the library API has new functionality added or marked as deprecated while keeping backward compatibility**. The new minor version is expected to be safe for use and we encourage customers to update. However, as it is impossible to know every way customers use a component, there is always a chance that changes might have impact on the current usage of the component. Therefore, we recommend verifying and testing before performing an update.
 - The third number, represents **a patch change**: **A bug has been fixed and should not have any impact on the user facing API**. This should be safe to update but testing is always encouraged.
 
-More information about this versioning scheme can be found at [semver](https://semver.org)
+More information about this versioning scheme can be found at [semver](http://semver.org)
 
 ### Production Usage
 
