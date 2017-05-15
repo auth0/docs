@@ -80,7 +80,9 @@ To make use of auth0.js, angular-auth0 must be initialized in the application's 
 
 To make use of the `isAuthenticated` method from angular-jwt, a `tokenGetter` needs to be configured on `jwtOptionsProvider`. This method will be useful later for determining whether or not users are currently authenticated so that various elements can be conditionally hidden or shown.
 
-> **Note:** As of AngularJS 1.6, the default hash prefix is `!`. This prefix creates issues when auth0.js parses the hash. The snippet above demonstrates how to set the hash prefix to an empty string.
+::: note
+As of AngularJS 1.6, the default hash prefix is `!`. This prefix creates issues when auth0.js parses the hash. The snippet above demonstrates how to set the hash prefix to an empty string.
+:::
 
 ## Implement the Login Screen
 

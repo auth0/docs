@@ -21,7 +21,9 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 
 - You've integrated the [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Login. For further information, check out the [Login Guide](/quickstart/native/ios-swift/00-login) and the [User Sessions Guide](/quickstart/native/ios-swift/03-user-sessions) first.
 
-> It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts) to understand the general process of linking accounts.
+::: note
+It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts) to understand the general process of linking accounts.
+:::
 
 ## Enter Account Credentials
 

@@ -23,7 +23,9 @@ Protecting your Laravel API requires a middleware which will check for and verif
 
 Install **laravel-auth0** using **Composer**.
 
-> **[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
+::: note
+**[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
+:::
 
 ${snippet(meta.snippets.dependencies)}
 

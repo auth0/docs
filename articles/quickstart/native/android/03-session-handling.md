@@ -168,7 +168,9 @@ private void logout() {
 }
 ```
 
-> **Note:** Deleting the user credentials depends on how you store them.
+::: note
+Deleting the user credentials depends on how you store them.
+:::
 
 ### Optional: Encapsulated session handling
 

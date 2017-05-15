@@ -462,7 +462,9 @@ On successful login, Auth0 will redirect to your `callbackURL` with an appended 
 
 Besides Redirect Mode, the `login` method also supports Popup Mode, which you enable by passing `popup: true` in the `options` argument. In this mode the browser will *not* be redirected to a separate login page.  Instead Auth0 will display a popup window where the user enters their credentials. The advantage of this approach is that the original page (and all of its state) remains intact, which can be important, especially for certain Single Page Apps.
 
-> **WARNING**: While Popup Mode does have the advantage of preserving page state, it has some issues. Often times users have popup blockers that prevent the login page from even displaying. There are also known issues with mobile browsers. For example, in recent versions of Chrome on iOS, the login popup does not get closed properly after login (see an example [here](https://github.com/auth0/lock/issues/71)). For these reasons, we encourage developers to favor Redirect Mode over Popup Mode, even with Single Page Apps.
+::: panel-warning Popup mode issues
+While Popup Mode does have the advantage of preserving page state, it has some issues. Often times users have popup blockers that prevent the login page from even displaying. There are also known issues with mobile browsers. For example, in recent versions of Chrome on iOS, the login popup does not get closed properly after login (see an example [here](https://github.com/auth0/lock/issues/71)). For these reasons, we encourage developers to favor Redirect Mode over Popup Mode, even with Single Page Apps.
+:::
 
 In Popup Mode you also have no need to be redirected back to the application, since, once the user has logged in, the popup is simply closed. Instead Auth0 uses the `login` method's `callback` argument to return control to your client-side application, for both failed and successful logins. Along with the `err` argument, `callback` should also receive a `result` argument with the following properties: `idTokenPayload, idToken, accessToken, state` (and optionally `refreshToken` if the `offline_access` scope has been requested):
 

@@ -31,7 +31,9 @@ Add **Auth0Lock** to your `index.html` file and set the viewport.
 
 ${snippet(meta.snippets.dependencies)}
 
-> **Note:** Some functionality provided by Lock is meant for regular web browsers. For best results, add `auth: { sso: false }` to your Lock configuration options.
+::: note
+Some functionality provided by Lock is meant for regular web browsers. For best results, add `auth: { sso: false }` to your Lock configuration options.
+:::
 
 ## Follow the frontend Quickstarts
 

@@ -96,7 +96,9 @@ ${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/reactnative-android/Lock-Widget-Screenshot.png)](https://auth0.com)
 
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock) or [Email](https://github.com/auth0/react-native-lock)
+::: note
+There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock) or [Email](https://github.com/auth0/react-native-lock).
+:::
 
 On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
 

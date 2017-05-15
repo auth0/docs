@@ -7,7 +7,9 @@ description: Appliance infrastructure information about DNS
 
 The following document details the requirements of DNS records used for Appliance instances.
 
-> **Important**: DNS records must be finalized for all of the tenants prior to Appliance deployment. They cannot be changed afterwards.
+::: note
+DNS records must be finalized for all of the tenants prior to Appliance deployment. They cannot be changed afterwards.
+:::
 
 ### Sample DNS Naming Scheme
 

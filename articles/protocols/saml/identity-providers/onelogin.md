@@ -61,7 +61,9 @@ You are redirected to a page informing you that the connection works. Well done!
 
 ![](/media/articles/saml/identity-providers/onelogin/auth0-try-result.png)
 
-> **Note**: the **Try** button only works for users logged in to Auth0 dashboard. You can't send this to an anonymous user (e.g. a customer). If you don't have a OneLogin user, read the following section to configure Idp Initiated SignOn so the customer can try on their portal.
+::: note
+The **Try** button only works for users logged in to Auth0 dashboard. You can't send this to an anonymous user (e.g. a customer). If you don't have a OneLogin user, read the following section to configure Idp Initiated SignOn so the customer can try on their portal.
+:::
 
 ## IdP Initiated SignOn
 

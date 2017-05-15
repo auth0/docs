@@ -278,7 +278,9 @@ In your application's `Info.plist` file register your iOS Bundle Identifier as a
 </array>
 ```
 
-> **Auth0.swift** will only handle URLs with your Auth0 domain as host, e.g. `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
+::: note
+Auth0.swift will only handle URLs with your Auth0 domain as host, e.g. `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
+:::
 
 And add the following method in your application's `AppDelegate`:
 

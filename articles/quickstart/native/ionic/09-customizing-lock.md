@@ -86,7 +86,9 @@ You can also customize the text that `Lock` will display with the `languageDicti
 })();
 ```
 
-> **NOTE**: For more information, see the [Language Dictionary Specification](https://github.com/auth0/lock#language-dictionary-specification).
+::: note
+For more information, see the [Language Dictionary Specification](https://github.com/auth0/lock#language-dictionary-specification).
+:::
 
 This is how Lock will appear using a custom logo, color, and title:
 
