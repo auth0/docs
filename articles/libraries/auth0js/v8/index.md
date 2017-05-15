@@ -3,9 +3,9 @@ section: libraries
 toc: true
 description: How to install, initialize and use auth0.js v8
 ---
-<div class="alert alert-info">
+::: note
 This document covers the most up-to-date version of auth0.js - version 8. We recommend using this version, but if you are already using version 7, you can access it using the dropdown at the top of this document. If you are interested in upgrading to this version, take a look at the <a href="/libraries/auth0js/v8/migration-guide">v8 migration guide</a>.
-</div>
+:::
 
 # Auth0.js v8 Reference
 

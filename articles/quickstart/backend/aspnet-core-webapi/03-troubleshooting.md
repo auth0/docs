@@ -125,9 +125,9 @@ The error message to look for is the following:
 
 The resolve this issue, be sure to send a token which has not expired.
 
-<div class="alert alert-info">
+::: note
   <strong>Quick tip:</strong> The value of the `exp` claim is a numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time. If you want to see the actual date/time for the value, you can visit <a href="http://www.epochconverter.com/">EpochConverter</a>.
-</div>
+:::
 
 ## 4. Did you configure the correct Issuer?
 
@@ -141,9 +141,9 @@ The error message to look for is the following:
 
 The resolve this issue, ensure that you specify the correct issuer for your JWT middeware. For HS256 signed tokens, be sure to specify the correct value for the `ValidIssuer` property of the `TokenValidationParameters`. 
 
-<div class="alert alert-info">
+::: note
   <strong>Using RS256:</strong> For RS256 tokens the JWT middleware will download the OIDC discovery document from the `Authority` and configure the Issuer based on the `issuer` attribute specified in that document. You will therefore not get this error when using RS256 since because if your specified the wrong `Authority` then the signature validation would have failed first.
-</div>
+:::
 
 ## 5. Does the audience match?
 

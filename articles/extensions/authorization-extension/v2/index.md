@@ -5,9 +5,9 @@ description: This page explains how to setup and manage the Authorization Extens
 
 # Auth0 Authorization Extension v2
 
-<div class="alert alert-info">
+::: note
 This document covers the current version of the Authorization Extension, version 2. We recommend using this latest version. However, if you are already using version 1 and need to see its documentation, you may select it from the dropdown above.
-</div>
+:::
 
 The Auth0 Authorization Extension provides user authorization support in Auth0. Currently the extension supports authorizations for Users using Groups, Roles and Permissions.
 
@@ -15,9 +15,9 @@ The Auth0 Authorization Extension provides user authorization support in Auth0. 
 
 First make sure you have a Client created that can support the Authorization extension. Supported client types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Clients with no type assigned or non-interactive clients are not supported.
 
-<div class="alert alert-info">
+::: note
   Installing this extension creates an `auth0-authz` client for your account. <strong>Do not delete this client!</strong> If you uninstall the extension at a later date, it will automatically delete this client as well.
-</div>
+:::
 
 To install the Authorization extension, click on the "Auth0 Authorization" box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app. You will also need to choose where to store the data which is documented under [Storage Types](#storage-types).
 

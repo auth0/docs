@@ -29,7 +29,9 @@ The default [protocol](/protocols) between your application(s) and Auth0 is **Op
 
 Auth0 ships SDKs for all major platforms (.NET, Java, PHP, Python, node, iOS, and many more), but the use of Auth0 SDKs is not mandatory.
 
-> Virtually anything able to send HTTP requests can integrate with Auth0.
+::: note
+Virtually anything able to send HTTP requests can integrate with Auth0.
+:::
 
 Auth0 also supports other common identity protocols, such as WS-Federation and SAML. Applications that are already "claims enabled" can easily connect to Auth0.
 
@@ -54,7 +56,9 @@ mycompany.eu.auth0.com
 mycompany.au.auth0.com
 ```
 
-> With the Auth0 public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, *not* user access to your Client.
+::: note
+With the Auth0 public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, *not* user access to your Client.
+:::
 
 You may choose to use a custom domain name that obscures the Auth0 reference, such as `mycompany.com`. Using a custom domain name requires a *single-tenant* implementation of Auth0, which can be deployed in one of three locations:
 

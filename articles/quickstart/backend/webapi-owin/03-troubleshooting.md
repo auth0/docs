@@ -128,9 +128,9 @@ The error message to look for is the following:
 
 The resolve this issue, be sure to send a token which has not expired.
 
-<div class="alert alert-info">
+::: note
   <strong>Quick tip:</strong> The value of the `exp` claim is a numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time. If you want to see the actual date/time for the value, you can visit <a href="http://www.epochconverter.com/">EpochConverter</a>.
-</div>
+:::
 
 ## 4. Did you configure the correct Issuer?
 

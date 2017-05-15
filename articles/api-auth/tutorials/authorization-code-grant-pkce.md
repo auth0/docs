@@ -6,9 +6,9 @@ description: How to execute an Authorization Code Grant flow with PKCE for a Mob
 
 # Execute an Authorization Code Grant Flow with PKCE
 
-<div class="alert alert-info">
+::: note
   This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code-pkce">Calling APIs from Mobile Apps</a>.
-</div>
+:::
 
 The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/quickstart/native) use in order to access an API. In this document we will work through the steps needed in order to implement this: create a code verifier and a code challenge, get the user's authorization, get a token and access the API using the token.
 

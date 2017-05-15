@@ -11,9 +11,9 @@ In order to access an API from a highly trusted [mobile app](/quickstart/native)
 
 In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is later on sent to the client application and Auth0. It is therefore imperative that the client is absolutely trusted with this information.
 
-<div class="alert alert-info">
+::: note
   If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
-</div>
+:::
 
 ## Overview
 

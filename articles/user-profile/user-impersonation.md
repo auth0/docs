@@ -16,9 +16,9 @@ Auth0 provides a _Sign in As_ feature for user impersonation, and provides the f
 - Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data.
 - Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works.
 
-<div class="alert alert-info">
+::: note
   <strong>Heads up!</strong> Any Rules that you've implemented will run when you impersonate a user, including any actions that update the user.
-</div>
+:::
 
 ## Use the Dashboard
 
@@ -37,9 +37,9 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 
 ![Links for User Impersonation](/media/articles/user-profile/signin-as-user-02.png)
 
-<div class="alert alert-info">
+::: note
 Impersonating a user using the Dashboard will not return a <a href="/jwt">JWT</a> to your application by default. To achieve this, call the <a href="/api/authentication/reference#impersonation">impersonation endpoint</a> manually or in the <a href="#advanced-settings">Advanced Settings</a>. If you call the endpoint manually, add <code>additionalParameters.scope: "openid"</code> to the request body.
-</div>
+:::
 
 ### Advanced Settings
 

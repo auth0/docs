@@ -6,9 +6,9 @@ toc: true
 
 # Scopes
 
-<div class="alert alert-info">
+::: note
 <strong>Heads up!</strong> This article describes the latest Auth0 implementation, according to the <a href="/api-auth">API Authorization flows</a>. If you are looking for the legacy Scopes doc refer to <a href="/scopes">Scopes</a>.
-</div>
+:::
 
 In OpenID Connect (OIDC) we have the notion of __claims__. These are strings, sent as part of the `scope` request parameter. These claims can be standard (as defined by the specification) or custom.
 
@@ -111,9 +111,9 @@ function (user, context, callback) {
 
 Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant.
 
-<div class="alert alert-info">
+::: note
   While this is not mandatory according to the specification, Auth0 will always enforce namespacing, meaning that any non-namespaced claims will be silently excluded from tokens.
-</div>
+:::
 
 If you need to add custom claims to the access token, the same applies but using `context.accessToken` instead.
 

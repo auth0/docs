@@ -6,9 +6,9 @@ description: How to execute an Implicit Grant flow from a SPA Client application
 
 # How to implement the Implicit Grant
 
-<div class="alert alert-info">
+::: note
   This tutorial will help you implement the Implicit Grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/implicit">Call APIs from Client-side Web Apps</a>.
-</div>
+:::
 
 The __Implicit Grant__ is an OAuth 2.0 flow that [client-side apps](/quickstart/spa) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access an API using the token.
 

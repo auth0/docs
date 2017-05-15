@@ -35,9 +35,9 @@ You must never use the info in an `id_token` unless you have validated it! For m
 
 The `access_token` can be any type of token (not necessarily a JWT) and is meant for the API. Its purpose is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the `scope` that has been granted). In the example we used earlier, after you authenticate, and provide your consent that the to-do application can have read/write access to your calendar, an `access_token` is sent from Google to the to-do application. Each time the to-do application wants to access your Google Calendar it will make a request to the Google Calendar API, using this `access_token` in an HTTP `Authorization` header.
 
-<div class="alert alert-info">
+::: note
   Access Tokens should be treated as opaque strings by clients. They are only meant for the API. Your Client should not attempt to decode them or depend on a particular <code>access_token</code> format.
-</div>
+:::
 
 ## How NOT to use each token
 

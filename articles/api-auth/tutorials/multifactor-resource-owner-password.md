@@ -119,9 +119,9 @@ In this scenario, the challenge will be sent using a side channel, however, ther
 
 ## Using recovery codes
 
-<div class="alert alert-info">
+::: note
   This flow is currently only available for the Guardian Provider.
-</div>
+:::
 
 ![Resource Owner MFA Recovery](/media/articles/api-auth/recovery-code.png)
 

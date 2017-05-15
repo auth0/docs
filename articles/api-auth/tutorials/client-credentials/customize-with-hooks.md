@@ -43,9 +43,9 @@ If you haven't done these yet, refer to these docs for details:
 
   At this point, you will see your newly-created Hook listed under the _Client Credentials Exchange_.
 
-  <div class="alert alert-info">
+  ::: note
     You can create more than one hooks per extensibility point but <strong>only one can be enabled</strong>. The enabled hook will then be executed for <strong>all</strong> clients and APIs.
-  </div>
+  :::
 
 3. Click the __Pencil and Paper__ icon to the right of the Hook to open the Webtask Editor.
 
@@ -139,9 +139,9 @@ To get a token, make a `POST` request at the `https://${account.namespace}/oauth
 }
 ```
 
-<div class="alert alert-info">
+::: note
   If you don't know where to find the Client Id, Client Secret, or API Identifier information, refer to <a href="/api-auth/config/asking-for-access-tokens#where-to-find-the-ids">Where to Find the IDs</a>.
-</div>
+:::
 
 A successful response will include:
 - an `access_token`,

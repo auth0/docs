@@ -8,7 +8,9 @@ description: Explains the architecture scenario of using a traditional web appli
 
 # Regular Web App (using SAML)
 
-<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
+::: note
+This architecture scenario is under construction and will be updated soon.
+:::
 
 ![](/media/articles/architecture-scenarios/web-saml.png)
 

@@ -4,9 +4,9 @@ description: Overview of scopes with a client-side authorization transaction.
 
 # Scopes
 
-<div class="alert alert-info">
+::: note
 <strong>Heads up!</strong> If you are working with the <a href="/api-auth">API Authorization flows</a> and you are looking for the updated documentation, refer to <a href="/scopes/preview">Scopes</a>.
-</div>
+:::
 
 When initiating a client-side authorization transaction through the [`/authorize` endpoint](/api/authentication/reference#social), only an opaque `access_token` will be returned by default. To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
 

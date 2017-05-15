@@ -36,7 +36,9 @@ Once all rules have finished executing, the user will be redirected to the speci
 
 Auth0 will also pass a state value in that URL, for example `https://example.com/foo?state=abc123`.
 
-<div class="alert alert-info"><strong>What is state?</strong> State is an opaque value, used to prevent <a href="/security/common-threats#cross-site-request-forgery-xsrf-or-csrf-">CSRF attacks</a>. In this case, Auth0 passes this param to the redirect URL.</div>
+::: note
+<strong>What is state?</strong> State is an opaque value, used to prevent <a href="/security/common-threats#cross-site-request-forgery-xsrf-or-csrf-">CSRF attacks</a>. In this case, Auth0 passes this param to the redirect URL.
+:::
 
 Your redirect URL will need to extract the `state` parameter and send it back to Auth0 in order to resume the authentication transaction.
 

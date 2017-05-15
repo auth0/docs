@@ -7,9 +7,9 @@ toc: true
 
 # The Auth0 Management APIv2 Token
 
-<div class="alert alert-info">
+::: note
   We recently changed the way you get Management APIv2 tokens. To read what we changed, why we did that, and how you can work around these changes refer to <a href="/api/management/v2/tokens-flows">Changes in Auth0 Management APIv2 Tokens</a>.
-</div>
+:::
 
 ## Overview
 
@@ -157,9 +157,9 @@ For example, in order to [Get all clients](/api/management/v2#!/Clients/get_clie
 }
 ```
 
-<div class="alert alert-info">
+::: note
   You can get the curl command for each endpoint from the Management API v2 Explorer. Go to the endpoint you want to call, and click the <em>get curl command</em> link at the <em>Test this endpoint</em> section.
-</div>
+:::
 
 That's it! You are done!
 

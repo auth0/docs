@@ -8,9 +8,9 @@ description: How to execute an Authorization Code Grant flow from a Regular Web 
 
 The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quickstart/webapp) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access the API using the token.
 
-<div class="alert alert-info">
+::: note
   This tutorial will help you implement the Authorization Code grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code">Calling APIs from Server-side Web Apps</a>.
-</div>
+:::
 
 
 ## 1. Get the User's Authorization
