@@ -21,7 +21,7 @@ __
 
 ## Before Starting
 
-Be sure that you have completed the [Login](/quickstart/native/android/00-centralized-login) and the [Session Handling](/quickstart/native/android/03-session-handling) Quickstarts. You'll need a valid `access_token` and `id_token` to call the API clients.
+Be sure that you have completed the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) Quickstarts. You'll need a valid `access_token` and `id_token` to call the API clients.
 
 ## Request User Data
 

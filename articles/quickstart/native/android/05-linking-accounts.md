@@ -23,7 +23,7 @@ __
 
 You should be familiar with previous tutorials. This tutorial assumes that:
 
-* You've integrated [Auth0](https://github.com/auth0/Auth0.Android) as a dependency in your project and you're familiar with the `WebAuthProvider` class. For further information, see the [Login](/quickstart/native/android/00-centralized-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorial first.
+* You've integrated [Auth0](https://github.com/auth0/Auth0.Android) as a dependency in your project and you're familiar with the `WebAuthProvider` class. For further information, see the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorial first.
 * You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the [Session Handling](/quickstart/native/android/03-session-handling) and [User Profile](/quickstart/native/android/04-user-profile) tutorials.
 
 > It is highly recommended that you take a look at the [Linking Accounts](/link-accounts) documentation to understand the process of linking accounts.
@@ -32,7 +32,7 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 
 Here's the scenario: Your logged-in user wants to link one (or multiple) accounts to the account they are logged in with.
 
-To do this, we will use the Auth0 library as we did in the [Login](/quickstart/native/android/00-centralized-login) tutorial. In this case, we will send as an extra a boolean value to indicate that this is a secondary login, along with the `userId` obtained from the first login.
+To do this, we will use the Auth0 library as we did in the [Login](/quickstart/native/android/00-login) tutorial. In this case, we will send as an extra a boolean value to indicate that this is a secondary login, along with the `userId` obtained from the first login.
 
 ```java
 Intent intent = new Intent(MainActivity.this, LoginActivity.class);        intent.putExtra(Constants.LINK_ACCOUNTS, true);

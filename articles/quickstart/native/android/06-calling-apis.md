@@ -31,7 +31,7 @@ private static final String API_URL = "localhost:8080/secure";
 
 ## Get a Token
 
-Your first step is to get an `access_token`. Use the basic [Login](/quickstart/native/android/00-centralized-login) tutorial if you need some guidance.
+Your first step is to get an `access_token`. Use the basic [Login](/quickstart/native/android/00-login) tutorial if you need some guidance.
 
 
 ## Attach the Token

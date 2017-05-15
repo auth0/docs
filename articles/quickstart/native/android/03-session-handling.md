@@ -32,7 +32,7 @@ The Tokens are the objects used to prove your identity against the Auth0 APIs. R
 
 ## Before Starting
 
-Be sure that you have completed the [Login](/quickstart/native/android/00-centralized-login) quickstart.
+Be sure that you have completed the [Login](/quickstart/native/android/00-login) quickstart.
 
 Before launching the log in you need to ask for the `offline_access` scope in order to get a valid `refresh_token` in the response. Locate the snippet were you're initializing the `WebAuthProvider` and add the `withScope("openid offline_access")` line.
 
