@@ -20,7 +20,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 }
 ```
 
-> Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-swift/00-getting-started#configure-callback-urls).
+> Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-swift/getting-started#configure-callback-urls).
 
 ## Implement the Login
 
