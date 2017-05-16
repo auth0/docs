@@ -125,6 +125,8 @@ Long-lived tokens compromise your security. Following this process is <strong>NO
 
 Use panels when you want to separate long information from the main body of the document.
 
+Try to add a meaningful title to the panel. Avoid using "NOTE" or "WARNING".
+
 We support two types of panels: **panel** and **panel-warning**.
 
 
