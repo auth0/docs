@@ -7,12 +7,13 @@ budicon: 448
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-community',
-  repo: 'auth0-xamarin-android-oidc-samples',
+  repo: 'auth0-xamarin-oidc-samples',
   path: 'Quickstart/01-Login',
   requirements: [
     'Visual Studio 2017 or Visual Studio for Mac',
-    'Xamarin.Android (7.2.0.7)',
+    'Xamarin for Visual Studio 4.5',
     'Auth0.OidcClient.Android 1.0.0'
+    'Auth0.OidcClient.iOS 1.0.0'
   ]
 }) %>
 
