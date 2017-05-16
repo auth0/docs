@@ -127,6 +127,10 @@ protected override async void OnNewIntent(Intent intent)
 }
 ```
 
+With the above code in place, a user can log in to your application using Auth0:
+
+<div class="phone-mockup"><img src="/media/articles/native-platforms/xamarin/lock-widget-screenshot-android.png" alt="Lock UI"></div>
+
 ### iOS
 
 #### 1. Register the URL type
@@ -156,7 +160,6 @@ This is an example of the XML representation of your `info.plist` file after you
 ```
 
 #### 2. Call LoginAsync
-
 
 ```cs
 var loginResult = await client.LoginAsync();
@@ -204,6 +207,10 @@ public class AppDelegate : UIApplicationDelegate
 	}
 }
 ```
+
+With the above code in place, a user can log in to your application using Auth0:
+
+<div class="phone-mockup"><img src="/media/articles/native-platforms/xamarin/lock-widget-screenshot-ios.png" alt="Lock UI"></div>
 
 ## Accessing the User's Information
 
