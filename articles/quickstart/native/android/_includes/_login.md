@@ -1,6 +1,8 @@
 ## Start the Authentication
 
-In our login method we create a new `Auth0` instance to hold the credentials. Then by using the `WebAuthProvider` class we can authenticate with any connection enabled for our client in the Auth0 dashboard. After calling `WebAuthProvider#start` the browser will launch and show Lock, and the final result will be received in the callback we pass.
+In our login method we create a new `Auth0` instance to hold the credentials. Then by using the `WebAuthProvider` class we can authenticate with any connection enabled for our client in the Auth0 dashboard. We also tell the provider to use the custom scheme `demo` to construct the expected **Callback URL**.
+
+After calling `WebAuthProvider#start` the browser will launch and show Lock, and the final result will be received in the callback we pass.
 
 
 ```java
@@ -8,6 +10,7 @@ private void login() {
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     auth0.setOIDCConformant(true);
     WebAuthProvider.init(auth0)
+                  .withScheme("demo")
                   .start(MainActivity.this, new AuthCallback() {
                       @Override
                       public void onFailure(@NonNull Dialog dialog) {
@@ -34,11 +37,11 @@ private void login() {
 The browser will redirect to our application with the authentication result and we need to send it back to the `WebAuthProvider` in order to parse it and get the actual tokens. To do so, we need to register in our Activity an **Intent-Filter** that will capture the call to the **Callback URL** specified by the provider. This URL is built using our Domain and application's Package Name and it must be whitelisted in the "Allowed Callback URLs" section of the [Client settings](https://manage.auth0.com/#/clients). The URL should look similar to this:
 
 ```
-https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
 
-Edit the `AndroidManifest.xml` file to add the INTERNET permission and an Intent-Filter like the one below. Remember to replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name, in order to match the Callback URL registered in the dashboard.
+Edit the `AndroidManifest.xml` file to add the INTERNET permission and an Intent-Filter like the one below. Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, in order to match the Callback URL registered in the dashboard.
 
 ```xml
 <application android:theme="@style/AppTheme">
@@ -60,8 +63,8 @@ Edit the `AndroidManifest.xml` file to add the INTERNET permission and an Intent
 
                 <data
                     android:host="${account.namespace}"
-                    android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
-                    android:scheme="https" />
+                    android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+                    android:scheme="demo" />
             </intent-filter>
 
         </activity>

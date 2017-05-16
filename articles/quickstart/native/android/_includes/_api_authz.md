@@ -30,13 +30,13 @@ First, you need to update `AndroidManifest.xml` with the following:
         <category android:name="android.intent.category.BROWSABLE" />
         <data
             android:host="${account.namespace}"
-            android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
-            android:scheme="https" />
+            android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+            android:scheme="demo" />
     </intent-filter>
 </activity>
 ```
 
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
 
 Also include following permission:
@@ -47,9 +47,9 @@ Also include following permission:
 
 Finally, open the Dashboard and make sure the Allowed Callback URLs for your client contains a URL with the following format:
 
-`https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
+`demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`
 
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
 
 ## Initiate Authentication and Authorization
@@ -61,7 +61,7 @@ Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 account.setOIDCConformant(true);
 ```
 
-Next, you need to use the `WebAuthProvider` to initiate the authentication and authorization.
+Next, you need to use the `WebAuthProvider` to initiate the authentication and authorization. Note that we customize the scheme to `demo` as required by the Callback URL defined also in the intent-filter.
 
 ```java
 public void startAuth() {
@@ -69,6 +69,7 @@ public void startAuth() {
             .withConnection("Username-Password-Authentication")
             .withScope("openid profile {API_SCOPES}")
             .withAudience("{YOUR_API_IDENTIFIER}")
+            .withScheme("demo")
             .start(MainActivity.this, authCallback);
 }
 

@@ -7,13 +7,20 @@ You will require the **Client ID** and **Domain** for your client application. T
 <string name="auth0_domain">${account.namespace}</string>
 ```
 
-The data path for the Web Authentication (located in `AndroidManifest.xml`) also needs to be set.
+The values are also used in the **Intent-Filter** declared in the `AndroidManifest.xml`:
 
 ```xml
-<data
-  android:host="@string/auth0_domain"
-  android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
-  android:scheme="https" />
+<intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+
+    <data
+      android:host="@string/auth0_domain"
+      android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+      android:scheme="demo" />
+</intent-filter>
 ```
 
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.

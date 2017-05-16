@@ -16,8 +16,7 @@ This tutorial demonstrates how to use a previously saved token to authenticate y
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>
-__
+}) %>__
 
 ## Before Starting
 
@@ -36,7 +35,7 @@ Your first step is to get an `access_token`. Use the basic [Login](/quickstart/n
 
 ## Attach the Token
 
-To prepare the request in this example we use the [okhttp](https://github.com/square/okhttp) library. Create the `OkHttpClient` instance and a new `Request`. We use the provided builder to customize the request Http method, URL and headers. Here we set the **Authorization Header** with the token type and the `access_token` that identifies the logged-in user.
+To prepare the request in this example we use the [OkHttp](https://github.com/square/okhttp) library. Create the `OkHttpClient` instance and a new `Request`. We use the provided builder to customize the request Http method, URL and headers. Here we set the **Authorization Header** with the token type and the `access_token` that identifies the logged-in user.
 
 ```java
 OkHttpClient client = new OkHttpClient();

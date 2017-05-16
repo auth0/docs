@@ -16,7 +16,7 @@ This step demonstrates how to use Auth0 to create access roles for your users. W
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>
+}) %>__
 
 ## Before Starting
 
