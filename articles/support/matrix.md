@@ -93,7 +93,7 @@ toc: true
   </table>
 
   ::: note
-    At this time, Auth0 only supports use of the Dashboard with desktop browsers.
+  At this time, Auth0 only supports use of the Dashboard with desktop browsers.
   :::
 
   ### Auth0 Lock and Authentication
@@ -157,7 +157,7 @@ toc: true
   This section covers the operating systems (OS) that Auth0 will support when using the Auth0 Dashboard, Lock Library or executing authentication transactions.
 
   ::: note
-    Auth0 support is limited to the most recent version of the OS listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
+  Auth0 support is limited to the most recent version of the OS listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
   :::
 
   ### Auth0 Dashboard
@@ -319,7 +319,7 @@ toc: true
   ### Frameworks/Platform Integration SDKs
 
   ::: note
-    Auth0 reserves the right to downgrade support for an SDK to Community-Supported at any time.
+  Auth0 reserves the right to downgrade support for an SDK to Community-Supported at any time.
   :::
 
   <table class="table">
