@@ -9,7 +9,8 @@ After a successful authentication, you can request credentials to access third p
 
 Here's an example
 ```java
-Auth0 auth0 = //create account
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
 AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 String apiType = "firebase";
 String token = //Your Auth0 id_token of the logged in User

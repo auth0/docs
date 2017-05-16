@@ -98,6 +98,7 @@ Create an `Auth0` instance to hold your account details, which are the `AUTH0_CL
 
 ```java
 Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
 ```
 
 ### Authentication callback
@@ -140,6 +141,7 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     // Your own Activity code
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+    auth0.setOIDCConformant(true);
     lock = Lock.newBuilder(auth0, callback)
       // ... Options
       .build(this);
