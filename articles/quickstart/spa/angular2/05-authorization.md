@@ -7,7 +7,7 @@ budicon: 546
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angular-samples',
-  path: '05-Authorization',
+  path: '04-Authorization',
   requirements: [
     'Angular 2+'
   ]
@@ -32,16 +32,13 @@ auth0 = new auth0.WebAuth({
 });
 ``` 
 
-In the `setSession` method, save the `scope`s granted for the user into local storage. The first place to check for these values is the `scope` key from the `authResult`. If something exists there it's because the `scope`s which were granted for the user differ from what was requested. If there is nothing on `authResult.scope`, it means that the granted `scope`s match those that were requested, so the requested values can be used directly. If neither there are no values for either of these, fallback to an empty string.
+In the `setSession` method, save the `scope`s granted for the user into local storage. The first place to check for these granted `scope` values is the `scope` key from the `authResult`. If something exists there it's because the `scope`s which were granted for the user differ from those that were requested. If there is nothing on `authResult.scope`, it means that the granted `scope`s match those that were requested, so the requested values can be used directly. If there are no values for either of these, you can fall back to an empty string.
 
 ```ts
 // src/app/auth/auth.service.ts
 
 private setSession(authResult): void {
-  // If there is a value on the `scope` param from the authResult,
-  // use it to set scopes in the session for the user. Otherwise
-  // use the scopes as requested. If no scopes were requested,
-  // set it to nothing
+
   const scopes = authResult.scope || this.requestedScopes || '';
 
   // ...
@@ -49,7 +46,7 @@ private setSession(authResult): void {
 }
 ```
 
-Add a method called `userHasScopes` which will check for a particular `scope` in local storage. This method should take an array of strings and check whether the array of `scope`s saved in local storage contains those values. The method can be used to conditionally hide and show various UI elements and to limit route access.
+Add a method called `userHasScopes` which will check for a particular `scope` in local storage. This method should take an array of strings and check whether the array of `scope`s saved in local storage contains those values. This method can be used to conditionally hide and show various UI elements and to limit route access.
 
 ```ts
 // src/app/auth/auth.service.ts

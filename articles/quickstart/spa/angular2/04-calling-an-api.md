@@ -7,13 +7,13 @@ budicon: 546
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angular-samples',
-  path: '04-Calling-an-Api',
+  path: '03-Calling-an-Api',
   requirements: [
     'Angular 2+'
   ]
 }) %>
 
-It's likely that your single page app will need to consume resources from a data API. Since you are adding authentication to your app, presumably you need to limit access to these resources such that they are only accessible by an authenticated user who is authorized to retrieve them. Auth0 provides API Authorization to accomplish this.
+It's likely that your single page app will need to consume resources from a data API. Since you are adding authentication to your app, presumably you need to limit access to these resources such that they are only accessible by an authenticated user who is authorized to retrieve them. Auth0 provides [API Authorization](https://auth0.com/docs/api-auth) to accomplish this.
 
 This tutorial will guide you through how to make calls from your Angular application to your data API to access protected resources. It does not, however, cover how to add protection to your API itself. For instructions on protecting your API, please follow the [Backend/API quickstart documentation](quickstart/backend) specific to your situation.
 

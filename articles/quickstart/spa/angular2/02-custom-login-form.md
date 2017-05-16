@@ -8,6 +8,7 @@ budicon: 448
   org: 'auth0-samples',
   repo: 'auth0-angular-samples',
   path: '02-Custom-Login-Form',
+  branch: 'embedded-login',
   requirements: [
     'Angular 2+'
   ]

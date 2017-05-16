@@ -4,4 +4,4 @@ When an `access_token` is received after a user authenticates in your app, it is
 
 In the settings area for your API within the Auth0 dashboard, navigate to the **Scopes** tab. Add any scopes necessary to limit access to your API resources. While the naming of the scopes is at your discretion, a common pattern is to use `<action>:<resource>`. The example here will use a `read:messages` scope.
 
-![centralized login](/media/articles/api-auth/create-scope.png)
+![create scope](/media/articles/api-auth/create-scope.png)
