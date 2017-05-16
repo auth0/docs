@@ -97,7 +97,7 @@ First, edit the `AndroidManifest.xml` file and include an Intent-Filter. This wi
             android:theme="@style/MyAppTheme"
             android:launchMode="singleTask">
 
-            <intent-filter android:autoVerify="true">
+            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />

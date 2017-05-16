@@ -52,7 +52,7 @@ Edit the `AndroidManifest.xml` file to add the INTERNET permission and an Intent
             android:theme="@style/MyAppTheme"
             android:launchMode="singleTask">
 
-            <intent-filter android:autoVerify="true">
+            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
