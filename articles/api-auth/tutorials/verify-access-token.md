@@ -3,9 +3,9 @@ description: How an API can verify a bearer JWT access token
 toc: true
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Verify Access Tokens
+
+<%= include('../../_includes/_pipeline2') %>
 
 When an API receives a request with a bearer access token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 

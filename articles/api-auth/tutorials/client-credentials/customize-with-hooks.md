@@ -4,9 +4,9 @@ crews: crew-2
 toc: true
 ---
 
-<%= include('../../../_includes/_pipeline2') %>
-
 # Using Hooks with Client Credentials Grant
+
+<%= include('../../../_includes/_pipeline2') %>
 
 You can now add [Hooks](/hooks) into your [client credentials](/api-auth/grant/client-credentials) flow. This way you can change the scopes and add custom claims to the tokens issued by Auth0.
 

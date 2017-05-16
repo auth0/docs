@@ -2,9 +2,9 @@
 description: How to keep users logged in to your application
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Silent Authentication
+
+<%= include('../../_includes/_pipeline2') %>
 
 There are two main participants involved in a [single sign-on (SSO)](/sso) scenario: an Authorization Server (Auth0), and multiple client applications.
 

@@ -2,9 +2,9 @@
 description: How to execute an Authorization Code Grant flow from a Regular Web application
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Execute an Authorization Code Grant Flow
+
+<%= include('../../_includes/_pipeline2') %>
 
 The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quickstart/webapp) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access the API using the token.
 

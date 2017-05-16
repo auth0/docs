@@ -4,9 +4,9 @@ crews: crew-2
 toc: true
 ---
 
-<%= include('../_includes/_pipeline2') %>
-
 # Dynamic Client Registration
+
+<%= include('../_includes/_pipeline2') %>
 
 Dynamic Client Registration is a feature, based on the [OpenID Connect Dynamic Client Registration specification](https://openid.net/specs/openid-connect-registration-1_0.html), that enables you to register clients dynamically. These clients are called **third party clients** (since they are registered and used by third party developers).
 

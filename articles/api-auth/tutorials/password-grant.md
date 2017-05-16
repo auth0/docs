@@ -2,9 +2,9 @@
 description: How to execute a Resource Owner Password Grant
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # How to implement the Resource Owner Password Grant
+
+<%= include('../../_includes/_pipeline2') %>
 
 ## Configure your tenant
 
