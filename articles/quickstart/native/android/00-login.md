@@ -21,4 +21,3 @@ This tutorial will show you how to integrate the Auth0 Login in your Android pro
 <%= include('_includes/_auth0') %>
 
 <%= include('_includes/_login') %>
-__

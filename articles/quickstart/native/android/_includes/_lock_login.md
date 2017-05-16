@@ -1,12 +1,13 @@
 ## Implement the Login
 
-At this point, you're all set to implement the login in any activity you want. Inside the activity, add the `onCreate`, `onDestroy`, and `callback` methods.
+At this point, you're all set to implement the login in any activity you want. Inside the activity, add the `onCreate`, `onDestroy`, and `callback` methods. Note that we customize the scheme to `demo` as required by the Callback URL defined also in the intent-filter.
 
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     lock = Lock.newBuilder(auth0, callback)
+                    .withScheme("demo")
                     // Add parameters to the Lock Builder
                     .build(this);
 }

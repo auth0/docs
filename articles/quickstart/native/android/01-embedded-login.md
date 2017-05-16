@@ -10,6 +10,7 @@ This tutorial will show you how to integrate Lock v2 in your Android project in 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
+  branch: 'embedded-login',
   path: '01-Embedded-Login',
   requirements: [
     'Android Studio 2.3',

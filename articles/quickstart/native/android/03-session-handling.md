@@ -16,8 +16,7 @@ This tutorial will show you how to login and maintain an active session with Aut
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>
-__
+}) %>__
 
 For this, you will need to handle the user's `Credentials`. Let's take a look at this class, which is composed of five objects:
 
@@ -40,6 +39,7 @@ Before launching the log in you need to ask for the `offline_access` scope in or
 Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
 auth0.setOIDCConformant(true);
 WebAuthProvider.init(auth0)
+                .withScheme("demo")
                 .withScope("openid offline_access")
                 .start(LoginActivity.this, callback);
 ```
@@ -71,7 +71,7 @@ private final AuthCallback callback = new AuthCallback() {
 > In the seed project, the `SharedPreferences` is used in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE) to store the user credentials. This is done by a the class `CredentialsManager`, you can check the implementation in the project code. There are better and more secure ways to store tokens, but we won't cover them in this tutorial.
 
 
-## At Startup: Check `access_token` Existence
+## At Startup: Check Token Existence
 
 The main purpose of storing this token is to save users from having to re-enter their login credentials when relaunching the app. Once the app has launched, we need to check for the existence of an `access_token` to see if we can automatically log the user in and redirect the user straight into the app’s main flow, skipping the login screen.
 
@@ -86,7 +86,7 @@ if (accessToken == null) {
 }
 ```
 
-## Validate an Existing `access_token`
+## Validate an Existing Token
 
 If the `access_token` exists, we need to check whether it’s still valid. To do so we can:
 * Check that the elapsed time since the token was obtained is lesser than the `expires_in` value received in with the credentials. For this to work we'll have to save the current time whenever we receive and store a new pair of credentials.
