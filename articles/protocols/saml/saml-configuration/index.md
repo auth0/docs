@@ -7,7 +7,7 @@
 
 SAML-based federation involves two parties:
 
-1. An **identity provider** (IdP): authenticates users and providers to Service Providers an Authentication Assertion if successful;
+1. An **identity provider** (IdP): authenticates users and provides to Service Providers an Authentication Assertion if successful;
 2. A **service provider** (SP): relies on the Identity Provider to authenticate users.
 
 Auth0 supports the SAML protocol and can serve as the identity provider, the service provider, or both.
@@ -27,6 +27,13 @@ Once the user is authenticated, Auth0 returns a SAML assertion to the applicatio
 Applications, especially custom ones, can authenticate users against an external IdP using protocols such as OpenID Connect or OAuth 2.0. However, you might want to leverage an enterprise SAML provider for authentication, even if you wrote your application to utilize either protocol.
 
 ![](/media/articles/saml/saml-configuration/saml-case1.png)
+
+## Auth0 as the SAML Service and Identity Providers
+
+You may opt to use Auth0 as both the SAML Service Provider **and** SAML Identity Provider.
+
+![](/media/articles/saml/saml-configuration/saml-case3.png)
+
 
 ## Configuration
 
