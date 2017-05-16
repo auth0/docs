@@ -4,8 +4,8 @@ description: This page explains how to setup and manage the Authorization Extens
 
 # Auth0 Authorization Extension v1
 
-::: note
-This document covers an outdated version of the Authorization Extension, version 1. We recommend using the latest version, version 2. The documentation for version 2 can be found via the dropdown above.
+::: version-warning
+This document covers an outdated version. We recommend you to [upgrade to v2](/extensions/authorization-extension/v2).
 :::
 
 The Auth0 Authorization Extension provides user authorization support in Auth0. Version 1 of the extension supports authorizations using Groups. Upgrade to [version 2](/extensions/authorization-extension) to support authorizations with Roles and Permissions.

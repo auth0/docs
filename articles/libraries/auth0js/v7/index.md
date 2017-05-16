@@ -4,11 +4,11 @@ toc: true
 description: How to install, initialize and use auth0.js v7
 ---
 
-::: note
-This document covers an out-of-date version of auth0.js - version 7. We recommend using the latest version of the library. To do so select v8 at the dropdown. If you are already using v7 but interested in upgrading, take a look at the <a href="/libraries/auth0js">v8 migration guide</a>.
-:::
-
 # Auth0.js v7 Reference
+
+::: version-warning
+This document covers an outdated version of auth0.js. We recommend you to <a href="/libraries/auth0js">upgrade to v8</a>.
+:::
 
 Auth0.js is a client-side library for [Auth0](http://auth0.com), for use in your web apps. It allows you to trigger the authentication process and parse the [JSON Web Token](http://openid.net/specs/draft-jones-json-web-token-07.html) (JWT) with just the Auth0 `clientID`. Once you have the JWT, you can use it to authenticate requests to your HTTP API and validate the JWT in your server-side logic with the `clientSecret`.
 
