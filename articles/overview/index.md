@@ -11,10 +11,10 @@ Auth0 is a service that abstracts how users authenticate to applications.
 
 You can connect any application (written in any language or on any stack) to Auth0 and define its [connection](/connections), the method used to authenticate the users of that application:
 
-* Custom credentials: username + passwords
-* Social network logins: Google, Facebook, Twitter, and any OAuth2, OAuth1 or OpenID Connect provider
-* Enterprise directories: LDAP, Google Apps, Office 365, ADFS, AD, SAML-P, WS-Federation, etc.
-* Passwordless systems: Touch ID, one time codes on SMS, or email
+* [Custom credentials](/connections/database): username + passwords
+* [Social network logins](/identityproviders#social): Google, Facebook, Twitter, and any OAuth2, OAuth1 or OpenID Connect provider
+* [Enterprise directories](/identityproviders#enterprise): LDAP, Google Apps, Office 365, ADFS, AD, SAML-P, WS-Federation, etc.
+* [Passwordless systems](/connections/passwordless): Touch ID, one time codes on SMS, or email
 
 ## Video: Developer Overview
 
