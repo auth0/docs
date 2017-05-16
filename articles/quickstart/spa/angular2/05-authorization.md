@@ -6,54 +6,71 @@ budicon: 546
 
 <%= include('../_includes/_authz_preamble') %>
 
-<%= include('../_includes/_authz_assigning_role') %>
+<%= include('../_includes/_authz_determining_scopes') %>
 
-<%= include('../_includes/_authz_check_admin_role') %>
+## Handle Scopes in the `AuthService`
 
-Install the **jwt-decode** library so that the user's `id_token` can easily be decoded.
+Adjust your `AuthService` to use a local member with any `scope`s you would like to request when users log in. Use this member in the `auth0.WebAuth` instance.
 
-```bash
-# installation with npm
-npm install --save jwt-decode
-
-# installation with yarn
-yarn add jwt-decode
-```
-
-Create methods for checking the user's `role` and whether it is equal to `admin`.
-
-```js
+```ts
 // src/app/auth/auth.service.ts
 
-getRole(): string {
-  const namespace = 'https://<your-domain>.com';
-  const idToken = localStorage.getItem('id_token');
-  return jwt_decode(idToken)[`<%= "${namespace}" %>/role`] || null;
-}
+requestedScopes: string = 'openid profile read:messages write:messages';
 
-isAdmin(): boolean {
-  return this.getRole() === 'admin';
-}
+auth0 = new auth0.WebAuth({
+  // ...
+  scope: this.requestedScopes
+});
 ``` 
 
-The `isAdmin` method can now be used alongside `isAuthenticated` to conditionally show and hide certain UI elements based on those two conditions.
+In the `setSession` method, save the `scope`s granted for the user into local storage. The first place to check for these values is the `scope` key from the `authResult`. If something exists there it's because the `scope`s which were granted for the user differ from what was requested. If there is nothing on `authResult.scope`, it means that the granted `scope`s match those that were requested, so the requested values can be used directly. If neither there are no values for either of these, fallback to an empty string.
+
+```ts
+// src/app/auth/auth.service.ts
+
+private setSession(authResult): void {
+  // If there is a value on the `scope` param from the authResult,
+  // use it to set scopes in the session for the user. Otherwise
+  // use the scopes as requested. If no scopes were requested,
+  // set it to nothing
+  const scopes = authResult.scope || this.requestedScopes || '';
+
+  // ...
+  localStorage.setItem('scopes', JSON.stringify(scopes));
+}
+```
+
+Add a method called `userHasScopes` which will check for a particular `scope` in local storage. This method should take an array of strings and check whether the array of `scope`s saved in local storage contains those values. The method can be used to conditionally hide and show various UI elements and to limit route access.
+
+```ts
+// src/app/auth/auth.service.ts
+
+public userHasScopes(scopes: Array<string>): boolean {
+  const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
+  return scopes.every(scope => grantedScopes.includes(scope));
+}
+```
+
+## Conditionally Dislay UI Elements
+
+The `userHasScopes` method can now be used alongside `isAuthenticated` to conditionally show and hide certain UI elements based on those two conditions.
 
 ```html
 <!-- src/app/app.component.html -->
 
 <button
   class="btn btn-primary btn-margin"
-  *ngIf="auth.isAuthenticated() && auth.isAdmin()"
+  *ngIf="auth.isAuthenticated() && auth.userHasScopes(['write:messages'])"
   routerLink="/admin">
     Admin Area
 </button>
 ```
 
-<%= include('../_includes/_authz_protect_client_routes') %>
+## Protect Client-Side Routes
 
-To prevent access to client-side routes based on a `role` completely, use an `AuthGuard`.
+To completely prevent access to client-side routes based on a particular `scope`, use an `AuthGuard`.
 
-```js
+```ts
 // src/app/auth/auth-guard.service.ts
 
 import { Injectable } from '@angular/core';
@@ -67,7 +84,7 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(): boolean {
     if (this.auth.isAuthenticated()) {
-      if (this.auth.isAdmin()) {
+      if (this.auth.userHasScopes(['write:messages'])) {
         return true;
       } else {
         this.router.navigate(['']);
@@ -79,7 +96,7 @@ export class AuthGuardService implements CanActivate {
 }
 ```
 
-The guard implements the `CanActivate` interface which requires a method called `canActivate` on the service. This method returns `true` if the user is authenticated and has a role of `admin`, and false if not. It also navigates the user to the home route if they don't have the appropriate access level for the route.
+The guard implements the `CanActivate` interface which requires a method called `canActivate` on the service. This method returns `true` if the user is authenticated and has a `scope` of `write:messages`, and `false` if not. It also navigates the user to the home route if they don't have the appropriate `scope` to access the route.
 
 Use the `AuthGuard` in the routing definition.
 
@@ -94,6 +111,8 @@ export const ROUTES: Routes = [
 ];
 ```
 
-The user will now be redirected to the main route unless they have a `role` of `admin`.
+The user will now be redirected to the main route unless they have a `scope` of `write:messages`.
+
+<%= include('../_includes/_authz_conditionally_assign_scopes') %>
 
 <%= include('../_includes/_authz_client_routes_disclaimer') %>
