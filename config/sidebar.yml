@@ -58,6 +58,9 @@ articles:
       - title: "Dynamic Client Registration"
         url: "/api-auth/dynamic-client-registration"
 
+      - title: "Token Introspection"
+        url: "/api-auth/token-introspection"
+
       - title: "Verify Access Tokens"
         url: "/api-auth/tutorials/verify-access-token"
 

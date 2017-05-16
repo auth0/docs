@@ -8,3 +8,11 @@ added:
       - api
     description: |
       A [new tutorial](https://auth0.com/docs/api-auth/tutorials/represent-multiple-apis) was added showing how to represent multiple APIs using a single Auth0 API.
+  -
+    title: "Added Doc on Token Introspection"
+    tags:
+      - tokens
+      - api-auth
+      - api
+    description: |
+      A [new doc](https://auth0.com/docs/api-auth/token-introspection) was added on how to use token introspection to make authorization decisions based on the metadata attached to an access token.
