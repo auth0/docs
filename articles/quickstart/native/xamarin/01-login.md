@@ -5,12 +5,15 @@ description: This tutorial will show you how to use the Auth0 Xamarin SDK to add
 budicon: 448
 ---
 
-::: panel-info System Requirements
-This tutorial has been tested with the following:
-* Microsoft Visual Studio 2015
-* Xamarin for Visual Studio 4.2
-:::
-
+<%= include('../../../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-xamarin-samples',
+  path: '02-Custom-Login',
+  requirements: [
+    'Microsoft Visual Studio 2015',
+    'Xamarin for Visual Studio 4.2'
+  ]
+}) %>
 
 
 This tutorial explains how to integrate Auth0 with a Xamarin application.
