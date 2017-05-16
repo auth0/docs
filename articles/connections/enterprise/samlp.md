@@ -51,7 +51,7 @@ You will then see a pop-up window with the next steps you need to take.
 
 ![](/media/articles/connections/enterprise/samlp/admin-url.png)
 
-If you do not have the appropriate administrative permissions to complete the integration, you will see a URL to provide to someone who does. If you do, click **Continue** to see additional configuration instructions.
+If you do not have the appropriate administrative permissions to complete the integration, you will see a URL to provide to someone who does. If you do, click **Continue** to see the instructions on how to configure the identity provider you want to use with this integration. You will also be provided the custom parameters needed to integrate your Auth0 account with the identity provider.
 
 ![](/media/articles/connections/enterprise/samlp/config-instructions.png)
 
