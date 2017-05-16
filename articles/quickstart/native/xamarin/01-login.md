@@ -12,11 +12,10 @@ budicon: 448
   requirements: [
     'Visual Studio 2017 or Visual Studio for Mac',
     'Xamarin for Visual Studio 4.5',
-    'Auth0.OidcClient.Android 1.0.0'
+    'Auth0.OidcClient.Android 1.0.0',
     'Auth0.OidcClient.iOS 1.0.0'
   ]
 }) %>
-
 
 This tutorial explains how to integrate the Auth0 OIDC Client with a Xamarin application. 
 
