@@ -32,11 +32,13 @@ Applications, especially custom ones, can authenticate users against an external
 
 The following documentation cover the different aspects of SAML configuration:
 
-* [SAML Design Considerations]()
+* [SAML Design Considerations](/saml-configuration/design-considerations)
+* [Supported SAML Options and Bindings](/saml-configuration/supported-options-and-bindings)
 * [Configure Auth0 as a Service Provider](/saml-configuration/auth0-as-service-provider)
 * [Configure Auth0 as an Identity Provider](/saml-configuration/auth0-as-identity-provider)
 * [Configure Auth0 as Both Service and Identity Provider](/saml-configuration/auth0-as-identity-and-service-provider)
 * [Special Configuration Scenarios](/saml-configuration/special-configuration-scenarios)
-* [Customize SAML Assertions]()
+* [Customize SAML Assertions](/saml-configuration/saml-assertions)
 * [Logout](/saml-configuration/logout)
-* [Troubleshoot]()
+* [Deprovision Users](/saml-configuration/deprovisioning)
+* [Troubleshoot](/saml-configuration/troubleshoot)
