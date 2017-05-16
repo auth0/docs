@@ -96,6 +96,10 @@ ${snippet(meta.snippets.profiletemplate)}
 
 ### Troubleshooting
 
+#### Cannot read property 'isAvailable' of undefined
+
+This means that you're attempting to test this in a browser. At this time you'll need to run this either in an emulator or on a device.
+
 #### Completely blank page when launching the app
 
 This could either mean that you've built the seed project using Ionic 1, or that the device where you are testing it isn't entirely supported by Ionic 2 yet. Be sure to check the console for errors.
