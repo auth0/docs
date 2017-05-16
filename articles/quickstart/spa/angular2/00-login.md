@@ -7,7 +7,7 @@ budicon: 448
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angular-samples',
-  path: '00-Centralized-Login',
+  path: '00-Login',
   requirements: [
     'Angular 2+'
   ]

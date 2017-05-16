@@ -174,3 +174,7 @@ Create a component named `CallbackComponent` and populate it with a loading indi
 > This example assumes some kind of loading spinner is available in an `assets` directory. See the downloadable sample for a demonstration.
 
 After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/home` route.
+
+## Embedded Login
+
+Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the hosted login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-angular-samples/tree/master/01-Embedded-Login).

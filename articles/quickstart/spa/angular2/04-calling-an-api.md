@@ -7,7 +7,7 @@ budicon: 546
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angular-samples',
-  path: '04-Calling-Api',
+  path: '04-Calling-an-Api',
   requirements: [
     'Angular 2+'
   ]

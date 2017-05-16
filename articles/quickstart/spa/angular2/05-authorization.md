@@ -4,6 +4,15 @@ description: This tutorial demonstrates how to add authorization and access cont
 budicon: 546
 ---
 
+<%= include('../../../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-angular-samples',
+  path: '05-Authorization',
+  requirements: [
+    'Angular 2+'
+  ]
+}) %>
+
 <%= include('../_includes/_authz_preamble') %>
 
 <%= include('../_includes/_authz_determining_scopes') %>
