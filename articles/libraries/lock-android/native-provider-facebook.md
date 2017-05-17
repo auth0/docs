@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Auth0 auth0 = new Auth0(getString(R.string.com_auth0_client_id), getString(R.string.com_auth0_domain));
+    auth0.setOIDCConformant(true);
     AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
     provider = new FacebookAuthProvider(client);
   }

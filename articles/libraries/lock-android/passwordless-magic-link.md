@@ -145,7 +145,9 @@ public class MyActivity extends AppCompatActivity {
   @SuppressWarnings("ConstantConditions")
   protected void onCreate(@Nullable Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      lock = PasswordlessLock.newBuilder(getAccount(), callback)
+      Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+      auth0.setOIDCConformant(true);
+      lock = PasswordlessLock.newBuilder(auth0, callback)
             .useLink()
             .build(this);
   }
