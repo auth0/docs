@@ -34,7 +34,6 @@ You may opt to use Auth0 as both the SAML Service Provider **and** SAML Identity
 
 ![](/media/articles/saml/saml-configuration/saml-case3.png)
 
-
 ## Configuration
 
 The following documentation cover the different aspects of SAML configuration:
