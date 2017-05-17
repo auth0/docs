@@ -4,8 +4,8 @@ title: Using Passwordless Authentication with a Magic Link via email on SPA
 
 # Authenticate users with a Magic Link via e-mail on SPA
 
-<div class="alert alert-warning">
-This document covers Passwordless Authentication with Magic Links, and uses the auth0.js v7 SDK. The newest version of auth0.js (v8) does not yet include this functionality.
+<div class="alert alert-warning version-alert">
+  <a href="/libraries/auth0js/v7">Version 7</a> of auth0.js is used here to implement magic links. <a href="/libraries/auth0js/v8">Version 8</a> does not yet include this functionality</a>.
 </div>
 
 <%= include('./_introduction-email-magic-link') %>
