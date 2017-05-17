@@ -4,11 +4,7 @@
 
 # Restrict Client or User Access to APIs
 
-In certain cases, you might want to grant permissions to only selected clients or users to access your API. Anyone else with any other scope(s) who attempts to access the API receives an HTTP 401 response. You can do this via [rules](/rules).
-
-## Background
-
-By default, users can access *any* scope for the API. As such, you need to implement and use [rules](/rules) to prevent user-based flows from scopes you don't want the user to have. Within the rule, you can deny access based on `scope`, `audience`, `client`, and so on.
+By default, any user associated with an Auth0 client can request an API's scope(s). If you would like to restrict access to the API's scopes based on the user's role, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to those with their role, they will receive an HTTP 401 response.
 
 ## Implementation
 
