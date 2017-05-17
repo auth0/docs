@@ -1,6 +1,7 @@
 ---
 title: Login
 description: This tutorial will show you how to integrate the Auth0 Centralized Login in your Android project in order to present the login box.
+seo_alias: android
 budicon: 448
 ---
 
@@ -18,6 +19,5 @@ This tutorial will show you how to integrate the Auth0 Login in your Android pro
 }) %>
 
 <%= include('_includes/_auth0') %>
-__
 
 <%= include('_includes/_login') %>

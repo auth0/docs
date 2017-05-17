@@ -10,26 +10,27 @@ This quickstart will show you how to add Auth0 login capabilities while using a 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
+  branch: 'embedded-login',
   path: '02-Custom-Login-Form',
   requirements: [
     'Android Studio 2.3',
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>
+}) %>__
 
 ## Before Starting
 
 Go to the [Client Settings](${manage_url}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the value:
 
 ```
-https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
 
-<%= include('_includes/_auth0') %> __
+<%= include('_includes/_auth0') %>__
 
 
 ### Configure Your Manifest File
@@ -50,6 +51,7 @@ First, you'll need to instantiate the Authentication API:
 ```java
 private void login(String email, String password) {
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+    auth0.setOIDCConformant(true);
     AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 
     // proper login
@@ -77,9 +79,8 @@ client.login(email, password, connectionName)
 
 In this example we're logging in using an Auth0 Database Connection called "Username-Password-Authentication". You can also [create your own](https://manage.auth0.com/#/connections/database/new).
 
-::: note
-There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example.
-:::
+> There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example.
+
 
 ### Using a Social connection
 
@@ -97,7 +98,7 @@ First, edit the `AndroidManifest.xml` file and include an Intent-Filter. This wi
             android:theme="@style/MyAppTheme"
             android:launchMode="singleTask">
 
-            <intent-filter android:autoVerify="true">
+            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -105,8 +106,8 @@ First, edit the `AndroidManifest.xml` file and include an Intent-Filter. This wi
 
                 <data
                     android:host="${account.namespace}"
-                    android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
-                    android:scheme="https" />
+                    android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+                    android:scheme="demo" />
             </intent-filter>
 
         </activity>
@@ -116,9 +117,9 @@ First, edit the `AndroidManifest.xml` file and include an Intent-Filter. This wi
     </application>
 ```
 
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
-It's super important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
+It's very important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
 
 Second, override the `onNewIntent` method in your activity. Here is where the result arrives. Redirect the received intent to the `WebAuthProvider#resume` method.
 
@@ -138,10 +139,14 @@ public class MyActivity extends Activity {
 
 Now perform the login by calling `WebAuthProvider#init`. If no connection name is given, the hosted Lock widget will be shown and the user may choose any of the connections enabled for your client. You can change this by calling `withConnection`. Let's do that for `Twitter`. Make sure to use a connection enabled in your client!
 
+Note that we customize the scheme to `demo` as required by the Callback URL declared in the Intent-Filter.
+
 ```java
 private void login() {
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+    auth0.setOIDCConformant(true);
     WebAuthProvider.init(auth0)
+                  .withScheme("demo")
                   .withConnection("twitter")
                   .start(MainActivity.this, new AuthCallback() {
                       @Override

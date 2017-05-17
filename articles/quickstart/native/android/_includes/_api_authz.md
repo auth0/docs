@@ -10,35 +10,34 @@ dependencies {
 }
 ```
 
-::: note
-You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0).
-:::
+_You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0)._
 
 Next, Syncronize bundle.gradle in Android Studio or run `./gradlew clean assembleDebug` from the command line.
 
-::: note
-For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
-:::
+> For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
+
 
 ## Configuration
 
 First, you need to update `AndroidManifest.xml` with the following:
 
 ```xml
-<activity android:name=".MainActivity" android:launchMode="singleTask">
+<activity android:name=".MainActivity"
+  android:launchMode="singleTask">
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
         <data
             android:host="${account.namespace}"
-            android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
-            android:scheme="https" />
+            android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+            android:scheme="demo" />
     </intent-filter>
 </activity>
 ```
 
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
+
 
 Also include following permission:
 
@@ -48,9 +47,9 @@ Also include following permission:
 
 Finally, open the Dashboard and make sure the Allowed Callback URLs for your client contains a URL with the following format:
 
-`https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback`
+`demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback`
 
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
 
 ## Initiate Authentication and Authorization
@@ -59,28 +58,24 @@ First create an instance of Auth0 with your client information:
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+account.setOIDCConformant(true);
 ```
 
-Next, you need to use the `WebAuthProvider` to initiate the authentication and authorization. You also need to define a constant like `WEB_REQ_CODE` that holds the request code (an `int`), that will be sent back with the intent once the auth is finished in the Browser:
+Next, you need to use the `WebAuthProvider` to initiate the authentication and authorization. Note that we customize the scheme to `demo` as required by the Callback URL defined also in the intent-filter.
 
 ```java
-public static final int WEB_REQ_CODE = 123;
-
 public void startAuth() {
-
-    Map<String, Object> params = new HashMap<String, Object>();
-    params.put("audience", "{YOUR_API_IDENTIFIER}");
-
     WebAuthProvider.init(account)
             .withConnection("Username-Password-Authentication")
             .withScope("openid profile {API_SCOPES}")
-            .withParameters(params)
-            .start(MainActivity.this, authCallback , WEB_REQ_CODE);
+            .withAudience("{YOUR_API_IDENTIFIER}")
+            .withScheme("demo")
+            .start(MainActivity.this, authCallback);
 }
 
 private AuthCallback authCallback = new AuthCallback() {
     @Override
-    public void onSuccess(Credentials payload) {
+    public void onSuccess(Credentials credentials) {
         // here you have access to the tokens
         // payload.getAccessToken()
         // payload.getIdToken()
@@ -88,12 +83,12 @@ private AuthCallback authCallback = new AuthCallback() {
     }
 
     @Override
-    public void onFailure(Dialog d) {
+    public void onFailure(Dialog dialog) {
         // Called when the failure reason is displayed in a android.app.Dialog
     }
 
     @Override
-    public void onFailure(AuthenticationException e) {
+    public void onFailure(AuthenticationException exception) {
         //Called with an AuthenticationException that describes the error
     }
 };
@@ -101,7 +96,7 @@ private AuthCallback authCallback = new AuthCallback() {
 
 The `audience` parameter should contain your API identifier from the Dashboard. If you don't send this, the runtime will take it from the tenant settings (`tenant.default_audience` or you can set it in the Dashboard). The `scope` parameter should include one or more scopes you defined in the Dashboard for your API, in addition to any of the standard [OpenID scopes](https://auth0.com/docs/scopes).
 
-You also need to override the `onNewIntent` method in your Activity to resume the flow once the user has finished in the WebView:
+You also need to override the `onNewIntent` method in your Activity to resume the flow once the user has finished in the Browser:
 
 ```java
 @Override
