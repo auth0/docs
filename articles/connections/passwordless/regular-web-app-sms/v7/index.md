@@ -49,7 +49,9 @@ Lock will ask for the code that has been sent to the provided number via SMS. Th
 
 Once the user enters the code received via SMS, Lock will authenticate the user and redirect to the specified `callbackURL`.
 
-**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the server-side authentication callback.
+::: note
+You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the server-side authentication callback.
+:::
 
 ### Use your own UI
 
@@ -96,4 +98,6 @@ function login(){
 
 If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor.
 
-**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
+::: note
+You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
+:::

@@ -78,7 +78,9 @@ For more information, please see:
 * [Using the CLI to Backup Appliance Instances](/appliance/cli/backing-up-the-appliance)
 * [Adding an Appliance Node to the Backup Role](/appliance/cli/adding-node-to-backup-role)
 
-**Note**: This option is available to Appliances on version **7247** or later.
+::: note
+  This option is available to Appliances on version **7247** or later.
+:::
 
 ## Combining VM Snapshots and Database Backups
 

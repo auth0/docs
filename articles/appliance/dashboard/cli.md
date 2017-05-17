@@ -5,10 +5,8 @@ description: Overview of the Appliance Dashboard CLI page
 
 # Auth0 Appliance Dashboard: CLI
 
-::: panel Appliance Dashboard Navigation
-
-For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
-
+::: note
+  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
 If your Auth0 Appliance instances requires integration with the Appliance Command Line Interface (CLI), you may add the required access keys to this page.

@@ -11,7 +11,7 @@ description: How to execute a Resource Owner Password Grant
 The Password Grant relies on a connection capable of authenticating users via username and password. In order to indicate which connection the Password Grant should use you need to set the value of the `default_directory` tenant setting.
 
 1. Open the [Dashboard](${manage_url}) and browse to your [Account Settings](${manage_url}/#/account).
-1. Scroll down to the _Settings_ section and locate the __Default Directory__ setting.
+1. Scroll down to the __Settings__ section and locate the __Default Directory__ setting.
 1. Enter the name of the connection you would like to use. Keep in mind that only connections capable of authenticating users via username and password can be used (i.e. database connections, AD, LDAP, Windows Azure AD, ADFS)
 
 ![Update Default Directory](/media/articles/api-auth/default-directory-setting.png)

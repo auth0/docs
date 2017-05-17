@@ -11,7 +11,7 @@ toc: true
 
 In this scenario we will build a web application for a fictitious company named ABC Inc. The app is meant to be used by ABC's employees and contractors. Employees will use their existing corporate directory (Active Directory), while contractors will be managed in a separate user store.
 
-::: panel NOTE
+::: note
 By _Regular Web App_, we mean an app that uses primarily server side, page `GET`, `POST`, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single Page App), that heavily relies on client side JavaScript code calling an API.
 :::
 
@@ -56,7 +56,7 @@ The solution should be available both to the employees with a physical presence 
 
 ABC decided to use Auth0 as their Identity as a Service (IDaaS) provider. The reasoning behind this decision was that the company did not want to commit resources on  training, implementation and maintenance of identity and access management. Furthermore, the company plans on building into this solution in the future, possibly adding a mobile native app and an API to push approved timesheets to their internal systems. Auth0 provides the flexibility to incorporate such changes in their architecture with minimum effort.
 
-::: panel Identity-as-Service
+::: note
 Identity-as-Service ("IDaaS") is a cloud-based service for identity and access management. The offered services often include SSO, federated identity, password management, and more.
 :::
 
@@ -64,7 +64,7 @@ Identity-as-Service ("IDaaS") is a cloud-based service for identity and access m
 
 The next decision has to do with which protocol to use, OAuth 2.0 with OpenID Connect (OIDC) or SAML.
 
-::: panel Supported identity protocols
+::: note
 Auth0 implements proven, common and popular identity protocols, both for consumer oriented web products (OAuth 2.0, OAuth 1.0, OpenID) and for enterprise deployments (SAML, WS-Federation, LDAP). You have complete freedom to use the one that best meets your business needs.
 :::
 
@@ -139,7 +139,7 @@ In this section we will review all the configurations we need to apply using the
 
 The Auth0 configuration part starts with registering the timesheets app at the Auth0 dashboard as a __client__. A client is an application making protected resource requests on behalf of the resource owner (end-user).
 
-::: panel NOTE
+::: note
 The term "client" does not imply any particular implementation characteristics. A client can be a web app, a mobile app or an SPA. In the case of ABC it is a ASP.NET Core web app.
 :::
 
@@ -209,7 +209,7 @@ There you need to create the AD / LDAP connection and install the AD Connector. 
 - [How to connect your Active Directory with Auth0](/connections/enterprise/active-directory)
 - [How to install the Active Directory/LDAP Connector](/connector)
 
-::: panel AD/LDAP Connector
+::: note
 The AD/LDAP Connector, is a bridge between your Active Directory and the Auth0 Service. This bridge is necessary because AD is typically locked down to your internal network, and Auth0 is a cloud service running on a completely different context.
 [More information](/connector/overview)
 :::
@@ -329,7 +329,7 @@ There are various ways in which you can retrieve and set the user authorization 
 
 Since in our case the company has already Active Directory set up, we will enforce access control using the Authorization Extension in combination with Active Directory groups.
 
-::: panel NOTE
+::: panel Authorization Extension
 At this point in time the authorization extension is primarily designed to enforce coarse-grained authorization, for example to control access to an application based on a user's group membership. It is not necessarily designed to control fine-grained access (i.e. whether a user can perform a specific action inside the application), even though this is how we are utilizing it in this instance.
 :::
 
@@ -386,7 +386,9 @@ When you installed the Authorization Extension, it also created an Auth0 rule wh
 
 In your application you will therefore need to decode the ID Token returned when a user is authenticated, and extract the groups which a user belongs to from the `authorization` claim. You can then store these groups, along with other user information inside the user's session, and subsequently query these to determine whether a user has permissions to perform a certain action based on their group membership.
 
-**See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#implement-admin-permissions)**.
+::: note
+  See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#implement-admin-permissions).
+:::
 
 ## Conclusion
 

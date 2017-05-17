@@ -13,13 +13,15 @@ This article is an attempt to clear what is what and explain why you should alwa
 
 ## Two complementary specifications
 
-OAuth 2.0 is used to __grant authorization__. It enables you to authorize the Web App A to access your information from Web App B, without sharing your credentials. It was built with _only_ authorization in mind and doesn't include any authentication mechanisms (in other words, it doesn't give the Authorization Server any way of verifying who the user is). 
+OAuth 2.0 is used to __grant authorization__. It enables you to authorize the Web App A to access your information from Web App B, without sharing your credentials. It was built with _only_ authorization in mind and doesn't include any authentication mechanisms (in other words, it doesn't give the Authorization Server any way of verifying who the user is).
 
 OpenID Connect builds on OAuth 2.0. It enables you, the user, to verify your identity and give some basic profile information, without sharing your credentials.
 
 An example is a to-do application which lets you log in using your Google account and can push your to-do items, as calendar entries, to your Google Calendar. The part where you authenticate your identity is implemented via OpenID Connect, while the part where you authorize the to-do application to modify your calendar by adding entries, is implemented via OAuth 2.0.
 
-> OpenID Connect is about who someone is. OAuth 2.0 is about what they are allowed to do.
+::: note
+  OpenID Connect is about who someone is. OAuth 2.0 is about what they are allowed to do.
+:::
 
 You may have noticed the _"without sharing your credentials"_ part, in our definitions of the two specifications earlier. What you do share in both cases are **tokens**.
 
@@ -89,7 +91,7 @@ For comparison, let's look at the contents of an `access_token`:
 }
 ```
 
-This token is meant for __authorizing the user to the API__. As such, it is completely opaque to clients, meaning that a client should not care about the contents of this token, decode it or depend on a particular token format. Note that the token does not contain any information about the user itself besides their ID (`sub` claim), it only contains authorization information about which actions the client is allowed to perform at the API (`scope` claim). 
+This token is meant for __authorizing the user to the API__. As such, it is completely opaque to clients, meaning that a client should not care about the contents of this token, decode it or depend on a particular token format. Note that the token does not contain any information about the user itself besides their ID (`sub` claim), it only contains authorization information about which actions the client is allowed to perform at the API (`scope` claim).
 
 Since in many cases it is desirable to retrieve additional user information at the API, this token is also valid for calling the `/userinfo` API, which will return the user's profile information. So the intented audience (`aud` claim) of the token is either the API (`my-api-identifier`) or the `/userinfo` endpoint (`https://${account.namespace}/userinfo`).
 

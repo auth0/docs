@@ -27,7 +27,9 @@ The selection of the **Signing Algorithm** will dictate how the API will validat
 
 ![Create an API](/media/articles/api-auth/apis-create.png)
 
-**NOTE:** There will already be an **Auth0 Management API** that represents Auth0's APIv2. You can authorize client applications to request tokens from this API as well.
+::: note
+  There will already be an <strong>Auth0 Management API</strong> that represents Auth0's APIv2. You can authorize client applications to request tokens from this API as well.
+:::
 
 4. (Optional) Define some scopes by browsing to the **Scopes** tab. A scope is a claim that may be issued as part of the access token. With this information, the API can enforce fine-grained authorization.
 

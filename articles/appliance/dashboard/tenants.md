@@ -5,10 +5,8 @@ description: Overview of the Appliance Dashboard Tenants page
 
 # Auth0 Appliance Dashboard: Tenants
 
-::: panel Appliance Dashboard Navigation
-
-For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
-
+::: note
+  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
 The Tenants page of the Appliance Dashboard lists all tenants associated with your Appliance instance.
@@ -47,7 +45,9 @@ To add a custom domain, click on the "Add Domain" button. You will be prompted f
 * **Upload Public Key...**: clicking this button enables you to upload the file containing your public key;
 * **Upload Private Key...**: clicking this button enables you to upload the file containing your private key.
 
-    **NOTE: The private key cannot be password protected.**
+    ::: note
+      The private key cannot be password protected
+    :::
 
 Once you have provided the required information and uploaded your certificate, click the "Add" button to save your changes and add the custom domain. You will then see a green banner appear on the Custom Domain page that says:
 

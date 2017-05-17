@@ -30,7 +30,9 @@ The **Authorization Code Grant** (defined in [RFC 6749, section 4.1](https://too
 
 1. The web app can use the `access_token` to call the API on behalf of the user.
 
-  __NOTE__: In OAuth 2.0 terms, the web app is the _Client_, the end user the _Resource Owner_, the API the _Resource Server_, the browser the _User Agent_, and Auth0 the _Authorization Server_.
+::: note
+In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+:::
 
 
 ## How to implement the flow

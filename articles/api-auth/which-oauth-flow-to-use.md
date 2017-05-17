@@ -44,7 +44,9 @@ If the Client is a Single Page Application (meaning an application running in a 
 
 If the Client is an SPA, then for more information on how this flow works and how to implement it refer to: [Implicit Grant](/api-auth/grant/implicit).
 
-**NOTE:** While SPAs cannot use refresh tokens, they can take advantage of other mechanics that provide the same function. A workaround to improve user experience is to use `prompt=none` when you invoke the `/authorize` endpoint. This will not display the login dialog or the consent dialog. In addition to that if you call `/authorize` from a hidden iframe and extract the new access token from the parent frame, then the user will not see the redirects happening.
+::: panel SPAs and Refresh Tokens
+While SPAs cannot use refresh tokens, they can take advantage of other mechanics that provide the same function. A workaround to improve user experience is to use `prompt=none` when you invoke the `/authorize` endpoint. This will not display the login dialog or the consent dialog. In addition to that if you call `/authorize` from a hidden iframe and extract the new access token from the parent frame, then the user will not see the redirects happening.
+:::
 
 If the Client is a native app then the [Authorization Code Grant using Proof Key for Code Exchange](/api-auth/grant/authorization-code-pkce) is used. What this grant adds to Authorization Code Grant, is the concept of `code_verifier`. When at first the client asks for an **Authorization Code** it generates a `code_verifier` and its transformed value called `code_challenge`. The `code_challenge` is sent along with the request. A `code_challenge_method` is also sent. Afterwards, when the client wants to exchange the Authorization Code for an access token, it also sends along the `code_verifier`. The Authorization Server transforms this and if it matches the originally sent `code challenge` it returns an access token.
 

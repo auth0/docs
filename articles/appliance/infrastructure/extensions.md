@@ -7,8 +7,8 @@ description: Appliance infrastructure information about enabling Webtasks and We
 
 Beginning with version `8986`, the Appliance supports web extensions. This is in addition to support for [Webtasks](appliance/webtasks).
 
-:::panel Extensions
-Some of the [Extensions](/extensions) available to users of the Auth0 public cloud are unavailable in the Appliance. As such, these do not appear as options in the Appliance's Dashboard.
+::: note
+  Some of the [Extensions](/extensions) available to users of the Auth0 public cloud are unavailable in the Appliance. As such, these do not appear as options in the Appliance's Dashboard.
 :::
 
 Beginning with version `10755`, the Appliance supports User Search using Elasticsearch. This allows you to use extensions that require User Search, including the [Delegated Admininstration extension](/extensions/delegated-admin)

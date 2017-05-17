@@ -6,13 +6,15 @@ crews: crew-2
 
 # Connect your app to Azure Active Directory (Classic Portal)
 
-::: panel Notice
+::: note
 This page uses the Azure Active Directory Classic Portal, for information on using the current portal, [click here.](/connections/enterprise/azure-active-directory)
 :::
 
 To allow users to login using a Microsoft Azure Active Directory account, you must register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can [signup](http://www.windowsazure.com/en-us/pricing/free-trial) for free.
 
-**NOTE:** There is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.
+::: note
+There is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.
+:::
 
 This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
@@ -49,7 +51,9 @@ Proceed to the next screen and enter the following:
 * **SIGN-ON URL**: your application URL
 * **APP ID URI**: https://**${account.tenant}**.onmicrosoft.com/yourapp
 
-**NOTE:** The **APP ID URI** is just a logical identifier, not a real URL. It is important to use the value as specified above in the **APP ID URI** field. For example, if the Microsoft Azure AD you've just created is **myorg.onmicrosoft.com**, you would enter https://**myorg.onmicrosoft.com***/yourapp* here.
+::: note
+The **APP ID URI** is just a logical identifier, not a real URL. It is important to use the value as specified above in the **APP ID URI** field. For example, if the Microsoft Azure AD you've just created is **myorg.onmicrosoft.com**, you would enter https://**myorg.onmicrosoft.com***/yourapp* here.
+:::
 
 ![](/media/articles/connections/enterprise/azure-active-directory/waad-5.png)
 
@@ -68,7 +72,9 @@ The next step is to modify permissions so your app can read the directory. Selec
 
 ![](/media/articles/connections/enterprise/azure-active-directory/waad-8b.png)
 
-**NOTE:** If you want to enable extended attributes (like *Extended Profile* or *Security Groups*) you will also need to enable the following permissions: **Application Permissions:** *Read directory data*, **Delegated Permissions:** *Access your organization's directory*.
+::: note
+If you want to enable extended attributes (like *Extended Profile* or *Security Groups*) you will also need to enable the following permissions: **Application Permissions:** *Read directory data*, **Delegated Permissions:** *Access your organization's directory*.
+:::
 
 Click **SAVE** at the bottom of the screen and the key will be displayed. Make sure to copy the value of this key before leaving this screen.
 

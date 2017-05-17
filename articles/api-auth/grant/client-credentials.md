@@ -24,7 +24,9 @@ With **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://to
 
 1. The application can use the `access_token` to call the API on behalf of itself.
 
-  __NOTE__: In OAuth 2.0 terms, the non interactive app is the _Client_, the end user the _Resource Owner_, the API the _Resource Server_, the browser the _User Agent_, and Auth0 the _Authorization Server_.
+::: note
+In OAuth 2.0 terms, the non interactive app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+:::
 
 ## How to implement the flow
 

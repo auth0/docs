@@ -16,9 +16,11 @@ you may avoid the integration trouble.
 Below is an outline of the steps to get ready to accept Swedish BankID logins, but you may also view
 [a short screen cast](https://grean.com/easyid/auth0/2016/12/07/easyid-and-auth0.html) at Grean's website.
 
-**NOTE:** While the technical integration complexity is simple, to use Swedish BankID in production you will have to go through a formal process to
+::: panel Process to use Swedish BankID in Production
+While the technical integration complexity is simple, to use Swedish BankID in production you will have to go through a formal process to
 register and obtain the necessary certificate to identify yourself to your users.
-More on this proceess can be found once you sign into the easyID service, and with the help of Grean.
+More on this process can be found once you sign into the easyID service, and with the help of Grean.
+:::
 
 ## 1. Create an account with Grean easyID
 
@@ -53,7 +55,9 @@ If you are not already logged in to Auth0 in this session, you will be prompted 
 
 Once logged in you must grant Grean easyID consent to create connections and read the clients.
 
-**Note:** If you have more than one Auth0 tenant, remember to select the right one. in the dialog.
+::: note
+If you have more than one Auth0 tenant, remember to select the right one. in the dialog.
+:::
 
 ![Auth0 connections details](/media/articles/connections/grean/auth0-consent.png)
 
@@ -64,8 +68,10 @@ Click the check mark in the green area at the bottom to allow Grean easyID to se
 Go to the **Connections > Enterprise** section and open the **ADFS** connections to see the connections for
 Swedish BankID created from the previous steps.
 
-**Note:** One connection has been created for each kind of authentication supported by Swedish BankID:
+::: note
+One connection has been created for each kind of authentication supported by Swedish BankID:
 Native BankID application or mobile app. Both applications must be installed prior to BankID authentication.
+:::
 
 ![ADFS connections created](/media/articles/connections/grean/adfs-connections-se.png)
 
@@ -74,16 +80,18 @@ on easyID.
 
 ## 6. Create your test users
 
-With the above setup you will be ready to start testing. But first you must create one or more test users here:
-[demo.bankid.com/](https://demo.bankid.com/). If you don't already have a test or real BankID, go to the section
-namd **Log in with a personal code**.
+With the above setup you will be ready to start testing. But first you must create one or more test users here: [demo.bankid.com/](https://demo.bankid.com/). If you don't already have a test or real BankID, go to the section named **Log in with a personal code**.
 
 ## 7. Enable production use
 
 To start accepting real BankID logins from real legal persons, you must first enter into a formal agreement with a Swedish Bank,
 possibly through Grean, or directly with you bank.
 
-Once this agreement is in place you will receive a certificate to upload to Grean easyID. Go to the **IDENTITY SERVICES** tab
-and open the **SE BankID** section. This is where you will upload your organization's BankID certificate.
+Once this agreement is in place you will receive a certificate to upload to Grean easyID.
+
+Go to the **IDENTITY SERVICES** tab
+and open the **SE BankID** section.
+
+This is where you will upload your organization's BankID certificate.
 
 ![Identity Service production](/media/articles/connections/grean/se-bankid-prod.png)

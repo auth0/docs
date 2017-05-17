@@ -5,10 +5,8 @@ description: Overview of the Appliance Dashboard Troubleshoot page
 
 # Auth0 Appliance Dashboard: Troubleshoot
 
-::: panel Appliance Dashboard Navigation
-
-For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
-
+::: note
+  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
 The Troubleshoot page of the Appliance Dashboard provides you with tools to help diagnose any issues that might occur.

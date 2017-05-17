@@ -198,7 +198,9 @@ Also, keep in mind that Third Party Developers are not allowed to modify the cli
 
 Now that you have a client ID and secret, you can configure your application to authenticate users with Auth0.
 
-**NOTE**: We will go through a simple scenario, that showcases how to call an API from a client-side web app, using the [Implicit Grant](/api-auth/tutorials/implicit-grant). For a list of tutorials on how to authenticate and authorize users, based on your application type, refer to [API Authorization](/api-auth).
+::: note
+  We will go through a simple scenario, that showcases how to call an API from a client-side web app, using the <a href="/api-auth/tutorials/implicit-grant">Implicit Grant</a>. For a list of tutorials on how to authenticate and authorize users, based on your application type, refer to <a href="/api-auth">API Authorization</a>.
+:::
 
 First, you need to configure your application to send the user to the authorization URL:
 

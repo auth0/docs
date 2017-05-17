@@ -1,6 +1,6 @@
 ---
 title: Authentication for Client-side Web Apps
-description: Explains how to authenticate users in a Client-side Web application. 
+description: Explains how to authenticate users in a Client-side Web application.
 toc: true
 ---
 
@@ -39,7 +39,7 @@ The **Create Client** window will open, allowing you to enter the name of your n
 
 ![](/media/articles/client-auth/client-side-web/create-client.png)
 
-Once the client has been created you can navigate to the **Settings** tab of the client and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, e.g. `https://YOUR_APP/callback`. 
+Once the client has been created you can navigate to the **Settings** tab of the client and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, e.g. `https://YOUR_APP/callback`.
 
 This URL must be part of your application, as your application will need to extract the `id_token` from the hash fragment of this URL. Save the Settings.
 
@@ -134,7 +134,7 @@ The payload above contains the following claims:
 
 The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an `id_token` issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
 
-::: panel Debugging a JWT
+::: note
 The [JWT.io website](https://jwt.io) has a handy debugger which will allow you to debug any JSON Web Token. This is useful is you quickly want to decode a JWT to see the information contained in the token.
 :::
 
@@ -148,7 +148,7 @@ You can then use those claims inside of your application to display the user's i
 
 ### A Basic Authentication Request
 
-The following is the most basic request you can make to the `/authorize` endpoint. It will display the Lock screen and allow a user to sign in with any of the configured connections. 
+The following is the most basic request you can make to the `/authorize` endpoint. It will display the Lock screen and allow a user to sign in with any of the configured connections.
 
 ```text
 https://${account.namespace}/authorize
@@ -179,7 +179,7 @@ And this is an example of the decoded payload of the `id_token` which will be re
 
 ### Request the Name and Profile Picture
 
-You can request a user's name and profile picture by requesting the `name` and `picture` scopes. 
+You can request a user's name and profile picture by requesting the `name` and `picture` scopes.
 
 ```text
 https://${account.namespace}/authorize

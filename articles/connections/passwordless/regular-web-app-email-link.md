@@ -43,7 +43,9 @@ This will open a dialog that asks the user for their email address.
 
 Then Auth0 will send an email to the user containing the magic link. After clicking the link, the user will be signed in to your application automatically and redirected to the specified `callbackURL`.
 
-**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
+::: note
+You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
+:::
 
 ### Use your own UI
 
@@ -78,4 +80,6 @@ This will send an email containing the magic link.
 
 After clicking the link, the user will be automatically signed in to your application and redirected to the `callbackURL` specified in the Auth0 constructor.
 
-**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
+::: note
+You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
+:::

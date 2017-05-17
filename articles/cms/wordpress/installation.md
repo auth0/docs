@@ -6,7 +6,9 @@ description: Explains how to install the Auth0 WordPress plugin.
 
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/wordpress-plugin-banner.png)
 
-**Note:** In order to install or customize plugins, you will need to use a self-hosted WordPress.org site. Using the WordPress.com site does not allow installing plugins.
+::: note
+In order to install or customize plugins, you will need to use a self-hosted WordPress.org site. Using the WordPress.com site does not allow installing plugins.
+:::
 
 There are two ways to install the Login by Auth0 WordPress plugin:
 

@@ -45,7 +45,9 @@ The following example uses _"My Sample API"_ as the name and _"https://my-api-ur
 }
 ```
 
-**NOTE:** You can include multiple scopes. This array represents the universe of scopes your API will support. You can modify this later by issuing a `PATCH` operation.
+::: note
+  You can include multiple scopes. This array represents the universe of scopes your API will support. You can modify this later by issuing a <code>PATCH</code> operation.
+:::
 
 Sample response:
 

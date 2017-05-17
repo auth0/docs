@@ -47,7 +47,9 @@ Lock will ask for the code that has been emailed to the provided address. The co
 
 Once the user enters the code received by email, Lock will authenticate the user and redirect to the specified `callbackURL`.
 
-**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the server-side authentication callback. A sample application is available in the [Node.js Passwordless Authentication repository](https://github.com/auth0/auth0-node-passwordless-sample) on GitHub.
+::: note
+You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the server-side authentication callback. A sample application is available in the [Node.js Passwordless Authentication repository](https://github.com/auth0/auth0-node-passwordless-sample) on GitHub.
+:::
 
 ### Use your own UI
 
@@ -88,7 +90,7 @@ This will send an email to the provided address. The user must now enter the cod
 function login(){
   var email = $('input.email').val();
   var code = $('input.code').val();
-  
+
   webAuth.passwordlessVerify({
     connection: 'email',
     email: email,
@@ -103,6 +105,8 @@ function login(){
 
 If authentication is successful, the user will be redirected to the `redirectUri` specified in the Auth0 constructor.
 
-**NOTE:** You can follow up with any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
+::: note
+You can follow up with any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
+:::
 
 Check out the [Auth0.js SDK reference documentation](/libraries/auth0js) for more information.

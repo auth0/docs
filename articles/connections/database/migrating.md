@@ -7,7 +7,7 @@ crews: crew-2
 
 Auth0 supports automatic migration of users from a Custom Database Connection to Auth0. By activating this feature, your users are moved to Auth0 the first time they log in after you set up the integration. Your users are not asked to reset their password as a result of the migration.
 
-::: panel Notice
+::: panel Feature availability
 Only **Enterprise** subscription plans include the user migration feature.
 
 Only **Developer Pro** and **Enterprise** subscription plans include the ability to connect to an existing store or database via JavaScript running on Auth0's servers for every authentication request.
@@ -27,7 +27,9 @@ Auth0 authenticates migrated users against the Auth0 database. If the user has n
 
 New users are automatically added to the Auth0 database..
 
-**NOTE:** Auth0 can only assist users in the Auth0 database with password reset.
+::: note
+Auth0 can only assist users in the Auth0 database with password reset.
+:::
 
 ## Enable Automatic Migration
 

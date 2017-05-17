@@ -28,7 +28,9 @@ GET https://${account.namespace}/authorize
     prompt=none
 ```
 
-__NOTE__: The specific parameters on the authentication request will depend on what kind of application is authenticating ([regular web application](/api/authentication#authorization-code-grant), [single page app](/api/authentication#implicit-grant), and so forth).
+::: note
+  The specific parameters on the authentication request will depend on what kind of application is authenticating (<a href="/api/authentication#authorization-code-grant">regular web application</a>, <a href="/api/authentication#implicit-grant">single page app</a>), and so forth).
+:::
 
 The `prompt=none` parameter will cause Auth0 to immediately redirect to the specified `redirect_uri` (callback URL) with two possible responses:
 

@@ -44,7 +44,9 @@ Click **Save**. You are done on the Auth0 side. Click the button on the next pag
 
 ![](/media/articles/connections/enterprise/active-directory/ldap-create-3.png)
 
-**Note:** We ship different versions of the connector to install on Windows or Linux platforms.
+::: note
+We ship different versions of the connector to install on Windows or Linux platforms.
+:::
 
 Keep the **TICKET URL** on hand as you will need it later.
 

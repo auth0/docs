@@ -48,8 +48,8 @@ If you're working with a newly-created Connection, you won't have any users asso
 
 Log in to your Auth0 Dashboard, and navigate to the APIs section.
 
-::: panel Auth0 APIs
-Please see [APIs](/apis) for detailed information on working with APIs in the Dashboard.
+::: note
+  For detailed information on working with APIs in the <a href="${manage_url}">Dashboard</a>, refer to <a href="/apis">APIs</a>.
 :::
 
 Click **Create API**.
