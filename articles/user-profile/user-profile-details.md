@@ -49,15 +49,16 @@ The User Profile object then has two **metadata** sub-objects, one called `user_
 ::: panel Metadata Data Limits
 Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties.
 
-In addition, please be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store. 
+In addition, please be aware that using Rules and/or the Management Dashboard may further limit the amount of metadata you can store.
 :::
 
 ::: warning
 Please note that an authenticated user can modify data in their profile's `user_metadata`, but they can't modify anything in their `app_metadata`.
 :::
 
-
-> Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
+::: note
+Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
+:::
 
 Lastly, there is a section called `Identity Provider Attributes`. Here you will find all the information retrieved from the authentication provider (e.g. Facebook, Twitter, Google, SAML, your own provider, etc.). This section will always contain at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
 
@@ -119,7 +120,7 @@ The User Profile can also be modified through the Auth0 Management Dashboard. Th
 
 In the Auth0 dashboard, click on "Users", then the user to be edited, then "EDIT". The User Profile attributes within USER metadata and APP metadata can be edited by specifying profile data in JSON format with a key (attribute name) and value (value of the attribute). Pressing "SAVE" will save the information to the Auth0 cache of User Profile information for the user where it will be visible by client applications integrated with Auth0. This "SAVE" will not alter information in the core user profile which is provided by the Connection.
 
-::: panel Pending Users
+::: note
 The User Details page will show “pending” when a user is first created until they have logged in for the first time.
 :::
 
@@ -127,14 +128,18 @@ The User Details page will show “pending” when a user is first created until
 
 The Auth0 Management API provides access to read, update, and delete User Profiles stored in the Auth0 database.
 
-> You can setup Access Control List (ACL)/Roles functionality by adding custom attributes to the user profile. We actually have a [sample](https://github.com/auth0-samples/auth0-roles-permissions-dashboard-sample), that you can use a guide.
+::: note
+You can setup Access Control List (ACL)/Roles functionality by adding custom attributes to the user profile. We actually have a [sample](https://github.com/auth0-samples/auth0-roles-permissions-dashboard-sample), that you can use a guide.
+:::
 
 #### Limitations
 As with the dashboard, the API does not alter data sourced from Connections such as Facebook or Active Directory.
 
 Not all User Profile attributes can be altered via the API. For example, the identities array, which contains information from 3rd party authentication providers, cannot be altered.
 
-> You may not be able to alter the identities array information, but there are some workarounds you could use. For example, let's say you want to modify the picture that is coming from the user's Facebook profile. You cannot change the attribute in the `Identity Provider Attributes` section, so instead you need to set the `picture` attribute in the `user_metadata` property and then in your application you could use `${'<%= user.user_metadata.picture || user.picture %>'}`. This code snippet tries to use the `picture` property from `user_metadata` and if it doesn't exist it uses the default (`user.picture`). You could set this as the `src` of the image to display.
+::: panel Modify identities array
+You may not be able to alter the identities array information, but there are some workarounds you could use. For example, let's say you want to modify the picture that is coming from the user's Facebook profile. You cannot change the attribute in the `Identity Provider Attributes` section, so instead you need to set the `picture` attribute in the `user_metadata` property and then in your application you could use `${'<%= user.user_metadata.picture || user.picture %>'}`. This code snippet tries to use the `picture` property from `user_metadata` and if it doesn't exist it uses the default (`user.picture`). You could set this as the `src` of the image to display.
+:::
 
 Another example is that the password can be set via the create or update call, but for security purposes, it cannot be viewed via the get or list user commands. The right side of the API explorer provides hints on the User Profile attributes which can be viewed or modified for any given call.
 

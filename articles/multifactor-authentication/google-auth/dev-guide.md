@@ -4,7 +4,7 @@ description:  Using Google Authenticator with Auth0 for developers
 
 # Google Authenticator for Developers
 
-::: panel Note:
+::: note
 This page refers to using Google Authenticator instead of Auth0 Guardian. Google Authenticator can also be used with Guardian (your users choose which to use) when **Push Notifications** is enabled. [Click here for more information on Guardian.](/multifactor-authentication/guardian)
 :::
 
@@ -48,10 +48,8 @@ function (user, context, callback) {
 
 When you have finished editing the code snippet based on the requirements of your app, click **Save**.
 
-::: panel Note
-At this time Google Authenticator does not allow any customizations to the look and feel of the Google Authenticator screens.
-
-For other customization options [see Auth0 Guardian](/multifactor-authentication/administrator#customization).
+::: panel Screen customization
+At this time Google Authenticator does not allow any customizations to the look and feel of the Google Authenticator screens. For other customization options [see Auth0 Guardian](/multifactor-authentication/administrator#customization).
 :::
 
 ### Configuring Google Authenticator for Select Users

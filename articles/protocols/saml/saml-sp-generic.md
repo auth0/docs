@@ -106,16 +106,16 @@ The Identity Provider will need to know where to send the SAML assertions after 
 If the Identity Provider has a field called "Audience" or "Entity ID", you should enter into that field the **Entity ID** from Auth0:
 
 
-```
-    "audience":"urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME"
+```text
+"audience":"urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME"
 ```
 
 If the Identity Provider provides a choice for bindings, you should select **HTTP-Redirect** for Authentication Requests.
 
 The **Single Logout Service URL**, where SAML logout requests and/or responses from the Identity Provider must be sent, should be configured as:
 
-```
-    https://${account.namespace}/logout
+```text
+https://${account.namespace}/logout
 ```
 
 **Signing Logout Requests**: When configuring the Identity Provider, make sure that SAML Logout Requests sent to the Service Provider are signed.
@@ -123,8 +123,6 @@ The **Single Logout Service URL**, where SAML logout requests and/or responses f
 ## 4. Test the connection from Service Provider to Identity Provider
 
 In this section, you will test to make sure the SAML configuration between Auth0, the Service Provider, and the remote SAML Identity Provider is working.
-
-
 
 * In the **Auth0 dashboard**, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
 
@@ -139,14 +137,16 @@ This means the SAML connection from Auth0 Service Provider to Identity Provider 
 
 If it didn't work, double check the above steps and then consult the **troubleshooting** section at the end of this document.
 
-> NOTE: the **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
+::: note
+The **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
+:::
 
 Here is a sample of the **"It Works"** screen:
 
 ![](/media/articles/saml/saml-sp-generic/saml-auth0-9.png)
 
 
-## 5. Troubleshooting.
+## 5. Troubleshooting
 
 This section has a few ideas for things to check if your sample doesn't work.
 

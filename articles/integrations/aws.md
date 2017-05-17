@@ -152,6 +152,7 @@ Custom DB users should implement a similar username length policy in their appli
 
 Here is an example of an IAM policy:
 
+```
     {
       "Version": "2012-10-17",
       "Statement": [
@@ -169,8 +170,9 @@ Here is an example of an IAM policy:
           }
       ]
     }
+```
 
-This is a *dynamic* policy that gives access to a folder in a bucket. The folder name will be set based on an attribute of the digitally signed SAML token that Auth0 exchanges with AWS on your behalf (**Step 3** in the graphic).
+This is a dynamic policy that gives access to a folder in a bucket. The folder name will be set based on an attribute of the digitally signed SAML token that Auth0 exchanges with AWS on your behalf (**Step 3** in the graphic).
 
 The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated user (`sub` means `subject`, and is equal to the user identifier). This means that the *original* identity of the user can be used throughout the system (in your app, S3, etc.).
 
@@ -245,7 +247,9 @@ But [other mappings are available in AWS](http://docs.aws.amazon.com/IAM/latest/
 
 The example above assumes the `user` object contains an `awsGroup` property with the expected value.
 
-**NOTE:** Copy the Provider ARN, and use this as the Principal ARN when obtaining the delegation token.
+::: note
+Copy the Provider ARN, and use this as the Principal ARN when obtaining the delegation token.
+:::
 
 The result of calling the delegation endpoint will contain the AWS token in the `Credentials` field. i.e.:
 
@@ -303,4 +307,6 @@ Here is an example of client-side code used to obtain the token:
 </script>
 ```
 
-> Checkout a complete sample for S3 on GitHub: [https://github.com/auth0/auth0-s3-sample](https://github.com/auth0/auth0-s3-sample).
+::: note
+Checkout a complete sample for S3 on GitHub: [https://github.com/auth0/auth0-s3-sample](https://github.com/auth0/auth0-s3-sample).
+:::

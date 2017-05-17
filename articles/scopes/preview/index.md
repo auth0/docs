@@ -46,7 +46,9 @@ https://${account.namespace}/authorize?
   state=YOUR_OPAQUE_VALUE
 ```
 
-__NOTE__: For details on the params and how to implement this flow refer to [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant).
+::: note
+For details on the params and how to implement this flow refer to [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant).
+:::
 
 Notice that we included three values at the `scope` param: `openid`, `profile` (to get `name`, `nickname` and `picture`) and email (to get the `email` claim).
 

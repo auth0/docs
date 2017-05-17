@@ -11,8 +11,8 @@ Auth0 shows a login page whenever something (or someone) triggers an authenticat
 
 You can customize this login page to suit your needs. You can change its colors, display fewer/more fields, and so on.
 
-:::panel Connections Using External Identity Providers
-If the authentication request includes a specifiction Connection that uses an external identity provider, the hosted login page may not display. Instead, Auth0 directs the user to the identity provider's login page.
+::: note
+If the authentication request includes a Connection that uses an external identity provider, the hosted login page may not display. Instead, Auth0 directs the user to the identity provider's login page.
 :::
 
 ## Enable Hosted Login Page

@@ -88,7 +88,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-> If you need further help with the Facebook SDK setup, please check Facebook's [Getting Started Guide](https://developers.facebook.com/docs/android/getting-started).
+::: note
+If you need further help with the Facebook SDK setup, please check Facebook's [Getting Started Guide](https://developers.facebook.com/docs/android/getting-started).
+:::
 
 ## Usage with Lock
 
@@ -192,7 +194,7 @@ keytool -exportcert -alias androiddebugkey -keystore <PATH_TO_YOUR_KEYSTORE> -st
 
 Sample output:
 
-```
+```text
 SHA1: BB:0D:AC:74:D3:21:E1:43:07:71:9B:62:90:AF:A1:66:6E:44:5D:75
 SHA256: 15:B9:F9:33:9F:E4:E3:68:C2:10:49:17:5D:A8:77:12:7C:8E:57:E9:FF:B7:23:EA:CC:DD:56:08:06:C9:5E:33
 ```

@@ -23,7 +23,9 @@ dependencies {
 }
 ```
 
-_You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0)._
+::: note
+You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0).
+:::
 
 After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
@@ -141,8 +143,8 @@ authentication
     });
 ```
 
-::: panel Scope
-Note that the default scope used is `openid`
+::: note
+Note that the default scope used is `openid`.
 :::
 
 ### Sign up with database connection
@@ -206,8 +208,8 @@ authentication
   });
 ```
 
-::: panel Request Failures
-Note that password reset requests will fail on network related errors, but will not fail if the designated email does not exist in the database (for security reasons).
+::: note
+Password reset requests will fail on network related errors, but will not fail if the designated email does not exist in the database (for security reasons).
 :::
 
 ## Using the Management API
@@ -263,8 +265,8 @@ users
     });
 ```
 
-::: panel Unlinking - Metadata
-Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
+::: note
+When accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
 :::
 
 ### Updating user metadata

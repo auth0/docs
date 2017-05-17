@@ -226,7 +226,9 @@ The user's unique identifier is their [user_id](/user-profile/normalized#storing
 
 The Node.js backend authenticates requests to the URI associated with getting the user’s personal data from the database by validating a JSON Web Token.
 
->[Learn about token-based authentication and how to implement JWT in your Clients.](/jwt)
+::: note
+[Learn about token-based authentication and how to implement JWT in your Clients.](/jwt)
+:::
 
 Here is the code implementing JWT validation from the [Node.js seed project](/quickstart/backend/nodejs):
 
@@ -262,7 +264,9 @@ We can add functionality to handle different data requests from our Client. For 
     }
 ```
 
-> The function `buildAPIRequest()` takes the path and HTTP method of the request as parameters and builds a request using the base URL of our Node.js API that's hosted on Heroku.
+::: note
+The function `buildAPIRequest()` takes the path and HTTP method of the request as parameters and builds a request using the base URL of our Node.js API that's hosted on Heroku.
+:::
 
 In the Client, the `getGenre()` function makes a request to the API and changes the app's interface to display the request response to `/genres/getFav`. The backend retrieves the required data for this action using the `queryGenre()` function and returns the results to the Client:
 

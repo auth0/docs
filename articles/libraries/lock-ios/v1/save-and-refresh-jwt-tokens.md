@@ -11,7 +11,9 @@ credentials again.
 
 <%= include('../_includes/_lock-version-1') %>
 
-> We are using [SimpleKeychain](https://github.com/auth0/SimpleKeychain) to handle iOS Keychain access.
+::: note
+We are using [SimpleKeychain](https://github.com/auth0/SimpleKeychain) to handle iOS Keychain access.
+:::
 
 First thing we need to do is store the `id_token` and `refresh_token` in the iOS Keychain after a successful authentication.
 

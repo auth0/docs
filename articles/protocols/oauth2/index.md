@@ -20,7 +20,8 @@ By default, Auth0 generates access tokens, for [API Authorization scenarios](/ap
  - The payload contains a set of claims, which are statements about the permissions that should be allowed, and other information like the intended audience and the expiration time.
  - The signature is used to validate that the token is trustworthy and has not been tampered with.
 
- **NOTE**: Auth0 also generates opaque access tokens for the (deprecated) [Management API v1](/api/management/v1).
+::: note
+Auth0 also generates opaque access tokens for the (deprecated) [Management API v1](/api/management/v1).
 :::
 
 The permissions represented by the access token, in OAuth 2.0 terms are known as **scopes**. When a client authenticates with Auth0, it specifies the scopes it wants. If those scopes are authorized by the user, then the access token will represent these authorized scopes.

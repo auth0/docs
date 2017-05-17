@@ -2,12 +2,12 @@
 description: Info page on the Auth0 Login widget which has been deprecated.
 ---
 
+# Auth0 Login Widget
+
 ::: warning
 This version of the login widget has been **deprecated**.
 Please use the [new version](/libraries/lock) instead.
 :::
-
-# Auth0 Login Widget
 
 The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't have to worry about:
 
@@ -26,30 +26,34 @@ Add the script tag to your page to get started with __Auth0 Login Widget__.
 
 You can handle the authorization process client-side as follows:
 
-    <script type="text/javascript">
-        var widget = new Auth0Widget({
-            domain:                 '${account.namespace}',
-            clientID:               '${account.clientId}',
-            callbackURL:            '${account.callback}',
-            callbackOnLocationHash: true
+```js
+<script type="text/javascript">
+    var widget = new Auth0Widget({
+        domain:                 '${account.namespace}',
+        clientID:               '${account.clientId}',
+        callbackURL:            '${account.callback}',
+        callbackOnLocationHash: true
+    });
+
+    var result = widget.parseHash(location.hash);
+    if (result && result.id_token) {
+        auth0.getProfile(result.id_token, function (err, profile) {
+          window.location.hash = "";
+          if (err) {
+            return alert('error fetching profile: ' + JSON.stringify(err));
+          }
+          // store result.id_token and profile in local storage or cookie
+
         });
+    }
 
-        var result = widget.parseHash(location.hash);
-        if (result && result.id_token) {
-            auth0.getProfile(result.id_token, function (err, profile) {
-              window.location.hash = "";
-              if (err) {
-                return alert('error fetching profile: ' + JSON.stringify(err));
-              }
-              // store result.id_token and profile in local storage or cookie
+    widget.signin();
+</script>
+```
 
-            });
-        }
-
-        widget.signin();
-    </script>
-
-> When `callbackOnLocationHash: true` is specified, Auth0 will send the response back as a redirect to your site passing the tokens after the hash sign: `${account.callback}#access_token=...&id_token=...`.
+::: note
+When `callbackOnLocationHash: true` is specified, Auth0 will send the response back as a redirect to your site passing the tokens after the hash sign: `${account.callback}#access_token=...&id_token=...`.
+:::
 
 ## Customizing the Widget
 
@@ -67,27 +71,33 @@ The Widget can be customized through the `options` parameter sent to the `signin
 * __userPwdConnectionName__: Specify which Database/AD-LDAP connection should be used with the Email/Password fields. Default: the first Database connection found (if it exists) or the first AD-LDAP connection found.
 * __username_style__: Specify the format of the username. Options: `email` or `username`.
 
-> Is there an option that you think would be useful? Just <a href="https://github.com/auth0/widget/issues">open an issue on GitHub</a> and we'll look into adding it.
+::: note
+Is there an option that you think would be useful? Just <a href="https://github.com/auth0/widget/issues">open an issue on GitHub</a> and we'll look into adding it.
+:::
 
 This example shows how to work with only specified connections and display the labels in Spanish:
 
-    var widget = new Auth0Widget({
-        domain:         '${account.namespace}',
-        clientID:       '${account.clientId}',
-        callbackURL:    '${account.callback}',
-        dict:           'es'
-    });
+```js
+var widget = new Auth0Widget({
+    domain:         '${account.namespace}',
+    clientID:       '${account.clientId}',
+    callbackURL:    '${account.callback}',
+    dict:           'es'
+});
 
-    widget.signin({
-        connections:    ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication'],
-        icon:           'https://contoso.com/logo-32.png',
-        showIcon:       true
-    },
-    function () {
-      // The Auth0 Widget is now loaded.
-    });
+widget.signin({
+    connections:    ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication'],
+    icon:           'https://contoso.com/logo-32.png',
+    showIcon:       true
+},
+function () {
+  // The Auth0 Widget is now loaded.
+});
+```
 
-> `dict` constructor parameter is a string matching the language (`'en'`, `'es'`, `'it'`, <a href="https://github.com/auth0/widget/tree/master/i18n">etc.</a>) or object containing all your customized text labels.
+::: note
+`dict` constructor parameter is a string matching the language (`'en'`, `'es'`, `'it'`, <a href="https://github.com/auth0/widget/tree/master/i18n">etc.</a>) or object containing all your customized text labels.
+:::
 
 Resulting in:
 
@@ -97,23 +107,29 @@ Resulting in:
 
 You can send extra parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo`.
 
-    widget.signin({
-        // ... other options ...
-        state: 'foo'
-    });
+```js
+widget.signin({
+    // ... other options ...
+    state: 'foo'
+});
+```
 
 The following parameters are supported: `access_token`, `protocol`, `request_id`, `scope`, `state` and `connection_scopes`.
 
 There are other extra parameters that will depend on the provider. For example, Google allows you to get back a `refresh_token` only if you explicitly ask for `access_type=offline`. We support sending arbitrary parameters like this:
 
-    widget.signin({
-        // ... other options ...
-        extraParameters: {
-            access_type: 'offline'
-        }
-    });
+```js
+widget.signin({
+    // ... other options ...
+    extraParameters: {
+        access_type: 'offline'
+    }
+});
+```
 
-> Note: this would be analogous to trigger the login with `https://${account.namespace}/authorize?state=foo&access_type=offline&...`.
+::: note
+This would be analogous to trigger the login with `https://${account.namespace}/authorize?state=foo&access_type=offline&...`.
+:::
 
 ### Scope
 
@@ -130,24 +146,30 @@ The `connection_scopes` parameter allows for dynamically specifying scopes on an
 
 The object keys must be the names of the connections and the values must be arrays containing the scopes to request to append to the dashboard specified scopes. An example is shown below:
 
-    widget.signin({
-      connections: ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication', 'fabrikam.com'],
-      connection_scopes: {
-        'facebook': ['public_profile', 'user_friends'],
-        'google-oauth2': ['https://www.googleapis.com/auth/orkut'],
-        // none for twitter
-      }
-    }
+```js
+widget.signin({
+  connections: ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication', 'fabrikam.com'],
+  connection_scopes: {
+    'facebook': ['public_profile', 'user_friends'],
+    'google-oauth2': ['https://www.googleapis.com/auth/orkut'],
+    // none for twitter
+  }
+}
+```
 
-> The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.
+::: note
+The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.
+:::
 
 ## Signup and Reset
 
 It is also possible to start the widget in the **Sign Up** mode or **Reset Password** mode as follows:
 
-    widget.signup(/* [same as the .signin method] */);
-    // or
-    widget.reset(/* [same as the .signin method] */);
+```js
+widget.signup(/* [same as the .signin method] */);
+// or
+widget.reset(/* [same as the .signin method] */);
+```
 
 ## Anatomy of the Auth0 Login Widget
 
@@ -170,29 +192,31 @@ You can apply your own style to the elements. All classes and ids are prefixed w
 
 You can also customize the error messages that will be displayed on certain situations:
 
-    var widget = new Auth0Widget({
-        // ... other parameters ...
-        dict: {
-            loadingTitle:   'loading...',
-            close:          'close',
-            signin: {
-                wrongEmailPasswordErrorText: 'Custom error message for invalid user/pass.',
-                serverErrorText: 'There was an error processing the sign in.',
-                strategyEmailInvalid: 'The email is invalid.',
-                strategyDomainInvalid: 'The domain {domain} has not been setup.'
-            },
-            signup: {
-                serverErrorText: 'There was an error processing the sign up.',
-                enterpriseEmailWarningText: 'This domain {domain} has been configured for Single Sign On and you can\'t create an account. Try signing in instead.'
-            },
-            reset: {
-                serverErrorText: 'There was an error processing the reset password.'
-            }
-            // wrongEmailPasswordErrorText, serverErrorText, enterpriseEmailWarningText are used only if you have a Database connection
-            // strategyEmailInvalid is shown if the email is not valid
-            // strategyDomainInvalid is shown if the email does not have a matching enterprise connection
+```js
+var widget = new Auth0Widget({
+    // ... other parameters ...
+    dict: {
+        loadingTitle:   'loading...',
+        close:          'close',
+        signin: {
+            wrongEmailPasswordErrorText: 'Custom error message for invalid user/pass.',
+            serverErrorText: 'There was an error processing the sign in.',
+            strategyEmailInvalid: 'The email is invalid.',
+            strategyDomainInvalid: 'The domain {domain} has not been setup.'
+        },
+        signup: {
+            serverErrorText: 'There was an error processing the sign up.',
+            enterpriseEmailWarningText: 'This domain {domain} has been configured for Single Sign On and you can\'t create an account. Try signing in instead.'
+        },
+        reset: {
+            serverErrorText: 'There was an error processing the reset password.'
         }
-    });
+        // wrongEmailPasswordErrorText, serverErrorText, enterpriseEmailWarningText are used only if you have a Database connection
+        // strategyEmailInvalid is shown if the email is not valid
+        // strategyDomainInvalid is shown if the email does not have a matching enterprise connection
+    }
+});
+```
 
 These errors will be shown on the widget header:
 

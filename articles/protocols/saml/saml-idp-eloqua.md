@@ -75,7 +75,7 @@ Edit the newly added identity provider and complete the following steps:
 
 We will now use the **Service Provider Entity URL** copied from within the IDP settings in Eloqua to set the `audience` restriction within Auth0.
 
-Navigate to *Dashboard > Clients > select your client > Addons > SAML2 Web App > Settings* and set the `audience` to the value you copied.
+Navigate to __Dashboard > Clients > select your client > Addons > SAML2 Web App > Settings__ and set the `audience` to the value you copied.
 
 ## Test
 
@@ -90,6 +90,6 @@ Navigate to [https://login.eloqua.com/auth/saml2](https://login.eloqua.com/auth/
 
 ### IdP Initiated Login
 
-For IDP Initiated login use the **Identity Provider Login URL** defined under the *Dashboard > Clients > select your client > Addons > SAML 2 Web App > Usage*.
+For IDP Initiated login use the **Identity Provider Login URL** defined under the **Dashboard > Clients > select your client > Addons > SAML 2 Web App > Usage**.
 
 ![Eloqua IdP Initiated Login](/media/articles/protocols/saml/eloqua/idp-login.png)

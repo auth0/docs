@@ -12,7 +12,7 @@ Rules can also be used to programatically redirect users before an authenticatio
 * Implementing custom verification mechanisms (e.g. proprietary multifactor authentication providers).
 * Forcing users to change passwords.
 
-::: panel-warning Caution
+::: panel-warning Redirect Rules
 Redirect rules won't work for the [Resource Owner endpoint](/api/authentication/reference#resource-owner), the [Password exchange](/api-auth/grant/password) or the [Refresh Token exchange](/tokens/preview/refresh-token#rules). You can detect these cases by checking `context.protocol`:
 - For Password exchange: `context.protocol === 'oauth2-password'`
 - For Refresh Token exchange: `context.protocol === 'oauth2-refresh-token'`
@@ -37,7 +37,7 @@ Once all rules have finished executing, the user will be redirected to the speci
 Auth0 will also pass a state value in that URL, for example `https://example.com/foo?state=abc123`.
 
 ::: note
-<strong>What is state?</strong> State is an opaque value, used to prevent <a href="/security/common-threats#cross-site-request-forgery-xsrf-or-csrf-">CSRF attacks</a>. In this case, Auth0 passes this param to the redirect URL.
+State is an opaque value, used to prevent [CSRF attacks](/security/common-threats#cross-site-request-forgery-xsrf-or-csrf-). In this case, Auth0 passes this param to the redirect URL.
 :::
 
 Your redirect URL will need to extract the `state` parameter and send it back to Auth0 in order to resume the authentication transaction.
@@ -56,7 +56,7 @@ How you extract the `state` parameter depends entirely on the server you redirec
 
 When a user has been redirected to the `/continue` endpoint, **all rules will be run again.**
 
-::: panel-warning Caution
+::: warning
 Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 will lose the context of the login transaction and the user will not be able to login due to to an `invalid_request` error.
 :::
 

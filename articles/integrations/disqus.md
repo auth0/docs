@@ -16,7 +16,9 @@ Disqus allows you to embed a discussion section onto your site where your users 
 
 3. You will be directed to the *Create a new site* page. Provide your **Website Name** and your website's **Category**. When you've provided the requested information, click **Create Site** to continue.
 
-  > You **Website Name** will become your unique Disqus URL. Make note of this URL, since it is required to configure your Auth0 Client.
+  ::: note
+  You **Website Name** will become your unique Disqus URL. Make note of this URL, since it is required to configure your Auth0 Client.
+  :::
 
   ![](/media/articles/integrations/disqus/create-new-site.png)
 

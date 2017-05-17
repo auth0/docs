@@ -16,7 +16,7 @@ In this tutorial, you will use server-side code to facilitate account linking on
 
 Additionally, this tutorial will show you how you can unlink accounts at a later time.
 
-:::panel Sample Code
+::: note
 You can find sample code for this tutorial in the [Auth0 Node.js Regular Web App Account Linking](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) repo on Github.
 :::
 
@@ -50,7 +50,9 @@ The following HTML snippet demonstrates how to implement login using Lock:
 
 When using Lock in a regular web application, the **redirectUrl** passes to `Auth0Lock`. The URL is then handled server-side. Successful authentication results in a new **session** containing the profile of an authenticated user.
 
-**NOTE:** Refer to the [Regular Web App Node.js Quickstart](/quickstart/webapp/nodejs) for additional authentication details.
+::: note
+Refer to the [Regular Web App Node.js Quickstart](/quickstart/webapp/nodejs) for additional authentication details.
+:::
 
 ## Step 2: Search for Users With Identical Email Addresses
 

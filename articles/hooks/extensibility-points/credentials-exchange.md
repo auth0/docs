@@ -7,7 +7,7 @@ toc: true
 
 The `credentials-exchange` extensibility point allows you to change the scopes and add custom claims to the [access tokens](/tokens/access-token) issued by the [Auth0 API's `POST /oauth/token` endpoint](/api/authentication#authorization-code).
 
-::: panel Client Credentials Grant
+::: note
 Please see [Calling APIs from a Service](/api-auth/grant/client-credentials) for more information on the Client Credentials Grant.
 :::
 

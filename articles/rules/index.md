@@ -45,7 +45,7 @@ A Rule is a function with the following arguments:
 * `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0 (or an error).
 
 ::: note
-Due to the asynchronous nature of Node.js, you <strong>must</strong> call the <code>callback</code> function. If not, this acts as a blocker and the next rule will not execute. The entire rules sequence must complete within <strong>20 seconds</strong>, otherwise the process times out.
+Due to the asynchronous nature of Node.js, you __must__ call the `callback` function. If not, this acts as a blocker and the next rule will not execute. The entire rules sequence must complete within __20 seconds__, otherwise the process times out.
 :::
 
 ### Global Functions
@@ -81,7 +81,7 @@ function (user, context, callback) {
 ```
 
 ::: note
-  You can add <code>console.log</code> lines for <a href="#debugging">debugging</a> or use the <a href="/extensions/realtime-webtask-logs">Real-time Webtask Logs Extension</a>.
+  You can add `console.log` lines for <a href="#debugging">debugging</a> or use the <a href="/extensions/realtime-webtask-logs">Real-time Webtask Logs Extension</a>.
 :::
 
 

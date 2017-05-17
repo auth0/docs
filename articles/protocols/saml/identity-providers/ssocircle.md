@@ -58,7 +58,9 @@ If you click **Continue**, you will be shown the SAML Identity Provider Configur
 
 ![SAML Configuration Info Display](/media/articles/saml/identity-providers/ssocircle/saml-config-info.png)
 
-> In general, you can access the metadata for an Auth0 SAML connection using a URL with the following format: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
+::: note
+In general, you can access the metadata for an Auth0 SAML connection using a URL with the following format: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
+:::
 
 You will need to provide this metadata to SSOCircle at a later point during the configuration process.
 
@@ -192,7 +194,9 @@ Click **Login**. The **Auth0 Lock** Widget will appear.
 
 ![](/media/articles/saml/identity-providers/ssocircle/lock.png)
 
-> If you are prompted to enter an email address, make sure the domain for the email address you enter is listed under *Settings* for the Auth0 Client you previously configured.
+::: note
+If you are prompted to enter an email address, make sure the domain for the email address you enter is listed under *Settings* for the Auth0 Client you previously configured.
+:::
 
 Provide the requested log in credentials and click **Access** to initiate the SAML SSO sequence with SSOCircle.
 
@@ -204,7 +208,9 @@ Once you have logged in, you will see a *SAML Consent Page*. Click the box indic
 
 ![Consent to SAML Screen Screen](/media/articles/saml/identity-providers/ssocircle/saml-consent.png)
 
-> Please note that you will not be prompted for your credentials if you still have an active session at SSOCircle. If this is the case, you will simply be redirected to the callback URL specified in `hello-saml.html`.
+::: note
+Please note that you will not be prompted for your credentials if you still have an active session at SSOCircle. If this is the case, you will simply be redirected to the callback URL specified in `hello-saml.html`.
+:::
 
 If you successfully authenticate, you will be redirected to the callback URL specified in `hello-saml.html` (`http://jwt.io`). You will see the token that your Client receives.
 

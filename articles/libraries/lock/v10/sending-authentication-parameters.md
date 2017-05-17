@@ -17,7 +17,7 @@ var options = {
 
 The following parameters are supported: `access_token`, `scope`, `protocol`, `device`, `request_id`, `nonce` and `state`.
 
-::: panel Note
+::: note
 This would be analogous to triggering the login with `https://${account.namespace}/authorize?state=foo&...`.
 :::
 
@@ -59,7 +59,7 @@ authProvider.init({
 });
 ```
 
-::: panel Connection Scopes
+::: note
 There is also a `connectionScopes` configuration option for Lock 10, which allows you to specify scopes on any specific connection. This will be useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request additional permissions or attributes. Read more about it on the [Lock Configuration Options](/libraries/lock/v10/customization#connectionscopes-object-) page.
 :::
 
@@ -68,4 +68,3 @@ There is also a `connectionScopes` configuration option for Lock 10, which allow
 The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [XSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information, [such as a return url](/tutorials/redirecting-users), that you might need after the authentication process is finished.
 
 [Click here to learn more about how to send/receive the state parameter.](/protocols/oauth-state)
-

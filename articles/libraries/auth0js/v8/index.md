@@ -44,7 +44,9 @@ Include via our CDN:
 <script src="${auth0js_urlv8}"></script>
 ```
 
->Note that for production use, the latest patch release (for example, 8.0.0) is recommended, rather than the latest minor release indicated above.
+::: note
+For production use, the latest patch release (for example, 8.0.0) is recommended, rather than the latest minor release indicated above.
+:::
 
 If you are using a bundler, you will want to install with `npm i auth0-js --production --save`.
 
@@ -369,7 +371,7 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | `password` | required | (String) User's desired password |
 | `connection` | required | (String) The database connection name on your client upon which to attempt user account creation |
 
-Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
+Signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
 
 ```html
 <h2>Signup Database Connection</h2>
@@ -407,8 +409,8 @@ webAuth.renewAuth({
 });
 ```
 
-::: panel postMessage Parameter
-This will use postMessage to comunicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behaviour is needed.
+::: note
+This will use postMessage to communicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behavior is needed.
 :::
 
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe.
@@ -496,6 +498,6 @@ The `linkUser` method accepts two parameters, the primary user id and the second
 auth0Manage.linkUser(userId, secondaryUserToken, cb);
 ```
 
-::: panel Linking - Metadata
+::: note
 Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata, and if they are ever unlinked, the secondary account will likewise not retain the primary account's metadata when it becomes separate again.
 :::

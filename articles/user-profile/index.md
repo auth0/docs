@@ -18,7 +18,9 @@ Use the Auth0 Management Dashboard ("Dashboard") to manage User Profiles.
 
 Within the Dashboard, you can create, view, modify, or delete users. These options are available via the [Users](${manage_url}/#/users) page.
 
-**Note:** User Management is included as part of the **Developer** subscription plan. You may need to [upgrade your plan](${manage_url}/#/account/billing/subscription) to access these features.
+::: note
+User Management is included as part of the **Developer** subscription plan. You may need to [upgrade your plan](${manage_url}/#/account/billing/subscription) to access these features.
+:::
 
 ![User Profile Dashboard](/media/articles/user-profile/user-profile-dashboard.png)
 
@@ -92,9 +94,11 @@ Navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Select the
 
 ![Impersonate a User](/media/articles/user-profile/signin-as-user-01.png)
 
-> Can't see the button? The following conditions are required for the button display:
-> - The applications registered in the account must have at least one callback URL listed.
-> - The applications must have the connections that the impersonated user belongs to turned on.
+::: panel I can't see the button
+Can't see the button? The following conditions are required for the button display:
+- The applications registered in the account must have at least one callback URL listed.
+- The applications must have the connections that the impersonated user belongs to turned on.
+:::
 
 A popup will display the URL to use to impersonate the user. You can copy the URL into the clipboard (white button) or open the URL in a separate browser tab/window (blue button).
 
@@ -130,10 +134,10 @@ A popup will warn you that the action cannot be undone and prompt you to confirm
 
 ## User Access to Clients
 
-Inside a single tenant (Auth0 account) the users are shared between clients. The idea here is that the all the clients in a single tenant will usually belong to the same app. 
+Inside a single tenant (Auth0 account) the users are shared between clients. The idea here is that the all the clients in a single tenant will usually belong to the same app.
 
 For total separation you can create a new account. To do this click on tenant name on top right of the dashboard and select **New Account** . If you have multiple tenants, you can easily switch between them from the accounts menu.
 
-If you need to restrict some users to certain clients you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which client the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md). 
+If you need to restrict some users to certain clients you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which client the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md).
 
 You can also restrict users from clients by configuring a new connection and only giving access to a specific client. To enable client access for a connection go to the the **Settings** section for a connection and click on the **Clients** tab, here you can enable/disable any client.

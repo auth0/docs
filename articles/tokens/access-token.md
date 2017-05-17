@@ -73,7 +73,7 @@ Server-to-server access tokens can be obtained using the [Client Credentials flo
 
 The result will be an access token that can be used to make requests to the geocoding API.
 
-```
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
@@ -92,7 +92,7 @@ For details on how to set up a Client Credentials Grant in Auth0 refer to [Setti
 
 Once a client has obtained an access token, it will include that token as a credential when making API requests.
 
-```
+```text
 GET /calandar/v1/events
 Host​: api.example.com
 

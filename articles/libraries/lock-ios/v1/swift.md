@@ -14,7 +14,9 @@ description: How to use Swift with Lock iOS.
 ## Create Objective-C Bridging Header
 In order to use **Lock** classes in any Swift file, you need to add a Objective-C Bridging Header to your project. The easiest way is to create a dummy Objective-C file in your Swift project (or Swift file in a Objective-C project), this will make Xcode prompt to create the bridging header, just press _"YES"_. After that you can delete the dummy file from your project and open the bridging header file which is called `<YouAppName>-Bridging-Header.h`.
 
-> For more information, please check [this guide](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html) from Apple.
+::: note
+For more information, please check [this guide](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html) from Apple.
+:::
 
 ## Use Lock
 In `<YouAppName>-Bridging-Header.h` just add the following line

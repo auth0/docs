@@ -22,7 +22,7 @@ Go to the **SSO** tab and copy the values of **SAML 2.0 Endpoint (HTTP)** and **
 
 ![](/media/articles/saml/identity-providers/onelogin/onelogin-copy-values.png)
 
-Download the X.509 certificate (onelogin.pem)
+Download the X.509 certificate: `onelogin.pem`.
 
 ![](/media/articles/saml/identity-providers/onelogin/onelogin-download-cert.png)
 
@@ -83,11 +83,13 @@ If you use OneLogin and Auth0 out-of-the-box, users logging in using OneLogin an
 
 ![](/media/articles/saml/identity-providers/onelogin/user-without-mappings.png)
 
-You have to edit the mappings in the Auth0 connection, along with the parameters in the OneLogin dashboard in order to map the information. Let's see how we could add the `EmailAddress` information to our login. 
+You have to edit the mappings in the Auth0 connection, along with the parameters in the OneLogin dashboard in order to map the information. Let's see how we could add the `EmailAddress` information to our login.
 
-> Before you map the `EmailAddress` information, you have to add it as a custom parameter to the OneLogin dashboard. Use `EmailAddress` as __Field name__ and `Email` as __Value__. You can find details on the steps [here](#customize-the-user-profile). Save your changes and test the connection via Auth0 dashboard. Check that the `EmailAddress` is included in the attributes and the value is correct. You are now ready to proceed with mapping the information.
+::: panel EmailAddress
+Before you map the `EmailAddress` information, you have to add it as a custom parameter to the OneLogin dashboard. Use `EmailAddress` as __Field name__ and `Email` as __Value__. You can find details on the steps [here](#customize-the-user-profile). Save your changes and test the connection via Auth0 dashboard. Check that the `EmailAddress` is included in the attributes and the value is correct. You are now ready to proceed with mapping the information.
+:::
 
-Go to the _Settings_ of your [SAMLP Identity Provider](${manage_url}/#/connections/enterprise) and navigate to the tab __Mappings__. Copy the mappings below and paste it in the text box.
+Go to the __Settings__ of your [SAMLP Identity Provider](${manage_url}/#/connections/enterprise) and navigate to the tab __Mappings__. Copy the mappings below and paste it in the text box.
 
 ```javascript
 {
@@ -106,11 +108,11 @@ Save your changes and try your connection again. Once you have successfully logg
 
 Some times the standard User Profile Attributes are not enough for the functionality you want to build. If this is the case, you can use custom attributes in order to enhance the SAML token. Let's work through a basic example.
 
-The SAML token contains, among others, two attributes: `FirstName` and `LastName`. Let's add a new custom attribute, named `FullName` that will contain the concatenation of first and last name. 
+The SAML token contains, among others, two attributes: `FirstName` and `LastName`. Let's add a new custom attribute, named `FullName` that will contain the concatenation of first and last name.
 
-In order to do so navigate to the OneLogin dashboard and edit your app. 
+In order to do so navigate to the OneLogin dashboard and edit your app.
 
-At the __Parameters__ tab click the __Add Parameter__ link. 
+At the __Parameters__ tab click the __Add Parameter__ link.
 
 ![](/media/articles/saml/identity-providers/onelogin/custom-attr-01.png)
 

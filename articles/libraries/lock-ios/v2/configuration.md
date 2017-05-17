@@ -105,7 +105,7 @@ When signing up the default information requirements are the user's *email* and 
 }
 ```
 
-::: panel Specifying Icons with LazyImage
+::: note
 You can also specify icons from other bundles, such as in the following example:
 CustomTextField(name: "slack_handle", placeholder: "Slack Handle", icon: LazyImage(name: "ic_slack", bundle: Bundle(identifier: "CustomBundle")))
 :::

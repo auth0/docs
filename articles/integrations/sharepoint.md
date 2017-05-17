@@ -16,7 +16,9 @@ The first thing you need to do is go to the [SSO Integrations](${manage_url}/#/e
 
 ### 2. Follow the Live Documentation
 
-> If your SharePoint server does not have Internet access, you will need to download the installation files to a SharePoint server manually. [Learn more](https://github.com/auth0/auth0-sharepoint/tree/master/auth0-authentication-provider#offline-installation)
+::: note
+If your SharePoint server does not have Internet access, you will need to download the installation files to a SharePoint server manually. [Learn more](https://github.com/auth0/auth0-sharepoint/tree/master/auth0-authentication-provider#offline-installation)
+:::
 
 On the Settings tab you'll need to enter the URL of the SharePoint Web Application and the external URL (typically the internet endpoint in your Alternate Access Mappings).
 
@@ -47,20 +49,20 @@ Note that the call to `Enable-Auth0` can be adapted to:
 The following example also adds the Role claim to the claims mapping and allows Windows Authentication:
 
 ```
-Enable-Auth0 
-  -auth0Domain:"fabrikam.auth0.com" 
-  -clientId:"bOFty3tWgpijnwMcltysNFqHgO1ziz1I" 
-  -webAppUrl:"http://fabrikam-sp/" 
-  -identifierClaimType:"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" 
+Enable-Auth0
+  -auth0Domain:"fabrikam.auth0.com"
+  -clientId:"bOFty3tWgpijnwMcltysNFqHgO1ziz1I"
+  -webAppUrl:"http://fabrikam-sp/"
+  -identifierClaimType:"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
   -claims:@(
-    "Email|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress", 
-    "Role|http://schemas.microsoft.com/ws/2008/06/identity/claims/role", "Client ID|http://schemas.auth0.com/clientID", 
-    "Given Name|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", 
-    "Surname|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname", "Picture|http://schemas.auth0.com/picture") 
-  -allowWindowsAuth 
+    "Email|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+    "Role|http://schemas.microsoft.com/ws/2008/06/identity/claims/role", "Client ID|http://schemas.auth0.com/clientID",
+    "Given Name|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
+    "Surname|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname", "Picture|http://schemas.auth0.com/picture")
+  -allowWindowsAuth
 ```
 
-### 3. You've nailed it.
+### 3. You've nailed it
 
 You have configured SharePoint to use Auth0 as the SSO Broker. When your users visit your site they'll be presented with a login page showing all the connections enabled for that application.
 
@@ -119,9 +121,9 @@ function (user, context, callback) {
         'http://schemas.microsoft.com/ws/2008/06/identity/claims/role': 'groups'
     };
   }
-  
+
   callback(null, user, context);
-} 
+}
 ```
 
 This will add an additional outgoing claim `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` containing the `groups` and which will be used by SharePoint for authorization.
@@ -129,13 +131,13 @@ This will add an additional outgoing claim `http://schemas.microsoft.com/ws/2008
 When installing the Claims Provider we need to allow the Role claim to be passed through to SharePoint, by adding it to the claims mapping list:
 
 ```
-Enable-Auth0 
-  -auth0Domain:"fabrikam.auth0.com" 
+Enable-Auth0
+  -auth0Domain:"fabrikam.auth0.com"
   ...
   -claims:@(
-    "Email|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress", 
-    "Role|http://schemas.microsoft.com/ws/2008/06/identity/claims/role", 
-    ...) 
+    "Email|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+    "Role|http://schemas.microsoft.com/ws/2008/06/identity/claims/role",
+    ...)
   ...
   -Verbose
 ```
@@ -206,11 +208,11 @@ Alternatively this logic could also be implemented as an HttpModule which runs e
 ```cs
 public class PersistUserClaimsHttpModule : IHttpModule
 {
-    private SPFederationAuthenticationModule FederationModule 
+    private SPFederationAuthenticationModule FederationModule
     {
         get { return HttpContext.Current.ApplicationInstance.Modules["FederatedAuthentication"] as SPFederationAuthenticationModule; }   
     }
-    
+
     public void Init(HttpApplication context)
     {
         FederationModule.SecurityTokenValidated += OnFederationSecurityTokenValidated;

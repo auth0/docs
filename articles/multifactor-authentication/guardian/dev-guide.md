@@ -13,7 +13,9 @@ Within Auth0, you may implement MFA via the [Multifactor Auth](${manage_url}/#/g
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
-> Auth0 provides [built-in support](/multifactor-authentication) for MFA using Google Authenticator or Duo. You may choose to use either of these providers, in lieu of Guardian, or any code generator application, on the **Multifactor Auth** page of the Management Dashboard.
+::: panel MFA options
+Auth0 provides [built-in support](/multifactor-authentication) for MFA using Google Authenticator or Duo. You may choose to use either of these providers, in lieu of Guardian, or any code generator application, on the **Multifactor Auth** page of the Management Dashboard.
+:::
 
 ### Configuring Guardian in the Management Dashboard
 

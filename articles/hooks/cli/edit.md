@@ -4,7 +4,7 @@ description: How to edit Hooks using the Auth0 Command-Line Interfance
 
 # Edit Existing Hooks Using the Auth0 Command-Line Interface&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
 
-:::panel Profile Name
+::: note
 All of the examples on this page use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli` and can be obtained from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
 :::
 
@@ -16,7 +16,7 @@ You can edit the code of your Hook using the [Webtask Editor](https://webtask.io
 
 If the CLI cannot open the Editor window automatically, you can copy and paste the provided link into your web browser.
 
-:::panel Using the Webtask Editor
+::: note
 Please see the [Webtask docs](https://webtask.io/docs/editor) for detailed information on using the Webtask Editor.
 :::
 

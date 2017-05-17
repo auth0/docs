@@ -192,7 +192,7 @@ Lock
     }
 ```
 
-::: panel Behavior Configuration Options
+::: note
 You can see the complete set of behavior configuration options to alter the way Lock works for your app in the [Configuration Guide](/libraries/lock-ios/v2/configuration).
 :::
 

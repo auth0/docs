@@ -34,7 +34,9 @@ GET https://${account.namespace}/authorize/?
     &device=my-device
 ```
 
-**NOTE**: The `device` parameter can be any value, such as a unique mobile device identifier.
+::: note
+The `device` parameter can be any value, such as a unique mobile device identifier.
+:::
 
 When the authentication flow completes, Auth0 will redirect the user to the `callback_URL` as usual.
 The complete URL will be as follows:
@@ -53,7 +55,9 @@ The refresh token is returned as part of the URL, in the form of an opaque strin
 Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
-**NOTE**: In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth2-implicit-flow) (`response_type=token`) was used.
+::: note
+In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth2-implicit-flow) (`response_type=token`) was used.
+:::
 
 ## Use a Refresh Token
 

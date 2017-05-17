@@ -17,7 +17,7 @@ Auth0 provides a _Sign in As_ feature for user impersonation, and provides the f
 - Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works.
 
 ::: note
-  <strong>Heads up!</strong> Any Rules that you've implemented will run when you impersonate a user, including any actions that update the user.
+  Any Rules that you've implemented will run when you impersonate a user, including any actions that update the user.
 :::
 
 ## Use the Dashboard
@@ -90,11 +90,11 @@ Alternatively, you can retrieve the `user_id` information from the Dashboard. Go
 
 ### Get an Authorization Code
 
-Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Account Settings](${manage_url}/#/account) and clicking on the **Advanced** tab. 
+Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Account Settings](${manage_url}/#/account) and clicking on the **Advanced** tab.
 
 ![Global Client Information](/media/articles/user-profile/global-client-info.png)
 
-You can now send a request to the [impersonation endpoint](/api/authentication/reference#impersonation) by sending an Authorization header with Bearer <TOKEN_FROM_MANAGEMENT_API_V1>. 
+You can now send a request to the [impersonation endpoint](/api/authentication/reference#impersonation) by sending an Authorization header with Bearer <TOKEN_FROM_MANAGEMENT_API_V1>.
 
 The data part of the request should include the following:
 

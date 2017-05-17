@@ -13,7 +13,7 @@ Auth0.swift is a client-side library for [Auth0](http://auth0.com).
 
 iOS 9+ and Xcode 8 (Swift 3.0)
 
-::: panel Swift 2.3
+::: note
 For Swift 2.3 you need to use [v1@swift-2.3](https://github.com/auth0/Auth0.swift/tree/v1@swift-2.3) branch.
 :::
 
@@ -23,7 +23,7 @@ If using CocoaPods, we recommend version 1.1.0 or later.
 
 ### Using CocoaPods
 
-Auth0.swift is available through [CocoaPods](http://cocoapods.org). 
+Auth0.swift is available through [CocoaPods](http://cocoapods.org).
 To install it, simply add the following line to your Podfile:
 
 ```ruby
@@ -57,7 +57,7 @@ You will need to add an `Auth0.plist` file, containing your Auth0 client id and 
 
 ## Using the Authentication API
 
-The Authentication API provides methods to authenticate the user against Auth0 server. 
+The Authentication API provides methods to authenticate the user against Auth0 server.
 
 ### Login with database connection
 
@@ -67,8 +67,8 @@ Logging in with a database connection requires calling `login` with the user's u
 Auth0
    .authentication()
    .login(
-       usernameOrEmail: "support@auth0.com", 
-       password: "a secret password", 
+       usernameOrEmail: "support@auth0.com",
+       password: "a secret password",
        connection: "Username-Password-Authentication"
        )
    .start { result in
@@ -83,7 +83,7 @@ Auth0
 
 ### Passwordless Login
 
-Logging in with Passwordless is slightly different. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. 
+Logging in with Passwordless is slightly different. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code.
 
 #### How Passwordless Works
 
@@ -115,8 +115,8 @@ Once the user has a code, they can input it. Call the `login` method, and pass i
 Auth0
    .authentication()
    .login(
-       usernameOrEmail: "support@auth0.com", 
-       password: "123456", 
+       usernameOrEmail: "support@auth0.com",
+       password: "123456",
        connection: "email"
        )
    .start { result in
@@ -131,7 +131,7 @@ Auth0
 
 #### Passwordless Parameters
 
-As you can see, Passwordless authentication can be started with a variety of different parameters. 
+As you can see, Passwordless authentication can be started with a variety of different parameters.
 
 ```
 .startPasswordless(email: String, type: String, connection: String)
@@ -155,8 +155,8 @@ Signing up requires calling the  `signUp` method, passing the user's given email
 Auth0
    .authentication()
    .signUp(
-       email: "support@auth0.com", 
-       password: "password123", 
+       email: "support@auth0.com",
+       password: "password123",
        connection: "Username-Password-Authentication"
        )
    .start { result in
@@ -230,7 +230,7 @@ Auth0
    }
 ```
 
-::: panel Unlinking - Metadata
+::: note
 Note that when accounts are linked, the secondary account's metadata is not merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
 :::
 

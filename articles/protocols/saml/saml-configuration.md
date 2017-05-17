@@ -77,7 +77,9 @@ In this situation, there are two federations to configure.  The federation betwe
 
 A different, but similar, use case is setting up one Auth0 account to serve as a SAML Service Provider and then setting up a second Auth0 account to serve as a SAML Identity Provider for the first account.  This configuration would typically just be used for testing purposes.  The steps to set this up are described in: [Auth0 as Identity Provider for itself](/samlsso-auth0-to-auth0).
 
-**NOTE**: A list of [Identity Providers](/samlp-providers) that are believed to be SAML compliant.
+::: note
+A list of [Identity Providers](/samlp-providers) that are believed to be SAML compliant.
+:::
 
 ## Special Configuration Situations
 
@@ -201,7 +203,7 @@ When Auth0 is serving as a SAML Identity Provider, it is necessary to specify a 
 
 In the "Settings" field, enter a specification for logout callback URL:
 
-```
+```text
 "logout": { "callback" : "http://your-callback-goes-here" },
 ```
 
@@ -345,8 +347,9 @@ Deprovisioning of accounts should be done, at minimum, at the Identity Provider.
 
 It may also be desirable to remove accounts at Auth0 if it is acting as Service Provider or an application integrated with Auth0.  Regardless of whether Auth0 is acting as a Service Provider or an Identity Provider, user accounts can be removed from Auth0 via the Auth0 dashboard or via the Auth0 API.
 
-**NOTE:** The following extension is useful for troubleshooting SAML authentication: [SAML debugger extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/).
-
+::: note
+The following extension is useful for troubleshooting SAML authentication: [SAML debugger extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/).
+:::
 
 ## SAML options and bindings
 

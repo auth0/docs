@@ -17,7 +17,9 @@ By using the state parameter to hold a value for verification, malicious request
 
 ![](/media/articles/protocols/CSRF_Diagram.png)
 
-**NOTE**: Depending on the application type or framework this may be included for the developer. Also the exact structure of the requests may differ.
+::: note
+Depending on the application type or framework this may be included for the developer. Also the exact structure of the requests may differ.
+:::
 
 1. Before redirecting a request to the [IdP](/identityproviders), have the client generate a random string.
 
@@ -61,4 +63,3 @@ if(decodedString == auth0-authorize) {
 [Protecting against other common threats](/security/common-threats)
 
 [Using the `state` parameter for redirecting users](/tutorials/redirecting-users#using-the-state-parameter)
-

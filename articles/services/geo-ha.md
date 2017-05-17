@@ -10,7 +10,9 @@ An offering to assist customers with design and deployment for Geo-distributed H
 
 40 hours.
 
-> Auth0 Professional Services are delivered in 40 hs. "blocks".
+::: note
+Auth0 Professional Services are delivered in 40 hs. "blocks".
+:::
 
 ## Typical work-streams
 

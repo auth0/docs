@@ -16,7 +16,9 @@ This feature works as long as the user has not already chosen a default app to h
 
 You could find more information about App Links in the [Android docs](http://developer.android.com/training/app-links/index.html).
 
-> The links will work in all versions of Android, but the dialog asking the user whether to use the browser or the app to open the link will be displayed (whether the verification passed or not) in versions of Android prior to 6.0, at least until the user chooses to always open the links with the app.
+::: note
+The links will work in all versions of Android, but the dialog asking the user whether to use the browser or the app to open the link will be displayed (whether the verification passed or not) in versions of Android prior to 6.0, at least until the user chooses to always open the links with the app.
+:::
 
 In this article we'll show how Auth0 helps you set up your app to use app links to log in.
 
@@ -50,7 +52,9 @@ $ keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -s
 Once you have your key hashes output, copy the resulting SHA256 value and go to your client's settings in the [Auth0 Dashboard](${manage_url}/#/clients). Click "Show Advanced Settings", and in the "Mobile Settings" tab, under "Android", fill the "App Package Name" with your application's package name, and the "Key Hashes" field with the SHA256 value you copied. Don't forget to save the changes.
 
 
-> Don't forget to change the body to use your package name and keystore fingerprint!
+::: note
+Don't forget to change the body to use your package name and keystore fingerprint!
+:::
 
 Next we'll have to configure either the SMS or Email connection.
 
@@ -68,7 +72,9 @@ Your verification code is: {{ code }}
 {% endif %}
 ```
 
-> We assume that you have the SMS connection correctly configured, including the Twilio account. If you haven't, please do so.
+::: note
+We assume that you have the SMS connection correctly configured, including the Twilio account. If you haven't, please do so.
+:::
 
 ### Email
 
@@ -119,7 +125,9 @@ Now, in order to use App Links, there is an additional configuration step we mus
 <!--Auth0 Lock Passwordless End-->
 ```
 
-> In `android:pathPrefix` you must replace the package name of the application, as configured in the Auth0 account.
+::: note
+In `android:pathPrefix` you must replace the package name of the application, as configured in the Auth0 account.
+:::
 
 As can be seen, it's a regular *intent-filter*, with the exception of the `android:autoVerify="true"` field. This is used since Android API 23 (Android 6.0) to indicate that we would like to verify the link association. **This is extremely important to avoid the dialog asking the user which application to use.**
 

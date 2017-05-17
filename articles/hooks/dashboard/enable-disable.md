@@ -6,7 +6,9 @@ description: How to enable or disable Hooks using the Management Dashboard
 
 You can use the Management Dashboard to enable/disable Hooks. Each extensibility point may be associated with **zero** or **one** active Hook.
 
-**Note**: When creating new Hooks, Auth0 enables your Hook for that extensibility point if there are no other Hooks associated with that point. In any other circumstance, Auth0 does *not* enable your new Hook.
+::: note
+When creating new Hooks, Auth0 enables your Hook for that extensibility point if there are no other Hooks associated with that point. In any other circumstance, Auth0 does *not* enable your new Hook.
+:::
 
 ## Enable a Hook
 

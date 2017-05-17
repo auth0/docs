@@ -74,13 +74,13 @@ The response should contain an access token and a refresh token.
 }
 ```
 
-::: panel-warning Security Warning
+::: warning
 Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
 For more information on how to implement this using Authorization Code Grant refer to [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant). For other grants refer to [API Authorization](/api-auth).
 
-::: panel Troubleshooting
+::: note
 If the response did not include a refresh token, check that you comply with the [Restrictions](#restrictions) listed in this document.
 :::
 
@@ -210,7 +210,7 @@ To revoke the user's access to an authorized application, and hence invalidate t
 
 Rules will run for the [Refresh Token Exchange](#use-a-refresh-token). To execute special logic, you can look at the `context.protocol` property in your rule. If the value is `oauth2-refresh-token`, then this is the indication that the rule is running during the [Refresh Token Exchange](#use-a-refresh-token).
 
-:::warning
+::: warning
 If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.redirect</code>, the authentication flow will return an error.
 :::
 

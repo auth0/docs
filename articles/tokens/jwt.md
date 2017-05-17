@@ -7,7 +7,9 @@ toc: true
 
 # JSON Web Tokens (JWT) in Auth0
 
-> For more information on all the types of access tokens used by Auth0, see [Tokens](/tokens).
+::: note
+For more information on all the types of access tokens used by Auth0, see [Tokens](/tokens).
+:::
 
 <%= include('../videos/_video', { id: 'dxfz716cw9' }) %>
 
@@ -65,7 +67,9 @@ There are three types of claims: *reserved*, *public*, and *private* claims.
 
 - **Reserved claims**: These are a set of predefined claims which are not mandatory but recommended, to provide a set of useful, interoperable claims. Some of them are: **iss** (issuer), **exp** (expiration time), **sub** (subject), **aud** (audience), and others.
 
-  > Notice that the claim names are only three characters long as JWT is meant to be compact.
+::: note
+Notice that the claim names are only three characters long as JWT is meant to be compact.
+:::
 
 - **Public claims**: These can be defined at will by those using JWTs. But to avoid collisions they should be defined in the IANA JSON Web Token Registry or be defined as a URI that contains a collision resistant namespace.
 
@@ -115,7 +119,7 @@ In authentication, when the user successfully logs in using their credentials, a
 
 Whenever the user wants to access a protected route or resource, the user agent should send the JWT, typically in the **Authorization** header using the **Bearer** schema. The content of the header should look like the following:
 
-```
+```text
 Authorization: Bearer <token>
 ```
 

@@ -6,7 +6,7 @@ decription: How to upgrade or change your Auth0 subscription.
 
 You can make changes to your Auth0 subscription plan via the [Auth0 Management Dashboard](${manage_url}).
 
-:::panel Change Account Features
+::: note
 While you can change your subscription plan using the Management Dashboard, you will need to [contact Support](https://support.auth0.com/) to change or enable certain *features* (such as [Impersonation](/user-profile/user-impersonation)) available to your account.
 :::
 
@@ -27,7 +27,7 @@ You can use the [Management Dashboard](${manage_url}) upgrade your subscription 
 * The Free plan to the Developer or Developer Pro plan;
 * The Developer plan to the Developer Pro plan.
 
-:::panel Enterprise Accounts
+::: note
 If you would like to upgrade to an Enterprise plan, please contact [Auth0 Sales](mailto:sales@auth0.com).
 :::
 

@@ -10,7 +10,9 @@ An offering to analyze common design patterns and review customer's code flows a
 
 40 hours.
 
-> Auth0 Professional Services are delivered in 40 hs. "blocks".
+::: note
+Auth0 Professional Services are delivered in 40 hs. "blocks".
+:::
 
 ## Typical work-streams
 

@@ -13,7 +13,7 @@ If after you click on the IdP button (Facebook for example), the web app you bui
 
 If after you click on the IdP button (Facebook for example), a popup (new tab or window) is opened, it means you're using Popup Mode. In that popup, you'll see that Facebook page is displayed. Once you successfully login to Facebook, the popup will be closed and your WebApp will recognize that the user has been authenticated. The WebApp has **never been redirected to any other page**.
 
-::: panel-warning Popup Mode
+::: warning
 There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. See more info [here](https://ask.auth0.com/t/popup-login-window-is-not-closed-after-authentication/2843).
 :::
 
@@ -62,4 +62,6 @@ var options = {
 }
 ```
 
-**Redirect mode is recommended whenever possible to avoid potential browser compatibility issues.**
+::: note
+Redirect mode is recommended whenever possible to avoid potential browser compatibility issues.
+:::

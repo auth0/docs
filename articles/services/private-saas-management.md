@@ -10,7 +10,9 @@ A workshop designed to provide IT organizations with core concepts on availabili
 
 8 hours.
 
-> Auth0 Professional Services are delivered in 40 hs. "blocks".
+::: note
+Auth0 Professional Services are delivered in 40 hs. "blocks".
+:::
 
 ## Level
 

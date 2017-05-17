@@ -10,7 +10,9 @@ Auth0 allows you to store **metadata**, or data related to each user that has no
 * **user\_metadata**: stores user attributes (such as user preferences) that do not impact a user's core functionality;
 * **app\_metadata**: stores information (such as a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
 
-**NOTE**: An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
+::: note
+An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
+:::
 
 ### How to Read, Create or Edit Metadata
 
@@ -35,7 +37,9 @@ Suppose the following data is stored for a user with the email address `jane.doe
 }
 ```
 
-**NOTE**: Any valid JSON snippet can be used as metadata.
+::: note
+Any valid JSON snippet can be used as metadata.
+:::
 
 To read metadata, simply access the correct property. For example, if you want to work with the values of the following properties in your [Rules](/rules) or via a call to the [Management API](/api/management/v2):
 
@@ -45,7 +49,9 @@ console.log(user.user_metadata.hobby); // "surfing"
 console.log(user.app_metadata.plan); // "full"
 ```
 
-**NOTE**: With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
+::: note
+With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
+:::
 
 ### Naming Metadata Fields
 

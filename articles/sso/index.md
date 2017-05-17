@@ -20,11 +20,11 @@ Single Sign On usually makes use of a *Central Service* which orchestrates the s
 
 ## An overview of how SSO works with Auth0
 
-In the case of SSO with Auth0, the *Central Service* is the Auth0 Authorization Server. 
+In the case of SSO with Auth0, the *Central Service* is the Auth0 Authorization Server.
 
 Let's look at how the SSO flow looks when using Auth0 and a user visits your application for the first time:
 
-1. Your application will redirect the user to the Auth0 Hosted Lock page where they can log in. 
+1. Your application will redirect the user to the Auth0 Hosted Lock page where they can log in.
 2. Auth0 will check to see whether there is an existing SSO cookie.
 3. Because this is the first time the user visits this Hosted Lock page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
 
@@ -35,7 +35,7 @@ Let's look at how the SSO flow looks when using Auth0 and a user visits your app
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
-1. Your application will redirect the user to the Auth0 Hosted Lock page where they can sign in. 
+1. Your application will redirect the user to the Auth0 Hosted Lock page where they can sign in.
 2. Auth0 will check to see whether there is an existing SSO cookie.
 3. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
 
@@ -48,7 +48,7 @@ If an SSO cookie is present you can also sign the user in silently, i.e. without
 
 ## How to Implement SSO with Auth0
 
-::: panel Enabling Identity Providers
+::: note
 Prior to enabling SSO for a given Client, you must first [configure the Identity Provider(s)](/identityproviders) you want to use.
 :::
 
@@ -71,7 +71,9 @@ For more detailed information on how to implement this, please refer to the foll
 * [Client-Side SSO (Single Page Apps)](/sso/single-page-apps-sso)
 * [Server-Side SSO (Regular Web Apps)](/sso/regular-web-apps-sso)
 
-> Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single Page Apps and Regular Web Apps.
+::: note
+Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single Page Apps and Regular Web Apps.
+:::
 
 ### Length of SSO Sessions
 

@@ -10,7 +10,9 @@ An offering to assist customers with common performance testing needs, including
 
 80 hours.
 
-> Auth0 Professional Services are delivered in 40 hs. "blocks".
+::: note
+Auth0 Professional Services are delivered in 40 hs. "blocks".
+:::
 
 ## Typical work-streams
 

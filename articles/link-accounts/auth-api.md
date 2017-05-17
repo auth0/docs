@@ -33,7 +33,9 @@ This method of linking accounts using the linking endpoint of the [Authenticatio
 <a href="javascript:signin()">Add account</a>
 ```
 
-**NOTE:** Notice the `access_token` fragment of the URL that is normally not present. Auth0 generates this `access_token` when a user logs in and uses it to uniquely identify the user.
+::: note
+Notice the `access_token` fragment of the URL that is normally not present. Auth0 generates this `access_token` when a user logs in and uses it to uniquely identify the user.
+:::
 
 ## Manual initiation
 

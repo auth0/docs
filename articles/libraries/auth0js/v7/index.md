@@ -53,7 +53,9 @@ If you are using [browserify](http://browserify.org/), you will want to install 
 
 ### Initialize
 
-> Note: The following examples use jQuery, but auth0.js is not tied to jQuery and any library can be used with it.
+::: note
+The following examples use jQuery, but auth0.js is not tied to jQuery and any library can be used with it.
+:::
 
 Construct a new instance of the Auth0 client as follows:
 
@@ -456,7 +458,9 @@ var auth0 = new Auth0({
 
 On successful login, Auth0 will redirect to your `callbackURL` with an appended authorization `code` query parameter. Unlike the SPA scenario, this `code` value should get processed completely server-side.
 
-> Note: Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
+::: panel Authorization Code Grant
+Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
+:::
 
 #### Popup Mode
 
@@ -529,7 +533,9 @@ function(err, result) {
 });
 ```
 
-> Note: This `callback` approach is similar to what you'd do in the [Popup Mode](#popup-mode) scenario described earlier, except no popups (or redirects) occur since credentials are provided to the `login` method and success and failure is handled in the `callback` argument.
+::: note
+This `callback` approach is similar to what you'd do in the [Popup Mode](#popup-mode) scenario described earlier, except no popups (or redirects) occur since credentials are provided to the `login` method and success and failure is handled in the `callback` argument.
+:::
 
 You can still do Popup Mode with SSO enabled with a Database or Active Directory/LDAP connection if you want to (but please see the **WARNING** in the [Popup Mode](#popup-mode) section above). This is similar to the Redirect Mode scenario where you don't have a custom login form, but want to use a popup window to collect the user's credentials, and also want control to return to the client-side code (vs. redirecting to `callbackURL`).  This behavior would occur if you simply specified the `popup: true` option:
 

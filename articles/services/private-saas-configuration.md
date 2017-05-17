@@ -10,7 +10,9 @@ A project to assist with the design, and deployment of a Private SaaS Auth0 envi
 
 40 hours.
 
-> Auth0 Professional Services are delivered in 40 hs. "blocks".
+::: note
+Auth0 Professional Services are delivered in 40 hs. "blocks".
+:::
 
 ## Typical work-streams
 

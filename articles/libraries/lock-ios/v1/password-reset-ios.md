@@ -14,7 +14,9 @@ If you use Lock UI, you can hide or show a **Reset password** button by setting 
 
 If you implement a custom UI, you need to send a password reset email to the user using `A0APIClient`.
 
-**NOTE**: Please see [Password Strength in Auth0 Database Connections](/connections/database/password-strength) before implementing password reset.
+::: note
+Please see [Password Strength in Auth0 Database Connections](/connections/database/password-strength) before implementing password reset.
+:::
 
 ### Important considerations
 

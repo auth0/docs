@@ -70,7 +70,9 @@ Follow the [Set Up AWS for Delegated Authentication with APIs](/aws-api-setup) t
 
 Once you have configured the AWS IAM role, you will add a policy to `auth0-api-role` that lets you execute your API Gateway methods.
 
-> For more information on this process, please see [User Access Permissions for Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html).
+::: note
+For more information on this process, please see [User Access Permissions for Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html).
+:::
 
 ::: panel Getting the Gateway API ARN
 
@@ -88,7 +90,6 @@ You'll strip the method name to get the base ARN for the API:
 `arn:aws:execute-api:us-east-2:484857107747:97i1dwv0j4/*`
 
 The wildcard (`*`) in the ARN above enables permissions to your API for all stages, but you can deploy different stages individually (for example, development, then test, then production).
-
 :::
 
 Select the `auth0-api-role` role you just created to open its *Summary* page.

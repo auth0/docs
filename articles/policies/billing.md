@@ -24,7 +24,9 @@ If your credit card fails to be charged, we automatically retry to charge it up 
 
 However, if the problem is not fixed prior to the fourth failure, all past due invoices will be manually initiated by Auth0. This means that you may be charged in an unexpected date.
 
-*Please note the following:* If you are having issues with the service, it is not due to the credit card failing.
+::: note
+If you are having issues with the service, it is not due to the credit card failing.
+:::
 
 ## How can I cancel my subscription?
 Please proceed by downgrading your subscription to free or by cancelling your subscription via the Auth0 Dashboard.

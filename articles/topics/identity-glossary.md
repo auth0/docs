@@ -6,7 +6,7 @@ articles:
   - tokens/jwt
 ---
 
-::: panel Auth0 Identity Glossary
+::: note
 For addition definitions of Auth0-related terms, please see the [Auth0 Identity Glossary](https://auth0.com/identity-glossary).
 :::
 
