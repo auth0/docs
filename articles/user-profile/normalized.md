@@ -28,7 +28,9 @@ Fields that are generated when the details are available:
 * **`given_name`**: the user's first name.
 * **`family_name`**: the user's last name.
 
-**Note:** When creating a user with the [create a User Management API endpoint](/api/management/v2#!/Users/post_users) you can submit the `given_name` and `family_name` but these fields are not available to be edited with the [update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
+::: note
+When creating a user with the [create a User Management API endpoint](/api/management/v2#!/Users/post_users) you can submit the `given_name` and `family_name` but these fields are not available to be edited with the [update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
+:::
 
 ::: panel Custom Databases
 If you are writing a login script for a [custom database](/connections/database/mysql) you are responsible for returning the information in the user profile. A unique and immutable `user_id` property is mandatory to correctly identify the user (see [Uniquely Identify Users](#uniquely-identify-users)).

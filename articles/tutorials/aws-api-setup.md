@@ -105,4 +105,6 @@ In this example, you will create a policy that grants full access to the S3 reso
 
   ![](/media/articles/aws-api-setup/aws-api-setup-14.png)
 
-**NOTE:** For more information on supported AWS APIs, see: [AWS Services That Work with IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SpecificProducts.html).
+::: note
+For more information on supported AWS APIs, see: [AWS Services That Work with IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SpecificProducts.html).
+:::

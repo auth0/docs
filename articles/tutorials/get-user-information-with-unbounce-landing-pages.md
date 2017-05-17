@@ -10,7 +10,9 @@ description: How to get user information with one-click social authentication on
 2. Go to **Clients -> + Create Client**. Create a Single Page Application on the Auth0 dashboard, go to Settings and take note of the Client ID and Domain. Also, add the `callback URL` in both **Allowed Callback URLs** and **Allowed Origins (CORS)** (it should be your unbounce page URL. For example:`http://unbouncepages.com/changeit`).
 3. Go to **Connections -> Social** and Turn on the Social Providers you want to support.
 
-**NOTE:** you should configure the Client ID and Secret for each social connection.
+::: note
+You should configure the Client ID and Secret for each social connection.
+:::
 
 ![](/media/articles/scenarios/unbounce/social-connections.png)
 

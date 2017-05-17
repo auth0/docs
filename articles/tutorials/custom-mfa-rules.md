@@ -56,7 +56,9 @@ function (user, context, callback) {
 }
 ```
 
-**NOTE:** In addition to the [Auth0 supported mutlifactor authentication providers](/multifactor-authentication#using-auth0s-built-in-support) (Google Authenticator and Duo Security) you can plug in your own [custom provider](/multifactor-authentication#use-a-custom-mfa-service).
+::: note
+In addition to the [Auth0 supported mutlifactor authentication providers](/multifactor-authentication#using-auth0s-built-in-support) (Google Authenticator and Duo Security) you can plug in your own [custom provider](/multifactor-authentication#use-a-custom-mfa-service).
+:::
 
 ## Application Logic
 
