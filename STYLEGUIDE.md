@@ -71,16 +71,6 @@ The exception is when quoting code. If the code does not include the punctuation
 
 Only the first level title should be in "Title Case". All subheads should be in sentence case.
 
-### Notes
-
-**NOTE:** A note is at most two sentences that refer to the immediately preceding text to provide additional clarification. Do not use a block quote for notes; it makes them too prominent.
-
-### Panels
-
-::: panel-info Panels
-Use a panel for information that applies to the overall document or to highlight information that must be taken into account, like version requirements.
-:::
-
 ### Menu items
 
 Use **Bold** when referring to menu items or fields in a webpage or UI.
@@ -92,6 +82,14 @@ Use `code_formatting` to refer to parameters and values.
 ### Links
 
 The text of a link to additional information should be the title of the destination page, so the reader has some idea of the content being linked to.
+
+### Notes and panels
+
+Check the [UI Components](https://github.com/auth0/docs/blob/replace-deprecated-ui-comps/CONTRIBUTING.md#ui-components) section on the contributing guide for a quick guide on how and when to use these elements.
+
+### Blockquotes
+
+Only use blockquotes for actual quotes, don't use them for the component styles.
 
 ## Words to use
 
