@@ -37,4 +37,6 @@ https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
 
 
-> Do not add `<android:noHistory="true">` to the `LockActivity` as this will alter the correct functionality of **Lock**.
+::: note
+Do not add `<android:noHistory="true">` to the `LockActivity` as this will alter the correct functionality of **Lock**.
+:::

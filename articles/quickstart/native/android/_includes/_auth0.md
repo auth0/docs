@@ -20,4 +20,6 @@ _You can check for the latest version on the repository [Readme](https://github.
 
 Then, run **Sync Project with Gradle Files** inside Android Studio or `./gradlew clean assembleDebug` from the command line.
 
-> For more information about Gradle usage, check [their official documentation](https://gradle.org/getting-started-android-build/).
+::: note
+For more information about Gradle usage, check [their official documentation](https://gradle.org/getting-started-android-build/).
+:::

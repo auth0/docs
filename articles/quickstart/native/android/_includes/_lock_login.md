@@ -49,6 +49,10 @@ startActivity(lock.newIntent(this));
 
 <div class="phone-mockup"><img src="/media/articles/libraries/lock-android/login.png" alt="Mobile example screenshot"/></div>
 
-> If you require in-depth configuration, see [Lock Builder](/libraries/lock-android#lock-builder) for more information
+::: note
+If you require in-depth configuration, see [Lock Builder](/libraries/lock-android#lock-builder) for more information
+:::
 
-> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](/quickstart/native/android/02-custom-login).
+::: note
+There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](/quickstart/native/android/02-custom-login).
+:::

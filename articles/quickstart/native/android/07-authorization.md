@@ -33,9 +33,13 @@ to match the condition that fits your needs.
 
 By default, it says that if the user email contains `@example.com` then they will be given an `admin` role, otherwise a regular `user` role.
 
-> You can define more roles other than `admin` and `user`, depending on your product requirements.
+::: note
+You can define more roles other than `admin` and `user`, depending on your product requirements.
+:::
 
-> In the demo app, we use `@admin.com` to validate, like the next rule:
+::: note
+In the demo app, we use `@admin.com` to validate, like the next rule:
+:::
 
 ```
   var addRolesToUser = function(user, cb) {
@@ -61,7 +65,9 @@ if (roles.contains("admin")) {
 };
 ```
 
-> Notice that you'll find the `roles` information within the `appMetadata` HashMap and not in the `userMetadata`. Application metadata cannot be modified by users, whereas User metadata can be.
+::: note
+Notice that you'll find the `roles` information within the `appMetadata` HashMap and not in the `userMetadata`. Application metadata cannot be modified by users, whereas User metadata can be.
+:::
 
 ## Restrict Content Based On Access Level
 

@@ -78,7 +78,9 @@ String country = payload.getUserMetadata().get("country").toString();
 boolean active = payload.getUserMetadata().get("active");
 ```
 
-> The strings you use for subscripting the userMetadata dictionary, and the variable types you handle, are up to you.
+::: note
+The strings you use for subscripting the userMetadata dictionary, and the variable types you handle, are up to you.
+:::
 
 ##### B. APP METADATA
 
@@ -88,7 +90,9 @@ The appMetadata `map` contains fields that are usually added via a rule, which i
 
 The extraInfo `map` contains any other extra information stored in Auth0. That information is read-only for the native platform.
 
-> For further information on metadata, see the full documentation.
+::: note
+For further information on metadata, see the full documentation.
+:::
 
 ## Update the User Profile
 

@@ -29,4 +29,6 @@ If you want to use MFA in **all** of your clients, the easiest you can do is dis
 if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
 ```
 
-> For more information on how to configure Lock-Android in your app, take a look at the [Embedded Login](01-embedded-login) tutorial.
+::: note
+For more information on how to configure Lock-Android in your app, take a look at the [Embedded Login](01-embedded-login) tutorial.
+:::

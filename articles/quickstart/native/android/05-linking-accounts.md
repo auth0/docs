@@ -24,7 +24,9 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 * You've integrated [Lock for Android](https://github.com/auth0/Lock.Android) as a dependency in your project and you're familiar with presenting the Lock login dialog. For further information, see the [embedded login](/quickstart/native/android/01-embedded-login) and the [session handling](/quickstart/native/android/03-session-handling) tutorial first.
 * You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the session handling and user profile tutorials.
 
-> It is highly recommended that you take a look at the [linking accounts](/link-accounts) documentation to understand the process of linking accounts.
+::: note
+It is highly recommended that you take a look at the [linking accounts](/link-accounts) documentation to understand the process of linking accounts.
+:::
 
 ## Enter Account Credentials
 
@@ -59,8 +61,9 @@ public void onAuthentication(Credentials secondaryCredentials) {
 }
 ```
 
-> Remember to instantiate the `auth0` object with `auth0 = new Auth0("${account.clientId}", "${account.namespace}");`
-> Also, bear in mind that the `App.getInstance().getUserCredentials().getIdToken()` method depends on how you stored your user's `Credentials`.
+::: note
+Remember to instantiate the `auth0` object with `auth0 = new Auth0("${account.clientId}", "${account.namespace}");`. Also, bear in mind that the `App.getInstance().getUserCredentials().getIdToken()` method depends on how you stored your user's `Credentials`.
+:::
 
 ## Link an Account
 
@@ -83,7 +86,9 @@ public void onSuccess(final UserProfile payload) {
 }
 ```
 
-> For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) documentation.
+::: note
+For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) documentation.
+:::
 
 ### 4. Unlink An Account
 
@@ -94,4 +99,6 @@ UsersAPIClient client = new UsersAPIClient(auth0, App.getInstance().getUserCrede
 client.unlink(primaryUserId, secondaryUserId, secondaryProvider);
 ```
 
-> You can access the userId directly from the list, `userProfile.getIdentities().get(0).getId()`, if you know the connection's position in the array.
+::: note
+You can access the userId directly from the list, `userProfile.getIdentities().get(0).getId()`, if you know the connection's position in the array.
+:::
