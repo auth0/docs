@@ -98,3 +98,12 @@ Here's how you might include the call within your application's code:
 	"comment": ""
 }
 ```
+
+## Enable the Connection for Your Auth0 Client
+
+To use your newly-created Connection, you'll need to enable it for your Auth0 Client(s).
+
+1. Go to the [Clients](${manage_url}/#/clients) page of the Management Dashboard.
+2. Select the Client for which you want to enable the Connection.
+3. Click the **Connections** icon for your Client.
+4. Scroll down to the *Enterprise* section of the Connections page, and your Connection. Click the slider to enable the Connection. If successful, the slide turns green.
