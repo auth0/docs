@@ -7,6 +7,7 @@ budicon: 448
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-v2-sample',
+  branch: 'embedded-login',
   path: '02-Custom-Login-Form',
   requirements: [
     'CocoaPods 1.2.1',
