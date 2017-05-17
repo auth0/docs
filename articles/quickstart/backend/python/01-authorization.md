@@ -48,7 +48,9 @@ api_audience = YOUR_API_AUDIENCE
 app = Flask(__name__)
 
 
-# Format error response and append status code.
+# Format error response and append status code
+
+```python
 def handle_error(error, status_code):
     resp = jsonify(error)
     resp.status_code = status_code
@@ -139,7 +141,7 @@ ${snippet(meta.snippets.use)}
 
 Individual routes can be configured to look for a particular `scope` in the `access_token` by using the following:
 
-```python 
+```python
 def requires_scope(required_scope):
     """Determines if the required scope is present in the access token
     Args:
@@ -152,9 +154,9 @@ def requires_scope(required_scope):
         if token_scope == required_scope:
             return True
     return False
-``` 
+```
 
-Then, establish what scopes are needed in order to access the route. In this case `example:scope` is used: 
+Then, establish what scopes are needed in order to access the route. In this case `example:scope` is used:
 
 ```python
 @APP.route("/secured/private/ping")

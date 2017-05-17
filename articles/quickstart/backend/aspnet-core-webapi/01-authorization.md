@@ -20,7 +20,7 @@ budicon: 500
 
 <%= include('../_includes/_api_auth_preamble') %>
 
-This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid using the standard ASP.NET Core JWT middleware. 
+This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid using the standard ASP.NET Core JWT middleware.
 
 ## Install Dependencies
 
@@ -85,7 +85,7 @@ To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url
 
 To ensure that an `access_token` contains the correct `scope` you can make use of the Policy-Based Authorization in ASP.NET Core.
 
-::: panel-info ASP.NET Core Policy-Based Authorization
+::: note
 For a better understanding of the code which follows, it is suggested that you read the ASP.NET Core documentation on [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies).
 :::
 

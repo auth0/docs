@@ -17,10 +17,10 @@ In terms of validating a JWT, there are various things to consider:
 
 2. **Has the token been tampered with?** The last part of a JWT is the signature. The signature is used to verify that the token was in fact signed by the sender and not altered in any way.
 
-3. **Has the token been received in its validity period?** JWTs are only valid for a specified time period (as expressed in the `exp` claim). 
+3. **Has the token been received in its validity period?** JWTs are only valid for a specified time period (as expressed in the `exp` claim).
 
 4. **Is the token coming from the intended Authority?** This consists of 2 parts
- 
+
     * **Signature Verification**: Can we confirm that the JWT is correctly signed using the key issued by the issuing authority?
 
     * **Issuer Value**: The Issuer is defined in the `iss` claim. Once again does this claim match up with what your application expects?
@@ -68,7 +68,7 @@ app.UseJwtBearerAuthentication(
         AllowedAudiences = new[] { "https://hs256.test.api" },
         IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
         {
-            new SymmetricKeyIssuerSecurityTokenProvider("https://jerrie.auth0.com/", 
+            new SymmetricKeyIssuerSecurityTokenProvider("https://jerrie.auth0.com/",
               Encoding.UTF8.GetBytes("your api secret"))
         },
     });
@@ -104,7 +104,9 @@ In the following screenshot you can see that we get an error message that the si
 
 The relevant error message to look for is the following:
 
-> IDX10503: Signature validation failed. Keys tried: 'null'.
+```text
+IDX10503: Signature validation failed. Keys tried: 'null'.
+```
 
 In the case where you configured you middleware for HS256, but you are sending an RS256 signed token the error message will be different:
 
@@ -112,7 +114,9 @@ In the case where you configured you middleware for HS256, but you are sending a
 
 In this case the relevant error message to look for is the following:
 
-> IDX10500: Signature validation failed. Unable to resolve SecurityKeyIdentifier...
+```text
+IDX10500: Signature validation failed. Unable to resolve SecurityKeyIdentifier...
+```
 
 To resolve this issue, be sure to that the signature algorithm with which the JWT was signed matches with how your middleware is configured.
 
@@ -124,23 +128,27 @@ Each JSON Web Token is only valid until the time specified in the `exp` claim. I
 
 The error message to look for is the following:
 
-> Expired bearer token received
+```text
+Expired bearer token received
+```
 
 The resolve this issue, be sure to send a token which has not expired.
 
-<div class="alert alert-info">
-  <strong>Quick tip:</strong> The value of the `exp` claim is a numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time. If you want to see the actual date/time for the value, you can visit <a href="http://www.epochconverter.com/">EpochConverter</a>.
-</div>
+::: panel exp
+  The value of the `exp` claim is a numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time. If you want to see the actual date/time for the value, you can visit <a href="http://www.epochconverter.com/">EpochConverter</a>.
+:::
 
 ## 4. Did you configure the correct Issuer?
 
-The Issuer specified in your token must match exactly with what is configured in your JWT middleware. 
+The Issuer specified in your token must match exactly with what is configured in your JWT middleware.
 
 ![Issuer Validation Failed](/media/articles/server-apis/webapi-owin/troubleshoot-issuer-validation-failed.png)
 
 The error message to look for is the following:
 
-> IDX10205: Issuer validation failed.
+```text
+IDX10205: Issuer validation failed.
+```
 
 The resolve this issue, ensure that you specify the correct issuer for your JWT middeware. If your middleware is configured for RS256 signed tokens, this means ensuring that you have specified the correct value for the `TokenValidationParameters.ValidIssuer` property of the `JwtBearerAuthenticationOptions` parameter passed when calling `app.UseJwtBearerAuthentication(...)`.
 
@@ -148,13 +156,15 @@ If your middleware is configured for HS256 signed tokens, this means ensuring th
 
 ## 5. Does the audience match?
 
-The audience specified in your token must match exactly with what is configured in your JWT middleware. 
+The audience specified in your token must match exactly with what is configured in your JWT middleware.
 
 ![Audience Validation Failed](/media/articles/server-apis/webapi-owin/troubleshoot-audience-validation-failed.png)
 
 The error message to look for is the following:
 
-> IDX10214: Audience validation failed.
+```text
+IDX10214: Audience validation failed.
+```
 
 The resolve this issue, ensure that you specify the correct audience for your JWT middeware.  If your middleware is configured for RS256 signed tokens, this means ensuring that you have specified the correct value for the `ValidAudience` property of the `TokenValidationParameters`
 
