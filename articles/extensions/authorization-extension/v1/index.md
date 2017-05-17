@@ -33,7 +33,9 @@ The rule that is automatically created when the extension is installed will do t
 3. Add the user's group membership to the outgoing token (which can be requested via the **OpenID Groups** scope);
 4. Verify that the user has been granted access to the current application.
 
-> Note: Since this logic is part of a rule it will only be executed in the context of a login. If users are added to or removed from a group this will only be reflected within Auth0 after this user logs in again (eg: in the user's `app_metadata` or when calling the `/userinfo` endpoint).
+::: note
+Since this logic is part of a rule it will only be executed in the context of a login. If users are added to or removed from a group this will only be reflected within Auth0 after this user logs in again (eg: in the user's `app_metadata` or when calling the `/userinfo` endpoint).
+:::
 
 ## Managing Authorizations Using Groups
 

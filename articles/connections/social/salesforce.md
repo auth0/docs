@@ -43,7 +43,7 @@ Copy the `Consumer Key` and `Consumer Secret` from the **Connected App** page of
 
 ![](/media/articles/connections/social/salesforce/salesforce-register-4.png)
 
-:: panel Salesforce Community Auth
+::: panel Salesforce Community Auth
 
 Authenticating users in a Salesforce community uses different endpoints that the regular Salesforce app.
 
@@ -64,7 +64,6 @@ For full details see this [Salesforce article](http://www.salesforce.com/us/deve
 It is common to customize the login page for __Community__ sites. If you do so, remember that the login page is part of the login transaction and you must honor the OAuth2 flow.
 
 [This sample](https://github.com/salesforceidentity/basic-custom-login) provides details on how to do it properly.
-::
+:::
 
 <%= include('../_quickstart-links.md') %>
-

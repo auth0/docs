@@ -15,7 +15,9 @@ seo_alias: google
 
 To connect your Auth0 client to Google, you will need to generate a *Client ID* and *Client Secret* in a Google project, copy these keys into your Auth0 settings, and enable the Connection.
 
-**NOTE**: This doc refers to the client steps to connect your client to Google. If you are looking to manage authentication in your app, see [Next Steps](#next-steps) below.
+::: note
+This doc refers to the client steps to connect your client to Google. If you are looking to manage authentication in your app, see [Next Steps](#next-steps) below.
+:::
 
 ## Generate the Google Client ID and Client Secret
 

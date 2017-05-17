@@ -50,6 +50,8 @@ Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Ex
 
 ![](/media/articles/connections/social/exact/exact-register-6.png)
 
-**NOTE:** You can register applications in multiple regions with Exact. By default Auth0 will use `https://start.exactonline.nl`, but this value can be overridden with the `Base URL` parameter.
+::: note
+You can register applications in multiple regions with Exact. By default Auth0 will use `https://start.exactonline.nl`, but this value can be overridden with the `Base URL` parameter.
+:::
 
 <%= include('../_quickstart-links.md') %>

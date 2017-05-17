@@ -10,7 +10,9 @@ This document covers how to install the AD/LDAP Connector on non-Microsoft Platf
 Prior to installing the AD/LDAP Connector, please ensure that you have already installed [Git](https://git-scm.com/download/linux), [Node.js](https://nodejs.org), and [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm).
 :::
 
-**Note**: For most platforms, you will need to run the required commands with root privileges.
+::: note
+For most platforms, you will need to run the required commands with root privileges.
+:::
 
 1. Download the <a class="download-github" href=""></a> package to `/tmp`:
 
@@ -46,7 +48,9 @@ Prior to installing the AD/LDAP Connector, please ensure that you have already i
     "LDAP_BIND_PASSWORD":"YOUR_LDAP_USER_PASSWORD" //cleartextpassword
     ```
 
-    > If you're using LDAP, refer to the [Modifying the Connector Settings](/connector/modify) page.
+    ::: note
+    If you're using LDAP, refer to the [Modifying the Connector Settings](/connector/modify) page.
+    :::
 
 5. Run `node server.js` once more to start the Connector. Note that the `LDAP_BIND_PASSWORD` line in `config.json` changes to `LDAP_BIND_CREDENTIALS` at this point.
 

@@ -34,7 +34,9 @@ The __Run__ button on the __Troubleshooting__ page will run the troubleshooting 
 
 ![](/media/articles/connector/troubleshooting/connector-admin-console-troubleshooter.png)
 
-**Note:** In order to detect issues with certificates you'll need to set `CONNECTIONS_API_V2_KEY` in the `config.json` file as described [here](/connector/modify#using-the-configuration-file).
+::: note
+In order to detect issues with certificates you'll need to set `CONNECTIONS_API_V2_KEY` in the `config.json` file as described [here](/connector/modify#using-the-configuration-file).
+:::
 
 The __Export__ button will create a .zip file containing the `config.json` file, the `lib\\profileMapper.js` file, the `certs` folder and the output of the troubleshooting tool. Send this troubleshooting package to us by opening a [support ticket](${env.DOMAIN_URL_SUPPORT}) if you're experiencing problems with the connector.
 
@@ -66,15 +68,10 @@ In a Windows Network with Active Directory you can try the `nltest` command. To 
 
 ![](/media/articles/connector/troubleshooting/connector-nltest-domain.png)
 
-To see to which domain the current server is connected you can also try:
+To see to which domain the current server is connected you can also try: `nltest /dsgetdc:``
 
 
-    nltest /dsgetdc:
-
-
-When the domain does not exist or is unreachable `nltest` will return an error message:
-
-    Getting DC name failed: Status = 1355 0x54b ERROR_NO_SUCH_DOMAIN
+When the domain does not exist or is unreachable `nltest` will return an error message: `Getting DC name failed: Status = 1355 0x54b ERROR_NO_SUCH_DOMAIN`
 
 ### UNABLE_TO_VERIFY_LEAF_SIGNATURE error message
 
@@ -87,7 +84,9 @@ When the connector will fail to start if unable to validate the SSL certificate 
 If the machine hosting the connector is behind a proxy, you can configure an `HTTP_PROXY` system environment variable pointing to the URL of your proxy, or you can set this variable in the `config.json` file in the connector installation directory.
 If using an authenticated proxy, the URL must be in the format `http://USERNAME:PASSWORD@SERVER_URL:PORT`.
 
-> Changing the `config.json` file or setting environment variables requires restarting the connector service for the changes to take effect.
+::: note
+Changing the `config.json` file or setting environment variables requires restarting the connector service for the changes to take effect.
+:::
 
 The `HTTP_PROXY` URL cannot point to a [.pac (proxy auto-config) file](https://en.wikipedia.org/wiki/Proxy_auto-config), it must be the URL of the proxy itself.
 If your proxy is configured through a .pac file, you must download the .pac file and find the proxy URL there.
@@ -124,11 +123,15 @@ The Connector uses two levels of configurable caching:
 
 The server caches the _"last successfully authenticated user profile"_, including the username and password (hash). It is enabled by default, and can be disabled.
 
-> The purpose of this first level cache is to maximize availability of authentication transactions when AD is unavailable (e.g. a network outage). It is only activated if the Connector/AD/LDAP servers are unavailable.
+::: note
+The purpose of this first level cache is to maximize availability of authentication transactions when AD is unavailable (e.g. a network outage). It is only activated if the Connector/AD/LDAP servers are unavailable.
+:::
 
 The Connector caches only *groups* a user might be a member of. Its lifetime is controlled with the `GROUPS_CACHE_SECONDS` configuration variable. If not present, the value is 600 seconds.
 
-> Groups are cached, because by default, the Connector retrieves all group membership of a user recursively, which can be costly in some AD/LDAP installations. Cache is deleted on each Connector restart.
+::: note
+Groups are cached, because by default, the Connector retrieves all group membership of a user recursively, which can be costly in some AD/LDAP installations. Cache is deleted on each Connector restart.
+:::
 
 These two settings might affect how profile information flows to an app. But in general, AD changes don't happen very often.
 
