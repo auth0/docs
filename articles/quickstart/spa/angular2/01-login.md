@@ -1,9 +1,8 @@
 ---
 title: Login
-default: true
 description: This tutorial demonstrates how to integrate Auth0 with Angular to add user login to your app
+budicon: 448
 ---
-
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
@@ -13,9 +12,5 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular to a
     'Angular 2.4.10'
   ]
 }) %>
-
-<%= include('../../../_includes/_callback_url') %>
-
-<%= include('_includes/_dependencies') %>
 
 <%= include('_includes/_login') %>
