@@ -6,8 +6,6 @@ description: A widget that provides a frictionless login and signup experience f
 mobileimg: media/articles/libraries/lock-ios.png
 ---
 
-<%= include('../_includes/_lock-version') %>
-
 # Lock v2 for iOS
 
 You're looking at the documentation for the easiest way of securing your iOS apps!

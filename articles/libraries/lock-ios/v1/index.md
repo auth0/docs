@@ -8,9 +8,9 @@ snippets:
 description: A widget that provides a frictionless login and signup experience for your native iOS and macOS apps.
 ---
 
-<%= include('../_includes/_lock-version-1') %>
-
 # Lock v1 for iOS and macOS
+
+<%= include('../_includes/_lock-version-1') %>
 
 Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
