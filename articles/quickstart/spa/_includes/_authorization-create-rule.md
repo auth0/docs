@@ -8,4 +8,6 @@ You can modify this line in the default script to change the domain name to one 
 if (user.email.indexOf('@example.com') > -1)
 ```
 
-**NOTE**: You can set roles other than `admin` and `user` and you may customize the rule as needed.
+::: note
+You can set roles other than `admin` and `user` and you may customize the rule as needed.
+:::

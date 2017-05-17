@@ -67,7 +67,9 @@ auth0.Login({ connection: "auth0waadtests.onmicrosoft.com" }, function (err, res
 });
 ```
 
-**NOTE:** Connection names can be found on Auth0 dashboard (e.g. `facebook`, `linkedin`, `saml-protocol-connection`).
+::: note
+Connection names can be found on Auth0 dashboard (e.g. `facebook`, `linkedin`, `saml-protocol-connection`).
+:::
 
 ### Option 3: Custom User Interface
 

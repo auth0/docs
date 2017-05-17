@@ -113,8 +113,9 @@ aClient.userInfo(accessToken)
 
 How you deal with a non-valid token is up to you. You will normally choose between two scenarios. You can either ask users to re-enter their credentials or use the `refresh_token` to get a new valid `access_token`.
 
->If you want users to re-enter their credentials, you should clear the stored data and prompt the login screen.
-
+::: note
+If you want users to re-enter their credentials, you should clear the stored data and prompt the login screen.
+:::
 
 ## Refreshing the Token
 
@@ -163,7 +164,9 @@ private void logout() {
 }
 ```
 
-> **Note:** Deleting the user credentials depends on how you have stored them.
+::: note
+Deleting the user credentials depends on how you have stored them.
+:::
 
 ### Optional: Encapsulated session handling
 

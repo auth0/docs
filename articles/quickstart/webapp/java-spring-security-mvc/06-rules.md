@@ -32,7 +32,9 @@ ${snippet(meta.snippets.rulesSetRoles)}
 
 Once you are done, save the rule.
 
-**NOTE**: Keep in mind that this is just a starting template, you can edit it to meet your business needs.
+::: note
+Keep in mind that this is just a starting template, you can edit it to meet your business needs.
+:::
 
 ## Retrieve the Role
 

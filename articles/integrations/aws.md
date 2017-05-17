@@ -118,7 +118,9 @@ You are now setup for single sign-on to AWS. You can find the `Identity Provider
 
 To use the single sign-on, navigate to that URL, and you will be brought to the Auth0 login. After signing in, you will be redirected to AWS.
 
-**NOTE:** For an example of how to define a server-side rule for assigning a role in an advanced-use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway).
+::: note
+For an example of how to define a server-side rule for assigning a role in an advanced-use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway).
+:::
 
 ## Obtain AWS Tokens to securely call AWS APIs and resources
 
@@ -140,7 +142,9 @@ On the Auth0 [Dashboard](${manage_url}/#/applications), select your app. In the 
 
 ![](/media/articles/integrations/aws/aws-addon.png)
 
-**NOTE:** For more detailed instructions on delegation, see [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup).
+::: note
+For more detailed instructions on delegation, see [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup).
+:::
 
 ### Username Length with AWS
 

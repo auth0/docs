@@ -287,7 +287,9 @@ export default class AuthService extends EventEmitter {
 
 This code also introduces two new methods: `fetchApi` (which constructs a request to the Auth0 API with the required headers and parses the response to JSON) and `linkAccount` (which uses `fetchApi` to send a _POST_ request to create a new identity in the user account, and updates the stored profile after a successful response).
 
-**NOTE**: For more details, see the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint documentation.
+::: note
+For more details, see the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint documentation.
+:::
 
 Now you can update the `LinkedAccountsList` component to render a __Link Account__ button using the `LinkAccountService.link` method:
 

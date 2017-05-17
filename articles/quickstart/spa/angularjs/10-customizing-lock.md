@@ -51,7 +51,9 @@ You can set custom theme properties, such as a different logo or primary color, 
 })();
 ```
 
-**Note**: See the [theming options](https://github.com/auth0/lock#theming-options) documentation for more detail.
+::: note
+See the [theming options](https://github.com/auth0/lock#theming-options) documentation for more detail.
+:::
 
 ## Language Dictionary Specification
 
