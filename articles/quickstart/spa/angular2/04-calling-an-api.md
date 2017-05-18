@@ -1,6 +1,6 @@
 ---
 title: Calling an API
-description: This tutorial demonstrates how to use angular2-jwt in an Angular 2+ application to make authenticated API calls
+description: This tutorial demonstrates how to make API calls for protected resources on your server
 budicon: 546
 ---
 
