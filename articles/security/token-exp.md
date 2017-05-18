@@ -35,11 +35,3 @@ An `id_token` issued by Auth0 is valid for **10 hours (36000 seconds) by default
 An Auth0 `refresh_token` **never expires** it is used to obtain a new `id_token` which do expire. Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever. If you think a refresh token may have been compromised, you can [revoke or obtain a new token.](/refresh-token#obtain-a-refresh-token).
 
 [Learn more about Auth0 refresh tokens](refresh-token)
-
-## Delegation Tokens
-
-For customer application APIs registered in Auth0, the validity of a delegation token issued for that target is governed by the JWT Expiration (seconds) value. This is set for each application in Applications > Settings.
-
-For APIs registered as Addons in Auth0, the validity period of the token will vary by individual Addon. The documentation available from the provider of any Addon API should be consulted for further information on tokens and expirations.
-
-[Learn more about Delegation Tokens](/tokens/delegation)
