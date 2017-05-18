@@ -2,122 +2,98 @@
 description: How to use Auth0 to secure a CLI
 ---
 
-# Using Auth0 to Secure a CLI
+# Use Auth0 to Secure a CLI
 
-To secure CLI programs, Auth0 requires[Proof Key for Code Exchange (PKCE) by OAuth Public Clients](https://tools.ietf.org/html/rfc7636).
+To secure CLI programs, Auth0 requires [Proof Key for Code Exchange (PKCE) by OAuth Public Clients](https://tools.ietf.org/html/rfc7636).
 
-## How it works
+## Implicit Flow vs. PKCE by OAuth Public Clients
 
-Traditionally, public clients (e.g. mobile apps, SPAs and CLIs) have used the [implicit flow](/api-auth/grant/implicit) to obtain a token. In this flow, there's no __client authentication__ because there's no easy way of storing a `client_secret`.
+Traditionally, public clients, such as mobile and single page apps and CLIs, used the [implicit flow](/api-auth/grant/implicit) to obtain a token. The implicit flow doesn't require __client authentication__, which is fitting for public clients because there's no easy way to store a `client_secret`.
 
-The [PKCE flow](/protocols) ('pixy' for friends), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps to intercept the response from the authorization server, and get hold of the token.
+Requiring [PKCE](/protocols) increases security by adding a cryptographic challenge in the token exchange. This prevents unauthorized apps from intercepting the response from the authorization server and getting the token.
 
-For this exchange to work without secret, you will have to set the `token_endpoint_auth_method` to `none`.
+### Update the Token Endpoint Authentication Method
 
-```bash
-curl -H "Authorization: Bearer API2_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"token_endpoint_auth_method":"none"}' https://yours.auth0.com/api/v2/clients/${account.clientId}
-```
+Prior to beginning, be sure to set `token_endpoint_auth_method` to `none` so that this exchange works without a client secret.
 
-A CLI program just needs to:
-
-### 1. Initiate the authorization request:
-
-This is the regular OAuth2 authorization request, with the caveat that now it includes two parameters:
-
-* A `code_challenge` consisting of a randomly generated value (called the `verifier`), hashed (SHA256), and base64Url encoded.
-* A `code_challenge_method: S256`
-
-```
-https://${account.namespace}/authorize?response_type=code&scope=openid&client_id=${account.clientId}&redirect_uri=${account.callback}&code_challenge={Base64UrlEncode(SHA256(THE VERIFIER))}&code_challenge_method=S256
-```
-
-### 2. Get an __authorization code__:
-
-If authentication is successful, then Auth0 will redirect the browser to the callback with a `code` query parameter.
-
-  ${account.callback}/?code=123
-
-### 3. Exchange __code__ for __token__:
-
-With the `code`, the program then uses the `/token` endpoint to obtain a `token`. In this second step, the CLI program adds a `verifier` parameter with the exact same random secret generated in step 1. Auth0 uses this to correlate and verify that the request originates from the same client.
-
-```
-POST /token HTTP/1.1
-Host: ${account.namespace}
-Content-type: application/json
+```har
 {
-  "code": "THE CODE",
-  "code_verifier": "THE VERIFIER",
-  "client_id": "${account.clientId}",
-  "grant_type": "authorization_code",
-  "redirect_uri": "${account.callback}"
+	"method": "PATCH",
+	"url": "https://${account.namespace}.auth0.com/api/v2/clients/${account.clientId}",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{ \"token_endpoint_auth_method\": \"none\" }"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
 }
 ```
 
-If successful the response is another JSON object, with an `id_token`, and `access_token`.
+## Configuration
 
-> Note that if the `verifier` doesn't match with what was sent in the `/authorize` endpoint, the request will fail.
+To secure a CLI program by requiring PKCE, the CLI program needs to:
 
-## Simple CLI example
+1. Initiate the authorization request;
+2. Obtain an authorization code;
+3. Exchange the authorization code for a token.
 
-This simple project shows how the above would work in a nodejs CLI app. It uses the `opn` module to open a browser to perform the authentication. It expects a simple web app running on the ${account.callback} address that can display the `code` so the user can copy, and enter it in the CLI:
+### Step 1: Initiate the Authorization Request
 
-```js
-var opn = require('opn');
-var request = require('request');
-var crypto = require('crypto');
-var readline = require('readline');
-var dotenv = require('dotenv');
+Begin by making an OAuth 2.0 authorization request. Include the [`code_challenge` you created](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier), along with the `code_challenge_method` in your call.
 
-dotenv.load();
+The authorization URL will look like the following:
 
-var env = {
-  AUTH0_CLIENT_ID: process.env.${account.clientId},
-  AUTH0_URL: process.env.AUTH0_URL,
-  AUTH0_CALLBACK_URL: process.env.${account.callback} || 'http://localhost:3000',
-  AUTH0_CONNECTION: process.env.AUTH0_CONNECTION || 'Username-Password-Authentication'
-};
+```text
+https://${account.namespace}/authorize?
+  response_type=CODE&
+  scope=OpenID&
+  client_id=${account.clientId}&
+  redirect_uri=${account.callback}&
+  code_challenge=YOUR_CODE_CHALLENGE&
+  code_challenge_method=S256
+```
 
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+### Step 2: Obtain an Authorization Code
 
-//Generate the verifier, and the corresponding challenge
-var verifier = base64url(crypto.randomBytes(32));
-var verifier_challenge = base64url(crypto.createHash('sha256').update(verifier).digest());
+If authorization is successful, Auth0 redirects the browser to the callback URL with the authorization code appended to the end:
 
-var authorize_url = env.AUTH0_URL + '/authorize?response_type=code&scope=openid%20profile&' +
-                                    'client_id=' + env.${account.clientId} +
-                                    '&redirect_uri=' + env.${account.callback} +
-                                    '&code_challenge=' + verifier_challenge + '&code_challenge_method=S256' +
-                                    '&connection=' + env.AUTH0_CONNECTION;
+```${account.callback}/?code=123```
 
-//Open a browser and initiate the authentication process with Auth0
-//The callback URL is a simple website that simply displays the OAuth2 authz code
-//User will copy the value and then paste it here for the process to complete.
-opn(authorize_url);
+### 3. Exchange the Authorization Code for a Token
 
-rl.question('Please enter the authorization code: ', function(code) {
-  request.post(env.AUTH0_URL + '/oauth/token',{
-    json:{
-      code: code,
-      code_verifier: verifier,
-      client_id: env.${account.clientId},
-      grant_type: 'authorization_code',
-      redirect_uri: env.${account.callback}
-  }},function(err,status,body){
-    //TODO: do something useful with the token (in body)
-    //CLI is ready to call APIs, etc.
-  });
+Using the authorization code, the CLI program needs to make a `POST` call to the `/token` endpoint to obtain the access token. Be sure to include the `code_verifier` that corresponds to the `code_challenge` you used in step 1. Auth0 uses these values to verify that the requests originated from the same source.
 
-  rl.close();
-});
-
-function base64url(b) {
-  return b.toString('base64')
-          .replace(/\+/g, '-')
-          .replace(/\//g, '_')
-          .replace(/=/g, '');
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+  }
 }
 ```
+
+If successful, the CLI program receives a JSON response containing the access, refresh, and ID tokens, as well as the token type:
+
+```json
+{
+  "access_token": "eyJz93a...k4laUWw",
+  "refresh_token": "GEbRxBN...edjnXbL",
+  "id_token": "eyJ0XAi...4faeEoQ",
+  "token_type": "Bearer"
+}
+```
+
+At this point, the CLI program has the necessary access token and can proceed to calling APIs.
