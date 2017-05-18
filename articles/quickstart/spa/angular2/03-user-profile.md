@@ -32,7 +32,7 @@ auth0 = new auth0.WebAuth({
 
 <%= include('../_includes/_user_profile_auth0js_method') %>
 
-Add a method which calls `getUserInfo` to the `AuthService`.
+Add a method which calls `client.userInfo` to the `AuthService`.
 
 ```ts
 // src/app/auth/auth.service.ts
