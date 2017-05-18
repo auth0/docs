@@ -37,7 +37,9 @@ auth0 = new auth0.WebAuth({
 
 At this point you should try logging in again and take note of how the `access_token` differs from before. Instead of being an opaque token, it is now a JSON Web Token which has a payload that contains your API identifier as an `audience` and any `scope`s you've requested.
 
-> **Note:** By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](https://auth0.com/docs/rules).
+::: note
+By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](https://auth0.com/docs/rules).
+:::
 
 ## Configure angular2-jwt
 

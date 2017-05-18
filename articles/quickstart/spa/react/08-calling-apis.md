@@ -95,7 +95,9 @@ console.log('Listening on http://localhost:3001');
 
 Both endpoints send a JSON response with a message attribute, but `/api/private` uses the __authenticate__ callback to validate the token received in the `Authorization` header. `express-jwt` is responsible for parsing and validating the token. (For more details, see the [express-jwt](https://github.com/auth0/express-jwt) documentation).
 
-> **Note:** The **client ID** and **secret** for your application are passed to the `jwt` middleware in the above snippet. These values should be provided to a `.env` file in your project.
+::: note
+The **client ID** and **secret** for your application are passed to the `jwt` middleware in the above snippet. These values should be provided to a `.env` file in your project.
+:::
 
 To test the server, run `node server.js`. It should be listening on port 3001 of `localhost`.
 
@@ -259,4 +261,3 @@ export default Login;
 ```
 
 When you run the application, you will see the server API responses for both the public and private calls on the Home and Login pages. However, the private calls from the Login page will return an authorization error.
-

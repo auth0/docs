@@ -19,7 +19,9 @@ In the previous steps, we enabled user login with the `Lock` widget and then wit
 
 Once the user is authenticated, we need to create a client-side session for them so that our Angular app knows that they are currently authenticated. To do this, we need to store the user's `id_token` in their browser, which is what we did in the [login](/quickstart/spa/angularjs/01-login) step.
 
-> **NOTE**: This example uses `localStorage`, but you can use any storage library, including [angular-storage](https://github.com/auth0/angular-storage).
+::: note
+This example uses `localStorage`, but you can use any storage library, including [angular-storage](https://github.com/auth0/angular-storage).
+:::
 
 ```js
 // components/auth/auth.service.js
@@ -40,7 +42,7 @@ Once the user is authenticated, we need to create a client-side session for them
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
       });
-      
+
       lock.on('authorization_error', function (err) {
         console.log(err);
       });

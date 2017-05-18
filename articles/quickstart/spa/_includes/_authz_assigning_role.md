@@ -19,4 +19,6 @@ function (user, context, callback) {
 
 The `id_token` is being augmented with an additional claim called `https://<your-domain>.com/role`. Why the `example.com` domain and not just `role`? Per the JWT spec, if you want to use any custom claims in your token, you need to be sure they are unique. Namespacing them to your domain ensures that the particular claim won't have collisions elsewhere.
 
-> For more information on how to implement role assignment in an `id_token` using rules, see the [claims documentation](api-auth/tutorials/adoption/scope-custom-claims).
+::: note
+For more information on how to implement role assignment in an `id_token` using rules, see the [claims documentation](api-auth/tutorials/adoption/scope-custom-claims).
+:::

@@ -51,7 +51,9 @@ You can set custom theme properties, such as a different logo or primary color, 
 })();
 ```
 
-**Note**: See the [theming options](https://github.com/auth0/lock#theming-options) documentation for more detail.
+::: note
+See the [theming options](https://github.com/auth0/lock#theming-options) documentation for more detail.
+:::
 
 ## Language Dictionary Specification
 
@@ -85,7 +87,9 @@ You can also customize the text that `Lock` will display with the `languageDicti
 })();
 ```
 
-> **Note**: See the [Language Dictionary Specification](https://github.com/auth0/lock#language-dictionary-specification) for more information.
+::: note
+See the [Language Dictionary Specification](https://github.com/auth0/lock#language-dictionary-specification) for more information.
+:::
 
 This is how Lock will appear using a custom logo, color, and title:
 

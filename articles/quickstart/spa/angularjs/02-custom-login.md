@@ -15,7 +15,7 @@ description: This tutorial demonstrates how to use the Auth0 AngularJS SDK to ad
 
 The previous step explained how you can log users into your application using the [Lock Widget](/libraries/lock). While Lock provides the simplest way to add authentication to your app, you also have the option of creating your own custom user interface.
 
-::: panel-info Version Requirements
+::: panel Version Requirements
 This quickstart and the accompanying sample demonstrate custom login with auth0.js version 8 and angular-auth0 version 2. If you are using auth0.js version 7, please see the [reference guide](/libraries/auth0js/v7) for the library, as well as the [legacy AngularJS custom login sample](https://github.com/auth0-samples/auth0-angularjs-sample/tree/auth0js-v7/02-Custom-Login).
 :::
 
@@ -80,7 +80,9 @@ To make use of auth0.js, angular-auth0 must be initialized in the application's 
 
 To make use of the `isAuthenticated` method from angular-jwt, a `tokenGetter` needs to be configured on `jwtOptionsProvider`. This method will be useful later for determining whether or not users are currently authenticated so that various elements can be conditionally hidden or shown.
 
-> **Note:** As of AngularJS 1.6, the default hash prefix is `!`. This prefix creates issues when auth0.js parses the hash. The snippet above demonstrates how to set the hash prefix to an empty string.
+::: note
+As of AngularJS 1.6, the default hash prefix is `!`. This prefix creates issues when auth0.js parses the hash. The snippet above demonstrates how to set the hash prefix to an empty string.
+:::
 
 ## Implement the Login Screen
 
