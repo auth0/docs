@@ -12,7 +12,10 @@
   },
   "devDependencies": {
     "commander": "^2.8.1",
+    "filehound": "^1.16.1",
     "imagemin": "^4.0.0",
-    "imagemin-optipng": "^4.3.0"
+    "imagemin-optipng": "^4.3.0",
+    "markdownlint": "^0.4.1",
+    "markdownlint-cli": "^0.3.1"
   }
 }
