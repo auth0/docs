@@ -4,76 +4,7 @@
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `Auth` and the filename will be `Auth.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
-```js
-// src/Auth/Auth.js
-
-import { EventEmitter } from 'events';
-import history from '../history';
-import auth0 from 'auth0-js';
-
-export default class Auth extends EventEmitter {
-  auth0 = new auth0.WebAuth({
-    domain: '${account.namespace}',
-    clientID: '${account.clientId}',
-    redirectUri: 'http://localhost:3000',
-    audience: 'https://${account.namespace}/userinfo',
-    responseType: 'token id_token',
-    scope: 'openid'
-  });
-
-  constructor() {
-    super();
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
-    this.handleAuthentication = this.handleAuthentication.bind(this);
-    this.isAuthenticated = this.isAuthenticated.bind(this);
-  }
-
-  login() {
-    this.auth0.authorize();
-  }
-
-  handleAuthentication() {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
-        history.replace('/home');
-      } else if (err) {
-        history.replace('/home');
-        console.log(err);
-      }
-    });
-  }
-
-  setSession(authResult) {
-    if (authResult && authResult.accessToken && authResult.idToken) {
-      // Set the time that the access token will expire at
-      let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-      localStorage.setItem('access_token', authResult.accessToken);
-      localStorage.setItem('id_token', authResult.idToken);
-      localStorage.setItem('expires_at', expiresAt);
-      // navigate to the home route
-      history.replace('/home');
-    }
-  }
-
-  logout() {
-    // Clear access token and ID token from local storage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
-    // navigate to the home route
-    history.replace('/home');
-  }
-
-  isAuthenticated() {
-    // Check whether the current time is past the 
-    // access token's expiry time
-    let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-    return new Date().getTime() < expiresAt;
-  }
-}
-```
+${snippet(meta.snippets.setup)}
 
 The service includes several methods for handling authentication.
 
@@ -89,74 +20,7 @@ The service includes several methods for handling authentication.
 
 Provide a component with controls for the user to log in and log out.
 
-```js
-// src/App.js
-
-import React, { Component } from 'react';
-import { Navbar, Button } from 'react-bootstrap';
-import './App.css';
-
-class App extends Component {
-  goTo(route) {
-    this.props.history.replace(`<%= "/${route}" %>`)
-  }
-
-  login() {
-    this.props.auth.login();
-  }
-
-  logout() {
-    this.props.auth.logout();
-  }
-
-  render() {
-    const { isAuthenticated } = this.props.auth;
-
-    return (
-      <div>
-        <Navbar fluid>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#">Auth0 - React</a>
-            </Navbar.Brand>
-            <Button
-              bsStyle="primary"
-              className="btn-margin"
-              onClick={this.goTo.bind(this, 'home')}
-            >
-              Home
-            </Button>
-            {
-              !isAuthenticated() && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.login.bind(this)}
-                  >
-                    Log In
-                  </Button>
-                )
-            }
-            {
-              isAuthenticated() && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.logout.bind(this)}
-                  >
-                    Log Out
-                  </Button>
-                )
-            }
-          </Navbar.Header>
-        </Navbar>
-      </div>
-    );
-  }
-}
-
-export default App;
-```
+${snippet(meta.snippets.use)}
 
 > This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
 
