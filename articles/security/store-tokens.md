@@ -15,7 +15,7 @@ With token-based auth, you are given the choice of where to store the JWT. We st
 
 ### Web Storage (local storage/session storage)
 
-Commonly, the JWT is placed in the browsers local storage and this works well for most use cases. There are some issues with storing JWTs in local storage to be aware of. Unlike cookies, local storage is sandboxed to a specific domain and its data cannot be accessed by any other domain including sub-domains.
+Commonly, the JWT is placed in the browsers local storage and this works well for most use cases. 
 
 When logging in a user with a username and password, the response body contains the `access_token` JWT. Then you need to handle this response in the client side code. This token can then be stored in localStorage or sessionStorage.
 
@@ -27,9 +27,14 @@ Both `localStorage` and `sessionStorage` both extend `Storage`. The only differe
 
 `sessionStorage` - Changes made are saved and available for the current page, as well as future visits to the site on the same window. Once the window is closed, the storage is deleted.
 
+**Web Storage Disadvantages**
+* Unlike cookies, local storage is sandboxed to a specific domain and its data cannot be accessed by any other domain including sub-domains.
+* Web Storage is accessible through JavaScript on the same domain so any JavaScript running on your site will have access to web storage, and because of this can be vulnerable to cross-site scripting (XSS) attacks.
+* The developer must ensure that the JWT is always sent over HTTPS and never HTTP.
+
 ### Using Cookies
 
-You can also use cookies to store the JWT. But the max size of a cookie is only 4kb so that may be problematic if you have many claims attached to the token. The exact way to set a cookie depends on the client side language you are using.
+You can also use cookies to store the JWT. The exact way to set a cookie depends on the client side language you are using.
 
 There are different options to control the lifetime of a cookie:
 
@@ -38,10 +43,14 @@ There are different options to control the lifetime of a cookie:
 * Cookies can be persistent (not destroyed after the browser is closed) with an expiration.
 * Cookies can be read by both the JavaScript and the server side code or only server side if the `httpOnly` flag is set.
 
+**Cookie Disadvantages**:
+*  The max size of a cookie is only 4kb so that may be problematic if you have many claims attached to the token.
+* Cookies can be vulnerable cross-site request forgery (CSRF or XSRF) attacks. This type of attack occurs when a malicious web site causes a user’s web browser to perform an unwanted action on a trusted site where the user is currently authenticated. This is an exploit of how the browser handles cookies. Using a web app framework’s CSRF protection makes cookies a secure optionfor storing a JWT. CSRF can also be partially prevented by checking the HTTP `Referer` and `Origin` header.
+*  Can be difficult to implement if the application requires cross-domain access. Cookies have additional properties (Domain/Path) that can be modified to allow you to specify where the cookie is allowed to be sent. 
+
 **Additional Resources:**
 
 * [Understanding Sessions & Cookies Video](/videos/session-and-cookies)
 * [Auth0 Blog: 10 Things You Should Know about Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
 * [Auth0 Blog: Cookies vs Tokens: The Definitive Guide](https://auth0.com/blog/cookies-vs-tokens-definitive-guide/)
-
 * From Stormpath: [Where to Store your JWTs – Cookies vs HTML5 Web Storage](https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage)
