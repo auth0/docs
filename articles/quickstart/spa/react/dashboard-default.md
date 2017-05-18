@@ -13,8 +13,6 @@ description: This tutorial demonstrates how to integrate Auth0 with ReactJS to a
   ]
 }) %>
 
-## Install the Dependencies
-
 <%= include('../../../_includes/_callback_url') %>
 
 <%= include('../_includes/_install_auth0js') %>
