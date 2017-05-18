@@ -54,6 +54,4 @@ The User Details page will show “pending” when a user is first created until
 
 * `username` (unique): the user's username.
 
-::: note
-  Fields indicated with an asterisk (*) are not returned as part of `user_profile/id_token` nor are they included in any response from the [`/userinfo` endpoint](/api/authentication#get-user-info) in the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) in the Management API.
-:::
+**Note**: Fields indicated with an asterisk (*) are not returned as part of `user_profile/id_token` nor are they included in any response from the [`/userinfo` endpoint](/api/authentication#get-user-info) in the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) in the Management API.
