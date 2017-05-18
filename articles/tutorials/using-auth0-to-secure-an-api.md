@@ -1,12 +1,10 @@
 ---
-description: How to use Auth0 to secure a CLI.
+description: How to use Auth0 to secure a CLI
 ---
 
-# Using Auth0 to secure a CLI
+# Using Auth0 to Secure a CLI
 
-Authentication in CLI programs is straightforward if the identity provider supports sending credentials, like database connections, SMS passwordless and AD. If the identity provider requires a browser redirect, then the process is slightly more complicated.
-
-Auth0 implements the [Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636). This flow makes it easy to add authentication to a CLI while keeping higher standards of security.
+To secure CLI programs, Auth0 requires[Proof Key for Code Exchange (PKCE) by OAuth Public Clients](https://tools.ietf.org/html/rfc7636).
 
 ## How it works
 
@@ -54,9 +52,9 @@ Content-type: application/json
   "grant_type": "authorization_code",
   "redirect_uri": "${account.callback}"
 }
-``` 
+```
 
-If successful the response is another JSON object, with an `id_token`, and `access_token`. 
+If successful the response is another JSON object, with an `id_token`, and `access_token`.
 
 > Note that if the `verifier` doesn't match with what was sent in the `/authorize` endpoint, the request will fail.
 
@@ -89,9 +87,9 @@ var rl = readline.createInterface({
 var verifier = base64url(crypto.randomBytes(32));
 var verifier_challenge = base64url(crypto.createHash('sha256').update(verifier).digest());
 
-var authorize_url = env.AUTH0_URL + '/authorize?response_type=code&scope=openid%20profile&' + 
-                                    'client_id=' + env.${account.clientId} + 
-                                    '&redirect_uri=' + env.${account.callback} + 
+var authorize_url = env.AUTH0_URL + '/authorize?response_type=code&scope=openid%20profile&' +
+                                    'client_id=' + env.${account.clientId} +
+                                    '&redirect_uri=' + env.${account.callback} +
                                     '&code_challenge=' + verifier_challenge + '&code_challenge_method=S256' +
                                     '&connection=' + env.AUTH0_CONNECTION;
 
