@@ -4,36 +4,28 @@
 
 # Restrict Client or User Access to APIs
 
-By default, any user associated with an Auth0 client can request an API's scope(s). If you would like to restrict access to the API's scopes based on the user's role, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to those with their role, they will receive an HTTP 401 response.
+By default, any user associated with an Auth0 client can request an API's scope(s). If you would like to restrict access to the API's scopes based on the user's role, [client](/clients) association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an HTTP 401 response.
 
-## Implementation
+## Example: Scopes Based on the `audience` Parameter
 
-The following [rule](/rules) sample demonstrates how you would check for and permit/deny access depending on the `audience` parameter.
+The following [rule](/rules) sample demonstrates how you would check for and permit/deny access depending on the `audience` parameter, as well as the client ID.
 
 ```js
 function (user, context, callback) {
 
-  /*
-   * This script denies access to user-based flows using
-   * the value of the `audience` parameter, which is empty
-   * if you have a default set in the Management Dashboard.
-   */
-
   var audience = '';
+  var client_id = '';
 
-  audience = audience || (context.request && context.request.query && context.request.query.audience);
+  client_id = context.clientID;
 
-  if (audience === 'http://todoapi2.api' || !audience) {
-    return callback(new UnauthorizedError('end_users_not_allowed'));
-  }
+  audience = audience
+              || (context.request && context.request.query && context.request.query.audience)
+              || (context.request && context.request.body && context.request.body.audience);
 
-  audience = audience || (context.request && context.request.body && context.request.body.audience);
-  if (audience === 'http://todoapi2.api'  || !audience) {
+  if ((audience === 'http://todoapi2.api' || !audience) && (context.clientID === 'CLIENT_ID')) {
     return callback(new UnauthorizedError('end_users_not_allowed'));
   }
 
   return callback(null, user, context);
 }
 ```
-
-You can easily modify the script above to check the `scopes`, `clients`, or other value.
