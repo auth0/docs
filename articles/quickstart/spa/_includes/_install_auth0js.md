@@ -1,6 +1,6 @@
 ## Install auth0.js
 
-Integrating Auth0 in your Angular 2+ application requires the **auth0.js** library. Install it using npm or yarn.
+Integrating Auth0 in your application requires the **auth0.js** library. Install it using npm or yarn.
 
 ```bash
 # installation with npm
