@@ -1,6 +1,6 @@
 ---
 title: User Profile
-description: This tutorial demonstrates how to fetch a user's information from Auth0 to be displayed in a profile area in an Angular 2+ application
+description: This tutorial demonstrates how to fetch a user's information from Auth0
 budicon: 292
 ---
 
