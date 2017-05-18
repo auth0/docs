@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to integrate Auth0 with Angular 2 to add user login to your app
+description: This tutorial demonstrates how to add user login to your application with Auth0
 ---
 
 
