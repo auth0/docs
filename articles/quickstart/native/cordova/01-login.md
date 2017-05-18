@@ -19,13 +19,13 @@ You can get started by either downloading the seed project or if you would like 
 ## 1. Setting Up the Callback URL
 
 <div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:
 
-<pre><code>https://${account.namespace}/mobile</pre></code>
+```text
+https://${account.namespace}/mobile
+```
 
-<p>Also, if you are testing your application locally, make sure to add your local URL as an Allowed Callback URL and the following as an Allowed Origin (CORS):</p>
-
-<pre><code>file://\*</code></pre>
+Also, if you are testing your application locally, make sure to add your local URL as an Allowed Callback URL and the following as an Allowed Origin (CORS): `file://\*`
 
 </div>
 
@@ -67,9 +67,13 @@ In addition to the whitelist, you must update the [Content Security Policy](http
 
 Follow the [quickstart guide](/quickstart/spa) for the specific technology you are using in your Cordova app.
 
-> **Note**: Cordova doesn't support getting dependencies from a CDN, so it is necessary to download the JavaScript and CSS dependencies locally and then point to the downloaded files.
+::: note
+Cordova doesn't support getting dependencies from a CDN, so it is necessary to download the JavaScript and CSS dependencies locally and then point to the downloaded files.
+:::
 
-> **Note**: You must use `popup` mode when configuring an application with Cordova. This can be done by setting `redirect: false` in the options object for Lock. See the [Lock customization](/libraries/lock/v9/customization) documentation for more.
+::: note
+You must use `popup` mode when configuring an application with Cordova. This can be done by setting `redirect: false` in the options object for Lock. See the [Lock customization](/libraries/lock/v9/customization) documentation for more.
+:::
 
 ### Troubleshooting
 

@@ -26,7 +26,9 @@ To install CocoaPods just run the following command:
 gem install cocoapods
 ```
 
-> If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
+::: note
+If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
+:::
 
 ## Adding Lock
 
@@ -77,7 +79,9 @@ ${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/reactnative-ios/Lock-Widget-Screenshot.png)](https://auth0.com)
 
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-ios#sms-passwordless), [Email](https://github.com/auth0/react-native-lock-ios#email-passwordless) or [Touch ID](https://github.com/auth0/react-native-lock#touchid-ios-only)
+::: note
+There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-ios#sms-passwordless), [Email](https://github.com/auth0/react-native-lock-ios#email-passwordless) or [Touch ID](https://github.com/auth0/react-native-lock#touchid-ios-only)
+:::
 
 On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
 
@@ -90,4 +94,6 @@ After the user has logged in, we can use the `profile` object which has all the 
   <Text>Your email is: {this.state.profile.email}</Text>
 ```
 
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+::: note
+You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+:::

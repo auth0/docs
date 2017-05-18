@@ -35,8 +35,9 @@ UsersAPIClient usersClient = new UsersAPIClient(auth0, idToken);
 AuthenticationAPIClient authClient = new AuthenticationAPIClient(auth0);
 ```
 
-> It's suggested that you add both the Auth0 `domain` and `clientId` to the `strings.xml` file rather than hardcode them.
-
+::: note
+It's suggested that you add both the Auth0 `domain` and `clientId` to the `strings.xml` file rather than hardcode them.
+:::
 
 Next, use the `access_token` to obtain the user id with the `AuthenticationAPIClient`. Although the call returns a `UserProfile` instance, this is a basic OIDC conformant profile and the only value guaranteed to be present is the `sub` claim that indicates the user id. We're going to use this value to call later the [Management API](https://auth0.com/docs/api/management/v2#!/Users) and get a full profile.
 
@@ -92,8 +93,9 @@ profile.getEmail();
 profile.getPictureURL();
 ```
 
-> Remember that you can't modify the UI inside the onSuccess() method, as it works in a second thread. To solve this, you can persist the data, create a task in the UI thread or create a handler to receive that information.
-
+::: note
+Remember that you can't modify the UI inside the onSuccess() method, as it works in a second thread. To solve this, you can persist the data, create a task in the UI thread or create a handler to receive that information.
+:::
 
 #### I. ADDITIONAL INFO
 
@@ -107,7 +109,9 @@ The `userMetadata` map contains fields related to the user profile that can be a
 String country = (String) profile.getUserMetadata().get("country");
 ```
 
-> The strings you use for subscripting the user_metadata map, and the variable types you handle, are up to you.
+::: note
+The strings you use for subscripting the user_metadata map, and the variable types you handle, are up to you.
+:::
 
 ##### B. APP METADATA
 
@@ -117,7 +121,9 @@ The `appMetadata` map contains fields that are usually added via a Rule or Hook,
 
 The `extraInfo` map contains additional values stored in Auth0 but not mapped to a `UserProfile` getter method. That information is read-only for the native platform.
 
-> For further information on metadata, see the full documentation.
+::: note
+For further information on metadata, see the full documentation.
+:::
 
 ## Update the User Profile
 

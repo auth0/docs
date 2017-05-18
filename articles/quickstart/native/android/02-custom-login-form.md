@@ -23,15 +23,13 @@ This quickstart will show you how to add Auth0 login capabilities while using a 
 
 Go to the [Client Settings](${manage_url}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the value:
 
-```
+```text
 demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
 Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
-
 <%= include('_includes/_auth0') %>__
-
 
 ### Configure Your Manifest File
 
@@ -79,8 +77,9 @@ client.login(email, password, connectionName)
 
 In this example we're logging in using an Auth0 Database Connection called "Username-Password-Authentication". You can also [create your own](https://manage.auth0.com/#/connections/database/new).
 
-> There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example.
-
+::: note
+There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example.
+:::
 
 ### Using a Social connection
 

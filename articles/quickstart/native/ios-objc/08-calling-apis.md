@@ -14,10 +14,11 @@ description: This tutorial will show you how to use Auth0 to authenticate with y
   ]
 }) %>
 
-> This tutorial will enable you to delegate all your authentication needs on Auth0, leaving your API server to handle only your core business processes.
-> To achieve this, we will send an Auth0 token to the server through the `Authentication` header of the request. The server in turn will have to check with Auth0 servers to corroborate that this token is valid. We will not go into detail about this latter part, since there are other very good tutorials that cover the server side of this process ([like this one](https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/Server)). You can check out [the official documentation](/api/authentication) for further information on authentication API on the server-side.
+::: panel API Authorization
+This tutorial will enable you to delegate all your authentication needs on Auth0, leaving your API server to handle only your core business processes. To achieve this, we will send an Auth0 token to the server through the `Authentication` header of the request. The server in turn will have to check with Auth0 servers to corroborate that this token is valid. We will not go into detail about this latter part, since there are other very good tutorials that cover the server side of this process ([like this one](https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/Server)). You can check out [the official documentation](/api/authentication) for further information on authentication API on the server-side.
+:::
 
-> We'll assume you are already familiar with Auth0 and how to Sign up and Login using Lock or Auth0 Toolkit. **If you're not sure, check out the [login tutorial](/quickstart/native/ios-objc/01-login) first.**
+We'll assume you are already familiar with Auth0 and how to Sign up and Login using Lock or Auth0 Toolkit. **If you're not sure, check out the [login tutorial](/quickstart/native/ios-objc/01-login) first.**
 
 
 ### 1. Get the Token

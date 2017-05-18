@@ -17,13 +17,13 @@ budicon: 448
   ]
 }) %>
 
-This tutorial explains how to integrate the Auth0 OIDC Client with a Xamarin application. 
+This tutorial explains how to integrate the Auth0 OIDC Client with a Xamarin application.
 
 ## Switching token signature algorithm to RS256
 
 The Auth0 OIDC Client requires that the __JsonWebToken Signature Algorithm__ for your client is set to `RS256`.
 
-::: panel-warning Before Changing the Signing Algorithm
+::: warning
 Please note that altering the signing algorithm for your client will immediately change the way your user's tokens are signed. This means that if you have already implemented JWT verification for your client somewhere, your tokens will not be verifiable until you update the logic to account for the new signing algorithm.
 :::
 
@@ -43,7 +43,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Set Up the Auth0 Callback URL
 
-Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including an access code which will be exchanged for an `id_token`, `access_token` and `refresh_token`. 
+Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including an access code which will be exchanged for an `id_token`, `access_token` and `refresh_token`.
 
 Since callback URLs can be manipulated, you will need to add your application's URL to your client's *Allowed Callback URLs* for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
 
@@ -68,11 +68,11 @@ Go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}
 
 ## Integration
 
-To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID, and also passing the Android Activity or View Controller from which you are executing the code: 
+To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID, and also passing the Android Activity or View Controller from which you are executing the code:
 
 ${snippet(meta.snippets.setup)}
 
-The steps for Logging the user in is different for Android and iOS. 
+The steps for Logging the user in is different for Android and iOS.
 
 ### Android
 
@@ -137,7 +137,7 @@ With the above code in place, a user can log in to your application using Auth0:
 
 First you will need to register the URL Type:
 
-1. Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab. 
+1. Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab.
 2. Under **URL Types**, click the **Add URL Type** button
 3. Set the **Identifier** as `Auth0`, the **URL Schemes** the same as your application's **Bundle Identifier**, and the **Role** as `None`
 
@@ -169,7 +169,7 @@ var loginResult = await client.LoginAsync();
 
 First, you will need to ensure that you have registered the URL scheme for your Callback URL which your application should handle:
 
-1. Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab. 
+1. Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab.
 2. Under **URL Types**, click the **Add URL Type** button
 3. Set the **Identifier** as `Auth0`, the **URL Schemes** the same as your application's **Bundle Identifier**, and the **Role** as `None`
 
@@ -261,9 +261,9 @@ if (!loginResult.IsError)
 }
 ```
 
-::: panel-info Scopes
+::: note
 The exact claims returned will depend on the scopes that were requested. For more information see the [Using Scopes](https://auth0.github.io/auth0-oidc-client-net/documentation/advanced-scenarios/scopes.html) in the Auth0 OIDC Client documentation.
-::: 
+:::
 
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 

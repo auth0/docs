@@ -46,7 +46,9 @@ Request request = new Request.Builder()
     .build();
 ```
 
-> Notice that how you configure your authorization header should match the standards that you're using in your API, this is just an example of what it could look like.
+::: note
+Notice that how you configure your authorization header should match the standards that you're using in your API, this is just an example of what it could look like.
+:::
 
 ## Send the Request
 

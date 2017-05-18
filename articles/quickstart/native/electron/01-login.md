@@ -19,7 +19,7 @@ budicon: 448
 <div class="setup-callback">
 <p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in your Auth0 dashboard and make sure that the <b>Allowed Callback URLs</b> field contains the following values:</p>
 
-```
+```text
 https://${account.namespace}/mobile, file:///
 ```
 
@@ -31,7 +31,9 @@ Add **Auth0Lock** to your `index.html` file and set the viewport.
 
 ${snippet(meta.snippets.dependencies)}
 
-> **Note:** Some functionality provided by Lock is meant for regular web browsers. For best results, add `auth: { sso: false }` to your Lock configuration options.
+::: note
+Some functionality provided by Lock is meant for regular web browsers. For best results, add `auth: { sso: false }` to your Lock configuration options.
+:::
 
 ## Follow the frontend Quickstarts
 

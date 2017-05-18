@@ -17,11 +17,11 @@ budicon: 345
 
 ## Before Starting
 
-You should be familiar with previous tutorials. This tutorial assumes that:
+You should be familiar with previous tutorials. This tutorial assumes that you've integrated the [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Login. For further information, check out the [Login Guide](/quickstart/native/ios-swift/00-login) and the [User Sessions Guide](/quickstart/native/ios-swift/03-user-sessions) first.
 
-- You've integrated the [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Login. For further information, check out the [Login Guide](/quickstart/native/ios-swift/00-login) and the [User Sessions Guide](/quickstart/native/ios-swift/03-user-sessions) first.
-
-> It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts) to understand the general process of linking accounts.
+::: note
+It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts) to understand the general process of linking accounts.
+:::
 
 ## Enter Account Credentials
 
@@ -115,7 +115,9 @@ Auth0
   }
 ```
 
-> Any linked account is handled as a `Profile` identity object. For further information on this object, check out the [Profile class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift)
+::: note
+Any linked account is handled as a `Profile` identity object. For further information on this object, check out the [Profile class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift)
+:::
 
 ## Unlink an Account
 
