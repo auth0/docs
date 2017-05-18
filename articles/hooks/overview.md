@@ -3,9 +3,10 @@ description: >-
   Hooks are JavaScript functions executed as part of the user
   authentication flow. They allow you to customize and extend Auth0's
   capabilities, and you can chain them together for modular coding.
+beta: true
 ---
 
-# Hooks: Overview&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
+# Hooks: Overview
 
 Hooks, which will eventually replace [Rules](/rules), allow you to extend the Auth0 platform with custom code.
 
