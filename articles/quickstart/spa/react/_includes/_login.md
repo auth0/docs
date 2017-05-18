@@ -105,6 +105,8 @@ export default makeMainRoutes
 
 In `routes.js`, there is now an `onEnter` callback assigned to the `/home` route. This calls `requireAuth`, which checks whether the user is authenticated, and redirects to `/login` if they are not.
 
+With React Router v4, create a private route with a redirect, instead of using `onEnter={requireAuth}`. Learn more about auth redirects in React Router v4 [here](https://reacttraining.com/react-router/web/example/auth-workflow). 
+
 ## Create the Login View
 
 Create a new `Login` component and save it in `src/views/Main/Login/`. This React component should accept an `auth` object (which is an instance of the `AuthService`) as a prop.
