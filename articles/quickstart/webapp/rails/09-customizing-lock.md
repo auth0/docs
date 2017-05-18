@@ -20,8 +20,9 @@ In addition to a carefully-considered default user interface, Lock offers UI cus
 
 Some UI customization can be done via the `options` parameter when creating a `Lock` instance. You can edit the Lock options in the corresponding javascript initialization code. In this tutorial, it is located in ```app/assets/javascripts/home.js.erb```.
 
-> **NOTE:** If you're setting up your rails application from scratch, refer to [Introduction](/quickstart/webapp/rails/00-introduction).
-
+::: note
+If you're setting up your rails application from scratch, refer to [Introduction](/quickstart/webapp/rails/00-introduction).
+:::
 
 ### Theme options
 

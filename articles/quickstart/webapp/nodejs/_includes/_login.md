@@ -174,7 +174,9 @@ block content
     lock.show();
 ```
 
-**Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL for the callback route.
+::: note
+Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL for the callback route.
+:::
 
 In `views/user.jade` we simply display the user's nickname and profile picture.
 

@@ -66,4 +66,6 @@ module LogoutHelper
 end
 ```
 
-**NOTE**: The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. [Read more about this](/logout#redirecting-users-after-logout).
+::: note
+The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. [Read more about this](/logout#redirecting-users-after-logout).
+:::

@@ -38,7 +38,9 @@ The `UserIdentifier` lets you set an identifier for the user. Currently, here ar
   * `nickname`
   * `gravatarurl`
 
-> **Important Hint:** Auth0.Nancy.SelfHost enables `CookieBasedSessions` setting in the background. If you use this setting in your app as well, you should switch it off.
+::: note
+Auth0.Nancy.SelfHost enables `CookieBasedSessions` setting in the background. If you use this setting in your app as well, you should switch it off.
+:::
 
 ## Add Auth0 Configuration
 
@@ -101,5 +103,6 @@ public class Authentication : NancyModule
 
 <%= include('../../../_includes/_lock-sdk') %>
 
-> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
-
+::: note
+Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+:::
