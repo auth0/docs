@@ -1,0 +1,9 @@
+added:
+  -
+    title: "Create a SAMLP Identity Provider Connection"
+    tags:
+      - samlp
+      - saml
+      - identity-provider
+    description: |
+      A [new doc](https://auth0.com/docs/connections/enterprise/samlp) was added with instructions on configuring a SAMLP Connection.
