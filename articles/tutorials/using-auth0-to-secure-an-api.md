@@ -8,34 +8,9 @@ To secure CLI programs, Auth0 requires [Proof Key for Code Exchange (PKCE) by OA
 
 ## Implicit Flow vs. PKCE by OAuth Public Clients
 
-Traditionally, public clients, such as mobile and single page apps and CLIs, used the [implicit flow](/api-auth/grant/implicit) to obtain a token. The implicit flow doesn't require __client authentication__, which is fitting for public clients because there's no easy way to store a `client_secret`.
+Traditionally, public clients, such as mobile and single page apps and CLIs, used the [implicit flow](/api-auth/grant/implicit) to obtain a token. The implicit flow doesn't require __client authentication__, which is fitting for public clients (represented in Auth0 as a [native client](/clients) because there's no easy way to store a `client_secret`.
 
 Requiring [PKCE](/protocols) increases security by adding a cryptographic challenge in the token exchange. This prevents unauthorized apps from intercepting the response from the authorization server and getting the token.
-
-### Update the Token Endpoint Authentication Method
-
-Prior to beginning, be sure to set `token_endpoint_auth_method` to `none` so that this exchange works without a client secret.
-
-```har
-{
-	"method": "PATCH",
-	"url": "https://${account.namespace}.auth0.com/api/v2/clients/${account.clientId}",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{ \"token_endpoint_auth_method\": \"none\" }"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
-}
-```
 
 ## Configuration
 
