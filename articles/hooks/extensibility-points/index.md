@@ -1,9 +1,10 @@
 ---
 description: The extensibility points for use with Hooks
 url: /hooks/extensibility-points
+beta: true
 ---
 
-# Extensibility Points&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
+# Extensibility Points
 
 The following is a list of available extensibility points:
 

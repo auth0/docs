@@ -1,8 +1,9 @@
 ---
 description: How to create new Hooks using the Management Dashboard
+beta: true
 ---
 
-# Create a New Hook Using the Dashboard&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
+# Create a New Hook Using the Dashboard
 
 You can create new Hooks using the Auth0 Management Dashboard.
 
