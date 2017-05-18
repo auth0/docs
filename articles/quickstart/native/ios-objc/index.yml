@@ -1,28 +1,21 @@
 title: iOS Objective-C
-hybrid: false
 language:
   - Objective-C
 image: /media/platforms/ios.png
 tags:
   - quickstart
-snippets:
-  dependencies: native-platforms/ios-objc/dependencies
-  setup: native-platforms/ios-objc/setup
-  use: native-platforms/ios-objc/use
 alias:
   - ios
   - objective-c
   - iphone
   - ipad
 seo_alias: ios-objc
+snippets:
+  setup: native-platforms/ios-objc/setup_wrapper
 articles:
-  - 00-introduction
-  - 01-login
-  - 02-custom-login
-  - 03-session-handling
-  - 04-user-profile
-  - 05-linking-accounts
-  - 06-rules
-  - 07-authorization
-  - 09-mfa
-  - 10-customizing-lock
+  - getting-started
+  - 00-login
+  - 03-user-sessions
+  - 04-calling-apis
+  - 05-authorization
+  - 07-linking-accounts
