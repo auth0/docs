@@ -191,7 +191,7 @@ Delegation is now done via the `delegation` method, which takes an `options` obj
 * __api_type__: a string; the api to be called
 
 ```js
-webAuth.delegation({
+webAuth.client.delegation({
   client_id: '${account.clientId}',
   grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
   id_token: 'valid idToken here',
