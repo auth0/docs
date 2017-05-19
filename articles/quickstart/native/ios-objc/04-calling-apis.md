@@ -25,26 +25,22 @@ In order to make an authenticated request, you first need to obtain a token, aga
 
 You should already know how to get an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance from the [Login Guide](/quickstart/native/ios-swift/00-login). Anyway, here's a quick recap:
 
-First, import the `Auth0` module in the file where you want to present the hosted login page.
-
-${snippet(meta.snippets.setup)}
+${snippet(meta.snippets.setup_wrapper)}
 
 Then present the hosted login screen, like this:
 
-```swift
-Auth0
-    .webAuth()
-    .scope("openid profile")
-    .start {
-        switch $0 {
-        case .failure(let error):
-            // Handle the error
-            print("Error: \(error)")
-        case .success(let credentials):
-            guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
-            // Good time to store the tokens
+```objc
+HybridAuth *auth = [[HybridAuth alloc] init];
+[auth showLoginWithScope:@"openid profile" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else if (credentials) {
+          // Do something with credentials e.g.: save them.
+          // Auth0 will dismiss itself automatically by default.
         }
-}
+    });
+}];
 ```
 
 In order to make authenticated requests, you can use any of the token strings inside that `Credentials` instance you just obtained. Which one depends on the application usage.
@@ -53,34 +49,28 @@ In order to make authenticated requests, you can use any of the token strings in
 
 Supposing you need to use the `accessToken` value, here is what you would do:
 
-```swift
-let token  = ... // The accessToken you stored after authentication
-let url = URL(string: "your api url")!
-var request = URLRequest(url: url)
+```objc
+NSString* token = ... // The accessToken you stored after authentication
+NSString *url = @"https://localhost/api"; // Change to your API
+NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
 // Configure your request here (method, body, etc)
+
 request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-let task = URLSession.shared.dataTask(with: request) { data, response, error in
+[[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
     // Parse the response
-}
+}] resume];
 ```
 
 Notice that how you configure your authorization header should match the standards that you're using in your API. This is just an example of what it could look like.
 
-## Send the Request
-
-Don't forget to actually send the request you just created, by executing:
-
-```swift
-task.resume()
-```
 
 ### Sample Project Configuration
 
 When testing the sample project, make sure you configure your URL request in the `ProfileViewController.swift` file:
 
-```swift
-let url = URL(string: "your api url")!
-var request = URLRequest(url: url)
+```objc
+NSString *url = @"https://localhost/api"; // Change to your API
+NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
 // Configure your request here (method, body, etc)
 ```
 

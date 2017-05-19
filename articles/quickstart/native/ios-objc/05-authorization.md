@@ -33,33 +33,25 @@ By default, it says that if a user email contains `@example.com`, that user will
 
 ## Test the Rule
 
-```swift
-import Auth0
-```
+${snippet(meta.snippets.setup_wrapper)}
 
-```swift
-Auth0
-    .users(token: idToken)
-    .get(userId, fields: ["app_metadata"], include: true)
-    .start { result in
-        switch result {
-        case .success(let user):
-            guard
-              let appMetadata = user["app_metadata"] as? [String: Any],
-              let roles = appMetadata["roles"] as? [String]
-            else {
-              // Test failed, make sure you've configured your rule properly (check step 1 thoroughly)
-              return
-            }
-            if roles == "admin" {
-                // User has admin access, grant them the power.
-            } else {
-                // Not an admin, deny the user.
-            }
-        case .failure(let error):
-            // Handler error
-        }
-}
+```objc
+NSString *userId = ... // the user's profile id
+HybridAuth *auth = [[HybridAuth alloc] init];
+[auth userProfileWithIdToken:idToken userId:userId callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
+  if (error) {
+    // Handle error
+  } else {
+     NSDictionary *metaData = [user objectForKey:@"app_metadata"];
+     NSArray *roles = [metaData objectForKey:@"roles"];
+     if (![roles containsObject:@"admin"]) {
+        // Not an admin user, access denied.
+     } else {
+        // Admin user, grant access
+        [self performSegueWithIdentifier:@"AdminSegue" sender:nil];
+     }
+   }
+}];
 ```
 
 ## Use the Rule

@@ -34,14 +34,12 @@ Then, configure and present the embedded login widget:
 ```swift
 HybridLock *lock = [[HybridLock alloc] init];
 [lock showLockFrom:self callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else if (credentials) {
-            // Do something with credentials e.g.: save them.
-            // Auth0 will dismiss itself automatically by default.
-        }
-    });
+    if (error) {
+        NSLog(@"Error: %@", error);
+    } else if (credentials) {
+        // Do something with credentials e.g.: save them.
+        // Auth0 will dismiss itself automatically by default.
+    }
 }];
 ```
 

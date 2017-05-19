@@ -19,7 +19,7 @@ budicon: 345
 
 You should be familiar with previous tutorials. This tutorial assumes that:
 
-- You've integrated the [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Login. For further information, check out the [Login Guide](/quickstart/native/ios-swift/00-login) and the [User Sessions Guide](/quickstart/native/ios-swift/03-user-sessions) first.
+- You've integrated the [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Login. For further information, check out the [Login Guide](/quickstart/native/ios-objc/00-login) and the [User Sessions Guide](/quickstart/native/ios-objc/03-user-sessions) first.
 
 > It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts) to understand the general process of linking accounts.
 
@@ -27,27 +27,24 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 
 Here's the scenario: You have a user who is logged in and wants to link one (or multiple) accounts to that logged in account, such that the user can login with any of them and get into that account.
 
-Typically, you will need to present an extra login dialog to make users enter the credentials for any account they want to link with their main account. You can present this login as we saw in the [Login Guide](/quickstart/native/ios-swift/00-login):
+Typically, you will need to present an extra login dialog to make users enter the credentials for any account they want to link with their main account. You can present this login as we saw in the [Login Guide](/quickstart/native/ios-objc/00-login):
 
-First, import the `Auth0` module:
-
-${snippet(meta.snippets.setup)}
+${snippet(meta.snippets.setup_wrapper)}
 
 Then present the hosted login screen:
 
-```swift
-Auth0
-    .webAuth()
-    .start {
-        switch $0 {
-        case .failure(let error):
-            // Handle the error
-            print("Error: \(error)")
-        case .success(let credentials):
-            guard let accessToken = credentials.accessToken, let idToken = credentials.idToken else { return }
-            // Store accessToken to retrieve user profile, store idToken for linking
+```objc
+HybridAuth *auth = [[HybridAuth alloc] init];
+[auth showLoginWithScope:@"openid profile" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else if (credentials) {
+          // Do something with credentials e.g.: save them.
+          // Auth0 will dismiss itself automatically by default.
         }
-}
+    });
+}];
 ```
 
 Upon success, you need to store the `idToken` value for later use, which is the `idToken` for the secondary account that the user is linking with.
@@ -56,63 +53,58 @@ Upon success, you need to store the `idToken` value for later use, which is the 
 
 Linking an account is simple. You have a user, and another account you want to link with that user. All you need to grab is these three values:
 
-- `id`: The `id` from the user that is logged in.
+- `id`: The `id` from the user's profile that is logged in.
 - `idToken`: The `idToken` obtained upon your user login.
 - `otherUserToken`: The `idToken` from the account you want to link the user with. This is the value you stored in step 1.
 
-```swift
-import Auth0
-```
+${snippet(meta.snippets.setup_wrapper)}
 
-```swift
-let id = ... // the id of the user
-let idToken = ... // the user's idToken
-let otherUserToken = ... // the idToken from the account you want to link the user with
-Auth0
-    .users(token: idToken)
-    .link(id, withOtherUserToken: otherUserToken)
-    .start { result in
-        switch result {
-        case .success:
-            // The account was linked
-        case .failure(let error):
-            // Handler Error
-        }
-    }
+To link an account:
+
+```objc
+NSString *id = ... // the id of the user
+NSString *idToken = ... // the user's idToken
+NSString *otherUserToken = ... // the idToken from the account you want to link the user with
+[auth linkUserAccountWithIdToken:idToken userId:id otherAccountToken:otherUserToken
+      callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
+          if (error) {
+              // Handler Error
+          } else {
+              // Success account was linked
+          }
+}];
 ```
 
 ## Retrieve Linked Accounts
 
-Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the user's profile, a process that we already know from the [User Sessions Guide](/quickstart/native/ios-swift/03-user-sessions#validate-an-accesstoken):
+Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the user's profile, a process that we already know from the [User Sessions Guide](/quickstart/native/ios-objc/03-user-sessions#validate-an-accesstoken):
 
-```swift
-Auth0
-    .authentication()
-    .userInfo(token: accessToken)
-    .start { result in
-        switch(result) {
-        case .success(let profile):
-            // Store profile
-        case .failure(let error):
-            // Handle error
-        }
+```objc
+// Retrieve profile
+[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
+    if (error) {
+        // accessToken has expired or no longer valid
+    } else {
+        // The accessToken is still valid and you have the user's profile
+        // This would be a good time to store the profile
+    }
+}];
 ```
 
 Once you have the `id` from the profile you can retrieve the users identities through a management API call as follows:
 
-```swift
-Auth0
-    .users(token: idToken)
-    .get(userId, fields: ["identities"], include: true)
-    .start { result in
-        switch result {
-        case .success(let user):
-            let identityValues = user["identities"] as? [[String: Any]] ?? []
-            let identities = identityValues.flatMap { Identity(json: $0) }
-        case .failure(let error):
-            // Handle error
+```objc
+HybridAuth *auth = [[HybridAuth alloc] init];
+[auth userProfileWithIdToken:idToken userId:id callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
+    if (error) {
+        // Handle error
+    } else {
+        NSArray *identities = [[NSArray alloc] init];
+        for (NSDictionary *identity in [user objectForKey:@"identities"]) {
+           identities = [identities arrayByAddingObject:[[A0Identity alloc] initWithJson:identity]];
         }
-  }
+    }
+}];
 ```
 
 > Any linked account is handled as a `Profile` identity object. For further information on this object, check out the [Profile class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift)
@@ -121,19 +113,15 @@ Auth0
 
 The unlinking process is quite similar to the linking one. This time, you just need the `id`, the user's `idToken`, and the `identity` object that you want to unlink (you will only use its `userId` and `provider` values):
 
-```swift
-let id = ... // the user id
-let idToken = ... // the user idToken
-let identity: Identity = ... // the identity (account) you want to unlink from the user
-Auth0
-    .users(token: idToken)
-    .unlink(identityId: identity.identifier, provider: identity.provider, fromUserId: id)
-    .start { result in
-            switch result {
-            case .success:
-                // Unlinked account!
-            case .failure(let error):
-                // Deal with error
-            }
-     }
+```objc
+NSString *id = ... // the user id in profile
+NSString *idToken = ... // the user idToken
+A0Identity *identity = ... // the identity (account) you want to unlink from the user
+[auth unlinkUserAccountWithIdToken:idToken userId:id identity:identity callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
+    if (error) {
+        // Handle Error
+    } else {
+        // Success, account unlinked.
+    }
+}];
 ```

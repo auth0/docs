@@ -96,12 +96,6 @@ guard let accessToken = keychain.string(forKey: "access_token") else {
 Then, if such a token exists, you need to check whether it's still valid, has expired, or is no longer valid for some other reason, such as being revoked. To do so, you will use `Auth0` to fetch the user's profile based on the `accessToken` we've got:
 
 ```swift
-let keychain = A0SimpleKeychain(service: "Auth0")
-guard let accessToken = keychain.string(forKey: "access_token") else {
-    // No accessToken found, present the Login
-    return
-}
-
 // Retrieve profile
 Auth0
   .authentication()

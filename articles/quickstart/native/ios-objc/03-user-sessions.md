@@ -18,7 +18,7 @@ budicon: 280
 
 ## Before Starting
 
-This tutorial assumes you're using the Auth0 library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, review the [Login Guide](/quickstart/native/ios-swift/00-login).**
+This tutorial assumes you're using the Swift wrapper and Auth0 library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, review the [Login Guide](/quickstart/native/ios-objc/00-login).**
 
 ### Add the SimpleKeychain Dependency
 
@@ -52,7 +52,7 @@ Then, run `pod install`.
 
 We will store the [accessToken](/tokens/access-token) **upon a successful login**, in order to prevent the user from being asked for login credentials again every time the app is re-launched.
 
-${snippet(meta.snippets.setup)}
+${snippet(meta.snippets.setup_wrapper)}
 
 Then present the hosted login screen, like this:
 
@@ -72,10 +72,9 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 
 You will want to store the `accessToken` value, which is inside the `Credentials` instance. To do so, you will use an `A0SimpleKeychain` instance:
 
-```swift
-guard let accessToken = credentials.accessToken else { return }
-let keychain = A0SimpleKeychain(service: "Auth0")
-keychain.setString(accessToken, forKey: "access_token")
+```objc
+A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
+[keychain setString:accessToken forKey:@"access_token"];
 ```
 
 As you can see, `SimpleKeychain` can be seen simply as a key-value storage.
@@ -86,41 +85,28 @@ The main purpose of storing this token is to save the user from having to re-ent
 
 To do so, first, you retrieve its value from the `accessToken` key stored in the keychain:
 
-```swift
-let keychain = A0SimpleKeychain(service: "Auth0")
-guard let accessToken = keychain.string(forKey: "access_token") else {
-    // accessToken doesn't exist, user has to enter their credentials to log in
-    // Present the Login
-    return
+```objc
+A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
+NSString* accessToken = [keychain stringForKey:@"access_token"];
+if (accessToken) {
+    // accessToken exists
+    // You still need to validate it!
 }
-// accessToken exists
-// You still need to validate it!
 ```
 
 ## Validate an accessToken
 
 Then, if such a token exists, you need to check whether it's still valid, has expired, or is no longer valid for some other reason, such as being revoked. To do so, you will use `Auth0` to fetch the user's profile based on the `accessToken` we've got:
 
-```swift
-let keychain = A0SimpleKeychain(service: "Auth0")
-guard let accessToken = keychain.string(forKey: "access_token") else {
-    // No accessToken found, present the Login
-    return
-}
-
-// Retrieve profile
-Auth0
-  .authentication()
-  .userInfo(token: accessToken)
-   .start { result in
-       switch(result) {
-       case .success(let profile):
-           // The accessToken is still valid and you have the user's profile
-           // This would be a good time to store the profile
-       case .failure(let error):
-           // accessToken has expired or no longer valid
-       }
-   }
+```objc
+[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
+        if (error) {
+            // accessToken has expired or no longer valid
+        } else {
+            // The accessToken is still valid and you have the user's profile
+            // This would be a good time to store the profile
+        }
+}];
 ```
 
 ## Dealing with a non-valid accessToken
@@ -130,8 +116,9 @@ Either you ask users to re-enter theirs credentials, or you can use `.renew(with
 
 If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
 
-```swift
-A0SimpleKeychain(service: "Auth0").clearAll()
+```objc
+A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
+[keychain clearAll];
 ```
 
 However, in this tutorial you will focus on the latter scenario, where you want to log users in without asking for their credentials again.
@@ -146,51 +133,48 @@ In this case, you're going to leverage the `refreshToken`. The refresh token is 
 
 Besides storing the `accessToken`, you need to store the `refreshToken`. Let's make a couple of changes:
 
-```swift
-Auth0
-    .webAuth()
-    .scope("openid profile offline_access")
-    .start {
-        switch $0 {
-        case .failure(let error):
-            // Handle the error
-            print("Error: \(error)")
-        case .success(let credentials):
-            guard let accessToken = credentials.accessToken, let refreshToken = credentials.refreshToken else { return }
-            let keychain = A0SimpleKeychain(service: "Auth0")
-            keychain.setString(accessToken, forKey: "access_token")
-            keychain.setString(refreshToken, forKey: "refresh_token")
-        }
-}
+```objc
+HybridAuth *auth = [[HybridAuth alloc] init];
+[auth showLoginWithScope:@"openid profile offline_access" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
+       if (error) {
+           // Handle the error
+       } else {
+           [auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
+               if (error) {
+                     NSLog(@"Error: %@", error.localizedDescription);
+               } else {
+                     A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
+                     [keychain setString:[credentials accessToken] forKey:@"access_token"];
+                     [keychain setString:[credentials refreshToken] forKey:@"refresh_token"];
+               }
+           }];
+       }
+   }];
 ```
 
 ### Use the refreshToken to obtain a new accessToken
 
-```swift
-// accessToken has expired or invalid
-let keychain = A0SimpleKeychain(service: "Auth0")
-guard let refreshToken = keychain.string(forKey: "refresh_token") else {
-    keychain.clearAll()
-    return
+```objc
+A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
+NSString* refreshToken = [keychain stringForKey:@"refresh_token"];
+if (!refreshToken) {
+    [keychain clearAll];
 }
-Auth0
-    .authentication()
-    .renew(withRefreshToken: refreshToken, scope: "openid profile offline_access")
-    .start { result in
-        switch(result) {
-        case .success(let credentials):
-            // Just got a new accessToken!
-            // Don't forget to store it...
-            guard let accessToken = credentials.accessToken else { return }
-            keychain.setString(accessToken, forKey: "access_token")
-            // At this point, you can log the user into your app. e.g. by navigating to the corresponding screen
-        case .failure(let error):
-            // refreshToken is no longer valid (e.g. it has been revoked)
-            // Cleaning stored values since they are no longer valid
-            keychain.clearAll()
-            // At this point, you should ask the user to enter their credentials again!
-        }
-}
+
+HybridAuth *auth = [[HybridAuth alloc] init];
+[auth renewWithRefreshToken:[keychain stringForKey:@"refresh_token"] scope:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
+              if (error) {
+                  // refreshToken is no longer valid (e.g. it has been revoked)
+                  // Cleaning stored values since they are no longer valid
+                  [keychain clearAll];
+                  // At this point, you should ask the user to enter their credentials again!
+              } else {
+                  // Just got a new accessToken!
+                  // Don't forget to store it...
+                  [keychain setString:[credentials accessToken] forKey:@"access_token"];
+                  // At this point, you can log the user into your app. e.g. by navigating to the corresponding screen
+              }
+      }];
 ```
 
 That's it! You've already dealt with the basic concepts of session handling in your app.
@@ -199,9 +183,9 @@ That's it! You've already dealt with the basic concepts of session handling in y
 
 Whenever you need to log the user out, you just have to clear the keychain:
 
-```swift
-let keychain = A0SimpleKeychain(service: "Auth0")
-keychain.clearAll()
+```objc
+A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
+[keychain clearAll];
 ```
 
 ### Optional: Encapsulate session handling
@@ -214,19 +198,15 @@ The first step is to fetch the user profile. To do so, you need a valid `accessT
 
 You need to call a method from the `Auth0` module that allows you to fetch the user profile given an `accessToken`:
 
-```swift
- // Retrieve profile
- Auth0
-    .authentication()
-    .userInfo(token: accessToken)
-    .start { result in
-        switch(result) {
-        case .success(let profile):
-            // You've got the user's profile
-        case .failure(let error):
+```objc
+// Retrieve profile
+[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
+        if (error) {
             // Handle the error
+        } else {
+            // You have the user's profile
         }
-    }
+}];
 ```
 
 ## Show User Profile's Data
@@ -235,9 +215,9 @@ You need to call a method from the `Auth0` module that allows you to fetch the u
 
 Showing the information contained in the user profile is pretty simple. You only have to access its properties, for instance:
 
-```swift
-let name = profile.name
-let avatarURL = profile.pictureURL
+```objc
+NSURL *pictureURL = self.userProfile.pictureURL;
+NSString *name = self.userProfile.name;
 ```
 
 > Check out the [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) class documentation to learn more about its properties.
@@ -250,51 +230,41 @@ Besides the defaults, you can request more information than returned in the basi
 
 You can store additional user information in the user metadata. In order to do so, you need to perform a `patch`:
 
-```swift
-let idToken = ... // You will need the idToken from your credentials instance 'credentials.idToken'
-let profile = ... // the Profile instance you obtained before
-Auth0
-    .users(token: idToken)
-    .patch(profile.id, userMetadata: ["first_name": "John", "last_name": "Appleseed", "country": "Canada"]
-    .start { result in
-        switch result {
-          case .success(let ManagementObject):
-              // deal with success
-          case .failure(let error):
-              // deal with failure
-        }
-}
+```objc
+NSString *idToken = ... // You will need the idToken from your credentials instance 'credentials.idToken'
+A0Profile *profile = ... // the Profile instance you obtained before
+HybridAuth *auth = [[HybridAuth alloc] init];
+[auth patchProfileWithIdToken:idToken userId:profile.id metaData:@{@"first_name": @"John", @"last_name": @"Doe", @"country": @"USA"} callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
+    if (error) {
+        // Handle the error
+    } else {
+        // Success
+    }
+}];
 ```
 
 ## Retrieving User Metadata
 
 The `user_metadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one you're going to work with in this tutorial.
 
-You can specify the `fields` to be retrieved, or use an empty array `[]` to pull back the complete user profile.  Let's grab the `user_metadata`:
-
-```swift
-Auth0
-    .users(token: idToken)
-    .get(userId, fields: ["user_metadata"], include: true)
-    .start { result in
-        switch result {
-        case .success(let user):
-            guard let userMetadata = user["user_metadata"] as? [String: Any] else { return }
-            // Access userMetadata
-        case .failure(let error):
-            // Deal with failure
-        }
-}
+```objc
+HybridAuth *auth = [[HybridAuth alloc] init];
+[auth userProfileWithIdToken:idToken userId:profile.id callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
+    if (error) {
+        // Deal with error
+    } else {
+        NSDictionary *metaData = [user objectForKey:@"user_metadata"];
+        // Access userMetadata
+    }
+}];
 ```
-
 
 You can then access its fields as follows:
 
-```swift
-let firstName = userMetadata["first_name"] as? String
-let lastName = userMetadata["last_name"] as? String
-let country = userMetadata["country"] as? String
-let isActive = userMetadata["active"] as? Bool
+```objc
+NSString* firstName = [metaData objectForKey:@"first_name"];
+NSString* lastName = [metaData objectForKey:@"last_name"];
+NSString* country = [metaData objectForKey:@"country"];
 ```
 
 > The strings you use for subscripting the `userMetadata` dictionary, and the variable types you handle, are up to you.

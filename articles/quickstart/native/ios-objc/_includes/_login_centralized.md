@@ -10,7 +10,7 @@ The first step in adding authentication to your iOS application is to provide a 
 
 Auth0 will need to handle the callback of this authentication, add the following to your `AppDelegate`:
 
-${snippet(meta.snippets.setup)}
+${snippet(meta.snippets.setup_wrapper)}
 
 Then, add the following `UIApplicationDelegate` method:
 
@@ -24,7 +24,7 @@ Then, add the following `UIApplicationDelegate` method:
 
 ## Implement the Login
 
-${snippet(meta.snippets.setup)}
+${snippet(meta.snippets.setup_wrapper)}
 
 Then present the hosted login screen, like this:
 
