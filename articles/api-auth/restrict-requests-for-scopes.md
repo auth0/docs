@@ -15,11 +15,12 @@ function (user, context, callback) {
 
   /*
    *  Denies access to user-based flows based on audience and
-   *  client ID. If you don't pass audience in the query string
-   *  or body of the authorization request, the rules uses the
-   *  default audience
+   *  client ID.
    */
 
+  // If you don't pass audience in the query string
+  // or body of the authorization request, the rule uses the
+  // default audience (leave the audience variable empty).
   var audience = '';
   var client_id = '';
 
