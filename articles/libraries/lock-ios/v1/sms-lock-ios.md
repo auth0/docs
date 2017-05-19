@@ -4,7 +4,7 @@ toc_title: SMS in Lock iOS
 description: How to use SMS in Lock iOS
 ---
 
-## SMS
+# SMS
 
 `A0SMSLockViewController` authenticates without using a password with SMS. In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](${manage_url}/#/connections/passwordless).
 

@@ -10,8 +10,6 @@ description: Behavior configuration options available with Lock v2 for iOS
 
 There are numerous options to configure Lock's behavior listed below. In addition, there are also quite a few options available to alter Lock's appearance and style in the [Style Customization Options](/libraries/lock-ios/v2/customization) page.
 
-<%= include('../_includes/_lock-version') %>
-
 ## Configuring Lock's behavior
 
 Configuration options can be added to your Lock initialization using `withOptions`.
