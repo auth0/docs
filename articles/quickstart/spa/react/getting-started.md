@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: React Getting Started
+description: Setup Auth0 and install the dependencies
 budicon: 715
 ---
 
