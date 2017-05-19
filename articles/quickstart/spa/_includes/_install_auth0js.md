@@ -10,7 +10,13 @@ npm install --save auth0-js
 yarn add auth0-js
 ```
 
-The **auth0.js** library can also be retrieved from Auth0's CDN.
+Once **auth0.js** is installed, add it to your build system or bring it in to your project as a script tag.
+
+```html
+<script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
+```
+
+If you don't want to use a package manager, **auth0.js** can also be retrieved from Auth0's CDN.
 
 ```html
 <script src="${auth0js_urlv8}"></script>

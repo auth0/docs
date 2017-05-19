@@ -9,3 +9,9 @@ npm install --save angular-auth0@beta
 # installation with yarn
 yarn add angular-auth0@beta
 ```
+
+Once **angular-auth0** is installed, add it to your build system or bring it in to your project as a script tag.
+
+```html
+<script type="text/javascript" src="node_modules/angular-auth0/dist/angular-auth0.js"></script>
+```
