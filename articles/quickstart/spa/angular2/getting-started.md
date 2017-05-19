@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Angular 2+ Getting Started
+description: Setup Auth0 and install the dependencies
 budicon: 715
 ---
 

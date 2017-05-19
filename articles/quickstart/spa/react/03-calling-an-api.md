@@ -92,7 +92,7 @@ checkStatus(response) {
 
 The `authFetch` method checks whether the user is authenticated and, if so, adds an `Authorization` header containing the `access_token`. This method can now be used to make calls to your API.
 
-## Make Secure Calls with `authFetch`
+## Make Authenticated Calls with `authFetch`
 
 With the `authFetch` function in place, you can now make calls to your API for protected resources.
 
