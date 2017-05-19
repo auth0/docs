@@ -1,9 +1,10 @@
 ---
 description: The credentials-exchange extensibility point for use with Hooks
 toc: true
+beta: true
 ---
 
-# Extensibility Point: Credentials Exchange&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
+# Extensibility Point: Credentials Exchange
 
 The `credentials-exchange` extensibility point allows you to change the scopes and add custom claims to the [access tokens](/tokens/access-token) issued by the [Auth0 API's `POST /oauth/token` endpoint](/api/authentication#authorization-code).
 

@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial demonstrates how to add authorization and access control to an Angular 2+ app with Auth0
+description: This tutorial demonstrates how to add authorization and access control to your application
 budicon: 546
 ---
 

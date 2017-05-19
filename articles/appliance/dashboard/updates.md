@@ -26,6 +26,4 @@ Once you have selected the appropriate build, any **release notes** applicable w
 
 To begin the update, click on "Update from Internet." You will be prompted once more to confirm to ensure that the appropriate backups have been made, since Appliance updates cannot be undone.
 
-## Offline Update (Deprecated)
-
-If you possess an updater package from Auth0, use the "Update from Package" button to select the package and begin the updates.
+> You should schedule Production updates with your Auth0 Customer Success Manager so that there is an Auth0 Customer Success Engineer available in case any patches need to be manually applied. For more information on updates, see [Updating the Appliance](/appliance/admin/updating-the-appliance).

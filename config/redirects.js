@@ -1156,5 +1156,9 @@ module.exports = [
   {
     from: '/connections/passwordless/regular-web-app-email-code',
     to: '/connections/passwordless/regular-web-app-email-code/v8'
+  },
+  {
+    from: '/quickstart/native/ios',
+    to: '/quickstart/native/ios-swift'
   }
 ];
