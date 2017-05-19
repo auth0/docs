@@ -2,7 +2,7 @@
   description: Writing rules to restrict user/client access to an API
 ---
 
-# Restrict Client or User Access to APIs
+# Restrict Client or User Requests for API Scopes
 
 By default, any user associated with an Auth0 client can request an API's scope(s). If you would like to restrict access to the API's scopes based on the user's role, [client](/clients) association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an HTTP 401 response.
 
@@ -12,6 +12,13 @@ The following [rule](/rules) sample demonstrates how you would check for and per
 
 ```js
 function (user, context, callback) {
+
+  /*
+   *  Denies access to user-based flows based on audience and
+   *  client ID. If you don't pass audience in the query string
+   *  or body of the authorization request, the rules uses the
+   *  default audience
+   */
 
   var audience = '';
   var client_id = '';
