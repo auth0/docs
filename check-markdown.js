@@ -1,18 +1,7 @@
-const filehound = require('filehound');
 const markdownlint = require('markdownlint');
 
-const mdFiles = filehound.create()
-  .paths('./articles')
-  .ext('md')
-  .findSync()
-  .filter(path => {
-    // Remove includes (files starting with underscore) from list
-    const fileName = path.split('/').slice(-1)[0];
-    return !/^_.*$/.test(fileName);
-  });
-
 const options = {
-  files: mdFiles,
+  files: process.argv.slice(2),
   config: {
     default: false,
     resultVersion: 1,
@@ -34,6 +23,9 @@ const options = {
   }
 };
 
-const result = markdownlint.sync(options);
+const result = markdownlint
+  .sync(options)
+  .toString(true);
 
-console.log(result.toString(true));
+console.warn(result);
+process.exit(1);

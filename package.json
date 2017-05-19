@@ -5,7 +5,12 @@
   "author": "Auth0 Inc.",
   "scripts": {
     "heroku-prebuild": "bash prebuild.sh",
-    "heroku-postbuild": "bash postbuild.sh"
+    "heroku-postbuild": "bash postbuild.sh",
+    "precommit": "lint-staged",
+    "lint-markdown": "node ./check-markdown.js"
+  },
+  "lint-staged": {
+    "*.md": "npm run lint-markdown"
   },
   "engines": {
     "node": "4.5"
@@ -13,8 +18,10 @@
   "devDependencies": {
     "commander": "^2.8.1",
     "filehound": "^1.16.1",
+    "husky": "^0.13.3",
     "imagemin": "^4.0.0",
     "imagemin-optipng": "^4.3.0",
+    "lint-staged": "^3.4.2",
     "markdownlint": "^0.4.1",
     "markdownlint-cli": "^0.3.1"
   }
