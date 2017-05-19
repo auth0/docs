@@ -3,24 +3,7 @@ title: Introduction
 description: Brief introduction to the iOS Objective-C tutorials.
 ---
 
-This is the very beginning of a simple, practical, multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
-
-## Seed Project
-
-Here is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed) containing an empty project with only the required [dependencies](#dependencies) installed.
-
-<%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-ios-objc-sample',
-  path: '00-Starter-Seed',
-  requirements: [
-    'CocoaPods 1.1.1',
-    'Version 8.2 (8C38)',
-    'iPhone 6 - iOS 10.2 (14C89)'
-  ]
-}) %>
-
-This seed project can be useful as a starting point for the app to which you need to integrate authentication.
+This multi-step quickstart guide will walk you through managing authentication in your iOS apps with Auth0.
 
 ## Sample Projects
 
