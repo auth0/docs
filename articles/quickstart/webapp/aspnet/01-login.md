@@ -21,7 +21,9 @@ Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manag
 
 ${snippet(meta.snippets.dependencies)}
 
-> This package will add a `LoginCallback.ashx` to your project, which will process the login.
+::: note
+This package will add a `LoginCallback.ashx` to your project, which will process the login.
+:::
 
 ## 2. Configure Callback URLs
 

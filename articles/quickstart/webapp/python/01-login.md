@@ -36,7 +36,7 @@ ${include('../_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 
-```
+```text
 http://yourUrl/callback
 ```
 

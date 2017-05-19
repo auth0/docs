@@ -86,4 +86,6 @@ var request = URLRequest(url: url)
 
 Once you send a request and your API returns a response, its status code is going to be displayed in an alert view.
 
-> For further information on authentication API on the server-side, check [the official documentation](/api/authentication).
+::: note
+For further information on authentication API on the server-side, check [the official documentation](/api/authentication).
+:::

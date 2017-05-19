@@ -57,7 +57,9 @@ Provide a template with controls for the user to log in and log out.
 </main>
 ```
 
-> This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
+::: note
+This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
+:::
 
 The `click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
@@ -109,7 +111,9 @@ Create a component named `CallbackComponent` and populate it with a loading indi
 </div>
 ```
 
-> This example assumes some kind of loading spinner is available in an `assets` directory. See the downloadable sample for a demonstration.
+::: note
+This example assumes some kind of loading spinner is available in an `assets` directory. See the downloadable sample for a demonstration.
+:::
 
 After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/home` route.
 

@@ -107,7 +107,9 @@ ${include('../_callbackRegularWebApp')}
 
 Your callback URL should look something like:
 
-`https://yourapp.com/callback`
+```text
+https://yourapp.com/callback
+```
 
 ## Trigger Login Manually or Integrate Lock
 

@@ -43,7 +43,9 @@ These methods can now be attached to elements in the template.
 
 ${snippet(meta.snippets.loginlogout)}
 
-__Note:__ There are multiple ways of implementing login. The example above displays the Lock Widget. However you may implement your own login UI by changing the line `<script src="${lock_url}"></script>` to `<script src="${auth0js_url}"></script>`.
+::: note
+There are multiple ways of implementing login. The example above displays the Lock Widget. However you may implement your own login UI by changing the line `<script src="${lock_url}"></script>` to `<script src="${auth0js_url}"></script>`.
+:::
 
 ## 3. Implement Routing
 

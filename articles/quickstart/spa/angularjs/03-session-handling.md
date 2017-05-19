@@ -42,7 +42,7 @@ This example uses `localStorage`, but you can use any storage library, including
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
       });
-      
+
       lock.on('authorization_error', function (err) {
         console.log(err);
       });

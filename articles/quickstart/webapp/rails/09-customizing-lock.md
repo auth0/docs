@@ -24,7 +24,6 @@ Some UI customization can be done via the `options` parameter when creating a `L
 If you're setting up your rails application from scratch, refer to [Introduction](/quickstart/webapp/rails/00-introduction).
 :::
 
-
 ### Theme options
 
 You can set custom theme properties like using a different logo, or changing the primary color. Just add a `theme` property with custom values when initializing the auth0 Lock widget. See full details [here](/libraries/lock/v10/customization#theming-options).

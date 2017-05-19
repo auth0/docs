@@ -14,8 +14,6 @@ This tutorial has been tested with the following:
 * cyclejs-auth0 3.0.0
 :::
 
-
-
 ${include('../\_callback')}
 
 ## 1. Install the `cyclejs-auth0` Package

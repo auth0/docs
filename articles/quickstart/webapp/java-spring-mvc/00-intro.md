@@ -4,8 +4,6 @@ description: This tutorial demonstrates how to use the Auth0 Java Spring MVC SDK
 budicon: 715
 ---
 
-
-
 This multi-step quickstart will guide you through the process of managing authentication in your Java Spring Web Application with Auth0.
 
 ::: panel System Requirements
@@ -16,8 +14,9 @@ These tutorials and seed projects have been tested with the following:
 
 Auth0 provides and manages a [Spring MVC SDK](https://github.com/auth0/auth0-spring-mvc). This SDK allows you to use Auth0 with Java for server-side Spring web apps.
 
-__NOTE:__ You can find a listing of all our Java offerings and several sample projects in [Java technologies and Auth0 libraries](/java-overview).
-
+::: note
+You can find a listing of all our Java offerings and several sample projects in [Java technologies and Auth0 libraries](/java-overview).
+:::
 
 ## Samples Projects
 

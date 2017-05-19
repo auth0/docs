@@ -29,7 +29,9 @@ pod 'SimpleKeychain', '~> 0.7'
 ```
 Then, run `pod install`.
 
-> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+::: note
+For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+:::
 
 ### 1. Save the token for later
 
@@ -42,7 +44,9 @@ First of all, you need to import the headers for Lock and SimpleKeychain
 
 Once your user successfully signs in, you'll have a reference to a 'A0Token' object with the user's credentials. SimpleKeychain is a simple 'key-value' storage that we can use keep safe the the user's 'id_token'.
 
-> The `idToken` is a string representing, basically, the user's [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
+::: note
+The `idToken` is a string representing, basically, the user's [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
+:::
 
 ```objc
 - (void)saveCredentials:(A0Token *)token {
@@ -86,7 +90,9 @@ If the `fetchUserProfileWithIdToken:` call is successful, you can continue as if
 
 If the `fetchNewIdTokenWithRefreshToken` call fails, it means your token has been revoked or for what ever reason it's become invalid. In this case, the user will have to sign in again.
 
->It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep on mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
+::: note
+It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep on mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
+:::
 
 ### 3. Sign out
 

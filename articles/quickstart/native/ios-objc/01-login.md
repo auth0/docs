@@ -55,9 +55,9 @@ self.usernameLabel.text = profile.name
 self.emailLabel.text = profile.email
 ```
 
-> For further reference on the `profile` object, check the [A0UserProfile](https://github.com/auth0/Lock.swift/blob/v1/Lock/Core/A0UserProfile.h) class documentation.
->
-> To learn how to save and manage the tokens and profile in detail, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens). Note that Lock on its own will not save these for you.
+::: note
+For further reference on the `profile` object, check the [A0UserProfile](https://github.com/auth0/Lock.swift/blob/v1/Lock/Core/A0UserProfile.h) class documentation. To learn how to save and manage the tokens and profile in detail, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens). Note that Lock on its own will not save these for you.
+:::
 
 You've implemented Login and SignUp with Auth0 in your iOS ObjectiveC project. You're awesome!
 
@@ -77,9 +77,9 @@ Then, add the following function in your application's `AppDelegate`:
 }
 ```
 
-### Important: Google Connections
-
+::: warning
 Google no longer support web-views, it is *highly recommended* you update your code to use Safari for web based authentication.
+:::
 
 ##### Podfile
 

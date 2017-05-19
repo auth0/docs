@@ -19,13 +19,13 @@ You can get started by either downloading the seed project or if you would like 
 ## 1. Setting Up the Callback URL
 
 <div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:
 
-<pre><code>https://${account.namespace}/mobile</pre></code>
+```text
+https://${account.namespace}/mobile
+```
 
-<p>Also, if you are testing your application locally, make sure to add your local URL as an Allowed Callback URL and the following as an Allowed Origin (CORS):</p>
-
-<pre><code>file://\*</code></pre>
+Also, if you are testing your application locally, make sure to add your local URL as an Allowed Callback URL and the following as an Allowed Origin (CORS): `file://\*`
 
 </div>
 

@@ -82,7 +82,9 @@ And finally, you must add the following entries inside the `<application>` tag o
 <!--Auth0 Lock Passwordless End-->
 ```
 
-> If you need Facebook or Google+ native authentication please continue reading to learn how to configure them. Otherwise please go directly to **[Showing User Information](#showing-user-information)**.
+::: note
+If you need Facebook or Google+ native authentication please continue reading to learn how to configure them. Otherwise please go directly to **[Showing User Information](#showing-user-information)**.
+:::
 
 ## Implement the login
 
@@ -97,7 +99,7 @@ ${snippet(meta.snippets.use)}
 [![Lock.png](/media/articles/native-platforms/reactnative-android/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 ::: note
-There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock) or [Email](https://github.com/auth0/react-native-lock).
+There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock) or [Email](https://github.com/auth0/react-native-lock)
 :::
 
 On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
@@ -111,7 +113,9 @@ After the user has logged in, we can use the `profile` object which has all the 
   <Text>Your email is: {this.state.profile.email}</Text>
 ```
 
-> You can find all of the available properties for the user's profile [here](/user-profile). Please note that some of these depend on the social provider being used.
+::: note
+You can find all of the available properties for the user's profile [here](/user-profile). Please note that some of these depend on the social provider being used.
+:::
 
 ### FAQ
 

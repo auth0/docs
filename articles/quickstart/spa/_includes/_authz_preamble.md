@@ -11,4 +11,6 @@ For single page applications which get their data from APIs, there are two major
 
 The previous step used a `scope` of `read:messages` for access to API resources. Since this `scope` indicates that the user has read-only access to data, it might be considered that the user has some kind of "regular user" access level. If you wanted some users to have write access to the same resource, and therefore some kind of "administrator" access level, you might consider introducing a `scope` of `write:messages`.
 
-> **Note:** Auth0 makes no assumptions about how the `scope`s for your API map to various access levels, nor is there any restriction on what you call your `scope`s and access levels. These details are at your discretion. 
+::: note
+Auth0 makes no assumptions about how the `scope`s for your API map to various access levels, nor is there any restriction on what you call your `scope`s and access levels. These details are at your discretion.
+:::

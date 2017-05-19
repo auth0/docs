@@ -16,8 +16,12 @@ dependencies {
 }
 ```
 
-_You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0)._
+::: note
+You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0).
+::: note
 
 Then, run **Sync Project with Gradle Files** inside Android Studio or `./gradlew clean assembleDebug` from the command line.
 
-> For more information about Gradle usage, check [their official documentation](https://gradle.org/getting-started-android-build/).
+::: note
+For more information about Gradle usage, check [their official documentation](https://gradle.org/getting-started-android-build/).
+:::

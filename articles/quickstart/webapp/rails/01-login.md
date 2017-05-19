@@ -75,7 +75,9 @@ If you wish to force an identity provider, you may redirect the user and specify
 redirect_to '/auth/oauth2?connection=CONNECTION_NAME'
 ```
 
-> [Click here](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema) to check all the information that the userinfo hash has.
+::: note
+[Click here](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema) to check all the information that the userinfo hash has.
+:::
 
 ## Check the User's Authentication Status
 

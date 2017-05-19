@@ -36,7 +36,7 @@ private void login() {
 
 The browser will redirect to our application with the authentication result and we need to send it back to the `WebAuthProvider` in order to parse it and get the actual tokens. To do so, we need to register in our Activity an **Intent-Filter** that will capture the call to the **Callback URL** specified by the provider. This URL is built using our Domain and application's Package Name and it must be whitelisted in the "Allowed Callback URLs" section of the [Client settings](https://manage.auth0.com/#/clients). The URL should look similar to this:
 
-```
+```text
 demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 

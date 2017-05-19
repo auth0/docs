@@ -25,7 +25,9 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 * You've integrated [Auth0](https://github.com/auth0/Auth0.Android) as a dependency in your project and you're familiar with the `WebAuthProvider` class. For further information, see the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorial first.
 * You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the [Session Handling](/quickstart/native/android/03-session-handling) and [User Profile](/quickstart/native/android/04-user-profile) tutorials.
 
-> It is highly recommended that you take a look at the [Linking Accounts](/link-accounts) documentation to understand the process of linking accounts.
+::: note
+It is highly recommended that you take a look at the [Linking Accounts](/link-accounts) documentation to understand the process of linking accounts.
+:::
 
 ## Enter Account Credentials
 
@@ -62,10 +64,9 @@ public void onAuthentication(Credentials credentials) {
 }
 ```
 
-
 ## Link an Account
 
-Now we can link the accounts. You have a main user along with another account you want to link to that user. All we need is the `id` of the logged-in user and the `id_token`s for the two accounts: the one we had previously saved and the one that we just received in the login response.
+Now we can link the accounts. You have a main user along with another account you want to link to that user. All we need is the `id` of the logged-in user and the `id_token` for the two accounts: the one we had previously saved and the one that we just received in the login response.
 
 ```java
 private void performLink(String secondaryIdToken) {
@@ -96,7 +97,9 @@ public void onSuccess(UserProfile profile) {
 }
 ```
 
-> For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) class.
+::: note
+For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) class.
+:::
 
 ### 4. Unlink An Account
 

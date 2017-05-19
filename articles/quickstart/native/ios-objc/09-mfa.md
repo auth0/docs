@@ -20,7 +20,9 @@ First, you have to enable the MFA feature in your account. Go to the [MFA config
 
 ![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-01.png)
 
-> MFA for native apps currently supports **Google Authenticator** only.
+::: note
+MFA for native apps currently supports **Google Authenticator** only.
+:::
 
 Next, you have to specify which clients you want to enable MFA for; you accomplish this by editing the snippet that appears below, replacing the placeholder with your actual client ids.
 

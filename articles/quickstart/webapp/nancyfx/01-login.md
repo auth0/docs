@@ -106,4 +106,3 @@ public class Authentication : NancyModule
 ::: note
 The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 :::
-

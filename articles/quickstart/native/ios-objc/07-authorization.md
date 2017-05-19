@@ -14,7 +14,9 @@ description: This tutorial will show you how assign roles to your users, and use
   ]
 }) %>
 
-> This tutorial assumes that you've already read the [rules tutorial](/quickstart/native/ios-objc/06-rules) and you know how to implement a basic rule in your app.
+::: note
+This tutorial assumes that you've already read the [rules tutorial](/quickstart/native/ios-objc/06-rules) and you know how to implement a basic rule in your app.
+:::
 
 ### Before Starting
 
@@ -38,7 +40,9 @@ By default, if the user email contains `@example.com` the user will be given an 
 
 To test the rule, use the following code snippet once you've gotten the user profile.
 
-> Check out the [login](/quickstart/native/ios-objc/01-login) and [user profile](/quickstart/native/ios-objc/04-user-profile) tutorials for more information on how to get the user profile.
+::: note
+Check out the [login](/quickstart/native/ios-objc/01-login) and [user profile](/quickstart/native/ios-objc/04-user-profile) tutorials for more information on how to get the user profile.
+:::
 
 ```objc
 #import <Lock/Lock.h>

@@ -32,7 +32,9 @@ ember install auth0-ember-simple-auth
 ember generate scaffold-auth0
 ```
 
-__Note:__ If you are not already using ember-cli, see [ember-cli migration](http://ember-cli.com/user-guide/#migrating-an-existing-ember-project-that-doesnt-use-ember-cli).
+::: note
+If you are not already using `ember-cli`, see [ember-cli migration](http://ember-cli.com/user-guide/#migrating-an-existing-ember-project-that-doesnt-use-ember-cli).
+:::
 
 ## 2. Configure the Add-On
 

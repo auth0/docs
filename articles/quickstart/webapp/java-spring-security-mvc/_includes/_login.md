@@ -29,7 +29,9 @@ In order to setup [Lock](/libraries/lock) update the `login.jsp` as follows:
 
 ${snippet(meta.snippets.LoginJsp)}
 
-__NOTE__: The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `auth0-spring-mvc-sample/src/main/resources/static/` directory and you don't need to include them if you don't want to.
+::: note
+The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `auth0-spring-mvc-sample/src/main/resources/static/` directory and you don't need to include them if you don't want to.
+:::
 
 First, we initialize `Auth0Lock` with a `clientID` and the account's `domain`.
 

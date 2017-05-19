@@ -15,8 +15,6 @@ budicon: 448
   ]
 }) %>
 
-
-
 ### 1. Install the Auth0.WindowsPhone package
 
 You can either run the following command or install it via the **Package Manager** UI.
@@ -59,6 +57,5 @@ response = await client.SendRequestAsync(message);
 
 Now it's time to sit back and relax. You've implemented login and signup with Auth0 for your Windows Phone application.
 
-
-### Additional information
+## 7. More Information
 You can also check out the [Github page](https://github.com/auth0/auth0.windowsphone) access the source code, and additional documentation.

@@ -19,7 +19,9 @@ Install the following dependencies using `go get`
 
 ${snippet(meta.snippets.dependencies)}
 
-> This example uses `mux` for routing but you can use whichever router you want
+::: note
+This example uses `mux` for routing but you can use whichever router you want
+:::
 
 ## Add the Auth0 Callback Handler
 
@@ -122,7 +124,7 @@ http://yourUrl/callback
 <%= include('../../../_includes/_lock-sdk') %>
 
 ::: note
-Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step.
+The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step.
 :::
 
 ## Accessing User Information

@@ -18,7 +18,9 @@ You can get started by either downloading the seed project or if you would like 
   ]
 }) %>
 
-__Note:__ This quickstart and seed project are for Ember >= 2.x.x.
+::: note
+This quickstart and seed project are for Ember >= 2.x.x.
+:::
 
 ${include('../\_callback')}
 
@@ -35,7 +37,9 @@ ember generate scaffold-auth0
 bower install auth0-lock#9.2.3 jsrsasign#5.0.1 --save
 ```
 
-__Note:__ If you are not already using ember-cli, see [ember-cli migration](https://ember-cli.com/user-guide/#migrating-an-existing-ember-project-that-doesnt-use-ember-cli).
+::: note
+If you are not already using ember-cli, see [ember-cli migration](https://ember-cli.com/user-guide/#migrating-an-existing-ember-project-that-doesnt-use-ember-cli).
+:::
 
 ## 2. Configure the add-on
 

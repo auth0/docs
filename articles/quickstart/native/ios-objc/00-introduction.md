@@ -53,7 +53,9 @@ pod 'Auth0', '~> 1.4'
 
 Then, run `pod install`.
 
-> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+::: note
+For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+:::
 
 ## Your First Steps
 
