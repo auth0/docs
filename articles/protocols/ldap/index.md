@@ -12,4 +12,6 @@ In Auth0 we use LDAP to integrate with Active Directory/LDAP through the Active 
 
 For more information refer to [Active Directory/LDAP Connector](/connector).
 
-__NOTE__: You can use [this endpoint proxy implementation](https://github.com/auth0/auth0-ldap-endpoint) to connect a legacy application to Auth0 using the LDAP protocol.
+::: note
+You can use [this endpoint proxy implementation](https://github.com/auth0/auth0-ldap-endpoint) to connect a legacy application to Auth0 using the LDAP protocol.
+:::

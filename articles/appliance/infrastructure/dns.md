@@ -7,7 +7,9 @@ description: Appliance infrastructure information about DNS
 
 The following document details the requirements of DNS records used for Appliance instances.
 
-> **Important**: DNS records must be finalized for all of the tenants prior to Appliance deployment. They cannot be changed afterwards.
+::: note
+DNS records must be finalized for all of the tenants prior to Appliance deployment. They cannot be changed afterwards.
+:::
 
 ### Sample DNS Naming Scheme
 
@@ -72,7 +74,9 @@ In a standard multi-node cluster deployment, the DNS records will point to the I
 
 For a single-node Appliance instance, the DNS record(s) will point to the IP address of the virtual machine itself (this is often the case for the development/test node).
 
-> Auth0 does not recommend using the same wildcard certificate(s) for Production **and** non-Production (Test/Development) environments **or** mapping the DNS for both environments to the same servers.
+::: note
+  Auth0 does not recommend using the same wildcard certificate(s) for Production **and** non-Production (Test/Development) environments **or** mapping the DNS for both environments to the same servers.
+:::
 
 #### Hostnames
 

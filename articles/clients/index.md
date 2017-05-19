@@ -79,7 +79,9 @@ Navigate to the [Client Settings](${manage_url}/#/clients/${account.clientId}/se
 
 Once you click on the button a pop-up window will ask you to confirm the action. Click **Yes, delete client** to permanently remove the client.
 
-**Note**: You can also delete a client using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
+::: note
+  You can also delete a client using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
+:::
 
 ## Client Auditing
 
@@ -99,12 +101,14 @@ Once you have configured your Client, some common next steps to take are:
 
 - **Configure your app** to use your Auth0 Client. For detailed instructions and samples for a variety of technologies, refer to our [quickstarts](/quickstarts). There you can find information on how to implement login and logout (using [Lock](/libraries/lock) or [Auth0.js](/libraries/auth0js)), handle your user sessions, retrieve and display user profile information, add [Rules](/rules) to customize your flow, and more.
 
-  **NOTE**: For background theory on client authentication flows, refer to [Client Authentication](/client-auth).
+  ::: note
+  For background theory on client authentication flows, refer to [Client Authentication](/client-auth).
+  :::
 
 - Use our latest [API Authorization](/api-auth) features to **call an API**.
 
 - **Use [our APIs](/api/info)**.
 
   - The [Authentication API](/api/authentication) handles all the primary identity related functions (login, logout, get user profile, and so forth). Most users consume this API through our [Quickstarts](/quickstarts), the [Auth0.js library](/libraries/auth0js) or the [Lock widget](/libraries/lock). However, if you are building all of your authentication UI manually you will have to interact with this API directly.
-  
+
   - The [Management API](/api/management/v2) can be used to automate various tasks in Auth0 such as creating users.

@@ -8,7 +8,9 @@ description: Explains the architecture scenario with a mobile application client
 
 # Mobile + API
 
-<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
+::: note
+This architecture scenario is under construction and will be updated soon.
+:::
 
 ![Mobile + API Flow](/media/articles/architecture-scenarios/mobile-api.png)
 

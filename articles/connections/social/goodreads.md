@@ -55,8 +55,10 @@ You will need to use [this endpoint of our Management API v2](/api/management/v2
      }
    }
  ```
- 
-__NOTE__: You have to replace `YOUR_API_V2_TOKEN_HERE` with a Management API v2 token. You can [get one from the dashboard](${manage_url}/#/apis/management/explorer) or [follow this process](/api/management/v2/tokens#get-a-token-manually) if this is the first time.
+
+::: note
+You have to replace `YOUR_API_V2_TOKEN_HERE` with a Management API v2 token. You can [get one from the dashboard](${manage_url}/#/apis/management/explorer) or [follow this process](/api/management/v2/tokens#get-a-token-manually) if this is the first time.
+:::
 
 This sample uses the following `fetchUserProfile` script, you can change it as you please:
 

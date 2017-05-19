@@ -6,7 +6,9 @@ description: How to setup the configuration needed to query users from a Google 
 
 In order to query [Google Apps](https://admin.google.com) domain users, you must enable API access.
 
-**Note**: You must be a Google Apps domain administrator to make these changes.
+::: note
+You must be a Google Apps domain administrator to make these changes.
+:::
 
 1. Log in to the Google Apps Admin console, and select **Security**.
 

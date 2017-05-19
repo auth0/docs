@@ -11,7 +11,9 @@ github "auth0/Auth0.swift" ~> 1.5
 
 Then run `carthage bootstrap`.
 
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+::: note
+For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+:::
 
 #### Cocoapods
 
@@ -25,4 +27,6 @@ pod 'Auth0', '~> 1.5'
 
 Then, run `pod install`.
 
-> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+::: note
+For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+:::

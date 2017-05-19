@@ -9,7 +9,9 @@ description: Getting and using a refresh token with Lock.
 
 Mostly when building mobile apps, we want to show the signin page only once and then leave the user logged in forever. For those cases, it makes sense to have a `refreshToken`. A `refreshToken` lets us get a new `id_token` (`JWT`) anytime we want.
 
-> **Warning**: This means that if the `refreshToken` gets compromised, unless we revoke that token, somebody would be able to get a new JWT forever.
+::: warning
+This means that if the `refreshToken` gets compromised, unless we revoke that token, somebody would be able to get a new JWT forever.
+:::
 
 ### 1. Getting the Refresh Token
 

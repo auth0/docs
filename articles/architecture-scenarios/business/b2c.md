@@ -8,7 +8,9 @@ description: Explains the architecture scenario B2C with an eCommerce or SAAS ap
 
 # Business to Consumer Idenity Scenarios
 
-<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
+::: note
+This architecture scenario is under construction and will be updated soon.
+:::
 
 ![](/media/articles/architecture-scenarios/b2c.png)
 

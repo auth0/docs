@@ -20,8 +20,9 @@ lock.show({
 
 The following parameters are supported: `access_token`, `scope`, `protocol`, `device`, `request_id`, `connection_scopes`, `nonce` and `state`.
 
-> Note: this would be analogous to trigger the login with `https://${account.namespace}/authorize?state=foo&...`.
-
+::: note
+This would be analogous to trigger the login with `https://${account.namespace}/authorize?state=foo&...`.
+:::
 
 ## Supported parameters
 ### scope {string}
@@ -59,8 +60,9 @@ lock.show({
 }
 ```
 
-> The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.
-
+::: note
+The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.
+:::
 ### state {string}
 
 The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [XSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information (such as a return url) that you might need after the authentication process is finished.

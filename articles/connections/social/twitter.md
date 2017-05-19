@@ -51,7 +51,7 @@ This doc refers to the client steps to connect your client. If you are looking t
 
 4. Click **Save**.
 
-::: panel-info Twitter Profile Attribute Permissions
+::: panel Twitter Profile Attribute Permissions
 Unlike many social identity providers, Twitter manages profile attribute permissions at the application level. By default, your client will be granted *Read* and *Write* permissions. You can customize these in the **Permissions** section of the [Twitter Application Management](https://apps.twitter.com) page. For more information, see: [Application Permission Model](https://dev.twitter.com/oauth/overview/application-permission-model).
 :::
 
@@ -83,7 +83,7 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
 ## Get an Access Token from Twitter (Optional)
 
-Twitter allows application owners to generate OAuth access tokens that can be used to call the Twitter API on their own behalf. 
+Twitter allows application owners to generate OAuth access tokens that can be used to call the Twitter API on their own behalf.
 
 To generate an Access Token and Secret:  
 
@@ -95,6 +95,8 @@ To generate an Access Token and Secret:
 
     ![](/media/articles/connections/social/twitter/twitter-api-11.png)
 
-**NOTE**: You can also regenerate or revoke your Access Token and Secret in case they have been compromised.
+::: note
+You can also regenerate or revoke your Access Token and Secret in case they have been compromised.
+:::
 
 <%= include('../_quickstart-links.md') %>

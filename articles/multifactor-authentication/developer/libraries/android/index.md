@@ -23,7 +23,9 @@ Guardian is available both in [Maven Central](http://search.maven.org) and [JCen
 compile 'com.auth0.android:guardian-sdk:0.2.0'
 ```
 
-_You can check for the latest version on the repository [Releases](https://github.com/auth0/GuardianSDK.Android/releases) tab, in [Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.auth0.android%22%20AND%20a%3A%22guardian%22), or in [JCenter](https://bintray.com/auth0/android/Guardian.Android)._
+::: note
+You can check for the latest version on the repository [Releases](https://github.com/auth0/GuardianSDK.Android/releases) tab, in [Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.auth0.android%22%20AND%20a%3A%22guardian%22), or in [JCenter](https://bintray.com/auth0/android/Guardian.Android).
+:::
 
 After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 

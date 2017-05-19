@@ -4,9 +4,9 @@ description: A refresh token allows an application to request Auth0 to issue a n
 
 # Refresh Token
 
-<div class="alert alert-info">
+::: note
   <strong>Heads up!</strong> If you are working with the <a href="/api-auth">API Authorization flows</a> and you are looking for the updated documentation, refer to <a href="/tokens/preview/refresh-token">Refresh Token (API Authorization)</a>.
-</div>
+:::
 
 A **Refresh Token** is a special kind of token that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.
 
@@ -34,7 +34,9 @@ GET https://${account.namespace}/authorize/?
     &device=my-device
 ```
 
-**NOTE**: The `device` parameter can be any value, such as a unique mobile device identifier.
+::: note
+The `device` parameter can be any value, such as a unique mobile device identifier.
+:::
 
 When the authentication flow completes, Auth0 will redirect the user to the `callback_URL` as usual.
 The complete URL will be as follows:
@@ -53,7 +55,9 @@ The refresh token is returned as part of the URL, in the form of an opaque strin
 Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
-**NOTE**: In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth2-implicit-flow) (`response_type=token`) was used.
+::: note
+In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth2-implicit-flow) (`response_type=token`) was used.
+:::
 
 ## Use a Refresh Token
 
@@ -82,7 +86,7 @@ A response from this request could be as follows:
 
 The `expires_in` parameter indicates the lifetime of the new JWT in seconds. It can be calculated by the difference between the `exp` and `iat` claims of the JWT.
 
-::: panel-info Rate limits
+::: panel Rate limits
 Obtaining new tokens using the `refresh_token` should occur only if the `id_token` has expired. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 

@@ -32,7 +32,9 @@ Once you have provided this information, click the *Install* button to finish in
 
 Let's see how we can retrieve the __Loggly_Customer_Token__ information.
 
-__NOTE__: We assume that you already know your __Loggly_Subdomain__ since it's part of your URL. For example, if your account's URL is `https://mylogs.loggly.com` then the __Loggly_Subdomain__ should be set to `mylogs`.
+::: note
+We assume that you already know your __Loggly_Subdomain__ since it's part of your URL. For example, if your account's URL is `https://mylogs.loggly.com` then the __Loggly_Subdomain__ should be set to `mylogs`.
+:::
 
 1. Login to your [Loggly](https://www.loggly.com/) account.
 

@@ -29,9 +29,13 @@ For example, the following settings will increase the frequency of updates:
 1.south-america.pool.ntp.org burst iburst minpoll 3 maxpoll 5
 ```
 
-__Note:__ These options specify the minimum and maximum poll intervals for NTP messages in seconds to the power of two. The maximum poll interval defaults to 10 (1,024 s), but can be increased by the maxpoll option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the minpoll option to a lower limit of 4 (16 s).
+::: note
+  These options specify the minimum and maximum poll intervals for NTP messages in seconds to the power of two. The maximum poll interval defaults to 10 (1,024 s), but can be increased by the maxpoll option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the minpoll option to a lower limit of 4 (16 s).
+:::
 
-__Note:__ Fine tuning is only available to Auth0's engineers.
+::: note
+  Fine tuning is only available to Auth0's engineers.
+:::
 
 If the virtual-machine hosting software, such as VMware, has an option for the host operating system (OS) to update the guest OS, this must be turned off so that the host will not interfere with the NTP time synchronization of the guest Auth0 appliance.
 

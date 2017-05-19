@@ -8,9 +8,9 @@ snippets:
 description: A widget that provides a frictionless login and signup experience for your native iOS and macOS apps.
 ---
 
-<%= include('../_includes/_lock-version-1') %>
-
 # Lock v1 for iOS and macOS
+
+<%= include('../_includes/_lock-version-1') %>
 
 Auth0 is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
@@ -41,7 +41,9 @@ Then, in your project's `Info.plist` file, add the following string entries:
 For example:
 ![plist](/media/articles/libraries/lock-ios/plist.png)
 
-**NOTE**: You can find these values in your [Client Settings](${manage_url}/#/applications) in the Auth0 dashboard.
+::: note
+You can find these values in your [Client Settings](${manage_url}/#/applications) in the Auth0 dashboard.
+:::
 
 You will also need to register a **Custom URL** type with a custom scheme in the following format:
 
@@ -61,7 +63,9 @@ If you are working in Objective-C, import this header when you need to use Lock'
 
 The same applies if you are working in Swift and Lock is included as a static library. In this case, the header must also be included in your _Objective-C Bridging Header_.
 
-**NOTE**: If you need help creating the Objective-C Bridging Header, see: [Swift and Objective-C in the Same Project](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html).
+::: note
+If you need help creating the Objective-C Bridging Header, see: [Swift and Objective-C in the Same Project](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html).
+:::
 
 If you are working in Swift with Lock included as an framework, just include the module in your Swift files like this:
 
@@ -73,7 +77,9 @@ import Lock
 
 Now you can initialize `A0Lock` (which handles authentication) and keep it in your `AppDelegate` as a **strong** property.
 
-**NOTE**: You can store `A0Lock` in a different location as long as you keep it alive as long as it is needed.
+::: note
+You can store `A0Lock` in a different location as long as you keep it alive as long as it is needed.
+:::
 
 This examples creates `A0Lock` inside `-application:didFinishLaunchingWithOptions:`
 
@@ -163,7 +169,9 @@ You will see the Lock native login screen:
 
 <div class="phone-mockup"><img src="/media/articles/libraries/lock-ios/lock-ios.png" alt="Lock-iOS"/></div>
 
-**NOTE**: By default, all social authentication will be done using Safari. If you want native integration, see: [Lock iOS: Native Social Authentication](/libraries/lock-ios/native-social-authentication).
+::: note
+By default, all social authentication will be done using Safari. If you want native integration, see: [Lock iOS: Native Social Authentication](/libraries/lock-ios/native-social-authentication).
+:::
 
 ### Close Lock UI
 

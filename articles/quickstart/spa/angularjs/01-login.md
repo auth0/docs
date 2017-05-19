@@ -15,7 +15,9 @@ description: This tutorial demonstrates how to use the Auth0 AngularJS SDK to ad
 
 The first step in adding authentication to your Angular app is to provide a way for the user to log in. The easiest way to do this with Auth0 is to use the [Lock widget](/libraries/lock).
 
-**Note:** You should scope your Angular application to a `div` tag inside the `body`. This will prevent issues with Angular incorrectly trying to handle events that are handled properly by Lock.
+::: note
+You should scope your Angular application to a `div` tag inside the `body`. This will prevent issues with Angular incorrectly trying to handle events that are handled properly by Lock.
+:::
 
 ```html
 <body>

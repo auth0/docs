@@ -20,7 +20,7 @@ This tutorial uses the [iOS - Objective C](/quickstart/native/ios-objc) sample p
 
 Open the `basic-sample/Info.plist` find and replace the `CLIENT_ID` and `TENANT` fields with your Auth0 account information.
 
-```
+```text
 <key>Auth0ClientId</key>
 <string>${account.clientId}</string>
 <key>Auth0Domain</key>
@@ -43,7 +43,9 @@ Go to the [Multifactor Auth](${manage_url}/#/multifactor) page in the Auth0 Dash
 
 ![Multifactor Auth](/media/articles/mfa/mfa-native/mfa-native-01.png)
 
-**NOTE:** MFA for native apps currently supports Google Authenticator only.
+::: note
+MFA for native apps currently supports Google Authenticator only.
+:::
 
 Update this line in of code that appears under **Customize Google-Authenticator** with your `client-id`:
 
@@ -63,7 +65,7 @@ To enable Multifactor Authentication and enrollment, you must set the `options.m
 
     ![Database Connections](/media/articles/mfa/mfa-native/mfa-native-03.png)
 
-**NOTE:** Also make sure that at least one of your apps is enabled for this database:
+Make sure that at least one of your apps is enabled for this database:
 
 ![Database Connections](/media/articles/mfa/mfa-native/mfa-native-04.png)
 
@@ -143,7 +145,7 @@ The Lock for iOS widget calls the [Resource Owner](/api/authentication/reference
 
 If you have set the `options.mfa.return_enroll_settings` flag to true using the `PATCH  /api/v2/connections/{id}` endpoint, the Resource Owner response will include a url to a QR code:
 
-```
+```text
 {
   "error": "a0.mfa_registration_required",
   "error_description": "User is not enrolled with google-authenticator",
@@ -158,7 +160,7 @@ If you have set the `options.mfa.return_enroll_settings` flag to true using the 
 
 Otherwise, the response is a simple error code:
 
-```
+```text
 {
   "error": "a0.mfa_registration_required",
   "error_description": "User is not enrolled with google-authenticator"

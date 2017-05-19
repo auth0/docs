@@ -3,15 +3,15 @@ title: Call APIs from Client-side Web Apps
 description: Learn how to call APIs from client-side web apps using the OAuth 2.0 Implicit Grant.
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Call APIs from Client-side Web Apps
+
+<%= include('../../_includes/_pipeline2') %>
 
 In order to access an API from a [client-side app](/quickstart/spa) (typically a Single Page Application or a Mobile Application), you need to implement the OAuth 2.0 **Implicit Grant**. In this document we will see how this flow works.
 
-<div class="alert alert-info">
+::: note
   If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
-</div>
+:::
 
 ## Overview
 
@@ -29,9 +29,10 @@ Once the user authenticates, the client app receives the `access_token` in the h
 
  1. The app can use the `access_token` to call the API on behalf of the user.
 
-  <div class="auth0-notification frendly"><i class="notification-icon icon-budicon-266"></i>
-     &nbsp;In OAuth 2.0 terms, the web app is the <em>Client</em>, the end user the <em>Resource Owner</em>, the API the <em>Resource Server</em>, the browser the <em>User Agent</em>, and Auth0 the <em>Authorization Server</em>.
-  </div>
+
+::: note
+In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+:::
 
 ## How to implement the flow
 

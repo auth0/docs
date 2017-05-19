@@ -8,7 +8,9 @@ description: Explains the architecture scenario with a Single Page Web Applicati
 
 # SPA + API
 
-<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
+::: note
+This architecture scenario is under construction and will be updated soon.
+:::
 
 ![SPA + API Flow](/media/articles/architecture-scenarios/spa-api.png)
 

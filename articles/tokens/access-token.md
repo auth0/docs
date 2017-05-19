@@ -14,7 +14,7 @@ Auth0 generates access tokens in [JSON Web Token (JWT)](/jwt) format, an industr
 - The set of claims contains verifiable security statements such as the identity of the user and the permissions they are allowed.
 - The signature is used to validate that the token is trustworthy and has not been tampered with.
 
-::: panel-info Opaque token format
+::: panel Opaque token format
 The [Auth0 Management API v1](/api/management/v1) (which has been deprecated) uses an opaque token format in which claims are referenced in a separate database, rather than directly in the token.
 :::
 
@@ -73,7 +73,7 @@ Server-to-server access tokens can be obtained using the [Client Credentials flo
 
 The result will be an access token that can be used to make requests to the geocoding API.
 
-```
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
@@ -92,7 +92,7 @@ For details on how to set up a Client Credentials Grant in Auth0 refer to [Setti
 
 Once a client has obtained an access token, it will include that token as a credential when making API requests.
 
-```
+```text
 GET /calandar/v1/events
 Host​: api.example.com
 

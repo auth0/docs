@@ -8,11 +8,11 @@ description: Instructions on acquiring development keystores/key hashes during A
 
 # Android Development Keystores and Key Hashes
 
-When creating a new OAuth Credential for many connections you will need to provide the SHA-1 of the certificate you're using to sign your application. When completing your Client's configuration in the [Auth0 Dashboard](${manage_url}) you will also need to provide the SHA-256 value. 
+When creating a new OAuth Credential for many connections you will need to provide the SHA-1 of the certificate you're using to sign your application. When completing your Client's configuration in the [Auth0 Dashboard](${manage_url}) you will also need to provide the SHA-256 value.
 
 Locate the certificate you're using to sign your application. If you don't have one you can generate it. For production applications, you should do this.
 
-During development, you can sign your application with the default `android.keystore` certificate that was generated automatically for you when you installed the SDK. In this example we're going to use this default keystore. To generate the key hashes using this keystore follow the examples below. 
+During development, you can sign your application with the default `android.keystore` certificate that was generated automatically for you when you installed the SDK. In this example we're going to use this default keystore. To generate the key hashes using this keystore follow the examples below.
 
 ## Generating your key hashes
 
@@ -52,6 +52,6 @@ Certificate fingerprints:
 
 Once you have your key hashes output, copy the resulting SHA256 value and go to your client's settings in the [Auth0 Dashboard](${manage_url}/#/clients). Click "Show Advanced Settings", and in the "Mobile Settings" tab, under "Android", fill the "App Package Name" with your application's package name, and the "Key Hashes" field with the SHA256 value you copied. Don't forget to save the changes.
 
-::: panel-warning Required Actions
+::: warning
 If you don't add the Callback URL to the client settings nor the Key Hashes to the client's mobile settings, the Auth0 server won't return the call result to your application.
 :::

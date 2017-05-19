@@ -104,5 +104,5 @@ public class Authentication : NancyModule
 <%= include('../../../_includes/_lock-sdk') %>
 
 ::: note
-Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 :::

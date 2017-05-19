@@ -86,7 +86,7 @@ If you have configured everything correctly, you will see the It works!!! page:
 
 ![](/media/articles/connections/social/shopify/shopify-devportal-9.png)
 
-::: panel-info Shopify Multipass
+::: panel Shopify Multipass
 You can use Shopify's [Multipass](https://help.shopify.com/api/reference/multipass) feature to automatically authenticate users who have already been verified by Auth0 on Shopify.
 :::
 

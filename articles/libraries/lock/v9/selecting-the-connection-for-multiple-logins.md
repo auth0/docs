@@ -11,9 +11,12 @@ Auth0 allows you to offer your users multiple ways of authenticating. This is es
 
 ![](/media/articles/hrd/sd4h-6wlwOsQA1PCQKLAmtQ.png)
 
-> Selecting the appropriate Identity Providers from multiple options is called "Home Realm Discovery". A pompous name for a simple problem.
+::: note
+Selecting the appropriate Identity Providers from multiple options is called "Home Realm Discovery". A pompous name for a simple problem.
+:::
 
 ## Option 1: programmatically
+
 When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any __connection__ defined in your dashboard.
 
 If using the [Lock](/lock), this is as simple as writing:
@@ -30,7 +33,9 @@ There are multiple practical ways of getting the `connection` value. Among the m
 * You can use __vanity URLs__: `https://{connection}.yoursite.com` or `https://www.yoursite.com/{connection}`
 * You can just ask the user to pick from a list (notice [there's an API](/api/v1#!#get--api-connections) to retrieve all connections available)
 
-> These two methods assume it is acceptable for your app to disclose the names of all companies you are connected to. Sometimes this is not the case.
+::: note
+These two methods assume it is acceptable for your app to disclose the names of all companies you are connected to. Sometimes this is not the case.
+:::
 
 * You could use non-human-readable connection names and use some external mechanism to map these to users (e.g. through a primary verification, out of band channel for example).
 

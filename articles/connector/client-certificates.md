@@ -12,7 +12,9 @@ To activate Client Certificates on an LDAP connection, simply enable the option 
 
 ![](/media/articles/connector/client-certs/connector-client-cert-enable.png)
 
-> Note that you'll also need to configure the IP Ranges. Only users coming from these IP Ranges will be prompted to authenticate using Client Certificates. Users that originate from different IP Ranges will be presented with the traditional username/password login form.
+::: note
+Note that you'll also need to configure the IP Ranges. Only users coming from these IP Ranges will be prompted to authenticate using Client Certificates. Users that originate from different IP Ranges will be presented with the traditional username/password login form.
+:::
 
 Once this has been configured in Auth0 you'll need to configure the certificates in the AD/LDAP Connector. Supporting Client Certificates will require the following:
 

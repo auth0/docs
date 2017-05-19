@@ -7,7 +7,7 @@ description: How to customize the user sign-up form with additional fields using
 
 In some cases, you may want to customize the user sign up form with more fields other than email and password.
 
-:::panel-info Hosted Login Pages
+:::panel Hosted Login Pages
 
 Auth0 offers a [hosted login page](/hosted-pages/login) option that you can use instead of designing your own custom sign up page. If you want to offer sign up and log in options, and you only need to customize the following fields, the Hosted Login Page might be an easier option to implement:
 
@@ -61,9 +61,9 @@ For further reference, here is our [documentation on progressive profiling](/use
 </form>
 ```
 
-**NOTE**:  `name` and `color` are custom fields.
+The `name` and `color` are custom fields.
 
-::: panel-info Custom field validation
+::: note
 There is currently no way to validate user-supplied custom fields when signing up. Validation must be done from an Auth0 [Rule](/rules) at login, or with custom, **server-side** logic in your application.
 :::
 
@@ -99,7 +99,9 @@ When your users sign up, the custom fields are sent as part of `user_metadata`. 
 
 After a successful login, Auth0 will redirect the user to your configured callback URL with a JWT (`id_token`) in the query string.
 
-**NOTE** To learn more about the differences between popup and redirect modes, please refer to [this document](/libraries/lock/v10/popup-mode).
+::: note
+To learn more about the differences between popup and redirect modes, please refer to [this document](/libraries/lock/v10/popup-mode).
+:::
 
 ```js
 window.auth0 = new Auth0({

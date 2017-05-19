@@ -15,13 +15,13 @@ For database connections Auth0 limits certain types of repeat login attempts dep
 
  - For the users of a free account, there is a limit of two logins per second per IP address.
 
- ## Unblocking a User
+## Unblocking a User
 
  The user account can be unblocked for a given IP address by the database owner following the unblock-user link or by the user properly completing a password reset procedure.
 
  [Click here to learn more about Blocking and Unblocking a User](/user-profile#blocking-and-unblocking-a-user)
 
- ## Why are some successful login attempts blocked?
+## Why are some successful login attempts blocked?
 
 To protect the health of the system overall, putting these restrictions in place help mitigate the load on our systems. Due to the high amount of customization Auth0 provides, we risk degradation of service from users that may perform high load stress or benchmark tests, as well as the possibility of bad code causing users to login multiple times.
 

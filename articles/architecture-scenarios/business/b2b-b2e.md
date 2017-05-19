@@ -8,7 +8,9 @@ description: Explains the architecture scenario of a hybrid between B2B and B2E 
 
 # Business to Business + Enterprise Identity Scenarios
 
-<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
+::: note
+This architecture scenario is under construction and will be updated soon.
+:::
 
 ![](/media/articles/architecture-scenarios/b2b-b2e.png)
 

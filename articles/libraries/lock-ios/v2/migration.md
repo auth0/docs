@@ -133,7 +133,10 @@ Lock
 ```
 
 So, in the `onAuth` callback, you'd only recieve the credentials of the user when the authentication is successful.
-> In constrast with Lock v1, in v2, Lock will dismiss itself so there is no need to call `dismissViewController(animated:, completion:)` in any of the callbacks.
+
+::: note
+In constrast with Lock v1, in v2, Lock will dismiss itself so there is no need to call `dismissViewController(animated:, completion:)` in any of the callbacks.
+:::
 
 In the case you need to know about the errors or signup there are the corresponding `onError` and `onSignUp` callbacks that can be employed.
 
@@ -152,7 +155,9 @@ Lock
   .present(from: self)
 ```
 
-> The callback `onSignUp` is only called when the "login after signup" is disabled
+::: note
+The callback `onSignUp` is only called when the "login after signup" is disabled.
+:::
 
 #### Passwordless mode (Email & SMS connections)
 

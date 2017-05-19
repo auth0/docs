@@ -15,8 +15,9 @@ The Lock-Google is available through [Maven Central](http://search.maven.org) an
 compile 'com.auth0.android:lock-google:1.+'
 ```
 
-_You can check for the latest version on the repository [Readme](https://github.com/auth0/Lock-Google.Android#install), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock-google%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/lock-google)._
-
+::: note
+You can check for the latest version on the repository [Readme](https://github.com/auth0/Lock-Google.Android#install), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock-google%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/lock-google).
+:::
 
 ## Requirements
 
@@ -84,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-> If you need further help with the Google SDK setup, please check Google's [Sign-In for Android Guide](https://developers.google.com/identity/sign-in/android).
+::: note
+If you need further help with the Google SDK setup, please check Google's [Sign-In for Android Guide](https://developers.google.com/identity/sign-in/android).
+:::
 
 ## Usage with Lock
 
@@ -188,7 +191,7 @@ keytool -exportcert -alias androiddebugkey -keystore <PATH_TO_YOUR_KEYSTORE> -st
 
 Sample output:
 
-```
+```text
 no71633JAC3qgzQYCbskprUr55k=
 ```
 

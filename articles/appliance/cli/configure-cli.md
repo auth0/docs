@@ -66,8 +66,9 @@ Usage: a0cli [options] <command>
    -p, --port <number>  Port number of appliance instance. Default port: 10121
 ```
 
-
-> Because the CLI sends commands to the server running on each Appliance's node, please ensure that the server is both available and can accept inbound and outbound connections to port `10121`.
+::: note
+  Because the CLI sends commands to the server running on each Appliance's node, please ensure that the server is both available and can accept inbound and outbound connections to port `10121`.
+:::
 
 ## Granting Access Rights to Users
 
@@ -83,7 +84,9 @@ To authorize a new workstation for use with the CLI:
 
     ![](/media/articles/appliance/cli/cli-config-with-key.png)
 
-> Please note that any user on the workstation with access to the location where the key is stored locally will have access rights to perform operations on the Appliance.
+::: note
+  Please note that any user on the workstation with access to the location where the key is stored locally will have access rights to perform operations on the Appliance.
+:::
 
 ## Updating Command Lists
 
@@ -99,4 +102,6 @@ If the test was successful, you will see the following response:
 
 `{"message": "PONG"}`
 
-> To get a list of available commands, run `a0cli` (omitting all parameters).
+::: note
+  To get a list of available commands, run `a0cli` (omitting all parameters).
+:::

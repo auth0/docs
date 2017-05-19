@@ -4,9 +4,9 @@ description: How to use Multifactor Authentication with Resource Owner Password 
 toc: true
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Multifactor Authentication and Resource Owner Password
+
+<%= include('../../_includes/_pipeline2') %>
 
 Highly-trusted applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials to be submitted to Auth0. In some scenarios, however, stronger authentication may be required. This document outlines using [multifactor authentication](/multifactor-authentication) with the [Resource Owner Password Grant](/api-auth/grant/password).
 
@@ -68,10 +68,9 @@ To execute MFA, follow the next steps according to the challenge type you will u
 
 For this type of challenge, the Client must get an `otp` code from a OTP Generator app such as Google Authenticator, Microsoft Authenticator, and so forth.
 
-<div class="auth0-notification frendly">
-  <i class="notification-icon icon-budicon-266"></i>&nbsp;
-  If it's already known that the user supports OTP, then steps 5 and 6 above are optional.
-</div>
+::: note
+If it's already known that the user supports OTP, then steps 5 and 6 above are optional.
+:::
 
 7. The Client application prompts the end user to enter an otp code.
 
@@ -119,9 +118,9 @@ In this scenario, the challenge will be sent using a side channel, however, ther
 
 ## Using recovery codes
 
-<div class="alert alert-info">
+::: note
   This flow is currently only available for the Guardian Provider.
-</div>
+:::
 
 ![Resource Owner MFA Recovery](/media/articles/api-auth/recovery-code.png)
 

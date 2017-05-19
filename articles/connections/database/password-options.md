@@ -6,7 +6,7 @@ crews: crew-2
 
 # Password Options in Auth0 Database Connections
 
-:::panel-warning Notice
+:::panel-warning Feature availability
 The **Password Options** feature is only available for Database connections. The password limitations in Social and Enterprise connections are enforced by each provider.
 :::
 
@@ -58,13 +58,13 @@ For example here is what a MySQL database connection may look like after setting
 {
   "id": "con_9dKKcib71UMRiHHW",
   "options": {
-    "password_history": { 
+    "password_history": {
       "enable": true,
       "size": 5
     },
     "password_dictionary": {
       "enable": true,
-      "dictionary": [ 
+      "dictionary": [
         "entry1",
         "entry2"
       ]
@@ -84,4 +84,3 @@ For example here is what a MySQL database connection may look like after setting
 ```
 
 If you are [creating a connection](/api/management/v2#!/Connections/post_connections) or [updating an existing connection](/api/management/v2#!/Connections/patch_connections_by_id) using the Management API you can update the password policy for the connection using these fields.
-

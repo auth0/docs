@@ -6,7 +6,7 @@ crews: crew-2
 
 # Password Strength in Auth0 Database Connections
 
-:::panel-warning Notice
+:::panel-warning Feature availability
 The **Password Strength** feature is only available for Database connections. The password complexity in Social and Enterprise connections is enforced by each provider.
 :::
 
@@ -39,7 +39,9 @@ To change the password strength policy, go to [Database connections](${manage_ur
 
 The new policy will be enforced on all subsequent user sign-ups and password changes. If the user enters a password that does not match the required criteria, the password will be rejected by Auth0 and the user will be asked to create one that complies with these requirements.
 
-**NOTE**: Existing passwords that were created prior to the change in policy will continue to validate.
+::: note
+  Existing passwords that were created prior to the change in policy will continue to validate.
+:::
 
 ### Lock
 
@@ -63,7 +65,9 @@ The response will also contain additional information that can be used to guide 
 * `format` is an array with values to be used in the `message`. (`message` is separate from the `format` to allow easier i18n of error messages in custom UIs.)
 * `verified` can be either `true` or `false`. Returns `false` if the rule has been violated.
 
-**NOTE**: Some rules are composites. A rule may contain an `items` field that specifies which sub-rules have failed. Each sub-rule will have a `message` and may have a `format`, if required.
+::: note
+  Some rules are composites. A rule may contain an `items` field that specifies which sub-rules have failed. Each sub-rule will have a `message` and may have a `format`, if required.
+:::
 
 ### Examples
 

@@ -52,7 +52,7 @@ The following outlines the basic steps required for restoring your Appliance ins
 2. Restore your VM(s) using your snapshots at your secondary site.
 Use the [Appliance Command Line Interface (CLI)](/appliance/cli) to [reconfigure the IP addresses](/appliance/cli/reconfiguring-ip) of the VM(s).
 
-::: panel-info VMWare's Site Recovery Manager
+::: panel VMWare's Site Recovery Manager
 If you are hosting your Appliance instances using VMware, you may also implement a similar backup/recovery scenario using VMWare's  Site Recovery Manager (SRM). SRM provides an automated mechanism to move your snapshots to a secondary site, where they can be retrieved if you ever need your data restored. If you choose this option, Auth0 will help you set up and test your implementation. SRM will change the IP address(es) for your instance(s), and you can
 
 We have tested that it will change the IP for the box and you can [run re-ip](/appliance/cli/reconfiguring-ip) as long as you have prepared the [Appliance Command Line Interface (CLI)](/appliance/cli) ahead of time and uploaded the certificate.
@@ -78,7 +78,9 @@ For more information, please see:
 * [Using the CLI to Backup Appliance Instances](/appliance/cli/backing-up-the-appliance)
 * [Adding an Appliance Node to the Backup Role](/appliance/cli/adding-node-to-backup-role)
 
-**Note**: This option is available to Appliances on version **7247** or later.
+::: note
+  This option is available to Appliances on version **7247** or later.
+:::
 
 ## Combining VM Snapshots and Database Backups
 
