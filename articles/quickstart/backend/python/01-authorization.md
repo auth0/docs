@@ -50,7 +50,6 @@ app = Flask(__name__)
 
 # Format error response and append status code
 
-```python
 def handle_error(error, status_code):
     resp = jsonify(error)
     resp.status_code = status_code
