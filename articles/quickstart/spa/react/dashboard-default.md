@@ -1,20 +1,20 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to integrate Auth0 with ReactJS to add authentication and authorization to your app
+description: This tutorial demonstrates how to add user login to your application with Auth0
 ---
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-react-sample',
+  repo: 'auth0-react-samples',
   path: '01-Login',
   requirements: [
-    'React 15.3'
+    'React 15.5'
   ]
 }) %>
 
-## Install the Dependencies
+<%= include('../../../_includes/_callback_url') %>
 
-<%= include('_includes/_dependencies') %>
+<%= include('../_includes/_install_auth0js') %>
 
-<%= include('_includes/_login') %>
+<%= include('_includes/_centralized_login') %>

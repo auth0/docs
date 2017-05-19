@@ -88,6 +88,10 @@ The Raw JSON tab displays all of the information contained on the user's profile
 
 ## Impersonate a User
 
+::: panel-warning Advanced Feature
+Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the __Sign in as User__ button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
+:::
+
 If you need to log in to your app as a user, see everything exactly as the user sees it, and do everything exactly as the user does it, you can do this using the Dashboard.
 
 Navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Select the user you want to impersonate from the list. When the User Details page opens, click the "Sign in as User" button. Select the app you want to log into from the dropdown menu.

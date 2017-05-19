@@ -12,6 +12,7 @@ If your subscription agreement includes an Appliance that is hosted in a dedicat
 * **Eight (8) DNS names**:
     * Four (4) will be used for the non-Production node, and four (4) will be used for the Production cluster;
     * Each domain name will have 4 parts and end with `auth0.com`;
+    * The domain part of the name that is hosted in Auth0's Private Cloud cannot have the same name as any of your other tenants hosted in the multi-tenant cloud.
     * **Important**: Please finalize DNS names prior to Appliance deployment.
 * **SMTP Settings** (including the hostname, port number, username, and password). Auth0 will work with you to enter your settings. For additional details, please see the [SMTP section of the Appliance infrastructure manual](/appliance/infrastructure/security#smtp);
 * **Administrator(s) email address** for App tenant for non-production and Production environments.
