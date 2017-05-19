@@ -22,7 +22,7 @@ Provide a component with controls for the user to log in and log out.
 
 ${snippet(meta.snippets.use)}
 
-> This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
+> **Note:** This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
 
 The `onClick` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `Auth` service to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
@@ -61,9 +61,11 @@ class Callback extends Component {
 export default Callback;
 ```
 
-> This example assumes some kind of loading spinner is available in the same directory as the component. See the downloadable sample for a demonstration.
+> **Note:** This example assumes some kind of loading spinner is available in the same directory as the component. See the downloadable sample for a demonstration.
 
 After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/home` route.
+
+> **Note:** This example assumes you are using path-based routing with `<BrowserRouter>`. If you are using hash-based routing, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.
 
 ## Process the Authentication Result
 

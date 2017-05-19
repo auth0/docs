@@ -145,9 +145,7 @@ Provide a template with controls for the user to log in and log out.
 </main>
 ```
 
-::: note
-This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
-:::
+> This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
 
 The `click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
@@ -197,9 +195,7 @@ Create a component named `CallbackComponent` and populate it with a loading indi
 </div>
 ```
 
-::: note
-This example assumes some kind of loading spinner is available in an `assets` directory. See the downloadable sample for a demonstration.
-:::
+> This example assumes some kind of loading spinner is available in an `assets` directory. See the downloadable sample for a demonstration.
 
 The options that were passed to the `Auth0Lock` instance above include a `redirectUrl` set to the `/callback` route. This means that the user will be redirected to this newly created route after they authenticate with a redirect-based flow.
 

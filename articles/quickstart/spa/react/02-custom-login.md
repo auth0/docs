@@ -15,7 +15,7 @@ budicon: 448
 
 In the [previous step](/quickstart/spa/react/01-login), we enabled login with Auth0's Lock widget. You can also build your own UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
 
-::: panel Version Requirements
+::: panel-info Version Requirements
 This quickstart and the accompanying sample demonstrate custom login with auth0.js version 8. If you are using auth0.js version 7, please see the [reference guide](https://auth0.com/docs/libraries/auth0js/v7) for the library, as well as the [legacy React custom login sample](https://github.com/auth0-samples/auth0-react-sample/tree/auth0js-v7/02-Custom-Login).
 :::
 

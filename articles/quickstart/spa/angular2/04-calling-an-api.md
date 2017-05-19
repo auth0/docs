@@ -35,9 +35,7 @@ auth0 = new auth0.WebAuth({
 
 At this point you should try logging into your application again to take note of how the `access_token` differs from before. Instead of being an opaque token, it is now a JSON Web Token which has a payload that contains your API identifier as an `audience` and any `scope`s you've requested.
 
-::: note
-By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](https://auth0.com/docs/rules).
-:::
+> **Note:** By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](https://auth0.com/docs/rules).
 
 ## Configure angular2-jwt
 
@@ -84,7 +82,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 })
 ```
 
-## Make Secure Calls with `AuthHttp`
+## Make Authenticated Calls with `AuthHttp`
 
 After angular2-jwt is configured, you can use the `AuthHttp` class to make secure calls to your API from anywhere in the application. To do so, inject `AuthHttp` in any component or service where it is needed and use it just as you would use Angular's regular `Http` class. Assuming you have an API which returns a `message` from some protected endpoint called `/private`, you could craft an API call as such:
 
@@ -113,5 +111,7 @@ export class PingComponent {
   }
 }
 ```
+
+> **Note:** To find out more about configuration options for angular2-jwt, see the [main project repo](https://github.com/auth0/angular2-jwt).
 
 <%= include('../_includes/_calling_api_protect_resources') %>
