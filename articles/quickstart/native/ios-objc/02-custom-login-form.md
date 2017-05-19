@@ -16,11 +16,11 @@ budicon: 448
   ]
 }) %>
 
-<%= include('_hybrid_setup') %>
+<%= include('_includes/_hybrid_setup') %>
 
 ## Implement Database Login
 
-${snippet(meta.snippets.setup_wrapper)}
+${snippet(meta.snippets.setup)}
 
 Then, add the following code to perform a login:
 
@@ -69,7 +69,7 @@ Once you've obtained a `Credentials` object, retrieving a user profile is quite 
 
 ## Implement a Sign Up
 
-${snippet(meta.snippets.setup_wrapper)}
+${snippet(meta.snippets.setup)}
 
 Next add the following:
 
@@ -104,7 +104,7 @@ Notice that any extra information that you need to add to the user's profile, ot
 
 Then, add the following function in your application's `AppDelegate`:
 
-${snippet(meta.snippets.setup_wrapper)}
+${snippet(meta.snippets.setup)}
 
 ```objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{

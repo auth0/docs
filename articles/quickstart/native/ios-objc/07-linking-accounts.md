@@ -29,7 +29,7 @@ Here's the scenario: You have a user who is logged in and wants to link one (or 
 
 Typically, you will need to present an extra login dialog to make users enter the credentials for any account they want to link with their main account. You can present this login as we saw in the [Login Guide](/quickstart/native/ios-objc/00-login):
 
-${snippet(meta.snippets.setup_wrapper)}
+${snippet(meta.snippets.setup)}
 
 Then present the hosted login screen:
 
@@ -57,7 +57,7 @@ Linking an account is simple. You have a user, and another account you want to l
 - `idToken`: The `idToken` obtained upon your user login.
 - `otherUserToken`: The `idToken` from the account you want to link the user with. This is the value you stored in step 1.
 
-${snippet(meta.snippets.setup_wrapper)}
+${snippet(meta.snippets.setup)}
 
 To link an account:
 

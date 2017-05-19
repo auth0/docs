@@ -33,7 +33,7 @@ By default, it says that if a user email contains `@example.com`, that user will
 
 ## Test the Rule
 
-${snippet(meta.snippets.setup_wrapper)}
+${snippet(meta.snippets.setup)}
 
 ```objc
 NSString *userId = ... // the user's profile id

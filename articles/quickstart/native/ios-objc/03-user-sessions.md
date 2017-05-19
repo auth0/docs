@@ -52,7 +52,7 @@ Then, run `pod install`.
 
 We will store the [accessToken](/tokens/access-token) **upon a successful login**, in order to prevent the user from being asked for login credentials again every time the app is re-launched.
 
-${snippet(meta.snippets.setup_wrapper)}
+${snippet(meta.snippets.setup)}
 
 Then present the hosted login screen, like this:
 

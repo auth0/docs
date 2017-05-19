@@ -25,7 +25,7 @@ In order to make an authenticated request, you first need to obtain a token, aga
 
 You should already know how to get an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance from the [Login Guide](/quickstart/native/ios-swift/00-login). Anyway, here's a quick recap:
 
-${snippet(meta.snippets.setup_wrapper)}
+${snippet(meta.snippets.setup)}
 
 Then present the hosted login screen, like this:
 
