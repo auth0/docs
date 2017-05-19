@@ -67,7 +67,9 @@ window.env = {
 };
 ```
 
-> **Note:** When downloading the sample project above, these values will come prepopulated for you.
+::: note
+When downloading the sample project above, these values will come prepopulated for you.
+:::
 
 ## Create the Main Popup
 
@@ -112,7 +114,9 @@ Create a `browser_action.html` file in `src/browser_action` and provide a view f
 
 The `jwt-decode` library is included within a `script` tag, as is a `browser_action.js` file. It's the `browser_action.js` file that will be used to control the view.
 
-> **Note:** For this example, `document.querySelector` and `document.querySelectorAll` are used as a minimal way to mimic jQuery. Keep in mind that the specific technologies used to power the Chrome extension are at your discretion.
+::: note
+For this example, `document.querySelector` and `document.querySelectorAll` are used as a minimal way to mimic jQuery. Keep in mind that the specific technologies used to power the Chrome extension are at your discretion.
+:::
 
 At a minimum, the Chrome extension needs to have views and logic to handle two cases: when the user is authenticated and when they are not. JWT authentication is stateless by nature, so the best indication we have that the user is authenicated is whether they have an unexpired token saved.
 

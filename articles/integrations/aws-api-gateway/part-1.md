@@ -10,7 +10,9 @@ After completing this step, you will have:
 * Set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an [Amazon DynamoDB](https://aws.amazon.com/dynamodb) table;
 * Created two unauthenticated REST service methods for getting and updating a list of pets.
 
-> Prior to beginning, please have [Node.js](https://nodejs.org/) installed.
+::: note
+Prior to beginning, please have [Node.js](https://nodejs.org/) installed.
+:::
 
 ### 1. Create the Amazon DynamoDB Table
 
@@ -206,7 +208,9 @@ exports.handler = function(event, context) {
 }
 ```
 
-> Instead of creating this third Lambda function, you may choose to [create an OPTIONS method](#method-options) on the API Gateway.
+::: note
+Instead of creating this third Lambda function, you may choose to [create an OPTIONS method](#method-options) on the API Gateway.
+:::
 
 ### 3. Create the Amazon API Gateway API
 

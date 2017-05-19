@@ -83,7 +83,7 @@ The following table lists the query index and the metric to which it corresponds
 
 ## Access Data Directly from InfluxDB via Command-Line Interface
 
-::: panel-warning Warning
+::: panel-warning Data deletion
 You can delete data and drop measurements and databases using the InfluxDB Command-Line Interface. Proceed with caution.
 :::
 
@@ -94,7 +94,9 @@ Within InfluxDB, the database containing Appliance-related data is named `auth0`
 1. `1day`: contains metrics that get downsampled and stored for 1 day
 2. `1week`: contains metrics that get downsampled and stored for 1 week
 
-> The retention policy and measurement names should be surrounded by double quotes in queries.
+::: note
+  The retention policy and measurement names should be surrounded by double quotes in queries.
+:::
 
 ### Example Query
 

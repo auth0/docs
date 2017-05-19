@@ -7,7 +7,9 @@ description: How to secure the API Gateway Tutorial using Cognito instead of IAM
 
 Instead of using IAM roles and policies to secure your API, you can do so using user pools in Amazon Cognito.
 
-> Please [create the appropriate Amazon Cognito User Pools](http://docs.aws.amazon.com/cognito/latest/developerguide/setting-up-cognito-user-identity-pools.html) prior to beginning this tutorial.
+::: note
+Please [create the appropriate Amazon Cognito User Pools](http://docs.aws.amazon.com/cognito/latest/developerguide/setting-up-cognito-user-identity-pools.html) prior to beginning this tutorial.
+:::
 
 ## Integrate the Cognito User Pool with the API Gateway API
 

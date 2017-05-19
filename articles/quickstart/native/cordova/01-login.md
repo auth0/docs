@@ -67,9 +67,13 @@ In addition to the whitelist, you must update the [Content Security Policy](http
 
 Follow the [quickstart guide](/quickstart/spa) for the specific technology you are using in your Cordova app.
 
-> **Note**: Cordova doesn't support getting dependencies from a CDN, so it is necessary to download the JavaScript and CSS dependencies locally and then point to the downloaded files.
+::: note
+Cordova doesn't support getting dependencies from a CDN, so it is necessary to download the JavaScript and CSS dependencies locally and then point to the downloaded files.
+:::
 
-> **Note**: You must use `popup` mode when configuring an application with Cordova. This can be done by setting `redirect: false` in the options object for Lock. See the [Lock customization](/libraries/lock/v9/customization) documentation for more.
+::: note
+You must use `popup` mode when configuring an application with Cordova. This can be done by setting `redirect: false` in the options object for Lock. See the [Lock customization](/libraries/lock/v9/customization) documentation for more.
+:::
 
 ### Troubleshooting
 

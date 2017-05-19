@@ -182,7 +182,9 @@ Once the user is created, you will need to send the verification email. The emai
 
 To generate the `verificationUrl`, call the `Tickets.CreateEmailVerificationTicketAsync` method on the SDK, set the return URL to that of the password reset form, and append the token.
 
-**NOTE:** Since you do not want the default emails to be sent, you must disable the **Verification Email** and **Welcome Email** in the Auth0 dashboard.
+::: note
+Since you do not want the default emails to be sent, you must disable the **Verification Email** and **Welcome Email** in the Auth0 dashboard.
+:::
 
 ![](/media/articles/invite-only/invite-only-disable-email.png)
 
@@ -281,7 +283,9 @@ public async Task<ActionResult> Activate(UserActivationModel model)
 }
 ```
 
-**NOTE:** Always validate the token first to be sure you are updating the correct user.
+::: note
+Always validate the token first to be sure you are updating the correct user.
+:::
 
 Next, display a confirmation page where the user can click a link to sign in.
 

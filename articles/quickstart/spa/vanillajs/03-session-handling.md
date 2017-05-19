@@ -16,7 +16,9 @@ In the previous steps of this tutorial, you enabled the user login with `Lock` a
 
 Once the user is logged in, a client-side session should be created for them. To do this, the user's `id_token` that is returned in the Lock `authenticated` callback parameter should be stored in `localStorage`.
 
-**NOTE**: This example uses `localStorage`, but you can use any storage library. At the end of this guide, you can see how to do the same with the `Lockr` storage library.
+::: note
+This example uses `localStorage`, but you can use any storage library. At the end of this guide, you can see how to do the same with the `Lockr` storage library.
+:::
 
 ```js
 // app.js

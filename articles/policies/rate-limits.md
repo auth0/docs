@@ -17,7 +17,7 @@ Each endpoint is configured with a bucket that defines:
 -  the request limit
 -  the rate limit window (per second, per minute, per hour, etc.)
 
-```
+```text
 bucket:
     size: x
     per_minute: y
@@ -51,7 +51,9 @@ API requests to selected Authentication or Management API endpoints will return 
 
 ## Endpoints with Rate Limits
 
-> If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, please see the page on [Anomaly Detection](/anomaly-detection) for additional information.
+::: note
+If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, please see the page on [Anomaly Detection](/anomaly-detection) for additional information.
+:::
 
 ### Management API v2
 

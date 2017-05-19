@@ -3,9 +3,6 @@ section: libraries
 toc: true
 description: How to install, initialize and use auth0.js v8
 ---
-<div class="alert alert-info">
-This document covers the most up-to-date version of auth0.js - version 8. We recommend using this version, but if you are already using version 7, you can access it using the dropdown at the top of this document. If you are interested in upgrading to this version, take a look at the <a href="/libraries/auth0js/v8/migration-guide">v8 migration guide</a>.
-</div>
 
 # Auth0.js v8 Reference
 
@@ -47,7 +44,9 @@ Include via our CDN:
 <script src="${auth0js_urlv8}"></script>
 ```
 
->Note that for production use, the latest patch release (for example, 8.0.0) is recommended, rather than the latest minor release indicated above.
+::: note
+For production use, the latest patch release (for example, 8.0.0) is recommended, rather than the latest minor release indicated above.
+:::
 
 If you are using a bundler, you will want to install with `npm i auth0-js --production --save`.
 
@@ -251,7 +250,7 @@ The `passwordlessVerify` method requires several paramters to be sent in its `op
 
 Note that, as with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
 
-::: panel-info passwordlessVerify required WebAuth options
+::: panel passwordlessVerify required WebAuth options
 In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
 :::
 
@@ -278,7 +277,7 @@ The `parseHash` method takes an `options` object that contains the following par
 | `nonce` | optional | (String) Used to verify the `id_token`
 | `hash` | optional | (String) The URL hash (if not provided, `window.location.hash` will be used by default) |
 
-::: panel-info RS256 Requirement
+::: panel RS256 Requirement
 This method requires that your tokens are signed with RS256 rather than HS256. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
 :::
 
@@ -349,7 +348,7 @@ To log out a user, use the `logout` method. This method accepts an options objec
 | `client_id` | optional | (String) Your Auth0 client ID |
 | `federated` | optional | (Querystring parameter) Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
-::: panel-info returnTo parameter
+::: panel returnTo parameter
 Note that if the `client_id` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}).
 However, if the `client_id` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
 :::
@@ -372,7 +371,7 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 | `password` | required | (String) User's desired password |
 | `connection` | required | (String) The database connection name on your client upon which to attempt user account creation |
 
-Note that signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
+Signups should be for database connections. Here is an example of the `signup` method and some sample code for a form.
 
 ```html
 <h2>Signup Database Connection</h2>
@@ -410,8 +409,8 @@ webAuth.renewAuth({
 });
 ```
 
-::: panel-info postMessage Parameter
-This will use postMessage to comunicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behaviour is needed.
+::: note
+This will use postMessage to communicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behavior is needed.
 :::
 
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe.
@@ -499,6 +498,6 @@ The `linkUser` method accepts two parameters, the primary user id and the second
 auth0Manage.linkUser(userId, secondaryUserToken, cb);
 ```
 
-::: panel-info Linking - Metadata
+::: note
 Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata, and if they are ever unlinked, the secondary account will likewise not retain the primary account's metadata when it becomes separate again.
 :::

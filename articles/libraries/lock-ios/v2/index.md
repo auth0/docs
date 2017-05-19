@@ -6,8 +6,6 @@ description: A widget that provides a frictionless login and signup experience f
 mobileimg: media/articles/libraries/lock-ios.png
 ---
 
-<%= include('../_includes/_lock-version') %>
-
 # Lock v2 for iOS
 
 You're looking at the documentation for the easiest way of securing your iOS apps!
@@ -174,7 +172,7 @@ Lock provides many styling options to help you apply your own brand identity to 
 }
 ```
 
-::: panel-info Styling Customization Options
+::: panel Styling Customization Options
 You can see the complete set of styling options to alter the appearance of Lock for your app in the [Customization Guide](/libraries/lock-ios/v2/customization).
 :::
 
@@ -192,7 +190,7 @@ Lock
     }
 ```
 
-::: panel-info Behavior Configuration Options
+::: note
 You can see the complete set of behavior configuration options to alter the way Lock works for your app in the [Configuration Guide](/libraries/lock-ios/v2/configuration).
 :::
 

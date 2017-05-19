@@ -60,4 +60,6 @@ Then, whenever you have to reference the ClientID, Secret or callback, you use t
 
 Whether you deploy to Microsoft Azure Web Sites or a Cloud Service the Web.config transformation will run.
 
-> **TIP**: to test your web.config transforms you can use this [awesome tool](http://webconfigtransformationtester.apphb.com/)
+::: note
+To test your web.config transforms you can use this [awesome tool](http://webconfigtransformationtester.apphb.com/).
+:::

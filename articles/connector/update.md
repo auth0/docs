@@ -27,16 +27,18 @@ The updater script will update the AD/LDAP Connector from the command line by ru
   5. Install the AD/LDAP Connector
   6. Restore the existing configuration, certificates and profileMapper.js
   7. Start the Windows Service
- 
+
  To run the updater script execute the following statement in the command line:
- 
+
  ```
  @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://cdn.auth0.com/connector/windows/update-connector.ps1'))"
  ```
 
 ![](/media/articles/connector/update/connector-update-script.png)
- 
-**NOTE:** The updater script uses specific PowerShell commands that are only avaible in Windows PowerShell 3.0 and higher. If you're running on Windows 2008 and Windows 2008 R2 you might need to update your [PowerShell](https://www.microsoft.com/en-us/download/details.aspx?id=34595) version first.
+
+::: note
+The updater script uses specific PowerShell commands that are only avaible in Windows PowerShell 3.0 and higher. If you're running on Windows 2008 and Windows 2008 R2 you might need to update your [PowerShell](https://www.microsoft.com/en-us/download/details.aspx?id=34595) version first.
+:::
 
 ## Updating manually (Windows/Linux)
 
@@ -60,7 +62,9 @@ Download the Windows Installer from <a class="download-link" href=""></a>. The s
 
 Use the GitHub repository for other platforms: <a class="download-github" href=""></a>.
 
-**Note:** Always verify the checksum of the downloaded installer as explained [here](/checksum).
+::: note
+Always verify the checksum of the downloaded installer as explained [here](/checksum).
+:::
 
 ### 3. Backup your current config
 
@@ -70,7 +74,7 @@ The configuration can be exported from the Admin Console. The **Download** butto
 
 ![](/media/articles/connector/update/connector-import-export.png)
 
-#### Manually 
+#### Manually
 
 Before updating the connector backup these files from `%Program Files(x86)%\Auth0\AD LDAP Connector\`:
 
@@ -78,7 +82,9 @@ Before updating the connector backup these files from `%Program Files(x86)%\Auth
 *  `certs` folder
 *  `lib\profileMapper.js` **only if you modified this file manually**
 
-> The PATH above works for Windows based machines. Installations in other platforms will be located somewhere else, but contain the same assets.
+::: note
+The PATH above works for Windows based machines. Installations in other platforms will be located somewhere else, but contain the same assets.
+:::
 
 ### 4. Run the installer
 

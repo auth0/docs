@@ -2,15 +2,15 @@
 description: Describes the call APIs from mobile apps using the  Authentication Code Grant (PKCE).
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Calling APIs from Mobile Apps
+
+<%= include('../../_includes/_pipeline2') %>
 
 In order to access an API from a [mobile app](/quickstart/native), you need to implement the **Authorization Code using Proof Key for Code Exchange (PKCE)** OAuth 2.0 grant. In this document we will see how this flow works.
 
-<div class="alert alert-info">
+::: note
   If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
-</div>
+:::
 
 ## Overview of the flow
 
@@ -32,7 +32,9 @@ With PKCE, the Client creates, for every authorization request, a cryptographica
 
  5. The native app can use the `access_token` to call the API on behalf of the user.
 
- __NOTE__: In OAuth 2.0 terms, the native app is the _Client_ , the end user the _Resource Owner_, the API the _Resource Server_, the browser the _User Agent_, and Auth0 the _Authorization Server_.
+::: note
+In OAuth 2.0 terms, the native app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+:::
 
 ## How to implement the flow
 

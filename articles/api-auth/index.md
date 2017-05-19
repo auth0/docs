@@ -13,26 +13,17 @@ title: API Authorization
   </p>
 </div>
 
-<div class="alert alert-info">
+::: note
 <strong>Heads up!</strong> As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. For an overview of these changes, and details on how you adopt them, refer to <a href="/api-auth/intro">Introducing OIDC Conformant Authentication</a>.
-</div>
+:::
 
-<p>
-  At some point, your APIs will need to allow limited access to users, servers, or servers on behalf of users.
-</p>
+At some point, your APIs will need to allow limited access to users, servers, or servers on behalf of users.
 
-<p>
-  Auth0's API authorization features allow you to manage the authorization requirements for server-to-server and client-to-server applications.
-</p>
+Auth0's API authorization features allow you to manage the authorization requirements for server-to-server and client-to-server applications.
 
-<p>
-  By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself.
-</p>
+By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself.
 
-<p>
-  Using Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the many other technical aspects of API authorization.
-</p>
-
+Using Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the many other technical aspects of API authorization.
 
 <ul class="topic-links">
   <li>

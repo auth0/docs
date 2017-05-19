@@ -5,11 +5,13 @@ description: How to add an Appliance node in the backup node
 
 # Appliance: Adding a Node to the Backup Role
 
-> This document applies beginning with Appliance update **build 7247**.
+::: note
+  This document applies beginning with Appliance update **build 7247**.
+:::
 
 ## Prerequisites
 
-* Backup can be configured on single or multiple-node setups. In multi-node setups, the backup must be placed on a non-primary device. 
+* Backup can be configured on single or multiple-node setups. In multi-node setups, the backup must be placed on a non-primary device.
 * **A separate, dedicated backup device** with sufficient space to store the backups on the node that you are assigning to the `backup` role.
 
 ## Adding a Node to the Backup Role
@@ -18,10 +20,11 @@ To add a node to the `backup` role, execute the `set-as-backup` command using th
 
 `$a0cli -t <node_ip> set-as-backup <backup_device> [force]`
 
-**Note:** If you have already created a backup folder on the node, the command will fail unless you set the `force` argument to `true`.
+::: note
+  If you have already created a backup folder on the node, the command will fail unless you set the `force` argument to `true`.
+:::
 
+## Additional Reading
 
-
-## Additional Reading:
 * [Configuring and Using the Auth0 Appliance Command Line Interface](/appliance/cli/configure-cli)
 * [How to Back Up Appliance Instances Using the CLI](/appliance/cli/backing-up-the-appliance)

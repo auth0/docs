@@ -23,7 +23,9 @@ lock.getUserInfo(accessToken, function(error, profile) {
 });
 ```
 
-**NOTE**: For details on how to initialize `lock` refer to [new Auth0Lock(clientID, domain, options)](https://github.com/auth0/lock#new-auth0lockclientid-domain-options)
+::: note
+For details on how to initialize `lock` refer to [new Auth0Lock(clientID, domain, options)](https://github.com/auth0/lock#new-auth0lockclientid-domain-options)
+:::
 
 ## Update User Metadata
 
@@ -56,4 +58,6 @@ Here is a sample request, that adds the user's home address as a second-level pr
 }
 ```
 
-**Note:** The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
+::: note
+The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
+:::

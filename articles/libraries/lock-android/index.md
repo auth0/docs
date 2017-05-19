@@ -26,7 +26,9 @@ Lock is available both in [Maven Central](http://search.maven.org) and [JCenter]
 compile 'com.auth0.android:lock:2.+'
 ```
 
-_You can check for the latest version on the repository [Readme](https://github.com/auth0/Lock.Android#install), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/lock)._
+::: note
+You can check for the latest version on the repository [Readme](https://github.com/auth0/Lock.Android#install), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22lock%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/lock).
+:::
 
 After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
@@ -124,7 +126,9 @@ private LockCallback callback = new AuthenticationCallback() {
  };
 ```
 
-**Note**: The results of the AuthenticationCallback are in a `credentials` object. This object contains the tokens that you will require for authentication related operations in your app; see the [Tokens documentation](/tokens) for more specifics.
+::: note
+The results of the AuthenticationCallback are in a `credentials` object. This object contains the tokens that you will require for authentication related operations in your app; see the [Tokens documentation](/tokens) for more specifics.
+:::
 
 ### Lock.Builder
 

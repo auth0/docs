@@ -23,9 +23,9 @@ Click on the __Create User__ button near the top right-hand side of the screen.
 
   When finished, click __Save__.
 
-<div class="auth0-notification frendly"><i class="notification-icon icon-budicon-266"></i>
-     &nbsp;The connection you use must be associated with a Client, otherwise you will receive an error message that says, <em>The connection is disabled</em>. You can enable connections for Clients from the <a href="${manage_url}">Dashboard</a>, in <em> Client Settings > Connections</em>, or from the <em>Connection Settings > Clients</em>.
-</div>
+::: note
+The connection you use must be associated with a Client, otherwise you will receive an error message that says, <em>The connection is disabled</em>. You can enable connections for Clients from the <a href="${manage_url}">Dashboard</a>, in <em> Client Settings > Connections</em>, or from the <em>Connection Settings > Clients</em>.
+:::
 
 ![](/media/articles/users/create-user.png)
 
@@ -33,7 +33,7 @@ At this point, the user is created, and you will be directed to the newly-create
 
 ![](/media/articles/users/user-profile.png)
 
-::: panel-info Pending Users
+::: panel Pending Users
 The User Details page will show `pending` when a user is first created until they have logged in for the first time.
 :::
 

@@ -14,7 +14,9 @@ budicon: 448
 
 ![Country rule sample](/media/articles/server-platforms/rails/rule_country_preview.png)
 
-**NOTE**: No additional code is required, as the new property will be included in the full user profile.
+::: note
+No additional code is required, as the new property will be included in the full user profile.
+:::
 
 After the rule executes, the output that the application will receive for the full user profile is the following user object:
 

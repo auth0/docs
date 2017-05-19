@@ -2,13 +2,13 @@
 description: How to execute an Implicit Grant flow from a SPA Client application.
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # How to implement the Implicit Grant
 
-<div class="alert alert-info">
+<%= include('../../_includes/_pipeline2') %>
+
+::: note
   This tutorial will help you implement the Implicit Grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/implicit">Call APIs from Client-side Web Apps</a>.
-</div>
+:::
 
 The __Implicit Grant__ is an OAuth 2.0 flow that [client-side apps](/quickstart/spa) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access an API using the token.
 
@@ -35,7 +35,7 @@ Where:
 
 * `scope`: The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Note that user's consent will be requested, every time the `scope` value changes.
 
-  ::: panel-info Custom claims namespaced format
+  ::: panel Custom claims namespaced format
   Auth0 returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`. You can [add namespaced claims using Rules](#optional-customize-the-tokens).
   :::
 

@@ -5,19 +5,15 @@ description: This page explains how to setup and manage the Authorization Extens
 
 # Auth0 Authorization Extension v2
 
-<div class="alert alert-info">
-This document covers the current version of the Authorization Extension, version 2. We recommend using this latest version. However, if you are already using version 1 and need to see its documentation, you may select it from the dropdown above.
-</div>
-
 The Auth0 Authorization Extension provides user authorization support in Auth0. Currently the extension supports authorizations for Users using Groups, Roles and Permissions.
 
 ## How to Install
 
 First make sure you have a Client created that can support the Authorization extension. Supported client types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Clients with no type assigned or non-interactive clients are not supported.
 
-<div class="alert alert-info">
+::: note
   Installing this extension creates an `auth0-authz` client for your account. <strong>Do not delete this client!</strong> If you uninstall the extension at a later date, it will automatically delete this client as well.
-</div>
+:::
 
 To install the Authorization extension, click on the "Auth0 Authorization" box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app. You will also need to choose where to store the data which is documented under [Storage Types](#storage-types).
 
@@ -33,7 +29,7 @@ When you click on the link to open the extension for the first time, you will be
 
 ## Migration from v1 to v2 of the Authorization Extension (breaking changes)
 
-::: panel-warning Notice
+::: panel Application section
 One of the major changes of the v2 of the Authorization Extension is that the **Applications** section has been removed. The driving factor for this change is complexity: Defining a policy when someone can or cannot access an application depends on different factors (roles, groups, time of day, MFA, ...). This is why the desired approach for this use case is [rules](#controlling-application-access).
 :::
 
@@ -61,11 +57,13 @@ Here you can configure:
 
 #### Storing Additional Data in Tokens
 
-If you want to store data on Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces. 
+If you want to store data on Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces.
 
-**ΝΟΤΕ**: when calling the `/authorize` endpoint or configuring Lock, you will also have to specify the information you want in the `scope`: `groups`, `permissions` and/or `roles`.
+::: note
+When calling the `/authorize` endpoint or configuring Lock, you will also have to specify the information you want in the `scope`: `groups`, `permissions` and/or `roles`.
+:::
 
-::: panel-warning Notice
+::: warning
 Storing too much data in the token can cause performance issues or even prevent the token to be issued. Make sure you only choose to store the data that you'll really need. If this data can grow too large, consider using persistence instead of adding it to the token.
 :::
 
@@ -214,7 +212,9 @@ In addition to API access, you can also deploy a rule that reaches out to the ex
 2. Optionally store the user's groups, roles and permissions info as part of the `app_metadata`, to enable this [see details below](#persistence);
 3. Add the user's groups, roles and permissions to the outgoing token (which can be requested via the `openid groups permissions roles` scope), [see Token Contents above](#token-contents);
 
-> Note: Since this logic is part of a rule it will only be executed in the context of a login. If users are added to or removed from a group this will only be reflected within Auth0 after this user logs in again (eg: in the user's `app_metadata` or when calling the `/userinfo` endpoint).
+::: note
+Since this logic is part of a rule it will only be executed in the context of a login. If users are added to or removed from a group this will only be reflected within Auth0 after this user logs in again (eg: in the user's `app_metadata` or when calling the `/userinfo` endpoint).
+:::
 
 ### Control Application Access
 
@@ -259,7 +259,9 @@ function (user, context, callback) {
 }
 ```
 
-> Note: For this to work you must enable "Roles" under the "Token Contents" section and publish the rule. Then add this rule after the generated "auth0-authorization-extension" rule.
+::: note
+For this to work you must enable "Roles" under the "Token Contents" section and publish the rule. Then add this rule after the generated "auth0-authorization-extension" rule.
+:::
 
 ## Import/Export Authorization Data
 
@@ -322,7 +324,9 @@ The extension also allows you to config Amazon S3 as a storage provider. In orde
 }
 ```
 
-> Note regarding concurrency: Amazon S3 is a file based storage platform, which means writes in parallel can cause issues. The storage logic tries to take this into account as much as possible, but if you automate the creation of groups/roles/permissions we suggest you make sequential calls to the API.
+::: note
+Amazon S3 is a file based storage platform, which means writes in parallel can cause issues. The storage logic tries to take this into account as much as possible, but if you automate the creation of groups/roles/permissions we suggest you make sequential calls to the API.
+:::
 
 ## Troubleshooting
 

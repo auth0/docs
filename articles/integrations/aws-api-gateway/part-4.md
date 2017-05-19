@@ -144,7 +144,9 @@ At this point, you have defined two roles that you can use with the API gateway:
 
 You can create a social role using Login with Amazon (LWA).
 
-> While this tutorial includes instructions for using Login with Amazon, please note that you can use other social providers as well.
+::: note
+While this tutorial includes instructions for using Login with Amazon, please note that you can use other social providers as well.
+:::
 
 Go to the [Auth0 Management Dashboard](${manage_url}). Select **Connections**, then **Social** in the drop-down menu. Enable the connection for Amazon by setting the slide to the right so that it turns green.
 
@@ -163,7 +165,9 @@ If you haven't used Login with Amazon before, there is also a link called **How 
 
 Once you've entered the appropriate information, click **Try** to ensure that everything is set up correctly.
 
-> When you configure LWA using the Amazon console, be sure to enter into *Allowed Return URLs* the callback URL to your Auth0 Client, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page will show you specifically what to enter.
+::: note
+When you configure LWA using the Amazon console, be sure to enter into *Allowed Return URLs* the callback URL to your Auth0 Client, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page will show you specifically what to enter.
+:::
 
 In the Auth0 Dashboard, go back to **Clients**, select your Client, and then open up the **Connections** page. Ensure that *amazon* is enabled under Social Connections.
 

@@ -170,8 +170,8 @@ First remove the "//" at the beginning of the line to uncomment it.
 
 Next, replace the original value (urn:foo) with the **Entity ID** value you saved and copied in step 3 above. The new line 2 should look something like:
 
-```
-    "audience":"urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME"
+```text
+"audience":"urn:auth0:${account.tenant}:YOUR_CONNECTION_NAME"
 ```
 
 7. Click on the blue **"SAVE"** button at the bottom of the screen
@@ -247,7 +247,9 @@ This means the SAML connection from Auth0 Service Provider to Auth0 Identity Pro
 
 If it didn't work, double check the above steps and then consult the **troubleshooting** section at the end of this document.
 
-> NOTE: the **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
+::: note
+The **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
+:::
 
 ## 8. Create the HTML page for a test application
 

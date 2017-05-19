@@ -15,7 +15,7 @@ To install and configure this extension, click on the _Auth0 Logs to Splunk_ box
 At this point you should set the following configuration variables:
 
 - **Schedule**: How often the job will run. The schedule can be customized even further after creation.
-- **SPLUNK_URL**: Your Splunk Cloud URL. 
+- **SPLUNK_URL**: Your Splunk Cloud URL.
 - **SPLUNK_TOKEN**: Your Splunk Token.
 - **SPLUNK_COLLECTOR_PORT**: The Port of your HTTP Collector Endpoint.
 - **SPLUNK_COLLECTOR_PATH**: The [HTTP Collector Endpoint](http://dev.splunk.com/view/event-collector/SP-CAAAE7H) to be used. If you use the `/raw` endpoint, make sure to append a channel as a querystring parameter, like this: `/services/collector/raw?channel=FE0ECFAD-13D5-401B-847D-77833BD77131`. More information can be found in the [Splunk documentation](http://dev.splunk.com/view/event-collector/SP-CAAAE8Y).
@@ -29,7 +29,9 @@ Once you have provided this information, click the *Install* button to finish in
 
 The HTTP Event Collector (HEC) is an endpoint that lets you send application events into Splunk Enterprise using the HTTP or Secure HTTP (HTTPS) protocols. In order to configure a new HTTP Event Collector for Auth0 logs and acquire the URL, Token and Port information, follow the next steps:
 
-> This tutorial follows the step for Splunk Cloud. In case this is the first HEC you will configure for your account make sure that the Event Collector is enabled. You can find details on how to do this [here](http://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).
+::: note
+This tutorial follows the step for Splunk Cloud. In case this is the first HEC you will configure for your account make sure that the Event Collector is enabled. You can find details on how to do this [here](http://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).
+:::
 
 1. Navigate to your _Splunk Cloud URL_. You must have received this information via email upon signup. From the system menu select _Settings > Data Inputs_.
 
@@ -59,7 +61,9 @@ The HTTP Event Collector (HEC) is an endpoint that lets you send application eve
 curl -k https://<host>:8088/services/collector -H 'Authorization: Splunk <token>' -d '{"event":"Hello, World!"}'
 ```
 
-> The `<host>` value is based on your _Splunk Cloud URL_. When creating requests to Splunk Cloud, you must add a prefix to the URI of the hostname according to your subscription. For self-service Splunk Cloud plans, pre-pend the hostname with `input-`. For all other Splunk Cloud plans, pre-pend the hostname with `http-inputs-`. For this example we have subscribed for a self-service Splunk Cloud plan, so we will use the `input-` prefix. You can find more details [here](http://dev.splunk.com/view/event-collector/SP-CAAAE7F).
+::: panel URL prefixes
+The `<host>` value is based on your _Splunk Cloud URL_. When creating requests to Splunk Cloud, you must add a prefix to the URI of the hostname according to your subscription. For self-service Splunk Cloud plans, pre-pend the hostname with `input-`. For all other Splunk Cloud plans, pre-pend the hostname with `http-inputs-`. For this example we have subscribed for a self-service Splunk Cloud plan, so we will use the `input-` prefix. You can find more details [here](http://dev.splunk.com/view/event-collector/SP-CAAAE7F).
+:::
 
 As a response you should receive the followins JSON:
 
@@ -70,11 +74,13 @@ As a response you should receive the followins JSON:
 }
 ```
 
-Navigate to your _Splunk Cloud URL_. Click on _Search & Reporting_. Click on _Data Summary_ and select your host at the popup window. 
+Navigate to your _Splunk Cloud URL_. Click on _Search & Reporting_. Click on _Data Summary_ and select your host at the popup window.
 
 ![](/media/articles/extensions/splunk/splunk-search.png)
 
-> Splunk uses the Splunk Search Processing Language (SPL). For the search we executed above the search value would be `host="input-<host>:8088"`, where the `<host>` value is your _Splunk Cloud URL_. Click [here](http://docs.splunk.com/Documentation/Splunk/latest/Search/WhatsinSplunkSearch) for more info. 
+::: note
+Splunk uses the Splunk Search Processing Language (SPL). For the search we executed above the search value would be `host="input-<host>:8088"`, where the `<host>` value is your _Splunk Cloud URL_. Click [here](http://docs.splunk.com/Documentation/Splunk/latest/Search/WhatsinSplunkSearch) for more info.
+:::
 
 When the results of the search are displayed you should be able to see at least one entry, for our Hello World example.
 
@@ -82,7 +88,7 @@ When the results of the search are displayed you should be able to see at least 
 
 Now that we have confirmed our Splunk setup we can finish the Auth0 side configuration and start pushing logs.
 
-8. Head back to the Auth0 Dashboard and go to the _Settings_ of the Splunk Extension. Set the following values: 
+8. Head back to the Auth0 Dashboard and go to the _Settings_ of the Splunk Extension. Set the following values:
 - **SPLUNK_TOKEN**: the value of the Splunk Token you created, same one you used for our Hello World example.
 - **SPLUNK_URL**: Your Splunk HTTP Collector Endpoint. It should like the following: `https://<prefix>-<host>:8088/services/collector`. The `<host>` is your _Splunk Cloud URL_. The `<prefix>` is either `input-` or `http-inputs-` (see note at previous step).
 - **SPLUNK_COLLECTOR_PORT**: The Port of your HTTP Collector Endpoint. Default is `8088`.
@@ -90,7 +96,7 @@ Save your changes. A new CRON job is created and will be executed according to t
 
 ## Using Your Installed Extension
 
- To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Splunk* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
+ To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Splunk* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution.
 
 ![](/media/articles/extensions/splunk/view-cron-jobs.png)
 
@@ -101,5 +107,3 @@ You can view more details by clicking on the job you created. In this page you c
 That's it, you are done! When the CRON job has executed at least one you can now navigate to your _Splunk Cloud URL_ and view your [Auth0 Logs](${manage_url}/#/logs). Follow the same steps as before to search for the data associated with your host (Search & Reporting > Data Summary > select host).
 
 ![](/media/articles/extensions/splunk/auth0-logs-at-splunk.png)
-
-

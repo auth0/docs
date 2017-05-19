@@ -27,7 +27,9 @@ Auth0 provides the database infrastructure to store your users by default. This 
 
 The Auth0-hosted database is highly secure. Passwords are never stored or logged in plain text but are hashed with **bcrypt**. Varying levels of password security requirements can also be enforced (see: [Password Strength in Auth0 Database Connections](/password-strength)).
 
-**NOTE:** For database connections, Auth0 limits the number of repeat login attempts per user and IP address. For more information, see: [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+::: note
+For database connections, Auth0 limits the number of repeat login attempts per user and IP address. For more information, see: [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+:::
 
 ### Using a custom user store
 
@@ -45,7 +47,9 @@ Some specifics to keep in mind:
 * The database or service must be reachable from the Auth0 servers. You will need to configure inbound connections if your store is behind a firewall.
 * Database scripts run in the same [Webtask](https://webtask.io) container, which is shared with all other extensibility points (i.e. rules, webtasks or other databases) belonging to the same Auth0 domain. Therefore, you must carefully code for error handling and throttling.
 
-**NOTE:** See the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure a custom user store.
+::: note
+See the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure a custom user store.
+:::
 
 ### Migrating to Auth0 from a custom user store
 

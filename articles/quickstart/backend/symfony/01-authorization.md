@@ -19,11 +19,15 @@ description: This tutorial demonstrates how to add authentication and authorizat
 
 Protecting a Symfony API with Auth0 requires the **jwt-auth-bundle** package. Install it using **composer**.
 
-> **[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
+::: note
+**[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
+:::
 
 ${snippet(meta.snippets.dependencies)}
 
-> **Note:** v3.x.x of the **jwt-auth-bundle** provides compatibility with Symfony 3. For Symfony 2.x support, use the v1 branch.
+::: note
+v3.x.x of the **jwt-auth-bundle** provides compatibility with Symfony 3. For Symfony 2.x support, use the v1 branch.
+:::
 
 ## Add the Bundle to `AppKernel.php`
 
@@ -62,7 +66,9 @@ The `UserProvider` must implement the `JWTUserProviderInterface` (see `/source/A
 
 - `getAnonymousUser`: returns an anonymous user that represents an unauthenticated one (usually represented by the role *IS_AUTHENTICATED_ANONYMOUSLY*).
 
-> **Note:** Both of the above methods can throw an `AuthenticationException`. If this exception is thrown by `loadUserByJWT`, the it will treat the user as being anonymous. If `getAnonymousUser` throw this exception, a `401 Unauthorized` will be returned.
+::: note
+Both of the above methods can throw an `AuthenticationException`. If this exception is thrown by `loadUserByJWT`, the it will treat the user as being anonymous. If `getAnonymousUser` throw this exception, a `401 Unauthorized` will be returned.
+:::
 
 Provide configuration for the `UserProvider` in the `services.yml` file located in `app/config`.
 

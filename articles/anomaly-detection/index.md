@@ -25,7 +25,7 @@ There are two different triggers for the brute-force protection shield, for two 
 * Send an email to the affected user (The email can be [customized](#customize-the-blocked-account-email))
 * Block the suspicious IP address
 
-::: panel-info Note
+::: panel Note
 The way this anomaly protection works is that if user with "user_id1" signs in from IP1 and fails to login consecutively for 10 attempts their login from this IP - IP1 will be blocked. Another user, say "user_id2" signing in from the same IP (IP1) will not be blocked. The mechanism to clear this block is described below.
 
 Currently the default trigger amount of 10 cannot be changed.

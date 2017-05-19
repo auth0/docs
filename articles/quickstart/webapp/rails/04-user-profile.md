@@ -22,7 +22,9 @@ Using Auth0's OmniAuth strategy, you only need to redirect users to `/auth/oauth
 
 After receiving a successful callback at /auth/oauth2/callback, OmniAuth provides the available user profile information via the request.env['omniauth.auth'] hash.
 
-**NOTE**: The full contents of the authentication hash retrieved by the Auth0 strategy are detailed [here](https://github.com/auth0/omniauth-auth0#auth-hash).
+::: note
+The full contents of the authentication hash retrieved by the Auth0 strategy are detailed [here](https://github.com/auth0/omniauth-auth0#auth-hash).
+:::
 
 ## Add the Dependencies
 

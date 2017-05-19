@@ -113,8 +113,9 @@ When providing the URL list, you can:
 * Specify multiple, valid, comma-separated URLs
 * Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
 
-> In order to avoid validation errors, make sure that you do include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, you should use `http://*.example.com` instead.
-
+::: note
+In order to avoid validation errors, make sure that you do include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, you should use `http://*.example.com` instead.
+:::
 
 #### Limitations
 
@@ -122,8 +123,9 @@ When providing the URL list, you can:
 
 * The `returnTo` parameter does not function for all social providers. Please check your social provider's settings to ensure that they will accept the `redirectTo` parameter.
 
-> If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the **Auth0 Management Console** for the logout to function.
-
+::: note
+If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the **Auth0 Management Console** for the logout to function.
+:::
 
 #### Facebook Users
 

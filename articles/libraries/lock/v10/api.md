@@ -108,7 +108,7 @@ lock.show({
 });
 ```
 
-::: panel-info When to set your configuration options
+::: panel When to set your configuration options
 Options should be set when first instantiating Lock `var lock = new Auth0Lock(clientId, domain, options);`. Options should only be passed to `show` in order to override your previously set options while displaying the widget at this particular time and place.
 
 Previous users of Lock 9 should note that this is a different behavior from `options` in Lock 9, where all options were set as parameters of `show` and not at instantiation.

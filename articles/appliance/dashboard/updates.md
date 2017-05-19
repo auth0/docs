@@ -5,15 +5,15 @@ description: Overview of the Appliance Dashboard Updates page
 
 # Auth0 Appliance Dashboard: Updates
 
-::: panel-info Appliance Dashboard Navigation
-
-For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
-
+::: note
+  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
 The Updates page of the Appliance configuration area allows you to make the required/selected updates to your Appliance instance.
 
-> Updates cannot be rolled back/undone, so take VM snapshots and make backups as needed.
+::: note
+  Updates cannot be rolled back/undone, so take VM snapshots and make backups as needed.
+:::
 
 ![](/media/articles/appliance/dashboard/updates.png)
 

@@ -6,9 +6,9 @@ toc: true
 
 # Refresh Token (API Authorization)
 
-<div class="alert alert-info">
+::: note
   <strong>Heads up!</strong> This article describes the new Refresh Token story, according to the <a href="/api-auth">API Authorization flows</a>. If you are looking for the legacy Refresh Token doc refer to <a href="/tokens/refresh-token">Refresh Token</a>.
-</div>
+:::
 
 A **Refresh Token** is a special kind of token that contains the information required to obtain a new [access token](/tokens/access-token) or [ID token](/tokens/id-token).
 
@@ -74,13 +74,13 @@ The response should contain an access token and a refresh token.
 }
 ```
 
-::: panel-warning Security Warning
+::: warning
 Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
 
 For more information on how to implement this using Authorization Code Grant refer to [Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant). For other grants refer to [API Authorization](/api-auth).
 
-::: panel-info Troubleshooting
+::: note
 If the response did not include a refresh token, check that you comply with the [Restrictions](#restrictions) listed in this document.
 :::
 
@@ -126,7 +126,7 @@ The response will include a new `access_token`, its type, its lifetime (in secon
 }
 ```
 
-::: panel-info Rate limits
+::: panel Rate limits
 You should only ask for a new token if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it's a bad practice to call the endpoint to get a new `access_token` every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
@@ -166,7 +166,7 @@ Where:
 
 The client should match the one the refresh token was issued for.
 
-::: panel-info Revoke a token without the Client Secret
+::: panel Revoke a token without the Client Secret
 For clients that cannot keep the `client_secret` safe (for example, mobile apps), the `/oauth/revoke` endpoint supports passing no `client_secret` but the client itself must have the property `tokenEndpointAuthMethod` set to `none`, so the client can perform the following request:
 
 ```json
@@ -210,7 +210,9 @@ To revoke the user's access to an authorized application, and hence invalidate t
 
 Rules will run for the [Refresh Token Exchange](#use-a-refresh-token). To execute special logic, you can look at the `context.protocol` property in your rule. If the value is `oauth2-refresh-token`, then this is the indication that the rule is running during the [Refresh Token Exchange](#use-a-refresh-token).
 
-<div class="alert alert-warning">If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.redirect</code>, the authentication flow will return an error.</div>
+::: warning
+If you try to do a <a href="/rules/redirect">redirect</a> with <code>context.redirect</code>, the authentication flow will return an error.
+:::
 
 ## SDK Support
 

@@ -2,16 +2,16 @@
 description: How to execute a Resource Owner Password Grant
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # How to implement the Resource Owner Password Grant
+
+<%= include('../../_includes/_pipeline2') %>
 
 ## Configure your tenant
 
 The Password Grant relies on a connection capable of authenticating users via username and password. In order to indicate which connection the Password Grant should use you need to set the value of the `default_directory` tenant setting.
 
 1. Open the [Dashboard](${manage_url}) and browse to your [Account Settings](${manage_url}/#/account).
-1. Scroll down to the _Settings_ section and locate the __Default Directory__ setting.
+1. Scroll down to the __Settings__ section and locate the __Default Directory__ setting.
 1. Enter the name of the connection you would like to use. Keep in mind that only connections capable of authenticating users via username and password can be used (i.e. database connections, AD, LDAP, Windows Azure AD, ADFS)
 
 ![Update Default Directory](/media/articles/api-auth/default-directory-setting.png)
@@ -56,13 +56,13 @@ The response contains a [signed JSON Web Token](/jwt), the token's type (which i
 
 In case the scopes issued to the client differ from the scopes requested, a `scope` parameter will be included in the response JSON, listing the issued scopes.
 
-::: panel-info Password grant and standard scopes
+::: panel Password grant and standard scopes
 If **no** API scopes (such as `read:notes`) are included in the request, all API scopes (such as `read:notes`, `create:notes`, etc.) are included in the `access_token`.
 If only the `openid` scope is included in the request, all `openid` standard scopes will be returned, such as `openid profile email address phone`.
 In these cases, the `scope` parameter will be included in the response, listing the issued scopes. This happens because a password is equal to full access and hence any password-based exchange gives access to all scopes.
 :::
 
-::: panel-info How to get the user's claims
+::: panel How to get the user's claims
 If you need the user's claims you can include the scope `openid` to your request. If the API uses `RS256` as the signing algorithm, the `access_token` will now also include `/userinfo` as a valid audience. You can use this `access_token` to invoke the [/userinfo endpoint](/api/authentication#get-user-info) and retrieve the user's claims.
 :::
 
@@ -90,7 +90,7 @@ To use this variation you will have to change the following request parameters:
 }
 ```
 
-::: panel-info Auth0 Connections as Realms
+::: panel Auth0 Connections as Realms
 You can configure Auth0 Connections as realms, as long as they support active authentication. This includes [Database](/connections/database), [Passwordless](/connections/passwordless), [Active Directory/LDAP](/connections/enterprise/active-directory), [Windows Azure AD](/connections/enterprise/azure-active-directory) and [ADFS](/connections/enterprise/adfs) connections.
 :::
 

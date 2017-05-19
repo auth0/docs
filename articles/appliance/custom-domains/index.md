@@ -12,7 +12,9 @@ Custom domains allow you to expose one or more arbitrary DNS names for a tenant.
 
 The root tenant authority (RTA) is a special domain that is configured when the Appliance cluster(s) are first set up. It is a privileged tenant from which certain manage operations for the cluster are available. The RTA is sometimes called the configuration domain, and all users that have access to the Management Dashboard belong to an application in the RTA.
 
-> All tenant domain names derive from the root tenant authority, and any changes to this will result in the deletion of all tenants.
+::: note
+  All tenant domain names derive from the root tenant authority, and any changes to this will result in the deletion of all tenants.
+:::
 
 ### Use Example
 

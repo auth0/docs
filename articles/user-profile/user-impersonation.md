@@ -16,9 +16,9 @@ Auth0 provides a _Sign in As_ feature for user impersonation, and provides the f
 - Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data.
 - Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works.
 
-<div class="alert alert-info">
-  <strong>Heads up!</strong> Any Rules that you've implemented will run when you impersonate a user, including any actions that update the user.
-</div>
+::: note
+  Any Rules that you've implemented will run when you impersonate a user, including any actions that update the user.
+:::
 
 ## Use the Dashboard
 
@@ -26,7 +26,7 @@ Navigate to the [Users](${manage_url}/#/users) page in the Management Dashboard 
 
 ![Click Sign in as User](/media/articles/user-profile/signin-as-user-01.png)
 
-::: panel-info I can't see this button
+::: panel I can't see this button
 In order to see this button the following conditions should apply:
 - Impersonation should be enabled for your account (see panel at the top of this page)
 - The Clients registered in the account must have at least one __callback URL__ listed
@@ -37,9 +37,9 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 
 ![Links for User Impersonation](/media/articles/user-profile/signin-as-user-02.png)
 
-<div class="alert alert-info">
+::: note
 Impersonating a user using the Dashboard will not return a <a href="/jwt">JWT</a> to your application by default. To achieve this, call the <a href="/api/authentication/reference#impersonation">impersonation endpoint</a> manually or in the <a href="#advanced-settings">Advanced Settings</a>. If you call the endpoint manually, add <code>additionalParameters.scope: "openid"</code> to the request body.
-</div>
+:::
 
 ### Advanced Settings
 
@@ -90,11 +90,11 @@ Alternatively, you can retrieve the `user_id` information from the Dashboard. Go
 
 ### Get an Authorization Code
 
-Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Account Settings](${manage_url}/#/account) and clicking on the **Advanced** tab. 
+Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Account Settings](${manage_url}/#/account) and clicking on the **Advanced** tab.
 
 ![Global Client Information](/media/articles/user-profile/global-client-info.png)
 
-You can now send a request to the [impersonation endpoint](/api/authentication/reference#impersonation) by sending an Authorization header with Bearer <TOKEN_FROM_MANAGEMENT_API_V1>. 
+You can now send a request to the [impersonation endpoint](/api/authentication/reference#impersonation) by sending an Authorization header with Bearer <TOKEN_FROM_MANAGEMENT_API_V1>.
 
 The data part of the request should include the following:
 
@@ -157,7 +157,7 @@ ${account.callback}/?code=AUTHORIZATION_CODE&state=STATE_VALUE
 - `state` should match the `state` value you sent with your request
 - `code` is the authorization code you need
 
-::: panel-info Single Page Apps
+::: panel Single Page Apps
 The process described applies to Regular Web Applications. In case yours is a Single Page Application (SPA) you would have to use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication/reference#impersonation). Once you do this Auth0 will redirect to your SPA _Callback URL_ with Access Token and ID Token in the `#` params. You can read more on the OAuth2 Implicit flow [here](/protocols/oauth2/oauth-implicit-protocol).
 :::
 

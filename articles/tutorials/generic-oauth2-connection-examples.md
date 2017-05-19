@@ -5,9 +5,9 @@ toc: true
 
 # Generic OAuth 1.0 and 2.0 Examples
 
-<div class="alert alert-info">
+::: note
   The recommended method for creating custom Social Connections is to use Auth0's <a href="/extensions/custom-social-extensions">Custom Social Connections Extension</a>. The information in this article should be used for reference purposes only. 
-</div>
+:::
 
 Adding [OAuth 1.0](/oauth1) and [OAuth 2.0](/oauth2) providers as Connections allow you to support providers that are not currently built-in to the [Auth0 Management Dashboard](${manage_url}), like [DigitalOcean](#digitalocean), [Tumblr](#tumblr), and more.
 
@@ -123,7 +123,7 @@ To create the incoming link, use the following settings:
   * **Public Key**: The RSA keypair previously generated in step 1 (copy and paste the entire `.pub` file)
   * **Consumer Callback URL**: `https://${account.namespace}/login/callback`
 
-:::panel-info Updating Settings
+:::panel Updating Settings
 If you need to modify these settings after you've created the application link, you can do so via the **Incoming Authentication** section of the link's settings.
 :::
 

@@ -55,6 +55,8 @@ builder.withAuthHandlers(Arrays.asList(new MyAuthHandler()));
 
 This way when **Lock** needs to authenticate a user with OAuth, it will ask the handlers **respecting the given order**, which of them can handle a given connection/strategy name. If the first one can handle it, the second won't be called. If no handlers can match the request (Lock received `null`), Lock will internally default to use `WebAuthProvider`. Also note that `strategy` can be null.
 
-> In this example we used `MyLinkedInProvider`, `TwitterDevProvider` and `TwitterProvider` classes _not included_ in **Lock**.
+::: note
+In this example we used `MyLinkedInProvider`, `TwitterDevProvider` and `TwitterProvider` classes _not included_ in **Lock**.
+:::
 
 Our [Google](https://github.com/auth0/Lock-Google.Android) and [Facebook](https://github.com/auth0/Lock-Facebook.Android) Native Providers implementations will provide `AuthHandler`s for you to use directly with **Lock**.

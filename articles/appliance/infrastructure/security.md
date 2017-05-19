@@ -11,7 +11,9 @@ description: Appliance infrastructure information about security
 
  Each Auth0 Appliance (e.g. your production cluster Appliance instance(s) and your development/test node Appliance instance) requires a unique SSL certificate to be created and installed.
 
- > If you are unsure of where to get SSL Certificates, please contact your network security team. They are usually the ones familiar with the required processes and working with the appropriate certificate authorities (CA) to generate new certificates.
+ ::: note
+   If you are unsure of where to get SSL Certificates, please contact your network security team. They are usually the ones familiar with the required processes and working with the appropriate certificate authorities (CA) to generate new certificates.
+ :::
 
 The SSL Certificate:
 
@@ -29,7 +31,9 @@ Auth0 accepts the following certificate format:
 
 If you are using CER / PEM format, you should [convert to PFX format](http://stackoverflow.com/questions/2957742/how-to-convert-pkcs8-formatted-pem-private-key-to-the-traditional-format).
 
-**Note**: The PFX certificate must contain the full chain (all intermediate certificates must be included in the public key).
+::: note
+  The PFX certificate must contain the full chain (all intermediate certificates must be included in the public key).
+:::
 
 ```text
 -----BEGIN CERTIFICATE-----

@@ -3,9 +3,9 @@ description: How to set up a Client Credentials Grant using the Auth0 Dashboard
 crews: crew-2
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Set up a Client Credentials Grant using the Dashboard
+
+<%= include('../../_includes/_pipeline2') %>
 
 1. Open the Auth0 Management Dashboard and browse to the [Clients section](${manage_url}/#/clients).
 
@@ -15,7 +15,7 @@ crews: crew-2
 
 3. Navigate to the [API section](${manage_url}/#/apis) and create a new API.
 
-::: panel-info Enable APIs Section
+::: panel Enable APIs Section
 If you can't see the [API section](${manage_url}/#/apis) in the left hand menu of the dashboard then you will have to enable it. Navigate to your [Account Advanced Settings](${manage_url}/#/account/advanced), scroll down to the *Settings* section and toggle the **Enable APIs Section** switch.
 :::
 
@@ -27,7 +27,9 @@ The selection of the **Signing Algorithm** will dictate how the API will validat
 
 ![Create an API](/media/articles/api-auth/apis-create.png)
 
-**NOTE:** There will already be an **Auth0 Management API** that represents Auth0's APIv2. You can authorize client applications to request tokens from this API as well.
+::: note
+  There will already be an <strong>Auth0 Management API</strong> that represents Auth0's APIv2. You can authorize client applications to request tokens from this API as well.
+:::
 
 4. (Optional) Define some scopes by browsing to the **Scopes** tab. A scope is a claim that may be issued as part of the access token. With this information, the API can enforce fine-grained authorization.
 

@@ -11,9 +11,9 @@ The ID token, usually referred to in our docs as `id_token`, is a [JSON Web Toke
 
 The `id_token` is consumed by the client and the claims included, are typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
 
-<div class="alert alert-info">
+::: note
 If you need a refresher on OIDC refer to <a href="/protocols/oidc">OpenID Connect</a>.
-</div>
+:::
 
 The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contains three parts: a header, a body and a signature.
 

@@ -68,7 +68,8 @@ This will bring you to the authorization page. Click the **Allow** button to gra
 
 If you have configured everything correctly, you will see the "It works" page!
 
-**NOTE:** Fitbit is a registered trademark and service mark of Fitbit, Inc. Auth0 is designed for use with the Fitbit platform. This product is not part of Fitbit, and Fitbit does not service or warrant the functionality of this product.
+::: note
+Fitbit is a registered trademark and service mark of Fitbit, Inc. Auth0 is designed for use with the Fitbit platform. This product is not part of Fitbit, and Fitbit does not service or warrant the functionality of this product.
+:::
 
 <%= include('../_quickstart-links.md') %>
-

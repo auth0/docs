@@ -26,7 +26,9 @@ Click **Add an app**.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-1a.png)
 
-**NOTE:** If you have existing apps, there may be two **Add an app** buttons. Select the first.
+::: note
+If you have existing apps, there may be two **Add an app** buttons. Select the first.
+:::
 
 Name your new app and click **Create application**:
 

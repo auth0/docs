@@ -40,7 +40,7 @@ Include via our CDN (Replace `.x` and `.y` with the latest minor and patch relea
 <script src="https://cdn.auth0.com/js/lock/10.x.y/lock.min.js"></script>
 ```
 
-::: panel-warning Version Locking
+::: note
 It is recommended that production applications use a specific patch version, or at the very least a specific minor version. Regardless of the method by which Lock is included, the recommendation is that the version should be locked down and only manually updated, to ensure that those updates do not adversely affect your implementation.
 :::
 
@@ -110,7 +110,9 @@ function showLoggedIn() {
  <h2>Welcome <span id="nick" class="nickname"></span></h2>
 ```
 
-**NOTE**: This example demonstrates using Lock 10 with a Single Page Application (SPA). To learn how Lock can be modified to provide frictionless authentication for any app, see the [API Reference][lock-api] and the [Configuration Options Reference][lock-customization]. For details specifically about customizing the look and feel of Lock in your app, please take a look at the [UI Customization][ui-customization] page.
+::: note
+This example demonstrates using Lock 10 with a Single Page Application (SPA). To learn how Lock can be modified to provide frictionless authentication for any app, see the [API Reference][lock-api] and the [Configuration Options Reference][lock-customization]. For details specifically about customizing the look and feel of Lock in your app, please take a look at the [UI Customization][ui-customization] page.
+:::
 
 ## Start Using Lock
 
@@ -141,4 +143,3 @@ Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **I
 [migration-guide]: /libraries/lock/v10/migration-guide
 [i18n-notes]: /libraries/lock/v10/i18n
 [popup-mode]: /libraries/lock/v10/popup-mode
-

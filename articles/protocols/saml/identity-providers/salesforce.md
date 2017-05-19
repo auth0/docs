@@ -69,7 +69,9 @@ In this step, you will configure Auth0 as a Service Provider to communicate with
 
   ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-7.png)
 
-**NOTE:** You can always access the metadata for an Auth0 SAML connection with this URL syntax: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
+::: note
+You can always access the metadata for an Auth0 SAML connection with this URL syntax: `https://${account.namespace}/samlp/metadata?connection=YOUR_CONNECTION_NAME`.
+:::
 
 ## 3. Configure the SalesForce Identity Provider
 
@@ -108,7 +110,9 @@ In this step, you will configure SalesForce with the metadata from Auth0 so it c
 9. Click **Edit** to edit your test user and set the profile to **Standard User**.
   ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-10.png)
 
-**NOTE:** If you wish to use a different SalesForce profile, you must enable the connected app for that profile and ensure that all users that login through the SalesForce Identity Provider have that profile.
+::: note
+If you wish to use a different SalesForce profile, you must enable the connected app for that profile and ensure that all users that login through the SalesForce Identity Provider have that profile.
+:::
 
 ## 5. Test the connection to the SalesForce IDP
 
@@ -122,13 +126,15 @@ If the SAML configuration works, your browser will be redirected back to an Auth
 
 If it didn't work, double check the steps above and consult the **troubleshooting** section below.
 
-**NOTE:** The **Try** button only works for users logged into the Auth0 dashboard.
+::: note
+The **Try** button only works for users logged into the Auth0 dashboard.
+:::
 
-## 6. Troubleshooting.
+## 6. Troubleshooting
 
 When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction and save it in a .har file. See: [Troubleshooting with HAR files](/har).
 
-Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace for the sequence of *GET*s. You should see a redirect from your original site to the IDP, a post of credentials if you had to log in, and then a redirect back to the callback URL. The .har file will also contain the SAML response.
+Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace for the sequence of GETs. You should see a redirect from your original site to the IDP, a post of credentials if you had to log in, and then a redirect back to the callback URL. The .har file will also contain the SAML response.
 
 Make sure that cookies and JavaScript are enabled for your browser.
 

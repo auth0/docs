@@ -3,17 +3,17 @@ title: Call APIs from Highly Trusted Clients
 description: Describes how to call APIs from highly trusted clients using the Resource Owner Password Grant.
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Call APIs from Highly Trusted Clients
+
+<%= include('../../_includes/_pipeline2') %>
 
 In order to access an API from a highly trusted [mobile app](/quickstart/native) or [client-side web app](/quickstart/spa), you need to implement the OAuth 2.0 **Resource Owner Password Grant**.
 
 In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is later on sent to the client application and Auth0. It is therefore imperative that the client is absolutely trusted with this information.
 
-<div class="alert alert-info">
+::: note
   If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
-</div>
+:::
 
 ## Overview
 
@@ -28,9 +28,10 @@ This grant type can eliminate the need for the client to store the user credenti
  1. Auth0 validates the information and returns an `access_token`, and optionally a `refresh_token`.
  1. The client can use the `access_token` to call the API on behalf of the end user.
 
- <div class="auth0-notification frendly"><i class="notification-icon icon-budicon-266"></i>
-    &nbsp;In OAuth 2.0 terms, the client app is the <em>Client</em>, the end user the <em>Resource Owner</em>, the API the <em>Resource Server</em>, the browser the <em>User Agent</em>, and Auth0 the <em>Authorization Server</em>.
- </div>
+::: note
+In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+:::
+
 
 ## How to implement the flow
 

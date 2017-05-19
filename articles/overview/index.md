@@ -55,7 +55,9 @@ mycompany.eu.auth0.com
 mycompany.au.auth0.com
 ```
 
-> With the Auth0 public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, *not* user access to your Client.
+::: note
+With the Auth0 public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, *not* user access to your Client.
+:::
 
 You may choose to use a custom domain name that obscures the Auth0 reference, such as `mycompany.com`. Using a custom domain name requires a *single-tenant* implementation of Auth0, which can be deployed in one of three locations:
 

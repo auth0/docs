@@ -36,8 +36,9 @@ styles.xml
 </resources>
 ```
 
-> Those attributes not overridden by the user will default to the ones defined in `Lock.Theme`.
-
+::: note
+Those attributes not overridden by the user will default to the ones defined in `Lock.Theme`.
+:::
 
 Then, you need to tell the Manifest that you want to use the new `MyTheme` in the `Activity`. This is **very important**!!
 

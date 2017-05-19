@@ -10,8 +10,6 @@ description: Behavior configuration options available with Lock v2 for iOS
 
 There are numerous options to configure Lock's behavior listed below. In addition, there are also quite a few options available to alter Lock's appearance and style in the [Style Customization Options](/libraries/lock-ios/v2/customization) page.
 
-<%= include('../_includes/_lock-version') %>
-
 ## Configuring Lock's behavior
 
 Configuration options can be added to your Lock initialization using `withOptions`.
@@ -105,7 +103,7 @@ When signing up the default information requirements are the user's *email* and 
 }
 ```
 
-::: panel-info Specifying Icons with LazyImage
+::: note
 You can also specify icons from other bundles, such as in the following example:
 CustomTextField(name: "slack_handle", placeholder: "Slack Handle", icon: LazyImage(name: "ic_slack", bundle: Bundle(identifier: "CustomBundle")))
 :::

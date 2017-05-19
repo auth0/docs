@@ -6,7 +6,7 @@ url: /architecture-scenarios/application/server-api/api-implementation-nodejs
 
 # Server Client + API: Node.js Implementation for the API
 
-::: panel-info Server + API Architecture Scenario
+::: panel Server + API Architecture Scenario
 This document is part of the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api) and it explains how to implement the API in Node.js. Please refer to the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api) document for information on the implemented solution.
 :::
 

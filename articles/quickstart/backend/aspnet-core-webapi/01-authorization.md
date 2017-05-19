@@ -85,7 +85,7 @@ To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url
 
 To ensure that an `access_token` contains the correct `scope` you can make use of the Policy-Based Authorization in ASP.NET Core.
 
-::: panel-info ASP.NET Core Policy-Based Authorization
+::: panel ASP.NET Core Policy-Based Authorization
 For a better understanding of the code which follows, it is suggested that you read the ASP.NET Core documentation on [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies).
 :::
 

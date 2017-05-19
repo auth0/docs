@@ -13,7 +13,9 @@ Auth0 currently supports the following providers:
 * [SendGrid](#configure-sendgrid-for-sending-email)
 * [Custom SMTP](#configure-a-custom-smtp-server-for-sending-email)
 
-**Note:** You can only configure one email provider (Amazon SES, Sendgrid, etc.) which will be used for all emails.
+::: note
+You can only configure one email provider (Amazon SES, Sendgrid, etc.) which will be used for all emails.
+:::
 
 ## Configure Amazon SES for Sending Email
 
@@ -121,7 +123,9 @@ Now you can send a test email using the **SEND TEST EMAIL** button on the [Custo
 
 ![](/media/articles/email/providers/sendgrid-test.png)
 
-**NOTE:** If you do not receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.
+::: note
+If you do not receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.
+:::
 
 The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now display all emails which have been sent to your users and the delivery status of each message.
 
@@ -146,11 +150,13 @@ To be able to use your own SMTP server:
 
 5. Click **Save**.
 
-**NOTE:** Common ports include 25, 465, and 587. Please avoid using port 25 if you can, since many providers have limitations on this port.
+::: note
+Common ports include 25, 465, and 587. Please avoid using port 25 if you can, since many providers have limitations on this port.
+:::
 
 Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.
 
-::: panel-info Test services
+::: panel Test services
 SMTP makes it easy to setup test services that allow you to test that your setup is working without spamming your users. For more information, see: [Set up a Test SMTP Provider](/email/testing) .
 :::
 

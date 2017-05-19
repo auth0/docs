@@ -68,7 +68,9 @@ http://yourUrl/callback.php
 
 <%= include('../../../_includes/_lock-sdk') %>
 
-> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+::: note
+The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+:::
 
 ## Accessing User Information
 

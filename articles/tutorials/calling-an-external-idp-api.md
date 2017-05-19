@@ -8,9 +8,9 @@ crews: crew-2
 
 Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user profile it returns. You can then use this token to call the IdP's API.
 
-<div class="alert alert-info">
+::: note
   This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to <a href="/identityproviders">Identity Providers Supported by Auth0</a>, where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the Connection.
-</div>
+:::
 
 ## Required Steps
 
@@ -39,9 +39,9 @@ You may want to automate the token request process instead of manually copying a
 
 The token you receive has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the __Token Expiration (Seconds)__ field and click __Update & Regenerate Token__.
 
-<div class="alert alert-info">
+::: note
   For details on the Management APIv2 token and the process to get one refer to <a href="/api/management/v2/tokens">The Auth0 Management APIv2 Token</a>.
-</div>
+:::
 
 ::: panel-warning Security warning
 It should be noted that these tokens __cannot be revoked__. We recommend issuing short-lived tokens to minimize the risk. For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
@@ -107,6 +107,6 @@ In this sample response we can see that our user had only one identity: `google-
 }
 ```
 
-<div class="alert alert-warning">
+::: warning
   <strong>Security Warning!</strong> Make sure that you don't expose the IdP access token to your client-side application.
-</div>
+:::

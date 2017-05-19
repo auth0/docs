@@ -108,7 +108,9 @@ var showUserProfile = function(profile) {
 
 You can add input fields to the sign-up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation.
 
-**NOTE:** See [Additional Sign-Up Fields](/libraries/lock/v10/customization#additionalsignupfields-array-) for more information (**only available for Lock 10**).
+::: note
+See [Additional Sign-Up Fields](/libraries/lock/v10/customization#additionalsignupfields-array-) for more information (**only available for Lock 10**).
+:::
 
 ```javascript
 // app.js

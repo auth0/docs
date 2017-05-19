@@ -26,7 +26,10 @@ In the new Auth0Lock becomes:
 ```js
 var lock = new Auth0Lock('YOUR_CLIENT_ID', 'your-domain.auth0.com');
 ```
-> All other options that used to be passed along on the initialization process have been moved to the [show API](#api).
+
+::: note
+All other options that used to be passed along on the initialization process have been moved to the [show API](#api).
+:::
 
 To learn how and when to set the `callbackURL` in **Auth0Lock** please read [this guide][callbackurl-link].
 
@@ -61,7 +64,10 @@ lock.showSignin({
   ]
 });
 ```
-> Check the [API documentation][api-readme-url] section in the [README][readme-url] for a further walk through this methods.
+
+::: note
+Check the [API documentation][api-readme-url] section in the [README][readme-url] for a further walk through this methods.
+:::
 
 Also, `Auth0Widget` callback order has changed: `onload` widget event has been removed as a callback and added as an event. The callback that was executed when the user has been signed in is now the second argument. For instance, this:
 
@@ -112,8 +118,9 @@ Widget Name                   | Lock Name
 
 <a name="chrome-ref"></a> <sup>3</sup>: The `chrome` option has been removed. In case you'd like to hide the default icon badge, the recommended way is by CSS customization. Check our [[UI customization]] page for that.
 
-> The following options have been moved under `authParams` main property for a matter of semantics: `access_token`, `scope`, `protocol`, `device`, `request_id`, `connection_scopes`, `nonce`, `offline_mode` and `state`.
-
+::: note
+The following options have been moved under `authParams` main property for a matter of semantics: `access_token`, `scope`, `protocol`, `device`, `request_id`, `connection_scopes`, `nonce`, `offline_mode` and `state`.
+:::
 
 ## Events
 

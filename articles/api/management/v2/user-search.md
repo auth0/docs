@@ -12,8 +12,8 @@ The `user_metadata`, `app_metadata` or the [normalized user profile](/user-profi
 
 Auth0 User Search uses [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
 
-::: panel-warning Default Sort 
-If there is no default sort field specified some users that have never logged in may not appear. No default sort field may also result in duplicate records returned and the order of list of users may appear random.
+::: note
+If there is no default sort field specified, some users that have never logged in, may not appear. No default sort field may also result in duplicate records returned and the order of list of users may appear random.
 :::
 
 ## In the Dashboard

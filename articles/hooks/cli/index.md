@@ -18,7 +18,7 @@ You can find instructions for installing and configuring the Webtask Command-Lin
 
 Once you have installed and set up the Auth0 Command-Line Interface (CLI), you can use it to create new Hooks and manage/delete existing Hooks. You can also use it to gather real-time log data on your Hooks.
 
-:::panel-info Profile Name
+::: note
 The Auth0 CLI examples use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli`, and you can obtain it from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
 :::
 

@@ -22,7 +22,9 @@ Create a file named `auth0.rb` under `config/initializers` with the following co
 
 ${snippet(meta.snippets.setup)}
 
-> **NOTE:** This tutorial uses omniauth-auth0, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication).
+::: note
+This tutorial uses omniauth-auth0, a custom [OmniAuth strategy](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication).
+:::
 
 ## Add the Auth0 Callback Handler
 
@@ -63,7 +65,9 @@ get "/auth/failure" => "auth0#failure"
 
 <%= include('../../../_includes/_lock-sdk') %>
 
-> **NOTE:** The `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the **Allowed Callback URLs** area in your Auth0 dashboard. Follow the [introduction](/quickstart/webapp/rails/00-introduction) step for further detail.
+::: note
+The `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the **Allowed Callback URLs** area in your Auth0 dashboard. Follow the [introduction](/quickstart/webapp/rails/00-introduction) step for further detail.
+:::
 
 If you wish to force an identity provider, you may redirect the user and specify the connection name in the query string.
 

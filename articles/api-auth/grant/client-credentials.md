@@ -2,15 +2,15 @@
 description: Describes how to call APIs from server processes using the Client Credentials Grant.
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Calling APIs from a Service
+
+<%= include('../../_includes/_pipeline2') %>
 
 The OAuth 2.0 grant that machine-to-machine interfaces utilize in order to access an API, is the **Client Credentials Grant**. In this document we will see how this flow works.
 
-<div class="alert alert-info">
+::: note
   If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
-</div>
+:::
 
 ## Overview of the flow
 
@@ -24,7 +24,9 @@ With **Client Credentials Grant** (defined in [RFC 6749, section 4.4](https://to
 
 1. The application can use the `access_token` to call the API on behalf of itself.
 
-  __NOTE__: In OAuth 2.0 terms, the non interactive app is the _Client_, the end user the _Resource Owner_, the API the _Resource Server_, the browser the _User Agent_, and Auth0 the _Authorization Server_.
+::: note
+In OAuth 2.0 terms, the non interactive app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+:::
 
 ## How to implement the flow
 
