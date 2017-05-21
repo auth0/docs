@@ -3,6 +3,8 @@
 The easiest way to enable authentication with Auth0 in your ASP.NET Core application is to use the OpenID Connect middleware. First, go to the `ConfigureServices` method of your `Startup` class and add the authentication services by calling the `AddAuthentication` method:
 
 ```cs
+// Startup.cs
+
 public void ConfigureServices(IServiceCollection services)
 {
     // Add authentication services
@@ -25,6 +27,8 @@ Next, in the `Configure` method of the `Startup` class add the cookie middleware
 Both of these middleware should be registered before your MVC middleware in order for your controllers to be protected. The OIDC middleware is required in order to authenticate the user with Auth0. Once the user has authenticated they will be signed into the Cookie middleware which will be used to authenticate all subsequent requests.
 
 ```csharp
+// Startup.cs
+
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
 {
     loggerFactory.AddConsole(Configuration.GetSection("Logging"));
@@ -97,6 +101,8 @@ For the Login, you will need to return a `ChallengeResult` and specify "Auth0" a
 After the OIDC middleware has signed the user in, the user will automatically be signed into the cookie middleware as well to authenticate them on subsequent requests. So, for the `Logout` action you will need to sign the user out of both the OIDC and the cookie middleware: 
 
 ```cs
+// Controllers/AccountController.cs
+
 public class AccountController : Controller
 {
     public IActionResult Login()
@@ -120,6 +126,8 @@ At this point ASP.NET Core will call `SignOutAsync` for the **Auth0** authentica
 So back in the `Startup.cs` file, update the instantiation of `OpenIdConnectOptions` with the following code:
 
 ```csharp
+// Startup.cs
+
 var options = new OpenIdConnectOptions("Auth0")
 {
     // some code omitted for brevity...
@@ -161,6 +169,8 @@ It will also pass along the Redirect URL (when specified) in the `returnTo` para
 Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
 
 ```html
+<!-- Views/Shared/_Layout.cshtml -->
+
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">

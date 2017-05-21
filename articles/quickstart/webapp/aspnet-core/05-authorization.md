@@ -30,6 +30,8 @@ Once the correct claims are being returned from Auth0, all you have to do theref
 The sample code below will restrict the particular action only to the user who have the "admin" role:
 
 ```csharp
+// Controllers/HomeController.cs
+
 [Authorize(Roles = "admin")]
 public IActionResult Admin()
 {
@@ -42,6 +44,8 @@ public IActionResult Admin()
 You will also need to ensure that you request the `roles` scope. This will ensure that the `roles` claim is returned in the `id_token`. Go back to the `Configure` method of the `Startup` class and update the registration of the OIDC middleware to request the `roles` scope:
 
 ```csharp
+// Startup.cs
+
 var options = new OpenIdConnectOptions("Auth0")
 {
     // Code omitted for brevity...
