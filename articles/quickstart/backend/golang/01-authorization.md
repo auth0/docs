@@ -123,7 +123,7 @@ func checkJwt(h http.Handler) http.Handler {
 Individual routes can now be protected with the `checkJwt` middleware. Below is an example showing two routes, one which is publicaly accessible, and one that is protected with the `checkJwt` middlewware. The protected route will require both a valid `access_token` and the `read:messages` scope before returning the requested resource.
 
 ```go
-// main.js
+// main.go
 func main() {
   r := mux.NewRouter()
 
