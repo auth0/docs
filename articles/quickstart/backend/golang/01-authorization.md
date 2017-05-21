@@ -34,9 +34,10 @@ Configure the **checkJwt** middleware to use the remote JWKS for your Auth0 acco
 
 ```go
 // main.go
-const JWKS_URI = "https://${account.namespace}/.well-known/jwks.json"
-const AUTH0_API_ISSUER = "https://${account.namespace}.auth0.com/"
-const AUTH0_API_AUDIENCE = "{API_IDENTIFIER}"
+const JWKS_URI = "https://{DOMAIN}/.well-known/jwks.json"
+const AUTH0_API_ISSUER = "https://{DOMAIN}.auth0.com/"
+
+var AUTH0_API_AUDIENCE = []string{"{API_IDENTIFIER}"}
 
 func checkJwt(h http.Handler) http.Handler {
   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
