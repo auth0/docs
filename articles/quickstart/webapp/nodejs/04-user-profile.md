@@ -21,9 +21,9 @@ with the entire profile is attached to every express request.
 
 ## Showing the User Profile
 
-We can modify the `/user` endpoint to display the user object. Add the following to the `views/user.jade` template:
+We can modify the `/user` endpoint to display the user object. Add the following to the `views/user.pug` template:
 
-```jade
+```pug
 extends layout
 
 block content
@@ -35,7 +35,7 @@ block content
   pre #{userProfile}
 ```
 
-To have full access to the user profile on  `userProfile`, we need to stringify the `user` object. Modify the `/` endpoint in `views/user.js` to include `userProfile`.
+To have full access to the user profile on  `userProfile`, we need to stringify the `user` object. Modify the `/` endpoint in `routes/user.js` to include `userProfile`.
 
 ```js
 // views/user.js

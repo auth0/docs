@@ -22,8 +22,8 @@ The previous step explained how to provide a login screen with Auth0's [Lock wid
 
 To begin, we need to add the `auth0.js` library in our `layout` template. The library can be retrieved from Auth0's CDN.
 
-```jade
-// views/layout.jade
+```pug
+// views/layout.pug
 
 doctype html
 html
@@ -41,8 +41,8 @@ html
 To log in with `auth0.js` we first need to create an Auth0 instance which will
 then be used to initiate the login process.
 
-```jade
-// views/index.jade
+```pug
+// views/index.pug
 
 script.
   var auth0 = new auth0.WebAuth({
@@ -57,8 +57,8 @@ passing the connection to use.
 
 Here is an example of how to use `.signin()` to log in with Google.
 
-```jade
-// views/index.jade
+```pug
+// views/index.pug
 
 script.
   // ...
@@ -74,8 +74,8 @@ script.
 
 Logging in with a username and password is very similar to the previous case, but we need to pass the user's credentials to the `.signin()` method.
 
-```jade
-// views/index.jade
+```pug
+// views/index.pug
 
 script.
   // ...
@@ -93,7 +93,7 @@ script.
 
 We can now add some input fields and buttons to make a complete custom login page.
 
-```jade
+```pug
 extends layout
 
 block content
