@@ -27,7 +27,7 @@ You will be asked to fill out a Developer Application (which is a Google Forms d
 
 ![](/media/articles/connections/social/soundcloud/soundcloud-google-doc.png)
 
-Thus provides SoundCloud information about your Auth0 Client.
+This provides SoundCloud information about your Auth0 Client.
 
 Once you have completed and submitted your application, you will be contacted by the SoundCloud team with further instructions on how to proceed. Only at this point will you be given the appropriate API credentials to complete the integration.
 
