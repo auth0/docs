@@ -7,34 +7,44 @@ section: apis
 
 ### API endpoint
 
-  https://${account.namespace}/api
+```text
+https://${account.namespace}/api
+```
 
 ### Authentication
 Each API request must include an access token, either inside the query string:
 
-  https://${account.namespace}/api/connections/?access_token={ACCESS-TOKEN}
+```text
+https://${account.namespace}/api/connections/?access_token={ACCESS-TOKEN}
+```
 
 or in an ```Authorization``` header:
 
-  GET https://${account.namespace}/api/connections
-  Authorization: bearer {ACCESS-TOKEN}
+```text
+GET https://${account.namespace}/api/connections
+Authorization: bearer {ACCESS-TOKEN}
+```
 
 A token is obtained using the POST method:
 
-  POST https://${account.namespace}/oauth/token
-  Content-type: application/x-www-form-urlencoded
-  client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials
+```text
+POST https://${account.namespace}/oauth/token
+Content-type: application/x-www-form-urlencoded
+client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials
+```
 
 The response body of this POST is a JSON object:
 
-  {
-    'access_token': TOKEN
-    'token_type':'bearer'
-  }
+```text
+{
+  'access_token': TOKEN
+  'token_type':'bearer'
+}
+```
 
-Here is a simple example using `curl`:
+Here is a simple example using cURL:
 
-```bash
+```text
 curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials"
 ```
 
