@@ -38,7 +38,7 @@ For this exchange to work without secret, you will have to set the `token_endpoi
 
 The steps to follow to implement this grant are the following:
 
-1. __Create a Code Verifier__. This is a randomly generated value that will be used to generate the `code_challenge`, which will be sent in the authorization request.
+1. __Create a Code Verifier__. This is a randomly generated value that will be used to generate the `code_challenge` (which will be sent in the authorization request).
 
 1. __Create a Code Challenge__. A hashed (`SHA256`) and base64Url encoded value, generated using the `code_verifier`. 
 
