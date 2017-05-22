@@ -1,5 +1,7 @@
 ---
+title: How to implement the Implicit Grant
 description: How to execute an Implicit Grant flow from a SPA Client application.
+toc: true
 ---
 
 # How to implement the Implicit Grant
@@ -115,6 +117,12 @@ For details on the validations that should be performed by the API, refer to [Ve
 <%= include('../../_includes/_api-auth-customize-tokens') %>
 
 If you wish to execute special logic unique to the Implicit grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-implicit-profile`, then the rule is running during the Implicit grant.
+
+## Optional: Silent Authentication
+
+If you need to authenticate your users without a login page (for example, when the user is already logged in via [SSO](/sso) scenario) or get a new `access_token` (thus simulate refreshing an expired token), you can use Silent Authentication.
+
+For details on how to implement this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
 ## Keep reading
 
