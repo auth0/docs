@@ -76,16 +76,18 @@ GET https://${account.namespace}/api/connections/?access_token={ACCESS-TOKEN}
 
 The body of the response is a `connection` object formatted as follows:
 
+```text
+{
+  "client_id": "${account.clientId}",
+  "name": YOUR-CONNECTION-NAME,
+  "options":
   {
-    "client_id": "${account.clientId}",
-    "name": YOUR-CONNECTION-NAME,
-    "options":
-    {
-      ...
-    },
-    "status": 0,
-    "strategy": STRATEGY
-  }
+    ...
+  },
+  "status": 0,
+  "strategy": STRATEGY
+}
+```
 
 #### Parameters
 | Parameter  | Description |
@@ -109,15 +111,17 @@ The body of the response is a `connection` object formatted as follows:
 
 When implementing the `office365`, `google-apps` or `adfs` strategies, the following properties are added to the connection object:
 
- `provisioning_ticket`: TICKET
-
- `provisioning_ticket_url`: PROVISIONING-URL
+```text
+provisioning_ticket: TICKET
+provisioning_ticket_url: PROVISIONING-URL
+```
 
 The `provisioning_ticket_url` is sent to the identity provider administrator and contains information on how to complete the configuration on their side.
 
-A GET on `connections` with a specified {connectionName} in the path will return the matching connection object only.
+A GET on `connections` with a specified `{connectionName}` in the path will return the matching connection object only.
 
-###### Here are two `curl` sample scripts:
+###### The cURL sample scripts
+
 This script returns a specific connection:
 
 ```text
@@ -136,18 +140,20 @@ The `options` object returned in the `connection` will be different for each str
 
 ###### ADFS Strategy
 
-  {
-    tenant_domain: A-DOMAIN,
-    adfs_server: YOUR-FEDERATION-METADATA-ENDPOINT,
-    thumbprints: [ '9b250aad7e4950604072ffaa60cde7795f23b52a',
-      'f97702a42c893a0fb1bc6dad21c79fb720473a85',
-      '9b250aad7e4955604072faca60cde7795f23b52a',
-      'f97702a42c893a0fb1bc6dad21c79fb720473a85',
-      '9b250aad7e4956704072ffaa60cde7795f23b52a',
-      'f97702a42c893a0fb1b546dad21c79fb720473a85',
-      '9b250aad7e4959804072ffaa60cde7795f23b52a' ],
-    signInEndpoint: ADFS-LOGIN-PAGE
-  }
+```text
+{
+  tenant_domain: A-DOMAIN,
+  adfs_server: YOUR-FEDERATION-METADATA-ENDPOINT,
+  thumbprints: [ '9b250aad7e4950604072ffaa60cde7795f23b52a',
+    'f97702a42c893a0fb1bc6dad21c79fb720473a85',
+    '9b250aad7e4955604072faca60cde7795f23b52a',
+    'f97702a42c893a0fb1bc6dad21c79fb720473a85',
+    '9b250aad7e4956704072ffaa60cde7795f23b52a',
+    'f97702a42c893a0fb1b546dad21c79fb720473a85',
+    '9b250aad7e4959804072ffaa60cde7795f23b52a' ],
+  signInEndpoint: ADFS-LOGIN-PAGE
+}
+```
 
 | Parameter | Description |
 |:----------|:------------|
@@ -289,6 +295,7 @@ If successful, the response body will contain a confirmation object:
   "removed": {id}
 }
 ```
+
 ::: note
 Batch operations are not yet supported.
 :::
