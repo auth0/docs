@@ -1,6 +1,7 @@
 ---
 description: Management API V1 reference page.
 section: apis
+toc: true
 ---
 
 # Auth0 Management API Reference
