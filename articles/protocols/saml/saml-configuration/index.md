@@ -38,13 +38,13 @@ You may opt to use Auth0 as both the SAML Service Provider **and** SAML Identity
 
 The following documentation cover the different aspects of SAML configuration:
 
-* [SAML Design Considerations](/saml-configuration/design-considerations)
-* [Supported SAML Options and Bindings](/saml-configuration/supported-options-and-bindings)
-* [Configure Auth0 as a Service Provider](/saml-configuration/auth0-as-service-provider)
-* [Configure Auth0 as an Identity Provider](/saml-configuration/auth0-as-identity-provider)
-* [Configure Auth0 as Both Service and Identity Provider](/saml-configuration/auth0-as-identity-and-service-provider)
-* [Special Configuration Scenarios](/saml-configuration/special-configuration-scenarios)
+* [SAML Design Considerations](/protocols/saml/saml-configuration/design-considerations)
+* [Supported SAML Options and Bindings](/protocols/saml/saml-configuration/supported-options-and-bindings)
+* [Configure Auth0 as a Service Provider](/protocols/saml/saml-configuration/auth0-as-service-provider)
+* [Configure Auth0 as an Identity Provider](/protocols/saml/saml-configuration/auth0-as-identity-provider)
+* [Configure Auth0 as Both Service and Identity Provider](/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider)
+* [Special Configuration Scenarios](/protocols/saml/saml-configuration/special-configuration-scenarios)
 * [Customize SAML Assertions](/saml-configuration/saml-assertions)
-* [Logout](/saml-configuration/logout)
-* [Deprovision Users](/saml-configuration/deprovisioning)
-* [Troubleshoot](/saml-configuration/troubleshoot)
+* [Logout](/protocols/saml/saml-configuration/logout)
+* [Deprovision Users](/protocols/saml/saml-configuration/deprovisioning)
+* [Troubleshoot](/protocols/saml/saml-configuration/troubleshoot)
