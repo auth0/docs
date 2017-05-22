@@ -119,6 +119,14 @@ If you're using an IdP-initiated flow (for example, the user starts at the ident
   * The protocol between the application and Auth0 (which may not be SAML -- it could be OIDC);
   * Any protocol-specific values to include in the query string, such as `scope`, `response_type`, `redirect_uri`, and `audience`. These values should match the ones expected by the application when using a SP-initiated flow.
 
+* If you're using an Auth0 Database Connection:
+  * Check that the user exists and the entered password is correct.
+  * Disable your [rules](/rules) temporarily to make sure that nothing is interfering with the login process.
+  * If you've enabled [multifactor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
+
+* If you're using an Auth0 Database Connection:
+  * Check that the SAML Connection works by [using **Try** to run a Connection test](#issue-the-idp-login-page-doesn-t-display).
+
 ## Issue: User Successfully Logs In With the IdP, a Successful Login Event Shows Up in Auth0 Logs, but the User's Profile Attributes are Incorrect
 
 ## Issue: User Successfully Logs In With the IdP, a Successful Login Event Shows Up in Auth0 Logs, and the User's Profile Attributes are Correct, but the User Cannot Access the Application
