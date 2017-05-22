@@ -16,17 +16,17 @@ Auth0 implements the [Proof Key for Code Exchange by OAuth Public Clients](https
 
 Traditionally, public clients (e.g. mobile apps, SPAs and CLIs) have used the [implicit flow](/api-auth/grant/implicit) to obtain a token. In this flow, there's no __client authentication__ because there's no easy way of storing a `client_secret`.
 
-The [PKCE flow](/protocols) ('pixy' for friends), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps to intercept the response from the authorization server, and get hold of the token.
+The [PKCE flow](/api-auth/grant/authorization-code-pkce) (`pixy` for friends), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps to intercept the response from Auth0, and get hold of the token.
 
 For this exchange to work without secret, you will have to set the `token_endpoint_auth_method` to `none`.
 
 ```bash
-curl -H "Authorization: Bearer API2_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"token_endpoint_auth_method":"none"}' https://yours.auth0.com/api/v2/clients/${account.clientId}
+curl -H "Authorization: Bearer API2_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"token_endpoint_auth_method":"none"}' https://${account.namespace}/api/v2/clients/${account.clientId}
 ```
 
-A CLI program just needs to:
+Keep reading to find out what the CLI program needs to implement.
 
-### 1. Initiate the authorization request:
+## 1. Initiate the Authorization Request
 
 This is the regular OAuth2 authorization request, with the caveat that now it includes two parameters:
 
@@ -37,13 +37,15 @@ This is the regular OAuth2 authorization request, with the caveat that now it in
 https://${account.namespace}/authorize?response_type=code&scope=openid&client_id=${account.clientId}&redirect_uri=${account.callback}&code_challenge={Base64UrlEncode(SHA256(THE VERIFIER))}&code_challenge_method=S256
 ```
 
-### 2. Get an __authorization code__:
+## 2. Get an Authorization Code
 
 If authentication is successful, then Auth0 will redirect the browser to the callback with a `code` query parameter.
 
-  ${account.callback}/?code=123
+```text
+${account.callback}/?code=123
+```
 
-### 3. Exchange __code__ for __token__:
+## 3. Exchange Code for Token
 
 With the `code`, the program then uses the `/token` endpoint to obtain a `token`. In this second step, the CLI program adds a `verifier` parameter with the exact same random secret generated in step 1. Auth0 uses this to correlate and verify that the request originates from the same client.
 
@@ -62,7 +64,9 @@ Content-type: application/json
 
 If successful the response is another JSON object, with an `id_token`, and `access_token`. 
 
-> Note that if the `verifier` doesn't match with what was sent in the `/authorize` endpoint, the request will fail.
+::: note
+   Note that if the `verifier` doesn't match with what was sent in the `/authorize` endpoint, the request will fail.
+:::
 
 ## Simple CLI example
 
