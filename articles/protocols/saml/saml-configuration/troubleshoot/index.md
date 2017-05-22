@@ -1,5 +1,7 @@
 ---
-  description: How to troubleshoot SAML-related configuration issues
+url: /protocols/saml/saml-configuration/troubleshoot
+description: How to troubleshoot SAML-related configuration issues
+toc: true
 ---
 
 # Troubleshooting
@@ -44,16 +46,10 @@ When troubleshooting, we recommend beginning by gathering information that helps
 
 ## Troubleshooting Approaches
 
-When troubleshooting a SAML login, there are four primary stages to check:
+* [SAML Troubleshooting When Auth0 is the Service Provider](/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp)
+* [SAML Troubleshooting When Auth0 is the Identity Provider](/protocols/saml/saml-configuration/troubleshoot/auth0-as-idp)
 
-* Stage 1: The user is successfully redirected to IDP and is able to login.
-* Stage 2: After login with the IDP, the user returns to Auth0 with a successful login event recorded.
-* Stage 3: After a successful login event in Auth0, the user profile in Auth0 is correct.
-* Stage 4: The user successfully redirects back to application and is able to access application.
-
-This section describes how to check each stage and how to identify if there are any issues with a given stage.
-
-### If the Issue Affects Only One (or Just a Few) Users
+## If the Issue Affects Only One (or Just a Few) Users
 
 * Check the user's profile, browser, or device for any issues.
 * Check to see if it happens in all browsers for the affected users (indicating a data issue) or just certain types of browsers (indicating a browser-specific issue).
@@ -61,21 +57,6 @@ This section describes how to check each stage and how to identify if there are 
 * Check that the caps lock key is disabled.
 * If the user is using a mobile device, check to see if there's any software that might impact authentication and/or authorization (such as not running some type of required software).
 * Check to see if the user can access some of the app's key URLs, such as the IdP's SSO URL (indicating a network connectivity issue).
-
-### Issue: The IdP Login Page Doesn't Display
-
-* Test the Connection. Navigate to [Connections -> Enterprise](${manage_url}/#/connections/enterprise). Open up the list of **SAMLP Identity Providers**, and click **Try** (represented by the triangle icon) next to the Connection to test the interaction between Auth0 and the remote IdP.  If the Connection does **not** work, continue with the steps detailed in this section. If it does, proceed to the next section.
-* Check the Connection's settings. Navigate to [Connections -> Enterprise](${manage_url}/#/connections/enterprise). Open up the list of **SAMLP Identity Providers**, and click **Settings** (represented by the gear icon) to launch the tab associated with your Connection.
-  * Check and confirm with the administrator of the IdP that the value in the  Sign In URL field is the correct SSO URL. This is the URL to which Auth0 will redirect the user for authentication.
-  * Check with the IdP administrator for information on whether the IdP expects HTTP-POST binding or HTTP-Redirect binding. You can switch the default binding in the *Settings* tab.
-  * Check with the IdP administrator for information on whether your authentication requests should be signed. If so, which signing algorithm does the IdP expect you to use? (Note that authentication requests are not commonly signed.) If you're sending signed requests, enable the Connection Settings **Sign Request** toggle and make sure the **Signing Algorithm** value matches what the IDP expects.
-* Ask IdP administrator to check for log entries that might provide information on the problem.
-
-### Issue: User Successfully Logs In With the IdP, but a Successful Login Event Does *Not* Show Up in Auth0 Logs
-
-### Issue: User Successfully Logs In With the IdP, a Successful Login Event Shows Up in Auth0 Logs, but the User's Profile Attributes are Incorrect
-
-### Issue: User Successfully Logs In With the IdP, a Successful Login Event Shows Up in Auth0 Logs, and the User's Profile Attributes are Correct, but the User Cannot Access the Application
 
 ## Next Steps
 
