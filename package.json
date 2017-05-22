@@ -6,18 +6,16 @@
   "scripts": {
     "heroku-prebuild": "bash prebuild.sh",
     "heroku-postbuild": "bash postbuild.sh",
-    "precommit": "lint-staged",
-    "lint-markdown": "node ./check-markdown.js"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.md": "npm run lint-markdown"
+    "*.md": "markdownlint"
   },
   "engines": {
     "node": "4.5"
   },
   "devDependencies": {
     "commander": "^2.8.1",
-    "filehound": "^1.16.1",
     "husky": "^0.13.3",
     "imagemin": "^4.0.0",
     "imagemin-optipng": "^4.3.0",
