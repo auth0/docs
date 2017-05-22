@@ -87,6 +87,7 @@ Social connections only support browser-based (passive) authentication because m
 - [Supported Social Identity Providers](/identityproviders#social)
 - [Custom Social Connections](/connections/social/oauth2)
 - [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [Auth0.js v8 /authorize Method Reference](/libraries/auth0js/v8#webauth-authorize-)
 
 
 ## Social with Provider's Access Token
@@ -261,6 +262,7 @@ Use this endpoint for browser based (passive) authentication. It returns a `302`
 - [Rate Limits on User/Password Authentication](/connections/database/rate-limits)
 - [Active Directory/LDAP Connector](/connector)
 - [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [Auth0.js v8 /authorize Method Reference](/libraries/auth0js/v8#webauth-authorize-)
 
 
 ## Database/AD/LDAP (Active)
@@ -378,6 +380,7 @@ For the complete error code reference for this endpoint refer to [Errors > POST 
 - [Rate Limits on User/Password Authentication](/connections/database/rate-limits)
 - [Active Directory/LDAP Connector](/connector)
 - [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)
+- [Auth0.js v8 /authorize Method Reference](/libraries/auth0js/v8#webauth-authorize-)
 
 
 
@@ -466,3 +469,4 @@ Use this endpoint for passive authentication. It returns a `302` redirect to the
 - [SAML](/protocols/saml)
 - [Obtain a ClientId and Client Secret for Microsoft Azure Active Directory](/connections/enterprise/azure-active-directory)
 - [Using the State Parameter](/protocols/oauth2/oauth-state)
+- [Auth0.js v8 /authorize Method Reference](/libraries/auth0js/v8#webauth-authorize-)

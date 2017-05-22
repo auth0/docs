@@ -85,7 +85,7 @@ You can choose a method for login based on the type of auth you need in your app
 
 ### webAuth.authorize()
 
-The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited in the examples below. This method can take a variety of parameters via the `options` object.
+The [`authorize` method](/api/authentication?javascript#login) can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited in the examples below. This method can take a variety of parameters via the `options` object.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -96,7 +96,7 @@ The `authorize` method can be used for logging in users via the [Hosted Login Pa
 | `state` | recommended | (String)  An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 
-For hosted login, one must call the `authorize` endpoint:
+For hosted login, one must call the [`authorize` endpoint](/api/authentication?javascript#login):
 
 ```js
 webAuth.authorize({

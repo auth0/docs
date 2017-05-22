@@ -150,3 +150,5 @@ After you have enabled the database connection, the Auth0 Login widget will auto
 ![](/media/articles/connections/database/mysql/db-connection-widget.png)
 
 <%= include('../_quickstart-links.md') %>
+
+Authenticate a User using the [Passive/Active Authentication endpoints](/api/authentication?javascript#database-ad-ldap-passive-)
