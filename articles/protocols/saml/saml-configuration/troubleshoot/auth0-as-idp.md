@@ -14,16 +14,6 @@ When troubleshooting a SAML login, there are four primary stages to check:
 
 The following sections describe how to check each stage and how to identify if there are any issues with a given stage.
 
-<<<<<<< 98d934e089edad6ca8f470b4b9e689eecda29d72
-=======
-
-
-
-
-
-
-
->>>>>>> Add SP info
 ## Issue: User Successfully Logs In With the IdP, but a Successful Login Event Does *Not* Show Up in Auth0 Logs
 
 * If you're using an Auth0 Database Connection:
