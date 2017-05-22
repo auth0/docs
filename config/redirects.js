@@ -835,7 +835,11 @@ module.exports = [
   },
   {
     from: '/cli',
-    to: '/tutorials/using-auth0-to-secure-an-api'
+    to: '/tutorials/using-auth0-to-secure-a-cli'
+  },
+  {
+    from: '/tutorials/using-auth0-to-secure-an-api',
+    to: '/tutorials/using-auth0-to-secure-a-cli'
   },
   {
     from: '/apps-apis',
