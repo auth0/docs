@@ -1,4 +1,4 @@
----
+---
 title: Authorization
 description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your API.
 ---
@@ -25,14 +25,14 @@ go get "github.com/gorilla/mux"
 
 ## Configuration
 
-<%= include('../_includes/_api_jwks_description_no_link') %>
+<%= include('../_includes/_api_jwks_description_no_link') %>
 
 Configure the **checkJwt** middleware to use the remote JWKS for your Auth0 account.
 
 ```go
 // main.go
-const JWKS_URI = "https://{DOMAIN}/.well-known/jwks.json"
-const AUTH0_API_ISSUER = "https://{DOMAIN}.auth0.com/"
+const JWKS_URI = "https://${account.namespace}/.well-known/jwks.json"
+const AUTH0_API_ISSUER = "https://${account.namespace}.auth0.com/"
 const AUTH0_API_AUDIENCE = "{API_IDENTIFIER}"
 
 func checkJwt(h http.Handler) http.Handler {
