@@ -93,7 +93,9 @@ Provide a component with controls for the user to log in and log out.
 
 ${snippet(meta.snippets.use)}
 
-> **Note:** This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
+::: note
+This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
+:::
 
 The `ng-click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `authService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
@@ -163,11 +165,15 @@ Create a controller and template to use for a callback route and populate it wit
 </div>
 ```
 
-> **Note:** This example assumes some kind of loading spinner is available in the assets directory. See the downloadable sample for a demonstration.
+::: note
+This example assumes some kind of loading spinner is available in the assets directory. See the downloadable sample for a demonstration.
+:::
 
 After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/home` route.
 
-> **Note:** This example assumes you are using path-based routing by setting `$locationProvider.html5Mode(true)`. If you are using hash-based routing, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.
+::: note
+This example assumes you are using path-based routing by setting `$locationProvider.html5Mode(true)`. If you are using hash-based routing, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.
+:::
 
 ## Embedded Login
 

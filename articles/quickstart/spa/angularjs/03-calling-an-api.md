@@ -34,7 +34,9 @@ angularAuth0Provider.init({
 
 At this point you should try logging into your application again to take note of how the `access_token` differs from before. Instead of being an opaque token, it is now a JSON Web Token which has a payload that contains your API identifier as an `audience` and any `scope`s you've requested.
 
-> **Note:** By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](https://auth0.com/docs/rules).
+::: note
+By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](/rules).
+:::
 
 ## Configure angular-jwt
 
@@ -127,7 +129,8 @@ With the `jwtInterceptor` in place, the user's `access_token` will automatically
 
 })();
 ```
-
-> **Note:** To find out more about configuration options for angular-jwt, see the [main project repo](https://github.com/auth0/angular-jwt).
+::: note
+To find out more about configuration options for angular-jwt, see the [main project repo](https://github.com/auth0/angular-jwt).
+:::
 
 <%= include('../_includes/_calling_api_protect_resources') %>
