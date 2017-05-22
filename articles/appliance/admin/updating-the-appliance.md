@@ -32,14 +32,14 @@ To ensure the update process goes as smoothly as possible, we recommend followin
 
 ### After the Update
 
+::: panel Monitoring
+For additional information on gathering testing information, please see [Appliance Monitoring](/appliance/monitoring).
+:::
+
 * Perform the post-test check:
   * Check to see if all instances list the same update count and that they're currently running the latest version.
   * Check that all Health Checks are okay.
   * Run smoke tests to ensure that there are no issues with the update.
-
-::: panel Monitoring
-For additional information on gathering testing information, please see [Appliance Monitoring](/appliance/monitoring).
-:::
 
 Please remember that you are responsible for testing and ensuring that all of your applications work as expected.
 
