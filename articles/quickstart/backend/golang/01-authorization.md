@@ -25,7 +25,7 @@ go get "github.com/gorilla/mux"
 
 ## Configuration
 
-<%= include('../_includes/_api_jwks_description_no_link') %>
+<%= include('../_includes/_api_jwks_description_no_link') %>
 
 Configure the **checkJwt** middleware to use the remote JWKS for your Auth0 account.
 
