@@ -68,7 +68,7 @@ private final AuthCallback callback = new AuthCallback() {
 };
 ```
 
-::: panel Private mode
+::: note
 In the seed project, the `SharedPreferences` is used in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE) to store the user credentials. This is done by a the class `CredentialsManager`, you can check the implementation in the project code. There are better and more secure ways to store tokens, but we won't cover them in this tutorial.
 :::
 
