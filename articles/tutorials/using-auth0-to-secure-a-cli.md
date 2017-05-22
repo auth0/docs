@@ -1,4 +1,5 @@
 ---
+title: Using Auth0 to secure a CLI
 description: How to use Auth0 to secure a CLI.
 ---
 
