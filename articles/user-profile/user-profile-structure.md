@@ -1,4 +1,5 @@
 ---
+title: Structure of the User Profile
 description: This page lists the attributes that are available on the User Profile.
 ---
 
@@ -6,8 +7,8 @@ description: This page lists the attributes that are available on the User Profi
 
 The following attributes are available on the [User Profile](/user-profile):
 
-::: panel Pending Users
-The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+::: note
+The User Details page will show `pending` when a user is first created until they have logged in for the first time.
 :::
 
 * `app_metadata`: the custom fields storing information about a user. These attributes contain information that influences the user's access;
@@ -54,6 +55,6 @@ The User Details page will show “pending” when a user is first created until
 
 * `username` (unique): the user's username.
 
-::: panel User details
+::: note
 Fields indicated with an asterisk (*) are not returned as part of `user_profile/id_token` nor are they included in any response from the [`/userinfo` endpoint](/api/authentication#get-user-info) in the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) in the Management API.
 :::
