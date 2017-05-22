@@ -6,6 +6,10 @@ description: How to use Auth0 to secure a CLI.
 
 Authentication in CLI programs is straightforward if the identity provider supports sending credentials, like database connections, SMS passwordless and AD. If the identity provider requires a browser redirect, then the process is slightly more complicated.
 
+::: note
+   If your identity provider supports sending credentials, then the grant you should implement is the [Client Credentials](/api-auth/grant/client-credentials). For details on how to implement this refer to [How to implement the Client Credentials Grant](/api-auth/tutorials/client-credentials).
+:::
+
 Auth0 implements the [Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636). This flow makes it easy to add authentication to a CLI while keeping higher standards of security.
 
 ## How it works
