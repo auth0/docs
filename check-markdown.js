@@ -1,31 +1,36 @@
+/* eslint-disable  no-console */
 const markdownlint = require('markdownlint');
 
 const options = {
   files: process.argv.slice(2),
   config: {
     default: false,
-    resultVersion: 1,
-    'header-increment': true,
-    'first-header-h1': true,
-    'header-style': true,
-    'no-reversed-links': true,
-    'no-missing-space-atx': true,
-    'no-multiple-space-atx': true,
-    'no-duplicate-header': true,
-    'single-h1': true,
-    'no-trailing-punctuation': true,
-    'no-multiple-space-blockquote': true,
-    'no-bare-urls': true,
-    'no-space-in-emphasis': true,
-    'no-space-in-code': true,
-    'no-space-in-links': true,
-    'no-empty-links': true
+    // resultVersion: 1,
+    MD001: true,
+    MD002: true,
+    MD003: true,
+    MD024: true,
+    MD025: true
   }
 };
 
-const result = markdownlint
-  .sync(options)
-  .toString(true);
+console.log('🗒  Linted files:');
+process.argv.slice(2).forEach(filePath => console.log(`    📁  ${filePath}`));
 
-console.warn(result);
-process.exit(1);
+markdownlint(options, (err, result) => {
+  if (err) {
+    console.log('❌ Error running markdownlint');
+    process.exit(1);
+  }
+
+  if (result.toString() === '') {
+    process.exit(0);
+  }
+
+  console.log('\n❌  Errors:');
+  result
+    .toString(true)
+    .split('\n')
+    .forEach(error => console.log(`    ${error}`));
+  process.exit(1);
+});
