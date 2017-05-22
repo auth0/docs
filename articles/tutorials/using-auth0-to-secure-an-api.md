@@ -20,8 +20,20 @@ The [PKCE flow](/api-auth/grant/authorization-code-pkce) (`pixy` for friends), i
 
 For this exchange to work without secret, you will have to set the `token_endpoint_auth_method` to `none`.
 
-```bash
-curl -H "Authorization: Bearer API2_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"token_endpoint_auth_method":"none"}' https://${account.namespace}/api/v2/clients/${account.clientId}
+
+```har
+{
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/clients/${account.clientId}",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "Authorization": "Bearer YOUR_API2_TOKEN"}
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"token_endpoint_auth_method\":\"none\"}"
+  }
+}
 ```
 
 The steps to follow to implement this grant are the following:
