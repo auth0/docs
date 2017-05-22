@@ -1,74 +1,35 @@
 ---
-description: How to use Auth0 to secure a CLI
+description: How to use Auth0 to secure a CLI.
 ---
 
-# Use Auth0 to Secure a CLI
+# Using Auth0 to secure a CLI
 
-To secure CLI programs, Auth0 requires [Proof Key for Code Exchange (PKCE) by OAuth Public Clients](https://tools.ietf.org/html/rfc7636).
+Authentication in CLI programs is straightforward if the identity provider supports sending credentials, like database connections, SMS passwordless and AD. If the identity provider requires a browser redirect, then the process is slightly more complicated.
 
-## Implicit Flow vs. PKCE by OAuth Public Clients
+::: note
+   If your identity provider supports sending credentials, then the grant you should implement is the [Client Credentials](/api-auth/grant/client-credentials). For details on how to implement this refer to [How to implement the Client Credentials Grant](/api-auth/tutorials/client-credentials).
+:::
 
-Traditionally, public clients, such as mobile and single page apps and CLIs, used the [implicit flow](/api-auth/grant/implicit) to obtain a token. The implicit flow doesn't require __client authentication__, which is fitting for public clients (represented in Auth0 as a [native client](/clients) because there's no easy way to store a `client_secret`.
+Auth0 implements the [Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636). This flow makes it easy to add authentication to a CLI while keeping higher standards of security.
 
-Requiring [PKCE](/protocols) increases security by adding a cryptographic challenge in the token exchange. This prevents unauthorized apps from intercepting the response from the authorization server and getting the token.
+## How PKCE works
 
-## Configuration
+Traditionally, public clients (e.g. mobile apps, SPAs and CLIs) have used the [implicit flow](/api-auth/grant/implicit) to obtain a token. In this flow, there's no __client authentication__ because there's no easy way of storing a `client_secret`.
 
-To secure a CLI program by requiring PKCE, the CLI program needs to:
+The [PKCE flow](/api-auth/grant/authorization-code-pkce) (`pixy` for friends), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps to intercept the response from Auth0, and get hold of the token.
 
-1. Initiate the authorization request;
-2. Obtain an authorization code;
-3. Exchange the authorization code for a token.
+## How to implement PKCE
 
-### Step 1: Initiate the Authorization Request
+The steps to follow to implement this grant are the following:
 
-Begin by making an OAuth 2.0 authorization request. Include the [`code_challenge` you created](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier), along with the `code_challenge_method` in your call.
+1. __Create a Code Verifier__. This is a randomly generated value that will be used to generate the `code_challenge` (which will be sent in the authorization request).
 
-The authorization URL will look like the following:
+1. __Create a Code Challenge__. A hashed (`SHA256`) and base64Url encoded value, generated using the `code_verifier`. 
 
-```text
-https://${account.namespace}/authorize?
-  response_type=CODE&
-  scope=OpenID&
-  client_id=${account.clientId}&
-  redirect_uri=${account.callback}&
-  code_challenge=YOUR_CODE_CHALLENGE&
-  code_challenge_method=S256
-```
+1. __Initiate the Authorization Request__. The regular OAuth 2.0 authorization request, with the caveat that now it includes two parameters: the `code_challenge` and the `code_challenge_method` which should be `S256`. If the authorization is successful, then Auth0 will redirect the browser to the callback with a `code` query parameter: `${account.callback}/?code=123`.
 
-### Step 2: Obtain an Authorization Code
+1. __Exchange the Authorization Code for a Token__. With the `code`, the program then uses the [/oauth/token endpoint](/api/authentication#authorization-code-pkce-) to obtain a token. In this second step, the CLI program adds a `verifier` parameter with the exact same random secret generated in step 1. Auth0 uses this to correlate and verify that the request originates from the same client. If successful the response is another JSON object, with an `id_token`, and `access_token`. Note that if the `verifier` doesn't match with what was sent in the [/authorize endpoint](/api/authentication#authorization-code-grant-pkce-), the request will fail.
 
-If authorization is successful, Auth0 redirects the browser to the callback URL with the authorization code appended to the end:
-
-```${account.callback}/?code=123```
-
-### 3. Exchange the Authorization Code for a Token
-
-Using the authorization code, the CLI program needs to make a `POST` call to the `/token` endpoint to obtain the access token. Be sure to include the `code_verifier` that corresponds to the `code_challenge` you used in step 1. Auth0 uses these values to verify that the requests originated from the same source.
-
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/token",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
-  }
-}
-```
-
-If successful, the CLI program receives a JSON response containing the access, refresh, and ID tokens, as well as the token type:
-
-```json
-{
-  "access_token": "eyJz93a...k4laUWw",
-  "refresh_token": "GEbRxBN...edjnXbL",
-  "id_token": "eyJ0XAi...4faeEoQ",
-  "token_type": "Bearer"
-}
-```
-
-At this point, the CLI program has the necessary access token and can proceed to calling APIs.
+::: note
+   For implementation details and sample scripts, refer to [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce).
+:::
