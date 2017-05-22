@@ -22,11 +22,7 @@ The following sections describe how to check each stage and how to identify if t
 
 * Check the Connection's settings. Navigate to [Connections -> Enterprise](${manage_url}/#/connections/enterprise). Open up the list of **SAMLP Identity Providers**, and click **Settings** (represented by the gear icon) to launch the tab associated with your Connection.
 
-<<<<<<< cb20288cf55d1828cc0d43a915f73b472627d56b
   ![](/media/articles/protocols/saml/saml-configuration/check-connection-settings.png)
-=======
-  ![](/check-connection-settings.png)
->>>>>>> Add new files
 
   * Check and confirm with the administrator of the IdP that the value in the  Sign In URL field is the correct SSO URL. This is the URL to which Auth0 will redirect the user for authentication.
   * Check with the IdP administrator for information on whether the IdP expects HTTP-POST binding or HTTP-Redirect binding. You can switch the default binding in the *Settings* tab.
@@ -35,7 +31,6 @@ The following sections describe how to check each stage and how to identify if t
 
 ## Issue: User Successfully Logs In With the IdP, but a Successful Login Event Does *Not* Show Up in Auth0 Logs
 
-<<<<<<< cb20288cf55d1828cc0d43a915f73b472627d56b
 * If the user appears to log in successfully with the IdP, check the [Logs](${manage_url}/#/logs) and [Users](${manage_url}/#/users) pages in the Auth0 Dashboard to see if Auth0 shows a successful login event.
   * If Auth0's logs don't show a successful login event, there is probably an issue with the SAML Authentication Assertion returned by the IdP *or* Auth0 is unable to consume the assertion.
   * Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har). To analyze the HTTP trace:
@@ -123,8 +118,7 @@ If you're using an IdP-initiated flow (for example, the user starts at the ident
   * The application to which the user should be sent;
   * The protocol between the application and Auth0 (which may not be SAML -- it could be OIDC);
   * Any protocol-specific values to include in the query string, such as `scope`, `response_type`, `redirect_uri`, and `audience`. These values should match the ones expected by the application when using a SP-initiated flow.
-=======
+
 ## Issue: User Successfully Logs In With the IdP, a Successful Login Event Shows Up in Auth0 Logs, but the User's Profile Attributes are Incorrect
 
 ## Issue: User Successfully Logs In With the IdP, a Successful Login Event Shows Up in Auth0 Logs, and the User's Profile Attributes are Correct, but the User Cannot Access the Application
->>>>>>> Add new files
