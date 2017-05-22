@@ -37,7 +37,7 @@ For example, if you were to run the above command using the provided sample valu
 
 If the command successfully begins the backup process, you will see the message, "Backup in progress."
 
-![](/backup-in-progress.png)
+![](/media/articles/appliance/cli/backup-in-progress.png)
 
 The backup will be encrypted using the `aes-256-crt` algorithm.
 
@@ -75,6 +75,8 @@ If a backup is available, you will see a message similar to the following:
     }
 }
 ```
+
+![](/media/articles/appliance/cli/backup-available.png)
 
 ### Retrieve an Existing Backup
 
