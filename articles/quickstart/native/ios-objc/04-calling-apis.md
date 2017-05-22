@@ -55,7 +55,7 @@ NSString *url = @"https://localhost/api"; // Change to your API
 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
 // Configure your request here (method, body, etc)
 
-request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+[request addValue:[NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
 [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
     // Parse the response
 }] resume];
@@ -76,4 +76,6 @@ NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL U
 
 Once you send a request and your API returns a response, its status code is going to be displayed in an alert view.
 
-> For further information on authentication API on the server-side, check [the official documentation](/api/authentication).
+::: note
+For further information on authentication API on the server-side, check [the official documentation](/api/authentication).
+:::

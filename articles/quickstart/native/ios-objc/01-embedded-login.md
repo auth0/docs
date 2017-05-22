@@ -1,6 +1,6 @@
 ---
 title: Embedded Login
-description: This tutorial demonstrates how to integrate Embedded Login in your iOS Swift project in order to present a login widget.
+description: This tutorial demonstrates how to integrate Embedded Login in your iOS Objective-C project in order to present a login widget.
 budicon: 448
 ---
 

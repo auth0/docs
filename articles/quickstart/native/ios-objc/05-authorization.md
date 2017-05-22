@@ -21,13 +21,17 @@ Many identity providers will supply access claims, like roles or groups, with th
 
 To create a rule, just go to the [new rule page](${manage_url}/#/rules/new). You can create it from scratch or use an existing template.  These templates are written by Auth0 team to assist you complete common tasks.
 
-First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*.
+
+Then, replace this line from the default script:
 
 ```
 if (user.email.indexOf('@example.com') > -1)
 ```
 
-to match the condition that fits your needs. Notice that you can also set more roles other than `admin` and `user`, or customize the whole rule as you please.
+::: note
+You can set roles other than `admin` and `user` or customize the rule as needed.
+:::
 
 By default, it says that if a user email contains `@example.com`, that user will be given an `admin` role, otherwise a regular `user` role.
 

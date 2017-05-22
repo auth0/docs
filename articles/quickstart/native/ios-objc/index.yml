@@ -12,6 +12,7 @@ alias:
 seo_alias: ios-objc
 snippets:
   setup: native-platforms/ios-objc/setup_wrapper
+default_article: dashboard-default
 articles:
   - getting-started
   - 00-login

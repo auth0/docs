@@ -45,7 +45,9 @@ That's it! You'll get either a `credentials` object or an `error` case after per
 
 Basically, `credentials` contains token-related information; you will normally store this object for later use. On the other hand, `error` is an enum containing possible authentication error cases that you might want to keep track of.
 
-> For further reference on the `credentials` and `error` objects, check the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Credentials.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Authentication.swift) files documentation.
+::: note
+For further reference on the `Credentials` object, see [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift)
+:::
 
 ## Retrieve the User Profile
 
@@ -65,7 +67,9 @@ Once you've obtained a `Credentials` object, retrieving a user profile is quite 
            }];
 ```
 
-> For further reference on the `profile` and `error` objects, check the [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication.swift) files documentation.
+::: note
+For further reference on the `profile` object, see [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) documentation.
+:::
 
 ## Implement a Sign Up
 
@@ -100,9 +104,11 @@ Notice that any extra information that you need to add to the user's profile, ot
 
 ## Perform Social Authentication
 
-> Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-objc/getting-started#configure-callback-urls).
+::: note
+Please ensure you have configured your callback URL as show in [Configure Callback](/quickstart/native/ios-objc/getting-started#configure-callback-urls).
+:::
 
-Then, add the following function in your application's `AppDelegate`:
+Add the following function in your application's `AppDelegate`:
 
 ${snippet(meta.snippets.setup)}
 

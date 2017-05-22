@@ -34,7 +34,9 @@ github "auth0/SimpleKeychain"
 
 Then, run `carthage bootstrap`.
 
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+::: note
+For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+:::
 
 ##### b. Cocoapods
 
@@ -46,7 +48,9 @@ pod 'SimpleKeychain', '~> 0.7'
 
 Then, run `pod install`.
 
-> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+::: note
+For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+:::
 
 ## On Login: Store the user's token
 
@@ -125,11 +129,15 @@ However, in this tutorial you will focus on the latter scenario, where you want 
 
 In this case, you're going to leverage the `refreshToken`. The refresh token is another token string contained within the `Credentials` object that comes upon a successful login, which doesn't expire, and whose main purpose is retrieving a new valid `accessToken`.
 
-> It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep in mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
+::: note
+It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep in mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
+:::
 
 ### Store the refreshToken
 
-> The `refreshToken` can be `nil` if `offline_access` is not sent in the `scope` parameter during authentication.
+::: note
+The `refreshToken` can be `nil` if `offline_access` is not sent in the `scope` parameter during authentication.
+:::
 
 Besides storing the `accessToken`, you need to store the `refreshToken`. Let's make a couple of changes:
 
@@ -220,7 +228,9 @@ NSURL *pictureURL = self.userProfile.pictureURL;
 NSString *name = self.userProfile.name;
 ```
 
-> Check out the [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) class documentation to learn more about its properties.
+::: note
+Check out the [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) class documentation to learn more about its properties.
+:::
 
 #### Additional info
 
@@ -267,4 +277,6 @@ NSString* lastName = [metaData objectForKey:@"last_name"];
 NSString* country = [metaData objectForKey:@"country"];
 ```
 
-> The strings you use for subscripting the `userMetadata` dictionary, and the variable types you handle, are up to you.
+::: note
+The strings you use for subscripting the `userMetadata` dictionary, and the variable types you handle, are up to you.
+:::

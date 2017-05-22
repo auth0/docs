@@ -20,7 +20,9 @@ Then, add the following `UIApplicationDelegate` method:
 }
 ```
 
-> Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-objc/getting-started#configure-callback-urls).
+::: note
+Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-objc/getting-started#configure-callback-urls).
+:::
 
 ## Implement the Login
 
@@ -30,7 +32,7 @@ Then present the hosted login screen, like this:
 
 ```objc
 HybridAuth *auth = [[HybridAuth alloc] init];
-[auth showLoginWithScope:@"openid profile" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
+[auth showLoginWithScope:@"openid" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (error) {
             NSLog(@"Error: %@", error);
@@ -44,10 +46,10 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 
 Upon successful authentication the user's `credentials` will be returned.
 
-> For further reference on the `credentials` object, please see:
-[Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift)
->
-> We will cover the storage of the user's credentials in a later chapter.  By default Auth0 will not store this for you.
+::: note
+For further reference on the `credentials` object, please see
+[Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift). We will cover the storage of the user's credentials in a later chapter.  By default Auth0 will not store this for you.
+:::
 
 ## Embedded Login
 

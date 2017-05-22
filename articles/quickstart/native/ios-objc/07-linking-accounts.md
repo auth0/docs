@@ -17,17 +17,17 @@ budicon: 345
 
 ## Before Starting
 
-You should be familiar with previous tutorials. This tutorial assumes that:
+You should be familiar with previous tutorials. This tutorial assumes that you've integrated the [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Login. For further information, check out the [Login Tutorial](/quickstart/native/ios-objc/00-login) and the [User Sessions Tutorial](/quickstart/native/ios-objc/03-user-sessions) first.
 
-- You've integrated the [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Login. For further information, check out the [Login Guide](/quickstart/native/ios-objc/00-login) and the [User Sessions Guide](/quickstart/native/ios-objc/03-user-sessions) first.
-
-> It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts) to understand the general process of linking accounts.
+::: note
+It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts) to understand the general process of linking accounts.
+:::
 
 ## Enter Account Credentials
 
 Here's the scenario: You have a user who is logged in and wants to link one (or multiple) accounts to that logged in account, such that the user can login with any of them and get into that account.
 
-Typically, you will need to present an extra login dialog to make users enter the credentials for any account they want to link with their main account. You can present this login as we saw in the [Login Guide](/quickstart/native/ios-objc/00-login):
+Typically, you will need to present an extra login dialog to make users enter the credentials for any account they want to link with their main account. You can present this login as we saw in the [Login Tutorial](/quickstart/native/ios-objc/00-login):
 
 ${snippet(meta.snippets.setup)}
 
@@ -55,7 +55,7 @@ Linking an account is simple. You have a user, and another account you want to l
 
 - `id`: The `id` from the user's profile that is logged in.
 - `idToken`: The `idToken` obtained upon your user login.
-- `otherUserToken`: The `idToken` from the account you want to link the user with. This is the value you stored in step 1.
+- `otherUserToken`: The `idToken` from the account you want to link the user with.
 
 ${snippet(meta.snippets.setup)}
 
@@ -77,7 +77,7 @@ NSString *otherUserToken = ... // the idToken from the account you want to link 
 
 ## Retrieve Linked Accounts
 
-Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the user's profile, a process that we already know from the [User Sessions Guide](/quickstart/native/ios-objc/03-user-sessions#validate-an-accesstoken):
+Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the user's profile, a process that we already know from the [User Sessions Tutorial](/quickstart/native/ios-objc/03-user-sessions#validate-an-accesstoken):
 
 ```objc
 // Retrieve profile
@@ -107,7 +107,9 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 }];
 ```
 
-> Any linked account is handled as a `Profile` identity object. For further information on this object, check out the [Profile class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift)
+::: note
+> Any linked account is handled as a `Profile` identity object. For further information on this object, check out the [Profile class](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) documentation.
+:::
 
 ## Unlink an Account
 

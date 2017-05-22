@@ -18,7 +18,9 @@ Then, add the following `UIApplicationDelegate` method:
 }
 ```
 
-> Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-objc/getting-started#configure-callback-urls).
+::: note
+Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-objc/00-getting-started#configure-callback-urls).
+:::
 
 ## Implement the Login
 
@@ -47,10 +49,10 @@ HybridLock *lock = [[HybridLock alloc] init];
 
 As you can see, upon successful authentication, the `onAuth` callback will yield the user's `credentials`.
 
-> For further reference on the `credentials` object, please see:
-[Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift)
->
-> We will cover the storage of the user's credentials in a later chapter.  By default Lock will not store this for you.
+::: note
+For further reference on the `credentials` object, please see
+[Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift). We will cover the storage of the user's credentials in a later chapter.  By default Lock will not store this for you.
+:::
 
 This sets you up for handling Database connections.
 
