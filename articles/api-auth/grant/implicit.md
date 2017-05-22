@@ -44,6 +44,12 @@ For details on how to implement this using Auth0, refer to [Execute an Implicit 
 
 For details on how to implement this, refer to [How to implement the Implicit Grant: Customize the Tokens](/api-auth/tutorials/implicit-grant#optional-customize-the-tokens).
 
+## Silent Authentication
+
+If you need to authenticate your users without a login page (for example, when the user is already logged in via [SSO](/sso) scenario) or get a new `access_token` (thus simulate refreshing an expired token), you can use Silent Authentication.
+
+For details on how to implement this, refer to [Silent Authentication](/api-auth/tutorials/silent-authentication).
+
 ## Keep reading
 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;[How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant)<br/>
