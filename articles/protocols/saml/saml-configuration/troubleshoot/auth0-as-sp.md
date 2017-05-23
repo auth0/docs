@@ -38,16 +38,16 @@ The following sections describe how to check each stage and how to identify if t
     2. Scan through the sequence of URLS invoked in the HTTP trace:
       * The first few will be URLs for your application.
       * There will then by a redirect to an Auth0 URL (such as `${account.namespace}`).
-      * There will be a POST back to your application containing the SAML assertion with user inforation. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
+      * After one or more intervening URLS, there will be a POST back to Auth0 containing the SAML assertion with user inforation. The URL should be for the Assertion Consumer Service (ACS) of Auth0, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
         1. Click on the row for the POST call in the HAR analyzer.
         2. Switch to the POST Data tab, and look for the SAML response.
-        3. Copy and paste the SAML response into a [SAML debugger](https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php).
+        3. Copy and paste the SAML response into a [SAML debugger](https://samltool.io/).
         4. Remove the "SAML response" at the beginning, as well as anything beginning with `&RelayState=` at the end.
-        5. Click **Decode SAML message** and check the following fields:
-          * **Destination**: the application URL that consumes the SAML assertion (and is also known as the Assertion Callback URL)
+        5. View the decoded SAML message and check the following fields:
+          * **Destination**: destination for the SAML response is correct Auth0 Tenant and Connection (`https://{TENANT}.auth0.com/login/callback?connection={CONNECTION}`)
           * **Status Field**: this field should indicate success: `<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>`
-          * **Recipient**: the correct URL appears in the recipient field (indicated by th `<saml:SubjectConfirmation Method…` parameter)
-          * **Audience**: the correct audience information is populated: `<saml:AudienceRestriction><saml:Audience>urn:{DOMAIN}:{YOUR APPLICATION}</saml:Audience>`
+          * **Recipient**: the `<saml:SubjectConfirmation` Method...element contains correct tenant and connection in the “Recipient” field (`https://{TENANT}.auth0.com/login/callback?connection={CONNECTION}`)
+          * **Audience**: the SAML Audience restriction field contains the correct tenant and connection information (`<saml:AudienceRestriction><saml:Audience>urn:auth0:{TENANT}:{CONNECTION}</saml:Audience>`)
           * **Naming**: the attribute identified by the `NameIdentifier` field should be known to the application. If it's not, the identifier should be some other attribute within the assertion (such as an internal IdP identifier for the user or an email address)
           * **Signature Key**: check that the value indicated by the `X509Certificate` element matches the value provided to your connection
           * **Certificate**: compare the certificate sent to the one that you provided to the application
@@ -89,7 +89,7 @@ Within the provided editor, there is a JSON snippet you can edit to configure yo
   2. Scan through the sequence of URLS invoked in the HTTP trace:
     * The first few will be URLs for your application.
     * There will then by a redirect to an Auth0 URL (such as `${account.namespace}`).
-    * There will be a POST back to your application containing the SAML assertion with user inforation. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
+    * After one or more intervening URLS, there will be a POST back to your application containing the SAML assertion with user inforation. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
       1. Click on the row for the POST call in the HAR analyzer.
       2. Switch to the POST Data tab, and look for the SAML response.
       3. Copy and paste the SAML response into a [SAML debugger](https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php).
@@ -164,7 +164,7 @@ Within the provided editor, there is a JSON snippet you can edit to configure yo
   2. Scan through the sequence of URLS invoked in the HTTP trace:
     * The first few will be URLs for your application.
     * There will then by a redirect to an Auth0 URL (such as `${account.namespace}`).
-    * There will be a POST back to your application containing the SAML assertion with user inforation. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
+    * After one or more intervening URLS, there will be a POST back to your application containing the SAML assertion with user inforation. The URL should be for the Assertion Consumer Service (ACS) of your application, which consumes the assertion and extracts the needed information. Be sure that the assertion includes this information:
       1. Click on the row for the POST call in the HAR analyzer.
       2. Switch to the POST Data tab, and look for the SAML response.
       3. Copy and paste the SAML response into a [SAML debugger](https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php).
