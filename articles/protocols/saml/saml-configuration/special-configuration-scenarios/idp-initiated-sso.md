@@ -39,8 +39,6 @@ If Auth0 acts as the service provider, you need to make the following changes to
     2. The protocol to be used between Auth0 and the client application when Auth0 forwards the results of the user authentication to the client application;
     3. Query parameters to pass to the app.
 
-![](/saml/identity-providers/okta/configure-new-connection.png)
-
 ## Auth0 as Identity Provider Where IdP Initiates SSO
 
 If Auth0 acts as the identity provider, you need to make the following changes to support IdP-initiated SSO:
