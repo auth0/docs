@@ -8,29 +8,49 @@ By default, any user associated with an Auth0 client can request an API's scope(
 
 ## Example: Scopes Based on the `audience` Parameter
 
-The following [rule](/rules) sample demonstrates how you would check for and permit/deny access depending on the `audience` parameter, as well as the client ID.
+The following [rule](/rules) sample demonstrates how you would check for and permit/deny access depending on the `audience` parameter.
 
 ```js
 function (user, context, callback) {
 
   /*
-   *  Denies access to user-based flows based on audience and
-   *  client ID.
+   *  Denies access to user-based flows based on audience
    */
 
   // If you don't pass audience in the query string
   // or body of the authorization request, the rule uses the
   // default audience (leave the audience variable empty).
   var audience = '';
-  var client_id = '';
-
-  client_id = context.clientID;
 
   audience = audience
               || (context.request && context.request.query && context.request.query.audience)
               || (context.request && context.request.body && context.request.body.audience);
 
-  if ((audience === 'http://todoapi2.api' || !audience) && (context.clientID === 'CLIENT_ID')) {
+  if (audience === 'http://todoapi2.api' || !audience) {
+    return callback(new UnauthorizedError('end_users_not_allowed'));
+  }
+
+  return callback(null, user, context);
+}
+```
+
+You can implement similar functionality based on client ID.
+
+```js
+function (user, context, callback) {
+
+  /*
+   *  Denies access to user-based flows based on client ID
+   */
+
+  // If you don't pass audience in the query string
+  // or body of the authorization request, the rule uses the
+  // default audience (leave the audience variable empty).
+  var client_id = '';
+
+  client_id = context.clientID;
+
+  if (context.clientID === 'CLIENT_ID') {
     return callback(new UnauthorizedError('end_users_not_allowed'));
   }
 
