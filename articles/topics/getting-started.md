@@ -4,7 +4,6 @@ articles:
   - overview
   - videos
   - architecture-scenarios
-  - prelaunch-tips
 ---
 
 # Getting Started
