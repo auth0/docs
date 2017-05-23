@@ -116,7 +116,7 @@ Then, if such a token exists, you need to check whether it's still valid, has ex
 ## Dealing with a non-valid accessToken
 
 How to deal with a non-valid accessToken is up to you. You will normally choose between two scenarios:
-Either you ask users to re-enter theirs credentials, or you can use `.renew(withRefreshToken: refreshToken)` with a [refresh_token((/refresh-token)) to obtain a new valid accessToken again.
+Either you ask users to re-enter their credentials, or you can use `.renew(withRefreshToken: refreshToken)` with a [refresh_token](/refresh-token) to obtain a new valid accessToken again.
 
 If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
 
@@ -130,7 +130,7 @@ However, in this tutorial you will focus on the latter scenario, where you want 
 In this case, you're going to leverage the `refreshToken`. The refresh token is another token string contained within the `Credentials` object that comes upon a successful login, which doesn't expire, and whose main purpose is retrieving a new valid `accessToken`.
 
 ::: note
-It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep in mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
+It's recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. You should keep in mind, for example, that even though the refresh token cannot expire, it can be revoked.
 :::
 
 ### Store the refreshToken
