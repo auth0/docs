@@ -1,28 +1,48 @@
 <%= include('_dependency_embedded') %>
 
-## Implement the Login
+<%= include('_hybrid_setup_lock') %>
 
-First, import the `Lock` module in the file where you want to present the login dialog:
+Auth0 will need to handle the callback of this authentication, add the following to your `AppDelegate`:
+
+First, import the Swift wrapper:
+
+```objc
+#import "Auth0Sample-Swift.h"
+```
+
+Then, add the following `UIApplicationDelegate` method:
 
 ```swift
-import Lock
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    return [HybridLock resumeAuth:url options:options];
+}
+```
+
+::: note
+Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-objc/00-getting-started#configure-callback-urls).
+:::
+
+## Implement the Login
+
+Import the Swift wrapper and Auth0 library:
+
+```objc
+#import "Auth0Sample-Swift.h"
+@import Auth0;
 ```
 
 Then, configure and present the embedded login widget:
 
 ```swift
-Lock
-    .classic()
-    .withOptions {
-        $0.oidcConformant = true
-        $0.scope = "openid profile"
-    }
-    .onAuth { credentials in
+HybridLock *lock = [[HybridLock alloc] init];
+[lock showLockFrom:self callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
+    if (error) {
+        NSLog(@"Error: %@", error);
+    } else if (credentials) {
         // Do something with credentials e.g.: save them.
-        // Lock will not save these objects for you.
-        // Lock will dismiss itself automatically by default.
+        // Auth0 will dismiss itself automatically by default.
     }
-    .present(from: self)
+}];
 ```
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_2_login.png" alt="Lock UI"></div>
@@ -39,23 +59,3 @@ This sets you up for handling Database connections.
 ### Log In with Enterprise & Social Connections
 
 In order to use browser based Auth mechanism through social and enterprise connections, all you have to do is enable them in your account's [connections dashboard](${manage_url}/#/connections/social). Every connection you switch on there, will appear in the Login screen of your app.
-
-Lock will need to handle the callback of this authentication, Lock can take responsibility for this by adding the following to your `AppDelegate`:
-
-First, import the `Lock` module:
-
-```swift
-import Lock
-```
-
-Then, add the following `UIApplicationDelegate` method:
-
-```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-  return Lock.resumeAuth(url, options: options)
-}
-```
-
-::: note
-Please ensure you have configured your callback URL as demonstrated in [Configure Callback](/quickstart/native/ios-swift/00-getting-started#configure-callback-urls).
-:::

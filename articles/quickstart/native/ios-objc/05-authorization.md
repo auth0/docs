@@ -6,7 +6,7 @@ budicon: 500
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-ios-swift-v2-sample',
+  repo: 'auth0-ios-objc-sample',
   path: '05-Authorization',
   requirements: [
     'CocoaPods 1.2.1',
@@ -21,7 +21,9 @@ Many identity providers will supply access claims, like roles or groups, with th
 
 To create a rule, just go to the [new rule page](${manage_url}/#/rules/new). You can create it from scratch or use an existing template.  These templates are written by Auth0 team to assist you complete common tasks.
 
-First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*.
+
+Then, replace this line from the default script:
 
 ```
 if (user.email.indexOf('@example.com') > -1)
@@ -35,33 +37,25 @@ By default, it says that if a user email contains `@example.com`, that user will
 
 ## Test the Rule
 
-```swift
-import Auth0
-```
+${snippet(meta.snippets.setup)}
 
-```swift
-Auth0
-    .users(token: idToken)
-    .get(userId, fields: ["app_metadata"], include: true)
-    .start { result in
-        switch result {
-        case .success(let user):
-            guard
-              let appMetadata = user["app_metadata"] as? [String: Any],
-              let roles = appMetadata["roles"] as? [String]
-            else {
-              // Test failed, make sure you've configured your rule properly (check step 1 thoroughly)
-              return
-            }
-            if roles == "admin" {
-                // User has admin access, grant them the power.
-            } else {
-                // Not an admin, deny the user.
-            }
-        case .failure(let error):
-            // Handler error
-        }
-}
+```objc
+NSString *userId = ... // the user's profile id
+HybridAuth *auth = [[HybridAuth alloc] init];
+[auth userProfileWithIdToken:idToken userId:userId callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
+  if (error) {
+    // Handle error
+  } else {
+     NSDictionary *metaData = [user objectForKey:@"app_metadata"];
+     NSArray *roles = [metaData objectForKey:@"roles"];
+     if (![roles containsObject:@"admin"]) {
+        // Not an admin user, access denied.
+     } else {
+        // Admin user, grant access
+        [self performSegueWithIdentifier:@"AdminSegue" sender:nil];
+     }
+   }
+}];
 ```
 
 ## Use the Rule

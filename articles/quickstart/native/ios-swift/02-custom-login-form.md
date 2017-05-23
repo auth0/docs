@@ -51,7 +51,7 @@ That's it! You'll get either a `credentials` object or an `error` case after per
 Basically, `credentials` contains token-related information; you will normally store this object for later use. On the other hand, `error` is an enum containing possible authentication error cases that you might want to keep track of.
 
 ::: note
-For further reference on the `credentials` and `error` objects, check the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Credentials.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Authentication.swift) files documentation.
+For further reference on the `Credentials` object, see [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) documentation.
 :::
 
 ## Retrieve the User Profile
@@ -74,7 +74,7 @@ Auth0
 ```
 
 ::: note
-For further reference on the `profile` and `error` objects, check the [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication.swift) files documentation.
+For further reference on the `profile` object, see [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) documentation.
 :::
 
 ## Implement a Sign Up
