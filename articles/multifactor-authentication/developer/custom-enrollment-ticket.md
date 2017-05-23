@@ -1,8 +1,7 @@
 ---
 description: Describes how to create an enrollment ticket from api
 ---
-
-## Custom Enrollment
+# Custom Enrollment
 
 In addition to [directly sending emails to enroll users](/multifactor-authentication/administrator/guardian-enrollment-email), it is also possible to manage users' enrollments by creating _enrollment tickets_ via the [post_ticket API](/api/management/v2#!/Guardian/post_ticket).
 
@@ -107,6 +106,7 @@ Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${m
 Since this hosted page is used for displaying the Guardian widget in both enrollment and standard multifactor login scenarios, it's important to note that the existence of the `ticket` variable can be used to determine which scenario is being used, and to control the content accordingly.
 
 For example, the following code could be used to used to alter the message:
+
 ```html
 {% if ticket %}
 <h4 class="message">Welcome, {{ userData.email }}, enroll your device below</h4>
@@ -114,6 +114,7 @@ For example, the following code could be used to used to alter the message:
 <h4 class="message">Welcome back, {{ userData.email }}, authenticate below</h4>
 {% endif %}
 ````
+
 Note that this conditional logic around the existence of the `ticket` variable is also used in the initialization of the `Auth0MFAWidget` above.
 
 ## Further reading

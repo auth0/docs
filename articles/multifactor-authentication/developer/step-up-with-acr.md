@@ -1,8 +1,7 @@
 ---
 description: Describes using acr_values and acr claims to perform step-up authentication with Auth0
 ---
-
-## Step-up Authentication
+# Step-up Authentication
 
 With Step-Up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.
 
@@ -11,8 +10,6 @@ For example, Fabrikam's Intranet can require users to authenticate with their us
 You can add step-up authentication to your app with Auth0's extensible multifactor authentication support. Your app can verify that the user has logged in using multifactor authentication and, if not, require the user to step-up to access certain resources.
 
 ![Step-up flow](/media/articles/mfa/step-up-flow.png)
-
-
 
 ## Step-up Authentication with Auth0
 
@@ -28,6 +25,7 @@ There are three core concepts used when addressing authentication level at Auth0
 
 ## Example
 To request that Auth0 require a multifactor authentication, add the field `acr_values` to the authentication along with the `acr` level desired. For example, with [Auth0.js](/libraries/auth0js) it would work like the following code snippet.
+
 ```js
 // Use acr_values to indicate this user needs a step-up with MFA
 auth0.signin({
@@ -37,6 +35,7 @@ auth0.signin({
 ```
 
 With [Lock](/libraries/lock), the following would indicate the need for MFA.
+
 ```js
 // Use acr_values to indicate this user needs a step-up with MFA
 var options = {
@@ -50,6 +49,7 @@ lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 ```
 
 To confirm that a session has had multifactor authentication, the id_token can be checked for its `acr` and `amr` claims.
+
 ```js
 var decoded = jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] });
 

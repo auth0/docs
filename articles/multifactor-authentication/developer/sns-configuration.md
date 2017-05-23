@@ -1,8 +1,7 @@
 ---
 description: Describes how to configure Amazon SNS with Guardian Multifactor
 ---
-
-## Configuring Amazon SNS
+# Configuring Amazon SNS
 
 In order to receive push notifications from Guardian, it's necessary to override Guardian's default SNS settings.
 
