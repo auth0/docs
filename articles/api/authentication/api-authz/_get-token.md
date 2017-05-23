@@ -369,7 +369,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For Resource Owner Password use  `password`. To add realm support use `http://auth0.com/oauth/grant-type/password-realm`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `audience` | The unique identifier of the target API you want to access. |
 | `username` <br/><span class="label label-danger">Required</span> | Resource Owner's identifier. |
 | `password` <br/><span class="label label-danger">Required</span> | Resource Owner's secret. |
@@ -377,6 +377,7 @@ This is the OAuth 2.0 grant that highly trusted apps utilize in order to access 
 | `realm` | String value of the realm the user belongs. Set this if you want to add realm support at this grant. For more information on what realms are refer to [Realm Support](/api-auth/grant/password#realm-support). |
 
 ### Request headers
+
 | Parameter        | Description |
 |:-----------------|:------------|
 | `auth0-forwarded-for` | End-user IP as a string value. Set this if you want brute-force protection to work in server-side scenarios. For more information on how and when to use this header, refer to [Using resource owner password from server-side](/api-auth/tutorials/using-resource-owner-password-from-server-side). |
@@ -499,7 +500,7 @@ For details on the supported challenge types refer to [Multifactor Authenticatio
 |:-----------------|:------------|
 | `mfa_token` <br/><span class="label label-danger">Required</span> | Token got together with `mfa_required` error for Resource Owner Password flow. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `challenge_type` | A whitespace-separated list of the challenges types accepted by your application. Accepted challenge types are `oob` or `otp`. Excluding this parameter means that your client application accepts all supported challenge types. |
 
 #### Remarks
@@ -582,7 +583,7 @@ To verify MFA using an OTP code your app must prompt the user to get the OTP cod
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-otp`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you received from `mfa_required` error. |
 | `otp` <br/><span class="label label-danger">Required</span> | OTP Code provided by the user. |
 
@@ -686,7 +687,7 @@ When the challenge response includes a `binding_method: prompt` your app needs t
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-oob`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token you received from the `mfa_required` error. |
 | `oob_code` <br/><span class="label label-danger">Required</span> | The oob code received from the challenge request. |
 | `binding_code`| A code used to bind the side channel (used to deliver the challenge) with the main channel you are using to authenticate. This is usually an OTP-like code delivered as part of the challenge message. |
@@ -763,6 +764,6 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. For OTP MFA use  `http://auth0.com/oauth/grant-type/mfa-otp`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA). |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token from the `mfa_required` error. |
 | `recovery_code` <br/><span class="label label-danger">Required</span> | Recovery code provided by the end-user. |
