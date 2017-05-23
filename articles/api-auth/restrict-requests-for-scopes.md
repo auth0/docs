@@ -43,9 +43,6 @@ function (user, context, callback) {
    *  Denies access to user-based flows based on client ID
    */
 
-  // If you don't pass audience in the query string
-  // or body of the authorization request, the rule uses the
-  // default audience (leave the audience variable empty).
   var client_id = '';
 
   client_id = context.clientID;
