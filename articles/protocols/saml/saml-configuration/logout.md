@@ -6,7 +6,7 @@
 
 When integrating with a SAML provider, there are many ways to implement logout or user session termination.
 
-:::panel-info Logout
+::: panel Logout
 Please see [Logout](/logout) for additional information.
 :::
 
