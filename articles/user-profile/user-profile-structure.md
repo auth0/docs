@@ -1,4 +1,5 @@
 ---
+title: Structure of the User Profile
 description: This page lists the attributes that are available on the User Profile.
 ---
 
@@ -6,8 +7,8 @@ description: This page lists the attributes that are available on the User Profi
 
 The following attributes are available on the [User Profile](/user-profile):
 
-::: panel-info Pending Users
-The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+::: note
+The User Details page will show `pending` when a user is first created until they have logged in for the first time.
 :::
 
 * `app_metadata`: the custom fields storing information about a user. These attributes contain information that influences the user's access;
@@ -16,7 +17,7 @@ The User Details page will show “pending” when a user is first created until
 
 * `created_at`: the timestamp of when the user profile was first created;
 
-* `email`: the user's email address
+* `email` (unique): the user's email address
 
 * `email_verified`: the `yes/no` value indicating if the user has verified their email address;
 
@@ -48,10 +49,12 @@ The User Details page will show “pending” when a user is first created until
 
 * `updated_at`: the timestamp of when the user's profile was last updated/modified;
 
-* `user_id`: the user's unique identifier;
+* `user_id` (unique): the user's unique identifier;
 
 * `user_metadata`: the custom fields storing information about a user. These attributes should contain information about the user that does not impact what they can or cannot access (e.g. work and home addresses);
 
-* `username`: the user's username.
+* `username` (unique): the user's username.
 
-**Note**: Fields indicated with an asterisk (*) are not returned as part of `user_profile/id_token` nor are they included in any response from the [`/userinfo` endpoint](/api/authentication#get-user-info) in the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) in the Management API.
+::: note
+Fields indicated with an asterisk (*) are not returned as part of `user_profile/id_token` nor are they included in any response from the [/userinfo endpoint](/api/authentication#get-user-info) in the Authentication API. To retrieve user datails from these fields you will need to utilize one of the [User endpoints](/api/management/v2#!/Users/get_users) in the Management API.
+:::

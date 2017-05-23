@@ -4,7 +4,7 @@ description: Auth0 normalizes common user properties in the User Profile.
 
 # Auth0 Normalized User Profile
 
-Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile. 
+Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile.
 
 For example, `family_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
 
@@ -14,9 +14,9 @@ The attributes that Auth0 maps to a common schema are listed below.
 
 Fields that are always generated:
 
-* **`name`**: the user's full name. 
+* **`name`**: the user's full name.
 * **`nickname`**: the user's username.
-* **`picture`**: the URL of the [user's picture](/user-profile/user-picture). If unavailable, Auth0 uses the Gravatar image associated with the user's email address. 
+* **`picture`**: the URL of the [user's picture](/user-profile/user-picture). If unavailable, Auth0 uses the Gravatar image associated with the user's email address.
 * **`user_id`**: the user's unique identifier. This is unique per Connection, but the same for all apps that authenticate via that Connection.
 
 A user's `name`, `nickname`, and `picture` attributes are not directly editable, however you can update the fields in the `user_metadata` to update them for your front-end as desired. [Click here for more details for changing a user's picture](/user-profile/user-picture#change-a-user-s-picture); the `name`, 'nickname' fields can be updated in the same way.
@@ -28,17 +28,21 @@ Fields that are generated when the details are available:
 * **`given_name`**: the user's first name.
 * **`family_name`**: the user's last name.
 
-**Note:** When creating a user with the [create a User Management API endpoint](/api/management/v2#!/Users/post_users) you can submit the `given_name` and `family_name` but these fields are not available to be edited with the [update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
+::: note
+When creating a user with the [create a User Management API endpoint](/api/management/v2#!/Users/post_users) you can submit the `given_name` and `family_name` but these fields are not available to be edited with the [update a user endpoint](/api/management/v2#!/Users/patch_users_by_id).
+:::
 
-::: panel-info Custom Databases 
-If you are writing a login script for a [custom database](/connections/database/mysql) you are responsible for returning the information in the user profile. A unique and immutable `user_id` property is mandatory to correctly identify the user (see [Uniquely Identify Users](#uniquely-identify-users)). 
+::: panel Custom Databases
+If you are writing a login script for a [custom database](/connections/database/mysql) you are responsible for returning the information in the user profile. A unique and immutable `user_id` property is mandatory to correctly identify the user (see [Uniquely Identify Users](#uniquely-identify-users)).
 :::
 
 ### Additional Attributes
 
-The User Profile includes an array of identities. In the most common case (logging in with a single provider), the array contains only one element. If the user has multiple accounts linked, the array will have an element for each associated account. 
+The User Profile includes an array of identities. In the most common case (logging in with a single provider), the array contains only one element. If the user has multiple accounts linked, the array will have an element for each associated account.
 
-**NOTE:** For more information, see: [Link Accounts](/link-accounts).
+::: note
+For more information, see: [Link Accounts](/link-accounts).
+:::
 
 The `identities` array contains the following attributes:
 
@@ -47,7 +51,9 @@ The `identities` array contains the following attributes:
 * `provider`: the provider of the connection.
 * `user_id`: the unique identifier of the user for this connection.
 
-**NOTE:** Auth0 will pass to your app all other properties supplied by the identity provider, even if those that are not mapped to the standard attributes listed above.
+::: note
+Auth0 will pass to your app all other properties supplied by the identity provider, even if those that are not mapped to the standard attributes listed above.
+:::
 
 ## Store User Data
 

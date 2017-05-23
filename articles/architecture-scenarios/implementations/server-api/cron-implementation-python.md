@@ -6,7 +6,7 @@ url: /architecture-scenarios/application/server-api/cron-implementation-python
 
 # Server Client + API: Python Implementation for the Cron Job
 
-::: panel-info Server + API Architecture Scenario
+::: panel Server + API Architecture Scenario
 This document is part of the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api) and it explains how to implement the server process in Python. Please refer to the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api) document for information on the implemented solution.
 :::
 

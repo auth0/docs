@@ -1,33 +1,31 @@
 ```html
-<!-- src/pages/profile/profile.html -->
-  
+<!-- src/pages/home/home.html -->
+
 <ion-header>
   <ion-navbar>
-    <ion-title>Profile</ion-title>
+    <ion-title>
+      Home Page
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding *ngIf="!auth.authenticated()">
-  
-  <button ion-button block (click)="auth.login()">Login</button>
-  
-</ion-content>
+<ion-content padding>
 
-<ion-content padding *ngIf="auth.authenticated()">
-  
-  <ion-card>
+  <!-- just a login button if not authenticated -->
+  <div *ngIf="!auth.isAuthenticated()">
+    <button ion-button block color="primary" (click)="auth.login()">Login</button>
+  </div>
 
-    <ion-item *ngIf="auth.user">
-      <ion-avatar item-left>
-        <img src="{{ auth.user.picture }}">
-      </ion-avatar>
-      <h2>{{ auth.user.nickname }}</h2>
-      <p>{{ auth.user.email }}</p>
-    </ion-item>
-  
-  </ion-card>
-  
-  <button ion-button block (click)="auth.logout()">Logout</button>
-  
+  <!-- a card with your picture and name, plus a logout button -->
+  <div *ngIf="auth.isAuthenticated()">
+    <ion-card>
+      <img [src]="auth.user.picture" />
+      <ion-card-content>
+        <ion-card-title>{{ auth.user.name }}</ion-card-title>
+      </ion-card-content>
+    </ion-card>
+    <button ion-button block color="primary" (click)="auth.logout()">Logout</button>
+  </div>
+
 </ion-content>
 ```

@@ -69,11 +69,12 @@ Now you should see a **TRY** button for the **Paypal** connection.
 
 This allows you to test your connection to see if it has been configured properly.
 
-**Note:** The Target URL field that you enter can take up to 3 hours for the change to go into effect with Paypal. This can cause the connection to fail until it is updated.
+::: note
+The Target URL field that you enter can take up to 3 hours for the change to go into effect with Paypal. This can cause the connection to fail until it is updated.
+:::
 
 ## Additional Information
 
 [Paypal Docs](https://developer.paypal.com/docs/)
 
 <%= include('../_quickstart-links.md') %>
-

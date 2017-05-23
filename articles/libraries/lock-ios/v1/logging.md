@@ -6,11 +6,14 @@ description: Learn how to debug Lock by enabling logging.
 
 # Lock iOS: Logging
 
-__Lock__ logs several pieces of useful debugging information using [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack).
-
 <%= include('../_includes/_lock-version-1') %>
 
-> If you are using a Lock version older than `1.10.0` please check [here](#lock-versions-1-10-0)
+__Lock__ logs several pieces of useful debugging information using [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack).
+
+
+::: note
+If you are using a Lock version older than `1.10.0` please check [here](#lock-versions-1-10-0)
+:::
 
 By default all log messages are disabled but you can enable them in your `AppDelegate.m` (or `AppDelegate.swift`), for example if you want __Lock__'s error messages just add this line:
 
@@ -29,8 +32,10 @@ Or if you want to all debug messages:
 ```swift
 A0LockLogger.logAll()
 ```
-> If you are already using `CocoaLumberjack`, you need to enable __Lock__'s log after you register CocoaLumberjack's loggers.
 
+::: note
+If you are already using `CocoaLumberjack`, you need to enable __Lock__'s log after you register CocoaLumberjack's loggers.
+:::
 
 ### Lock versions < 1.10.0
 Go to `A0Logging.h` and change the `auth0LogLevel` variable with the Log Level you'll want to see. for example:

@@ -237,7 +237,7 @@ function(ctx, callback) {
 }
 ```
 
-:::panel-warning
+::: warning
 Auth0 only supports user creation with Database Connections.
 :::
 
@@ -292,7 +292,7 @@ function(ctx, callback) {
 
 The **Settings Query** allows you to customize the look and feel of the extension.
 
-### The Hook contract:
+### The Hook contract
 
  - `ctx`: The context object
  - `callback(error, settings)`: The callback to which you can return an error and a settings object

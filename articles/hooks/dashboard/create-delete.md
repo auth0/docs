@@ -1,8 +1,9 @@
 ---
 description: How to create new Hooks using the Management Dashboard
+beta: true
 ---
 
-# Create a New Hook Using the Dashboard&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
+# Create a New Hook Using the Dashboard
 
 You can create new Hooks using the Auth0 Management Dashboard.
 
@@ -26,7 +27,7 @@ You can create new Hooks using the Auth0 Management Dashboard.
 
   At this point, you will see your newly-created Hook listed under its associated extensibility point.
 
-:::panel-info New Hooks
+:::panel New Hooks
 For any given extensibility point, you may create multiple Hooks. However, you may only have **one** Hook enabled per extensibility point at any given time.
 
 Auth0 automatically enables the first Hook you create for an extensibility point, and any subsequent Hooks for that point are created in a disabled state. As such, you must explicitly activate subsequent Hooks.

@@ -40,7 +40,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     IOptions<Auth0Settings> auth0Settings)
 {
     [...]
-    
+
     var options = new OpenIdConnectOptions("Auth0")
     {
         // Set the authority to your Auth0 domain
@@ -94,7 +94,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
                 return Task.CompletedTask;
             },
-            // handle the logout redirection 
+            // handle the logout redirection
             OnRedirectToIdentityProviderForSignOut = [...] // omitted for brevity
         }
     };
@@ -108,6 +108,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 The `access_token` will now be stored as a claim called "access_token", so to retrieve it inside a controller you can simply use `User.Claims.FirstOrDefault("access_token").Value`
 
-::: warning-banner Beware of your cookie size
+::: warning
 You need to note that saving the tokens will increase the size of your authentication cookie, so be careful with adding unnecessary claims to the ClaimsIdentity as this cookie is sent back to the server with every request.
 :::

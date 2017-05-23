@@ -26,7 +26,9 @@ On the **Configure** tab of the application you will be able to generate a new k
 
 ![Azure AD Client ID and Key](/media/articles/integrations/office-365/office-365-app-key.png)
 
-> Note: They key generated here is valid for 1 or 2 years. Make sure you generate a new key before it expires and you update it in Auth0 accordingly.
+::: note
+They key generated here is valid for 1 or 2 years. Make sure you generate a new key before it expires and you update it in Auth0 accordingly.
+:::
 
 The final step in the Azure AD configuration is to give the required permissions to the application. Under **Application Permissions** (at the bottom of the page) you will need to choose **Read and write directory data**. This will allow your application to create new users in Azure AD.
 
@@ -257,7 +259,9 @@ function (user, context, callback) {
 }
 ```
 
-> Note: this code shows the provisioning process of a new user, but you can also adapt the code to synchronise metadata of existing users.
+::: note
+This code shows the provisioning process of a new user, but you can also adapt the code to synchronize metadata of existing users.
+:::
 
 ## End-user Experience
 
@@ -269,7 +273,9 @@ You will basically need to redirect your users to the following URL (eg: using a
 https://${account.namespace}/login?client=CLIENT_ID_OF_THIRD_PARTY_APP&protocol=wsfed&state=&redirect_uri=&
 ```
 
-> Note: the `CLIENT_ID_OF_THIRD_PARTY_APP` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see an URL in the form of `https://${account.namespace}/#/externalapps/${account.clientId}/settings`. The `${account.clientId}` is the value you need here.
+::: panel CLIENT_ID_OF_THIRD_PARTY_APP
+The `CLIENT_ID_OF_THIRD_PARTY_APP` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see an URL in the form of `https://${account.namespace}/#/externalapps/${account.clientId}/settings`. The `${account.clientId}` is the value you need here.
+:::
 
 This will show them the Auth0 login page after which they'll be redirected to Office 365. It will be important to explain external users that this is the only way they can authenticate, since the Office 365 login page does not support Home Realm Discover for these external users. This also means that, when they try to open a link, they'll need to visit the smart link first before the can access the link they tried to open.
 

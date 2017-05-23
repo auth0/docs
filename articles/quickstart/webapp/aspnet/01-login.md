@@ -21,7 +21,9 @@ Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manag
 
 ${snippet(meta.snippets.dependencies)}
 
-> This package will add a `LoginCallback.ashx` to your project, which will process the login.
+::: note
+This package will add a `LoginCallback.ashx` to your project, which will process the login.
+:::
 
 ## 2. Configure Callback URLs
 
@@ -70,7 +72,7 @@ An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the req
 </system.web>
 ```
 
-In the above example, we are redirecting to a `Login` action in an `Account` controller. The `Login` action can return a view that integrates Lock or shows a custom UI, or directly redirect to Auth0 for authentication, as described in [#4](#4-triggering-login-manually-or-integrating-the-auth0lock).
+In the above example, we are redirecting to a `Login` action in an `Account` controller. The `Login` action can return a view that integrates Lock or shows a custom UI, or directly redirect to Auth0 for authentication, as described in [#4](#4-trigger-login-manually-or-integrating-lock).
 
 ```cs
 public ActionResult Login(string returnUrl)

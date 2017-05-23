@@ -150,7 +150,10 @@ def link_providers
   end.compact
 end
 ```
-> You can read more about the OmniAuth Auth0 custom strategy and the authentication hash [here](https://github.com/auth0/omniauth-auth0#auth-hash).
+
+::: note
+You can read more about the OmniAuth Auth0 custom strategy and the authentication hash [here](https://github.com/auth0/omniauth-auth0#auth-hash).
+:::
 
 ## Update the Auth0Controller
 

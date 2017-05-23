@@ -51,7 +51,9 @@ Your verification code is: {{ code }}
 {% endif %}
 ```
 
-> We assume that you have the SMS connection correctly configured, including the Twilio account. If you haven't, please do so.
+::: note
+We assume that you have the SMS connection correctly configured, including the Twilio account. If you haven't, please do so.
+:::
 
 ### Using Email Connection
 
@@ -118,9 +120,9 @@ public class MyActivity extends AppCompatActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       // Your own Activity code
-      Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
-      account.setOIDCConformant(true);
-      lock = PasswordlessLock.newBuilder(account, callback)
+      Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+      auth0.setOIDCConformant(true);
+      lock = PasswordlessLock.newBuilder(auth0, callback)
             .useLink()
             .build(this);
   }

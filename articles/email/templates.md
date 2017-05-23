@@ -4,7 +4,7 @@ description: The Emails section of the Auth0 dashboard allows you to customize y
 
 # Customizing Your Emails
 
-::: panel-warning Notice
+::: panel-warning Email Setup
 You must setup your own email provider using a [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) to be able to customize your emails.
 :::
 
@@ -13,7 +13,9 @@ The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emai
 ![](/media/articles/email/index/emails-fields.png)
 
 
-**Note:** Only one template can be used for each template type (i.e. only one template for change password emails).
+::: note
+Only one template can be used for each template type (i.e. only one template for change password emails).
+:::
 
 ## Configuring *From*, *Subject*, *Redirect To*, and *URL Lifetime*
 
@@ -23,7 +25,7 @@ For each type of email, you can customize the **From Address**, the **Subject**,
 
 Users will see the sender's address in the **From Address** field when receiving an email from Auth0. If you do not configure a **From Address** for your emails your emails will be sent from the email address of the first owner of your Auth0 account.
 
-::: panel-info Domain blacklist
+::: note
 For security purposes, you may not send customized emails from any `@auth0.com` address. If you are an appliance user, you may configure a similar domain blacklist.
 :::
 
@@ -76,7 +78,7 @@ You can redirect users to a specific page on the **Allowed Callback URL** using 
 {application.callback_domain}/result_page
 ```
 
-If your application has multiple **Allowed Callback URL**s configured, Auth0 will use the first URL listed.
+If your application has multiple **Allowed Callback URLs** configured, Auth0 will use the first URL listed.
 
 #### Dynamic Redirect To URLs
 
@@ -86,7 +88,7 @@ You can set up a different Redirect To URLs based on your Client ID. For example
 {% if application.clientID == '${account.clientId}' %} http://jwt.io {% else %} http://auth0.com {% endif %}
 ```
 
-::: panel-info SPA Issue
+::: note
 For some single-page apps, the redirect to url can sometimes contain a hash that may be removed. This results in the **redirect To** url not working as expected. For more information, see: [Single-Page App Email Redirect Issue](/email/spa-redirect).
 :::
 
@@ -143,7 +145,7 @@ To assist your template development, we've added a custom `{% debug %}` liquid t
 
 #### Using Markdown Syntax
 
-::: panel-danger Deprecation Notice
+::: warning
 Use of Markdown in email templates has been deprecated, so you will no longer be able to add new Markdown formatting. If you have an existing template in Markdown, you will be able to toggle from Markdown to Liquid, but changing this setting will result in  you losing any existing Markdown, as well as the ability to use Markdown.
 :::
 
@@ -176,7 +178,7 @@ The following macros are available in the **Verification Email** template:
 If you configure a **Redirect To** URL, the user will be directed to this URL after clicking the verification link. The following will be appended to the query string:
 
 ```text
-http://myapplication.com/my_page/ 
+http://myapplication.com/my_page/
   ?email=john%40contoso.com
   &message=Your%20email%20was%20verified.%20You%20can%20continue%20using%20the%20application.
   &success=true

@@ -11,7 +11,9 @@ You may use Appliance CLI to perform a backup on a specific node.
 
 Please ensure that your workstation has been [configured to perform operations](/appliance/cli/configure-cli) on your Appliance instances;
 
-> Please perform backups only on Appliance instances running **build 7247** or later. Backups are only allowed on nodes added to the `backup` role. Please see [Adding a Node to the Backup Role](/appliance/cli/adding-node-to-backup-role) for additional information.
+::: note
+  Please perform backups only on Appliance instances running **build 7247** or later. Backups are only allowed on nodes added to the `backup` role. Please see [Adding a Node to the Backup Role](/appliance/cli/adding-node-to-backup-role) for additional information.
+:::
 
 Please be aware that, throughout this document, the following sample values are used:
 
@@ -32,7 +34,9 @@ If the command successfully begins the backup process, you will see the message,
 
 The backup will be encrypted using the `aes-256-crt` algorithm.
 
-> Only one backup may performed and stored at any given time. Prior to generating a new backup of a node, the existing backup must be deleted.
+::: note
+  Only one backup may performed and stored at any given time. Prior to generating a new backup of a node, the existing backup must be deleted.
+:::
 
 ## Retrieving a Backup
 
@@ -64,7 +68,9 @@ To retrieve an existing backup, you will use the "backup-retrieve" message in yo
 
 This will download the backup inside of a file called `backup-retrieve.tar.gz.enc`.
 
-> Auth0 recommends checking the md5sum of the retrieved file against that received as part of the back-up status message. Please remember that the files are encrypted using the `aes-256-crt` algorithm.
+::: note
+  Auth0 recommends checking the md5sum of the retrieved file against that received as part of the back-up status message. Please remember that the files are encrypted using the `aes-256-crt` algorithm.
+:::
 
 ### Deleting a Backup
 

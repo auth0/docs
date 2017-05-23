@@ -44,4 +44,6 @@ ${snippet(meta.snippets.setup)}
 | `auth0.issuer` | The issuer of the JWT Token. This is typically your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your `auth0.domain` is `example.auth0.com` then the `auth0.issuer` should be set to `https://example.auth0.com/` (the trailing slash is important). |
 | `auth0.apiAudience` | The unique identifier for your API. You can find the correct value on the [APIs](${manage_url}/#/apis) section of the Dashboard. * |
 
-**NOTE**: If you download the seed project using our **Download Sample** button then the `issuer` attribute will be populated for you, unless you are not logged in or you do not have at least one registered client. Do not forget to manually set the `apiAudience` attribute.
+::: note
+If you download the seed project using our **Download Sample** button then the `issuer` attribute will be populated for you, unless you are not logged in or you do not have at least one registered client. Do not forget to manually set the `apiAudience` attribute.
+:::

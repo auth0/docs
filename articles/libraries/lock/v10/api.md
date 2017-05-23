@@ -12,6 +12,8 @@ Lock has many methods, features, and configurable options. This reference is des
 * [getUserInfo()](#getuserinfo-) - Obtaining the profile of a logged in user
 * [show()](#show-) - Showing the Lock widget
 * [on()](#on-) - Listening for events
+* [resumeAuth()](#resumeauth-) - Use to complete authentication flow when `autoParseHash` is false
+* [logout()](#logout-) - Log out the user
 
 ## Auth0Lock
 
@@ -106,7 +108,7 @@ lock.show({
 });
 ```
 
-::: panel-info When to set your configuration options
+::: panel When to set your configuration options
 Options should be set when first instantiating Lock `var lock = new Auth0Lock(clientId, domain, options);`. Options should only be passed to `show` in order to override your previously set options while displaying the widget at this particular time and place.
 
 Previous users of Lock 9 should note that this is a different behavior from `options` in Lock 9, where all options were set as parameters of `show` and not at instantiation.
@@ -208,4 +210,33 @@ lock.on("authenticated", function(authResult) {
 
 - `authorization_error`: emitted when authorization fails. Has the error as its only argument.
 - `hash_parsed`: _Note that this is a low level event for advanced use cases, and `authenticated` and `authorization_error` should be preferred when possible._ Every time a new Auth0Lock object is initialized in redirect mode (the default), it will attempt to parse the hash part of the URL, looking for the result of a login attempt. After that, this event will be emitted with `null` if it couldn't find anything in the hash. It will be emitted with the same argument as the `authenticated` event after a successful login or with the same argument as `authorization_error` if something went wrong. This event won't be emitted in [popup mode](/libraries/lock/v10/popup-mode), because in popup mode, there is no need to parse the URL's hash part.
+
+
+## resumeAuth()
+
+If you set the [auth.autoParseHash](/libraries/lock/v10/customization#autoparsehash-boolean-) option to `false`, you'll need to call this method to complete the authentication flow. This method is useful when you're using a client-side router that uses a `#` to handle urls (angular2 with `useHash`, or react-router with `hashHistory`).
+
+- **hash** {String}: The hash fragment received from the redirect.
+- **callback** {Function}: Will be invoked after the parse is done. Has an error (if any) as the first argument and the authentication result as the second one. If there is no hash available, both arguments will be `null`.
+
+```js
+lock.resumeAuth(hash, function(error, authResult) {
+  if (error) {
+    alert("Could not parse hash");
+  }
+  console.log(authResult.accessToken);
+});
+```
+
+## logout()
+
+Logs out the user.
+
+- **options** {Object}: This is optional and follows the same rules as [auth0.js logout](/libraries/auth0js#logout)
+
+```js
+lock.logout({ 
+  returnTo: 'https://myapp.com/bye-bye' 
+});
+```
 

@@ -12,9 +12,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 
 [Markdown](#markdown)
   * [Headings](#headings)
-  * [Warning banner](#warning-banner)
-  * [Panels](#panels)
-  * [Alerts](#alerts)
+  * [UI Components](#ui-components)
   * [HTTP Request Snippets](#http-request-snippets)
   * [Escaping Strings](#escaping-strings)
   * [Screenshots](#screenshots)
@@ -87,59 +85,79 @@ INVALID: `#My Heading`
 
 VALID: `# My Heading`
 
-### Warning banner
-You can add a warning banner to the top of a page to notify that a page is deprecated or other similar messages.
+### UI Components
+
+General advice:
+- Don't add custom UI components with HTML unless it's really necessary.
+- Don't add any element before the main title. If you want to show some general information for the whole doc put the element after the main title.
+- Try to keep the amount of UI components on your docs to a minimum. They make the documentation more difficult to read and cut the reading flow.
+- Only use the `blockquote` element (`>` in markdown) to represent actual quotes. Use a `note` or a `panel` if you want to highlight the information.
+
+#### Note
+
+Use this component if you want to display some extra information, links to related content or clarifications.
+
+Only use this if the content is brief (one to four lines), if not use the `panel` component.
 
 ```
-::: warning-banner
-You message here
+::: note
+  If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
+:::
+```
+![Note container](https://cloud.githubusercontent.com/assets/6318057/26081072/91318302-399f-11e7-8cf2-57cb55c6ce1d.png)
+
+#### Warning
+
+Use this component if you want to notify that the content is deprecated, there is a security issue or to highlight some **very important** information.
+
+Only use this if the content is brief (one to four lines), if not use the `panel-warning` component. It's recommended to keep the copy of the warnings short and clear.
+
+```
+::: warning
+Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.
 :::
 ```
 
-### Panels
-Panels can be useful to separate information from the main body of a document. If you want to add versioning information use [alerts](#alerts) instead.
+![Warning container](https://cloud.githubusercontent.com/assets/6318057/26081268/6a894af4-39a0-11e7-96bc-6ef69a3be941.png)
+
+
+#### Panels
+
+Use panels when you want to separate long information from the main body of the document.
+
+Try to add a meaningful title to the panel. Avoid using "NOTE" or "WARNING".
+
+We support two types of panels: **panel** and **panel-warning**.
+
+
+##### Panel (default)
 
 ```
-::: panel-primary This is a panel
-Panel content
+::: panel Title
+Description
 :::
 
-::: panel-warning This is a warning
-Panel content
-:::
-
-::: panel-info This is info
-Panel content
-:::
-
-::: panel-danger This is a dangerous
-Panel content
-:::
-
-::: panel-success This is good
-Panel content
+::: panel Enable APIs Section
+If you can't see the [API section](${manage_url}/#/apis) in the left hand menu of the dashboard then you will have to enable it. Navigate to your [Account Advanced Settings](${manage_url}/#/account/advanced), scroll down to the *Settings* section and toggle the **Enable APIs Section** switch.
 :::
 ```
 
-### Alerts
+![Panel default container](https://cloud.githubusercontent.com/assets/6318057/26082080/4a465756-39a4-11e7-99a1-79846c7cdfa6.png)
 
-Alerts should be used to display brief versioning information. For example:
+##### Panel (warning)
 
-```html
-<div class="alert alert-info">
-Due to the asynchronous nature of Node.js, you <strong>must</strong> call the <code>callback</code> function. If not, this acts as a blocker and the next rule will not execute. The entire rules sequence must complete within <strong>20 seconds</strong>, otherwise the process times out.
-</div>
+```
+::: panel-warning Title
+Description
+:::
 
-<div class="alert alert-warning">
-  <strong>Heads up!</strong> This document uses an outdated version of Lock (version 9). Learn how to <a href="/libraries/lock/v10/migration-guide">migrate to version 10</a>, or, if you're new to Lock, start out with the <a href="/libraries/lock">Lock 10 Documentation</a>.
-</div>
+::: panel-warning Security Warning
+It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Grant flow](/api-auth/grant/implicit) is more appropriate in that case.
+:::
 ```
 
-looks like this:
+![Panel warning container](https://cloud.githubusercontent.com/assets/6318057/26082243/588586b0-39a5-11e7-88ef-3290be88e96a.png)
 
-![Alert displaying version info](https://cloud.githubusercontent.com/assets/6318057/25852886/40cfde98-34a1-11e7-9a89-f0d13c8c1f7a.png)
-
-See all the different types of alerts in the [Auth0 Styleguide](http://styleguide.auth0.com/#/components/alerts)
 
 ### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
@@ -751,20 +769,23 @@ The `versioning` object has the following properties:
 
 When a user views an article within a versioned topic, a select will be added after the main title:
 
-![Versioned article Select UI](https://cloud.githubusercontent.com/assets/6318057/25916081/cf14663a-3599-11e7-92ea-c4fbadd45741.png)
-
-If the document is outdated you can add an alert **(after the main title)** using the following HTML structure:
-
-```
-<div class="alert alert-warning version-alert">
-  This document uses an older version of auth0.js. We recommend you to
-  <a href="/libraries/auth0js/v8/migration-guide">upgrade to the latest version</a>.
-</div>
-```
+![Version select UI](https://cloud.githubusercontent.com/assets/6318057/26082431/3c74d560-39a6-11e7-836b-39c9ea6b50e4.png)
 
 The user can navigate between versions of the topic by selecting a new version from the drop-down box. If an article with the same filename is present in the newly-selected version, the user will navigate to that article. If no article with the same filename is present, they will instead receive a HTTP redirect (302) to the *default article* for that version.
 
 By default, the default article for a version is the first article in the subdirectory (sorted alphabetically, ascending). To change this, you can add an entry in the `defaultArticles` map of the `versioning` object in `index.yml`.
+
+If the version of the article is outdated or deprecated, add the `version-warning` component (after the main title) to show this.
+
+```
+::: version-warning
+This document covers an outdated version of Lock. We recommend you to <a href="/libraries/lock/v10/migration-guide">upgrade to v10</a>.
+:::
+
+```
+
+![image](https://cloud.githubusercontent.com/assets/6318057/26082485/90f464fc-39a6-11e7-90ac-2a22773b02a5.png)
+
 
 ## Limitations
 

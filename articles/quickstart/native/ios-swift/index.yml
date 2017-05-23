@@ -10,13 +10,14 @@ image: /media/platforms/ios.png
 tags:
   - quickstart
 seo_alias: swift
+snippets:
+  setup: native-platforms/ios-swift/setup
+  use: native-platforms/ios-swift/use
 default_article: dashboard-default
 articles:
-  - 00-getting-started
-  - 01-login
-  - 02-custom-login
+  - getting-started
+  - 00-login
   - 03-user-sessions
+  - 04-calling-apis
   - 05-authorization
-  - 06-mfa
   - 07-linking-accounts
-  - 08-customizing-lock

@@ -11,7 +11,7 @@ toc: true
 
 In this scenario we will build a web application for a fictitious company named ABC Inc. The app is meant to be used by ABC's employees and contractors. Employees will use their existing corporate directory (Active Directory), while contractors will be managed in a separate user store.
 
-::: panel-info NOTE
+::: note
 By _Regular Web App_, we mean an app that uses primarily server side, page `GET`, `POST`, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single Page App), that heavily relies on client side JavaScript code calling an API.
 :::
 
@@ -29,7 +29,7 @@ ABC Inc. wants to launch the new solution quickly so they chose to start simple 
 
 The application should be available to logged in users only. Each user will have a role, and based on this role, they should be able to perform certain actions and view specific data.
 
-::: panel-info Authentication vs Authorization
+::: panel Authentication vs Authorization
 ABC wants to __authenticate__ and __authorize__ each user. Authentication has to do with identity: verifying that the user is indeed who they claim to be. Authorization is about deciding which resources a user should have access to, and what they should be allowed to do with those resources.
 :::
 
@@ -56,7 +56,7 @@ The solution should be available both to the employees with a physical presence 
 
 ABC decided to use Auth0 as their Identity as a Service (IDaaS) provider. The reasoning behind this decision was that the company did not want to commit resources on  training, implementation and maintenance of identity and access management. Furthermore, the company plans on building into this solution in the future, possibly adding a mobile native app and an API to push approved timesheets to their internal systems. Auth0 provides the flexibility to incorporate such changes in their architecture with minimum effort.
 
-::: panel-info Identity-as-Service
+::: note
 Identity-as-Service ("IDaaS") is a cloud-based service for identity and access management. The offered services often include SSO, federated identity, password management, and more.
 :::
 
@@ -64,13 +64,13 @@ Identity-as-Service ("IDaaS") is a cloud-based service for identity and access m
 
 The next decision has to do with which protocol to use, OAuth 2.0 with OpenID Connect (OIDC) or SAML.
 
-::: panel-info Supported identity protocols
+::: note
 Auth0 implements proven, common and popular identity protocols, both for consumer oriented web products (OAuth 2.0, OAuth 1.0, OpenID) and for enterprise deployments (SAML, WS-Federation, LDAP). You have complete freedom to use the one that best meets your business needs.
 :::
 
 __OpenID Connect__ is an authentication protocol, based on the OAuth 2.0 family of specifications. It uses simple JSON identity tokens (JWT) delivered via the OAuth 2.0 protocol.
 
-::: panel-info OAuth vs OpenID Connect (OIDC)
+::: panel OAuth vs OpenID Connect (OIDC)
 OAuth 2.0 and OpenID Connect (OIDC) are often mistaken for the same thing, but this is not exact.
 __OAuth 2.0__ is a protocol that lets you authorize one website (the consumer or client) to access your data from another website (the resource server or provider). For example, you want to authorize a website to access some files from your Dropbox account. The website will redirect you to Dropbox which will ask you whether it should provide access to your files. If you agree the website will be authorized to access your files from Dropbox. At the core, OAuth 2.0 is about resource access and sharing.
 __OpenID Connect__, on the other hand, is a simple identity layer built on top of the OAuth 2.0 protocol. It gives you one login for multiple sites. Each time you need to log in to a website using OIDC, you are redirected to your OpenID site where you login, and then taken back to the website. At the core, OIDC is concerned with user authentication.
@@ -95,13 +95,13 @@ The flow goes as follows:
 
 ![Diagram of the Authorization Code Flow](/media/articles/architecture-scenarios/web-app-sso/authz-code-flow.png)
 
-::: panel-info Form Post Response Mode
+::: panel Form Post Response Mode
 Another option is to use the __OAuth 2.0 Form Post Response Mode__ with `response_type=id_token&response_mode=form_post`. Due to the `response_type=id_token` request parameter, the response contains the `id_token` directly, instead of the authorization code, while the `response_mode=form_post` encodes the `id_token` with the rest of the Authorization Response parameters as HTML form values that are auto-submitted in the User Agent. This way you can have an optimized authentication flow (no need to exchange the code for an `id_token`), however you have to make sure that it is supported by the technology you are using to implement your app (ASP .NET Core middleware does support it). For more details refer to the [OAuth 2.0 Form Post Response Mode specification](https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html).
 :::
 
 The __ID token__ (usually referred to as `id_token`) is a __JSON Web Token (JWT)__ that contains identity data. It is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display.
 
-::: panel-info More on tokens
+::: panel More on tokens
 Tokens are alphanumeric strings used in token-based authentication. They allow users to authenticate with a username and password once and get a token in return which they can use from that point on. They have a limited lifetime duration.
 
 __JSON Web Tokens (JWTs)__ are tokens that conform to the [JSON Web Token Standard](https://tools.ietf.org/html/rfc7519) and contain information about an identity in the form of claims. They are self-contained in that it is not necessary for the recipient to call a server to validate the token. JWTs can be signed using a secret (with the __HMAC__ algorithm) or a public/private key pair using __RSA__. You can find more information on JWT [here](/jwt).
@@ -139,7 +139,7 @@ In this section we will review all the configurations we need to apply using the
 
 The Auth0 configuration part starts with registering the timesheets app at the Auth0 dashboard as a __client__. A client is an application making protected resource requests on behalf of the resource owner (end-user).
 
-::: panel-info NOTE
+::: note
 The term "client" does not imply any particular implementation characteristics. A client can be a web app, a mobile app or an SPA. In the case of ABC it is a ASP.NET Core web app.
 :::
 
@@ -179,7 +179,7 @@ The next step is to configure the identity providers that will be used for authe
 
 ABC needs to configure two connections: one Active Directory connection for the internal employees, and one Database connection for external parties.
 
-::: panel-info Supported identity providers
+::: panel Supported identity providers
 Auth0 supports a vast variety of protocols and identity providers:
 - Social: Allow your users to log in using Google, Facebook, LinkedIn, Github, and many more.
 - Enterprise: Allow your users to log in using Active Directory, ADFS, LDAP, SAML-P, and many more.
@@ -209,7 +209,7 @@ There you need to create the AD / LDAP connection and install the AD Connector. 
 - [How to connect your Active Directory with Auth0](/connections/enterprise/active-directory)
 - [How to install the Active Directory/LDAP Connector](/connector)
 
-::: panel-info AD/LDAP Connector
+::: note
 The AD/LDAP Connector, is a bridge between your Active Directory and the Auth0 Service. This bridge is necessary because AD is typically locked down to your internal network, and Auth0 is a cloud service running on a completely different context.
 [More information](/connector/overview)
 :::
@@ -218,7 +218,7 @@ Once you have configured the connection and the connector, be sure to enable you
 
 ![Enable the client to use this AD connection](/media/articles/architecture-scenarios/web-app-sso/enable-client-ad.png)
 
-::: panel-info Kerberos support
+::: panel Kerberos support
 The AD/LDAP connector supports Kerberos to make it easer for your users to authenticate when they are on a domain-joined machine within the corporate network. To activate Kerberos on an Active Directory you have to simply enable the option in the dashboard. After enabling Kerberos you'll also be able to configure the __IP Ranges__. When users originate from these IP address ranges this information will be exposed in the SSO endpoint which means client-side SDKs like auth0.js and the Lock will be able to detect Kerberos support and allow Integrated Windows Authentication.
 [More information](/connector/kerberos)
 
@@ -268,7 +268,7 @@ When talking about managing sessions, there are typically three layers of sessio
 
 When developing a web application, you will therefore need to keep track of the fact that the user has logged in to your Web application. You can do this by making use of a cookie-based session to keep track of the fact that the user has signed in, and also store any of the user related information or tokens.
 
-::: panel-info How do I control the duration of the user's local application session? Can I drive that from Auth0?
+::: panel How do I control the duration of the user's local application session? Can I drive that from Auth0?
 The web app has full control over the user's local application session. How this is done usually depends on the web stack being used (for example, ASP.NET). Regardless, all approaches ultimately use one or more cookies to control the session. The developer can choose to use the expiration of the JWT `id_token` returned by Auth0 to control their session duration or ignore it completely. Some developers store the `id_token` itself in session state and end the user's session when it has expired.
 
 The reason why you would use the expiration of the token to determine the expiration of the local session is because it gives you centralized control of the duration of a user session from the Auth0 Dashboard.
@@ -284,7 +284,7 @@ The login flow is as follows:
 1. __Set auth cookie and send response__: The web server will send a response back to the browser and set the application authentication cookie to store the user's session information.
 1. __Auth cookie sent with every subsequent request__: The application authentication cookie will be sent on every subsequent request as proof that the user is authenticated.
 
-::: panel-info How does Auth0's SSO session impact the application's session?
+::: panel How does Auth0's SSO session impact the application's session?
 Auth0 manages its own single-sign-on session. Applications can choose to honor or ignore that SSO session when it comes to maintaining their own local session. The Lock widget even has a special feature where it can detect if an Auth0 SSO session exists and ask the user if they wish to log in again as that same user.
 
 ![Lock Widget SSO](/media/articles/architecture-scenarios/web-app-sso/sso-login.png)
@@ -329,7 +329,7 @@ There are various ways in which you can retrieve and set the user authorization 
 
 Since in our case the company has already Active Directory set up, we will enforce access control using the Authorization Extension in combination with Active Directory groups.
 
-::: panel-info NOTE
+::: panel Authorization Extension
 At this point in time the authorization extension is primarily designed to enforce coarse-grained authorization, for example to control access to an application based on a user's group membership. It is not necessarily designed to control fine-grained access (i.e. whether a user can perform a specific action inside the application), even though this is how we are utilizing it in this instance.
 :::
 
@@ -386,7 +386,9 @@ When you installed the Authorization Extension, it also created an Auth0 rule wh
 
 In your application you will therefore need to decode the ID Token returned when a user is authenticated, and extract the groups which a user belongs to from the `authorization` claim. You can then store these groups, along with other user information inside the user's session, and subsequently query these to determine whether a user has permissions to perform a certain action based on their group membership.
 
-**See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#implement-admin-permissions)**.
+::: note
+  See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/implementation-aspnetcore#implement-admin-permissions).
+:::
 
 ## Conclusion
 

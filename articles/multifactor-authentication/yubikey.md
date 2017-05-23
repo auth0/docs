@@ -26,7 +26,9 @@ This sample uses a single Webtask to handle 3 states:
 
 Save this code locally in a file named `yubico-mfa-wt.js`. The full source code is also available [here](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md).
 
-**NOTE:** The styling of the HTML form below was omitted for brevity. Please check the [full source code for a styled example](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md).
+::: note
+The styling of the HTML form below was omitted for brevity. Please check the [full source code for a styled example](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md).
+:::
 
 ```JS
 var request = require('request');
@@ -207,9 +209,13 @@ return function (context, req, res) {
 }
 ```
 
-**NOTE:** The redirect to Auth0 contains two querystring parameters: `id_token` and `state`. `id_token` is a convenient and secure way of transferring information back to Auth0. `state` is mandatory to protect against CSRF attacks.
+::: note
+The redirect to Auth0 contains two querystring parameters: `id_token` and `state`. `id_token` is a convenient and secure way of transferring information back to Auth0. `state` is mandatory to protect against CSRF attacks.
+:::
 
-**NOTE:** No keys are hard-coded into the Webtask code. They are referred to by the variables `context.data.yubico_clientid` and `context.data.yubico_secret`. These parameters are securely embedded in the Webtask token when the Webtask is created.
+::: note
+No keys are hard-coded into the Webtask code. They are referred to by the variables `context.data.yubico_clientid` and `context.data.yubico_secret`. These parameters are securely embedded in the Webtask token when the Webtask is created.
+:::
 
 ### 1. Initialize Webtask CLI
 
@@ -223,7 +229,9 @@ Once the Webtask CLI is installed, run:
 wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --secret yubikey_clientid={YOUR YUBIKEY CLIENT ID} --secret returnUrl=https://${account.namespace}/continue --profile {WEBTASK PROFILE} yubico-mfa-wt.js
 ```
 
-**NOTE:** Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Account Settings > Webtasks](${manage_url}/#/account/webtasks) page.
+::: note
+Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Account Settings > Webtasks](${manage_url}/#/account/webtasks) page.
+:::
 
 The `create` command will generate a URL that will look like:
 
@@ -267,7 +275,9 @@ function (user, context, callback) {
 }
 ```
 
-**NOTE:** The returning section of the rule validates the JWT issued by the Webtask. This prevents the result of the MFA part of the transaction from being tampered with because the payload is digitally signed with a shared secret.
+::: note
+The returning section of the rule validates the JWT issued by the Webtask. This prevents the result of the MFA part of the transaction from being tampered with because the payload is digitally signed with a shared secret.
+:::
 
 Every time the user logs in they will be redirected to the Webtask and will see something like:
 

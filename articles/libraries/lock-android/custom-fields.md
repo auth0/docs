@@ -37,7 +37,9 @@ Lock lock = Lock.newBuilder(auth0, callback)
 
 Thats it! If you have enabled users Sign Up in the Application's Dashboard, after they complete the basic fields (email/username, password) and hit Submit, they will be prompted to fill the remaining fields.
 
-> Note that the user must fill _all_ of the custom fields before being able to complete signup.
+::: note
+The user must fill all of the custom fields before being able to complete signup.
+:::
 
 When requesting a user Sign Up or Sign In, the extra fields will be attached to the `user_metadata` attribute in the request body. You can access them by querying the user profile at any time, even from the Dashboard in the User's section.
 

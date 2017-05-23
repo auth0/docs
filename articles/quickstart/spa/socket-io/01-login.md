@@ -17,7 +17,7 @@ budicon: 448
 
 Install [socketio-jwt](https://github.com/auth0/socketio-jwt) from npm and save it to your `package.json` using
 
-```
+```text
 npm install --save socketio-jwt
 ```
 

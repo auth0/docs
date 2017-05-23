@@ -54,8 +54,7 @@ Wildcard searches can be run on individual terms, using `?` to replace a single 
 
 Note that certain wildcard queries will require an enormous amount of memory and perform poorly. (For example, imagine how many terms need to be queried to match the query string `"a* b* c*"`.)
 
-::: panel-warning Warning
-
+::: panel-warning Leading wildcards and memory
 Including a wildcard at the beginning of a word (e.g. `"*ing"`) is particularly memory intensive since all terms in the index will be examined for a match. Leading wildcards can be disabled by setting the `allow_leading_wildcard` option to `false`.
 :::
 
@@ -65,13 +64,12 @@ Regular expression patterns can be embedded in the query string by wrapping them
 
 `name:/joh?n(ath[oa]n)/`
 
-**NOTE:** A detailed explanation of the supported regular expression syntax is explained on the Elastic's site at [Regular Expression Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax).
+::: note
+  A detailed explanation of the supported regular expression syntax is explained on the Elastic's site at <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax">Regular Expression Syntax</a>.
+:::
 
-::: panel-warning Warning
-The `allow_leading_wildcard` parameter does not affect regular expressions. A query string, such as the following, would force Elasticsearch to visit every term in the index:
-
-`/.*n/`
-Use with caution.
+::: panel-warning Leading wildcards and regular expressions
+The `allow_leading_wildcard` parameter does not affect regular expressions. A query string, such as the following, would force Elasticsearch to visit every term in the index: `/.*n/`. Use with caution.
 :::
 
 ### Fuzziness
@@ -192,4 +190,6 @@ If the query string is empty or contains only whitespaces, the query will yield 
 
 For example queries for searching users, see: [Users Search](/api/v2/user-search).
 
-*The preceding information is adapted from Elastic's [Elasticsearch Reference](http://elastic.co).*
+::: note
+  The preceding information is adapted from Elastic's <a href="http://elastic.co">Elasticsearch Reference</a>.
+:::

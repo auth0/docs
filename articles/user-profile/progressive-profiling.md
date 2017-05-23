@@ -8,7 +8,9 @@ Rather than asking your users to fill out extensive registration forms, you can 
 
 For example, you might collect just the user's name, email, and password on initial signup. At a later point in time, you might ask for the name of their company and their title.
 
-> Golden Rule: Never ask what you already know. If a user signs-up using a social network, you might already have demographic information on that user.
+::: note
+Golden Rule: Never ask what you already know. If a user signs-up using a social network, you might already have demographic information on that user.
+:::
 
 ## Implementing Progressive Profiling with Auth0
 
@@ -22,11 +24,15 @@ You can very easily implement **progressive profiling** with Auth0. Every user t
 
 The first two sources are generally not directly relevant to **progressive profiling** (though they do supply information you won't need to ask the user for).
 
-> Users logging in with social networks will typically _consent_ to disclose their information.
+::: note
+Users logging in with social networks will typically _consent_ to disclose their information.
+:::
 
 Using the Auth0 [Users API](/api/v2#!/Users/patch_users_by_id), you can augment the profile of any authenticated user with any information. Auth0 metadata objects can contain any serializable data structure.
 
-> Auth0 provides two metadata attributes: `user_metadata` and `app_metadata`. You may update the contents of `user_metadata` with the user token obtained after authentication, but you will need a server-side APIv1 token to modify the contents of `app_metadata`.
+::: note
+Auth0 provides two metadata attributes: `user_metadata` and `app_metadata`. You may update the contents of `user_metadata` with the user token obtained after authentication, but you will need a server-side APIv1 token to modify the contents of `app_metadata`.
+:::
 
 This feature makes it very easy to control what information gets collected and when, and then through the [Users API](/api/v2#!/Users/patch_users_by_id), enriches the user profile with all that data:
 

@@ -16,9 +16,10 @@ This doc refers to the client steps to connect your client. If you are looking t
 
 Log in into Yandex and [create a new app](https://oauth.yandex.ru/client/new):
 
-> Complete instructions are available [here](http://api.yandex.ru/oauth/doc/dg/tasks/register-client.xml)
+::: note
+Complete instructions are available [here](http://api.yandex.ru/oauth/doc/dg/tasks/register-client.xml)
+:::
 
----
 
 ## 2. Register a new application
 
@@ -33,7 +34,6 @@ The callback address for your app should be:
 
 Notice that `scopes` in Yandex are defined in this screen. Select what kind of information you are requesting for your app.
 
----
 
 ## 3. Get your Application ID and Application Password
 
@@ -42,4 +42,3 @@ Once the application is registered, enter your new `Application ID` and `Applica
 ![](/media/articles/connections/social/yandex/yandex-add-connection.png)
 
 <%= include('../_quickstart-links.md') %>
-

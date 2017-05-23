@@ -1,10 +1,11 @@
 ---
 description: How to edit Hooks using the Auth0 Command-Line Interfance
+beta: true
 ---
 
-# Edit Existing Hooks Using the Auth0 Command-Line Interface&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
+# Edit Existing Hooks Using the Auth0 Command-Line Interface
 
-:::panel-info Profile Name
+::: note
 All of the examples on this page use `auth0-profile` as the name of the profile. This is the same profile name used when installing `wt-cli` and can be obtained from *Step 2* of the instructions set located on [Auth0 Management Dashboard's Webtask page](${manage_url}/#/account/webtasks).
 :::
 
@@ -16,7 +17,7 @@ You can edit the code of your Hook using the [Webtask Editor](https://webtask.io
 
 If the CLI cannot open the Editor window automatically, you can copy and paste the provided link into your web browser.
 
-:::panel-info Using the Webtask Editor
+::: note
 Please see the [Webtask docs](https://webtask.io/docs/editor) for detailed information on using the Webtask Editor.
 :::
 
@@ -38,7 +39,7 @@ If you run multiple tests, the Runner keeps track of the calls you've made in it
 
 ![](/media/articles/hooks/webtask-runner4.png)
 
-:::panel-info Test Runner Schema
+:::panel Test Runner Schema
 If you created your Hook early on during the beta testing period, your Webtask Editor/Test Runner window might not populate with the schema required to successfully use the Test Runner. If that is the case, you'll need to save the Hook's code, delete the Hook, and create a new Hook using your existing code.
 :::
 

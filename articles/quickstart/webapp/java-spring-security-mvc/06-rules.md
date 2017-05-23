@@ -14,8 +14,6 @@ budicon: 173
   ]
 }) %>
 
-
-
 Rules are one of the cool features of Auth0. The reason is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middlewares. To see a detailed description, please refer to [the Rules documentation](/rules).
 
 ## Create a Rule
@@ -32,7 +30,9 @@ ${snippet(meta.snippets.rulesSetRoles)}
 
 Once you are done, save the rule.
 
-**NOTE**: Keep in mind that this is just a starting template, you can edit it to meet your business needs.
+::: note
+Keep in mind that this is just a starting template, you can edit it to meet your business needs.
+:::
 
 ## Retrieve the Role
 
@@ -50,7 +50,6 @@ with this:
 .antMatchers("/portal/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
 ```
 
-
 ## Display Result
 
 Let's display some info to see that our rule actually works.
@@ -61,19 +60,15 @@ ${snippet(meta.snippets.rulesHomeJsp)}
 
 That's all the changes we need. Let's test this!
 
-
 ## Test the Rule
 
 Once you log in, depending on the email you used, you should see one of the two texts we configured.
 
 ![Role rule sample](/media/articles/java/rule-role.png)
 
-
 ## Optional: Create a Demo Resource
 
 In order to demonstrate the Role based authorization, let's create a resource which only an authenticated and authorized User with Admin rights can access.
-
-**NOTE:** This is an optional step, used for demonstration purposes, you can skip it.
 
 Create a new `AdminService.java` under `/src/main/java/com/auth0/example`. Paste the following code:
 

@@ -33,7 +33,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Integration
 
-To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, passing your Auth0 Domain and Client ID in the constructor. 
+To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, passing your Auth0 Domain and Client ID in the constructor.
 
 ${snippet(meta.snippets.setup)}
 
@@ -88,8 +88,9 @@ if (!loginResult.IsError)
 }
 ```
 
-> [!Note]
-> The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
+::: note
+The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
+:::
 
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 

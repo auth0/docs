@@ -2,9 +2,9 @@
 description: How to keep users logged in to your application
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Silent Authentication
+
+<%= include('../../_includes/_pipeline2') %>
 
 There are two main participants involved in a [single sign-on (SSO)](/sso) scenario: an Authorization Server (Auth0), and multiple client applications.
 
@@ -28,7 +28,9 @@ GET https://${account.namespace}/authorize
     prompt=none
 ```
 
-__NOTE__: The specific parameters on the authentication request will depend on what kind of application is authenticating ([regular web application](/api/authentication#authorization-code-grant), [single page app](/api/authentication#implicit-grant), and so forth).
+::: note
+  The specific parameters on the authentication request will depend on what kind of application is authenticating (<a href="/api/authentication#authorization-code-grant">regular web application</a>, <a href="/api/authentication#implicit-grant">single page app</a>), and so forth).
+:::
 
 The `prompt=none` parameter will cause Auth0 to immediately redirect to the specified `redirect_uri` (callback URL) with two possible responses:
 

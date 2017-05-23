@@ -9,7 +9,9 @@ crews: crew-2
 
 Using Auth0's Management APIv2, you can create a user and set both their `app_metadata` and `user_metadata`. You can also update these two fields.
 
-**Note:** The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
+::: note
+The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
+:::
 
 ### Authentication API
 
@@ -128,7 +130,7 @@ The user's profile will now appear as follows:
 }
 ```
 
-::: panel-info Delete Properties/Values
+::: note
 When you send a `PATCH` call where you've set the property/value to null (for example, `{user_metadata: {color: null}}`), Auth0 **deletes** the property/value from the database.
 :::
 

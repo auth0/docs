@@ -2,15 +2,19 @@
 addon: SAP OData
 alias:
   - sap
-url: /addons/sap-odata  
+url: /addons/sap-odata
 image: /media/addons/sap_api.svg
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize your SAP OData services.
 ---
 
-# SAP OData Addon 
+# SAP OData Addon
 
-> This integration is in __experimental mode__. Contact us if you have questions.
+::: warning
+This integration is in <strong>experimental mode</strong>. Contact us if you have questions.
+:::
 
-> Under the hood, Auth0 uses [SAML 2.0 Bearer Assertion Flow for OAuth 2.0](http://help.sap.com/saphelp_nw74/helpdata/en/12/41087770d9441682e3e02958997846/content.htm) to obtain an `access_token`. All details of construction of the right SAML token are taken care of by Auth0.
+::: note
+  Under the hood, Auth0 uses <a href="http://help.sap.com/saphelp_nw74/helpdata/en/12/41087770d9441682e3e02958997846/content.htm">SAML 2.0 Bearer Assertion Flow for OAuth 2.0</a> to obtain an <code>access_token</code>. All details of construction of the right SAML token are taken care of by Auth0.
+:::
 
 ![](/media/articles/server-apis/sap-data-flow.png)

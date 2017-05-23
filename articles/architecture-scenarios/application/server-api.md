@@ -41,13 +41,13 @@ When a user authorizes a client application, the application can also indicate w
 
 Subsequently when the client passes along the access token when making requests to the API, the API can query the `scope` claim to ensure that the required permissions were granted in order to call the particular API endpoint.
 
-::: panel-info What is an Access Token?
+::: panel What is an Access Token?
 An access token (also referred to as `access_token`) is an opaque string representing an authorization issued to the client. It may denote an identifier used to retrieve the authorization information or may self-contain the authorization information (e.g. the user's identity, permissions, etc.) in a verifiable manner.
 
 It is quite common for access tokens to be implemented as [JSON Web Tokens](/jwt).
 :::
 
-::: panel-info What are Scopes?
+::: panel What are Scopes?
 Each access token may include a list of the permissions that have been granted to the client. When a client authenticates with Auth0, it will specify the list of scopes (or permissions) it is requesting. If those scopes are authorized, then the access token will contain a list of authorized scopes.
 
 For example, the timesheet API may accept four different levels of authorization: reading timesheets (scope `read:timesheets`), creating timesheets (scope `create:timesheets`), deleting timesheets (scope `delete:timesheets`) and approving timesheets (scope `approve:timesheets`).
@@ -109,7 +109,9 @@ Fill in the required information and click the **Create** button.
 
 When you create an API you have to select the algorithm your tokens will be signed with. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 
-> The signature is part of a JWT. If you are not familiar with the JWT structure please refer to: [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
+::: note
+  The signature is part of a JWT. If you are not familiar with the JWT structure please refer to: [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
+:::
 
 To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. That algorithm, which is part of the JWT header, is the one you select for your API: `HS256` or `RS256`.
 
@@ -131,7 +133,9 @@ Once the client has been created you will need to configure the Scopes which cli
 
 In the settings for your API, go to the *Scopes* tab. In this section you can add all four of the scopes which was discussed before, namely `read:timesheets`, `create:timesheets`, `delete:timesheets`, `approve:timesheets`.
 
-> For the purposes of this document we will only be ever concerned with the `create:timesheets` scope, as that is all that is required by the Cron job. For completeness sake we are however adding the necessary scopes which will be required by future clients as well.
+::: note
+  For the purposes of this document we will only be ever concerned with the `create:timesheets` scope, as that is all that is required by the Cron job. For completeness sake we are however adding the necessary scopes which will be required by future clients as well.
+:::
 
 ![Add Scopes](/media/articles/architecture-scenarios/server-api/add-scopes.png)
 
@@ -171,13 +175,15 @@ Now that we have designed our solution and discussed the configurations needed o
 
 In this section we will see how we can implement an API for our scenario.
 
-**NOTE**: For simplicity reasons we will keep our implementation solely focused on the authentication and authorization part. As you will see in the samples the input timesheet entry will be hard-coded and the API will not persist the timesheet entry, simply echo back some of the info.
+::: note
+  For simplicity reasons we will keep our implementation solely focused on the authentication and authorization part. As you will see in the samples the input timesheet entry will be hard-coded and the API will not persist the timesheet entry, simply echo back some of the info.
+:::
 
 #### Define the API endpoints
 
 First we need to define the endpoints of our API.
 
-::: panel-info What is an API endpoint?
+::: panel What is an API endpoint?
 An **API endpoint** is a unique URL that represents an object. In order to interact with this object you need to point your client towards that URL. For example, if you had an API that could return either order or customers, you might configure two endpoints: `/orders` and `/customers`. Your client would interact with these endpoints using different HTTP methods, for example `POST /orders` to create a new order, or `GET /orders` to retrieve the dataset of one or more orders.
 :::
 
@@ -198,7 +204,9 @@ The API will expect a JSON object as input, containing the timesheet information
 
 The API will print the JSON, so we can verify the contents and echo back a message like the following: `Timesheet created for Employee: 007`.
 
-**See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#define-the-api-endpoints)**.
+::: note
+  See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#define-the-api-endpoints)
+:::
 
 #### Secure the API endpoints
 
@@ -208,7 +216,9 @@ In order to secure your endpoints you need to have your API configured in the Au
 
 The first step towards securing our API endpoint is to get an access token as part of the Header and validate it. If it's not valid then we should return a `Missing or invalid token` error message to the calling process.
 
-**See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#secure-the-api-endpoints)**.
+::: note
+  See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#secure-the-api-endpoints)
+:::
 
 ##### Get an Access Token
 
@@ -223,7 +233,9 @@ To get an access token without using our Client sample implementation, perform a
 }
 ```
 
-For more information on this refer to: [API Authorization: Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens).
+::: note
+  For more information on this refer to: [API Authorization: Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens).
+:::
 
 #### Check the Client permissions
 
@@ -233,13 +245,17 @@ As discussed earlier in this doc, each access token may include a list of the pe
 
 For our endpoint we will require the scope `create:timesheets`.
 
-**See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions)**.
+::: note
+  See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions)
+:::
 
 ### Implement the Non Interactive Client
 
 In this section we will see how we can implement a Non Interactive Client for our scenario.
 
-**NOTE**: For simplicity reasons we  will keep our implementations solely focused on the authentication and authorization part and configure our client to send a single hard-coded timesheet entry to the API. Also, we will print in the console, something we wouldn't do with a server running process.
+::: note
+  For simplicity reasons we  will keep our implementations solely focused on the authentication and authorization part and configure our client to send a single hard-coded timesheet entry to the API. Also, we will print in the console, something we wouldn't do with a server running process.
+:::
 
 #### Get an Access Token
 
@@ -268,7 +284,9 @@ Our implementation should perform a `POST` operation to the `https://${account.n
 
 For more information on this refer to: [API Authorization: Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens).
 
-**See the implementation in [Python](/architecture-scenarios/application/server-api/cron-implementation-python#get-an-access-token).**
+::: note
+  See the implementation in [Python](/architecture-scenarios/application/server-api/cron-implementation-python#get-an-access-token).
+:::
 
 #### Invoke the API
 
@@ -280,7 +298,9 @@ In order to do so we will:
 - Make the HTTP POST request.
 - Parse the response and print it in the terminal (optional).
 
-**See the implementation in [Python](/architecture-scenarios/application/server-api/cron-implementation-python#invoke-the-api).**
+::: note
+  See the implementation in [Python](/architecture-scenarios/application/server-api/cron-implementation-python#invoke-the-api).
+:::
 
 ## Conclusion
 

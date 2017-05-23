@@ -13,12 +13,11 @@ You can either setup your own SMTP server, or use a services like [mailtrap.io](
 * [mailtrap.io](https://mailtrap.io/)
 * [debugmail.io](https://debugmail.io/)
 
-## Frameworks & other tools 
+## Frameworks & other tools
 
 * [FakeSMTP](https://nilhcem.github.io/FakeSMTP/)
 * [Haraka](https://haraka.github.io/)
 
-::: panel-info Note
+::: note
 Auth0 has only tested [mailtrap.io](https://mailtrap.io/) in this scenario.
 :::
-

@@ -9,7 +9,7 @@ You can customize the appearance of your Lock widget in a few different ways. Th
 
 ## JavaScript Options
 
-You can set up a variety of customizations to your Lock via the `options` parameter when you instantiate your Lock. Some of them allow you to customize your UI. The UI customization options are a work in progress - we expect to be adding more as we go. 
+You can set up a variety of customizations to your Lock via the `options` parameter when you instantiate your Lock. Some of them allow you to customize your UI. The UI customization options are a work in progress - we expect to be adding more as we go.
 
 First, you'll define the `options` object, containing whichever options you're wanting to customize. Then you'll need to include that options object as the third parameter when you instantiate Lock; more on that below.
 
@@ -46,6 +46,34 @@ var options = {
 };
 ```
 
+#### authButtons {Object}
+
+Allows the customization of buttons in Lock. Each custom connection whose button you desire to customize should be listed by name, each with their own set of parameters. The customizable parameters are listed below:
+
+- **displayName** {String}: The name to show instead of the connection name when building the button title, such as `LOGIN WITH MYCONNECTION` for login).
+- **primaryColor** {String}: The button's background color. Defaults to `#eb5424`.
+- **foregroundColor** {String}: The button's text color. Defaults to `#FFFFFF`.
+- **icon** {String}: The URL of the icon for this connection. For example: `http://site.com/logo.png`.
+
+```js
+var options = {
+  theme: {
+    authButtons: {
+      "testConnection": {
+        displayName: "Test Conn",
+        primaryColor: "#b7b7b7",
+        foregroundColor: "#000000",
+        icon: "http://example.com/icon.png"
+      },
+      "testConnection2": {
+        primaryColor: "#000000",
+        foregroundColor: "#ffffff",
+      }
+    }
+  }
+};
+```
+
 ### Customizing Text
 
 The `languageDictionary` option allows customization of every piece of text displayed in the Lock. Defaults to {}. See below for an example.
@@ -61,7 +89,7 @@ var options = {
 
 ![Lock - Language Dictionary](/media/articles/libraries/lock/v10/customization/lock-languagedictionary.png)
 
-::: panel-info Language Dictionary
+::: note
 For a complete list of the items able to be customized using `languageDictionary`, see the [English Language Dictionary Specification](https://github.com/auth0/lock/blob/master/src/i18n/en.js) in the repository.
 :::
 

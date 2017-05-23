@@ -45,7 +45,9 @@ Enter the __ACS URL__ from the previous step into the __Application Callback URL
 
 ![](/media/articles/saml/saml-apps/heroku/auth0-dashboard-saml.png)
 
-> Notice the `audience` parameter is the __Heroku Entity ID__ value from step 1. It will be of the form: `https://sso.heroku.com/saml/{YOUR HEROKU ORG}`
+::: note
+Notice the `audience` parameter is the __Heroku Entity ID__ value from step 1. It will be of the form: `https://sso.heroku.com/saml/{YOUR HEROKU ORG}`
+:::
 
 Scroll down and click on "Save". Now select the __Usage__ section in the __SAML__ configuration and download the __Identity Provider Metadata__:
 

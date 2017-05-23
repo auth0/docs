@@ -50,7 +50,9 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
 </html>
 ```
 
-__NOTE__: The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `webapp` directory and you don't need to include them if you don't want to. The only necessary file is the `${lock_url}`.
+::: note
+The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `webapp` directory and you don't need to include them if you don't want to. The only necessary file is the `${lock_url}`.
+:::
 
 First, we initialize `Auth0Lock` with a `clientID` and the account's `domain`.
 

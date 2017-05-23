@@ -20,12 +20,14 @@ For a simple starter app, download this seed project.
 
 Copy the contents of this seed project to a local folder called `pets`, which you will be using for the remainder of this tutorial. Within this folder, update `auth0-variables.js` with your Auth0 Client `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_ID` (this information is available in the [Management Dashboard](${manage_url}/#/clients) for the client in question).
 
-> Be sure that you have [created the AWS S3 bucket configured to act as a static website](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html). During the setup process, copy the contents of the `pets` folder to your S3 bucket to provide content for the website.
->
-> If you are using a pre-existing bucket, you can move the files with the [AWS CLI](https://aws.amazon.com/cli/) using the following command:
-> ```
-> aws s3 cp --recursive --acl "public-read" ./ s3://YOUR-BUCKET/
-> ```
+::: panel AWS S3 bucket
+Be sure that you have [created the AWS S3 bucket configured to act as a static website](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html). During the setup process, copy the contents of the `pets` folder to your S3 bucket to provide content for the website.
+
+If you are using a pre-existing bucket, you can move the files with the [AWS CLI](https://aws.amazon.com/cli/) using the following command:
+```
+aws s3 cp --recursive --acl "public-read" ./ s3://YOUR-BUCKET/
+```
+:::
 
 Prior to proceeding, please be sure that you have at least one user associated with your *Username-Password-Authentication* (or the Database Connection associated with the Client you are using) Connection. To fully utilize the functionality of your sample app and its integration with AWS, you will need that user to test authentication and gain access.
 
@@ -103,7 +105,7 @@ function (user, context, callback) {
 }
 ```
 
-:::panel-info Rules
+:::panel Rules
 [How to Work with Rules](/rules#video-using-rules)
 :::
 

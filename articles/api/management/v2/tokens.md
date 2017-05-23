@@ -7,9 +7,9 @@ toc: true
 
 # The Auth0 Management APIv2 Token
 
-<div class="alert alert-info">
+::: note
   We recently changed the way you get Management APIv2 tokens. To read what we changed, why we did that, and how you can work around these changes refer to <a href="/api/management/v2/tokens-flows">Changes in Auth0 Management APIv2 Tokens</a>.
-</div>
+:::
 
 ## Overview
 
@@ -23,9 +23,9 @@ In this article we will see how you can do either.
 
 ## Get a token manually
 
-<div class="alert alert-warning">
+::: warning
   <strong>Heads up!</strong> Τhe Management APIv2 token, by default, has a validity of <strong>24 hours</strong>. After that the token will expire and you will have to get a new one. If this doesn't work for you, you can either <a href="#2-get-the-token">change the validity period of the token</a>, or <a href="#automate-the-process">automate the process</a>.
-</div>
+:::
 
 Let's see how you can get a token manually. Note, that the first step of the process need to be executed _only_ the first time.
 
@@ -33,15 +33,15 @@ Let's see how you can get a token manually. Note, that the first step of the pro
 
 First, you need to create and authorize a Non Interactive Client. We recommend creating one exclusively for authorizing access to the Management API, instead of reusing another one you might have. If you already have done that, you can skip this paragraph.
 
-  ::: panel-info What is a Non Interactive Client?
+  ::: panel What is a Non Interactive Client?
   A Non Interactive Client represents a program that interacts with an API where there is no user involved. An example would be a server script that would be granted access to consume a Zip Codes API. It's a machine to machine interaction. This must be used instead of a Single Page or Native apps because those cannot meet the necessary security requirements for executing this type of flow. If you want to read more about calling APIs this way, refer to [Calling APIs from a Service](/api-auth/grant/client-credentials).
   :::
 
 To create and authorize a Non Interactive Client for the Management API, go to [the API Explorer tab of your Auth0 Management API](${manage_url}/#/apis/management/explorer).
 
-<div class="alert alert-info">
+::: note
   If you cannot see the APIs on the Dashboard menu, you can enable it by switching on the <strong>Enable APIs Section</strong> toggle at your <a href="${manage_url}/#/account/advanced">Account's Advanced Settings</a>.
-</div>
+:::
 
 Click the button __Create & Authorize a Test Client__.
 
@@ -51,7 +51,7 @@ That's it! A new client has been created and it's authorized to access the Manag
 
 Note, that each Non Interactive Client that accesses an API, has to be granted a set of scopes. This client that we just created has been granted __all__ the APIv2 scopes. This means that it can access all the endpoints.
 
-::: panel-info What are the scopes?
+::: panel What are the scopes?
 The scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create clients, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
 :::
 
@@ -86,7 +86,7 @@ Once you have this information you are ready to call the API. Follow these steps
 
 [The manual process](#get-a-token-manually) might work for you if you want to test an endpoint or invoke it sporadically. But if you need to make scheduled frequent calls then you have to build a simple CLI that will provide you with a token automatically (and thus simulate a non-expiring token).
 
-::: panel-info Prerequisites
+::: panel Prerequisites
 Before you proceed with the implementation, you must have [created and authorized a Non Interactive Client](#1-create-and-authorize-a-client). The Client should have all the required scopes for the endpoints you mean to access.
 :::
 
@@ -157,9 +157,9 @@ For example, in order to [Get all clients](/api/management/v2#!/Clients/get_clie
 }
 ```
 
-<div class="alert alert-info">
+::: note
   You can get the curl command for each endpoint from the Management API v2 Explorer. Go to the endpoint you want to call, and click the <em>get curl command</em> link at the <em>Test this endpoint</em> section.
-</div>
+:::
 
 That's it! You are done!
 

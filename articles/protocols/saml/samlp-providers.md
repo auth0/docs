@@ -6,8 +6,6 @@ description: List of Identity Provider services known to support the SAML protoc
 
 This is a list of Identity Provider services known to support the SAML protocol.  There may be additional services beyond what is shown below.
 
-
-
 ## SAML-P
 The following providers have participated in a Kantara inter-operability test and are therefore likely to conform well to the SAML spec.
 

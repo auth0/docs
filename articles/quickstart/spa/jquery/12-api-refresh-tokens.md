@@ -3,7 +3,7 @@ title: OAuth 2.0 Refreshing Access Tokens
 description: This tutorial demonstrates how to use Auth0 to refresh Access Tokens in Single Page Applications.
 ---
 
-JQuery applications, as with all client-based applications, are not trusted to maintain the safety of a client secret or Refresh Token. Therefore, these application should not be issued Refresh Tokens. However, it is still possible to renew an Access Token. This tutorial demonstrates how to renew an Access Token using auth0.js. For more information, check out [our documentation](https://auth0.com/docs/api-auth).
+JQuery applications, as with all client-based applications, are not trusted to maintain the safety of a client secret or Refresh Token. Therefore, these application should not be issued Refresh Tokens. However, it is still possible to renew an Access Token. This tutorial demonstrates how to renew an Access Token using auth0.js. For more information, check out [our documentation](/api-auth).
 
 <%= include('../../../_includes/_compat_warning') %>
 

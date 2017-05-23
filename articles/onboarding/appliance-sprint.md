@@ -1,8 +1,7 @@
 ---
 sitemap: false
 section: appliance
-description: >
-  Appliance Sprint is Auth0’s onboarding program for enterprise customers choosing an Auth0 Appliance. It helps you achieve value quickly with your Auth0 enterprise subscription. The 6 steps in the onboarding program set both you and Auth0 up for success.
+description: Appliance Sprint is Auth0’s onboarding program for enterprise customers choosing an Auth0 Appliance. It helps you achieve value quickly with your Auth0 enterprise subscription.
 ---
 
 # Appliance Deployment Project

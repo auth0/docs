@@ -1,17 +1,18 @@
 ---
 section: appliance
 description: >
-  If you have decided to purchase an Appliance that is hosted in a dedicated area of Auth0's cloud, Auth0 will set up the Appliance on your behalf. This document describes the necessary information.
+  If your subscription agreement includes an Appliance that is hosted in a dedicated area of Auth0's cloud, Auth0 will set up the Appliance on your behalf. This document describes the necessary information.
 ---
 
 # Information Requirements for Setting Up the Appliance in Auth0's Private Cloud
 
-If you have decided to purchase an Appliance that is hosted in a dedicated area of Auth0's cloud, Auth0 will set up the Appliance on your behalf. To do so, Auth0 asks that you provide the following information:
+If your subscription agreement includes an Appliance that is hosted in a dedicated area of Auth0's cloud, Auth0 will set up the Appliance on your behalf. To do so, Auth0 asks that you provide the following information:
 
 * **Preferred AWS region** such as AWS US-West-2, AWS US-East-1, AWS EU-Central-1, etc;
 * **Eight (8) DNS names**:
     * Four (4) will be used for the non-Production node, and four (4) will be used for the Production cluster;
     * Each domain name will have 4 parts and end with `auth0.com`;
+    * The domain part of the name that is hosted in Auth0's Private Cloud cannot have the same name as any of your other tenants hosted in the multi-tenant cloud.
     * **Important**: Please finalize DNS names prior to Appliance deployment.
 * **SMTP Settings** (including the hostname, port number, username, and password). Auth0 will work with you to enter your settings. For additional details, please see the [SMTP section of the Appliance infrastructure manual](/appliance/infrastructure/security#smtp);
 * **Administrator(s) email address** for App tenant for non-production and Production environments.

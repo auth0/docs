@@ -76,7 +76,7 @@ These routes will behave as such:
 
 Create a new class called `PhotosController` to handle each request to the endpoints.
 
-Next, edit the `AppConfig.java` file to configure which endpoints are secure and which are not. 
+Next, edit the `AppConfig.java` file to configure which endpoints are secure and which are not.
 
 ## Using the API
 
@@ -154,7 +154,7 @@ You should get the message: `All good. You can see this because you are Authenti
 
 If the token is not specified you will get the following JSON as a response.
 
-```json
+```text
 {
   "timestamp": 1488492258708,
   "status": 401,
@@ -166,7 +166,7 @@ If the token is not specified you will get the following JSON as a response.
 
 A quick and easy way to obtain an `access_token` is to call the `/oauth/token` endpoint of the Auth0 [Authentication API](/api/authentication/reference#resource-owner-password) using Curl:
 
-```
+```text
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \

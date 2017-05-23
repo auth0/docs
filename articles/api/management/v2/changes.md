@@ -167,7 +167,9 @@ console.log(user.email); // "jane.doe@gmail.com"
 console.log(user.user_metadata.hobby); // "surf"
 console.log(user.app_metadata.plan); // "full"
 ```
-**Note:** User data previously stored under `metadata` will be available under `app_metadata`.
+::: note
+User data previously stored under `metadata` will be available under `app_metadata`.
+:::
 
 ## Connections
 

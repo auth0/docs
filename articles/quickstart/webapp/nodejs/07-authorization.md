@@ -22,7 +22,9 @@ First, create a rule that assigns users to either an `admin` role or a single `u
 
 By default, this rule will assign the user an `admin` role if the user’s email contains `@example.com`. Otherwise, the user will be assigned a regular `user` role.
 
-> **NOTE:** The authorization rule can be customized as needed and is not limited to setting roles of `admin` and `user`.
+::: note
+The authorization rule can be customized as needed and is not limited to setting roles of `admin` and `user`.
+:::
 
 ## Check if a User's Role is Present
 

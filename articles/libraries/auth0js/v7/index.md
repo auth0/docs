@@ -4,11 +4,11 @@ toc: true
 description: How to install, initialize and use auth0.js v7
 ---
 
-<div class="alert alert-info">
-This document covers an out-of-date version of auth0.js - version 7. We recommend using the latest version of the library. To do so select v8 at the dropdown. If you are already using v7 but interested in upgrading, take a look at the <a href="/libraries/auth0js">v8 migration guide</a>.
-</div>
-
 # Auth0.js v7 Reference
+
+::: version-warning
+This document covers an outdated version of auth0.js. We recommend you to <a href="/libraries/auth0js">upgrade to v8</a>.
+:::
 
 Auth0.js is a client-side library for [Auth0](http://auth0.com), for use in your web apps. It allows you to trigger the authentication process and parse the [JSON Web Token](http://openid.net/specs/draft-jones-json-web-token-07.html) (JWT) with just the Auth0 `clientID`. Once you have the JWT, you can use it to authenticate requests to your HTTP API and validate the JWT in your server-side logic with the `clientSecret`.
 
@@ -53,7 +53,9 @@ If you are using [browserify](http://browserify.org/), you will want to install 
 
 ### Initialize
 
-> Note: The following examples use jQuery, but auth0.js is not tied to jQuery and any library can be used with it.
+::: note
+The following examples use jQuery, but auth0.js is not tied to jQuery and any library can be used with it.
+:::
 
 Construct a new instance of the Auth0 client as follows:
 
@@ -456,13 +458,17 @@ var auth0 = new Auth0({
 
 On successful login, Auth0 will redirect to your `callbackURL` with an appended authorization `code` query parameter. Unlike the SPA scenario, this `code` value should get processed completely server-side.
 
-> Note: Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
+::: panel Authorization Code Grant
+Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
+:::
 
 #### Popup Mode
 
 Besides Redirect Mode, the `login` method also supports Popup Mode, which you enable by passing `popup: true` in the `options` argument. In this mode the browser will *not* be redirected to a separate login page.  Instead Auth0 will display a popup window where the user enters their credentials. The advantage of this approach is that the original page (and all of its state) remains intact, which can be important, especially for certain Single Page Apps.
 
-> **WARNING**: While Popup Mode does have the advantage of preserving page state, it has some issues. Often times users have popup blockers that prevent the login page from even displaying. There are also known issues with mobile browsers. For example, in recent versions of Chrome on iOS, the login popup does not get closed properly after login (see an example [here](https://github.com/auth0/lock/issues/71)). For these reasons, we encourage developers to favor Redirect Mode over Popup Mode, even with Single Page Apps.
+::: panel-warning Popup mode issues
+While Popup Mode does have the advantage of preserving page state, it has some issues. Often times users have popup blockers that prevent the login page from even displaying. There are also known issues with mobile browsers. For example, in recent versions of Chrome on iOS, the login popup does not get closed properly after login (see an example [here](https://github.com/auth0/lock/issues/71)). For these reasons, we encourage developers to favor Redirect Mode over Popup Mode, even with Single Page Apps.
+:::
 
 In Popup Mode you also have no need to be redirected back to the application, since, once the user has logged in, the popup is simply closed. Instead Auth0 uses the `login` method's `callback` argument to return control to your client-side application, for both failed and successful logins. Along with the `err` argument, `callback` should also receive a `result` argument with the following properties: `idTokenPayload, idToken, accessToken, state` (and optionally `refreshToken` if the `offline_access` scope has been requested):
 
@@ -527,7 +533,9 @@ function(err, result) {
 });
 ```
 
-> Note: This `callback` approach is similar to what you'd do in the [Popup Mode](#popup-mode) scenario described earlier, except no popups (or redirects) occur since credentials are provided to the `login` method and success and failure is handled in the `callback` argument.
+::: note
+This `callback` approach is similar to what you'd do in the [Popup Mode](#popup-mode) scenario described earlier, except no popups (or redirects) occur since credentials are provided to the `login` method and success and failure is handled in the `callback` argument.
+:::
 
 You can still do Popup Mode with SSO enabled with a Database or Active Directory/LDAP connection if you want to (but please see the **WARNING** in the [Popup Mode](#popup-mode) section above). This is similar to the Redirect Mode scenario where you don't have a custom login form, but want to use a popup window to collect the user's credentials, and also want control to return to the client-side code (vs. redirecting to `callbackURL`).  This behavior would occur if you simply specified the `popup: true` option:
 

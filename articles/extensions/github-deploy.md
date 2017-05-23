@@ -38,7 +38,9 @@ Copy these values into the **Add Webhook** page for your GitHub repository:
 
 ![Add Webhook](/media/articles/extensions/github-deploy/add-webhook.png)
 
-**NOTE**: You can find details on how to configure a webhook at [Creating Webhooks](https://developer.github.com/webhooks/creating/) on GitHub.
+::: note
+You can find details on how to configure a webhook at [Creating Webhooks](https://developer.github.com/webhooks/creating/) on GitHub.
+:::
 
 ## Deployment
 
@@ -48,7 +50,7 @@ With each commit you push to your configured GitHub repository, if changes were 
 
 The __Deploy__ button on the **Deployments** tab of the  extension allows you to manually deploy the rules and database connection scripts you already have in your GitHub repository. This is useful if you already have a repository filled with scripts that you want to deploy once you have setup the extension, or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
 
-::: panel-warning WARNING: Deleting Rules and Scripts from GitHub
+::: panel-warning Deleting Rules and Scripts from GitHub
 To maintain a consistent state, the extension will always do a full redeployment of the contents of these folders. Any rules or database connection scripts that exist in Auth0 but not in your GitHub repository will be __deleted__.
 :::
 
@@ -100,7 +102,9 @@ In order to deploy a rule, you must first create a JavaScript file under the `ru
 
 For example, if you create the file `rules/set-country.js`, then the extension will create a rule in Auth0 with the name `set-country`.
 
-__NOTE__: If you plan to use Source Control integration for an existing account, first rename your rules in Auth0 to the same name of the files you will be deploying to this directory.
+::: note
+If you plan to use Source Control integration for an existing account, first rename your rules in Auth0 to the same name of the files you will be deploying to this directory.
+:::
 
 You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the **Rules Configuration** tab of the GitHub Integration page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
 

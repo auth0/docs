@@ -66,7 +66,9 @@ description: Customize the UI of Lock in your App
       print("Oops something went wrong: \(error)")
   })
   ```
-> More details about the parameters you can use check [this wiki page](/libraries/lock-ios/sending-authentication-parameters).
+::: note
+More details about the parameters you can use check [this wiki page](/libraries/lock-ios/sending-authentication-parameters).
+:::
 
 After that, you may want to save the user's token to be able to use them later, you can find how to do it [here](/libraries/lock-ios/save-and-refresh-jwt-tokens).
 
@@ -107,7 +109,9 @@ After that, you may want to save the user's token to be able to use them later, 
   let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
   lock.registerAuthenticators([facebook])
   ```
-  > **Note**: You need to configure your iOS App for Facebook, please check [this guide](/libraries/lock-ios/native-social-authentication#facebook) for more information.
+  ::: note
+  You need to configure your iOS App for Facebook, please check [this guide](/libraries/lock-ios/native-social-authentication#facebook) for more information.
+  :::
 
 4. Configure Twitter Native Integration
   ```objc

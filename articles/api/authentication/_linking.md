@@ -19,8 +19,8 @@ GET https://${account.namespace}/authorize?
   "link": "#link"
 }) %>
 
-::: panel-danger Deprecation Notice
-This endpoint is deprecated for account linking. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations#account-linking-removal).
+::: warning
+This endpoint is **deprecated** for account linking. The [POST /api/v2/users/{id}/identities](/api/management/v2#!/Users/post_identities) should be used instead. For more information refer to the [Migration Notice](/migrations#account-linking-removal).
 :::
 
 Call this endpoint when a user wants to link a second authentication method (for example, a user/password database connection, with Facebook).
@@ -96,8 +96,8 @@ xhr.send(params);
   "link": "#unlink"
 }) %>
 
-::: panel-danger Deprecation Notice
-This endpoint is deprecated. The [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) should be used instead.
+::: warning
+This endpoint is **deprecated**. The [DELETE /api/v2/users/{id}/identities/{provider}/{user_id}](/api/management/v2#!/Users/delete_provider_by_user_id) should be used instead.
 :::
 
 Given a logged-in user's `access_token` and `user_id`, this endpoint will unlink a user's account from the identity provider.

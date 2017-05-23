@@ -1,5 +1,5 @@
 ---
-description: How to configure and retrieve information from the Auth0 Logs to Papertrail extension. 
+description: How to configure and retrieve information from the Auth0 Logs to Papertrail extension.
 ---
 
 # Auth0 Logs to Papertrail
@@ -44,7 +44,7 @@ If you already have a system you want to use, follow the next steps:
 
 ## Using Your Installed Extension
 
- To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Papertrail* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
+ To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Papertrail* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution.
 
 ![](/media/articles/extensions/papertrail/view-cron-jobs.png)
 
@@ -56,6 +56,8 @@ That's it, you are done! You can now navigate to [Papertrail](https://papertrail
 
 ![](/media/articles/extensions/papertrail/auth0-logs-at-papertrail-01.png)
 
-> You may have noticed that we didn't set a value for *PAPERTRAIL_SYSTEM*. This variable, when not set by the user, takes the default value of `auth0-logs`. As you can see in the previous screenshot, this is how our system will be displayed in the Papertrail dashboard.
+::: note
+You may have noticed that we didn't set a value for *PAPERTRAIL_SYSTEM*. This variable, when not set by the user, takes the default value of `auth0-logs`. As you can see in the previous screenshot, this is how our system will be displayed in the Papertrail dashboard.
+:::
 
 ![](/media/articles/extensions/papertrail/auth0-logs-at-papertrail-02.png)

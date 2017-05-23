@@ -42,7 +42,9 @@ In the _New Extension_ window that pops open, provide the GitHub URL to the repo
 
 ![](/media/articles/extensions/custom/new-extension.png)
 
-> At this time, only repositories hosted by GitHub may be used.
+::: note
+At this time, only repositories hosted by GitHub may be used.
+:::
 
 Alternatively, you may host your files elsewhere and simply provide a link to the `webtask.json` file in the box (e.g. `http://example.com/webtask.json`).
 
@@ -88,7 +90,9 @@ Clients.create({
 });
 ```
 
-**NOTE**: If you are creating a Cron, then you can omit the `"createClient": true` from the `webtask.json` file. A Client is always created by default for Cron extensions.
+::: note
+If you are creating a Cron, then you can omit the `"createClient": true` from the `webtask.json` file. A Client is always created by default for Cron extensions.
+:::
 
 The installation dialog will warn the user that the extension will have access to certain scopes. In this case: `create:rules`.
 
@@ -98,7 +102,9 @@ The webtask will be created with the `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_SECRET`
 
 After the webtask is created, `/.extensions/on-install` (`POST /onInstallUrl`) is called sending a [JWT](/jwt) for validating that Auth0-manage is the one calling it.
 
-> The expected success status is `204`. Keep in mind that if the hooks fail, then the install (or uninstall) will fail as well.
+::: note
+The expected success status is `204`. Keep in mind that if the hooks fail, then the install (or uninstall) will fail as well.
+:::
 
 Install and uninstall URLs are configurable through `webtask.json`.
 
@@ -107,12 +113,14 @@ Install and uninstall URLs are configurable through `webtask.json`.
   "name": "my-extension";
   "auth0": {
     "scopes": "create:rules",
-    "onInstallUrl": "/my-own-on-install" 
+    "onInstallUrl": "/my-own-on-install"
   }
 }
 ```
 
-> _onInstallPath_ and _onUninstallPath_ are mandatory if you want auth0-dashboard to call them.
+::: note
+`onInstallPath` and `onUninstallPath` are mandatory if you want auth0-dashboard to call them.
+:::
 
 In order to edit an extension `/.extensions/on-update` (`PUT /onUpdateUrl`) is called, with a JWT for validating that Auth0-manage is the one calling it. Once the validation is successful the webtask and the client associated to the webtask are updated with the changes. Again, the expected success status is `204`.
 
@@ -129,5 +137,3 @@ The JWT, used for authenticating the calls to the hooks for both `/.extensions/o
 ```
 
 The extension should validate the JWT. See [this](https://github.com/auth0/auth0-extension-boilerplate-hooks/blob/master/hooks/index.js#L11) for the validation applied.
-
-

@@ -19,7 +19,7 @@ The Guardian iOS SDK requires iOS 9.3+ and Swift 3.
 
 #### CocoaPods
 
-Guardian.swift is available through [CocoaPods](http://cocoapods.org). 
+Guardian.swift is available through [CocoaPods](http://cocoapods.org).
 To install it, simply add the following line to your Podfile:
 
 ```ruby
@@ -60,8 +60,7 @@ let domain = "{YOUR_ACCOUNT_NAME}.guardian.auth0.com"
 
 ### Enroll
 
-An enrollment is a link between the second factor and an Auth0 account. When an account is enrolled
-you'll need it to provide the second factor required to verify the identity.
+An enrollment is a link between the second factor and an Auth0 account. When an account is enrolled you'll need it to provide the second factor required to verify the identity.
 
 For an enrollment you need the following things, besides your Guardian Domain:
 
@@ -69,9 +68,11 @@ For an enrollment you need the following things, besides your Guardian Domain:
 - APNS Token: Apple APNS token for the device and **MUST** be a `String`containing the 64 bytes (expressed in hexadecimal format)
 - Key Pair: A RSA (Private/Public) key pair used to assert your identity with Auth0 Guardian
 
-> In case your app is not yet using push notifications or you're not familiar with it, you should check their [docs](https://developer.apple.com/go/?id=push-notifications).
+::: note
+In case your app is not yet using push notifications or you're not familiar with it, you should check their [docs](https://developer.apple.com/go/?id=push-notifications).
+:::
 
-after your have all of them, you can enroll your device
+After your have all of them, you can enroll your device:
 
 ```swift
 Guardian
@@ -81,7 +82,7 @@ Guardian
                 keyPair: keyPair)
         .start { result in
             switch result {
-            case .success(let enrollment): 
+            case .success(let enrollment):
                 // success, we have the enrollment data available
             case .failure(let cause):
                 // something failed, check cause to see what went wrong
@@ -102,9 +103,13 @@ let rsaKeyPair = RSAKeyPair.new(
     )
 ```
 
-> The tags should be unique since it's the identifier of each key inside iOS Keychain. 
+::: note
+The tags should be unique since it's the identifier of each key inside iOS Keychain.
+:::
 
-> Since the keys are already secured stored inside iOS Keychain, you olny need to store the identifiers
+::: note
+Since the keys are already secured stored inside iOS Keychain, you olny need to store the identifiers
+:::
 
 ### Allow a login request
 
@@ -129,7 +134,7 @@ Guardian
         .allow(notification: notification)
         .start { result in
             switch result {
-            case .success: 
+            case .success:
                 // the auth request was successfuly allowed
             case .failure(let cause):
                 // something failed, check cause to see what went wrong
@@ -149,7 +154,7 @@ Guardian
         // or reject(notification: notification, withReason: "hacked")
         .start { result in
             switch result {
-            case .success: 
+            case .success:
                 // the auth request was successfuly rejected
             case .failure(let cause):
                 // something failed, check cause to see what went wrong
@@ -169,7 +174,7 @@ Guardian
         .delete()
         .start { result in
             switch result {
-            case .success: 
+            case .success:
                 // success, the enrollment was deleted
             case .failure(let cause):
                 // something failed, check cause to see what went wrong

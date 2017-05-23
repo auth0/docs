@@ -2,8 +2,9 @@
 description: Info page on the Auth0 Login widget which has been deprecated.
 ---
 
-::: warning-banner
-__WARNING:__ This version of the login widget has been deprecated. <br> Please use the [new version](/libraries/lock) instead.
+::: warning
+This version of the login widget has been **deprecated**.
+Please use the [new version](/libraries/lock) instead.
 :::
 
 # Auth0 Login Widget
@@ -25,7 +26,9 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 3. The __Email__ field will be shown if you have at least one enterprise connection enabled. The __Password__ field will be shown if you have a Database connection.
 4. The __Sign Up__ and __Forgot Password__ links will be shown if you have a Database connection.
 
-> **How does enterprise SSO work?** Consider a user that enters john@**fabrikam.com**. If there's an enterprise connection with an associated domain "**fabrikam.com**", then the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) where that domain is registered. If the user is already logged in with the Identity Provider, then Single Sign On will happen.
+::: panel How does enterprise SSO work?
+Consider a user that enters john@**fabrikam.com**. If there's an enterprise connection with an associated domain "**fabrikam.com**", then the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) where that domain is registered. If the user is already logged in with the Identity Provider, then Single Sign On will happen.
+:::
 
 ## Including the Login Widget on your page
 
@@ -45,23 +48,24 @@ The Widget can be customized through the parameters sent to the `signIn` method.
 
 This example shows how to display the labels in Spanish:
 
-    window.Auth0.signIn({
-        onestep: true,
-        title: "Contoso",
-        signInButtonText: "Ingresar",
-        emailPlaceholder: "Correo",
-        passwordPlaceholder: "Contraseña",
-        separatorText: "o",
-        showIcon: true,
-        icon: "https://myapp.com/logo.png",
-        showSignup: true,
-        signupText: "Registrarme!",
-        signupLink: "https://myapp.com/signup",
-        showForgot: true,
-        forgotText: "Olvidé mi contraseña",
-        forgotLink: "https://myapp.com/forgot"
-    });
-
+```js
+window.Auth0.signIn({
+    onestep: true,
+    title: "Contoso",
+    signInButtonText: "Ingresar",
+    emailPlaceholder: "Correo",
+    passwordPlaceholder: "Contraseña",
+    separatorText: "o",
+    showIcon: true,
+    icon: "https://myapp.com/logo.png",
+    showSignup: true,
+    signupText: "Registrarme!",
+    signupLink: "https://myapp.com/signup",
+    showForgot: true,
+    forgotText: "Olvidé mi contraseña",
+    forgotLink: "https://myapp.com/forgot"
+});
+```
 
 Resulting in:
 
@@ -73,20 +77,22 @@ When using a database connections, the **Login Widget** has support for account 
 
 ### Customizing **sign-up** messages
 
-    window.Auth0.signIn({
-        onestep: true,
-        separatorText: "o",
-        showIcon: true,
-        icon: "https://myapp.com/logo.png",
-        // ... other properties ...
-        signupTitle: "Registrarse",
-        signupHeaderText: "Por favor, ingrese su correo y contraseña",
-        signupFooterText: "Al hacer clic en \"Crear Usuario\", usted está aceptando nuestros términos y condiciones.",
-        signupButtonText: "Crear Usuario",
-        signupEmailPlaceholder: "Correo",
-        signupPasswordPlaceholder: "Contraseña",
-        signupCancelButtonText: "Cancelar"
-    });
+```js
+window.Auth0.signIn({
+    onestep: true,
+    separatorText: "o",
+    showIcon: true,
+    icon: "https://myapp.com/logo.png",
+    // ... other properties ...
+    signupTitle: "Registrarse",
+    signupHeaderText: "Por favor, ingrese su correo y contraseña",
+    signupFooterText: "Al hacer clic en \"Crear Usuario\", usted está aceptando nuestros términos y condiciones.",
+    signupButtonText: "Crear Usuario",
+    signupEmailPlaceholder: "Correo",
+    signupPasswordPlaceholder: "Contraseña",
+    signupCancelButtonText: "Cancelar"
+});
+```
 
 Will display the following:
 
@@ -94,22 +100,24 @@ Will display the following:
 
 ### Customizing **change-password** messages
 
-    window.Auth0.signIn({
-        onestep: true,
-        separatorText: "o",
-        showIcon: true,
-        icon: "https://myapp.com/logo.png",
-        // ... other properties ...
-        resetTitle: "Cambiar Contraseña",
-        resetHeaderText: "Por favor, ingrese su correo y una nueva contraseña. Se le enviará un correo para confirmar el cambio de la misma.",
-        resetButtonText: "Enviar",
-        resetEmailPlaceholder: "Correo",
-        resetPasswordPlaceholder: "Nueva Contraseña",
-        resetRepeatPasswordPlaceholder: "Confirmar Nueva Contraseña",
-        resetCancelButtonText: "Cancelar",
-        resetSuccessText: "Se ha enviado un correo electrónico para confirmar el cambio de contraseña.",
-        resetEnterSamePasswordText: "Por favor, ingrese la misma contraseña"
-    });
+```js
+window.Auth0.signIn({
+    onestep: true,
+    separatorText: "o",
+    showIcon: true,
+    icon: "https://myapp.com/logo.png",
+    // ... other properties ...
+    resetTitle: "Cambiar Contraseña",
+    resetHeaderText: "Por favor, ingrese su correo y una nueva contraseña. Se le enviará un correo para confirmar el cambio de la misma.",
+    resetButtonText: "Enviar",
+    resetEmailPlaceholder: "Correo",
+    resetPasswordPlaceholder: "Nueva Contraseña",
+    resetRepeatPasswordPlaceholder: "Confirmar Nueva Contraseña",
+    resetCancelButtonText: "Cancelar",
+    resetSuccessText: "Se ha enviado un correo electrónico para confirmar el cambio de contraseña.",
+    resetEnterSamePasswordText: "Por favor, ingrese la misma contraseña"
+});
+```
 
 Will display the following:
 
@@ -119,21 +127,23 @@ Will display the following:
 
 You can also customize the error messages that will be displayed on certain situations:
 
-    window.Auth0.signIn({
-        onestep: true,
-        title: "Contoso",
-        // ... other properties ...
-        // wrongEmailPasswordErrorText, serverErrorText, signupEnterpriseEmailWarningText, signupServerErrorText and resetServerErrorText are used only if you have a Database connection
-        wrongEmailPasswordErrorText: 'Custom error message for invalid user/pass.',
-        serverErrorText: 'There was an error processing the sign in.',
-        signupEnterpriseEmailWarningText: 'This domain {domain} has been configured for Single Sign On and you can\'t create an account. Try signing in instead.',
-        signupServerErrorText: 'There was an unhandled error processing the sign up.',
-        resetServerErrorText: 'There was an unhandled error processing the change password.',
-        // strategyDomainInvalid is shown if the email does not have a matching enterprise connection
-        strategyDomainInvalid: 'The domain {domain} has not been setup.',
-        // strategyEmailInvalid is shown if the email is not valid
-        strategyEmailInvalid: 'The email is invalid.'
-    });
+```js
+window.Auth0.signIn({
+    onestep: true,
+    title: "Contoso",
+    // ... other properties ...
+    // wrongEmailPasswordErrorText, serverErrorText, signupEnterpriseEmailWarningText, signupServerErrorText and resetServerErrorText are used only if you have a Database connection
+    wrongEmailPasswordErrorText: 'Custom error message for invalid user/pass.',
+    serverErrorText: 'There was an error processing the sign in.',
+    signupEnterpriseEmailWarningText: 'This domain {domain} has been configured for Single Sign On and you can\'t create an account. Try signing in instead.',
+    signupServerErrorText: 'There was an unhandled error processing the sign up.',
+    resetServerErrorText: 'There was an unhandled error processing the change password.',
+    // strategyDomainInvalid is shown if the email does not have a matching enterprise connection
+    strategyDomainInvalid: 'The domain {domain} has not been setup.',
+    // strategyEmailInvalid is shown if the email is not valid
+    strategyEmailInvalid: 'The email is invalid.'
+});
+```
 
 These errors will be shown on the widget header:
 
@@ -143,7 +153,9 @@ These errors will be shown on the widget header:
 
 You can send extra parameters when starting a login by adding query strings in the `script` tag. The example below adds a `state` parameter with a value equal to `foo`.
 
-    <script src="https://sdk.auth0.com/auth0.js#client=${account.clientId}&state=foo"></script>
+```html
+<script src="https://sdk.auth0.com/auth0.js#client=${account.clientId}&state=foo"></script>
+```
 
 Common parameters are:
 
@@ -163,18 +175,20 @@ If you don't want to use the widget, you can still make use of the API with a si
 
 Here is an example:
 
-    var client = window.Auth0.getClient();
-    for (var i in client.strategies) {
-      for (var j in client.strategies[i].connections) {
-        var connection = client.strategies[i].connections[j];
+```js
+var client = window.Auth0.getClient();
+for (var i in client.strategies) {
+  for (var j in client.strategies[i].connections) {
+    var connection = client.strategies[i].connections[j];
 
-        var link = $('<a>')
-                        .text(connection.name)
-                        .attr('href', connection.url);
+    var link = $('<a>')
+                    .text(connection.name)
+                    .attr('href', connection.url);
 
-        $('ul.login-list').append($('<li>').append(link));
-      }
-    }
+    $('ul.login-list').append($('<li>').append(link));
+  }
+}
+```
 
 ## FAQs
 

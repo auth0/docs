@@ -164,7 +164,9 @@ The user's profile is retrieved using the `getProfileDeferred()` method which is
 
 ```
 
-> **Note:** You must retrieve the profile in the Ionic `beforeEnter` event to ensure it is read everytime the home view is activated. You can read more about view lifecycle and events in the [Ionic documentation](http://ionicframework.com/docs/api/directive/ionView/).
+::: note
+You must retrieve the profile in the Ionic `beforeEnter` event to ensure it is read everytime the home view is activated. You can read more about view lifecycle and events in the [Ionic documentation](http://ionicframework.com/docs/api/directive/ionView/).
+:::
 
 Once the profile is retrieved it can be bound to the view.
 

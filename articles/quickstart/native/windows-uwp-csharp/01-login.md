@@ -39,12 +39,12 @@ protected override void OnLaunched(LaunchActivatedEventArgs e)
         System.Diagnostics.Debug.WriteLine(Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri());
     }
 #endif
-    
+
     // rest of code omitted for brevity
 }
 ```
 
-This will print out the callback URL to your Debug window in Visual Studio. 
+This will print out the callback URL to your Debug window in Visual Studio.
 
 <div class="setup-callback">
 <p>Once you have the correct callback URL, go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Client Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the value of the callback URL, e.g.:</p>
@@ -56,7 +56,7 @@ This is a bit of a painful process to obtain this URL, but it is important to us
 
 ## Integration
 
-To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID: 
+To integrate Auth0 login into your application, simply instantiate an instance of the `Auth0Client` class, configuring the Auth0 Domain and Client ID:
 
 ${snippet(meta.snippets.setup)}
 
@@ -111,8 +111,9 @@ if (!loginResult.IsError)
 }
 ```
 
-> [!Note]
-> The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
+::: note
+The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
+:::
 
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 

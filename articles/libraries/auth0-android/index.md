@@ -23,7 +23,9 @@ dependencies {
 }
 ```
 
-_You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0)._
+::: note
+You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0).
+:::
 
 After adding your Gradle dependency, make sure to remember to sync your project with Gradle files.
 
@@ -45,6 +47,7 @@ Method one is to simply create an instance of `Auth0` with your client informati
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
 ```
 
 ### 2) Client information read from XML
@@ -63,6 +66,7 @@ And then create your new Auth0 instance by passing an Android Context:
 
 ```java
 Auth0 account = new Auth0(context);
+auth0.setOIDCConformant(true);
 ```
 
 ## Using the Authentication API
@@ -93,7 +97,7 @@ authentication
     });
 ```
 
-::: panel-info Scope
+::: panel Scope
 Note that the default scope used is `openid`
 :::
 
@@ -141,8 +145,8 @@ authentication
     });
 ```
 
-::: panel-info Scope
-Note that the default scope used is `openid`
+::: note
+Note that the default scope used is `openid`.
 :::
 
 ### Sign up with database connection
@@ -206,8 +210,8 @@ authentication
   });
 ```
 
-::: panel-info Request Failures
-Note that password reset requests will fail on network related errors, but will not fail if the designated email does not exist in the database (for security reasons).
+::: note
+Password reset requests will fail on network related errors, but will not fail if the designated email does not exist in the database (for security reasons).
 :::
 
 ## Using the Management API
@@ -263,8 +267,8 @@ users
     });
 ```
 
-::: panel-info Unlinking - Metadata
-Note that when accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
+::: note
+When accounts are linked, the secondary account's metadata is **not** merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
 :::
 
 ### Updating user metadata
@@ -314,7 +318,7 @@ Also register the intent filters inside your activity's tag, so you can receive 
 
         <activity
             android:name="com.mycompany.MainActivity"
-            android:theme="@style/MyAppTheme">
+            android:theme="@style/MyAppTheme"
             android:launchMode="singleTask">
 
             <intent-filter>
@@ -397,7 +401,7 @@ WebAuthProvider.init(account)
                 .start(this, authCallback);
 ```
 
-::: panel-info Scope
+::: panel Scope
 Note that the default scope used is `openid`
 :::
 

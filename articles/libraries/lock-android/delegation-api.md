@@ -9,7 +9,8 @@ After a successful authentication, you can request credentials to access third p
 
 Here's an example
 ```java
-Auth0 auth0 = //create account
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
 AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 String apiType = "firebase";
 String token = //Your Auth0 id_token of the logged in User
@@ -27,7 +28,9 @@ client.delegationWithIdToken(token, apiType)
     });
 ```
 
-> The delegation response is a generic Map since the structure of it will depend of the `api_type` used for delegation
+::: note
+The delegation response is a generic Map since the structure of it will depend of the `api_type` used for delegation
+:::
 
 The only two parameters required are `id_token` and `api_type`, the former is the token returned by Auth0 after a successful authentication, the latter specifies the API credentials we want to retrieve, and these are its supported values:
 

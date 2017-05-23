@@ -24,6 +24,7 @@ A0Theme.sharedInstance().register(myAwesomeTheme)
 ## How to configure your Theme
 
 **Lock**'s UI is composed of several parts that can be customized
+
 Here is a list of the available values that can be customized:
 
 ![](/media/articles/libraries/lock-ios/customization/Lock-UI-Parts.png)
@@ -35,6 +36,7 @@ You can either configure some type of properties which are:
 * Font: `UIFont` instance.
 
 Example Usage
+
 ```
 myAwesomeTheme.registerColorForKey(UIColor.redColor(), "A0ThemePrimaryButtonNormalColor");
 ```

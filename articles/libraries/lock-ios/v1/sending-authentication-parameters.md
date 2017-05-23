@@ -74,4 +74,6 @@ parameter.connectionScopes = @{
 };
 ```
 
-> The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.
+::: note
+The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.
+:::

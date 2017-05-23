@@ -14,7 +14,11 @@ you may avoid the integration trouble.
 
 Below is an outline of the steps to get ready to accept Norwegian BankID logins, but you may also view [a short screen cast](https://grean.com/easyid/auth0/2016/12/07/easyid-and-auth0.html) at Grean's website.
 
-**NOTE:** While the technical integration complexity is simple, to use Norwegian BankID in production you will have to go through a formal process to register and obtain the necessary certificate to identify yourself to your users. More on this process can be found once you sign into the easyID service, and with the help of Grean.
+::: panel Process to use Swedish BankID in Production
+While the technical integration complexity is simple, to use Swedish BankID in production you will have to go through a formal process to
+register and obtain the necessary certificate to identify yourself to your users.
+More on this process can be found once you sign into the easyID service, and with the help of Grean.
+:::
 
 ## 1. Create an account with Grean easyID
 
@@ -49,7 +53,9 @@ If you are not already logged in to Auth0 in this session, you will be prompted 
 
 Once logged in you must grant Grean easyID consent to create connections and read the clients.
 
-**Note:** If you have more than one Auth0 tenant, remember to select the right one in the dialog.
+::: note
+If you have more than one Auth0 tenant, remember to select the right one in the dialog.
+:::
 
 ![Auth0 connections details](/media/articles/connections/grean/auth0-consent.png)
 
@@ -59,8 +65,9 @@ Click the check mark in the green area at the bottom to allow Grean easyID to se
 
 Go to the **Connections > Enterprise** section and open the **ADFS** connections to see the connections for Norwegian BankID created from the previous steps.
 
-**Note:** One connection has been created for each kind of authentication supported by Norwegian BankID:
-Browser based and mobile. The mobile method requires a special SIM card issued by a Norwegian provider.
+::: note
+One connection has been created for each kind of authentication supported by Norwegian BankID: Browser based and mobile. The mobile method requires a special SIM card issued by a Norwegian provider.
+:::
 
 ![ADFS connections created](/media/articles/connections/grean/adfs-connections-no.png)
 

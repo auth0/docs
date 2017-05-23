@@ -8,7 +8,9 @@ description: Explains the architecture scenario of B2E with a large organization
 
 # Business to Enterprise Identity Scenarios
 
-<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
+::: note
+This architecture scenario is under construction and will be updated soon.
+:::
 
 ![](/media/articles/architecture-scenarios/b2e.png)
 

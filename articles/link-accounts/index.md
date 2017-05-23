@@ -7,7 +7,7 @@ crews: crew-2
 
 # Linking Accounts
 
-::: panel-info Feature Availability
+::: panel Feature Availability
 The **Account Linking** feature requires a paid subscription to the **Developer**, **Developer Pro** or **Enterprise** plan. It is not available as a free feature.
 
 [Click here](https://auth0.com/pricing) to learn more about Auth0 pricing plans.
@@ -202,7 +202,9 @@ Below are implementation details for calling the Linking Account API in these sc
 
 The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user ids and an [Management API v2 token](/api/v2/tokens) with `update:users` scope.
 
-**NOTE:** For starting point, see [Link Accounts with Same Email Address](https://github.com/auth0/rules/blob/master/rules/link-users-by-email.md).
+::: note
+For starting point, see [Link Accounts with Same Email Address](https://github.com/auth0/rules/blob/master/rules/link-users-by-email.md).
+:::
 
 ### User-initiated account linking
 
@@ -210,7 +212,9 @@ Typically, account linking will be initiated by an authenticated user. Your app 
 
 ![](/media/articles/link-accounts/spa-user-settings.png)
 
-**NOTE:** You can follow the [User-initiated Account Linking](/link-accounts/user-initiated-linking) tutorial or view the [Auth0 jQuery Single Page App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github for implementation details.
+::: note
+You can follow the [User-initiated Account Linking](/link-accounts/user-initiated-linking) tutorial or view the [Auth0 jQuery Single Page App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github for implementation details.
+:::
 
 ### Suggested account linking
 
@@ -218,7 +222,9 @@ As with automatic linking, in this scenario you will set up a [Rule](/rules) tha
 
 ![](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
 
-**NOTE:** You can follow the [Account Linking from Server Side Code](/link-accounts/suggested-linking) tutorial or view the [Auth0 Node.js Regular Web App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) on Github for implementation details.
+::: note
+You can follow the [Account Linking from Server Side Code](/link-accounts/suggested-linking) tutorial or view the [Auth0 Node.js Regular Web App Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/RegularWebApp) on Github for implementation details.
+:::
 
 ## Unlinking accounts
 

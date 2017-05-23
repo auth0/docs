@@ -6,7 +6,9 @@ description: How to configure WordPress as a client with Auth0.
 
 To configure the "Login by Auth0" WordPress Plugin, you will need to copy the *Domain*, *Client Id* and *Client Secret* from the *Settings* page of your app in the Auth0 dashboard to the *Basic* settings page of the Auth0 plugin in WordPress.
 
-**Note:** In order to install or customize plugins, you will need to use a self-hosted WordPress.org site. Using the WordPress.com site does not allow installing plugins.
+::: note
+In order to install or customize plugins, you will need to use a self-hosted WordPress.org site. Using the WordPress.com site does not allow installing plugins.
+:::
 
 ## Create a New Client
 
@@ -118,7 +120,9 @@ This action accepts five parameters:
 4. `$id_token` (string): The user's JWT.
 5. `$access_token` (string): The user's access token.
 
-  **Note:** An access token is not provided when using *Implicit Flow*.
+  ::: note
+  An access token is not provided when using __Implicit Flow__.
+  :::
 
 To hook to this action, include the following code:
 

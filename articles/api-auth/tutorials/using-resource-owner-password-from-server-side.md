@@ -4,9 +4,9 @@ description: How to use Resource Owner Password Grant from the server side toget
 toc: true
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Using Resource Owner Password from Server side
+
+<%= include('../../_includes/_pipeline2') %>
 
 Server-side applications can use the [Resource Owner Password Grant](/api-auth/grant/password) to access an API. The flow typically involves prompting the user for username and password as credentials which your server will submit to Auth0 to get an access token. When using this flow from server side, some anomaly detection features might fail because of the particularities of this scenario. This document details how to use [Resource Owner Password Grant](/api-auth/grant/password) flow from server side preventing some common issues.
 
@@ -30,8 +30,9 @@ Brute-force protection relies on having the original user's IP. When calling the
 
 To prevent this, you may send the end-user's IP address to Auth0 along with the credentials and configure the client to trust the provided IP. Because of security considerations, this configuration is only possible for Authenticated clients (i.e. those with authentication based on a client secret).
 
-<div class="alert alert-warning"><strong>Warning!</strong> Authenticated clients must only be used from protected resources, typically server-side. Do not use them from native applications or SPAs, as they are not capable of storing secrets.
-</div>
+::: warning
+<strong>Warning!</strong> Authenticated clients must only be used from protected resources, typically server-side. Do not use them from native applications or SPAs, as they are not capable of storing secrets.
+:::
 
 
 ### Configuring the Auth0 Client to receive and trust the IP sent by your server
@@ -42,7 +43,9 @@ To prevent this, you may send the end-user's IP address to Auth0 along with the 
 
 ![Token Endpoint Authentication Method](/media/articles/api-auth/client-auth-method.png)
 
-<div class="alert alert-warning">Due to security considerations, the configuration stated on Step 3 will not be available for Non-Authenticated clients. </div>
+::: warning
+Due to security considerations, the configuration stated on Step 3 will not be available for Non-Authenticated clients.
+:::
 
 3. Scroll to the bottom and click _Show Advanced Settings_.
 
@@ -54,8 +57,10 @@ To prevent this, you may send the end-user's IP address to Auth0 along with the 
 
 To send the end-user IP from your server, include a `auth0-forwarded-for` header with the value of the end-user IP address. If the IP is valid, Auth0 will use it as the source IP for brute-force protection. It is important to make sure the provided IP address really belongs to your end user.
 
-<div class="alert alert-warning"><strong>Warning!</strong> Trusting headers like the <code>x-forwarded-for</code> (or, in general, data from client) as source for the end-user IP can be a big risk. This should not be done unless you know you can trust that header, since it is easy to spoof and makes possible to bypass the anomaly-detection validation.
+::: warning
+<strong>Warning!</strong> Trusting headers like the <code>x-forwarded-for</code> (or, in general, data from client) as source for the end-user IP can be a big risk. This should not be done unless you know you can trust that header, since it is easy to spoof and makes possible to bypass the anomaly-detection validation.
 </div>
+:::
 
 ### Example
 

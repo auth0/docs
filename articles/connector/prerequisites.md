@@ -37,7 +37,9 @@ The connector must be installed on a server with outbound connectivity to the Au
 
 The connector can be installed and configured behind a __proxy server__ but we don't recommend this.
 
-> You can enable a proxy through the environment or configuration variable `HTTP_PROXY`.
+::: note
+You can enable a proxy through the environment or configuration variable `HTTP_PROXY`.
+:::
 
 #### LDAP
 

@@ -50,6 +50,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [auth](#auth-object-) | The auth object contains the below auth options |
+| [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue
 | [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
 | [params](#params-object-) | Option to send parameters at login |
 | [redirect](#redirect-boolean-) | Whether or not to use redirect mode |
@@ -87,6 +88,8 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | --- | --- |
 | [clientBaseUrl](#clientbaseurl-string-) | Override your client's base URL |
 | [languageBaseUrl](#languagebaseurl-string-) | Override your language file base URL |
+| [hashCleanup](#hashcleanup-boolean-) | Override the default removal of the hash from the URL |
+| [leeway](#leeway-integer-) | Add leeway for clock skew to JWT expiration times |
 
 ---
 
@@ -124,7 +127,7 @@ Examples of `allowedConnections`:
 
 Determines whether or not the Lock will be closed automatically after a successful sign in. Defaults to false.
 
-::: panel-info Side effects
+::: note
 If the Lock is not `closable` it won't be closed, even if this option is set to true.
 :::
 
@@ -198,9 +201,9 @@ var options = {
 
 ### container {String}
 
-The `id` of the html element where the widget will be shown. 
+The `id` of the html element where the widget will be shown.
 
-::: panel-info Side effects
+::: note
 This makes the widget appear inline within your `div` instead of in a modal pop-out window.
 :::
 
@@ -280,8 +283,6 @@ var options = {
 };
 ```
 
----
-
 ## Theming Options
 
 ### theme {Object}
@@ -293,23 +294,23 @@ Theme options are grouped in the `theme` property of the `options` object.
 Allows the customization of buttons in Lock. Each custom connection whose button you desire to customize should be listed by name, each with their own set of parameters. The customizable parameters are listed below:
 
 - **displayName** {String}: The name to show instead of the connection name when building the button title, such as `LOGIN WITH MYCONNECTION` for login).
-- **primaryColor** {String}: The button's background color. Defaults to "#eb5424".
-- **foregroundColor** {String}: The button's text color. Defaults to "#FFFFFF".
-- **icon** {String}: The URL of the icon for this connection. For example: "http://site.com/logo.png".
+- **primaryColor** {String}: The button's background color. Defaults to `#eb5424`.
+- **foregroundColor** {String}: The button's text color. Defaults to `#FFFFFF`.
+- **icon** {String}: The URL of the icon for this connection. For example: `http://site.com/logo.png`.
 
 ```js
 var options = {
   theme: {
     authButtons: {
       "testConnection": {
-        displayName: "Test Conn", 
-        primaryColor: "#b7b7b7", 
-        foregroundColor: "#000000", 
+        displayName: "Test Conn",
+        primaryColor: "#b7b7b7",
+        foregroundColor: "#000000",
         icon: "http://example.com/icon.png"
       },
       "testConnection2": {
-        primaryColor: "#000000", 
-        foregroundColor: "#ffffff", 
+        primaryColor: "#000000",
+        foregroundColor: "#ffffff",
       }
     }
   }
@@ -318,7 +319,7 @@ var options = {
 
 #### labeledSubmitButton {Boolean}
 
-This option indicates whether or not the submit button should have a label, and defaults to `true`. When set to `false`, an icon will be shown instead. 
+This option indicates whether or not the submit button should have a label, and defaults to `true`. When set to `false`, an icon will be shown instead.
 
 ```js
 var options = {
@@ -362,10 +363,7 @@ var options = {
 
 ![Lock - Theme - Primary Color](/media/articles/libraries/lock/v10/customization/lock-theme-primarycolor.png)
 
-
----
-
-## Social Options 
+## Social Options
 
 ### socialButtonStyle {String}
 
@@ -382,8 +380,7 @@ var options = {
 ```
 
 ![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small.png)
- 
----
+
 
 Second example, with `socialButtonStyle` remaining at default behavior - three social connections, with no other connections enabled for this client in the dashboard.
 
@@ -392,8 +389,7 @@ var options = {};
 ```
 
 ![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-default-social.png)
- 
----
+
 
 Third example, with `socialButtonStyle` remaining at default behavior - the app has three social connections, with other connections turned on in the dashboard (in this case, a username-password connection).
 
@@ -403,8 +399,7 @@ var options = {};
 
 ![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-default.png)
 
----
- 
+
 Fourth example, with three social connections, and no other connections enabled in the dasbboard, but with forced small buttons.
 
 ```js
@@ -414,8 +409,7 @@ var options = {
 ```
 
 ![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small-social.png)
- 
----
+
 
 ## Authentication Options
 
@@ -433,6 +427,18 @@ var options = {
    sso: true
   }
 };
+```
+
+#### autoParseHash {Boolean}
+
+When `autoParseHash` is set to `true`, Lock will parse the `window.location.hash` string when instantiated. If set to `false`, you'll have to manually resume authentication using the [resumeAuth](/libraries/lock/v10/api#resumeauth-) method.
+
+```js
+var options = {
+  auth: {
+    autoParseHash: false
+  }
+};  
 ```
 
 #### connectionScopes {Object}
@@ -466,7 +472,7 @@ var options = {
 };  
 ```
 
-::: panel-info Supported parameters
+::: note
 For more details about supported parameters check the [Authentication Parameters][authparams-link] documentation page.
 :::
 
@@ -474,8 +480,8 @@ For more details about supported parameters check the [Authentication Parameters
 
 Defaults to true. When set to true, redirect mode will be used. If set to false, [popup mode](/libraries/lock/v10/popup-mode) is chosen.
 
-::: panel-warning Popup mode
-WARNING: There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. See more info [here](https://ask.auth0.com/t/popup-login-window-is-not-closed-after-authentication/2843).
+::: warning
+There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. See more info [here](https://ask.auth0.com/t/popup-login-window-is-not-closed-after-authentication/2843).
 :::
 
 ```js
@@ -498,13 +504,13 @@ var options = {
 };  
 ```
 
-::: panel-info Side effects
+::: note
 When the `redirectUrl` is provided (set to non blank value) the `responseType` option will be defaulted to `code` if not manually set.
 :::
 
 #### responseMode {String}
 
-Should be set to `"form_post"` if you want the code or the token to be transmitted via an HTTP POST request to the `redirectUrl`, instead of being included in its query or fragment parts. 
+Should be set to `"form_post"` if you want the code or the token to be transmitted via an HTTP POST request to the `redirectUrl`, instead of being included in its query or fragment parts.
 
 Otherwise, this option should be omitted, and is omitted by default.
 
@@ -532,7 +538,7 @@ var options = {
 
 Tells Lock to use or not the Single Sign On session created by Auth0 so it can prompt the user to login with the last logged in user. The Auth0 session is not tied to this value since it depends on the client's or tenant' settings.
 
-::: panel-warning Multifactor authentication
+::: warning
 Failing to set this to true will result in multifactor authentication not working correctly.
 :::
 
@@ -544,23 +550,21 @@ var options = {
 };  
 ```
 
----
-
 ## Database Options
 
 ### additionalSignUpFields {Array}
 
 Extra input fields can be added to the sign up screen with the `additionalSignUpFields` option. Each option added in this manner will then be added to that user's `user_metadata`. See the [user metadata documentation](/metadata) for more information. Every input must have a `name` and a `placeholder`, and an `icon` URL can also be provided. Also, the initial value can be provided with the `prefill` option, which can be a string with the value or a function that obtains it. Other options depend on the type of the field, which is defined via the type option and defaults to "text".
 
-::: panel-info Intended for use with database signup only
+::: panel Intended for use with database signup only
 `additionalSignupFields` are intended for use with database signups only. If you have social sign ups too, you can ask for the additional information after the users sign up (see this [page about custom signup](/libraries/lock/v10/custom-signup#using-lock) for more details). You can use the `databaseAlternativeSignupInstructions` i18n key to display these instructions.
 :::
 
-The new fields are rendered below the regular sign up input fields in the order they are provided. 
+The new fields are rendered below the regular sign up input fields in the order they are provided.
 
 #### Text Fields
 
-A `validator` function can also be provided.
+Text fields are the default type of additional signup field. Note that a `validator` function can also be provided.
 
 ```js
 var options = {
@@ -588,6 +592,8 @@ var options = {
 
 
 #### Select Field
+
+The signup field `type: "select"` will allow you to use select elements for the user to choose a value from.
 
 ```js
 var options = {
@@ -633,7 +639,22 @@ var options = {
 }
 ```
 
-::: panel-info Using additionalSignupFields for email
+#### Checkbox Field
+
+The third type of custom signup field is the `type: "checkbox"`. The `prefill` value can determine the default state of the checkbox (`true` or `false`), and it is required.
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    type: "checkbox",
+    name: "newsletter",
+    prefill: "true",
+    placeholder: "I hereby agree that I want to receive marketing emails from your company"
+  }]
+}
+```
+
+::: note
 Some use cases may be able to use `additionalSignupFields` data for email templates, such as an option for language preferences, the value of which could then be used to set the language of templated email communications.
 :::
 
@@ -652,9 +673,9 @@ var options = {
 
 ### allowForgotPassword {Boolean}
 
-When set to false, `allowForgotPassword` hides the "Don't remember your password?" link in the Login screen, making the Forgot Password screen unreachable. Defaults to true. 
+When set to false, `allowForgotPassword` hides the "Don't remember your password?" link in the Login screen, making the Forgot Password screen unreachable. Defaults to true.
 
-::: panel-info Side effects
+::: note
 Keep in mind that if you are using a database connection with a custom database which doesn't have a change password script the Forgot Password screen won't be available.
 :::
 
@@ -691,7 +712,7 @@ var options = {
 };
 ```
 
-### initialScreen {string}
+### initialScreen {String}
 
 The name of the screen that will be shown when the widget is opened. Valid values are `login`, `signUp`, and `forgotPassword`. If this option is left unspecified, the widget will default to the first screen that is available from that list.
 
@@ -738,7 +759,7 @@ Allows to set the initial value for the email and/or username inputs. When omitt
 ```js
 var options = {
   prefill: {
-    email: "someone@auth0.com", 
+    email: "someone@auth0.com",
     username: "someone"
   }
 };
@@ -746,9 +767,9 @@ var options = {
 
 ### signUpLink {String}
 
-Set the URL to be requested when clicking on the Signup button. 
+Set the URL to be requested when clicking on the Signup button.
 
-::: panel-info Side effects
+::: panel Side effects
 When set to a non empty string, this option forces `allowSignUp` to `true`.
 :::
 
@@ -768,8 +789,6 @@ var options = {
   usernameStyle: 'username'
 };
 ```
-
----
 
 ## Enterprise Options
 
@@ -793,8 +812,6 @@ var options = {
 };
 ```
 
----
-
 ## Other Options
 
 ### clientBaseUrl {String}
@@ -814,6 +831,26 @@ Overrides the language source url for Auth0's provided translations. By default,
 ```js
 var options = {
   languageBaseUrl: "http://www.example.com"
+};
+```
+
+### hashCleanup {Boolean}
+
+When the `hashCleanup` option is enabled, it will remove the hash part of the callback url after the user authentication. It defaults to true.
+
+```js
+var options = {
+  hashCleanup: false
+};
+```
+
+### leeway {Integer}
+
+The `leeway` option can be set to an integer - a value in seconds - which can be used to account for clock skew in JWT expirations. Typically the value is no more than a minute or two at maximum.
+
+```js
+var options = {
+  leeway: 30
 };
 ```
 

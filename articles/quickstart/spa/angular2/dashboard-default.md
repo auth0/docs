@@ -1,21 +1,23 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to integrate Auth0 with Angular to add user login to your app
+description: This tutorial demonstrates how to add user login to your application with Auth0
 ---
 
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-angularjs2-systemjs-sample',
-  path: '01-Login',
+  repo: 'auth0-angular-samples',
+  path: '00-Centralized-Login',
   requirements: [
-    'Angular 2.4.10'
+    'Angular 2+'
   ]
 }) %>
 
 <%= include('../../../_includes/_callback_url') %>
 
-<%= include('_includes/_dependencies') %>
+<%= include('../_includes/_install_auth0js') %>
 
-<%= include('_includes/_login') %>
+<%= include('_includes/_centralized_login') %>
+
+

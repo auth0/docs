@@ -29,7 +29,9 @@ When provisioning the Appliance from the templates, Auth0 recommends the followi
         * If you anticipate more than 10 million users, please let us know for additional storage requirements and considerations.
         * Drives should be thick provisioned.
 
-> Large installations will require higher IO performance. Auth0 will work with you to determine the required storage performance levels.
+::: note
+  Large installations will require higher IO performance. Auth0 will work with you to determine the required storage performance levels.
+:::
 
 For multi-node clusters, Auth0 recommends deploying the Appliance virtual machines across more than one physical host server/blade.
 
