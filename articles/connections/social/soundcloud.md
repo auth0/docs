@@ -23,7 +23,11 @@ Navigate to the [SoundCloud Developer Portal](http://developers.soundcloud.com/)
 
 ![](/media/articles/connections/social/soundcloud/soundcloud-devportal-1.png)
 
-You will be asked to fill out a Developer Application (which is a Google Forms document) that provides SoundCloud information about your Auth0 Client.
+You will be asked to fill out a Developer Application (which is a Google Forms document):
+
+![](/media/articles/connections/social/soundcloud/soundcloud-google-doc.png)
+
+This provides SoundCloud information about your Auth0 Client.
 
 Once you have completed and submitted your application, you will be contacted by the SoundCloud team with further instructions on how to proceed. Only at this point will you be given the appropriate API credentials to complete the integration.
 
