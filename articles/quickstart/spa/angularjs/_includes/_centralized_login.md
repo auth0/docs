@@ -41,7 +41,7 @@ The angular-auth0 wrapper comes with a provider called `angularAuth0Provider`. T
         controller: 'CallbackController',
         templateUrl: 'app/callback/callback.html',
         controllerAs: 'vm'
-      });;
+      });
 
     // Initialization for the angular-auth0 library
     angularAuth0Provider.init({
