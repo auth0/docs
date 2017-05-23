@@ -281,7 +281,7 @@ To use the `audience` param instead, configure your app to send it when initiati
     <tr>
       <th><strong>/userinfo endpoint</strong</th>
       <td>Supported</td>
-      <td>Supported. Responses will [conform to the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse), similar to [the contents of ID tokens](/api-auth/tutorials/adoption/scope-custom-claims).</td>
+      <td>Supported. Responses will <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse">conform to the OIDC specification</a>, similar to <a href="/api-auth/tutorials/adoption/scope-custom-claims">the contents of ID tokens</a>.</td>
     </tr>
     <tr>
       <th><strong>Refresh Tokens with Implicit Grant</strong</th>
