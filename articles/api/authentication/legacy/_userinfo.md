@@ -70,6 +70,10 @@ webAuth.parseHash(window.location.hash, function(err, authResult) {
   "link": "#get-token-info"
 }) %>
 
+::: warning
+This endpoint is considered insecure and you are strongly advised against using it. The alternative is to use the [Get User Info endpoint](/api/authentication#get-user-info). For more information refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
+
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
 
 ### Request Parameters

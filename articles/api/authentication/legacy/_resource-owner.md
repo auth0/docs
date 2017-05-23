@@ -65,6 +65,10 @@ request(options, function (error, response, body) {
   "link": "#resource-owner"
 }) %>
 
+::: warning
+This endpoint is considered insecure and you are strongly advised against using it. The alternative is to use the [Resource Owner Password Grant](/api/authentication#resource-owner-password). For more information refer to [Introducing OIDC Conformant Authentication](/api-auth/intro#other-authentication-api-endpoints).
+:::
+
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
 
 ### Request Parameters

@@ -58,6 +58,10 @@ xhr.send(params);
   "link": "#social-with-provider-s-access-token"
 }) %>
 
+::: warning
+This endpoint is considered insecure and you are strongly advised against using it. The alternative is to open the browser to do social authentication, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). For more information refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
+
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
 
 ### Request Parameters
@@ -157,6 +161,10 @@ curl --request POST \
   "path": "/oauth/ro",
   "link": "#database-ad-ldap-active-"
 }) %>
+
+::: warning
+This endpoint is considered insecure and you are strongly advised against using it. The alternative is to use the [Resource Owner Password Grant](/api/authentication#resource-owner-password). For more information refer to [Introducing OIDC Conformant Authentication](/api-auth/intro#other-authentication-api-endpoints).
+:::
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
 
