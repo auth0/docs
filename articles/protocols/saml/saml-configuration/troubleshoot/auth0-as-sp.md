@@ -42,7 +42,7 @@ The following sections describe how to check each stage and how to identify if t
         1. Click on the row for the POST call in the HAR analyzer.
         2. Switch to the POST Data tab, and look for the SAML response.
         3. Copy and paste the SAML response into a [SAML debugger](https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php).
-        4. Remve the SAML response at the beginning, as well as anything beginning with `&RelayState=` at the end.
+        4. Remove the "SAML response" at the beginning, as well as anything beginning with `&RelayState=` at the end.
         5. Click **Decode SAML message** and check the following fields:
           * **Destination**: the application URL that consumes the SAML assertion (and is also known as the Assertion Callback URL)
           * **Status Field**: this field should indicate success: `<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>`
@@ -51,7 +51,6 @@ The following sections describe how to check each stage and how to identify if t
           * **Naming**: the attribute identified by the `NameIdentifier` field should be known to the application. If it's not, the identifier should be some other attribute within the assertion (such as an internal IdP identifier for the user or an email address)
           * **Signature Key**: check that the value indicated by the `X509Certificate` element matches the value provided to your connection
           * **Certificate**: compare the certificate sent to the one that you provided to the application
-<<<<<<< 98d934e089edad6ca8f470b4b9e689eecda29d72
 
 ## Issue: User Successfully Logs In With the IdP, a Successful Login Event Shows Up in Auth0 Logs, but the User's Profile Attributes are Incorrect
 
@@ -107,7 +106,7 @@ Within the provided editor, there is a JSON snippet you can edit to configure yo
   * Scan through the sequence of URLs in the trace, and look for the following:
     * The first few will be URLs for your application.
     * There will then by a redirect to an Auth0 URL (such as `${account.namespace}`).
-    * Next up is your application's callback URL. Make sure that it's correct.
+    * Further down is your application's callback URL. Make sure that it's correct.
   * Retrieve the `id_token` from this call, and paste it into [a JWT decoder](https://jwt.io/). Check that the claims in the token contain the information needed by the application.
 
 ### Troubleshooting IdP-initiated Flows
@@ -127,8 +126,6 @@ If you're using an IdP-initiated flow (for example, the user starts at the ident
 
 * If you're using an Auth0 Database Connection **or** a remote SAML connection:
   * Check that the SAML Connection works by [using **Try** to run a Connection test](#issue-the-idp-login-page-doesn-t-display).
-=======
->>>>>>> Add SP info
 
 ## Issue: User Successfully Logs In With the IdP, a Successful Login Event Shows Up in Auth0 Logs, but the User's Profile Attributes are Incorrect
 
@@ -184,7 +181,7 @@ Within the provided editor, there is a JSON snippet you can edit to configure yo
   * Scan through the sequence of URLs in the trace, and look for the following:
     * The first few will be URLs for your application.
     * There will then by a redirect to an Auth0 URL (such as `${account.namespace}`).
-    * Next up is your application's callback URL. Make sure that it's correct.
+    * Further down is your application's callback URL. Make sure that it's correct.
   * Retrieve the `id_token` from this call, and paste it into [a JWT decoder](https://jwt.io/). Check that the claims in the token contain the information needed by the application.
 
 ### Troubleshooting IdP-initiated Flows

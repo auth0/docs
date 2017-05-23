@@ -22,7 +22,7 @@ Regardless of how you implement SAML SSO, it's important to consider:
 
   * Auth0 can pass the basic profile information from the identity provider to the application, which then retreives any missing information from another source. With the two sets of information, the application creates a local user profile.
 
-* You can specify email domains as part of the IDP configuration to control the IDP that handles a select group of users. For example, if you add email domain `example.com` to the IDP configuration for Company X, all users with emails with the `example.com` domain get handled by the specific IDP for Company X.
+* You can specify email domains as part of the Auth0 SAMLP Connection configuration to control the IDP that handles a select group of users. For example, if you add email domain `example.com` to the Auth0 SAMLP Connection configuration for Company X, all users with emails with the `example.com` domain get handled by the specific IDP for Company X.
 
 ## Considerations for Using Auth0 as Identity Provider
 
