@@ -38,11 +38,11 @@ You may opt to use Auth0 as both the SAML Service Provider **and** SAML Identity
 
 The following documentation cover the different aspects of SAML configuration:
 
+* [Configure Auth0 as an Identity Provider](/protocols/saml/saml-configuration/auth0-as-identity-provider)
+* [Configure Auth0 as Both Service and Identity Provider](/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider)
 * [SAML Design Considerations](/protocols/saml/saml-configuration/design-considerations)
 * [Supported SAML Options and Bindings](/protocols/saml/saml-configuration/supported-options-and-bindings)
 * [Configure Auth0 as a Service Provider](/protocols/saml/saml-configuration/auth0-as-service-provider)
-* [Configure Auth0 as an Identity Provider](/protocols/saml/saml-configuration/auth0-as-identity-provider)
-* [Configure Auth0 as Both Service and Identity Provider](/protocols/saml/saml-configuration/auth0-as-identity-and-service-provider)
 * [Special Configuration Scenarios](/protocols/saml/saml-configuration/special-configuration-scenarios)
 * [Customize SAML Assertions](/protocols/saml/saml-configuration/saml-assertions)
 * [Logout](/protocols/saml/saml-configuration/logout)
