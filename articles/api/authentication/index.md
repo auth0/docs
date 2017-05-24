@@ -43,6 +43,10 @@ fullWidth: true
   <%= include('./_linking') %>
 </div>
 
+<div class="api-section" data-section="none">
+  <%= include('./_impersonation') %>
+</div>
+
 <span data-section-label="api-authz">API Authorization</span>
 <div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_authz-client') %>
@@ -57,9 +61,6 @@ fullWidth: true
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_userinfo') %>
-</div>
-<div class="api-section" data-section="legacy">
-  <%= include('./legacy/_impersonation') %>
 </div>
 <div class="api-section" data-section="legacy">
   <%= include('./legacy/_delegation') %>
