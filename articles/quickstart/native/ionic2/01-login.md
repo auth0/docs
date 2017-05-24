@@ -21,7 +21,7 @@ To integrate Auth0 in a hybrid Ionic app, you can use the `@auth0/cordova` packa
 
 ::: note
 
-You cannot test this in the browser. If you try, you'll get errors. This must be tested on a device!
+Please note that PKCE authentication requires testing on either an emulated or real device. Attempting authentication when testing in the browser will fail because PKCE requires a device browser.
 
 :::
 
@@ -54,13 +54,13 @@ You'll need these libraries:
 
 * **[auth0-js](https://github.com/auth0/auth0.js)** to get profile information from Auth0
 
-* **[@auth0-cordova](https://github.com/auth0/auth0-cordova)** to handle authentication with Auth0
+* **[@auth0/cordova](https://github.com/auth0/auth0-cordova)** to handle authentication with Auth0
 
 ```bash
 npm install auth0-js @auth0/cordova --save
 ```
 
-After **@auth0-cordova** is installed, it needs to be configured by modifying your `app.component.ts` to set up URL redirects:
+After **@auth0/cordova** is installed, it needs to be configured by modifying your `app.component.ts` to set up URL redirects:
 
 ${snippet(meta.snippets.cordova)}
 
