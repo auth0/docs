@@ -8,7 +8,7 @@ ${snippet(meta.snippets.setup)}
 
 The service includes several methods for handling authentication.
 
-* `login` - calls `authorize` from auth0.js which redirects users to the hosted login page
+* `login` - calls `authorize` from auth0.js which redirects users to the login page
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 * `setSession` - sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
 * `logout` - removes the user's tokens from browser storage
