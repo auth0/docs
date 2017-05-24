@@ -171,7 +171,6 @@ Add some additional methods to the `authService` to fully handle authentication 
 })();
 ```
 
-
 The service now includes several other methods for handling authentication.
 
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
@@ -200,8 +199,6 @@ This example uses Bootstrap styles, but that's unimportant. Use whichever style 
 The `ng-click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `authService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
 When the **Log In** button is clicked, the user will be redirected to Auth0's hosted login page.
-
-![hosted login](/media/articles/web/hosted-login.png)
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 

@@ -4,15 +4,129 @@
 
 Add a new file called `app.js`. In this file you can create and manage an instance of `auth0.WebAuth` and also hold logic to hide and display DOM elements.
 
-${snippet(meta.snippets.setup)}
+```js
+// app.js
 
-The file includes several functions for handling authentication.
+window.addEventListener('load', function() {
 
-* `login` - calls `authorize` from auth0.js which redirects users to the login page
+  var webAuth = new auth0.WebAuth({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    redirectUri: window.location.href,
+    audience: 'https://${account.namespace}/userinfo',
+    responseType: 'token id_token',
+    scope: 'openid'
+  });
+
+  var loginBtn = document.getElementById('btn-login');
+
+  loginBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    webAuth.authorize();
+  });
+
+});
+```
+
+::: note
+**Checkpoint:** Try adding a `button` with a class of `btn-login` to your app. This will call the `authorize` method from auth0.js so you can see the login page.
+:::
+
+![hosted login](/media/articles/web/hosted-login.png)
+
+### Finish Out the Authentication Functions
+
+Add some additional functions to `app.js` to fully handle authentication in the app.
+
+```js
+// app.js
+
+window.addEventListener('load', function() {
+
+  // ...
+  var loginStatus = document.querySelector('.container h4');
+  var loginView = document.getElementById('login-view');
+  var homeView = document.getElementById('home-view');
+
+  // buttons and event listeners
+  var homeViewBtn = document.getElementById('btn-home-view');
+  var loginBtn = document.getElementById('btn-login');
+  var logoutBtn = document.getElementById('btn-logout');
+
+  homeViewBtn.addEventListener('click', function() {
+    homeView.style.display = 'inline-block';
+    loginView.style.display = 'none';
+  });
+
+  logoutBtn.addEventListener('click', logout);
+
+  function setSession(authResult) {
+    // Set the time that the access token will expire at
+    var expiresAt = JSON.stringify(
+      authResult.expiresIn * 1000 + new Date().getTime()
+    );
+    localStorage.setItem('access_token', authResult.accessToken);
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('expires_at', expiresAt);
+  }
+
+  function logout() {
+    // Remove tokens and expiry time from localStorage
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+    displayButtons();
+  }
+
+  function isAuthenticated() {
+    // Check whether the current time is past the
+    // access token's expiry time
+    var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    return new Date().getTime() < expiresAt;
+  }
+
+
+  function handleAuthentication() {
+    webAuth.parseHash(function(err, authResult) {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        window.location.hash = '';
+        setSession(authResult);
+        loginBtn.style.display = 'none';
+        homeView.style.display = 'inline-block';
+      } else if (err) {
+        homeView.style.display = 'inline-block';
+        console.log(err);
+        alert(
+          'Error: ' + err.error + '. Check the console for further details.'
+        );
+      }
+      displayButtons();
+    });
+  }
+
+  function displayButtons() {
+    if (isAuthenticated()) {
+      loginBtn.style.display = 'none';
+      logoutBtn.style.display = 'inline-block';
+      loginStatus.innerHTML = 'You are logged in!';
+    } else {
+      loginBtn.style.display = 'inline-block';
+      logoutBtn.style.display = 'none';
+      loginStatus.innerHTML =
+        'You are not logged in! Please log in to continue.';
+    }
+  }
+});
+```
+
+The file now includes several other functions for handling authentication.
+
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 * `setSession` - sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
 * `logout` - removes the user's tokens from browser storage
 * `isAuthenticated` - checks whether the expiry time for the `access_token` has passed
+
+### About the Authentication Functions
 
 The first noteworthy thing happening here is that an instance of `auth0.WebAuth` is created. The options object passed to it includes configuration for your client and domain, a response type to indicate you would like to receive an `access_token` and `id_token` after authentication, and an `audience` and `scope` which specify that authentication should be [OIDC conformant](https://auth0.com/docs/api-auth/tutorials/adoption). Also specified is the location that users should be returned to after authentication is complete. In this case, that's the main URL for the application.
 
@@ -69,8 +183,6 @@ This example uses Bootstrap styles, but that's unimportant. Use whichever style 
 The `click` event listeners added to the **Log In** and **Log Out** buttons make the appropriate calls to the functions in `app.js` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
 When the **Log In** button is clicked, the user will be redirected to Auth0's hosted login page.
-
-![hosted login](/media/articles/web/hosted-login.png)
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
