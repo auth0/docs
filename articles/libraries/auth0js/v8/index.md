@@ -71,7 +71,7 @@ There are two required parameters that must be passed in the `options` object wh
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `domain` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com) |
-| `client_id` | required | (String) Your Auth0 client\_id |
+| `clientID` | required | (String) Your Auth0 client\_id |
 | `redirectUri` | optional | (String)  The default `redirectUri` used. Defaults to an empty string (none). |
 | `scope` | optional | (String)  The default scope(s) used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
