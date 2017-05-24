@@ -8,7 +8,7 @@ In the Dashboard under [Connections > Passwordless](${manage_url}/#/connections/
 
 Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
 
-::: panel Get a Twilio SID and Auth Token
+::: note
 For information on obtaining a Twilio SID and Auth Token, see: [How to create an Application SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and [Auth Tokens and how to change them](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it).
 :::
 
