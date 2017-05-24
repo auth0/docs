@@ -71,7 +71,7 @@ There are two required parameters that must be passed in the `options` object wh
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `domain` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com) |
-| `client_id` | required | (String) Your Auth0 client\_id |
+| `clientID` | required | (String) Your Auth0 client\_id |
 | `redirectUri` | optional | (String)  The default `redirectUri` used. Defaults to an empty string (none). |
 | `scope` | optional | (String)  The default scope(s) used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
 | `audience` | optional | (String)  The default audience used for requesting API access. |
@@ -91,10 +91,10 @@ The `authorize` method can be used for logging in users via the [Hosted Login Pa
 | --- | --- | --- |
 | `audience` | required | (String) Your Auth0 account domain (ex. myaccount.auth0.com). |
 | `scope` | required | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
-| `response_type` | required | (String) The value must be `'token'` or `'code'`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
-| `client_id` | optional | (String)  Your Auth0 client ID. |
+| `responseType` | required | (String) The value must be `'token'` or `'code'`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
+| `clientID` | optional | (String)  Your Auth0 client ID. |
 | `state` | recommended | (String)  An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
-| `redirect_uri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
+| `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 
 For hosted login, one must call the `authorize` endpoint:
 
@@ -104,7 +104,7 @@ webAuth.authorize({
 });
 ```
 
-If `authorize` is called without any parameters, it will use those which were set when `webAuth` was instantiated. The first required parameter, `client_id`, will be thus passed into `authorize`. The second required parameter is `response_type`, and this will either be acquired from the same place, or, if it was never set, default to `token` in most cases.
+If `authorize` is called without any parameters, it will use those which were set when `webAuth` was instantiated. The first required parameter, `clientID`, will be thus passed into `authorize`. The second required parameter is `response_type`, and this will either be acquired from the same place, or, if it was never set, default to `token` in most cases.
 
 For social logins, the `connection` parameter will need to be specified:
 
@@ -345,18 +345,18 @@ To log out a user, use the `logout` method. This method accepts an options objec
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `returnTo` | optional | (String) URL to redirect the user to after the logout. |
-| `client_id` | optional | (String) Your Auth0 client ID |
+| `clientID` | optional | (String) Your Auth0 client ID |
 | `federated` | optional | (Querystring parameter) Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 ::: panel returnTo parameter
-Note that if the `client_id` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}).
-However, if the `client_id` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
+Note that if the `clientID` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}).
+However, if the `clientID` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
 :::
 
 ```js
 webAuth.logout({
   returnTo: 'some url here',
-  client_id: 'some client ID here'
+  clientID: 'some client ID here'
 });
 ```
 
@@ -366,7 +366,6 @@ To sign up a user, use the `signup` method. This method accepts an options objec
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
-| `client_id` | required | (String) Your Auth0 client ID |
 | `email` | required | (String) User's email address |
 | `password` | required | (String) User's desired password |
 | `connection` | required | (String) The database connection name on your client upon which to attempt user account creation |
