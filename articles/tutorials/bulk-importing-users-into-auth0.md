@@ -83,7 +83,7 @@ A file with the following contents is valid:
 ]
 ```
 
-> The file size limit for a bulk import is 10MB. You will need to start multiple imports if your data exceeds this size.
+> The file size limit for a bulk import is 500KB. You will need to start multiple imports if your data exceeds this size.
 
 ## How does it work?
 
