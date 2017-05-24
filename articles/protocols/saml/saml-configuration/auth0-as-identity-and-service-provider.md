@@ -4,14 +4,14 @@
 
 # Configure Auth0 as a Service and Identity Provider
 
-::: panel SAML-Compliant Providers
+::: note
 Auth0 provides a non-exhaustive [list of SAML-compliant providers](/samlp-providers).
 :::
 
 When using Auth0 as both the SAML Service and Identity Provider, you need to configure **two** federations:
 
-* [Configure Auth0 as a Service Provider](/protocols/saml/saml-configuration/troubleshoot/auth0-as-identity-provider)
-* [Configure Auth0 as an Identity Provider](/protocols/saml/saml-configuration/troubleshoot/auth0-as-service-provider).
+* [Configure Auth0 as a Service Provider](/protocols/saml/saml-configuration/auth0-as-identity-provider)
+* [Configure Auth0 as an Identity Provider](/protocols/saml/saml-configuration/auth0-as-service-provider).
 
 ## Using Two Auth0 Accounts
 

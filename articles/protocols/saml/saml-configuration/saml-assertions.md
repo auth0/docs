@@ -66,19 +66,35 @@ function (user, context, callback) {
 The following is a list of customization options for your SAML assertions.
 
 * **audience** (string): The audience of the SAML Assertion. Default will be the Issuer on SAMLRequest.
-* **recipient** (string): The recipient of the SAML Assertion (SubjectConfirmationData). Default is AssertionConsumerUrl on SAMLRequest or Callback URL if no SAMLRequest was sent.
+
+* **recipient** (string): The recipient of the SAML Assertion (SubjectConfirmationData). Default is `AssertionConsumerUrl` on SAMLRequest or Callback URL if no SAMLRequest was sent.
+
 * **mappings** (Array): The mappings between Auth0 profile and the output attributes on the SAML Assertion. Default mapping is shown above.
+
 * **createUpnClaim** (bool): Whether or not a UPN claim should be created. Default is true.
+
 * **passthroughClaimsWithNoMapping** (bool): If true (default), for each claim that is not mapped to the common profile, Auth0 will passthrough those in the output assertion. If false, those claims won't be mapped. Default is true.
-* **mapUnknownClaimsAsIs** (bool): if passthroughClaimsWithNoMapping is true and this is false (default), for each claim that is not mapped to the common profile Auth0 will add a prefix http://schema.auth0.com. If true it will passthrough the claim as-is. Default is false.
+
+* **mapUnknownClaimsAsIs** (bool): if `passthroughClaimsWithNoMapping` is true and this is false (default), for each claim that is not mapped to the common profile Auth0 will add a prefix `http://schema.auth0.com`. If true it will passthrough the claim as-is. Default is false.
+
 * **mapIdentities**: If true, it will will add more information in the token like the provider used (google, adfs, ad, etc.) and the access_token if available. Default is true.
-* **signatureAlgorithm**: Signature algorithm to sign the SAML Assertion or response. Default is rsa-sha1 and it could be rsa-sha256.
-* **digestAlgorithm**: Digest algorithm to calculate digest of the SAML Assertion or response. default sha1. It could be sha256.
-* **destination**: Destination of the SAML Response. If not specified, it will be AssertionConsumerUrl of SAMLRequest or Callback URL if there was no SAMLRequest.
+
+* **signatureAlgorithm**: Signature algorithm to sign the SAML Assertion or response. Default is `sha1` and it could be `sha256`.
+
+* **digestAlgorithm**: Digest algorithm to calculate digest of the SAML Assertion or response. Default is `sha1` and it could be `sha256`.
+
+* **destination**: Destination of the SAML Response. If not specified, it will be `AssertionConsumerUrl` of SAMLRequest or Callback URL if there was no SAMLRequest.
+
 * **lifetimeInSeconds** (int): Expiration of the token. Default is 3600 seconds (1 hour).
+
 * **signResponse** (bool): Whether or not the SAML Response should be signed. By default the SAML Assertion will be signed, but not the SAML Response. If true, SAML Response will be signed instead of SAML Assertion.
-* **nameIdentifierFormat** (string): Default is urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified.
+
+* **nameIdentifierFormat** (string): Default is `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
+
 * **nameIdentifierProbes** (Array): Auth0 will try each of the attributes of this array in order. If one of them has a value, it will use that for the Subject/NameID. The order is: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier (mapped from user_id), http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress (mapped from email), http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name (mapped from name).
-* **authnContextClassRef**: Default is urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified.
-* **typedAttributes**: Default is true. When set to true, we infer the xs:type of the element. Types are xs:string, xs:boolean, xs:double and xs:anyType. When set to false all xs:type are xs:anyType
-* **includeAttributeNameFormat**: Default is true. When set to try, we infer the NameFormat based on the attribute name. NameFormat values are urn:oasis:names:tc:SAML:2.0:attrname-format:uri, urn:oasis:names:tc:SAML:2.0:attrname-format:basic and urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified. If set to false, the attribute NameFormat is not set in the assertion
+
+* **authnContextClassRef**: Default is `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`.
+
+* **typedAttributes**: Default is true. When set to true, we infer the xs:type of the element. Types are `xs:string`, `xs:boolean`, `xs:double `and `xs:anyType`. When set to false all `xs:type` are `xs:anyType`
+
+* **includeAttributeNameFormat**: Default is true. When set to try, we infer the NameFormat based on the attribute name. NameFormat values are `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, `urn:oasis:names:tc:SAML:2.0:attrname-format:basic` and `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`. If set to false, the attribute NameFormat is not set in the assertion

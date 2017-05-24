@@ -1,6 +1,6 @@
 ---
   description: An overview of the SAML configuration process
-  url: saml-configuration
+  url: /protocols/saml/saml-configuration
 ---
 
 # SAML Configuration

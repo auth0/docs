@@ -18,7 +18,7 @@ Regardless of how you implement SAML SSO, it's important to consider:
 
   * After the identity provider creates the user, you can use an out-of-band process can create the accompanying user in the application (or Auth0) and add any user profile attributes required by the application. If, after authentication, any attributes are missing in the profile, the application can obtain them from the appropriate source and store them in the Auth0 user profile. The additonal attributes are then sent to the application (in addition to any added by the identity provider) the next time the user logs in.
 
-  * You can use an Auth0 [rule](/rule) to call an API to retrieve any missing information and dynamically add it to the Auth0 profile (which is then returned to the application). Rules execute after successful authentication, and your application can retrieve profile attributes each time *or* you can save the attributes to the Auth0 profile.
+  * You can use an Auth0 [rule](/rules) to call an API to retrieve any missing information and dynamically add it to the Auth0 profile (which is then returned to the application). Rules execute after successful authentication, and your application can retrieve profile attributes each time *or* you can save the attributes to the Auth0 profile.
 
   * Auth0 can pass the basic profile information from the identity provider to the application, which then retreives any missing information from another source. With the two sets of information, the application creates a local user profile.
 

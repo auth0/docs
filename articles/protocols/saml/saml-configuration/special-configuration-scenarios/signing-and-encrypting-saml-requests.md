@@ -2,7 +2,7 @@
   description: Signing and encrypting SAML requests
 ---
 
-Special Configuration Scenarios: Signing and Encrypting SAML Requests
+# Special Configuration Scenarios: Signing and Encrypting SAML Requests
 
 To increase the security of your transactions, you can sign or encrypt both your requests and your responses.
 

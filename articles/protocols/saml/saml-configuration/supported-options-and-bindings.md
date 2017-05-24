@@ -2,7 +2,7 @@
   description: Supported SAML bindings and options
 ---
 
-# SAML Bindings and Options
+# Supported SAML Bindings and Options
 
 Auth0 supports the following SAML bindings:
 
