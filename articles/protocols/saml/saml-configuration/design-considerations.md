@@ -36,5 +36,5 @@ If Auth0 is serving as the Identity Provider in a SAML federation, user accounts
 If your application is written to retrieve user profile information from a local store, you'll need to create the local profile after the accounts have been created in Auth0. Some of the ways you might do this include:
 
  * An out-of-band process creating user profiles in the application;
- * An Auth0 [rule](/rule) that executes on first login that calls an application API to create the user profile in the application;
+ * An Auth0 [rule](/rules) that executes on first login that calls an application API to create the user profile in the application;
  * Modifying the application to create user profiles dynamically, based on information in the SAML assertion.
