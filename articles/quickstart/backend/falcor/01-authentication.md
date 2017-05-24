@@ -17,7 +17,7 @@ description: This tutorial will show you how to use the Auth0 to add authenticat
 
 ## Add the Dependencies
 
-Add **express-jwt**, **falcor-express**, and **falcor-router** to your project.
+Add **express-jwt**, **express-jwt-authz**, **falcor-express**, and **falcor-router** to your project. 
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -31,7 +31,7 @@ ${snippet(meta.snippets.setup)}
 
 ## Secure your API
 
-In your Falcor app, you serve a virtual JSON resource from a single endpoint. You can protect this endpoint globally with the `express-jwt` middleware.
+Individual routes can be configured to look for a particular `scope` by setting up another middleware with the **express-jwt-authz** package. To do so, provide an array of required scopes and apply the middleware to any routes you wish to add authorization to.
 
 ${snippet(meta.snippets.use)}
 
