@@ -7,7 +7,7 @@ description: How to back up the Appliance using its CLI
 
 You may use Appliance CLI to perform a Mongo backup on a specific node.
 
-Beginning with version `11112-vNext`, the backup doesn't include sensitive configuration information such as encryption keys.
+Beginning with version `11638`, the backup doesn't include sensitive configuration information such as encryption keys.
 
 ## Prior to Beginning the Backup
 
@@ -33,7 +33,7 @@ To initiate a backup, run the following command in your local command-line inter
 
 For example, if you were to run the above command using the provided sample values, you would run:
 
-`a0cli -t 192.168.1.186 backup Passw0rd`
+`a0cli -t 192.168.1.186 backup --password Passw0rd`
 
 If the command successfully begins the backup process, you will see the message, "Backup in progress."
 
@@ -47,7 +47,7 @@ Only one backup may performed and stored at any given time. Prior to generating 
 
 ## Back Up Sensitive Configuration Info
 
-Beginning with Appliance version `11112-vNext`, the `backup` command does **not** save sensitive configuration information such as encryption keys. You need to manually back up these keys (and any other sensitive information) if you want to fully recover an Appliance installation using a backup copy.
+Beginning with Appliance version `11638`, the `backup` command does **not** save sensitive configuration information such as encryption keys. You need to manually back up these keys (and any other sensitive information) if you want to fully recover an Appliance installation using a backup copy.
 
 To do this, you can use the `backup-sensitive` command, which works the same way as `backup`. You must run the command on a node where you previously ran `set-as-backup`.
 
@@ -105,7 +105,7 @@ To delete an existing backup, you will use the "backup-delete" message in your l
 ## Restore a Backup
 
 ::: panel-warning Sensitive Configuration Information
-Beginning with Appliance version `11112-vNext`, you will need to restore your backup **and** the backup of your sensitive configuration information.
+Beginning with Appliance version `11638`, you will need to restore your backup **and** the backup of your sensitive configuration information.
 :::
 
 To restore the Appliance using a backup:
