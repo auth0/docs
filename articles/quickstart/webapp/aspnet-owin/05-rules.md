@@ -31,6 +31,8 @@ This quickstart uses `https://schemas.quickstarts.com` for the claim namespace, 
 The Auth0 middleware will not add the country as a claim, so you will need to do this manually. You can alter the middleware registration in the `Startup` class to add an `OnAuthenticated` event handler which extracts the country from the `User` object and add it as a claim.
 
 ```csharp
+// Startup.cs
+
 var options = new Auth0AuthenticationOptions()
 {
     Domain = auth0Domain,
@@ -64,6 +66,8 @@ Now that the user's country is returned by Auth0, you can display this inside th
 Update the `UserProfileViewModel` and add a `Country` property:
 
 ```csharp
+// ViewModels/UserProfileViewModel.cs
+
 public class UserProfileViewModel
 {
     public string Country { get; set; }
@@ -79,6 +83,8 @@ public class UserProfileViewModel
 Update the `Profile` action in your `AccountController` to retrieve the country from the "country" claim:
 
 ```csharp
+// Controllers/AccountController.cs
+
 [Authorize]
 public ActionResult Profile()
 {
@@ -97,6 +103,8 @@ public ActionResult Profile()
 And finally display the country in the profile view:
 
 ```html
+<!-- Views/Account/UserProfile.cshtml -->
+
 @model global::MvcApplication.ViewModels.UserProfileViewModel
 @{
     ViewData["Title"] = "User Profile";
