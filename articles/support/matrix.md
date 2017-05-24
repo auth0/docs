@@ -151,6 +151,11 @@ toc: true
       </tr>
     </tbody>
   </table>
+  
+  ## Extensions
+  - We will only support extensions that are published on the Extensions gallery that you can find in the [Auth0 Dashboard](https://manage.auth0.com/#/extensions).
+  - We do not provide support for custom extensions.
+  - Feature requests should be requested at the GitHub repository of that extension.
 
   ## Operating Systems
 
