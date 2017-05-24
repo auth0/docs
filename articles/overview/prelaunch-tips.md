@@ -1,10 +1,10 @@
 ---
 url: /prelaunch-tips
-title: Prelaunch Tips 
+title: Pre-launch Tips 
 description: A list of helpful tips for when getting started with Auth0 services based on feedback and experience from others.
 ---
 
-# Prelaunch Tips 
+# Pre-launch Tips 
 
 Here is a list of tips our customers have found most useful when first getting started with Auth0 services:
 
@@ -53,8 +53,3 @@ Here is a list of tips our customers have found most useful when first getting s
 * Remove any `console.log` statements from your rules or custom DB scripts. Especially those that might leak user identifiable information such as email, username or password.
 
 * Do not use plain text secrets in rules or db-connections. They should be added in the configuration part of the interface. The configuration is encrypted and provided just in time. Do not log the configuration object. 
-
-
-
-
-
