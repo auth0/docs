@@ -4,15 +4,104 @@
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `Auth` and the filename will be `Auth.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
-${snippet(meta.snippets.setup)}
+Create a service and instantiate `auth0.WebAuth`. Provide a method called `login` which calls the `authorize` from auth0.js.
 
-The service includes several methods for handling authentication.
+```js
+// src/Auth/Auth.js
 
-* `login` - calls `authorize` from auth0.js which redirects users to the login page
+import { EventEmitter } from 'events';
+import history from '../history';
+import auth0 from 'auth0-js';
+
+export default class Auth extends EventEmitter {
+  auth0 = new auth0.WebAuth({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    redirectUri: 'http://localhost:3000',
+    audience: 'https://${account.namespace}/userinfo',
+    responseType: 'token id_token',
+    scope: 'openid'
+  });
+
+  login() {
+    this.auth0.authorize();
+  }
+}
+```
+
+::: note
+**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
+:::
+
+![hosted login](/media/articles/web/hosted-login.png)
+
+### Finish Out the Service
+
+Add some additional methods to the `Auth` service to fully handle authentication in the app.
+
+```js
+// src/Auth/Auth.js
+
+// ...
+export default class Auth extends EventEmitter {  
+  // ...
+  constructor() {
+    super();
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+    this.handleAuthentication = this.handleAuthentication.bind(this);
+    this.isAuthenticated = this.isAuthenticated.bind(this);
+  }
+
+  handleAuthentication() {
+    this.auth0.parseHash((err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        this.setSession(authResult);
+        history.replace('/home');
+      } else if (err) {
+        history.replace('/home');
+        console.log(err);
+      }
+    });
+  }
+
+  setSession(authResult) {
+    if (authResult && authResult.accessToken && authResult.idToken) {
+      // Set the time that the access token will expire at
+      let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+      localStorage.setItem('access_token', authResult.accessToken);
+      localStorage.setItem('id_token', authResult.idToken);
+      localStorage.setItem('expires_at', expiresAt);
+      // navigate to the home route
+      history.replace('/home');
+    }
+  }
+
+  logout() {
+    // Clear access token and ID token from local storage
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+    // navigate to the home route
+    history.replace('/home');
+  }
+
+  isAuthenticated() {
+    // Check whether the current time is past the 
+    // access token's expiry time
+    let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    return new Date().getTime() < expiresAt;
+  }
+}
+```
+
+
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 * `setSession` - sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
 * `logout` - removes the user's tokens from browser storage
 * `isAuthenticated` - checks whether the expiry time for the `access_token` has passed
+
+### About the Authentication Service
 
 <%= include('../../_includes/_auth_service_method_description_auth0js') %>
 
@@ -29,8 +118,6 @@ This example uses Bootstrap styles, but that's unimportant. Use whichever style 
 The `onClick` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `Auth` service to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
 When the **Log In** button is clicked, the user will be redirected to Auth0's hosted login page.
-
-![hosted login](/media/articles/web/hosted-login.png)
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
