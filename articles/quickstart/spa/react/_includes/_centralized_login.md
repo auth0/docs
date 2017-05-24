@@ -95,6 +95,7 @@ export default class Auth extends EventEmitter {
 }
 ```
 
+The service now includes several other methods for handling authentication.
 
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 * `setSession` - sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
