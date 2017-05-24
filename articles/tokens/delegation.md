@@ -5,7 +5,7 @@ description: This page explains an overview about Auth0 delegation tokens.
 # Delegation Tokens
 
 ::: warning
-This functionality is considered insecure and you are strongly advised against using it. For more information refer to [Introducing OIDC Conformant Authentication > Delegation](/api-auth/intro#delegation).
+Delegation Tokens are considered insecure and you are strongly advised against using them. For more information refer to [Introducing OIDC Conformant Authentication > Delegation](/api-auth/intro#delegation).
 :::
 
 A delegation token should be obtained and used when a client program needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
