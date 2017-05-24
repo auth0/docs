@@ -46,6 +46,7 @@ ${snippet(meta.snippets.setup)}
 Once the user successfully authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
 ```cs
+HomeController.cs
 public ActionResult Index()
 {
   string email = ClaimsPrincipal.Current.FindFirst("email").Value;
