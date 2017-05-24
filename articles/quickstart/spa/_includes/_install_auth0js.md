@@ -10,7 +10,7 @@ npm install --save auth0-js
 yarn add auth0-js
 ```
 
-Once **auth0.js** is installed, add it to your build system or bring it in to your project with a script tag.
+Once **auth0.js** is installed, add it to your build system or bring it in to your project as a script tag.
 
 ```html
 <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>

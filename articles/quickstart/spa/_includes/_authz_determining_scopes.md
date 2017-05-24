@@ -10,5 +10,5 @@ The solution is to use the value of the `scope` param that comes back after auth
 
 The resulting workflow for determining which `scope`s a user has is as such:
 
-1. Check for a value on `authResult.scope`. If one exists, use that value because these are the `scope`s that were granted for the user.
-2.  If there is no value for `authResult.scope`, it means that all of the `scope`s requested for the user were granted. In this scenario, the `scope`s that were requested when the authentication transaction was initiated can be used directly to make UI decisions.
+* Check for a value on `authResult.scope`. If one exists, use that value because these are the `scope`s that were granted for the user.
+* If there is no value for `authResult.scope`, it means that all of the `scope`s requested for the user were granted. In this scenario, the `scope`s that were requested when the authentication transaction was initiated can be used directly to make UI decisions.
