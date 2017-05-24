@@ -12,4 +12,4 @@ title: Using Passwordless Authentication on Android with SMS
 
 ## Implementation
 
-Take a look at the [Lock Passwordless for Android documentation](/libraries/lock-android/passwordless) to learn more about implementation details it in your Android native application.
+For detailed information on how to implement this, refer to [Lock Passwordless for Android documentation](/libraries/lock-android/passwordless).
