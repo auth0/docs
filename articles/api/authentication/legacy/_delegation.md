@@ -37,9 +37,9 @@ curl --request POST \
 This endpoint is considered insecure and you are strongly advised against using it. For more information refer to [Introducing OIDC Conformant Authentication > Delegation](/api-auth/intro#delegation).
 :::
 
-Delegated authentication is used when an entity wants to call another entity on behalf of the user. For example, a user logs into an application and then calls an API. The application exchanges the token of the logged in user with a token that is signed with the API secret to call the API.
+A delegation token should be obtained and used when a client program needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
 
-Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API or across different APIs that are secured with different secrets.
+Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API.
 
 ### Request Parameters
 
