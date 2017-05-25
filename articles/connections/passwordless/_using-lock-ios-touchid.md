@@ -18,20 +18,6 @@ You can use Touch ID with an iPhone 5s or later, an iPad Air 2, or an iPad mini 
 
 ### Using the Auth0 Lock
 
-<% if (language === "objc") { %>
-<%= include('../../_includes/_package', {
-  org: 'auth0',
-  repo: 'Mobile-Samples.iOS',
-  path: 'Passwordless-TouchID/Lock/ObjC'
-}) %>
-<% } else { %>
-<%= include('../../_includes/_package', {
-  org: 'auth0',
-  repo: 'Mobile-Samples.iOS',
-  path: 'Passwordless-TouchID/Lock/Swift'
-}) %>
-<% } %>
-
 <%= include('./_introduction-lock', { repository: 'Lock.iOS-OSX', platform: 'iOS', docsUrl: 'lock-ios' }) %>
 
 <% if (language === "objc") { %>
@@ -39,8 +25,6 @@ You can use Touch ID with an iPhone 5s or later, an iPad Air 2, or an iPad mini 
 <% } else { %>
 <%= include('./_touchid-controller-swift') %>
 <% } %>
-
-
 
 ### Using your own UI
 

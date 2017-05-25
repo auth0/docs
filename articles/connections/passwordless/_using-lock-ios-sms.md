@@ -10,20 +10,6 @@
 
 ### Using Auth0 Lock
 
-<% if (language === "objc") { %>
-<%= include('../../_includes/_package', {
-  org: 'auth0',
-  repo: 'Mobile-Samples.iOS',
-  path: 'Passwordless-SMS/Lock/ObjC'
-}) %>
-<% } else { %>
-<%= include('../../_includes/_package', {
-  org: 'auth0',
-  repo: 'Mobile-Samples.iOS',
-  path: 'Passwordless-SMS/Lock/Swift'
-}) %>
-<% } %>
-
 <%= include('./_introduction-lock', { repository: 'Lock.iOS-OSX', platform: 'iOS', docsUrl: 'lock-ios' }) %>
 
 <% if (language === "objc") { %>
