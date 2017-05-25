@@ -74,3 +74,7 @@ If the troubleshooting steps listed above don't solve the issue you're seeing, p
 10. An HTTP trace of the SSO interaction in [a .har file](/har)
 11. An Auth0 log entry for the failed authentication
 12. An authentication log file from any third-party applications (such as Sharepoint) involved
+
+### Further Reading
+
+* [Common SAML Errors](/protocols/saml/saml-configuration/troubleshoot/common-saml-errors)
