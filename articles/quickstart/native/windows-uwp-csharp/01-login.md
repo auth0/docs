@@ -31,6 +31,7 @@ For UWP applications, the callback URL needs to be in the format **ms-app://SID*
 Alternatively - or if you have not associated your application with the Store yet - you can obtain the value by calling the `Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` method. So for example, in the `OnLaunched` method of your application, you can add the following line of code:
 
 ```csharp
+App.xaml.cs
 protected override void OnLaunched(LaunchActivatedEventArgs e)
 {
 #if DEBUG
@@ -75,6 +76,7 @@ The returned login result will indicate whether authentication was successful, a
 You can check the `IsError` property of the result to see whether the login has failed. The `ErrorMessage` will contain more information regarding the error which occurred.
 
 ```csharp
+MainPage.xaml.cs
 var loginResult = await client.LoginAsync();
 
 if (loginResult.IsError)
@@ -88,6 +90,7 @@ if (loginResult.IsError)
 On successful login, the login result will contain the `id_token` and `access_token` in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
+MainPage.xaml.cs
 var loginResult = await client.LoginAsync();
 
 if (!loginResult.IsError)
@@ -104,6 +107,7 @@ On successful login, the login result will contain the user information in the `
 To obtain information about the user, you can query the claims. You can for example obtain the user's name and email address from the `name` and `email` claims:
 
 ```csharp
+MainPage.xaml.cs
 if (!loginResult.IsError)
 {
     Debug.WriteLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
@@ -118,6 +122,7 @@ The exact claims returned will depend on the scopes that were requested. For mor
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 
 ```csharp
+MainPage.xaml.cs
 if (!loginResult.IsError)
 {
     foreach (var claim in loginResult.User.Claims)
