@@ -64,7 +64,7 @@ Add this to your `app/config/config.yml`
 
 ```yml
 hwi_oauth:
-    firewall_name: secured_area
+    firewall_names: [secured_area]
     resource_owners:
         auth0:
             type:                auth0
@@ -104,6 +104,9 @@ security:
 
                 oauth_user_provider:
                     service: hwi_oauth.user.provider
+            logout:
+                path:   /auth0/logout
+                target: /
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
