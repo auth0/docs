@@ -15,7 +15,7 @@ All samples will use a Hybrid project (Objective-C & Swift). For more informatio
 
 ## Auth0 Dependencies
 
-Each tutorial will require you to use either the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit.
+Each tutorial will require you to use the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit.
 
 A brief description:
 
