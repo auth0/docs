@@ -20,6 +20,8 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 
 [Versioning](#versioning)
 
+[Beta Content](#beta-content)
+
 [Finishing](#finishing)
 
 [Editing Text](#editing-with-wordy)
@@ -259,6 +261,17 @@ URL Front Matter
 url: /path/to/document
 ---
 ```
+
+
+## Beta Content
+
+To mark a doc as Beta set this metadata:
+
+```
+beta: true
+```
+
+This will add a `Beta` button next to the header.
 
 ## Finishing
 
