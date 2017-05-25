@@ -152,18 +152,19 @@ toc: true
     </tbody>
   </table>
   
-  ## Extensions
-  - We will only support extensions that are published on the Extensions gallery that you can find in the [Auth0 Dashboard](https://manage.auth0.com/#/extensions).
-  - We do not provide support for custom extensions.
-  - Feature requests should be requested at the GitHub repository of that extension.
+## Extensions
+  
+We will only support extensions that are published on the Extensions gallery that you can find in the [Dashboard](${manage_url}/#/extensions). We do not provide support for custom extensions.
+  
+Feature requests should be requested at the GitHub repository of that extension.
 
-  ## Operating Systems
+## Operating Systems
 
-  This section covers the operating systems (OS) that Auth0 will support when using the Auth0 Dashboard, Lock Library or executing authentication transactions.
+This section covers the operating systems (OS) that Auth0 will support when using the Auth0 Dashboard, Lock Library or executing authentication transactions.
 
-  ::: note
-  Auth0 support is limited to the most recent version of the OS listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
-  :::
+::: note
+Auth0 support is limited to the most recent version of the OS listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
+:::
 
   ### Auth0 Dashboard
 
