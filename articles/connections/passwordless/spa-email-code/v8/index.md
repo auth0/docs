@@ -56,12 +56,6 @@ Once the user enters the code received by email, Lock will authenticate them and
 
 ### Use your own UI
 
-<%= include('../../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-passwordless-sample',
-  path: ''
-}) %>
-
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
 <%= include('../../_init-auth0js_v8', {redirectUri:false} ) %>

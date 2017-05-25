@@ -63,12 +63,6 @@ $(document).ready(function(){
 
 ### Use your own UI
 
-<%= include('../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-passwordless-sample',
-  path: ''
-}) %>
-
 You can perform passwordless authentication with a magic link in your single-page application using your own UI with the [Auth0 JavaScript client library](/libraries/auth0js).
 
 <%= include('./_init-auth0js', {withCallbackURL:false} ) %>
