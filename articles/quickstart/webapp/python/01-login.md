@@ -53,6 +53,7 @@ The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the UR
 You can access the user information via the `profile` you stored in the session on step 2
 
 ```python
+Server.py
 @app.route("/dashboard")
 @requires_auth
 def dashboard():
@@ -61,6 +62,7 @@ def dashboard():
 ```
 
 ```html
+dashboard.html
 <div>
   <img class="avatar" src="{{user['picture']}}"/>
   <h2>Welcome {{user['nickname']}}</h2>
@@ -76,6 +78,7 @@ def dashboard():
 You can add the following annotation to your `Flask` app to check if the user is authenticated. Note that you should import `wraps` first, adding the following line to your file `from functools import wraps`.
 
 ```python
+Server.py
 def requires_auth(f):
   @wraps(f)
   def decorated(*args, **kwargs):
