@@ -40,6 +40,8 @@ Go to the `Configuration` method of your `Startup` class and add a call to `UseJ
 The `JwtBearerAuthenticationOptions` needs to specify your Auth0 API Identifier in the `ValidAudience` property, and the full path to your Auth0 domain as the `ValidIssuer`. You will need to configure the `IssuerSigningKeyResolver` to use the instance of `OpenIdConnectSigningKeyResolver` to resolve the signing key:
 
 ```csharp
+// Startup.cs
+
 public void Configuration(IAppBuilder app)
 {
     var domain = $"https://{ConfigurationManager.AppSettings["Auth0Domain"]}/";
@@ -70,6 +72,8 @@ Please ensure that the URL specified for `ValidIssuer` contains a trailing backs
 The JWT middleware integrates with the standard ASP.NET Authentication and Authorization mechanisms, so you only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
 
 ```csharp
+// Controllers/PingController.cs
+
 [RoutePrefix("api")]
 public class PingController : ApiController
 {
@@ -100,6 +104,8 @@ To ensure that a correct `scope` is present in order to execute a particular API
 Create a class called `ScopeAuthorizeAttribute` which inherits from `System.Web.Http.AuthorizeAttribute`. This Authorization Attribute will check that the `scope` claim issued by your Auth0 tenant is present, and if so it will ensure that the `scope` claim contains the requested scope.
 
 ```csharp
+// Controllers/ScopeAuthorizeAttribute.cs
+
 public class ScopeAuthorizeAttribute : AuthorizeAttribute
 {
     private readonly string scope;
@@ -136,6 +142,8 @@ public class ScopeAuthorizeAttribute : AuthorizeAttribute
 To ensure that a scope is present in order to call a particular API endpoint, you simply need to decorate the action with the `ScopeAuthorize` attribute, and pass the name of the required `scope` in the `scope` parameter:
 
 ```csharp
+// Controllers/TimesheetsController.cs
+
 [RoutePrefix("api/messages")]
 public class MessagesController : ApiController
 {
