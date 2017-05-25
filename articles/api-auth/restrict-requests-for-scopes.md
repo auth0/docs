@@ -44,10 +44,9 @@ function (user, context, callback) {
    */
 
   var client_id = '';
-
   client_id = context.clientID;
 
-  if (context.clientID === 'CLIENT_ID') {
+  if (client_id === 'CLIENT_ID') {
     return callback(new UnauthorizedError('end_users_not_allowed'));
   }
 
