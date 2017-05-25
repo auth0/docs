@@ -80,7 +80,6 @@ Confidential Clients, indicated by the `token_endpoint_auth_method` flag set to 
 Trusted first-party clients can additionally use the following `grant_types`:
 
 * `password`
-* `refresh_token`
 * `http://auth0.com/oauth/grant-type/password-realm`
 * `http://auth0.com/oauth/grant-type/mfa-oob`
 * `http://auth0.com/oauth/grant-type/mfa-otp`
