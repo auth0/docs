@@ -82,8 +82,9 @@ A file with the following contents is valid:
   }
 ]
 ```
-
-> The file size limit for a bulk import is 500KB. You will need to start multiple imports if your data exceeds this size.
+::: note
+The file size limit for a bulk import is 500KB. You will need to start multiple imports if your data exceeds this size.
+:::
 
 ## How does it work?
 
@@ -101,7 +102,7 @@ Your request should contain the following parameters:
 
 If it works, you will get a response similar to the following one:
 
-```
+```json
 {
     "status":"pending",
     "type":"users_import",
