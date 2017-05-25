@@ -6,7 +6,7 @@ budicon: 546
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-javascript-samples',
+  repo: 'auth0-jquery-samples',
   path: '03-Calling-an-Api'
 }) %>
 
@@ -44,7 +44,7 @@ By default, any user on any client can ask for any scope defined in the scopes c
 
 Attaching the user's `access_token` as an `Authorization` header to HTTP calls can be done on a one-off basis by adding the header as an option to your requests. However, it is recommended that you implement a custom function which does this automatically.
 
-Create a new function called `callAPI` which wraps an XHR request with the user's `access_token` included as the `Authorization` header.
+Create a new function called `callAPI` which wraps a jQuery `$.ajax` request. If the request should be secured and if there is an `access_token` in local storage, attach it as the `Authorization` header.
 
 ```js
 // app.js
@@ -54,25 +54,23 @@ var apiUrl = 'http://localhost:3001/api';
 // ...
 function callAPI(endpoint, secured) {
   var url = apiUrl + endpoint;
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', url);
-  if (secured) {
-    xhr.setRequestHeader(
-      'Authorization',
-      'Bearer ' + localStorage.getItem('access_token')
-    );
+  var accessToken = localStorage.getItem('access_token');
+
+  var headers;
+  if (secured && accessToken) {
+    headers = { Authorization: 'Bearer ' + accessToken };
   }
-  xhr.onload = function() {
-    if (xhr.status == 200) {
-      // update message
-      document.querySelector('#ping-view h2').innerHTML = JSON.parse(
-        xhr.responseText
-      ).message;
-    } else {
-      alert('Request failed: ' + xhr.statusText);
-    }
-  };
-  xhr.send();
+
+  $.ajax({
+    url: url,
+    headers: headers
+  })
+    .done(function(result) {
+      $('#ping-view h2').text(result.message);
+    })
+    .fail(function(err) {
+      $('#ping-view h2').text('Request failed: ' + err.statusText);
+    });
 }
 ```
 
