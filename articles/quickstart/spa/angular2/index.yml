@@ -21,3 +21,4 @@ articles:
   - 03-user-profile
   - 04-calling-an-api
   - 05-authorization
+  - 06-token-renewal
