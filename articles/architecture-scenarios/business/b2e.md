@@ -4,6 +4,7 @@ title: Business to Enterprise Identity Scenarios
 image: /media/articles/architecture-scenarios/b2e.png
 extract: Large organization who wants to federate their existing enterprise directory service to allow employees to log in to applications using their existing enterprise credentials.
 description: Explains the architecture scenario of B2E with a large organization that wants to extend their existing enterprise directory service.
+beta: true
 ---
 
 # Business to Enterprise Identity Scenarios

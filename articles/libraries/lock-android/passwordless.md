@@ -8,7 +8,9 @@ description: Guide on implementing Passwordless authentication with Lock for And
 
 Lock Passwordless authenticates users by sending them an Email or SMS with a one-time password that the user must enter and confirm to be able to log in, similar to how WhatsApp authenticates you. This article will explain how to send a **CODE** using the `Lock.Android` library.
 
-> You can achieve a similar result by sending a **LINK** that the user can click to finish the passwordless authentication automatically, but a few more configuration steps are involved. You can check that article [here](/libraries/lock-android/passwordless-magic-link).
+::: note
+You can achieve a similar result by sending a **LINK** that the user can click to finish the passwordless authentication automatically, but a few more configuration steps are involved. You can check that article [here](/libraries/lock-android/passwordless-magic-link).
+:::
 
 In order to be able to authenticate the user, your application must have the Email/SMS connection enabled and configured in your [Auth0 Dashboard](${manage_url}/#/connections/passwordless).
 
@@ -26,7 +28,9 @@ The first step is to add the `PasswordlessLockActivity` to your `AndroidManifest
     android:launchMode="singleTask"/>
 ```
 
-> If your client has Social connections enabled you must add the corresponding Intent-Filter in the `PasswordlessLockActivity` to capture the call to the expected callback URL.
+::: note
+If your client has Social connections enabled you must add the corresponding Intent-Filter in the `PasswordlessLockActivity` to capture the call to the expected callback URL.
+:::
 
 When the Passwordless connection is SMS you must also add the `CountryCodeActivity` to allow the user to change the **Country Code** prefix of the phone number.
 

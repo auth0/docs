@@ -42,7 +42,7 @@ With the previous flow the tokens never expired. With the new flow all Managemen
 
 #### Why this changed
 
-Having a token that never expires can be very risky, in case an attacher gets hold of it. If the token expires within a few hours the attacker has only a small window to access your protected resources.
+Having a token that never expires can be very risky, in case an attacker gets hold of it. If the token expires within a few hours the attacker has only a small window to access your protected resources.
 
 ## Can I still get a non-expiring token?
 
