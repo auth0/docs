@@ -9,6 +9,8 @@ Install-Package Auth0-ASPNET-Owin
 Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware as well as the Auth0 middleware:
 
 ```cs
+// Startup.cs
+
 public void Configuration(IAppBuilder app)
 {
     // Configure Auth0 parameters
@@ -46,6 +48,8 @@ The `Login` action will return a `ChallengeResult` which will instruct the OWIN 
 For the `Logout` action you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as Auth0. For more information you can refer to the Auth0 [Logout](https://auth0.com/docs/logout) documentation.
 
 ```cs
+// Controllers/AccountController.cs
+
 public class AccountController : Controller
 {
     public ActionResult Login(string returnUrl)
@@ -74,6 +78,8 @@ public class AccountController : Controller
 You will also need to add the following code for the `ChallengeResult` class to your project:
 
 ```csharp
+// Controllers/AccountController.cs
+
 internal class ChallengeResult : HttpUnauthorizedResult
 {
     private const string XsrfKey = "XsrfId";
@@ -111,6 +117,8 @@ internal class ChallengeResult : HttpUnauthorizedResult
 Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
 ```html
+<!-- Views/Shared/_Layout.cshtml -->
+
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
