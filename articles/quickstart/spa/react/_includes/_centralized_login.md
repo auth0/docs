@@ -9,11 +9,10 @@ Create a service and instantiate `auth0.WebAuth`. Provide a method called `login
 ```js
 // src/Auth/Auth.js
 
-import { EventEmitter } from 'events';
 import history from '../history';
 import auth0 from 'auth0-js';
 
-export default class Auth extends EventEmitter {
+export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: '${account.namespace}',
     clientID: '${account.clientId}',
@@ -43,10 +42,9 @@ Add some additional methods to the `Auth` service to fully handle authentication
 // src/Auth/Auth.js
 
 // ...
-export default class Auth extends EventEmitter {  
+export default class Auth {  
   // ...
   constructor() {
-    super();
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
@@ -182,7 +180,7 @@ const auth = new Auth();
 
 const handleAuthentication = (nextState, replace) => {
   if (/access_token|id_token|error/.test(nextState.location.hash)) {
-    auth.handleAuthentication(nextState.location.hash);
+    auth.handleAuthentication();
   }
 }
 
