@@ -1,6 +1,7 @@
 ---
 section: appliance
 description: How to back up the Appliance using its CLI
+toc: true
 ---
 
 # How to Back Up Appliance Instances Using the CLI
@@ -15,7 +16,7 @@ Please ensure that:
 * You have configured the [Command Line Interface](/appliance/cli/configure-cli) on your Appliance instances;
 * The node has disk space equal to or greater than twice the amount of Auth0 data present.
 
-::: panel Backup Role
+::: note
 Beginning with Appliance version `6868`, you may only back up nodes [added to the `backup` role](/appliance/cli/adding-node-to-backup-role).
 :::
 
@@ -104,7 +105,7 @@ To delete an existing backup, you will use the "backup-delete" message in your l
 
 ## Restore a Backup
 
-::: panel-warning Sensitive Configuration Information
+::: warning
 Beginning with Appliance version `11638`, you will need to restore your backup **and** the backup of your sensitive configuration information.
 :::
 

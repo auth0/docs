@@ -7,7 +7,7 @@ description: How to update the Appliance
 
 To ensure that your Appliance has the latest functionality, security, and bug fixes, Auth0 requires you to perform regular updates. While the Auth0 engineering team releases updates on a monthly basis, you should plan updates on a monthly, bi-monthly, and quarterly basis. You should not exceed **90 days** without updating the Appliance.
 
-::: panel Appliance Releases
+::: note
 For more information about Appliance Releases, please see the [Change Log](https://auth0.com/changelog/appliance).
 :::
 
@@ -23,16 +23,16 @@ To ensure the update process goes as smoothly as possible, we recommend followin
   * Please be sure that your infrastructure engineer has administrative access to the Dashboard (specifically the Root Tenant Authority).
   * Ensure that all [Health Checks](/appliance/dashboard/troubleshoot#health-check) are okay.
 
-  ::: panel Monitoring
-  For additional information on gathering testing information, please see [Appliance Monitoring](/appliance/monitoring).
-  :::
+::: note
+For additional information on gathering testing information, please see [Appliance Monitoring](/appliance/monitoring).
+:::
 
 * Update the Development and Test nodes prior to upgrading Production. This allows you to test the new version to identify any issues before you apply it to Production. We recommend performing this test for a one-week period.
 * Ensure that the Appliance is able to access the internet during the update process. The update is [trigged via the Management Dashboard](/appliance/dashboard/updates) and requires the downloading of the application itself, as well as any operating system updates. This takes between 60 minutes (for a single Development node) to 90 minutes (for a three-node Production cluster).
 
 ### After the Update
 
-::: panel Monitoring
+::: note
 For additional information on gathering testing information, please see [Appliance Monitoring](/appliance/monitoring).
 :::
 
