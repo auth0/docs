@@ -437,6 +437,10 @@ This callback page should only parse the URL hash and post it to the parent docu
 
 Remember to add the URL of the silent authentication callback page that you create to the **Allowed Callback URLs** list of your Auth0 client in the [Auth0 Dashboard](${manage_url}) under your client's *Settings*.
 
+::: warning
+If the connection is a social connection and you are using Auth0 dev keys, the `renewAuth` call will always return `login_required`.
+:::
+
 ## Password reset requests
 
 If attempting to set up a password reset functionality, you'll use the `changePassword` method and pass in an "options" object, with a "connection" parameter and an "email" parameter.
