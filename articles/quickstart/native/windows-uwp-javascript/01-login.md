@@ -56,7 +56,7 @@ ${snippet(meta.snippets.use)}
 If you know which identity provider you want to use, you can add the `connection` parameter and the user will be directed to the specified `connection`:
 
 ```javascript
-default.js
+// default.js
 auth0.Login({ connection: "auth0waadtests.onmicrosoft.com" }, function (err, result) {
   if (err) return err;
   /*
@@ -77,7 +77,7 @@ Connection names can be found on Auth0 dashboard (e.g. `facebook`, `linkedin`, `
 The third option is to create your own custom user interface to prompt the user for their username and password. You can then pass these credentials, along with the connection name, to the `LoginAsync` method:
 
 ```javascript
-default.js
+// default.js
 auth0.Login({
     connection: "my-db-connection",
     username: "username",
