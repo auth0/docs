@@ -14,31 +14,75 @@ articles:
 
       - title: Developer Videos
         url: /videos
+        children:
+
+        - title: Developer Overview
+          url: /videos/developer-overview
+
+        - title: Rules
+          url: /videos/rules
+
+        - title: Session & Cookies
+          url: /videos/session-and-cookies
 
       - title: Architecture Scenarios
         url: /architecture-scenarios
 
+        children:
+          - title: Server Client + API
+            url: /architecture-scenarios/application/server-api
+
+          - title: SSO for Regular Web Apps
+            url: /architecture-scenarios/application/web-app-sso
+
+          - title: SPA + API
+            url: /architecture-scenarios/application/spa-api
+
+          - title: Mobile + API
+            url: /architecture-scenarios/application/mobile-api
+
+          - title: SAML for Regular Web Apps
+            url: /architecture-scenarios/application/web-saml
+
+          - title: B2B + B2E
+            url: /architecture-scenarios/business/b2b-b2e
+
+          - title: B2B
+            url: /architecture-scenarios/business/b2b
+
+          - title: B2C
+            url: /architecture-scenarios/business/b2c
+          
+          - title: B2E
+            url: /architecture-scenarios/business/b2e
       - title: Pre-launch Tips
         url: /prelaunch-tips  
 
   - title: "Clients"
     url: "/clients"
+    children:
+
+      - title: Overview
+        url: /clients
+
+      - title: Connections
+        url: /clients/connections
 
   - title: "APIs"
-    url: "/api-auth/intro"
+    url: "/apis"
     children:
+
+      - title: "Overview"
+        url: "/apis"
+
+      - title: "Authorization API Index"
+        url: "/api-auth"
 
       - title: "OIDC Conformant Authentication"
         url: "/api-auth/intro"
 
-      - title: "Adoption Guide"
+      - title: "OIDC Adoption Guide"
         url: "/api-auth/tutorials/adoption"
-
-      - title: "Docs Index"
-        url: "/api-auth"
-
-      - title: "APIs Overview"
-        url: "/apis"
 
       - title: "Which OAuth Flow to Use"
         url: "/api-auth/which-oauth-flow-to-use"
@@ -67,23 +111,24 @@ articles:
   - title: "Connections"
     url: "/connections"
     children:
-      - title: "Username/Password Connection"
+      - title: "Overview"
+        url: "/connections"
+
+      - title: "Username/Password"
         url: "/connections/database"
 
-      - title: "Social / Enterprise Connections"
+      - title: "Social/Enterprise"
         url: "/identityproviders"
         children:
           - title: "Custom Social Extensions"
             url: "/extensions/custom-social-extensions"
 
-      - title: "Custom Database Connections"
+      - title: "Custom Database"
         url: "/connections/database/mysql"
 
       - title: "Passwordless Authentication"
         url: "/connections/passwordless"
         children:
-          - title: "Overview"
-            url: "/connections/passwordless"
 
           - title: "Using Email"
             url: "/connections/passwordless/email"
@@ -117,8 +162,11 @@ articles:
     url: "/hooks"
     children:
 
-      - title: "Overview"
+      - title: "Index"
         url: "/hooks"
+
+      - title: "Overview"
+        url: "/hooks/overview"
 
       - title: "Extensibility Points"
         url: "/hooks/extensibility-points"
@@ -140,6 +188,15 @@ articles:
 
       - title: "Customizing Your Emails"
         url: "/email/templates"
+
+      - title: "Use your own SMTP Email Provider"
+        url: "/email/providers"
+
+      - title: "Liquid Syntax in Email Templates"
+        url: "/email/liquid-syntax"
+
+      - title: "Set up a Test SMTP Provider"
+        url: "/email/testing"
 
   - title: "Password Policies"
     url: "/connections/database/password-options"
