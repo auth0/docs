@@ -1164,5 +1164,9 @@ module.exports = [
   {
     from: '/quickstart/native/ios',
     to: '/quickstart/native/ios-swift'
+  },
+  {
+    from: '/sso/regular-web-apps-sso',
+    to: '/sso/regular-web-apps-sso-node'
   }
 ];

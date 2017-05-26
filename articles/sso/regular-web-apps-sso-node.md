@@ -1,6 +1,11 @@
 ---
 toc: true
 description: Server-side SSO with regular web applications.
+languages:
+  - name: Node
+    url: node
+  - name: Ruby
+    url: ruby
 ---
 
 # Server-side SSO (Regular Web Apps)
@@ -113,3 +118,12 @@ The user has never logged in to any app. In this case, the filter or middleware 
 ```text
 https://${account.namespace}/authorize?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}
 ```
+## SSO Sample: Ruby on Rails
+
+Check below for a regular web app SSO sample, using Ruby!
+
+<%= include('../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-rubyonrails-sso-sample',
+  path: ''
+}) %>
