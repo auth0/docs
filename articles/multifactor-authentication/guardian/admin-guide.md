@@ -44,6 +44,13 @@ When your users sign up with SMS, they enter their phone number's country code a
 
 After sign up, they receive a six digit code to their phone. They need to enter this code into the box, and then they will get a recovery code. They will need this code to login if they do not have their device. If they have lost their recovery code and device, you will need to [reset the user's MFA](#reset-an-mfa-for-a-user).
 
+::: panel Rate Limits
+
+Each hour, any given user is allotted a maximum of ten failed SMS attempts. After that, Auth0 considers all OTP codes invalid, and any additional attempts to log in results in a "Too Many Attempts" error.
+
+More specifically, this means that if someone enters in the code incorrectly ten or more times within an hour, they will need to wait six minutes to gain another attempt. If the user attempts another code before sufficient time has elapsed, Auth0 considers all OTP codes invalid (even if they aren't expired).
+:::
+
 ### Configuring Guardian SMS with Twilio
 
 When initially setting up SMS, you have up to 100 SMS to be used for testing. This limit can be removed by setting up a Twilio account. To prevent malicious login attempts, your users will always be limited to up to 10 SMS/Hour (replenishing one message an hour, up to 10).
