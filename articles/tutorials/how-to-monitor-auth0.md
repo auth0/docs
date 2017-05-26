@@ -20,10 +20,7 @@ The `test` endpoint checks the status of the core Auth0 authentication service. 
 ```har
 {
   "method": "GET",
-  "url": "https://${account.namespace}/test",
-  "headers": [
-    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
-  ]
+  "url": "https://${account.namespace}/test"
 }
 ```
 
@@ -42,10 +39,7 @@ The `/testall` endpoint checks the status of the core Auth0 authentication servi
 ```har
 {
   "method": "GET",
-  "url": "https://${account.namespace}/testall",
-  "headers": [
-    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
-  ]
+  "url": "https://${account.namespace}/testall"
 }
 ```
 
