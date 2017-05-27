@@ -31,12 +31,6 @@ ${snippet(meta.snippets.dependencies)}
 
 ![](/media/articles/server-platforms/servicestack/install-servicestack-nuget.png)
 
-Add the following line to your `App_Start/Route_Config.cs` file to the beginning of the `RegisterRoutes` function (this is required for ServiceStack):
-
-```text
-routes.IgnoreRoute("api/{*pathInfo}");
-```
-
 Change `HomeController` to return the `default.htm` page. Under the __Controllers__ folder add:
 
 ```cs
