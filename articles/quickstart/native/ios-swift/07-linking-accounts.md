@@ -36,6 +36,8 @@ ${snippet(meta.snippets.setup)}
 Then present the hosted login screen:
 
 ```swift
+// HomeViewController.swift
+
 Auth0
     .webAuth()
     .start {
@@ -65,6 +67,8 @@ import Auth0
 ```
 
 ```swift
+// UserIdentitiesViewController.swift
+
 let id = ... // the id of the user
 let idToken = ... // the user's idToken
 let otherUserToken = ... // the idToken from the account you want to link the user with
@@ -86,6 +90,8 @@ Auth0
 Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the user's profile, a process that we already know from the [User Sessions Tutorial](/quickstart/native/ios-swift/03-user-sessions#validate-an-accesstoken):
 
 ```swift
+// SessionManager.swift
+
 Auth0
     .authentication()
     .userInfo(token: accessToken)
@@ -101,6 +107,8 @@ Auth0
 Once you have the `id` from the profile you can retrieve the users identities through a management API call as follows:
 
 ```swift
+// SessionManager.swift
+
 Auth0
     .users(token: idToken)
     .get(userId, fields: ["identities"], include: true)
@@ -124,6 +132,8 @@ Any linked account is handled as a `Profile` identity object. For further inform
 The unlinking process is quite similar to the linking one. This time, you just need the `id`, the user's `idToken`, and the `identity` object that you want to unlink (you will only use its `userId` and `provider` values):
 
 ```swift
+// UserIdentitiesViewController.swift
+
 let id = ... // the user id
 let idToken = ... // the user idToken
 let identity: Identity = ... // the identity (account) you want to unlink from the user

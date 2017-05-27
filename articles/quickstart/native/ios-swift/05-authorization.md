@@ -40,6 +40,8 @@ import Auth0
 ```
 
 ```swift
+// SessionManager.swift
+
 Auth0
     .users(token: idToken)
     .get(userId, fields: ["app_metadata"], include: true)

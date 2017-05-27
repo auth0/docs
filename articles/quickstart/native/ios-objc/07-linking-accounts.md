@@ -34,6 +34,8 @@ ${snippet(meta.snippets.setup)}
 Then present the hosted login screen:
 
 ```objc
+// HomeViewController.m
+
 HybridAuth *auth = [[HybridAuth alloc] init];
 [auth showLoginWithScope:@"openid profile" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -62,6 +64,8 @@ ${snippet(meta.snippets.setup)}
 To link an account:
 
 ```objc
+// ProfileViewController.m
+
 NSString *id = ... // the id of the user
 NSString *idToken = ... // the user's idToken
 NSString *otherUserToken = ... // the idToken from the account you want to link the user with
@@ -80,6 +84,8 @@ NSString *otherUserToken = ... // the idToken from the account you want to link 
 Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the user's profile, a process that we already know from the [User Sessions Tutorial](/quickstart/native/ios-objc/03-user-sessions#validate-an-accesstoken):
 
 ```objc
+// HomeViewController.m
+
 // Retrieve profile
 [auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
     if (error) {
@@ -94,6 +100,8 @@ Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the 
 Once you have the `id` from the profile you can retrieve the users identities through a management API call as follows:
 
 ```objc
+// HomeViewController.m
+
 HybridAuth *auth = [[HybridAuth alloc] init];
 [auth userProfileWithIdToken:idToken userId:id callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
     if (error) {
@@ -116,6 +124,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 The unlinking process is quite similar to the linking one. This time, you just need the `id`, the user's `idToken`, and the `identity` object that you want to unlink (you will only use its `userId` and `provider` values):
 
 ```objc
+// ProfileViewController.m
 NSString *id = ... // the user id in profile
 NSString *idToken = ... // the user idToken
 A0Identity *identity = ... // the identity (account) you want to unlink from the user

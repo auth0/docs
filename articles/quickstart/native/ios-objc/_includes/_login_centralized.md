@@ -15,6 +15,8 @@ ${snippet(meta.snippets.setup)}
 Then, add the following `UIApplicationDelegate` method:
 
 ```swift
+// AppDelegate.m
+
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     return [HybridAuth resume:url options:options];
 }
@@ -31,6 +33,8 @@ ${snippet(meta.snippets.setup)}
 Then present the hosted login screen, like this:
 
 ```objc
+// HomeViewController.m
+
 HybridAuth *auth = [[HybridAuth alloc] init];
 [auth showLoginWithScope:@"openid" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
     dispatch_async(dispatch_get_main_queue(), ^{

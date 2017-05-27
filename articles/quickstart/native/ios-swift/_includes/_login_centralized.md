@@ -15,6 +15,8 @@ ${snippet(meta.snippets.setup)}
 Then, add the following `UIApplicationDelegate` method:
 
 ```swift
+// AppDelegate.swift
+
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
     return Auth0.resumeAuth(url, options: options)
 }
