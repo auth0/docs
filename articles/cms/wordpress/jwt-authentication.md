@@ -4,7 +4,7 @@ description: Explains how to install the WordPress JWT Authentication and integr
 
 # WordPress JWT Authentication
 
-Auth0 provides a plugin to enable [JWT](/jwt) authentication for your APIs. It is compatible with any API that uses the `determine_current_user` function to retrieve the logged in user (such as [WP REST API](https://wordpress.org/plugins/json-rest-api/)).
+Auth0 provides a plugin to enable [JWT](/jwt) authentication for your APIs. It is compatible with any API that uses the `determine_current_user` function to retrieve the logged in user (such as [WP REST API](https://wordpress.org/plugins/json-rest-api/)). To verify a JWT (or manually create one), you can use the [JWT.io Debugger](https://jwt.io/#debugger-io).
 
 ## Installation
 
