@@ -7,7 +7,7 @@ budicon: 546
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-react-samples',
-  path: '03-Calling-an-Api',
+  path: '03-Calling-an-API',
   requirements: [
     'React 15.5'
   ]
