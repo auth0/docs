@@ -1,14 +1,9 @@
 ---
-title: Refresh Token
 description: What is a Refresh Token and how you can use it.
 toc: true
 ---
 
-# Refresh Token (API Authorization)
-
-::: note
-  <strong>Heads up!</strong> This article describes the new Refresh Token story, according to the <a href="/api-auth">API Authorization flows</a>. If you are looking for the legacy Refresh Token doc refer to <a href="/tokens/refresh-token">Refresh Token</a>.
-:::
+# Refresh Token
 
 A **Refresh Token** is a special kind of token that contains the information required to obtain a new [access token](/tokens/access-token) or [ID token](/tokens/id-token).
 
@@ -237,13 +232,13 @@ More information on the library:
 For more information on using refresh tokens with our mobile SDKs refer to:
 
 * [Mobile / Native Quickstarts](/quickstart/native)
-* [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
-* [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens)
-* [Using Refresh Tokens in Mobile Applications](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
 
+* [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
+
+* [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/v2)
 
 ## More information
 
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-* [Using a refresh token with an ID token](/tokens/id_token#lifetime)
+
 * [Using a refresh token with an access token](/tokens/access_token#lifetime)

@@ -4,8 +4,8 @@ description: A refresh token allows an application to request Auth0 to issue a n
 
 # Refresh Token
 
-::: note
-  <strong>Heads up!</strong> If you are working with the <a href="/api-auth">API Authorization flows</a> and you are looking for the updated documentation, refer to <a href="/tokens/preview/refresh-token">Refresh Token (API Authorization)</a>.
+::: version-warning
+This document covers an outdated version of the Auth0 authentication pipeline and the way refresh tokens are used. We recommend you use <a href="/tokens/refresh-token">the latest version</a>. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
 A **Refresh Token** is a special kind of token that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.
@@ -56,7 +56,7 @@ Refresh tokens must be stored securely by an application since they allow a user
 :::
 
 ::: note
-In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth2-implicit-flow) (`response_type=token`) was used.
+In this case, the token was returned to the client directly in the URL because the Implicit Flow (`response_type=token`) was used.
 :::
 
 ## Use a Refresh Token

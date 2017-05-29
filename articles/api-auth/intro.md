@@ -321,7 +321,7 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Access Token](/tokens/access-token).<br/>
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Refresh Token](/tokens/preview/refresh-token).<br/>
+<i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Refresh Token](/tokens/refresh-token).<br/>
 
 <i class="notification-icon icon-budicon-345"></i>&nbsp;Read about [OAuth 2.0](/protocols/oauth2) and [OIDC](/protocols/oidc).<br/>
 
