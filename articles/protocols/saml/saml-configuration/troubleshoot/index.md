@@ -1,5 +1,4 @@
 ---
-url: /protocols/saml/saml-configuration/troubleshoot
 description: How to troubleshoot SAML-related configuration issues
 toc: true
 ---
