@@ -107,7 +107,7 @@ public renewToken() {
 }
 ```
 
-This will load the silent callback page added earlier in an invisible `iframe`, make a call to Auth0, and give back the result. Add a method called `scheduleRenew` to set up a time at which authentication should be silently renewed.
+This will load the silent callback page added earlier in an invisible `iframe`, make a call to Auth0, and give back the result. Add a method called `scheduleRenew` to set up a time at which authentication should be silently renewed. You'll also want to define a class property `refreshSubscription`, which holds a reference to the subscription that refreshes your token.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -115,6 +115,7 @@ This will load the silent callback page added earlier in an invisible `iframe`, 
 // ...
 public scheduleRenewal() {
   if(!this.isAuthenticated()) return;
+  this.unscheduleRenewal();
 
   const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
 
@@ -131,7 +132,7 @@ public scheduleRenewal() {
   // Once the delay time from above is
   // reached, get a new JWT and schedule
   // additional refreshes
-  source.subscribe(() => {
+  this.refreshSubscription = source.subscribe(() => {
     this.renewToken();
     this.scheduleRenewal();
   });
