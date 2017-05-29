@@ -45,9 +45,9 @@ If Auth0 acts as the identity provider, you need to make the following changes t
 
 * Invoke the IdP-initiated login using the following URL:
 
-```text
-https://${account.namespace}/samlp/${account.clientId}
-```
+  ```text
+  https://${account.namespace}/samlp/${account.clientId}
+  ```
 
 * Append the `RelayState` parameter to the URL to which the service provider redirects the user after processing the SAML response. For example, the following URL is where the service provider redirects the URL after its processed the SAML response from Auth0:
 
