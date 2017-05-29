@@ -48,7 +48,7 @@ A code will appear, and you will have five minutes to scan the code before it ex
 
 ![](/media/articles/mfa/google-code.png)
 
-[For more information about Google Authenticator, see: [Install Google Authenticator](https://support.google.com/accounts/answer/1066447).
+For more information about Google Authenticator, see: [Install Google Authenticator](https://support.google.com/accounts/answer/1066447).
 
 ### SMS
 
