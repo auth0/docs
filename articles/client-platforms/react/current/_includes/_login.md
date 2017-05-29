@@ -11,7 +11,7 @@ npm install --save auth0-lock
 The Lock widget can also be retrieved from Auth0's CDN.
 
 ```html
-<script src="https://cdn.auth0.com/js/lock/10.11/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.16/lock.min.js"></script>
 ```
 
 Create an authentication service for your application. The naming is at your discretion, but in these examples it will be called `Auth` and the filename will be `Auth.js`. An instance of the Lock widget can be created in the service and its configuration can be controlled there.

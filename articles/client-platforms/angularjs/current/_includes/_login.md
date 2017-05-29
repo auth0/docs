@@ -7,7 +7,7 @@ The dependencies required to power a basic login solution include Auth0's [Lock 
 > **Note:** You can also install the Lock widget from npm, but you will need to build the source code to a distributable file yourself.
 
 ```html
-<script src="https://cdn.auth0.com/js/lock/10.11/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.16/lock.min.js"></script>
 ```
 
 ```bash

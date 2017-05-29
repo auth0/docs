@@ -15,5 +15,5 @@ npm install --save auth0-js
 ```html
 <!-- index.html  -->
 
-<script src="https://cdn.auth0.com/js/auth0/8.5/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/auth0/8.7/auth0.min.js"></script>
 ```
