@@ -305,10 +305,17 @@ articles:
 
   - title: "Addons/Third-Party Applications"
     url: "/addons"
+    children:
+
+      - title: "Overview"
+        url: "/addons"
 
   - title: "Support"
     url: "/support"
     children:
+      - title: "Support Options"
+        url: "/support"
+
       - title: "Support Matrix"
         url: "/support/matrix"
 
