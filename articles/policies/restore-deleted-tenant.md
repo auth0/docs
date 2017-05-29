@@ -8,17 +8,17 @@ The following policy governs requests for restoration of Auth0 tenants that were
 
 A customer may request a tenant restoration if the tenant was deleted by human error and restoration is critical for the continuity of customer's operations. Please note that before deleting a tenant, from the Auth0 Dashboard, a warning explains that this cannot be undone. However, in some cases we might opt for support this kind of request.
 
-## Considerations:
+## Considerations
 
 * We support tenant restoration for all paying customers.
 
-* Tenant restoration is generally not supported for non-paying customers, but we will evaluate the requests on a case-by-case basis. This means that tenant restoration is not guaranteed in this case.
+* Tenant restoration is not supported for non-paying customers.
 
-* The restoration can take up to seven days, for paying customers. For non paying customers, it can take longer and it will be specified if the request is accepted.
+* The restoration can take up to seven days, for paying customers.
 
 * Tenant restoration will be allowed if the request is made before 20 days have passed from the date the tenant was deleted.
 
-## How to request:
+## How to request
 
 * Customers must file a tenant restoration request in writing, via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}) or via email.
 
