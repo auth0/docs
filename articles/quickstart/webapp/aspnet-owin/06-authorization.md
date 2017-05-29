@@ -12,7 +12,9 @@ budicon: 500
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
 
-> This tutorial assumes that you've already read the [rules tutorial](/quickstart/webapp/aspnet-owin/05-rules) and you know how to implement a basic rule in your app.
+::: note
+This tutorial assumes that you've already read the [rules tutorial](/quickstart/webapp/aspnet-owin/05-rules) and you know how to implement a basic rule in your app.
+:::
 
 ### Create a Rule to assign roles
 
@@ -52,6 +54,8 @@ This will ensure proper integration with the existing role-based authorization i
 So change the existing middleware registration in the `Startup` class to extract the roles and add the claims:
 
 ```csharp
+// Startup.cs
+
 var options = new Auth0AuthenticationOptions()
 {
     Domain = auth0Domain,
@@ -95,6 +99,8 @@ Now you can add a new action to your controller and restrict it by decorating yo
 The sample code below will restrict the particular action only to the user who have the "admin" role:
 
 ```csharp
+// Controllers/AccountController.cs
+
 [Authorize(Roles = "admin")]
 public ActionResult Admin()
 {

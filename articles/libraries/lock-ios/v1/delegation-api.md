@@ -6,9 +6,10 @@ description: Integrate with third-party apps with the delegation API.
 
 # Lock iOS: Delegation API
 
+<%= include('../_includes/_lock-version-1') %>
+
 After a successful authentication, you can request credentials to access third party apps like Firebase or AWS that are configured in your Auth0 App's Add-On section. In order to do that you need to make a request to our [Delegation API](/api/authentication/reference#delegation) using a valid JWT.
 
-<%= include('../_includes/_lock-version-1') %>
 
 Here's an example
 ```objc

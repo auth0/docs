@@ -8,9 +8,9 @@ crews: crew-2
 
 Once you successfully authenticate a user with an external Identity Provider (IdP), such as Facebook or GitHub, the IdP often includes an access token in the user profile it returns. You can then use this token to call the IdP's API.
 
-<div class="alert alert-info">
+::: note
   This doc assumes that you have already configured the connection with the IdP of your choice. If not, refer to <a href="/identityproviders">Identity Providers Supported by Auth0</a>, where you can find a list of the supported IdPs. Select the one you want for detailed steps on how to configure the Connection.
-</div>
+:::
 
 ## Required Steps
 
@@ -19,7 +19,8 @@ To get access to the user's IdP access token, you will need to:
 1. Obtain an access token that allows you to call the [Auth0 Management API](/api/management/v2).
 2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint using the access token obtained in step one (the token must have the `read:user_idp_tokens` scope). This returns the user's profile, which contains the IdP access token.
 3. Extract the IdP access token.
-4. Use the IdP access token to call the IdP's API.
+
+Once you've extracted the IdP's access token, you can use it to to call the IdP's API. Please refer to your IdP's documentation for specifics on how to do so.
 
 ### 1. Get a Token
 
@@ -39,9 +40,9 @@ You may want to automate the token request process instead of manually copying a
 
 The token you receive has, by default, an expiration time of 24 hours (86400 seconds). To change this, update the __Token Expiration (Seconds)__ field and click __Update & Regenerate Token__.
 
-<div class="alert alert-info">
+::: note
   For details on the Management APIv2 token and the process to get one refer to <a href="/api/management/v2/tokens">The Auth0 Management APIv2 Token</a>.
-</div>
+:::
 
 ::: panel-warning Security warning
 It should be noted that these tokens __cannot be revoked__. We recommend issuing short-lived tokens to minimize the risk. For a production environment you can configure a simple CLI that will fetch a new token when the old one expires. You can find a sample implementation in Python [here](/api/management/v2/tokens#sample-implementation-python).
@@ -107,6 +108,6 @@ In this sample response we can see that our user had only one identity: `google-
 }
 ```
 
-<div class="alert alert-warning">
+::: warning
   <strong>Security Warning!</strong> Make sure that you don't expose the IdP access token to your client-side application.
-</div>
+:::

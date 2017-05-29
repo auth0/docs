@@ -111,8 +111,9 @@ The issue is that the confirmation link may be inadvertently clicked by a user, 
 
 Lock version 9 and above uses the [new password reset flow](/connections/database/password-change) exclusively. Lock 8 and below does not handle the new password reset flow. We strongly recommend upgrading to Lock 9 or greater as soon as possible.
 
-**NOTE**: Even if you are not using Lock, the vulnerable reset flow can be accessed directly through the API. (See the [/dbconnections/change_password](/api/authentication/reference#change-password) endpoint for details.) We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
-
+::: panel Security Warning
+Even if you are not using Lock, the vulnerable reset flow can be accessed directly through the API. (See the [/dbconnections/change_password](/api/authentication/reference#change-password) endpoint for details.) We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
+:::
 
 ## Past Migrations
 These are migrations that have already been enabled for all customers.
@@ -143,7 +144,9 @@ If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
 If you are calling the `/tokeninfo` endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 account namespace: `https://${account.namespace}/`.
 
-**NOTE**: You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` attribute value.
+::: note
+You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` attribute value.
+:::
 
 ### Identity Provider access tokens removed from user profile and id_token
 
@@ -155,15 +158,18 @@ The format of the user profile JSON object (id_token) that is returned by Auth0 
 
 Now, to obtain a user's IdP access token, you will need to make an HTTP GET call to the `/api/v2/users/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope.
 
-> NOTE: You will still have access to the Identity Provider access token in the `user` argument in Auth0 [rules](/rules).
+::: note
+You will still have access to the Identity Provider access token in the `user` argument in Auth0 [rules](/rules).
+:::
 
 #### Am I affected by the change?
 You are affected by the change only if you are using the Identity Provider access token (`identities[0].access_token` in the user profile) outside of rules to call other services from the Identity Provider (e.g. Facebook Graph API, Google APIs, etc. ).
 
 For more information on how to obtain an access token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
 
-**NOTE:** If your account was created after the change, this update will be applied automatically.
-
+::: note
+If your account was created after the change, this update will be applied automatically.
+:::
 
 ### Email Delivery Changes: Template Customizations
 

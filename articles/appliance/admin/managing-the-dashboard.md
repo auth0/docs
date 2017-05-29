@@ -18,7 +18,9 @@ The [Auth0 Dashboard](/appliance/dashboard) uses the Auth0 Appliance to authenti
 
 Within the list of applications, you will see the Auth0 Application, which represents the Dashboard itself. It uses a connection called `Initial-Connection`, which stores the credentials of the administrators that have access to the Dashboard.
 
-> Changes to the Auth0 Client or `Initial-Connection` may result in unexpected Dashboard behavior. Please makes changes with caution.
+::: note
+  Changes to the Auth0 Client or `Initial-Connection` may result in unexpected Dashboard behavior. Please makes changes with caution.
+:::
 
 Because the Dashboard uses the Appliance for authentication, any configured rules will run whenever a user accesses the Dashboard. Because errors in one or more of your rules may result in you losing access to the Dashboard, Auth0 suggests writing rules that exclude the Auth0 application:
 
@@ -36,7 +38,9 @@ function (user, context, callback) {
 
 ```
 
-> The default user `root@auth0.com` has access to the Appliance and its configuration area. To prevent unauthorized access with this account, you should block this user via the Auth0 Dashboard. 
+::: note
+  The default user `root@auth0.com` has access to the Appliance and its configuration area. To prevent unauthorized access with this account, you should block this user via the Auth0 Dashboard.
+:::
 
 To block the user, click *Actions*. Then, in the drop-down menu that appears, click *Block User*.
 

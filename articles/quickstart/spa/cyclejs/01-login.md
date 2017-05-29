@@ -5,7 +5,7 @@ description: This tutorial will show you how to use the Auth0 Cycle.js driver to
 budicon: 448
 ---
 
-::: panel-info System Requirements
+::: panel System Requirements
 This tutorial has been tested with the following:
 
 * NodeJS 6.3
@@ -13,8 +13,6 @@ This tutorial has been tested with the following:
 * @cycle/xstream-run 3.0.3
 * cyclejs-auth0 3.0.0
 :::
-
-
 
 ${include('../\_callback')}
 

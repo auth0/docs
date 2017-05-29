@@ -7,13 +7,13 @@ budicon: 715
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
-  path: '00-Centralized-Login',
+  path: '00-Login',
   requirements: [
     'Android Studio 2.3',
     'Android SDK 25',
     'Emulator - Nexus 5X - Android 6.0'
   ]
-}) %>
+}) %>__
 
 ## Sample Projects
 
@@ -21,13 +21,7 @@ Each tutorial in the series includes a link to its corresponding sample project.
 
 ## Dependencies
 
-Each tutorial will require you to use either [Auth0.Android](https://github.com/auth0/Auth0.Android) or the [Lock](https://github.com/auth0/Lock.Android) library.
-
-- [Auth0.Android](https://github.com/auth0/Auth0.Android) is a toolkit that lets you communicate with many of the basic [Auth0 API](https://auth0.com/docs/api) functions in a neat way.
-- [Lock](https://github.com/auth0/Lock.Android) is an `Activity` that is easy to present in your app. It contains default templates (that can be customized) for login with email/password, sign up, social providers integration, and also password recovery.
-
-The `Lock` dependency is already integrated in each sample project through [Gradle](https://gradle.org/).
-`Lock` packs most of the `Auth0.Android` functionality inside.
+Each tutorial will require you to use the [Auth0.Android](https://github.com/auth0/Auth0.Android) library. This is a toolkit that lets you communicate with many of the basic [Auth0 API](https://auth0.com/docs/api) functions in a neat way.
 
 ## Create a Client
 
@@ -39,4 +33,4 @@ If you haven't already done so, create a new client application in your [Auth0 d
 
 <%= include('_includes/_credentials') %>
 
-<%= include('_includes/_centralized_login') %>
+<%= include('_includes/_login') %>

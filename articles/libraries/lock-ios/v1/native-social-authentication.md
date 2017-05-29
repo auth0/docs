@@ -14,11 +14,16 @@ pod 'Lock-Facebook'
 pod 'Lock-Twitter'
 pod 'Lock-Google'
 ```
-> We recommend to at least fix the major version instead of always obtaining the latest version, e.g `pod 'Lock-Facebook', '~> 2.0`
+
+::: note
+We recommend to at least fix the major version instead of always obtaining the latest version, e.g `pod 'Lock-Facebook', '~> 2.0`
+:::
 
 ## Configuration
 
-> Before following these steps, please check our [documentation](/libraries/lock-ios)
+::: note
+Before following these steps, please check our [documentation](/libraries/lock-ios)
+:::
 
 ### Facebook
 
@@ -66,8 +71,10 @@ We recommend follwing [this wizard](https://developers.google.com/mobile/add?pla
 
 Then add that file to your application's target and the last step is to register two custom URL for your application.
 
-The first URL should have a scheme equal to your application Bundle Identifier, the other one should be your Google clientId reversed, so if your clientID is `CLIENTID.apps.googleusercontent.com` the scheme will be `com.googleusercontent.apps.CLIENTID`
-> This last value can be found in `GoogleServices-Info.plist` under the key `REVERSED_CLIENT_ID`
-> For more information please check Google's [documentation](https://developers.google.com/identity/sign-in/ios/)
+The first URL should have a scheme equal to your application Bundle Identifier, the other one should be your Google clientId reversed, so if your clientID is `CLIENTID.apps.googleusercontent.com` the scheme will be `com.googleusercontent.apps.CLIENTID`.
+
+::: note
+This last value can be found in `GoogleServices-Info.plist` under the key `REVERSED_CLIENT_ID`. For more information please check Google's [documentation](https://developers.google.com/identity/sign-in/ios/).
+:::
 
 And finally with your Mobile clientID from Google, go to [Social Connections](${manage_url}/#/connections/social), select **Google** and add the clientID to the field named `Allowed Mobile Client IDs`

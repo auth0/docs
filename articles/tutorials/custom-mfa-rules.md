@@ -4,7 +4,7 @@ description: You can add step-up authentication to your app with Auth0's extensi
 
 # Step-Up Authentication with Custom Multifactor Authentication Rules
 
-::: panel-info Notice
+::: panel Notice
 Auth0 now supports `amr` and `acr` claims with `acr_values` for step-up authentication. This approach allows for more control with MFA.
 
 [Click here for details.](/tutorials/step-up-authentication) 
@@ -56,7 +56,9 @@ function (user, context, callback) {
 }
 ```
 
-**NOTE:** In addition to the [Auth0 supported mutlifactor authentication providers](/multifactor-authentication#using-auth0s-built-in-support) (Google Authenticator and Duo Security) you can plug in your own [custom provider](/multifactor-authentication#use-a-custom-mfa-service).
+::: note
+In addition to the [Auth0 supported mutlifactor authentication providers](/multifactor-authentication#using-auth0s-built-in-support) (Google Authenticator and Duo Security) you can plug in your own [custom provider](/multifactor-authentication#use-a-custom-mfa-service).
+:::
 
 ## Application Logic
 

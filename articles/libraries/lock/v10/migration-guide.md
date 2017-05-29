@@ -36,8 +36,6 @@ The goal of this migration guide is to provide you with all of the information y
 - The `showSignin`, `showSignup` and `showReset` methods are no longer available. You can emulate the behavior of this options with the [initialScreen](/libraries/lock/v10/customization#initialscreen-string-), [allowLogin](/libraries/lock/v10/customization#allowlogin-boolean-), [allowSignUp](/libraries/lock/v10/customization#allowsignup-boolean-) and [allowForgotPassword](/libraries/lock/v10/customization#allowforgotpassword-boolean-) options.
 - The `getClient` method and the `$auth0` property are no longer available. You can, instead, simply instantiate `Auth0` when using functionality from `auth0.js`. If you need help with how to do this, see the [Using Lock with auth0js page](/libraries/lock/v10/auth0js).
 
----
-
 ## Changes to Customization Options
 Some existing options suffered changes, in addition to the beforementioned removals and additions. Please see below for brief descriptions, or consult the [customization reference](/libraries/lock/v10/customization) for more information.
 
@@ -45,7 +43,7 @@ Some existing options suffered changes, in addition to the beforementioned remov
   - The `connections` option was renamed to [allowedConnections](/libraries/lock/v10/customization#allowedconnections-array-).
   - The `focusInput` option was renamed to [autofocus](/libraries/lock/v10/customization#autofocus-boolean-).  
   - The `gravatar` option was renamed to [avatar](/libraries/lock/v10/customization#avatar-object-) and instead of taking `true` and `false` it now takes `null` or an object.
-  - The `dict` option was split into [language](/libraries/lock/v10/customization#language-string-) and [languageDictionary](/libraries/lock/v10/customization#languagedictionary-object-). The `language` option allows you to set the base dictionary for a given language and the `languageDictionary` option allows you to overwrite any translation. Also, the structure of the dictionary has been changed. 
+  - The `dict` option was split into [language](/libraries/lock/v10/customization#language-string-) and [languageDictionary](/libraries/lock/v10/customization#languagedictionary-object-). The `language` option allows you to set the base dictionary for a given language and the `languageDictionary` option allows you to overwrite any translation. Also, the structure of the dictionary has been changed.
 
 ### Theming Options
   - The `icon` option was renamed to [logo](/libraries/lock/v10/customization#logo-string-) and namespaced under `theme`. Now you use it like this `theme: {logo: "https://example.com/icon.png"}`.
@@ -70,8 +68,6 @@ Some existing options suffered changes, in addition to the beforementioned remov
 
 ### Other Options
   - The `forceJSONP` option was removed.
-
----
 
 ## Further Reading
   - Some other options were added, see [New Features page](/libraries/lock/v10/new-features) for details.

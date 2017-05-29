@@ -5,7 +5,7 @@ description: Introduction to the quickstart guide and configuring the environmen
 budicon: 715
 ---
 
-::: panel-info System Requirements
+::: panel System Requirements
 This tutorial and seed project have been tested with the following:
 
 * .NET Core 1.1.0
@@ -22,11 +22,7 @@ If you would like to follow along with this Quickstart you can download the [see
 
 The final project after each of the steps is also available in the Quickstart folder of the [ASP.NET Core MVC Samples repository](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Quickstart). You can find the final result for each step in the relevant folder inside the repository.
 
-## Create an Application
-
 <%= include('../../../_includes/_new_app') %>
-
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 <%= include('_includes/_setup') %>
 

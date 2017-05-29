@@ -13,17 +13,14 @@ Current and historical uptime is available at [Auth0 Uptime](http://uptime.auth0
 
 You can add Auth0 health probes to your monitoring infrastructure with the following endpoints:
 
-### The `test` Endpoint
+### The test Endpoint
 
 The `test` endpoint checks the status of the core Auth0 authentication service. If the status is up, the endpoint returns a `200` status code; if is is not, it will return a `5xx` status code.
 
 ```har
 {
   "method": "GET",
-  "url": "https://${account.namespace}/test",
-  "headers": [
-    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
-  ]
+  "url": "https://${account.namespace}/test"
 }
 ```
 
@@ -35,17 +32,14 @@ Additionally, this endpoint returns a JSON object:
 }
 ```
 
-### The `testall` Endpoint
+### The testall Endpoint
 
-The `/testall` endpoint checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Management Dashboard](${manage_url}) and Documentation.
+The `/testall` endpoint checks the status of the core Auth0 authentication service, as well as supporting services such as those for the [Dashboard](${manage_url}) and documentation.
 
 ```har
 {
   "method": "GET",
-  "url": "https://${account.namespace}/testall",
-  "headers": [
-    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
-  ]
+  "url": "https://${account.namespace}/testall"
 }
 ```
 

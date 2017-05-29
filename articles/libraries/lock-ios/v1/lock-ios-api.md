@@ -4,9 +4,9 @@ toc_title: Lock Objective-C API
 description: Description of the Lock Objective-C API
 ---
 
-<%= include('../_includes/_lock-version-1') %>
-
 ## API
+
+<%= include('../_includes/_lock-version-1') %>
 
 ### A0Lock
 

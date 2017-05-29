@@ -6,7 +6,7 @@ budicon: 546
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-ios-swift-v2-sample',
+  repo: 'auth0-ios-swift-sample',
   path: '04-Calling-APIs',
   requirements: [
     'CocoaPods 1.2.1',
@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to get a token, attach it to a request (using
 
 In order to make an authenticated request, you first need to obtain a token, against which your API can compare to detect whether or not the request is properly authenticated.
 
-You should already know how to get an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance from the [Centralized Login Guide](/quickstart/native/ios-swift/00-centralized-login). Anyway, here's a quick recap:
+You should already know how to get an [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) instance from the [Login Guide](/quickstart/native/ios-swift/00-login). Anyway, here's a quick recap:
 
 First, import the `Auth0` module in the file where you want to present the hosted login page.
 
@@ -86,6 +86,6 @@ var request = URLRequest(url: url)
 
 Once you send a request and your API returns a response, its status code is going to be displayed in an alert view.
 
-> You can use your own API to test, or, if you want, you can use [this sample server](https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/Server), which is quickly configurable.
->
-> For further information on authentication API on the server-side, check [the official documentation](/api/authentication).
+::: note
+For further information on authentication API on the server-side, check [the official documentation](/api/authentication).
+:::

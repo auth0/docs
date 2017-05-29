@@ -10,7 +10,9 @@ This is a fixed scope project designed to establish a foundational set up of Aut
 
 Between 40 - 120 hours.
 
-> Auth0 Professional Services are delivered in 40 hs. "blocks".
+::: note
+Auth0 Professional Services are delivered in 40 hs. "blocks".
+:::
 
 ## Typical work-streams
 

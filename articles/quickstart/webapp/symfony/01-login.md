@@ -23,7 +23,9 @@ ${snippet(meta.snippets.dependencies)}
 
 and run `composer update`
 
-> This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
+::: note
+This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
+:::
 
 ## Enable the Bundle
 
@@ -52,7 +54,7 @@ ${include('../_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 
-```
+```text
 http://yourUrl/auth0/callback
 ```
 
@@ -62,7 +64,7 @@ Add this to your `app/config/config.yml`
 
 ```yml
 hwi_oauth:
-    firewall_name: secured_area
+    firewall_names: [secured_area]
     resource_owners:
         auth0:
             type:                auth0
@@ -102,6 +104,9 @@ security:
 
                 oauth_user_provider:
                     service: hwi_oauth.user.provider
+            logout:
+                path:   /auth0/logout
+                target: /
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

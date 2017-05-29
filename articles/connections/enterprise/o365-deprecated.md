@@ -8,8 +8,8 @@ seo_alias: o365-deprecated
 description: How to obtain a ClientId and Client Secret for an Office 365 connection.
 ---
 
-::: warning-banner
-__Warning:__ The Office 365 connection is deprecated, you should use Windows Azure AD instead. <br/>
+::: warning
+The Office 365 connection is deprecated, you should use Windows Azure AD instead.
 See [here](/office365-deprecated) for more details.
 :::
 

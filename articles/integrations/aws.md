@@ -118,7 +118,9 @@ You are now setup for single sign-on to AWS. You can find the `Identity Provider
 
 To use the single sign-on, navigate to that URL, and you will be brought to the Auth0 login. After signing in, you will be redirected to AWS.
 
-**NOTE:** For an example of how to define a server-side rule for assigning a role in an advanced-use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway).
+::: note
+For an example of how to define a server-side rule for assigning a role in an advanced-use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway).
+:::
 
 ## Obtain AWS Tokens to securely call AWS APIs and resources
 
@@ -140,7 +142,9 @@ On the Auth0 [Dashboard](${manage_url}/#/applications), select your app. In the 
 
 ![](/media/articles/integrations/aws/aws-addon.png)
 
-**NOTE:** For more detailed instructions on delegation, see [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup).
+::: note
+For more detailed instructions on delegation, see [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup).
+:::
 
 ### Username Length with AWS
 
@@ -152,6 +156,7 @@ Custom DB users should implement a similar username length policy in their appli
 
 Here is an example of an IAM policy:
 
+```
     {
       "Version": "2012-10-17",
       "Statement": [
@@ -169,8 +174,9 @@ Here is an example of an IAM policy:
           }
       ]
     }
+```
 
-This is a *dynamic* policy that gives access to a folder in a bucket. The folder name will be set based on an attribute of the digitally signed SAML token that Auth0 exchanges with AWS on your behalf (**Step 3** in the graphic).
+This is a dynamic policy that gives access to a folder in a bucket. The folder name will be set based on an attribute of the digitally signed SAML token that Auth0 exchanges with AWS on your behalf (**Step 3** in the graphic).
 
 The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated user (`sub` means `subject`, and is equal to the user identifier). This means that the *original* identity of the user can be used throughout the system (in your app, S3, etc.).
 
@@ -245,7 +251,9 @@ But [other mappings are available in AWS](http://docs.aws.amazon.com/IAM/latest/
 
 The example above assumes the `user` object contains an `awsGroup` property with the expected value.
 
-**NOTE:** Copy the Provider ARN, and use this as the Principal ARN when obtaining the delegation token.
+::: note
+Copy the Provider ARN, and use this as the Principal ARN when obtaining the delegation token.
+:::
 
 The result of calling the delegation endpoint will contain the AWS token in the `Credentials` field. i.e.:
 
@@ -271,7 +279,7 @@ The result of calling the delegation endpoint will contain the AWS token in the 
 }
 ```
 
-:::panel-info Auth0 Libraries
+:::panel Auth0 Libraries
 The [Auth0 client libraries](/libraries) simplify the process of calling these endpoints. See an example for client-side JavaScript at [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request). Please note that this example is for **version 7** of the `auth0js` library; delegation is *not* supported in version 8 of `auth0js`.
 :::
 
@@ -303,4 +311,6 @@ Here is an example of client-side code used to obtain the token:
 </script>
 ```
 
-> Checkout a complete sample for S3 on GitHub: [https://github.com/auth0/auth0-s3-sample](https://github.com/auth0/auth0-s3-sample).
+::: note
+Checkout a complete sample for S3 on GitHub: [https://github.com/auth0/auth0-s3-sample](https://github.com/auth0/auth0-s3-sample).
+:::

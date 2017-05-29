@@ -7,9 +7,11 @@ description: Appliance infrastructure information about Networks
 
 This document details the requirements for the network on which the Appliance runs.
 
-> Auth0 Appliance can only be deployed in 1 NIC.
+::: note
+  Auth0 Appliance can only be deployed in 1 NIC.
+:::
 
-In on-premise environment, all virtual machines should be in the same LAN in order for database replication to work properly. No other appliance cluster (Dev/Test) should be running on this subnet. 
+In on-premise environment, all virtual machines should be in the same LAN in order for database replication to work properly. No other appliance cluster (Dev/Test) should be running on this subnet.
 
 In AWS Cloud environment, Auth0 supports and recommends cross-LAN availability zones.
 
@@ -25,7 +27,9 @@ For **multi-node** clusters, all virtual machines must be:
 * able to communicate between each other via ports `7777`, `27017`, `8721`, and `8701`.
 * able to reach the load balancer via port `443`.
 
-> Production and non-Production (test/development) must be on completely isolated networks.
+::: note
+  Production and non-Production (test/development) must be on completely isolated networks.
+:::
 
 For a full list of IP addresses, domains, and ports used by the Appliance clusters, as well as what they are used for, please see [Appliance Infrastructure: IP/Domain and Port List](/appliance/infrastructure/ip-domain-port-list).
 
@@ -60,7 +64,9 @@ We recommend a layer 7/application layer load balancer that supports:
 * HTTPS:
     * If your deployment requires geo-location data for users authenticating with Auth0, you must support SSL offloading (or HTTP/1.1 with UPGRADE if you require websockets). It should support both the "Connection: Upgrade" and the "X-Forwarded-For" header. These are required to capture accurate IP address information.
 
-> For AWS deployments, you must use TCP/IP.
+::: note
+  For AWS deployments, you must use TCP/IP.
+:::
 
 ### Software Load Balancers
 

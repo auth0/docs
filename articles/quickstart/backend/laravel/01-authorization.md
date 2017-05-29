@@ -21,15 +21,17 @@ description: This tutorial demonatrates how to add authorization to your Laravel
 
 Protecting your Laravel API requires a middleware which will check for and verify an `access_token` in the `Authorization` header of an incoming HTTP request. You can use the middleware provided in the **[laravel-auth0](https://github.com/auth0/laravel-auth0)** package.
 
-Install **laravel-auth0** using **Composer**.
+Install `laravel-auth0` using **Composer**.
 
-> **[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
+::: note
+**[Composer](https://getcomposer.org/)** is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you. See Composer's [getting started](https://getcomposer.org/doc/00-intro.md) doc for information on how to use it.
+:::
 
 ${snippet(meta.snippets.dependencies)}
 
 ## Enable the Provider
 
-The **laravel-auth0** package comes with a provder called `LoginServiceProvider`. Add this to the list of application `providers`.
+The `laravel-auth0` package comes with a provder called `LoginServiceProvider`. Add this to the list of application `providers`.
 
 ${snippet(meta.snippets.setup)}
 

@@ -4,9 +4,9 @@ description: Overview of scopes with a client-side authorization transaction.
 
 # Scopes
 
-<div class="alert alert-info">
+::: note
 <strong>Heads up!</strong> If you are working with the <a href="/api-auth">API Authorization flows</a> and you are looking for the updated documentation, refer to <a href="/scopes/preview">Scopes</a>.
-</div>
+:::
 
 When initiating a client-side authorization transaction through the [`/authorize` endpoint](/api/authentication/reference#social), only an opaque `access_token` will be returned by default. To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
 
@@ -14,6 +14,7 @@ When initiating a client-side authorization transaction through the [`/authorize
 
 The following URL logs a user in using Google and requests a JWT that authenticates the user.
 
+```html
 <pre>
 https://example.auth0.com/authorize
   ?response_type=token
@@ -21,9 +22,11 @@ https://example.auth0.com/authorize
   &redirect_uri=http://jwt.io&connection=google-oauth2
   &<strong>scope=openid</strong>
 </pre>
+```
 
 After a successful transaction, the user would be redirected here:
 
+```html
 <a href="http://jwt.io/#access_token=s213Mvz1QW7XpjoX&id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuYXV0aDAuY29tLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8MTEyMzk2MzA5MDk2MDM2MzAwMTA5IiwiYXVkIjoiakdNb3cwS08zV0RKRUxXOFhJeG9scWIxWElpdGprWUwiLCJleHAiOjE0Mzc1NjAzODEsImlhdCI6MTQzNzUxMDM4MX0.Rg9nV2j11epQawEB6tvlhnc4ZLBWJ-93YrtdGqBh6NA&token_type=Bearer&state=mep7BLYt1lAsLC94">
 <pre>
 http://jwt.io/
@@ -33,6 +36,7 @@ http://jwt.io/
   &state=mep7BLYt1lAsLC94
 </pre>
 </a>
+```
 
 When decoded, this token contains the following claims:
 
@@ -54,8 +58,9 @@ The attributes included in the issued token can be controlled with the `scope` p
 * `scope=openid email nickname favorite_food`: will return claims for `openid` in addition to the `email`, `nickname` and `favorite_food` fields if they are available.
 * `scope=openid profile`: will return all the user attributes in the token.
 
-> The `scope` parameter can used in the same way when calling the [Resource Owner endpoint](/api/authentication/reference#resource-owner).
-
+::: note
+The `scope` parameter can be used in the same way when calling the [Resource Owner endpoint](/api/authentication/reference#resource-owner).
+:::
 
 ## Further reading
 

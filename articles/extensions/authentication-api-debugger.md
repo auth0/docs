@@ -18,7 +18,9 @@ At that point, a consent dialog will be displayed, requesting access to your acc
 
 ![Consent Screen for Extension](/media/articles/extensions/authentication-api-debugger/consent.png)
 
-**NOTE**: The extension will communicate to the Management API on your behalf to retrieve details about the Clients which you have configured in your Auth0 Dashboard, and use this information to call the Authentication API endpoints. 
+::: note
+The extension will communicate to the Management API on your behalf to retrieve details about the Clients which you have configured in your Auth0 Dashboard, and use this information to call the Authentication API endpoints.
+:::
 
 Once you accept, you will be navigated to the extension's views.
 
@@ -38,7 +40,7 @@ The basic configuration for all flows can be found on the _Configuration_ tab.
 
 Once you have specified the basic configuration, you can switch to the _OAuth2 / OIDC_ tab to execute any of the flows. For some of the flows you may need to specify more settings which can be found by scrolling down the page.
 
-![OAuth2 / OIDC Settings](/media/articles/extensions/authentication-api-debugger/oauth-oidc-settings.png) 
+![OAuth2 / OIDC Settings](/media/articles/extensions/authentication-api-debugger/oauth-oidc-settings.png)
 
 These settings will depend on the actual flow which is being executed, and it is suggested that you refer to the [Auth0 Authentication API documentation](/api/authentication) for more information on the applicable parameters for each flow.
 

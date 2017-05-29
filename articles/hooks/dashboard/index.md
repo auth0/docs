@@ -1,9 +1,10 @@
 ---
 description: How to create new Hooks using the Management Dashboard
 url: /hooks/dashboard
+beta: true
 ---
 
-# Work with Hooks in the Dashboard&nbsp;<span class="btn btn-primary btn-sm">BETA</span>
+# Work with Hooks in the Dashboard
 
 ![Management Dashboard Hooks Page](/media/articles/hooks/hooks-dashboard.png)
 

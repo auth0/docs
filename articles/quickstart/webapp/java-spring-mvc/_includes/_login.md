@@ -59,11 +59,13 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
 </html>
 ```
 
-__NOTE__: The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `auth0-spring-mvc-sample/src/main/resources/static/` directory and you don't need to include them if you don't want to.
+::: note
+The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `auth0-spring-mvc-sample/src/main/resources/static/` directory and you don't need to include them if you don't want to.
+:::
 
 First, we initialize `Auth0Lock` with a `clientID` and the account's `domain`.
 
-```
+```java
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 ```
 
@@ -91,7 +93,9 @@ protected String home(final Map<String, Object> model, final Principal principal
 }
 ```
 
-__NOTE__: The value `/portal/home` should be replaced with the valid one for your implementation.
+_::: note
+The value `/portal/home` should be replaced with the valid one for your implementation.
+:::
 
 Once the user has successfully authenticated, the application displays the `home.jsp`. In order to display some user information, as retrieved from Auth0, update the `home.jsp` as follows:
 

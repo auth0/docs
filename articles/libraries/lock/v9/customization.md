@@ -140,7 +140,9 @@ lock.show({
 
 ![](/media/articles/libraries/lock/customization/icon.png)
 
-> Note: To disable the header badge entirely, [UI customizations][ui-customization] are required..
+::: note
+To disable the header badge entirely, [UI customizations][ui-customization] are required..
+:::
 
 ### closable {Boolean}
 
@@ -160,7 +162,11 @@ lock.show({
 
 ### socialBigButtons {Boolean}
 
-Force large/small social buttons. Defaults to `true` when no `database` or `ad/ldap` connections enabled and `false` when at least one is configured. Note: setting this property will override previous defaults.
+Force large/small social buttons. Defaults to `true` when no `database` or `ad/ldap` connections enabled and `false` when at least one is configured.
+
+::: note
+Setting this property will override previous defaults.
+:::
 
 ```js
 // `false` when at least
@@ -348,7 +354,10 @@ lock.show({
 ### defaultUserPasswordConnection {String}
 
 When multiple Database/AD-LDAP connections, specify which one should be used with the Email/Password fields. Defaults to the first Database connection found (if exists) or the first AD-LDAP connection found.
-> Shall be renamed to just `forceDatabase`.
+
+::: note
+Shall be renamed to just `forceDatabase`.
+:::
 
 ```js
 // defaults to the first configured
@@ -444,13 +453,17 @@ lock.show({
 });
 ```
 
-> Note: For a full spec on every supported parameter check the wiki [article][authparams-link] on this topic.
+::: note
+For a full spec on every supported parameter check the wiki [article][authparams-link] on this topic.
+:::
 
 ### sso {Boolean}
 
 Sets a cookie used for single sign on. The cookie will be used later to allow `rememberLastLogin` display the **Last time you signed in with ...** message. This only applies to Database Connections when using `popup: true` and fires a popup where authentication takes place. Last but not least, it prompts for a multifactor authentication code, if enabled.
 
-> Warning: Failing to set this to true will result in multifactor authentication not working correctly.
+::: warning
+Failing to set this to true will result in multi-factor authentication not working correctly.
+:::
 
 ```js
 lock.show({
@@ -464,7 +477,9 @@ lock.show({
 
 The following are all internal options. The only reason they are listed here is to have a full documentation for the options object.
 
-> Note: passing any of the following to the `options` object will be overridden by `Auth0Lock`s options manager. Do not attempt to modify these... it won't happen.
+::: note
+Passing any of the following to the `options` object will be overridden by `Auth0Lock`s options manager. Do not attempt to modify these... it won't happen.
+:::
 
 ### mode {String}
 
@@ -473,8 +488,6 @@ Set the `show` mode for the display. Allowed values are `signin`, `signup` and `
 ### popupCallback {Function}
 
 Internally set from `callback` parameter
-
-
 
 [authparams-link]: /libraries/lock/v9/sending-authentication-parameters
 [windowopen-link]: https://developer.mozilla.org/en-US/docs/Web/API/Window.open#Position_and_size_features

@@ -98,8 +98,9 @@ authenticate users, it is not necessary to define any resource server as
 long as ID tokens are only processed by clients and not sent to external
 services.
 
-[Learn more about API authentication and
-authorization](/api-auth).
+::: note
+  For more information on API authentication and authorization refer to <a href="/api-auth">API Authorization</a>.
+:::
 
 ## Further reading
 

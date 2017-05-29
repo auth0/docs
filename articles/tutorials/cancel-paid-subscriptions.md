@@ -30,7 +30,7 @@ If you wish to cancel your Auth0 subscription, you have two options:
 
 ## Close Your Auth0 Account
 
-::: warning-banner
+::: warning
 This action cannot be undone.
 :::
 

@@ -12,7 +12,7 @@ The Connector is packaged as a standard Microsoft Installer file (__MSI__). Down
   <div class="installers"  style="display: block; margin: auto;">
     <ul>
       <li>
-        <a class="download-link" href="http://cdn.auth0.com/adldap.msi">
+        <a class="download-link" href="https://cdn.auth0.com/adldap.msi">
           <img src="//cdn.auth0.com/docs/img/node-windows.png" alt="">
           Auth0 Active Directory/LDAP Connector for Windows
           <small class="download-version"></small>
@@ -56,7 +56,7 @@ Once you have entered the __TICKET URL__, you must enter the LDAP settings:
 
 ![](/media/articles/connector/install/adldap-connector-admin-settings.png)
 
--  **LDAP Connection String (eg: ldap://ldap.internal.contoso.com):** This is the protocol + the domain name or ip address of your LDAP server. The protocol can be either `ldap` or `ldaps`. If you need to use `ldaps` make sure that the certificate is valid in the current server.
+-  **LDAP Connection String (eg: ldap://ldap.internal.contoso.com):** This is the protocol + the domain name or ip address of your LDAP server. Your LDAP server is the local domain controller where Active Directory is installed. The protocol can be either `ldap` or `ldaps`. If you need to use `ldaps` make sure that the certificate is valid in the current server.
 -  **Base DN (eg: dc=contoso,dc=com):** This is the base container for all the queries performed by the connector.
 -  **Username (eg: cn=svcauth0,dc=services,dc=contoso,dc=com):** The full distinguish name of a user to perform queries.
 -  **Password:** The password of the user.

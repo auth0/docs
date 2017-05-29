@@ -1,5 +1,6 @@
 ---
 description: This page lists SAML Configurations for various SSO integrations including Google Apps, Hosted Graphite, Litmos, Cisco Webex, Sprout Video, FreshDesk, Tableau Server, Datadog, Egencia, Workday and Pluralsight.
+toc: true
 ---
 
 # SAML Configurations for SSO Integrations
@@ -24,9 +25,8 @@ description: This page lists SAML Configurations for various SSO integrations in
   ],
 }
 ```
-**Callback URL**: `https://www.google.com/a/{YOUR-GOOGLE-DOMAIN}/acs`
 
----
+The **Callback URL** is `https://www.google.com/a/{YOUR-GOOGLE-DOMAIN}/acs`.
 
 ## Hosted Graphite
 
@@ -40,9 +40,7 @@ description: This page lists SAML Configurations for various SSO integrations in
 }
 ```
 
-**Callback URL**: `https://www.hostedgraphite.com/complete/saml/{YOUR-USER-ID}/`
-
----
+The **Callback URL** is `https://www.hostedgraphite.com/complete/saml/{YOUR-USER-ID}/`.
 
 ## Litmos
 
@@ -70,9 +68,7 @@ description: This page lists SAML Configurations for various SSO integrations in
 }
 ```
 
-**Callback URL**: `https://{YOUR DOMAIN}.litmos.com/integration/samllogin`
-
----
+The **Callback URL** is `https://{YOUR DOMAIN}.litmos.com/integration/samllogin`.
 
 ## Cisco WebEx
 
@@ -91,8 +87,6 @@ description: This page lists SAML Configurations for various SSO integrations in
    ]
 }
 ```
-
----
 
 ## SproutVideo
 
@@ -113,9 +107,8 @@ description: This page lists SAML Configurations for various SSO integrations in
  ],
 }
 ```
-**Callback URL**: `https://{YOUR SPROUT VIDEO ACCOUNT}.vids.io`
 
----
+The **Callback URL** is `https://{YOUR SPROUT VIDEO ACCOUNT}.vids.io`.
 
 ## FreshDesk
 
@@ -138,9 +131,7 @@ description: This page lists SAML Configurations for various SSO integrations in
 }
 ```
 
-**Callback URL**: `https://{FD Domain}.freshdesk.com/login/saml`
-
----
+The **Callback URL** is `https://{FD Domain}.freshdesk.com/login/saml`.
 
 ## Tableau Server
 
@@ -167,9 +158,7 @@ description: This page lists SAML Configurations for various SSO integrations in
 }
 ```
 
-**Callback URL**: `http://{YOUR TABLEAU SERVER}/wg/saml/SSO/index.html`
-
----
+The **Callback URL** is `http://{YOUR TABLEAU SERVER}/wg/saml/SSO/index.html`.
 
 ## Datadog
 
@@ -189,11 +178,9 @@ description: This page lists SAML Configurations for various SSO integrations in
 }
 ```
 
-**Callback URL**: `https://app.datadoghq.com/account/saml/assertion`
+The **Callback URL** is `https://app.datadoghq.com/account/saml/assertion`.
 
 Notice that Datadog has an option to automatically provision new users. Check [here](http://docs.datadoghq.com/guides/saml/) for more details.
-
----
 
 ## Egencia
 
@@ -213,9 +200,7 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 }
 ```
 
-**Callback URL**: `https://www.egencia.com/auth/v1/artifactConsumer`
-
----
+The **Callback URL** is `https://www.egencia.com/auth/v1/artifactConsumer`.
 
 ## Workday
 
@@ -237,9 +222,7 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 }
 ```
 
-**Callback URL**: `https://impl.workday.com/<tenant>/fx/home.flex`
-
----
+The **Callback URL** is `https://impl.workday.com/<tenant>/fx/home.flex`.
 
 ## Pluralsight
 
@@ -263,14 +246,12 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 }
 ```
 
-**Callback URL**: `https://prod-pf.pluralsight.com/sp/ACS.saml2`
-
----
+The **Callback URL** is `https://prod-pf.pluralsight.com/sp/ACS.saml2`.
 
 ## Eloqua (Oracle Eloqua Marketing Cloud)
 
 ```
-{ 
+{
 "audience": "<Service Provider Entity Url from within Eloqua>",
  "recipient": "https://login.eloqua.com/auth/saml2/acs",
    "mappings": {
@@ -287,9 +268,8 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 
 ```
 
-**Callback URL**: `https://login.eloqua.com/auth/saml2/acs`
+The **Callback URL** is `https://login.eloqua.com/auth/saml2/acs`.
 
-Note: the Service Provider Entity URL copied from within the IDP settings in Eloqua to set the audience restriction within Auth0.
-
----
-
+::: note
+The Service Provider Entity URL copied from within the IDP settings in Eloqua to set the audience restriction within Auth0.
+:::

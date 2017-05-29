@@ -5,15 +5,15 @@ description: Overview of the Appliance Dashboard Updates page
 
 # Auth0 Appliance Dashboard: Updates
 
-::: panel-info Appliance Dashboard Navigation
-
-For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
-
+::: note
+  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
 The Updates page of the Appliance configuration area allows you to make the required/selected updates to your Appliance instance.
 
-> Updates cannot be rolled back/undone, so take VM snapshots and make backups as needed.
+::: note
+  Updates cannot be rolled back/undone, so take VM snapshots and make backups as needed.
+:::
 
 ![](/media/articles/appliance/dashboard/updates.png)
 
@@ -26,6 +26,6 @@ Once you have selected the appropriate build, any **release notes** applicable w
 
 To begin the update, click on "Update from Internet." You will be prompted once more to confirm to ensure that the appropriate backups have been made, since Appliance updates cannot be undone.
 
-## Offline Update (Deprecated)
-
-If you possess an updater package from Auth0, use the "Update from Package" button to select the package and begin the updates.
+::: note
+You should schedule Production updates with your Auth0 Customer Success Manager so that there is an Auth0 Customer Success Engineer available in case any patches need to be manually applied. For more information on updates, see [Updating the Appliance](/appliance/admin/updating-the-appliance).
+:::

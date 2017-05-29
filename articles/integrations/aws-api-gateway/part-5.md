@@ -55,7 +55,9 @@ While you can include the full profile of the user within the JWT, you will want
 
 Because the AWS Lambda console has access to a limited number of Node modules that can be used when you enter your Node.js code using the browser console, you'll need to include additional modules and upload the Lambda function as a package to process the identity token.
 
-> For additional details, see [Creating Deployment Packages using Node.js](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) and [Uploading Deployment Packages and Testing](http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-upload-zip-test.html).
+::: note
+For additional details, see [Creating Deployment Packages using Node.js](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) and [Uploading Deployment Packages and Testing](http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-upload-zip-test.html).
+:::
 
 The following seed project contains the code you'll need for your updated AWS Lambda function.
 

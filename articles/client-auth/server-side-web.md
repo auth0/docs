@@ -1,16 +1,16 @@
 ---
 title: Authentication for Server-side Web Apps
-description: Explains how to authenticate users in a Server-side Web application. 
+description: Explains how to authenticate users in a Server-side Web application.
 toc: true
 ---
 
 # Authentication for Server-side Web Apps
 
-You can use the Auth0 Authentication API to create server-side web applications that uses OAuth 2.0 authorization to authenticate users. 
+You can use the Auth0 Authentication API to create server-side web applications that uses OAuth 2.0 authorization to authenticate users.
 
 ## Overview
 
-Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the `redirect_uri` (also referred to as the Callback URL), returning an `authorization_code` in the query string parameters of the Callback URL. This `authorization_code` can then be exchanged for an `id_token` which contains the identity of the user. 
+Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the `redirect_uri` (also referred to as the Callback URL), returning an `authorization_code` in the query string parameters of the Callback URL. This `authorization_code` can then be exchanged for an `id_token` which contains the identity of the user.
 
 ## The Authentication Flow
 
@@ -40,7 +40,7 @@ The **Create Client** window will open, allowing you to enter the name of your n
 
 ![](/media/articles/client-auth/server-side-web/create-client.png)
 
-Once the client has been created you can navigate to the **Settings** tab of the client and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, e.g. `${account.callback}`. 
+Once the client has been created you can navigate to the **Settings** tab of the client and in the **Allowed Callback URLs** field add a URL where Auth0 must redirect to after the user has authenticated, e.g. `${account.callback}`.
 
 This URL must be part of your application, as your application will need to retrieve the `code` and exchange it for the `id_token`.
 
@@ -133,7 +133,7 @@ The payload above contains the following claims:
 
 The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an `id_token` issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
 
-::: panel-info Debugging a JWT
+::: note
 The [JWT.io website](https://jwt.io) has a handy debugger which will allow you to debug any JSON Web Token. This is useful is you quickly want to decode a JWT to see the information contained in the token.
 :::
 
@@ -147,7 +147,7 @@ You can then use those claims inside of your application to display the user's i
 
 ### A Basic Authentication Request
 
-The following is the most basic request you can make to the `/authorize` endpoint. It will display the Lock screen and allow a user to sign in with any of the configured connections. 
+The following is the most basic request you can make to the `/authorize` endpoint. It will display the Lock screen and allow a user to sign in with any of the configured connections.
 
 ```text
 https://${account.namespace}/authorize
@@ -176,7 +176,7 @@ You can then exchange the `access_code` for an `id_token`. This is an example of
 
 ### Request the Name and Profile Picture
 
-You can request a user's name and profile picture by requesting the `name` and `picture` scopes. 
+You can request a user's name and profile picture by requesting the `name` and `picture` scopes.
 
 ```text
 https://${account.namespace}/authorize
@@ -219,7 +219,7 @@ https://${account.namespace}/authorize
   &connection=github
 ```
 
-::: panel-info Log in with other social providers
+::: panel Log in with other social providers
 You can just as easily request a user log in with other social providers, like Google or Facebook. All you have to do is configure the corresponding connection in the [dashboard](${manage_url}/#/connections/social) and change the `connection` value of this call to `/authorize` with the name of the connection to use (`google-oauth2` for Google, `facebook` for Facebook, and so forth). You can get the connection's name from the _Settings_ of the connection in the [dashboard](${manage_url}/#/connections/social). For more info:
 - [Identity Providers Supported by Auth0](/identityproviders)
 - [Social Login using the Authentication API](/api/authentication#social)

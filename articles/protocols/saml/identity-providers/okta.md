@@ -121,7 +121,9 @@ Go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider**. On the r
 
 If your test was successful, you'll see the **It works!** screen. If not, you'll see an error message containing details on what the issue might be.
 
-**Note**: The **Try** button works for users logged in to Auth0 dashboard. You can't send this to an anonymous user, such as a customer. If you don't have a Okta user, you'll need to configure [IdP Initiated SignOn](#idp-initiated-signon) so the someone else can try on their portal.
+::: note
+The **Try** button works for users logged in to Auth0 dashboard. You can't send this to an anonymous user, such as a customer. If you don't have a Okta user, you'll need to configure [IdP Initiated SignOn](#idp-initiated-signon) so the someone else can try on their portal.
+:::
 
 ## IdP Initiated SignOn
 

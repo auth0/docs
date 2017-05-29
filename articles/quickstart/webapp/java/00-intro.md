@@ -7,7 +7,7 @@ budicon: 715
 
 This multi-step quickstart will guide you through the process of managing authentication in your Java Servlet Web Application with Auth0.
 
-::: panel-info System Requirements
+::: panel System Requirements
 These tutorials and seed projects have been tested with the following:
 - Java 7 or above
 - Maven 3.0.x or above
@@ -15,8 +15,9 @@ These tutorials and seed projects have been tested with the following:
 
 Auth0 provides and manages a [Servlet SDK](https://github.com/auth0/auth0-servlet). This SDK allows you to use Auth0 with Java for server-side MVC web apps. It presents a simple servlet based solution without introducing specific frameworks or libraries such as Spring.
 
-__NOTE:__ You can find a listing of all our Java offerings and several sample projects in [Java technologies and Auth0 libraries](/java-overview).
-
+::: note
+You can find a listing of all our Java offerings and several sample projects in [Java technologies and Auth0 libraries](/java-overview).
+:::
 
 ## Sample Projects
 

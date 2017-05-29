@@ -1,6 +1,7 @@
 ---
-title: Login
+title: Embedded Login
 description: This tutorial will show you how to integrate Lock v2 in your Android project in order to present an Embedded Login screen.
+seo_alias: android
 budicon: 448
 ---
 
@@ -9,6 +10,7 @@ This tutorial will show you how to integrate Lock v2 in your Android project in 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-android-sample',
+  branch: 'embedded-login',
   path: '01-Embedded-Login',
   requirements: [
     'Android Studio 2.3',
@@ -21,7 +23,7 @@ This tutorial will show you how to integrate Lock v2 in your Android project in 
 
 <%= include('_includes/_manifest') %>
 
-<%= include('_includes/_login') %>
+<%= include('_includes/_lock_login') %>
 
 ### Optional: Log In with Social Connections
 

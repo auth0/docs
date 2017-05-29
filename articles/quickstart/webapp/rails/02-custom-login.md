@@ -26,7 +26,9 @@ gem 'auth0'
 
 ## Create a Login Form
 
-**NOTE**: `home` is not a mandatory name for the view / controller.
+::: note
+`home` is not a mandatory name for the view / controller.
+:::
 
 ```ruby
 <div id="login-container">
@@ -140,11 +142,15 @@ This way, if a user attempts to access the routes governed by the `DashboardCont
 
 For your users to login using a Social Connection without using neither Lock nor OmniAuth, follow these steps:
 
-**NOTE**: Social connections support only browser based (passive) authentication. This is because most of these providers don't allow entering the user/password in applications that don't belong to them, so the user gets redirected to the provider (e.g. Google sign in page). Three steps take place in this process: initiation, authentication, and getting the access token. You'll begin the authentication flow, Auth0 will take care of the Authentication, and then you'll obtain the access and id token for the user (*to learn more about this process go to: [Authentication API](/api/authentication#!%23get--authorize_social) and [OAuth Server Side](/protocols#oauth-server-side) documents*).
+::: panel Social connections
+Social connections support only browser based (passive) authentication. This is because most of these providers don't allow entering the user/password in applications that don't belong to them, so the user gets redirected to the provider (e.g. Google sign in page). Three steps take place in this process: initiation, authentication, and getting the access token. You'll begin the authentication flow, Auth0 will take care of the Authentication, and then you'll obtain the access and id token for the user (*to learn more about this process go to: [Authentication API](/api/authentication#!%23get--authorize_social) and [OAuth Server Side](/protocols#oauth-server-side) documents*).
+:::
 
 For this particular example, you'll configure Google as your social provider. The API methods called by the API also support Facebook, Twitter and Weibo.
 
+::: note
 **Prerequisite**: configure your Google Social Connection by following [this tutorial](/connections/social/google).
+:::
 
 To begin the authentication flow, you'll need to generate a redirect to the social provider. To do so, create the `google_authorize method` in the `Auth0Controller`:
 
@@ -181,7 +187,9 @@ end
 
 And call this method from the controller `callback` action.
 
-**NOTE**: this logic is only necessary if you're mixing the login form from the first section of the tutorial and social authentication. Otherwise, you can call `google_login` straight from the `callback` action.
+::: note
+This logic is only necessary if you're mixing the login form from the first section of the tutorial and social authentication. Otherwise, you can call `google_login` straight from the `callback` action.
+:::
 
 ```ruby
 def callback

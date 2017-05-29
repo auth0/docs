@@ -19,7 +19,7 @@ In our SSO scenario, let's say we have 3 applications
 * App 2: app2.com (Single Page App)
 * App 3: app3.com (Regular Web app)
 
-If a user logs in to any of these applications, and then subsequently navigates from this application to any of the other applications, we would want the user to be logged in automatically. 
+If a user logs in to any of these applications, and then subsequently navigates from this application to any of the other applications, we would want the user to be logged in automatically.
 
 In this document we will be looking specifically how to achieve this in a Regular Web Application
 
@@ -63,7 +63,7 @@ app.get('/sso', function(req,res, next) {
 
 When the user comes back from Auth0 you should check for the `state` parameter and redirect to the original target URL.
 
-```
+```js
 handle("/callback")
   // process login with SDK
   if (state) redirect to url on state parameter
@@ -88,7 +88,7 @@ app.get('/callback',
 
 The user is logged in on app1.com and opens a new tab and goes to app3.com. You would expect the user to be automatically signed in. To do that, you need to redirect the user to the following URL in a filter or a middleware:
 
-```
+```text
 https://${account.namespace}/authorize?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}
 ```
 
@@ -110,6 +110,6 @@ If the user was already logged in before, then Auth0 will automatically redirect
 
 The user has never logged in to any app. In this case, the filter or middleware mentioned in the previous point checks if the user is authenticated or not, and in the case they're not, redirects the user to the following URL:
 
-```
+```text
 https://${account.namespace}/authorize?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}
 ```

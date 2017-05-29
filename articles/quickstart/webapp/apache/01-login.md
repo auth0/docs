@@ -5,12 +5,10 @@ description: This tutorial demonstrates how to use the Auth0 Apache SDK to add a
 budicon: 448
 ---
 
-::: panel-info System Requirements
+::: panel System Requirements
 This tutorial and seed project have been tested with the following:
 * Apache 2.4
 :::
-
-
 
 **Please follow the steps below to configure your application using Apache to work with Auth0 and Open ID Connect.**
 

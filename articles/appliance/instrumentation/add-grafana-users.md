@@ -28,7 +28,7 @@ To visualize the instrumentation page with an Appliance administrative user *oth
 
   You can use one of two authentication methods with Grafana:
 
-  ::: panel-info Grafana Authentication
+  ::: panel Grafana Authentication
   * **Basic Authentication**: used by configuration scripts launched by Puppet
   * **OAuth Authentication**: used by when pages when users either:
     * Visualize the instrumentation page;

@@ -6,7 +6,9 @@ description: How to enable SSO with Zendesk using JWT.
 
 This [Zendesk article](https://support.zendesk.com/hc/en-us/articles/203663816-Setting-up-single-sign-on-with-JWT-JSON-Web-Token-) details everything about getting SSO to work with any JWT provider.
 
-> **Note:** If you happen to lock yourself out of your Zendesk account while following this tutorial, you can always log in with your regular Zendesk credentials at https://your_domain.zendesk.com/access/normal
+::: note
+If you happen to lock yourself out of your Zendesk account while following this tutorial, you can always log in with your regular Zendesk credentials at https://your_domain.zendesk.com/access/normal
+:::
 
 SSO can be enabled for Zendesk administrators/agents, users, or both. In any case, the configuration is the same.
 

@@ -8,17 +8,23 @@ In the Dashboard under [Connections > Passwordless](${manage_url}/#/connections/
 
 Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
 
-**NOTE**: For information on obtaining a Twilio SID and Auth Token, see: [How to create an Application SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and [Auth Tokens and how to change them](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it).
+::: note
+For information on obtaining a Twilio SID and Auth Token, see: [How to create an Application SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and [Auth Tokens and how to change them](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it).
+:::
 
 Select the **SMS Source** that users will see as the sender of the SMS.
 
-**NOTE**: For information on using Copilot, see: [Sending Messages with Copilot](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
+::: note
+For information on using Copilot, see: [Sending Messages with Copilot](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
+:::
 
 Enter either your **Twilio Messaging Service SID** or a **From** phone number, depending on the **SMS Source** selected above.
 
 Lastly, enter the **Message** that will appear in the body of the SMS.
 
-**NOTE:**  The `@@password@@` placeholder in the Message will be automatically replaced with the one-time password that is sent to the user.
+::: note
+The `@@password@@` placeholder in the Message will be automatically replaced with the one-time password that is sent to the user.
+:::
 
 Click **SAVE**.
 
@@ -41,6 +47,7 @@ The Message area accepts Liquid syntax. You can use this syntax, combined with e
    Ceci est votre code: {{ password }}
 {% endif %}
 ```
+
 The following paramaters are available when defining the template:
 
 | Exposed Parameter | Description |

@@ -4,11 +4,14 @@ title: Business to Business Identity Scenarios
 image: /media/articles/architecture-scenarios/b2b.png
 extract: In this scenario you usually have a larger SAAS application, like Zendesk for example, where their customers are typically other companies which are registered as tenants.
 description: Explains the architecture scenario of B2B with large SAAS application.
+beta: true
 ---
 
 # Business to Business Identity Scenarios
 
-<div class="alert alert-info">This architecture scenario is under construction and will be updated soon.</div>
+::: note
+This architecture scenario is under construction and will be updated soon.
+:::
 
 ![](/media/articles/architecture-scenarios/b2b.png)
 

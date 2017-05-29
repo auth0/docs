@@ -30,6 +30,10 @@ Among many possibilities, Rules can be used to:
 * Enable counters or persist other information. (For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).)
 * Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
 
+::: note
+You can find more examples of common Rules on Github at <a href="https://github.com/auth0/rules">auth0/rules</a>.
+:::
+
 ## Video: Using Rules
 Watch this video learn all about rules in just a few minutes.
 
@@ -43,9 +47,9 @@ A Rule is a function with the following arguments:
 
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
-<div class="alert alert-info">
-Due to the asynchronous nature of Node.js, you <strong>must</strong> call the <code>callback</code> function. If not, this acts as a blocker and the next rule will not execute. The entire rules sequence must complete within <strong>20 seconds</strong>, otherwise the process times out.
-</div>
+::: note
+Due to the asynchronous nature of Node.js, you __must__ call the `callback` function. If not, this acts as a blocker and the next rule will not execute. The entire rules sequence must complete within __20 seconds__, otherwise the process times out.
+:::
 
 ### Global Functions
 
@@ -83,9 +87,9 @@ function (user, context, callback) {
 }
 ```
 
-<div class="alert alert-info">
-  You can add <code>console.log</code> lines for <a href="#debugging">debugging</a> or use the <a href="/extensions/realtime-webtask-logs">Real-time Webtask Logs Extension</a>.
-</div>
+::: note
+  You can add `console.log` lines for <a href="#debugging">debugging</a> or use the <a href="/extensions/realtime-webtask-logs">Real-time Webtask Logs Extension</a>.
+:::
 
 
 ### Add roles to a user
@@ -146,9 +150,9 @@ After the rule executes, the output that the application will receive is the fol
 }
 ```
 
-<div class="alert alert-info">
+::: note
 Properties added in a rule are <strong>not persisted</strong> in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
-</div>
+:::
 
 ### Deny access based on a condition
 
@@ -166,9 +170,9 @@ function (user, context, callback) {
 
 This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
 
-<div class="alert alert-info">
+::: note
   Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a <code>SAMLResponse</code>.
-</div>
+:::
 
 ## Create Rules with the Management API
 
@@ -211,9 +215,9 @@ Use this to create the POST request:
 }
 ```
 
-<div class="alert alert-info">
+::: note
 You can use the <a href="https://www.npmjs.com/package/auth0-rules-testharness">auth0-rules-testharness library</a> to deploy, execute, and test the output of Rules using a Webtask sandbox environment.
-</div>
+:::
 
 ## How to Debug Rules
 

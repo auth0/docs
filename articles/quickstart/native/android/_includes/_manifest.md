@@ -19,22 +19,23 @@ Add the following code to your project's `AndroidManifest.xml`. This will ask fo
 
         <data
             android:host="${account.namespace}"
-            android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
-            android:scheme="https" />
+            android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+            android:scheme="demo" />
     </intent-filter>
 </activity>
 ```
 
 It's very important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
 
-
 The URL defined in the intent-filter will be called from the browser whenever you perform a successful web authentication. This URL must be whitelisted in the "Allowed Callback URLs" section of the [Client settings](https://manage.auth0.com/#/clients) and it should look similar to this:
 
+```text
+demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
-https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
 
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
 
-> Do not add `<android:noHistory="true">` to the `LockActivity` as this will alter the correct functionality of **Lock**.
+::: note
+Do not add `<android:noHistory="true">` to the `LockActivity` as this will alter the correct functionality of **Lock**.
+:::

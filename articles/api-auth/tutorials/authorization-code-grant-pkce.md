@@ -2,13 +2,13 @@
 description: How to execute an Authorization Code Grant flow with PKCE for a Mobile Application
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Execute an Authorization Code Grant Flow with PKCE
 
-<div class="alert alert-info">
+<%= include('../../_includes/_pipeline2') %>
+
+::: note
   This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code-pkce">Calling APIs from Mobile Apps</a>.
-</div>
+:::
 
 The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/quickstart/native) use in order to access an API. In this document we will work through the steps needed in order to implement this: create a code verifier and a code challenge, get the user's authorization, get a token and access the API using the token.
 
@@ -146,7 +146,7 @@ Where:
 
 * `scope`: The [scopes](/scopes) that you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
 
-  ::: panel-info Custom claims namespaced format
+  ::: panel Custom claims namespaced format
   Auth0 returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`. You can [add namespaced claims using Rules](#optional-customize-the-tokens).
   :::
 
@@ -160,7 +160,7 @@ Where:
 
 * `code_challenge_method`: Method used to generate the challenge.
 
-::: panel-warning A Note About code_challenge_method
+::: panel PKCE methods
 The PKCE spec defines two methods, `S256` and `plain`, the former is used in this example and is the **only** one supported by Auth0 since the latter is discouraged.
 :::
 
@@ -211,8 +211,8 @@ The response contains `access_token`, `refresh_token`, `id_token`, and `token_ty
 
 Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/preview/refresh-token).
 
-::: panel-danger Warning
-It is important to understand that the Authorization Code flow with PKCE can only be used for Clients whose type is `Native` in the Dashboard.
+::: warning
+The Authorization Code flow with PKCE can only be used for Clients whose type is `Native` in the Dashboard.
 :::
 
 ## 5. Call the API

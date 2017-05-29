@@ -21,8 +21,9 @@ You can change your users' passwords using one of the following methods:
 + [**Lock**](#using-lock): Use the Lock login screen to trigger a password reset email to the user.
 + [**Dashboard**](#manually-setting-a-user-s-password): Use the [Users](${manage_url}/#/users) section of the Dashboard to manually change the user's password.
 
-**NOTE:** You can only change passwords for users signing in using Database connections. Users signing in using Social or Enterprise connections need to reset their passwords with the appropriate system.
-
+::: note
+  You can only change passwords for users signing in using Database connections. Users signing in using Social or Enterprise connections need to reset their passwords with the appropriate system.
+:::
 
 ## Using the Authentication API
 
@@ -54,7 +55,9 @@ Clicking the link will send the user to a password reset page.
 
 ![](/media/articles/connections/database/reset-password.png)
 
-**NOTE**: The reset password link in the email is valid for one use only, and it must be used before the time specified in the `URL Lifetime` field elapses. The `URL Lifetime` field can be modified in the Dashboard where you customize the Change Password email.
+::: note
+The reset password link in the email is valid for one use only, and it must be used before the time specified in the `URL Lifetime` field elapses. The `URL Lifetime` field can be modified in the Dashboard where you customize the Change Password email.
+:::
 
 Please see the [Change User Password for DB Connections](/api/authentication/reference#change-password) Authentication API endpoint for more information.
 
@@ -62,7 +65,7 @@ Please see the [Change User Password for DB Connections](/api/authentication/ref
 
 To reset a user's password using the Management API, make a `PATCH` call to the [Update a User endpoint](/api/management/v2#!/Users/patch_users_by_id).
 
-::: panel-danger Notice
+::: warning
 Users will not receive notification that their password has been manually changed.
 :::
 
@@ -113,7 +116,7 @@ After submitting the new password, the user will be able to login with their new
 
 ## Manually Setting a User's Password
 
-::: panel-danger Notice
+::: warning
 Users will not receive notification that their password has been manually changed.
 :::
 
@@ -132,4 +135,6 @@ You can change the content of the Change Password emails in the  [Emails > Templ
 
 ![](/media/articles/connections/database/change-password-email.png)
 
-**NOTE**: Email templates can only be changed for those *not* using Auth0's built-in email provider. For more information, please see: [Customizing Your Emails](/email/templates).
+::: note
+Email templates can only be changed for those *not* using Auth0's built-in email provider. For more information, please see: [Customizing Your Emails](/email/templates).
+:::

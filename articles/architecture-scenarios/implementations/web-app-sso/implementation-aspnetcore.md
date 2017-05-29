@@ -118,7 +118,7 @@ You will also need to ensure that you add your application's URL to the __Allowe
 
 ## Implement Admin permissions
 
-The easiest way to integrate the groups into an ASP.NET Core application is to user the built-in [Role based Authorization](https://docs.asp.net/en/latest/security/authorization/roles.html) available in ASP.NET Core. In order to achieve this we will need to add a Claim of type
+The easiest way to integrate the groups into an ASP.NET Core application is to use the built-in [Role based Authorization](https://docs.asp.net/en/latest/security/authorization/roles.html) available in ASP.NET Core. In order to achieve this we will need to add a Claim of type
 
 ```text
 http://schemas.microsoft.com/ws/2008/06/identity/claims/role

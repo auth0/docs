@@ -1,0 +1,9 @@
+## Considerations for Client-Side Access Control
+
+In the context of access control on the **client-side**, it's important to note that any `scope` values that end up in local storage are simply a _clue_ that the user has that particular set of `scope`s. There is nothing stopping a user from manually adjusting the `scope`s in local storage in an attempt to give themselves a higher level of access. Doing so, a user could force their way to a client-side route that they shouldn't have access to.
+
+So how are you supposed to create a secure application if client-side routes are so easily hackable? The answer is to remember that browsers are public clients and that they must be treated as such. Any and all sensitive data which powers your application needs to be kept on your server instead of being included directly in your client-side SPA because your server is the only place that can act as a secure gatekeeper for that data.
+
+If a user wants to get access to the data on your server, they will require a valid `access_token` to do so. Any attempt to modify an `access_token` will invalidate it. This means that if a user tried to edit the payload of their `access_token` to include different `scope`s, the token would lose its integrity and would be rendered useless.
+
+It would be easy for a user to modify the `scope`s array in local storage and thus be able to navigate to a client-side route that they shouldn't be at, but it wouldn't do them much good. If the data required for a given route is retrieved from your server (as it should be), the only thing the user would see on the page is an empty shell.

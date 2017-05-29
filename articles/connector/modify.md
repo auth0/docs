@@ -4,8 +4,6 @@ description: How to modify AD/LDAP Connector settings in the console, Profile Ma
 
 # Modify the AD/LDAP Connector Settings
 
-
-
 ## AD/LDAP Connector Admin Console
 
 The **Connector Admin** screen can be launched by bringing up a browser on the AD/LDAP connector server and connecting to: `http://localhost:8357`.
@@ -26,7 +24,9 @@ Once you submit the above information, the connector will perform a series of te
 
 Make sure that all tests are green.
 
-**NOTE**: For an explanation of each test, see the [Troubleshooting](/connector/install#troubleshooting) section of the AD/LDAP installation instructions.
+::: note
+For an explanation of each test, see the [Troubleshooting](/connector/install#troubleshooting) section of the AD/LDAP installation instructions.
+:::
 
 Your AD/LDAP Connector will start using the new directory parameters after all changes pass all the tests. If any test fails, the changes will not be saved.
 
@@ -34,7 +34,7 @@ Your AD/LDAP Connector will start using the new directory parameters after all c
 
 To modify the mapping of profile attributes from AD/LDAP attributes to attributes in the Auth0 user profile, launch the **Connector Admin Console** as [described above](#launch-the-ad-ldap-connector-admin-console) and click on **Profile Mapper**.
 
-**Profile Mapper** displays a code editor screen with a short description at the top. The body of the editor screen shows a javascript function which maps attributes from a source directory service (represented by the `raw_data` variable) into a variable that gets returned to populate the __Auth0 User Profile__. 
+**Profile Mapper** displays a code editor screen with a short description at the top. The body of the editor screen shows a javascript function which maps attributes from a source directory service (represented by the `raw_data` variable) into a variable that gets returned to populate the __Auth0 User Profile__.
 
 The first part of the function instantiates a variable called `profile` and has a mapping for the core portion of the Auth0 User Profile.  Additional attributes can be set below that using syntax in the form:
 
@@ -60,7 +60,9 @@ The __Search__ feature is designed to allow the testing of search queries used b
 
 The __Update__ feature provides a convenient way to update the AD/LDAP connector to a more recent version. Updates are fully automated.
 
-**NOTE**: Internet connectivity is required for an update to work.
+::: note
+Internet connectivity is required for an update to work.
+:::
 
 ## Configuration file
 
@@ -103,7 +105,7 @@ The `config.json` file is the AD/LDAP Connector's main configuration file.  It c
 
 ## Point an AD/LDAP Connector to a new connection
 
-Sometimes you will need to point your AD/LDAP Connector instance to a new connection in Auth0. For instance: If you have migrated to a new Auth0 account (tenant), or if you changed the name of the Auth0 connection. 
+Sometimes you will need to point your AD/LDAP Connector instance to a new connection in Auth0. For instance: If you have migrated to a new Auth0 account (tenant), or if you changed the name of the Auth0 connection.
 
 Since you cannot rename connections in Auth0, the only option is to create a new Active Directory / LDAP connection and point your existing Connector instances to it. Here's how:
 
@@ -115,7 +117,7 @@ Since you cannot rename connections in Auth0, the only option is to create a new
 6. Take a look at the Connector logs (**Troubleshooting** tab in the Connector Admin tool or tail the `logs.log` file) and make sure there is a recent entry that looks something like:  
 
   `2016-03-10T22:47:32.970Z - debug: [2016-03-10 22:47:32] Loading settings from ticket: YOUR_TICKET_URL/info`
-  
+
 7. Make sure the new Active Directory / LDAP connection in the Auth0 dashboard is now showing as connected (the dot to the left of the new connection is green and not red). If not, refer to the [Troubleshooting](/connector/troubleshooting) page.
 8. Perform a test authentication through your new connection and make sure you see activity in your Connector logs as well.
 

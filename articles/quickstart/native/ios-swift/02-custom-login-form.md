@@ -6,7 +6,8 @@ budicon: 448
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-ios-swift-v2-sample',
+  repo: 'auth0-ios-swift-sample',
+  branch: 'embedded-login',
   path: '02-Custom-Login-Form',
   requirements: [
     'CocoaPods 1.2.1',
@@ -49,7 +50,9 @@ That's it! You'll get either a `credentials` object or an `error` case after per
 
 Basically, `credentials` contains token-related information; you will normally store this object for later use. On the other hand, `error` is an enum containing possible authentication error cases that you might want to keep track of.
 
-> For further reference on the `credentials` and `error` objects, check the [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Credentials.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication/Authentication.swift) files documentation.
+::: note
+For further reference on the `Credentials` object, see [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift) documentation.
+:::
 
 ## Retrieve the User Profile
 
@@ -70,7 +73,9 @@ Auth0
 }
 ```
 
-> For further reference on the `profile` and `error` objects, check the [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) and [Authentication](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Authentication.swift) files documentation.
+::: note
+For further reference on the `profile` object, see [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) documentation.
+:::
 
 ## Implement a Sign Up
 
@@ -133,7 +138,9 @@ In your application's `Info.plist` file, register your iOS Bundle Identifier as 
 
 Remember to replace all the `{YOUR_APP_BUNDLE_IDENTIFIER}` appearances with your actual app's bundle identifier, which you can get from your project settings.
 
-> The **Auth0.swift** toolkit will only handle URLs with your Auth0 domain as host, for instance: `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
+::: note
+The **Auth0.swift** toolkit will only handle URLs with your Auth0 domain as host, for instance: `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
+:::
 
 Then, add the following function in your application's `AppDelegate`:
 

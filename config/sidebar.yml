@@ -18,6 +18,9 @@ articles:
       - title: Architecture Scenarios
         url: /architecture-scenarios
 
+      - title: Pre-launch Tips
+        url: /prelaunch-tips  
+
   - title: "Clients"
     url: "/clients"
 
@@ -163,7 +166,7 @@ articles:
         url: "/extensions/delegated-admin"
 
       - title: "Authorization"
-        url: "/extensions/authorization-extension"
+        url: "/extensions/authorization-extension/v2"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"

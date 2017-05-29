@@ -16,13 +16,17 @@ To activate Kerberos on an Active Directory, simply enable the option in the das
 
 After enabling Kerberos you'll also be able to configure the **IP Ranges**. When users originate from these IP address ranges this information will be exposed in the **SSO endpoint** which means client-side SDKs like **auth0.js** and the **Lock** will be able to detect Kerberos support and allow Integrated Windows Authentication.
 
-> We recommend restarting the Windows Service that hosts the AD Connector every time this setting is changed. This way, changes will take effect immediately.
+::: note
+We recommend restarting the Windows Service that hosts the AD Connector every time this setting is changed. This way, changes will take effect immediately.
+:::
 
 The IP addresses are configured using the [CIDR-notation](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Note that these should be ranges that are visible by Auth0. If Auth0 is deployed on-premises you'll typically enter internal IP address ranges of your users.
 
 When Auth0 is running in the cloud, it won't be able to see your user's internal IP address. In that case you'd configure the public facing/WAN IP address(es) of your company.
 
-> Normally the step above is not necessary. When Kerberos is enabled, Auth0 server will assume all requests coming from that IP address are originating from your intranet. For normal use then, simply turn Kerberos on and then leave the IP configurations empty. If your intranet spans multiple networks and those are different from where the connector is installed, then it is important to define it here.
+::: panel Kerberos and IP Ranges
+Normally the step above is not necessary. When Kerberos is enabled, Auth0 server will assume all requests coming from that IP address are originating from your intranet. For normal use then, simply turn Kerberos on and then leave the IP configurations empty. If your intranet spans multiple networks and those are different from where the connector is installed, then it is important to define it here.
+:::
 
 ## Flow
 
@@ -30,7 +34,9 @@ Depending on the location of the user the authentication flow will be different 
 
 Users connecting from within the building will all originate from `24.12.34.56` (as configured on the connection). When they authenticate, the users can follow the Kerberos flow and have a seamless SSO experience.
 
-**Note:** For this to work, the network must allow the users to connect to the AD/LDAP Connector on the port configured in the `config.json` file. In [highly available](/connector/high-availability) deployments of the connector, the address users will be connecting to is the network load balancer in front of all connectors instances.
+::: note
+For this to work, the network must allow the users to connect to the AD/LDAP Connector on the port configured in the `config.json` file. In [highly available](/connector/high-availability) deployments of the connector, the address users will be connecting to is the network load balancer in front of all connectors instances.
+:::
 
 ![](/media/articles/connector/kerberos/connector-kerberos-flow.png)
 

@@ -24,7 +24,9 @@ In our example, we will configure a custom database connection to use with our c
 
 First, we will create a new database connection and we will name it `custom-login-DB`. We will use Auth0 database infrastructure to store our users.
 
-**NOTE:** If you have an existing user store, or wish to store user credentials on your own server, see the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure it.
+::: note
+If you have an existing user store, or wish to store user credentials on your own server, see the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure it.
+:::
 
 Log into Auth0, and select the [Connections > Database](${manage_url}/#/connections/database) menu option.
 
@@ -44,8 +46,9 @@ Click **Save**.
 
 Head back to [Connections > Database](${manage_url}/#/connections/database) and select the **Try** button on your new database so we can verify that our user can log in.
 
-**NOTE:** You can add also social connections. To do so you need to create the relevant button in your login form and the javascript to specify which connection to use, for example `google-oauth2`, `github`, etc. You can find details and some sample code on the [auth0.js](/libraries/auth0js#login) document.
-
+::: note
+You can add also social connections. To do so you need to create the relevant button in your login form and the javascript to specify which connection to use, for example `google-oauth2`, `github`, etc. You can find details and some sample code on the [auth0.js](/libraries/auth0js#login) document.
+:::
 
 ## Create Custom Login
 
@@ -59,7 +62,9 @@ Notice the differences compared to `login.jsp`:
 - We have added html to display a form for email and password input (div `form-signin`).
 - The javascript code uses the `Auth0` class, instead of `Auth0Lock`.
 
-**NOTE**: Login is probably not enough for your app, users need to be able to sign up. To do so you have to call the `signup` method on the `auth0` instance. You can find details on how to do that in the [Custom Signup](/custom-signup) document.
+::: note
+Login is probably not enough for your app, users need to be able to sign up. To do so you have to call the `signup` method on the `auth0` instance. You can find details on how to do that in the [Custom Signup](/custom-signup) document.
+:::
 
 Now let's go and add this flag we were talking about earlier. Remember that this step is optional.
 

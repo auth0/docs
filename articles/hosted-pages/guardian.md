@@ -6,7 +6,7 @@ description: Guide on how to use the hosted Guardian MFA page
 
 In the [Auth0 Dashboard](${manage_url}/#/guardian_mfa_page), you can enable your Hosted Guardian Multifactor Login Page by flipping the toggle switch. This is the screen that Auth0 displays to your users who authenticate themselves using [Guardian](/multifactor-authentication/guardian).
 
-:::panel-info Guardian MFA
+:::panel Guardian MFA
 The added protection of Guardian Multifactor Authentication is no small matter. It's quite customizable, allowing you to require MFA on logins which meet certain criteria, or just across the board. Take a look at our documentation on [Guardian MFA](/multifactor-authentication/guardian) for more details!
 :::
 

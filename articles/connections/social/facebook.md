@@ -43,7 +43,9 @@ Enter the following URL in the **Valid OAuth redirect URIs** field:
 
 `https://${account.namespace}/login/callback`
 
-__NOTE__: If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Account Name** in the top right corner. Your Auth0 domain is this name (for example `abc-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://abc-enterprises.auth0.com/login/callback`.
+::: panel Find your Auth0 domain name
+If your Auth0 domain name is not shown above, login to [the dashboard](${manage_url}) to find your **Account Name** in the top right corner. Your Auth0 domain is this name (for example `abc-enterprises`) plus `.auth0.com`. So for this example the **Valid OAuth redirect URI** would be: `https://abc-enterprises.auth0.com/login/callback`.
+:::
 
 ![Enter OAuth redirect URI](/media/articles/connections/social/facebook/facebook-3b.png)
 
@@ -63,7 +65,7 @@ Click **Settings** in the left nav. On this page you can retrieve your **App ID*
 
 Click **Show** to reveal the **App Secret** (you may be required to re-enter your Facebook password).
 
-In a seperate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard. 
+In a seperate tab or window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Click on the box with the **Facebook** logo.
 
@@ -73,9 +75,11 @@ Copy the **App ID** and **App Secret** from the **Settings** of your app on Face
 
 ![Auth0 Facebook Settings](/media/articles/connections/social/facebook/auth0-fb-settings.png)
 
-Select all the **Attributes** and **Permissions** you want to enable. 
+Select all the **Attributes** and **Permissions** you want to enable.
 
-**Note:** Your users will be able to choose which Attributes they wish to share, and by default this selection is only made when they first authorize the application. [Click here to learn more about handling declined permissions.](/connections/social/reprompt-permissions)
+::: note
+Your users will be able to choose which Attributes they wish to share, and by default this selection is only made when they first authorize the application. [Click here to learn more about handling declined permissions.](/connections/social/reprompt-permissions)
+:::
 
 Then click the **Clients** tab and select the applications you wish to enable this connection for.
 
@@ -103,7 +107,7 @@ Click continue and if configured correctly, you will see the **It works!!!** pag
 
 ### Create a Test App
 
-Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have it's own separate **App ID** and **App Secret**. Auth0 only allows one Facebook connection to be configured per account. One option for testing is that create the connection to the test connection and then change the values when you are ready to connect to the production application. 
+Facebook now allows you to test your application by creating a copy of it to use for testing purposes. If you create a test application it will have it's own separate **App ID** and **App Secret**. Auth0 only allows one Facebook connection to be configured per account. One option for testing is that create the connection to the test connection and then change the values when you are ready to connect to the production application.
 
 Another option is to create another Auth0 account used for testing purposes. A new account can be created in the [Dashboard](${manage_url}) by clicking on your account name in the top right corner and selecting **New Account** from the dropdown. See the [Setting Up Multiple Environments](/dev-lifecycle/setting-up-env) for more information on multiple environments.
 

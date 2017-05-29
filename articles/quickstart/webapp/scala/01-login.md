@@ -107,13 +107,17 @@ ${include('../_callbackRegularWebApp')}
 
 Your callback URL should look something like:
 
-`https://yourapp.com/callback`
+```text
+https://yourapp.com/callback
+```
 
 ## Trigger Login Manually or Integrate Lock
 
 <%= include('../../../_includes/_lock-sdk') %>
 
-**Note:** The `redirectUrl` specified in the `Auth0Lock` constructor must match the callback URL specified in the previous step.
+::: note
+The `redirectUrl` specified in the `Auth0Lock` constructor must match the callback URL specified in the previous step.
+:::
 
 ## Access User Information
 

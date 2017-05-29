@@ -3,17 +3,15 @@ title: Call APIs from Highly Trusted Clients
 description: Describes how to call APIs from highly trusted clients using the Resource Owner Password Grant.
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Call APIs from Highly Trusted Clients
 
-In order to access an API from a highly trusted [mobile app](/quickstart/native) or [client-side web app](/quickstart/spa), you need to implement the OAuth 2.0 **Resource Owner Password Grant**.
+<%= include('../../_includes/_pipeline2') %>
 
-In this flow the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is later on sent to the client application and Auth0. It is therefore imperative that the client is absolutely trusted with this information.
+Highly trusted applications can use this flow to access APIs. In this case, the end-user is asked to fill in credentials (username/password), typically using an interactive form. This information is later on sent to the client application and Auth0. It is therefore imperative that the client is absolutely trusted with this information. For [client side](/api-auth/grant/implicit) applications and [mobile apps](/api-auth/grant/authorization-code-pkce) we recommend using web flows instead. 
 
-<div class="alert alert-info">
+::: note
   If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
-</div>
+:::
 
 ## Overview
 
@@ -28,9 +26,10 @@ This grant type can eliminate the need for the client to store the user credenti
  1. Auth0 validates the information and returns an `access_token`, and optionally a `refresh_token`.
  1. The client can use the `access_token` to call the API on behalf of the end user.
 
- <div class="auth0-notification frendly"><i class="notification-icon icon-budicon-266"></i>
-    &nbsp;In OAuth 2.0 terms, the client app is the <em>Client</em>, the end user the <em>Resource Owner</em>, the API the <em>Resource Server</em>, the browser the <em>User Agent</em>, and Auth0 the <em>Authorization Server</em>.
- </div>
+::: note
+In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
+:::
+
 
 ## How to implement the flow
 
@@ -53,7 +52,6 @@ Due to the implied trust in these grants (a user providing his or her password t
 [Rules](/rules) will run for the Password Exchange (including the Password Realm extension grant). There are two key differences in the behavior of rules in these flows:
 
 - Redirect rules won't work. If you try to do a [redirect](/rules/redirect) by specifying `context.redirect` in your rule, the authentication flow will return an error.
-- If you try to do MFA by specifying `context.multifactor` in your rule, the authentication flow will return an error.
 
 If you wish to execute special logic unique to the Password exchange, you can look at the `context.protocol` property in your rule. If the value is `oauth2-password`, then the rule is running during the password exchange.
 

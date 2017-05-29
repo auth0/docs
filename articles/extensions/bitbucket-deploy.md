@@ -37,7 +37,9 @@ Copy and paste this value into the **Add Webhook** page for your Bitbucket Repos
 
 ![](/media/articles/extensions/bitbucket-deploy/webhook-setup.png)
 
-**NOTE**: You can find details on how to configure a webhook at [Creating Webhooks](https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html#Managewebhooks-create_webhookCreatingwebhooks) on Bitbucket.
+::: note
+You can find details on how to configure a webhook at [Creating Webhooks](https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html#Managewebhooks-create_webhookCreatingwebhooks) on Bitbucket.
+:::
 
 ## Deployment
 
@@ -97,7 +99,9 @@ To deploy a rule, you must first create a JavaScript file under the `rules` dire
 
 For example, if you create the file `rules/set-country.js`, the extension will create a Rule in Auth0 with the name `set-country`.
 
-**NOTE**: If you plan to use source control integration for an existing account, first rename your Rules in Auth0 to match the name of the files you will be deploying to this directory.
+::: note
+If you plan to use source control integration for an existing account, first rename your Rules in Auth0 to match the name of the files you will be deploying to this directory.
+:::
 
 You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the **Rules Configuration** tab of the **Bitbucket Integration** page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
 

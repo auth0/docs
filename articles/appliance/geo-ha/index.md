@@ -27,7 +27,9 @@ The standby data center instances possess the same Appliance configuration as th
 
 The arbiter does not store data or execute application logic, but acts as a witness between the primary and standby data centers. By independently verifying if a data center is down or not, it prevents both from becoming active (such a scenario is known as the "split-brain" condition).
 
-> Ports 27017 and 7777 must be open between all instances in the cluster.
+::: note
+  Ports 27017 and 7777 must be open between all instances in the cluster.
+:::
 
 ### Arbiter
 

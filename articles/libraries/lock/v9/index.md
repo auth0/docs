@@ -23,7 +23,9 @@ Lock makes it easy to integrate SSO in your app. You won't have to worry about:
 
 ![Lock Sign Up](/media/articles/libraries/lock/v9/lock-signup.png)
 
-> You can try it out yourself online at our [Auth0 Lock playground][playground-url].
+::: note
+You can try it out yourself online at our [Auth0 Lock playground][playground-url].
+:::
 
 ## Install
 
@@ -43,13 +45,13 @@ Or our CDN:
 
 ```html
 <!-- Latest major release -->
-<script src="http://cdn.auth0.com/js/lock-9.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock-9.min.js"></script>
 
 <!-- Latest minor release -->
-<script src="http://cdn.auth0.com/js/lock-9.x.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock-9.x.min.js"></script>
 
 <!-- Latest patch release (recommended for production) -->
-<script src="http://cdn.auth0.com/js/lock-9.x.y.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock-9.x.y.min.js"></script>
 ```
 
 Replace `.x` and `.y` with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock).
@@ -113,8 +115,9 @@ Initialize `Auth0Lock` with a `clientID` and the account's `domain`.
 var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
 ```
 
-> Note: For a full detail on options and parameters you can check the [Auth0Lock initialization][lock-initialization] wiki notes.
-
+::: note
+For a full detail on options and parameters you can check the [Auth0Lock initialization][lock-initialization] wiki notes.
+:::
 
 ### .show([options, callback])
 
@@ -141,7 +144,9 @@ lock.show(options, function (err, profile, token) {});
 
 ```
 
-> Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
+::: note
+Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
+:::
 
 ### .showSignin([options, callback])
 
@@ -166,8 +171,9 @@ lock.showSignin(function (err, profile, token) {});
 // or both options and callback
 lock.showSignin(options, function (err, profile, token) {});
 ```
-> Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
-
+::: note
+Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
+:::
 
 ### .showSignup([options, callback])
 
@@ -192,8 +198,9 @@ lock.showSignup(function (err) {});
 // or both options and callback
 lock.showSignup(options, function (err) {});
 ```
-> Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
-
+::: note
+Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
+:::
 
 ### .showReset([options, callback])
 
@@ -218,8 +225,9 @@ lock.showReset(function (err) {});
 // or both options and callback
 lock.showReset(options, function (err) {});
 ```
-> Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
-
+::: note
+Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
+:::
 
 ### .hide([callback])
 

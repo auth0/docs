@@ -3,9 +3,9 @@ description: How an API can verify a bearer JWT access token
 toc: true
 ---
 
-<%= include('../../_includes/_pipeline2') %>
-
 # Verify Access Tokens
+
+<%= include('../../_includes/_pipeline2') %>
 
 When an API receives a request with a bearer access token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
@@ -15,7 +15,9 @@ This document lists all the validations that your API should perform:
 - Validate the standard claims
 - Check the Client permissions (scopes)
 
-<div class="alert alert-info"><a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims.</div>
+::: note
+<a href="https://jwt.io/">JWT.io</a> provides a list of libraries that can do most of the work for you: parse the JWT, verify the signature and the claims.
+:::
 
 ## Parse the JWT
 

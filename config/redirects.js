@@ -835,7 +835,11 @@ module.exports = [
   },
   {
     from: '/cli',
-    to: '/tutorials/using-auth0-to-secure-an-api'
+    to: '/tutorials/using-auth0-to-secure-a-cli'
+  },
+  {
+    from: '/tutorials/using-auth0-to-secure-an-api',
+    to: '/tutorials/using-auth0-to-secure-a-cli'
   },
   {
     from: '/apps-apis',
@@ -1156,5 +1160,9 @@ module.exports = [
   {
     from: '/connections/passwordless/regular-web-app-email-code',
     to: '/connections/passwordless/regular-web-app-email-code/v8'
+  },
+  {
+    from: '/quickstart/native/ios',
+    to: '/quickstart/native/ios-swift'
   }
 ];

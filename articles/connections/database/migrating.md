@@ -7,7 +7,7 @@ crews: crew-2
 
 Auth0 supports automatic migration of users from a Custom Database Connection to Auth0. By activating this feature, your users are moved to Auth0 the first time they log in after you set up the integration. Your users are not asked to reset their password as a result of the migration.
 
-::: panel-info Notice
+::: panel Feature availability
 Only **Enterprise** subscription plans include the user migration feature.
 
 Only **Developer Pro** and **Enterprise** subscription plans include the ability to connect to an existing store or database via JavaScript running on Auth0's servers for every authentication request.
@@ -27,7 +27,9 @@ Auth0 authenticates migrated users against the Auth0 database. If the user has n
 
 New users are automatically added to the Auth0 database..
 
-**NOTE:** Auth0 can only assist users in the Auth0 database with password reset.
+::: note
+Auth0 can only assist users in the Auth0 database with password reset.
+:::
 
 ## Enable Automatic Migration
 
@@ -80,7 +82,7 @@ Once all your users are in the Auth0 database, you are ready to turn off the imp
 
 1. Go to your custom database connection on the [Dashboard](${manage_url}/#/connections/database).
 
-2. Update the Login Database Action Script to the following:
+2. Update the **Login** Database Action Script to the following:
 
 ```
 function login (email, password, callback) {
@@ -88,7 +90,7 @@ function login (email, password, callback) {
 }
 ```
 
-3. Update the Get User Database Action Script to the following:
+3. Update the **Get User** Database Action Script to the following:
 
 ```
 function getByEmail (email, callback) {
@@ -96,6 +98,6 @@ function getByEmail (email, callback) {
 }
 ```
 
-By doing this, you are changing the Login and Get User Database Action Scripts to NO-OP functions.
+By doing this, you are changing the **Login** and **Get User** Database Action Scripts to NO-OP functions. You will need to implement the other script types for sign up, email verification, password reset and delete user functionality on the Auth0 database that you have migrated to. [Click here](/connections/database/mysql#3-provide-action-scripts) to learn more about the action scripts for your custom database.
 
-At this point, you can disconnect your legacy database (**not** the Auth0 database). Your [rules](/rules) will then force users to use the new database workflow.
+At this point, you can disconnect your legacy database (**not** the Auth0 database). Your users will then be directed to use the new database workflow. You can configure [rules](/rules) to execute other functions when a user authenticates to your application.
