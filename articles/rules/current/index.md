@@ -1,14 +1,9 @@
 ---
-title: Rules
 description: Learn what Rules are and how you can use them to customize and extend Auth0's capabilities.
 toc: true
 ---
 
 # Rules
-
-<div class="alert alert-info">
-<strong>Heads up!</strong> This article describes the latest Auth0 implementation, according to the <a href="/api-auth">API Authorization flows</a>. If you are looking for the legacy Rules doc refer to <a href="/rules">Rules</a>.
-</div>
 
 **Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. They are executed after the authentication and before the authorization.
 
