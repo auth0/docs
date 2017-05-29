@@ -51,7 +51,7 @@ $(document).ready(function() {
     $('.btn-login').click(function(e) {
       e.preventDefault();
       auth.authorize({
-        audience: '${account.namespace}' + '/userinfo',
+        audience: 'https://' + '${account.namespace}' + '/userinfo',
         scope: 'openid profile',
         responseType: 'code',
         redirectUri: '${account.callback}'
