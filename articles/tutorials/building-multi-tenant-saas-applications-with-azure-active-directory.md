@@ -110,7 +110,7 @@ public async Task<ActionResult> Start(RegistrationModel model)
 {
     using (var db = new TimesheetContext())
     {
-        // Store thre registration request.
+        // Store the registration request.
         var registration = db.RegistrationRequests.Add(new RegistrationRequest
         {
             Id = Guid.NewGuid(),
