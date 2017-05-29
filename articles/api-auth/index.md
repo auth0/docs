@@ -160,6 +160,12 @@ Using Auth0, you can easily support different flows in your own APIs without wor
     </p>
   </li>
   <li>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/restrict-requests-for-scopes">Restrict User/Client Requests for API Scopes</a>
+    <p>
+      Learn how to restrict users/clients from requesting API scopes for which they don't have access.
+    </p>
+  </li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/faq">FAQ</a>
     <p>
       Frequently Asked Questions on API Authentication and Authorization .
