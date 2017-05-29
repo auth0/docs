@@ -1,19 +1,22 @@
 ---
-url: /rules
+description: Learn what Rules are and how you can use them to customize and extend Auth0's capabilities.
 toc: true
-description: Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
 ---
 
 # Rules
+
+::: version-warning
+This document covers an outdated version of the Auth0 authentication pipeline and the way rules can be used. We recommend you use the latest version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
 
 **Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
 
 ![](/media/articles/rules/flow.png)
 
-* **Step 1:** An app initiates an authentication request to Auth0.
-* **Step 2:** Auth0 routes the request to an Identity Provider through a configured connection.
-* **Step 3:** The user authenticates successfully.
-* **Step 4:** The `user` object representing the logged in user is passed through the Rules pipeline, and returned to the app.
+1. An app initiates an authentication request to Auth0.
+1. Auth0 routes the request to an Identity Provider through a configured connection.
+1. The user authenticates successfully.
+1. The `user` object representing the logged in user is passed through the Rules pipeline, and returned to the app.
 
 Among many possibilities, Rules can be used to:
 
@@ -33,16 +36,15 @@ You can find more examples of common Rules on Github at <a href="https://github.
 ## Video: Using Rules
 Watch this video learn all about rules in just a few minutes.
 
-<%= include('../videos/_video', { id: 'g7dy1fpwc3' }) %>
+<%= include('../../videos/_video', { id: 'g7dy1fpwc3' }) %>
 
 ## Rule Syntax
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure)).
+* user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
 
-* `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. (A complete list of context properties is available here: [Context Argument Properties in Rules](/rules/context).)
-* `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0 (or an error).
+* `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
 ::: note
 Due to the asynchronous nature of Node.js, you __must__ call the `callback` function. If not, this acts as a blocker and the next rule will not execute. The entire rules sequence must complete within __20 seconds__, otherwise the process times out.
@@ -65,6 +67,10 @@ if (!global.bar) {
 Rules containing shared functions should be placed at the top of the [Rules list in the Management Dashboard](${manage_url}/#/rules). If this is not the case, calling these functions results in an undefined function error when the Rules execute.
 
 ## Examples
+
+<div class="alert alert-info">
+You can find more examples of common Rules on Github at <a href="https://github.com/auth0/rules">auth0/rules</a>.
+</div>
 
 To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
 
@@ -167,19 +173,19 @@ This will cause a redirect to your callback url with an `error` querystring para
   Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a <code>SAMLResponse</code>.
 :::
 
-### Create a new Rule using the Management API
+## Create Rules with the Management API
 
 Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](/api/management/v2#!/Rules/post_rules).
 
-This will creates a new rule according to the JSON object received in body, which contains:
+This will creates a new rule according to the following input arguments:
 
-**name**: A `string` value, this field is the name of the rule. Can only contain alphanumeric characters, spaces and '-'. Can neither start nor end with '-' or spaces.
+- **name**: The name of the rule. It can only contain alphanumeric characters, spaces and '-', and cannot start nor end with '-' or spaces.
 
-**script**: A `string` value this is the script that contains the rule's code, as seen in some of the examples on this page. This is the same as what you would enter when creating a new rule using the [dashboard](${manage_url}/#/rules/create).
+- **script** : Τhe script that contains the rule's code. This is the same as what you would enter when creating a new rule using the [dashboard](${manage_url}/#/rules/create).
 
-**order**: This field is optional and contains a `number`. This number represents the rule's order in relation to other rules. A rule with a lower order than another rule executes first. If no order is provided it will automatically be one greater than the current maximum.
+- **order**: This field is optional and contains a `number`. This number represents the rule's order in relation to other rules. A rule with a lower order than another rule executes first. If no order is provided it will automatically be one greater than the current maximum.
 
-**enabled**: This field can contain an optional `boolean`. If true if the rule will be turned on, false otherwise.
+- **enabled**: This field can contain an optional `boolean`. If `true`, the rule will be enabled, if it's `false` it will be disabled.
 
 Example of a body schema:
 
@@ -212,7 +218,7 @@ Use this to create the POST request:
 You can use the <a href="https://www.npmjs.com/package/auth0-rules-testharness">auth0-rules-testharness library</a> to deploy, execute, and test the output of Rules using a Webtask sandbox environment.
 :::
 
-## Debugging
+## How to Debug Rules
 
 You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${manage_url}/#/rules/create)  provides two ways for seeing the output:
 
@@ -278,6 +284,6 @@ For security reasons, the Rules code runs in a JavaScript sandbox based on [webt
 
 For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire).
 
-## Further reading
+## Read more
 
 * [Redirecting users from within rules](/rules/redirect)
