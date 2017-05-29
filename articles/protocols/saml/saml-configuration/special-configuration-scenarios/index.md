@@ -1,6 +1,5 @@
 ---
-  description: Special configuration scenarios when setting up a SAML Integration
-  url: /protocols/saml/saml-configuration/special-configuration-scenarios
+description: Special configuration scenarios when setting up a SAML Integration
 ---
 
 # Special Configuration Scenarios
@@ -16,4 +15,5 @@ The instructions below assume that you're altering specific settings for an exis
 ## Scenarios
 
 * [IdP-Initiated SSO](/protocols/saml/saml-configuration/special-configuration-scenarios/idp-initiated-sso)
+
 * [Signing and Encrypting SAML Requests](/protocols/saml/saml-configuration/special-configuration-scenarios/signing-and-encrypting-saml-requests)
