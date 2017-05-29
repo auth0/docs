@@ -4,11 +4,11 @@
 
 # Restrict Client or User Requests for API Scopes
 
-By default, any user associated with an Auth0 client can request an API's scope(s). If you would like to restrict access to the API's scopes based on the user's role, [client](/clients) association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an HTTP 401 response.
+By default, any user associated with an [Auth0 client](/clients) can request an API's scope(s). If you would like to restrict access to the API's scopes based on the user's role, client association, location, and so on, you can do so via [rules](/rules). Then, if a restricted user attempts to request scopes not permitted to them, they will receive an `HTTP 401` response.
 
-## Example: Scopes Based on the `audience` Parameter
+## Example: Deny access based on the API audience
 
-The following [rule](/rules) sample demonstrates how you would check for and permit/deny access depending on the `audience` parameter.
+The following [rule](/rules), demonstrates how you would deny access on an API, depending on the `audience` parameter. In this example, we deny access to all users, if the API they are trying to access has the `audience` set to `http://todoapi2.api`.
 
 ```js
 function (user, context, callback) {
@@ -34,7 +34,13 @@ function (user, context, callback) {
 }
 ```
 
-You can implement similar functionality based on client ID.
+::: note
+The value of an API's `audience` is displayed at the **API Audience** field, at [Dashboard > APIs](${manage_url}/#/apis).
+:::
+
+## Example: Deny access based on the Client ID
+
+The following [rule](/rules), demonstrates how you would deny access on an API, depending on the client the user is associated with. In this example, we deny access to all users, if the client through which they login, has an ID equal to `CLIENT_ID`.
 
 ```js
 function (user, context, callback) {
@@ -53,3 +59,7 @@ function (user, context, callback) {
   return callback(null, user, context);
 }
 ```
+
+::: note
+The value of a client's Id is displayed at the **Client ID** field, at [Dashboard > Clients](${manage_url}/#/clients).
+:::
