@@ -2,7 +2,7 @@
   description: Setting up IdP-initiated SSO
 ---
 
-# Special Configuration Scenarios: Identity Provider (IdP) Initiates Single Sign On (SSO)
+# Special Configuration Scenarios: IdP Initiates SSO
 
 Many instructions for setting up a SAML federation begin with SSO initiated by the service provider:
 
@@ -43,10 +43,15 @@ If Auth0 acts as the service provider, you need to make the following changes to
 
 If Auth0 acts as the identity provider, you need to make the following changes to support IdP-initiated SSO:
 
-* Invoke the IdP-initiated login using the following URL: `https://${account.namespace}/samlp/${account.clientId}`
+* Invoke the IdP-initiated login using the following URL:
+
+```text
+https://${account.namespace}/samlp/${account.clientId}
+```
+
 * Append the `RelayState` parameter to the URL to which the service provider redirects the user after processing the SAML response. For example, the following URL is where the service provider redirects the URL after its processed the SAML response from Auth0:
 
   ```text
-  https://{account.namespace}.auth0.com/samlp
+  https://${account.namespace}/samlp
   /${account.clientId}?RelayState=http://FINAL_DESTINATION_URL
   ```
