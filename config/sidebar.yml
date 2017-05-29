@@ -295,6 +295,13 @@ articles:
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
+    children:
+
+      - title: "Overview"
+        url: "/anomaly-detection"
+
+      - title: "Breached Passwords"
+        url: "/anomaly-detection/breached-passwords"
 
   - title: "Addons/Third-Party Applications"
     url: "/addons"
