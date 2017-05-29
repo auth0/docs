@@ -210,9 +210,20 @@ articles:
   - title: "User Management"
     url: "/user-profile"
     children:
-      - title: "User Profiles"
+      - title: "User Profile"
         url: "/user-profile"
+        children:
+          - title: "Structure"
+            url: "/user-profile/user-profile-structure"
 
+          - title: "Details"
+            url: "/user-profile/user-profile-details"
+
+          - title: "Normalized User Profile"
+            url: "/user-profile/normalized"
+
+          - title: "Picture"
+            url: "/user-profile/user-picture"
       - title: "User Metadata"
         url: "/metadata"
 
@@ -222,8 +233,14 @@ articles:
       - title: "Delegated Administration"
         url: "/extensions/delegated-admin"
 
-      - title: "Authorization"
+      - title: "Authorization Extension"
         url: "/extensions/authorization-extension/v2"
+
+      - title: "Progressive Profiling"
+        url: "/user-profile/progressive-profiling"
+
+      - title: "Data Storage"
+        url: "/user-profile/user-data-storage"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
