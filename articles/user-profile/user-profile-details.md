@@ -1,24 +1,11 @@
 ---
 description: This page details Auth0 User Profiles, such as sources of profile data, normalized user profiles, caching, profile structure and custom profiles.
+toc: true
 ---
 
 # User Profile: In-Depth Details
 
 The Auth0 **User Profile** is a set of attributes about a user, such as first name, last name, email address, and nickname. The attributes may also include information from social providers, such as a person's contacts or their profile picture, or in the case of Enterprise users, company identifiers such as an employee number or the name of the department to which an employee belongs.
-
-- [Sources of User Profile Data](#sources-of-user-profile-data)
-- [Normalized User Profile](#normalized-user-profile)
-- [Caching of the User Profile in Auth0](#caching-of-the-user-profile-in-auth0)
-- [Structure of User Profile Data](#structure-of-user-profile-data)
-- [Storing Custom Profile Data](#storing-custom-profile-data)
-- [Application Access to User Profile](#application-access-to-user-profile)
-- [Management API Access to User Profiles](#management-api-access-to-user-profiles)
-- [User Profile vs Tokens](#user-profile-vs-tokens)
-- [Modification of User Profiles](#modification-of-user-profiles)
-- [Mapping User Profile Attributes in AD/LDAP Connector](#mapping-user-profile-attributes-in-ad-ldap-connector)
-- [Mapping User Profile Attributes in SAML Assertions](#mapping-user-profile-attributes-in-saml-assertions)
-- [User Profile with Account Linking](#user-profile-with-account-linking)
-- [User Data Storage Guidance](/user-profile/user-data-storage)
 
 ## Sources of User Profile Data
 
