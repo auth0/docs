@@ -1,5 +1,6 @@
 ---
 description: How to sign-up and login using the Guardian app.
+toc: true
 ---
 
 # How to Use the Guardian App
@@ -9,16 +10,19 @@ Guardian is an app that can be downloaded from the [App Store](https://itunes.ap
 This page will help to explain how to sign up and log in using the Guardian app and using other forms of two-factor authentication.
 
 ### Enrolling for MFA
+
 Enrolling for MFA is a separate, distinct step from the initial sign-up for Auth0. Typically, the user is prompted to enroll the first time they attempt to sign-in to a client protected by MFA. Additionally, administrators have the ability to pre-emptively [invite users to enroll](multifactor-authentication/administrator/guardian-enrollment-email).
 
 ### Enrolling from the Guardian widget
+
 In this scenario, after your initial authentication you will see the option to download the Auth0 Guardian app from either the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). Underneath that, is there is the option to use [Google Authenticator](#google-authenticator) or [SMS](#sms) depending on the application's settings.
 
 ![](/media/articles/mfa/choose-mfa.png)
 
-Choose the type of two-factor to use:
+Choose the type of two-factor to use: the Guardian app, the Google Authenticator app, or an SMS.
 
 ### Guardian
+
 To use the Guardian app, first download either the [iOS](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or [Android](https://play.google.com/store/apps/details?id=com.auth0.guardian) app depending on the type of device you have. Once you have Guardian downloaded, click **I've already downloaded it**.
 
 Next, a code will appear, you will have five minutes to scan the code before it expires. Open the Guardian app and scan the code.
@@ -37,7 +41,8 @@ After first enrolling using the Guardian app for Android, you will be required t
 
 
 ### Google Authenticator
-If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator. You will need to download Google Authenticator for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605)
+
+If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator. You will need to download Google Authenticator for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605).
 
 A code will appear, and you will have five minutes to scan the code before it expires. After scanning the code, you will get a six digit code to enter. Once you enter this code, you will see a confirmation screen which has a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
 
@@ -75,7 +80,7 @@ Enter this code to finish signing in.
 
 ::: panel Rate Limits
 
-Each hour, you are allotted a maximum of ten failed SMS attempts. After that, Auth0 considers all OTP codes invalid, and any additional attempts to log in results in a "Too Many Attempts" error.
+Each hour, you are allotted a maximum of ten failed SMS attempts. After that, Auth0 considers all OTP codes invalid, and any additional attempts to log in results in a `Too Many Attempts` error.
 
 More specifically, this means that if you enter in the code incorrectly ten or more times within an hour, you will need to wait six minutes to gain another attempt. If you attempt another code before sufficient time has elapsed, Auth0 will consider any OTP code you enter as invalid (even if they aren't expired).
 :::
