@@ -27,15 +27,19 @@ curl --request POST \
 // For a version 7 sample refer to: https://auth0.com/docs/libraries/auth0js/v7#delegation-token-request
 ```
 
-<%= include('../../_includes/_http-method', {
+<%= include('../../../_includes/_http-method', {
   "http_method": "POST",
   "path": "/delegation",
   "link": "#delegation"
 }) %>
 
-Delegated authentication is used when an entity wants to call another entity on behalf of the user. For example, a user logs into an application and then calls an API. The application exchanges the token of the logged in user with a token that is signed with the API secret to call the API.
+::: warning
+With the latest Auth0 authentication pipeline, this endpoint should not be used to exchange an ID token issued to one client for a new one issued to a different client, or to use a refresh token for a fresh ID token. For more information refer to [Introducing OIDC Conformant Authentication > Delegation](/api-auth/intro#delegation).
+:::
 
-Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API or across different APIs that are secured with different secrets.
+A delegation token should be obtained and used when a client program needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
+
+Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API.
 
 ### Request Parameters
 
@@ -48,15 +52,13 @@ Given an existing token, this endpoint will generate a new token signed with the
 | `scope `         | Use `openid` or `openid profile email` |
 | `api_type`       | The API to be called. |
 
-
 ### Test with Postman
 
-<%= include('../../_includes/_test-with-postman') %>
-
+<%= include('../../../_includes/_test-with-postman') %>
 
 ### Test with Authentication API Debugger
 
-<%= include('../../_includes/_test-this-endpoint') %>
+<%= include('../../../_includes/_test-this-endpoint') %>
 
 1. At the *Configuration* tab, set the **Client** field to the client you want to use for the test.
 
@@ -68,15 +70,21 @@ Given an existing token, this endpoint will generate a new token signed with the
 ### Remarks
 
 - The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
+
 - The `email` scope value requests access to the `email` and `email_verified` Claims.
+
 - Delegation is __not supported__ in version 8 of [auth0.js](/libraries/auth0js). For a sample in version 7 of the library, refer to [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request).
+
 - This endpoint limits up to 10 requests per minute from the same IP address with the same `user_id`.
+
 - This endpoint will return three HTTP Response Headers, that provide relevant data on its rate limits:
-  * `X-RateLimit-Limit`: Number of requests allowed per minute.
-  * `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
-  * `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+  - `X-RateLimit-Limit`: Number of requests allowed per minute.
+  - `X-RateLimit-Remaining`: Number of requests available. Each new request reduces this number by 1. For each minute that passes, requests are added back, so this number increases by 1 each time.
+  - `X-RateLimit-Reset`: Remaining time until the rate limit (`X-RateLimit-Limit`) resets. The value is in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 
 ### More Information
+
 - [Delegation Tokens](/tokens/delegation)
+
 - [Auth0 API Rate Limit Policy](/policies/rate-limits)

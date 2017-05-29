@@ -66,7 +66,6 @@ Impersonation functionality may be disabled by default for your tenant. To check
 
 Use this endpoint to obtain an impersonation URL to login as another user. Useful for troubleshooting.
 
-
 ### Request Parameters
 
 | Parameter        | Description |
@@ -76,12 +75,12 @@ Use this endpoint to obtain an impersonation URL to login as another user. Usefu
 | `client_id` <br/><span class="label label-danger">Required</span> | The  `client_id` of the client that is generating the impersonation link.|
 | `additionalParameters` | This is a JSON object. You can use this to set additional parameters, like `response_type`, `scope` and `state`. |
 
-
 ### Remarks
 
 - This endpoint can only be used with **Global Client** credentials.
-- To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional impersonated and impersonator properties. For example:
-`"impersonated": true, "impersonator": {"user_id": "auth0|...", "email": "admin@example.com"}`
+
+- To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional impersonated and impersonator properties. For example: `"impersonated": true, "impersonator": {"user_id": "auth0|...", "email": "admin@example.com"}`.
+
 - For a regular web app, you should set the `additionalParameters`: set the `response_type` to be `code`, the `callback_url` to be the callback url to which Auth0 will redirect with the authorization code, and the `scope` to be the JWT claims that you want included in the JWT.
 
 

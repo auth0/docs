@@ -65,8 +65,11 @@ request(options, function (error, response, body) {
   "link": "#resource-owner"
 }) %>
 
-Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
+::: warning
+This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
 
+Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.
 
 ### Request Parameters
 
@@ -81,7 +84,6 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 | `id_token` | Used to authenticate using a token instead of username/password, in [Touch ID](/libraries/lock-ios/touchid-authentication) scenarios. |
 | `device` | You should set this to a string, if you are requesting a refresh token (`scope=offline_access`). |
 
-
 ### Test with Authentication API Debugger
 
 <%= include('../../../_includes/_test-this-endpoint') %>
@@ -92,18 +94,17 @@ Given the user's credentials, this endpoint will authenticate the user with the 
 
 1. At the *OAuth2 / OIDC* tab, set the **Username** and **Password**, and click **Resource Owner Endpoint**.
 
-
 ### Remarks
 
 - This endpoint only works for database connections, passwordless connections, Active Directory/LDAP, Windows Azure AD and ADFS.
-- The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
-- The `email` scope value requests access to the `email` and `email_verified` Claims.
 
+- The `profile` scope value requests access to the End-User's default profile Claims, which are: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.
+
+- The `email` scope value requests access to the `email` and `email_verified` Claims.
 
 ### Error Codes
 
 For the complete error code reference for this endpoint refer to [Errors > POST /oauth/ro](#post-oauth-ro).
-
 
 ### More Information
 
