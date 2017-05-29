@@ -106,43 +106,28 @@
 &lt;label&gt;Password&lt;/label&gt;&lt;input type=&quot;password&quot; id=&quot;password&quot;&gt;&lt;br&gt;
 &lt;button class=&quot;signin-db&quot;&gt;Sign in with Email/Password&lt;/button&gt;
 
-&lt;script src=&quot;https://cdn.auth0.com/w2/auth0-7.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;http://code.jquery.com/jquery.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-  var auth0 = new Auth0({
+  var webAuth = new auth0.webAuth({
     domain:         '${account.namespace}',
-    clientID:       '${account.clientId}',
-    callbackURL:    '${account.callback}'
+    clientID:       '${account.clientId}'
   });
   // sign-in with social provider with plain redirect
-  $('.signin-google').on('click', function() {
-    auth0.signin({connection: 'google-oauth2'}); // use connection identifier
+  webAuth.authorize ({
+     connection: 'facebook' // use connection identifier
   });
   // sign-in with social provider using a popup (window.open)
-  $('.signin-google-popup').on('click', function() {
-    auth0.signin({popup: true, connection: 'google-oauth2'},
-                function(err, profile, id_token, access_token, state) {
-                    /*
-                      store the profile and id_token in a cookie or local storage
-                        $.cookie('profile', profile);
-                        $.cookie('id_token', id_token);
-                    */
-                });
-  });
-  $('.signin-db').on('click', function() {
-    auth0.signin({
-      connection: 'foo',
-      username: 'bar',
-      password: 'foobar'
-    },
-    function (err, profile, id_token, access_token, state) {
-      /*
-          store the profile and id_token in a cookie or local storage
-            $.cookie('profile', profile);
-            $.cookie('id_token', id_token);
-        */
-    });
-  });
+  webAuth.popup.authorize({
+  connection: 'facebook'
+});
+
+  webAuth.redirect.loginWithCredentials({
+  connection: 'Username-Password-Authentication',
+  username: 'testuser',
+  password: 'testpass',
+  scope: 'openid'
+});
 &lt;/script&gt;</code></pre>
     </div>
     <div id="plainlink" class="tab-pane">
