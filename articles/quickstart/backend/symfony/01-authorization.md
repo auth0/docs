@@ -29,7 +29,7 @@ ${snippet(meta.snippets.dependencies)}
 `v3.x.x` of the **jwt-auth-bundle** provides compatibility with Symfony 3. For Symfony 2.x support, use the v1 branch.
 :::
 
-## Add the Bundle to `AppKernel.php`
+## Add the Bundle to AppKernel.php
 
 ```php
 // app/AppKernel.php
@@ -56,7 +56,7 @@ Add your Auth0 domain and API audience to the `config.yml` file located in `app/
 
 ${snippet(meta.snippets.setup)}
 
-## Set Up the `User` and `UserProvider`
+## Set Up the User and UserProvider
 
 Create your `User` and `UserProvider`.
 
@@ -64,7 +64,7 @@ The `UserProvider` must implement the `JWTUserProviderInterface` (see `/source/A
 
 - `loadUserByJWT`: receives the decoded JWT `access_token` and returns a User.
 
-- `getAnonymousUser`: returns an anonymous user that represents an unauthenticated one (usually represented by the role *IS_AUTHENTICATED_ANONYMOUSLY*).
+- `getAnonymousUser`: returns an anonymous user that represents an unauthenticated one (usually represented by the role `IS_AUTHENTICATED_ANONYMOUSLY`).
 
 ::: note
 Both of the above methods can throw an `AuthenticationException`. If this exception is thrown by `loadUserByJWT`, the it will treat the user as being anonymous. If `getAnonymousUser` throw this exception, a `401 Unauthorized` will be returned.
@@ -79,7 +79,7 @@ services:
         arguments: ["@jwt_auth.auth0_service"]
 ```
 
-## Set Up the `SecurityProvider`
+## Set Up the SecurityProvider
 
 Modify the `security.yml` file located in `app/config` such that it contains the following:
 
