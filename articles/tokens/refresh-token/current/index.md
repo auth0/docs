@@ -232,13 +232,13 @@ More information on the library:
 For more information on using refresh tokens with our mobile SDKs refer to:
 
 * [Mobile / Native Quickstarts](/quickstart/native)
-* [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
-* [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens)
-* [Using Refresh Tokens in Mobile Applications](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
 
+* [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
+
+* [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/v2)
 
 ## More information
 
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-* [Using a refresh token with an ID token](/tokens/id_token#lifetime)
+
 * [Using a refresh token with an access token](/tokens/access_token#lifetime)
