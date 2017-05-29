@@ -145,7 +145,7 @@ webAuth.redirect.loginWithCredentials({
   username: 'testuser',
   password: 'testpass',
   scope: 'openid'
-} function(err, authResult) {
+}, function(err, authResult) {
     // Auth tokens in the result or an error
 });
 ```
@@ -161,7 +161,7 @@ webAuth.popup.loginWithCredentials({
   username: 'testuser',
   password: 'testpass',
   scope: 'openid'
-} function(err, authResult) {
+}, function(err, authResult) {
     // Auth tokens in the result or an error
 });
 ```
@@ -185,7 +185,7 @@ webAuth.client.login({
   password: 'testpass',
   scope: 'openid profile',
   audience: 'urn:test'
-} function(err, authResult) {
+}, function(err, authResult) {
     // Auth tokens in the result or an error
 });
 ```
