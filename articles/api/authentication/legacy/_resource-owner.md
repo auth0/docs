@@ -66,7 +66,7 @@ request(options, function (error, response, body) {
 }) %>
 
 ::: warning
-This endpoint is considered insecure and you are strongly advised against using it. The alternative is to use the [Resource Owner Password Grant](/api/authentication#resource-owner-password). For more information refer to [Introducing OIDC Conformant Authentication](/api-auth/intro#other-authentication-api-endpoints).
+This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
 Given the user's credentials, this endpoint will authenticate the user with the provider and return a JSON object with the `access_token` and an `id_token`.

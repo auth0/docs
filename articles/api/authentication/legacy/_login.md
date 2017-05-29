@@ -59,7 +59,7 @@ xhr.send(params);
 }) %>
 
 ::: warning
-This endpoint is considered insecure and you are strongly advised against using it. The alternative is to open the browser to do social authentication, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). For more information refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+This endpoint is part of the legacy authentication pipeline. We recommend that you open the browser to do social authentication instead, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
@@ -163,7 +163,7 @@ curl --request POST \
 }) %>
 
 ::: warning
-This endpoint is considered insecure and you are strongly advised against using it. The alternative is to use the [Resource Owner Password Grant](/api/authentication#resource-owner-password). For more information refer to [Introducing OIDC Conformant Authentication](/api-auth/intro#other-authentication-api-endpoints).
+This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.

@@ -34,7 +34,7 @@ curl --request POST \
 }) %>
 
 ::: warning
-This endpoint is considered insecure and you are strongly advised against using it. For more information refer to [Introducing OIDC Conformant Authentication > Delegation](/api-auth/intro#delegation).
+With the latest Auth0 authentication pipeline, this endpoint should not be used to exchange an ID token issued to one client for a new one issued to a different client, or to use a refresh token for a fresh ID token. For more information refer to [Introducing OIDC Conformant Authentication > Delegation](/api-auth/intro#delegation).
 :::
 
 A delegation token should be obtained and used when a client program needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
