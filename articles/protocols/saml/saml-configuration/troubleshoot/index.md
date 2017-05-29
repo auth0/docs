@@ -7,7 +7,7 @@ toc: true
 
 This guide serves to help you troubleshoot any issues that may arise during the SAML configuration process. It is not intended to be an exhaustive guide, but one that covers the most commonly encountered issues during setup.
 
-## Step 1: Understand the Situation
+## Understand the Situation
 
 When troubleshooting, it's important that all parties involved are using the same terminology to facilitate understanding. This section describes key vocabulary and siutations that will be referred to later in this guide.
 
@@ -46,6 +46,7 @@ When troubleshooting, we recommend beginning by gathering information that helps
 ## Troubleshooting Approaches
 
 * [SAML Troubleshooting When Auth0 is the Service Provider](/protocols/saml/saml-configuration/troubleshoot/auth0-as-sp)
+
 * [SAML Troubleshooting When Auth0 is the Identity Provider](/protocols/saml/saml-configuration/troubleshoot/auth0-as-idp)
 
 ## If the Issue Affects Only One (or Just a Few) Users
