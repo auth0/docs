@@ -262,9 +262,36 @@ articles:
 
       - title: "Google Authenticator"
         url: "/multifactor-authentication/google-authenticator"
+        children:
+          - title: "For Administrators"
+            url: "/multifactor-authentication/google-auth/admin-guide"
+
+          - title: "For Developers"
+            url: "/multifactor-authentication/google-auth/dev-guide"
+
+          - title: "For Users"
+            url: "/multifactor-authentication/google-auth/user-guide"
 
       - title: "Duo Security"
         url: "/multifactor-authentication/duo"
+        children:
+          - title: "For Administrators"
+            url: "/multifactor-authentication/duo/admin-guide"
+
+          - title: "For Developers"
+            url: "/multifactor-authentication/duo/dev-guide"
+
+          - title: "For Users"
+            url: "/multifactor-authentication/duo/user-guide"
+
+      - title: "For Native Applications"
+        url: "/multifactor-authentication/mfa-native"
+
+      - title: "Custom MFA"
+        url: "/multifactor-authentication/custom"
+
+      - title: "Yubikey NEO Example"
+        url: "/multifactor-authentication/yubikey"
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
