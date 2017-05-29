@@ -59,7 +59,7 @@ The attributes included in the issued token can be controlled with the `scope` p
 * `scope=openid profile`: will return all the user attributes in the token.
 
 ::: note
-The `scope` parameter can used in the same way when calling the [Resource Owner endpoint](/api/authentication/reference#resource-owner).
+The `scope` parameter can be used in the same way when calling the [Resource Owner endpoint](/api/authentication/reference#resource-owner).
 :::
 
 ## Further reading
