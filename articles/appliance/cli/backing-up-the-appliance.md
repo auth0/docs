@@ -30,11 +30,15 @@ Please be aware that we use the following sample values throughout this document
 
 To initiate a backup, run the following command in your local command-line interface:
 
-`a0cli -t <target node> backup <password>`
+```bash
+a0cli -t <target node> backup <password>
+```
 
 For example, if you were to run the above command using the provided sample values, you would run:
 
-`a0cli -t 192.168.1.186 backup --password Passw0rd`
+```bash
+a0cli -t 192.168.1.186 backup --password Passw0rd
+```
 
 If the command successfully begins the backup process, you will see the message, "Backup in progress."
 
@@ -42,11 +46,11 @@ If the command successfully begins the backup process, you will see the message,
 
 The backup will be encrypted using the `aes-256-crt` algorithm.
 
-::: panel Existing Backups
+::: note
 Only one backup may performed and stored at any given time. Prior to generating a new backup of a node, you must [delete the existing backup](#deleting-the-backup).
 :::
 
-## Back Up Sensitive Configuration Info
+## Back up Sensitive Configuration Info
 
 Beginning with Appliance version `11638`, the `backup` command does **not** save sensitive configuration information such as encryption keys. You need to manually back up these keys (and any other sensitive information) if you want to fully recover an Appliance installation using a backup copy.
 
@@ -63,11 +67,13 @@ The full instructions (along with the commands you'll need to run) are as follow
 
 You can check on the status of a backup (or whether a backup exists) by running the following command in your local command-line instance:
 
-`a0cli -t <target node> backup-status`
+```bash
+a0cli -t <target node> backup-status
+```
 
 If a backup is available, you will see a message similar to the following:
 
-```text
+```json
 {
     "message": "Backup found",
     "arguments": {
@@ -85,13 +91,15 @@ Before retrieving a backup, we recommend [checking to see if there is one](#chec
 
 To retrieve an existing backup, you will use the "backup-retrieve" message in your local command-line instance:
 
-`a0cli -t <target node> backup-retrieve`
+```bash
+a0cli -t <target node> backup-retrieve
+```
 
 This will download the backup inside of a file called `backup-retrieve.tar.gz.enc`.
 
 Auth0 recommends checking the md5sum of the retrieved file against that received as part of the back-up status message.
 
-```text
+```bash
 md5 backup.tar.gz.enc
 ```
 
@@ -101,7 +109,9 @@ Please remember that the files are encrypted using the `aes-256-crt` algorithm.
 
 To delete an existing backup, you will use the "backup-delete" message in your local command-line instance:
 
-`a0cli -t <target node> backup-delete`
+```bash
+a0cli -t <target node> backup-delete
+```
 
 ## Restore a Backup
 
@@ -109,13 +119,15 @@ To delete an existing backup, you will use the "backup-delete" message in your l
 Beginning with Appliance version `11638`, you will need to restore your backup **and** the backup of your sensitive configuration information.
 :::
 
-To restore the Appliance using a backup:
+To restore the Appliance using a backup, follow the next steps.
 
 ### Step 1: Decrypt the Backup
 
 Because you created the backup using `aes-256-ctr` encryption, you need to decrypt it before you can use it to restore your Appliance. You can use the run the `decrypt` script to decrypt the `backup.tar.gz.enc` file:
 
-`node decrypt Passw0rd backup.tar.gz.enc backup.tar.gz`
+```bash
+node decrypt Passw0rd backup.tar.gz.enc backup.tar.gz
+```
 
 The `decrypt` script:
 
@@ -142,11 +154,13 @@ fs.createReadStream(input)
 
 Use the following command to copy your backup to the node you're restoring:
 
-`scp backup.tar.gz username@IP_ADDRESS:`
+```bash
+scp backup.tar.gz username@IP_ADDRESS:
+```
 
 Then, log into the node and untar the backup file inside a new folder:
 
-```text
+```bash
 ssh username@IP_ADDRESS
 mkdir backup
 tar xf backup.tar.gz backup
@@ -154,12 +168,14 @@ tar xf backup.tar.gz backup
 
 ### Step 3: Restore the Backup Using `mongorestore`
 
-::: panel mongorestore
+::: note
 For more information on the restore process, see MongoDB's [docs](https://docs.mongodb.org/manual/reference/program/mongorestore/).
 :::
 
 Begin the restoration by running the following:
 
-`mongorestore --db DATABASE_NAME --username USERNAME --host REPLICA_SET/ -p`
+```bash
+mongorestore --db DATABASE_NAME --username USERNAME --host REPLICA_SET/ -p
+```
 
 The CLI then prompts you for the database password, as well as restore the backup on the specified replica set.
