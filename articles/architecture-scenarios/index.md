@@ -14,21 +14,30 @@ Click on any scenario to get more information.
 These scenarios describe the different type of technology architectures your application may use, and how Auth0 can help for each of those.
 
 <div class="architecture-scenarios-container">
-  <a href="/architecture-scenarios/application/server-api" class="architecture-scenarios-card">
-    <article>
-      <img src="/media/articles/architecture-scenarios/server-api.png" alt="Architecture Diagram">
-      <div class="architecture-scenarios-card-content">
-        <h3>Server Client + API</h3>
-        <p>Server to server communication where a server “Client” needs to make secure calls to an API (“Resource Server”), but on behalf of the client vs. a user.</p>
-      </div>
-    </article>
-  </a>
   <a href="/architecture-scenarios/application/web-app-sso" class="architecture-scenarios-card">
     <article>
       <img src="/media/articles/architecture-scenarios/web-oidc.png" alt="Architecture Diagram">
       <div class="architecture-scenarios-card-content">
         <h3>Single Sign-On for Regular Web Apps</h3>
         <p>Traditional web application which needs to authenticate users using OpenID Connect.</p>
+      </div>
+    </article>
+  </a>
+  <a href="/architecture-scenarios/application/server-api" class="architecture-scenarios-card">
+    <article>
+      <img src="/media/articles/architecture-scenarios/server-api.png" alt="Architecture Diagram">
+      <div class="architecture-scenarios-card-content">
+        <h3>Server Client + API</h3>
+        <p>Server to server communication where a server needs to make secure calls to an API.</p>
+      </div>
+    </article>
+  </a>
+  <a href="/architecture-scenarios/application/spa-api" class="architecture-scenarios-card">
+    <article>
+      <img src="/media/articles/architecture-scenarios/spa-api.png" alt="Architecture Diagram">
+      <div class="architecture-scenarios-card-content">
+        <h3>SPA + API</h3>
+        <p>Single Page Web Application which talks to an API. The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.</p>
       </div>
     </article>
   </a>
@@ -39,15 +48,6 @@ These scenarios describe the different type of technology architectures your app
 These scenarios are under construction and will soon be updated. Some describe the different type of technology architectures your application may use, while others describe the architecture depending on the type of businesses (B2C, B2B, B2E), and how Auth0 can help in each of these scenarios.
 
 <div class="architecture-scenarios-container">
-  <a href="/architecture-scenarios/application/spa-api" class="architecture-scenarios-card">
-    <article>
-      <img src="/media/articles/architecture-scenarios/spa-api.png" alt="Architecture Diagram">
-      <div class="architecture-scenarios-card-content">
-        <h3>SPA + API</h3>
-        <p>Single Page Web Application which talks to an API. The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.</p>
-      </div>
-    </article>
-  </a>
   <a href="/architecture-scenarios/application/mobile-api" class="architecture-scenarios-card">
     <article>
       <img src="/media/articles/architecture-scenarios/mobile-api.png" alt="Architecture Diagram">
