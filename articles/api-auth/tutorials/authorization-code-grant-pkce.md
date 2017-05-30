@@ -142,7 +142,7 @@ https://${account.namespace}/authorize?
 
 Where:
 
-* `audience`: The unique identifier of the API the native app wants to access. Use the value of the __Identifier__ field at your [API Settings](${manage_url}/#/apis). If you can't see this page, enable the __Enable APIs Section__ toggle at [Account Settings > Advanced](${manage_url}/#/account/advanced).
+* `audience`: The unique identifier of the API the native app wants to access. Use the value of the __Identifier__ field at your [API Settings](${manage_url}/#/apis).
 
 * `scope`: The [scopes](/scopes) that you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
 
