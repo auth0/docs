@@ -21,7 +21,7 @@ This means that inside any of the actions in your controllers you can simply use
 
 The seed project contains a controller action and view which will display the claims associated with a particular user. Once a user has signed in, you can simply go to `/Account/Claims` to see these claims.
 
-## Storing the Tokens as Claims
+## Storing the Tokens
 
 Sometimes you may want to access the tokens received from Auth0. For example, you may want to get the `access_token` to authenticate against API calls. In order to do this, you will need to set the `SaveTokens` property of `OpenIdConnectOptions` to true. This will save the tokens to the `AuthenticationProperties`:
 

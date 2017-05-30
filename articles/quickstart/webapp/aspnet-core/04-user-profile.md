@@ -55,7 +55,7 @@ The `User.Identity.Name` property will look for a claim of type `http://schemas.
 
 There is however a way to control the claim type which ASP.NET Core should retrieve when accessing the name through `User.Identity.Name`. To do this you need to update the OIDC middleware registration in the `Startup` class and set the `NameClaimType` of the `TokenValidationParameters` property. By setting this value to `name`, ASP.NET Core will retrieve the value of the `name` claim which was passed in the `id_token` whenever you access the name of the user using the `User.Identity.Name` property.
 
-You will also need to update the list of scopes to ensure that your request the `Profile` scope. This will ensure the user's profile information is returned as claims in the `id_token`.
+You will also need to update the list of scopes to ensure that your request the `profile` scope. This will ensure the user's profile information is returned as claims in the `id_token`.
 
 
 ```csharp
