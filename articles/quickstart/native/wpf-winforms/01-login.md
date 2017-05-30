@@ -43,7 +43,7 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
 
-This will load Lock into a web view. If you want to customize Lock you need to enable the [Custom Login Page](https://manage.auth0.com/#/login_page) from your hosted pages. Please refer to [Lock documentation](https://auth0.com/docs/libraries/lock/v10) for available options.
+This will load Lock into a web view. If you want to customize Lock you need to enable the [Custom Login Page](${manage_url}/#/login_page) from your hosted pages. Please refer to [Lock documentation](/libraries/lock) for available options.
 
 ## Accessing the User's Information
 
