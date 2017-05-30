@@ -1,9 +1,9 @@
 versioning:
   baseUrl: sso
-  current: oidc
+  current: current
   versions:
     - legacy
-    - oidc
+    - current
   defaultArticles:
     legacy: index
-    oidc: index
+    current: index
