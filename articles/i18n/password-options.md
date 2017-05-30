@@ -1,8 +1,7 @@
 ---
 description: How to customize the translation of Lock password features.
 ---
-
-## Password Options Translation
+# Password Options Translation
 
 You can customize the translation of the following Lock password features in your own code:
 
@@ -16,6 +15,7 @@ To customize any of these features, you must include version 1.1 or higher of th
 
 To translate the text of each of the Lock password features, include the following code, replacing all strings with text in the desired language:
 
+<!-- markdownlint-disable MD001 -->
 ### Password Strength
 
 ```js

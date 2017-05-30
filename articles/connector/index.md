@@ -4,7 +4,7 @@ classes: topic-page
 title: Active Directory/LDAP Connector
 description: Explains what the connector is and links to resources to learn more about it.
 ---
-
+<!-- markdownlint-disable MD041 MD002 -->
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Active Directory/LDAP Connector</h1>

@@ -1,8 +1,7 @@
 ---
 description: Instruction on how to display the login page using the user's browser preferred language.
 ---
-
-## Internationalize (i18n) the default login page
+# Internationalize (i18n) the default login page
 
 Below you will find instruction on how to display the login page using the user's browser preferred language:
 
@@ -47,7 +46,6 @@ var language = getFirstBrowserLanguage();
 ```
 
 3) Now, if not `undefined` or `null`, pass language variable to the `dict` option while showing Lock like below:
-
 
 ```js
 lock.show({

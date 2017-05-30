@@ -4,52 +4,37 @@
 
 The following is a set of guidelines for contributing to the Auth0 documentation. These are just guidelines, not rules, use your best judgment and feel free to propose changes to this document in a pull request.
 
-#### Table Of Contents
+## Table Of Contents
 
-[General Guidelines](#general-guidelines)
-
-[Reusing Content](#reusing-content)
-
-[Markdown](#markdown)
+* [General Guidelines](#general-guidelines)
+* [Reusing Content](#reusing-content)
+* [Markdown](#markdown)
   * [Headings](#headings)
   * [UI Components](#ui-components)
   * [HTTP Request Snippets](#http-request-snippets)
   * [Escaping Strings](#escaping-strings)
   * [Screenshots](#screenshots)
   * [Front Matter](#front-matter)
-
-[Versioning](#versioning)
-
-[Beta Content](#beta-content)
-
-[Finishing](#finishing)
-
-[Editing Text](#editing-with-wordy)
-
-[Test Procedures](#text-procedures)
-
-[Review Apps](#review-apps)
-
-[Quickstarts](#quickstarts)
+  * [Linting](#linting)
+* [Versioning](#versioning)
+* [Finishing](#finishing)
+* [Editing Text](#editing-with-wordy)
+* [Test Procedures](#text-procedures)
+* [Review Apps](#review-apps)
+* [Quickstarts](#quickstarts)
   * [Creating Quickstarts](#creating-quickstarts)
   * [Versioning Quickstarts](#versioning-quickstarts)
   * [Quickstart Guidelines](#quickstart-guidelines)
   * [Seed Projects](#seed-projects)
-
-[Updates Feed](#updates-feed)
-
-[API](#api)
-
-[Document Front-matter](#document-front-matter)
-
-[Document Variables](#document-variables)
+* [Updates Feed](#updates-feed)
+* [API](#api)
+* [Document Front-matter](#document-front-matter)
+* [Document Variables](#document-variables)
   * [Common Variables](#common-variables)
   * [User Specific Variables](#user-specific-variables)
 
-
-
-
 ## General Guidelines
+
 * Read and follow the [Style Guide](STYLEGUIDE.md).
 * Consult the [Words](WORDS.md) document for Auth0 specific spellings and definitions.
 * Always use relative URLs for internal `auth0.com/docs` links. For example, if the absolute path to the document is `https://auth0.com/docs/identityproviders`, use `/identityproviders`. These links will be correctly formatted in the build process.
@@ -61,26 +46,29 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 * Run all images through [TinyPNG](https://tinypng.com/).
 
 ## Reusing content
+
 To avoid duplication of content, you can create document fragments to be referenced from other documents. The process of including another document is shown below.
 
 First, create your fragment document. The convention is to name fragments with an underscore, like: `_mydocument.md`.
 
 After you create your markdown document, you can reference it in another document with a relative path:
 
-```
+```markdown
 <%= include('../_mydocument.md') %>
 ```
 
 Additionally, you can send variables to the included document:
 
-```
+```markdown
 <%= include('../_mydocument.md', { key: 'value', something: true }) %>
 ```
 
 ## Markdown
+
 Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec. Additionally, there are a few custom markdown features available as described below.
 
 ### Headings
+
 One common mistake with formatting of headings is to not include a space between the hashes and the text. Some markdown processors allow this, but we do not. You must put a space as shown below.
 
 INVALID: `#My Heading`
@@ -101,11 +89,12 @@ Use this component if you want to display some extra information, links to relat
 
 Only use this if the content is brief (one to four lines), if not use the `panel` component.
 
-```
+```markdown
 ::: note
   If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
 :::
 ```
+
 ![Note container](https://cloud.githubusercontent.com/assets/6318057/26081072/91318302-399f-11e7-8cf2-57cb55c6ce1d.png)
 
 #### Warning
@@ -114,14 +103,13 @@ Use this component if you want to notify that the content is deprecated, there i
 
 Only use this if the content is brief (one to four lines), if not use the `panel-warning` component. It's recommended to keep the copy of the warnings short and clear.
 
-```
+```markdown
 ::: warning
 Long-lived tokens compromise your security. Following this process is <strong>NOT</strong> recommended.
 :::
 ```
 
 ![Warning container](https://cloud.githubusercontent.com/assets/6318057/26081268/6a894af4-39a0-11e7-96bc-6ef69a3be941.png)
-
 
 #### Panels
 
@@ -131,10 +119,9 @@ Try to add a meaningful title to the panel. Avoid using "NOTE" or "WARNING".
 
 We support two types of panels: **panel** and **panel-warning**.
 
-
 ##### Panel (default)
 
-```
+```markdown
 ::: panel Title
 Description
 :::
@@ -148,7 +135,7 @@ If you can't see the [API section](${manage_url}/#/apis) in the left hand menu o
 
 ##### Panel (warning)
 
-```
+```markdown
 ::: panel-warning Title
 Description
 :::
@@ -160,12 +147,10 @@ It is important to understand that the Authorization Code flow should only be us
 
 ![Panel warning container](https://cloud.githubusercontent.com/assets/6318057/26082243/588586b0-39a5-11e7-88ef-3290be88e96a.png)
 
-
 ### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
 
 **NOTE:** You need to set the language type to `har` for this to work. View this raw markdown document for an example.
-
 
 ```har
 {
@@ -193,12 +178,13 @@ You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spe
 * cookies [array] - List of cookie objects.
 * headers [array] - List of header objects.
 * queryString [array] - List of query parameter objects.
-* postData [object, optional] - Posted data info. See: http://www.softwareishard.com/blog/har-12-spec/#postData
+* postData [object, optional] - Posted data info. See: <http://www.softwareishard.com/blog/har-12-spec/#postData>
 * headersSize [number] - Total number of bytes from the start of the HTTP request message until (and including) the double CRLF before the body. Set to -1 if the info is not available.
 * bodySize [number] - Size of the request body (POST data payload) in bytes. Set to -1 if the info is not available.
 * comment [string, optional] (new in 1.2) - A comment provided by the user or the application.
 
 #### Escaping Strings
+
 Occasionally you will need to use strings that contain the characters that are used for template replacement. The examples of this are `${example}`, `<% example %>` and `<%= example %>`. If you try to include these in your doc or a code snippet the document will fail to render because our template engine will try to replace your variable, i.e. `example`. However, you can include these by escaping them as shown below.
 
 Change `${example}` to `<%= "${example}" %>`.
@@ -208,6 +194,7 @@ Change `<%= example %>` to `${ "<%= example %>" }`.
 Change `<% example %>` to `${ "<% example %>" }`.
 
 ### Screenshots
+
 On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, taking into account the following:
 
  1. The browser cannot show any plugins, customizations, or bookmarks.
@@ -229,21 +216,26 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
  **NOTE**: When you use the `Command + Shift + 4 + Space bar` shortcut Mac adds a drop shadow to your screenshot. This is normal and you don't have to remove it.
 
 #### Mobile Screenshots
+
 For mobile screenshots you should use the [Phone Mockup](http://styleguide.auth0.com/#phone-mockup) component from styleguide.
 
 #### Close-ups
+
 The exception to showing the full browser window is for highlighting a detail as part of a tutorial, for example, to show a field requiring input.
 
 It is often best to shrink the screenshot slightly to avoid having the image of the UI be mistaken for the actual UI.
 
 #### Borders
+
 For close-ups and other screenshots that do not include the browser window, apply a 1px centered border (**select all > edit > stroke**) of color **#cccccc** to keep the image from blending with the background and appearing to float.
 
 ### Front Matter
+
 You can set various properties of articles in the front matter of the document. Each document should have the `title` and `description` properties set. You can set other variables depending on the document.
 
 Example front matter:
-```
+
+```yaml
 ---
 title: My Document
 description: This is a document
@@ -251,17 +243,27 @@ description: This is a document
 ```
 
 #### URLs
+
 Document urls are by default in the same format as the forlder structure after the `articles` folder. So for example if you document is stored at `articles/my-folder/document.md`, the url would be `/docs/my-folder/document`.
 
 If you create a folder that will have multiple articles, the best practice is to set the default document as `index.md`. However, the url must be set in that document to a friendly url. For example, if you have a document `/articles/my-folder/index.md`, you should set the url to be `/my-folder`.
 
 URL Front Matter
-```
+
+```yaml
 ---
 url: /path/to/document
 ---
 ```
 
+### Linting
+
+We use a pre-commit hook that lints the edited files to ensure a consistent style in the docs.
+We use [markdownlint](https://github.com/DavidAnson/markdownlint) with the rules specified in the `.markdownlint.json` file in the root of the repo to do this. You can [check more about the linting rules](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md).
+
+You won't be able to commit if your edited file don't follow these guidelines.
+
+If you are using VS Code as your code editor, it's highly recommended to install the [MarkdownLint VS Code Extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
 
 ## Beta Content
 
@@ -294,24 +296,25 @@ To create and submit a job to Wordy:
   ![](media/readme/create-job.png)
 
 4. Provide the requested information so that your editor is clear on what needs to be done.
+![](media/readme/job-settings.png)
 
-  ![](media/readme/job-settings.png)
-
-  You will need to provide the following pieces of information:
-  * **Language**: Set to *English (US)*.
-  * **Content rewrite**: Select this option if you are okay with your editor rewriting your text for improved flow and natural use of langauge. If this option is *not* selected, your editor will simply check for spelling, grammar, punctuation, consistency, and structure.
-  * **Brief to editor**: Provide any information you'd like your editor to keep in mind when editing your work. For a starter snippet, please see our sample on [Notes to Wordy Editors](wordy-guide.md)
-  * **Save my brief and language settings for future jobs**: Select this box to persist your chosen settings.
+You will need to provide the following pieces of information:
+* **Language**: Set to *English (US)*.
+* **Content rewrite**: Select this option if you are okay with your editor rewriting your text for improved flow and natural use of langauge. If this option is *not* selected, your editor will simply check for spelling, grammar, punctuation, consistency, and structure.
+* **Brief to editor**: Provide any information you'd like your editor to keep in mind when editing your work. For a starter snippet, please see our sample on [Notes to Wordy Editors](wordy-guide.md)
+* **Save my brief and language settings for future jobs**: Select this box to persist your chosen settings.
 5. Upload files. You may choose to upload external files containing your text or paste in the text you want edited.
 6. After you've completed the above steps, you'll get an instant price quote and an approximate delivery time for your job. If this is acceptable to you, click on **Create Job** to begin the editing process.
 
 ### Word Count and Wordy Submissions
+
 Wordy charges based on total word count, which includes code snippets. If possible, remove code snippets prior to submitting your document to Wordy.
 
 ### Instructions for Editors
+
 It is helpful to include some instructions for the Wordy editors to let them know that the articles may have words that seem out of place because the article is about technology.
 
-> Please edit for spelling and grammar. Audience consists of programmers and technology readers. Grammar, casing, spelling etc will seem weird in some cases, especially with uses of the word "this", but chances are that those are cases of programming jargon or naming. The final article will include code snippets that have been removed from the text for brevity. Instead, a placeholder called CODE_SNIPPET has been used.
+**NOTE**: Please edit for spelling and grammar. Audience consists of programmers and technology readers. Grammar, casing, spelling etc will seem weird in some cases, especially with uses of the word "this", but chances are that those are cases of programming jargon or naming. The final article will include code snippets that have been removed from the text for brevity. Instead, a placeholder called CODE_SNIPPET has been used.
 
 ### Notes
 
@@ -320,6 +323,7 @@ It is helpful to include some instructions for the Wordy editors to let them kno
 * If you are unsatisfied with the work completed by your editor, you can send your work back. This includes issues where you find errors in the text or the instructions in your brief haven't been followed. You can contact your editor by using the **Conversation History** feature on the job's page.
 
 ## Test Procedures
+
 When testing a document or tutorial:
 
 1. Ensure that the code in the tutorials is correct and functions as expected.
@@ -330,6 +334,7 @@ When testing a document or tutorial:
 1. Check for outdated dependencies, both Auth0 dependencies and third-party (i.e. node modules, nuget packages, gems, etc.).
 
 ## Review Apps
+
 If you have access to the Auth0 Heroku account, you can create a preview release for your pull request:
 
 1. Login to Heroku and open the `auth0-docs-content` pipeline.
@@ -343,6 +348,7 @@ If you have access to the Auth0 Heroku account, you can create a preview release
 ## Quickstarts
 
 ### Creating Quickstarts
+
 All quickstart data comes directly from the docs API at `/meta/quickstart`. This means that the quickstart on docs and manage will both consume the same datasource and will always be up-to-date. To add a new quickstart, create a folder with the name of the quickstart in the appropriate folder: [server-apis](/articles/server-apis), [server-platforms](/articles/server-platforms), [native-platforms](/articles/native-platforms), or [client-platforms](/articles/client-platforms). Inside that folder you will need to create an `index.yml` file that contains the following:
 
 ```yaml
@@ -386,6 +392,7 @@ The `title` will generally be a single word like Introduction or Login as it wil
 After you publish the doc update, the new quickstart will automatically appear on both docs and manage.
 
 ### Versioning Quickstarts
+
 The filesystem structure for a versioned quickstart looks like this:
 
 ```
@@ -446,20 +453,21 @@ react/
 ```
 
 ### Quickstart Guidelines
+
 Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
 
-
 #### Library References
-Each library that we publish should have appropriate reference documentation. There will be two kinds of reference documentation for each library. The first is automatically generated. Each library should generate reference docs using a tool like jsDocs on every build/release. This will ensure consistent and up to date documentation.
 
+Each library that we publish should have appropriate reference documentation. There will be two kinds of reference documentation for each library. The first is automatically generated. Each library should generate reference docs using a tool like jsDocs on every build/release. This will ensure consistent and up to date documentation.
 
 Additionally, many libraries may also need manual documentation showing more sophisticated scenarios. Certainly, Auth0.js and Lock will need significant manual documentation. Other libraries will as needed.
 
-#### Quickstarts
+#### Quickstarts Articles
+
 Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
 
-
 ##### Native
+
 0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
 1. Login - Shows how to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
 2. Login with Custom UI - Using head-less library to do login without Lock
@@ -473,6 +481,7 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 10. Customizing Lock - Document explaining the basics of how to custom lock. There are full documents about this as well that show the complete details.
 
 ##### Web
+
 0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
 1. Login - Shows hot to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
 2. Login with Custom UI - Using auth0.js to build a custom login without Lock.
@@ -484,8 +493,8 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 8. Multifactor Authentication - how to add MFA to your app. This should probably be a single document that is shared with all native apps.
 9. Customizing Lock - Document explaining the basics of how to custom lock. There are full documents about this as well that show the complete details.
 
-
 ##### SPA
+
 0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
 1. Login - Shows hot to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
 2. Login with Custom UI - Using auth0.js to build a custom login without Lock.
@@ -498,12 +507,13 @@ Each framework will have a set of articles that comprise the quickstarts. The se
 9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps.
 10. Customizing Lock - Document explaining the basics of how to customize lock. There are full documents about this as well that show the complete details.
 
-
 ##### API/Services
+
 1. Authentication - How to authenticate a user to call an API
 2. Authorization - How to perform authorization in a API
 
 #### Libraries
+
 As appropriate every framework/language should have libraries to help with common functions. THese libraries will include things like:
 
 * Management API Libraries
@@ -514,6 +524,7 @@ As appropriate every framework/language should have libraries to help with commo
 We want to make authentication and authorization as easy as possible for our developers. These libraries are a critical part of that. However, libraries must not wrap functionality of the Lock widgets. We iterate on our Lock widgets too frequently to keep wrappers up to date. We can provide helpers that make Lock easier to include in an app for a particular framework, but these should only expose the core Lock functionality directly, never wrap or abstract it.
 
 #### Samples
+
 Each seed project will have a corresponding sample (seed project). The idea of a seed project is that a user can download this and everything is setup and ready for them to run.
 
 Each sample for a quickstart should have its own repository in github in the github.com/auth0-samples organization. The structure of the repository is as follows:
@@ -531,6 +542,7 @@ Each sample for a quickstart should have its own repository in github in the git
 In this way, each section of the quickstart has a sample showing the appropriate step. The sample in the numbered folder should exactly match the completed code of the tutorial. The 00 step is the blank empty project. The empty project would typically start with the standard “File->New” project for that particular framework. This means that anyone who is familiar with the framework will understand the starting point.
 
 ##### Sample README’s
+
 The README for each sample folder should be written to reflect the objectives of the sample and should also show some important code snippets. The goal is to give the reader context in a quick and concise way while outlining exactly what learning outcomes can be expected. It’s important to make content within each README specific to the subject sample.
 
 * **Example**: 02-User-Profile
@@ -539,35 +551,34 @@ The README for each sample folder should be written to reflect the objectives of
 
 This sample demonstrates how to retrieve an Auth0 user’s profile and how to update it via the Management API. After following the steps outlined here, you will be able to retrieve, set, and update a user profile.”
 
-
 * Add link to quickstart in README
 
+##### Important Snippets
 
-##### Important Snippets:
 1. Installation
 2. Retrieving the user’s profile
 3. Setting the user’s profile
 4. Updating the user’s profile
 
-
 #### Continuous Integration
+
 Each sample repo should have appropriate CI setup. You should use the appropriate CI system for the sample. Typically this is Travis CI. The CI system does not need to have extensive tests, but should simply ensure that the project downloads dependencies and builds correctly. If possible we should test to make sure there are no build warnings either.
 
-
-In the case of things like iOS and Android samples, we should build with multiple version of Android/Xcode, etc. You can see an example here: https://travis-ci.org/auth0/Auth0.swift
+In the case of things like iOS and Android samples, we should build with multiple version of Android/Xcode, etc. You can see an example here: <https://travis-ci.org/auth0/Auth0.swift>
 
 1. No need to write code or specialized guide for mobile
 2. We don't have a lot of stuff finished to be doing this one in mobile.
 3. No need to write code or specialized guide for mobile until we allow users to enroll mfa from mobile apps. Currently is web only
 
 ### Seed Projects
+
 Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
 
 The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
 
 These values can be replaced in any file in the repo. Common examples of where you would include these values are in a `.env` file or `auth0-variables.js` file. In addition to replacement in the file directly, you can also include a template file in the form of `filename.ext.example` such as `auth0-variables.js.example`. The packager will do the replacement and remove the `.example` extension from the file.
 
-> NOTE: It is a best practice to use the `.example` method and include the 'real' file in the '.gitignore' so that if the end-user turns the sample into a git repo, the Auth0 keys wont get checked into source control. You should include the `.gitignore` file in the actual seed project folder, not at the repo root. This way it is included in the seed package.
+**NOTE:** It is a best practice to use the `.example` method and include the 'real' file in the '.gitignore' so that if the end-user turns the sample into a git repo, the Auth0 keys wont get checked into source control. You should include the `.gitignore` file in the actual seed project folder, not at the repo root. This way it is included in the seed package.
 
 | Key Name | Replace Value | Description |
 | :------| :-----------| :-----------|
@@ -579,15 +590,15 @@ These values can be replaced in any file in the repo. Common examples of where y
 | `MOBILE_CUSTOM_SCHEME` | `{MOBILE_CUSTOM_SCHEME}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
 | `RANDOM_STRING_64` | `{RANDOM_STRING_64}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
 
-
 Example `.env` file:
+
 ```
 AUTH0_CLIENT_ID={CLIENT_ID}
 AUTH0_DOMAIN={DOMAIN}
 AUTH0_CLIENT_SECRET={CLIENT_SECRET}
 ```
 
-##### Include Code
+#### Include Code
 
 ```
 <%= include('../../_includes/_package', {
@@ -603,7 +614,6 @@ AUTH0_CLIENT_SECRET={CLIENT_SECRET}
 
 The follow are the values for the package configuration.
 
-
 | Variable  | Description |
 | :---------------------------- | :----------------------------------------- |
 | `org` | The organization of the github repo. Can be `auth0` or `auth0-samples`. |
@@ -612,6 +622,7 @@ The follow are the values for the package configuration.
 | `requirements` | An array of strings representing the system requirements for the project and article. |
 
 ## Updates Feed
+
 Publishing content updates is easy. Just create a yml file in the `/updates` folder in the format `YYYY-MM-DD.yml`. The document should be in the following format. There are three sections of content: added, changed, and fixed. If you are releasing a new thing (such as a new tutorial, document, or new version of an SDK) put it under `added`. Otherwise use `changed` or `fixed`.
 
 ```
@@ -650,7 +661,7 @@ fixed:
 
 ## API
 
-> WARNING: This API is for Auth0 internal use only. You should not rely on the docs API for anything. There is *NO SLA or support* for the document API.
+**WARNING:** This API is for Auth0 internal use only. You should not rely on the docs API for anything. There is *NO SLA or support* for the document API.
 
 All document content is accessible through the docs API as well as through regular HTML.
 
@@ -663,12 +674,14 @@ To request content in JSON or JSONP format, pass the header `Accept: 'applicatio
 You can also request the document metadata be included in the JSON or JSONP responses by appending `?m=1` to the query.
 
 ## Code snippets
+
 Code snippets are available both through the API and for use in markdown.
 
 Access via API:
 
 GET: `/docs/meta/snippets/{hash}`
 Response:
+
 ```json
 {
   "title": "{title}",
@@ -685,6 +698,7 @@ ${snippet('{hash}')}
 ```
 
 ### Connections
+
 Connections are available both through the API and for use in markdown.
 
 Access via API:
@@ -693,6 +707,7 @@ GET: `/docs/meta/connections`
 GET: `/docs/meta/connections/{type}`
 GET: `/docs/meta/connections/{type}/{connection}`
 Response:
+
 ```json
 {
   "title": "{title}",
@@ -712,8 +727,8 @@ Response:
 - `public`: (Boolean) Indicates if the document will be rendered through a public url or in the sitemap. The document will still be available from the API. Defaults to `true`.
 - `description`: Every browsable document requires a description of up to 2 complete sentences. Please add a description to all new docs and any existing doc that you are working on.
 
-
 ## Document Variables
+
 When writing docs you can use the following variables instead of hard-coding these values. You can use `${variableName}` within any markdown document to reference the value.
 
 ### Common Variables
@@ -727,7 +742,6 @@ When writing docs you can use the following variables instead of hard-coding the
 | `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
 | `env.DOMAIN_URL_SUPPORT` | Support Center URL | `https://support.auth0.com/` |
 
-
 ### User Specific Variables
 
 | Variable  | Description | Default Value |
@@ -739,8 +753,9 @@ When writing docs you can use the following variables instead of hard-coding the
 | `account.clientSecret` | The Client Secret of the current Auth0 app.        | `YOUR_CLIENT_SECRET`                   |
 | `account.callback`     | The first callback URL of the current Auth0 app.   | `http://YOUR_APP.auth0.com/callback`   |
 
-# Versioning
-> **NOTE:** For Versioning Quickstarts view [Versioning Quickstarts](#versioning-quickstarts)
+## Versioning
+
+**NOTE:** For Versioning Quickstarts view [Versioning Quickstarts](#versioning-quickstarts)
 
 Building on the system we established for Quickstarts, topic versioning is controlled by adding metadata to `index.yml` files. The filesystem structure for a versioned topic looks like this:
 
@@ -799,13 +814,11 @@ This document covers an outdated version of Lock. We recommend you to <a href="/
 
 ![image](https://cloud.githubusercontent.com/assets/6318057/26082485/90f464fc-39a6-11e7-90ac-2a22773b02a5.png)
 
-
 ## Limitations
 
 ### No sub-directories
 
 This versioning system has one major limitation: all articles for each version must exist in the same directory. For example, this is a valid hierarchy:
-
 
 ```
 example/
@@ -819,7 +832,6 @@ example/
 ```
 
 But this hierarchy will not work:
-
 
 ```
 example/

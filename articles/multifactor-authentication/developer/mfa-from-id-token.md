@@ -1,8 +1,7 @@
 ---
 description: Describes how to determine if a user has done multifactor authentication using their id_token and JWT
 ---
-
-## Determine if a user has performed multifactor authentication
+# Determine if a user has performed multifactor authentication
 
 At times, it's necessary to determine if a particular user has had the additional security of multifactor authentication applied to their session. For instance, a user may be allowed access to sensitive data or allowed to reset their password only after further confirming their identity using MFA.
 
@@ -30,6 +29,7 @@ jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] }, function(er
    console.log('you are not using mfa');
  });
 ```
+
 ## Further reading
 
 * [Auth0 id_token](/tokens/id_token)
