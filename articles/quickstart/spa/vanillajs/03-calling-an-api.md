@@ -30,7 +30,9 @@ var webAuth = new auth0.WebAuth({
 });
 ```
 
-At this point you should try logging into your application again to take note of how the `access_token` differs from before. Instead of being an opaque token, it is now a JSON Web Token which has a payload that contains your API identifier as an `audience` and any `scope`s you've requested.
+::: note
+**Checkpoint:** At this point you should try logging into your application again to take note of how the `access_token` differs from before. Instead of being an opaque token, it is now a JSON Web Token which has a payload that contains your API identifier as an `audience` and any `scope`s you've requested.
+:::
 
 ::: note
 By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](/rules).
@@ -47,6 +49,9 @@ Create a new function called `callAPI` which wraps an XHR request with the user'
 ```js
 // app.js
 
+var apiUrl = 'http://localhost:3001/api';
+
+// ...
 function callAPI(endpoint, secured) {
   var url = apiUrl + endpoint;
   var xhr = new XMLHttpRequest();

@@ -84,7 +84,3 @@ The **Global Client ID** and **Global Client Secret** are used to generate token
 You can configure how the Change Password widget will look like at the [Password Reset](${manage_url}/#/password_reset) tab inside the [Hosted Pages](${manage_url}/#/login_page) section of the dashboard.
 
 **Enable Client Connections**: This flag determines whether all current connections shall be enabled when a new [Client](${manage_url}/#/clients) is created.
-
-**Enable APIs Section**: If you enable this, you will be able to see the [APIs](${manage_url}/#/apis) on the sidebar of your dashboard.
-
-**OAuth 2.0 API Authorization**: This feature is enabled for every account without further configuration. You can check the latest documentation [here](/api-auth).

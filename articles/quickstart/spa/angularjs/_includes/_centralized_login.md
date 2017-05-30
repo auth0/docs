@@ -71,15 +71,114 @@ The options object passed to `angularAuth0Provider.init` includes configuration 
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `authService` and the filename will be `auth.service.js`.
 
-${snippet(meta.snippets.setup)}
+Create a service and provide a method called `login` which calls the `authorize` from angular-auth0.
 
-The service includes several methods for handling authentication.
+```js
+// app/auth/auth.service.js
 
-* `login` - calls `authorize` from auth0.js which redirects users to the login page
+(function () {
+
+  'use strict';
+
+  angular
+    .module('app')
+    .service('authService', authService);
+
+  authService.$inject = ['$state', 'angularAuth0', '$timeout'];
+
+  function authService($state, angularAuth0, $timeout) {
+
+    function login() {
+      angularAuth0.authorize();
+    }
+
+    return {
+      login: login
+    }
+  }
+})();
+```
+
+::: note
+**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
+:::
+
+![hosted login](/media/articles/web/hosted-login.png)
+
+### Finish Out the Service
+
+Add some additional methods to the `authService` to fully handle authentication in the app.
+
+```js
+// app/auth/auth.service.js
+
+(function () {
+
+  'use strict';
+
+  angular
+    .module('app')
+    .service('authService', authService);
+
+  authService.$inject = ['$state', 'angularAuth0', '$timeout'];
+
+  function authService($state, angularAuth0, $timeout) {
+
+    // ...    
+    function handleAuthentication() {
+      angularAuth0.parseHash(function(err, authResult) {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          setSession(authResult);
+          $state.go('home');
+        } else if (err) {
+          $timeout(function() {
+            $state.go('home');
+          });
+          console.log(err);
+        }
+      });
+    }
+
+    function setSession(authResult) {
+      // Set the time that the access token will expire at
+      let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+      localStorage.setItem('access_token', authResult.accessToken);
+      localStorage.setItem('id_token', authResult.idToken);
+      localStorage.setItem('expires_at', expiresAt);
+    }
+    
+    function logout() {
+      // Remove tokens and expiry time from localStorage
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('id_token');
+      localStorage.removeItem('expires_at');
+    }
+    
+    function isAuthenticated() {
+      // Check whether the current time is past the 
+      // access token's expiry time
+      let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+      return new Date().getTime() < expiresAt;
+    }
+
+    return {
+      // ...
+      handleAuthentication: handleAuthentication,
+      logout: logout,
+      isAuthenticated: isAuthenticated
+    }
+  }
+})();
+```
+
+The service now includes several other methods for handling authentication.
+
 * `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
 * `setSession` - sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
 * `logout` - removes the user's tokens from browser storage
 * `isAuthenticated` - checks whether the expiry time for the `access_token` has passed
+
+### About the Authentication Service
 
 When a user successfully authenticates at Auth0's hosted login page and is redirected back to your application, there will be a hash fragment in the URL containing their authentication information. Contained within will be an `access_token`, an `id_token` and an `expires_in` value. These values are extracted from the URL using the `parseHash` method from auth0.js and are then saved into local storage with the `setSession` method. This method also calculates the time at which the `access_token` will expire using the `expires_in` value from the hash.
 
@@ -100,8 +199,6 @@ This example uses Bootstrap styles, but that's unimportant. Use whichever style 
 The `ng-click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `authService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
 
 When the **Log In** button is clicked, the user will be redirected to Auth0's hosted login page.
-
-![hosted login](/media/articles/web/hosted-login.png)
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 

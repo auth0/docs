@@ -54,6 +54,8 @@ This will ensure proper integration with the existing role-based authorization i
 So change the existing middleware registration in the `Startup` class to extract the roles and add the claims:
 
 ```csharp
+// Startup.cs
+
 var options = new Auth0AuthenticationOptions()
 {
     Domain = auth0Domain,
@@ -97,6 +99,8 @@ Now you can add a new action to your controller and restrict it by decorating yo
 The sample code below will restrict the particular action only to the user who have the "admin" role:
 
 ```csharp
+// Controllers/AccountController.cs
+
 [Authorize(Roles = "admin")]
 public ActionResult Admin()
 {

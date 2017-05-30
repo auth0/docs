@@ -106,7 +106,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     app.UseOpenIdConnectAuthentication(options);
 ```
 
-The `access_token` will now be stored as a claim called "access_token", so to retrieve it inside a controller you can simply use `User.Claims.FirstOrDefault("access_token").Value`
+The `access_token` will now be stored as a claim called "access_token", so to retrieve it inside a controller you can simply use `User.Claims.FirstOrDefault("access_token")?.Value`
 
 ::: warning
 You need to note that saving the tokens will increase the size of your authentication cookie, so be careful with adding unnecessary claims to the ClaimsIdentity as this cookie is sent back to the server with every request.

@@ -1,5 +1,6 @@
 ---
 description: How to enable and use Push Notifications and SMS for Guardian MFA.
+toc: true
 ---
 
 # Guardian for Administrators
@@ -14,7 +15,7 @@ For information for your users on Guardian, how to download the app, and common 
 
 To enable Push Notifications MFA for sign in and sign up for your application by your users, go to the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
 
-![](/media/articles/mfa/guardian-dashboard.png)
+![Dashboard > Guardian](/media/articles/mfa/guardian-dashboard.png)
 
 For your users to utilize this type of MFA, they will need a supported mobile device. The device must have either the Guardian app installed, the Google Authenticator app installed, or an app that supports scanning Time-based One-time Password(TOTP) codes to use with Guardian. Here are the available options:
 
@@ -26,7 +27,9 @@ For your users to utilize this type of MFA, they will need a supported mobile de
 | **Blackberry** | Must use a TOTP scanning app | Requires OS 4.5-7.0 |
 | **Other** | Must use a TOTP scanning app | Unsupported |
 
-For more information on using the Google Authenticator app, see: [Google Authenticator](/multifactor-authentication/google-authenticator).
+::: note
+For more information on using the Google Authenticator app, refer to [Google Authenticator](/multifactor-authentication/google-authenticator).
+:::
 
 New users signing up will be prompted to download the Guardian app from either the App Store or Google Play. Once they indicate that they downloaded the app, a code will appear. They will have five minutes to scan the code with the app before it expires. After the code has been successfully scanned, users will see a confirmation screen which includes a recovery code. They need to have this recovery code to login without their mobile device. If they lose both the recovery code and their mobile device, you will need to [reset their MFA](#reset-an-mfa-for-a-user). Then they will receive a push notification to their device and they will be logged in.
 
@@ -43,6 +46,13 @@ When your users sign up with SMS, they enter their phone number's country code a
 ![](/media/articles/mfa/sms.png)
 
 After sign up, they receive a six digit code to their phone. They need to enter this code into the box, and then they will get a recovery code. They will need this code to login if they do not have their device. If they have lost their recovery code and device, you will need to [reset the user's MFA](#reset-an-mfa-for-a-user).
+
+::: panel Rate Limits
+
+Each hour, any given user is allotted a maximum of ten failed SMS attempts. After that, Auth0 considers all OTP codes invalid, and any additional attempts to log in results in a `Too Many Attempts` error.
+
+More specifically, this means that if someone enters in the code incorrectly ten or more times within an hour, they will need to wait six minutes to gain another attempt. If the user attempts another code before sufficient time has elapsed, Auth0 considers all OTP codes invalid (even if they aren't expired).
+:::
 
 ### Configuring Guardian SMS with Twilio
 

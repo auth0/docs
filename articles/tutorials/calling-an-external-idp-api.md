@@ -19,7 +19,8 @@ To get access to the user's IdP access token, you will need to:
 1. Obtain an access token that allows you to call the [Auth0 Management API](/api/management/v2).
 2. Call the Auth0 Management API's [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint using the access token obtained in step one (the token must have the `read:user_idp_tokens` scope). This returns the user's profile, which contains the IdP access token.
 3. Extract the IdP access token.
-4. Use the IdP access token to call the IdP's API.
+
+Once you've extracted the IdP's access token, you can use it to to call the IdP's API. Please refer to your IdP's documentation for specifics on how to do so.
 
 ### 1. Get a Token
 

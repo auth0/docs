@@ -25,6 +25,8 @@ You need to create a Login form which will capture the user's email address and 
 First, create a `ViewModels` folder in your project and add a class called `LoginViewModel` to bind the values in the form to:
 
 ```csharp
+// ViewModels/LoginViewModel.cs
+
 public class LoginViewModel
 {
     [Required]
@@ -42,6 +44,8 @@ public class LoginViewModel
 Create a Razor view called `Login.cshtml` in your `\Views\Account` folder which will allow the user to enter their email address and password:
 
 ```html
+<!-- Views/Account/Login.cshtml -->
+
 @model global::MvcApplication.ViewModels.LoginViewModel
 @{
     ViewData["Title"] = "Log In";
@@ -76,6 +80,8 @@ Create a Razor view called `Login.cshtml` in your `\Views\Account` folder which 
 Next, you will need to update your `AccountController` as per the code below:
 
 ```csharp
+// Controllers/AccountController.cs
+
 public class AccountController : Controller
 {
     private IAuthenticationManager AuthenticationManager
@@ -177,6 +183,8 @@ This code does the following:
 Lastly, add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
 ```html
+<!-- Views/Shared/_Layout.cshtml -->
+
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">

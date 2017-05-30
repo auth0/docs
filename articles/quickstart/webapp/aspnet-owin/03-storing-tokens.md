@@ -18,6 +18,8 @@ You can also save the refresh token by setting the `SaveRefreshToken` property t
 Update the registration of the Auth0 middleware in your `Startup.cs` file as follows:
 
 ```csharp
+// Startup.cs
+
 public void Configuration(IAppBuilder app)
 {
     // Configure Auth0 parameters
@@ -55,6 +57,8 @@ To access these token from one of your controllers, simply cast the `User.Identi
 The sample code below shows how you can extract the claims for the `access_token`, `id_token` and `refresh_token` respectively:
 
 ``` csharp
+// Controllers/AccountController.cs
+
 [Authorize]
 public ActionResult Tokens()
 {
