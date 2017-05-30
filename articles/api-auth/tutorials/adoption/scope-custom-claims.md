@@ -85,6 +85,10 @@ always enforce namespacing when performing OIDC-conformant login flows,
 meaning that any non-namespaced claims will be silently excluded from
 tokens.
 
+::: note
+`webtask.io` and `webtask.run` are Auth0 domains and therefore cannot be used as a namespace identifier.
+:::
+
 If you need to add custom claims to the access token, the same applies
 but using `context.accessToken` instead.
 
