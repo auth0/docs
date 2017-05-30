@@ -67,6 +67,7 @@ npm install express express-jwt jwks-rsa body-parser --save
 ### Implement the Endpoints
 
 Navigate to your API directory and create a `server.js` file. Your code needs to:
+
 - Get the dependencies.
 - Implement the endpoint(s).
 - Launch the API server.
@@ -107,6 +108,7 @@ In order to validate our token we will use the `jwt` function, provided by the [
 1. `express-jwt` will the continue its own logic to validate the signature of the token, the expiration, `audience` and the `issuer`.
 
 The steps we will follow in our code are:
+
 - Create the middleware function to validate the access token.
 - Enable the use of the middleware in our routes.
 - If the validation fails return an appropriate error message.
@@ -125,13 +127,13 @@ app.use(jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `https://{YOUR_AUTH0_DOMAIN}/.well-known/jwks.json`
+    jwksUri: `https://${account.namespace}/.well-known/jwks.json`
   }),
 
 
   // Validate the audience and the issuer
   audience: '{YOUR_API_IDENTIFIER}',
-  issuer: 'https://{YOUR_AUTH0_DOMAIN}/',
+  issuer: 'https://${account.namespace}/',
   algorithms: [ 'RS256' ]
 }));
 
@@ -150,6 +152,7 @@ app.use(function (err, req, res, next) {
 If we launch our server now and navigate to `localhost:8080/timesheet` we should get the error message `Missing or invalid token` (which is perfectly fine since we didn’t send an access token in our request).
 
 In order to test the working scenario as well we need to:
+
 - Get an access token. For details on how to do so refer to: [Get an Access Token](/architecture-scenarios/application/server-api#get-an-access-token).
 - Invoke the API while adding an `Authorization` header to our request with the value `Bearer ACCESS_TOKEN` (where *ACCESS_TOKEN* is the value of the token we retrieved in the first step).
 
@@ -217,7 +220,7 @@ The `express-jwt` middleware which is used to validate the JWT, also sets the `r
 
 In the case of the timesheets application however, we want to use the email address of the user as the unique identifier.
 
-The first thing we need to do is to write a rule which will add the email address of the user to the `access_token`. Go to the [Rules section](${manage_url/#/rules}) of the Dashboard and click on the __Create Rule__ button.
+The first thing we need to do is to write a rule which will add the email address of the user to the `access_token`. Go to the [Rules section](${manage_url}/#/rules}) of the Dashboard and click on the __Create Rule__ button.
 
 You can give the rule a descriptive name, for example `Add email to access token`, and then use the following code for the rule:
 
@@ -234,7 +237,7 @@ The `namespace` is used to ensure the claim has a unique name and does not clash
 ::: note
 For more information on namespaced claims, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 :::
- 
+
 Next, inside your API, you can retrieve the value of the claim from `req.user`, and use that as the unique user identity which you can associate with timesheet entries.
 
 ```js

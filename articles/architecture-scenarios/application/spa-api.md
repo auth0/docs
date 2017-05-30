@@ -4,6 +4,7 @@ title: SPA + API
 image: /media/articles/architecture-scenarios/spa-api.png
 extract: Single Page Web Application which talks to an API. The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.
 description: Explains the architecture scenario where a Single Page Web Application (SPA) talks to an API using OpenID Connect, and the OAuth 2.0 Implicit Grant Flow, to authenticate users with Auth0.
+toc: true
 ---
 
 # SPA + API
@@ -244,10 +245,10 @@ var auth0 = new auth0.WebAuth({
 
 You need to pass the following configuration values:
 
-- __clientID__:The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Dashboard](${manage_url/#/clients}).
-- __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Client at the [Dashboard](${manage_url/#/clients}).
+- __clientID__:The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Dashboard](${manage_url}/#/clients}).
+- __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Client at the [Dashboard](${manage_url}/#/clients}).
 - __responseType__: Indicates the Authentication Flow to use. For a SPA which uses the __Implicit Flow__, this should be set to `token id_token`. The `token` part, triggers the flow to return an `access_token` in the URL fragment, while the `id_token` part, triggers the flow to return an `id_token` as well.
-- __audience__: The value of your API Identifier. You can retrieve it from the [Settings of your API](${manage_url/#/apis}) at the Dashboard.
+- __audience__: The value of your API Identifier. You can retrieve it from the [Settings of your API](${manage_url}/#/apis}) at the Dashboard.
 - __redirectUri__: The URL to which Auth0 should redirect to after the user has authenticated.
 - __scope__: The [scopes](/scopes) which determine the information to be returned in the `id_token` and `access_token`. A scope of `openid profile` will return all the user profile information in the `id_token`. You also need to request the scopes required to call the API, in this case the `read:timesheets create:timesheets` scopes. This will ensure that the `access_token` has these scopes.
 
@@ -296,12 +297,12 @@ See the implementation in [Angular 2](/architecture-scenarios/application/spa-ap
 
 #### Renew the Access Token
 
-As a security measure, it is recommended that the lifetime of a user's `access_token` be kept short. When you create an API in the Auth0 dashboard, the default lifetime is `7200` seconds (2 hours), but this can be controlled on a per-API basis. 
- 
-Once expired, an `access_token` can no longer be used to access an API. In order to obtain access again, a new `access_token` needs to be obtained. 
- 
+As a security measure, it is recommended that the lifetime of a user's `access_token` be kept short. When you create an API in the Auth0 dashboard, the default lifetime is `7200` seconds (2 hours), but this can be controlled on a per-API basis.
+
+Once expired, an `access_token` can no longer be used to access an API. In order to obtain access again, a new `access_token` needs to be obtained.
+
 Obtaining a new `access_token` can be done by repeating the authentication flow, used to obtain the initial `access_token`. In a SPA this is not ideal, as you may not want to redirect the user away from their current task to complete the authentication flow again.
- 
+
 In cases like this you can make use of [Silent Authentication](/api-auth/tutorials/silent-authentication). Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. This does however require that the user was already logged in via [SSO (Single Sign-On)](/sso).
 
 ::: note
