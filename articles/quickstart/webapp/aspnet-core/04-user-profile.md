@@ -44,10 +44,48 @@ public IActionResult Profile()
 {
   return View(new UserProfileViewModel()
   {
-    Name = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value,
+    Name = User.Identity.Name,
     EmailAddress = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
     ProfileImage = User.Claims.FirstOrDefault(c => c.Type == "picture")?.Value
   });
+}
+```
+
+The `User.Identity.Name` property will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user object. Auth0 passes the name of the user in the `name` claim of the `id_token`, but this does not get automatically matched the the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` claim type, and therefore `User.Identity.Name` will return null.
+
+There is however a way to control the claim type which ASP.NET Core should retrieve when accessing the name through `User.Identity.Name`. To do this you need to update the OIDC middleware registration in the `Startup` class and set the `NameClaimType` of the `TokenValidationParameters` property. By setting this value to `name`, ASP.NET Core will retrieve the value of the `name` claim which was passed in the `id_token` whenever you access the name of the user using the `User.Identity.Name` property.
+
+You will also need to update the list of scopes to ensure that your request the `Profile` scope. This will ensure the user's profile information is returned as claims in the `id_token`.
+
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
+{
+  [...] // code omitted for brevity
+
+  var options = new OpenIdConnectOptions("Auth0")
+  {
+    [...] // code omitted for brevity
+
+    // Set the correct name claim type
+    TokenValidationParameters = new TokenValidationParameters
+    {
+      NameClaimType = "name"
+    },
+
+    Events = new OpenIdConnectEvents
+    {
+      // handle the logout redirection 
+      OnRedirectToIdentityProviderForSignOut = (context) =>
+      {
+          [...] // code omitted for brevity
+      }
+    }
+  };
+  options.Scope.Clear();
+  options.Scope.Add("openid");
+  options.Scope.Add("profile");
+  app.UseOpenIdConnectAuthentication(options);
 }
 ```
 
@@ -79,7 +117,7 @@ Next create a view. For the view, display a user profile card at the top with th
 </div>
 ```
 
-Now when you log in and then go to the URL `/Account/Profile` you will see all the users's profile displayed.
+Now when you log in and then go to the URL `/Account/Profile` you will see all the user's profile displayed.
 
 ## Displaying the User's Name in the Navigation Bar
 
@@ -99,76 +137,6 @@ Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which
     <li><a asp-controller="Account" asp-action="Login">Login</a></li>
   }
 </ul>
-```
-
-A remaining issue is that the `User.Identity.Name` property, used in the Navbar snippet above, will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user, but that claim will not be set and the property will therefore be null.
-
-Added to that, none of the user's profile details will be returned in the `id_token` as we a currently only requesting the `openid` scope. Ensure to also request the `name`, `email` and `picture` scopes to ensure that the user's Name, Email address and Profile Image is returned as claims in the `id_token`.
-
-Once Auth0 passed back the `name` claim, you will have to retrieve the value of the `name` claim in the `OnTicketReceived` event and add a new claim of type `ClaimTypes.Name` (which resolves to `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`). This will ensure that the user's name is returned when accessing the `User.Identity.Name` property.
-
-```csharp
-// Startup.cs
-
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
-{
-    [...] // omitted for brevity
-
-    var options = new OpenIdConnectOptions("Auth0")
-    {
-        // Set the authority to your Auth0 domain
-        Authority = $"https://{auth0Settings.Value.Domain}",
-
-        // Configure the Auth0 Client ID and Client Secret
-        ClientId = auth0Settings.Value.ClientId,
-        ClientSecret = auth0Settings.Value.ClientSecret,
-
-        // Do not automatically authenticate and challenge
-        AutomaticAuthenticate = false,
-        AutomaticChallenge = false,
-
-        // Set response type to code
-        ResponseType = "code",
-
-        // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0
-        // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard
-        CallbackPath = new PathString("/signin-auth0"),
-
-        // Configure the Claims Issuer to be Auth0
-        ClaimsIssuer = "Auth0",
-
-        // Saves tokens to the AuthenticationProperties
-        SaveTokens = true,
-
-        Events = new OpenIdConnectEvents
-        {
-            OnTicketReceived = context =>
-            {
-                // Get the ClaimsIdentity
-                var identity = context.Principal.Identity as ClaimsIdentity;
-                if (identity != null)
-                {
-                    // Add the Name ClaimType. This is required if we want User.Identity.Name to actually return something!
-                    if (!context.Principal.HasClaim(c => c.Type == ClaimTypes.Name) &&
-                        identity.HasClaim(c => c.Type == "name"))
-                        identity.AddClaim(new Claim(ClaimTypes.Name, identity.FindFirst("name").Value));
-    
-                    [...]
-                }
-
-                return Task.CompletedTask;
-            },
-            // handle the logout redirection 
-            OnRedirectToIdentityProviderForSignOut = [...] // omitted for brevity
-        }
-    };
-    options.Scope.Clear();
-    options.Scope.Add("openid");
-    options.Scope.Add("name");
-    options.Scope.Add("email");
-    options.Scope.Add("picture");
-    app.UseOpenIdConnectAuthentication(options);
-    [...]
 ```
 
 Now, after the user has signed it you will be able to see the user's name in the top right corner of the Navbar:
