@@ -15,5 +15,5 @@ description: Introduction to the various client authentication flows.
 You can get more details on implementing these flows by following one of the following links:
 
 <%= include('../../_includes/_topic-links', { links: [
-  'client-auth/oidc/mobile-desktop'
+  'client-auth/current/mobile-desktop'
 ] }) %>
