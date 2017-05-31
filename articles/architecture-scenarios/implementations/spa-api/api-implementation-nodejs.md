@@ -5,10 +5,10 @@ url: /architecture-scenarios/application/spa-api/api-implementation-nodejs
 
 # SPA + API: Node.js Implementation for the API
 
-This document is part of the [SPA + API Architecture Scenario](/architecture-scenarios/application/spa-api) and it explains how to implement the SPA in Angular 2. Please refer to the [SPA + API Architecture Scenario](/architecture-scenarios/application/spa-api) for information on the implemented solution.
+This document is part of the [SPA + API Architecture Scenario](/architecture-scenarios/application/spa-api) and it explains how to implement the SPA in Angular 2. Please refer to the scenario for information on the implemented solution.
 
 ::: note
-Full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-api/node).
+The full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-api/node).
 :::
 
 ## Define the API endpoints
@@ -21,7 +21,7 @@ Create a folder for your API, navigate into it and run `npm init`. This will set
 
 You can leave the default settings or change them as you see fit.
 
-Our sample’s `package.json` looks like the following:
+Our sample's `package.json` looks like the following:
 
 ```json
 {
