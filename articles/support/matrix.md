@@ -319,6 +319,11 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
         <td>v2</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-php">Auth0 PHP</a></td>
+        <td>v5</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
     </tbody>
   </table>
 
@@ -381,6 +386,11 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
         <td><a href="https://github.com/auth0/auth0-oidc-client-net">OIDC Client for .NET Desktop and Mobile applications</a></td>
         <td>v1</td>
         <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/jwt-auth-bundle">JWT Auth Bundle</a></td>
+        <td>v3</td>
+        <td><div class="label label-default">Supported</div></td>
       </tr>
       <tr>
         <td><a href="https://github.com/auth0/Auth0.Windows.UWP">Auth0 with UWP applications</a></td>
