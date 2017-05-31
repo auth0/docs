@@ -50,7 +50,7 @@ To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/ru
 
 ### Hello World
 
-::: note
+::: panel Namespace Identifiers
 Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. An exception to that are `webtask.io` and `webtask.run` which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 :::
 
