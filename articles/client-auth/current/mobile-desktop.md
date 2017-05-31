@@ -9,7 +9,7 @@ toc: true
 You can authenticate users of your mobile/desktop applications by:
 
 * Using [Lock](/libraries/lock), a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface;
-* Using one of the [Auth0 SDKs](docs/libraries/auth0js), which are client-side libraries that *do not* include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
+* Using one of the [Auth0 SDKs](/libraries/auth0js), which are client-side libraries that **do not** include a user interface but allow for expanded customization of the authentication behavior and appearance of the login screen;
 * Calling the Auth0 [Authentication API](/api/authentication) endpoints, which allows you to integrate with Auth0 without requiring the user of Auth0's libraries.
 
 This article will cover how to call the Auth0 [Authentication API](/api/authentication) endpoints using [Proof Key for Code Exchange (PKCE)](/api-auth/grant/authorization-code-pkce) during the authentication process.
@@ -38,8 +38,6 @@ Instead of following this tutorial, you can use any of Auth0's client libraries.
 
 If you haven't already created a new [Client](/clients) in Auth0, you'll need to do so before implementing your authentication flow. The Auth0 Client maps to your application and allows your application to use Auth0 for authentication purposes.
 
-### Create a New Client
-
 Go to the [Auth0 Dashboard](${manage_url}) and click on [Clients](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Client**.
 
 The **Create Client** window will open, allowing you to enter the name of your new Client. Choose **Native** as the **Client Type**. When done, click on **Create** to proceed.
@@ -61,132 +59,17 @@ Scroll to the bottom of the page and click **Save**.
 
 ## Implement Authentication
 
-To implement the [Authorization Code Grant Flow using Proof Key for Code Exchange](/api-auth/grant/authorization-code-pkce), you will need to execute the following steps:
-
-1. Create a random key (called the **code verifier**) and its transformed value (called the **code challenge**)
-2. Obtain the user's authorization
-3. Obtain the ID token
+For our mobile app, we will implement the [OAuth 2.0 Authorization Code Grant Flow using Proof Key for Code Exchange](/api-auth/grant/authorization-code-pkce).
 
 ### Step 1: Create a Random Key and the Code Challenge
 
-You will need to generate and store a `code_verifier`, which is a cryptographically random key that, along with its transformed value (called the `code_challenge`), will be sent to Auth0 for an `authorization_code`.
+First, you will need to generate and store a `code_verifier`, which is a cryptographically random key that, along with its transformed value (called the `code_challenge`), will be sent to Auth0 for an `authorization_code`.
 
-#### Code Verifier
-
-To generate the `code_verifier`, embed the following into your code:
-
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#verifier-javascript" data-toggle="tab">Node.js</a></li>
-      <li><a href="#verifier-java" data-toggle="tab">Java</a></li>
-      <li><a href="#verifier-swift" data-toggle="tab">Swift 3</a></li>
-      <li><a href="#verifier-objc" data-toggle="tab">Objective-C</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="verifier-javascript" class="tab-pane active">
-      <pre>
-<code class="javascript hljs">function base64URLEncode(str) {
-    return str.toString('base64')
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_')
-        .replace(/=/g, '');
-}
-
-var verifier = base64URLEncode(crypto.randomBytes(32));</code></pre>
-    </div>
-    <div id="verifier-java" class="tab-pane">
-      <pre>
-<code class="java hljs">SecureRandom sr = new SecureRandom();
-byte[] code = new byte[32];
-sr.nextBytes(code);
-String verifier = Base64.encodeToString(code, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
-    </div>
-    <div id="verifier-swift" class="tab-pane">
-      <pre>
-<code class="swift hljs">var buffer = [UInt8](repeating: 0, count: 32)
-_ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
-let verifier = Data(bytes: buffer).base64EncodedString()
-    .replacingOccurrences(of: "+", with: "-")
-    .replacingOccurrences(of: "/", with: "_")
-    .trimmingCharacters(in: .whitespaces)</code></pre>
-    </div>
-    <div id="verifier-objc" class="tab-pane">
-      <pre>
-<code class="objc hljs">NSMutableData *data = [NSMutableData dataWithLength:32];
-int result __attribute__((unused)) = SecRandomCopyBytes(kSecRandomDefault, 32, data.mutableBytes);
-NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
-                        stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
-                        stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
-                             stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
-    </div>
-  </div>
-</div>
-
-#### Code Challenge
-
-To create the `code_challenge` that accompanies the `code_verifier`, embed the following into your code:
-
-<div class="code-picker">
-  <div class="languages-bar">
-    <ul>
-      <li class="active"><a href="#challenge-javascript" data-toggle="tab">Node.js</a></li>
-      <li><a href="#challenge-java" data-toggle="tab">Java</a></li>
-      <li><a href="#challenge-swift" data-toggle="tab">Swift 3</a></li>
-      <li><a href="#challenge-objc" data-toggle="tab">Objective-C</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="challenge-javascript" class="tab-pane active">
-      <pre>
-<code class="javascript hljs">function sha256(buffer) {
-    return crypto.createHash('sha256').update(buffer).digest();
-}
-
-var challenge = base64URLEncode(sha256(verifier));</code></pre>
-    </div>
-    <div id="challenge-java" class="tab-pane">
-      <pre>
-<code class="java hljs">byte[] bytes = verifier.getBytes("US-ASCII");
-MessageDigest md = MessageDigest.getInstance("SHA-256");
-md.update(input, 0, input.length);
-byte[] digest = md.digest();
-String challenge = Base64.encodeToString(digest, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
-    </div>
-    <div id="challenge-swift" class="tab-pane">
-      <pre>
-<code class="swift hljs"> // You need to import CommonCrypto
-guard let data = verifier.data(using: .utf8) else { return nil }
-var buffer = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
-data.withUnsafeBytes {
-    _ = CC_SHA256($0, CC_LONG(data.count), &buffer)
-}
-let hash = Data(bytes: buffer)
-let challenge = hash.base64EncodedString()
-    .replacingOccurrences(of: "+", with: "-")
-    .replacingOccurrences(of: "/", with: "_")
-    .trimmingCharacters(in: .whitespaces)</code></pre>
-    </div>
-    <div id="challenge-objc" class="tab-pane">
-      <pre>
-<code class="objc hljs"> // You need to import CommonCrypto
-u_int8_t buffer[CC_SHA256_DIGEST_LENGTH * sizeof(u_int8_t)];
-memset(buffer, 0x0, CC_SHA256_DIGEST_LENGTH);
-NSData *data = [verifier dataUsingEncoding:NSUTF8StringEncoding];
-CC_SHA256([data bytes], (CC_LONG)[data length], buffer);
-NSData *hash = [NSData dataWithBytes:buffer length:CC_SHA256_DIGEST_LENGTH];
-NSString *challenge = [[[[hash base64EncodedStringWithOptions:0]
-                         stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
-                        stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
-                       stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
-    </div>
-  </div>
-</div>
+For sample scripts, to generate a `code_verifier` and a `code_challenge`, refer to [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier).
 
 ### Step 2: Authorize the User
 
-Once you've created the `code_verifier` and the `code_challenge` that you include in the authorization request, you'll need to obtain the user's authorization. This is technically the beginning of the authorization flow, and this step may include one or more of the following processes:
+Once you've created the `code_verifier` and the `code_challenge`, you'll need to get the user's authorization. This is technically the beginning of the authorization flow, and this step may include one or more of the following processes:
 
 * Authenticating the user;
 * Redirecting the user to an Identity Provider to handle authentication;
@@ -206,13 +89,9 @@ https://${account.namespace}/authorize?
 
 Note that the sample Authorization URL doesn't include an `audience` parameter. In this scenario, your app needs to authenticate only the user, not access an API, so we omit `audience`.
 
-Please see [this page](/api-auth/tutorials/authorization-code-grant-pkce#3-get-the-user-s-authorization) for detailed information on the User Authorization request parameters.
+For details on the request parameters, refer to [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce#3-get-the-user-s-authorization).
 
-::: panel Arbitrary Claims
-To improve Client application compatibility, Auth0 returns profile information using an [OIDC-defined structured claim format](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that arbitrary claims to ID or access tokens must conform to a namespaced format to avoid collisions with standard OIDC claims. For example, if your namespace is `https://foo.com/` and you want to add an arbitrary claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, not `myclaim`.
-:::
-
-As an example, your HTML snippet for your authorization URL might look as follows:
+As an example, your HTML snippet for your authorization URL might look like the following:
 
 ```html
 <a href="https://${account.namespace}/authorize?
@@ -226,7 +105,7 @@ As an example, your HTML snippet for your authorization URL might look as follow
 </a>
 ```
 
-If all goes well, you'll receive an HTTP 302 response:
+If all goes well, you'll receive an `HTTP 302` response:
 
 ```text
 HTTP/1.1 302 Found
@@ -253,7 +132,7 @@ Using the authorization code obtained in step 2, you can obtain the ID token by 
 }
 ```
 
-Please refer to [this page](/api-auth/tutorials/authorization-code-grant-pkce#4-exchange-the-authorization-code-for-an-access-token) for additional details on the ID Token request parameters.
+For details on the request parameters, refer to [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce#4-exchange-the-authorization-code-for-an-access-token).
 
 If all goes well, you'll receive an HTTP 200 response with the following payload:
 
@@ -273,7 +152,7 @@ You can use the `access_token` to call the [Authentication API's `/userinfo` end
 
 ## The `id_token`
 
-Once you've decoded the Access Token, you can extract user information from the `id_token` payload. The JSON payload contains the user claims (attributes), as well as metadata, and it will look something like this:
+Once you've decoded the Id Token, you can extract user information from it. The JSON payload contains the user claims (attributes), as well as metadata, and it will look something like this:
 
 ```json
 {
@@ -290,6 +169,10 @@ Once you've decoded the Access Token, you can extract user information from the 
 
 For additional details, please see our docs [on the ID Token and its claims](/tokens/id-token#id-token-payload).
 
+::: note
+For a list of libraries you can use to verify and decode tokens refer to [JWT.io](https://jwt.io/#libraries-io).
+:::
+
 ## Example Use Cases
 
 This section covers use cases that illustrate the authentication process using PKCE.
@@ -298,7 +181,7 @@ This section covers use cases that illustrate the authentication process using P
 
 In addition to the usual authentication, this example shows how you can request additional user details.
 
-We assume that your app is capable of generating the appropriate [code verifier](#code-verifier) and [code challenge](#code-challenge).
+We assume that your app is capable of generating the appropriate `code_verifier` and `code_challenge`.
 
 To return the user's `name` and `picture`, add the appropriate scopes to your call to the `/authorize` endpoint. Therefore, the initial authorization URL is as follows:
 
@@ -312,7 +195,7 @@ https://${account.namespace}/authorize?
     redirect_uri=${account.namespace}/mobile
 ```
 
-After the user provides submits their credentials, your app receives an HTTP 302 response with a URL containing the authorization code at the end: `https://${account.namespace}/callback?code=AUTHORIZATION_CODE`
+After the user submits the request, the app receives an `TTP 302` response with a URL containing the authorization code at the end: `https://${account.namespace}/callback?code=AUTHORIZATION_CODE`
 
 Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
 
@@ -382,7 +265,7 @@ https://${account.namespace}/authorize?
     connection=github
 ```
 
-After the user provides submits their credentials, your app receives an HTTP 302 response with a URL containing the authorization code at the end: `https://${account.namespace}/callback?code=AUTHORIZATION_CODE`
+After the user submits the request, the app receives an `HTTP 302` response with a URL containing the authorization code at the end: `https://${account.namespace}/callback?code=AUTHORIZATION_CODE`
 
 Using the authorization code, you can obtain the ID token by making a `POST` call to the [tokens](/api/authentication#authorization-code-pkce-) endpoint.
 
@@ -400,7 +283,7 @@ Using the authorization code, you can obtain the ID token by making a `POST` cal
 }
 ```
 
-If all goes well, you'll receive an HTTP 200 response with the following payload:
+If all goes well, you'll receive an `HTTP 200` response with the following payload:
 
 ```json
 {
