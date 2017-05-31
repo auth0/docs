@@ -531,7 +531,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
         <td><div class="label label-default">Community</div></td>
       </tr>
       <tr>
-        <td><a href="/quickstart/spa/emberjs">Ember</a></td>
+        <td><a href="/quickstart/spa/ember">Ember</a></td>
         <td><div class="label label-default">Community</div></td>
       </tr>
     </tbody>
