@@ -6,10 +6,6 @@ toc: true
 
 # Scopes
 
-::: note
-<strong>Heads up!</strong> This article describes the latest Auth0 implementation, according to the <a href="/api-auth">API Authorization flows</a>. If you are looking for the legacy Scopes doc refer to <a href="/scopes">Scopes</a>.
-:::
-
 In OpenID Connect (OIDC) we have the notion of __claims__. These are strings, sent as part of the `scope` request parameter. These claims can be standard (as defined by the specification) or custom.
 
 Claims are used in the following cases:
