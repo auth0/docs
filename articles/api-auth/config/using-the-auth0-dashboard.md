@@ -19,7 +19,7 @@ Enter a friendly name and an identifier. Ideally, this identifier should be the 
 
 The selection of the **Signing Algorithm** will dictate how the API will validate the access tokens it receives:
 * HS256 (symmetric): signed using the resource server's signing secret
-* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
+* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](/jwks) URL: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
 
 ![Create an API](/media/articles/api-auth/apis-create.png)
 
