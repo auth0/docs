@@ -9,8 +9,8 @@ description: This tutorial demonstrates how to use the Auth0 Java SDK to add aut
   repo: 'auth0-servlet-sample',
   path: '01-Login',
   requirements: [
-    'Java 7 or above',
-    'Gradle 3.3 or above'
+    'Java 1.7',
+    'Maven 3.3'
   ]
 }) %>
 

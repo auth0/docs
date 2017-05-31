@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication to your web app
+description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication and authorization to your web app
 budicon: 448
 ---
 
@@ -10,7 +10,7 @@ budicon: 448
   path: '01-Login',
   requirements: [
     'Java 7 or above',
-    'Gradle 3.3 or above'
+    'Maven 3.0.x or above'
   ]
 }) %>
 
