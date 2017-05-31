@@ -4,48 +4,71 @@ Callback URLs are URLs that Auth0 invokes after the authentication process. Auth
 
 ![Callback error](/media/articles/java/callback_error.png)
 
-If you follow our seed project or the samples based on it, the values you must configure are:
-- Allowed Callback URL: `http://localhost:3099/callback`
-- Allowed Logout URLs: `http://localhost:3099/logout`
+The same applies for the Logout URLs. They must be whitelisted in the Auth0 Dashboard. If you follow our seed project or the samples based on it, the values you must configure are:
+- Allowed Callback URLs: `http://localhost:8080/callback`
+- Allowed Logout URLs: `http://localhost:8080/logout`
 
 
 ## Setup Dependencies
 
-To integrate your Java application with Auth0 you need to add the following dependencies:
+To integrate your Java application with Auth0 you need to add the following dependency:
 
-- [auth0-servlet](https://github.com/auth0/auth0-servlet): is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It validates the [JWT](/jwt) from Auth0 in every API call to assert authentication according to the configuration.
-
-If you are using maven, add the dependency to your `pom.xml`:
-
-${snippet(meta.snippets.dependencies)}
+- **auth0-java-mvc-commons**: is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user.
 
 If you are using Gradle, add it to the dependencies block:
 
-${snippet(meta.snippets.dependenciesGradle)}
+```java
+compile 'com.auth0:mvc-auth-commons:1.+'
+```
+
+If you are using Maven, add the dependency to your `pom.xml`:
+
+```xml
+<dependency>
+  <groupId>com.auth0</groupId>
+  <artifactId>mvc-auth-commons</artifactId>
+  <version>1.+</version>
+</dependency>
+```
+
+You can always check the latest version in the [library's GitHub](https://github.com/auth0/auth0-java-mvc-common).
 
 
 ## Configure your Java App
 
-Your java app needs some information in order to authenticate against your Auth0 account. You need to set this information at the deployment descriptor file `src/main/webapp/WEB-INF/web.xml`. The required information is:
+Your Java App needs some information in order to authenticate against your Auth0 account. The samples read this information from the deployment descriptor file `src/main/webapp/WEB-INF/web.xml`, but you could store them anywhere else. The required information is:
 
-${snippet(meta.snippets.setup)}
+```xml
+<context-param>
+    <param-name>com.auth0.domain</param-name>
+    <param-value>${account.namespace}</param-value>
+</context-param>
+
+<context-param>
+    <param-name>com.auth0.clientId</param-name>
+    <param-value>${account.clientId}</param-value>
+</context-param>
+
+<context-param>
+    <param-name>com.auth0.clientSecret</param-name>
+    <param-value>${account.clientSecret}</param-value>
+</context-param>
+```
+
+The library we're using has this default behavior:
+- Request the scope `openid`, needed to call the `/userinfo` endpoint later to verify the User's identity.
+- Request the `code` Response Type and later perform a Code Exchange to obtain the tokens.
+- Use the `HS256` Algorithm along with the Client Secret to verify the tokens.
+
+But it also allows us to customize it's behavior:
+* To use the `RS256` Algorithm along with the Public Key obtained dynamically from the Auth0 hosted JWKs file, pass a `JwkProvider` instance to the `AuthenticationController` builder.
+* To use a different Response Type, set the desired value in the `AuthenticationController` builder. Any combination of `code token id_token` is allowed.
+* To request a different `scope`, set the desired value in the `AuthorizeUrl` received after calling `AuthenticationController#buildAuthorizeUrl()`.
+* To specify the `audience`, set the desired value in the `AuthorizeUrl` received after calling `AuthenticationController#buildAuthorizeUrl()`.
 
 As you can see in the seed project, there are many customizable attributes in the `web.xml`.
 
-| Attribute | Description|
-| --- | --- |
-| `auth0.domain` | Your auth0 domain. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
-| `auth0.issuer` | The issuer of the JWT Token. This is typically your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your `auth0.domain` is `example.auth0.com` then the `auth0.issuer` should be set to `https://example.auth0.com/` (the trailing slash is important). |
-| `auth0.clientId` | The unique identifier for your client. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
-| `auth0.clientSecret` | The secret used to sign and validate the tokens that will be used in the different authentication flows. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
-| `auth0.onLogoutRedirectTo` | The page that users of your site are redirected to on logout. Should start with `/`. |
-| `auth0.redirect_on_success` | The landing page URL context path for a successful authentication. Should start with `/`. |
-| `auth0.redirect_on_error` | The URL context path for the page to redirect to upon failure. Should start with `/`. |
-| `auth0.redirect_on_authentication_error` | The URL context path for the page to redirect to upon authentication failure. Should start with `/`. |
-| `auth0.signing_algorithm` | This is signing algorithm to verify signed JWT token. Use HS256 or RS256. |
-| `auth0.public_key_path` | Path location to the public key. Should always be set when using RS256 and is ignored for HS256. |
-
 
 ::: panel Check populated attributes
-If you download the seed using our **Download Sample** button then the `domain`, `issuer`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case, you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
+If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case, you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for.
 :::

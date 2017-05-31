@@ -3,8 +3,6 @@ image: /media/platforms/java.png
 tags:
   - quickstart
 snippets:
-  dependencies: server-platforms/java/dependencies
-  dependenciesGradle: server-platforms/java/dependencies-gradle
   setup: server-platforms/java/setup
   use: server-platforms/java/use
 alias:
@@ -12,6 +10,5 @@ alias:
 seo_alias: java
 default_article: dashboard-default
 articles:
-  - 00-intro
+  - getting-started
   - 01-login
-  - 09-mfa
