@@ -11,7 +11,7 @@ This document covers an outdated version of the Auth0 authentication pipeline an
 
 **Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
 
-![](/media/articles/rules/flow.png)
+![Rules Flow](/media/articles/rules/flow.png)
 
 1. An app initiates an authentication request to Auth0.
 1. Auth0 routes the request to an Identity Provider through a configured connection.
@@ -30,10 +30,11 @@ Among many possibilities, Rules can be used to:
 * Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
 
 ::: note
-You can find more examples of common Rules on Github at <a href="https://github.com/auth0/rules">auth0/rules</a>.
+You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
 :::
 
 ## Video: Using Rules
+
 Watch this video learn all about rules in just a few minutes.
 
 <%= include('../../videos/_video', { id: 'g7dy1fpwc3' }) %>
@@ -68,9 +69,9 @@ Rules containing shared functions should be placed at the top of the [Rules list
 
 ## Examples
 
-<div class="alert alert-info">
-You can find more examples of common Rules on Github at <a href="https://github.com/auth0/rules">auth0/rules</a>.
-</div>
+::: note
+You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
+:::
 
 To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
 
@@ -87,7 +88,7 @@ function (user, context, callback) {
 ```
 
 ::: note
-  You can add `console.log` lines for <a href="#debugging">debugging</a> or use the <a href="/extensions/realtime-webtask-logs">Real-time Webtask Logs Extension</a>.
+You can add `console.log` lines for [debugging](#debugging) or use the [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs).
 :::
 
 
@@ -150,7 +151,7 @@ After the rule executes, the output that the application will receive is the fol
 ```
 
 ::: note
-Properties added in a rule are <strong>not persisted</strong> in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
+Properties added in a rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
 :::
 
 ### Deny access based on a condition
@@ -170,7 +171,7 @@ function (user, context, callback) {
 This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
 
 ::: note
-  Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a <code>SAMLResponse</code>.
+Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`.
 :::
 
 ## Create Rules with the Management API
@@ -215,18 +216,18 @@ Use this to create the POST request:
 ```
 
 ::: note
-You can use the <a href="https://www.npmjs.com/package/auth0-rules-testharness">auth0-rules-testharness library</a> to deploy, execute, and test the output of Rules using a Webtask sandbox environment.
+You can use the [auth0-rules-testharness library](https://www.npmjs.com/package/auth0-rules-testharness) to deploy, execute, and test the output of Rules using a Webtask sandbox environment.
 :::
 
 ## How to Debug Rules
 
 You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${manage_url}/#/rules/create)  provides two ways for seeing the output:
 
-![](/media/articles/rules/rule-editor.png)
+![Rules Editor](/media/articles/rules/rule-editor.png)
 
 1. **TRY THIS RULE**: opens a pop-up where you can run a rule in isolation. The tool provides a mock **user** and **context** objects. Clicking **TRY** will result on the the Rule being run with those two objects as input. `console.log` output will be displayed too.
 
-![](/media/articles/rules/try-rule.png)
+![Try this Rule](/media/articles/rules/try-rule.png)
 
 2. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
 
