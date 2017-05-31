@@ -6,9 +6,9 @@ toc: true
 ---
 # JSON Web Key Set (JWKS)
 
-When creating clients and resources servers (APIs) in Auth0, two algorithms are supported for signing JSON Web Tokens (JWTs): RS256 and HS256. RS256 generates an asymmetric signature, which means a private key must be used to sign the JWT and a different public key must be used to verify the signature.
+When creating clients and resources servers (APIs) in Auth0, two algorithms are supported for signing [JSON Web Tokens (JWTs)](/jwt): **RS256** and **HS256**. RS256 generates an asymmetric signature, which means a private key must be used to sign the JWT and a different public key must be used to verify the signature.
 
-Auth0 uses the [JWK](https://tools.ietf.org/html/rfc7517) specification to represent the cryptographic keys used for signing RS256 tokens. This specification defines two high level data structures: JSON Web Key (JWK) and JSON Web Key Set (JWKS). Here are the definitions directly from the specification:
+Auth0 uses the [JWK](https://tools.ietf.org/html/rfc7517) specification to represent the cryptographic keys used for signing RS256 tokens. This specification defines two high level data structures: **JSON Web Key (JWK)** and **JSON Web Key Set (JWKS)**. Here are the definitions directly from the specification:
 
 > **JSON Web Key (JWK)**
 >
@@ -16,9 +16,11 @@ Auth0 uses the [JWK](https://tools.ietf.org/html/rfc7517) specification to repre
 
 > **JSON Web Key Set (JWKS)**
 > 
-> A JSON object that represents a set of JWKs. The JSON object MUST have a "keys" member, which is an array of JWKs.
+> A JSON object that represents a set of JWKs. The JSON object MUST have a `keys` member, which is an array of JWKs.
 
-At the most basic level, the JWKS is a set of keys containing the public keys that should be used to verify any JWT issued by the authorization server. Auth0 exposes a JWKS endpoint for each tenant, which is found at `https://${account.namespace}/.well-known/jwks.json`. This endpoint will contain the JWK used to sign all Auth0 issued JWTs for this tenant. Here is an example of the JWKS used by a demo tenant.
+At the most basic level, the JWKS is a set of keys containing the public keys that should be used to verify any JWT issued by the authorization server. Auth0 exposes a JWKS endpoint for each tenant, which is found at `https://${account.namespace}/.well-known/jwks.json`. This endpoint will contain the JWK used to sign all Auth0 issued JWTs for this tenant. 
+
+This is an example of the JWKS used by a demo tenant.
 
 ```json
 {
@@ -72,5 +74,5 @@ Due to the fact that there are such a wide range of technologies being used by o
 However, here are some resources which will assist you:
 
 1. When building an API, our [Backend / API Quickstarts](/quickstart/backend) show how to implement signature verification for many different platforms. This is typically done by some form of middleware which is available on the particular platform.
-2. To manually verify a token's signature, you can use one of the libraries listed in the Libraries for Token Signing/Verification section of [JWT.io](https://jwt.io/). Refer to the documentation of the relevant library for the exact implementation details.
-3. Our blog post [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) shows a sample implementation using Node.js.
+1. To manually verify a token's signature, you can use one of the libraries listed in the Libraries for Token Signing/Verification section of [JWT.io](https://jwt.io/). Refer to the documentation of the relevant library for the exact implementation details.
+1. Our blog post [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/) shows a sample implementation using Node.js.
