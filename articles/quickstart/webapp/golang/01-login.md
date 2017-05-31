@@ -119,12 +119,36 @@ In this case, the redirectUrl should look something like:
 http://yourUrl/callback
 ```
 
-## Triggering Login Manually or Using Lock
+## Triggering the Login
 
-<%= include('../../../_includes/_lock-sdk') %>
+Create an instance of `auth0.WebAuth` and provide a control to call its `authorize` method.
+
+```html
+<script src="${auth0js_urlv8}"></script>
+```
+
+```js
+// public/home.js
+
+$(document).ready(function() {
+  var webAuth = new auth0.WebAuth({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    redirectUri: 'http://localhost:3000',
+    audience: 'https://${account.namespace}/userinfo',
+    responseType: 'code',
+    scope: 'openid profile'
+  });
+
+  $('.btn-login').click(function(e) {
+    e.preventDefault();
+    webAuth.authorize();
+  });
+});
+```
 
 ::: note
-The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step.
+The `redirectUrl` specified in the `auth0.WebAuth` constructor **must match** the one specified in the previous step.
 :::
 
 ## Accessing User Information
