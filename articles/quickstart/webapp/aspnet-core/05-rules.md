@@ -47,7 +47,7 @@ public IActionResult Profile()
     Name = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value,
     EmailAddress = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,
     ProfileImage = User.Claims.FirstOrDefault(c => c.Type == "picture")?.Value,
-    Country = User.Claims.FirstOrDefault(c => c.Type == "country")?.Value
+    Country = User.Claims.FirstOrDefault(c => c.Type == "https://schemas.quickstarts.com/country")?.Value
   });
 }
 ```
@@ -81,24 +81,6 @@ And finally display the country in the profile view:
     </div>
   </div>
 </div>
-```
-
-## Ensure the Country scope is requested
-
-You will also need to ensure that you request the `country` scope. This will ensure that the `country` claim is returned in the `id_token`. Go back to the `Configure` method of the `Startup` class and update the registration of the OIDC middleware to request the `country` scope:
-
-```csharp
-var options = new OpenIdConnectOptions("Auth0")
-{
-    // Code omitted for brevity...
-};
-options.Scope.Clear();
-options.Scope.Add("openid");
-options.Scope.Add("name");
-options.Scope.Add("email");
-options.Scope.Add("picture");
-options.Scope.Add("country");
-app.UseOpenIdConnectAuthentication(options);
 ```
 
 ## Run the application
