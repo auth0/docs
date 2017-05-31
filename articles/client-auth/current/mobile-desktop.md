@@ -20,7 +20,6 @@ If you would like to implement this functionality using either Lock or one of th
   * [Lock for Web](/libraries/lock)
   * [Lock for iOS](/libraries/lock-ios)
   * [Lock for Android](/libraries/lock-android)
-  
 * Auth0 SDK
   * [Auth0 SDK for Web](/libraries/auth0js)
   * [Auth0 SDK for iOS](/libraries/auth0-swift)
