@@ -69,6 +69,8 @@ The response should contain an access token and a refresh token.
 }
 ```
 
+If you are requesting a `refresh_token` for a mobile app using the corresponding Native Client (which is public) then you don't need to send the `client_secret` in the request since it's only needed for confidential clients (which are those that have a Token Endpoint Authentication Method different than `None`). 
+
 ::: warning
 Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
 :::
@@ -106,7 +108,7 @@ To refresh your token, using the `refresh_token` you already got during authoriz
 Where:
 - `grant_type`: The type of grant to execute (the `/token` endpoint is used for various grants, for more information refer to the [Authentication API](/api/authentication#get-token)). To refresh a token use `refresh_token`.
 - `client_id`: Your application's Client ID.
-- `client_secret`: Your application's Client Secret.
+- `client_secret` (optional): Your application's Client Secret. Only required for confidential clients
 - `refresh_token`: The refresh token to use.
 
 The response will include a new `access_token`, its type, its lifetime (in seconds), and the granted scopes. If the scope of the initial token included `openid`, then a new `id_token` will be in the response as well.
