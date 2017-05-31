@@ -20,6 +20,7 @@ If you would like to implement this functionality using either Lock or one of th
   * [Lock for Web](/libraries/lock)
   * [Lock for iOS](/libraries/lock-ios)
   * [Lock for Android](/libraries/lock-android)
+  
 * Auth0 SDK
   * [Auth0 SDK for Web](/libraries/auth0js)
   * [Auth0 SDK for iOS](/libraries/auth0-swift)
@@ -29,8 +30,8 @@ If you would like to implement this functionality using either Lock or one of th
 
 Auth0 exposes OAuth 2.0 endpoints that you can use to authenticate users. You can call these endpoints through an embedded browser in your **native** application. After authentication completes, you can return an [ID Token](/tokens/id-token) that contains the user's profile information.
 
-::: panel-info Auth0 Quickstarts
-Please note that, instead of following this tutorial, you can use any of Auth0's client libraries. These encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started with any of these.
+::: note
+Instead of following this tutorial, you can use any of Auth0's client libraries. These encapsulate all the logic required and make it easier for your to implement authentication. Please refer to our [Native Quickstarts](/quickstart/native) to get started.
 :::
 
 ## Register Your Client
@@ -43,7 +44,7 @@ Go to the [Auth0 Dashboard](${manage_url}) and click on [Clients](${manage_url}/
 
 The **Create Client** window will open, allowing you to enter the name of your new Client. Choose **Native** as the **Client Type**. When done, click on **Create** to proceed.
 
-::: panel-danger Warning
+::: warning
 The Authorization Code flow with PKCE can only be used for Native Clients.
 :::
 
@@ -207,7 +208,7 @@ Note that the sample Authorization URL doesn't include an `audience` parameter. 
 
 Please see [this page](/api-auth/tutorials/authorization-code-grant-pkce#3-get-the-user-s-authorization) for detailed information on the User Authorization request parameters.
 
-::: panel-info Arbitrary Claims
+::: panel Arbitrary Claims
 To improve Client application compatibility, Auth0 returns profile information using an [OIDC-defined structured claim format](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that arbitrary claims to ID or access tokens must conform to a namespaced format to avoid collisions with standard OIDC claims. For example, if your namespace is `https://foo.com/` and you want to add an arbitrary claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, not `myclaim`.
 :::
 
@@ -266,7 +267,7 @@ If all goes well, you'll receive an HTTP 200 response with the following payload
 }
 ```
 
-:::panel-info Access Tokens
+::: note
 You can use the `access_token` to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info).
 :::
 
@@ -359,7 +360,7 @@ By extracting the `id_token`, which now contains the additional `name` and `pict
 
 You can send a user directly to the GitHub authentication screen by passing the `connection` parameter and setting its value to `github`.
 
-:::panel-info Logins with Social Providers
+:::panel Logins with Social Providers
 While this example shows how to log in users via GitHub, you can just as easily request that a user log in with other Social providers, such as Google or Facebook.
 
 To do this, configure the appropriate Connection in the [Auth0 Dashboard](${manage_url}/#/connections/social) and change the `connection` value of the call to `/authorize` to the name of the Connection (`google-oauth2` for Google, `facebook` for Facebook, and so on). You can get the Connection's name from the *Settings* tab of the [Connections](${manage_url}/#/connections/social) page.
