@@ -9,7 +9,7 @@ toc: true
 
 Rules allow you to easily customize and extend Auth0's capabilities. They can be chained together for modular coding and can be turned on and off individually.
 
-![](/media/articles/rules/flow.png)
+![Rule Flow](/media/articles/rules/flow.png)
 
 1. An app initiates an authentication request to Auth0.
 1. Auth0 routes the request to an Identity Provider through a configured connection.
@@ -29,6 +29,7 @@ Among many possibilities, Rules can be used to:
 * Modify tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`.
 
 ## Video: Using Rules
+
 Watch this video learn all about rules in just a few minutes.
 
 <%= include('../../videos/_video', { id: 'g7dy1fpwc3' }) %>
@@ -49,6 +50,10 @@ To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/ru
 
 ### Hello World
 
+::: panel Namespace Identifiers
+Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. An exception to that are `webtask.io` and `webtask.run` which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
+:::
+
 This rule will add a `hello` claim (with the value `world`) to the `id_token` that will be afterwards sent to the application.
 
 ```js
@@ -61,12 +66,9 @@ function (user, context, callback) {
 
 Note that the claim is namespaced: we named it `http://mynamespace/hello` instead of just `hello`. This is what you have to do in order to add arbitrary claims to an `id_token` or `access_token`.
 
-Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
-
-<div class="alert alert-info">
-  You can add <code>console.log</code> lines for <a href="#debugging">debugging</a> or use the <a href="/extensions/realtime-webtask-logs">Real-time Webtask Logs Extension</a>.
-</div>
-
+::: note
+You can add `console.log` lines for [debugging](#debugging) or use the [Real-time Webtask Logs Extension](/extensions/realtime-webtask-logs).
+:::
 
 ### Add roles to a user
 
@@ -136,9 +138,9 @@ When your application receives the `id_token`, it will verify and decode it, in 
 
 For more information on the `id_token` refer to [ID Token](/tokens/id-token).
 
-<div class="alert alert-info">
-Properties added in a rule are <strong>not persisted</strong> in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
-</div>
+::: note
+Properties added in a rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
+:::
 
 ### Deny access based on a condition
 
@@ -156,9 +158,9 @@ function (user, context, callback) {
 
 This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Access%20to%20this%20application%20has%20been%20temporarily%20revoked`). Make sure to call the callback with an instance of `UnauthorizedError` (not `Error`).
 
-<div class="alert alert-info">
-  Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a <code>SAMLResponse</code>.
-</div>
+::: note
+Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`.
+:::
 
 ### Copy User Metadata to ID Token
 
@@ -247,19 +249,19 @@ Use this to create the POST request:
 }
 ```
 
-<div class="alert alert-info">
-You can use the <a href="https://www.npmjs.com/package/auth0-custom-db-testharness">auth0-custom-db-testharness library</a> to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
-</div>
+::: note
+You can use the [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
+:::
 
 ## How to Debug Rules
 
 You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${manage_url}/#/rules/create)  provides two ways for seeing the output:
 
-![](/media/articles/rules/rule-editor.png)
+![Rules Editor](/media/articles/rules/rule-editor.png)
 
 1. **TRY THIS RULE**: opens a pop-up where you can run a rule in isolation. The tool provides a mock **user** and **context** objects. Clicking **TRY** will result on the the Rule being run with those two objects as input. `console.log` output will be displayed too.
 
-![](/media/articles/rules/try-rule.png)
+![Try this Rule](/media/articles/rules/try-rule.png)
 
 2. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
 
