@@ -29,6 +29,7 @@ Among many possibilities, Rules can be used to:
 * Modify tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`.
 
 ## Video: Using Rules
+
 Watch this video learn all about rules in just a few minutes.
 
 <%= include('../../videos/_video', { id: 'g7dy1fpwc3' }) %>
@@ -50,7 +51,7 @@ To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/ru
 ### Hello World
 
 ::: note
-Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource; it’s only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
+Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. An exception to that are `webtask.io` and `webtask.run` which are Auth0 domains and therefore cannot be used. The namespace URL does not have to point to an actual resource; it's only used as an identifier and will not be called by Auth0. For more information refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 :::
 
 This rule will add a `hello` claim (with the value `world`) to the `id_token` that will be afterwards sent to the application.
