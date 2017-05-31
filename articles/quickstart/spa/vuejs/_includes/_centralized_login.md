@@ -143,7 +143,7 @@ When a user authenticates at Auth0's hosted login page and is then redirected ba
 Create a component named `CallbackComponent` and populate it with a loading indicator. The component should also call `handleAuthentication` from the `AuthService`.
 
 ```js
-// src/callback/Callback.vue
+// src/components/Callback.vue
 
 <template>
   <div class="spinner">
