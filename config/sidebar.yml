@@ -140,11 +140,11 @@ articles:
             url: "/connections/passwordless/faq"
 
   - title: "Rules"
-    url: "/rules"
+    url: "/rules/current"
     children:
 
       - title: "Overview"
-        url: "/rules"
+        url: "/rules/current"
 
       - title: "User Metadata in Rules"
         url: "/rules/metadata-in-rules"
@@ -343,28 +343,28 @@ articles:
       - title: "Geo High Availability"
         url: "/services/geo-ha"
 
-      - title: "Advisory Hours: Scenario guidance"
+      - title: "Scenario guidance"
         url: "/services/scenario-guidance"
 
-      - title: "Advisory Hours: Code Review"
+      - title: "Code Review"
         url: "/services/code-review"
 
-      - title: "Advisory Hours: Pair Programming"
+      - title: "Pair Programming"
         url: "/services/pair-programming"
       
-      - title: "Advisory Hours: Private SaaS reconfiguration"
+      - title: "Private SaaS reconfiguration"
         url: "/services/private-saas-configuration"
 
-      - title: "Training: Auth0 Introduction"
+      - title: "Auth0 Introduction"
         url: "/services/auth0-introduction"
 
-      - title: "Training: Auth0 Advanced Topics"
+      - title: "Auth0 Advanced Topics"
         url: "/services/auth0-advanced"
 
-      - title: "Training: Private SaaS Introduction"
+      - title: "Private SaaS Introduction"
         url: "/services/private-saas-introduction"
 
-      - title: "Training: Private SaaS Management Workshop"
+      - title: "Private SaaS Management Workshop"
         url: "/services/private-saas-management"
 
       - title: "Jumpstart"
