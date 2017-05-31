@@ -839,7 +839,7 @@ Use this endpoint to refresh an access token, using the refresh token you got du
 |:-----------------|:------------|
 | `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token use  `refresh_token`. |
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` <br/><span class="label label-danger">Required</span> | Your application's Client Secret. |
+| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
 | `refresh_token` <br/><span class="label label-danger">Required</span> | The refresh token to use. |
 
 
