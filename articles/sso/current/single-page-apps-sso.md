@@ -18,7 +18,7 @@ If you've implemented SSO and the user logs in either of the two applications, t
 
 This article shows you how to implement OIDC-compliant Single Sign On via [Silent Authentication](/api-auth/tutorials/silent-authentication) for your Single Page Applications using [this sample](https://github.com/auth0-samples/oidc-sso-sample).
 
-## Configure the OIDC-Compliant Single Sign On Sample
+## Configure the Sample Application
 
 ::: warning
 This document assumes that you're using port `3000` when running the sample. If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the `auth0-variables.js`, `callback.html`, and `index.js` files) and configure your Auth0 Client.
@@ -43,11 +43,11 @@ Please feel free to [download the sample](https://github.com/auth0-samples/oidc-
 
 ## Silent Authentication
 
-Because client applications cannot query Auth0 directly to determine if users are logged in via SSO, the apps must redirect users to Auth0 for SSO authentication. However, because users find redirection disruptive, you should avoid doing so. One way of doing this is via **silent authentication**, which allows you to implement an authentication flow where Auth0 replies only with redirects (and never presents a login page to your users).
+Because client applications cannot query Auth0 directly to determine if users are logged in via SSO, the apps must redirect users to Auth0 for SSO authentication. However, because users find redirection disruptive, you should avoid doing so. One way of doing this is via [Silent Authentication](/api-auth/tutorials/silent-authentication), which allows you to implement an authentication flow where Auth0 replies only with redirects and never presents a login page to your users.
 
 ### Configure Silent Authentication
 
-To bypass displaying the Lock screen when logging in a user (a process known as [*silent authentication*](#silent-authentication)), you must:
+To bypass displaying the Lock screen when logging in a user, you must:
 
 * Enable the **Use Auth0 instead of the IdP to do Single Sign On** flag in the [Auth0 Client's settings page](${manage_url}/#/clients/${account.clientId}/settings);
 * Have a SSO cookie for the tenant's domain (in other words, the user has previously signed in and their saved cookie is still valid);
@@ -55,7 +55,7 @@ To bypass displaying the Lock screen when logging in a user (a process known as 
   * Including it as a parameter when calling the `signin` function of the [auth0.js library](/libraries/auth0js);
   * Passing the `connection` query string parameter when calling the [Authentication API's `/authorize` endpoint](/api/authentication#implicit-grant).
 
-### Initiate a Silent Authentication Request
+### Silent Authentication using the API
 
 To initiate a silent authentication request, include the `prompt` parameter in your [authorization URL](/api/authentication#implicit-grant) and set it to `none` when redirecting users to the [Authentication API's `/authorize` endpoint](/api/authentication#implicit-grant).
 
@@ -82,7 +82,7 @@ For requests received with the parameter `prompt=none`, Auth0 redirects to the `
 
 Regardless of which outcome occurs, the sample app's [`postMessage()` function](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) sends Auth0's response from the iframe back to the main page, allowing it to act based on the response.
 
-### Using the Auth0.js library
+### Silent Authentication using Auth0.js
 
 Users of the `Auth0.js` library have access to [the `renewAuth()` method](/libraries/auth0js/v8#using-renewauth-to-acquire-new-tokens), which attempts to get a new token from Auth0 by using silent authentication or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
 
@@ -103,7 +103,7 @@ auth0.renewAuth({
 });
 ```
 
-#### Run the Sample Application
+## Run the Sample Application
 
 When you run the sample app for the first time, you will not have a valid access token. As such, the SSO login process errors when attempting silent authentication.
 
@@ -119,7 +119,7 @@ Once you've provided correct credentials, the app will indicate if you've succes
 
 If silent authentication succeeds, however, the app stores the token and its expiration date in your local storage.
 
-#### Auth0's Successful Authentication Response
+## Successful Authentication Response
 
 If the user is logged in via SSO already, Auth0 responds as if the user had manually authenticated using the SSO login page. You can extract the `access_token` from the hash fragment of the returned URL:
 
@@ -155,7 +155,7 @@ You can test this using the sample app. If you're already logged in, you can req
 
 At this point, the app silently authenticates you, gets the new token, and updates the page to reflect your new token expiration datetime. Notice that you did not see the Lock screen asking for your credentials.
 
-### Further Actions
+## Further Actions
 
 If your authentication flow triggers an error (indicating unsuccessful authentication) at any point, you'll need to [handle the error(s)](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) before moving on.
 
