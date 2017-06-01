@@ -1,7 +1,6 @@
 ---
 description: How to obtain Identity Provider access tokens.
 ---
-
 # Identity Provider Access Tokens
 
 ## Overview
@@ -10,7 +9,7 @@ Third-party access tokens are issued by Identity Providers (including Social pro
 
 ## How to obtain Identity Provider access tokens
 
-Identity Provider (IdP) access tokens can be obtained after the user has authenticated with the IdP by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope. 
+Identity Provider (IdP) access tokens can be obtained after the user has authenticated with the IdP by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope.  The `access_token` for the IdP will be available in the `identities` array, under the element for the particular connection.
 
 For a step-by-step guide on obtaining IdP access tokens, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api).
 
@@ -25,6 +24,16 @@ The validity period for third-party access tokens will vary by the issuing IdP.
 ## Renewing the token
 
 There is no standard way to renew IdP access tokens through Auth0. If available, the mechanism for renewing IdP access tokens will vary for each provider.
+
+For certain Identity Providers, Auth0 will store a `refresh_token` which you can use to obtain a new `access_token` for the IdP. Currently this is supported for the following Identity Providers:
+
+* BitBucket
+* Google OAuth 2.0 (For Google you need to pass the parameter `access_type=offline` when calling the Auth0 `/authorize` endpoint)
+* OAuth 2.0
+* SharePoint
+* Azure AD
+
+As for access tokens, the Identity Provider (IdP) `refresh_token` can be obtained by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope. The `refresh_token` will be available in the `identities` array, under the element for the particular connection.
 
 ## Termination of tokens
 
