@@ -1,12 +1,14 @@
 ---
-url: /sso
 toc: true
 description: Introduction to Single Sign On (SSO) with Auth0.
 ---
+# What is Single Sign On?
 
-# What is SSO (Single Sign On)?
+::: version-warning
+This document covers an outdated version of the Auth0 authentication pipeline. We recommend you use the current version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
 
-SSO (Single Sign On) occurs when a user logs in to one Client and is then signed in to other Clients automatically, regardless of the platform, technology, or domain the user is using.
+Single Sign On (SSO) occurs when a user logs in to one Client and is then signed in to other Clients automatically, regardless of the platform, technology, or domain the user is using.
 
 Google's implementation of login for their products, such as Gmail, YouTube, Google Analytics, and so on, is an example of SSO. Any user that is logged in to one of Google's products are automatically logged in to their other products as well.
 
@@ -62,14 +64,14 @@ Near the bottom of the *Settings* page, toggle **Use Auth0 instead of the IdP to
 
 Alternatively you can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 
-Once you have set the SSO flag for your Client in the Auth0 Dashboard, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the [`getSSOData`](/libraries/auth0js#sso) function in the [auth0.js library](/libraries/auth0js).  
+Once you have set the SSO flag for your Client in the Auth0 Dashboard, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the [`getSSOData`](/libraries/auth0js#sso) function in the [auth0.js library](/libraries/auth0js).
 
 The result of this function will indicate whether an SSO cookie is present, and if so it will return the SSO data of the user which can then subsequently be used to log the user in silently without even displaying Lock.
 
 For more detailed information on how to implement this, please refer to the following documents:
 
-* [Client-Side SSO (Single Page Apps)](/sso/single-page-apps-sso)
-* [Server-Side SSO (Regular Web Apps)](/sso/regular-web-apps-sso)
+* [Client-Side SSO (Single Page Apps)](/sso/legacy/single-page-apps-sso)
+* [Server-Side SSO (Regular Web Apps)](/sso/legacy/regular-web-apps-sso)
 
 ::: note
 Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single Page Apps and Regular Web Apps.
