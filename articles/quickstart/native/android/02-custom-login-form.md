@@ -168,4 +168,4 @@ private void login() {
 ```
 
 
-There are many options to customize the authentication using WebAuthProvider. Make sure to check them [here](/articles/libraries/auth0-android#implementing-web-based-auth).
+There are many options to customize the authentication using WebAuthProvider. Make sure to check them [here](/libraries/auth0-android#implementing-web-based-auth).

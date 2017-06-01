@@ -92,8 +92,6 @@ The `AuthService` is now accessible in the view and can be used to conditionally
 
 ${snippet(meta.snippets.profiletemplate)}
 
-![auth0 lock](/media/articles/native-platforms/ionic2/ionic2-auth-5.png)
-
 ### Troubleshooting
 
 #### Cannot read property 'isAvailable' of undefined

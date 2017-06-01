@@ -1,12 +1,12 @@
 ---
 title: Login
-description: This tutorial demonstrates how to integrate Login in your iOS Swift project to present a hosted Lock page.
+description: This tutorial demonstrates how to integrate the Auth0 Login in your iOS Swift project to present a hosted Lock page.
 budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-ios-swift-v2-sample',
+  repo: 'auth0-ios-swift-sample',
   path: '00-Login',
   requirements: [
     'CocoaPods 1.2.1',

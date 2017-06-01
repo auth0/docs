@@ -2,8 +2,7 @@
 section: libraries
 description: Lock V9 API syntax
 ---
-
-## Lock: API syntax
+# Lock: API syntax
 
 <%= include('../_includes/_lock-version-9') %>
 
@@ -74,5 +73,3 @@ lock.on('signin submit', function (options, context) {
 - `client fetch error`: Triggers when there's an error when fetching `clientID`'s config data.
 - `client loaded`: Triggers when `clientID`'s config data was loaded.
 - `client initialized`: Triggers when `clientID`'s config data is fetched and loaded.
-
-

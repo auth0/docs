@@ -1,8 +1,7 @@
 ---
 description: A tutorial for using Ionic Framework and Firebase.
 ---
-
-## Ionic Framework + Firebase Tutorial
+# Ionic Framework + Firebase Tutorial
 
 You can either download the sample project, or follow the instructions below.
 
@@ -12,7 +11,7 @@ You can either download the sample project, or follow the instructions below.
   path: ''
 }) %>
 
-### 1. Setting up the callback URL in Auth0
+## 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
 <p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following values:</p>
@@ -22,7 +21,7 @@ You can either download the sample project, or follow the instructions below.
 
 </div>
 
-### 2. Configure Auth0 to work with Firebase
+## 2. Configure Auth0 to work with Firebase
 
 You need to add your Firebase account information to Auth0. Once the user logs in to the App, Auth0 will use this information to issue a Firebase authentication token.
 
@@ -46,7 +45,7 @@ This will generate a JSON file which will contain the `private_key_id`, `private
 
 ![Enter Fields](/media/articles/tutorials/enter-firebase-settings.png)
 
-### 3. Adding the needed dependencies
+## 3. Adding the needed dependencies
 
 Add the following dependencies to the `bower.json` and run `bower install`:
 
@@ -59,7 +58,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 },
 ```
 
-### 4. Add the references to the scripts in the `login.html`
+## 4. Add the references to the scripts in the `login.html`
 
 ```html
 <!-- Auth0 Lock -->
@@ -75,7 +74,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 <script src="lib/angularfire/dist/angularfire.js"></script>
 ```
 
-### 5. Add `InAppBrowser` plugin
+## 5. Add `InAppBrowser` plugin
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. Run the following command:
 
@@ -92,7 +91,7 @@ Add the following configuration to the `config.xml` file:
 </feature>
 ```
 
-### 6. Add the module dependency and configure the service
+## 6. Add the module dependency and configure the service
 
 Add the `auth0`, `angular-storage`, `angular-jwt` and `firebase` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`
 
@@ -145,8 +144,7 @@ angular.module('starter', ['ionic',
 });
 ```
 
-
-### 7. Implementing login
+## 7. Implementing login
 
 Now you're ready to implement the Login. You can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
 In this case, add the call in the `login` method of the `LoginCtrl` controller.
@@ -195,7 +193,7 @@ function LoginCtrl(store, $scope, $location, auth) {
 
 > Note: there are multiple ways of implementing login. The example above uses the __Auth0 Lock__ a component that implements a ready to use login UI. You can build your own UI changing the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="${auth0js_url}">`. This is just a non-visual authentication library. For more details [check out the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 
-### 8. Adding a logout button
+## 8. Adding a logout button
 
 Just call the `signout` method in Auth0 to log the user out. You should also remove the information saved into `localStorage`:
 
@@ -213,7 +211,8 @@ $scope.logout = function() {
 ```html
 <input type="submit" ng-click="logout()" value="Log out" />
 ```
-### 9. Configuring secure calls to Firebase
+
+## 9. Configuring secure calls to Firebase
 
 Now that you have the Firebase token, you simply pass it to the AngularFire module using the `authWithCustomToken` function:
 
@@ -234,7 +233,7 @@ friends.$add({name: 'Hey John'});
 
 > Check the [AngularFire documentation](https://www.firebase.com/docs/web/libraries/angular/guide.html) for more information on all of its features.
 
-### 10. Showing user information
+## 10. Showing user information
 
 After the user has logged in, you can get the `profile` property from the `auth` service. You can access all logged-in user properties:
 
@@ -251,7 +250,7 @@ function UserInfoCtrl($scope, auth) {
 
 [Click here](/user-profile) to find out all of the available properties from a user's profile. Note that some of these depend on the social provider being used.
 
-### 11. Keeping the user logged-in after page refreshes
+## 11. Keeping the user logged-in after page refreshes
 
 The user profile and the tokens are saved in `localStorage`. If the page os refreshed, you just need to fetch them from the store and let `auth0-angular` know that the user is already authenticated:
 
@@ -278,11 +277,9 @@ angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
 });
 ```
 
-
-### 12. Sit back and relax
+## 12. Sit back and relax
 
 Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0, Ionic and Firebase.
-
 
 ### Troubleshooting
 
@@ -296,6 +293,7 @@ This means that the `InAppBrowser` plugin wasn't installed successfully by Cordo
 ionic plugin remove org.apache.cordova.inappbrowser
 ionic plugin add org.apache.cordova.inappbrowser
 ```
+
 * Remove the platform and add it again:
 
 ```bash

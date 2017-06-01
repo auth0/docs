@@ -1,8 +1,7 @@
 ---
 description: How to back up your hosted pages using the Auth0 version control extensions
 ---
-
-## How to Use Version Control to Manage Your Hosted Pages
+# How to Use Version Control to Manage Your Hosted Pages
 
 You can use version control software to manage the source code of your hosted pages.
 To do so, you can use the Auth0-provided extension that works with the version control system you're using:
@@ -24,7 +23,9 @@ While the specific documentation pages contain detailed information for the exte
 }
 ```
 
+<!-- markdownlint-disable MD001 -->
 ### File Naming Example
+<!-- markdownlint-enable MD001 -->
 
 ```text
 your-repo/pages/error_page.html

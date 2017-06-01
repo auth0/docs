@@ -6,7 +6,7 @@ budicon: 345
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-ios-swift-v2-sample',
+  repo: 'auth0-ios-swift-sample',
   path: '07-Linking-Accounts',
   requirements: [
     'CocoaPods 1.2.1',
@@ -27,7 +27,7 @@ It is highly recommended that you take a look at the [linking accounts documenta
 
 Here's the scenario: You have a user who is logged in and wants to link one (or multiple) accounts to that logged in account, such that the user can login with any of them and get into that account.
 
-Typically, you will need to present an extra login dialog to make users enter the credentials for any account they want to link with their main account. You can present this login as we saw in the [Login Guide](/quickstart/native/ios-swift/00-login):
+Typically, you will need to present an extra login dialog to make users enter the credentials for any account they want to link with their main account. You can present this login as we saw in the [Login Tutorial](/quickstart/native/ios-swift/00-login):
 
 First, import the `Auth0` module:
 
@@ -83,7 +83,7 @@ Auth0
 
 ## Retrieve Linked Accounts
 
-Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the user's profile, a process that we already know from the [User Sessions Guide](/quickstart/native/ios-swift/03-user-sessions#validate-an-accesstoken):
+Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the user's profile, a process that we already know from the [User Sessions Tutorial](/quickstart/native/ios-swift/03-user-sessions#validate-an-accesstoken):
 
 ```swift
 Auth0

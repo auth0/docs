@@ -37,7 +37,7 @@ client_id=${account.clientId}
 &redirect_uri=${account.callback}
 &client_secret=${account.clientSecret}
 &code=AUTHORIZATION_CODE
-&grant_type=authorization_code</code></pre>
+&grant_type=authorization_code
 ```
 
 5. The response from the server will look like this:

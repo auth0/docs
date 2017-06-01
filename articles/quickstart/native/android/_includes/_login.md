@@ -93,8 +93,7 @@ public class MyActivity extends Activity {
 ```
 
 
-There are many options to customize the authentication using `WebAuthProvider`. Make sure to check them [here](/articles/libraries/auth0-android#implementing-web-based-auth).
-
+There are many options to customize the authentication using `WebAuthProvider`. Make sure to check them [here](/libraries/auth0-android#implementing-web-based-auth).
 <div class="phone-mockup">
   <img src="/media/articles/native-platforms/android/login-android.png" alt="Mobile example screenshot" />
 </div>
@@ -102,4 +101,4 @@ There are many options to customize the authentication using `WebAuthProvider`. 
 
 ## Centralized vs Embedded Login
 
-Auth0's centralized login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use centralized login (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, you can follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-android-sample/tree/master/01-Embedded-Login).
+Auth0's centralized login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use centralized login (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, you can follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-android-sample/tree/embedded-login/01-Embedded-Login).

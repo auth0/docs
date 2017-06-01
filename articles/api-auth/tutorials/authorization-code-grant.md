@@ -29,7 +29,7 @@ https://${account.namespace}/authorize?
 
 Where:
 
-* `audience`: The unique identifier of the API the web app wants to access. Use the value of the __Identifier__ field at your [API Settings](${manage_url}/#/apis). If you can't see this page, enable the __Enable APIs Section__ toggle at [Account Settings > Advanced](${manage_url}/#/account/advanced).
+* `audience`: The unique identifier of the API the web app wants to access. Use the value of the __Identifier__ field at your [API Settings](${manage_url}/#/apis).
 
 * `scope`: The [scopes](/scopes) which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
 
@@ -94,7 +94,7 @@ The response contains the `access_token`, `refresh_token`, `id_token`, and `toke
 }
 ```
 
-Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/preview/refresh-token).
+Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled __Allow Offline Access__ for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](/tokens/refresh-token).
 
 ::: panel-warning Security Warning
 It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the [Implicit Grant flow](/api-auth/grant/implicit) is more appropriate in that case.
@@ -129,7 +129,7 @@ If you wish to execute special logic unique to the Authorization Code grant, you
 ## More reading
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
-- [How to refresh a token](/tokens/preview/refresh-token)
+- [How to refresh a token](/tokens/refresh-token)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Web App Quickstarts](/quickstart/webapp)

@@ -8,18 +8,14 @@ tags:
   - quickstart
 snippets:
   dependencies: client-platforms/vuejs/dependencies
-  http: client-platforms/vuejs/http
-  httpcall: client-platforms/vuejs/httpcall
-  interceptors: client-platforms/vuejs/interceptors
-  login: client-platforms/vuejs/login
-  loginlogout: client-platforms/vuejs/loginlogout
-  logout: client-platforms/vuejs/logout
-  routing: client-platforms/vuejs/routing
+  setup: client-platforms/vuejs/setup
+  use: client-platforms/vuejs/use
 alias:
   - vue
   - vuejs
   - vue.js
 seo_alias: vuejs
-default_article: 01-login
+default_article: dashboard-default
 articles:
+  - getting-started
   - 01-login

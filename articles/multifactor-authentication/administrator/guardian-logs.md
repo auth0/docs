@@ -1,7 +1,7 @@
 ---
 description: Guardian Logging
 ---
-## Tracking your Users' MFA Events
+# Tracking your Users' MFA Events
 
 In the [Logs](${manage_url}/#/logs) section of the dashboard, you can see the various events related to your users signing up and signing in using MFA.
 
@@ -29,7 +29,7 @@ Here are all the possible events related to MFA:
 
 These events can also be searched using the [Management APIv2](/api/management/v2#!/Logs) using [query string syntax](/api/management/v2/query-string-syntax). You can search criteria using the `q` parameter or you can search by a specific log ID.
 
-### Examples searching with the `q` parameter
+## Examples searching with the `q` parameter
 
 To see the events for users who are enrolling with MFA:
 

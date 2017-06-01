@@ -15,15 +15,11 @@ crews: crew-2
 
 3. Navigate to the [API section](${manage_url}/#/apis) and create a new API.
 
-::: panel Enable APIs Section
-If you can't see the [API section](${manage_url}/#/apis) in the left hand menu of the dashboard then you will have to enable it. Navigate to your [Account Advanced Settings](${manage_url}/#/account/advanced), scroll down to the *Settings* section and toggle the **Enable APIs Section** switch.
-:::
-
 Enter a friendly name and an identifier. Ideally, this identifier should be the public endpoint of the API, but any valid URN is acceptable. This API will be represented by your **Resource Server**.
 
 The selection of the **Signing Algorithm** will dictate how the API will validate the access tokens it receives:
 * HS256 (symmetric): signed using the resource server's signing secret
-* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
+* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](/jwks) URL: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
 
 ![Create an API](/media/articles/api-auth/apis-create.png)
 

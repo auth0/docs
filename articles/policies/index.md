@@ -2,8 +2,7 @@
 url: /policies
 description: This page lists all of Auth0's established operational policies.
 ---
-
-## Operational Policies
+# Operational Policies
 
 Auth0 has established the following operational policies.
 

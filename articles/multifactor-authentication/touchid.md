@@ -1,8 +1,7 @@
 ---
 description: Links to documentation for Touch ID.
 ---
-
-## Touch ID Settings
+# Touch ID Settings
 
 Below you can find useful links in our documentation to handle Touch ID within Auth0.
 

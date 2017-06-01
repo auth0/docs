@@ -43,6 +43,8 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
 
+This will load Lock into a web view. If you want to customize Lock you need to enable the [Custom Login Page](${manage_url}/#/login_page) from your hosted pages. Please refer to [Lock documentation](/libraries/lock) for available options.
+
 ## Accessing the User's Information
 
 The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.
@@ -106,4 +108,4 @@ if (!loginResult.IsError)
 
 ## More Information
 
-For more information, please refer to the [Auth0 OIDC Client Documentation](https://auth0.github.io/auth0-oidc-client-net/).
+For more information, please refer to the [Auth0 OIDC Client Documentation](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).

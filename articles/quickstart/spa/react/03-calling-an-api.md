@@ -7,7 +7,7 @@ budicon: 546
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-react-samples',
-  path: '03-Calling-an-Api',
+  path: '03-Calling-an-API',
   requirements: [
     'React 15.5'
   ]
@@ -33,7 +33,9 @@ auth0 = new auth0.WebAuth({
 });
 ```
 
-At this point you should try logging into your application again to take note of how the `access_token` differs from before. Instead of being an opaque token, it is now a JSON Web Token which has a payload that contains your API identifier as an `audience` and any `scope`s you've requested.
+::: note
+**Checkpoint:** Try logging into your application again to take note of how the `access_token` differs from before. Instead of being an opaque token, it is now a JSON Web Token which has a payload that contains your API identifier as an `audience` and any `scope`s you've requested.
+:::
 
 ::: note
 By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](/rules).

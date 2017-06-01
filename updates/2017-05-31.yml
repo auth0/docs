@@ -1,0 +1,9 @@
+added:
+  -
+    title: "JSON Web Key Set (JWKS)"
+    tags:
+      - jwks
+      - jwk
+      - jwt
+    description: |
+      A [new doc](https://auth0.com/docs/jwks) was added with information on the structure of a JSON Web Key Set and how to use it to verify the signature of a JSON Web Token.

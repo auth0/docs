@@ -53,7 +53,7 @@ Click on the [Settings](${manage_url}/#/clients/${account.clientId}/settings) ta
 
 - **Client Secret**: A string used to sign and validate `id_tokens` for authentication flows and to gain access to select Auth0 API endpoints. By default, the value is hidden, so check the **Reveal Client Secret** box to see this value.
 
-  ::: panel-warning Keep it safe
+  ::: warning
   While the Client ID is considered public information, the Client Secret **must be kept confidential**. If anyone can access your Client Secret they can issue  tokens and access resources they shouldn't.
   :::
 

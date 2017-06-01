@@ -14,7 +14,7 @@ In order to access an API from a [mobile app](/quickstart/native), you need to i
 
 ## Overview of the flow
 
-The [Authorization Code Grant](/api-auth/grant/authorization-code) has some security issues, when implemented on native applications. For instance, a malicious attacker can intercept the `authorization_code` returned by Auth0 and exchange it for an [Access Token](/tokens/access-token) (and possibly a [Refresh Token](/tokens/preview/refresh-token)).
+The [Authorization Code Grant](/api-auth/grant/authorization-code) has some security issues, when implemented on native applications. For instance, a malicious attacker can intercept the `authorization_code` returned by Auth0 and exchange it for an [Access Token](/tokens/access-token) (and possibly a [Refresh Token](/tokens/refresh-token)).
 
 The **Proof Key for Code Exchange (PKCE)** (defined in [RFC 7636](https://tools.ietf.org/html/rfc7636)) is a technique used to mitigate this authorization code interception attack.
 

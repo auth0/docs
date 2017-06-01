@@ -9,6 +9,8 @@ description: How to obtain, use and renew an id_token.
 
 The ID token, usually referred to in our docs as `id_token`, is a [JSON Web Token (JWT)](/jwt) that contains user profile information (like the user's name, email, and so forth), represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](#validate-an-id-token).
 
+You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the `id_token`.
+
 The `id_token` is consumed by the client and the claims included, are typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
 
 ::: note
@@ -17,7 +19,7 @@ If you need a refresher on OIDC refer to <a href="/protocols/oidc">OpenID Connec
 
 The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contains three parts: a header, a body and a signature.
 
-- The header contains the type of token and the hash algorithm used on the contents of the token.  
+- The header contains the type of token and the hash algorithm used on the contents of the token.
 
 - The body, also called the payload, contains identity claims about a user.  There are some claims with registered names, for things like the issuer of the token, the subject of the token (who the claims are about), and the time of issuance.  Any number of additional claims with other names can be added. For the cases where the `id_token` is returned in URLs, care must be taken to keep the JWT within the browser size limitations for URLs.
 
@@ -82,6 +84,27 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+
+### ID Token Payload
+
+::: panel-info Debugging a JWT
+The [JWT.io website](https://jwt.io) has a debugger that allows you to debug any JSON Web Token. This is useful if you want to quckly decode a JWT to see the information it contains.
+:::
+
+The payload's claims can include some or all of the following:
+
+| Parameter | Description |
+|:------------------|:---------|
+| name | The name of the user which is returned from the Identity Provider. |
+| email | The email address of the user which is returned from the Identity Provider. |
+| picture | The profile picture of the user which is returned from the Identity Provider. |
+| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format `(identity provider)&#124;(unique id in the provider)`, e.g. `github&#124;1234567890`. |
+| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued `id_token`, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+
+The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. An Auth0 `id_token` will always include the **registered claims** and the `sub` claim, but the others depends on the `scope`.
 
 ## Token Lifetime
 

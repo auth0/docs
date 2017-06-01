@@ -151,14 +151,20 @@ toc: true
       </tr>
     </tbody>
   </table>
+  
+## Extensions
+  
+We will only support extensions that are published on the Extensions gallery that you can find in the [Dashboard](${manage_url}/#/extensions). We do not provide support for custom extensions.
+  
+Feature requests should be requested at the GitHub repository of that extension.
 
-  ## Operating Systems
+## Operating Systems
 
-  This section covers the operating systems (OS) that Auth0 will support when using the Auth0 Dashboard, Lock Library or executing authentication transactions.
+This section covers the operating systems (OS) that Auth0 will support when using the Auth0 Dashboard, Lock Library or executing authentication transactions.
 
-  ::: note
-  Auth0 support is limited to the most recent version of the OS listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
-  :::
+::: note
+Auth0 support is limited to the most recent version of the OS listed (unless otherwise specified). If you are using an older version, please upgrade prior to seeking support.
+:::
 
   ### Auth0 Dashboard
 
@@ -313,6 +319,11 @@ toc: true
         <td>v2</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-php">Auth0 PHP</a></td>
+        <td>v5</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
     </tbody>
   </table>
 
@@ -375,6 +386,11 @@ toc: true
         <td><a href="https://github.com/auth0/auth0-oidc-client-net">OIDC Client for .NET Desktop and Mobile applications</a></td>
         <td>v1</td>
         <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/jwt-auth-bundle">JWT Auth Bundle</a></td>
+        <td>v3</td>
+        <td><div class="label label-default">Supported</div></td>
       </tr>
       <tr>
         <td><a href="https://github.com/auth0/Auth0.Windows.UWP">Auth0 with UWP applications</a></td>
@@ -515,7 +531,7 @@ toc: true
         <td><div class="label label-default">Community</div></td>
       </tr>
       <tr>
-        <td><a href="/quickstart/spa/emberjs">Ember</a></td>
+        <td><a href="/quickstart/spa/ember">Ember</a></td>
         <td><div class="label label-default">Community</div></td>
       </tr>
     </tbody>

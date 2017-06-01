@@ -1,8 +1,7 @@
 ---
 description: How to enable and use push notifications for Guardian.
 ---
-
-## SMS notifications
+# SMS notifications
 
 You can enable SMS messages to use as a form of multifactor authentication. This is also under the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. By toggling the **SMS** slider, you can enable using SMS for sign in and sign up for your application. SMS can be used as your only form of MFA or in addition to Push Notifications.
 

@@ -18,19 +18,7 @@ You can get started by either downloading the seed project or if you would like 
   ]
 }) %>
 
-## 1. Add the Dependencies
-
-${snippet(meta.snippets.dependencies)}
-
-This example uses `flask` but it could work with any server
-
-## 2. Add the Auth0 Callback Handler
-
-You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
-
-${snippet(meta.snippets.setup)}
-
-## 3. Specify the Callback URLs
+## 1. Specify the Callback URLs
 
 ${include('../_callbackRegularWebApp')}
 
@@ -40,13 +28,47 @@ In this case, the callbackURL should look something like:
 http://yourUrl/callback
 ```
 
-## 4. Trigger Login Manually or Integrate Lock
+## 2. Add the Dependencies
 
-<%= include('../../../_includes/_lock-sdk') %>
+${snippet(meta.snippets.dependencies)}
+
+This example uses `flask` but it could work with any server
+
+## 3. Trigger Login With Auth0.js
+
+Now, you can use `Auth0.js` to call the authorize endpoint of the Authentication API and redirect your users to our [Hosted Login page](/hosted-pages/login). This way, you will be implementing the [Authorization Code](/api-auth/grant/authorization-code) grant flow, so you will obtain a `code`.
+
+```j
+/public/app.js
+
+$(document).ready(function() {
+  var auth = new auth0.WebAuth({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}'
+   });
+
+
+    $('.btn-login').click(function(e) {
+      e.preventDefault();
+      auth.authorize({
+        audience: 'https://' + '${account.namespace}' + '/userinfo',
+        scope: 'openid profile',
+        responseType: 'code',
+        redirectUri: '${account.callback}'
+      });
+    });
+});  
+```
 
 ::: note
-The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL specified in the previous step.
+The `redirectUri` specified in the constructor **must match** the URL specified in the previous step.
 :::
+
+## 4. Add the Auth0 Callback Handler
+
+You'll need to create a callback handler that Auth0 will call once it redirects to your app. This handler exchanges the `code` we have obtained previously for an `access_token` and an `id_token`. For that, you can do the following:
+
+${snippet(meta.snippets.setup)}
 
 ## 5. Access User Information
 

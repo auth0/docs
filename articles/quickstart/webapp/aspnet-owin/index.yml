@@ -17,5 +17,4 @@ articles:
   - 02-login-custom
   - 03-storing-tokens
   - 04-user-profile
-  - 05-rules
-  - 06-authorization
+  - 05-authorization

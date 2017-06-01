@@ -26,12 +26,6 @@ For more information on tokens please refer to: [Tokens used by Auth0](/tokens).
 
 ## How to configure an API in Auth0
 
-If this is your first API, you will have to enable the API functionality first.
-
-Navigate to your [Account Advanced Settings](${manage_url}/#/account/advanced), scroll down to the *Settings* section and toggle the **Enable APIs Section** switch.
-
-![Enable APIs Section](/media/articles/api/overview/enable-api-section.png)
-
 Click on the [APIs menu option](${manage_url}/#/apis) on the left.
 
 ::: note

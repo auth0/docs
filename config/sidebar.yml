@@ -14,28 +14,75 @@ articles:
 
       - title: Developer Videos
         url: /videos
+        children:
+
+        - title: Developer Overview
+          url: /videos/developer-overview
+
+        - title: Rules
+          url: /videos/rules
+
+        - title: Session & Cookies
+          url: /videos/session-and-cookies
 
       - title: Architecture Scenarios
         url: /architecture-scenarios
 
+        children:
+          - title: Server Client + API
+            url: /architecture-scenarios/application/server-api
+
+          - title: SSO for Regular Web Apps
+            url: /architecture-scenarios/application/web-app-sso
+
+          # - title: SPA + API
+          #   url: /architecture-scenarios/application/spa-api
+
+          # - title: Mobile + API
+          #   url: /architecture-scenarios/application/mobile-api
+
+          # - title: SAML for Regular Web Apps
+          #   url: /architecture-scenarios/application/web-saml
+
+          # - title: B2B + B2E
+          #   url: /architecture-scenarios/business/b2b-b2e
+
+          # - title: B2B
+          #   url: /architecture-scenarios/business/b2b
+
+          # - title: B2C
+          #   url: /architecture-scenarios/business/b2c
+          
+          # - title: B2E
+          #   url: /architecture-scenarios/business/b2e
+      - title: Pre-launch Tips
+        url: /prelaunch-tips  
+
   - title: "Clients"
     url: "/clients"
+    children:
+
+      - title: Overview
+        url: /clients
+
+      - title: Connections
+        url: /clients/connections
 
   - title: "APIs"
-    url: "/api-auth/intro"
+    url: "/apis"
     children:
+
+      - title: "Overview"
+        url: "/apis"
+
+      - title: "Authorization API Index"
+        url: "/api-auth"
 
       - title: "OIDC Conformant Authentication"
         url: "/api-auth/intro"
 
-      - title: "Adoption Guide"
+      - title: "OIDC Adoption Guide"
         url: "/api-auth/tutorials/adoption"
-
-      - title: "Docs Index"
-        url: "/api-auth"
-
-      - title: "APIs Overview"
-        url: "/apis"
 
       - title: "Which OAuth Flow to Use"
         url: "/api-auth/which-oauth-flow-to-use"
@@ -64,23 +111,24 @@ articles:
   - title: "Connections"
     url: "/connections"
     children:
-      - title: "Username/Password Connection"
+      - title: "Overview"
+        url: "/connections"
+
+      - title: "Username/Password"
         url: "/connections/database"
 
-      - title: "Social / Enterprise Connections"
+      - title: "Social/Enterprise"
         url: "/identityproviders"
         children:
           - title: "Custom Social Extensions"
             url: "/extensions/custom-social-extensions"
 
-      - title: "Custom Database Connections"
+      - title: "Custom Database"
         url: "/connections/database/mysql"
 
       - title: "Passwordless Authentication"
         url: "/connections/passwordless"
         children:
-          - title: "Overview"
-            url: "/connections/passwordless"
 
           - title: "Using Email"
             url: "/connections/passwordless/email"
@@ -92,11 +140,11 @@ articles:
             url: "/connections/passwordless/faq"
 
   - title: "Rules"
-    url: "/rules"
+    url: "/rules/current"
     children:
 
       - title: "Overview"
-        url: "/rules"
+        url: "/rules/current"
 
       - title: "User Metadata in Rules"
         url: "/rules/metadata-in-rules"
@@ -114,8 +162,11 @@ articles:
     url: "/hooks"
     children:
 
-      - title: "Overview"
+      - title: "Index"
         url: "/hooks"
+
+      - title: "Overview"
+        url: "/hooks/overview"
 
       - title: "Extensibility Points"
         url: "/hooks/extensibility-points"
@@ -138,6 +189,15 @@ articles:
       - title: "Customizing Your Emails"
         url: "/email/templates"
 
+      - title: "Use your own SMTP Email Provider"
+        url: "/email/providers"
+
+      - title: "Liquid Syntax in Email Templates"
+        url: "/email/liquid-syntax"
+
+      - title: "Set up a Test SMTP Provider"
+        url: "/email/testing"
+
   - title: "Password Policies"
     url: "/connections/database/password-options"
     children:
@@ -150,9 +210,20 @@ articles:
   - title: "User Management"
     url: "/user-profile"
     children:
-      - title: "User Profiles"
+      - title: "User Profile"
         url: "/user-profile"
+        children:
+          - title: "Structure"
+            url: "/user-profile/user-profile-structure"
 
+          - title: "Details"
+            url: "/user-profile/user-profile-details"
+
+          - title: "Normalized User Profile"
+            url: "/user-profile/normalized"
+
+          - title: "Picture"
+            url: "/user-profile/user-picture"
       - title: "User Metadata"
         url: "/metadata"
 
@@ -162,8 +233,14 @@ articles:
       - title: "Delegated Administration"
         url: "/extensions/delegated-admin"
 
-      - title: "Authorization"
+      - title: "Authorization Extension"
         url: "/extensions/authorization-extension/v2"
+
+      - title: "Progressive Profiling"
+        url: "/user-profile/progressive-profiling"
+
+      - title: "Data Storage"
+        url: "/user-profile/user-data-storage"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
@@ -185,19 +262,60 @@ articles:
 
       - title: "Google Authenticator"
         url: "/multifactor-authentication/google-authenticator"
+        children:
+          - title: "For Administrators"
+            url: "/multifactor-authentication/google-auth/admin-guide"
+
+          - title: "For Developers"
+            url: "/multifactor-authentication/google-auth/dev-guide"
+
+          - title: "For Users"
+            url: "/multifactor-authentication/google-auth/user-guide"
 
       - title: "Duo Security"
         url: "/multifactor-authentication/duo"
+        children:
+          - title: "For Administrators"
+            url: "/multifactor-authentication/duo/admin-guide"
+
+          - title: "For Developers"
+            url: "/multifactor-authentication/duo/dev-guide"
+
+          - title: "For Users"
+            url: "/multifactor-authentication/duo/user-guide"
+
+      - title: "For Native Applications"
+        url: "/multifactor-authentication/mfa-native"
+
+      - title: "Custom MFA"
+        url: "/multifactor-authentication/custom"
+
+      - title: "Yubikey NEO Example"
+        url: "/multifactor-authentication/yubikey"
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
+    children:
+
+      - title: "Overview"
+        url: "/anomaly-detection"
+
+      - title: "Breached Passwords"
+        url: "/anomaly-detection/breached-passwords"
 
   - title: "Addons/Third-Party Applications"
     url: "/addons"
+    children:
+
+      - title: "Overview"
+        url: "/addons"
 
   - title: "Support"
     url: "/support"
     children:
+      - title: "Support Options"
+        url: "/support"
+
       - title: "Support Matrix"
         url: "/support/matrix"
 
@@ -212,6 +330,45 @@ articles:
 
   - title: "Professional Services"
     url: "/services"
+    children:
+      - title: "Overview"
+        url: "/services"
+
+      - title: "Architectural Design Sessions"
+        url: "/services/architectural-design"
+      
+      - title: "Performance and Scalability"
+        url: "/services/performance-scalability"
+
+      - title: "Geo High Availability"
+        url: "/services/geo-ha"
+
+      - title: "Scenario guidance"
+        url: "/services/scenario-guidance"
+
+      - title: "Code Review"
+        url: "/services/code-review"
+
+      - title: "Pair Programming"
+        url: "/services/pair-programming"
+      
+      - title: "Private SaaS reconfiguration"
+        url: "/services/private-saas-configuration"
+
+      - title: "Auth0 Introduction"
+        url: "/services/auth0-introduction"
+
+      - title: "Auth0 Advanced Topics"
+        url: "/services/auth0-advanced"
+
+      - title: "Private SaaS Introduction"
+        url: "/services/private-saas-introduction"
+
+      - title: "Private SaaS Management Workshop"
+        url: "/services/private-saas-management"
+
+      - title: "Jumpstart"
+        url: "/services/jumpstart"
 
 apis:
 
@@ -235,6 +392,9 @@ apis:
       - title: API Tokens
         url: "/api/management/v2/tokens"
         forceFullReload: true
+        children:
+        - title: Changes
+          url: "/api/management/v2/tokens-flows"
 
       - title: Query String Syntax
         url: "/api/management/v2/query-string-syntax"
@@ -242,6 +402,10 @@ apis:
 
       - title: User Search
         url: "/api/management/v2/user-search"
+        forceFullReload: true
+
+      - title: Changes in v2
+        url: "/api/management/v2/changes"
         forceFullReload: true
 
       - title: API Explorer

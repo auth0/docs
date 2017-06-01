@@ -5,7 +5,7 @@ title: Auth0 Libraries
 description: Auth0 Libraries - helping you implement Auth0 with simple efficiency
 url: /libraries
 ---
-
+<!-- markdownlint-disable MD041 MD002 MD026 -->
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Auth0 Libraries</h1>
@@ -17,7 +17,7 @@ url: /libraries
 ## How Should You Implement Auth0?
 
 - [Lock](#lock-login-signup-widgets) is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface. 
-- [Auth0 Libraries](#auth0-client-side-libraries) are client-side libraries that *do not* come with a user interface - you use your own. These allow for expanded customization of the behavior and appearance of the login process. 
+- [Auth0 SDKs](#auth0-client-side-sdks) are client-side libraries that *do not* come with a user interface - you use your own. These allow for expanded customization of the behavior and appearance of the login process. 
 - The [Authentication API](/api-auth) provides integration without requiring the use of Auth0 libraries. 
 
 The best option to choose will depend on the needs of your app. Check out the [When to Use Lock](/libraries/when-to-use-lock) page for more information to help you decide.

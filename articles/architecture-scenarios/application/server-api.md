@@ -89,11 +89,7 @@ In this section we will review all the configurations we need to apply using the
 
 ### Configure the API
 
-If this is the first time you create an API in Auth0, you will have to enable the API functionality first. Navigate to your [Account Advanced Settings](${manage_url}/#/account/advanced) and scroll down to the **Settings** section.Ensure that the **Enable APIs Section** is switched on.
-
-![Enable APIs Section](/media/articles/architecture-scenarios/server-api/enable-apis-section.png)
-
-Next, you can click on the [APIs menu option](${manage_url}/#/apis) on the left, and click the **Create API** button.
+Click on the [APIs menu option](${manage_url}/#/apis) on the left, and click the **Create API** button.
 
 You will be required to supply the following details for your API:
 

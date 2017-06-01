@@ -7,7 +7,7 @@ url: /appliance/dashboard
 
 # Appliance Management Dashboard
 
-Regardless of whether you choose to use Auth0's cloud services or to run Auth0 through Appliance instances, the Management Dashboard is the interface through which you may configure things like your Applications, Connections, Users, and Rules.
+Regardless of where you're hosting your Appliance, you can use the Management Dashboard to configure things like your Applications, Connections, Users, and Rules.
 
 ## Appliance Controls
 
