@@ -10,7 +10,6 @@ alias:
  - google-oauth2
 seo_alias: google
 ---
-
 # Connect your app to Google
 
 To connect your Auth0 client to Google, you will need to generate a *Client ID* and *Client Secret* in a Google project, copy these keys into your Auth0 settings, and enable the Connection.
@@ -113,5 +112,17 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 If you have configured everything correctly, you will see the **It works!!!** page:
 
    ![](/media/articles/connections/social/google/goog-api-works.png)
+
+## Obtaining the Access Token and Refresh Token
+
+The `access_token` returned by Google can be obtained after the user has logged in by making an HTTP GET request to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope.  The `access_token` for the IdP will be available in the `identities` array, under the element for the particular connection.
+
+::: note
+  For more information, please refer to the [Management API documentation](/api/management/v2#!/Users/get_users_by_id)
+:::
+
+You can also request a `refresh_token` from Google by passing along the `access_type=offline` parameter when calling the Auth0 `/authorize` endpoint (or passing it in `auth.params` when using [Lock](https://auth0.com/docs/libraries/lock/v10)).
+
+The `refresh_token` can be retrieved in the same manner as described for the `access_token` above.
 
 <%= include('../_quickstart-links.md') %>
