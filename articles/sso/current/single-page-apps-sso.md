@@ -11,8 +11,8 @@ Single Page Applications (SPA) are user-friendly apps that load a single HTML pa
 
 Suppose you have two applications:
 
-* App 1: app1.com (single page app)
-* App 2: app2.com (regular web app)
+* App 1: `app1.com` (single page app)
+* App 2: `app2.com` (regular web app)
 
 If you've implemented SSO and the user logs in either of the two applications, the user should automatically be logged in to the other application.
 
@@ -20,16 +20,16 @@ This article shows you how to implement OIDC-compliant Single Sign On via [Silen
 
 ## Configure the OIDC-Compliant Single Sign On Sample
 
-<div class="alert alert-info">
-  <strong>Heads up!</strong> This document assumes that you're using port 3000 when running the sample. If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the <i>auth0-variables.js</i>, <i>callback.html</i>, and <i>index.js</i> files) and configure your Auth0 Client.
-</div>
+::: warning
+This document assumes that you're using port `3000` when running the sample. If you are using a different port, you'll need to adjust for this as you work through the sample (specifically the `auth0-variables.js`, `callback.html`, and `index.js` files) and configure your Auth0 Client.
+:::
 
 If you don't already have an Auth0 Client (of type **Single Page Web Applications**) with the **OIDC Conformant** flag enabled, you'll need to create one.
 
 1. Go to the [Auth0 Dashboard](${manage_url}) and click on [Clients](${manage_url}/#/clients) in the left-hand navigation bar. Click **Create Client**.
 2. The **Create Client** window will open, allowing you to enter the name of your new Client. Choose **Single Page Web Applications** as the **Client Type**. When done, click on **Create** to proceed.
 3. Navigate to the [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings) page. Add `http://localhost:3000` and `http://localhost:3000/callback.html` to the Allowed Callback URLs field of your [Auth0 Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
-4. Scroll to the bottom of the [Settings](${manage_url}/#/clients/${account.clientId}/settings) page, where you'll find the *Advanced Settings* section. Under the *OAuth* tab, enable the **OIDC Conformant** Flag under the *OAuth* area of *Advanced Settings*.
+4. Scroll to the bottom of the [Settings](${manage_url}/#/clients/${account.clientId}/settings) page, where you'll find the **Advanced Settings** section. Under the **OAuth** tab, enable the **OIDC Conformant** Flag under the **OAuth** area of **Advanced Settings**.
 
 Now that you've configured your Auth0 Client, you can continue configuring your sample.
 
@@ -71,8 +71,8 @@ https://${account.namespace}/authorize?
     prompt=none
 ```
 
-:::panel-info Authorization Call Parameters
-Refer to the [tutorial on using the Implict Grant](/api-auth/tutorials/implicit-grant#1-get-the-user-s-authorization) for information on the authorization call's parameters.
+:::note
+For details on the request parameters, refer to [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant#1-get-the-user-s-authorization).
 :::
 
 For requests received with the parameter `prompt=none`, Auth0 redirects to the `redirect_uri` specified. There are two possible outcomes:
@@ -80,11 +80,11 @@ For requests received with the parameter `prompt=none`, Auth0 redirects to the `
 * If the user is already logged in via SSO, Auth0 sends a successful authentication response;
 * If the user is not logged in via SSO (and therefore Auth0 cannot silently authenticate the user), Auth0 sends an error response.
 
-Regardless of which outcome occurs, the sample app's [`postMessage` function](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) sends Auth0's response from the iframe back to the main page, allowing it to act based on the response.
+Regardless of which outcome occurs, the sample app's [`postMessage()` function](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) sends Auth0's response from the iframe back to the main page, allowing it to act based on the response.
 
 ### Using the Auth0.js library
 
-Users of the `Auth0.js` library have access to [the `renewAuth` method](https://github.com/auth0/auth0.js#api), which attempts to get a new token from Auth0 by using silent authentication or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
+Users of the `Auth0.js` library have access to [the `renewAuth()` method](/libraries/auth0js/v8#using-renewauth-to-acquire-new-tokens), which attempts to get a new token from Auth0 by using silent authentication or invokes callback with an error if the user does not have an active SSO session at your Auth0 domain.
 
 This method can be used to detect a locally unauthenticated user's SSO session status, or to renew an authenticated user's access token. The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it.
 
@@ -149,21 +149,21 @@ $(function () {
 });
 ```
 
-The response for a call made *without* the `prompt=none` parameter is indistinguishable from the response for a call made *with* the parameter.
+The response for a call made without the `prompt=none` parameter is indistinguishable from the response for a call made with the parameter.
 
 You can test this using the sample app. If you're already logged in, you can request an updated token by clicking the **Click here to renew it** link.
 
-At this point, the app silently authenticates you, gets the new token, and updates the page to reflect your new token expiration datetime. Notice that you *did not* see the Lock screen asking for your credentials.
+At this point, the app silently authenticates you, gets the new token, and updates the page to reflect your new token expiration datetime. Notice that you did not see the Lock screen asking for your credentials.
 
 ### Further Actions
 
 If your authentication flow triggers an error (indicating unsuccessful authentication) at any point, you'll need to [handle the error(s)](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) before moving on.
 
-If your access tokens expire, you can [refresh them](/api-auth/tutorials/silent-authentication#refresh-expired-tokens).
+If your access tokens expire, you can use [Silent Authentication](/api-auth/tutorials/silent-authentication#refresh-expired-tokens) to get a new one.
 
 ## Single Logout
 
-If the user logs out of app1.com, then you'll want the user's tokens cleaned up on app2.com and app3.com.
+If the user logs out of `app1.com`, then you'll want the user's tokens cleaned up on `app2.com` and `app3.com`.
 
 To implement [Single Log Out](/logout), you need to check periodically to see if Auth0 has expired the SSO session. If so, remove the token from the application's local storage to ensure that the local session clears.
 
