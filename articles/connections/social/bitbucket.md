@@ -5,7 +5,6 @@ image: /media/connections/bitbucket.png
 seo_alias: bitbucket
 description: This page shows you how to connect your Auth0 app to Bitbucket. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 ---
-
 # Connect your app to Bitbucket
 
 To connect your Auth0 app to Bitbucket, you will need to generate a *Key* and *Secret* in a Bitbucket app, copy these keys into your Auth0 settings, and enable the connection.
@@ -38,7 +37,7 @@ In the Callback URL field, enter the folowing:
 
 `https://${account.namespace}/login/callback`
 
-Select the Permissions you want to enable for this connection.
+Select the Permissions you want to enable for this connection. At the very least you will need to select the `Account:Email` and `Account:Read` permissions.
 
 Click **Save**.
 
