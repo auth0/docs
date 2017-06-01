@@ -1,9 +1,12 @@
 ---
-toc: true
 description: Client-side SSO with single page applications.
+toc: true
 ---
-
 # Client-side SSO (Single Page Apps)
+
+::: version-warning
+This document covers an outdated version of the Auth0 authentication pipeline. We recommend you use the current version, using the dropdown. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
 
 To log a user in silently (i.e. without displaying the Lock screen) the following conditions need to be met:
 
