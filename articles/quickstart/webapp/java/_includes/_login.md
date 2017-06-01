@@ -1,5 +1,5 @@
 ## Project Structure
-The Login project sample has the next structure:
+The Login project sample has the following structure:
 
 ```text
 - src
@@ -24,13 +24,13 @@ The Login project sample has the next structure:
 
 The project contains a single JSP: the `home.jsp` which will display the tokens associated to the user after a successful login and provide the option to logout.
 
-The project contains a WebFilter: the `Auth0Filter.java` which will check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected to the LoginServlet.
+The project contains a WebFilter: the `Auth0Filter.java` which will check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected to the `LoginServlet`.
 
 The project contains also four servlets:
 - `LoginServlet.java`: Invoked when the user attempts to login. The servlet uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
 - `CallbackServlet.java`: The servlet captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
-- `HomeServlet.java`: The servlet gets the previously saved tokens and shows them on the `home.jsp` resource.
-- `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the login page, handled by the LoginServlet.
+- `HomeServlet.java`: The servlet reads the previously saved tokens and shows them on the `home.jsp` resource.
+- `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the login page, handled by the `LoginServlet`.
 
 Lastly, the project defines a helper class: the `AuthenticationControllerProvider.java` which will be in charge of creating new instances of `AuthenticationController`. Because this controller is very simple and doesn't keep any context it can be safely reused. You can also choose to create a new one every time it's needed.
 
@@ -61,7 +61,7 @@ protected void doGet(final HttpServletRequest req, final HttpServletResponse res
 }
 ```
 
-After the user logs in the result will be received in our `CallbackServlet`. The request holds the call context that we've previously set by generating the Authorize URL with the controller. When we pass it to the controller, we get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, we need to save the credentials somewhere we can access them later. We will use again the `HttpSession` of the request. A helper class called `SessionUtils` is included in the library to set and read values from a request's session.
+After the user logs in the result will be received in our `CallbackServlet`, either via a GET or a POST Http method. The request holds the call context that we've previously set by generating the Authorize URL with the controller. When we pass it to the controller, we get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, we need to save the credentials somewhere we can access them later. We will use again the `HttpSession` of the request. A helper class called `SessionUtils` is included in the library to set and read values from a request's session.
 
 ```java
 public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -79,7 +79,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOExce
 ```
 
 ::: note
-It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that implementation.
+It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that validation.
 :::
 
 

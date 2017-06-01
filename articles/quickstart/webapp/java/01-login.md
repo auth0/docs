@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication to your web app
+description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication to your Java Servlet web app
 budicon: 448
 ---
 

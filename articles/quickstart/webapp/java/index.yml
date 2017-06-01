@@ -2,9 +2,6 @@ title: Java
 image: /media/platforms/java.png
 tags:
   - quickstart
-snippets:
-  setup: server-platforms/java/setup
-  use: server-platforms/java/use
 alias:
   - java
 seo_alias: java
