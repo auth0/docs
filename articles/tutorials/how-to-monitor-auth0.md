@@ -47,7 +47,7 @@ If all services are up, the endpoint returns the `200` HTTP response code and a 
 
 If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
-We recommend using an authentication flow that doesn't require a user interface (such as the `Resource Owner flow`) so that you don't have to use a monitoring tool that is capable of mimicking the actions of a user. Many monitoring tools exist using this approach, including:
+We recommend using an authentication flow that doesn't require a user interface (such as the **Resource Owner Password Grant**) so that you don't have to use a monitoring tool that is capable of mimicking the actions of a user. Many monitoring tools exist using this approach, including:
 
 * [New Relic](http://newrelic.com)
 * [Pingdom](http://pingdom.com)
