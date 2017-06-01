@@ -1,15 +1,14 @@
 ---
-toc: true
 description: Introduction to Single Sign On (SSO) with Auth0.
+toc: true
 ---
+# What is Single Sign On?
 
-# What is SSO (Single Sign On)?
-
-SSO (Single Sign On) occurs when a user logs in to one Client and is then signed in to other Clients automatically, regardless of the platform, technology, or domain the user is using.
+Single Sign On (SSO) occurs when a user logs in to one Client and is then signed in to other Clients automatically, regardless of the platform, technology, or domain the user is using.
 
 Google's implementation of login for their products, such as Gmail, YouTube, Google Analytics, and so on, is an example of SSO. Any user that is logged in to one of Google's products are automatically logged in to their other products as well.
 
-Single Sign On usually makes use of a *Central Service* which orchestrates the single sign on between multiple clients. In the example of Google, this central service is [Google Accounts](https://accounts.google.com). When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
+Single Sign On usually makes use of a **Central Service** which orchestrates the single sign on between multiple clients. In the example of Google, this central service is [Google Accounts](https://accounts.google.com). When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
 
 1. The user accesses the first Google product.
 2. The user receives a Google Accounts-generated cookie.
@@ -47,7 +46,7 @@ If an SSO cookie is present you can also sign the user in silently, i.e. without
 
 ## How to Implement SSO with Auth0
 
-::: panel-info Enabling Identity Providers
+::: note
 Prior to enabling SSO for a given Client, you must first [configure the Identity Provider(s)](/identityproviders) you want to use.
 :::
 
@@ -55,13 +54,13 @@ To enable SSO for one of your Clients (recall that each Client is independent of
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
-Near the bottom of the *Settings* page, toggle **Use Auth0 instead of the IdP to do Single Sign On**.
+Near the bottom of the **Settings** page, toggle **Use Auth0 instead of the IdP to do Single Sign On**.
 
 ![](/media/articles/sso/single-sign-on/sso-flag.png)
 
 Alternatively you can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 
-Once you have set the SSO flag for your Client in the Auth0 Dashboard, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the [`getSSOData`](/libraries/auth0js#sso) function in the [auth0.js library](/libraries/auth0js).
+Once you have set the SSO flag for your Client in the Auth0 Dashboard, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the `getSSOData()` function in the [auth0.js library](/libraries/auth0js#sso).
 
 The result of this function will indicate whether an SSO cookie is present, and if so it will return the SSO data of the user which can then subsequently be used to log the user in silently without even displaying Lock.
 
@@ -70,7 +69,9 @@ For more detailed information on how to implement this, please refer to the foll
 * [Client-Side SSO (Single Page Apps)](/sso/single-page-apps-sso)
 * [Server-Side SSO (Regular Web Apps)](/sso/regular-web-apps-sso)
 
-> Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single Page Apps and Regular Web Apps.
+::: note
+Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single Page Apps and Regular Web Apps.
+:::
 
 ### Length of SSO Sessions
 
@@ -92,5 +93,5 @@ See the [Logout URL docs](/logout) for information on terminating the first two 
 
 Single Sign On works with Social Identity Providers given the following conditions:
 
-1. You need to enable "Use Auth0 instead of the IdP to do Single Sign On" when configuring the Client
-2. Your social connection can not be using the developer keys. You will need to register an app in the relevant social provider and then use that Client ID and Client Secret when configuring the connection. You can read more about the [caveats of using the Auth0 developer keys](/connections/social/devkeys#caveats).
+1. You need to enable **Use Auth0 instead of the IdP to do Single Sign On** when configuring the Client
+1. Your social connection can not be using the developer keys. You will need to register an app in the relevant social provider and then use that Client ID and Client Secret when configuring the connection. You can read more about the [caveats of using the Auth0 developer keys](/connections/social/devkeys#caveats).
