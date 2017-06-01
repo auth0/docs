@@ -64,10 +64,9 @@ Once you have set the SSO flag for your Client in the Auth0 Dashboard, you must 
 
 The result of this function will indicate whether an SSO cookie is present, and if so it will return the SSO data of the user which can then subsequently be used to log the user in silently without even displaying Lock.
 
-For more detailed information on how to implement this, please refer to the following documents:
+For more detailed information on how to implement this, please refer to the following:
 
-* [Client-Side SSO (Single Page Apps)](/sso/single-page-apps-sso)
-* [Server-Side SSO (Regular Web Apps)](/sso/regular-web-apps-sso)
+* [Client-Side SSO (Single Page Apps)](/single-page-apps-sso)
 
 ::: note
 Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single Page Apps and Regular Web Apps.
