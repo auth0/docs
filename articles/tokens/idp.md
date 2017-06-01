@@ -1,7 +1,6 @@
 ---
 description: How to obtain Identity Provider access tokens.
 ---
-
 # Identity Provider Access Tokens
 
 ## Overview
@@ -25,6 +24,14 @@ The validity period for third-party access tokens will vary by the issuing IdP.
 ## Renewing the token
 
 There is no standard way to renew IdP access tokens through Auth0. If available, the mechanism for renewing IdP access tokens will vary for each provider.
+
+For certain Identity Providers, Auth0 will store a `refresh_token` which you can use to obtain a new `access_token` for the IdP. Currently this is supported for the following Identity Providers:
+
+* BitBucket
+* Google OAuth 2.0
+* OAuth 2.0
+* SharePoint
+* Azure AD
 
 ## Termination of tokens
 
