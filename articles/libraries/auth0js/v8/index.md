@@ -85,7 +85,7 @@ You can choose a method for login based on the type of auth you need in your app
 
 ### webAuth.authorize()
 
-The `authorize()` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited in the examples below. This method can take a variety of parameters via the `options` object.
+The `authorize()` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited in the examples below. This method invokes the [/authorize endpoint](/api/authentication?javascript#social) of the Authentication API, and can take a variety of parameters via the `options` object.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -96,7 +96,7 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | `state` | recommended | (String)  An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 
-For hosted login, one must call the [`authorize` endpoint](/api/authentication?javascript#login):
+For hosted login, one must call the `authorize()` method. 
 
 ```js
 webAuth.authorize({
@@ -104,7 +104,7 @@ webAuth.authorize({
 });
 ```
 
-If `authorize` is called without any parameters, it will use those which were set when `webAuth` was instantiated. The first required parameter, `client_id`, will be thus passed into `authorize`. The second required parameter is `response_type`, and this will either be acquired from the same place, or, if it was never set, default to `token` in most cases.
+If `authorize()` is called without any parameters, it will use those which were set when `webAuth` was instantiated. The first required parameter, `client_id`, will be thus passed to `authorize()`. The second required parameter is `response_type`, and this will either be acquired from the same place, or, if it was never set, default to `token` in most cases.
 
 For social logins, the `connection` parameter will need to be specified:
 
