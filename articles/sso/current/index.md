@@ -66,7 +66,7 @@ The result of this function will indicate whether an SSO cookie is present, and 
 
 For more detailed information on how to implement this, please refer to the following:
 
-* [Client-Side SSO (Single Page Apps)](single-page-apps-sso)
+* [Client-Side SSO (Single Page Apps)](/sso/current/single-page-apps-sso)
 
 ::: note
 Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single Page Apps and Regular Web Apps.
