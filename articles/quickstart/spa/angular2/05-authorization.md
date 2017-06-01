@@ -74,7 +74,9 @@ The `userHasScopes` method can now be used alongside `isAuthenticated` to condit
 
 ## Protect Client-Side Routes
 
-To completely prevent access to client-side routes based on a particular `scope`, use an `AuthGuard`.
+For some routes in your application, you may want to only allow access if the user is authenticated. This check can be made with the `canActivate` hook.
+
+Create a new service called `AuthGuardService`.
 
 ```ts
 // src/app/auth/auth-guard.service.ts
@@ -89,22 +91,17 @@ export class AuthGuardService implements CanActivate {
   constructor(public auth: AuthService, public router: Router) {}
 
   canActivate(): boolean {
-    if (this.auth.isAuthenticated()) {
-      if (this.auth.userHasScopes(['write:messages'])) {
-        return true;
-      } else {
-        this.router.navigate(['']);
-        return false;
-      }
+    if (!this.auth.isAuthenticated()) {
+      this.router.navigate(['']);
+      return false;
     }
+    return true;
   }
 
 }
 ```
 
-The guard implements the `CanActivate` interface which requires a method called `canActivate` on the service. This method returns `true` if the user is authenticated and has a `scope` of `write:messages`, and `false` if not. It also navigates the user to the home route if they don't have the appropriate `scope` to access the route.
-
-Use the `AuthGuard` in the routing definition.
+In your route configuration, apply the `AuthGuardService` to the `canActivate` hook for whichever routes you wish to protect.
 
 ```ts
 // src/app/app.routes.ts
@@ -113,7 +110,51 @@ import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 
 export const ROUTES: Routes = [
   // ...
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'ping', component: PingComponent, canActivate: [AuthGuard] },
+];
+```
+
+The guard implements the `CanActivate` interface which requires a method called `canActivate` in the service. This method returns `true` if the user is authenticated and `false` if not. It also navigates the user to the home route if they aren't authenticated.
+
+### Limit Route Access Based on `scope`
+
+To prevent access to client-side routes based on a particular `scope`, create another service called `ScopeGuard`. This service should use `ActivatedRouteSnapshot` to check for a set of `expectedScopes` passed in the `data` key of the route configuration.
+
+```ts
+// src/app/auth/scope-guard.service.ts
+
+import { Injectable } from '@angular/core';
+import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
+import { AuthService } from './auth.service';
+
+@Injectable()
+export class ScopeGuardService implements CanActivate {
+
+  constructor(public auth: AuthService, public router: Router) {}
+
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+
+    const scopes = route.data.expectedScopes;
+
+    if (!this.auth.isAuthenticated() || !this.auth.userHasScopes(scopes)) {
+      this.router.navigate(['']);
+      return false;
+    }
+    return true;
+  }
+
+}
+```
+
+```ts
+// src/app/app.routes.ts
+
+import { ScopeGuardService as ScopeGuard } from './auth/scope-guard.service';
+
+export const ROUTES: Routes = [
+  // ...
+  { path: 'admin', component: AdminComponent, canActivate: [ScopeGuard], data: { expectedScopes: ['write:messages']} },
 ];
 ```
 
