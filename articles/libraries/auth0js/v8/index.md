@@ -150,6 +150,10 @@ webAuth.redirect.loginWithCredentials({
 });
 ```
 
+::: warning
+Note that `webauth.redirect.loginWithCredentials` will be soon deprecated, and it is recommended that you use `webauth.client.login` instead.
+:::
+
 ### webAuth.popup.loginWithCredentials()
 
 To login using popup mode with credentials to enterprise connections, the `popup.loginWithCredentials` method is used.
@@ -168,13 +172,13 @@ webAuth.popup.loginWithCredentials({
 
 ### webAuth.client.login()
 
-The `client.login` method allows for non redirect auth using custom database connections, using /`oauth/token`.
+The `client.login` method allows for non-redirect auth using database connections, using `/oauth/token`.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `username` | required | (String) The username to present for authentication |
 | `password` | required | (String) The password to prevent for authentication |
-| `realm` | required | (String) The name of the database connection against which to authenticate. |
+| `realm` | required | (String) The name of the database connection against which to authenticate. See [realm documentation](/api-auth/tutorials/password-grant#realm-support) for more information |
 | `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
 
@@ -250,7 +254,7 @@ The `passwordlessVerify` method requires several paramters to be sent in its `op
 
 Note that, as with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
 
-::: panel passwordlessVerify required WebAuth options
+::: note
 In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
 :::
 
@@ -277,7 +281,7 @@ The `parseHash` method takes an `options` object that contains the following par
 | `nonce` | optional | (String) Used to verify the `id_token`
 | `hash` | optional | (String) The URL hash (if not provided, `window.location.hash` will be used by default) |
 
-::: panel RS256 Requirement
+::: note
 This method requires that your tokens are signed with RS256 rather than HS256. For more information about this, check the [Auth0.js v8 Migration Guide](/libraries/auth0js/migration-guide#the-parsehash-method).
 :::
 
@@ -349,8 +353,7 @@ To log out a user, use the `logout` method. This method accepts an options objec
 | `federated` | optional | (Querystring parameter) Add this querystring parameter to the logout URL, to log the user out of their identity provider, as well: `https://${account.namespace}/v2/logout?federated`. |
 
 ::: panel returnTo parameter
-Note that if the `clientID` parameter _is_ included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}).
-However, if the `clientID` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
+Note that if the `clientID` parameter is included, the `returnTo` URL that is provided must be listed in the Client's **Allowed Logout URLs** in the [Auth0 dashboard](${manage_url}). However, if the `clientID` parameter _is not_ included, the `returnTo` URL must be listed in the **Allowed Logout URLs** at the *account level* in the [Auth0 dashboard](${manage_url}).
 :::
 
 ```js
