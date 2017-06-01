@@ -19,7 +19,7 @@ This document explains how to logout a user from the Auth0 session and optionall
 
 ## Log Out a User
 
-The logout endpoint in Auth0 can work in two ways:
+The [logout endpoint](/api/authentication?javascript#logout) in Auth0 can work in two ways:
 - Clear the SSO cookie in Auth0
 - Clear the SSO cookie in Auth0 and sign out from the IdP (for example, ADFS or Google)
 
@@ -59,7 +59,7 @@ The following identity providers support federated logout:
 * Yammer
 
 ::: panel-warning Clear your application session
-The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider. It does not log you out of your application! This is something that you should implement on your side. You need to log out the user from your application, by clearing their session. You might find [this video](/videos/session-and-cookies) helpful.
+The Auth0 [logout endpoint](/api/authentication?javascript#logout) logs you out from Auth0, and optionally from your identity provider. It does not log you out of your application! This is something that you should implement on your side. You need to log out the user from your application, by clearing their session. You might find [this video](/videos/session-and-cookies) helpful.
 :::
 
 
@@ -142,7 +142,7 @@ https://${account.namespace}/v2/logout?federated&
 
 ### Supported Providers
 
-Auth0 supports use of the `logout` endpoint with the following providers:
+Auth0 supports use of the [`logout` endpoint](/api/authentication?javascript#logout) with the following providers:
 
 - AOL
 - Auth0
@@ -180,7 +180,7 @@ To logout users from an external SAML identity provider, a [SAML logout URL](/sa
 
 If a logout URL is not configured, Auth0 will use the __SAML login URL__.
 
-To log out a user from both Auth0 and their SAML identity provider, they must be redirected to the logout endpoint with a URL that includes the `federated` querystring parameter as [described above](#log-out-a-user).
+To log out a user from both Auth0 and their SAML identity provider, they must be redirected to the [logout endpoint](/api/authentication?javascript#logout) with a URL that includes the `federated` querystring parameter as [described above](#log-out-a-user).
 
 The external SAML identity provider will need to know where to send SAML logout responses. The __SingleLogout service URL__ that will consume this response is the following:
 
