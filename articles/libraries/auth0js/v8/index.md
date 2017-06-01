@@ -172,13 +172,13 @@ webAuth.popup.loginWithCredentials({
 
 ### webAuth.client.login()
 
-The `client.login` method allows for non-redirect auth using database connections, using /`oauth/token`.
+The `client.login` method allows for non-redirect auth using database connections, using `/oauth/token`.
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `username` | required | (String) The username to present for authentication |
 | `password` | required | (String) The password to prevent for authentication |
-| `realm` | required | (String) The name of the database connection against which to authenticate. See [realm documentation](https://auth0.com/docs/api-auth/tutorials/password-grant#realm-support) for more information |
+| `realm` | required | (String) The name of the database connection against which to authenticate. See [realm documentation](/api-auth/tutorials/password-grant#realm-support) for more information |
 | `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
 | `audience` | optional | (String) Your Auth0 account domain (ex. myaccount.auth0.com). |
 
