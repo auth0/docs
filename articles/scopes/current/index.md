@@ -107,13 +107,15 @@ function (user, context, callback) {
 }
 ```
 
-Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant.
+Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not mandatory according to the specification, Auth0 will always enforce namespacing, meaning that any non-namespaced claims will be silently excluded from tokens.
 
-::: note
-  While this is not mandatory according to the specification, Auth0 will always enforce namespacing, meaning that any non-namespaced claims will be silently excluded from tokens.
+::: warning 
+`auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and therefore cannot be used as a namespace identifier. 
 :::
 
 If you need to add custom claims to the access token, the same applies but using `context.accessToken` instead.
+
+Please note that adding custom claims to id tokens trough this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
 
 ## API Scopes
 
