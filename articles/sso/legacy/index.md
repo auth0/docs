@@ -2,13 +2,13 @@
 toc: true
 description: Introduction to Single Sign On (SSO) with Auth0.
 ---
-# What is SSO (Single Sign On)?
+# What is Single Sign On?
 
 ::: version-warning
 This document covers an outdated version of the Auth0 authentication pipeline. We recommend you use the current version. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
 :::
 
-SSO (Single Sign On) occurs when a user logs in to one Client and is then signed in to other Clients automatically, regardless of the platform, technology, or domain the user is using.
+Single Sign On (SSO) occurs when a user logs in to one Client and is then signed in to other Clients automatically, regardless of the platform, technology, or domain the user is using.
 
 Google's implementation of login for their products, such as Gmail, YouTube, Google Analytics, and so on, is an example of SSO. Any user that is logged in to one of Google's products are automatically logged in to their other products as well.
 
