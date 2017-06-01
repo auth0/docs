@@ -542,81 +542,100 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
   <table class="table">
     <thead>
       <tr>
-        <th width="80%">Technology</th>
+        <th width="70%">Technology</th>
+        <th width="10%">Sample</th>
         <th width="20%">Level of Support</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><a href="/quickstart/webapp/asp-classic">ASP Classic</a></td>
+        <td align="center"></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/aspnet-owin">ASP.NET (OWIN)</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-aspnet-owin-mvc-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/aspnet">ASP.NET (System.Web)</a></td>
+        <td align="center"><a href="https://github.com/auth0/auth0-aspnet/tree/master/examples/auth0-aspnet-mvc4-sample/"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/aspnet-core">ASP.NET Core</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/golang">Go</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-golang-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/java">Java</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-servlet-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/java-spring-mvc">Java Spring MVC</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-spring-mvc-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/java-spring-security-mvc">Java Spring Security</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-spring-security-mvc-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/nodejs">Node.js</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-nodejs-webapp-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/php">PHP</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-php-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/laravel">PHP (Laravel)</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-laravel-php-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/symfony">PHP (Symfony)</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-symfony-php-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/scala">Play 2 Scala</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-scala-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/python">Python</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-python-web-app"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/rails">Ruby on Rails</a></td>
+        <td align="center"><a href="https://github.com/auth0-samples/auth0-rubyonrails-sample"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/apache">Apache</a></td>
+        <td align="center"></td>
         <td><div class="label label-default">Community</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/nancyfx">NancyFX</a></td>
+        <td align="center"><a href="https://github.com/auth0-community/auth0-nancyfx-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-default">Community</div></td>
       </tr>
       <tr>
         <td><a href="/quickstart/webapp/servicestack">ServiceStack</a></td>
+        <td align="center"><a href="https://github.com/auth0-community/auth0-servicestack-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-default">Community</div></td>
       </tr>
     </tbody>
