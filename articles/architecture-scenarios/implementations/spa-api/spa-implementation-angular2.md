@@ -74,7 +74,7 @@ export class AuthService {
       } else if (err) {
         this.router.navigate(['/home']);
         console.log(err);
-        alert(`Error: ${err.error}. Check the console for further details.`);
+        alert('Error: <%= "${err.error}" %>. Check the console for further details.');
       }
     });
   }
@@ -83,7 +83,7 @@ export class AuthService {
     // Set the time that the access token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
 
-    // If there is a value on the `scope` param from the authResult,
+    // If there is a value on the scope param from the authResult,
     // use it to set scopes in the session for the user. Otherwise
     // use the scopes as requested. If no scopes were requested,
     // set it to nothing
@@ -247,7 +247,7 @@ export class TimesheetsService {
 ## Renew the Access Token
 
 Renewing the user's `access_token` requires that a static HTML file to be served. The server setup you choose to do this is at your discretion, but an example using Node.js and express is given here.
- 
+
 Create a simple server with express:
 
 ```js
@@ -257,7 +257,7 @@ const cors = require('cors');
 const staticFile = require('connect-static-file');
 
 app.use(cors());
-app.use('/silent', staticFile(`${__dirname}/silent.html`));
+app.use('/silent', staticFile('<%= "${__dirname}" %>/silent.html'));
 
 app.listen(3001);
 console.log('Listening on http://localhost:3001');
@@ -298,7 +298,7 @@ And add a file called `silent.html`:
 ```
 
 In this example, the server is running at `localhost:3001`.The `silent.html` file makes reference to `localhost:4200` which is the address for the Angular SPA.
- 
+
 Next we’ll need to update the Angular SPA. Add a method to the `AuthService` which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
 ```js
@@ -315,8 +315,8 @@ public renewToken() {
 }
 ```
 
-This will load the silent callback page added earlier in an invisible iframe, make a call to Auth0, and give back the result. 
- 
+This will load the silent callback page added earlier in an invisible iframe, make a call to Auth0, and give back the result.
+
 In the `AuthService` class, add a method called `scheduleRenewal` to set up a time at which authentication should be silently renewed. In the sample below this is set up to happen 30 seconds before the actual token expires. Also add a method called `unscheduleRenewal` which will unsubscribe from the Observable.
 
 ```js
@@ -350,4 +350,4 @@ public unscheduleRenewal() {
 }
 ```
 
-Finally you need to initiate the schedule renewal. This can be done by calling the `cheduleRenewal` inside your `AppComponent`  which will happen when the page is loaded. This will occur after every authentication flow, either when the user explicitly logs in, or when the silent authentication happens.
+Finally you need to initiate the schedule renewal. This can be done by calling the `cheduleRenewal` inside your `AppComponent`  which will happen when the page is loaded. This will occur after every authentication flow, either when the user explicitly logs in, or when the silent authentication happens.g
