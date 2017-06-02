@@ -45,7 +45,7 @@ hwi_oauth_login:
     prefix:   /login
 
 auth0_login:
-    pattern: /auth0/callback
+    path:    /auth0/callback
 ```
 
 ## Configure Auth0
