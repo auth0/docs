@@ -86,8 +86,17 @@ In order to obtain this access token, the client must first have permission to a
 
 For details on how to set up a Client Credentials Grant in Auth0 refer to [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
 
+## Add Custom Claims
 
-## Authorize access tokens
+You can add custom claims to your access token (or [ID Token](/tokens/id-token)) using [Rules](/rules).
+
+The claim name must conform to a namespaced format, which basically means addind any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io` and `webtask.run`.
+
+For more information on the namespaced format of custom claims, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
+
+For an example of how to add a custom claim, refer to [Add Custom Claims](/scopes/current#example-add-custom-claims).
+
+## Authorize Access Tokens
 
 Once a client has obtained an access token, it will include that token as a credential when making API requests.
 
