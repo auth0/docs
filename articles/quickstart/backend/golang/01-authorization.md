@@ -1,4 +1,4 @@
----
+---
 title: Authorization
 description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your API.
 ---
@@ -34,8 +34,8 @@ Configure the **checkJwt** middleware to use the remote JWKS for your Auth0 acco
 
 ```go
 // main.go
-const JWKS_URI = "https://{DOMAIN}/.well-known/jwks.json"
-const AUTH0_API_ISSUER = "https://{DOMAIN}.auth0.com/"
+const JWKS_URI = "https://${account.namespace}/.well-known/jwks.json"
+const AUTH0_API_ISSUER = "https://${account.namespace}.auth0.com/"
 const AUTH0_API_AUDIENCE = "{API_IDENTIFIER}"
 
 func checkJwt(h http.Handler) http.Handler {
@@ -126,7 +126,7 @@ func checkJwt(h http.Handler) http.Handler {
 Individual routes can now be protected with the `checkJwt` middleware. Below is an example showing two routes, one which is publicaly accessible, and one that is protected with the `checkJwt` middlewware. The protected route will require both a valid `access_token` and the `read:messages` scope before returning the requested resource.
 
 ```go
-// main.js
+// main.go
 func main() {
   r := mux.NewRouter()
 
