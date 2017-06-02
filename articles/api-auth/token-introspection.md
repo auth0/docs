@@ -13,7 +13,7 @@ Auth0 supports [OAuth 2.0 Token Introspection](https://tools.ietf.org/html/rfc76
 
 Additionally, the protected resource can also obtain information such as the token's scopes and the context in which it was issued (such as who issued the token and to whom the token was issued). This is especially useful for Application Specific Passwords (ASPs), which utilizes non-JWT tokens.
 
-Because token instrospection is a means by which an API can verify a token, you do not need to configure any addition verification flows performed by the API. Additionally, for any existing authorization flows involving JWT access tokens, you do not need to update your processes to use token introspection.
+Because token instrospection is a means by which an API can verify a token, you do not need to configure any additional verification flows performed by the API. Additionally, for any existing authorization flows involving JWT access tokens, you do not need to update your processes to use token introspection.
 
 ## Token Types
 
