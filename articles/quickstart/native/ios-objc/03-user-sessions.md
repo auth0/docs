@@ -61,6 +61,8 @@ ${snippet(meta.snippets.setup)}
 Then present the hosted login screen, like this:
 
 ```objc
+// HomeViewController.m
+
 HybridAuth *auth = [[HybridAuth alloc] init];
 [auth showLoginWithScope:@"openid profile" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -77,6 +79,8 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 You will want to store the `accessToken` value, which is inside the `Credentials` instance. To do so, you will use an `A0SimpleKeychain` instance:
 
 ```objc
+// HomeViewController.m
+
 A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
 [keychain setString:accessToken forKey:@"access_token"];
 ```
@@ -90,6 +94,8 @@ The main purpose of storing this token is to save the user from having to re-ent
 To do so, first, you retrieve its value from the `accessToken` key stored in the keychain:
 
 ```objc
+// HomeViewController.m
+
 A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
 NSString* accessToken = [keychain stringForKey:@"access_token"];
 if (accessToken) {
@@ -103,6 +109,8 @@ if (accessToken) {
 Then, if such a token exists, you need to check whether it's still valid, has expired, or is no longer valid for some other reason, such as being revoked. To do so, you will use `Auth0` to fetch the user's profile based on the `accessToken` we've got:
 
 ```objc
+// HomeViewController.m
+
 [auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
         if (error) {
             // accessToken has expired or no longer valid
@@ -121,6 +129,7 @@ Either you ask users to re-enter their credentials, or you can use `.renew(withR
 If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
 
 ```objc
+// HomeViewController.m
 A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
 [keychain clearAll];
 ```
@@ -142,6 +151,8 @@ The `refreshToken` can be `nil` if `offline_access` is not sent in the `scope` p
 Besides storing the `accessToken`, you need to store the `refreshToken`. Let's make a couple of changes:
 
 ```objc
+// HomeViewController.m
+
 HybridAuth *auth = [[HybridAuth alloc] init];
 [auth showLoginWithScope:@"openid profile offline_access" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
        if (error) {
@@ -163,6 +174,8 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 ### Use the refreshToken to obtain a new accessToken
 
 ```objc
+// HomeViewController.m
+
 A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
 NSString* refreshToken = [keychain stringForKey:@"refresh_token"];
 if (!refreshToken) {
@@ -192,6 +205,8 @@ That's it! You've already dealt with the basic concepts of session handling in y
 Whenever you need to log the user out, you just have to clear the keychain:
 
 ```objc
+// HomeViewController.m
+
 A0SimpleKeychain *keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
 [keychain clearAll];
 ```
@@ -207,6 +222,8 @@ The first step is to fetch the user profile. To do so, you need a valid `accessT
 You need to call a method from the `Auth0` module that allows you to fetch the user profile given an `accessToken`:
 
 ```objc
+// HomeViewController.m
+
 // Retrieve profile
 [auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
         if (error) {
@@ -224,6 +241,7 @@ You need to call a method from the `Auth0` module that allows you to fetch the u
 Showing the information contained in the user profile is pretty simple. You only have to access its properties, for instance:
 
 ```objc
+// ProfileViewController.m
 NSURL *pictureURL = self.userProfile.pictureURL;
 NSString *name = self.userProfile.name;
 ```

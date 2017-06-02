@@ -30,6 +30,8 @@ ${snippet(meta.snippets.setup)}
 Then present the hosted login screen, like this:
 
 ```objc
+// HomeViewController.m
+
 HybridAuth *auth = [[HybridAuth alloc] init];
 [auth showLoginWithScope:@"openid profile" connection:nil callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -50,6 +52,8 @@ In order to make authenticated requests, you can use any of the token strings in
 Supposing you need to use the `accessToken` value, here is what you would do:
 
 ```objc
+// ProfileViewController.m
+
 NSString* token = ... // The accessToken you stored after authentication
 NSString *url = @"https://localhost/api"; // Change to your API
 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
@@ -69,6 +73,8 @@ Notice that how you configure your authorization header should match the standar
 When testing the sample project, make sure you configure your URL request in the `ProfileViewController.swift` file:
 
 ```objc
+// ProfileViewController.m
+
 NSString *url = @"https://localhost/api"; // Change to your API
 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
 // Configure your request here (method, body, etc)

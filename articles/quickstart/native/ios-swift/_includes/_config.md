@@ -5,6 +5,8 @@ The dependencies listed above require your client credentials in order for them 
 Add your credentials in `Auth0.plist`. You have to create that file if it doesn't already exist in your project:
 
 ```xml
+<!-- Auth0.plist -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -24,6 +26,8 @@ Callback URLs are the URLs that Auth0 invokes after the authentication process. 
 In your application's `Info.plist` file, register your iOS Bundle Identifer as a custom scheme:
 
 ```xml
+<!-- Info.plist -->
+
 <key>CFBundleURLTypes</key>
 <array>
     <dict>

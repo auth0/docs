@@ -32,6 +32,8 @@ ${snippet(meta.snippets.setup)}
 Then present the hosted login screen, like this:
 
 ```swift
+// HomeViewController.swift
+
 Auth0
     .webAuth()
     .scope("openid profile")
@@ -54,6 +56,8 @@ In order to make authenticated requests, you can use any of the token strings in
 Supposing you need to use the `accessToken` value, here is what you would do:
 
 ```swift
+// ProfileViewController.swift
+
 let token  = ... // The accessToken you stored after authentication
 let url = URL(string: "your api url")!
 var request = URLRequest(url: url)
@@ -71,6 +75,8 @@ Notice that how you configure your authorization header should match the standar
 Don't forget to actually send the request you just created, by executing:
 
 ```swift
+// ProfileViewController.swift
+
 task.resume()
 ```
 
@@ -79,6 +85,8 @@ task.resume()
 When testing the sample project, make sure you configure your URL request in the `ProfileViewController.swift` file:
 
 ```swift
+// ProfileViewController.swift
+
 let url = URL(string: "your api url")!
 var request = URLRequest(url: url)
 // Configure your request here (method, body, etc)
