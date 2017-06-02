@@ -1,198 +1,154 @@
+## Project Structure
+The Login project sample has the following structure:
+
+```text
+- src
+-- main
+---- java
+------ com
+-------- auth0
+---------- example
+------------ App.java
+------------ AppConfig.java
+------------ Auth0Filter.java
+------------ AuthController.java
+------------ CallbackController.java
+------------ ErrorController.java
+------------ HomeController.java
+------------ LoginController.java
+------------ LogoutController.java
+---- resources
+------ application.properties
+------ auth0.properties
+---- webapp
+------ WEB-INF
+-------- jsp
+---------- home.jsp
+- build.gradle
+```
+
+The project contains a single JSP: the `home.jsp` which will display the tokens associated to the user after a successful login and provide the option to logout.
+
+The project contains a Filter: the `Auth0Filter.java` which will check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected to the `LoginController`. This Filter is set on the `AppConfig.java` class.
+
+The project contains also five Controllers:
+- `LoginController.java`: Invoked when the user attempts to login. The controller uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
+- `CallbackController.java`: The controller captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
+- `HomeController.java`: The controller reads the previously saved tokens and shows them on the `home.jsp` resource.
+- `LogoutController.java`: Invoked when the user clicks the logout link. The controller invalidates the user session and redirects the user to the login page, handled by the `LoginController`.
+- `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
+
+Lastly, the project defines a helper class: the `AuthController.java` which will be in charge of creating new instances of `AuthenticationController`. By defining it as a Spring Component, the framework will handle it's creation.
+
+
 ## Authenticate the User
 
-You need to add the handler for the Auth0 callback so that you can authenticate the user and get their information. For that, we will use the `Auth0CallbackHandler` provided by the SDK.
-
-Define a new Controller, configure it to use the `auth0.loginCallback` endpoint, and inherit from `Auth0CallbackHandler`.
-
-Create a new `CallbackController.java` file and set the following contents:
-
-${snippet(meta.snippets.use)}
-
-
-## Display Lock Widget
-
-In order to setup [Lock](/libraries/lock) update the `login.jsp` as follows:
-
-```html
-${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="${lock_url}"></script>
-    <script src="/js/jquery.growl.js" type="text/javascript"></script>
-</head>
-<body>
-<div class="container">
-    <script type="text/javascript">
-        $(function () {
-            var error = <%= "${error}" %>;
-            if (error) {
-                $.growl.error({message: "Please log in"});
-            } else {
-                $.growl({title: "Welcome!", message: "Please log in"});
-            }
-        });
-        $(function () {
-            var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
-                auth: {
-                    redirectUrl: '<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>${account.callback}',
-                    responseType: 'code',
-                    params: {
-                        state: '<%= "${state}" %>',
-                        scope: 'openid user_id name nickname email picture'
-                    }
-                }
-            });
-            // delay to allow welcome message..
-            setTimeout(function () {
-                lock.show();
-            }, 1500);
-        });
-    </script>
-</div>
-</body>
-</html>
-```
-
-::: note
-The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `auth0-spring-mvc-sample/src/main/resources/static/` directory and you don't need to include them if you don't want to.
-:::
-
-First, we initialize `Auth0Lock` with a `clientID` and the account's `domain`.
+Let's begin by making your Auth0 credentials available on the App. In the `AppConfig` class we tell Spring to map the properties defined in the `auth0.properties` file to the corresponding fields by using the `@Configuration` and `@Value` annotations. We also define the class as a `@Component` so we can later autowire it to make it available on other classes:
 
 ```java
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-```
+@Component
+@Configuration
+public class AppConfig {
+    @Value(value = '<%= "${com.auth0.domain}" %>')
+    private String domain;
 
-We set several parameters as input, like `redirectUrl` and `responseType`. For details on what each parameter does, refer to [Lock: User configurable options](/libraries/lock/customization).
+    @Value(value = '<%= "${com.auth0.clientId}" %>')
+    private String clientId;
 
-Once the `Auth0Lock` is initialized we display the widget using `lock.show()`.
-
-
-## Display User Information
-
-Depending on what `scopes` you specified upon login, some user information may be available in the [id_token](/tokens#auth0-id_token-jwt-) received.
-
-The full user profile information is available as a session object keyed on `Auth0User`, you can call `SessionUtils.getAuth0User()` to retrieve the information. However, because the authenticated user is also a `java.security.Principal` object we can inject it into the Controller automatically for secured endpoints.
-
-Add the following to your `HomeController.java` file:
-
-```java
-@RequestMapping(value="/portal/home", method = RequestMethod.GET)
-protected String home(final Map<String, Object> model, final Principal principal) {
-  logger.info("Home page");
-  final Auth0User user = (Auth0User) principal;
-  logger.info("Principal name: "  user.getName());
-  model.put("user", user);
-  return "home";
+    @Value(value = '<%= "${com.auth0.clientSecret}" %>')
+    private String clientSecret;
 }
 ```
 
-_::: note
-The value `/portal/home` should be replaced with the valid one for your implementation.
+Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Any customization on the behavior of the component should be done here. i.e. requesting a different scope or using a different signature verification algorithm.
+
+```java
+@Component
+public class AuthController {
+    private final AuthenticationController controller;
+
+    @Autowired
+    public AuthController(AppConfig config) {
+        controller = AuthenticationController.newBuilder(config.getDomain(), config.getClientId(), config.getClientSecret())
+                .build();
+    }
+
+    public Tokens handle(HttpServletRequest request) throws IdentityVerificationException {
+        return controller.handle(request);
+    }
+
+    public String buildAuthorizeUrl(HttpServletRequest request, String redirectUri) {
+        return controller.buildAuthorizeUrl(request, redirectUri)
+                .build();
+    }
+}
+```
+
+
+To authenticate the users we will redirect them to the **Auth0 Login Page** which uses the best version available of [Lock](/lock). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
+
+```java
+@RequestMapping(value = "/login", method = RequestMethod.GET)
+protected String login(final HttpServletRequest req) {
+    String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
+    String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri);
+    return "redirect:" + authorizeUrl;
+}
+```
+
+After the user logs in the result will be received in our `CallbackController`, either via a GET or a POST Http method. The request holds the call context that we've previously set by generating the Authorize URL with the controller. When we pass it to the controller, we get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, we need to save the credentials somewhere we can access them later. We will use again the `HttpSession` of the request. A helper class called `SessionUtils` is included in the library to set and read values from a request's session.
+
+```java
+@RequestMapping(value = "/callback", method = RequestMethod.GET)
+protected void getCallback(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
+  try {
+      Tokens tokens = controller.handle(req);
+      SessionUtils.set(req, "accessToken", tokens.getAccessToken());
+      SessionUtils.set(req, "idToken", tokens.getIdToken());
+      res.sendRedirect("/portal/home");
+  } catch (IdentityVerificationException e) {
+      res.sendRedirect("/login");
+  }
+}
+```
+
+::: note
+It it's recommended to store the time in which we requested the tokens and the received `expiresIn` value, so that the next time when we are going to use the token we can check if it has already expired or if it's still valid. For the sake of this sample we will skip that validation.
 :::
 
-Once the user has successfully authenticated, the application displays the `home.jsp`. In order to display some user information, as retrieved from Auth0, update the `home.jsp` as follows:
 
-```html
-${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
-${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home Page</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/css/jumbotron-narrow.css">
-    <link rel="stylesheet" type="text/css" href="/css/home.css">
-    <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="/js/jquery.growl.js" type="text/javascript"></script>
-</head>
+## Display the Home Page
 
-<body>
+Now that the user is authenticated (the tokens exists), the `Auth0Filter` will allow them to access our protected resources. In the `HomeController` we obtain the tokens from the request's session and set them as the `userId` attribute so they can be used from the JSP code:
 
-    <div class="container">
-        <div class="header clearfix">
-            <nav>
-                <ul class="nav nav-pills pull-right">
-                    <li class="active" id="home"><a href="#">Home</a></li>
-                    <li id="logout"><a href="#">Logout</a></li>
-                </ul>
-            </nav>
-            <h3 class="text-muted">App.com</h3>
-        </div>
-
-        <div class="jumbotron">
-            <h3>Hello <%= "${user.name}" %>!</h3>
-            <p class="lead">Your nickname is: <%= "${user.nickname}" %></p>
-            <p class="lead">Your user id is: <%= "${user.userId}" %></p>
-            <p><img class="avatar" src="<%= "${user.picture}" %>"/></p>
-        </div>
-
-        <div class="row marketing">
-            <div class="col-lg-6">
-                <h4>Subheading</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-                <h4>Subheading</h4>
-                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-            </div>
-
-            <div class="col-lg-6">
-                <h4>Subheading</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-                <h4>Subheading</h4>
-                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <p> &copy; 2016 Company Inc</p>
-        </footer>
-
-    </div>
-
-    <script type="text/javascript">
-        $(function () {
-            $.growl({title: "Welcome  <%= "${user.nickname}" %>", message: "We hope you enjoy using this site!"});
-        });
-        $("#logout").click(function(e) {
-            e.preventDefault();
-            $("#home").removeClass("active");
-            $("#password-login").removeClass("active");
-            $("#logout").addClass("active");
-            // assumes we are not part of SSO so just logout of local session
-            window.location = "<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>/logout";
-        });
-    </script>
-
-</body>
-</html>
+```java
+@RequestMapping(value = "/portal/home", method = RequestMethod.GET)
+protected String home(final Map<String, Object> model, final HttpServletRequest req) {
+    String accessToken = (String) SessionUtils.get(req, "accessToken");
+    String idToken = (String) SessionUtils.get(req, "idToken");
+    if (accessToken != null) {
+        model.put("userId", accessToken);
+    } else if (idToken != null) {
+        model.put("userId", idToken);
+    }
+    return "home";
+}
 ```
 
-## Run the App
+## Run the Sample
 
-In order to build and run the app using Maven, execute the following:
+To run the sample from a terminal, change the directory to the root folder of the project and execute the following line:
 
 ```bash
-mvn spring-boot:run
+./gradlew clean bootRun
 ```
 
-Then open your browser and go to [http://localhost:3099/login](http://localhost:3099/login). You can see the Lock widget.
+After a few seconds, the application will be accessible on `http://localhost:8080/`. Try to access the protected resource [http://localhost:8080/portal/home](http://localhost:8080/portal/home) and note how you're redirected by the `Auth0Filter` to the Auth0 Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 
-The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
+After a successful authentication you'll be able to see the home page contents.
 
-Once you login you are redirected to the home page that displays your profile picture, user id, and nickname.
-
-![Display user information](/media/articles/java/display-user-info.png)
+![Display Token](/media/articles/java/display-token.png)
 
 Log out by clicking the **Logout** button at the top right of the home page.

@@ -1,14 +1,14 @@
 ---
-title: Getting started
-description: Short Introduction to the Auth0 Java Quickstarts.
+title: Introduction
+description: Short Introduction to the Auth0 Java Spring Quickstarts.
 budicon: 715
 ---
 
-This multistep quickstart guide will walk you through managing authentication in your Java Servlet MVC Application with Auth0.
+This multistep quickstart guide will walk you through managing authentication in your Java Spring MVC Application with Auth0.
 
 ## Sample Projects
 
-Each tutorial in the series includes a link to its corresponding sample project. You can find all the samples [here](https://github.com/auth0-samples/auth0-servlet-sample).
+Each tutorial in the series includes a link to its corresponding sample project. You can find all the samples [here](https://github.com/auth0-samples/auth0-spring-mvc-sample).
 
 ## Dependencies
 

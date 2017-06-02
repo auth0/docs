@@ -11,17 +11,19 @@ The same applies for the Logout URLs. They must be whitelisted in the Auth0 Dash
 
 ## Setup Dependencies
 
-To integrate your Java application with Auth0 you need to add the following dependency:
+To integrate your Java application with Auth0 you need to add the following dependencies:
 
-- **auth0-java-mvc-commons**: is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user.
+- **javax.servlet-api**: is the library that allows you to create Java Servlets. You then need to add a Server dependency like Tomcat or Gretty, which one is up to you. Check our sample code for more information.
+- **auth0-java-mvc-commons**: is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user. You can always check the latest version in the [library's GitHub](https://github.com/auth0/auth0-java-mvc-common).
 
-If you are using Gradle, add it to the dependencies block:
+If you are using Gradle, add them to your `build.gradle`:
 
 ```java
+compile 'javax.servlet:javax.servlet-api:3.1.0'
 compile 'com.auth0:mvc-auth-commons:1.+'
 ```
 
-If you are using Maven, add the dependency to your `pom.xml`:
+If you are using Maven, add them to your `pom.xml`:
 
 ```xml
 <dependency>
@@ -29,9 +31,12 @@ If you are using Maven, add the dependency to your `pom.xml`:
   <artifactId>mvc-auth-commons</artifactId>
   <version>1.+</version>
 </dependency>
+<dependency>
+  <groupId>javax.servlet</groupId>
+  <artifactId>javax.servlet-api</artifactId>
+  <version>3.1.0</version>
+</dependency>
 ```
-
-You can always check the latest version in the [library's GitHub](https://github.com/auth0/auth0-java-mvc-common).
 
 
 ## Configure your Java App
@@ -65,8 +70,6 @@ But it also allows us to customize it's behavior:
 * To use a different Response Type, set the desired value in the `AuthenticationController` builder. Any combination of `code token id_token` is allowed.
 * To request a different `scope`, set the desired value in the `AuthorizeUrl` received after calling `AuthenticationController#buildAuthorizeUrl()`.
 * To specify the `audience`, set the desired value in the `AuthorizeUrl` received after calling `AuthenticationController#buildAuthorizeUrl()`.
-
-As you can see in the seed project, there are many customizable attributes in the `web.xml`.
 
 
 ::: panel Check populated attributes
