@@ -22,7 +22,7 @@ If you are using social logins, you can also launch the login screen for a parti
 To implement a custom login screen, the **auth0.js** library and **angular-auth0** wrapper are required. Install these packages, along with angular-jwt, and add them to your project.
 
 ```bash
-bower install auth0.js#7.6.1 angular-auth0#1.0.6 angular-jwt
+bower install auth0.js#8.6.1 angular-auth0#1.0.7 angular-jwt
 ```
 
 ```html
