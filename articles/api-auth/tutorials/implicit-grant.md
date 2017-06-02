@@ -41,7 +41,7 @@ Where:
   Auth0 returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`. You can [add namespaced claims using Rules](#optional-customize-the-tokens).
   :::
 
-* `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token`, to get only an `access_token`, `id_token` to get only an `id_token`, or `id_token token` to get both an `id_token` and an `access_token`.
+* `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token`, to get only an `access_token`, `id_token` to get only an `id_token` (if you don't plan on accessing an API), or `id_token token` to get both an `id_token` and an `access_token`.
 
 * `client_id`: Your application's Client ID. You can find this value at your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
@@ -126,17 +126,17 @@ For details on how to implement this, refer to [Silent Authentication](/api-auth
 
 ## Keep reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Implicit Grant overview](/api-auth/grant/implicit)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to configure an API in Auth0](/apis)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Single Page App Quickstarts](/quickstart/spa)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[ID Token](/tokens/id-token)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Client Authentication for Client-side Web Apps](/client-auth/client-side-web)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Authentication API: GET /authorize](/api/authentication#implicit-grant)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OAuth 2.0 protocol](/protocols/oauth2)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OpenID Connect protocol](/protocols/oidc)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Tokens used by Auth0](/tokens)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+- [Implicit Grant overview](/api-auth/grant/implicit)<br/>
+- [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)<br/>
+- [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)<br/>
+- [How to configure an API in Auth0](/apis)<br/>
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)<br/>
+- [Single Page App Quickstarts](/quickstart/spa)<br/>
+- [ID Token](/tokens/id-token)<br/>
+- [Access Token](/tokens/access-token)<br/>
+- [Client Authentication for Client-side Web Apps](/client-auth/client-side-web)<br/>
+- [Authentication API: GET /authorize](/api/authentication#implicit-grant)<br/>
+- [The OAuth 2.0 protocol](/protocols/oauth2)<br/>
+- [The OpenID Connect protocol](/protocols/oidc)<br/>
+- [Tokens used by Auth0](/tokens)<br/>
+- [RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
