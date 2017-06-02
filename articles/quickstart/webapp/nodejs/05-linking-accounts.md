@@ -53,9 +53,9 @@ var strategy = new Auth0Strategy({
   });
 ```
 
-We need a new view called `callback.jade` that will help us store the primary user's JWT after a successful login in the client's `localStorage`.
+We need a new view called `callback.pug` that will help us store the primary user's JWT after a successful login in the client's `localStorage`.
 
-```jade
+```pug
 extends layout
 
 block content
@@ -88,8 +88,8 @@ router.get('/callback',
 We now need to provide a means for the user to link another account. Let's add a `Link Account` button to `views/user.jade`
 that uses `Auth0Lock` to perform the secondary login.
 
-```jade
-// views/user.jade
+```pug
+// views/user.pug
 
 extends layout
 
@@ -119,8 +119,8 @@ block content
 
 Let's now add a `/link` endpoint and create the template to be rendered when `/link` is reached.
 
-```jade
-// views/link.jade
+```pug
+// views/link.pug
 
 extends layout
 

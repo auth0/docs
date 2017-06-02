@@ -17,7 +17,7 @@ The sample projects which accompany each of these steps will have the following 
 │   ├── index.js
 │   └── ...
 └── views
-    ├── index.jade
+    ├── index.pug
     └── ...
 ```
 

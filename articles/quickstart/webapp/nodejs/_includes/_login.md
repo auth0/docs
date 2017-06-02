@@ -134,10 +134,10 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 module.exports = router;
 ```
 
-We can now add some template files for these pages. Start with a base template called `layout.jade`. The CDN link to Auth0's Lock widget can be placed here. Alternatively, may prefer to place this `script` tag in another layout which places it after the `head` of the page.
+We can now add some template files for these pages. Start with a base template called `layout.pug`. The CDN link to Auth0's Lock widget can be placed here. Alternatively, may prefer to place this `script` tag in another layout which places it after the `head` of the page.
 
-```jade
-// views/layout.jade
+```pug
+// views/layout.pug
 
 doctype html
 html
@@ -151,8 +151,8 @@ html
 
 Next, create the `login` view.
 
-```jade
-// views/login.jade
+```pug
+// views/login.pug
 
 extends layout
 
@@ -178,9 +178,9 @@ block content
 Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL for the callback route.
 :::
 
-In `views/user.jade` we simply display the user's nickname and profile picture.
+In `views/user.pug` we simply display the user's nickname and profile picture.
 
-```jade
+```pug
 extends layout
 
 block content

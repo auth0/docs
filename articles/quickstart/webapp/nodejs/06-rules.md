@@ -20,9 +20,9 @@ budicon: 173
 
 ## Test the Rule Result
 
-The following sample is based on the `01-Login` source code. Add the following to the `views/user.jade` template to display the new `country` field:
+The following sample is based on the `01-Login` source code. Add the following to the `views/user.pug` template to display the new `country` field:
 
-```jade
+```pug
 extends layout
 
 block content

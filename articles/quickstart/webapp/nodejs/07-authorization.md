@@ -75,8 +75,8 @@ router.get('/unauthorized', function(req, res) {
 
 Next, add the required template for the `/admin` and `/unauthorized` routes.
 
-```jade
-// views/admin.jade
+```pug
+// views/admin.pug
 
 extends layout
 
@@ -84,8 +84,8 @@ block content
   h1 You are seeing this because you have the 'admin' role
 ```
 
-```jade
-// views/unauthorized.jade
+```pug
+// views/unauthorized.pug
 
 extends layout
 
