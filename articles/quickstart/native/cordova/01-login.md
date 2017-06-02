@@ -75,6 +75,26 @@ Cordova doesn't support getting dependencies from a CDN, so it is necessary to d
 You must use `popup` mode when configuring an application with Cordova. This can be done by setting `redirect: false` in the options object for Lock. See the [Lock customization](/libraries/lock/v9/customization) documentation for more.
 :::
 
+## 4. Logout
+
+To implement logout you need to simply delete stored token and show login page. With using JQuery you can do it like this:
+
+```html
+//index.html
+
+<button class="btn btn-lg btn-primary btn-logout">Logout</button>
+```
+
+```js
+//app.js
+$('.btn-logout').click(function(e) {
+  e.preventDefault();
+  $('.login-box').show();
+  $('.logged-in-box').hide();
+  localStorage.removeItem('userToken');
+});
+```
+
 ### Troubleshooting
 
 #### Command failed with exit code 65 when running cordova build
