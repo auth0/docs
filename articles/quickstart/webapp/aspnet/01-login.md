@@ -46,6 +46,7 @@ ${snippet(meta.snippets.setup)}
 Once the user successfully authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
 ```cs
+// Controllers/HomeController.cs
 public ActionResult Index()
 {
   string email = ClaimsPrincipal.Current.FindFirst("email").Value;
@@ -65,6 +66,7 @@ You can use the usual authorization techniques since the `LoginCallback.ashx` ha
 An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the request is not authenticated. If you want to redirect to a login page automatically in these cases, you can leverage the **Forms Authentication** module by configuring this in `web.config`:
 
 ```xml
+<!--Web.config-->
 <system.web>
   <authentication mode="Forms">
     <forms loginUrl="Account/Login" />
@@ -75,6 +77,7 @@ An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the req
 In the above example, we are redirecting to a `Login` action in an `Account` controller. The `Login` action can return a view that integrates Lock or shows a custom UI, or directly redirect to Auth0 for authentication, as described in [#4](#4-trigger-login-manually-or-integrating-lock).
 
 ```cs
+// Controllers/HomeController.cs
 public ActionResult Login(string returnUrl)
 {
   if (string.IsNullOrEmpty(returnUrl) || !this.Url.IsLocalUrl(returnUrl))
@@ -97,6 +100,7 @@ To clear the cookie generated on login, use the `FederatedAuthentication.Session
 A typical logout action on ASP.Net MVC would look like this:
 
 ```cs
+// Controllers/HomeController.cs
 public RedirectResult Logout()
 {
   // Clear the session cookie
