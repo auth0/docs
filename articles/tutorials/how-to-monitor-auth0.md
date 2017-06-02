@@ -43,35 +43,11 @@ The `/testall` endpoint checks the status of the core Auth0 authentication servi
 }
 ```
 
-If all services are up, the endpoint returns the `200` HTTP response code and a simple text message saying, "`OK`." If any service is down, the response code from `/testall` will be 5xx.
+If all services are up, the endpoint returns the `200` HTTP response code and a simple text message saying, `OK`. If any service is down, the response code from `/testall` will be `5xx`.
 
-If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities.
+If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
-```har
-{
-  "method": "POST",
-  "url": "https://${account.namespace}/oauth/ro",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
-  "postData": {
-    "mimeType": "application/json",
-    "text": "{\"client_id\": \"An app registered in Auth0 for monitoring\",\"username\": \"A system account for monitoring\", \"password\": \"A password\", \"connection\": \"A user store defined in Auth0\", \"grant_type\": \"password\", \"scope\":\"openid\", \"device\": \"SCOM\"}"
-  }
-}
-```
-
-A successful request would return a `200` HTTP status code and the following information:
-
-```json
-{
-  "id_token": "eyJ0eXAi......3Jia5WgM",
-  "access_token": "F25VQ.....NWpS",
-  "token_type": "bearer"
-}
-```
-
-We recommend using an authentication flow that doesn't require a user interface (such as the `Resource Owner flow`) so that you don't have to use a monitoring tool that is capable of mimicking the actions of a user. Many monitoring tools exist using this approach, including:
+We recommend using an authentication flow that doesn't require a user interface (such as the **Resource Owner Password Grant**) so that you don't have to use a monitoring tool that is capable of mimicking the actions of a user. Many monitoring tools exist using this approach, including:
 
 * [New Relic](http://newrelic.com)
 * [Pingdom](http://pingdom.com)
@@ -101,7 +77,7 @@ We recommend adding SCOM probes for the `test` and `testall` endpoints, in addit
 
 To set up SCOM:
 
-1. Add a new SCOM instance using the *Add Monitoring Wizard*:
+1. Add a new SCOM instance using the **Add Monitoring Wizard**:
 
   * **Name**: a descriptive name for the SCOM instance
   * **Description**: a description of what this SCOM instances monitors
@@ -135,7 +111,7 @@ To set up SCOM:
 
   Click **Next** to continue.
 
-5. Click **Run Test** to test each endpoint and ensure that the connection settings provided are correct.  
+5. Click **Run Test** to test each endpoint and ensure that the connection settings provided are correct.
 
 ![ss-2014-11-21T16-34-25.png](/media/articles/monitoring/ss-2014-11-21T16-34-25.png)
 
