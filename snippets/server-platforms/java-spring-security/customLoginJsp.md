@@ -13,7 +13,7 @@ ${'<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>'
     <link rel="stylesheet" type="text/css" href="/css/signin.css">
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="/js/jquery.growl.js" type="text/javascript"></script>
-    <script src="https://cdn.auth0.com/w2/auth0-6.8.js"></script>
+    <script src="https://cdn.auth0.com/w2/auth0-8.6.1.js"></script>
 </head>
 <body>
     <div class="container">

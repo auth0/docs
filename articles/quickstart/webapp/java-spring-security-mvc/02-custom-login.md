@@ -58,7 +58,7 @@ ${snippet(meta.snippets.customLoginJsp)}
 
 Notice the differences compared to `login.jsp`:
 
-- The code uses the `auth0-6.8.js` library, instead of `lock.min.js`.
+- The code uses the `auth0-8.6.1.js` library, instead of `lock.min.js`.
 - We have added html to display a form for email and password input (div `form-signin`).
 - The javascript code uses the `Auth0` class, instead of `Auth0Lock`.
 
