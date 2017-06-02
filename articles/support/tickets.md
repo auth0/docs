@@ -46,3 +46,7 @@ If you are an existing Appliance customer, you will need to create an Auth0 clou
 
 1. Enter any additional details into the text box and then click the **REPLY** button. If you are the ticket requester and the ticket is assigned to an agent, but is not solved or closed, you have the option to change the status of your ticket to **Solved** by checking the **Submit as solved** box next to the **REPLY** button.
 ![](/media/articles/support/update-ticket.png)
+
+### Closed Tickets
+
+If your ticket has been closed, but you'd like to continue working with Auth0 on the issue, please create a new [Support Center ticket](${env.DOMAIN_URL_SUPPORT}). Be sure to include the reference number for the original ticket(s).
