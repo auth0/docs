@@ -7,7 +7,10 @@ budicon: 292
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-jquery-samples',
-  path: '02-User-Profile'
+  path: '02-User-Profile',
+  requirements: [
+    'jQuery 3.2.1'
+  ]
 }) %>
 
 <%= include('../_includes/_user_profile_preamble') %>
