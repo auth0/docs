@@ -31,70 +31,71 @@ package controllers
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
+import javax.inject.Inject
 import play.api.Play
 import play.api.Play.current
-import play.api.cache.Cache
+import play.api.cache._
 import play.api.http.HeaderNames
 import play.api.http.MimeTypes
 import play.api.libs.json.JsValue
 import play.api.libs.json.Json
 import play.api.libs.json.Json.toJsFieldJsValueWrapper
-import play.api.libs.ws.WS
+import play.api.libs.ws._
 import play.api.mvc.Action
 import play.api.mvc.Controller
+import helpers.Auth0Config
 
-class Callback extends Controller {
-
-  // callback route
+class Callback @Inject() (cache: CacheApi, ws: WSClient) extends Controller {
+  
   def callback(codeOpt: Option[String] = None) = Action.async {
     (for {
       code <- codeOpt
     } yield {
-      // Get the token
       getToken(code).flatMap { case (idToken, accessToken) =>
-       // Get the user
        getUser(accessToken).map { user =>
-          // Cache the user and tokens into cache and session respectively
-          Cache.set(idToken+ "profile", user)
+          cache.set(idToken+ "profile", user)
           Redirect(routes.User.index())
             .withSession(
               "idToken" -> idToken,
               "accessToken" -> accessToken
-            )
+            )  
       }
-
+        
       }.recover {
         case ex: IllegalStateException => Unauthorized(ex.getMessage)
-      }
+      }  
     }).getOrElse(Future.successful(BadRequest("No parameters supplied")))
   }
 
   def getToken(code: String): Future[(String, String)] = {
-    val tokenResponse = WS.url(String.format("https://%s/oauth/token", "${account.namespace}"))(Play.current).
+    val config = Auth0Config.get()
+    val tokenResponse = ws.url(String.format("https://%s/oauth/token", config.domain)).
       withHeaders(HeaderNames.ACCEPT -> MimeTypes.JSON).
       post(
         Json.obj(
-          "client_id" -> "${account.clientId}",
-          "client_secret" -> "${account.clientSecret}",
-          "redirect_uri" -> "http://localhost:9000/callback",
+          "client_id" -> config.clientId,
+          "client_secret" -> config.secret,
+          "redirect_uri" -> config.callbackURL,
           "code" -> code,
-          "grant_type"-> "authorization_code"
+          "grant_type"-> "authorization_code",
+          "audience" -> ("https://" + config.domain + "/userinfo")
         )
       )
-
+      
     tokenResponse.flatMap { response =>
       (for {
         idToken <- (response.json \ "id_token").asOpt[String]
         accessToken <- (response.json \ "access_token").asOpt[String]
       } yield {
-        Future.successful((idToken, accessToken))
+        Future.successful((idToken, accessToken)) 
       }).getOrElse(Future.failed[(String, String)](new IllegalStateException("Tokens not sent")))
     }
-
+    
   }
-
+  
   def getUser(accessToken: String): Future[JsValue] = {
-    val userResponse = WS.url(String.format("https://%s/userinfo", "${account.namespace}"))(Play.current)
+    val config = Auth0Config.get()
+    val userResponse = ws.url(String.format("https://%s/userinfo", config.domain))
       .withQueryString("access_token" -> accessToken)
       .get()
 
@@ -111,12 +112,25 @@ Your callback URL should look something like:
 https://yourapp.com/callback
 ```
 
-## Trigger Login Manually or Integrate Lock
+## Integrate auth0.js
 
-<%= include('../../../_includes/_lock-sdk') %>
+```html
+<script src="https://cdn.auth0.com/js/auth0/8.6/auth0.min.js"></script>
+<script>
+  var auth0js = new auth0.WebAuth({
+      domain: '${account.namespace}',
+      clientID: '${account.clientId}',
+      redirectUri: '${account.callback}',
+      audience: 'https://${account.namespace}/userinfo',
+      responseType: 'code',
+      scope: 'openid profile'
+    });
+</script>
+<button onclick="lock.show();">Login</button>
+```
 
 ::: note
-The `redirectUrl` specified in the `Auth0Lock` constructor must match the callback URL specified in the previous step.
+The `redirectUri` specified in the `auth0.WebAuth` constructor must match the callback URL specified in the previous step.
 :::
 
 ## Access User Information
@@ -127,6 +141,7 @@ You can access the user information from the `cache`
 // controllers/User.scala
 package controllers
 
+import javax.inject.Inject
 import play.api._
 import play.api.mvc._
 import scala.concurrent.Future
@@ -135,28 +150,28 @@ import play.api.http.{MimeTypes, HeaderNames}
 import play.api.libs.ws.WS
 import play.api.mvc.{Results, Action, Controller}
 import play.api.libs.json._
-import play.api.cache.Cache
+import play.api.cache._
 import play.api.Play.current
-import play.mvc.Results.Redirect
 
-class User extends Controller {
-    def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
-      Action { request =>
-        (request.session.get("idToken").flatMap { idToken =>
-          Cache.getAs[JsValue](idToken + "profile")
-        } map { profile =>
-          f(request)
-        }).orElse {
-          Some(Redirect(controllers.routes.Application.index()))
-        }.get
-      }
-    }
 
-    def index = AuthenticatedAction { request =>
-      val idToken = request.session.get("idToken").get
-      val profile = Cache.getAs[JsValue](idToken + "profile").get
-      Ok(views.html.user(profile))
+class User @Inject() (cache: CacheApi) extends Controller {
+  def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
+    Action { request =>
+      (request.session.get("idToken").flatMap { idToken =>
+        cache.get[JsValue](idToken + "profile")
+      } map { profile =>
+        f(request)
+      }).orElse {
+        Some(Redirect(routes.Application.index()))
+      }.get
     }
+  }
+  
+  def index = AuthenticatedAction { request =>
+    val idToken = request.session.get("idToken").get
+    val profile = cache.get[JsValue](idToken + "profile").get
+    Ok(views.html.user(profile))
+  }
 }
 ```
 
@@ -178,7 +193,7 @@ You can add the following `Action` to check if the user is authenticated. If not
 def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
   Action { request =>
     (request.session.get("idToken").flatMap { idToken =>
-      Cache.getAs[JsValue](idToken + "profile")
+      cache.getAs[JsValue](idToken + "profile")
     } map { profile =>
       f(request)
     }).orElse {
@@ -189,7 +204,7 @@ def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = 
 
 def index = AuthenticatedAction { request =>
   val idToken = request.session.get("idToken").get
-  val profile = Cache.getAs[JsValue](idToken + "profile").get
+  val profile = cache.getAs[JsValue](idToken + "profile").get
   Ok(views.html.user(profile))
 }
 ```
