@@ -28,12 +28,16 @@ This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool
 ```php
 use Auth0\SDK\Auth0;
 
-$auth0 = new Auth0(array(
-    'domain'        => '${account.namespace}',
-    'client_id'     => '${account.clientId}',
-    'client_secret' => '${account.clientSecret}',
-    'redirect_uri'  => '${account.callback}'
-));
+$auth0 = new Auth0([
+  'domain' => '${account.namespace}',
+  'client_id' => '${account.clientId}',
+  'client_secret' => '${account.clientSecret}',
+  'redirect_uri' => '${account.callback}',
+  'audience' => 'urn:test:api',
+  'persist_id_token' => true,
+  'persist_access_token' => true,
+  'persist_refresh_token' => true,
+]);
 ```
 
 ## Add Auth0 Callback Handler
