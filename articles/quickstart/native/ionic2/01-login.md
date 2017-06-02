@@ -19,6 +19,12 @@ budicon: 448
 
 To integrate Auth0 in a hybrid Ionic app, you can use the `@auth0/cordova` package available on npm. This package provides an interface with cordova which allows you to use the [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636) spec. PKCE is recommended for native and hybrid applications to mitigate the threat of authorization code interception.
 
+::: note
+
+Please note that PKCE authentication requires testing on either an emulated or real device. Attempting authentication when testing in the browser will fail because PKCE requires a device browser.
+
+:::
+
 ## Set Up Your Package Identifier
 
 To set up or get your package identifier (used several times throughout this tutorial), you should take a look at your config.xml and get it from this line:
@@ -48,13 +54,13 @@ You'll need these libraries:
 
 * **[auth0-js](https://github.com/auth0/auth0.js)** to get profile information from Auth0
 
-* **[@auth0-cordova](https://github.com/auth0/auth0-cordova)** to handle authentication with Auth0
+* **[@auth0/cordova](https://github.com/auth0/auth0-cordova)** to handle authentication with Auth0
 
 ```bash
 npm install auth0-js @auth0/cordova --save
 ```
 
-After **@auth0-cordova** is installed, it needs to be configured by modifying your `app.component.ts` to set up URL redirects:
+After **@auth0/cordova** is installed, it needs to be configured by modifying your `app.component.ts` to set up URL redirects:
 
 ${snippet(meta.snippets.cordova)}
 
