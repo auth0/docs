@@ -43,7 +43,7 @@ The `/testall` endpoint checks the status of the core Auth0 authentication servi
 }
 ```
 
-If all services are up, the endpoint returns the `200` HTTP response code and a simple text message saying, "`OK`." If any service is down, the response code from `/testall` will be 5xx.
+If all services are up, the endpoint returns the `200` HTTP response code and a simple text message saying, `OK`. If any service is down, the response code from `/testall` will be `5xx`.
 
 If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can build a synthetic transaction that exercises these capabilities using the [Resource Owner Password Grant](/api-auth/tutorials/password-grant).
 
@@ -77,7 +77,7 @@ We recommend adding SCOM probes for the `test` and `testall` endpoints, in addit
 
 To set up SCOM:
 
-1. Add a new SCOM instance using the *Add Monitoring Wizard*:
+1. Add a new SCOM instance using the **Add Monitoring Wizard**:
 
   * **Name**: a descriptive name for the SCOM instance
   * **Description**: a description of what this SCOM instances monitors
