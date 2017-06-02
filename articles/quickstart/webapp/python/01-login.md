@@ -91,7 +91,20 @@ def dashboard():
 
 [Click here](/user-profile) to check all the information that the userinfo hash has.
 
-### 6. Optional steps
+## 6. Logout
+
+You can implement logout by clearing a session and redirecting to [logout endpoint](/logout#redirect-users-after-logout).
+
+```python
+@app.route('/logout')
+def logout():
+    session.clear()
+    parsed_base_url = urlparse('${account.callback})
+    base_url = parsed_base_url.scheme + '://' + parsed_base_url.netloc
+    return redirect('https://%s/v2/logout?returnTo=%s&client_id=%s' % ('${account.namespace}', base_url, '${account.clientId}))
+```
+
+### 7. Optional steps
 
 #### Check if the user is authenticated
 
