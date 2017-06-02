@@ -1,8 +1,7 @@
 ---
-title: ID token
 description: How to obtain, use and renew an id_token.
+toc: true
 ---
-
 # ID Token
 
 ## Overview
@@ -14,7 +13,7 @@ You will need to decode this token to read the claims (or attributes) of the use
 The `id_token` is consumed by the client and the claims included, are typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
 
 ::: note
-If you need a refresher on OIDC refer to <a href="/protocols/oidc">OpenID Connect</a>.
+If you need a refresher on OIDC refer to [OpenID Connect](/protocols/oidc).
 :::
 
 The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contains three parts: a header, a body and a signature.
@@ -41,7 +40,7 @@ To check or update the algorithm your Client uses go to _[Client Settings](${man
 
 ## Control the contents of an ID token
 
-In order to retrieve an `id_token` the `responseType` should be set to `id_token`, both for client-side and server-side authentication flows.
+In order to retrieve an `id_token` the `responseType` should include the `id_token`, both for client-side and server-side authentication flows.
 
 The attributes included in the issued `id_token` are controlled by the use of a [parameter called `scope`](/scopes).
 - If `scope` is set to `openid`, then the `id_token` will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
@@ -69,25 +68,19 @@ lock.show();
 
 The `id_token` will contain only the claims specified as the value of the `scope` parameter.
 
-### Add Claims using Rules
+### Add Custom Claims
 
-If you are using [OAuth 2.0 API Authorization](/api-auth), you can add arbitrary claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-namespace/claim-name'] = 'claim-value'`.
+You can add custom claims to your ID token (or [Access Token](/tokens/access-token)) using [Rules](/rules).
 
-Additionally, you can add custom claims for metadata: `context.idToken['http://my-namespace/preferred_contact'] = user.user_metadata.preferred_contact`.
+The claim name must conform to a namespaced format, which basically means addind any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io` and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
 
-```js
-function (user, context, callback) {
-  const namespace = 'https://my-namespace/';
-  context.idToken[namespace + 'claim-name'] = 'claim-value'
-  context.idToken[namespace + 'favorite_color'] = user.favorite_color;
-  context.idToken[namespace + 'preferred_contact'] = user.user_metadata.preferred_contact;
-  callback(null, user, context);
-}
-```
+For more information on the namespaced format of custom claims, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
+
+For an example of how to add a custom claim, refer to [Add Custom Claims](/scopes/current#example-add-custom-claims).
 
 ### ID Token Payload
 
-::: panel-info Debugging a JWT
+::: note
 The [JWT.io website](https://jwt.io) has a debugger that allows you to debug any JSON Web Token. This is useful if you want to quckly decode a JWT to see the information it contains.
 :::
 
