@@ -28,6 +28,8 @@ This example uses `mux` for routing but you can use whichever router you want
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
 
 ```go
+// routes/callback/callback.go
+
 package callback
 
 import (
@@ -156,6 +158,8 @@ The `redirectUrl` specified in the `auth0.WebAuth` constructor **must match** th
 You can access the user information via the `profile` you stored in the session on step 2
 
 ```go
+// routes/user/user.go
+
 func UserHandler(w http.ResponseWriter, r *http.Request) {
 
 	session, err := app.Store.Get(r, "auth-session")
@@ -170,6 +174,8 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 ```
 
 ```html
+<!-- routes/user/user.html -->
+
 <div>
   <img class="avatar" src="{{.picture}}"/>
   <h2>Welcome {{.nickname}}</h2>
@@ -193,6 +199,8 @@ go get github.com/codegangsta/negroni
 Then, we should create a middleware that will check if the `profile` is in the session:
 
 ```go
+// routes/middlewares/isAuthenticated.go
+
 package middlewares
 
 import (
@@ -218,6 +226,8 @@ func IsAuthenticated(w http.ResponseWriter, r *http.Request, next http.HandlerFu
 Finally, we can use Negroni to set up this middleware for any route that needs authentication:
 
 ```go
+// server.go
+
 r.Handle("/user", negroni.New(
   negroni.HandlerFunc(middlewares.IsAuthenticated),
   negroni.Wrap(http.HandlerFunc(user.UserHandler)),
