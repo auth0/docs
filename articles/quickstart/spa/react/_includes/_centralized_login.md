@@ -9,7 +9,6 @@ Create a service and instantiate `auth0.WebAuth`. Provide a method called `login
 ```js
 // src/Auth/Auth.js
 
-import history from '../history';
 import auth0 from 'auth0-js';
 
 export default class Auth {
@@ -41,8 +40,10 @@ Add some additional methods to the `Auth` service to fully handle authentication
 ```js
 // src/Auth/Auth.js
 
+import history from '../history';
+
 // ...
-export default class Auth {  
+export default class Auth {
   // ...
   constructor() {
     this.login = this.login.bind(this);
@@ -91,6 +92,16 @@ export default class Auth {
     return new Date().getTime() < expiresAt;
   }
 }
+```
+
+```js
+// src/history.js
+
+import createHistory from 'history/createBrowserHistory'
+
+export default createHistory({
+  forceRefresh: true
+})
 ```
 
 The service now includes several other methods for handling authentication.
