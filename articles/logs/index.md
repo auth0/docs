@@ -476,6 +476,12 @@ The following table lists the codes associated with the appropriate log events.
     <td></td>
     <td></td>
   </tr>
+  <tr>
+    <td><code>ublkdu</code></td>
+    <td>User login block released</td>
+    <td>User block setup by anomaly detection has been released</td>
+    <td></td>
+  </tr>
   </tbody>
 </table>
 
