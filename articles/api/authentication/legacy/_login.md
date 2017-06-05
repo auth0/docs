@@ -60,6 +60,9 @@ xhr.send(params);
 
 ::: warning
 This endpoint is part of the legacy authentication pipeline. We recommend that you open the browser to do social authentication instead, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+
+This feature is disabled by default for new tenants as of 5 June 2017 due to security implications. Please see [Client Grant Types](/clients/grant-types/client-grant-types) for more information.
+
 :::
 
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
@@ -128,8 +131,8 @@ curl --request POST \
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}'
   });
-  
-  // Trigger login using redirect with credentials to enterprise connections 
+
+  // Trigger login using redirect with credentials to enterprise connections
   webAuth.redirect.loginWithCredentials({
     connection: 'Username-Password-Authentication',
     username: 'testuser',
