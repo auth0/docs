@@ -70,7 +70,7 @@ var webAuth = new auth0.WebAuth({
 });
 ```
 
-And then you'll go about using Lock as normal. However, you may also wish to call `renewAuth` you need it.
+And then you'll go about using Lock as normal. However, when you need to call `renewAuth` to acquire a new `accessToken` to replace an expired one, it'll be available to you.
 
 ```js
 webAuth.renewAuth({
