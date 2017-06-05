@@ -53,7 +53,7 @@ This URL must be part of your application, as your application will need to extr
 
 Next, click on **Show Advanced Settings**. Go to the **OAuth** tab and ensure that you have enabled the **OIDC Conformant** switch:
 
-![](/media/articles/client-auth/client-side-web/???.png)
+![](/media/articles/client-auth/client-side-web/oidc-conformant.png)
 
 Save the Settings.
 

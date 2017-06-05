@@ -10,7 +10,7 @@ You can use the Auth0 Authentication API to create server-side web applications 
 
 ## Overview
 
-Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the `redirect_uri` (also referred to as the Callback URL), returning an `authorization_code` in the query string parameters of the Callback URL. This `authorization_code` can then be exchanged for an `id_token` which contains the identity of the user.
+Auth0 exposes OAuth 2.0 endpoints for authenticating any user. You can redirect the user from your web application to these endpoints in the web browser. Auth0 will handle the authentication of the user, and then redirect the user back to the `redirect_uri` (also referred to as the Callback URL), returning an authorization `code` in the query string parameters of the Callback URL. This `code` can then be exchanged for an `id_token` which contains the identity of the user.
 
 ## The Authentication Flow
 
@@ -54,7 +54,7 @@ This URL must be part of your application, as your application will need to retr
 
 Next, click on **Show Advanced Settings**. Go to the **OAuth** tab and ensure that you have enabled the **OIDC Conformant** switch:
 
-![](/media/articles/client-auth/client-side-web/???.png)
+![](/media/articles/client-auth/server-side-web/oidc-conformant.png)
 
 Save the Settings.
 
@@ -222,7 +222,7 @@ You can then exchange the `code` for an `id_token`. The profile attributes of th
 
 ### Request a User Log In With GitHub
 
-You can send a user directly to the GitHub authentication screen by passing the value of **github** to the `connection` parameter. Note that we also request the `openid`, `name`, `picture` and `email` scopes:
+You can send a user directly to the GitHub authentication screen by passing the value of **github** to the `connection` parameter:
 
 ```text
 https://${account.namespace}/authorize
