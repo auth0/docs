@@ -1164,5 +1164,9 @@ module.exports = [
   {
     from: '/quickstart/native/ios',
     to: '/quickstart/native/ios-swift'
+  },
+  {
+    from: '/rules/metadata-in-rules',
+    to: '/rules/current/metadata-in-rules'
   }
 ];
