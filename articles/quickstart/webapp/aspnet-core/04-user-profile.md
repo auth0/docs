@@ -26,6 +26,8 @@ You may also want to create a nicer looking user profile page which will display
 First create view model which will contain the basic user profile information, such as a `Name`, `EmailAddress` and `ProfileImage`:
 
 ```csharp
+// ViewModels/UserProfileViewModel.cs
+
 public class UserProfileViewModel
 {
   public string EmailAddress { get; set; }
@@ -39,6 +41,8 @@ public class UserProfileViewModel
 Add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to dectorate the action with the `[Authorize]` attribute so only authenticated users can access the action:
 
 ```csharp
+// Controllers/AccountController.cs
+
 [Authorize]
 public IActionResult Profile()
 {
@@ -92,6 +96,8 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 Next create a view. For the view, display a user profile card at the top with the user's name, email address and profile image.
 
 ```html
+<!-- Views/Account/Profile.cshtml -->
+
 @model SampleMvcApp.ViewModels.UserProfileViewModel
 @{
   ViewData["Title"] = "User Profile";
@@ -126,6 +132,8 @@ You may also want to put a link in the top navigation bar to display the user's 
 Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which displays the Login and Logout options to also display the user's name and link to the `Profile` action in the `AccountController`:
 
 ```html
+<!-- Views/Shared/_Layout.cshtml -->
+
 <ul class="nav navbar-nav navbar-right">
   @if (User.Identity.IsAuthenticated)
   {

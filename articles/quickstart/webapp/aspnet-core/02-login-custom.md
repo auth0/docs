@@ -29,6 +29,8 @@ Install-package Auth0.AuthenticationApi
 First you need to register the cookie middleware. Update the `ConfigureServices` method in your `Startup` class to register the relevant services for the cookie middleware:
 
 ```csharp
+// Startup.cs
+
 // Add authentication services
 services.AddAuthentication(
     options => options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
@@ -37,6 +39,8 @@ services.AddAuthentication(
 Also update the `Configure` method in your `Startup` class to register the cookie middleware:
 
 ```csharp
+// Startup.cs
+
 // Add the cookie middleware
 app.UseCookieAuthentication(new CookieAuthenticationOptions
 {
@@ -54,6 +58,8 @@ You need to create a Login form which will capture the user's email address and 
 First create a view model called `LoginViewModel` to bind the values in the form to:
 
 ```csharp
+// ViewModels/LoginViewModel.cs
+
 public class LoginViewModel
 {
   [Required]
@@ -71,6 +77,8 @@ public class LoginViewModel
 Create a Razor view called `Login.cshtml` in your `\Views\Account` folder which will allow the user to enter their email address and password:
 
 ```html
+<!-- Views/Account/Login.cshtml -->
+
 @model SampleMvcApp.ViewModels.LoginViewModel
 @{
   ViewData["Title"] = "Log In";
@@ -106,6 +114,8 @@ Create a Razor view called `Login.cshtml` in your `\Views\Account` folder which 
 Next, you will need to update your `AccountController` as per the code below:
 
 ```csharp
+// Controllers/AccountController.cs
+
 public class AccountController : Controller
 {
   private readonly Auth0Settings _auth0Settings;
@@ -206,6 +216,8 @@ For the `Logout` method, ASP.NET Core will call `SignOutAsync` for the **Auth0**
 So back in the `Startup.cs` file, update the instantiation of `OpenIdConnectOptions` with the following code:
 
 ```csharp
+// Startup.cs
+
 var options = new OpenIdConnectOptions("Auth0")
 {
     // some code omitted for brevity...
@@ -249,6 +261,8 @@ If you would like the user to sign in with their Google accounts you will need t
 First update the `AccountController` to add a `LoginExternal` action that will be called from the Login view. This action takes a `connection` parameter which will be passed along in the `Properties` of the `ChallengeResult`:
 
 ```csharp
+// Controllers/AccountController.cs
+
 [HttpGet]
 public IActionResult LoginExternal(string connection, string returnUrl = "/")
 {
@@ -264,6 +278,8 @@ public IActionResult LoginExternal(string connection, string returnUrl = "/")
 Update your `Login.cshtml` view to add a button inside the `<form>` element with the text "Login with Google". This will invoke the `LoginExternal` action created above and pass along "google-oauth2" in the `connection` parameter as the social identity provider to invoke:
 
 ```html
+<!-- Views/Account/Login.cshtml -->
+
 <div class="form-group">
   <a class="btn btn-lg btn-default btn-block" asp-controller="Account" asp-action="LoginExternal" asp-route-connection="google-oauth2" asp-route-returnurl="@ViewData["ReturnUrl"]">
     Login with Google
@@ -278,6 +294,8 @@ Finally, update the `Configure` method in your `Startup` class to register the O
 In order to do this, handle the `OnRedirectToIdentityProvider` event when registering the OIDC middleware and look at that `Properties` for the requested `connection`. Add the parameter to the OIDC request which is passed along to Auth0. This will ensure that Auth0 invoke the correct social identity provider directly, instead of displaying the Lock widget:
 
 ```csharp
+// Startup.cs
+
 var options = new OpenIdConnectOptions("Auth0")
 {
     // Set the authority to your Auth0 domain
@@ -324,6 +342,8 @@ Also note above that the list of scopes is cleared and only the `openid` scope i
 Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. This will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
 ```html
+<!-- Views/Shared/_Layout.cshtml -->
+
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
