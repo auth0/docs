@@ -2,7 +2,7 @@
 title: Using Passwordless Authentication on Android with SMS
 ---
 
-::: note-warning
+::: warning
 This feature is disabled by default for new tenants as of (date) due to security implications. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see <a href="/clients/grant-types/client-grant-types">Client Grant Types</a> for more information.
 :::
 
