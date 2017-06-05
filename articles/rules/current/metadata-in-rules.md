@@ -2,7 +2,6 @@
 toc: true
 description: How to use metadata in rules.
 ---
-
 # User Metadata in Rules
 
 This article explains how to [read](#reading-metadata), [update](#updating-metadata) and [delete](#deleting-metadata) [metadata](/metadata) using [Rules](/rules).
@@ -225,6 +224,7 @@ This results in the following JSON representation of the user profile details:
 Client metadata can be updated using the [`PATCH /api/v2/clients/{id}`](/api/management/v2#!/Users/patch_users_by_id) endpoint, supplying a client object with the `client_metadata property`, whose value is an object containing the metadata you'd like to change.
 
 *Client Before*
+
 ```
 {
   ...
@@ -244,6 +244,7 @@ Request: `PATCH /api/v2/client/myclientid123` with body:
 ```
 
 *Client After*
+
 ```
 {
   "name": "myclient",
@@ -387,6 +388,7 @@ This results in the following JSON representation of the user profile details:
   }
 }
 ```
+
 ### Deleting `client_metadata` properties and values
 
 `client_metadata` keys can be removed by issuing a PATCH, [as described above](#updating-client_metadata), but supplying a null for the key value. This behavior matches that of the `user_metadata` and `app_metadata` properties in the `PATCH` [/api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) endpoint.
@@ -404,6 +406,7 @@ Scroll down and click the link **Show Advanced Settings**. Then you will be in t
 The metadata must be a valid JSON object and can not contain a dot in key field names in `user_metadata`, `app_metadata` or `client_metadata`.
 
 This is not allowed:
+
 ```js
 {
   "preference.color" : "pink"
