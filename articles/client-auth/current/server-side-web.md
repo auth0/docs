@@ -18,16 +18,22 @@ The OAuth 2.0 Authorization Framework allows for different kinds of authorizatio
 
 The Authorization Code flow is initiated by redirecting the user in the web browser to the Auth0 `/authorize` endpoint. Auth0 will then display the Auth0 Lock dialog, allowing the user to enter their credentials or alternatively sign in with any other configured [Identity Provider](/identityproviders).
 
-After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along an `authorization_code` parameter in the query string of the Callback URL. This code can then be exchanged for an `id_token` by making a request to the `/oauth/token` endpoint.
+After the user has authenticated, Auth0 will redirect the browser back to the **Redirect URI** (also called **Callback URL**), passing along a `code` parameter in the query string of the Callback URL. This `code` can then be exchanged for an `id_token` by making a request to the `/oauth/token` endpoint.
 
 The `id_token` is a [JSON Web Token (JWT)](/jwt) and contains various attributes - referred to as _Claims_ - regarding the user, such as the user's name, email address, profile picture etc. The `id_token` can be decoded to extract the claims and you are free to use these inside of your application, to display a user's name and profile image for example.
+
+::: note
+You will also receive an `access_token` which can be used to call the [Authentication API's `/userinfo` endpoint](/api/authentication#get-user-info) or your own APIs.
+
+For more information on calling APIs from Server-side Web Apps, please see [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
+:::
 
 ![](/media/articles/client-auth/server-side-web/server-side-web-flow.png)
 
 1. The Client initiates the flow and redirects the user to the Authorization Server.
 2. The user authenticates.
-3. The Authorization Server redirects to the `redirect_uri` with an `authorization_code` in the query string.
-4. The Client sends the `authorization_code` together with the `redirect_uri` and the Client Id/Client Secret to the Authorization Server.
+3. The Authorization Server redirects to the `redirect_uri` with a `code` in the query string.
+4. The Client sends the `code` together with the Client ID, Client Secret and `redirect_uri` to the Authorization Server.
 5. The Authorization Server validates this information and returns an `id_token`.
 
 ## Register your Client
@@ -46,6 +52,12 @@ This URL must be part of your application, as your application will need to retr
 
 ![](/media/articles/client-auth/server-side-web/allowed-callback-url.png)
 
+Next, click on **Show Advanced Settings**. Go to the **OAuth** tab and ensure that you have enabled the **OIDC Conformant** switch:
+
+![](/media/articles/client-auth/client-side-web/???.png)
+
+Save the Settings.
+
 ## Call the Authorization URL
 
 The URL used when authenticating a user is `https://${account.namespace}/authorize`. This is the initial endpoint to which a user must be redirected. This will handle checking whether any SSO session is active, authenticating the user and also potentially redirect the user directly to any Identity Provider to handle authentication.
@@ -54,22 +66,21 @@ This endpoint supports the following query string parameters:
 
 | Parameter | Description |
 |:------------------|:---------|
-| response_type | The response type specifies the Grant Type you want to use. This can be either `code` or `token`. For server-side web applications using the Authorization Code Flow this **must be set** to `code` |
+| response_type | The response type specifies the Grant Type you want to use. For server-side web applications using the Authorization Code Flow this **must be set** to `code` |
 | client_id | The Client ID of the Client you registered in Auth0. This can be found on the **Settings** tab of your Client in the Auth0 Dashboard |
-| scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid` (if no scope is specified then `openid` is implied). You can also request other scopes, so for example to return the user's name and profile picture you can request a scope of `openid name picture`.<br/><br/>You can read up more about [scopes](/scopes). |
+| scope | Specifies the claims (i.e. attributes) of the user you want the be returned in the `id_token`. To obtain an `id_token` you need to specify at least a scope of `openid`. If you want to return the user's full profile information, you can request `openid profile`.<br/><br/>You can read up more about [scopes](/scopes). |
 | redirect_uri | The URL in your application where the user will be redirected to after they have authenticated, e.g. `${account.callback}`<br><br>**Note:** Be sure to add this URL to the list of **Allowed Callback URLs** in the **Settings** tab of your Client inside the [Auth0 Dashboard](${manage_url}) |
 | connection | This is an optional parameter which allows you to force the user to sign in with a specific connection. You can for example pass a value of `github` to send the user directly to GitHub to log in with their GitHub account.<br /><br /> If this parameter is not specified the user will be presented with the normal Auth0 Lock screen from where they can sign in with any of the available connections. You can see the list of configured connections on the **Connections** tab of your client.  |
-| state | The state parameter will be sent back should be used for XSRF and contextual information (like a return url) |
 
-## Exhange the `access_code` for an `id_token`
+## Exchange the `code` for an `id_token`
 
-After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along an `access_token` in the `code` query string parameter of the URL, e.g.
+After the user has authenticated, Auth0 will call back to the URL specified in the `redirect_uri` query string parameter which was passed to the `/authorize` endpoint. When calling back to this URL, Auth0 will pass along a `code` as a query string parameter of the URL, e.g.
 
 ```text
-${account.callback}?code=2OKj...
+${account.callback}?code=tQPUv...
 ```
 
-You application will need to handle the request to this callback URL, extract the `access_code` from the `code` query string parameter and call the `/oauth/token` endpoint of the Auth0 Authentication API in order to exchange the `access_code` for the `id_token`:
+You application will need to handle the request to this callback URL, extract the `code` query string parameter and call the `/oauth/token` endpoint of the Auth0 Authentication API in order to exchange the `code` for the `id_token`:
 
 ```har
 {
@@ -85,12 +96,13 @@ You application will need to handle the request to this callback URL, extract th
 }
 ```
 
-The response from `/oauth/token` contains an `access_token`, `id_token` and `token_type` values (and also potentially a `refresh_token`), for example:
+The response from `/oauth/token` contains `access_token`, `expires_in`, `id_token` and `token_type` values (and also potentially a `refresh_token`), for example:
 
 ```json
 {
-  "access_token": "AP16...",
-  "id_token": "eyJ0...",
+  "access_token": "subBe48...",
+  "expires_in": 86400,
+  "id_token": "eyJ0eXAi...",
   "token_type": "Bearer"
 }
 ```
@@ -119,6 +131,7 @@ An example payload for an `id_token` may look something like this:
 ```
 
 The payload above contains the following claims:
+
 
 | Parameter | Description |
 |:------------------|:---------|
@@ -154,15 +167,16 @@ https://${account.namespace}/authorize
   ?response_type=code
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
+  &scope=openid
 ```
 
-After the user has authenticated, they will be redirected back to the `redirect_uri` with the `access_code` in the `code` query string parameter:
+After the user has authenticated, they will be redirected back to the `redirect_uri` with a `code` query string parameter:
 
 ```text
 ${account.callback}?code=2OKj...
 ```
 
-You can then exchange the `access_code` for an `id_token`. This is an example of the decoded payload of the `id_token` which will be returned:
+You can then exchange the `code` for an `id_token`. This is an example of the decoded payload of the `id_token` which will be returned:
 
 ```json
 {
@@ -176,23 +190,23 @@ You can then exchange the `access_code` for an `id_token`. This is an example of
 
 ### Request the Name and Profile Picture
 
-You can request a user's name and profile picture by requesting the `name` and `picture` scopes.
+You can request a user's profile information, for example their name and profile picture, by requesting the `profile` scope in addition to the `openid` scope:
 
 ```text
 https://${account.namespace}/authorize
   ?response_type=code
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
-  &scope=openid%20name%20picture
+  &scope=openid%20profile
 ```
 
-After the user has authenticated, they will be redirected back to the `redirect_uri` with the `access_code` in the `code` query string parameter:
+After the user has authenticated, they will be redirected back to the `redirect_uri` with a `code` query string parameter:
 
 ```text
 ${account.callback}?code=2OKj...
 ```
 
-You can then exchange the `access_code` for an `id_token`. The name and profile picture will be available in the `name` and `picture` claims of the returned `id_token`:
+You can then exchange the `code` for an `id_token`. The profile attributes of the user, such as the name and profile picture will be available in the `name` and `picture` claims of the returned `id_token`:
 
 ```json
 {
@@ -215,32 +229,29 @@ https://${account.namespace}/authorize
   ?response_type=code
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
-  &scope=openid%20name%20picture%20email
+  &scope=openid%20profile
   &connection=github
 ```
 
-::: panel Log in with other social providers
+::: note
 You can just as easily request a user log in with other social providers, like Google or Facebook. All you have to do is configure the corresponding connection in the [dashboard](${manage_url}/#/connections/social) and change the `connection` value of this call to `/authorize` with the name of the connection to use (`google-oauth2` for Google, `facebook` for Facebook, and so forth). You can get the connection's name from the _Settings_ of the connection in the [dashboard](${manage_url}/#/connections/social). For more info:
 - [Identity Providers Supported by Auth0](/identityproviders)
 - [Social Login using the Authentication API](/api/authentication#social)
 :::
 
-After the user has authenticated, they will be redirected back to the `redirect_uri` with the `id_token` and `token_type` passed as parameters in the hash fragment:
-
-After the user has authenticated, they will be redirected back to the `redirect_uri` with the `access_code` in the `code` query string parameter:
+After the user has authenticated, they will be redirected back to the `redirect_uri` with a `code` query string parameter:
 
 ```text
 ${account.callback}?code=2OKj...
 ```
 
-You can then exchange the `access_code` for an `id_token`. The user's name and profile picture and email address will be available in the `name`, `picture` and `email` claims of the returned `id_token`. You will also notice that the `sub` claim contains the User's unique ID returned from GitHub:
+You can then exchange the `code` for an `id_token`. Since we also requested the `profile` scope, the user's Github profile attributes will also be available. In the example below you will notice the `name`, `nickname` and `picture` attributes are returned with the values from GitHub. You will also notice that the `sub` claim contains the User's unique ID returned from GitHub:
 
 ```json
 {
   "name": "Jerrie Pelser",
+  "nickname": "jerriep",
   "picture": "https://avatars.githubusercontent.com/u/1006420?v=3",
-  "email": "jerrie@...",
-  "email_verified": true,
   "iss": "https://auth0pnp.auth0.com/",
   "sub": "github|100...",
   "aud": "xvt...",
