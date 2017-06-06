@@ -1,6 +1,6 @@
 ---
 description: How to use token introspection to get information about a token's authorization context
-url: /token-introspection
+url: /api-auth/token-introspection
 toc: true
 ---
 
