@@ -404,6 +404,20 @@ The `title` will generally be a single word like Introduction or Login as it wil
 
 After you publish the doc update, the new quickstart will automatically appear on both docs and manage.
 
+
+#### Hiding Articles in Navigation
+
+Articles are included in navigation by default.  To hide an article from navigation,
+modify the `index.yml` and move the article from `articles` to `hidden_articles`.
+
+```yaml
+articles:
+  - 00-Intro
+  - 01-Login
+hidden_articles:
+  - Hidden-Article
+```
+
 ### Versioning Quickstarts
 
 The filesystem structure for a versioned quickstart looks like this:
