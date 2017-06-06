@@ -64,18 +64,18 @@ Sample flow:
 1. The user uses the ASP as a Bearer token to call your API
 2. The API recognizes the token as non-JWT, so it has to [introspect](/api-auth/token-instrospection). It makes a call to `oauth/introspect`, and the response indicates whether the token is active or not. If the token is active, the endpoint also returns the claims associated with the token. The response looks something like this:
 
-```json
-{
-  "token_type": "application_specific_password_token",
-  "scope": "read:foo create:foo update:foo",
-  "iat": 1490234011,
-  "sub": "auth0|1234",
-  "aud": "https://demo.api",
-  "iss": "https://tenant.auth0.com/",
-  "active": true,
-  "username": "user@gmail.com"
-}
-```
+    ```json
+    {
+      "token_type": "application_specific_password_token",
+      "scope": "read:foo create:foo update:foo",
+      "iat": 1490234011,
+      "sub": "auth0|1234",
+      "aud": "https://demo.api",
+      "iss": "https://tenant.auth0.com/",
+      "active": true,
+      "username": "user@gmail.com"
+    }
+    ```
 
 3. Upon receiving the results of the call, the API can make an authorization decision, such as whether the user is allowed to use the indicated scopes.
 
