@@ -53,16 +53,9 @@ console.log('Listening on http://localhost:3001');
   <meta charset="utf-8">
   <script src="${auth0js_urlv8}"></script>
   <script>
-    var AUTH0_CLIENT_ID = '${account.clientId}';
-    var AUTH0_DOMAIN = '${account.namespace}';
-
-    if (!AUTH0_CLIENT_ID || !AUTH0_DOMAIN) {
-      alert('Make sure to set the AUTH0_CLIENT_ID and AUTH0_DOMAIN variables in silent.html.');
-    }
-
     var webAuth = new auth0.WebAuth({
-      domain: AUTH0_DOMAIN,
-      clientID: AUTH0_CLIENT_ID,
+      domain: '${account.namespace}',
+      clientID: '${account.clientId}',
       scope: 'openid profile',
       responseType: 'token id_token',
       redirectUri: 'http://localhost:4200'
