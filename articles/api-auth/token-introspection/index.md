@@ -72,9 +72,9 @@ To use token introspection, make a `POST` call to the [Authorization API](/api/a
 * **Client Assertion**: A JWT signed with your API's private key so that Auth0 can validate its signature using the associated public key;
 * **Client Assertion Type**: The specific type of client assertion used (in this case, it's a JWT). Set this to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
 
-<div class="alert alert-info">
-  <strong>Client Authentication</strong> </br>Note that we're using assertions (instead of secrets) for client authentication.
-</div>
+::: note
+Note that we're using assertions (instead of secrets) for client authentication.
+:::
 
 ```curl
 curl --request POST \

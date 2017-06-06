@@ -1,10 +1,10 @@
 ---
-  description: How to use app-specific password flows
+description: How to use app-specific password flows
 ---
 
 # Application-Specific Passwords
 
-An **application-specific password** (ASP) can be used to get you limited access to a protected resource, such as an API. In Auth0, you can used in one of two ways:
+An **application-specific password** (ASP) can be used to get you limited access to a protected resource, such as an API. In Auth0, you can use them in one of two ways:
 
 * As a replacement for the password portion of your credentials when using basic authentication. More specifically, instead of providing your username/password combination, you'd provide your username/ASP combination;
 * As an alternative to Bearer tokens when calling an Auth0 API endpoint.
@@ -26,7 +26,7 @@ There are three ways by which Auth0 can obtain the public key:
 
 ### Step 2: Set Up the Client Grant for App-Specific Passwords
 
-Ensure that you've granted the appropriate scopes (such as `read`, `create`, `delete:user_application_passwords`) to the Client you'll be using with the Management API. These will the be the scopes the API can include with newly-issued ASPs.
+Ensure that you've granted the appropriate [scopes](/scopes/current#api-scopes) (such as `read`, `create`, `delete:user_application_passwords`) to the [Client](/clients) you'll be using with the Management API. These will the be the scopes the API can include with newly-issued ASPs.
 
 ## Create Application-Specific Passwords Using the Management API
 
@@ -36,8 +36,22 @@ You can create app-specific passwords using the Management API.
 The only time you can view the value of the App-Specific Password is during creation.
 :::
 
+## Use Application-Specific Passwords with Auth0
 
-## Use App-Specific Passwords as Bearer Tokens
+In Auth0, you can use application-specific passwords (ASPs) in one of two ways:
+
+* As a replacement for the password portion of your credentials when using basic authentication;
+* As an alternative to Bearer tokens when calling an Auth0 API endpoint.
+
+### Use App-Specific Passwords in a Basic Authentication Flow
+
+In this scenario, your API accepts a username and password combination. The user may provide either their actual credentials *or* a username and an app-specific password.
+
+If the user opts for the latter option, your API should check the credentials against Auth0's [`/oauth/token` endpoint](/api/authentication#client-credentials) using `grant_type`: `password` (for full instructions on how to configure this type of authentication flow, please see [How to Implement the Resource Owner Password Grant](https://auth0.com/docs/api-auth/tutorials/password-grant#optional-customize-the-tokens))
+
+If the authentication fails, the API then uses [token introspection](/api-auth/token-introspection#calling-the-authentication-api-s-token-introspection-endpoint) to verify that the password is a valid app-specific password. If it is, and the ASP is active, the API will return the claims associated with the token. Based on these results, your API can make authorization decisions.
+
+### Use App-Specific Passwords as Bearer Tokens
 
 Your API consumes ASPs the same way it would consume any other Bearer token, regardless of whether it's a JWT or not.
 
@@ -68,11 +82,3 @@ Sample flow:
 ::: note
 Anytime the token introspection endpoint is called using an ASP, the ASP record is updated with the `last_accessed` timestamp.
 :::
-
-## Using App-Specific Passwords in a Basic Authentication Flow
-
-In this scenario, your API accepts a username and password combination. The user may provide either their actual credentials *or* a username and an app-specific password.
-
-If the user opts for the latter option, your API should check the credentials against `/oauth/token` using `grant_type`: `password`.
-
-If the authentication fails, the API then uses token introspection to verify that the password is a valid app-specific password. If it is, and the ASP is active, the API will return the claims associated with the token. Based on these results, your API can make authorization decisions.
