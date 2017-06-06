@@ -52,7 +52,9 @@ Add a function called `userHasScopes` which will check for a particular `scope` 
 // app.js
 
 function userHasScopes(scopes) {
-  var grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
+  var savedScopes = JSON.parse(localStorage.getItem('scopes'));
+  if (!savedScopes) return false;
+  var grantedScopes = savedScopes.split(' ');
   for (var i = 0; i < scopes.length; i++) {
     if (grantedScopes.indexOf(scopes[i]) < 0) {
       return false;
