@@ -75,7 +75,7 @@ Replace these values:
 Within the user's `identities` array, there will be an `access_token` that you can extract and use to make calls to the IdP's API: `user.identities[0].access_token`.
 
 ::: note
-The `access_token` is only returned from the BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint and Azure AD Identity Providers. For more information refer to the [Identity Provider Access Tokens](https://auth0.com/docs/tokens/idp#renewing-the-token) documentation.
+The `access_token` is only returned from the following Identity Providers: BitBucket, Google (OAuth 2.0), OAuth 2.0, SharePoint, Azure AD. For more information, refer to [Identity Provider Access Tokens](https://auth0.com/docs/tokens/idp#renewing-the-token).
 :::
 
 In most cases, the user will only have one identity, but if you have used the [account linking feature](/link-accounts), there may be more.
