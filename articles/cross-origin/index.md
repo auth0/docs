@@ -10,11 +10,11 @@ description: An explanation of cross-origin authentication in Auth0 and its comp
 
 ## Configure Your Client for Cross-Origin Auth
 
-To use cross-origin auth, you first need to configure your client to allow for it. At the present time, this is accomplished by sending a PATCH request to [Auth0's Management API]().
+To use cross-origin auth, you first need to configure your client to allow for it. At the present time, this is accomplished by sending a PATCH request to [Auth0's Management API](/api/management/v2).
 
 Get an access token in the [Auth0 dashboard](${manage_url}), navigate to APIs > Auth0 Management API > API Explorer. Copy the token that is presented at the top of the page.
 
-Send a PATCH Request Using a REST client such as [Postman](), or simply by using cURL, send a PATCH request to `https://${account.namespace}/api/v2/clients/${account.clientID}` and include `cross_origin_auth: true` in the body. Include the valid access token acquired previously as the Authorization header with the `Bearer` scheme. The resulting header looks like this: `'Authorization': 'Bearer <access-token>'`.
+Send a PATCH Request Using a REST client such as [Postman](https://www.getpostman.com/), or simply by using cURL, send a PATCH request to `https://${account.namespace}/api/v2/clients/${account.clientID}` and include `cross_origin_auth: true` in the body. Include the valid access token acquired previously as the Authorization header with the `Bearer` scheme. The resulting header looks like this: `'Authorization': 'Bearer <access-token>'`.
 
 ## Default Behavior
 
