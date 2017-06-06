@@ -38,7 +38,7 @@ In the screenshot below you can see a Postman environment configured with both t
 
 ## Executing a request
 
-Once the environment is configured, you can follow theses steps to execute an Auth0 API method:
+Once the environment is configured, you can follow these steps to execute an Auth0 API method:
 
 1. Select the environment you want to work with
 2. Select the relevant API method in the collection folder
