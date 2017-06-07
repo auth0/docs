@@ -4,6 +4,7 @@ description: This doc covers what features, platforms, and software configuratio
 toc: true
 ---
 
+<!-- markdownlint-disable MD033 -->
 <div class="support-matrix-page">
 
   # Auth0 Product Support Matrix
