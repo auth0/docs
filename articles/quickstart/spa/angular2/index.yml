@@ -16,7 +16,6 @@ snippets:
 seo_alias: angular2
 default_article: dashboard-default
 articles:
-  - getting-started
   - 00-login
   - 03-user-profile
   - 04-calling-an-api

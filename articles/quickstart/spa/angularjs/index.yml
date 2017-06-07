@@ -17,7 +17,6 @@ snippets:
 seo_alias: angularjs
 default_article: dashboard-default
 articles:
-  - getting-started
   - 01-login
   - 02-user-profile
   - 03-calling-an-api
