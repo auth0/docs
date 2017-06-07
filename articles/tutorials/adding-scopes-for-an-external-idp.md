@@ -33,5 +33,5 @@ https://${account.namespace}/authorize
 ```
 
 ::: note
-Please note that in the example request above, the value of the `connection_scope` parameter is URL Encoded. The decoded value which is passed to Google is `https://www.googleapis.com/auth/analytics,https://www.googleapis.com/auth/contacts.readonly`
+Please note that in the example request above, the value of the `connection_scope` parameter is URL Encoded. The decoded value which is passed to Google is `https://www.googleapis.com/auth/analytics, https://www.googleapis.com/auth/contacts.readonly`
 :::
