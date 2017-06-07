@@ -749,6 +749,10 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
 
 ## Extensions
 
+::: note
+Auth0 does not provide support for custom extensions.
+:::
+
 <table class="table">
   <thead>
     <tr>
@@ -765,7 +769,3 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
 </table>
 
 Feature requests should be requested at the GitHub repository of each extension. Please note there is no commitment from Auth0 to implement requests.
-
-::: note
-Auth0 does not provide support for custom extensions.
-:::
