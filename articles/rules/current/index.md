@@ -321,4 +321,4 @@ For a list of currently supported sandbox modules, see: [Modules Supported by th
 
 ## Further reading
 
-* [Redirecting users from within rules](/rules/redirect)
+* [Redirecting users from within rules](/rules/current/redirect)
