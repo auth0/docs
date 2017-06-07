@@ -13,9 +13,9 @@ There are two ways you can use to request the correct permissions.
 
 To configure the scopes/permissions needed from the user, go to the [Connections > Social](${manage_url}/#/connections/social) section of Auth0 Dashboard. There, you can click on an IdP to select the particular scopes required. 
 
-For example, if you click the Facebook connection, you can select the required scopes listed in the configuration pop-up:
+For example, if you click the Google connection, you can select the required scopes listed in the configuration pop-up:
 
-![Scopes for Facebook](/media/articles/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp/scopes.png)
+![Scopes for Google](/media/articles/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp/scopes.png)
 
 ## 2. Pass Scopes to Authorize endpoint
 
