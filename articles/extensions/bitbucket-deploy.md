@@ -134,14 +134,6 @@ You can find a `login_success` example in [the Auth0 Samples repository](https:/
 
 To avoid conflicts, you are cannot set multiple Rules of the same order. However, you can create a JSON file for each rule, and within each file, assign a value for `order`. We suggest using number values that allow for reordering with less risk for conflict. For example, assign a value of `10` to the first Rule and `20` to the second Rule, rather than using values of `1` and `2`, respectively).
 
-#### Set the Stage
-
-After you deploy a Rule, you cannot change its stage, or the area where the Rule executes.
-
-If you need the rule to execute in a different stage, you must create a new Rule with the updated stage and delete the original Rule.
-
-Please note that you may have only a single Rule for the `user_registration` and `login_failure` stages.
-
 ## Track Deployments
 
 To track your deployments, navigate to the [Extensions](${manage_url}/#/extensions) page, click on the row for the **Bitbucket Deployments** extension, and select the **Deployments** tab. You will see a list of all deployments.
