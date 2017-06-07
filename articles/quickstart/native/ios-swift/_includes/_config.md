@@ -21,7 +21,7 @@ Add your credentials in `Auth0.plist`. You have to create that file if it doesn'
 
 ## Configure Callback URLs
 
-Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including a token. Since callback URLs can be manipulated, you will need to add your application's URL to your client's **Allowed Callback URLs* *for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
+Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including a token. Since callback URLs can be manipulated, you will need to add your application's URL to your client's **Allowed Callback URLs** for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
 
 In your application's `Info.plist` file, register your iOS Bundle Identifer as a custom scheme:
 
@@ -46,5 +46,5 @@ In your application's `Info.plist` file, register your iOS Bundle Identifer as a
 Finally, go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that "Allowed Callback URLs" contains the following:
 
 ```text
-{YOUR_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback
+{PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
