@@ -4,23 +4,21 @@ title: Using Passwordless Authentication with a magic link via email on Regular 
 
 # Passwordless Authentication with a magic link via e-mail on Regular Web Apps
 
-::: warning
-This document covers Passwordless Authentication with Magic Links, and uses the auth0.js v7 SDK. The newest version of auth0.js (v8) does not yet include this functionality.
-:::
+<%= include('../../_older-version-alert' %>
 
-<%= include('./_introduction-email-magic-link') %>
+<%= include('../../_introduction-email-magic-link') %>
 
 ## Setup
 
-<%= include('./_setup-email') %>
+<%= include('../../_setup-email') %>
 
-<%= include('./_setup-callback', {spa:false} ) %>
+<%= include('../../_setup-callback', {spa:false} ) %>
 
 ## Implementation
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('./_init-passwordless-lock') %>
+<%= include('../../_init-passwordless-lock') %>
 
 Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the authentication on the server-side:
 
@@ -51,7 +49,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('./_init-auth0js', {withCallbackURL:true} ) %>
+<%= include('../../_init-auth0js', {withCallbackURL:true} ) %>
 
 You must provide a way for the user to enter an email to which the magic link will be sent. Then you can begin the passwordless authentication as follows:
 

@@ -4,23 +4,21 @@ title: Using Passwordless Authentication with a Magic Link via email on SPA
 
 # Authenticate users with a Magic Link via e-mail on SPA
 
-::: warning
-This document covers Passwordless Authentication with Magic Links, and uses the auth0.js v7 SDK. The newest version of auth0.js (v8) does not yet include this functionality.
-:::
+<%= include('../../_older-version-alert' %>
 
-<%= include('./_introduction-email-magic-link') %>
+<%= include('../../_introduction-email-magic-link') %>
 
 ## Setup
 
-<%= include('./_setup-email') %>
+<%= include('../../_setup-email') %>
 
-<%= include('./_setup-callback', {spa:true} ) %>
+<%= include('../../_setup-callback', {spa:true} ) %>
 
 ## Implementation
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('./_init-passwordless-lock') %>
+<%= include('../../_init-passwordless-lock') %>
 
 Then you can trigger the passwordless authentication using a magic link with the following code:
 
@@ -65,7 +63,7 @@ $(document).ready(function(){
 
 You can perform passwordless authentication with a magic link in your single-page application using your own UI with the [Auth0 JavaScript client library](/libraries/auth0js).
 
-<%= include('./_init-auth0js', {withCallbackURL:false} ) %>
+<%= include('../../_init-auth0js', {withCallbackURL:false} ) %>
 
 You can then trigger the passwordless login using a magic link with the following code:
 

@@ -99,8 +99,4 @@ function login(){
 
 If authentication is successful, the user will be redirected to the `redirectUri` specified in the Auth0 constructor.
 
-::: note
-You can follow up with any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
-:::
-
 Check out the [Auth0.js SDK reference documentation](/libraries/auth0js) for more information.
