@@ -1,5 +1,6 @@
 ---
 description: Special configuration scenarios when setting up a SAML Integration
+url: /docs/protocols/saml/saml-configuration/special-configuration-scenarios
 ---
 
 # Special Configuration Scenarios
