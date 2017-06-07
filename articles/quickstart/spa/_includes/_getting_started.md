@@ -4,4 +4,10 @@ This integration guide will walk you through setting up and managing authenticat
 
 <%= include('../../../_includes/_callback_url') %>
 
+If you are following along with the downloadable sample projects for this tutorial directly, the **Callback URL** should be set to
+
+```bash
+${callback}
+```
+
 <%= include('../_includes/_install_auth0js') %>

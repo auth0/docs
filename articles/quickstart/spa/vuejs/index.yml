@@ -17,5 +17,4 @@ alias:
 seo_alias: vuejs
 default_article: dashboard-default
 articles:
-  - getting-started
   - 01-login
