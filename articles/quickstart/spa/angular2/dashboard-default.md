@@ -8,7 +8,7 @@ description: This tutorial demonstrates how to add user login to your applicatio
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-angular-samples',
-  path: '00-Centralized-Login',
+  path: '01-Login',
   requirements: [
     'Angular 2+'
   ]
