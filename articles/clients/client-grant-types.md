@@ -40,7 +40,7 @@ The following is a list of legacy `grant_types`:
 To edit the `grant_types` property for your Auth0 Client, you'll need to make the appropriate call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) of the [Management API](/api/management/v2).
 
 ::: warning Legacy Grant Types
-As of 5 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Clients. Only customers as of 5 June 2017 can add legacy grant types to their existing Clients.
+As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Clients. Only customers as of 8 June 2017 can add legacy grant types to their existing Clients.
 :::
 
 Auth0 requires the `grant_types` property to use the various flows. Attempting to use *any* flow with a Client lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
@@ -51,7 +51,7 @@ Grant type `grant_type` not allowed for the client.
 
 ### Existing Clients
 
-To avoid changes in functionality for current Auth0 customers, we will populate the `grant_types` property for all existing Clients as of 5 June 2017 with **all** Auth0 legacy, Auth0 extension, and specification-conformant grant types.
+To avoid changes in functionality for current Auth0 customers, we will populate the `grant_types` property for all existing Clients as of 8 June 2017 with **all** Auth0 legacy, Auth0 extension, and specification-conformant grant types.
 
 ### New Clients
 
@@ -101,7 +101,7 @@ Trusted first-party clients can additionally use the following `grant_types`:
   </tr>
   <tr>
     <td>http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer</td>
-    <td>This feature is disabled by default due to security implications. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities.</td>
+    <td>This feature is disabled by default. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities.</td>
   </tr>
   <tr>
     <td>http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token</td>
@@ -109,7 +109,7 @@ Trusted first-party clients can additionally use the following `grant_types`:
   </tr>
   <tr>
     <td>http://auth0.com/oauth/legacy/grant-type/delegation/id_token</td>
-    <td>This feature is disabled by default due to security implications. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities.</td>
+    <td>This feature is disabled by default. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities.</td>
   </tr>
   <tr>
     <td>http://auth0.com/oauth/legacy/grant-type/access_token</td>
@@ -120,7 +120,7 @@ Trusted first-party clients can additionally use the following `grant_types`:
 ## Enable a Legacy Grant Type
 
 ::: warning
-Only Auth0 customers as of 5 June 2017 may enable a legacy grant type for existing Clients.
+Only Auth0 customers as of 8 June 2017 may enable a legacy grant type for existing Clients.
 :::
 
 To enable a legacy grant type, you will need to make the appropriate `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) of the [Management API](/api/management/v2).
