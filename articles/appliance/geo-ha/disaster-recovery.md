@@ -3,7 +3,6 @@ section: appliance
 description: Descriptions of Appliance Geo HA Failure Scenarios and Testing
 
 ---
-
 # Geographic High-Availability Appliance Failure Scenarios and Testing
 
 ## Geographic High-Availability Appliance Failure Scenarios and Impact
