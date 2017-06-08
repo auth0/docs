@@ -4,6 +4,7 @@ description: This doc covers what features, platforms, and software configuratio
 toc: true
 ---
 
+<!-- markdownlint-disable MD033 -->
 <div class="support-matrix-page">
 
   # Auth0 Product Support Matrix
@@ -151,12 +152,6 @@ toc: true
       </tr>
     </tbody>
   </table>
-  
-## Extensions
-  
-We will only support extensions that are published on the Extensions gallery that you can find in the [Dashboard](${manage_url}/#/extensions). We do not provide support for custom extensions.
-  
-Feature requests should be requested at the GitHub repository of that extension.
 
 ## Operating Systems
 
@@ -752,3 +747,26 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     </tbody>
   </table>
 </div>
+
+## Extensions
+
+::: note
+Auth0 does not provide support for custom extensions.
+:::
+
+<table class="table">
+  <thead>
+    <tr>
+      <th width="80%">Extensions</th>
+      <th width="20%">Level of Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Extensions created by Auth0 and published to the <a href="${manage_url}/#/extensions">Management Dashboard</a></td>
+      <td><div class="label label-warning">Sustained</div></td>
+    </tr>
+  </tbody>
+</table>
+
+Feature requests should be requested at the GitHub repository of each extension. Please note there is no commitment from Auth0 to implement requests.
