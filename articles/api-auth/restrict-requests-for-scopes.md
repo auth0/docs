@@ -17,9 +17,6 @@ function (user, context, callback) {
    *  Denies access to user-based flows based on audience
    */
 
-  // If you don't pass audience in the query string
-  // or body of the authorization request, the rule uses the
-  // default audience (leave the audience variable empty).
   var audience = '';
 
   audience = audience
@@ -40,7 +37,7 @@ The value of an API's `audience` is displayed at the **API Audience** field, at 
 
 ## Example: Deny access based on the Client ID
 
-The following [rule](/rules), demonstrates how you would deny access on an API, depending on the client the user is associated with. In this example, we deny access to all users, if the client through which they login, has an ID equal to `CLIENT_ID`.
+The following [rule](/rules), demonstrates how you would deny access on an API, depending on the client the user is associated with. In this example, we deny access to all users, if the client through which they login, has an ID equal to `CLIENT_ID` (this is equivalent to disabling **all** Connections for the client).
 
 ```js
 function (user, context, callback) {
