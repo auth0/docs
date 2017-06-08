@@ -386,7 +386,7 @@ apis:
   - title: Management API
     url: "/api/management/v2/tokens"
     forceFullReload: true
-    expanded: true
+    expanded: 1
     children:
 
       - title: API Tokens
@@ -531,7 +531,7 @@ appliance:
 
   - title: "Support"
     url: "/appliance/critical-issue"
-    expanded: true
+    expanded: 1
     children:
       - title: Enterprise Support
         url: /onboarding/enterprise-support
@@ -540,24 +540,50 @@ appliance:
 
   - title: Appliance Planning
     url: /appliance/appliance-overview
-    expanded: true
+    expanded: 1
     children:
       - title: Overview
         url: /appliance/appliance-overview
+
       - title: Geographic High-Availability
         url: /appliance/geo-ha
+        children:
+          - title: Disaster Recovery
+            url: /appliance/geo-ha/disaster-recovery
+
       - title: Infrastructure Requirements
         url: /appliance/infrastructure
+        children:
+          - title: Installation Process
+            url: /appliance/infrastructure/installation
+          - title: Infrastructure Overview
+            url: /appliance/infrastructure/infrastructure-overview
+          - title: Webtasks and Web Extensions
+            url: /appliance/infrastructure/extensions
+
+          - title: Requirements
+            category: true
+          - title: Virtual Machines
+            url: /appliance/infrastructure/virtual-machines
+          - title: Network
+            url: /appliance/infrastructure/network
+          - title: IP/Domain and Port List
+            url: /appliance/infrastructure/ip-domain-port-list
+          - title: Security and Access
+            url: /appliance/infrastructure/security
+
       - title: Roles and Responsibilities
         url: /appliance/raci
+
       - title: Customer Onboarding
         url: /onboarding/appliance-sprint
+
       - title: Private Cloud Requirements
         url: /appliance/private-cloud-requirements
 
   - title: "Appliance Administration"
     url: "/appliance/admin"
-    expanded: true
+    expanded: 1
     children:
       - title: Administrator's Manual
         url: /appliance/admin
