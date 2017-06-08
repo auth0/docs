@@ -523,7 +523,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
         <td><div class="label label-primary">Supported</div></td>
       </tr>
       <tr>
-        <td><a href="/quickstart/spa/vanilla">JavaScript</a></td>
+        <td><a href="/quickstart/spa/vanillajs">JavaScript</a></td>
         <td align="center"><a href="https://github.com/auth0-samples/auth0-javascript-samples"><img src="https://cdn.auth0.com/website/auth0-docs/github-logo.svg"/></a></td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
