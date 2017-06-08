@@ -12,7 +12,7 @@ The most common [identity providers](/identityproviders) are readily available o
 
 ![](/media/articles/connections/social/oauth2/custom-social-connections.png)
 
-## The fetchUserProfile script
+## The `fetchUserProfile` script
 
 A custom `fetchUserProfile` script will be called after the user has logged in with the OAuth2 provider. Auth0 will execute this script to call the OAuth2 provider API and get the user profile:
 
@@ -56,7 +56,7 @@ function(access_token, ctx, callback) {
 
 You can filter, add or remove anything from the profile returned from the provider. However, it is recommended that you keep this script as simple as possible. More sophisticated manipulation of user information can be achieved through the use of [Rules](/rules). One advantage of using Rules is that they apply to *any* connection.
 
-## Login using the custom connection
+## Log in using the custom connection
 
 You can use any of the Auth0 standard mechanisms (e.g. direct links, [Auth0 Lock](/libraries/lock), [auth0.js](/libraries/auth0js), etc.) to login a user with the your custom connection.
 
@@ -74,11 +74,11 @@ https://${account.namespace}/authorize
 
 To add a custom connection in Lock, you can add a custom button by following the instructions at [Adding custom connections to lock](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript) and using this link as the button `href`.
 
-## Passing provider-specific parameters
+## Pass provider-specific parameters
 
 You can pass provider-specific parameters to the Authorization endpoint of an OAuth 2.0 providers. These can be either static or dynamic.
 
-### Passing static parameters
+### Pass static parameters
 
 To pass any static parameters, you can use the `authParams` element of the `options` when configuring an OAuth 2.0 connection via the [Management API](/api/management/v2#!/Connections/patch_connections_by_id).
 
@@ -100,9 +100,9 @@ Using the Management API, you can configure the WordPress connection to always p
 }
 ```
 
-### Passing dynamic parameters
+### Pass dynamic parameters
 
-There are certain circumstances where you may want to pass a dynamic value to OAuth 2.0 Identity Provider. In this case you can use the `authParamsMap` element of the `options` to specify a mapping between one of the existing additional parameters which are accepted by [the Auth0 `/authorize` endpoint](/api/authentication#social), to the parameter accepted by the Identity Provider.
+There are certain circumstances where you may want to pass a dynamic value to OAuth 2.0 Identity Provider. In this case you can use the `authParamsMap` element of the `options` to specify a mapping between one of the existing additional parameters accepted by [the Auth0 `/authorize` endpoint](/api/authentication#social) to the parameter accepted by the Identity Provider.
 
 Using the same example of WordPress above, let's assume that you want to pass the `blog` parameter to WordPress, but you want to specify the actual value of the parameter when calling the Auth0 `/authorize` endpoint.
 
