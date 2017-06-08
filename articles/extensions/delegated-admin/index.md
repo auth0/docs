@@ -41,6 +41,14 @@ Click on the **Settings** tab and set the **Allowed Callback URLs**. This varies
 | Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin/login` |
 | Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin/login` |
 
+You will also need to configure the **Allowed Logout URLs**:
+ 
+| Location | Allowed Logout URL |
+| --- | --- |
+| USA | `https://${account.tenant}.us.webtask.io/auth0-delegated-admin` |
+| Europe | `https://${account.tenant}.eu.webtask.io/auth0-delegated-admin` |
+| Australia | `https://${account.tenant}.au.webtask.io/auth0-delegated-admin` |
+
 Copy the **Client ID** value.
 
 Navigate to **Settings > Show Advanced Settings > OAuth** and paste the **Client ID** value to the **Allowed APPs / APIs** field.
