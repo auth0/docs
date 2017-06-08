@@ -69,13 +69,13 @@ ${snippet(meta.snippets.cordova)}
 You must install the `SafariViewController` plugin from Cordova to be able to show the Login popup. The seed project already has this plugin added, but if you are adding Auth0 to your own application you need to run the following command:
 
 ```bash
-ionic cordova plugin add cordova-plugin-safariviewcontroller
+ionic plugin add cordova-plugin-safariviewcontroller
 ```
 
 You'll also need to install the `CustomURLScheme` from Cordova to handle redirects properly. The seed project has it already, but if you're adding Auth0 to your own project, you'll need to run this command (replace `YOUR_PACKAGE_ID` with your app identifier):
 
 ```bash
-ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/{YOUR_PACKAGE_ID}/callback
+ionic plugin add cordova-plugin-customurlscheme --variable URL_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/{YOUR_PACKAGE_ID}/callback
 ```
 
 ## Modify config.xml
