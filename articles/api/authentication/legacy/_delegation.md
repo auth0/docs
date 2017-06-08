@@ -36,7 +36,7 @@ curl --request POST \
 ::: warning
 With the latest Auth0 authentication pipeline, this endpoint should not be used to exchange an ID token issued to one client for a new one issued to a different client, or to use a refresh token for a fresh ID token. For more information refer to [Introducing OIDC Conformant Authentication > Delegation](/api-auth/intro#delegation).
 
-This feature is disabled by default for new tenants as of 5 June 2017 due to security implications. Please see [Client Grant Types](/clients/grant-types/client-grant-types) for more information.
+This feature is disabled by default for new tenants as of 8 June 2017. Please see [Client Grant Types](/clients/grant-types/client-grant-types) for more information.
 :::
 
 A delegation token should be obtained and used when a client program needs to call the API of an Application Addon, such as Firebase or SAP, registered and configured in Auth0, in the same tenant as the calling program.
