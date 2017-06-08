@@ -19,8 +19,8 @@ Auth0 provides the Appliance via a Virtual Machine Template for you to provision
 
 When provisioning the Appliance from the templates, Auth0 recommends the following specifications for the Virtual Machine infrastructure. For multi-node clusters, each node requires a separate VM that meet the specifications.
 
-* **Memory**: 16 GB RAM (8 GB RAM minimum);
-* **CPU**: 4 vCPU (2 vCPU minimum);
+* **Memory**: 32 GB RAM (16 GB RAM minimum);
+* **CPU**: 8 vCPU (4 vCPU minimum);
 * **Storage**:
     * *For Non-Production Nodes*: 4 drives: 40 GB for system/operating system storage, 50 GB for data storage, 50 GB for User Search, and 50 GB for backup purposes (if you want to test the backup process).
     * *For three-node, high availability Production clusters*:
@@ -37,7 +37,7 @@ For multi-node clusters, Auth0 recommends deploying the Appliance virtual machin
 
 ## For AWS Users
 
-* The *recommended* instance size is **M4.xlarge**. At a minimum, the M4.large [instance size](https://aws.amazon.com/ec2/instance-types/) can be used.
+* The *recommended* [instance type](https://aws.amazon.com/ec2/instance-types/) is **M4.2xlarge** (M4.xlarge minimum).
 * Auth0 will need the following pieces of information to share the AMI with you:
     * AWS account number;
     * AWS region name.
