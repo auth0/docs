@@ -106,28 +106,46 @@
 &lt;label&gt;Password&lt;/label&gt;&lt;input type=&quot;password&quot; id=&quot;password&quot;&gt;&lt;br&gt;
 &lt;button class=&quot;signin-db&quot;&gt;Sign in with Email/Password&lt;/button&gt;
 
-&lt;script src=&quot;https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.auth0.com/js/auth0/8.7/auth0.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;http://code.jquery.com/jquery.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
   var webAuth = new auth0.webAuth({
     domain:         '${account.namespace}',
-    clientID:       '${account.clientId}'
+    clientID:       '${account.clientId}',
+    redirectUri:    '${account.callback}'
   });
   // sign-in with social provider with plain redirect
-  webAuth.authorize ({
-     connection: 'facebook' // use connection identifier
+  $('.signin-google').on('click', function() {
+    webAuth.authorize({
+      connection: 'google-oauth2' // use connection identifier
+    });
   });
   // sign-in with social provider using a popup (window.open)
-  webAuth.popup.authorize({
-  connection: 'facebook'
-});
+  $('.signin-google-popup').on('click', function() {
+    webAuth.popup.authorize({
+      connection: 'google-oauth2'
+    });
+  });
 
-  webAuth.redirect.loginWithCredentials({
-  connection: 'Username-Password-Authentication',
-  username: 'testuser',
-  password: 'testpass',
-  scope: 'openid'
-});
+  $('.signin-db').on('click', function() {
+    webAuth.redirect.loginWithCredentials({
+      connection: 'Username-Password-Authentication',
+      username: 'testuser',
+      password: 'testpass',
+      scope: 'openid'
+    });
+  });
+  // Parse the authentication result
+  webAuth.parseHash((err, authResult) => {
+    if (authResult) {
+      // Save the tokens from the authResult in local storage or a cookie
+      localStorage.setItem('access_token', authResult.accessToken);
+      localStorage.setItem('id_token', authResult.idToken);
+    } else if (err) {
+      // Handle errors
+      console.log(err);
+    }
+  });
 &lt;/script&gt;</code></pre>
     </div>
     <div id="plainlink" class="tab-pane">
