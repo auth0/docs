@@ -23,11 +23,9 @@ Go to [Facebook Developers](https://developers.facebook.com) and login with your
 
 Provide a **Display Name** and **Contact Email**.
 
-Select a **Category** and click **Create App ID**:
-
 ![Create a New App](/media/articles/connections/social/facebook/facebook-2.png)
 
-Complete the **Security Check**.
+Next you will need to complete the **Security Check**.
 
 ## 3. Setup Facebook Login
 
@@ -35,7 +33,9 @@ On the **Product Setup** page that follows, click **Get Started** next to **Face
 
 ![Click Get Started](/media/articles/connections/social/facebook/facebook-3.png)
 
-This will bring up **Client OAuth Settings** for **Facebook Login**.
+Next choose the type of application, for this tutorial we have selected **Web**.
+
+The **Client OAuth Settings** page for **Facebook Login** will appear:
 
 ![Client OAuth Settings](/media/articles/connections/social/facebook/oauth-settings.png)
 
@@ -61,7 +61,7 @@ Next, click on **App Review** on the left navigation bar. Near the top of the pa
 
 Click **Settings** in the left nav. On this page you can retrieve your **App ID** and **App Secret**.
 
-![Settings page](/media/articles/connections/social/facebook/facebook-4.png)
+![Settings page](/media/articles/connections/social/facebook/facebook-5.png)
 
 Click **Show** to reveal the **App Secret** (you may be required to re-enter your Facebook password).
 
