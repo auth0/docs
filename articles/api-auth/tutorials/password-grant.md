@@ -6,6 +6,10 @@ description: How to execute a Resource Owner Password Grant
 
 <%= include('../../_includes/_pipeline2') %>
 
+## Add the Client Grant Type
+
+To use the Resource Owner Password Grant (or any extensions of it), [make a `PATCH` call to the Management API to update the `grant_types` field](/clients/client-grant-types#edit-the-grant_types-property).
+
 ## Configure your tenant
 
 The Password Grant relies on a connection capable of authenticating users via username and password. In order to indicate which connection the Password Grant should use you need to set the value of the `default_directory` tenant setting.
