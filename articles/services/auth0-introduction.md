@@ -4,16 +4,15 @@ description: Training covering fundamentals of the Auth0 service.
 
 # Training: Auth0 Introduction
 
-A training covering fundamentals of the Auth0 service. Audience is Developers, Solutions Architects, Security and Infrastructure engineers.
+This training course explains the fundamentals of Auth0 services. The intended audience is developers, solutions architects, security and infrastructure engineers.
 
 ## Duration
 
-8 hours.
-
+8 hours
 
 ## Level
 
-**Level 200** assumes basic or little knowledge of Auth0.
+This course is **Level 200** and assumes basic or little knowledge of Auth0.
 
 ## Topics covered
 
