@@ -3,10 +3,11 @@ toc: true
 title: Cross-Origin Authentication
 description: An explanation of cross-origin authentication in Auth0 and its compatibility with browsers
 ---
-
 # Cross-Origin Authentication
 
-**(TODO - Needs an intro - "what is cross-origin auth")**
+While the use of the [Hosted Login Page](/hosted-pages/login), is recommended for most situations, some applications that use Auth0 have multiple domains, and wish to maintain an SSO experience across those domains while using an embedded login page on each domain. In that case, cross-origin authentication can be used.
+
+Cross-origin authentication is done by creating security checks with 3rd party cookies, and can help prevent phishing when creating an SSO experience using embedded login forms on multiple domains. It also helps to create a secure login experience and way to acquire tokens on those embedded login forms, even if SSO is not the goal.
 
 ## Configure Your Client for Cross-Origin Auth
 
@@ -23,7 +24,7 @@ Send a PATCH Request Using a REST client such as [Postman](https://www.getpostma
 ## How it Works
 
 * When 3rd party cookies are **enabled**, the cookie is set in the `/co/authenticate` call. This cookie is then sent to the `authorize` call.
-* When 3rd party cookies are **disabled**, since no cookie is sent to the `authorize` call, it runs the iframe workflow described [here](https://github.com/jaredhanson/draft-oauth-cotc/blob/2d559d0e0ab231bfc7474ad715332953348a3620/Draft-1.0.txt#L134). **(TODO - Are we going to put this elsewhere, or are we linking to a personal GitHub doc?)**
+* When 3rd party cookies are **disabled**, since no cookie is sent to the `authorize` call, it runs the iframe workflow described [here](https://github.com/jaredhanson/draft-oauth-cotc/blob/2d559d0e0ab231bfc7474ad715332953348a3620/Draft-1.0.txt#L134). 
 
 ## How it Fails
 
