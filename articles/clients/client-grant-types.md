@@ -27,9 +27,9 @@ The following is a list of Auth0 extension/OIDC specification-conformant `grant_
 * [Resource Owner Password Grant](/api-auth/grant/password): `password`
 * [Use a refresh token](/tokens/refresh-token/current#use-a-refresh-token): `refresh_token`
 * [Use an extension grant similar to the Resource Owner Password Grant that includes the ability to indicate a specific realm](/api-auth/grant/password#realm-support): `http://auth0.com/oauth/grant-type/password-realm`
-* [Multifactor Authentication OOB Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-oob-grant-request)`http://auth0.com/oauth/grant-type/mfa-oob`
-* [Multifactor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request)`http://auth0.com/oauth/grant-type/mfa-otp`
-* [Multifactor Authentication Recovery Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-recovery-grant-request)`http://auth0.com/oauth/grant-type/mfa-recovery-code`
+* [Multifactor Authentication OOB Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-oob-grant-request): `http://auth0.com/oauth/grant-type/mfa-oob`
+* [Multifactor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request): `http://auth0.com/oauth/grant-type/mfa-otp`
+* [Multifactor Authentication Recovery Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-recovery-grant-request): `http://auth0.com/oauth/grant-type/mfa-recovery-code`
 
 The following is a list of legacy `grant_types`:
 
