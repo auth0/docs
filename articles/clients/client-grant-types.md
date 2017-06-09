@@ -9,6 +9,10 @@ Auth0 provides many authentication and authorization flows that suit your needs,
 
 ## Grant Types
 
+::: note
+Please refer to [Which OAuth 2.0 flow should I use?](https://auth0.com/docs/api-auth/which-oauth-flow-to-use) for help selecting the appropriate non-legacy grant type.
+:::
+
 The following is a list of grant types valid for Auth0 Clients. There are three possible types of authorization flows:
 
 * Auth0 extension;
@@ -17,15 +21,15 @@ The following is a list of grant types valid for Auth0 Clients. There are three 
 
 The following is a list of Auth0 extension/OIDC specification-conformant `grant_types` that currently exist for use in Auth0:
 
-* `implicit`
-* `authorization_code`
-* `client_credentials`
-* `password`
-* `refresh_token`
-* `http://auth0.com/oauth/grant-type/password-realm`
-* `http://auth0.com/oauth/grant-type/mfa-oob`
-* `http://auth0.com/oauth/grant-type/mfa-otp`
-* `http://auth0.com/oauth/grant-type/mfa-recovery-code`
+* [Implicit Grant](/api-auth/grant/implicit): `implicit`
+* [Authorization Code Grant](/api-auth/grant/authorization-code): `authorization_code`
+* [Client Credentials Grant](/api-auth/grant/client-credentials): `client_credentials`
+* [Resource Owner Password Grant](/api-auth/grant/password): `password`
+* [Use a refresh token](/tokens/refresh-token/current#use-a-refresh-token): `refresh_token`
+* [Use an extension grant similar to the Resource Owner Password Grant that includes the ability to indicate a specific realm](/api-auth/grant/password#realm-support): `http://auth0.com/oauth/grant-type/password-realm`
+* [Multifactor Authentication OOB Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-oob-grant-request)`http://auth0.com/oauth/grant-type/mfa-oob`
+* [Multifactor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request)`http://auth0.com/oauth/grant-type/mfa-otp`
+* [Multifactor Authentication Recovery Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-recovery-grant-request)`http://auth0.com/oauth/grant-type/mfa-recovery-code`
 
 The following is a list of legacy `grant_types`:
 
