@@ -33,7 +33,7 @@ We'll start by [creating a client](${manage_url}/#/clients/) in Auth0 in which w
 
 ## Create an application in Azure AD
 
-The first thing is to create a new directory in Azure AD one isn't already created.
+The first thing is to create a new directory in Azure AD if one isn't already created.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-create-directory.png)
 
