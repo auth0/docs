@@ -10,6 +10,7 @@ Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps mak
 ## Ready-to-go example
 
 The [example directory](https://github.com/auth0/auth0.js/tree/master/example) of the auth0.js library is a ready-to-go app that can help you to quickly and easily try out auth0.js. In order to run it, follow these quick steps:
+
 1. If you don't have [node](http://nodejs.org/) installed, do that now
 1. Download dependencies by running `npm install` from the root of this project
 1. Finally, execute `npm start` from the root of this project, and then browse to your app running on the node server, presumably at `http://localhost:3000/example`.
@@ -96,7 +97,7 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | `state` | recommended | (String)  An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 
-For hosted login, one must call the `authorize()` method. 
+For hosted login, one must call the `authorize()` method.
 
 ```js
 webAuth.authorize({
