@@ -29,7 +29,7 @@ than:
 
 ```js
 function(user, context, callback){
-  var log_url = ‘https://someurl/log’;
+  var log_url = 'https://someurl/log';
   ...
 }
 ```
