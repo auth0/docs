@@ -117,7 +117,7 @@ var options = new OpenIdConnectOptions("Auth0")
 
 For more information on storing and saving the `access_token` to use later when calling the API, see the [Storing Tokens step](/quickstart/webapp/aspnet-core/03-storing-tokens).
 
-For general information on using APIs with web applications, please read [Calling APIs from Server-side Web Apps](https://auth0.com/docs/api-auth/grant/authorization-code).
+For general information on using APIs with web applications, please read [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code).
 
 ## Add Login and Logout Methods
 
