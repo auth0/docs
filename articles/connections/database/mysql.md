@@ -31,57 +31,64 @@ Click **Custom Database** and turn on the **Use my own database** switch.
 You have to provide a login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
 
 ::: note
-  When creating users, Auth0 calls the <code>get_user</code> script before the <code>create</code> script. Be sure that you have implemented both.
+When creating users, Auth0 calls the **Get User** script before the **Create** script. Be sure that you have implemented both. Refer to the [Dashboard](${manage_url}) for sample scripts.
 :::
 
 These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 
-This tutorial uses **MySQL** as an example. In the **Templates** drop-down, select **MySQL**:
+This article shows how to implement the login script for **MySQL**. If you want a sample script for another action (sign-up, password reset, etc) or another database, use the dropdown options at the [Dashboard](${manage_url}).
+
+In the **Templates** drop-down, select **MySQL**:
 
 ![](/media/articles/connections/database/mysql/db-connection-login-script.png)
 
 You will see the following sample code in the Connection editor:
 
 ```js
-function login (email, password, callback) {
+function login(email, password, callback) {
   var connection = mysql({
-    host     : 'localhost',
-    user     : 'me',
-    password : 'secret',
-    database : 'mydb'
+    host: 'localhost',
+    user: 'me',
+    password: 'secret',
+    database: 'mydb'
   });
 
   connection.connect();
 
   var query = "SELECT id, nickname, email, password " +
-             "FROM users WHERE email = ?";
+    "FROM users WHERE email = ?";
 
   connection.query(query, [email], function (err, results) {
     if (err) return callback(err);
-    if (results.length === 0) return callback();
+    if (results.length === 0) return callback(new WrongUsernameOrPasswordError(email));
     var user = results[0];
 
-    if (!bcrypt.compareSync(password, user.password)) {
-      return callback();
-    }
-
-    callback(null,   {
-      id:          user.id.toString(),
-      nickname:    user.nickname,
-      email:       user.email
+    bcrypt.compare(password, user.password, function (err, isValid) {
+      if (err) {
+        callback(err);
+      } else if (!isValid) {
+        callback(new WrongUsernameOrPasswordError(email));
+      } else {
+        callback(null, {
+          id: user.id.toString(),
+          nickname: user.nickname,
+          email: user.email
+        });
+      }
     });
 
   });
-
 }
 ```
 
 This script connects to a **MySQL** database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. You can tweak this script in the editor to adjust it to your own requirements.
 
+::: note
 If you are using [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product, [click here](/connections/database/db2-script) for a sample login script.
+:::
 
 ::: note
-You can use the <a href="https://www.npmjs.com/package/auth0-custom-db-testharness">auth0-custom-db-testharness library</a> to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
+You can use the [auth0-custom-db-testharness library](https://www.npmjs.com/package/auth0-custom-db-testharness) to deploy, execute, and test the output of Custom DB Scripts using a Webtask sandbox environment.
 :::
 
 ### Database Field Requirements
