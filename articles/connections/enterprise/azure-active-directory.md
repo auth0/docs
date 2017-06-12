@@ -140,7 +140,7 @@ Set the name of the **Microsoft Azure AD Domain** and under **Domain Aliases** p
 
 Then choose the protocol. **Open ID Connect** is the default, and should be selected in the majority of cases. This is independent of the protocol that your application will use to connect to Auth0.
 
-Next complete the **App ID Uri** field if you intend to use [active authentication](/api/authentication#database-ad-ldap-active-).
+Next complete the **App ID Uri** field if you intend to use [active authentication](/api/authentication#database-ad-ldap-active-), as explained in [Native Azure AD applications with Auth0](/connections/enterprise/azure-active-directory-native).
 
 Click the **SAVE** button. Auth0 will provide you with an URL that you will need to give to the Azure AD administrator. This URL will allow the administrator to *give consent* to the application so that users can log in.
 
