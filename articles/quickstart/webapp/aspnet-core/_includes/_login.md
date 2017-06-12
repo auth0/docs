@@ -96,7 +96,7 @@ Also note above that the list of scopes is cleared and only the `openid` scope i
 
 You may want to call an API from your MVC application, in which case you need to obtain an `access_token` which was issued for the particular API you want to call. In this case you will need to pass an extra `audience` parameter containing the API Identifier to the Auth0 authorization endpoint. 
 
-If you want to do this, simple handle the `OnRedirectToIdentityProvider` event when configuring the `OpenIdConnectOptions` object, and add the `audience` parameter to the `ProtocolMessage`
+If you want to do this, simply handle the `OnRedirectToIdentityProvider` event when configuring the `OpenIdConnectOptions` object, and add the `audience` parameter to the `ProtocolMessage`
 
 ```csharp
 var options = new OpenIdConnectOptions("Auth0")
