@@ -13,7 +13,7 @@
 #   url: "/sdks"
 
 - id: "apis"
-  title: "APIs"
+  title: "Auth0 APIs"
   url: "/api/info"
 
 - id: "quickstarts"
