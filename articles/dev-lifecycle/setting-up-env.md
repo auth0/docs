@@ -18,19 +18,19 @@ For easier configuration management, save settings in the dashboard instead of h
 
 For example, in this __rule__ it is always better to write:
 
-```
+```js
 function(user, context, callback){
   var log_url = configuration.log_url;
-...
+  ...
 }
 ```
 
 than:
 
-```
+```js
 function(user, context, callback){
   var log_url = ‘https://someurl/log’;
-...
+  ...
 }
 ```
 
