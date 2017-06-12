@@ -3,7 +3,6 @@ section: libraries
 toc: true
 description: How to install, initialize and use auth0.js v8
 ---
-
 # Auth0.js v8 Reference
 
 Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps makes it easier to do authentication and authorization with Auth0 in your web apps.
@@ -11,6 +10,7 @@ Auth0.js is a client-side library for Auth0. Using auth0.js in your web apps mak
 ## Ready-to-go example
 
 The [example directory](https://github.com/auth0/auth0.js/tree/master/example) of the auth0.js library is a ready-to-go app that can help you to quickly and easily try out auth0.js. In order to run it, follow these quick steps:
+
 1. If you don't have [node](http://nodejs.org/) installed, do that now
 1. Download dependencies by running `npm install` from the root of this project
 1. Finally, execute `npm start` from the root of this project, and then browse to your app running on the node server, presumably at `http://localhost:3000/example`.
@@ -34,6 +34,7 @@ Install via [bower](http://bower.io):
 ```sh
 bower install auth0.js
 ```
+
 ```html
 <script src="bower_components/auth0.js/build/auth0.min.js"></script>
 ```
@@ -96,7 +97,7 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | `state` | recommended | (String)  An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 
-For hosted login, one must call the `authorize()` method. 
+For hosted login, one must call the `authorize()` method.
 
 ```js
 webAuth.authorize({
@@ -138,7 +139,6 @@ webAuth.popup.authorize({
 
 To login using redirect with credentials to enterprise connections, the `redirect.loginWithCredentials` method is used.
 
-
 ```js
 webAuth.redirect.loginWithCredentials({
   connection: 'Username-Password-Authentication',
@@ -146,7 +146,7 @@ webAuth.redirect.loginWithCredentials({
   password: 'testpass',
   scope: 'openid'
 }, function(err, authResult) {
-    // Auth tokens in the result or an error
+  // Auth tokens in the result or an error
 });
 ```
 
@@ -158,7 +158,6 @@ Note that `webauth.redirect.loginWithCredentials` will be soon deprecated, and i
 
 To login using popup mode with credentials to enterprise connections, the `popup.loginWithCredentials` method is used.
 
-
 ```js
 webAuth.popup.loginWithCredentials({
   connection: 'Username-Password-Authentication',
@@ -166,7 +165,7 @@ webAuth.popup.loginWithCredentials({
   password: 'testpass',
   scope: 'openid'
 }, function(err, authResult) {
-    // Auth tokens in the result or an error
+  // Auth tokens in the result or an error
 });
 ```
 
@@ -190,7 +189,7 @@ webAuth.client.login({
   scope: 'openid profile',
   audience: 'urn:test'
 }, function(err, authResult) {
-    // Auth tokens in the result or an error
+  // Auth tokens in the result or an error
 });
 ```
 
@@ -200,15 +199,15 @@ The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in ord
 
 ```js
 // Calculate URL to redirect to
-  var url = webAuth.client.buildAuthorizeUrl({
-    clientID: '${account.clientId}', // string
-    responseType: 'token', // code or token
-    redirectUri: '${account.callback}',
-    state: 'YOUR_STATE'
-  });
+var url = webAuth.client.buildAuthorizeUrl({
+  clientID: '${account.clientId}', // string
+  responseType: 'token', // code or token
+  redirectUri: '${account.callback}',
+  state: 'YOUR_STATE'
+});
 
-  // Redirect to url
-  // ...
+// Redirect to url
+// ...
 ```
 
 __NOTE__: The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
@@ -294,12 +293,12 @@ The contents of the authResult object returned by `parseHash` depend upon which 
 | `idToken` |  An id token JWT containing user profile information |
 
 ```js
-auth0.parseHash(window.location.hash, function(err, authResult) {
+webAuth.parseHash(window.location.hash, function(err, authResult) {
   if (err) {
     return console.log(err);
   }
 
-  auth0.client.userInfo(authResult.accessToken, function(err, user) {
+  webAuth.client.userInfo(authResult.accessToken, function(err, user) {
     // Now you have the user's information
   });
 });
@@ -334,12 +333,12 @@ You can now do something else with this information as your application needs, s
 
 ## Using `nonce`
 
-By default, `auth0.js` will generate a random `nonce` when you call `auth0.authorize`, store it in local storage, and pull it out in `auth0.parseHash`. The default behavior should work in most cases, but some use cases may require a developer to control the `nonce`.
-If you want to use a developer generated `nonce`, then you must provide it as an option to both `auth0.authorize` and `auth0.parseHash`.
+By default, `auth0.js` will generate a random `nonce` when you call `webAuth.authorize`, store it in local storage, and pull it out in `webAuth.parseHash`. The default behavior should work in most cases, but some use cases may require a developer to control the `nonce`.
+If you want to use a developer generated `nonce`, then you must provide it as an option to both `webAuth.authorize` and `webAuth.parseHash`.
 
 ```js
-  auth0.authorize({nonce: '1234'});
-  auth0.parseHash({nonce:'1234'}, callback);
+webAuth.authorize({nonce: '1234'});
+webAuth.parseHash({nonce:'1234'}, callback);
 ```
 
 ## Logout
@@ -398,7 +397,6 @@ Signups should be for database connections. Here is an example of the `signup` m
 ## Using renewAuth to acquire new tokens
 
 The `renewAuth` method allows you to acquire a new token from Auth0 for a user who is already authenticated against the [hosted login page](/hosted-pages/login) for your domain. The method accepts any valid OAuth2 parameters that would normally be sent to `authorize`.
-
 
 ```js
 webAuth.renewAuth({
