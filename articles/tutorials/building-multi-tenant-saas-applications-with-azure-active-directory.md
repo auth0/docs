@@ -2,19 +2,20 @@
 description: How to build a multi-tenant SaaS application with Azure AD and Auth0.
 ---
 
-# Building multi-tenant, SaaS applications with Azure AD and Auth0
+# Multi-tenant SaaS applications with Azure AD and Auth0
 
-Azure AD is often used as a user directory for Office 365, Intune, Dynamics CRM and applications you're building for the users in your organization.
+Azure AD is often used as a user directory for Office 365, Intune, Dynamics CRM and internal applications.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-ad-mt-single-tenant-example.png)
 
-In that case the users in your organization's directory (contoso.onmicrosoft.com) will be able to access the applications you registered in your directory (Contoso Intranet and Office 365). This is how the [standard integration with Auth0 works](/waad-clientid), you'll create an application in Azure AD that points to Auth0 after which you can create it as an Azure AD Connection in the dashboard.
+In this case the users in your organization's directory (contoso.onmicrosoft.com) will be able to access the applications you registered in your directory (Contoso Intranet and Office 365). This is how the [standard integration with Auth0 works](/waad-clientid), you'll create an application in Azure AD that points to Auth0 after which you can create it as an [Azure AD connection in the dashboard](${manage_url}
+/#/connections/enterprise).
 
 A more advanced concept in Azure AD is the support for multi-tenant applications. This is where your directory can define an application (typically a SaaS application) which can be used by other directories (your customers).
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-ad-multi-tenant-example.png)
 
-In this example Fabrikam Corporation is an ISV hosting a Timesheet SaaS applications. They have been using Auth0 to make sure customers can login with their Facebook, Google, LinkedIn, ... accounts. But now they want to extend this support and provide SSO to organizations which are using Azure AD (or Office 365). For Fabrikam Corporation this can be a great way to attract new customers because they can offer SSO to thousands of companies already using Azure AD/Office 365 in just a few clicks.
+In this example Fabrikam Corporation is an ISV hosting a Timesheet SaaS applications. They have been using Auth0 to make sure customers can login with their Facebook, Google, LinkedIn and other accounts. But now they want to extend this support and provide SSO to organizations which are using Azure AD (or Office 365). For Fabrikam Corporation this can be a great way to attract new customers because they can offer SSO to thousands of companies already using Azure AD/Office 365 in just a few clicks.
 
 Contoso is one of their new customers which have signed up with their Azure AD. Users in this directory will now have SSO to Fabrikam's Timesheet SaaS and will be able to use their existing Contoso credentials after going through a simple consent flow.
 
@@ -24,19 +25,19 @@ This document will cover how Fabrikam can create a multi-tenant Azure AD applica
 
 Before you can create a multi-tenant application in Azure AD you'll need a Microsoft Azure subscription and a domain name (like fabrikamcorp.com). This domain name is a requirement for adding multi-tenant applications to Azure AD.
 
-## Creating an application in Auth0
+## Create a Client in Auth0
 
-We'll start by creating an application in Auth0 in which we define the Allowed Callback URLs for our application. In this example we're building an ASP.NET MVC application which runs locally and in Azure Web Sites, but keep in mind that this scenario works with any technology and any hosting platform.
+We'll start by [creating a client](${manage_url}/#/clients/) in Auth0 in which we define the **Allowed Callback URLs** for our client application. In this example we're building an ASP.NET MVC application so when creating the client type **Regular Web Application** was selected. This runs locally and in Azure Web Sites, but keep in mind that this scenario works with any technology and any hosting platform.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-new-a0-app.png)
 
-## Creating an application in Azure AD
+## Create an application in Azure AD
 
-The first thing Fabrikam will do is create a new directory in Azure AD if they haven't got one already.
+The first thing is to create a new directory in Azure AD one isn't already created.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-create-directory.png)
 
-The final application will be running on https://timesheets.fabrikamcorp.com so we'll need to register `fabrikamcorp.com` as a domain first before we can create the multi-tenant application.
+In this example, the final application will be running on `https://timesheets.fabrikamcorp.com` so we'll need to register `fabrikamcorp.com` as a domain before we can create the multi-tenant application.
 
 On the Domains tab you can create a new domain:
 
