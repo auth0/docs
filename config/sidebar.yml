@@ -533,10 +533,10 @@ appliance:
     url: "/appliance/critical-issue"
     expanded: 1
     children:
-      - title: Enterprise Support
-        url: /onboarding/enterprise-support
       - title: Critical Issue
         url: /appliance/critical-issue
+      - title: Enterprise Support
+        url: /onboarding/enterprise-support
 
   - title: Appliance Planning
     url: /appliance/appliance-overview
@@ -587,6 +587,22 @@ appliance:
     children:
       - title: Administrator's Manual
         url: /appliance/admin
+        children:
+          - title: Managing the Dashboard
+            url: /appliance/admin/managing-the-dashboard
+          - title: Disabling Sign-ups
+            url: /appliance/admin/disabling-sign-ups
+          - title: Inviting Co-Administrators
+            url: /appliance/admin/inviting-coadmins
+          - title: Appliance Backups
+            url: /appliance/admin/backing-up-the-appliance-instances
+          - title: Monitoring
+            url: /appliance/admin/monitoring
+          - title: Limiting SSH Access
+            url: /appliance/admin/limiting-ssh-access
+          - title: Updating
+            url: /appliance/admin/updating-the-appliance
+
       - title: Dashboard/Configuration Area
         url: /appliance/dashboard
       - title: Monitoring Tools
