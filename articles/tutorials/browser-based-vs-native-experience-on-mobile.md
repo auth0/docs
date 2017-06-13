@@ -9,6 +9,8 @@ When developing a native application, such as an app running on iOS or Android, 
 * Native;
 * Browser-based.
 
+![Native vs. browser-based UX](/media/articles/tutorials/mobile-ux.png)
+
 When using a **browser-based** login flow, iOS opens a SafariViewController, whereas Android opens up a Custom Chrome Tab. The user is redirected to the Auth0 login page, where they can either sign up or log in.
 
 When using a **native** login flow, the user signs up or enters their credentials directly into the app.
