@@ -2,7 +2,6 @@
 section: libraries
 description: How to configure user options with Lock V9
 ---
-
 # Lock: User configurable options
 
 <%= include('../_includes/_lock-version-9') %>
@@ -25,9 +24,10 @@ lock.showSignup(options);
 lock.showReset(options);
 ```
 
-#### Table of Contents
+## Table of Contents
 
 **For display customization**:
+
 - [connections](#connections-array-)
 - [dict](#dict-string-object-)
 - [container](#container-string-)
@@ -51,6 +51,7 @@ lock.showReset(options);
 - [theme](#theme-string-)
 
 **For authentication setup**:
+
 - [callbackURL](#callbackurl-string-)
 - [responseType](#responsetype-string-)
 - [forceJSONP](#forcejsonp-boolean-)
@@ -58,6 +59,7 @@ lock.showReset(options);
 - [sso](#sso-boolean-)
 
 ### connections {Array}
+
 Array of connections that will be used for the `signin|signup|reset` actions. Defaults to all enabled connections.
 
 ```js
@@ -83,7 +85,6 @@ lock.show({
 ### dict {String|Object}
 
 The `dict` option can be either a string matching any [supported language][lock-i18n] (`'en'`, `'es'`, `'it'`, ...) or an object containing your customized text labels. By using the last approach you can modify [any text label][lock-i18n] or even [customize error messages][lock-custom-errors].
-
 
 ```js
 // select a supported language
@@ -309,7 +310,7 @@ lock.show({
 
 Triggers a sign in call after sign up. Defaults to `true`.
 
-```
+```js
 // will sign in user after sign up
 lock.show();
 

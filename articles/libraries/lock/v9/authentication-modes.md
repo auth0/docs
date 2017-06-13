@@ -2,7 +2,6 @@
 section: libraries
 description: Lock V9 doc on the different types of authentication modes.
 ---
-
 # Lock: Authentication Modes
 
 <%= include('../_includes/_lock-version-9') %>

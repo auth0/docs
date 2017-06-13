@@ -2,7 +2,6 @@
 section: libraries
 description: Lock V9 document on the display modes, overlay and embedded mode
 ---
-
 # Lock: Display Modes
 
 <%= include('../_includes/_lock-version-9') %>

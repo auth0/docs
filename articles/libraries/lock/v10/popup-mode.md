@@ -2,7 +2,6 @@
 section: libraries
 description: Details about Popup Mode with Lock V10.
 ---
-
 # Popup Mode
 
 ## The Default: Redirect Mode

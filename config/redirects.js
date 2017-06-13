@@ -1168,5 +1168,17 @@ module.exports = [
   {
     from: '/rules/metadata-in-rules',
     to: '/rules/current/metadata-in-rules'
+  },
+  {
+    from: '/libraries/lock/v9#api',
+    to: '/libraries/lock/v9/api'
+  },
+  {
+    from: '/libraries/lock/v9/events',
+    to: '/libraries/lock/v9/api#events'
+  },
+  {
+    from: '/libraries/lock/v9/initialization',
+    to: '/libraries/lock/v9#initialization'
   }
 ];

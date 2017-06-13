@@ -14,7 +14,7 @@ Selecting the appropriate Identity Providers from multiple options is called "Ho
 
 ## Option 1: Programmatically
 
-When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any __connection__ defined in your [dashboard](${manage_url}).
+When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any __connection__ defined in your dashboard.
 
 If using the [Lock](/libraries/lock/v10), this is as simple as initiating Lock with the following option:
 

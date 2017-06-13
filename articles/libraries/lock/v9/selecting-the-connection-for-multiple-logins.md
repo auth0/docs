@@ -2,7 +2,6 @@
 section: libraries
 description: Describes different options for selecting the connection in Auth0 when there are multiple login options for Lock v9.
 ---
-
 # Selecting the connection in Auth0 for multiple login options
 
 <%= include('../_includes/_lock-version-9') %>
@@ -23,10 +22,11 @@ If using the [Lock](/lock), this is as simple as writing:
 
   auth0.show({connections: ['YOUR_CONNECTION']});
 
-
 Notice that this is equivalent of just navigating to:
 
-  https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+```text
+https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+```
 
 There are multiple practical ways of getting the `connection` value. Among the most common ones:
 
@@ -59,7 +59,7 @@ Notice that you can associate multiple domains to a single connection.
 
 Using [Lock](/lock)'s [support for customization and extensibility](/libraries/lock/customization) it's also possible to add buttons for your Custom Social or Enterprise Connections. The following example (written in jQuery) adds a button for Azure AD to Lock:
 
-```
+```js
 var lock = new Auth0Lock(cid, domain);
 lock.once('signin ready', function() {
   var link = $('<a class="a0-zocial a0-waad" href="#">' +
@@ -88,7 +88,7 @@ This is useful when you want to give users a consistent login experience where t
 
 Lock's stylesheet contains the following provider icons which can be used when adding custom buttons:
 
-```
+```text
 .a0-amazon
 .a0-aol
 .a0-baidu

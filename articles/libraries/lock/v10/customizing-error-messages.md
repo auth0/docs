@@ -2,7 +2,6 @@
 section: libraries
 description: Customizing error messages with Lock 10
 ---
-
 # Lock: Customizing Error Messages
 
 You can customize the error messages that will be displayed in certain situations by providing a [languageDictionary option](/libraries/lock/v10/customization#languagedictionary-object-). A full listing of available `languageDictionary` fields to customize can be found in the GitHub repository's [English Dictionary file for Lock 10](https://github.com/auth0/lock/blob/master/src/i18n/en.js). Below is an example of some customized error messages:
@@ -24,7 +23,7 @@ var options = {
       }
     }
   }
-};  
+};
 
 // Initiating our Auth0Lock
 var lock = new Auth0Lock(
