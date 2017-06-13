@@ -13,6 +13,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [UI Components](#ui-components)
   * [HTTP Request Snippets](#http-request-snippets)
   * [Escaping Strings](#escaping-strings)
+  * [Image zooming](#image-zooming)
   * [Screenshots](#screenshots)
   * [Front Matter](#front-matter)
   * [Linting](#linting)
@@ -184,7 +185,7 @@ You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spe
 * bodySize [number] - Size of the request body (POST data payload) in bytes. Set to -1 if the info is not available.
 * comment [string, optional] (new in 1.2) - A comment provided by the user or the application.
 
-#### Escaping Strings
+### Escaping Strings
 
 Occasionally you will need to use strings that contain the characters that are used for template replacement. The examples of this are `${example}`, `<% example %>` and `<%= example %>`. If you try to include these in your doc or a code snippet the document will fail to render because our template engine will try to replace your variable, i.e. `example`. However, you can include these by escaping them as shown below.
 
@@ -193,6 +194,18 @@ Change `${example}` to `<%= "${example}" %>`.
 Change `<%= example %>` to `${ "<%= example %>" }`.
 
 Change `<% example %>` to `${ "<% example %>" }`.
+
+### Image zooming
+
+You can enable zooming for large images using the `zoomable` container:
+
+```
+::: zoomable
+![Client Credentials Grant Flow](/media/articles/architecture-scenarios/server-api/client-credentials-grant.png)
+:::
+```
+
+It's recommended to add this only for large images (like diagrams) and use it for images with .svg format.
 
 ### Screenshots
 
@@ -403,7 +416,6 @@ description: The article's description
 The `title` will generally be a single word like Introduction or Login as it will be contacted when displayed.
 
 After you publish the doc update, the new quickstart will automatically appear on both docs and manage.
-
 
 #### Hiding Articles in Navigation
 
