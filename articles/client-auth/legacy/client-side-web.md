@@ -1,10 +1,12 @@
 ---
-title: Authentication for Client-side Web Apps
 description: Explains how to authenticate users in a Client-side Web application.
 toc: true
 ---
-
 # Authentication for Client-side Web Apps
+
+::: version-warning
+This document covers an outdated version of the Auth0 authentication pipeline. We recommend you use the current version, using the dropdown. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
 
 The Auth0 OAuth 2.0 authentication endpoints support Client-side Web Applications. These applications are also referred to as JavaScript or Single Page Applications.
 
