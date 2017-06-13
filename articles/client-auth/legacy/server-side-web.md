@@ -3,8 +3,11 @@ title: Authentication for Server-side Web Apps
 description: Explains how to authenticate users in a Server-side Web application.
 toc: true
 ---
-
 # Authentication for Server-side Web Apps
+
+::: version-warning
+This document covers an outdated version of the Auth0 authentication pipeline. We recommend you use the current version, using the dropdown. For more on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
 
 You can use the Auth0 Authentication API to create server-side web applications that uses OAuth 2.0 authorization to authenticate users.
 
