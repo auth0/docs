@@ -47,7 +47,7 @@ Callback URLs are the URLs that Auth0 invokes after the authentication process. 
 
 Since callback URLs can be manipulated, you will need to add your application's URL to your client's *Allowed Callback URLs* for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
 
-* For Android the callback URL will be in the format
+* For Android, the callback URL will be in the format
 
   ```text
   YOUR_ANDROID_PACKAGE_NAME://${account.namespace}/android/YOUR_ANDROID_PACKAGE_NAME/callback
@@ -56,7 +56,7 @@ Since callback URLs can be manipulated, you will need to add your application's 
   where `YOUR_ANDROID_PACKAGE_NAME` is the Package Name for your application, e.g. `com.mycompany.myapplication`.
 
 
-* For iOS the callback URL will be in the format
+* For iOS, the callback URL will be in the format
 
   ```text
   YOUR_BUNDLE_IDENTIFIER://${account.namespace}/ios/YOUR_BUNDLE_IDENTIFIER/callback
@@ -78,7 +78,7 @@ The steps for Logging the user in is different for Android and iOS.
 
 #### 1. Obtain the authorization URL
 
-Call the `PrepareLoginAsync` method which will return an `AuthorizeState` containing the authorization URL, state, nonce and code challenge. You will need to store the `AuthorizeState` as it is required later on to process the redirect URL and exchange the authorization code for the tokens.
+Call the `PrepareLoginAsync` method which will return an `AuthorizeState` containing the authorization URL, state, nonce, and code challenge. You will need to store the `AuthorizeState` as it is required later on to process the redirect URL and exchange the authorization code for the tokens.
 
 ```cs
 AuthorizeState authorizeState = await client.PrepareLoginAsync();
@@ -114,7 +114,7 @@ public class MainActivity : Activity
 }
 ```
 
-Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Package Name for your application, e.g. `com.mycompany.myapplication`. Also ensure that all the text for the `DataScheme`, `DataHost` and `DataPathPrefix` is in lower case.
+Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Package Name for your application, e.g. `com.mycompany.myapplication`. Also ensure that all the text for the `DataScheme`, `DataHost`, and `DataPathPrefix` is in lower case.
 
 Now write code to handle the intent. You can do this by overriding the `OnNewIntent` method. Inside the method you need to call the `ProcessResponseAsync` method, passing along the `DataString` from the intent, as well as the `AuthorizeState` which was previously stored when you called `PrepareLoginAsync`:
 
@@ -135,7 +135,7 @@ With the above code in place, a user can log in to your application using Auth0:
 
 #### 1. Register the URL type
 
-First you will need to register the URL Type:
+First, you will need to register the URL Type:
 
 1. Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab.
 2. Under **URL Types**, click the **Add URL Type** button
@@ -191,7 +191,7 @@ This is an example of the XML representation of your `Info.plist` file after you
 </array>
 ```
 
-After a user has logged in, Auth0 will redirect to the callback URL in your application. You need to handle the incoming link to your `AppDelegate` and resume the login flow of the Auth0 OIDC Client by calling the `Send` method of the `ActivityMediator` singleton, passing along the url sent in. This will allow the Auth0 OIDC Client library to complete the authentication process:
+After a user has logged in, Auth0 will redirect to the callback URL in your application. You need to handle the incoming link to your `AppDelegate` and resume the login flow of the Auth0 OIDC Client by calling the `Send` method of the `ActivityMediator` singleton, passing along the URL sent in. This will allow the Auth0 OIDC Client library to complete the authentication process:
 
 ```csharp
 using Auth0.OidcClient;
