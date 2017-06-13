@@ -6,6 +6,10 @@ description: This page details Auth0's deleted tenant restoration policy.
 
 The following policy governs requests for restoration of Auth0 tenants that were previously deleted.
 
+::: note
+If you are considering deleting your tenant, please see our [Tenant Management](/tutorials/tenant-management) page for alternative options.
+:::
+
 A customer may request a tenant restoration if the tenant was deleted by human error and restoration is critical for the continuity of customer's operations. Please note that before deleting a tenant, from the Auth0 Dashboard, a warning explains that this cannot be undone. However, in some cases we might opt for support this kind of request.
 
 ## Considerations
