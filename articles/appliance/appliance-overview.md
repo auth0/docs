@@ -2,7 +2,6 @@
 section: appliance
 description: The Auth0 Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service.
 ---
-
 # Auth0 Appliance Overview
 
 The Auth0 Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 Appliance can be deployed in one of three places:
@@ -23,7 +22,9 @@ If you choose to deploy to your own cloud environment or data center, you supply
 
 You may deploy the Appliance in several different configurations and use several different deployment models. The configurations support different levels of scale and high availability, and they are available in any of the Appliance deployment models. The following table shows the configuration options:
 
-![](/media/articles/appliance/ha-options.png)
+::: zoomable
+![](/media/articles/appliance/ha-options.svg)
+:::
 
 [Auth0 Deployment Models](/overview/deployment-models) provides additional details and explains the differences between each of the Appliance deployment models and the standard multi-tenant cloud deployment.
 
