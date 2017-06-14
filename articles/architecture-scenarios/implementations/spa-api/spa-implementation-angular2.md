@@ -11,7 +11,7 @@ This document is part of the [SPA + API Architecture Scenario](/architecture-sce
 The full source code for the Angular 2 implementation of the SPA can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-spa/angular).
 :::
 
-## Configuration
+## 1. Configuration
 
 Your application will require certain configuration information. Before carrying on with the rest of the implementation, create an `AuthConfig` interface which will contain various configuration values. Place this interface in a file called `auth0-variables.ts`.
 
@@ -31,7 +31,7 @@ export const AUTH_CONFIG: AuthConfig = {
 };
 ```
 
-## Authorize the User
+## 2. Authorize the User
 
 ### Create an Authorization Service
 
@@ -178,7 +178,7 @@ This example assumes some kind of loading spinner is available in an `assets` di
 
 After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/home` route.
 
-## Call the API
+## 3. Call the API
 
 The [angular2-jwt](https://github.com/auth0/angular2-jwt) module can be used to automatically attach JSON Web Tokens to requests made to your API. It does this by providing an `AuthHttp` class which is a wrapper over Angular's `Http` class.
 
@@ -244,7 +244,7 @@ export class TimesheetsService {
 }
 ```
 
-## Renew the Access Token
+## 4. Renew the Access Token
 
 Renewing the user's `access_token` requires that a static HTML file to be served. The server setup you choose to do this is at your discretion, but an example using Node.js and express is given here.
 
