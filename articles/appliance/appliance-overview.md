@@ -27,6 +27,7 @@ You may deploy the Appliance in several different configurations and use several
 ![Appliance HA Options](/media/articles/appliance/Appliance-HA-Options.svg)
 :::
 
+<!-- markdownlint-disable MD033 -->
 <table class="table">
 <thead>
     <tr>
@@ -56,6 +57,7 @@ You may deploy the Appliance in several different configurations and use several
     </tr>
 </tbody>
 </table>
+<!-- markdownlint-enable MD033 -->
 
 [Auth0 Deployment Models](/overview/deployment-models) provides additional details and explains the differences between each of the Appliance deployment models and the standard multi-tenant cloud deployment.
 
