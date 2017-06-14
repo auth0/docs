@@ -116,7 +116,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 ```
 
 ::: note
-> Any linked account is handled as a `Profile` identity object. For further information on this object, check out the [Profile class](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) documentation.
+Any linked account is handled as a `Profile` identity object. For further information on this object, check out the [Profile class](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) documentation.
 :::
 
 ## Unlink an Account
