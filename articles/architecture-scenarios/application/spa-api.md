@@ -6,7 +6,6 @@ extract: Single Page Web Application which talks to an API. The application will
 description: Explains the architecture scenario where a Single Page Web Application (SPA) talks to an API using OpenID Connect, and the OAuth 2.0 Implicit Grant Flow, to authenticate users with Auth0.
 toc: true
 ---
-
 # SPA + API
 
 In this scenario we will build a Timesheet API for a fictitious company named ABC Inc. The API will allow to add timesheet entries for an employee or a contractor.
@@ -55,6 +54,8 @@ Each access token may include a list of the permissions that have been granted t
 For example, the timesheet API may accept four different levels of authorization: reading timesheets (scope `read:timesheets`), creating timesheets (scope `create:timesheets`), deleting timesheets (scope `delete:timesheets`) and approving timesheets (scope `approve:timesheets`).
 
 When a client asks the API to create a new timesheet entry, then the access token should contain the `create:timesheets` scope. In a similar fashion, in order to delete existing timesheets, the access token should contain the `delete:timesheets` scope.
+
+For more information on scopes refer to [Scopes](/scopes).
 :::
 
 By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself. Using Auth0, you can easily support different flows in your own APIs without worrying about the OAuth 2.0/OpenID Connect specification, or the many other technical aspects of API authorization.
@@ -128,13 +129,15 @@ The most secure practice, and our recommendation, is to use __RS256__. Some of t
 - Under HS256, If the private key is compromised you would have to re-deploy the API with the new secret. With RS256 you can request a token that is valid for multiple audiences.
 - With RS256 you can implement key rotation without having to re-deploy the API with the new secret.
 
+::: note
 For a more detailed overview of the JWT signing algorithms refer to: [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
+:::
 
 ### Configure the Scopes
 
 Once the client has been created you will need to configure the Scopes which clients can request during authorization.
 
-In the settings for your API, go to the *Scopes* tab. In this section you can add all four of the scopes which was discussed before, namely `read:timesheets`, `create:timesheets`, `delete:timesheets`, `approve:timesheets`.
+In the settings for your API, go to the **Scopes** tab. In this section you can add all four of the scopes which was discussed before, namely `read:timesheets`, `create:timesheets`, `delete:timesheets`, `approve:timesheets`.
 
 ![Add Scopes](/media/articles/architecture-scenarios/spa-api/add-scopes.png)
 
@@ -175,7 +178,7 @@ For this implementation we will only define 2 endpoints; one for retrieving a li
 An `HTTP GET` request to the `/timesheets` endpoint will allow a user to retrieve their timesheets, and an `HTTP POST` request to the `/timesheets` endpoint will allow a user to add a new timesheet.
 
 ::: note
-See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#define-the-api-endpoints)
+See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#1-define-the-api-endpoints)
 :::
 
 #### Secure the Endpoints
@@ -197,7 +200,7 @@ Part of the validation process is to also check the Client permissions (scopes),
 For more information on validating access tokens, refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 
 ::: note
-See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#secure-the-endpoints)
+See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#2-secure-the-api-endpoints)
 :::
 
 #### Check the Client's Permissions
@@ -207,7 +210,7 @@ By now we have verified that the JWT is valid. The last step is to verify that t
 To do so, the API needs to check the [scopes](/scopes) of the decoded JWT. This claim is part of the payload and it is a space-separated list of strings.
 
 ::: note
-See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#check-the-client-s-permissions)
+See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#3-check-the-client-permissions)
 :::
 
 #### Determine user identity
@@ -221,7 +224,7 @@ One of the standard JWT claims is the `sub` claim which which identifies the pri
 You can also use a custom claim to add another attribute of the user - such as their email address - to the `access_token` and use that to uniquely identify the user.
 
 ::: note
-See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#determine-user-identity)
+See the implementation in [Node.js](/architecture-scenarios/application/spa-api/api-implementation-nodejs#4-determine-the-user-identity)
 :::
 
 ### Implement the SPA
@@ -282,7 +285,7 @@ this.auth0.parseHash((err, authResult) => {
 ```
 
 ::: note
-See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#authorize-the-user)
+See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#2-authorize-the-user)
 :::
 
 #### Get the User Profile
@@ -292,7 +295,7 @@ See the implementation in [Angular 2](/architecture-scenarios/application/spa-ap
 To access secured resources from your API, the authenticated user's `access_token` needs to be included in requests that are sent to it. This is accomplished by sending the `access_token` in an `Authorization` header using the `Bearer` scheme. 
 
 ::: note
-See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#call-the-api)
+See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#3-call-the-api)
 :::
 
 #### Renew the Access Token
@@ -306,7 +309,7 @@ Obtaining a new `access_token` can be done by repeating the authentication flow,
 In cases like this you can make use of [Silent Authentication](/api-auth/tutorials/silent-authentication). Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. This does however require that the user was already logged in via [SSO (Single Sign-On)](/sso).
 
 ::: note
-See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#renew-the-access-token)
+See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#4-renew-the-access-token)
 :::
 
 ## Conclusion
