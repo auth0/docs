@@ -178,7 +178,85 @@ This example assumes some kind of loading spinner is available in an `assets` di
 
 After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/home` route.
 
-## 3. Call the API
+## 3. Get the User Profile
+
+::: panel Extract info from the token
+This section shows how to retrieve the user info using the `access_token` and the [/userinfo endpoint](/api/authentication#get-user-info). Alternatively, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). The output will be the same. If you need additional user information consider using the [our Management API](/api/management/v2#!/Users/get_users_by_id).
+:::
+
+To obtain the user's profile, update the existing `AuthService` class. Add a `getProfile` function which will extract the user's `access_token` from local storage, and then pass that call the `userInfo` function to retrieve the user's information.
+
+```js
+// Existing code from the AuthService class is omitted in this code sample for brevity
+@Injectable()
+export class AuthService {
+  public getProfile(cb): void {
+    const accessToken = localStorage.getItem('access_token');
+    if (!accessToken) {
+      throw new Error('Access token must exist to fetch profile');
+    }
+
+    const self = this;
+    this.auth0.client.userInfo(accessToken, (err, profile) => {
+      if (profile) {
+        self.userProfile = profile;
+      }
+      cb(err, profile);
+    });
+  }
+}
+```
+
+You can now simply call this function from any service where you want to retrieve and display information about the user.
+
+For example you may choose to create a new component to display the user's profile information:
+
+```js
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../auth/auth.service';
+
+@Component({
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
+})
+export class ProfileComponent implements OnInit {
+
+  profile: any;
+
+  constructor(public auth: AuthService) { }
+
+  ngOnInit() {
+    if (this.auth.userProfile) {
+      this.profile = this.auth.userProfile;
+    } else {
+      this.auth.getProfile((err, profile) => {
+        this.profile = profile;
+      });
+    }
+  }
+}
+```
+
+The template for this component looks as follows:
+
+```html
+<div class="panel panel-default profile-area">
+  <div class="panel-heading">
+    <h3>Profile</h3>
+  </div>
+  <div class="panel-body">
+    <img src="{{profile?.picture}}" class="avatar" alt="avatar">
+    <div>
+      <label><i class="glyphicon glyphicon-user"></i> Nickname</label>
+      <h3 class="nickname">{{ profile?.nickname }}</h3>
+    </div>
+    <pre class="full-profile">{{ profile | json }}</pre>
+  </div>
+</div>
+```
+
+## 4. Call the API
 
 The [angular2-jwt](https://github.com/auth0/angular2-jwt) module can be used to automatically attach JSON Web Tokens to requests made to your API. It does this by providing an `AuthHttp` class which is a wrapper over Angular's `Http` class.
 
@@ -244,7 +322,7 @@ export class TimesheetsService {
 }
 ```
 
-## 4. Renew the Access Token
+## 5. Renew the Access Token
 
 Renewing the user's `access_token` requires that a static HTML file to be served. The server setup you choose to do this is at your discretion, but an example using Node.js and express is given here.
 

@@ -290,12 +290,51 @@ See the implementation in [Angular 2](/architecture-scenarios/application/spa-ap
 
 #### Get the User Profile
 
+::: panel Extract info from the token
+This section shows how to retrieve the user info using the `access_token` and the [/userinfo endpoint](/api/authentication#get-user-info). Alternatively, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). The output will be the same. If you need additional user information consider using the [our Management API](/api/management/v2#!/Users/get_users_by_id).
+:::
+
+The `client.userInfo` method can be called passing the returned `authResult.accessToken` in order to retrieve the user's profile information.  It will make a request to the [/userinfo endpoint](/api/authentication#get-user-info) and return the `user` object, which contains the user's information, similar to the example below:
+
+```json
+{
+    "email_verified": "false",
+    "email": "test@example.com",
+    "clientID": "AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH",
+    "updated_at": "2017-02-07T20:50:33.563Z",
+    "name": "tester9@example.com",
+    "picture": "https://gravatar.com/avatar/example.png",
+    "user_id": "auth0|123456789012345678901234",
+    "nickname": "tester9",
+    "created_at": "2017-01-20T20:06:05.008Z",
+    "sub": "auth0|123456789012345678901234"
+}
+```
+
+You can access any of these properties in the callback function passed when calling the `userInfo` function:
+
+```js
+const accessToken = localStorage.getItem('access_token');
+ 
+auth0.client.userInfo(accessToken, (err, profile) => {
+  if (profile) {
+    // Get the user’s nickname and profile image
+    var nickname = profile.nickname;
+    var picture = profile.picture;
+  }
+});
+```
+
+::: note
+See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#3-get-the-user-profile)
+:::
+
 #### Call the API
 
 To access secured resources from your API, the authenticated user's `access_token` needs to be included in requests that are sent to it. This is accomplished by sending the `access_token` in an `Authorization` header using the `Bearer` scheme. 
 
 ::: note
-See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#3-call-the-api)
+See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#4-call-the-api)
 :::
 
 #### Renew the Access Token
@@ -309,7 +348,7 @@ Obtaining a new `access_token` can be done by repeating the authentication flow,
 In cases like this you can make use of [Silent Authentication](/api-auth/tutorials/silent-authentication). Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. This does however require that the user was already logged in via [SSO (Single Sign-On)](/sso).
 
 ::: note
-See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#4-renew-the-access-token)
+See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#5-renew-the-access-token)
 :::
 
 ## Conclusion
