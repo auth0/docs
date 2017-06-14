@@ -1,8 +1,8 @@
 ---
 description: The Node.js implementation of the API for the SPA + API architecture scenario
 url: /architecture-scenarios/application/spa-api/api-implementation-nodejs
+toc: true
 ---
-
 # SPA + API: Node.js Implementation for the API
 
 This document is part of the [SPA + API Architecture Scenario](/architecture-scenarios/application/spa-api) and it explains how to implement the SPA in Angular 2. Please refer to the scenario for information on the implemented solution.
@@ -11,7 +11,7 @@ This document is part of the [SPA + API Architecture Scenario](/architecture-sce
 The full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-api/node).
 :::
 
-## Define the API endpoints
+## 1. Define the API endpoints
 
 We will use the [Express web application framework](http://expressjs.com/) to build our Node.js API.
 
@@ -97,7 +97,7 @@ Launch your API server using `node server` and navigate to `localhost:8080/times
 
 So now we have our endpoint but anyone can call it. Continue to the next paragraph to see how we can fix this.
 
-## Secure the API endpoints
+## 2. Secure the API endpoints
 
 In order to validate our token we will use the `jwt` function, provided by the [express-jwt middleware](https://github.com/auth0/express-jwt#usage), and the `jwks-rsa` to retrieve our secret. The libraries do the following:
 
@@ -156,7 +156,7 @@ In order to test the working scenario as well we need to:
 - Get an access token. For details on how to do so refer to: [Get an Access Token](/architecture-scenarios/application/server-api#get-an-access-token).
 - Invoke the API while adding an `Authorization` header to our request with the value `Bearer ACCESS_TOKEN` (where *ACCESS_TOKEN* is the value of the token we retrieved in the first step).
 
-## Check the Client permissions
+## 3. Check the Client permissions
 
 In this step we will add to our implementation the ability to check if the client has permissions to use our endpoint in order to create a timesheet. We will look at the decoded JWT and see if the token has the correct scope, which is `create:timesheets`. If it doesn’t we will send an appropriate message, otherwise we will retrieve some of the request info and echo back the successful result.
 
@@ -214,7 +214,7 @@ app.post('/timesheet', function(req, res){
 
 If we invoke our API with a token that does not include this scope we should get the error message Forbidden with the HTTP status code `403`. You can test this by removing this scope from your API.
 
-## Determine the User Identity
+## 4. Determine the User Identity
 
 The `express-jwt` middleware which is used to validate the JWT, also sets the `req.user` with the information contained in the JWT. If you want to use the `sub` claim to identify the user uniquely, you can simply use `req.user.sub`.
 
