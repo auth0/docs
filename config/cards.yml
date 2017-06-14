@@ -118,13 +118,14 @@
   articles:
 
     - title: "Rules"
-      url: "/rules"
+      url: "/rules/current"
 
     - title: "Extensions"
       url: "/extensions"
 
     - title: "Webtasks"
       url: "https://webtask.io/docs/101"
+      external: true
 
 
 - id: "identity-providers"
