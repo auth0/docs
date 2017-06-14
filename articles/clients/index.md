@@ -2,12 +2,9 @@
 description: Explains the basics of creating and using Auth0 Clients.
 toc: true
 ---
-
 # Clients
 
-## Overview
-
-An Auth0 **client** maps to your application and allows use of Auth0 for authentication. The term *client* does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
+An Auth0 **client** represents your application and allows use of Auth0 for authentication. The term client does not imply any particular implementation characteristics. Your application can be a native app that executes on a mobile device, a single page app that executes on a browser, or a regular web app that executes on a server.
 
 ## Client Types
 
@@ -80,7 +77,7 @@ Navigate to the [Client Settings](${manage_url}/#/clients/${account.clientId}/se
 Once you click on the button a pop-up window will ask you to confirm the action. Click **Yes, delete client** to permanently remove the client.
 
 ::: note
-  You can also delete a client using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
+You can also delete a client using the [DELETE /api/v2/clients/{id} endpoint](/api/management/v2#!/Clients/delete_clients_by_id) of the Management API.
 :::
 
 ## Client Auditing
