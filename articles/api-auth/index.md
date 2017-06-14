@@ -166,6 +166,12 @@ Using Auth0, you can easily support different flows in your own APIs without wor
     </p>
   </li>
   <li>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/blacklists-vs-grants">Blacklists and Client Grants</a>
+    <p>
+      Learn about revoking access to APIs and best practices for doing so.
+    </p>
+  </li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/faq">FAQ</a>
     <p>
       Frequently Asked Questions on API Authentication and Authorization .
