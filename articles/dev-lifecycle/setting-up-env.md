@@ -26,7 +26,7 @@ function(user, context, callback){
 
 This code however is not portable since this URL will likely change from development to production.
 
-The recommended way is to navigate to the [Dashboard > Rules](${manage_url}/#/rules), scroll at the bottom of the page, set your configuration value (we will use `log_url` for name, and `https://someurl/log` for value), and click __Create__.
+The recommended way is to navigate to the [Dashboard > Rules](${manage_url}/#/rules), scroll at the bottom of the page, set your configuration value (we will use `log_url` for the key name, and `https://someurl/log` for value), and click __Create__.
 
 ![Rules Configuration Values](/media/articles/lifecycle/rules-conf-values.png)
 
