@@ -123,6 +123,8 @@ In order to avoid validation errors, make sure that you do include the protocol 
 
 * The `returnTo` parameter does not function for all social providers. Please check your social provider's settings to ensure that they will accept the `redirectTo` parameter.
 
+* The URLs provided to the `Allowed Logout URLs` list are case-sensitive, so the URL used for logouts must match the case of the logout URL configured on the dashboard.
+
 ::: note
 If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the **Auth0 Management Console** for the logout to function.
 :::
