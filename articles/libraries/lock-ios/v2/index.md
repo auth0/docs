@@ -78,6 +78,10 @@ Lock
 
 ## Implementation of Lock Passwordless
 
+::: warning
+This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see [Client Grant Types](/clients/client-grant-types) for more information.
+:::
+
 Lock Passwordless handles passwordless authentication using email and sms connections.
 
 To show Lock, add the following snippet in your `UIViewController`.
