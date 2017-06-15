@@ -4,8 +4,13 @@ description: Details on SLA for enabled subscribers.
 
 # SLA
 
-At an additional cost, Auth0 offers a __99.95%__ uptime service level agreement guarantee to subscribers enabling it in their subscription. Details on SLA below:
+Auth0 guarantees a monthly uptime percentage of **99.9%**. 
 
+::: note
+At additional cost, Auth0 offers a __99.95%__ uptime service level agreement guarantee to subscribers enabling it in their subscription.
+:::
+
+The specifics of the Auth0 SLA are below:
 
 #### I. Definitions.
 * "Downtime" is period of at least 1 minute in which there is more than a five percent authentication error rate, as measured by a 3rd party service monitoring service such as Pingdom. Downtime is measured based on the backend server side error rate.
@@ -16,7 +21,7 @@ At an additional cost, Auth0 offers a __99.95%__ uptime service level agreement 
 
 #### II.  Subscription Services Availability.
 
-During the Term of the Agreement, the Subscription Services will be operational and available to Subscriber at least 99.95% of the time in minutes in any calendar month (referred to as “Availability”).
+During the Term of the Agreement, the Subscription Services will be operational and available to Subscriber at least 99.9% of the time in minutes in any calendar month (referred to as “Availability”).
 
 If Auth0 fails to meet its Availability service level due to circumstances not listed within one of the exception in Section III below, and if Subscriber meets its obligations under the Agreement, Subscriber shall be eligible to receive service level credits (“SLCs”) as set forth in Section IV below.
 
@@ -33,7 +38,7 @@ Subscriber shall receive no SLCs in connection with any unavailability of the Su
 
 | Monthly Uptime Percentage | Days of Service added to the end of the Service term, at no charge to Customer |
 | :---: | :---: |
-| < 99.95% - >= 99.0% | 3 |
+| < 99.9% - >= 99.0% | 3 |
 | < 99.0%  - >= 95.0% | 7 |
 | < 95.0% | 15 |
 
