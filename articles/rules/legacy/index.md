@@ -65,10 +65,6 @@ Rules containing shared functions should be placed at the top of the [Rules list
 
 ## Examples
 
-::: note
-You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
-:::
-
 To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
 
 ### *Hello World*
