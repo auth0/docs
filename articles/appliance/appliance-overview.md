@@ -86,7 +86,9 @@ The typical update cycle is once per month. You can control and which version is
 
 The diagram below details a few of these dependencies:
 
-![](/media/articles/appliance/overview.png)
+::: zoomable
+![Appliance Overview](/media/articles/appliance/overview.svg)
+:::
 
 ## Monitoring and Support
 
