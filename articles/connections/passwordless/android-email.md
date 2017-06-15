@@ -1,5 +1,5 @@
 ---
-title: Using Passwordless Authentication on Anroid with e-mail
+title: Using Passwordless Authentication on Android with e-mail
 ---
 
 <!-- markdownlint-disable -->
