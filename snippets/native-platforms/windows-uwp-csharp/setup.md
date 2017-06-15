@@ -1,4 +1,6 @@
 ```cs
+// MainPage.xaml.cs
+
 using Auth0.OidcClient;
 
 var client = new Auth0Client(new Auth0ClientOptions
