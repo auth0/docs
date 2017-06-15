@@ -1,34 +1,24 @@
 <% var terminated = false; %>
+<div class="connections-container">
 <% var i=0; _.forEach(connections, function(article) { %>
   <% if (article.connection) { %>
-    <% if (i === 0) { terminated = false; %>
-    <div class="row">
+    <% if (article.public !== false) { %>
+    <a class="connection connection-public" href="<%- article.url %>">
+    <% } else { %>
+    <div class="connection">
     <% } %>
-      <div class="col-xs-6 col-md-3">
-        <div class="connection">
-          <div class="connection-content">
-            <% if (article.public !== false) { %>
-            <div class="connection-image-wrap">
-              <a href="<%- article.url %>">
-                <img class="img-responsive" src="<%- article.image %>" />
-              </a>
-            </div>
-            <h3><a href="<%- article.url %>"><%- article.connection %></a></h3>
-            <% } else { %>
-            <div class="connection-image-wrap">
-              <img class="img-responsive" src="<%- article.image %>" />
-            </div>
-            <h3><%- article.connection %></h3>
-            <% } %>
-          </div>
+      <div class="connection-content">
+        <div class="connection-image-wrap">
+          <img class="img-responsive" src="<%- article.image %>" />
         </div>
+        <h3 class="connection-title"><%- article.connection %></h3>
       </div>
-    <% i++; if (i === 4) { i=0; terminated = true; %>
+    <% if (article.public !== false) { %>
+    </a>
+    <% } else { %>
     </div>
     <% } %>
   <% } %>
 <% }); %>
-<% if (terminated === false) { terminated = true; %>
-    </div>
-<% } %>
+</div>
 <% connections = []; %>
