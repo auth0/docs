@@ -14,7 +14,7 @@ description: Auth0 is an identity hub that supports the many authentication prov
   flex: auto;
 }
 .connection {
-  padding: 15px;
+  padding: 24px 15px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   flex-basis: 23%;
   margin-bottom: 16px;
@@ -44,21 +44,18 @@ description: Auth0 is an identity hub that supports the many authentication prov
 
 .connection-title {
   font-size: 18px;
+  margin-top: 16px;
+  margin-bottom: 0;
+  line-height: 1.2em;
 }
 
-.connection-content:before {
-  content: ' ';
-  display: inline-block;
-  vertical-align: middle;
-  height: 90px;
-}
 .connection-image-wrap {
   display: inline-block;
   vertical-align: middle;
 }
 .connection-image-wrap img {
-  max-height: 80px;
-  max-width: 120px;
+  max-height: 60px;
+  max-width: 60px;
 }
 </style>
 
