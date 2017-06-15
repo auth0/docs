@@ -29,10 +29,6 @@ Among many possibilities, Rules can be used to:
 * Enable counters or persist other information. (For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).)
 * Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
 
-::: note
-You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
-:::
-
 ## Video: Using Rules
 
 Watch this video learn all about rules in just a few minutes.
