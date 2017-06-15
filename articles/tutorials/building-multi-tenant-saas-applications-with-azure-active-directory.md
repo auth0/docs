@@ -77,6 +77,8 @@ The other option is to only ask for the 'Enable SSO' permission, which we'll be 
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-app-perm.png)
 
+![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-app-perm2.png)
+
 ## Creating a connection in Auth0
 
 After configuring our application in Azure AD we can add it as a connection in the Auth0 dashboard. Here we'll need to enter the Client ID and Client Secret of the application:
