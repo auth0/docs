@@ -16,26 +16,28 @@ This allows you to implement scenarios including (but not limited to):
 
 ```js
 /**
-@param {object} client - information about the client
-@param {string} client.name - name of client
-@param {string} client.id - client id
-@param {string} client.tenant - Auth0 tenant name
-@param {object} client.metadata - client metadata
-@param {array|undefined} scope - array of strings representing the scope claim or undefined
-@param {string} audience - token's audience claim
-@param {object} context - additional authorization context
+@param {object} user - The user being created
+@param {string} user.id - user id
+@param {string} user.tenant - Auth0 tenant name
+@param {string} user.username - user name
+@param {string} user.email - email
+@param {boolean} user.emailVerified - is e-mail verified?
+@param {string} user.phoneNumber - phone number
+@param {boolean} user.phoneNumberVerified - is phone number verified?
+@param {object} user.user_metadata - user metadata
+@param {object} user.app_metadata - application metadata
+@param {object} context - Auth0 connection and other context info
+@param {string} context.requestLanguage - language of the client agent
+@param {object} context.connection - information about the Auth0 connection
+@param {object} context.connection.id - connection id
+@param {object} context.connection.name - connection name
+@param {object} context.connection.tenant - connection tenant
 @param {object} context.webtask - webtask context
-@param {function} cb - function (error, accessTokenClaims)
+@param {function} cb - function (error, response)
 */
-module.exports = function(client, scope, audience, context, cb) {
-  var access_token = {};
-  access_token.scope = scope;
-
-  // Modify scopes or add extra claims
-  // access_token['https://example.com/claim'] = 'bar';
-  // access_token.scope.push('extra');
-
-  cb(null, access_token);
+module.exports = function (user, context, cb) {
+  // Perform any asynchronous actions, e.g. send notification to Slack.
+  cb();
 };
 ```
 
