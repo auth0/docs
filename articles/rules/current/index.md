@@ -28,10 +28,6 @@ Among many possibilities, Rules can be used to:
 * Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
 * Modify tokens: Change the returned __scopes__ of the `access_token` and/or add claims to it, and to the `id_token`.
 
-::: note
-You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
-:::
-
 ## Video: Using Rules
 
 Watch this video learn all about rules in just a few minutes.
@@ -51,6 +47,10 @@ A Rule is a function with the following arguments:
 ## Examples
 
 To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
+
+::: note
+You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
+:::
 
 ### Hello World
 
