@@ -21,3 +21,7 @@ This tutorial will show you how to integrate the Auth0 Login in your Android pro
 <%= include('_includes/_auth0') %>
 
 <%= include('_includes/_login') %>
+
+::: note
+Please see [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) for information on choosing between the two types of login flows.
+:::

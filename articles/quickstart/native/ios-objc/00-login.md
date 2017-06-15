@@ -16,3 +16,7 @@ budicon: 448
 }) %>
 
 <%= include('_includes/_login_centralized') %>
+
+::: note
+Please see [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) for information on choosing between the two types of login flows.
+:::
