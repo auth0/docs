@@ -1,0 +1,10 @@
+added:
+  -
+    title: "Blacklists and Client Grants"
+    tags:
+      - jti
+      - jwt
+      - client-grants
+      - api-access
+    description: |
+      A [new doc](https://auth0.com/docs/api-auth/blacklists-vs-grants) was added with information on best practices when revoking access to protected resources.
