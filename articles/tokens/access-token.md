@@ -125,7 +125,7 @@ The token in this example decodes to the following claims:
 }
 ```
 
-Before permitting access to the API using this token, the API must verify the `access_token` using the following steps:
+Before permitting access to the API using this token, the API must verify the token using the following steps:
 
 1. Check that the JWT is well formed.
 1. Check the signature.
@@ -133,7 +133,7 @@ Before permitting access to the API using this token, the API must verify the `a
 1. Check the Client permissions (scopes)
 
 ::: note
-For a more detailed discussion verifying access tokens, please refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+For a more detailed discussion on verifying access tokens, please refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
 :::
 
 If any of these checks fail, the token is invalid and the request should be rejected.
