@@ -23,7 +23,41 @@ If you choose to deploy to your own cloud environment or data center, you supply
 
 You may deploy the Appliance in several different configurations and use several different deployment models. The configurations support different levels of scale and high availability, and they are available in any of the Appliance deployment models. The following table shows the configuration options:
 
-![](/media/articles/appliance/ha-options.png)
+::: zoomable
+![Appliance HA Options](/media/articles/appliance/Appliance-HA-Options.svg)
+:::
+
+<!-- markdownlint-disable MD033 -->
+<table class="table">
+<thead>
+    <tr>
+        <th></th>
+        <th>Single Node</th>
+        <th>High Availability</th>
+        <th>High Capacity</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <th>Description</th>
+        <td>Intended for development and testing environments.</td>
+        <td><ul><li>Three-node redundant cluster</li> <li>Tolerates a single-node outage</li> <li>Recommended for most Production environments</li> <li>Includes a single node for Dev/QA</ul></td>
+        <td><ul><li>Highly scalable capacity for the most demanding applications</li> <li>Tolerates multi-node outages</li> <li>Recommended for large-scale Production environments</li> <li>Includes a single node for Dev/QA</li></ul></td>
+    </tr>
+    <tr>
+        <th>Geo HA</th>
+        <td>Not Available</td>
+        <td colspan="2"><ul><li>Multiple data center with active-passive clustering and automated failover</li> <li>Auth0 continues to operate if a data center becomes unavailable</li> <li>If the primary data center fails, traffic can quickly be routed to the secondary cluster</li> <li>Cluster topology is replicated in each environment. Requires aa global load balancing solution like AWS Route 53 or F5 Global Traffic Manager.</li></ul></td>
+    </tr>
+    <tr>
+        <th>Backup and Recovery</th>
+        <td><ul><li>Virtual Machine Snapshot</li><li>Data backup with cluster restore</li></ul></td>
+        <td><ul><li>Virtual Machine Snapshot</li><li>Virtual Machine shipping with scripted restore (if using VMWare)</li><li>Data backup with cluster restore</li></ul></td>
+        <td></td>
+    </tr>
+</tbody>
+</table>
+<!-- markdownlint-enable MD033 -->
 
 [Auth0 Deployment Models](/overview/deployment-models) provides additional details and explains the differences between each of the Appliance deployment models and the standard multi-tenant cloud deployment.
 
@@ -52,7 +86,9 @@ The typical update cycle is once per month. You can control and which version is
 
 The diagram below details a few of these dependencies:
 
-![](/media/articles/appliance/overview.png)
+::: zoomable
+![Appliance Overview](/media/articles/appliance/overview.svg)
+:::
 
 ## Monitoring and Support
 
