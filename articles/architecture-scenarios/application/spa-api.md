@@ -291,7 +291,7 @@ See the implementation in [Angular 2](/architecture-scenarios/application/spa-ap
 #### Get the User Profile
 
 ::: panel Extract info from the token
-This section shows how to retrieve the user info using the `access_token` and the [/userinfo endpoint](/api/authentication#get-user-info). Alternatively, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). The output will be the same. If you need additional user information consider using the [our Management API](/api/management/v2#!/Users/get_users_by_id).
+This section shows how to retrieve the user info using the `access_token` and the [/userinfo endpoint](/api/authentication#get-user-info). To avoid this API call, you can just decode the `id_token` [using a library](https://jwt.io/#libraries-io) (make sure you validate it first). If you need additional user information consider using [our Management API](/api/management/v2#!/Users/get_users_by_id) from your backend.
 :::
 
 The `client.userInfo` method can be called passing the returned `authResult.accessToken` in order to retrieve the user's profile information.  It will make a request to the [/userinfo endpoint](/api/authentication#get-user-info) and return the `user` object, which contains the user's information, similar to the example below:
