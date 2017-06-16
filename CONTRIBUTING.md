@@ -149,6 +149,20 @@ It is important to understand that the Authorization Code flow should only be us
 
 ![Panel warning container](https://cloud.githubusercontent.com/assets/6318057/26082243/588586b0-39a5-11e7-88ef-3290be88e96a.png)
 
+##### Next steps list
+
+Use this container to mark a Next to read/Continue reading list of links.
+
+Try to keep the list length to a minimum (up to 5 links).
+
+```
+::: next-steps
+* [Access Token](/tokens/access-token)
+* [ID Token](/tokens/id-token)
+* [OpenID Connect Overview](/protocols/oidc)
+:::
+```
+
 ### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
 
