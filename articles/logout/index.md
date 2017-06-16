@@ -71,7 +71,7 @@ To redirect a user after logout, add a `returnTo` querystring parameter with the
 https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
 ```
 
-You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples it is `http://www.example.com`) as an `Allowed Logout URLs` in one of two places:
+You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples it is `http://www.example.com`) as an **Allowed Logout URLs** in one of two places:
 
 * For logout requests that do not include the `client_id` parameter, for example:
 
@@ -79,7 +79,7 @@ You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples
     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
     ```
 
-  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the `Allowed Logout URLs` list in the *Advanced* tab of your **Account settings** page. See [Set the Allowed Logout URLs at the Account Level](#set-the-allowed-logout-urls-at-the-account-level) for more information.
+  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the **Advanced** tab of your **Account settings** page. See [Set the Allowed Logout URLs at the Account Level](#set-the-allowed-logout-urls-at-the-account-level) for more information.
 
 * For logout requests that include the `client_id` parameter, for example:
 
@@ -87,10 +87,10 @@ You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples
     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com&client_id=CLIENT_ID
     ```
 
-  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the `Allowed Logout URLs` list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the App Level](#set-the-allowed-logout-urls-at-the-app-level) for more information.
+  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the App Level](#set-the-allowed-logout-urls-at-the-app-level) for more information.
 
 
-### Set the *Allowed Logout URLs* at the Account Level
+### Set the Allowed Logout URLs at the Account Level
 
 To add a list of URLs that the user may be redirected to after logging out at the account level, go to the [Account Settings > Advanced](${manage_url}/#/account/advanced) of the **Auth0 Management Console**.
 
@@ -102,9 +102,9 @@ When providing the URL list, you can:
 * Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
 
 
-### Set the *Allowed Logout URLs* at the App Level
+### Set the Allowed Logout URLs at the App Level
 
-To redirect the user after they log out from a specific app, you must add the URL used in the `returnTo` parameter of the redirect URL to the `Allowed Logout URLs` list in the **Settings** tab of your Auth0 app that is associated with the `CLIENT_ID` parameter.
+To redirect the user after they log out from a specific app, you must add the URL used in the `returnTo` parameter of the redirect URL to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the `CLIENT_ID` parameter.
 
 ![Application level logout screen](/media/articles/logout/app-level-logout.png)
 
@@ -122,6 +122,8 @@ In order to avoid validation errors, make sure that you do include the protocol 
 * The validation of URLs provided as values to the `returnTo` parameter, the querystring and hash information provided as part of the URL are not taken into account.
 
 * The `returnTo` parameter does not function for all social providers. Please check your social provider's settings to ensure that they will accept the `redirectTo` parameter.
+
+* The URLs provided to the **Allowed Logout URLs** list are case-sensitive, so the URL used for logouts must match the case of the logout URL configured on the dashboard. Note, that the scheme and host parts, are case-insensitive. For example, in `http://www.Example.Com/FooHoo.html`, the `http://www.Example.Com` is case-insensitive, while the `FooHoo.html` is case-sensitive.
 
 ::: note
 If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the **Auth0 Management Console** for the logout to function.
