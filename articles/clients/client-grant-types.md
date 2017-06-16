@@ -121,6 +121,12 @@ Trusted first-party clients can additionally use the following `grant_types`:
   </tr>
 </table>
 
+<!-- markdownlint-enable MD033 -->
+
+::: note
+Those implementing Passwordless Authentication should use hosted login pages instead of the `oauth/ro` endpoint.
+:::
+
 ## Enable a Legacy Grant Type
 
 ::: warning
