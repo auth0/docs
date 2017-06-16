@@ -115,4 +115,4 @@ a0cli -t <target node> backup-delete
 
 ## Restore a Backup
 
-To restore a backup, please contact Auth0 for assistance.
+To restore a backup, please open up a ticket requesting assistance via the [Auth0 Support Center](https://support.auth0.com/).
