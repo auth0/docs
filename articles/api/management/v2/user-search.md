@@ -100,11 +100,11 @@ Search all users whose name _is_ exactly "john":
 
 Search for all user names starting with "john"
 
-`name:"john*"`
+`name:john*`
 
 Search for user names that start with "john" and end with "smith"
 
-`name:"john*smith"`
+`name:john*smith`
 
 ### Search by email
 
