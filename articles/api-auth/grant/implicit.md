@@ -3,7 +3,6 @@ title: Call APIs from Client-side Web Apps
 description: Learn how to call APIs from client-side web apps using the OAuth 2.0 Implicit Grant.
 toc: true
 ---
-
 # Call APIs from Client-side Web Apps
 
 <%= include('../../_includes/_pipeline2') %>
@@ -30,7 +29,6 @@ Once the user authenticates, the client app receives the `access_token` in the h
 
  1. The app can use the `access_token` to call the API on behalf of the user.
 
-
 ::: note
 In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
 :::
@@ -53,17 +51,19 @@ For details on how to implement this, refer to [Silent Authentication](/api-auth
 
 ## Keep reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to configure an API in Auth0](/apis)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Single Page App Quickstarts](/quickstart/spa)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[ID Token](/tokens/id-token)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Access Token](/tokens/access-token)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Client Authentication for Client-side Web Apps](/client-auth/client-side-web)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Authentication API: GET /authorize](/api/authentication#implicit-grant)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OAuth 2.0 protocol](/protocols/oauth2)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OpenID Connect protocol](/protocols/oidc)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Tokens used by Auth0](/tokens)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+::: next-steps
+* [How to implement the Implicit Grant](/api-auth/tutorials/implicit-grant)
+* [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
+* [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)
+* [How to configure an API in Auth0](/apis)
+* [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Single Page App Quickstarts](/quickstart/spa)
+* [ID Token](/tokens/id-token)
+* [Access Token](/tokens/access-token)
+* [Client Authentication for Client-side Web Apps](/client-auth/client-side-web)
+* [Authentication API: GET /authorize](/api/authentication#implicit-grant)
+* [The OAuth 2.0 protocol](/protocols/oauth2)
+* [The OpenID Connect protocol](/protocols/oidc)
+* [Tokens used by Auth0](/tokens)
+* [RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+:::

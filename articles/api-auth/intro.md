@@ -3,7 +3,6 @@ title: Introducing OIDC Conformant Authentication
 description: An overview of the OIDC Conformant authentication flows, why these changes were made and how you can adopt them.
 toc: true
 ---
-
 # Introducing OIDC Conformant Authentication
 
 As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document will present an overview of these changes, explain why they were made and point you to other detailed tutorials to help you adopt these changes.
@@ -192,7 +191,6 @@ Our new implementation does not support passwordless authentication. We are curr
 
 - [/oauth/ro](/api/authentication#resource-owner): Replaced in favor of password grant. This should be used only by highly trusted clients, with the current exception of native apps (not with SPAs). It's best use is to be called from the server-side of a regular web app or perhaps the backend API of a SPA.
 
-
 ## How to use the new flows
 
 To use the new pipeline, at least one of the following should apply:
@@ -315,14 +313,13 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
 
 ## Keep Reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read the [Adoption Guide](/api-auth/tutorials/adoption) which details all changes and provides suggestions on how to adapt your existing applications.<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Visit our [API Authorization index](/api-auth) to find information on the various OAuth 2.0 grants, which one you should implement, details on how to do so, and several other useful information.<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Access Token](/tokens/access-token).<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Refresh Token](/tokens/refresh-token).<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read about [OAuth 2.0](/protocols/oauth2) and [OIDC](/protocols/oidc).<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Learn why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).<br/>
+::: next-steps
+* [OIDC Adoption Guide](/api-auth/tutorials/adoption)
+* [API Authorization Index](/api-auth)
+* [Acess Tokens](/tokens/access-token)
+* [Refresh Tokens](/tokens/refresh-token)
+* [Refresh Tokens](/tokens/refresh-token)
+* [0Auth0 2.0 protocol](/protocols/oauth2)
+* [OIDC protocol](/protocols/oidc)
+* [Why you should use access tokens to secure APIs?](/api-auth/why-use-access-tokens-to-secure-apis)
+:::

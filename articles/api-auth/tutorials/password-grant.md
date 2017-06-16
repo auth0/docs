@@ -1,7 +1,6 @@
 ---
 description: How to execute a Resource Owner Password Grant
 ---
-
 # How to implement the Resource Owner Password Grant
 
 <%= include('../../_includes/_pipeline2') %>
@@ -135,13 +134,15 @@ When using this flow from server-side applications, some anomaly detection featu
 
 ## Keep reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Call APIs from Highly Trusted Clients](/api-auth/grant/password)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to configure an API in Auth0](/apis)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to use Resource Owner Password Grant from the server side together with Anomaly Detection](/api-auth/tutorials/using-resource-owner-password-from-server-side)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Authentication API: POST /oauth/token](/api/authentication#resource-owner-password)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OAuth 2.0 protocol](/protocols/oauth2)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[The OpenID Connect protocol](/protocols/oidc)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Tokens used by Auth0](/tokens)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)<br/>
+::: next-steps
+* [Call APIs from Highly Trusted Clients](/api-auth/grant/password)
+* [How to configure an API in Auth0](/apis)
+* [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+* [How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
+* [How to use Resource Owner Password Grant from the server side together with Anomaly Detection](/api-auth/tutorials/using-resource-owner-password-from-server-side)
+* [Authentication API: POST /oauth/token](/api/authentication#resource-owner-password)
+* [The OAuth 2.0 protocol](/protocols/oauth2)
+* [The OpenID Connect protocol](/protocols/oidc)
+* [Tokens used by Auth0](/tokens)
+* [RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+:::
