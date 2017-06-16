@@ -4,7 +4,6 @@ section: apis
 crews: crew-2
 toc: true
 ---
-
 # The Auth0 Management APIv2 Token
 
 ::: note
@@ -110,7 +109,7 @@ The request parameters are:
 - `grant_type`: Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use the value `client_credentials`.
 - `client_id`: This is the value of the __Client ID__ field of the Non Interactive Client you created at [this step](#1-create-a-client). You can find it at the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings).
 - `client_secret`: This is the value of the __Client Secret__ field of the Non Interactive Client you created at [this step](#1-create-a-client). You can find it at the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings).
-- `audience`: This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](https://${manage_url}/#/apis).
+- `audience`: This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
 
 The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires, the scopes granted, and the token type.
 
