@@ -111,6 +111,7 @@ function(user, context, callback) {
       context.redirect = {
         url: "https://example.com/change-pw?token=" + token
       };
+      return callback(null, user, context);
     }
   } else {
     // User has been redirected to /continue?token=..., password change must be validated
