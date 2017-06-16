@@ -66,8 +66,6 @@ The SIGN-ON URL is the url of your application that users will see when adding t
 
 The APP ID URI is the unique identifier for your application (next to the Client ID) and must match a domain you registered under domains.
 
-![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-new-app-prop.png)
-
 Once the application has been created, we'll need to enable it for multi-tenancy, generate a key, and configure the callback urls. You'll have 2 types of callback urls: the callback url for Auth0's login endpoint and the callback url for the consent flow.
 
 When new customers sign up with their Azure AD directory the consent flow will redirect back to your application after approval/denial. In this example the page is available from different urls (such as http://localhost:55000/registration/complete which is why we need to add this page multiple times.
