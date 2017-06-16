@@ -213,9 +213,9 @@ The `result` variable contains information about the user and the tenant and can
 
 ::: note
 The code will first check to see if the state matches an existing SignupToken in the database to make sure this request was initiated from the application (for example, after a payment was made).
-::
+:::
 
-### Signin
+### Sign In
 
 We're using the Lock for signing in users, but for enterprise connections like Azure AD, Lock only supports HRD (home realm discovery) based on email address. In this case, we don't know all of the possible email domains the customers will use when logging in, so we'll modify Lock to handle this: we'll add a button for users to click on if they're using an Azure AD connection.
 
