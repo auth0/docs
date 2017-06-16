@@ -163,6 +163,8 @@ Try to keep the list length to a minimum (up to 5 links).
 :::
 ```
 
+![Next steps list](https://user-images.githubusercontent.com/6318057/27233085-b116f28a-528e-11e7-9ac3-4463a9c5db3d.png)
+
 ### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
 
