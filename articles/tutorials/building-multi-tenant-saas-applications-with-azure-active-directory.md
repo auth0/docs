@@ -32,9 +32,9 @@ You can get a copy of the sample application we build in this article from [GitH
 
 Before you can create a multi-tenant application in Azure AD you'll need a Microsoft Azure subscription and a domain name (like fabrikamcorp.com).
 
-## Creating an application in Auth0
+## Create a Client in Auth0
 
-We'll start by creating an application in Auth0 where we define the Allowed Callback URLs for our application. In this example, we're building an ASP.NET MVC application that runs locally and in Azure Web Sites, but remember that this scenario works with any technology and any hosting platform.
+We'll start by creating a Client in Auth0 where we define the Allowed Callback URLs for our application. In this example, we're building an ASP.NET MVC application that runs locally and in Azure Web Sites, but remember that this scenario works with any technology and any hosting platform.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-new-a0-app.png)
 
@@ -94,8 +94,6 @@ After configuring our application in Azure AD we can add it as a connection in t
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-new-conn.png)
 
 And when creating the connection we'll need to enter the name of the directory (`fabrikamcorporation.onmicrosoft.com`) and enable the Common Endpoint. This is required if you're building multi-tenant applications.
-
-![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-conn-comm-endpoint.png)
 
 ## Creating the application
 
