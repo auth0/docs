@@ -1,55 +1,55 @@
 ---
-url: /prelaunch-tips
-title: Pre-launch Tips 
-description: A list of helpful tips for when getting started with Auth0 services based on feedback and experience from others.
+url: /gettingstarted-tips
+title: Tips for Getting Started with Auth0 Services 
+description: A list of tips that will help you to get started with Auth0 services.
 ---
 
-# Pre-launch Tips 
+# Tips for Getting Started with Auth0 Services
 
-Here is a list of tips our customers have found most useful when first getting started with Auth0 services:
+Before you begin to use Auth0 services, consider the following tips:
 
-* Check the URLs in your allowed callbacks, CORS and allowed redirect URLs for Logout to make sure they are correct, complete, and do not involve use of `file:///` or `localhost`.  Minimize the use of wildcards and consider carefully the security ramifications of wildcards.
+* Ensure that the URLs in your allowed callbacks, Cross-Origin Resource Sharing (CORS) mechanism, and allowed redirect URLs for logging out are correct and complete. Ensure that `file:///` and `localhost` are not used. Consider the security ramifications when wildcards are used, and use wildcards only when they are necessary.
 
-* Separate production use from ongoing development work by [using separate tenants for prod, test and dev.](/dev-lifecycle/setting-up-env)
+* Use unique production, test, and development environments. For more information, see [using separate tenants for prod, test and dev.](/dev-lifecycle/setting-up-env)
 
-* Configure your network correctly to allow traffic to and from our sets of public APIs (prod envs might have a different setup than dev/staging).
+* Configure your network so that traffic flows to and from our sets of public APIs. Production environments might be set up differently than development and staging environments.
 
-* Check the expiration date of certificates you have added to your configuration to make sure certificates uploaded during development cycles won’t expire during or shortly after launch.
+* Ensure that the certificates you added to your configuration during development cycles won't expire during or shortly after you launch.
 
-* Make sure any remote IDPs are running NTP so that the time will be properly synced.
+* To correctly sync the time, ensure that all remote IDPs are running NTP.
 
-* The number of days of log data available varies by plan up to a max of 30 days. If you need log data for a longer retention period, you should set up one of the [Auth0 extensions](/extensions#export-auth0-logs-to-an-external-service) that will send log data to a third party service. This will enable you to keep log data for longer periods.  Be sure to set this up before you go live so you are sure to have log data when you need it.
+* The number of days of log data that are available varies by plan, and the maximum is 30 days. If you need to store log data for an extended period of time, set up one of the [Auth0 extensions](/extensions#export-auth0-logs-to-an-external-service), which will send log data to a third-party service. Set this up before you go live so that you can access the log data when you need it.
 
-* Make sure your usage of our APIs remains within [allowed limits](/policies/rate-limits) and you have written your code to dynamically adjust to rate limit information returned in the header and to handle errors. If you anticipate rate limits being a problem for your application, discuss with us up-front to check if it would be possible to momentarily raise them until the traffic returns to normal. You should consider using a cache of user data in order to not have to query an API endpoint more than necessary.
+* Ensure that your usage of our APIs remains within [allowed limits](/policies/rate-limits) and that you have written your code to handle errors and to dynamically adjust to rate-limit information returned in the header. If you anticipate rate limits being a problem for your application, let us know, and we will determine whether we can briefly raise your limits until the traffic flow stabilizes. To avoid unnecessary queries to an API endpoint, consider using a cache of user data.
 
-* If using [social connections](/identityproviders) make sure to obtain your own credentials from the provider and add them to the configuration of the social connection.
+* If you use [social connections](/identityproviders), obtain your own credentials from the provider and add them to the configuration of the social connection.
 
-* If using [custom DB connections](/connections/database/mysql) make sure all custom DB scripts are implemented and return a consistent user-profile with a unique user ID.
+* If you use [custom DB connections](/connections/database/mysql), ensure that all custom DB scripts are implemented and return a consistent user profile with a unique user ID.
 
-* For sending emails first make sure to [setup a custom email provider.](/email/providers)
+* To use email, [setup a custom email provider](/email/providers).
 
-* If you use our CDN for the Lock widget, make sure to [pin to a specific version.](/libraries/lock/v10#installation-sources)
+* If you use the Auth0 CDN for the Lock widget, [pin it to a specific version.](/libraries/lock/v10#installation-sources)
 
-* Make sure **external** components called from rules, hooks and custom DB connection scripts can handle the expected load.
+* Ensure that external components that are called from rules, hooks, and custom DB connection scripts can handle the expected load.
 
-* Adequately protect any client secret values.
+* Securely protect all of your client's secret values.
 
-* If you make use of [user_metadata](/metadata) confirm that this is data that users should be able to change on their own (eg. not “payment status”).
+* If you use [user_metadata](/metadata), ensure that it does not contain values that users should not be allowed to modify. For example, in most cases users should not be allowed to modify their payment status.
 
-* Review your [Anomaly Detection settings](${manage_url}/#/anomaly) and read the [Anomaly Detection doc](/anomaly-detection) to understand how to unblock users that have been blocked.
+* To understand how to unblock users that have been blocked, review your [Anomaly Detection settings](${manage_url}/#/anomaly), and read the [Anomaly Detection documentation](/anomaly-detection).
 
-* Review your [Account Settings Admin section](${manage_url}/#/account/admins) to make sure that only appropriate admins have access to the Auth0 dashboard.
+* To ensure that only appropriate administrators have access to the Auth0 dashboard, review your [Account Settings Admin section](${manage_url}/#/account/admins).
 
-* Make sure you have tested all core use cases for your application on all devices that might be used by the end-user population for your application.  Be sure to test both login, single-sign-on (if supported) and log as well as what happens if a user runs your application in multiple browser tabs.
+* Ensure that you have tested all core use cases for your application on all devices that might be used by your end users. For example, test the login, single sign-on, and logout functions, and test the outcome of running your application in multiple browser tabs.
 
-* Review your [list of rules](${manage_url}/#/rules) and make sure only the appropriate rules are turned on. 
+* Review your [list of rules](${manage_url}/#/rules), and ensure that only the appropriate rules are enabled. 
 
-* Review your rule code, any custom DB scripts and any custom code in the hosted login page to ensure that every call has adequate error trapping and handling.  Also review to make sure that return/callback statements are called correctly.
+* Review your rule code, all custom DB scripts, and all custom code in the hosted login page to ensure that every call has adequate error trapping and handling and that return statements are called correctly.
 
-* Configure your application name, support URL and support email in the [Account Settings General](${manage_url}/#/account) section so when an error occurs your end users will be directed to an appropriate page.
+* Configure your application name, technical support URL, and technical support email address in the [Account Settings General](${manage_url}/#/account) section so that your end users can contact the technical support team when they encounter errors.
 
-* Make sure that your application is [dynamically obtaining a management API token](/api/management/v2/tokens) and make sure to read the [FAQ about API tokens](/api/management/v2/tokens#frequently-asked-questions).
+* Ensure that your application is [dynamically obtaining a management API token](/api/management/v2/tokens), and read the [FAQ about API tokens](/api/management/v2/tokens#frequently-asked-questions).
 
-* Remove any `console.log` statements from your rules or custom DB scripts. Especially those that might leak user identifiable information such as email, username or password.
+* Remove all `console.log` statements from your rules and custom DB scripts. Some of these statements might leak user-identifiable information, such as email addresses, user names, or passwords.
 
-* Do not use plain text secrets in rules or db-connections. They should be added in the configuration part of the interface. The configuration is encrypted and provided just in time. Do not log the configuration object. 
+* Do not use plain-text secrets in rules or DB-connections. Instead, add them in the configuration part of the interface. The configuration is encrypted and provided just in time. Do not log the configuration object. 
