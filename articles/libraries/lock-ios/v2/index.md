@@ -5,7 +5,6 @@ title: Lock v2 for iOS
 description: A widget that provides a frictionless login and signup experience for your native iOS apps.
 mobileimg: media/articles/libraries/lock-ios.png
 ---
-
 # Lock v2 for iOS
 
 You're looking at the documentation for the easiest way of securing your iOS apps!
@@ -97,10 +96,11 @@ Lock
 ```
 
 **Notes:**
-- Passwordless can only be used with a single connection and will prioritize the use of email connections over sms.  
+
+- Passwordless can only be used with a single connection and will prioritize the use of email connections over sms.
 - The `audience` option is not available in Passwordless.
 
-#### Passwordless Method
+### Passwordless Method
 
 When using Lock passwordless the default `passwordlessMethod` is `.code` which sends the user a one time passcode to login. If you want to use [Universal Links](/clients/enable-universal-links) you can add the following:
 
@@ -110,7 +110,7 @@ When using Lock passwordless the default `passwordlessMethod` is `.code` which s
 }
 ```
 
-#### Activity callback
+### Activity callback
 
 If you are using Lock passwordless and have specified the `.magicLink` option to send the user a universal link then you will need to add the following to your `AppDelegate.swift`:
 
@@ -186,12 +186,12 @@ There are numerous options to configure Lock's behavior. Below is an example of 
 
 ```swift
 Lock
-    .classic()
-    .withOptions {
-    	$0.closable = true
-  		$0.usernameStyle = [.Username]
-  		$0.allow = [.Login, .ResetPassword]
-    }
+  .classic()
+  .withOptions {
+    $0.closable = true
+    $0.usernameStyle = [.Username]
+    $0.allow = [.Login, .ResetPassword]
+  }
 ```
 
 ::: note
@@ -215,8 +215,8 @@ Lock
 
 ## Other Resources
 
-* [Styles Customization](/libraries/lock-ios/v2/customization) - customize the look and feel of Lock
-* [Behavior Configuration](/libraries/lock-ios/v2/configuration) - configure the behavior of Lock
-* [Custom Fields](/libraries/lock-ios/v2/custom-fields) - adding custom signup fields to Lock
-* [Internationalization](/libraries/lock-ios/v2/internationalization) - internationalization and localization support in Lock
-* [Migration Guide for v2](/libraries/lock-ios/v2/migration) - migrate from Lock v1 to Lock v2
+- [Styles Customization](/libraries/lock-ios/v2/customization) - customize the look and feel of Lock
+- [Behavior Configuration](/libraries/lock-ios/v2/configuration) - configure the behavior of Lock
+- [Custom Fields](/libraries/lock-ios/v2/custom-fields) - adding custom signup fields to Lock
+- [Internationalization](/libraries/lock-ios/v2/internationalization) - internationalization and localization support in Lock
+- [Migration Guide for v2](/libraries/lock-ios/v2/migration) - migrate from Lock v1 to Lock v2

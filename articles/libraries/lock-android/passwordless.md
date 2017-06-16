@@ -3,12 +3,11 @@ section: libraries
 toc_title: Passwordless Authentication with Lock for Android
 description: Guide on implementing Passwordless authentication with Lock for Android
 ---
+# Lock Passwordless
 
 ::: warning
 This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see [Client Grant Types](/clients/client-grant-types) for more information.
 :::
-
-# Lock Passwordless
 
 Lock Passwordless authenticates users by sending them an Email or SMS with a one-time password that the user must enter and confirm to be able to log in, similar to how WhatsApp authenticates you. This article will explain how to send a **CODE** using the `Lock.Android` library.
 
@@ -17,7 +16,6 @@ You can achieve a similar result by sending a **LINK** that the user can click t
 :::
 
 In order to be able to authenticate the user, your application must have the Email/SMS connection enabled and configured in your [Auth0 Dashboard](${manage_url}/#/connections/passwordless).
-
 
 ## Implementing CODE Passwordless
 
@@ -50,11 +48,9 @@ Next, add the **Internet** permission to your application:
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-
 ## Usage
 
 In any of your activities, you need to initialize `PasswordlessLock` and tell it to send a **CODE**. We'll indicate this by calling the `useCode()` method.
-
 
 ```java
 public class MainActivity extends Activity {

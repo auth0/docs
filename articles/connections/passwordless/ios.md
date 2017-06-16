@@ -1,6 +1,7 @@
 ---
 title: Using Passwordless Authentication on iOS
 ---
+# Using Passwordless on iOS
 
 <!-- markdownlint-disable -->
 
