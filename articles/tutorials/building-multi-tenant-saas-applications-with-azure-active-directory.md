@@ -24,6 +24,10 @@ This document will cover:
 * How Fabrikam will integrate with Auth0
 * What the end user's experience will be when signing up for the application
 
+::: note
+You can get a copy of the sample application we build in this article from [GitHub](https://github.com/auth0/auth0-azuread-multi-tenant-apps-sample).
+:::
+
 ## Prerequisites
 
 Before you can create a multi-tenant application in Azure AD you'll need a Microsoft Azure subscription and a domain name (like fabrikamcorp.com).
@@ -101,7 +105,7 @@ Now that you've configured Azure AD, the Auth0 Connection, and the Auth0 Client,
 
 ### Registration
 
-Before users from another directory are able to authenticate, they'll need to go through a consent flow. The `Register` button will start the consent flow for a single user, and users can sign up with a social account or as part of their organization. Opting for **Enable for my organization** requires administrative permissions for the whole organization.
+Before users from another directory are able to authenticate, they'll need to go through a consent flow. The `Register` button starts the consent flow for a single user, and users can sign up with a social account or as part of their organization. Opting for **Enable for my organization** requires administrative permissions for the whole organization.
 
 The following code snippet stores a "registration request" with a unique ID (the SignupToken) before redirecting the user to the consent page. The SignupToken is added as the state of the request, and we'll be able to use this value once the user goes through the flow.
 
@@ -143,11 +147,11 @@ public async Task<ActionResult> Start(RegistrationModel model)
 }
 ```
 
-This will redirect the user to the consent page and in case we've enabled this for the whole organization this will trigger an admin consent which requires an administrator give consent.
+This redirects the user to the consent page and, in cases where we enable this for an entire organization, this triggers an admin consent request.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-consent-page.png)
 
-After accepting the user is redirected back to the application where the registration request is being processed. If everything went well the application will receive a code which can be used to receive an authorization code, the `result` variable.
+After accepting, the user is redirected back to the application where the registration request is being processed. If everything went well, the application receives a code which can be used to receive an authorization code, the `result` variable.
 
 ```cs
 [HttpGet]
@@ -207,13 +211,13 @@ public async Task<ActionResult> Complete(string code, string error, string error
 
 The `result` variable contains information about the user and the tenant and can be used to persist the user and the tenant in the database.
 
-Note that the code will first validate if the state matches and existing SignupToken in the database to make sure this request was initiated from the application (eg: after a payment was made).
+::: note
+The code will first check to see if the state matches an existing SignupToken in the database to make sure this request was initiated from the application (for example, after a payment was made).
+::
 
 ### Signin
 
-We're using the Lock for signing in users, but for enterprise connections like Azure AD it only supports HRD (home realm discovery) based on the email address. But since we don't know all email domains that customers will use when logging in with Azure AD we'll modify the Lock a little.
-
-Before showing the Lock we're adding a button to allow login with Azure AD connection.
+We're using the Lock for signing in users, but for enterprise connections like Azure AD, Lock only supports HRD (home realm discovery) based on email address. In this case, we don't know all of the possible email domains the customers will use when logging in, so we'll modify Lock to handle this: we'll add a button for users to click on if they're using an Azure AD connection.
 
 ```js
 import Auth0Lock from 'auth0-lock';
@@ -264,12 +268,10 @@ lock.show({
 });
 ```
 
-After registering the user can now login by clicking the "Login with Azure AD" button.
+After registering, the user can now login by clicking the "Login with Azure AD" button.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-login-popup.png)
 
-And finally the user is signed in and the profile page shows the user's information. From now on these users will be able to use the same credentials they use for Office 365, Intune, ... to access Fabrikam's Timesheet SaaS.
+When the user is signed in, the profile page shows the user's information. These users will now be able to use the same credentials they use for Office 365, Intune, and so on to access Fabrikam's Timesheet SaaS.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-profile.png)
-
-The sample application is available on [GitHub](https://github.com/auth0/auth0-azuread-multi-tenant-apps-sample).
