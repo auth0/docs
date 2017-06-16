@@ -69,6 +69,10 @@ Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`
 * `authorization_code`;
 * `refresh_token`.
 
+::: note
+Public clients **cannot** utilize the `client_credentials` grant type. To add this grant type to a Client, set the `token_endpoint_auth_method` to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Client is confidential, not public.
+:::
+
 ### Confidential Clients
 
 Confidential Clients, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Non-Interactive Clients. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Clients are created with the following `grant_types`:
