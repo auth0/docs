@@ -126,7 +126,7 @@ https://yourapp.com/callback
       scope: 'openid profile'
     });
 </script>
-<button onclick="lock.show();">Login</button>
+<button onclick="auth0js.authorize();">Login</button>
 ```
 
 ::: note
