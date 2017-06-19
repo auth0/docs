@@ -37,7 +37,7 @@ To work around this limitation of SPA frameworks, it is recommended to use a ser
 http://localhost:3001/register?route=register
 ```
 
-1. Next, create a server-side route controller that reads the `route` and other parameters from the URL and redirects to the SPA route specified in `route` parameter. Remember to append the other parameters received from Auth0.
+2. Next, create a server-side route controller that reads the `route` and other parameters from the URL and redirects to the SPA route specified in `route` parameter. Remember to append the other parameters received from Auth0.
 
 ```js
 var express = require('express');
