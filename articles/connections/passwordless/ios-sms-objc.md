@@ -6,7 +6,7 @@ languages:
   - name: Objective-C
     url: objc
 ---
-# Using Passwordless on iOS with SMS (Objective C)
+# Using Passwordless on iOS with SMS
 
 <!-- markdownlint-disable -->
 
