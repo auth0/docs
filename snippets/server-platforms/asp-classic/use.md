@@ -16,7 +16,7 @@ set profile = GetUserProfile( access_token )
 
 'Here, you should save the profile in the session or somewhere'
 
-Response.Write "UserID = " & profile.user_id
+Response.Write "Hello, = " & profile.nickname
 
 Function GetUserProfile(access_token)
 
