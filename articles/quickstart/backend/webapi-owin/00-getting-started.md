@@ -22,6 +22,6 @@ Also update the `web.config` file in your project with the correct **Domain** an
 ```xml
 <appSettings>
   <add key="Auth0Domain" value="${account.namespace}" />
-  <add key="Auth0ApiIdentifier" value="YOUR_API_IDENTIFIER" />
+  <add key="Auth0ApiIdentifier" value="${apiIdentifier}" />
 </appSettings>
 ```
