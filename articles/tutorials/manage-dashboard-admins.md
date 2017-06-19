@@ -1,12 +1,11 @@
 ---
 description: How to add and remove admin users in the Auth0 dashboard.
 ---
+# Manage Admins in the Dashboard
 
 ::: note
 Please see [Reset Your Auth0 Account Password](/tutorials/reset-account-password) if you're having issues logging in.
 :::
-
-# Manage Admins in the Dashboard
 
 Admin users can be added and removed from the dashboard, by going to **Account Settings** and choosing the [Dashboard Admins](${manage_url}/#/account/admins) tab.
 
