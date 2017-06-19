@@ -35,8 +35,8 @@ articles:
           - title: SSO for Regular Web Apps
             url: /architecture-scenarios/application/web-app-sso
 
-          # - title: SPA + API
-          #   url: /architecture-scenarios/application/spa-api
+          - title: SPA + API
+            url: /architecture-scenarios/application/spa-api
 
           # - title: Mobile + API
           #   url: /architecture-scenarios/application/mobile-api
