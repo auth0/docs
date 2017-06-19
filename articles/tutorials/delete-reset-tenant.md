@@ -2,7 +2,7 @@
 description: How to manage your tenant
 ---
 
-# Managing Your Tenant
+# Delete/Reset Your Tenant
 
 Using the [Reset Tenant Extension](https://github.com/auth0-extensions/auth0-reset-tenant), you can programmatically make changes to your Auth0 tenant. Not only is this useful for creating new environments for development or test purposes, you can use the extension to "clean" your tenant and remove unwanted items.
 
