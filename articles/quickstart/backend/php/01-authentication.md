@@ -50,7 +50,7 @@ class Main {
       try {
         $verifier = new JWTVerifier([
           'supported_algs' => ['RS256'],
-          'valid_audiences' => [{API_IDENTIFIER}],
+          'valid_audiences' => ['${apiIdentifier}'],
           'authorized_iss' => ['https://${account.namespace}/']
         ]);
 

@@ -37,7 +37,7 @@ Configure the **checkJwt** middleware to use the remote JWKS for your Auth0 acco
 const JWKS_URI = "https://{DOMAIN}/.well-known/jwks.json"
 const AUTH0_API_ISSUER = "https://{DOMAIN}.auth0.com/"
 
-var AUTH0_API_AUDIENCE = []string{"{API_IDENTIFIER}"}
+var AUTH0_API_AUDIENCE = []string{"${apiIdentifier}"}
 
 func checkJwt(h http.Handler) http.Handler {
   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

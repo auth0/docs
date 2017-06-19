@@ -86,7 +86,7 @@ Add a method to the `AuthService` which calls the `renewAuth` method from auth0.
 
 public renewToken() {
   this.auth0.renewAuth({
-    audience: AUTH_CONFIG.apiUrl,
+    audience: '${apiIdentifier}',
     redirectUri: 'http://localhost:3001/silent',
     usePostMessage: true
   }, (err, result) => {

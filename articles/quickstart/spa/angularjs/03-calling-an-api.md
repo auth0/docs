@@ -27,7 +27,7 @@ Pass the API identifier for your newly created API as the `audience` value to `a
 // app/app.js
 
 angularAuth0Provider.init({
-  audience: '{YOUR_API_IDENTIFIER}',
+  audience: '${apiIdentifier}',
   scope: 'openid profile read:messages'
 });
 ```

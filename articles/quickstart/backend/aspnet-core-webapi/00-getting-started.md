@@ -23,7 +23,7 @@ Also, update the `appsettings.json` file in your project with the correct **Doma
 {
   "Auth0": {
     "Domain": "${account.namespace}",
-    "ApiIdentifier": "YOUR_API_IDENTIFIER"
+    "ApiIdentifier": "${apiIdentifier}"
   }
 }
 ```
