@@ -59,6 +59,4 @@ All clients created via the [Management Dashboard](${manage_url}/#/clients) are,
 
 Third-party clients are controlled by someone who most likely should *not* have administrative access to your Auth0 domain. Third-party clients enable external parties or partners to access protected resources behind your API securely. For example, if you create a developer center that allows users to obtain credentials to integrate their apps with your API (this functionality is similar to those provided by well-known APIs such as Facebook, Twitter, and GitHub), you'd use a third-party client. 
 
-Third-party clients must be created through the [Management API](/api/management/v2#!/Clients/post_clients) by setting `is_first_party` to `false`.
-
-Additionally, Auth0 considers all clients created via [Dynamic Client Registration](/api-auth/dynamic-client-registration) to be third-party.
+Third-party clients must be created through the [Management API](/api/management/v2#!/Clients/post_clients) by setting `is_first_party` to `false`. Additionally, Auth0 considers all clients created via [Dynamic Client Registration](/api-auth/dynamic-client-registration) to be third-party.
