@@ -1,5 +1,6 @@
 ---
 description: How to build a multi-tenant SaaS application with Azure AD and Auth0.
+toc: true
 ---
 
 # Build Multi-tenant SaaS Apps with Azure Active Directory
