@@ -65,8 +65,14 @@ Depending on whether a newly-created Client is **public** or **confidential**, t
 
 Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. 
 
-::: note
-You can update the `token_endpoint_auth_method` flag using the Management API's [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id). This indicates the type of authentication used; public clients are unsecured and indicated by `none`, while confidential clients are those with a specified authentication method (or those without a specific value indicated).
+::: panel Token Endpoint Authentication Method
+You can update the `token_endpoint_auth_method` flag using the Management API's [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id).
+
+The `Token Endpoint Authentication Method` defines the token endpoint's requested authentication method, and the accepted values are:
+
+* **None**, for a public client without a client secret
+* **Post**, for a client using HTTP POST parameters
+* **Basic**, for a client using HTTP Basic parameters 
 :::
 
 By default, Public Clients are created with the following `grant_types`:
