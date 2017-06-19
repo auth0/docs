@@ -63,7 +63,13 @@ Depending on whether a newly-created Client is **public** or **confidential**, t
 
 ### Public Clients
 
-Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. By default, Public Clients are created with the following `grant_types`:
+Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. 
+
+::: note
+You can update the `token_endpoint_auth_method` flag using the Management API's [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id).
+:::
+
+By default, Public Clients are created with the following `grant_types`:
 
 * `implicit`;
 * `authorization_code`;
