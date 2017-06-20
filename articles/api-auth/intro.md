@@ -1,5 +1,4 @@
 ---
-title: Introducing OIDC Conformant Authentication
 description: An overview of the OIDC Conformant authentication flows, why these changes were made and how you can adopt them.
 toc: true
 ---
@@ -316,10 +315,6 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
 ::: next-steps
 * [OIDC Adoption Guide](/api-auth/tutorials/adoption)
 * [API Authorization Index](/api-auth)
-* [Acess Tokens](/tokens/access-token)
-* [Refresh Tokens](/tokens/refresh-token)
-* [Refresh Tokens](/tokens/refresh-token)
-* [0Auth0 2.0 protocol](/protocols/oauth2)
-* [OIDC protocol](/protocols/oidc)
 * [Why you should use access tokens to secure APIs?](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Tokens used by Auth0](/tokens)
 :::
