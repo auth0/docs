@@ -872,11 +872,9 @@ Content-Type: application/json
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `grant_type` <br/><span class="label label-danger">Required</span> | Denotes the flow you are using. To refresh a token use  `refresh_token`. |
-| `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
-| `client_secret` | Your application's Client Secret. **Required** when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. |
-| `refresh_token` <br/><span class="label label-danger">Required</span> | The refresh token to use. |
-
+| `token` <br/><span class="label label-danger">Required</span> | The access token presented to the protected resource |
+| `client_assertion` <br/><span class="label label-danger">Required</span> | The JWT signed signed with your API's private key |
+| `client_assertion_type` <br/><span class="label label-danger">Required</span> | The type of client assertion used |
 
 ### Test this endpoint
 
@@ -887,13 +885,6 @@ Content-Type: application/json
 1. Copy the **Callback URL** and set it as part of the **Allowed Callback URLs** of your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 1. At the *OAuth2 / OIDC* tab, set the field **Refresh Token** to the refresh token you have. Click **OAuth2 Refresh Token Exchange**.
-
-
-### More Information
-
-| `token` <br/><span class="label label-danger">Required</span> | The access token presented to the protected resource |
-| `client_assertion` <br/><span class="label label-danger">Required</span> | The JWT signed signed with your API's private key |
-| `client_assertion_type` <br/><span class="label label-danger">Required</span> | The type of client assertion used |
 
 ### Request Headers
 
