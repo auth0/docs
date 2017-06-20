@@ -768,9 +768,6 @@ To verify MFA using a recovery code your app must prompt the user for the recove
 | `mfa_token` <br/><span class="label label-danger">Required</span> | The mfa token from the `mfa_required` error. |
 | `recovery_code` <br/><span class="label label-danger">Required</span> | Recovery code provided by the end-user. |
 
-<<<<<<< 56e417448ed71f6845eac900603a1ce0ccbe3000
-## Refresh Token
-=======
 ## Token Introspection
 
 [Token introspection](/api-auth/token-introspection) allows a protected resource to query an Authorization Server (Auth0) to request information about an access token presented to it, such as its status (whether it is active or not), its scopes, and the context in which it was issued (such as who issued the token and to whom the token was issued).
