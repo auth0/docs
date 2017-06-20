@@ -42,14 +42,13 @@ passport.deserializeUser(function(user, done) {
 });
 
 // ...
-
 app.use(passport.initialize());
 app.use(passport.session());
 ```
 
 ## Trigger Authentication
 
-Auth0's hosted login page can be used to process the user's authentication transaction.
+Auth0's hosted login page can be used to allow users to log in.
 
 Add a route called `/login` and pass an `env` object with the **Client ID**, **Domain**, and **Callback URL** for your client to it.
 
@@ -63,21 +62,19 @@ const env = {
 };
 
 // Render the login template
-router.get('/login',
-  function(req, res){
-    res.render('login', { env });
-  });
+router.get('/login', (req, res) => {
+  res.render('login', { env });
+});
 
 // Perform session logout and redirect to homepage
-router.get('/logout', function(req, res){
+router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
 
 // Perform the final stage of authentication and redirect to '/user'
 router.get('/callback',
-  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
-  function(req, res) {
+  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }), (req, res) => {
     res.redirect(req.session.returnTo || '/user');
   });
 ```
@@ -103,6 +100,8 @@ block content
     });
     webAuth.authorize();
 ```
+
+![hosted login](/media/articles/web/hosted-login.png)
 
 ## Embedded Login
 
