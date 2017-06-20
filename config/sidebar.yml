@@ -328,6 +328,9 @@ articles:
       - title: "Manage Subscription"
         url: "/support/subscription"
 
+      - title: "Operational Policies"
+        url: "/policies"
+
   - title: "Professional Services"
     url: "/services"
     children:
