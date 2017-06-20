@@ -825,19 +825,6 @@ Content-Type: application/json
 }
 ```
 
-<%= include('../../../_includes/_http-method', {
-  "http_method": "POST",
-  "path": "/oauth/token",
-  "link": "#refresh-token"
-}) %>
-
-Use this endpoint to refresh an access token, using the refresh token you got during authorization.
-
-=======
-  "active": "false"
-}
-```
-
 > RESPONSE SAMPLE FOR ACTIVE NON-JWT ACCESS TOKEN:
 ```JSON
 HTTP/1.1 200 OK
@@ -904,8 +891,6 @@ Content-Type: application/json
 
 ### More Information
 
-- [Refresh Token](/tokens/preview/refresh-token)
-=======
 | `token` <br/><span class="label label-danger">Required</span> | The access token presented to the protected resource |
 | `client_assertion` <br/><span class="label label-danger">Required</span> | The JWT signed signed with your API's private key |
 | `client_assertion_type` <br/><span class="label label-danger">Required</span> | The type of client assertion used |
