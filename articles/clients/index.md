@@ -8,7 +8,7 @@ An Auth0 **client** represents your application and allows use of Auth0 for auth
 
 ## Client Types
 
-There are four client types in Auth0. Depending on which type you choose, you'll see [different settings you can configure](/clients/client-types-and-settings).
+There are four client types in Auth0. Depending on which type you choose, you'll see [different settings you can configure](/clients/client-settings).
 
 - **Native**: Used for mobile, desktop or hybrid apps, than run natively in a device, like Android, Ionic or iOS. For a complete listing of the SDKs Auth0 offers for mobile apps refer to: [Native SDKs](/quickstart/native).
 
