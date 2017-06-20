@@ -8,7 +8,7 @@ description: Explains the differences between access token and ID token and why 
 
 There is much confusion on the Web about the differences between the OpenID Connect and OAuth 2.0 specifications, and their respective tokens. As a result many developers publish insecure applications, compromising their users security. The contradicting implementations between identity providers do not help either.
 
-This article is an attempt to clear what is what and explain why you should always use an **access token** to secure an API, and never an ID token.
+This article is an attempt to clear what is what and explain why you should always use an [Access token](/tokens/access-token) to secure an API, and never an [ID token](/tokens/id-token).
 
 ## Two complementary specifications
 
@@ -97,8 +97,6 @@ Since in many cases it is desirable to retrieve additional user information at t
 ## Keep reading
 
 ::: next-steps
-* [Access Token](/tokens/access-token)
-* [ID Token](/tokens/id-token)
 * [The problem with OAuth for Authentication](http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html)
 * [User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
 * [OAuth 2.0 Overview](/protocols/oauth2)
