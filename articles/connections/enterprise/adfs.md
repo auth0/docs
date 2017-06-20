@@ -131,10 +131,10 @@ Yes, running the script is definitely easier.
 Now that you have a working connection, the next step is to configure your application to use it. You can follow our step-by-step quickstarts or use directly our libraries and API.
 
 ::: next-steps
-[Get started with our Quickstarts](/quickstarts)
-[Configure your application using our Lock login form](/libraries/lock)
-[Configure your application using our Auth0.js library and your own UI](/libraries/lock)
-[Use our Authentication API to authenticate](/api/authentication)
-[Authenticate PHP with ADFS using Auth0](https://auth0.com/authenticate/php/adfs)
+* [Get started with our Quickstarts](/quickstarts)
+* [Configure your application using our Lock login form](/libraries/lock)
+* [Configure your application using our Auth0.js library and your own UI](/libraries/lock)
+* [Use our Authentication API to authenticate](/api/authentication)
+* [Authenticate PHP with ADFS using Auth0](https://auth0.com/authenticate/php/adfs)
 :::
 
