@@ -33,11 +33,11 @@ By default, the settings for all client types include the following:
 
 ![Client Settings Page](/media/articles/clients/settings.png)
 
-Clients of type **Non Interactive Clients** or **Regular Web Page Applications** have an additional setting called `Token Endpoint Authentication Method`. This defines the token endpoint's requested authentication method, and the accepted values are:
+Clients of type **Non Interactive Clients** or **Regular Web Page Applications**, have an additional setting called **Token Endpoint Authentication Method**. This defines the token endpoint's requested authentication method, and the accepted values are:
 
-* **None**, for a public client without a client secret
-* **Post**, for a client using HTTP POST parameters
-* **Basic**, for a client using HTTP Basic parameters 
+* `None`, for a public client without a client secret
+* `Post`, for a client using HTTP POST parameters
+* `Basic`, for a client using HTTP Basic parameters 
 
 ### Advanced Settings
 
@@ -48,4 +48,4 @@ The **Advanced Settings** section allows you to:
 
 ![Advanced Client Settings Page](/media/articles/clients/advanced-settings.png)
 
-Regardless of which Client Type you choose, this area is the same. The exception is for Clients of type **Non Interactive Clients** or **Regular Web Page Applications**; both, under the OAuth tab, show a *Trust Token Endpoint IP Header* setting. By enabling this setting, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint.
+Regardless of which Client Type you choose, this area is the same. The exception is for Clients of type **Non Interactive Clients** or **Regular Web Page Applications**; both, under the OAuth tab, show a **Trust Token Endpoint IP Header** setting. By enabling this setting, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint.
