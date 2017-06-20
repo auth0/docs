@@ -17,6 +17,8 @@ Get an access token in the [Auth0 dashboard](${manage_url}), navigate to APIs > 
 
 Send a PATCH Request Using a REST client such as [Postman](https://www.getpostman.com/), or simply by using cURL, send a PATCH request to `https://${account.namespace}/api/v2/clients/${account.clientID}` and include `cross_origin_auth: true` in the body. Include the valid access token acquired previously as the Authorization header with the `Bearer` scheme. The resulting header looks like this: `'Authorization': 'Bearer <access-token>'`.
 
+In order for cross-origin auth to work if browser 3rd party cookies are disabled, you will also want to set `cross_origin_auth_loc` in your PATCH request with the value being the URL at which you will host a cross-origin callback page, such as the one in the [auth0.js example](https://github.com/auth0/auth0.js/blob/master/example/callback-cross-auth.html).
+
 ## Default Behavior
 
 "3rd party cookies enabled" is the default setting for all browsers.
