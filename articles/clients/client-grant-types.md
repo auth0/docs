@@ -1,8 +1,7 @@
 ---
-  description: Using the Grant Types property on Clients
-  toc: true
+description: Using the Grant Types property on Clients
+toc: true
 ---
-
 # Client Grant Types
 
 Auth0 provides many authentication and authorization flows that suit your needs, and depending on your use case, you may wish to limit the use of certain grant types for a particular Client. Auth0 includes a `grant_types` property on each Client for this purpose.
@@ -70,9 +69,9 @@ You can update the `token_endpoint_auth_method` flag using the Management API's 
 
 The `Token Endpoint Authentication Method` defines the token endpoint's requested authentication method, and the accepted values are:
 
-* **None**, for a public client without a client secret
-* **Post**, for a client using HTTP POST parameters
-* **Basic**, for a client using HTTP Basic parameters 
+* `None`, for a public client without a client secret
+* `Post`, for a client using HTTP POST parameters
+* `Basic`, for a client using HTTP Basic parameters 
 :::
 
 By default, Public Clients are created with the following `grant_types`:
