@@ -12,12 +12,13 @@ Protected resources, such as APIs, can use token metadata to make authorization 
 
 Auth0 supports [OAuth 2.0 Token Introspection](https://tools.ietf.org/html/rfc7662), which allows a protected resource to query Auth0 to request the metadata attached to an OAuth 2.0 token. This is especially useful for [Application Specific Passwords (ASPs)](/api-auth/token-introspection/app-specific-passwords), which utilizes non-JWT tokens.
 
-::: note Because token instrospection is a means by which an API can verify a token, you do not need to configure any additional verification flows performed by the API. Additionally, for any existing authorization flows involving JWT access tokens, you do not need to update your processes to use token introspection.
+::: note
+For non-JWT access tokens, token introspection is not required
 :::
 
 ## Token Types
 
-You can use token introspection to request information for [**JWT access** tokens](/tokens/access-token), non-JWT access tokens, and [**refresh** tokens](/tokens/preview/refresh-token).
+You can use token introspection to request information for [**JWT access** tokens](/tokens/access-token), non-JWT access tokens, and [app-specific passwords](/api-auth/token-introspection/app-specific-passwords).
 
 ## Create an API Record with Auth0
 
@@ -27,7 +28,7 @@ For assistance, please see [How to Configure an API in Auth0](/apis#how-to-confi
 
 ### Provide the Public Key to Auth0
 
-Because token introspection requires Auth0 to validate the signature of your access token, you'll need to create a key pair for your API and update your API's Auth0 record with the public key.
+Token introspection uses the [JWT-bearer profile for authentication](https://tools.ietf.org/html/rfc7523). Because Auth0 needs to validate the signature of this JWT, you need to update your API's Auth0 record with the public key.
 
 There are three ways by which Auth0 can obtain the public key:
 
@@ -64,7 +65,7 @@ The following is a sample call where we set the API's `verificationKey` property
 
 Please see [this doc on getting an access token](/api/management/v2/tokens) for the Management API.
 
-## Calling the Authentication API's Token Introspection Endpoint
+## Calling the Token Introspection Endpoint
 
 To use token introspection, make a `POST` call to the [Authorization API](/api/authentication) where the content type is `application/x-www-form-urlencoded` and you've included the following parameter value pairs as part of the payload:
 

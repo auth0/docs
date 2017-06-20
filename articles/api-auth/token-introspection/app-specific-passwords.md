@@ -7,7 +7,7 @@ description: How to use app-specific password flows
 An **application-specific password** (ASP) can be used to get you limited access to a protected resource, such as an API. In Auth0, you can use them in one of two ways:
 
 * As a replacement for the password portion of your credentials when using basic authentication. More specifically, instead of providing your username/password combination, you'd provide your username/ASP combination;
-* As an alternative to Bearer tokens when calling an Auth0 API endpoint.
+* As an alternative to Bearer tokens when calling your API.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ There are three ways by which Auth0 can obtain the public key:
 
 ### Step 2: Set Up the Client Grant for App-Specific Passwords
 
-Ensure that you've granted the appropriate [scopes](/scopes/current#api-scopes) (such as `read`, `create`, `delete:user_application_passwords`) to the [Client](/clients) you'll be using with the Management API. These will the be the scopes the API can include with newly-issued ASPs.
+Ensure that you've granted the appropriate [scopes](/scopes/current#api-scopes) (such as `read`, `create`, `delete:user_application_passwords`) to the [Client](/clients) you'll be using with the Management API. These are the scopes needed for the client to be able to call the Management API endpoints to manage ASPs.
 
 ## Create Application-Specific Passwords Using the Management API
 
@@ -35,13 +35,6 @@ You can create app-specific passwords using the Management API.
 ::: note
 The only time you can view the value of the App-Specific Password is during creation.
 :::
-
-## Use Application-Specific Passwords with Auth0
-
-In Auth0, you can use application-specific passwords (ASPs) in one of two ways:
-
-* As a replacement for the password portion of your credentials when using basic authentication;
-* As an alternative to Bearer tokens when calling an Auth0 API endpoint.
 
 ### Use App-Specific Passwords in a Basic Authentication Flow
 
