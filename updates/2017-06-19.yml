@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Deleting/Resetting Tenants"
+    tags:
+      - tenants
+      - management
+    description: |
+      A new doc was added for on [deleting vs. resetting tenants](https://auth0.com/docs/tutorials/delete-reset-tenant).
