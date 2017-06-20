@@ -1,8 +1,18 @@
 ---
 title: Getting Started
-description: Initial steps to integrate Auth0 in a React Native application.
+description: Short Introduction to the Auth0 Rect Native Quickstarts.
 budicon: 448
 ---
+
+<%= include('../../../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-react-native-sample',
+  path: '00-Login',
+  requirements: [
+  'React Native 0.26.0',
+  'NodeJS 4.3'
+  ]
+}) %>
 
 This multistep quickstart guide will walk you through managing authentication in your React Native with Auth0.
 
@@ -23,3 +33,5 @@ If you haven't already done so, create a new client application in your [Auth0 d
 <%= include('_includes/_config') %>
 
 <%= include('_includes/_install') %>
+
+<%= include('_includes/_login') %>
