@@ -11,7 +11,6 @@ budicon: 448
   path: 'Classic/Lock',
   requirements: [
     'React Native 0.26.0',
-    'CocoaPods 1.0.0',
     'NodeJS 4.3'
   ]
 }) %>
