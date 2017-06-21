@@ -50,7 +50,9 @@ Note, that each Non Interactive Client that accesses an API, has to be granted a
 The scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create clients, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
 :::
 
-__NOTE__: If you have multiple apps that should access the Management API, and you need different sets of scopes per app, we recommend creating a new Non Interactive Client for each. For example, if one app is to read and create users (`create:users`, `read:users`) and another to read and create clients (`create:clients`, `read:clients`) create two Clients (one for user scopes, one for clients) instead of one.
+::: note
+If you have multiple apps that should access the Management API, and you need different sets of scopes per app, we recommend creating a new Non Interactive Client for each. For example, if one app is to read and create users (`create:users`, `read:users`) and another to read and create clients (`create:clients`, `read:clients`) create two Clients (one for user scopes, one for clients) instead of one.
+:::
 
 ### 2. Get the Token
 

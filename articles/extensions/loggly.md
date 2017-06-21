@@ -1,7 +1,6 @@
 ---
 description: How to install and configure the Auth0 Logs to Loggly Extension.
 ---
-
 # Auth0 Logs to Loggly
 
 The *Auth0 Logs to Loggly* is a scheduled job that takes all of your Auth0 logs and exports them to [Loggly](https://www.loggly.com/).
@@ -19,7 +18,9 @@ At this point you should set the following configuration variables:
 - __Auth0_Global_Client_ID__: The Global Client ID of your Auth0 client.
 - __Auth0_Global_Client_Secret__: The Global Client Secret of your Auth0 client.
 
-__NOTE__: You can find the _Global Client ID_ and _Global Client Secret_ information at the __Global Client information__ section of [your Account Advanced Settings](${manage_url}/#/account/advanced).
+::: note
+You can find the __Global Client ID__ and __Global Client Secret__ information at the __Global Client information__ section of [your Account Advanced Settings](${manage_url}/#/account/advanced).
+:::
 
 - __Loggly_Customer_Token__: The identifying token assigned to you by Loggly at set-up.
 - __Loggly_Subdomain__: The Loggly account name.
