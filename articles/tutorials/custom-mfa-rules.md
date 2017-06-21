@@ -92,11 +92,13 @@ router.get('/employees', requireMultiFactor, function(req, res) {
 });
 ```
 
-**NOTE:** Enable the **Use Auth0 instead of the IdP to do Single Sign On** option in the settings page of your app in Auth0 or specify a connection name when triggering step-up authentication to make sure users are not forced to authenticate when already logged in. By enabling the SSO setting or specifying a connection name, your app will trigger an SSO login which will only prompt the user for multifactor authentication.
+::: panel Enable SSO
+Enable the **Use Auth0 instead of the IdP to do Single Sign On** option in the settings page of your client in Auth0, or specify a connection name when triggering step-up authentication, to make sure users are not forced to authenticate when already logged in. By enabling the SSO setting or specifying a connection name, your app will trigger an SSO login which will only prompt the user for multifactor authentication.
+:::
 
 ## Sample Application
 
-The *Fabrikam Intranet* sample is [available on GitHub](https://github.com/auth0/step-up-authentication-sample). In this sample, a user that tries to access the Customers section will be required to authenticate:
+In the [Fabrikam Intranet sample](https://github.com/auth0/step-up-authentication-sample), a user that tries to access the Customers section will be required to authenticate:
 
 ![](/media/articles/step-up-authentication/login-page.png)
 

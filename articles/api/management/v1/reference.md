@@ -339,8 +339,12 @@ For updates, use the PUT method. A PUT works on a specific `connection`, therefo
 | Verb | URL | Description |
 |:-----|:----|:------------|
 |`GET` |https://${account.namespace}/api/users |Gets all users who have logged in through any of your connections. |
-|`GET` |https://${account.namespace}/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a Google Apps domain. *Note:* If the connection does not support querying for users (for instance: ADFS), this will return users who have logged in through that connection.|
+|`GET` |https://${account.namespace}/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a Google Apps domain.|
 |`GET` |https://${account.namespace}/api/socialconnections/users |Gets all users who have logged in through any of the enabled social connections. |
+
+::: note
+If the connection does not support querying for users (for instance: ADFS), the `GET https://${account.namespace}/api/connections/{connection}/users` will return users who have logged in through that connection.
+:::
 
 #### The User Object
 
