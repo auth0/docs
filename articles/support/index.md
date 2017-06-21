@@ -12,7 +12,7 @@ Auth0 offers the following support plans:
 <table class="table">
   <tr>
     <th>No Plan</th>
-    <td>Customers with Auth0's free subscription plan can seek support through the [Auth0 Community](${auth0_community}).</td>
+    <td>Customers with Auth0's free subscription plan can seek support through the Auth0 Community.</td>
   </tr>
   <tr>
     <th>Standard Support</th>
