@@ -11,7 +11,9 @@ The Auth0 Appliance is an option for your organization when compliance or other 
 * your cloud environment using **Amazon AWS**, **Microsoft Azure**, and/or **Google Cloud Platform**;
 * your own datacenter (as a managed service) using **VMWare** or **Microsoft Hyper-V**.
 
-*__Note__: Please contact us for additional information if you are interested in using cloud environments and/or virtualization environments not listed above.*
+::: note
+Please contact us for additional information if you are interested in using cloud environments and/or virtualization environments not listed above.
+:::
 
 ## Infrastructure
 
