@@ -137,9 +137,13 @@ function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $acce
 
 [Click here to learn more about the `add_action` function.](https://developer.wordpress.org/reference/functions/add_action/)
 
-## More on the Login by Auth0 WordPress Plugin
+## Keep reading 
 
-- [How does it work?](/cms/wordpress/how-does-it-work)
-- [Installation](/cms/wordpress/installation)
-- [JWT Authentication](/cms/wordpress/jwt-authentication)
-- [Troubleshoot](/cms/wordpress/troubleshoot)
+For more information on the Login by Auth0 WordPress Plugin, follow these links.
+
+::: next-steps
+* [How does it work?](/cms/wordpress/how-does-it-work)
+* [Installation](/cms/wordpress/installation)
+* [JWT Authentication](/cms/wordpress/jwt-authentication)
+* [Troubleshoot](/cms/wordpress/troubleshoot)
+:::
