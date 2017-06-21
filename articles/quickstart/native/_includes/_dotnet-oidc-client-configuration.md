@@ -1,4 +1,4 @@
-## Ensuring Your Client is Configured Correctly
+## Ensure Your Client is Configured Correctly
 
 Before using the Auth0 OIDC Client, you will need to ensure that you have set the __JsonWebToken Signature Algorithm__ to `RS256` and have enabled the __OIDC Conformant__ switch for your Client:
 

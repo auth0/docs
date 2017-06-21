@@ -19,7 +19,7 @@ budicon: 448
 
 This tutorial explains how to integrate the Auth0 OIDC Client with a Xamarin application.
 
-<%= include('../includes/_dotnet-oidc-client-configuration') %>
+<%= include('../_includes/_dotnet-oidc-client-configuration') %>
 
 ## Install the Auth0.OidcClient.Android NuGet Package
 
