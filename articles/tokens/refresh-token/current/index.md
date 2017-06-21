@@ -2,7 +2,6 @@
 description: What is a Refresh Token and how you can use it.
 toc: true
 ---
-
 # Refresh Token
 
 A **Refresh Token** is a special kind of token that contains the information required to obtain a new [access token](/tokens/access-token) or [ID token](/tokens/id-token).
@@ -239,8 +238,9 @@ For more information on using refresh tokens with our mobile SDKs refer to:
 
 * [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/v2)
 
-## More information
+## Keep reading
 
+::: next-steps
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-
-* [Using a refresh token with an access token](/tokens/access_token#lifetime)
+* [Using a refresh token with an access token](/tokens/access-token#lifetime)
+:::
