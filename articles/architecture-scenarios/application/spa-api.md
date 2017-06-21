@@ -39,7 +39,7 @@ An access token is obtained by authenticating the user with an Authorization Ser
 ::: panel What is an Access Token?
 An access token (also referred to as `access_token`) is an opaque string representing an authorization issued to the client. It may denote an identifier used to retrieve the authorization information or may self-contain the authorization information (for example, the user's identity, permissions, and so forth) in a verifiable manner.
 
-It is quite common for access tokens to be implemented as [JSON Web Tokens(/jwt)]. For more information on Auth0 Access Tokens refer to [Access Token](/tokens/access-token).
+It is quite common for access tokens to be implemented as [JSON Web Tokens](/jwt). For more information on Auth0 Access Tokens refer to [Access Token](/tokens/access-token).
 :::
 
 An API can enforce fine grained control over who can access the various endpoints exposed by the API. These permissions are expressed as scopes.
