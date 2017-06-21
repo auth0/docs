@@ -30,7 +30,7 @@ jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] }, function(er
  });
 ```
 
-## Further reading
+## Keep reading
 
 ::: next-steps
 * [Auth0 id_token](/tokens/id-token)
