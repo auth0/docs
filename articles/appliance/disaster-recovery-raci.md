@@ -1,3 +1,6 @@
+---
+description: An in-depth summary of the roles and responsibilities allocated between Auth0 and the subscriber
+---
 # Disaster Recovery: Detailed Division of Responsibility
 
 The following RACI Matrix provides an in-depth summary of the roles and responsibilities allocated between Auth0 and the subscriber.
