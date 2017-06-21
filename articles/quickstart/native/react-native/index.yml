@@ -16,5 +16,4 @@ snippets:
 seo_alias: react-native
 default_article: dashboard-default
 articles:
-  - getting-started
   - 00-login

@@ -1,9 +1,3 @@
----
-title: Getting Started
-description: Initial steps to integrate Auth0 in a React Native application.
-budicon: 448
----
-
 This multistep quickstart guide will walk you through managing authentication in your React Native with Auth0.
 
 ## About the Sample Applications
@@ -19,7 +13,3 @@ Each tutorial will require you to use the [react-native-auth0](https://github.co
 If you haven't already done so, create a new client application in your [Auth0 dashboard](${manage_url}/#/applications/${account.clientId}/settings) and choose **Native**.
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
-
-<%= include('_includes/_config') %>
-
-<%= include('_includes/_install') %>
