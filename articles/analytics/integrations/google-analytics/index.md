@@ -17,8 +17,10 @@ window.auth0AnalyticsOptions = {
 }
 </script>
 <script src="https://cdn.auth0.com/js/lock/10.x/lock.min.js"></script>
-<script src="https://cdn.auth0.com/js/analytics/1.x/analytics.min.js"></script>
+<script src="https://cdn.auth0.com/js/analytics/X.Y.Z/analytics.min.js"></script>
 ```
+
+> Notice: The script version above uses a placeholder version `X.Y.Z`. In order to determine the latest release view the [releases in github](https://github.com/auth0/auth0-analytics.js/releases/). For example, to reference release 1.2.0 use `https://cdn.auth0.com/js/analytics/1.2.0/analytics.min.js`
 
 ### Setup
 There are several ways you can use the Google Analytics integration. If you already have either the Google Analytics Script on your site you simply set the configuration options to use `preload` mode as shown below. If you don't have Google Analytics loaded you simply need to set your Google Analytics ID using the Google Analytics configuration below.

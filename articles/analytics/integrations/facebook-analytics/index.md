@@ -17,8 +17,10 @@ window.auth0AnalyticsOptions = {
 }
 </script>
 <script src="https://cdn.auth0.com/js/lock/10.x/lock.min.js"></script>
-<script src="https://cdn.auth0.com/js/analytics/1.x/analytics.min.js"></script>
+<script src="https://cdn.auth0.com/js/analytics/X.Y.Z/analytics.min.js"></script>
 ```
+
+> Notice: The script version above uses a placeholder version `X.Y.Z`. In order to determine the latest release view the [releases in github](https://github.com/auth0/auth0-analytics.js/releases/). For example, to reference release 1.2.0 use `https://cdn.auth0.com/js/analytics/1.2.0/analytics.min.js`
 
 ### Setup
 There are several ways you can use the Facebook Analytics integration. If you already have either the Facebook Tracking Pixel or the Facebook Javascript SDK referenced on your site you simply set the script to use the `preload` option as shown below. If you don't have either script loaded you simply need to set your Facebook Analytics App ID using the Facebook Javascript SDK configuration below.
