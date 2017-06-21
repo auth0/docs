@@ -18,9 +18,7 @@ As a security measure, it is recommended that the lifetime of a user's `access_t
 This short lifetime is good for security, but it isn't great for user experience. You will likely want to provide a way for your users to automatically get a new `access_token` so that their client-side session can be kept alive. This can be done with **Silent Authentication**.
 
 ::: note
-
-***Note***: The `access_token` lifetime is controlled from the [APIs section](https://manage.auth0.com/#/apis), while the `id_token` lifetime is controlled from the [Clients section](https://manage.auth0.com/#/clients). These two settings are independent of one another.
-
+The `access_token` lifetime is controlled from the [APIs section](${manage_url}/#/apis), while the `id_token` lifetime is controlled from the [Clients section](${manage_url}/#/clients). These two settings are independent of one another.
 :::
 
 ## Server Setup
@@ -74,7 +72,7 @@ console.log('Listening on http://localhost:3001');
 In this example, the server is running at `localhost:3001` and this value is hardcoded as the `redirectUri` method below. The `silent.html` file makes reference to `localhost:4200` which is the address that the Angular CLI uses for development servers.
 
 ::: note
-**Note:** Be sure to add `http://localhost:3001/silent` to the **Callback URLs** section in your application's client settings.
+Be sure to add `http://localhost:3001/silent` to the **Callback URLs** section in your application's client settings.
 :::
 
 ## Add Token Renewal

@@ -2,7 +2,6 @@
 description: What is a Refresh Token and how you can use it.
 toc: true
 ---
-
 # Refresh Token
 
 A **Refresh Token** is a special kind of token that contains the information required to obtain a new [access token](/tokens/access-token) or [ID token](/tokens/id-token).
