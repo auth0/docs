@@ -119,8 +119,10 @@ You should get a message that the webtask was created, alongside with the URL to
 }
 ```
 
-## Further Reading
+## Keep reading
 
+::: next-steps
 * [Getting Started with Webtasks](https://webtask.io/docs/101)
 * [Using Webtasks as Code Sandboxes](https://webtask.io/docs/sample_multitenant)
 * [HTTP API: Executing Webtasks](https://webtask.io/docs/api_run)
+:::
