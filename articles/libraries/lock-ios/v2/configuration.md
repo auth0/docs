@@ -82,7 +82,7 @@ The first screen to present to the user. The default is `.Login`, other options 
 
 ### usernameStyle
 
-Specify the type of identifier the login will require.  The default is either: `[.Username, .Email]`, but it can also accept `[.Username]` or `[.Email]`. However it's important to note that this option is only active if you have set the `requires_username` flag to `true` in your [Auth0 Dashboard](https://manage.auth0.com/#/)
+Specify the type of identifier the login will require.  The default is either: `[.Username, .Email]`, but it can also accept `[.Username]` or `[.Email]`. However it's important to note that this option is only active if you have set the `requires_username` flag to `true` in your [Auth0 Dashboard](${manage_url}/#/)
 
 ```swift
 .withOptions {

@@ -160,7 +160,7 @@ Please note that altering the signing algorithm for your client will immediately
 :::
 
 To switch from HS256 to RS256 for a specific client, follow these instructions:
-1. Go to [Dashboard > Clients](https://manage.auth0.com/#/clients)
+1. Go to [Dashboard > Clients](${manage_url}/#/clients)
 1. Select your client
 1. Go to _Settings_
 1. Click on __Show Advanced Settings__
