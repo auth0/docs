@@ -8,7 +8,7 @@ description: Appliance infrastructure information about Networks
 This document details the requirements for the network on which the Appliance runs.
 
 ::: note
-  Auth0 Appliance can only be deployed in 1 NIC.
+Auth0 Appliance can only be deployed in 1 NIC.
 :::
 
 In on-premise environment, all virtual machines should be in the same LAN in order for database replication to work properly. No other appliance cluster (Dev/Test) should be running on this subnet.
@@ -72,9 +72,12 @@ We recommend a layer 7/application layer load balancer that supports:
 
 You may use NGINX or HA Proxy as a software load balancer in front of the Auth0 Appliance. The reverse proxy must be configured with:
 
-* TCP mode with Proxy Protocol or HTTPS mode (SSL offloading);
-    * Note: The Auth0 AD/LDAP Connector does not work in HTTPS mode.
-* the incoming hostname forwarded to the Appliance nodes.
+* TCP mode with Proxy Protocol or HTTPS mode (SSL offloading)
+* the incoming hostname forwarded to the Appliance nodes
+
+::: note
+  The Auth0 AD/LDAP Connector does not work in HTTPS mode.
+:::
 
 In addition to load balancing, you may use this for **IP address whitelisting** and **endpoint filtering** (only authentication endpoints are publicly available).
 

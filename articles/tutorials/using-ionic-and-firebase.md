@@ -191,7 +191,9 @@ function LoginCtrl(store, $scope, $location, auth) {
 <!-- ... -->
 ```
 
-> Note: there are multiple ways of implementing login. The example above uses the __Auth0 Lock__ a component that implements a ready to use login UI. You can build your own UI changing the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="${auth0js_url}">`. This is just a non-visual authentication library. For more details [check out the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+::: panel Ways to implement login
+There are multiple ways of implementing login. The example above uses __Auth0 Lock__, a component that implements a ready to use login UI. You can build your own UI changing the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="${auth0js_url}">`. This is just a non-visual authentication library. For more details [check out the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+:::
 
 ## 8. Adding a logout button
 
