@@ -154,7 +154,9 @@ After a successful login, you will:
 2. Save the __token__ and __[refresh token](/refresh-token)__
 3. Call Auth0 to issue a __Firebase token__ and save it as well.
 
-> All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](/api/authentication#delegation).
+::: note
+All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](/api/authentication#delegation).
+:::
 
 ```js
 // LoginCtrl.js
