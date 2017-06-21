@@ -30,7 +30,6 @@ For example, a Contacts API may accept four different levels of authorization: r
 
 For more information refer to [Scopes](/scopes).
 
-
 ## OAuth Roles
 
 In any OAuth 2.0 flow we can identify the following roles:
@@ -42,7 +41,6 @@ In any OAuth 2.0 flow we can identify the following roles:
 - **Client**: an application requesting access to a protected resource on behalf of the Resource Owner.
 
 - **Authorization Server**: the server that authenticates the Resource Owner, and issues access tokens after getting proper authorization. In this case, Auth0.
-
 
 ## Protocol Flow
 
@@ -62,7 +60,6 @@ We will now have a more detailed look on how the protocol works. As we will see 
 
 1. Provided that the access token is valid, the Resource Server serves the Client's request.
 
-
 ## Authorization Grant Types
 
 The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/html/rfc6749) defines four flows to get an access token. These flows are called **grant types**. Deciding which one is suited for your case depends mostly on the type of your client.
@@ -78,7 +75,6 @@ The [OAuth 2.0 Authorization Framework specification](https://tools.ietf.org/htm
 The specification also provides an extensibility mechanism for defining additional types.
 
 For details on how each grant type works and when it should be used refer to [API Authorization](/api-auth).
-
 
 ## OAuth Endpoints
 
@@ -164,18 +160,9 @@ In the [Authorization Code](/api-auth/grant/authorization-code) grant, the clien
 
 In the [Client Credentials](/api-auth/grant/client-credentials) and [Resource Owner Password Credentials](/api-auth/grant/password) grants, the client authenticates using a set of credentials and then gets an access token.
 
-## More Information
+## Keep reading
 
-- [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
-
-- [How to Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
-
-- [How to Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
-
-- [How to Execute the Implicit Grant Flow](/api-auth/tutorials/implicit-grant)
-
-- [How to Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
-
-- [How to Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
-
-- [More docs on API Authorization](/api-auth)
+::: next-steps
+* [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
+* [More docs on API Authorization](/api-auth)
+:::
