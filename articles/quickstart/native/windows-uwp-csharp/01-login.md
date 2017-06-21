@@ -18,6 +18,8 @@ budicon: 448
 
 This tutorial explains how to integrate the Auth0 OIDC Client with a Windows UWP (Universal Windows Platform) C# application. The NuGet package `Auth0.OidcClient.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
+<%= include('../includes/_dotnet-oidc-client-configuration') %>
+
 ## Install the Auth0.OidcClient.UWP NuGet Package
 
 Use the NuGet Package Manager Console (Tools -> NuGet Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.UWP` package, running the command:
