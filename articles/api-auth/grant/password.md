@@ -2,7 +2,6 @@
 title: Call APIs from Highly Trusted Clients
 description: Describes how to call APIs from highly trusted clients using the Resource Owner Password Grant.
 ---
-
 # Call APIs from Highly Trusted Clients
 
 <%= include('../../_includes/_pipeline2') %>
@@ -29,7 +28,6 @@ This grant type can eliminate the need for the client to store the user credenti
 ::: note
 In OAuth 2.0 terms, the web app is the Client, the end user the Resource Owner, the API the Resource Server, the browser the User Agent, and Auth0 the Authorization Server.
 :::
-
 
 ## How to implement the flow
 
@@ -63,7 +61,9 @@ For details on how to implement multifactor authentication, refer to [Multifacto
 
 ## Keep reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to Execute a Resource Owner Password Grant](/api-auth/tutorials/password-grant)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[How to use Resource Owner Password Grant from the server side together with Anomaly Detection](/api-auth/tutorials/using-resource-owner-password-from-server-side)<br/>
+::: next-steps
+* [How to Execute a Resource Owner Password Grant](/api-auth/tutorials/password-grant)
+* [How to use MFA with Resource Owner Password Grant](/api-auth/tutorials/multifactor-resource-owner-password)
+* [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+* [How to use Resource Owner Password Grant from the server side together with Anomaly Detection](/api-auth/tutorials/using-resource-owner-password-from-server-side)
+:::

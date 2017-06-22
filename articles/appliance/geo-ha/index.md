@@ -65,6 +65,8 @@ If the primary data center becomes available again and its instances are visible
 4. **The geographically-aware global load balancer/DNS failover configuration detects that the nodes in the primary data center aren't serving.** It will then switch over to sending requests to the instances of the standby data center.
 5. **The Appliances associated with the standby data center are now serving requests** and acting as the primary data node due to its election in step 2.
 
-### Further Reading
+### Keep reading
 
+::: next-steps
 * [Geographic High-Availability Appliance Failure Scenarios and Testing](/appliance/geo-ha/disaster-recovery)
+:::

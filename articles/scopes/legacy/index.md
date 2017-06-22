@@ -62,8 +62,10 @@ The attributes included in the issued token can be controlled with the `scope` p
 The `scope` parameter can be used in the same way when calling the [Resource Owner endpoint](/api/authentication/reference#resource-owner).
 :::
 
-## Further reading
+## Keep reading
 
+::: next-steps
 * [Sending a `scope` parameter with Lock](/libraries/lock/sending-authentication-parameters#scope-string-)
 * [Retrieving the full user profile with an `access_token`](/api/authentication/reference#get-user-info)
 * [Validating a JWT and obtaining the full user profile](/api/authentication/reference#get-token-info)
+:::

@@ -102,7 +102,9 @@ dataset.setString(self.textValue.text, forKey: "value")
 dataset.synchronize()
 ```
 
-## Further Reading
+## Keep reading
 
+::: next-steps
 * [Amazon Cognito: Open ID Connect Providers](http://docs.aws.amazon.com/cognito/latest/developerguide/open-id.html)
 * [Amazon IAM: Creating OpenID Connect (OIDC) Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+:::
