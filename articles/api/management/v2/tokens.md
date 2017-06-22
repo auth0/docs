@@ -241,11 +241,12 @@ You need to change the secret immediately. Go to your [Client's Settings](${mana
 __I can see some `current_user` scopes in my `id_token`. What is that?__</br>
 Within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the `id_token`, which are granted automatically to the logged in user.
 
-
 ## Keep reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Calling APIs from a Service](/api-auth/grant/client-credentials)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Information on the query string syntax](/api/management/v2/query-string-syntax)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Search for Users](/api/management/v2/user-search)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)<br/>
+::: next-steps
+* [Calling APIs from a Service](/api-auth/grant/client-credentials)
+* [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+* [Information on the query string syntax](/api/management/v2/query-string-syntax)
+* [Search for Users](/api/management/v2/user-search)
+* [Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)
+:::

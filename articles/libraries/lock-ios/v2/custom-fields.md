@@ -22,7 +22,7 @@ When signing up the default information requirements are the user's *email* and 
 ```
 
 ::: note
-Note: You must specify the icon to use with your custom text field.
+You must specify the icon to use with your custom text field.
 :::
 
 Thats it! If you have enabled users Sign Up in the Application's Dashboard, after they complete the basic fields (email/username, password) and hit Submit, they will be prompted to fill the remaining fields.

@@ -8,7 +8,7 @@ The following endpoints are used by Auth0 public cloud service:
 
 ## US Region
 
-* ${manage_url}
+* https://manage.auth0.com
 * https://auth0.com
 * https://login.auth0.com
 * https://cdn.auth0.com
@@ -17,7 +17,7 @@ The following endpoints are used by Auth0 public cloud service:
 
 ## EU & AU Regions
 
-* ${manage_url}
+* https://manage.auth0.com
 * https://auth0.com
 * https://login.[eu|au].auth0.com
 * https://cdn.[eu|au].auth0.com

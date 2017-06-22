@@ -323,6 +323,8 @@ For security reasons, the Rules code runs in a JavaScript sandbox based on [webt
 
 For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire).
 
-## Further reading
+## Keep reading
 
+::: next-steps
 * [Redirecting users from within rules](/rules/current/redirect)
+:::

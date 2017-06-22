@@ -1,3 +1,5 @@
+## Add Authentication with Auth0
+
 <%= include('../../_includes/_login_preamble', { library: 'Vue.js' }) %>
 
 ## Create an Authentication Service
