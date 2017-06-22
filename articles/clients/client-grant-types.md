@@ -20,23 +20,27 @@ The following is a list of grant types valid for Auth0 Clients. There are three 
 
 The following `grant_types`, are either OIDC-conformant (i.e. their implementation conforms to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html)) or Auth0 extension grants:
 
-* [Implicit Grant](/api-auth/grant/implicit): `implicit`
-* [Authorization Code Grant](/api-auth/grant/authorization-code): `authorization_code`
-* [Client Credentials Grant](/api-auth/grant/client-credentials): `client_credentials`
-* [Resource Owner Password Grant](/api-auth/grant/password): `password`
-* [Use a refresh token](/tokens/refresh-token/current#use-a-refresh-token): `refresh_token`
-* [Use an extension grant similar to the Resource Owner Password Grant that includes the ability to indicate a specific realm](/api-auth/grant/password#realm-support): `http://auth0.com/oauth/grant-type/password-realm`
-* [Multifactor Authentication OOB Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-oob-grant-request): `http://auth0.com/oauth/grant-type/mfa-oob`
-* [Multifactor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request): `http://auth0.com/oauth/grant-type/mfa-otp`
-* [Multifactor Authentication Recovery Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-recovery-grant-request): `http://auth0.com/oauth/grant-type/mfa-recovery-code`
+| `grant_type` | More info |
+|:-----|:----|
+| `implicit` | [Implicit Grant](/api-auth/grant/implicit) |
+| `authorization_code` | [Authorization Code Grant](/api-auth/grant/authorization-code) |
+| `client_credentials` | [Client Credentials Grant](/api-auth/grant/client-credentials) |
+| `password` | [Resource Owner Password Grant](/api-auth/grant/password) |
+| `refresh_token` | [Use a refresh token](/tokens/refresh-token/current#use-a-refresh-token) |
+| `http://auth0.com/oauth/grant-type/password-realm` | [Use an extension grant similar to the Resource Owner Password Grant that includes the ability to indicate a specific realm](/api-auth/grant/password#realm-support) |
+| `http://auth0.com/oauth/grant-type/mfa-oob` | [Multifactor Authentication OOB Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-oob-grant-request) |
+| `http://auth0.com/oauth/grant-type/mfa-otp` | [Multifactor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request) |
+| `http://auth0.com/oauth/grant-type/mfa-recovery-code` | [Multifactor Authentication Recovery Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-recovery-grant-request) |
 
 The following is a list of legacy `grant_types`:
 
-* `http://auth0.com/oauth/legacy/grant-type/ro`
-* `http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer`
-* `http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token`
-* `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
-* `http://auth0.com/oauth/legacy/grant-type/access_token`
+| `grant_type` |
+|:-----|
+| `http://auth0.com/oauth/legacy/grant-type/ro` |
+| `http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer` |
+| `http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token` |
+| `http://auth0.com/oauth/legacy/grant-type/delegation/id_token` |
+| `http://auth0.com/oauth/legacy/grant-type/access_token` |
 
 ## Edit available grant_types
 
@@ -104,7 +108,6 @@ Public clients **cannot** utilize the `client_credentials` grant type. To add th
 
 Confidential Clients, indicated by the `token_endpoint_auth_method` flag set to anything *except* `none`, are those created in the Dashboard for Regular Web Applications or Non-Interactive Clients. Additionally, any Client where `token_endpoint_auth_method` is unspecified is confidential. By default, Confidential Clients are created with the following `grant_types`:
 
-
 * `implicit`;
 * `authorization_code`;
 * `refresh_token`;
@@ -140,7 +143,7 @@ Those implementing Passwordless Authentication should use hosted login pages ins
 Only Auth0 customers as of 8 June 2017 may enable a legacy grant type for existing Clients.
 :::
 
-To enable a legacy grant type, you will need to update the `grant_types` property for you client, so it can be used. For details on how to do so refer to [Edit the grant_types Property](#edit-the-grant_types-property).
+To enable a legacy grant type, you will need to update the `grant_types` property for you client, so it can be used. For details on how to do so refer to [Edit the grant_types Property](#edit-available-grant_types).
 
 ::: note
 If you are a new customer and you are interested in using a legacy flow, please [contact Support for assistance](https://support.auth0.com/).
