@@ -1,0 +1,21 @@
+title: React Native
+alias:
+  - reactnative
+  - react native
+  - react native ios
+  - react native android
+language:
+  - Javascript
+framework:
+  - React Native
+hybrid: true
+image: /media/platforms/react.png
+tags:
+  - quickstart
+snippets:
+  setup: native-platforms/reactnative/setup
+  use: native-platforms/reactnative/use
+seo_alias: react-native
+default_article: dashboard-default
+articles:
+  - 00-login
