@@ -34,13 +34,11 @@ The following `grant_types`, are either OIDC-conformant (i.e. their implementati
 
 The following is a list of legacy `grant_types`:
 
-| `grant_type` |
-|:-----|
-| `http://auth0.com/oauth/legacy/grant-type/ro` |
-| `http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer` |
-| `http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token` |
-| `http://auth0.com/oauth/legacy/grant-type/delegation/id_token` |
-| `http://auth0.com/oauth/legacy/grant-type/access_token` |
+* `http://auth0.com/oauth/legacy/grant-type/ro`
+* `http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer`
+* `http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token`
+* `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
+* `http://auth0.com/oauth/legacy/grant-type/access_token`
 
 ## Edit available grant_types
 
@@ -127,7 +125,7 @@ Trusted first-party clients can additionally use the following `grant_types`:
 
 | Legacy Grant Type | Alternative |
 |:-----|:----|
-|Resource Owner Password Credentials flow (http://auth0.com/oauth/legacy/grant-type/ro) | Use the [/oauth/token](/api/authentication#authorization-code) endpoint with a grant type of `password`. See [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password) and [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant) for additional information. |
+|`http://auth0.com/oauth/legacy/grant-type/ro` | Use the [/oauth/token](/api/authentication#authorization-code) endpoint with a grant type of `password`. See [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password) and [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant) for additional information. |
 | `http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer` | This feature is disabled by default. If you would like this feature enabled, please [contact support](https://support.auth0.com/) to discuss your use case and prevent the possibility of introducing security vulnerabilities. |
 | `http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token` | Use the `oauth/token` endpoint to obtain refresh tokens. See [OIDC-conformant refresh tokens](/api-auth/tutorials/adoption/refresh-tokens) for more info. |
 | `http://auth0.com/oauth/legacy/grant-type/delegation/id_token` | This feature is disabled by default. If you would like this feature enabled, please [contact support](https://support.auth0.com/) to discuss your use case and prevent the possibility of introducing security vulnerabilities. |
