@@ -14,7 +14,7 @@ You can either download the sample project, or follow the instructions below.
 ## 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following values:</p>
+<p>Go to the <a href="${manage_url}/#/clients/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following values:</p>
 
 <pre><code>https://${account.namespace}/mobile, file://*, http://localhost:8100
 </pre></code>
@@ -154,7 +154,9 @@ After a successful login, you will:
 2. Save the __token__ and __[refresh token](/refresh-token)__
 3. Call Auth0 to issue a __Firebase token__ and save it as well.
 
-> All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](/api/authentication#delegation).
+::: note
+All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](/api/authentication#delegation).
+:::
 
 ```js
 // LoginCtrl.js
@@ -191,7 +193,9 @@ function LoginCtrl(store, $scope, $location, auth) {
 <!-- ... -->
 ```
 
-> Note: there are multiple ways of implementing login. The example above uses the __Auth0 Lock__ a component that implements a ready to use login UI. You can build your own UI changing the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="${auth0js_url}">`. This is just a non-visual authentication library. For more details [check out the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+::: note
+There are multiple ways of implementing login. The example above uses the __Auth0 Lock__ a component that implements a ready to use login UI. You can build your own UI changing the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="${auth0js_url}">`. This is just a non-visual authentication library. For more details [check out the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+:::
 
 ## 8. Adding a logout button
 
@@ -231,7 +235,9 @@ var friends = friendsSync.$asArray();
 friends.$add({name: 'Hey John'});
 ```
 
-> Check the [AngularFire documentation](https://www.firebase.com/docs/web/libraries/angular/guide.html) for more information on all of its features.
+::: note
+Check the [AngularFire documentation](https://www.firebase.com/docs/web/libraries/angular/guide.html) for more information on all of its features.
+:::
 
 ## 10. Showing user information
 
