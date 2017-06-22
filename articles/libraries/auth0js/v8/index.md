@@ -210,7 +210,9 @@ var url = webAuth.client.buildAuthorizeUrl({
 // ...
 ```
 
-__NOTE__: The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
+::: note
+The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
+:::
 
 ### Passwordless login
 

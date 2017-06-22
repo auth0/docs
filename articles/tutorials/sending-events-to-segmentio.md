@@ -1,12 +1,11 @@
 ---
 description: How to send events to segment.io from Auth0.
 ---
-
 # Sending events to segment.io from Auth0
 
-[segment.io](http://segment.io/features) provides access to large number of anayltics services with a single, simple to use API. 
+[Segment.io](http://segment.io/features) provides access to large number of anayltics services with a single, simple to use API.
 
-This example shows how you can very easily connect Auth0 to __segment.io__ and stream `signup` and `login` events. 
+This example shows how you can very easily connect Auth0 to __segment.io__ and stream `signup` and `login` events.
 
 Implementing this with Auth0 is very easy, only taking a few lines of code.
 
@@ -18,8 +17,7 @@ This rule checks whether the user has already signed up before or not. This is t
 
 The `sendEvent` function is a simple wrapper around the __segment.io REST API__ which is trivial to call using the provided `request` module. Notice we are also sending some additional contextual information: the __IP address__ and __User Agent__ of the user.
 
-
-```
+```js
 function(user, context, callback) {
 
   if(user.signedUp){
@@ -61,7 +59,10 @@ function(user, context, callback) {
   }
 }
 ```
-> Notice that if all calls are successful, we signal the user as signed up. So next time we record `login`.
+
+::: note
+Notice that if all calls are successful, we signal the user as signed up. So next time we record `login`.
+:::
 
 Check out our [repository of Auth0 Rules](https://github.com/auth0/rules) for more great examples:
 
