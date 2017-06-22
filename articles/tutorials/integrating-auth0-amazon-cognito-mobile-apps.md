@@ -15,15 +15,15 @@ The first step is to create an OpenID Connect Provider pointing to your Auth0 ac
 
 1. In the [IAM Console](https://console.aws.amazon.com/iam/home) click on the **Identity Providers** link in the left sidebar. Click the **Create Provider** button.
 
-![Create Provider](/media/articles/scenarios/amazon-cognito/create-provider.png)
+    ![Create Provider](/media/articles/scenarios/amazon-cognito/create-provider.png)
 
 1. Next you will choose the provider type, select **OpenID Connect** from the dropdown. For the **Provider URL** enter: `https://YOUR_ACCOUNT_NAME.auth0.com` and for **Audience** enter your **ClientId** ([find your ClientID](${manage_url}#/clients/)).
 
-![Configure Provider](/media/articles/scenarios/amazon-cognito/configure-provider.png)
+    ![Configure Provider](/media/articles/scenarios/amazon-cognito/configure-provider.png)
 
 1. This will bring you to the **Verify Provider Information** screen, click the **Create** button.
 
-![Verify Provider](/media/articles/scenarios/amazon-cognito/verify-provider.png)
+    ![Verify Provider](/media/articles/scenarios/amazon-cognito/verify-provider.png)
 
 1. Then you will be able to click on your newly created provider to find the **Provider ARN** which will be used in a later step.
 
@@ -51,19 +51,19 @@ Now, you need to create an Identity Pool in the [Cognito Console](https://consol
 
 1. For **Identity Pool Name**, specify a name for the pool e.g. `Auth0`. Under **Authentication Providers**, click the **OpenID** tab and select the name of the provider you created in the previous steps. Click **Create Pool**.
 
-![Create Identity Pool](/media/articles/scenarios/amazon-cognito/identity-pool.png)
+    ![Create Identity Pool](/media/articles/scenarios/amazon-cognito/identity-pool.png)
 
 1. This will bring up a confirmation page for allowing access to your resources. By default, Amazon Cognito creates a new role with limited permissions - end users only have access to Cognito Sync and Mobile Analytics. You can modify the roles if your application needs access to other AWS resources, such as S3 or DynamoDB. Click **Allow** to finish creating the new identity pool.
 
-![Confirmation page](/media/articles/scenarios/amazon-cognito/allow-role.png)
+    ![Confirmation page](/media/articles/scenarios/amazon-cognito/allow-role.png)
 
 1. Click **Edit Identity Pool** to view the the Identity Pool ID.
 
-![View the Identity Pool ID](/media/articles/scenarios/amazon-cognito/pool-id.png)
+    ![View the Identity Pool ID](/media/articles/scenarios/amazon-cognito/pool-id.png)
 
 1. Finally, grab the ARN of the role that was automatically created in the previous step from the [IAM console](https://console.aws.amazon.com/iam/home) this value will be used when sending credentials to Cognito.
 
-![Role ARN](/media/articles/scenarios/amazon-cognito/role-arn.png)
+    ![Role ARN](/media/articles/scenarios/amazon-cognito/role-arn.png)
 
 ## Auth0 Configuration
 
