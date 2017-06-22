@@ -156,7 +156,7 @@ module.exports = Auth0Mosca;
 
 ```
 
-`authenticateWithCredentials` uses the [OAuth2 Resource Owner Password Credential Grant](/protocols#oauth-resource-owner-password-credentials-grant) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it validates and parses the Json Web Token to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. That's done in the `jwt.verify` call.
+`authenticateWithCredentials` uses the [OAuth2 Resource Owner Password Credential Grant](/protocols#oauth-resource-owner-password-credentials-grant) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__ message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it validates and parses the Json Web Token to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. That's done in the `jwt.verify` call.
 
 By convention, all devices connected to the broker have an account in Auth0:
 
@@ -249,7 +249,7 @@ client.on('message', function(topic, message) {
 This shows how easy it is to use Auth0 in various scenarios. Auth0's user store is being used to manage devices. Of course much more sophisticated authorization rules could be written based on other conditions: time, location, device_id, etc. All these would be very simple to implement, either through additional profile attributes or through [Auth0 Rules](/rules). This also shows how the flexible Auth0 Profile can be extended to support arbitrary artifacts (e.g. `topics` in the example).
 
 ::: note
-t is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revealed. __mosca__ supports TLS as an example. Likely a production deployment would favor this, unless all traffic happens in a closed network.
+Ιt is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revealed. __mosca__ supports TLS as an example. Likely a production deployment would favor this, unless all traffic happens in a closed network.
 :::
 
 ### Acknowledgements
