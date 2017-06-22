@@ -51,6 +51,7 @@ _ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
 let verifier = Data(bytes: buffer).base64EncodedString()
     .replacingOccurrences(of: "+", with: "-")
     .replacingOccurrences(of: "/", with: "_")
+    .replacingOccurrences(of: "=", with: "")
     .trimmingCharacters(in: .whitespaces)</code></pre>
     </div>
     <div id="verifier-objc" class="tab-pane">
@@ -107,6 +108,7 @@ let hash = Data(bytes: buffer)
 let challenge = hash.base64EncodedString()
     .replacingOccurrences(of: "+", with: "-")
     .replacingOccurrences(of: "/", with: "_")
+    .replacingOccurrences(of: "=", with: "")
     .trimmingCharacters(in: .whitespaces)</code></pre>
     </div>
     <div id="challenge-objc" class="tab-pane">
