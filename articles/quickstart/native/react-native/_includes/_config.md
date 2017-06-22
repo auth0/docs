@@ -10,8 +10,7 @@ Go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}
 {PRODUCT_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{PRODUCT_BUNDLE_IDENTIFIER}/callback
 ```
 
-Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's bundle identifier name. If you open the project in Xcode
-you will find this under the `General` tab in your Projects target settings.
+Remember to replace `PRODUCT_BUNDLE_IDENTIFIER` with your actual application's bundle identifier name. If you open the project in Xcode you will find this under the `General` tab in your Projects target settings.
 
 #### Android
 
