@@ -78,11 +78,23 @@ Depending on whether a newly-created Client is [public](/api-auth/client-types#p
 
 ### Public Clients
 
-Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. By default, Public Clients are created with the following `grant_types`:
+Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications.
 
-* `implicit`;
-* `authorization_code`;
-* `refresh_token`.
+::: panel Token Endpoint Authentication Method
+The `Token Endpoint Authentication Method` defines how a client authenticates against the [token endpoint](/api/authentication#authorization-code). Its valid values are:
+
+* `None`, for a public client without a client secret
+* `Post`, for a client using HTTP POST parameters
+* `Basic`, for a client using HTTP Basic parameters 
+
+You can find this field at the [Client Settings](/clients/client-settings#settings) of the [Auth0 Dashboard](${manage_url}).
+:::
+
+By default, Public Clients are created with the following `grant_types`:
+
+* `implicit`
+* `authorization_code`
+* `refresh_token`
 
 ::: note
 Public clients **cannot** utilize the `client_credentials` grant type. To add this grant type to a Client, set the `token_endpoint_auth_method` to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Client is confidential, not public.
