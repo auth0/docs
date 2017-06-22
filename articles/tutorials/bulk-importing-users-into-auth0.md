@@ -2,7 +2,6 @@
 description: How to bulk import users using the Management API endpoint.
 crews: crew-2
 ---
-
 # Bulk Import Users to Auth0 Using a Job
 
 Our focus has always been not only greenfield projects but also existing applications that want to extend their authentication capabilities.
@@ -122,7 +121,7 @@ If the job was successful, owner(s) would get an e-mail notification that contai
 
 ### Querying for Job Status
 
-You can query a job's status using the [GET /api/v2/jobs/{id} endpoint](/api/management/v2#!/jobs/get_jobs_by_id). If the job is complete, the job status response will show summary totals of successful/failed/inserted/updated records, as well. If there is a error in the job, it will return as failed (however, note that invalid user information, such as an invalid email, for example, will not make the entire job fail). Additionally, the job status is added to [Tenant Logs](https://manage.auth0.com/#/logs), which allows for a custom WebHook to be triggered using the [WebHook Logs Extension](/extensions/management-api-webhooks).
+You can query a job's status using the [GET /api/v2/jobs/{id} endpoint](/api/management/v2#!/jobs/get_jobs_by_id). If the job is complete, the job status response will show summary totals of successful/failed/inserted/updated records, as well. If there is a error in the job, it will return as failed (however, note that invalid user information, such as an invalid email, for example, will not make the entire job fail). Additionally, the job status is added to [Tenant Logs](${manage_url}/#/logs), which allows for a custom WebHook to be triggered using the [WebHook Logs Extension](/extensions/management-api-webhooks).
 
 ### Retrieving Failed Entries
 
