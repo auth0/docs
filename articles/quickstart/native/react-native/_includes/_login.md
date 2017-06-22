@@ -1,4 +1,4 @@
-The first step in adding authentication to your application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [login page](https://auth0.com/docs/hosted-pages/login).
+The first step in adding authentication to your application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the hosted [login page](https://auth0.com/docs/hosted-pages/login).
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Hosted Login Page"></div>
 
@@ -32,8 +32,6 @@ android:windowSoftInputMode="adjustResize">
 </intent-filter>
 </activity>
 ```
-
-Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
 
 ### iOS
 
