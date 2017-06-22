@@ -46,7 +46,7 @@ Begin by navigating to the [Clients page](${manage_url}/#/clients) of the Manage
 
 ![Auth0 Clients](/media/articles/clients/client-grant-types/clients.png)
 
-Click on the cog icon <i class="icon icon-budicon-329"> next to the Client you're interested in to launch its settings page.
+Click on the cog icon <i class="icon icon-budicon-329"></i> next to the Client you're interested in to launch its settings page.
 
 ![Auth0 Client Settings](/media/articles/clients/client-grant-types/client-settings.png)
 
@@ -124,38 +124,11 @@ Trusted first-party clients can additionally use the following `grant_types`:
 
 | Legacy Grant Type | Alternative |
 |:-----|:----|
-|Resource Owner Password Credentials flow (http://auth0.com/oauth/legacy/grant-type/ro) | https://${account.namespace}/api/connections | Use the [/oauth/token](/api/authentication#authorization-code) endpoint with a grant type of `password`. See [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password) and [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant) for additional information. |
-
-<!-- markdownlint-disable MD033 -->
-
-<table class="table">
-  <tr>
-    <th>Legacy Grant Type</th>
-    <th>Alternative</th>
-  </tr>
-  <tr>
-    <td>Resource Owner Password Credentials flow (http://auth0.com/oauth/legacy/grant-type/ro)</td>
-    <td>Use the <a href="/api/authentication#authorization-code">`/oauth/token` endpoint</a> with a grant type of `password`. See <a href="/api-auth/tutorials/adoption/password">Resource Owner Password Credentials Exchange</a> and <a href="/api-auth/tutorials/password-grant">Executing the Resource Owner Password Grant</a> for additional information.</td>
-  </tr>
-  <tr>
-    <td>http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer</td>
-    <td>This feature is disabled by default. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities.</td>
-  </tr>
-  <tr>
-    <td>http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token</td>
-    <td>Use the `oauth/token` endpoint to <a href="/api-auth/tutorials/adoption/refresh-tokens">obtain refresh tokens</a>. See <a href="/api-auth/tutorials/adoption/refresh-tokens">OIDC-conformant refresh tokens</a> for additional information.</td>
-  </tr>
-  <tr>
-    <td>http://auth0.com/oauth/legacy/grant-type/delegation/id_token</td>
-    <td>This feature is disabled by default. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities.</td>
-  </tr>
-  <tr>
-    <td>http://auth0.com/oauth/legacy/grant-type/access_token</td>
-    <td>Use browser-based social authentication.</td>
-  </tr>
-</table>
-
-<!-- markdownlint-enable MD033 -->
+|Resource Owner Password Credentials flow (http://auth0.com/oauth/legacy/grant-type/ro) | Use the [/oauth/token](/api/authentication#authorization-code) endpoint with a grant type of `password`. See [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password) and [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant) for additional information. |
+| `http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer` | This feature is disabled by default. If you would like this feature enabled, please [contact support](https://support.auth0.com/) to discuss your use case and prevent the possibility of introducing security vulnerabilities. |
+| `http://auth0.com/oauth/legacy/grant-type/delegation/refresh_token` | Use the `oauth/token` endpoint to obtain refresh tokens. See [OIDC-conformant refresh tokens](/api-auth/tutorials/adoption/refresh-tokens) for more info. |
+| `http://auth0.com/oauth/legacy/grant-type/delegation/id_token` | This feature is disabled by default. If you would like this feature enabled, please [contact support](https://support.auth0.com/) to discuss your use case and prevent the possibility of introducing security vulnerabilities. |
+| `http://auth0.com/oauth/legacy/grant-type/access_token` | Use browser-based social authentication. |
 
 ::: note
 Those implementing Passwordless Authentication should use hosted login pages instead of the `oauth/ro` endpoint.
