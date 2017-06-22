@@ -29,7 +29,9 @@ You can change your client's secret by using the [Rotate Secret API endpoint](/a
 
 If you are still using a Base64-encoded client secret and you want to change your client's secret with a new encoded one, you can use the [Update a client API endpoint](/api/v2#!/Clients/patch_clients_by_id).  Set the `id` of the client you are updating, and then in the `body` section enter your new `client_secret` as a JSON field.
 
-**Note:** The `client_secret` can only be updated with the `update:client_keys` scope.
+::: note
+The `client_secret` can only be updated with the `update:client_keys` scope.
+:::
 
 You can get your `client_id` and `client_secret` by choosing your client in the [Clients](${manage_url}/#/clients) section of the dashboard.
 

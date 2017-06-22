@@ -23,7 +23,7 @@ const authenticate = jwt({
   }),
 
   // Validate the audience and the issuer.
-  audience: '{API_ID}',
+  audience: '${apiIdentifier}',
   issuer: `https://${account.namespace}/`,
   algorithms: ['RS256']
 });

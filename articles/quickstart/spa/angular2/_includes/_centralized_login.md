@@ -14,7 +14,7 @@ Create a service and instantiate `auth0.WebAuth`. Provide a method called `login
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
-import auth0 from 'auth0-js';
+import * as auth0 from 'auth0-js';
 
 @Injectable()
 export class AuthService {

@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Appliance Disaster Recovery: Detailed Division of Responsibility"
+    tags:
+      - appliance
+      - raci
+    description: |
+      A [new doc](https://auth0.com/docs/appliance/disaster-recovery-raci) was added, that provides an in-depth summary of the roles and responsibilities allocated between Auth0 and the subscriber.

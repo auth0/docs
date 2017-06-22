@@ -58,7 +58,9 @@ Make sure the clock of your server is current.
 
 If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring that the System is properly configured to use to pool a sync server via the NTP (Network Time Protocol).
 
-Note: on windows environments the ntp provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
+::: note
+On windows environments the ntp provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
+:::
 
 ### No connection to Active Directory
 
@@ -69,7 +71,6 @@ In a Windows Network with Active Directory you can try the `nltest` command. To 
 ![](/media/articles/connector/troubleshooting/connector-nltest-domain.png)
 
 To see to which domain the current server is connected you can also try: `nltest /dsgetdc:``
-
 
 When the domain does not exist or is unreachable `nltest` will return an error message: `Getting DC name failed: Status = 1355 0x54b ERROR_NO_SUCH_DOMAIN`
 

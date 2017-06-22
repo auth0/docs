@@ -28,7 +28,7 @@ In this section you will configure Auth0 to serve as an Identity Provider.  You 
 
 2. Click on the red **"+ CREATE CLIENT"** button on the right.
 
-3. In the **Name** field, enter a name like "MySAMLApp".
+3. In the **Name** field, enter a name like "MySAMLApp", and select the [client type](/clients/client-settings).
 
 4. Press the blue **"SAVE"** button.
 

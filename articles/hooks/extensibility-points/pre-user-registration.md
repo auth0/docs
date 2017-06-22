@@ -104,7 +104,7 @@ module.exports = function (user, context, cb) {
   }
 
   // else it is a non social login or it is not a signup
-  cb(null, response);
+  cb(null, user);
 }
 ```
 

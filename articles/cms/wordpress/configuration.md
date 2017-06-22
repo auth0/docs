@@ -84,7 +84,9 @@ Enable the supported social identity providers you want to allow users to login 
 * **Use passwordless login:** Enable this option to replace the login widget with Lock Passwordless.
 * **Widget URL:** The URL of to the latest available widget in the CDN.
 * **Connections:** List here each of the identity providers you want to allow users to login with. If left blank, all enabled providers will be allowed. (See [connections {Array}](/libraries/lock/customization#connections-array-) for more information.)
-**NOTE:** If you have enabled Passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
+  ::: note
+    If you have enabled Passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
+  :::
 * **Remember users session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days.
 * **Link users with same email:** This option enables the linking of accounts with the same verified e-mail address.
 * **Twitter consumer key and consumer secret:** The credentials from your Twitter app. For instructions on creating an app on Twitter, see [Obtain Consumer and Secret Keys for Twitter](/connections/social/twitter).

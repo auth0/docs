@@ -1,8 +1,7 @@
 ---
-  description: Using the Grant Types property on Clients
-  toc: true
+description: Using the Grant Types property on Clients
+toc: true
 ---
-
 # Client Grant Types
 
 Auth0 provides many authentication and authorization flows that suit your needs, and depending on your use case, you may wish to limit the use of certain grant types for a particular Client. Auth0 includes a `grant_types` property on each Client for this purpose.
@@ -63,11 +62,27 @@ Depending on whether a newly-created Client is **public** or **confidential**, t
 
 ### Public Clients
 
-Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. By default, Public Clients are created with the following `grant_types`:
+Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. 
+
+::: panel Token Endpoint Authentication Method
+You can update the `token_endpoint_auth_method` flag using the Management API's [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id).
+
+The `Token Endpoint Authentication Method` defines the token endpoint's requested authentication method, and the accepted values are:
+
+* `None`, for a public client without a client secret
+* `Post`, for a client using HTTP POST parameters
+* `Basic`, for a client using HTTP Basic parameters 
+:::
+
+By default, Public Clients are created with the following `grant_types`:
 
 * `implicit`;
 * `authorization_code`;
 * `refresh_token`.
+
+::: note
+Public clients **cannot** utilize the `client_credentials` grant type. To add this grant type to a Client, set the `token_endpoint_auth_method` to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Client is confidential, not public.
+:::
 
 ### Confidential Clients
 
