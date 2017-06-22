@@ -233,11 +233,19 @@ module.exports = [
     to: '/quickstart/native/xamarin'
   },
   {
-    from: '/quickstart/:platform/reactnative-ios',
+    from: '/quickstart/:platform/reactnative-ios/:backend?',
     to: '/quickstart/native/react-native'
   },
   {
-    from: '/quickstart/:platform/reactnative-android',
+    from: '/quickstart/:platform/reactnative-android/:backend?',
+    to: '/quickstart/native/react-native'
+  },
+  {
+    from: '/quickstart/native/react-native-ios',
+    to: '/quickstart/native/react-native'
+  },
+  {
+    from: '/quickstart/native/react-native-android',
     to: '/quickstart/native/react-native'
   },
 
