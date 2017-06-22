@@ -1176,5 +1176,33 @@ module.exports = [
   {
     from: '/rules/metadata-in-rules',
     to: '/rules/current/metadata-in-rules'
+  },
+  {
+    from: '/quickstart/native/ionic/02-custom-login',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/03-user-profile',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/04-linking-accounts',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/05-rules',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/06-authorization',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/08-mfa',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/09-customizing-lock',
+    to: '/quickstart/native/ionic'
   }
 ];
