@@ -2,24 +2,23 @@
   description: Using the Grant Types property on Clients
   toc: true
 ---
-
 # Client Grant Types
 
-Auth0 provides many authentication and authorization flows that suit your needs, and depending on your use case, you may wish to limit the use of certain grant types for a particular Client. Auth0 includes a `grant_types` property on each Client for this purpose.
+Auth0 provides many authentication and authorization flows to suit your needs. Depending on your use case, you may wish to limit the use of certain flows (or grant types as we will refer to them) for a particular client. This is controlled using the `grant_types` property that each client has.
 
 ## Grant Types
 
 ::: note
-Please refer to [Which OAuth 2.0 flow should I use?](https://auth0.com/docs/api-auth/which-oauth-flow-to-use) for help selecting the appropriate non-legacy grant type.
+Not sure which non-legacy grant type is appropriate for your use case? Refer to [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use) for help.
 :::
 
 The following is a list of grant types valid for Auth0 Clients. There are three possible types of authorization flows:
 
-* Auth0 extension;
-* Auth0 legacy;
-* Specification-conformant (such as OpenID Connect);
+* Grants that conform with specifications (such as [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html))
+* [Auth0 extension grants](https://tools.ietf.org/html/rfc6749#section-4.5)
+* Auth0 legacy grants
 
-The following is a list of Auth0 extension/OIDC specification-conformant `grant_types` that currently exist for use in Auth0:
+The following `grant_types`, are either OIDC-conformant (i.e. their implementation conforms to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html)) or Auth0 extension grants:
 
 * [Implicit Grant](/api-auth/grant/implicit): `implicit`
 * [Authorization Code Grant](/api-auth/grant/authorization-code): `authorization_code`
@@ -39,7 +38,7 @@ The following is a list of legacy `grant_types`:
 * `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
 * `http://auth0.com/oauth/legacy/grant-type/access_token`
 
-## Edit the `grant_types` Property
+## Edit available grant_types
 
 You can set the the `grant_types` property for your Auth0 Client using the Management Dashboard.
 
@@ -47,7 +46,7 @@ Begin by navigating to the [Clients page](${manage_url}/#/clients) of the Manage
 
 ![Auth0 Clients](/media/articles/clients/client-grant-types/clients.png)
 
-Click on the cog icon next to the Client you're interested in to launch its settings page.
+Click on the cog icon <i class="icon icon-budicon-329"> next to the Client you're interested in to launch its settings page.
 
 ![Auth0 Client Settings](/media/articles/clients/client-grant-types/client-settings.png)
 
@@ -55,17 +54,15 @@ Scroll down to the bottom of the settings page, and click **Advanced Settings**.
 
 ![Auth0 Client Advanced Settings](/media/articles/clients/client-grant-types/client-advanced-settings.png)
 
-Switch to the **Grant Types** tab and select the `grant_types` property for the Client.
+Switch to the **Grant Types** tab and enable or disable the respective grants for this client. Click **Save Changes**.
 
 ![Auth0 Client Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
 
-Click **Save Changes**.
-
-::: warning Legacy Grant Types
+::: warning
 As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Clients. Only customers as of 8 June 2017 can add legacy grant types to their existing Clients.
 :::
 
-Auth0 requires the `grant_types` property to use the various flows. Attempting to use *any* flow with a Client lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
+Attempting to use any flow with a client lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
 
 ```text
 Grant type `grant_type` not allowed for the client.
@@ -77,7 +74,7 @@ To avoid changes in functionality for current Auth0 customers, we will populate 
 
 ### New Clients
 
-Depending on whether a newly-created Client is **public** or **confidential**, the Client will have varying access to grant types.
+Depending on whether a newly-created Client is [public](/api-auth/client-types#public-clients) or [confidential](/api-auth/client-types#confidential-clients), the Client will have varying access to grant types.
 
 ### Public Clients
 
@@ -113,6 +110,10 @@ Trusted first-party clients can additionally use the following `grant_types`:
 * `http://auth0.com/oauth/grant-type/mfa-recovery-code`
 
 ## Secure Alternatives to the Legacy Grant Types
+
+| Legacy Grant Type | Alternative |
+|:-----|:----|
+|Resource Owner Password Credentials flow (http://auth0.com/oauth/legacy/grant-type/ro) | https://${account.namespace}/api/connections | Use the [/oauth/token](/api/authentication#authorization-code) endpoint with a grant type of `password`. See [Resource Owner Password Credentials Exchange](/api-auth/tutorials/adoption/password) and [Executing the Resource Owner Password Grant](/api-auth/tutorials/password-grant) for additional information. |
 
 <!-- markdownlint-disable MD033 -->
 
@@ -155,7 +156,7 @@ Those implementing Passwordless Authentication should use hosted login pages ins
 Only Auth0 customers as of 8 June 2017 may enable a legacy grant type for existing Clients.
 :::
 
-To enable a legacy grant type, you will need to make the appropriate `PATCH` call to the [Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) of the [Management API](/api/management/v2).
+To enable a legacy grant type, you will need to update the `grant_types` property for you client, so it can be used. For details on how to do so refer to [Edit the grant_types Property](#edit-the-grant_types-property).
 
 ::: note
 If you are a new customer and you are interested in using a legacy flow, please [contact Support for assistance](https://support.auth0.com/).
