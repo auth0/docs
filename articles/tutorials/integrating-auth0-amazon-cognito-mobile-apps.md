@@ -11,7 +11,7 @@ This document will explain how you can integrate your app with two solutions: Au
 
 ### Create a new OpenID Connect Provider
 
-The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 **domain** (`${account.namespace`}) and your **clientId** these values can be found in the [Settings of your chosen Client](${manage_url}/#/clients/). These values will be used to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home).
+The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 **domain** (`${account.namespace}`) and your **clientId** these values can be found in the [Settings of your chosen Client](${manage_url}/#/clients/). These values will be used to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home).
 
 1. In the [IAM Console](https://console.aws.amazon.com/iam/home) click on the **Identity Providers** link in the left sidebar. Click the **Create Provider** button.
 
