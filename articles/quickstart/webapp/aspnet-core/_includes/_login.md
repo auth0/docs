@@ -107,7 +107,7 @@ var options = new OpenIdConnectOptions("Auth0")
     {
         OnRedirectToIdentityProvider = context =>
         {
-            context.ProtocolMessage.SetParameter("audience", "YOUR_API_IDENTIFIER");
+            context.ProtocolMessage.SetParameter("audience", "${apiIdentifier}");
 
             return Task.FromResult(0);
         }

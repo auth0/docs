@@ -30,8 +30,10 @@ All of Auth0's custom code features (rules, custom database scripts, custom OAut
 In the vast majority of cases, Webtask code is also valid Node.js code or can be adapted with minimal effort.
 All libraries available on Webtask are also available on npm for use with standard Node.js code.
 
-## Further reading
+## Keep reading
 
+::: next-steps
 * [Auth0 privacy policy](https://auth0.com/privacy)
 * [Availability and trust](https://auth0.com/availability-trust)
 * [Data security and confidentiality policies](https://auth0.com/security)
+:::

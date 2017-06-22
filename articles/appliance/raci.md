@@ -50,13 +50,10 @@ The following RACI Matrix provides a more in-depth summary of the roles and resp
 
 ## Further Reading
 
-For more information about the Appliance, see:
-
+::: next-steps
 * [Overview](/appliance/appliance-overview )
 * [Infrastructure](/appliance/infrastructure)
-* [Dashboard](/appliance/dashboard)
-* [Monitoring](/appliance/monitoring)
 * [Disaster Recovery](/appliance/disaster-recovery)
-* [Command-Line Interface (CLI)](/appliance/cli)
 * [Enterprise Support](/onboarding/enterprise-support)
 * [Critical Support Issues Guidance](/appliance/critical-issue)
+:::

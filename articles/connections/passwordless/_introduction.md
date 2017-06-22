@@ -1,5 +1,3 @@
-# Passwordless Authentication
-
 Passwordless connections in Auth0 allow users to login without the need to remember a password. 
 
 This improves the user experience, especially on mobile applications, since users will only need an <% if (withFingerprint) { %> email address, phone number or fingerprint <% } else { %> email address or phone number <% } %> to register for your application.

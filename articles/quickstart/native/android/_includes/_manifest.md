@@ -27,7 +27,7 @@ Add the following code to your project's `AndroidManifest.xml`. This will ask fo
 
 It's very important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
 
-The URL defined in the intent-filter will be called from the browser whenever you perform a successful web authentication. This URL must be whitelisted in the "Allowed Callback URLs" section of the [Client settings](https://manage.auth0.com/#/clients) and it should look similar to this:
+The URL defined in the intent-filter will be called from the browser whenever you perform a successful web authentication. This URL must be whitelisted in the "Allowed Callback URLs" section of the [Client settings](${manage_url}/#/clients) and it should look similar to this:
 
 ```text
 demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback

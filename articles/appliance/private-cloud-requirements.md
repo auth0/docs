@@ -24,6 +24,4 @@ If your subscription agreement includes an Appliance that is hosted in a dedicat
 
 ## Further Reading
 
-* [DNS](/appliance/infrastructure/dns)
-* [DNS Records](/appliance/infrastructure/network#dns-records)
 * [Custom Domains on the Appliance](/appliance/custom-domains) 

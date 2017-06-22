@@ -1,7 +1,6 @@
 ---
 description: You can add step-up authentication to your app with Authentication Context Class Reference
 ---
-
 # Step-Up Authentication
 
 With Step-Up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.
@@ -22,7 +21,7 @@ There are three core concepts used when addressing authentication level at Auth0
 
 * `acr_values`: this is a space-separated string that specifies the `acr` values that have been requested to use for processing the request, with the values appearing in order of preference. This can be used to request the class of `acr` above when authentication is to be performed.  See [here](http://openid.net/specs/openid-connect-core-1_0.html) for more details.
 
-`acr` and `amr` are both available on the `id_token` of the current session, when appropriate. Both can signal to use MFA. The `acr_values` field is added to the request for authentication.
+`acr` and `amr` are both available on the [ID token](/tokens/id-token) of the current session, when appropriate. Both can signal to use MFA. The `acr_values` field is added to the request for authentication.
 
 ## Example
 
@@ -66,15 +65,11 @@ if(decoded.acr !== 'http://schemas.openid.net/pape/policies/2007/06/multi-factor
 
 More example code with the step-up functionality can be found [here](https://github.com/auth0/guardian-example).
 
-## Further Reading
+## Keep reading
 
-* [Multifactor Authentication in Auth0](/multifactor-authentication)
-* [Auth0 id_token](/tokens/id_token)
-* [Overview of JSON Web Tokens](/jwt)
+::: next-steps
 * [Reference for acr, amr and acr_values](http://openid.net/specs/openid-connect-core-1_0.html)
 * [Authentication policy definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
 * [JSON Web Token Example](https://github.com/auth0/node-jsonwebtoken)
 * [Guardian example (with step-up functionality)](https://github.com/auth0/guardian-example)
-
-
-
+:::

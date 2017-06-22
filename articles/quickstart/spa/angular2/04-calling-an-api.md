@@ -28,7 +28,7 @@ Pass the API identifier for your newly created API as the `audience` value in yo
 
 auth0 = new auth0.WebAuth({
   // ...
-  audience: '{YOUR_API_IDENTIFIER}',
+  audience: '${apiIdentifier}',
   scope: 'openid profile read:messages'
 });
 ```

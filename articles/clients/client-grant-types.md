@@ -1,6 +1,6 @@
 ---
-  description: Using the Grant Types property on Clients
-  toc: true
+description: Using the Grant Types property on Clients
+toc: true
 ---
 # Client Grant Types
 
@@ -78,7 +78,7 @@ Depending on whether a newly-created Client is [public](/api-auth/client-types#p
 
 ### Public Clients
 
-Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications.
+Public Clients, indicated by the `token_endpoint_auth_method` flag set to `none`, are those created in the Dashboard for Native and Single Page Applications. 
 
 ::: panel Token Endpoint Authentication Method
 The `Token Endpoint Authentication Method` defines how a client authenticates against the [token endpoint](/api/authentication#authorization-code). Its valid values are:

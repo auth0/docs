@@ -55,7 +55,7 @@ server.register(jwt, err => {
       jwksUri: `https://${account.namespace}/.well-known/jwks.json`
     }),
     verifyOptions: {
-      audience: '{API_ID}',
+      audience: '${apiIdentifier}',
       issuer: `https://${account.namespace}/`,
       algorithms: ['RS256']
     },
