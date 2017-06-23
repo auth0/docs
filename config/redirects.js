@@ -1216,5 +1216,9 @@ module.exports = [
   {
     from: '/quickstart/backend/falcor/00-getting-started',
     to: '/quickstart/backend/falcor'
+  },
+  {
+    from: '/quickstart/backend/golang/00-getting-started',
+    to: '/quickstart/backend/golang'
   }
 ];
