@@ -303,6 +303,16 @@ articles:
       - title: "Breached Passwords"
         url: "/anomaly-detection/breached-passwords"
 
+  - title: "Analytics"
+    url: "/analytics/integrations"
+    children:
+
+      - title: "Facebook Analytics"
+        url: "/analytics/integrations/facebook-analytics"
+
+      - title: "Google Analytics"
+        url: "/analytics/integrations/google-analytics"
+
   - title: "Addons/Third-Party Apps"
     url: "/addons"
     children:
