@@ -1224,5 +1224,9 @@ module.exports = [
   {
     from: '/quickstart/backend/hapi/00-getting-started',
     to: '/quickstart/backend/hapi'
+  },
+  {
+    from: '/quickstart/backend/java-spring-security/00-getting-started',
+    to: '/quickstart/backend/java-spring-security'
   }
 ];
