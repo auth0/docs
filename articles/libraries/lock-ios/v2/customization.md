@@ -33,7 +33,7 @@ Blur effect style used. It can be any value defined in `UIBlurEffectStyle`.
 
 ```swift
 .withStyle {
-  $0.headerBlur = UIBlurEffectStyle = .light
+  $0.headerBlur = .extraLight
 }
 ```	
 
