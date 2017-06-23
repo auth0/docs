@@ -37,9 +37,23 @@ The NuGet package also created three settings on `<appSettings>`. Replace those 
 
 ${snippet(meta.snippets.setup)}
 
-## 4.Trigger Login Manually or Integrating Lock
+## 4. Integrating Auth0.js
 
-<%= include('../../../_includes/_lock-sdk') %>
+```html
+<script src="http://cdn.auth0.com/js/auth0/8.7/auth0.min.js"></script>
+<script type="text/javascript">
+var webAuth = new auth0.WebAuth({
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}',
+  redirectUri: 'http://localhost:4987/LoginCallback.ashx',
+  audience: 'https://${account.namespace}/userinfo',
+  responseType: 'code',
+  scope: 'openid profile'
+});
+</script>
+<button onclick="webAuth.authorize();">Log In</button>
+```
+
 
 ## 5. Access User Information
 
@@ -49,11 +63,11 @@ Once the user successfully authenticated to the application, a `ClaimsPrincipal`
 // Controllers/HomeController.cs
 public ActionResult Index()
 {
-  string email = ClaimsPrincipal.Current.FindFirst("email").Value;
+  string email = ClaimsPrincipal.Current.FindFirst("nickname").Value;
 }
 ```
 
-The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](/user-profile).
+The user profile is normalized regardless of where the user came from. We will always include these: `name`, `nickname`, `picture` and `updated_at`. For more information about the user profile [read this](/user-profile).
 
 ## 6. Further Reading
 
