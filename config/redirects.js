@@ -1208,5 +1208,9 @@ module.exports = [
   {
     from: '/quickstart/backend/nodejs/00-getting-started',
     to: '/quickstart/backend/nodejs'
+  },
+  {
+    from: '/quickstart/backend/aspnet-core-webapi/00-getting-started',
+    to: '/quickstart/backend/aspnet-core-webapi'
   }
 ];
