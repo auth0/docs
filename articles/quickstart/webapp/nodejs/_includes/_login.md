@@ -1,34 +1,50 @@
-## Install the Middleware Dependencies
+## Add New Dependencies
 
-Install the necessary middelwares.
+Run the following commands to install the required dependencies:
 
 ```bash
-# installation with npm
-npm install passport passport-auth0 connect-ensure-login --save
+# Authentication middleware
+npm install passport --save
 
-# installation with yarn
-yarn add passport passport-auth0 connect-ensure-login
+# Auth0 strategy for Passport.js
+npm install passport-auth0 --save
+
+# Simple helper middleware to ensure the user is authenticated
+npm install connect-ensure-login --save
 ```
 
-## Configure the Middleware
+## Add Requires and Initialize Passport Configuration
 
-Provide your Auth0 client details as configuration values for an instance of `Auth0Strategy`. Tell **passport** to use the strategy.
+First, we need to require `passport` and `passport-auth0` in `app.js`.
 
 ```js
 // app.js
 
-const passport = require('passport');
-const Auth0Strategy = require('passport-auth0');
+...
+
+var passport = require('passport');
+var Auth0Strategy = require('passport-auth0');
+
+...
+```
+
+Next, we need to set up and configure Passport to use the Auth0 strategy.
+
+```js
+// app.js
 
 // Configure Passport to use Auth0
-const strategy = new Auth0Strategy({
-  domain: '${account.namespace}',
-  clientID: '${account.clientId}',
-  clientSecret: 'YOUR_CLIENT_SECRET',
-  callbackURL:  'http://localhost:3000/callback'
-}, (accessToken, refreshToken, extraParams, profile, done) => {
-  return done(null, profile);
-});
+var strategy = new Auth0Strategy({
+    domain:       process.env.AUTH0_DOMAIN,
+    clientID:     process.env.AUTH0_CLIENT_ID,
+    clientSecret: process.env.AUTH0_CLIENT_SECRET,
+    callbackURL:  process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
+  }, function(accessToken, refreshToken, extraParams, profile, done) {
+    // accessToken is the token to call Auth0 API (not needed in the most cases)
+    // extraParams.id_token has the JSON Web Token
+    // profile has all the information from the user
+    return done(null, profile);
+  });
 
 passport.use(strategy);
 
@@ -40,46 +56,100 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
-
-// ...
-app.use(passport.initialize());
-app.use(passport.session());
 ```
 
-## Trigger Authentication
+## Configure the Middlewares
 
-Auth0's hosted login page can be used to allow users to log in.
+Add the following middlewares to your app:
 
-Add a route called `/login` and pass an `env` object with the **Client ID**, **Domain**, and **Callback URL** for your client to it.
+```js
+// app.js
+
+...
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+...
+```
+
+## Add Route Handlers
+
+The route handlers will be created in the next step. In preparation for that, require `./routes/user` in `app.js`.
+
+```js
+// app.js
+
+...
+
+var user = require('./routes/user');
+
+...
+```
+
+## Authenticate Using Lock
+
+Using Auth0's Lock widget is the simplest and most robust way of handling user logins. Client side, the `Auth0Lock` library will initiate the login process and once the user is authenticated with the chosen provider, the useragent will perform a redirect to the URL specified in `AUTH0_CALLBACK_URL`. This URL will be picked up by Passport.js.
+
+We will need to add a few routes for the application, including: `/login` `/logout'` `/callback` and `/user`. We will also need template files for `login` and `user`.
 
 ```js
 // routes/index.js
 
-const env = {
-  AUTH0_CLIENT_ID: '${account.clientId}',
-  AUTH0_DOMAIN: '${account.namespace}',
-  AUTH0_CALLBACK_URL: 'http://localhost:3000/callback'
-};
-
 // Render the login template
-router.get('/login', (req, res) => {
-  res.render('login', { env });
-});
+router.get('/login',
+  function(req, res){
+    res.render('login', { env: process.env });
+  });
 
 // Perform session logout and redirect to homepage
-router.get('/logout', (req, res) => {
+router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
 
 // Perform the final stage of authentication and redirect to '/user'
 router.get('/callback',
-  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }), (req, res) => {
+  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
+  function(req, res) {
     res.redirect(req.session.returnTo || '/user');
   });
 ```
 
-Create a view for the `/login` route. The view should instantiate `auth0.WebAuth` and call its `authorize` method to redirect the user to Auth0's hosted login page.
+After the authetication is complete, the `user` page should be displayed. Add a new file called `routes/user.js`.
+
+```js
+// routes/user.js
+
+var express = require('express');
+var passport = require('passport');
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
+var router = express.Router();
+
+// Get the user profile
+router.get('/', ensureLoggedIn, function(req, res, next) {
+  res.render('user', { user: req.user });
+});
+
+module.exports = router;
+```
+
+We can now add some template files for these pages. Start with a base template called `layout.pug`. The CDN link to Auth0's Lock widget can be placed here. Alternatively, may prefer to place this `script` tag in another layout which places it after the `head` of the page.
+
+```pug
+// views/layout.pug
+
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="${lock_url}")
+  body
+    block content
+```
+
+Next, create the `login` view.
 
 ```pug
 // views/login.pug
@@ -91,18 +161,31 @@ block content
   div(id="root" style="width: 280px; margin: 40px auto; padding: 10px;")
 
   script.
-    const webAuth = new auth0.WebAuth({
-      clientID: '#{env.AUTH0_CLIENT_ID}',
-      domain: '#{env.AUTH0_DOMAIN}',
-      redirectUri: '#{env.AUTH0_CALLBACK_URL}',
-      responseType: 'code',
-      scope: 'openid'
-    });
-    webAuth.authorize();
+    // Construct an instance of Auth0Lock with your clientId and aut0 domain name
+    var lock = new Auth0Lock('#{env.AUTH0_CLIENT_ID}', '#{env.AUTH0_DOMAIN}',{ auth: {
+          redirectUrl: '#{env.AUTH0_CALLBACK_URL}'
+        , responseType: 'code'
+        , params: {
+          scope: 'openid name email picture'
+        }
+      }});
+
+    // Show lock's login widget
+    lock.show();
 ```
 
-![hosted login](/media/articles/web/hosted-login.png)
+::: note
+Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL for the callback route.
+:::
 
-## Embedded Login
+In `views/user.pug` we simply display the user's nickname and profile picture.
 
-Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the hosted login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/tree/embedded-login/01-Embedded-Login).
+```pug
+extends layout
+
+block content
+  img(src="#{user.picture}")
+  h2 Welcome #{user.nickname}!
+  br
+  a(href='/logout') Logout
+```
