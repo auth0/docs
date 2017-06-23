@@ -137,9 +137,22 @@ public class HelloService : Service
 Notice we are not doing anything useful with these properties. You can place a breakpoint here and explore the session object.
 :::
 
-## Triggering Login Manually or Integrating Lock
+## Integrate auth0.js
 
-<%= include('../../../_includes/_lock-sdk') %>
+```html
+<script src="https://cdn.auth0.com/js/auth0/8.7/auth0.min.js"></script> 
+<script type="text/javascript">
+  var webAuth = new auth0.WebAuth({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    redirectUri: '${account.callback}',
+    audience: `https://${account.namespace}/userinfo`,
+    responseType: 'code',
+    scope: 'openid profile'
+  });
+</script>
+<button onclick="webAuth.authorize();">Log On</button>
+```
 
 ## Add UI Code to Login and Invoke the `HelloService`
 
