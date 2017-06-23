@@ -1212,5 +1212,9 @@ module.exports = [
   {
     from: '/quickstart/backend/aspnet-core-webapi/00-getting-started',
     to: '/quickstart/backend/aspnet-core-webapi'
+  },
+  {
+    from: '/quickstart/backend/falcor/00-getting-started',
+    to: '/quickstart/backend/falcor'
   }
 ];
