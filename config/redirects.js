@@ -1220,5 +1220,9 @@ module.exports = [
   {
     from: '/quickstart/backend/golang/00-getting-started',
     to: '/quickstart/backend/golang'
+  },
+  {
+    from: '/quickstart/backend/hapi/00-getting-started',
+    to: '/quickstart/backend/hapi'
   }
 ];
