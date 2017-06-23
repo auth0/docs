@@ -29,3 +29,10 @@ default_article: dashboard-default
 articles:
   - 00-intro
   - 01-login
+  - 02-custom-login
+  - 03-user-profile
+  - 04-linking-accounts
+  - 05-rules
+  - 06-authorization
+  - 08-mfa
+  - 09-customizing-lock
