@@ -1204,5 +1204,9 @@ module.exports = [
   {
     from: '/quickstart/native/ionic/09-customizing-lock',
     to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/backend/nodejs/00-getting-started',
+    to: '/quickstart/backend/nodejs'
   }
 ];
