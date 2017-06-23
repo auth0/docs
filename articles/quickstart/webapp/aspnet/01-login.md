@@ -40,7 +40,7 @@ ${snippet(meta.snippets.setup)}
 ## 4. Integrating Auth0.js
 
 ```html
-<script src="http://cdn.auth0.com/js/auth0/8.7/auth0.min.js"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
 var webAuth = new auth0.WebAuth({
   domain: '${account.namespace}',
