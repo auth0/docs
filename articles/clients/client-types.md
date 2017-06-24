@@ -2,7 +2,7 @@
 title: Public and confidential, first vs. third-party clients
 ---
 
-# Client and Application Types
+# Client Types
 
 <%= include('../_includes/_pipeline2') %>
 

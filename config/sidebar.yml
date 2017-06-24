@@ -68,6 +68,9 @@ articles:
       - title: Connections
         url: /clients/connections
 
+      - title: Client Types
+        url: /clients/client-types
+
   - title: "APIs"
     url: "/apis"
     children:
