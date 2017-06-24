@@ -1,0 +1,1 @@
+# Client Settings: Regular Web Applications

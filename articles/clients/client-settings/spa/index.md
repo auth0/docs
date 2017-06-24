@@ -1,0 +1,1 @@
+# Client Settings: Single Page Applications

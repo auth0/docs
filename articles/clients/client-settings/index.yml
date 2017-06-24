@@ -1,0 +1,13 @@
+versioning:
+  baseUrl: clients/client-settings
+  current: native
+  versions:
+    - native
+    - spa
+    - web-app
+    - nic
+  defaultArticles:
+    native: index
+    spa: index
+    web-app: index
+    nic: index
