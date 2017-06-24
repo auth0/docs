@@ -8,9 +8,9 @@ An Auth0 **client** represents your application and allows use of Auth0 for auth
 
 ## Client Types
 
-:: note
+::: note
 Auth0 differentiates between [public and private clients](/clients/client-types#confidential-vs-public-clients), as well as [first- vs. third-party clients](/clients/client-types#first-vs-third-party-clients).
-::
+:::
 
 There are four client types in Auth0. Depending on which type you choose, you'll see [different settings you can configure](/clients/client-settings).
 
