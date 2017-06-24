@@ -19,7 +19,6 @@ You can choose from one of four options:
 
 By default, the [settings](${manage_url}/#/clients/${account.clientId}/settings) include the following:
 
-
 - **Name**: The name of your client. This information is editable and you will see in the portal, emails, logs, and so on.
 
 - **Domain**: Your Auth0 account name. Note that the domain name is chosen when you create a new Auth0 account and cannot be changed. If you need a different one you have to register for a new account by selecting *New Account* at the top right menu.
@@ -59,5 +58,19 @@ The **Advanced Settings** section allows you to:
 * Set the grant type(s) for the Client
 
 ![Advanced Client Settings Page](/media/articles/clients/advanced-settings.png)
+
+#### Application Metadata
+
+#### Mobile Settings
+
+#### OAuth
+
+#### Grant Types
+
+#### WS-Federation
+
+#### Certificates
+
+Endpoints
 
 Regardless of which Client Type you choose, this area is the same. The exception is for Clients of type **Non Interactive Clients** or **Regular Web Page Applications**; both, under the OAuth tab, show a **Trust Token Endpoint IP Header** setting. By enabling this setting, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint.
