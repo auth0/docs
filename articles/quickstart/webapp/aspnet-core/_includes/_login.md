@@ -90,7 +90,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large `id_token` being returned. It is suggested that you be more explicit about the scopes you want to be returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/05-user-profile). 
+Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large `id_token` being returned. It is suggested that you be more explicit about the scopes you want to be returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/04-user-profile). 
 
 ### Obtaining an Access Token for calling an API
 
