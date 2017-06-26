@@ -50,7 +50,7 @@ It is quite common for access tokens to be implemented as [JSON Web Tokens](/jwt
 ::: panel What are Scopes?
 Each access token may include a list of the permissions that have been granted to the client. When a client authenticates with Auth0, it will specify the list of scopes (or permissions) it is requesting. If those scopes are authorized, then the access token will contain a list of authorized scopes.
 
-For example, the timesheet API may accept four different levels of authorization: reading timesheets (scope `read:timesheets`), creating timesheets (scope `create:timesheets`), deleting timesheets (scope `delete:timesheets`) and approving timesheets (scope `approve:timesheets`).
+For example, the timesheet API may accept different levels of authorization: reading timesheets (scope `read:timesheets`), creating timesheets (scope `create:timesheets`), deleting timesheets (scope `delete:timesheets`) and approving timesheets (scope `approve:timesheets`). You can also create a scope for batch processes such as the timesheet uploading client, e.g. `batch:upload`.
 
 When a client asks the API to create a new timesheet entry, then the access token should contain the `create:timesheets` scope. In a similar fashion, in order to delete existing timesheets, the access token should contain the `delete:timesheets` scope.
 :::
@@ -81,7 +81,6 @@ For situations like this where there is no user interaction involved, the Client
 1. The Client authenticates with the Authorization Server using its Client Id and Client Secret.
 1. The Authorization Server validates this information and returns an `access_token`.
 1. The Client can use the `access_token` to call the Resource Server on behalf of itself.
-
 
 ## Auth0 Configuration
 
@@ -127,10 +126,10 @@ For a more detailed overview of the JWT signing algorithms refer to: [JSON Web T
 
 Once the client has been created you will need to configure the Scopes which clients can request during authorization.
 
-In the settings for your API, go to the *Scopes* tab. In this section you can add all four of the scopes which was discussed before, namely `read:timesheets`, `create:timesheets`, `delete:timesheets`, `approve:timesheets`.
+In the settings for your API, go to the *Scopes* tab. In this section you can add all four of the scopes which was discussed before, namely `batch:upload`, `read:timesheets`, `create:timesheets`, `delete:timesheets`, `approve:timesheets`.
 
 ::: note
-  For the purposes of this document we will only be ever concerned with the `create:timesheets` scope, as that is all that is required by the Cron job. For completeness sake we are however adding the necessary scopes which will be required by future clients as well.
+  For the purposes of this document we will only be ever concerned with the `batch:upload` scope, as that is all that is required by the Cron job. For completeness sake we are however adding the necessary scopes which will be required by future clients as well.
 :::
 
 ![Add Scopes](/media/articles/architecture-scenarios/server-api/add-scopes.png)
@@ -157,9 +156,9 @@ You will see the **Timesheets Import Job** client listed, and it should have acc
 
 You will also need to specify which scopes will be included in access tokens which are issued to the client when the client authorizes with Auth0.
 
-Expand the settings for the client by clicking on the down arrow to the far right, and you will see the list of available scopes. The cron job will only require the `create:timesheets` scope as it will simply create new timesheets based on the timesheet entries in the external system.
+Expand the settings for the client by clicking on the down arrow to the far right, and you will see the list of available scopes. The cron job will only require the `batch:upload` scope as it will simply create new timesheets based on the timesheet entries in the external system.
 
-Once you have selected the `create:timesheets` scope you can save the settings by clicking the **Update** button.
+Once you have selected the `batch:upload` scope you can save the settings by clicking the **Update** button.
 
 ![Assign Scopes](/media/articles/architecture-scenarios/server-api/assign-scopes.png)
 
@@ -189,12 +188,10 @@ The API will expect a JSON object as input, containing the timesheet information
 
 ```json
 {
-  'user_type': 'Employee',
   'user_id': '007',
-  'year': 2016,
-  'week': 24,
+  'date': '2017-05-10T17:40:20.095Z',
   'project': 'StoreZero',
-  'hours': 40
+  'hours': 5
 }
 ```
 
@@ -239,7 +236,7 @@ Now we have secured our API's endpoint with an access token but we still haven't
 
 As discussed earlier in this doc, each access token may include a list of the permissions that have been granted to the client. These permissions are defined using the scope request parameter. For more information on how to configure this refer to the [Configure the Scopes](#configure-the-scopes) paragraph.
 
-For our endpoint we will require the scope `create:timesheets`.
+For our endpoint we will require the scope `batch:upload`.
 
 ::: note
   See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions)
