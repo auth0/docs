@@ -71,4 +71,4 @@ The `state` parameter is an arbitrary state value that will be mantained across 
 
 ### audience {string}
 
-The default audience to be used for requesting API access. This indicates the intended recipient of the request. When you [create an api](/apis) you define an audience. This used when generating an access token during authorization.
+The default audience to be used for requesting API access. This indicates the intended recipient of the request. When you [create an api](/apis) you define an audience. This is used when generating an access token during authorization.
