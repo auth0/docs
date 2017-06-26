@@ -1,5 +1,6 @@
 ---
 description: Client settings for Non Interactive Clients
+url: /clients/client-settings/non-interactive
 toc: true
 ---
 

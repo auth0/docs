@@ -1,5 +1,6 @@
 ---
 description: Client settings for Native Clients
+url: /clients/client-settings/native
 toc: true
 ---
 

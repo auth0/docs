@@ -1,5 +1,6 @@
 ---
 description: Client settings for SPA Clients
+url: /clients/client-settings/single-page-application
 toc: true
 ---
 
