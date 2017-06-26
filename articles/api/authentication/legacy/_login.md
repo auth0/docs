@@ -168,7 +168,7 @@ curl --request POST \
 }) %>
 
 ::: warning
-This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password](#resource-owner-password) and [Authorization](#authorization-code-grant) Grants. For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro). Please contact [Support](support.auth0.com) if you need assistance choosing the correct grant.
 :::
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
