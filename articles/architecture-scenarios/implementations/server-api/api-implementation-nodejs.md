@@ -3,16 +3,15 @@ title: "Server Client + API: Node.js Implementation for the API"
 description: The Node.js implementation of the API for the Server Client + API architecture scenario
 url: /architecture-scenarios/application/server-api/api-implementation-nodejs
 ---
-
 # Server Client + API: Node.js Implementation for the API
 
 ::: panel Server + API Architecture Scenario
-This document is part of the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api) and it explains how to implement the API in Node.js. Please refer to the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api) document for information on the implemented solution.
+This document is part of the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api) and it explains how to implement the API in Node.js. Please refer to the scenario for information on the implemented solution.
 :::
 
 Full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-api/node).
 
-## Define the API endpoints
+## 1. Define the API endpoint
 
 We will use the [Express web application framework](http://expressjs.com/) to build our Node.js API.
 
@@ -46,7 +45,7 @@ Our sample’s `package.json` looks like the following:
 }
 ```
 
-### Set the Dependencies
+### Install the Dependencies
 
 Next, we need to set our dependencies. We will use the following modules:
 
@@ -58,48 +57,52 @@ Next, we need to set our dependencies. We will use the following modules:
 
 - **body-parser**: This is a Node.js body parsing middleware. It extracts the entire body portion of an incoming request stream and exposes it on `req.body` as something easier to interface with.For more information and several alternatives refer to the body-parser GitHub repository.
 
-
 To install these dependencies run the following:
 
 ```bash
 npm install express express-jwt jwks-rsa body-parser --save
 ```
 
-### Implement the Endpoints
+### Implement the Endpoint
 
 Navigate to your API directory and create a `server.js` file. Your code needs to:
-- Get the dependencies.
-- Implement the endpoint(s).
+- Set the dependencies.
+- Enable the request body parsing middleware.
+- Implement the endpoint.
 - Launch the API server.
 
 This is our sample implementation:
 
 ```js
 // set dependencies
-const Express = require('express');
+const express = require('express');
+const app = express();
 const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 const bodyParser = require('body-parser');
 
-// Initialize the app
-const app = new Express();
+// enable the use of request body parsing middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-// create timesheets API endpoint
-app.post('/timesheet', function(req, res){
-  res.status(201).send({message:”This is the POST /timesheet endpoint”});
+// create timesheets upload API endpoint
+app.post('/timesheets/upload', function(req, res){
+  res.status(201).send({message: "This is the POST /timesheets/upload endpoint"});
 })
 
 // launch the API Server at localhost:8080
 app.listen(8080);
 ```
 
-Launch your API server using `node server` and navigate to `localhost:8080/timesheet`. You should see a JSON response with the `This is the POST /timesheet endpoint` message.
+Launch your API server using `node server` and make an HTTP POST request to `localhost:8080/timesheets/upload`. You should see a JSON response with a message `This is the POST /timesheets/upload endpoint`.
 
 So now we have our endpoint but anyone can call it. Continue to the next paragraph to see how we can fix this.
 
-## Secure the API endpoints
+## 2. Secure the API endpoint
 
-In order to validate our token we will use the `jwt` function, provided by the [express-jwt middleware](https://github.com/auth0/express-jwt#usage), and the `jwks-rsa` to retrieve our secret. The libraries do the following:
+In order to validate our token we will use the `jwt` function, provided by the [express-jwt middleware](https://github.com/auth0/express-jwt#usage), and the `jwks-rsa` package to retrieve the public key from Auth0. The libraries do the following:
 
 1. `express-jwt` will decode the token and pass the request, the header and the payload to `jwksRsa.expressJwtSecret`.
 
@@ -110,102 +113,82 @@ In order to validate our token we will use the `jwt` function, provided by the [
 The steps we will follow in our code are:
 - Create the middleware function to validate the access token.
 - Enable the use of the middleware in our routes.
-- If the validation fails return an appropriate error message.
 
-This is our sample implementation (some code is omitted for brevity):
+This is also a good time for you to implement the logic to save the timesheet entries to a local database, or whatever other storage mechanism you may prefer. This is our sample implementation (some code is omitted for brevity):
 
 ```js
 // set dependencies - code omitted
 
-// Initialize the app - code omitted
+// enable the use of request body parsing middleware - code omitted
 
-// validate the access token and enable the use of the jwtCheck middleware
-app.use(jwt({
-  // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint
+// Create middleware for checking the JWT
+const checkJwt = jwt({
+  // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint.
   secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `https://{YOUR_AUTH0_DOMAIN}/.well-known/jwks.json`
+    jwksUri: `https://${account.namespace}/.well-known/jwks.json`
   }),
 
-
-  // Validate the audience and the issuer
-  audience: '{YOUR_API_IDENTIFIER}',
-  issuer: 'https://{YOUR_AUTH0_DOMAIN}/',
-  algorithms: [ 'RS256' ]
-}));
-
-// return error message for unauthorized requests
-app.use(function (err, req, res, next) {
-  if (err.name === 'UnauthorizedError') {
-    res.status(401).json({message:'Missing or invalid token'});
-  }
+  // Validate the audience and the issuer.
+  audience: process.env.AUTH0_AUDIENCE,
+  issuer: `https://${account.namespace}/`,
+  algorithms: ['RS256']
 });
 
-// create timesheets API endpoint - code omitted
+// create timesheets API endpoint
+app.post('/timesheets/upload', checkJwt, function(req, res){
+  var timesheet = req.body;
+
+  // Save the timesheet entry to the database...
+
+  //send the response
+  res.status(201).send(timesheet);
+})
 
 // launch the API Server at localhost:8080 - code omitted
 ```
 
-If we launch our server now and navigate to `localhost:8080/timesheet` we should get the error message `Missing or invalid token` (which is perfectly fine since we didn’t send an access token in our request).
+If we launch our server now and do an HTTP POST to `localhost:8080/timesheets/upload` we should get the error message `Missing or invalid token` (which is perfectly fine since we didn’t send an access token in our request).
 
 In order to test the working scenario as well we need to:
 - Get an access token. For details on how to do so refer to: [Get an Access Token](/architecture-scenarios/application/server-api#get-an-access-token).
 - Invoke the API while adding an `Authorization` header to our request with the value `Bearer ACCESS_TOKEN` (where *ACCESS_TOKEN* is the value of the token we retrieved in the first step).
 
-## Check the Client permissions
+## 3. Check the Client permissions
 
-In this step we will add to our implementation the ability to check if the client has permissions to use our endpoint in order to create a timesheet. We will look at the decoded JWT and see if the token has the correct scope, which is `create:timesheets`. If it doesn’t we will send an appropriate message, otherwise we will retrieve some of the request info and echo back the successful result.
+In this step we will add to our implementation the ability to check if the client has permissions (i.e. `scope`) to use our endpoint in order to upload a timesheet. In particular we want to ensure that the token has the correct scope, which is `batch:upload`. 
 
+In order to do this we will make use of the `express-jwt-authz` Node.js package, so go ahead and add that to your project:
 
-This is our sample implementation (some code is omitted for brevity):
+```bash
+npm install express-jwt-authz --save
+```
+
+Now it is as simple as adding a call to `jwtAuthz(...)` to your middleware to ensure that the JWT contain a particular scope in order to execute a particular endpoint. This is our sample implementation (some code is omitted for brevity):
 
 ```js
-// set dependencies - code omitted
+// set dependencies - some code omitted
+const jwtAuthz = require('express-jwt-authz');
 
-// Initialize the app - code omitted
+// Create middleware for checking the JWT
 
-// validate the access token and enable the use of the jwtCheck middleware - code omitted
-
-//middleware to check scopes
-const checkPermissions = function(req, res, next){
-  switch(req.path){
-    case '/timesheet':{
-      var permissions = ['create:timesheets'];
-      for(var i = 0; i < permissions.length; i++){
-        if(req.user.scope.includes(permissions[i])){
-          next();
-        } else {
-          res.status(403).send({message:'Forbidden'});
-        }
-      }
-      break;
-    }
-  }
-}
-
-// enable the use of the jwtCheck middleware - code omitted
-
-//enable the use of the checkPermissions middleware
-app.use(checkPermissions);
-
-// enable the use of request body parsing middleware
+// Enable the use of request body parsing middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-// return error message for unauthorized requests - code omitted
+// Batch upload endpoint
+app.post('/timesheets/upload', checkJwt, jwtAuthz(['batch:upload']), function(req, res){
+  var timesheet = req.body;
 
-// create timesheets API endpoint
-app.post('/timesheet', function(req, res){
-  //print the posted data
-  console.log(JSON.stringify(req.body, null, 2));
+  // Save the timesheet entry to the database...
 
   //send the response
-  res.status(201).send({message:"Timesheet created for " + req.body.user_type + ": " + req.body.user_id});
-})
+  res.status(201).send(timesheet);
+});
 
 // launch the API Server at localhost:8080 - code omitted
 ```
