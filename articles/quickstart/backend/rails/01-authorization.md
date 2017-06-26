@@ -13,6 +13,10 @@ description: This tutorial demonstrates how to add authentication to Ruby on Rai
   ]
 }) %>
 
+<%= include('../../../_includes/_api_auth_intro') %>
+
+<%= include('../_includes/_api_create_new') %>
+
 <%= include('../_includes/_api_auth_preamble') %>
 
 This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done using the **jwt** Gem within a custom `JsonWebToken` class. A Concern called `Secured` is used to mark endpoints which require authentication through an incoming `access_token`. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.

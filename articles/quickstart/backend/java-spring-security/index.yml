@@ -21,5 +21,4 @@ snippets:
   PingController: server-apis/java-spring-security/PingController
   SecurePingController: server-apis/java-spring-security/SecurePingController
 articles:
-  - 00-getting-started
   - 01-authorization
