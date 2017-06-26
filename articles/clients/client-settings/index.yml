@@ -8,6 +8,6 @@ versioning:
     - non-interative
   defaultArticles:
     native: index
-    spa: index
-    web-app: index
-    nic: index
+    single-page-application: index
+    regular-web-application: index
+    non-interative: index
