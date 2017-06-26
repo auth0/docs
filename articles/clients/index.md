@@ -38,13 +38,13 @@ A new client will be created and you will be redirected to this client's view th
 
 - [Settings](${manage_url}/#/clients/${account.clientId}/settings): Lists all the available settings for your client.
 
+  ::: note
+  Please see [Client Settings](/clients/client-settings) for detailed information.
+  :::
+
 - [Addons](${manage_url}/#/clients/${account.clientId}/addons): Add-ons are extensions associated with clients. They are typically third-party APIs used by the client(s) for which Auth0 generates access tokens. For more details refer to: [Addons](/clients/addons).
 
 - [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different clients. For more details refer to: [Connections](/clients/connections). For a detailed list on the supported Identity Providers refer to: [Identity Providers Supported by Auth0](/identityproviders).
-
-### Client Settings
-
-Please see [Client Settings](/clients/client-settings) for detailed information.
 
 ## How to Delete a Client
 
