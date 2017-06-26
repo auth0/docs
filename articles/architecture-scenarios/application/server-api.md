@@ -198,7 +198,7 @@ The API will expect a JSON object as input, containing the timesheet information
 The API will print the JSON, so we can verify the contents and echo back a message like the following: `Created timesheet 14 for employee 007`.
 
 ::: note
-  See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#define-the-api-endpoints)
+  See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#1-define-the-api-endpoint)
 :::
 
 #### Secure the API endpoints
@@ -210,7 +210,7 @@ In order to secure your endpoints you need to have your API configured in the Au
 The first step towards securing our API endpoint is to get an access token as part of the Header and validate it. If it's not valid then we should return an HTTP Status 401 (Unauthorized) to the calling process.
 
 ::: note
-  See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#secure-the-api-endpoints)
+  See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#2-secure-the-api-endpoint)
 :::
 
 ##### Get an Access Token
@@ -239,7 +239,7 @@ As discussed earlier in this doc, each access token may include a list of the pe
 For our endpoint we will require the scope `batch:upload`.
 
 ::: note
-  See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#check-the-client-permissions)
+  See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#3-check-the-client-permissions)
 :::
 
 ### Implement the Non Interactive Client
