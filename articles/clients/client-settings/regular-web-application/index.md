@@ -1,9 +1,9 @@
 ---
-description: Client settings for Native Clients
+description: Client settings for Web App Clients
 toc: true
 ---
 
-# Client Settings: Native
+# Client Settings: Regular Web Applications
 
 When creating an Auth0 Client, you'll be asked to indicate the *type* of Client you want to create. 
 
@@ -35,6 +35,10 @@ By default, the [settings](${manage_url}/#/clients/${account.clientId}/settings)
 - **Description**: A free-text description of the Client's purpose with a maximum of 140 characters.
 
 - **Client Type**: The type of client you are implementing. Depending on which you choose, the available settings differ to show you only the settings applicable to your Client Type. You can change this value at any time by selecting one of the following: Native, Non Interactive Client, Regular Web Application, or Single Page Application.
+
+- **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
+
+    This setting is only available for clients of type **Non Interactive Clients** or **Regular Web Page Applications**
 
 - **Allowed Callback URLs**: Set of URLs to which Auth0 is allowed to redirect the users after they authenticate. You can specify multiple valid URLs by comma-separating them (typically to handle different environments like QA or testing). You can use the star symbol as a wildcard for subdomains (`*.google.com`). Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases.
 
@@ -81,6 +85,8 @@ Set the OAuth-related settings on this tab:
 * Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens.
 
 * Toggle the switch to indicate if your client is OIDC Conformant or not.
+
+* Toggle the **Trust Token Endpoint IP Header** setting; if this is enabled, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint.
 
 #### Grant Types
 

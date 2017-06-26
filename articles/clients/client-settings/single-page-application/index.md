@@ -1,9 +1,9 @@
 ---
-description: Client settings for Native Clients
+description: Client settings for SPA Clients
 toc: true
 ---
 
-# Client Settings: Native
+# Client Settings: Single Page Applications
 
 When creating an Auth0 Client, you'll be asked to indicate the *type* of Client you want to create. 
 
