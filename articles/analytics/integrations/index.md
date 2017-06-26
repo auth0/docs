@@ -13,13 +13,13 @@ title: Analytics Integrations
   </p>
 </div>
 
-It is likely that you already use some sort of analytics tool to track who is using your site or application. The Auth0 Analytics integrations enable you to capture and measure identity specific events. You can use this data to create funnels, measure user regention, and improve your sign up flow.
+It is likely that you already use some sort of analytics tool to track who is using your site or application. The Auth0 Analytics integrations enable you to capture and measure identity specific events. You can use this data to create funnels, measure user retention, and improve your sign up flow.
 
 <ul class="topic-links">
   <li>
-    <img class="icon-logo" src="/img/icons/facebook.svg" /><a href="/analytics/integrations/facebook-analytics">Facebok Analytics Integration</a>
+    <img class="icon-logo" src="/img/icons/facebook.svg" /><a href="/analytics/integrations/facebook-analytics">Facebook Analytics Integration</a>
     <p>
-      This document will show you how to integrate Facebook Analytics into your application using either the Facebook JavasScript SDK or the Facebook Pixel.
+      This document will show you how to integrate Facebook Analytics into your application using either the Facebook JavaScript SDK or the Facebook Pixel.
     </p>
   </li>
   <li>
