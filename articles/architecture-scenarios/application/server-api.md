@@ -182,7 +182,7 @@ First we need to define the endpoints of our API.
 An **API endpoint** is a unique URL that represents an object. In order to interact with this object you need to point your client towards that URL. For example, if you had an API that could return either order or customers, you might configure two endpoints: `/orders` and `/customers`. Your client would interact with these endpoints using different HTTP methods, for example `POST /orders` to create a new order, or `GET /orders` to retrieve the dataset of one or more orders.
 :::
 
-We will configure one single endpoint that will be used for creating timesheet entries. The endpoint will be `/timesheets` and the HTTP method `POST`.
+We will configure one single endpoint that will be used for creating timesheet entries. The endpoint will be `/timesheets/upload` and the HTTP method `POST`.
 
 The API will expect a JSON object as input, containing the timesheet information. We will use the following JSON:
 
@@ -195,7 +195,7 @@ The API will expect a JSON object as input, containing the timesheet information
 }
 ```
 
-The API will print the JSON, so we can verify the contents and echo back a message like the following: `Timesheet created for Employee: 007`.
+The API will print the JSON, so we can verify the contents and echo back a message like the following: `Created timesheet 14 for employee 007`.
 
 ::: note
   See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#define-the-api-endpoints)
@@ -207,7 +207,7 @@ The API will print the JSON, so we can verify the contents and echo back a messa
 In order to secure your endpoints you need to have your API configured in the Auth0 Dashboard. For information on how to do that refer to the [Configure the API](#configure-the-api) paragraph of this document.
 :::
 
-The first step towards securing our API endpoint is to get an access token as part of the Header and validate it. If it's not valid then we should return a `Missing or invalid token` error message to the calling process.
+The first step towards securing our API endpoint is to get an access token as part of the Header and validate it. If it's not valid then we should return an HTTP Status 401 (Unauthorized) to the calling process.
 
 ::: note
   See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#secure-the-api-endpoints)
