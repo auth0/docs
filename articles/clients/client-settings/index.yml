@@ -1,6 +1,6 @@
 versioning:
   baseUrl: clients/client-settings
-  current: native
+  current: native/index
   versions:
     - native
     - single-page-application
