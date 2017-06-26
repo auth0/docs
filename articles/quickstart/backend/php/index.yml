@@ -12,5 +12,4 @@ snippets:
   setup: server-apis/php/setup
   use: server-apis/php/use
 articles:
-  - 00-getting-started
   - 01-authentication

@@ -1228,5 +1228,37 @@ module.exports = [
   {
     from: '/quickstart/backend/java-spring-security/00-getting-started',
     to: '/quickstart/backend/java-spring-security'
+  },
+  {
+    from: '/quickstart/backend/laravel/00-getting-started',
+    to: '/quickstart/backend/laravel'
+  },
+  {
+    from: '/quickstart/backend/php/00-getting-started',
+    to: '/quickstart/backend/php'
+  },
+  {
+    from: '/quickstart/backend/python/00-getting-started',
+    to: '/quickstart/backend/python'
+  },
+  {
+    from: '/quickstart/backend/rails/00-getting-started',
+    to: '/quickstart/backend/rails'
+  },
+  {
+    from: '/quickstart/backend/relay/00-getting-started',
+    to: '/quickstart/backend/relay'
+  },
+  {
+    from: '/quickstart/backend/ruby/00-getting-started',
+    to: '/quickstart/backend/ruby'
+  },
+  {
+    from: '/quickstart/backend/symfony/00-getting-started',
+    to: '/quickstart/backend/symfony'
+  },
+  {
+    from: '/quickstart/backend/webapi-owin/00-getting-started',
+    to: '/quickstart/backend/webapi-owin'
   }
 ];

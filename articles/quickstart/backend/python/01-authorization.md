@@ -14,6 +14,10 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
   ]
 }) %>
 
+<%= include('../../../_includes/_api_auth_intro') %>
+
+<%= include('../_includes/_api_create_new') %>
+
 <%= include('../_includes/_api_auth_preamble') %>
 
 ## Install the Dependencies

@@ -14,5 +14,4 @@ snippets:
   use: server-apis/relay/use
   frontend: server-apis/relay/frontend
 articles:
-  - 00-getting-started
   - 01-authentication

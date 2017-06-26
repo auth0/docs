@@ -15,5 +15,4 @@ snippets:
   use: server-apis/php-laravel/use
   request: server-apis/php-laravel/request
 articles:
-  - 00-getting-started
   - 01-authorization
