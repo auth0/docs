@@ -1,7 +1,7 @@
 ---
 description: How to configure your own SMTP email provider.
+toc: true
 ---
-
 # Use your own SMTP Email Provider
 
 Auth0 allows you to configure your own SMTP email provider. Auth0's built-in email infrastructure should be used for testing level emails only. By using your own provider you can more completely manage, monitor and troubleshoot your email communications.
@@ -34,23 +34,24 @@ For more information about SES credentials, visit [Using Credentials With Amazon
 2. [Verify your domain](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 
     ![](/media/articles/email/providers/ses-verify.png)
+3. [Verify email addresses](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html)    
 
-3. [Request production access](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html?icmpid=docs_ses_console).
-4. [Get Your AWS Access Keys](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/get-aws-keys.html). Copy these keys. You will need to enter these values into Auth0 (see below).
+4. [Request production access](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html?icmpid=docs_ses_console).
+5. [Get Your AWS Access Keys](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/get-aws-keys.html). Copy these keys. You will need to enter these values into Auth0 (see below).
 
     ![](/media/articles/email/providers/aws-keys.png)
 
-5. [Attach a policy with the right permissions](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html). Attach a policy with the `ses:SendRawEmail` and `ses:SendEmail` permissions, as in this example:
+6. [Attach a policy with the right permissions](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html). Attach a policy with the `ses:SendRawEmail` and `ses:SendEmail` permissions, as in this example:
 
     ![](/media/articles/email/providers/aws-policy.png)
 
-6. Go to the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **Amazon Web Services** logo.
+7. Go to the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **Amazon Web Services** logo.
 
-7. Enter your AWS `Access Key Id`, `Secret Access Key` and `Region` in the appropriate fields:
+8. Enter your AWS `Access Key Id`, `Secret Access Key` and `Region` in the appropriate fields:
 
     ![](/media/articles/email/providers/enter-keys.png)
 
-8. Click **Save**.
+9. Click **Save**.
 
 Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${manage_url}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](${manage_url}/#/logs) for any failures.
 
@@ -160,9 +161,11 @@ Now you can send a test email using the **SEND TEST EMAIL** button on the [Custo
 SMTP makes it easy to setup test services that allow you to test that your setup is working without spamming your users. For more information, see: [Set up a Test SMTP Provider](/email/testing) .
 :::
 
-## Additional Information
+## Keep reading
 
-- [Emails in Auth0](/email)
-- [Customizing Your Emails](/email/templates)
-- [Custom Email Handling](/email/custom)
-- [Setting up a Test Provider](/email/testing)
+::: next-steps
+* [Emails in Auth0](/email)
+* [Customizing Your Emails](/email/templates)
+* [Custom Email Handling](/email/custom)
+* [Setting up a Test Provider](/email/testing)
+:::
