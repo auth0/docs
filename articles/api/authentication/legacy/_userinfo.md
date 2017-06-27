@@ -71,7 +71,7 @@ webAuth.parseHash(window.location.hash, function(err, authResult) {
 }) %>
 
 ::: warning
-This endpoint is part of the legacy authentication pipeline and will be disabled for those who use our latest, OIDC conformant, pipeline. We encourage using the [/userinfo endpoint](#get-user-info) instead. For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+This endpoint is part of the legacy authentication pipeline and has been replaced in facor of [OIDC-conformant authentication](/api-auth/intro) flows. Please see [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use) to determine which of the new flows is most appropriate for your situation.
 :::
 
 This endpoint validates a JSON Web Token (signature and expiration) and returns the user information associated with the user id `sub` property of the token.
