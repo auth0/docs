@@ -1,6 +1,6 @@
 ---
 description: Client settings for Web App Clients
-url: /clients/client-settings/regular-web-application
+url: /clients/client-settings/regular-web-app
 toc: true
 ---
 

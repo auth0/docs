@@ -4,10 +4,10 @@ versioning:
   versions:
     - native
     - single-page-app
-    - web-app
+    - regular-web-app
     - non-interactive
   defaultArticles:
     native: index
     single-page-app: index
-    web-app: index
+    regular-web-app: index
     non-interactive: index
