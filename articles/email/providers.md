@@ -1,7 +1,7 @@
 ---
 description: How to configure your own SMTP email provider.
+toc: true
 ---
-
 # Use your own SMTP Email Provider
 
 Auth0 allows you to configure your own SMTP email provider. Auth0's built-in email infrastructure should be used for testing level emails only. By using your own provider you can more completely manage, monitor and troubleshoot your email communications.
@@ -161,9 +161,11 @@ Now you can send a test email using the **SEND TEST EMAIL** button on the [Custo
 SMTP makes it easy to setup test services that allow you to test that your setup is working without spamming your users. For more information, see: [Set up a Test SMTP Provider](/email/testing) .
 :::
 
-## Additional Information
+## Keep reading
 
-- [Emails in Auth0](/email)
-- [Customizing Your Emails](/email/templates)
-- [Custom Email Handling](/email/custom)
-- [Setting up a Test Provider](/email/testing)
+::: next-steps
+* [Emails in Auth0](/email)
+* [Customizing Your Emails](/email/templates)
+* [Custom Email Handling](/email/custom)
+* [Setting up a Test Provider](/email/testing)
+:::
