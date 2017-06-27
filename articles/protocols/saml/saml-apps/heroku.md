@@ -4,7 +4,7 @@ description: How to SSO with Heroku.
 
 # Configure SSO with Heroku
 
-:::
+::: note
 You must have administrative rights to your organization account on Heroku to configure SSO. Organization accounts are included with Heroku Enterprise plans.
 :::
 
