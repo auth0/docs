@@ -1,7 +1,6 @@
 ---
 description: Explains how to install the Auth0 WordPress plugin.
 ---
-
 # Installation of the Login by Auth0 WordPress Plugin
 
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/wordpress-plugin-banner.png)
@@ -65,7 +64,9 @@ At this point, your installation is complete, and you can now [configure the plu
 
 ## More on the Login by Auth0 WordPress Plugin
 
-- [How does it work?](/cms/wordpress/how-does-it-work)
-- [Configuration](/cms/wordpress/configuration)
-- [JWT Authentication](/cms/wordpress/jwt-authentication)
-- [Troubleshoot](/cms/wordpress/troubleshoot)
+::: next-steps
+* [How does it work?](/cms/wordpress/how-does-it-work)
+* [Configuration](/cms/wordpress/configuration)
+* [JWT Authentication](/cms/wordpress/jwt-authentication)
+* [Troubleshoot](/cms/wordpress/troubleshoot)
+:::
