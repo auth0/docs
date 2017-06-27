@@ -58,7 +58,7 @@ Click **Save**.
 
 ## 3. Provide Auth0 Metadata to Heroku
 
-Open up the __Usage__ section and download the __Identity Provider Metadata__.
+Open up the __Usage__ section of the SAML2 Web App Configuration pop-up and download the __Identity Provider Metadata__.
 
 Return to Heroku. Click on __Upload Metadata__ and select the file containing the **Identity Provider Metadata** you downloaded in the previous step.
 
