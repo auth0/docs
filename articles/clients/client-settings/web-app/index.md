@@ -10,12 +10,7 @@ When creating an Auth0 Client, you'll be asked to indicate the *type* of Client 
 
 ![Window for selecting client type](/media/articles/clients/create-clients.png)
 
-You can choose from one of four options:
-
-* **Native**: used for desktop or mobile apps that run natively on the the device
-* **Single Page Web Applications**: apps with a JavaScript front-end utilizing an API
-* **Regular Web Applications**: traditional web apps with refresh behavior
-* **Non Interactive Clients**: CLIs, daemons, or services running on the back-end
+If you're working with a traditional web app that has the ability to refresh its pages, you'll want to create a Regular Web Applications Client.
 
 ## Settings
 
@@ -38,8 +33,6 @@ By default, the [settings](${manage_url}/#/clients/${account.clientId}/settings)
 - **Client Type**: The type of client you are implementing. Depending on which you choose, the available settings differ to show you only the settings applicable to your Client Type. You can change this value at any time by selecting one of the following: Native, Non Interactive Client, Regular Web Application, or Single Page Application.
 
 - **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
-
-    This setting is only available for clients of type **Non Interactive Clients** or **Regular Web Page Applications**
 
 - **Allowed Callback URLs**: Set of URLs to which Auth0 is allowed to redirect the users after they authenticate. You can specify multiple valid URLs by comma-separating them (typically to handle different environments like QA or testing). You can use the star symbol as a wildcard for subdomains (`*.google.com`). Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases.
 

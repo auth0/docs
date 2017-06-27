@@ -1,19 +1,16 @@
 ---
-description: Describes the differences between the Auth0 Client types and what they mean when it comes to settings
+description: Client settings for Native
+url: /clients/client-settings/native
+toc: true
 ---
 
-# Client Settings
+# Client Settings: Native
 
 When creating an Auth0 Client, you'll be asked to indicate the *type* of Client you want to create. 
 
 ![Window for selecting client type](/media/articles/clients/create-clients.png)
 
-You can choose from one of four options:
-
-* **Native**: used for desktop or mobile apps that run natively on the the device
-* **Single Page Web Applications**: apps with a JavaScript front-end utilizing an API
-* **Regular Web Applications**: traditional web apps with refresh behavior
-* **Non Interactive Clients**: CLIs, daemons, or services running on the back-end
+For desktop or mobile apps running natively on the device, you'll want to create a Native Client.
 
 ## Settings
 
@@ -34,10 +31,6 @@ By default, the [settings](${manage_url}/#/clients/${account.clientId}/settings)
 - **Description**: A free-text description of the Client's purpose with a maximum of 140 characters.
 
 - **Client Type**: The type of client you are implementing. Depending on which you choose, the available settings differ to show you only the settings applicable to your Client Type. You can change this value at any time by selecting one of the following: Native, Non Interactive Client, Regular Web Application, or Single Page Application.
-
-- **Token Endpoint Authentication Method**: Defines the requested authentication method for the token endpoint. Possible values are `None` (public client without a client secret), `Post` (client uses HTTP POST parameters) or `Basic` (client uses HTTP Basic).
-
-    This setting is only available for clients of type **Non Interactive Clients** or **Regular Web Page Applications**
 
 - **Allowed Callback URLs**: Set of URLs to which Auth0 is allowed to redirect the users after they authenticate. You can specify multiple valid URLs by comma-separating them (typically to handle different environments like QA or testing). You can use the star symbol as a wildcard for subdomains (`*.google.com`). Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases.
 
@@ -63,16 +56,40 @@ The **Advanced Settings** section allows you to:
 
 #### Application Metadata
 
+Application metadata are custom string keys and values (each of which has a character maximum of 255), set on a per application basis. Metadata is exposed in the Client object as client_metadata, and in Rules as context.clientMetadata
+
+You can create up to 10 sets of metadata.
+
 #### Mobile Settings
+
+If you're developing a mobile application, you can provide the necessary iOS/Android parameters here.
+
+When developing iOS apps, you'll provide your **Team ID** and **App Bundle Identifier**.
+
+When developing Android apps, you'll provide your **App Package Name** and your **Key Hashes**.
 
 #### OAuth
 
+Set the OAuth-related settings on this tab:
+
+* By default, all apps/APIs can make a delegation request, but if you want to explicitly grant permissions to selected apps/APIs, you can do so in **Allowed APPs/APIs**.
+
+* Set the algorithm used (**HS256** or **RS256**) for signing your JSON Web Tokens.
+
+* Toggle the switch to indicate if your client is OIDC Conformant or not.
+
 #### Grant Types
+
+Set the authorization grant types allowed for the client. See [Client Grant Types](/clients/client-grant-types) for additional information about each grant type.
 
 #### WS-Federation
 
-#### Certificates
+The sample script provides a basis for you to make changes to your WS-Federation settings.
 
-Endpoints
+#### Certificate
 
-Regardless of which Client Type you choose, this area is the same. The exception is for Clients of type **Non Interactive Clients** or **Regular Web Page Applications**; both, under the OAuth tab, show a **Trust Token Endpoint IP Header** setting. By enabling this setting, the `auth0-forwarded-for` is set as trusted and used as a source of end user IP information for protection against brute-force attacks on the token endpoint.
+This page provides you with the Auth0 signing certificate, fingerprint, and thumbprint. You can also download a certificate if needed for an integration you're configuring.
+
+#### Endpoints
+
+This section provides you with a complete list of the OAuth, SAML, and WS-Federation endpoints for your Auth0 account.
