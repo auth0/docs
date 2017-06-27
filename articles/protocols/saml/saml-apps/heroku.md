@@ -54,11 +54,11 @@ The `audience` parameter is the __Heroku Entity ID__. It will be formatted like 
 
 Click **Save**. 
 
-Open up the __Usage__ section and download the __Identity Provider Metadata__.
-
 ![](/media/articles/saml/saml-apps/heroku/auth0-dashboard-saml-usage.png)
 
-## 3. Complete configuration in Heroku
+## 3. Provide Auth0 Metadata to Heroku
+
+Open up the __Usage__ section and download the __Identity Provider Metadata__.
 
 Return to Heroku. Click on __Upload Metadata__ and select the file containing the **Identity Provider Metadata** you downloaded in the previous step.
 
