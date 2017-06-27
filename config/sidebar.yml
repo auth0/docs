@@ -634,7 +634,11 @@ appliance:
       - title: Extensions
         url: /appliance/extensions
       - title: Disaster Recovery
-        url: /appliance/geo-ha/disaster-recovery
+        url: /appliance/disaster-recovery
+        children:
+          - title: Roles and Responsibilities
+            url: /appliance/disaster-recovery-raci
+
       - title: Release Notes
         url: https://auth0.com/changelog/appliance
         external: true
