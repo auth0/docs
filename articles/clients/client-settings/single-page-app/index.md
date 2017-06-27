@@ -1,6 +1,6 @@
 ---
 description: Client settings for Single Page Apps
-url: /clients/client-settings/single-page-apps
+url: /clients/client-settings/single-page-app
 toc: true
 ---
 
