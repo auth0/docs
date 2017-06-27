@@ -3,11 +3,11 @@ versioning:
   current: native
   versions:
     - native
-    - spa
+    - single-page-application
     - web-app
-    - nic
+    - non-interactive
   defaultArticles:
     native: index
-    spa: index
+    single-page-application: index
     web-app: index
-    nic: index
+    non-interactive: index
