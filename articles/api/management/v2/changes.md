@@ -113,11 +113,11 @@ An `id_token` is a JWT containing information about a particular user. When a us
 
 When this token is sent to the API in the `Authorization` header (`Authorization: Bearer {id_token}`), the following scopes will be granted automatically:
 
-* read:current\_user
-* update:current\_user\_identities
-* create:current\_user\_metadata
-* update:current\_user\_metadata
-* delete:current\_user\_metadata
+* `read:current_user`
+* `update:current_user_identities`
+* `create:current_user_metadata`
+* `update:current_user_metadata`
+* `delete:current_user_metadata`
 
 Therefore, with an `id_token`, all the user's information can be read and written to `user_metadata`.
 
