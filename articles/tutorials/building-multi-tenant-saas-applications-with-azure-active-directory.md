@@ -107,6 +107,7 @@ Before users from another directory are able to authenticate, they'll need to go
 The following code snippet stores a "registration request" with a unique ID (the `SignupToken`) before redirecting the user to the consent page. The `SignupToken` is added as the state of the request, and we'll be able to use this value once the user goes through the flow.
 
 ```cs
+// URL with parameters to be populated with custom parameters two code blocks down
 private const string OnboardingUrl =
     "https://login.windows.net/common/oauth2/authorize?response_type=code
         &client_id={0}&resource={1}&redirect_uri={2}&state={3}";
