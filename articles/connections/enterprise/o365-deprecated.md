@@ -7,13 +7,12 @@ alias:
 seo_alias: o365-deprecated
 description: How to obtain a ClientId and Client Secret for an Office 365 connection.
 ---
+# Connect your app to Microsoft Office 365
 
 ::: warning
 The Office 365 connection is deprecated, you should use Windows Azure AD instead.
 See [here](/office365-deprecated) for more details.
 :::
-
-# Connect your app to Microsoft Office 365
 
 To configure Microsoft Office 365 connections, you need to a register an application in the Seller Dashboard.
 
