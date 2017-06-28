@@ -20,6 +20,8 @@ For desktop or mobile apps running natively on the device, you'll want to create
 
 <%= include('../../_settings') %>
 
+- **Client Type**: The type of client you are implementing. For desktop or mobile apps running natively on the device, you'll want to create a Native Client.
+
 <%= include('../../_settings2') %>
 
 ### Advanced Settings

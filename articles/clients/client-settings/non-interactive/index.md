@@ -14,16 +14,18 @@ If your app is a CLI, daemon, or a service running on the backend, you'll want t
 
 ## Settings
 
-<%= include('../../_settings') %>
+<%= include('../_settings') %>
 
-<%= include('../../_token-endpoint-auth-method') %>
+- **Client Type**: The type of client you are implementing. If your app is a CLI, daemon, or a service running on the backend, use a **Non Interactive Client**.
 
-<%= include('../../_settings2') %>
+<%= include('../_token-endpoint-auth-method') %>
+
+<%= include('../_settings-pt2') %>
 
 ### Advanced Settings
 
-<%= include('../../_adv-settings') %>
+<%= include('../_adv-settings') %>
 
-<%= include('../../_trust-token-endpoint-ip-header') %>
+<%= include('../_trust-token-endpoint-ip-header') %>
 
-<%= include('../../_adv-settings2') %>
+<%= include('../_adv-settings-pt2') %>
