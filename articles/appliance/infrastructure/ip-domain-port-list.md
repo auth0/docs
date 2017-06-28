@@ -1,5 +1,6 @@
 ---
 description: Appliance infrastructure information about IP/Domain and Port Usage
+section: appliance
 ---
 
 
