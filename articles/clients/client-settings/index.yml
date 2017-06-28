@@ -1,0 +1,13 @@
+versioning:
+  baseUrl: clients/client-settings
+  current: native/index
+  versions:
+    - native
+    - single-page-application
+    - regular-web-application
+    - non-interative
+  defaultArticles:
+    native: index
+    single-page-application: index
+    regular-web-application: index
+    non-interative: index
