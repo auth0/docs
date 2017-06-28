@@ -11,15 +11,3 @@ When creating an Auth0 Client, you'll be asked to indicate the *type* of Client 
 ![Window for selecting client type](/media/articles/clients/create-clients.png)
 
 If your app is similar to one with a JavaScript front-end that utilizes an API, you'll want to create a SPA Client.
-
-## Settings
-
-<%= include('../../_settings') %>
-
-<%= include('../../_settings2') %>
-
-### Advanced Settings
-
-<%= include('../../_adv-settings') %>
-
-<%= include('../../_adv-settings2') %>
