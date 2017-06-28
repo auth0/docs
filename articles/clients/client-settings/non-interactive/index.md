@@ -14,8 +14,16 @@ If your app is a CLI, daemon, or a service running on the backend, you'll want t
 
 ## Settings
 
-<%= include('../../_settings-token-endpoint') %>
+<%= include('../../_settings') %>
+
+<%= include('../../_token-endpoint-auth-method') %>
+
+<%= include('../../_settings2') %>
 
 ### Advanced Settings
 
-<%= include('../../_adv-settings-token-endpoint') %>
+<%= include('../../_adv-settings') %>
+
+<%= include('../../_trust-token-endpoint-ip-header') %>
+
+<%= include('../../_adv-settings2') %>

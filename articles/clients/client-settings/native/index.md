@@ -20,7 +20,10 @@ For desktop or mobile apps running natively on the device, you'll want to create
 
 <%= include('../../_settings') %>
 
+<%= include('../../_settings2') %>
+
 ### Advanced Settings
 
 <%= include('../../_adv-settings') %>
 
+<%= include('../../_adv-settings2') %>
