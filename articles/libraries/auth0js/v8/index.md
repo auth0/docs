@@ -76,8 +76,8 @@ There are two required parameters that must be passed in the `options` object wh
 | `redirectUri` | optional | (String)  The default `redirectUri` used. Defaults to an empty string (none). |
 | `scope` | optional | (String)  The default scope(s) used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
-| `responseType` | optional | (String)  The default `responseType` used. The value must be `'token'` or `'code'`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
-| `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. |
+| `responseType` | optional | (String)  Response type for all authentication requests. Defaults to `'token'`. Valid values are `'token'`, `'id_token'` and `'token id_token'`. |
+| `responseMode` | optional | (String)  The default `responseMode` used, defaults to `'fragment'`. The `parseHash` method can be used to parse authentication responses using fragment response mode. |
 | `_disableDeprecationWarnings` | optional | (Boolean)  Disables the deprecation warnings, defaults to `false`. |
 
 ## Login
@@ -92,7 +92,7 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | --- | --- | --- |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
 | `scope` | required | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
-| `responseType` | required | (String) The value must be `'token'` or `'code'`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
+| `responseType` | required | (String) Response type for all authentication requests. Defaults to `'token'`. Valid values are `'token'`, `'id_token'` and `'token id_token'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 
@@ -200,7 +200,7 @@ The `buildAuthorizeUrl` method can be used to build the `/authorize` URL, in ord
 // Calculate URL to redirect to
 var url = webAuth.client.buildAuthorizeUrl({
   clientID: '${account.clientId}', // string
-  responseType: 'token', // code or token
+  responseType: 'token', // Valid values are 'token', 'id_token' and 'token id_token'
   redirectUri: '${account.callback}',
   state: 'YOUR_STATE'
 });
