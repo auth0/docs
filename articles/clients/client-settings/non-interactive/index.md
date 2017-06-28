@@ -7,7 +7,7 @@ toc: true
 # Client Settings: Non Interactive Client
 
 ::: version-warning
-This document lists the settings for a Non Interactive Client; if you're using a different Client type, please use the drop-down to select the appropriate doc. :::
+This document lists the settings for a Non Interactive Client; if you're using a different Client type, please use the drop-down to select the appropriate doc.
 :::
 
 When creating an Auth0 Client, you'll be asked to indicate the *type* of Client you want to create. 
