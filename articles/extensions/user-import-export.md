@@ -38,4 +38,4 @@ There are two ways of using this extension, they are described below:
 
 ### Observations
 
-The Delegated Administration extension is available in the Appliance beginning with version 10755 when User search is enabled.
+This extension is not supported in the Appliance.
