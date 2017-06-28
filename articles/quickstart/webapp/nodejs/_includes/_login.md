@@ -59,9 +59,15 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
+// Perform the login
+router.get('/login', passport.authenticate('auth0', {
+  clientID: env.AUTH0_CLIENT_ID,
+  domain: env.AUTH0_DOMAIN,
+  redirectUri: env.AUTH0_CALLBACK_URL,
+  responseType: 'code',
+  scope: 'openid profile'}),
+  function(req, res) {
+    res.redirect("/");
 });
 
 router.get(
@@ -87,7 +93,7 @@ router.get('/logout', function(req, res) {
 router.get(
   '/callback',
   passport.authenticate('auth0', {
-    failureRedirect: '/'
+    failureRedirect: '/',
   }),
   function(req, res) {
     res.redirect(req.session.returnTo || '/user');
@@ -97,24 +103,10 @@ router.get(
 module.exports = router;
 ```
 
-When users visit the `/login` route they will immediately be redirected to Auth0 where they will be prompted to log in if they do not have a valid session.
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
 Create a view for the `/login` route.
-
-```pug
-// views/login.pug
-
-extends layout
-
-block content
-  .w3-container
-    if loggedIn
-      h4 You are logged in!
-    else
-      h4 You are not logged in! Please #[a(href="/login") Log In] to continue.
-```
 
 ## Embedded Login
 
