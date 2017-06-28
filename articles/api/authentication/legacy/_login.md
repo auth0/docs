@@ -61,10 +61,9 @@ xhr.send(params);
 }) %>
 
 ::: warning
-This endpoint is part of the legacy authentication pipeline. We recommend that you open the browser to do social authentication instead, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+This endpoint is part of the legacy authentication pipeline and has been replaced in facor of [OIDC-conformant authentication](/api-auth/intro) flows. Please see [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use) to determine which of the new flows is most appropriate for your situation.
 
 This feature is disabled by default for new tenants as of 8 June 2017. Please see [Client Grant Types](/clients/client-grant-types) for more information.
-
 :::
 
 Given the social provider's `access_token` and the `connection`, this endpoint will authenticate the user with the provider and return a JSON with the `access_token` and, optionally, an `id_token`. This endpoint only works for Facebook, Google, Twitter and Weibo.
@@ -168,7 +167,7 @@ curl --request POST \
 }) %>
 
 ::: warning
-This endpoint is part of the legacy authentication pipeline and has been replaced in favor of the [Password Grant](#resource-owner-password). For more information on the latest authentication pipeline refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+This endpoint is part of the legacy authentication pipeline and has been replaced in facor of [OIDC-conformant authentication](/api-auth/intro) flows. Please see [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use) to determine which of the new flows is most appropriate for your situation.
 :::
 
 Use this endpoint for API-based (active) authentication. Given the user credentials and the `connection` specified, it will do the authentication on the provider and return a JSON with the `access_token` and `id_token`.
