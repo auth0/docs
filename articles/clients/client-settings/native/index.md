@@ -16,7 +16,7 @@ For desktop or mobile apps running natively on the device, you'll want to create
 
 <%= include('../_settings') %>
 
-- **Client Type**: The type of client you are implementing. Depending on which you choose, the available settings differ to show you only the settings applicable to your Client Type. You can change this value at any time by selecting one of the following: Native, Non Interactive Client, Regular Web Application, or Single Page Application.
+- **Client Type**: The type of client you are implementing. For desktop or mobile apps running natively on the device, you'll want to create a Native Client.
 
 <%= include('../_settings-pt2') %>
 
