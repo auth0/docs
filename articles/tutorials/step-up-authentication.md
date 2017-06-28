@@ -63,7 +63,7 @@ if(decoded.acr !== 'http://schemas.openid.net/pape/policies/2007/06/multi-factor
 }
 ```
 
-For additional sample code snippets on how to use step-up authentication, see the [Guardian Example repo on GitHub](https://github.com/auth0/guardian-example.
+For additional sample code snippets on how to use step-up authentication, see the [Guardian Example repo on GitHub](https://github.com/auth0/guardian-example).
 
 ## Keep reading
 
