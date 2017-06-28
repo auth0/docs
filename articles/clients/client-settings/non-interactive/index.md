@@ -16,7 +16,7 @@ If your app is a CLI, daemon, or a service running on the backend, you'll want t
 
 <%= include('../_settings') %>
 
-- **Client Type**: The type of client you are implementing. For desktop or mobile apps running natively on the device, you'll want to create a Native Client.
+- **Client Type**: The type of client you are implementing. If your app is a CLI, daemon, or a service running on the backend, use a **Non Interactive Client**.
 
 <%= include('../_token-endpoint-auth-method') %>
 
