@@ -334,13 +334,29 @@ You can now do something else with this information as your application needs, s
 
 ## Using `nonce`
 
-By default, `auth0.js` will generate a random `nonce` when you call `webAuth.authorize`, store it in local storage, and pull it out in `webAuth.parseHash`. The default behavior should work in most cases, but some use cases may require a developer to control the `nonce`.
+By default (and if `responseType` contains `id_token`), `auth0.js` will generate a random `nonce` when you call `webAuth.authorize`, store it in local storage, and pull it out in `webAuth.parseHash`. The default behavior should work in most cases, but some use cases may require a developer to control the `nonce`.
 If you want to use a developer generated `nonce`, then you must provide it as an option to both `webAuth.authorize` and `webAuth.parseHash`.
 
 ```js
-webAuth.authorize({nonce: '1234'});
-webAuth.parseHash({nonce:'1234'}, callback);
+webAuth.authorize({nonce: '1234', responseType: 'token id_token'});
+webAuth.parseHash({nonce: '1234'}, callback);
 ```
+
+If you're calling `webAuth.renewAuth` instead of `webAuth.authorize`, then you only have to specify your custom `nonce` as an option to `renewAuth`:
+
+```js
+webAuth.renewAuth({
+  audience: 'https://example.com/api/v2',
+  scope: 'openid read:something write:otherthing',
+  responseType: 'token id_token',
+  nonce: '1234',
+  usePostMessage: true
+}, function (err, authResult) {
+    ...
+});
+```
+
+The `webAuth.renewAuth` method will automatically verify that the returned `id_token`'s `nonce` claim is the same as the option.
 
 ## Logout
 
@@ -406,7 +422,8 @@ webAuth.renewAuth({
   redirectUri: 'https://example.com/auth/silent-callback',
   usePostMessage: true
 }, function (err, authResult) {
-    ...
+  // err if automatic parseHash fails
+  ...
 });
 ```
 
@@ -416,21 +433,14 @@ This will use postMessage to communicate between the silent callback and the SPA
 
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe.
 
-This callback page should only parse the URL hash and post it to the parent document, so that your application can take action depending on the outcome of the silent authentication attempt. The callback page should be something like the following one. It will parse the URL hash and post it to the parent document:
+This callback page should simply pass the local URL hash to the parent document via postMessage. The `webAuth.renewAuth` method will receive the hash string and automatically perform a `webAuth.parseHash`, passing the `err` or `authResult` to the callback function. The callback page should be something like the following one:
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js"></script>
     <script type="text/javascript">
-      var webAuth = new auth0.WebAuth({
-        domain: '${account.namespace}',
-        clientID: '...'
-      });
-      var result = webAuth.parseHash(window.location.hash, function(err, data) {
-        parent.postMessage(err || data, "https://example.com/");
-      });
+      parent.postMessage(window.location.hash, "https://example.com/");
     </script>
   </head>
   <body></body>
