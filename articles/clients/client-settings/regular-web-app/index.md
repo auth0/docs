@@ -16,7 +16,7 @@ If you're working with a traditional web app that has the ability to refresh its
 
 <%= include('../_settings') %>
 
-- **Client Type**: The type of client you are implementing. If your app is a CLI, daemon, or a service running on the backend, use a **Non Interactive Client**.
+- **Client Type**: The type of client you are implementing. If you're working with a traditional web app that has the ability to refresh its pages, use a Regular Web Applications Client.
 
 <%= include('../_token-endpoint-auth-method') %>
 
