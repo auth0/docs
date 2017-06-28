@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 #### Grant Types
 
 Set the authorization grant types allowed for the client. See [Client Grant Types](/clients/client-grant-types) for additional information about each grant type.

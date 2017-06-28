@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+
 The **Advanced Settings** section allows you to:
 
 * Manage or add Client Metadata, Mobile, OAuth, and WS-Federation settings 
