@@ -1,5 +1,6 @@
 ---
 description: An in-depth summary of the roles and responsibilities allocated between Auth0 and the subscriber
+section: appliance
 ---
 # Disaster Recovery: Detailed Division of Responsibility
 

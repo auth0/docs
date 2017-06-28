@@ -1,5 +1,6 @@
 ---
 description: High-level overview of disaster recovery options for the Appliance
+section: appliance
 ---
 
 # Appliance: Disaster Recovery
