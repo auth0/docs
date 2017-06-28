@@ -26,7 +26,7 @@ When appropriate, both the `acr` and `amr` are available on the [ID token](/toke
 To request that Auth0 require multifactor authentication for certain situations, add the `acr_values` field to the authentication request along with the `acr` level desired. For example, if you're using the [auth0.js library](/libraries/auth0js), your sign in snippet might look something like this:
 
 ```js
-// Use acr_values to indicate this user needs a step-up with MFA
+// Use acr_values to indicate this user needs MFA
 auth0.signin({
   connection: 'google-oauth2',
   acr_values: 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'
@@ -36,7 +36,7 @@ auth0.signin({
 If you're using [Lock](/libraries/lock), the following would indicate the need for MFA:
 
 ```js
-// Use acr_values to indicate this user needs a step-up with MFA
+// Use acr_values to indicate this user needs MFA
 var options = {
   auth: {
     acr_values: 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'
