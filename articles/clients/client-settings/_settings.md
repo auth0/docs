@@ -12,10 +12,4 @@
   While the Client ID is considered public information, the Client Secret **must be kept confidential**. If anyone can access your Client Secret they can issue  tokens and access resources they shouldn't.
   :::
 
-<<<<<<< HEAD
 - **Description**: A free-text description of the Client's purpose with a maximum of 140 characters.
-
-- **Client Type**: The type of client you are implementing. Depending on which you choose, the available settings differ to show you only the settings applicable to your Client Type. You can change this value at any time by selecting one of the following: Native, Non Interactive Client, Regular Web Application, or Single Page Application.
-=======
-- **Description**: A free-text description of the Client's purpose with a maximum of 140 characters.
->>>>>>> csv2
