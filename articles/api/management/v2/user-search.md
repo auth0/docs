@@ -3,44 +3,49 @@ description: This page lists several examples of user search queries using query
 section: apis
 crews: crew-2
 ---
-
 # User Search
 
-As an Auth0 admin you can search different fields of your users using [query string syntax](/api/management/v2/query-string-syntax) with the Users section of the Management API.
+Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html). This syntax can be used either in the [Users section of the Auth0 Dashboard](${manage_url}/#/users) or with the [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) of the [Management API](/api/v2)  
 
-The `user_metadata`, `app_metadata` or the [normalized user profile](/user-profile/normalized) fields are searchable. Note that users have read/write access to the `user_metadata` field but only read-only access to the `app_metadata` field.
+This document will demonstrate the various ways in which you can search for users, as well as give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
 
-Auth0 User Search uses [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
+All the [normalized user profile](/user-profile/normalized) fields, as well as the `user_metadata` and `app_metadata` are searchable.
 
 ::: note
 If there is no default sort field specified, some users that have never logged in, may not appear. No default sort field may also result in duplicate records returned and the order of list of users may appear random.
 :::
 
-## In the Dashboard
+## Search for Users in the Dashboard
 
-To search user fields in the [dashboard](${manage_url}/#/users), use the **Search By** drop down to select the field for the search. To use [Lucene Query Syntax](/api/management/v2/query-string-syntax) as shown in the [queries below](#example-queries) select **Lucene Syntax (Advanced)**.
+You can search for users in the [Users section of the Auth0 Dashboard](${manage_url}/#/users). To use the [Lucene Query Syntax](/api/management/v2/query-string-syntax), go to the **Search By** drop down and select **Lucene Syntax (advanced)**.
 
 ![Select Lucene Syntax](/media/articles/api/user-search-lucene.png)
 
-## Using the Management API
+## Search for Users Using the Management API
 
-### API Explorer
+You can also search for users using the [Management API](/api/v2). Two of the easiest ways to do this is by either making use of the **API Explorer** or by using **Postman**. These 2 techniques are discussed briefly below, but please note that the Auth0 Management API is a REST API, so you can make API calls using anything that can make HTTP requests, or by using one of the [Auth0 SDKs](/support/matrix#sdks).
 
-To search users using the [Management APIv2](/api/v2#!/users/get_users) explorer go to the **Users** section and then select **List or search users**. Click on the scopes for your search. Scroll down to the `q` parameter, this field uses [query string syntax](/api/management/v2/query-string-syntax).
+In order to make requests to the Management API, you will need a token. Please refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for more information.
 
-![q parameter](/media/articles/api/search-users-api.png)
+### Search using the API Explorer
 
-In this field enter your query string to search users. [See below](#example-queries) for examples of queries you can run from this field.
+To search users using the [Management API Explorer](/api/v2#!/users/get_users), go to the **Users** section and then select **List or search users**. Scroll down to the `q` parameter. You can use any query string which uses the [query string syntax](/api/management/v2/query-string-syntax) in this field.
 
-### Postman
+![Searching users in API Explorer](/media/articles/api/search-users-api.png)
 
-To search users in [Postman](https://auth0.com/docs/api/postman). First make sure your [enviroment is configured](https://auth0.com/docs/api/postman#configuring-the-postman-environment). Then select the **Management API** as the enviroment you want to work in. For searching users, the API method is `GET ${account.namespace}/api/v2/users` which is under **Users** -> **List or search users**.
+### Search using Postman
 
-![Select GET users](/media/articles/api/postman/get-users-postman.png)
+You can also search users using the Postman Collection for the Management API. Make sure you read [Using the Auth0 API with our Postman Collections](https://auth0.com/docs/api/postman) for more information on how to install the collection and also configure your Postman environment correctly.
 
-Then you can run your queries in the **Body** section and click **Send**.
+Once you have downloaded the collection, and configured your environment, select the **Management API** collection. Navigate to the **Users** folder and select **List or search users**. You can enter your query in the `q` parameter of the URL:
 
-[Click here for more information on Postman requests](https://www.getpostman.com/docs/requests)
+::: zoomable
+![Searching users in Postman](/media/articles/api/postman/get-users-postman.png)
+:::
+
+::: note
+For general information on making Postman request, please refer to the [Postman documentation](https://www.getpostman.com/docs/requests).
+:::
 
 ## Exact Matching and Tokenization
 
@@ -66,17 +71,16 @@ The user data for `jane` would match, but `jane-doe` would not.
 
 The fields which support `raw` subfield queries are as follow:
 
-* `identities.connection﻿⁠⁠⁠⁠`
-* ﻿⁠⁠⁠⁠`identities.provider﻿⁠⁠⁠⁠`
-* ﻿⁠⁠⁠⁠`identities.user_id ﻿⁠⁠⁠⁠`
-* ﻿⁠⁠⁠⁠`email﻿⁠⁠⁠⁠`
-* ﻿⁠⁠⁠⁠`phone_number﻿⁠⁠⁠⁠`
-* ﻿⁠⁠⁠⁠`family_name﻿⁠⁠⁠⁠`
-* ﻿⁠⁠⁠⁠`given_name﻿⁠⁠⁠⁠`
-* ﻿⁠⁠⁠⁠`username﻿⁠⁠⁠⁠`
-* ﻿⁠⁠⁠⁠`name﻿⁠⁠⁠⁠`
-* ﻿⁠⁠⁠⁠`nickname﻿⁠⁠⁠⁠`
-
+* `identities.connection⁠⁠⁠⁠`
+* ⁠⁠⁠⁠`identities.provider⁠⁠⁠⁠`
+* ⁠⁠⁠⁠`identities.user_id⁠⁠⁠⁠`
+* ⁠⁠⁠⁠`email⁠`
+* ⁠⁠⁠⁠`phone_number⁠⁠`
+* ⁠⁠⁠⁠`family_name⁠⁠⁠⁠`
+* ⁠⁠⁠⁠`given_name⁠⁠⁠⁠`
+* ⁠⁠⁠⁠`username⁠⁠⁠⁠`
+* ⁠⁠⁠⁠`name⁠⁠`
+* ⁠⁠⁠⁠`nickname`
 
 ## Example Queries
 
