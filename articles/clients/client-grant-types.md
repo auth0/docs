@@ -76,7 +76,7 @@ To avoid changes in functionality for current Auth0 customers, we will populate 
 
 ### New Clients
 
-Depending on whether a newly-created Client is [public](/api-auth/client-types#public-clients) or [confidential](/api-auth/client-types#confidential-clients), the Client will have varying access to grant types.
+Depending on whether a newly-created Client is [public](/clients/client-types#public-clients) or [confidential](/clients/client-types#confidential-clients), the Client will have varying access to grant types.
 
 ### Public Clients
 
