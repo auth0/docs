@@ -43,9 +43,9 @@ If you haven't done these yet, refer to these docs for details:
 
   At this point, you will see your newly-created Hook listed under the _Client Credentials Exchange_.
 
-  ::: note
-    You can create more than one hooks per extensibility point but <strong>only one can be enabled</strong>. The enabled hook will then be executed for <strong>all</strong> clients and APIs.
-  :::
+::: note
+You can create more than one hooks per extensibility point but __only one__ can be enabled. The enabled hook will then be executed for __all__ clients and APIs.
+:::
 
 3. Click the __Pencil and Paper__ icon to the right of the Hook to open the Webtask Editor.
 
@@ -140,7 +140,7 @@ To get a token, make a `POST` request at the `https://${account.namespace}/oauth
 ```
 
 ::: note
-  If you don't know where to find the Client Id, Client Secret, or API Identifier information, refer to <a href="/api-auth/config/asking-for-access-tokens#where-to-find-the-ids">Where to Find the IDs</a>.
+If you don't know where to find the Client Id, Client Secret, or API Identifier information, refer to <a href="/api-auth/config/asking-for-access-tokens#where-to-find-the-ids">Where to Find the IDs</a>.
 :::
 
 A successful response will include:
@@ -149,7 +149,7 @@ A successful response will include:
 - the token's type set as `Bearer` (`token_type`), and
 - an `extra` scope (`scope`) (this scope was added by your hook)
 
-```json
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
@@ -224,14 +224,12 @@ Let's see what each one contains.
 
 - __cb__: The callback. In our example we returned the token (`cb(null, access_token)`). If you decide, however, not to issue a token, you can return `Error (cb(new Error('access denied')))`.
 
-## Read more
+## Keep reading
 
-[What are Hooks and how you can work with them](/hooks)
-
-[Overview of the Client Credentials Grant](/api-auth/grant/client-credentials)
-
-[How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
-
-[How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
-
-[How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+:::next-steps
+* [What are Hooks and how you can work with them](/hooks)
+* [Overview of the Client Credentials Grant](/api-auth/grant/client-credentials)
+* [How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
+* [How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
+* [How to execute a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+:::
