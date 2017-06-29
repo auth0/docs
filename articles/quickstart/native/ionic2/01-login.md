@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to add authentication and authorization to an Ionic 2 app
+description: This tutorial demonstrates how to add authentication and authorization to an Ionic 2+ app
 budicon: 448
 ---
 
@@ -15,92 +15,116 @@ budicon: 448
   ]
 }) %>
 
-## Overview
+<%= include('../_includes/_ionic_setup') %>
 
-To integrate Auth0 in a hybrid Ionic app, you can use the `@auth0/cordova` package available on npm. This package provides an interface with cordova which allows you to use the [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636) spec. PKCE is recommended for native and hybrid applications to mitigate the threat of authorization code interception.
+## Set Up URL Redirects
 
-::: note
+Use the `onRedirectUri` method from **auth0-cordova** when your app loads to properly handle redirects after authentication.
 
-Please note that PKCE authentication requires testing on either an emulated or real device. Attempting authentication when testing in the browser will fail because PKCE requires a device browser.
+```js
+// app.component.ts
 
-:::
+import { Component } from '@angular/core';
+import { Platform } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
-## Set Up Your Package Identifier
+import { HomePage } from '../pages/home/home';
 
-To set up or get your package identifier (used several times throughout this tutorial), you should take a look at your config.xml and get it from this line:
+// Import Auth0Cordova
+import Auth0Cordova from '@auth0/cordova';
 
-```xml
-<widget id="YOUR_PACKAGE_ID" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+@Component({
+  templateUrl: 'app.html'
+})
+export class MyApp {
+  rootPage:any = HomePage;
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    platform.ready().then(() => {
+      statusBar.styleDefault();
+      splashScreen.hide();
+
+      // Add this function
+      (<any>window).handleOpenURL = (url) => {
+        Auth0Cordova.onRedirectUri(url);
+      };
+
+    });
+  }
+}
 ```
-
-## Set Up the Client
-
-<div class="setup-callback">
-<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that the <b>Allowed Callback URLs</b> contains the following value (replace `YOUR_PACKAGE_ID` with your app identifier):</p>
-
-<pre><code>YOUR_PACKAGE_ID://${account.namespace}/cordova/YOUR_PACKAGE_ID/callback</pre></code>
-
-<p>Make sure that <b>Allowed Origin (CORS)</b> has the following value:</p>
-
-<pre><code>file://*</code></pre>
-
-<p>Lastly, make sure that <b>Client Type</b> is set to Native</p>
-
-</div>
-
-## Install Dependencies
-
-You'll need these libraries:
-
-* **[auth0-js](https://github.com/auth0/auth0.js)** to get profile information from Auth0
-
-* **[@auth0/cordova](https://github.com/auth0/auth0-cordova)** to handle authentication with Auth0
-
-```bash
-npm install auth0-js @auth0/cordova --save
-```
-
-After **@auth0/cordova** is installed, it needs to be configured by modifying your `app.component.ts` to set up URL redirects:
-
-${snippet(meta.snippets.cordova)}
-
-## Add Cordova Plugins
-
-You must install the `SafariViewController` plugin from Cordova to be able to show the Login popup. The seed project already has this plugin added, but if you are adding Auth0 to your own application you need to run the following command:
-
-```bash
-ionic cordova plugin add cordova-plugin-safariviewcontroller
-```
-
-You'll also need to install the `CustomURLScheme` from Cordova to handle redirects properly. The seed project has it already, but if you're adding Auth0 to your own project, you'll need to run this command (replace `YOUR_PACKAGE_ID` with your app identifier):
-
-```bash
-ionic cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_SCHEME={YOUR_PACKAGE_ID} --variable ANDROID_HOST=${account.namespace} --variable ANDROID_PATHPREFIX=/cordova/{YOUR_PACKAGE_ID}/callback
-```
-
-## Modify config.xml
-
-Add `<preference name="AndroidLaunchMode" value="singleTask" />` to your config.xml. This will allow the Auth0 dialog to properly redirect back to your app.
 
 ## Create an Authentication Service and Configure Auth0
 
-To coordinate authentication tasks, it's best to set up an injectable service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication state. Be sure to replace `YOUR_PACKAGE_ID` with your apps identifier in the configuration block.
+To coordinate authentication tasks, it's best to set up an injectable service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication state. Be sure to replace `YOUR_PACKAGE_ID` with the identifier for your app in the configuration block.
 
 ${snippet(meta.snippets.use)}
 
-The service can now be injected wherever it is needed.
+## Add a Login Control
 
-## View Auth0 Data After Logging In
+Add a control to your app to allow users to log in. The control should call the `login` method from the `AuthService`. Start by injecting the `AuthService` in a component.
 
-You will likely want some kind of profile area for users to see their information. Depending on your needs, this can also serve as the place for them to log in and out.
+```js
+// src/pages/home/home.ts
 
-For a demo in your component, simply inject the `AuthService`.
+import { Component } from '@angular/core';
 
-${snippet(meta.snippets.profile)}
+import { AuthService } from '../../services/auth.service';
 
-The `AuthService` is now accessible in the view and can be used to conditionally hide and show elements depending on whether the user has a valid JWT in local storage.
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.html'
+})
+export class HomePage {
 
-${snippet(meta.snippets.profiletemplate)}
+  constructor(public auth: AuthService) {}
+
+}
+```
+
+The `AuthService` is now accessible in the view and its `login` method can be called.
+
+```html
+<!-- src/pages/home/home.html -->
+
+<div *ngIf="!auth.isAuthenticated()">
+  <button ion-button block color="primary" (click)="auth.login()">Log In</button>
+</div>
+```
+
+## Display Profile Data
+
+Your application will likely require some kind of profile area for users to see their information. Depending on your needs, this can also serve as the place for them to log out of the app.
+
+The `login` method in the `AuthService` includes a call to Auth0 for the authenticated user's profile. This profile information can now be used in a template.
+
+```html
+<!-- src/pages/home/home.html -->
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Home Page
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- a card with the user's picture and name, plus a logout button -->
+  <div *ngIf="auth.isAuthenticated()">
+    <ion-card>
+      <img [src]="auth.user.picture" />
+      <ion-card-content>
+        <ion-card-title>{{ auth.user.name }}</ion-card-title>
+      </ion-card-content>
+    </ion-card>
+    <button ion-button block color="primary" (click)="auth.logout()">Logout</button>
+  </div>
+
+</ion-content>
+```
 
 ### Troubleshooting
 

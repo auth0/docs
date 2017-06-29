@@ -1178,6 +1178,10 @@ module.exports = [
     to: '/rules/current/metadata-in-rules'
   },
   {
+    from: '/quickstart/native/ionic/00-intro',
+    to: '/quickstart/native/ionic'
+  },
+  {
     from: '/quickstart/native/ionic/02-custom-login',
     to: '/quickstart/native/ionic'
   },

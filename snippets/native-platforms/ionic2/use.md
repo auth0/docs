@@ -18,7 +18,6 @@ const auth0Config = {
   packageIdentifier: 'YOUR_PACKAGE_ID'
 };
 
-
 @Injectable()
 export class AuthService {
   auth0 = new Auth0.WebAuth(auth0Config);
