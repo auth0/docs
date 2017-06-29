@@ -13,17 +13,17 @@ If you have an app called Fabrikam that allows users to access different types o
 
 The following terminology is important when discussing step-up authentication using Auth0.
 
-* Authentication Context Class Reference `acr`: string used to specify the authentication class performed on the current session. See `acr` under [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken). Currently, Auth0 utilizes the [Multi-Factor Authentication policy](http://schemas.openid.net/pape/policies/2007/06/multi-factor).
+* Authentication Context Class Reference `acr`: string used to specify the authentication class performed on the current session. Denotes the strength of authentication (for example, values of `0` indicate that the user shouldn't be allowed to access resources of value). See `acr` under [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken). Currently, Auth0 utilizes the [Multi-Factor Authentication policy](http://schemas.openid.net/pape/policies/2007/06/multi-factor).
 
 * Authentication Methods References `amr`: JSON array of strings listing the methods used to authenticate the current session. For example, the `amr` might indicate that the current session was authenticated using a username/password.  See `amr` under [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
-* `acr_values`: string specifying the `acr` values that have been user to process the request in order of preference. See `acr_values` under [Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
+* `acr_values`: string specifying the `acr` values that have been used to process the request in order of preference. See `acr_values` under [Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
 
 When appropriate, both the `acr` and `amr` are available on the [ID token](/tokens/id-token) of the current session. You can use both to signal the need for MFA. The `acr-values` field is added to the authentication request.
 
 ## Example
 
-To request that Auth0 require multifactor authentication for certain situations, add the `acr_values` field to the authentication request along with the `acr` level desired. For example, if you're using the [auth0.js library](/libraries/auth0js), your sign in snippet might look something like this:
+To enable step-up authentication, add the `acr_values` field to the authentication request along with the `acr` level desired. For example, if you're using the [auth0.js library](/libraries/auth0js), your sign in snippet might look something like this:
 
 ```js
 // Use acr_values to indicate this user needs MFA
