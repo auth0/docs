@@ -63,13 +63,13 @@ The next step will be to create a new Application in your Directory.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-new-app-name.png)
 
-The SIGN-ON URL is the url of your application that users will see when adding the application to their directory (in the consent flow).
+The **Sign-On URL** is the url of your application that users will see when adding the application to their directory (in the consent flow).
 
-The APP ID URI is the unique identifier for your application (next to the Client ID) and must match a domain you registered under domains.
+The **App ID URI** is the unique identifier for your application (next to the Client ID) and must match a domain you registered under domains.
 
 Once the application has been created, we'll need to enable it for multi-tenancy, generate a key, and configure the callback urls. You'll have 2 types of callback urls: the callback url for Auth0's login endpoint and the callback url for the consent flow.
 
-When new customers sign up with their Azure AD directory the consent flow will redirect back to your application after approval/denial. In this example the page is available from different urls (such as http://localhost:55000/registration/complete which is why we need to add this page multiple times.
+When new customers sign up with their Azure AD directory, the consent flow redirects them back to your application afterwards.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-app-config.png)
 
@@ -86,7 +86,7 @@ The second option is to only ask for the 'Enable SSO' permission, which is the o
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-app-perm2.png)
 
-## Creating a connection in Auth0
+## Create a Connection in Auth0
 
 After configuring our application in Azure AD we can add it as a connection in the Auth0 dashboard. Here, we'll need to enter the Client ID and Client Secret of the application:
 
@@ -94,7 +94,7 @@ After configuring our application in Azure AD we can add it as a connection in t
 
 And when creating the connection we'll need to enter the name of the directory (`fabrikamcorporation.onmicrosoft.com`) and enable the Common Endpoint. This is required if you're building multi-tenant applications.
 
-## Creating the application
+## Create the Application
 
 Now that you've configured Azure AD, the Auth0 Connection, and the Auth0 Client, it's time to create the application itself.
 
@@ -104,9 +104,10 @@ Now that you've configured Azure AD, the Auth0 Connection, and the Auth0 Client,
 
 Before users from another directory are able to authenticate, they'll need to go through a consent flow. The `Register` button starts the consent flow for a single user, and users can sign up with a social account or as part of their organization. Opting for **Enable for my organization** requires administrative permissions for the whole organization.
 
-The following code snippet stores a "registration request" with a unique ID (the SignupToken) before redirecting the user to the consent page. The SignupToken is added as the state of the request, and we'll be able to use this value once the user goes through the flow.
+The following code snippet stores a "registration request" with a unique ID (the `SignupToken`) before redirecting the user to the consent page. The `SignupToken` is added as the state of the request, and we'll be able to use this value once the user goes through the flow.
 
 ```cs
+// URL with parameters to be populated with custom parameters two code blocks down
 private const string OnboardingUrl =
     "https://login.windows.net/common/oauth2/authorize?response_type=code
         &client_id={0}&resource={1}&redirect_uri={2}&state={3}";
@@ -144,11 +145,13 @@ public async Task<ActionResult> Start(RegistrationModel model)
 }
 ```
 
-This redirects the user to the consent page and, in cases where we enable this for an entire organization, this triggers an admin consent request.
+Notice that the second block of this code snippet redirects the user to the consent page.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-consent-page.png)
 
-After accepting, the user is redirected back to the application where the registration request is being processed. If everything went well, the application receives a code which can be used to receive an authorization code, the `result` variable.
+After accepting the request for access, the user is redirected back to the application where the registration request is being processed. 
+
+The application receives a code which can be used to receive an authorization code, the `result` variable.
 
 ```cs
 [HttpGet]
