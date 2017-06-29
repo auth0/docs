@@ -30,7 +30,17 @@ export default class Auth {
 ```
 
 ::: note
-**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
+**Checkpoint:** Try importing the `Auth` service from some place in your application and calling the `login` method from it. This could be from a button click or in some lifecycle hook, just something that will trigger the method so you can see the login page. For example:
+
+```js
+// App.js
+import Auth from './Auth.js';
+
+const auth = new Auth();
+auth.login();
+```
+
+This isn't how the service will be used later but is useful for seeing the login page right away.
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)
