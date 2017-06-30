@@ -36,6 +36,8 @@ Be sure that you have completed the [Login](/quickstart/native/android/00-login)
 Before launching the log in you need to ask for the `offline_access` scope in order to get a valid `refresh_token` in the response. Locate the snippet were you're initializing the `WebAuthProvider` and add the `withScope("openid offline_access")` line.
 
 ```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
 Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
 auth0.setOIDCConformant(true);
 WebAuthProvider.init(auth0)
@@ -49,6 +51,8 @@ WebAuthProvider.init(auth0)
 Save **through a secure method** the user's credentials obtained in the login success response.
 
 ```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
 private final AuthCallback callback = new AuthCallback() {
     @Override
     public void onFailure(@NonNull final Dialog dialog) {
@@ -79,6 +83,8 @@ The main purpose of storing this token is to save users from having to re-enter 
 To do so, we check whether this value exists at startup to either prompt for login credentials or to try to perform an automated login.
 
 ```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
 String accessToken = CredentialsManager.getCredentials(this).getAccessToken();
 if (accessToken == null) {
   // Prompt Login screen.
@@ -97,6 +103,8 @@ We will explain the latter approach by calling the `/userinfo` endpoint.
 
 
 ```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
 AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
 aClient.userInfo(accessToken)
         .start(new BaseCallback<UserProfile, AuthenticationException>() {
@@ -126,12 +134,16 @@ We will use the previously saved `refresh_token` to get a new `access_token`. It
 First instantiate an `AuthenticationAPIClient`:
 
 ```java
+// app/src/main/java/com/auth0/samples/MainActivity.java
+
 AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
 ```
 
 Then use the `refresh_token` to get fresh new credentials:
 
 ```java
+// app/src/main/java/com/auth0/samples/MainActivity.java
+
 String refreshToken = CredentialsManager.getCredentials(this).getRefreshToken();
 aClient.renewAuth(refreshToken)
       .start(new BaseCallback<Credentials, AuthenticationException>() {
@@ -158,6 +170,8 @@ To log the user out, you just need to remove the saved user's credentials and na
 An example would be:
 
 ```java
+// app/src/main/java/com/auth0/samples/MainActivity.java
+
 private void logout() {
   CredentialsManager.deleteCredentials(this);
   startActivity(new Intent(this, LoginActivity.class));

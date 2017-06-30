@@ -27,6 +27,8 @@ Be sure that you have completed the [Login](/quickstart/native/android/00-login)
 The first step is to instantiate the API clients. This will be used to request the user's profile data.
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+
 Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
 auth0.setOIDCConformant(true);
 
@@ -43,6 +45,8 @@ Next, use the `access_token` to obtain the user id with the `AuthenticationAPICl
 
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+
 String accessToken = CredentialsManager.getCredentials(this).getAccessToken();
 authenticationClient.userInfo(accessToken)
     .start(new BaseCallback<UserProfile, AuthenticationException>() {
@@ -63,6 +67,8 @@ authenticationClient.userInfo(accessToken)
 Finally, use the `UsersAPIClient` and the user id to get the full User profile.
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+
 usersClient.getProfile(userId)
         .start(new BaseCallback<UserProfile, ManagementException>() {
             @Override
@@ -137,6 +143,8 @@ userMetadata.put("country", "USA");
 And then with the `UsersAPIClient`, perform the update:
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+
 String idToken = CredentialsManager.getCredentials(this).getIdToken();
 UsersAPIClient usersClient = new UsersAPIClient(auth0, idToken);
 usersClient.updateMetadata(userInfo.getId(), userMetadata).start(new BaseCallback<UserProfile, ManagementException>() {

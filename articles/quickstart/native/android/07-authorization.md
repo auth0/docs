@@ -58,6 +58,7 @@ Once you have the user profile (as explained in the [user profile](04-user-profi
 Inside it, you will have the role, and you will be ready to perform the access control.
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
 List<String> roles = (List<String>) mUserProfile.getAppMetadata().get("roles");
 
 if (roles.contains("admin")) {
