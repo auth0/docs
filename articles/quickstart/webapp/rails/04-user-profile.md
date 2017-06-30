@@ -4,7 +4,7 @@ description: Access the user profile information using OmniAuth-Auth0 strategy.
 budicon: 448
 ---
 
-The [login](/quickstart/webapp/rails/01-login) step explains how to log users in using the Lock widget and a gem called [OmniAuth](https://github.com/intridea/omniauth) (and a specific Auth0 strategy for OmniAuth). In this step, you'll learn how to access the user profile data once the user has logged into the application.
+The [login](/quickstart/webapp/rails/01-login) step explains how to log users in using the Auth0.js and a gem called [OmniAuth](https://github.com/intridea/omniauth) (and a specific Auth0 strategy for OmniAuth). In this step, you'll learn how to access the user profile data once the user has logged into the application.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
@@ -34,7 +34,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ## Retrieve the Auth Hash
 
-In the [login](/quickstart/webapp/rails/01-login) step, you configured the application for Lock to start the OmniAuth strategy, and for OmniAuth to take over and complete the authentication process. You also set a route that matches the callback URL in the application routes.
+In the [login](/quickstart/webapp/rails/01-login) step, you configured the application for Auth0.js to start the OmniAuth strategy, and for OmniAuth to take over and complete the authentication process. You also set a route that matches the callback URL in the application routes.
 
 ```ruby
 get "/auth/oauth2/callback" => "auth0#callback"
