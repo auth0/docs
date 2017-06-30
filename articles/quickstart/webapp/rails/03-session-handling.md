@@ -56,20 +56,12 @@ You can take advantage of the SDK for generating the logout URL.
 ```ruby
 module LogoutHelper
   def logout_url
-    domain = Rails.application.secrets.auth0_domain
-    client_id = Rails.application.secrets.auth0_client_id
-    request_params = {
-      returnTo: root_url,
-      client_id: client_id
-    }
-
-    URI::HTTPS.build(host: domain, path: '/logout', query: to_query(request_params))
-  end
-
-  private
-
-  def to_query(hash)
-    hash.map { |k, v| "#{k}=#{URI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
+    creds = { client_id: ENV['AUTH0_CLIENT_ID'],
+    client_secret: ENV['AUTH0_CLIENT_SECRET'],
+    api_version: 1,
+    domain: ENV['AUTH0_DOMAIN'] }
+    auth0_client = Auth0Client.new(creds)
+    auth0_client.logout_url(root_url)
   end
 end
 ```
