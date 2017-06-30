@@ -482,10 +482,6 @@ module.exports = [
     to: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise'
   },
   {
-    from: '/scenarios/ionic-and-firebase',
-    to: '/tutorials/using-ionic-and-firebase'
-  },
-  {
     from: ['/scenarios/keenio', '/scenarios-keenio'],
     to: '/tutorials/sending-events-to-keenio'
   },
