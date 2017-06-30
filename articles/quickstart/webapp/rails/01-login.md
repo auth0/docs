@@ -1,6 +1,6 @@
 ---
 title: Login
-description: Learn how to login using the Auth0 Lock widget and OmniAuth.
+description: Learn how to login using the Auth0.js and OmniAuth.
 budicon: 448
 ---
 
@@ -14,7 +14,7 @@ budicon: 448
   ]
 }) %>
 
-The easiest way to add authentication to your Rails application is to use Auth0's [Lock widget](/lock) and OmniAuth authentication [strategy](https://github.com/auth0/omniauth-auth0).
+The easiest way to add authentication to your Rails application is to use [Auth0.js](/libraries/auth0js) and OmniAuth authentication [strategy](https://github.com/auth0/omniauth-auth0).
 
 ## Initialize Omniauth Auth0
 
@@ -61,12 +61,45 @@ get "/auth/oauth2/callback" => "auth0#callback"
 get "/auth/failure" => "auth0#failure"
 ```
 
-## Trigger Login with Lock
+## Trigger Login with Auth0.js
 
-<%= include('../../../_includes/_lock-sdk') %>
+First, create `session_helper.rb`:
+
+```ruby
+# app/helpers/session_helper.rb
+module SessionHelper
+  def get_state
+    state = SecureRandom.hex(24)
+    session['omniauth.state'] = state
+
+    state
+  end
+end
+```
+
+After that you can use auth0.js
+
+```html
+<%= javascript_include_tag '//cdn.auth0.com/js/auth0/8.8/auth0.min.js' %>
+<script>
+  var webAuth = new auth0.WebAuth({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    redirectUri: '${account.callback}',
+    audience: 'https://${account.namespace}/userinfo',
+    responseType: 'code',
+    scope: 'openid profile',
+    state: '<%= get_state %>'
+  });
+
+  function signin() {
+    webAuth.authorize();
+  }
+</script>
+```
 
 ::: note
-The `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the **Allowed Callback URLs** area in your Auth0 dashboard. Follow the [introduction](/quickstart/webapp/rails/00-introduction) step for further detail.
+The `redirectUri` specified in the `webAuth` constructor **must match** the one specified in the **Allowed Callback URLs** area in your Auth0 dashboard. Follow the [introduction](/quickstart/webapp/rails/00-introduction) step for further detail.
 :::
 
 If you wish to force an identity provider, you may redirect the user and specify the connection name in the query string.
