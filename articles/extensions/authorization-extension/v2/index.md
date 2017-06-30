@@ -131,14 +131,11 @@ To prevent confusion, you will be shown both the explicit members AND the "calcu
 
 ### Group Mappings
 
-Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections.
+Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the Groups information provided by the IdP, you can dynamically make the user a member of the group in which you've created the appropriate mapping.
 
-For example, suppose your company has the following Groups of users:
+For example, suppose your users are logging in using their Active Directory (AD) credentials. As part of their identity, AD allows users to have group information associated (such as "Administrative" and "Marketing").
 
-* **Americas - West**, which consists of users who connect via *google-oauth2*;
-* **Europe - West**, which consists of users who connect via *google-oauth2*.
-
-With Group Mappings, you can consolidate these Groups and the permissions allotted to the included users into one larger group, such as Overall Company Group. Similar to nested Groups, the memberships of the users in Overall Company Group is not explicit, but dynamic, and are calculated at runtime. Such memberships will appear listed as such under the Groups page.
+You can then configure Group Mappings to look at a user's profile if they're connecting with the Active Directory connection. When the extension sees that the person is a part of the "Administrative" group, it will automatically make the user a member of your company's Admin group.
 
 ![Group Mappings](/media/articles/extensions/authorization/group-mapping-v2.png)
 
