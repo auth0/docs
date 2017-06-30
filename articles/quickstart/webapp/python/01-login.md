@@ -99,9 +99,9 @@ You can implement logout by clearing a session and redirecting to [logout endpoi
 @app.route('/logout')
 def logout():
     session.clear()
-    parsed_base_url = urlparse('${account.callback})
+    parsed_base_url = urlparse('${account.callback}')
     base_url = parsed_base_url.scheme + '://' + parsed_base_url.netloc
-    return redirect('https://%s/v2/logout?returnTo=%s&client_id=%s' % ('${account.namespace}', base_url, '${account.clientId}))
+    return redirect('https://%s/v2/logout?returnTo=%s&client_id=%s' % ('${account.namespace}', base_url, '${account.clientId}'))
 ```
 
 ### 7. Optional steps
