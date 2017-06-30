@@ -99,10 +99,24 @@ public class Authentication : NancyModule
 }
 ```
 
-## Triggering Login Manually or Integrating Lock
+## Integrating Auth0.js
 
-<%= include('../../../_includes/_lock-sdk') %>
+```html
+<script src="${auth0js_urlv8}"></script>
+<script>
+var webAuth = new auth0.WebAuth({
+	domain: '${account.namespace}',
+	clientID: '${account.clientId}',
+	redirectUri: 'http://localhost:3579/login-callback',
+	audience: 'https://${account.namespace}/userinfo',
+	responseType: 'code',
+	scope: 'openid name'
+});
+
+webAuth.authorize();
+</script>
+```
 
 ::: note
-The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+The `redirectUri` specified in the `webAuth` constructor **must match** the one specified in the previous step
 :::
