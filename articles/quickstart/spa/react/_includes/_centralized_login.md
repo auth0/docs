@@ -34,7 +34,7 @@ export default class Auth {
 
 ```js
 // App.js
-import Auth from './Auth.js';
+import Auth from './Auth/Auth.js';
 
 const auth = new Auth();
 auth.login();
