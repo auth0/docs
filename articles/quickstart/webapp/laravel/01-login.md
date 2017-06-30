@@ -85,19 +85,9 @@ Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');
 
 ## Triggering Login Manually or Integrating the Auth0 Widget
 
-You can trigger the login by calling `\App::make('auth0')->login();` in your controller, for example:
+You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](/lock), by adding the following javascript into a Laravel view or layout (e.g. in `resources/views/welcome.blade.php`)
 
-```php
-...
-
-class IndexController extends Controller {
-    ...
-    public function login()
-    {
-        return \App::make('auth0')->login();
-    }
-}
-```
+<%= include('../../../_includes/_lock-sdk') %>
 
 Now, after user has logged in, you will be able to access to the logged user info with `Auth::user()`.
 
