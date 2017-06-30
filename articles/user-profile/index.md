@@ -12,7 +12,7 @@ User Profile attributes can come from many places. Attributes may be returned by
 
 For more information about User Profiles, please see [User Profile: In-Depth Details](/user-profile/user-profile-details).
 
-## Manage User Profiles in the Management Dashboard
+## Manage User Profiles using the Management Dashboard
 
 Use the Auth0 Management Dashboard ("Dashboard") to manage User Profiles.
 
@@ -85,6 +85,14 @@ The Locations tab displays a map with pins indicating the user's location(s) whe
 #### User Details: Raw JSON
 
 The Raw JSON tab displays all of the information contained on the user's profile in JSON format so you can quickly view all of the available information about the user.
+
+## Manage User Profiles using our API
+
+Alternatively, you can retrieve, create, update or delete users using our [Management API](https://auth0.com/docs/api/management/v2#!/Users/get_users).
+
+First, you have to generate an `access_token` to call the Management API. For information on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+
+Instead of making the HTTP calls directly, and depending on the platform you use, you can use one of our SDKs. For a list of available SDKs, refer to [the SDKs section of our Support Matrix](/support/matrix#sdks).
 
 ## Impersonate a User
 
