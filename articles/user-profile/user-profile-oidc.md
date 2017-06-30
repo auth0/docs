@@ -1,6 +1,22 @@
 # User Profiles Returned from OIDC-Compliant Pipelines
 
-When you're using an OIDC-compliant pipeline, the user profile you receive in return may differ slightly from the Auth0 Normalized User Profile.
+When you're using an OIDC-conformant authentication flow, the user profile you receive in return may differ slightly from the [Auth0 Normalized User Profile](/user-profile/normalized).
+
+The following is a [non-normative example of such a response](https://openid.net/specs/openid-connect-basic-1_0.html#StandardClaims):
+
+```json
+  {
+   "sub": "248289761001",
+   "name": "Jane Doe",
+   "given_name": "Jane",
+   "family_name": "Doe",
+   "preferred_username": "j.doe",
+   "email": "janedoe@example.com",
+   "picture": "http://example.com/janedoe/me.jpg"
+  }
+```
+
+## Claims
 
 * `sub` [string]: unique identifier for the user
 
