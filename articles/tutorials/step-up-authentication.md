@@ -5,51 +5,51 @@ description: You can add step-up authentication to your app with Authentication 
 
 With Step-Up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.
 
-For example, *Fabrikam's Intranet* can require users to authenticate with their username and password to access customer data. However, a request for access to employee data (which may contain sensitive salary information) can trigger a stronger authentication mechanism like [multifactor authentication](/multifactor-authentication).
-
-You can add step-up authentication to your app with Auth0's extensible multifactor authentication support. Your app can verify that the user has logged in using multifactor authentication and, if not, require the user to step-up to access certain resources.
+If you have an app called Fabrikam that allows users to access different types of resources, you can vary the level of authentication required. For example, you might require a user to log into your portal using a username/password combination, but if they request access to Employees page, which contains sensitive details such as salary information, your app will ask your user to complete the [multifactor authentication](/multifactor-authentication) process before it grants the user their request.
 
 ![](/media/articles/step-up-authentication/flow.png)
 
-## Step-Up Authentication with ACR
+## Key Terms When Using Step-Up Authentication
 
-There are three core concepts used when addressing authentication level at Auth0.
+The following terminology is important when discussing step-up authentication using Auth0.
 
-* `acr`- Authentication Context Class Reference: is a string used to specify the 'class' of authentication that was performed on the current session. Look to [Authentication Context Class Reference](http://openid.net/specs/openid-connect-core-1_0.html) page for more detail and specific policies. Currently, Auth0 utilizes the 'Multi-Factor Authentication' policy, `http://schemas.openid.net/pape/policies/2007/06/multi-factor`.
+* Authentication Context Class Reference `acr`: string used to specify the authentication class performed on the current session. Denotes the strength of authentication, which can be used to make authorization decisions. Currently, Auth0 utilizes the [Multi-Factor Authentication policy](http://schemas.openid.net/pape/policies/2007/06/multi-factor), which is indicated by an `acr` value of `http://schemas.openid.net/pape/policies/2007/06/multi-factor`. See `acr` under [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
-* `amr`- Authentication Methods References: is a JSON case senstitive string list of methods that were used to authenticate the current session.  For instance, values might indicate that both password and OTP authentication methods were used.  See the [Authentication Methods References](http://openid.net/specs/openid-connect-core-1_0.html) page for more details.
+* Authentication Methods References `amr`: JSON array of strings listing the methods used to authenticate the current session. For example, the `amr` might indicate that the current session was authenticated using a username/password.  See `amr` under [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
-* `acr_values`: this is a space-separated string that specifies the `acr` values that have been requested to use for processing the request, with the values appearing in order of preference. This can be used to request the class of `acr` above when authentication is to be performed.  See [here](http://openid.net/specs/openid-connect-core-1_0.html) for more details.
+* `acr_values`: string specifying the `acr` values that have been used to process the request in order of preference. See `acr_values` under [Authentication Request](http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint).
 
-`acr` and `amr` are both available on the [ID token](/tokens/id-token) of the current session, when appropriate. Both can signal to use MFA. The `acr_values` field is added to the request for authentication.
+When appropriate, both the `acr` and `amr` are available on the [ID token](/tokens/id-token) of the current session. You can use both to signal the need for MFA. The `acr-values` field is added to the authentication request.
 
 ## Example
 
-To request that Auth0 require a multifactor authentication, add the field `acr_values` to the authentication along with the `acr` level desired. For example, with [Auth0.js](/libraries/auth0js) it would work like the following code snippet:
+To enable step-up authentication, add the `acr_values` field to the authentication request along with the `acr` level desired. For example, if you're using the [auth0.js library](/libraries/auth0js), your sign in snippet might look something like this:
 
 ```js
-// Use acr_values to indicate this user needs a step-up with MFA
+// Use acr_values to indicate this user needs MFA
 auth0.signin({
   connection: 'google-oauth2',
   acr_values: 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'
 });
 ```
 
-With [Lock](/libraries/lock), the following would indicate the need for MFA:
+If you're using [Lock](/libraries/lock), the following would indicate the need for MFA:
+
 ```js
-// Use acr_values to indicate this user needs a step-up with MFA
+// Use acr_values to indicate this user needs MFA
 var options = {
-  ...
   auth: {
     acr_values: 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'
   }
 };
 
-lock = new Auth0Lock('clientID', 'account.auth0.com', options);
+lock = new Auth0Lock('clientID', 'your-auth0-domain.auth0.com', options);
 ```
 
-To confirm that a session has had multifactor authentication, the id_token can be checked for its `acr` and `amr` claims.
+To confirm that a session has successfully undergone multifactor authentication, you can check the `id_token` for its `acr` and `amr` claims.
+
 ```js
+// Decode the ID Token
 var decoded = jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] });
 
 // Confirm that the acr has the expected value
@@ -57,19 +57,19 @@ if (Array.isArray(decoded.amr) && decoded.amr.indexOf('mfa') >= 0) {
   throw new Error('Step-up authentication failed');
 }
 
-// We also expect to have the amr claim
+// Check that the amr claim exists
 if(decoded.acr !== 'http://schemas.openid.net/pape/policies/2007/06/multi-factor'){
   throw new Error('Step-up authentication failed');
 }
 ```
 
-More example code with the step-up functionality can be found [here](https://github.com/auth0/guardian-example).
+For additional sample code snippets on how to use step-up authentication, see the [Guardian Example repo on GitHub](https://github.com/auth0/guardian-example).
 
 ## Keep reading
 
 ::: next-steps
-* [Reference for acr, amr and acr_values](http://openid.net/specs/openid-connect-core-1_0.html)
-* [Authentication policy definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
-* [JSON Web Token Example](https://github.com/auth0/node-jsonwebtoken)
-* [Guardian example (with step-up functionality)](https://github.com/auth0/guardian-example)
+* [Authentication Policy Definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
+* [Guardian Example (with Step-Up Functionality)](https://github.com/auth0/guardian-example)
+* [JSON Web Token Implementation for Node.js](https://github.com/auth0/node-jsonwebtoken)
+* [OpenID Specs for `acr`, `amr` and `acr_values`](http://openid.net/specs/openid-connect-core-1_0.html)
 :::
