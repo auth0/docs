@@ -3,12 +3,11 @@ description: Client settings for Web App Clients
 url: /clients/client-settings/regular-web-app
 toc: true
 ---
+# Client Settings: Regular Web Applications
 
 ::: version-warning
 This document lists the settings for a Regular Web App Client; if you're using a different Client type, please use the drop-down to select the appropriate doc.
 :::
-
-# Client Settings: Regular Web Applications
 
 When creating an Auth0 Client, you'll be asked to indicate the *type* of Client you want to create. 
 
