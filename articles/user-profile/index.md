@@ -1,16 +1,12 @@
 ---
 description: Explains the basics of a User profile, how to create a user and view users and their profile details.
-url: /user-profile
 toc: true
 ---
-
 # User Profile
 
-The Auth0 **User Profile** is the set of attributes that contains specific information about a user. User Profile information may include the user's name, email address, contact information, and so on. Please see [Structure of the User Profile](/user-profile/user-profile-structure) for more information about the attributes available on the User Profile.
+The Auth0 **User Profile** is the set of attributes that contains specific information about a user. User Profile information may include the user's name, email address, contact information, and so on.
 
 User Profile attributes can come from many places. Attributes may be returned by the authenticating service (such as Facebook), as well as via custom databases and web services. Auth0 refers to all attribute sources as **Connections** because Auth0 connects to them to authenticate the user.
-
-For more information about User Profiles, please see [User Profile: In-Depth Details](/user-profile/user-profile-details).
 
 ## Manage User Profiles using the Management Dashboard
 
@@ -153,3 +149,12 @@ For total separation you can create a new account. To do this click on tenant na
 If you need to restrict some users to certain clients you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which client the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md).
 
 You can also restrict users from clients by configuring a new connection and only giving access to a specific client. To enable client access for a connection go to the the **Settings** section for a connection and click on the **Clients** tab, here you can enable/disable any client.
+
+## Keep reading
+
+::: next-steps
+* [User Profile Attributes](/user-profile/user-profile-structure)
+* [Auth0 Normalized User Profile](/user-profile/normalized)
+* [User Metadata](/metadata)
+* [User Profile: In-Depth Details](/user-profile/user-profile-details)
+:::
