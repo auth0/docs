@@ -13,7 +13,7 @@ If you have an app called Fabrikam that allows users to access different types o
 
 The following terminology is important when discussing step-up authentication using Auth0.
 
-* Authentication Context Class Reference `acr`: string used to specify the authentication class performed on the current session. Denotes the strength of authentication, which can be used to make authorization decisions. Currently, Auth0 utilizes the [Multi-Factor Authentication policy](http://schemas.openid.net/pape/policies/2007/06/multi-factor), which is indicated by an `acr` value of `http://schemas.openid.net/pape/policies/2007/06/multi-factor'. See `acr` under [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken).
+* Authentication Context Class Reference `acr`: string used to specify the authentication class performed on the current session. Denotes the strength of authentication, which can be used to make authorization decisions. Currently, Auth0 utilizes the [Multi-Factor Authentication policy](http://schemas.openid.net/pape/policies/2007/06/multi-factor), which is indicated by an `acr` value of `http://schemas.openid.net/pape/policies/2007/06/multi-factor`. See `acr` under [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
 * Authentication Methods References `amr`: JSON array of strings listing the methods used to authenticate the current session. For example, the `amr` might indicate that the current session was authenticated using a username/password.  See `amr` under [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
