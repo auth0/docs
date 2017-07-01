@@ -1264,5 +1264,41 @@ module.exports = [
   {
     from: '/quickstart/backend/webapi-owin/00-getting-started',
     to: '/quickstart/backend/webapi-owin'
+  },
+  {
+    from: '/quickstart/webapp/rails/00-introduction',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/02-custom-login',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/03-session-handling',
+    to: '/quickstart/webapp/rails/02-session-handling'
+  },
+  {
+    from: '/quickstart/webapp/rails/04-user-profile',
+    to: '/quickstart/webapp/rails/03-user-profile'
+  },
+  {
+    from: '/quickstart/webapp/rails/05-linking-accounts',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/06-rules',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/07-authorization',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/08-mfa',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/09-customizing-lock',
+    to: '/quickstart/webapp/rails'
   }
 ];
