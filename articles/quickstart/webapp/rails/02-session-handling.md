@@ -7,7 +7,7 @@ budicon: 448
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-rubyonrails-sample',
-  path: '03-Session-Handling',
+  path: '02-Session-Handling',
   requirements: [
     'Ruby 2.3.1',
     'Rails 5.0.0'
@@ -16,13 +16,13 @@ budicon: 448
 
 ## Store Session Data on Login
 
-Upon successful authentication, OmniAuth-Auth0 sets a special hash called the Authentication Hash of a request to `/auth/oauth2/callback`. To handle this request, add a new route in your routes file:
+Upon successful authentication, **OmniAuth** sets the authentication hash of a request to `/auth/oauth2/callback`. To handle this request, add a new route in your routes file.
 
 ```ruby
 get "/auth/oauth2/callback" => "auth0#callback"
 ```
 
-And store the user information in the session adding the following code to the `auth0_controller\callback` method:
+Store the user information in the session in `auth0_controller\callback`.
 
 ```ruby
   def callback
@@ -39,8 +39,6 @@ And store the user information in the session adding the following code to the `
 
 To clear out all the objects stored within the session, call the `reset_session` method within the `logout_controller\logout` method. [Learn more about `reset_session` here](http://api.rubyonrails.org/classes/ActionController/Base.html#M000668).
 
-A typical logout action would look like this:
-
 ```ruby
 class LogoutController < ApplicationController
   include LogoutHelper
@@ -51,21 +49,29 @@ class LogoutController < ApplicationController
 end
 ```
 
-You can take advantage of the SDK for generating the logout URL.
+You can use the Auth0 SDK to generate the logout URL.
 
 ```ruby
 module LogoutHelper
   def logout_url
-    creds = { client_id: ENV['AUTH0_CLIENT_ID'],
-    client_secret: ENV['AUTH0_CLIENT_SECRET'],
-    api_version: 1,
-    domain: ENV['AUTH0_DOMAIN'] }
-    auth0_client = Auth0Client.new(creds)
-    auth0_client.logout_url(root_url)
+    domain = Rails.application.secrets.auth0_domain
+    client_id = Rails.application.secrets.auth0_client_id
+    request_params = {
+      returnTo: root_url,
+      client_id: client_id
+    }
+
+    URI::HTTPS.build(host: domain, path: '/logout', query: to_query(request_params))
+  end
+
+  private
+
+  def to_query(hash)
+    hash.map { |k, v| "#{k}=#{URI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
   end
 end
 ```
 
 ::: note
-The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. [Read more about this](/logout#redirecting-users-after-logout).
+The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. See the [logout documentation](/logout#redirecting-users-after-logout) for more.
 :::
