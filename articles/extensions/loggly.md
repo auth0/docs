@@ -14,7 +14,7 @@ To install and configure this extension, click on the __Auth0 Logs to Loggly__ b
 At this point you should set the following configuration variables:
 
 - __Schedule__: The frequency with which logs should be exported.
-- __Auth0_Domain__: The domain of your Auth0 client. You can find this information at the [__Settings__ view of your client](https://${manage_url}/#/applications/${account.clientId}/settings).
+- __Auth0_Domain__: The domain of your Auth0 client. You can find this information at the [__Settings__ view of your client](${manage_url}/#/applications/${account.clientId}/settings).
 - __Auth0_Global_Client_ID__: The Global Client ID of your Auth0 client.
 - __Auth0_Global_Client_Secret__: The Global Client Secret of your Auth0 client.
 

@@ -165,7 +165,7 @@ That's it! You are done!
 This python script gets a Management API v2 access token, uses it to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console.
 
 Before you run it make sure that the following variables hold valid values:
-- `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](https://${manage_url}/#/apis).
+- `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
 - `DOMAIN`: The __Domain__ of the Non Interactive Client you created at [this step](#1-create-a-client).
 - `CLIENT_ID`: The __Client ID__ of the Non Interactive Client you created at [this step](#1-create-a-client).
 - `CLIENT_SECRET`: The __Client Secret__ of the Non Interactive Client you created at [this step](#1-create-a-client).
