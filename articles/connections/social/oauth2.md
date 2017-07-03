@@ -135,10 +135,12 @@ https://${account.namespace}/authorize
   &state=OPAQUE_VALUE
 ```
 
-## Other resources
+## Keep Reading
 
+::: next-steps
 * [Adding custom connections to lock](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript)
 * [Generic OAuth2 or OAuth1 examples](/oauth2-examples)
 * [Identity Providers supported by Auth0](/identityproviders)
 * [Identity Protocols supported by Auth0](/protocols)
 * [Add a generic OAuth1 Authorization Server to Auth0](/oauth1)
+:::
