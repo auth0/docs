@@ -400,6 +400,31 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     </tbody>
   </table>
 
+### Content Management Systems Plugins
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="80%">CMS</th>
+        <th width="20%">Level of Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://github.com/auth0/wp-auth0">Wordpress</a></td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-drupal">Drupal</a></td>
+        <td><div class="label label-default">Community</div></td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/auth0/auth0-joomla">Joomla</a></td>
+        <td><div class="label label-default">Community</div></td>
+      </tr>
+    </tbody>
+  </table>
+
   ## Quickstarts and Samples
 
   ### Mobile/Native Applications
