@@ -12,7 +12,7 @@ This document will demonstrate the various ways in which you can search for user
 All the [normalized user profile](/user-profile/normalized) fields, as well as the `user_metadata` and `app_metadata` are searchable.
 
 ::: note
-If there is no default sort field specified, some users that have never logged in, may not appear. No default sort field may also result in duplicate records returned and the order of list of users may appear random.
+For more information on working with `user_metadata` and `app_metadata`, please read the [Metadata documentation](https://auth0.com/docs/metadata).
 :::
 
 ## Search for Users in the Dashboard
@@ -39,12 +39,20 @@ You can also search users using the Postman Collection for the Management API. M
 
 Once you have downloaded the collection, and configured your environment, select the **Management API** collection. Navigate to the **Users** folder and select **List or search users**. You can enter your query in the `q` parameter of the URL:
 
-::: zoomable
 ![Searching users in Postman](/media/articles/api/postman/get-users-postman.png)
-:::
 
 ::: note
 For general information on making Postman request, please refer to the [Postman documentation](https://www.getpostman.com/docs/requests).
+:::
+
+### Sorting Search Results 
+
+To sort the list of users returned from the Management API, you can pass make use of the `sort` parameter.  Use `field:order` where order is `1` for ascending and `-1` for descending. For example, to sort users by the `created_at` field you can pass the value of `created_at:1` for the `sort` field. 
+
+For more information on the `sort` and other parameters, please refer to the [Management API Explorer documentation](/api/v2#!/users/get_users).
+
+::: note
+If there is no default sort field specified, some users that have never logged in, may not appear. No default sort field may also result in duplicate records returned and the order of list of users may appear random.
 :::
 
 ## Exact Matching and Tokenization
@@ -55,9 +63,24 @@ Because of the manner in which ElasticSearch handles tokenization on `+` and `-`
 
 However, this will return results for both `jane` and `jane-doe` because both of these _contain_ the exact search term that you used. The difference may not affect some searches, but it will affect others, and provide unanticipated results.
 
+You can solve this problem either by using structured JSON in your metadata, or by using the raw subfield.
+
 ### Structured JSON vs Delimited Strings
 
-Using structured JSON in your metadata is the ideal. Using delimited strings can result in security risks and exposure to problems. More information on metadata and how it should be structured can be found in the [metadata documentaton](/metadata).
+Using structured JSON in your metadata is the ideal. Using delimited strings can result in security risks and exposure to problems. 
+
+```json
+{
+  "preference": {
+    "color": "pink",
+    "displayTitleBar": true
+  }
+}
+```
+
+::: note
+For further information on metadata and how it should be structured can be found in the [metadata documentaton](/metadata).
+:::
 
 ### Using the 'raw' Subfield
 
@@ -84,77 +107,28 @@ The fields which support `raw` subfield queries are as follow:
 
 ## Example Queries
 
-Below are some example queries to illustrate the kinds of queries that are possible using the dashboard or the APIv2.
+Below are some example queries to illustrate the kinds of queries that are possible using the dashboard or the Management API V2.
 
-### Cross-field search
 
-`john`
-
-### Search by specific field
-
-Search for all users whose name _contains_ exactly "john":
-
-`name:"john"`
-
-Search all users whose name _is_ exactly "john":
-
-`name.raw:"john"`
-
-### Wildcard Matching
-
-Search for all user names starting with "john"
-
-`name:john*`
-
-Search for user names that start with "john" and end with "smith"
-
-`name:john*smith`
-
-### Search by email
-
-Search for all users whose email _is_ exactly "john@contoso\.com":
-
-`email.raw:"john@contoso.com"`
-
-### Search by multiple emails
-
-Search for all users whose email is exactly "john@contoso\.com" or "mary@contoso\.com" using `OR` or `AND` operators:
-
-`email.raw:("john@contoso.com" OR "mary@contoso.com")`
-
-### Search for users without verified email
-
-`email_verified:false OR _missing_:email_verified`
-
-### Filter a specific *user_metadata* field
-
-`user_metadata.blog_url:"www.johnsblog.com"`
-
-(`user_metadata` field names are customizable; "blog_url" is an example field.)
-
-### Filter a specific *app_metadata* field
-
-`app_metadata.firstName:"John"`
-
-(`app_metadata` field names are customizable; "firstName" is an example field.)
-
-### Search for users that have a certain *app_metadata* field
-
-`_exists_:app_metadata.plan`
-
-("plan" is an example field.)
-
-### Search for users without a certain *app_metadata* field
-
-`_missing_:app_metadata.plan`
-
-### List all users with a specific role
-
-`app_metadata.roles:"admin"`
-
-### List all users from a specific connection or provider
-
-`identities.provider:"google-oauth2"`
+Use Case | Query
+---------|----------
+Search across all fields for "john" | `john`
+Search for all users whose name _contains_ "john" | `name:"john"`
+Search all users whose name _is_ exactly "john" | `name.raw:"john"`
+Search for all user names starting with "john" | `name:john*`
+Search for user names that start with "john" and end with "smith" | `name:john*smith`
+Search for all users whose email _is_ exactly "john@contoso\.com" | `email.raw:"john@contoso.com"`
+Search for all users whose email is exactly "john@contoso\.com" or "mary@contoso\.com" using `OR` | `email.raw:("john@contoso.com" OR "mary@contoso.com")`
+Search for users without verified email | `email_verified:false OR _missing_:email_verified`
+Search for user users who has the `user_metadata` field named `blog_url` with the value of "www.johnsblog.com" | `user_metadata.blog_url:"www.johnsblog.com"`
+Search for users where the _nested_ `user_metadata` field named `preference.color` has the value of "pink" | `user_metadata.preference.color:"pink"`
+Search for users where the `app_metadata` field named `firstName` has a value of "John" | `app_metadata.firstName:"John"`
+Search for users that have an `app_metadata` field named `plan` | `_exists_:app_metadata.plan`
+Search for users without the `app_metadata` field named `plan` | `_missing_:app_metadata.plan`
+Search for users how have the role of "admin" | `app_metadata.roles:"admin"`
+Search for users from a specific connection or provider | `identities.provider:"google-oauth2"`
+Search for all users that have never logged in | `(_missing_:logins_count OR logins_count:0)`
+Search for all users who logged in before 2015 | `last_login:[* TO 2014-12-31]`
 
 ### Search using ranges
 
@@ -163,6 +137,7 @@ Inclusive ranges are specified with square brackets: `[min TO max]` and exclusiv
 * All users with more than 100 logins:
 
     `logins_count:>100`
+    
 * Logins count >= 100 and <= 200:
 
     `logins_count:[100 TO 200]`
@@ -175,14 +150,6 @@ Inclusive ranges are specified with square brackets: `[min TO max]` and exclusiv
 
     `logins_count:{100 TO 200}`
 
-
-### List all users that have never logged in
-
-`(_missing_:logins_count OR logins_count:0)`
-
-### List all users who logged in before 2015
-
-`last_login:[* TO 2014-12-31]`
 
 ### Fuzziness
 
