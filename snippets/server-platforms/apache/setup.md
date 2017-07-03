@@ -7,11 +7,7 @@ OIDCScope "openid name email"
 OIDCRedirectURI https://your_apache_server/your_path/redirect_uri/
 OIDCCryptoPassphrase <passwordToEncryptTheSessionInformationOnTheCookie>
 
-SSLEngine on
-SSLCertificateFile /home/your_cert.crt
-SSLCertificateKeyFile /home/your_key.key
-
-<Location /your_path/>
+<Location /your_path>
    AuthType openid-connect
    Require valid-user
    LogLevel debug

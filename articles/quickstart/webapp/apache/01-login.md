@@ -22,7 +22,7 @@ Once you've installed it, you just need to enable it for Apache (If you are usin
 
 ${snippet(meta.snippets.dependencies)}
 
-## Configure the Module with your Auth0 Account Information
+## Configure the Module with Your Auth0 Account Information
 
 Now you should get a new configuration file under the `/etc/apache2/mods-available` folder, where Apache modules are normally installed (On Windows you need to use `/apache/conf/httpd.conf` file).
 
