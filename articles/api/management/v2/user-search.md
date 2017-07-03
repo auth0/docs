@@ -2,6 +2,7 @@
 description: This page lists several examples of user search queries using query string syntax.
 section: apis
 crews: crew-2
+toc: true
 ---
 # User Search
 
@@ -57,11 +58,7 @@ If there is no default sort field specified, some users that have never logged i
 
 ## Exact Matching and Tokenization
 
-Because of the manner in which ElasticSearch handles tokenization on `+` and `-`, unexpected results can occur when searching by some fields. For example, when searching for a user whose `name` is "jane".
-
-`name:"jane"`
-
-However, this will return results for both `jane` and `jane-doe` because both of these _contain_ the exact search term that you used. The difference may not affect some searches, but it will affect others, and provide unanticipated results.
+Because of the manner in which ElasticSearch handles tokenization on `+` and `-`, unexpected results can occur when searching by some fields. For example, when searching for a user whose `name` is `jane` (`name:"jane"`), the results will be both for `jane` and `jane-doe`, because both of these _contain_ the exact search term that you used. The difference may not affect some searches, but it will affect others, and provide unanticipated results.
 
 You can solve this problem either by using structured JSON in your metadata, or by using the raw subfield.
 
@@ -82,17 +79,13 @@ Using structured JSON in your metadata is the ideal. Using delimited strings can
 For further information on metadata and how it should be structured can be found in the [metadata documentaton](/metadata).
 :::
 
-### Using the 'raw' Subfield
+### Using the `raw` Subfield
 
 If you wish to avoid the potential pitfalls of analyzed data and search for an exact match to your term - an exact string comparison - then for some fields you can use the `raw` subfield, which will be `not_analyzed`.
 
-So, in the example
+So, in the example `name.raw:"jane"`, the user data for `jane` would match, but `jane-doe` would not.
 
-`name.raw:"jane"`
-
-The user data for `jane` would match, but `jane-doe` would not.
-
-The fields which support `raw` subfield queries are as follow:
+The fields that support `raw` subfield queries are:
 
 * `identities.connection⁠⁠⁠⁠`
 * ⁠⁠⁠⁠`identities.provider⁠⁠⁠⁠`
@@ -108,7 +101,6 @@ The fields which support `raw` subfield queries are as follow:
 ## Example Queries
 
 Below are some example queries to illustrate the kinds of queries that are possible using the dashboard or the Management API V2.
-
 
 Use Case | Query
 ---------|----------
@@ -129,30 +121,15 @@ Search for users how have the role of "admin" | `app_metadata.roles:"admin"`
 Search for users from a specific connection or provider | `identities.provider:"google-oauth2"`
 Search for all users that have never logged in | `(_missing_:logins_count OR logins_count:0)`
 Search for all users who logged in before 2015 | `last_login:[* TO 2014-12-31]`
+Fuzziness: Search for terms that are similar to, but not exactly like, `jhn` | `name:jhn~`
 
 ### Search using ranges
 
 Inclusive ranges are specified with square brackets: `[min TO max]` and exclusive ranges with curly brackets: `{min TO max}`. Curly and square brackets can be combined in the same range expression: `logins_count:[100 TO 200}`.
 
-* All users with more than 100 logins:
-
-    `logins_count:>100`
-
-* Logins count >= 100 and <= 200:
-
-    `logins_count:[100 TO 200]`
-
-* Logins count >= 100:
-
-    `logins_count:[100 TO *]`
-
-* Logins count > 100 and < 200
-
-    `logins_count:{100 TO 200}`
-
-
-### Fuzziness
-
-You can search for terms that are similar to, but not exactly like, your search terms:
-
-`name:jhn~`
+Use Case | Query
+---------|----------
+All users with more than 100 logins | `logins_count:>100`
+Logins count >= 100 and <= 200 | `logins_count:[100 TO 200]`
+Logins count >= 100 | `logins_count:[100 TO *]`
+Logins count > 100 and < 200 | `logins_count:{100 TO 200}`
