@@ -10,7 +10,7 @@ There are some changes to how refresh tokens are used in the OIDC-conformant aut
 
 * Using the [implicit grant](/api-auth/tutorials/adoption/implicit) for authentication will no longer return refresh tokens.
   Use [silent authentication](/api-auth/tutorials/silent-authentication) (i.e. `prompt=none`) instead.
-* Refresh tokens should only be used by [confidential clients](/api-auth/client-types). However, they can also be used by Native (public) clients to obtain refresh tokens for mobile apps. 
+* Refresh tokens should only be used by [confidential clients](/clients/client-types#confidential-clients). However, they can also be used by Native (public) clients to obtain refresh tokens for mobile apps. 
 * The `/delegation` endpoint is considered deprecated. To obtain new tokens from a refresh token, the `/oauth/token` endpoint should be used instead:
 
 <div class="code-picker">
