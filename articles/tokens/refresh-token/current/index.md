@@ -157,7 +157,7 @@ To revoke a refresh token you can send a `POST` request to `https://${account.na
 
 Where:
 - `client_id`: Your application's Client ID.
-- `client_secret` (optional): Your application's Client Secret. Only required for [confidential](/api-auth/client-types#confidential-clients) clients.
+- `client_secret` (optional): Your application's Client Secret. Only required for [confidential](/clients/client-types#confidential-clients) clients.
 - `token`: The refresh token you want to revoke.
 
 The client should match the one the refresh token was issued for.
