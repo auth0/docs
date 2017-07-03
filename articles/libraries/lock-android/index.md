@@ -103,6 +103,8 @@ Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
 auth0.setOIDCConformant(true);
 ```
 
+Additionally, to make the server return Open ID Connect compliant responses we must either request an `audience` or flip the OIDC Conformant switch on in the client's dashboard Advanced OAuth settings. You can read more about that [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+
 ### Authentication callback
 
 You'll also need a `LockCallback` implementation. Here is an example which will notify you about Authentication events (logins).
@@ -147,6 +149,7 @@ public class MainActivity extends Activity {
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     auth0.setOIDCConformant(true);
     lock = Lock.newBuilder(auth0, callback)
+      .withAudience("https://${account.namespace}/userinfo")
       // ... Options
       .build(this);
   }
