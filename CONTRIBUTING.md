@@ -4,7 +4,7 @@
 
 The following is a set of guidelines for contributing to the Auth0 documentation. These are just guidelines, not rules, use your best judgment and feel free to propose changes to this document in a pull request.
 
-## Table Of Contents
+## Table of Contents
 
 * [General Guidelines](#general-guidelines)
 * [Reusing Content](#reusing-content)
@@ -18,10 +18,10 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Front Matter](#front-matter)
   * [Linting](#linting)
 * [Sidebar](#sidebar)
-* [Versioning](#versioning)
+* [Beta Content](#beta-content)
 * [Finishing](#finishing)
-* [Editing Text](#editing-with-wordy)
-* [Test Procedures](#text-procedures)
+* [Editing with Wordy](#editing-with-wordy)
+* [Test Procedures](#test-procedures)
 * [Review Apps](#review-apps)
 * [Quickstarts](#quickstarts)
   * [Creating Quickstarts](#creating-quickstarts)
@@ -30,10 +30,12 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Seed Projects](#seed-projects)
 * [Updates Feed](#updates-feed)
 * [API](#api)
+* [Code snippets](#code-snippets)
 * [Document Front-matter](#document-front-matter)
 * [Document Variables](#document-variables)
   * [Common Variables](#common-variables)
   * [User Specific Variables](#user-specific-variables)
+* [Versioning](#versioning)
 
 ## General Guidelines
 
@@ -848,7 +850,7 @@ The `versioning` object has the following properties:
 * `versions` -- An array of all versions of the topic. Each of these must have a corresponding subdirectory beneath the topic directory.
 * `defaultArticles` -- A map of default articles for each version. (Explained below)
 
-## User interface
+### User interface
 
 When a user views an article within a versioned topic, a select will be added after the main title:
 
@@ -869,9 +871,9 @@ This document covers an outdated version of Lock. We recommend you to <a href="/
 
 ![image](https://cloud.githubusercontent.com/assets/6318057/26082485/90f464fc-39a6-11e7-90ac-2a22773b02a5.png)
 
-## Limitations
+### Limitations
 
-### No sub-directories
+#### No sub-directories
 
 This versioning system has one major limitation: all articles for each version must exist in the same directory. For example, this is a valid hierarchy:
 
@@ -903,7 +905,7 @@ example/
 
 This limitation is a result of the implementation of `AutoVersionPlugin`, and how the paths are calculated for the different versions. Fixing this is possible, but makes things a little more tricky, so I decided to cut it from the first version of the feature. If it's a desired behavior we can always add it later.
 
-### Case Sensitive
+#### Case Sensitive
 
 The folder name must match exactly the names listed in the yaml file. This is case sensitive.
 
