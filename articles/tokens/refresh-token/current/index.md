@@ -17,12 +17,12 @@ The response of an [authentication request](/api-auth) can result in an `access_
 A refresh token allows the application to request Auth0 to issue a new `access_token` or `id_token` directly, without having to re-authenticate the user. This will work as long as the refresh token has not been revoked.
 
 ::: warning
-The behaviour in this document is applicable to [OIDC-conformant](/docs/api-auth/tutorials/adoption) clients. A client can be configured as OIDC-conformant in 2 ways:
+The behaviour in this document is applicable to [OIDC-conformant](/api-auth/tutorials/adoption) clients. A client can be configured as OIDC-conformant in 2 ways:
 
 1. By enabling the **OIDC Conformant** flag for a Client
 2. By passing an `audience` to the `/authorize` endpoint
 
-Please read the [OIDC-conformant Clients documentation](/docs/api-auth/tutorials/adoption/oidc-conformant) for more information on this.
+Please read the [OIDC-conformant Clients documentation](/api-auth/tutorials/adoption/oidc-conformant) for more information on this.
 :::
 
 ## Restrictions
