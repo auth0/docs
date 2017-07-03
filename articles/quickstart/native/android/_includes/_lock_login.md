@@ -2,12 +2,16 @@
 
 At this point, you're all set to implement the login in any activity you want. Inside the activity, add the `onCreate`, `onDestroy`, and `callback` methods. Note that we customize the scheme to `demo` as required by the Callback URL defined also in the intent-filter.
 
+Additionally, to make the server return Open ID Connect compliant responses we must either request an `audience` or flip the OIDC Conformant switch on in the client's dashboard Advanced OAuth settings. You can read more about that [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+
+
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     lock = Lock.newBuilder(auth0, callback)
                     .withScheme("demo")
+                    .withAudience("https://${account.namespace}/userinfo")
                     // Add parameters to the Lock Builder
                     .build(this);
 }
