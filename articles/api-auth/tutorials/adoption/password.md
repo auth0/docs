@@ -101,7 +101,7 @@ Pragma: no-cache
 }</code></pre>
     <ul>
         <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) and optionally the resource server specified by the <code>audience</code> parameter.</li>
-        <li>The ID token will be forcibly signed using RS256 if requested by a <a href="/api-auth/client-types">public client</a>.</li>
+        <li>The ID token will be forcibly signed using RS256 if requested by a <a href="/clients/client-types">public client</a>.</li>
         <li>A refresh token will be returned only if the <code>offline_access</code> scope was granted.</li>
     </ul>
     </div>
