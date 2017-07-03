@@ -10,6 +10,15 @@ Usually, a user will need a new access token only after the previous one expires
 
 Refresh tokens are subject to strict storage requirements to ensure that they are not leaked. Also, [Refresh tokens can be revoked](#revoke-a-refresh-token) by the Authorization Server.
 
+::: panel-warning OIDC-conformant clients
+The behaviour in this document is applicable to [OIDC-conformant clients](/api-auth/tutorials/adoption/oidc-conformant). A client can be configured as OIDC-conformant in two ways:
+
+1. By enabling the **OIDC Conformant** flag for a Client
+2. By passing an `audience` to the `/authorize` endpoint
+
+For more information on our authentication pipeline, refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
+
 ## Overview
 
 The response of an [authentication request](/api-auth) can result in an `access_token` and/or an `id_token` being issued by Auth0. The  `access_token` is used to make authenticated calls to a secured API, while the `id_token` contains user profile attributes represented in the form of _claims_. Both JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing).
