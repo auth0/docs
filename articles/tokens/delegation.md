@@ -36,6 +36,6 @@ There is an important caveat to note when using the delegation endpoint with [Pu
 
 If you call the [Token endpoint](/api/authentication#get-token) from a Public Client, the `id_token` will be forcibly signed using `RS256`, even if the _JsonWebToken Signature Algorithm_ in the Client settings is configured as `HS256`.
 
-If you then subsequently call the delegation endpoint with that `id_token`, it will fail if the Client's _JsonWebToken Signature Algorithm_ was configured as `HS256` because delegation performs validation according to the Client settings and the token was issued with a forced algorithm change.
+If you then subsequently call the delegation endpoint with that `id_token`, it will fail if the Client's _JsonWebToken Signature Algorithm_ was configured as `HS256`. This is because delegation performs validation according to the Client's settings, but the `id_token` was issued with a different algorithm because of the forced algorithm change.
 
-It is therefore important that if you intend to use delegation with a Public Client, that you configure the _JsonWebToken Signature Algorithm_ of your client as `HS256`.
+It is therefore important that if you intend to use delegation with a Public Client, that you configure the _JsonWebToken Signature Algorithm_ of your client as `RS256`.
