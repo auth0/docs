@@ -39,7 +39,7 @@ AuthenticationAPIClient authClient = new AuthenticationAPIClient(auth0);
 It's suggested that you add both the Auth0 `domain` and `clientId` to the `strings.xml` file rather than hardcode them.
 :::
 
-Next, use the `access_token` to obtain the user id with the `AuthenticationAPIClient`. Although the call returns a `UserProfile` instance, this is a basic OIDC conformant profile and the only guaranteed claim is the `sub` which contains the user's id, but depending on the requested scope the claims returned may vary. We're going to use the `sub` value to call the [Management API](https://auth0.com/docs/api/management/v2#!/Users) and return a complete user profile.
+Next, use the `access_token` to obtain the user id with the `AuthenticationAPIClient`. Although the call returns a `UserProfile` instance, this is a basic OIDC conformant profile and the only guaranteed claim is the `sub` which contains the user's id, but depending on the requested scope the claims returned may vary. With the `sub` value call the [Management API](https://auth0.com/docs/api/management/v2#!/Users) and get a complete user profile back.
 
 
 ```java
@@ -103,7 +103,7 @@ Besides the defaults, you can handle more information that is contained within a
 
 ##### A. USER METADATA
 
-The `userMetadata` map contains fields related to the user profile that can be added from the client-side (e.g. when editing the profile). We're going to edit this one in this tutorial. You can access its fields as follows:
+The `userMetadata` map contains fields related to the user profile that can be added from the client-side (e.g. when editing the profile). This tutorial explains how to achieve this. You can access its fields as follows:
 
 ```java
 String country = (String) profile.getUserMetadata().get("country");

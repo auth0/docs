@@ -77,7 +77,7 @@ The Authentication Client provides methods to authenticate the user against Auth
 AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 ```
 
-Additionally, to make the server return Open ID Connect compliant responses we must either request an `audience` or flip the OIDC Conformant switch on in the client's dashboard Advanced OAuth settings. You can read more about that [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
 
 ### Login with database connection
 
