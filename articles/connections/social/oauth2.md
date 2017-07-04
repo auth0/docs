@@ -12,6 +12,10 @@ The most common [identity providers](/identityproviders) are readily available o
 
 ![](/media/articles/connections/social/oauth2/custom-social-connections.png)
 
+::: note
+For details on how to install and configure the extension, refer to [Auth0 Extension: Custom Social Connections](/extensions/custom-social-extensions).
+:::
+
 ## The `fetchUserProfile` script
 
 A custom `fetchUserProfile` script will be called after the user has logged in with the OAuth2 provider. Auth0 will execute this script to call the OAuth2 provider API and get the user profile:
@@ -134,6 +138,28 @@ https://${account.namespace}/authorize
   &access_type=myblog.wordpress.com
   &state=OPAQUE_VALUE
 ```
+
+## Pass Extra Headers
+
+In some instances you will need to pass extra headers to the Authorization endpoint of an OAuth 2.0 provider. To configure extra headers, open the Settings for the Connection and in the **Custom Headers** field, specify a JSON object with the custom headers as key-value pairs:
+
+```json
+{
+    "Header1" : "Value",
+    "Header2" : "Value"
+    // ...
+}
+```
+
+Let us use an example where an Identity Provider may require you to pass an `Authorization` header with [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) credentials. In this scenario you can specify the following JSON object in the **Custom Headers** field:
+
+```json
+{
+  "Authorization": "Basic [your credentials]"
+}
+```
+
+Where `[your credentials]` is the actual credentials which you need to send to the Identity Provider.
 
 ## Keep Reading
 
