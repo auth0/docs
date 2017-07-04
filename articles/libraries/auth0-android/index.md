@@ -81,7 +81,7 @@ Additionally, to make the server return Open ID Connect compliant responses we m
 
 ### Login with database connection
 
-Logging in with a database connection merely requires calling `login` with the user's email, password, and the name of the connection you wish to authenticate with. The response will be a Credentials object. By requesting the "userinfo" audience we guarantee an Open ID Connect compliant response from the Server.
+Logging in with a database connection requires calling `login` with the user's *email*, *password*, and the *connection* you wish to authenticate with. The response will be a Credentials object. By specifying the *audience* an Open ID Connect compliant response will be yielded during authentication.
 
 ```java
 authentication

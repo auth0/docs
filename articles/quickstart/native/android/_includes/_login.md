@@ -2,7 +2,7 @@
 
 In our login method we create a new `Auth0` instance to hold the credentials. Then by using the `WebAuthProvider` class we can authenticate with any connection enabled for our client in the Auth0 dashboard. We also tell the provider to use the custom scheme `demo` to construct the expected **Callback URL**.
 
-Additionally, to make the server return Open ID Connect compliant responses we must either request an `audience` or flip the OIDC Conformant switch on in the client's dashboard Advanced OAuth settings. You can read more about that [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
 
 
 After calling `WebAuthProvider#start` the browser will launch and show Lock, and the final result will be received in the callback we pass.

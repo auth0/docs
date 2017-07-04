@@ -2,7 +2,7 @@
 
 At this point, you're all set to implement the login in any activity you want. Inside the activity, add the `onCreate`, `onDestroy`, and `callback` methods. Note that we customize the scheme to `demo` as required by the Callback URL defined also in the intent-filter.
 
-Additionally, to make the server return Open ID Connect compliant responses we must either request an `audience` or flip the OIDC Conformant switch on in the client's dashboard Advanced OAuth settings. You can read more about that [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
 
 
 ```java
