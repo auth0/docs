@@ -22,7 +22,7 @@ Auth0.swift is a client-side library for [Auth0](http://auth0.com).
 If you are using Carthage, add the following lines to your `Cartfile`:
 
 ```ruby
-pod "Auth0", '~> 1.0'
+pod 'Auth0', '~> 1.0'
 ```
 
 Then run `carthage bootstrap`.
@@ -162,7 +162,7 @@ Auth0
 
 ### Getting user information
 
-In order to retrieve a user's profile, you call the `userInfo` method and pass it the user's `accessToken`.  Although the call returns a [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) instance, this is an basic conformant profile and the only guaranteed claim is the `sub` which contains the user's id, but depending on the requested scope the claims returned may vary.  You can also use the `sub` value to call the [Management API](#Management-API) and return a full user profile.
+In order to retrieve a user's profile, you call the `userInfo` method and pass it the user's `accessToken`.  Although the call returns a [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) instance, this is a basic OIDC conformant profile and the only guaranteed claim is the `sub` which contains the user's id, but depending on the requested scope the claims returned may vary.  You can also use the `sub` value to call the [Management API](#Management-API) and return a full user profile.
 
 ```swift
 Auth0
