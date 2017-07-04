@@ -112,22 +112,7 @@ Your callback URL should look something like:
 https://yourapp.com/callback
 ```
 
-## Integrate auth0.js
-
-```html
-<script src="https://cdn.auth0.com/js/auth0/8.6/auth0.min.js"></script>
-<script>
-  var webAuth = new auth0.WebAuth({
-      domain: '${account.namespace}',
-      clientID: '${account.clientId}',
-      redirectUri: '${account.callback}',
-      audience: 'https://${account.namespace}/userinfo',
-      responseType: 'code',
-      scope: 'openid profile'
-    });
-</script>
-<button onclick="webAuth.authorize();">Log In</button>
-```
+${include('../_includes/_auth0_authorize')}
 
 ::: note
 The `redirectUri` specified in the `auth0.WebAuth` constructor must match the callback URL specified in the previous step.

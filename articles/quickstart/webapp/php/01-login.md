@@ -82,19 +82,19 @@ http://yourUrl/callback.php
 // public/app.js
 
 $(document).ready(function() {
-    var webAuth = new auth0.WebAuth({
-      domain: '${account.namespace}',
-      clientID: '${account.clientId}',
-      redirectUri: '${account.callback}',
-      audience: `https://${account.namespace}/userinfo`,
-      responseType: 'code',
-      scope: 'openid profile'
-    });
+  var webAuth = new auth0.WebAuth({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    redirectUri: '${account.callback}',
+    audience: `https://${account.namespace}/userinfo`,
+    responseType: 'code',
+    scope: 'openid profile'
+  });
 
-    $('.btn-login').click(function(e) {
-      e.preventDefault();
-      webAuth.authorize();
-    });
+  $('.btn-login').click(function(e) {
+    e.preventDefault();
+    webAuth.authorize();
+  });
 });
 ```
 
