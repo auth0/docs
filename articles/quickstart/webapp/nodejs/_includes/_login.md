@@ -50,36 +50,57 @@ app.use(passport.session());
 
 Auth0's hosted login page can be used to allow users to log in.
 
-Add a route called `/login` and pass an `env` object with the **Client ID**, **Domain**, and **Callback URL** for your client to it.
+Add a route called `/login` and call `passport.authenticate` when the route is accessed. This middleware will check for a valid user session. If none is found, the user will be prompted to log in.
 
 ```js
 // routes/index.js
 
-const env = {
-  AUTH0_CLIENT_ID: '${account.clientId}',
-  AUTH0_DOMAIN: '${account.namespace}',
-  AUTH0_CALLBACK_URL: 'http://localhost:3000/callback'
-};
+const express = require('express');
+const passport = require('passport');
+const router = express.Router();
 
-// Render the login template
-router.get('/login', (req, res) => {
-  res.render('login', { env });
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index');
 });
 
-// Perform session logout and redirect to homepage
-router.get('/logout', (req, res) => {
+router.get(
+  '/login',
+  passport.authenticate('auth0', {
+    clientID: '${account.clientId}',
+    domain: '${account.namespace}',
+    redirectUri: 'http://localhost:3000/callback'
+    responseType: 'code',
+    scope: 'openid profile'
+  }),
+  function(req, res) {
+    res.redirect('/');
+  }
+);
+
+router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
 
-// Perform the final stage of authentication and redirect to '/user'
-router.get('/callback',
-  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }), (req, res) => {
+router.get(
+  '/callback',
+  passport.authenticate('auth0', {
+    failureRedirect: '/'
+  }),
+  function(req, res) {
     res.redirect(req.session.returnTo || '/user');
-  });
+  }
+);
+
+module.exports = router;
 ```
 
-Create a view for the `/login` route. The view should instantiate `auth0.WebAuth` and call its `authorize` method to redirect the user to Auth0's hosted login page.
+When users visit the `/login` route they will immediately be redirected to Auth0 where they will be prompted to log in if they do not have a valid session.
+
+![hosted login](/media/articles/web/hosted-login.png)
+
+Create a view for the `/login` route.
 
 ```pug
 // views/login.pug
@@ -87,21 +108,12 @@ Create a view for the `/login` route. The view should instantiate `auth0.WebAuth
 extends layout
 
 block content
-
-  div(id="root" style="width: 280px; margin: 40px auto; padding: 10px;")
-
-  script.
-    const webAuth = new auth0.WebAuth({
-      clientID: '#{env.AUTH0_CLIENT_ID}',
-      domain: '#{env.AUTH0_DOMAIN}',
-      redirectUri: '#{env.AUTH0_CALLBACK_URL}',
-      responseType: 'code',
-      scope: 'openid'
-    });
-    webAuth.authorize();
+  .w3-container
+    if loggedIn
+      h4 You are logged in!
+    else
+      h4 You are not logged in! Please #[a(href="/login") Log In] to continue.
 ```
-
-![hosted login](/media/articles/web/hosted-login.png)
 
 ## Embedded Login
 
