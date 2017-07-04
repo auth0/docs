@@ -15,6 +15,10 @@ budicon: 448
   ]
 }) %>
 
-In this step, we will enable login with the [Lock widget](/libraries/lock).
+This integration guide will walk you through setting up and managing authentication and authorization in your Java Spring MVC apps using Auth0.
+
+<%= include('../../../_includes/_new_app') %>
+
+<%= include('_includes/_setup') %>
 
 <%= include('_includes/_login') %>
