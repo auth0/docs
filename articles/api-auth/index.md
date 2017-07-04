@@ -172,6 +172,12 @@ Using Auth0, you can easily support different flows in your own APIs without wor
     </p>
   </li>
   <li>
+    <i class="icon icon-budicon-715"></i><a href="/api-auth/tutorials/represent-multiple-apis">How to Represent Multiple APIs Using a Single Auth0 API</a>
+    <p>
+      Learn how to represent multiple APIs using a single Auth0 API.
+    </p>
+  </li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="/api-auth/faq">FAQ</a>
     <p>
       Frequently Asked Questions on API Authentication and Authorization .
