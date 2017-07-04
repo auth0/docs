@@ -12,6 +12,10 @@ The most common [identity providers](/identityproviders) are readily available o
 
 ![](/media/articles/connections/social/oauth2/custom-social-connections.png)
 
+::: note
+For details on how to install and configure the extension, refer to [Auth0 Extension: Custom Social Connections](/extensions/custom-social-extensions).
+:::
+
 ## The `fetchUserProfile` script
 
 A custom `fetchUserProfile` script will be called after the user has logged in with the OAuth2 provider. Auth0 will execute this script to call the OAuth2 provider API and get the user profile:
