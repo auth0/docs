@@ -9,5 +9,4 @@ alias:
 seo_alias: java spring
 default_article: dashboard-default
 articles:
-  - getting-started
   - 01-login
