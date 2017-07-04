@@ -300,7 +300,7 @@ or
 
 ## Management API
 
-The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
+The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to retrieve and update the user metadata.
 
 #### Linking users
 
@@ -315,9 +315,9 @@ Auth0
    .start { result in
       switch result {
       case .success(let userInfo):
-         print("user: \(userInfo)")
+        print("user: \(userInfo)")
       case .failure(let error):
-         print(error)
+        print(error)
       }
    }
 ```
@@ -334,9 +334,9 @@ Auth0
    .start { result in
       switch result {
       case .success(let userInfo):
-         print("user: \(userInfo)")
+        print("user: \(userInfo)")
       case .failure(let error):
-         print(error)
+        print(error)
       }
    }
 ```
@@ -344,6 +344,22 @@ Auth0
 ::: note
 Note that when accounts are linked, the secondary account's metadata is not merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
 :::
+
+#### Retrieving user metadata
+
+```swift
+Auth0
+    .users(token: idToken)
+    .get(userId, fields: [], include: true)
+    .start { result in
+        switch result {
+        case .success(let userInfo):
+            print("user: \(userInfo)")
+        case .failure(let error):
+            print(error)
+        }
+    }
+```
 
 #### Update user metadata
 
@@ -356,9 +372,9 @@ Auth0
     .start { result in
         switch result {
         case .success(let userInfo):
-            print("user: \(userInfo)")
+          print("user: \(userInfo)")
         case .failure(let error):
-            print(error)
+          print(error)
         }
     }
 ```
