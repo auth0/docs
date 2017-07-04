@@ -51,7 +51,7 @@ The Auth0 Support Center offers ticketed support, where support specialists are 
 
 Customers with an Enterprise subscription plan receive extended support hours for outages, quicker response times, and Auth0 Sprint onboarding assistance.
 
-Please contact the [Auth0 Sales Team](sales@auth0.com) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
+Please contact the [Auth0 Sales Team](https://auth0.com/?contact=true) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
 
 ## Support Channels
 
