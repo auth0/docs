@@ -117,7 +117,7 @@ https://yourapp.com/callback
 ```html
 <script src="https://cdn.auth0.com/js/auth0/8.6/auth0.min.js"></script>
 <script>
-  var auth0js = new auth0.WebAuth({
+  var webAuth = new auth0.WebAuth({
       domain: '${account.namespace}',
       clientID: '${account.clientId}',
       redirectUri: '${account.callback}',
@@ -126,7 +126,7 @@ https://yourapp.com/callback
       scope: 'openid profile'
     });
 </script>
-<button onclick="lock.show();">Login</button>
+<button onclick="webAuth.authorize();">Log In</button>
 ```
 
 ::: note
