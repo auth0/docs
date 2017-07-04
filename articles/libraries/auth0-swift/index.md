@@ -101,7 +101,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [login page](/hosted-pages/login).
 
-To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](/api-auth/intro#how-to-use-the-new-flows).
 
 ```swift
 Auth0
@@ -350,7 +350,7 @@ Note that when accounts are linked, the secondary account's metadata is not merg
 ```swift
 Auth0
     .users(token: idToken)
-    .get(userId, fields: [], include: true)
+    .get(userId, fields: ["user_metadata"], include: true)
     .start { result in
         switch result {
         case .success(let userInfo):
