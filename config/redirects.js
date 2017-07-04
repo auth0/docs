@@ -1296,5 +1296,13 @@ module.exports = [
   {
     from: '/quickstart/webapp/rails/09-customizing-lock',
     to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/java/getting-started',
+    to: '/quickstart/webapp/java'
+  },
+  {
+    from: '/quickstart/webapp/java-spring-mvc/getting-started',
+    to: '/quickstart/webapp/java-spring-mvc'
   }
 ];
