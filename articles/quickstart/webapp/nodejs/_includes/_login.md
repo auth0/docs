@@ -69,7 +69,8 @@ router.get(
   passport.authenticate('auth0', {
     clientID: '${account.clientId}',
     domain: '${account.namespace}',
-    redirectUri: 'http://localhost:3000/callback'
+    redirectUri: 'http://localhost:3000/callback',
+    audience: 'https://${account.namespace}/userinfo',
     responseType: 'code',
     scope: 'openid profile'
   }),
