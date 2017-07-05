@@ -18,20 +18,45 @@ The [`nginx-jwt`](https://github.com/auth0/nginx-jwt) script is a Lua script tha
 1. Extract the archive and deploy its contents to a directory on your Nginx server.
 1. Specify this directory's path using ngx_lua's [lua_package_path](https://github.com/openresty/lua-nginx-module#lua_package_path) directive:
 
-${snippet(meta.snippets.dependencies)}
+```lua
+# nginx.conf:
+
+http {
+    lua_package_path "/path/to/lua/scripts;;";
+    ...
+}
+```
 
 ## Configure `nginx-jwt` with your Auth0 account
 
 1. Export the `JWT_SECRET` environment variable on the Nginx host, setting it equal to your Auth0 Client Secret (`${account.clientSecret}`).
 1. Expose this environment variable to the Nginx server:
 
-${snippet(meta.snippets.setup)}
+```lua
+# nginx.conf:
+
+env JWT_SECRET;
+```
 
 ## Secure your API
 
 Now, secure one or more locations that point to your backing service endpoints by using the [access_by_lua](https://github.com/openresty/lua-nginx-module#access_by_lua) directive to call the `nginx-jwt` script's [`auth()`](https://github.com/auth0/nginx-jwt#auth) function before executing any [proxy_* directives](http://nginx.org/en/docs/http/ngx_http_proxy_module.html):
 
-${snippet(meta.snippets.use)}
+
+```lua
+# nginx.conf:
+
+server {
+    location /secure_this {
+        access_by_lua '
+            local jwt = require("nginx-jwt")
+            jwt.auth()
+        ';
+
+        proxy_pass http://my-backend.com$uri;
+    }
+}
+```
 
 Click [here](https://github.com/auth0/nginx-jwt#usage) for more usage examples.
 
