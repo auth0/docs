@@ -1,9 +1,9 @@
 versioning:
-  baseUrl: user-profile
-  current: normalized
+  baseUrl: user-profile/normalized
+  current: auth0
   versions:
-    - normalized
-    - normalized-oidc
+    - auth0
+    - oidc
   defaultArticles:
-    normalized: index
-    normalized-oidc: index
+    auth0: index
+    oidc: index
