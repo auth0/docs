@@ -1,5 +1,5 @@
 versioning:
-  baseUrl: user-profile/normalized
+  baseUrl: user-profile
   current: normalized
   versions:
     - normalized
