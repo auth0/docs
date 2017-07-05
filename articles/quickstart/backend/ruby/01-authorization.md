@@ -6,7 +6,7 @@ description: This tutorial demonstrates how to add authentication and authorizat
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ruby-api-samples',
-  path: '01-Authenticate-RS256',
+  path: '01-Authorization-RS256',
   requirements: [
     'Ruby 2.3.0'
   ]
