@@ -6,4 +6,3 @@ versioning:
     - oidc
   defaultArticles:
     auth0: index
-    oidc: index
