@@ -22,6 +22,17 @@ This tutorial will show you how to get and modify the user's profile data in you
 
 Be sure that you have completed the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) Quickstarts. You'll need a valid `access_token` and `id_token` to call the API clients.
 
+Before launching the log in you need to ask for the `openid profile email` scopes in order to get a valid profile in the response. Locate the snippet were you're initializing the `WebAuthProvider` and add the `withScope("openid profile email")` line.
+
+```java
+Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+auth0.setOIDCConformant(true);
+WebAuthProvider.init(auth0)
+                .withScope("openid profile email")
+                .withScheme("demo")                
+                .start(LoginActivity.this, callback);
+```
+
 ## Request User Data
 
 The first step is to instantiate the API clients. This will be used to request the user's profile data.
