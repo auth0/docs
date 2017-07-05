@@ -62,6 +62,7 @@ Then, login using the username and password.
 ```java
 String connectionName = "Username-Password-Authentication";
 client.login(email, password, connectionName)
+    .setAudience("https://${account.namespace}/userinfo")
     .start(new BaseCallback<Credentials, AuthenticationException>() {
         @Override
         public void onSuccess(Credentials payload) {
@@ -147,6 +148,7 @@ private void login() {
     auth0.setOIDCConformant(true);
     WebAuthProvider.init(auth0)
                   .withScheme("demo")
+                  .withAudience("https://${account.namespace}/userinfo")
                   .withConnection("twitter")
                   .start(MainActivity.this, new AuthCallback() {
                       @Override

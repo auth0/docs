@@ -77,13 +77,16 @@ The Authentication Client provides methods to authenticate the user against Auth
 AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 ```
 
+To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+
 ### Login with database connection
 
-Logging in with a database connection merely requires calling `login` with the user's email, password, and the name of the connection you wish to authenticate with. The response will be a Credentials object.
+Logging in with a database connection requires calling `login` with the user's *email*, *password*, and the *connection* you wish to authenticate with. The response will be a Credentials object. By specifying the *audience* an Open ID Connect compliant response will be yielded during authentication.
 
 ```java
 authentication
     .login("info@auth0.com", "a secret password", "my-database-connection")
+    .setAudience("https://${account.namespace}/userinfo")
     .start(new BaseCallback<Credentials, AuthenticationException>() {
         @Override
         public void onSuccess(Credentials payload) {
@@ -156,6 +159,7 @@ Signing up with a database connection is similarly easy. Call the `signUp` metho
 ```java
 authentication
     .signUp("info@auth0.com", "a secret password", "my-database-connection")
+    .setAudience("https://${account.namespace}/userinfo")
     .start(new BaseCallback<Credentials, AuthenticationException>() {
         @Override
         public void onSuccess(Credentials payload) {
@@ -424,7 +428,7 @@ Map<String, Object> parameters = new HashMap<>();
 //Add entries
 WebAuthProvider.init(account)
                 .withParameters(parameters)
-                .start(this);
+                .start(this, authCallback);
 ```
 
 ### Use a custom scheme for the Redirect Uri
@@ -434,10 +438,19 @@ If you're not using Android "App Links" or you just want to use a different sche
 ```java
 WebAuthProvider.init(account)
                 .withScheme("myapp")
-                .start(this);
+                .start(this, authCallback);
 ```
 
 **Scheme must be lowercase**. Remember to update your intent-filter after changing this setting.
+
+### Specify Audience
+
+```java
+WebAuthProvider.init(account)
+                .withScope("openid")
+                .withAudience("https://${account.namespace}/userinfo")
+                .start(this, authCallback);
+```
 
 ### Specify state
 
@@ -446,7 +459,7 @@ By default a random state is always sent. If you need to use a custom one, use `
 ```java
 WebAuthProvider.init(account)
                 .withState("my-custom-state")
-                .start(this);
+                .start(this, authCallback);
 ```
 
 ### Specify nonce
@@ -456,5 +469,5 @@ By default a random nonce is sent when the response type includes `id_token`. If
 ```java
 WebAuthProvider.init(account)
                 .withNonce("my-custom-nonce")
-                .start(this);
+                .start(this, authCallback);
 ```
