@@ -1,5 +1,6 @@
 ---
 description: Auth0 normalizes common user properties in the User Profile.
+url: /user-profile/normalized
 ---
 
 # Auth0 Normalized User Profile
