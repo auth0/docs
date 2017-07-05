@@ -55,7 +55,7 @@ Once you've obtained a `Credentials` object, retrieving a user profile is quite 
 
 ```objc
 [auth userInfoWithAccessToken:[credentials accessToken]
-      callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
+      callback:^(NSError * _Nullable error, UserInfo * _Nullable profile) {
                dispatch_async(dispatch_get_main_queue(), ^{
                    [self.spinner stopAnimating];
                    if(error) {
@@ -68,7 +68,7 @@ Once you've obtained a `Credentials` object, retrieving a user profile is quite 
 ```
 
 ::: note
-For further reference on the `profile` object, see [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) documentation.
+For further reference on the `userInfo` object, see [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) documentation.
 :::
 
 ## Implement a Sign Up
