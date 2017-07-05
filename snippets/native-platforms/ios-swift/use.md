@@ -3,6 +3,7 @@
 
 Auth0
     .webAuth()
+    .audience("https://${account.namespace}/userinfo")
     .start {
         switch $0 {
         case .failure(let error):
