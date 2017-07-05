@@ -2,7 +2,7 @@ versioning:
   baseUrl: /user-profile/normalized
   current: index
   versions:
-    - index
+    - normalized
     - normalized-oidc
   defaultArticles:
-    index: index
+    normalized: index
