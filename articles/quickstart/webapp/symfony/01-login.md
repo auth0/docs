@@ -11,7 +11,7 @@ budicon: 448
   path: '00-Starter-Seed',
   requirements: [
     'PHP 5.3.9',
-    'Symfony 2.8'
+    'Symfony 3.*'
   ]
 }) %>
 
