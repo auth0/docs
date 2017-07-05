@@ -36,6 +36,7 @@ Then present the hosted login screen, like this:
 
 Auth0
     .webAuth()
+    .audience("https://${account.namespace}/userinfo")
     .scope("openid profile")
     .start {
         switch $0 {
