@@ -13,13 +13,13 @@ Cross-origin authentication is done by creating security checks using [third-par
 
 Enable **Cross Origin Authentication Mode** in the settings for your client.
 
-![Cross-Origin Authentication switch](/media/articles/cross-origin/cross-origin-switch.png)
+![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
 
 Third-party cookies do not work in some browsers. To handle these cases, you will need to author a page which uses **auth0.js** to act as a fallback for the cross-origin transaction. More information on setting up this page is provided below.
 
 Provide the URL for a page hosting the above-mentioned fallback. This page must be served over SSL.
 
-![Cross-Origin Authentication switch](/media/articles/cross-origin/cross-origin-https.gif)
+![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-https.gif)
 
 ## Create a Cross-Origin Fallback Page
 
