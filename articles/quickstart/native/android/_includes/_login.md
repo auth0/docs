@@ -8,6 +8,8 @@ To ensure an Open ID Connect compliant responses you must either request an `aud
 After calling `WebAuthProvider#start` the browser will launch and show Lock, and the final result will be received in the callback we pass.
 
 ```java
+// app/src/main/java/com/auth0/samples/MainActivity.java
+
 private void login() {
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     auth0.setOIDCConformant(true);
@@ -82,6 +84,8 @@ It's very important to specify the `android:launchMode="singleTask"` in your act
 Next, override the `onNewIntent` method in your activity. Here is where the result arrives. Redirect the received intent to the `WebAuthProvider#resume` method, which will return true if the data could be parsed correctly, and will call the `AuthCallback` given in the start call.
 
 ```java
+// app/src/main/java/com/auth0/samples/MainActivity.java
+
 public class MyActivity extends Activity {
 
     @Override
