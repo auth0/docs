@@ -11,7 +11,7 @@ Cross-origin authentication is done by creating security checks using [third-par
 
 ## Configure Your Client for Cross-Origin Authentication
 
-Enable **Cross Origin Authentication Mode** in the settings for your client.
+In the [client settings](${manage_url}/#/applications/${account.clientId}/settings) for your application, click **Show Advanced Settings** > **OAuth** and find the **Cross Origin Authentication Mode** switch. Ensure that the switch is in the on position.
 
 ![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-switch.png)
 
@@ -19,15 +19,11 @@ Third-party cookies do not work in some browsers. To handle these cases, you wil
 
 Provide the URL for a page hosting the above-mentioned fallback. This page must be served over SSL.
 
-![Cross-Origin Authentication switch](/media/articles/cross-origin-authentication/cross-origin-https.gif)
-
 ## Create a Cross-Origin Fallback Page
 
-There are some cases when third party cookies will not be available. Certain browser versions do not support third party cookies and, if they do, there will be times that they will be disabled in a user's settings.
+There are some cases when third party cookies will not be available. Certain browser versions do not support third party cookies and, if they do, there will be times that they will be disabled in a user's settings. You can use **auth0.js** in your application on a dedicated page to properly handle cases when third-party cookies are disabled.
 
-When third party cookies are not available, **auth0.js** will render an `iframe` which will be used to call a different cross-origin verification flow. Auth0 takes care of most of the details but you need to provide a page which calls the `crossOriginAuthenticationCallback` from **auth0.js**.
-
-Provide a page which instantiates `WebAuth` from **auth0.js**. Call `crossOriginAuthenticationCallback` immediately. The name of the page is at your discretion.
+Provide a page in your application which instantiates `WebAuth` from **auth0.js**. Call `crossOriginAuthenticationCallback` immediately. The name of the page is at your discretion.
 
 ```html
 <!-- callback-cross-auth.html -->
@@ -45,7 +41,11 @@ Provide a page which instantiates `WebAuth` from **auth0.js**. Call `crossOrigin
 </head>
 ```
 
-When this page is reached, **auth0.js** will process the cross-origin authentication transaction with an alternative flow which provides support for cases when third-party cookies are disabled.
+When third party cookies are not available, **auth0.js** will render an `iframe` which will be used to call a different cross-origin verification flow.
+
+::: note
+Please see the [cross-origin auth sample](https://github.com/auth0/lock/blob/master/support/callback-cross-auth.html) for more detail.
+:::
 
 ## Browser Testing Matrix
 
