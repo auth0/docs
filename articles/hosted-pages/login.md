@@ -21,7 +21,7 @@ In the [Auth0 Dashboard](${manage_url}), you can enable a custom Hosted Login Pa
 
 ![Hosted Login Page](/media/articles/hosted-pages/login.png)
 
-### Customize Lock in the Hosted Login Page
+## Customize Lock in the Hosted Login Page
 
 The basic login page for your Client will use Lock to provide your users with an attractive interface and smooth authentication process.
 
@@ -29,7 +29,7 @@ If you want to change any of Lock's [configurable options](/libraries/lock/v10/c
 
 All changes to Lock's appearance and/or behavior using this page applies to *all* users shown this login page, regardless of Client or Connection.
 
-### The `config` Object
+## The `config` Object
 
 The `config` object contains the set of configuration values that adjusts the hosted login page's behavior at runtime. Many of the values in `config` pass from your app to your hosted login page.
 
@@ -47,7 +47,7 @@ The following examples demonstrating changes to the `config` object assume that 
 Please note that you **must** pass the parsed `config` object to the `authorize` endpoint.
 :::
 
-#### Customize Text Displayed in Lock on a Hosted Login Page
+### Customize Text
 
 The `config` object contains a property called `dict` which can be used to set the text displayed in the Lock widget. It is similar to Lock's [`languageDictionary`](/libraries/lock/v10/customization#languagedictionary-object-) property.
 
@@ -79,7 +79,7 @@ languageDictionary = {
 
 Check the [English Language Dictionary Specification](https://github.com/auth0/lock/blob/master/src/i18n/en.js) for more information about values you can define here.
 
-#### Pass in Redirect URI
+### Set the Callback URL
 
 You can pass the `redirect_uri` option to `authorize`, and access it within the Hosted Login Page editor by referring to `config.callbackURL`.
 
@@ -95,7 +95,7 @@ webAuth.authorize({
 });
 ```
 
-#### Pass in Custom Parameters
+### Pass in Custom Parameters
 
 You can pass custom parameters by adding them to the URL you use to call the `authorize` endpoint. This allows you to make further customizations to your Hosted Login page. The only restriction on the parameters you pass is that they cannot share names with any of the standard `authorize` parameters.
 
@@ -109,8 +109,24 @@ webAuth.authorize({
 
 You can access that value of `login_hint` using `config.extraParams.login_hint`.
 
-### Use Auth0.js in the Hosted Login Page
+## Use Auth0.js in the Hosted Login Page
 
 Within the Hosted Login page, you can use the the [Auth0.js library](/libraries/auth0js), instead of [Lock](/libraries/lock), to perform authentication using a custom UI. You can also use Auth0.js _in addition_ to Lock, for authentication or user management tasks.
 
 Read more about either of them in their documentation (linked above) or see the [Using Auth0.js in the Hosted Login Page](/hosted-pages/hosted-login-auth0js) documentation for examples of implementing Auth0.js in the Hosted Login page.
+
+## Configure Different Pages per Client
+
+In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured at tenant level, you would have to create a new tenant for each client that requires a different hosted page.
+
+For example, if you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same hosted pages and the other two (`app4`, `app5`) using different ones, you would do the following:
+
+- If you already have an account, you have a tenant configured. Configure three clients under this tenant, one to represent each app (`app1`, `app2`, `app3`), and one hosted login page  which these clients will use.
+- Create a second tenant, configure a new client for `app4`, and configure the hosted login page for this client.
+- Create a third tenant, configure a new client for `app5`, and configure the hosted login page for this client.
+
+To create a new tenant go to the [dashboard](${manage_url}), and using the top right menu, click on the __New Account__ option.
+
+![Create new tenant](/media/articles/hosted-pages/create-new-tenant.png)
+
+You can easily switch between tenants using the top right menu on the [dashboard](${manage_url}). You can also [configure different administrators for each](/tutorials/manage-dashboard-admins).
