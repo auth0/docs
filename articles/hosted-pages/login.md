@@ -127,6 +127,6 @@ For example, if you have five different applications, with three of them (`app1`
 
 To create a new tenant go to the [dashboard](${manage_url}), and using the top right menu, click on the __New Account__ option.
 
-![Createw new tenant](/media/articles/hosted-pages/create-new-tenant.png)
+![Create new tenant](/media/articles/hosted-pages/create-new-tenant.png)
 
 You can easily switch between tenants using the top right menu on the [dashboard](${manage_url}). You can also [configure different administrators for each](/tutorials/manage-dashboard-admins).
