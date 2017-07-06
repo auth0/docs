@@ -434,3 +434,10 @@ As a workaround, you can convert the first example to something like this.
 Or you could use a different delimiter character besides `.` (dot) or `$` (dollar sign).
 
 `client_metadata` is an object, whose keys and values are strings, with a maximum length of 255 characters. Also `client_metadata` is restricted to having a maximum 10 keys.
+
+## Keep reading
+
+::: next-steps
+* [Use the Management API in rules](/rules/current/management-api)
+* [Properties of the Context Argument](/rules/current/context)
+:::
