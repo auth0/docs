@@ -24,6 +24,25 @@ If you need help with the migration, create a ticket in our [Support Center](${e
 ## Current Migrations
 Current migrations are listed below, newest first. For migrations that have already been enabled see [Past Migrations](#past-migrations).
 
+### CDN provider migration in the Europe and Australia environments
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Low | N/A |  2017-07-12 |
+
+The existing Auth0 CDN service is one of our older services. It was been built and maintained internally since the early days of the company. To improve its scaling and availability, we are changing providers to use Amazon CloudFront on July 12, at 1pm UTC. We have already made this change in the US environment, and are now ready to do so in Europe and Australia.
+
+#### Am I using the CDN?
+
+If you use Lock (hosted by our CDN) in Europe or Australia, yes.
+
+#### Do I need to do something?
+
+This change shouldn't cause any disruption or change in behavior in your applications, so you don't have to do anything. This notification is for information only.
+
+If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+
 ### Password and Refresh Token Exchange Rules Migration Notice
 
 | Severity | Grace Period Start | Mandatory Opt-In|
