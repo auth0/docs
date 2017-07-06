@@ -49,13 +49,13 @@ Let's begin by making your Auth0 credentials available on the App. In the `AppCo
 @Component
 @Configuration
 public class AppConfig {
-    @Value(value = '<%= "${com.auth0.domain}" %>')
+    @Value(value = "<%= "${com.auth0.domain}" %>")
     private String domain;
 
-    @Value(value = '<%= "${com.auth0.clientId}" %>')
+    @Value(value = "<%= "${com.auth0.clientId}" %>")
     private String clientId;
 
-    @Value(value = '<%= "${com.auth0.clientSecret}" %>')
+    @Value(value = "<%= "${com.auth0.clientSecret}" %>")
     private String clientSecret;
 }
 ```
