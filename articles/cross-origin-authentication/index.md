@@ -5,9 +5,13 @@ description: An explanation of cross-origin authentication in Auth0 and its comp
 ---
 # Cross-Origin Authentication
 
-For most situations, Auth0 recommends that authentication transactions be handled at the [Hosted Login Page](/hosted-pages/login). Doing so offers the easiest and most secure way to authenticate users. It is, however, understood that some scenarios necessitate that the Lock widget or a custom login form be directly embedded in an application. In these cases, cross-origin authentication can be used.
+For most situations, Auth0 recommends that authentication transactions be handled at the [Hosted Login Page](/hosted-pages/login). Doing so offers the easiest and most secure way to authenticate users. It is, however, understood that some scenarios necessitate that the Lock widget or a custom login form be directly embedded in an application. Cross-origin authentication provides a way to do this securely.
 
-Cross-origin authentication is done by creating security checks using [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies). This helps to prevent phishing when creating an SSO experience using embedded login forms on multiple domains and also helps to create a secure login experience and a way to acquire tokens on those embedded login forms, even if SSO is not the goal.
+## What is Cross-Origin Authentication? 
+
+When authentication requests are made from the Lock widget or a custom login form in your application to Auth0, the user's credentials are sent to a domain which differs from the one that serves your application. Collecting user credentials in an application served from one origin and then sending them to another origin can present certain security vulnerabilities, including the possibility of a phishing attack. 
+
+Auth0 provides a cross-origin authentication flow which makes use of [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies). The use of third-party cookies allows Lock and Auth0's backend to perform the necessary checks to allow for secure authentication transactions across different origins. This helps to prevent phishing when creating a single sign-on experience with the Lock widget or a custom login form in your application and it also helps to create a secure login experience even if single sign-on is not the goal.
 
 ## Configure Your Client for Cross-Origin Authentication
 
