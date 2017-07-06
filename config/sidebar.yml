@@ -152,8 +152,8 @@ articles:
       - title: "User Metadata in Rules"
         url: "/rules/metadata-in-rules"
 
-      - title: "Using the Management API in rules"
-        url: "/rules/management-api"
+      - title: "Use the Management API in rules"
+        url: "/rules/current/management-api"
 
       - title: "Deploy Rules with GitHub"
         url: "/extensions/github-deploy"
