@@ -1,3 +1,7 @@
+---
+description: Claims for a user profile returned via an OIDC-Compliant authorization flow
+---
+
 # User Profiles Returned from OIDC-Compliant Pipelines
 
 When you're using an OIDC-conformant authentication flow, the user profile you receive in return may differ slightly from the [Auth0 Normalized User Profile](/user-profile/normalized).
