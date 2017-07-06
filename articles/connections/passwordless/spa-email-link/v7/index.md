@@ -1,7 +1,6 @@
 ---
 title: Using Passwordless Authentication with a Magic Link via email on SPA
 ---
-
 # Authenticate users with a Magic Link via e-mail on SPA
 
 <%= include('../../_older-version-alert' %>
