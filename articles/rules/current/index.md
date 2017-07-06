@@ -326,5 +326,8 @@ For a list of currently supported sandbox modules, see: [Modules Supported by th
 ## Keep reading
 
 ::: next-steps
-* [Redirecting users from within rules](/rules/current/redirect)
+* [Redirecting users from rules](/rules/current/redirect)
+* [User Metadata in rules](/rules/current/metadata-in-rules)
+* [Use the Management API in rules](/rules/current/management-api)
+* [Properties of the Context Argument](/rules/current/context)
 :::

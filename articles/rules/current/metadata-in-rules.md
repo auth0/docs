@@ -69,15 +69,15 @@ function(client, context, callback){
 }
 ```
 
-**Reading via the API**
+#### Reading via the API
 
 `client_metadata` is included amongst in the response to the `GET /api/v2/clients` and `GET /api/v2/client/{id}` endpoints
 
-**Creating clients with `client_metadata` properties**
+#### Creating clients with `client_metadata` properties
 
-A `client_metadata` object can be included when creating a new client via the `POST /api/v2/`clients endpoint.
+A `client_metadata` object can be included when creating a new client via the `POST /api/v2/` clients endpoint.
 
-**Creating `client_metadata` properties in the dashboard**
+#### Creating `client_metadata` properties in the dashboard
 
 `client_metadata` key value pairs can also be added in [the dashboard](${manage_url}/#/clients), by going to **Clients**. Then select the settings(the gear icon) of the client you wish to edit.
 
@@ -256,7 +256,7 @@ Request: `PATCH /api/v2/client/myclientid123` with body:
 }
 ```
 
-**Updating `client_metadata` in the dashboard**
+#### Updating `client_metadata` in the dashboard
 
 Client metadata can also be updated in [the dashboard](${manage_url}/#/clients), by going to **Clients**. Then select the settings(the gear icon) of the client you wish to edit.
 
@@ -393,7 +393,7 @@ This results in the following JSON representation of the user profile details:
 
 `client_metadata` keys can be removed by issuing a PATCH, [as described above](#updating-client_metadata), but supplying a null for the key value. This behavior matches that of the `user_metadata` and `app_metadata` properties in the `PATCH` [/api/v2/users/{id}](/api/management/v2#!/Users/patch_users_by_id) endpoint.
 
-**Deleting`client_metadata` properties and values in the dashboard**
+#### Deleting`client_metadata` properties and values in the dashboard
 
 `client_metadata` keys can also be removed in [the dashboard](${manage_url}/#/clients), by going to **Clients**. Then select the settings(the gear icon) of the client you wish to edit.
 
@@ -434,3 +434,10 @@ As a workaround, you can convert the first example to something like this.
 Or you could use a different delimiter character besides `.` (dot) or `$` (dollar sign).
 
 `client_metadata` is an object, whose keys and values are strings, with a maximum length of 255 characters. Also `client_metadata` is restricted to having a maximum 10 keys.
+
+## Keep reading
+
+::: next-steps
+* [Use the Management API in rules](/rules/current/management-api)
+* [Properties of the Context Argument](/rules/current/context)
+:::
