@@ -55,7 +55,7 @@ Upon success, you need to store the `idToken` value for later use, which is the 
 
 Linking an account is simple. You have a user, and another account you want to link with that user. All you need to grab is these three values:
 
-- `id`: The `id` from the user's profile.sub that is logged in.
+- `id`: The `id` from the logged in user's profile, available in profile.sub
 - `idToken`: The `idToken` obtained upon your user login.
 - `otherUserToken`: The `idToken` from the account you want to link the user with.
 
@@ -66,7 +66,7 @@ To link an account:
 ```objc
 // ProfileViewController.m
 
-NSString *id = ... // the id of the user, profile.sub
+NSString *id = ... // the id of the user, available in profile.sub
 NSString *idToken = ... // the user's idToken
 NSString *otherUserToken = ... // the idToken from the account you want to link the user with
 [auth linkUserAccountWithIdToken:idToken userId:id otherAccountToken:otherUserToken
@@ -125,7 +125,7 @@ The unlinking process is quite similar to the linking one. This time, you just n
 
 ```objc
 // ProfileViewController.m
-NSString *id = ... // profile.sub
+NSString *id = ... // the id of the user, available in profile.sub
 NSString *idToken = ... // the user idToken
 A0Identity *identity = ... // the identity (account) you want to unlink from the user
 [auth unlinkUserAccountWithIdToken:idToken userId:id identity:identity callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
