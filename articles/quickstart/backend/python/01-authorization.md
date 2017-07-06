@@ -48,6 +48,7 @@ from jose import jwt
 
 auth0_domain = '${account.namespace}'
 api_audience = YOUR_API_AUDIENCE
+algorithms = ["RS256"]
 
 app = Flask(__name__)
 
@@ -110,7 +111,7 @@ def requires_auth(f):
                 payload = jwt.decode(
                     token,
                     rsa_key,
-                    algorithms=unverified_header["alg"],
+                    algorithms=algorithms,
                     audience=API_AUDIENCE,
                     issuer="https://"+AUTH0_DOMAIN+"/"
                 )
