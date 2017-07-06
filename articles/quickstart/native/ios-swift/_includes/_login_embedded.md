@@ -25,6 +25,10 @@ Lock
     .present(from: self)
 ```
 
+::: note
+The snippet enables `oidcConformant`, when this mode is enabled it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
+:::
+
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_2_login.png" alt="Lock UI"></div>
 
 As you can see, upon successful authentication, the `onAuth` callback will yield the user's `credentials`.

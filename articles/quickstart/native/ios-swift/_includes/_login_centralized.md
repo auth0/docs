@@ -36,6 +36,10 @@ Then present the hosted login screen, like this:
 
 ${snippet(meta.snippets.use)}
 
+::: note
+This snippet sets the `audience` to ensure an OIDC compliant responses, this can also be achieved by enabling the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. For more information please check [this documentation](/api-auth/intro#how-to-use-the-new-flows).
+:::
+
 Upon successful authentication the user's `credentials` will be returned.
 
 ::: note
