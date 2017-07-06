@@ -72,7 +72,7 @@ Auth0 account = new Auth0(context);
 It is strongly encouraged that this SDK be used in OIDC Conformant mode. When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
 
 ```java
-Auth0 account = new Auth0(context);
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 //Configure the account in OIDC conformant mode
 account.setOIDCConformant(true);
 //Use the account in the API clients
@@ -274,7 +274,7 @@ The Authentication Client provides methods to authenticate the user against Auth
 AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 ```
 
-To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+To ensure an Open ID Connect compliant response you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
 
 ### Login with database connection
 
@@ -308,8 +308,6 @@ Passwordless on native platforms is disabled by default for new tenants as of 8 
 
 Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
 :::
-
-Passwordless authentication *cannot be used* with this flag set to `true`. For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
 
 Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. Note that Passwordless authentication *cannot be used* with the [OIDC Conformant Mode](/oidc-conformant-mode) enabled.
 

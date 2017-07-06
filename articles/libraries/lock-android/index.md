@@ -144,7 +144,7 @@ Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
 It is strongly encouraged that Lock be used in OIDC Conformant mode. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
 
 ```java
-Auth0 account = new Auth0(context);
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 //Configure the account in OIDC conformant mode
 account.setOIDCConformant(true);
 //Use the account to launch Lock

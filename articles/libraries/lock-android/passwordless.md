@@ -19,7 +19,7 @@ You can achieve a similar result by sending a **LINK** that the user can click t
 
 In order to be able to authenticate the user, your application must have the Email/SMS connection enabled and configured in your [Auth0 Dashboard](${manage_url}/#/connections/passwordless).
 
-Note that Passwordless Lock *cannot be used* with the [OIDC Conformant Mode](/index#oidc-conformant-mode) set to `true`. For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
+Note that Passwordless Lock *cannot be used* with the [OIDC Conformant Mode](/libraries/lock-android/index#oidc-conformant-mode) set to `true`. For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
 
 ## Implementing CODE Passwordless
 
