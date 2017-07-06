@@ -1,10 +1,9 @@
 ---
-url: /migrations
 toc: true
 description: Occasionally, Auth0 engineers must make breaking changes to the Auth0 platform.
 ---
-
 # Migrations
+
 Occasionally, Auth0 engineers must make breaking changes to the Auth0 platform, primarily for security reasons. If a vulnerability or other problem in the platform is not up to our high standards of security, we work to correct the issue.
 
 Sometimes a correction will cause a breaking change to customer's applications. Depending on the severity of the issue, we may have to make the change immediately.
@@ -12,6 +11,7 @@ Sometimes a correction will cause a breaking change to customer's applications. 
 For changes that do not require immediate changes, we often allow a grace period to allow you time to update your applications.
 
 ## Migration Process
+
 The migration process is outlined below:
 
 1. We update the platform and add a new migration option for existing customers, allowing a grace period for opt-in. New customers are always automatically enrolled in all migrations.
@@ -22,6 +22,7 @@ During the grace period, customers are informed via dashboard notifications and 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
 ## Current Migrations
+
 Current migrations are listed below, newest first. For migrations that have already been enabled see [Past Migrations](#past-migrations).
 
 ### CDN provider migration in the Europe and Australia environments
@@ -41,6 +42,62 @@ If you use Lock (hosted by our CDN) in Europe or Australia, yes.
 This change shouldn't cause any disruption or change in behavior in your applications, so you don't have to do anything. This notification is for information only.
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+### Whitelisting IP Address Ranges
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Low | 2017-01-15 |  2017-02-20 |
+
+Auth0 is expanding into new US regions, and traffic originating from these regions will have new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
+
+#### Am I affected by the change?
+
+If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to add the following IP addresses to your firewall rules:
+
+```
+138.91.154.99, 54.183.64.135, 54.67.77.38, 54.67.15.170,
+54.183.204.205, 54.173.21.107, 54.85.173.28, 35.167.74.121, 35.160.3.103,
+35.166.202.113, 52.14.40.253,
+52.14.38.78, 52.14.17.114, 52.71.209.77, 34.195.142.251, 52.200.94.42
+```
+
+If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+
+## Past Migrations
+
+These are migrations that have already been enabled for all customers.
+
+### Vulnerable Password Flow
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2016-03-22 |  2017-02-01 |
+
+The current password reset flow on Auth0 allows a user to enter their email and a new password. This triggers a confirmation email that is sent to the user asking them to confirm that they requested a password reset.
+
+The issue is that the confirmation link may be inadvertently clicked by a user, which would result in the user's password being changed by an attacker.
+
+Lock version 9 and above uses the [new password reset flow](/connections/database/password-change) exclusively. Lock 8 and below does not handle the new password reset flow. We strongly recommend upgrading to Lock 9 or greater as soon as possible.
+
+::: panel Security Warning
+Even if you are not using Lock, the vulnerable reset flow can be accessed directly through the API. (See the [/dbconnections/change_password](/api/authentication/reference#change-password) endpoint for details.) We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
+:::
+
+### Account Linking Removal
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2017-01-03 |  2017-03-01 |
+
+As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an `access_token` as part of the `/authorize` call as stated [here](/api/authentication?http#account-linking).
+
+#### Am I affected by the change?
+
+If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an `access_token` in your `/authorize` calls.
+
+If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
 
 ### Password and Refresh Token Exchange Rules Migration Notice
@@ -64,78 +121,6 @@ You can add logic to your rules to alter their behavior for these exchanges by c
 If you would like to enable the new behavior on this tenant for testing before the mandatory opt-in date, login to [Dashboard](${manage_url}) and enable the __Run Rules on Password and Refresh Token Exchanges__ toggle in [Account Settings > Advanced](${manage_url}/#/account/advanced).
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
-
-### Whitelisting IP Address Ranges
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Low | 2017-01-15 |  2017-02-20 |
-
-Auth0 is expanding into new US regions, and traffic originating from these regions will have new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
-
-#### Am I affected by the change?
-
-If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to add the following IP addresses to your firewall rules:
-
-```
-138.91.154.99, 54.183.64.135, 54.67.77.38, 54.67.15.170,
-54.183.204.205, 54.173.21.107, 54.85.173.28, 35.167.74.121, 35.160.3.103,
-35.166.202.113, 52.14.40.253,
-52.14.38.78, 52.14.17.114, 52.71.209.77, 34.195.142.251, 52.200.94.42
-```
-
-If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
-
-### Account Linking Removal
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Medium | 2017-01-03 |  2017-03-01 |
-
-As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an `access_token` as part of the `/authorize` call as stated [here](/api/authentication?http#account-linking).
-
-#### Am I affected by the change?
-
-If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an `access_token` in your `/authorize` calls.
-
-If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
-
-### SAML Validations
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Low | 2016-12-05 |  2017-03-01 |
-
-As part of Auth0's efforts to improve security and standards compliance, we will be adding some additional validations to our SAML functionality. SAML Responses which fail these validations will not be processed by Auth0:
-
-- Destination does not match AssertionConsumerService url
-- Recipient does not match AssertionConsumerService url
-- Response ID must be unique for every response
-
-#### Am I affected by the change?
-
-You are affected by this change if you see the validation warnings in your tenant logs. During the grace period, these validation errors will show up in your tenant logs, but will not cause the authentication to fail.
-
-If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
-
-### Vulnerable Password Flow
-
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Medium | 2016-03-22 |  2017-02-01 |
-
-The current password reset flow on Auth0 allows a user to enter their email and a new password. This triggers a confirmation email that is sent to the user asking them to confirm that they requested a password reset.
-
-The issue is that the confirmation link may be inadvertently clicked by a user, which would result in the user's password being changed by an attacker.
-
-Lock version 9 and above uses the [new password reset flow](/connections/database/password-change) exclusively. Lock 8 and below does not handle the new password reset flow. We strongly recommend upgrading to Lock 9 or greater as soon as possible.
-
-::: panel Security Warning
-Even if you are not using Lock, the vulnerable reset flow can be accessed directly through the API. (See the [/dbconnections/change_password](/api/authentication/reference#change-password) endpoint for details.) We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
-:::
-
-## Past Migrations
-These are migrations that have already been enabled for all customers.
 
 ### Email Delivery Changes: "From" Address
 
