@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial demonstrates how to use the Auth0 Java Spring Security MVC SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication to your Java Spring Security web app
 budicon: 448
 ---
 
@@ -10,12 +10,15 @@ budicon: 448
   path: '01-Login',
   requirements: [
     'Java 7 or above',
-    'Maven 3.0.x or above'
+    'Gradle 3.3 or above',
+    'Spring Boot 1.5.3 or above'
   ]
 }) %>
 
+This integration guide will walk you through setting up and managing authentication and authorization in your Java Spring Security MVC apps using Auth0.
 
+<%= include('../../../_includes/_new_app') %>
 
-In this step we will implement login functionality using Lock. Lock is an embeddable login form for desktop, tablet and mobile devices.
+<%= include('_includes/_setup') %>
 
 <%= include('_includes/_login') %>
