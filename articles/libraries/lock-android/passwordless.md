@@ -19,6 +19,8 @@ You can achieve a similar result by sending a **LINK** that the user can click t
 
 In order to be able to authenticate the user, your application must have the Email/SMS connection enabled and configured in your [Auth0 Dashboard](${manage_url}/#/connections/passwordless).
 
+Note that Passwordless Lock *cannot be used* with the [OIDC Conformant Mode](/index#oidc-conformant-mode) set to `true`. For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
+
 ## Implementing CODE Passwordless
 
 In your `app/build.gradle` file add the [Manifest Placeholders](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain and the Auth0 Scheme properties which are going to be used internally by the library to register an intent-filter that captures the callback URI.
@@ -127,7 +129,6 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     // Your own Activity code
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
-    auth0.setOIDCConformant(true);
     lock = PasswordlessLock.newBuilder(auth0, callback)
       .useCode()
       .build(this);
