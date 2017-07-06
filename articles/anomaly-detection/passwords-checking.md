@@ -102,7 +102,7 @@ john.doe3@example.com,,"secret, really secret"
 Each of these rows are valid. Note the quotation around "secret, really secret" is necessary because of the comma within the password. Whitespace does not require quoting.
 
 ### Starting the job
-Once you have the file ready, you are ready to start a job to check the file against your database connection. To do so you need to execute a `POST` request against `/api/passwords-checking` with encoding type `multipart/form-data`.
+Once you have the file ready, you are ready to start a job to check the file against your database connection. To do so you need to execute a `POST` request against `/api/jobs/passwords-checking` with encoding type `multipart/form-data`.
 
 Your request should contain the following parameters:
 
