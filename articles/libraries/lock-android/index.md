@@ -44,7 +44,9 @@ Head over to your Auth0 Dashboard and go to the client's settings. Add the follo
 https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+::: note
+Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name, available in your `app/build.gradle` file as the `applicationId` value.
+:::
 
 ### Keystores and key hashes
 
@@ -56,17 +58,55 @@ For a release keystore, replace the file, alias, store password and key password
 
 ## Implementing Lock (Social, Database, Enterprise)
 
-The following instructions discuss implementing Lock for Android. If you specifically are looking to implement Passwordless lock for Android, read the [Passwordless Authentication with Lock for Android](/libraries/lock-android/passwordless) page.
+The following instructions discuss implementing Lock for Android. If you specifically are looking to implement Passwordless Lock for Android, read the [Passwordless Authentication with Lock for Android](/libraries/lock-android/passwordless) page.
 
-### Configuring AndroidManifest.xml
+### Configuring the SDK
 
-Add the `android.permission.INTERNET` permission to the Manifest to allow Lock to make requests to the Auth0 API.
+In your `app/build.gradle` file add a [Manifest Placeholder](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain property which is going to be used internally by the library to register an intent-filter.
 
-```java
+```groovy
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    defaultConfig {
+        applicationId "com.auth0.samples"
+        minSdkVersion 15
+        targetSdkVersion 25
+        //...
+
+        //---> Add the next line
+        manifestPlaceholders = [auth0Domain: "@string/auth0_domain"]
+        //<---
+    }
+    //...
+}
+```
+
+It's a good practice to define reusable resources like `@string/auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
+
+Next, modify the `AndroidManifest.xml` file. Add the `android.permission.INTERNET` permission to allow Lock to make requests to the Auth0 API.
+
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Add `LockActivity` to your Manifest, using `"${account.namespace}"` as the `host` attribute  domain and `"{YOUR_APP_PACKAGE_NAME}"` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
+Add the `LockActivity`.
+
+```xml
+<activity
+  android:name="com.auth0.android.lock.LockActivity"
+  android:label="@string/app_name"
+  android:launchMode="singleTask"
+  android:screenOrientation="portrait"
+  android:theme="@style/MyLock.Theme"/>
+```
+
+::: note
+In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `LockActivity` to make possible to the library to capture the authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0 unless you need to use a custom scheme, as it's now done internally by the library for you.
+:::
+
+In case you are using an older version of Lock or require to use a custom scheme for Social Authentication, the **intent-filter** must be added to the `LockActivity` by you. i.e. with a scheme value of `demo`.
 
 ```xml
 <activity
@@ -76,22 +116,21 @@ Add `LockActivity` to your Manifest, using `"${account.namespace}"` as the `host
   android:screenOrientation="portrait"
   android:theme="@style/MyLock.Theme">
     <intent-filter>
-      <action android:name="android.intent.action.VIEW" />
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
 
-      <category android:name="android.intent.category.DEFAULT" />
-      <category android:name="android.intent.category.BROWSABLE" />
-
-      <data
-        android:host="${account.namespace}"
-        android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
-        android:scheme="https" />
+        <data
+            android:host="@string/auth0_domain"
+            android:pathPrefix="/android/${applicationId}/callback"
+            android:scheme="demo" />
     </intent-filter>
 </activity>
 ```
 
 #### Some restrictions
 
-* Make sure the Activity's launchMode is declared as `singleTask` or the result won't come back after the authentication.
+* Make sure the `LockActivity` launchMode is declared as `singleTask` or the result won't come back after the authentication.
 * Also note that for the time being, `LockActivity` can't be launched by calling `startActivityForResult`.
 
 ### Auth0
@@ -136,7 +175,7 @@ The results of the AuthenticationCallback are in a `credentials` object. This ob
 
 To create a new `Lock` instance and configure it, use the `Lock.Builder` class. Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options as you need. After you're done, build the Lock instance and use it to start the `LockActivity`.
 
-This is an example of what your `Activity` should look:
+This is an example of what your `Activity` should look like:
 
 ```java
 public class MainActivity extends Activity {
@@ -181,7 +220,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-Remember to notify the `Lock` when your activity calls the `OnDestroy` method, as it helps to keep the Lock state.
+Remember to notify Lock's instance when your activity calls the `OnDestroy` method, as it helps to keep the state.
 
 Then, start `Lock` from inside your activity.
 
