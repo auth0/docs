@@ -2,6 +2,10 @@
 description: Auth0 normalizes common user properties in the User Profile.
 ---
 
+::: version-warning
+The user profile returned after successful authentication using an OIDC-compliant flow may differ from the Auth0 normalized profile. Please use the toggle to see the claims available on that profile.
+:::
+
 # Auth0 Normalized User Profile
 
 Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile.
