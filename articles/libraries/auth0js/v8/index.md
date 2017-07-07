@@ -427,10 +427,6 @@ webAuth.renewAuth({
 });
 ```
 
-::: note
-This will use postMessage to communicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behavior is needed.
-:::
-
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe.
 
 This callback page should simply pass the local URL hash to the parent document via postMessage. The `webAuth.renewAuth` method will receive the hash string and automatically perform a `webAuth.parseHash`, passing the `err` or `authResult` to the callback function. The callback page should be something like the following one:
