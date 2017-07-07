@@ -62,5 +62,5 @@ if(decodedString == auth0-authorize) {
 
 ::: next-steps
 * [Protecting against other common threats](/security/common-threats)
-* [Using the `state` parameter for redirecting users](/tutorials/redirecting-users#using-the-state-parameter)
+* [Using the `state` parameter for redirecting users](/tutorials/redirecting-users#redirect-users-to-a-non-callback-url)
 :::
