@@ -73,7 +73,9 @@ It is strongly encouraged that this SDK be used in OIDC Conformant mode. When th
 }
 ```
 
-For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption).
+::: note
+For more information, please see our [Introduction to OIDC Conformant Authentication](/api-auth/intro) and the [OIDC adoption guide](/api-auth/tutorials/adoption).
+:::
 
 To show Lock, add the following snippet in your `UIViewController`.
 
