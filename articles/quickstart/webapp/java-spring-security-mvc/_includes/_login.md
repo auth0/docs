@@ -1,74 +1,154 @@
-## Add the Auth0 Callback Handler
+## Project Structure
+The Login project sample has the following structure:
 
-First, we need to add the handler for the Auth0 callback so that we can authenticate the user and get their information. For that, we'll use the `Auth0CallbackHandler` provided by the SDK.
-
-We have to define a new Controller, configure it to use the `auth0.loginCallback` endpoint, and inherit from `Auth0CallbackHandler`.
-
-Create a new `CallbackController.java` file and set the following contents:
-
-${snippet(meta.snippets.use)}
-
-## Define Endpoint Security Configuration
-
-The [Auth0 Spring Security MVC library](https://github.com/auth0/auth0-spring-security-mvc) contains a security configuration class, called `Auth0SecurityConfig`. This class handles all the library Application Context wiring configuration, and a default `HttpSecurity` endpoint configuration that secures the URL Context path defined with `auth0.securedRoute` property.
-
-This is defined in a method called `authorizeRequests(final HttpSecurity http)` which should be overridden by you.
-
-${snippet(meta.snippets.LoginAuthRequestsMethod)}
-
-By subclassing, and overriding `authorizeRequests` you can define whatever endpoint security configuration (authentication and authorization) is suitable for your own needs.
-
-For example, this is the declared subclass together with overridden method from our sample application.
-
-${snippet(meta.snippets.LoginAuthRequestsSubclass)}
-
-
-## Display Lock Widget
-
-In order to setup [Lock](/libraries/lock) update the `login.jsp` as follows:
-
-${snippet(meta.snippets.LoginJsp)}
-
-::: note
-The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `auth0-spring-mvc-sample/src/main/resources/static/` directory and you don't need to include them if you don't want to.
-:::
-
-First, we initialize `Auth0Lock` with a `clientID` and the account's `domain`.
-
-```js
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+```text
+- src
+-- main
+---- java
+------ com
+-------- auth0
+---------- example
+------------ mvc
+-------------- CallbackController.java
+-------------- ErrorController.java
+-------------- HomeController.java
+-------------- LoginController.java
+-------------- LogoutController.java
+------------ security
+-------------- AppConfig.java
+-------------- TokenAuthentication.java
+------------ App.java
+---- resources
+------ application.properties
+------ auth0.properties
+---- webapp
+------ WEB-INF
+-------- jsp
+---------- home.jsp
+- build.gradle
 ```
 
-We set several parameters as input, like `redirectUrl` and `responseType`. For details on what each parameter does, refer to [Lock: User configurable options](/libraries/lock/customization).
+The project contains a single JSP: the `home.jsp` which will display the user information associated to the token after a successful login and provide the option to logout.
 
-Once the `Auth0Lock` is initialized we display the widget using `lock.show()`.
+The access control is handled by the Spring Security framework. A few rules in the `AppConfig.java` class will suffice to check for existing tokens before giving the user access to our protected `/portal/*` path. If the tokens don't exist, the request will be redirected by the `ErrorController` to the `LoginController`.
 
-## Display User Information
+The project contains also five Controllers:
+- `LoginController.java`: Invoked when the user attempts to login. The controller uses the `client_id` and `domain` parameters to create a valid Authorize URL and redirects the user there.
+- `CallbackController.java`: The controller captures requests to our Callback URL and processes the data to obtain the credentials. After a successful login, the credentials are then saved to the request's HttpSession.
+- `HomeController.java`: The controller reads the previously saved tokens and shows them on the `home.jsp` resource.
+- `LogoutController.java`: Invoked when the user clicks the logout link. The controller invalidates the user session and redirects the user to the login page, handled by the `LoginController`.
+- `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
 
-Depending on what `scopes` you specified upon login, some user information may be available in the [id_token](/tokens#auth0-id_token-jwt-) received.
+Lastly, the project defines an Authentication class to hold this status: the `TokenAuthentication.java`. This class will parse the user's *id_token* to check for expiration and also extract the "granted authorities" from a custom claim we can set. We will see more regarding authorization in a next tutorial.
 
-The full user profile information is available as a session object keyed on `Auth0User`, you can call `SessionUtils.getAuth0User()` to retrieve the information. However, because the authenticated user is also a `java.security.Principal` object we can inject it into the Controller automatically for secured endpoints.
 
-Add the following to your `HomeController.java` file:
+## Authenticate the User
 
-${snippet(meta.snippets.LoginHomeController)}
+Let's begin by making your Auth0 credentials available on the App. In the `AppConfig` class we tell Spring to map the properties defined in the `auth0.properties` file to the corresponding fields by using the `@Configuration` and `@Value` annotations.
 
-The value `/portal/home` should be replaced with the valid one for your implementation.
+```java
 
-Once the user has successfully authenticated, the application displays the `home.jsp`. In order to display some user information, as retrieved from Auth0, update the `home.jsp` as follows:
+@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AppConfig extends WebSecurityConfigurerAdapter {
 
-${snippet(meta.snippets.LoginHomeJsp)}
+    @Value(value = "<%= "${com.auth0.domain}" %>")
+    private String domain;
+    @Value(value = "<%= "${com.auth0.clientId}" %>")
+    private String clientId;
+    @Value(value = "<%= "${com.auth0.clientSecret}" %>")
+    private String clientSecret;
 
-## Test the App
+    //...
+}
+```
 
-We are now ready to test the application!
+Next, define the rules that will prevent unauthenticated users to access our protected resources. You do that by allowing anyone to access the `/login` and `/callback` endpoints in order to be able to complete the login flow, and blocking them from accessing any other endpoint if they are not authenticated:
 
-Build and run the project using `mvn spring-boot:run`. Then, go to [http://localhost:3099/login](http://localhost:3099/login).
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+    http.csrf().disable();
+    http
+            .authorizeRequests()
+            .antMatchers("/callback", "/login").permitAll()
+            .antMatchers("/**").authenticated()
+            .and()
+            .logout().permitAll();
+    http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER);
+}
+```
 
-You should see the custom login page, instead of Lock.
+Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Do that by defining a method that returns the Bean in the same `AppConfig` class. Any customization on the behavior of the component should be done here. i.e. requesting a different scope or using a different signature verification algorithm.
 
-![Lock Login](/media/articles/java/lock_login_form.png)
+```java
+@Bean
+public AuthenticationController authenticationController() throws UnsupportedEncodingException {
+    return AuthenticationController.newBuilder(domain, clientId, clientSecret)
+            .withResponseType("code")
+            .build();
+}
+```
 
-Enter the credentials of the user you created earlier to test the login. You should see the following screen.
+To authenticate the users you will redirect them to the **Auth0 Hosted Login Page** which uses the best version available of [Lock](/lock). This page is accessible from what we call the "Authorize URL". By using this library you can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where your app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. After you create the Authorize URL, you redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
 
-![Lock Login](/media/articles/java/lock_user_info.png)
+```java
+@RequestMapping(value = "/login", method = RequestMethod.GET)
+protected String login(final HttpServletRequest req) {
+   String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
+   AuthorizeUrl authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri);
+   return "redirect:" + authorizeUrl.build();
+}
+```
+
+After the user logs in the result will be received in our `CallbackController`, either via a GET or a POST Http method. The request holds the call context that the library have previously set by generating the Authorize URL with the controller. When you pass it to the controller, you get back either a valid `Tokens` instance or an Exception indicating what went wrong. In the case of a successful call, you need to create a new `TokenAuthentication` instance with the *id_token* and set it to the `SecurityContextHolder`. You can modify this class to accept *access_token* as well, but this is not covered in this tutorial. If an exception is raised instead, you need to clear any existing Authentication from the `SecurityContextHolder`.
+
+```java
+@RequestMapping(value = "/callback", method = RequestMethod.GET)
+protected void getCallback(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
+  try {
+      Tokens tokens = controller.handle(req);
+      TokenAuthentication tokenAuth = new TokenAuthentication(JWT.decode(tokens.getIdToken()));
+      SecurityContextHolder.getContext().setAuthentication(tokenAuth);
+      res.sendRedirect(redirectOnSuccess);
+  } catch (AuthenticationException | IdentityVerificationException e) {
+      e.printStackTrace();
+      SecurityContextHolder.clearContext();
+      res.sendRedirect(redirectOnFail);
+  }
+}
+```
+
+## Display the Home Page
+
+Now that the user is authenticated (the tokens exists), the framework will allow them to access our protected resources. In the `HomeController` you can get the existing Authentication object and even the Principal that represents it. Let's set that as the `userId` attribute so it can be used from the JSP code:
+
+```java
+@RequestMapping(value = "/portal/home", method = RequestMethod.GET)
+protected String home(final Map<String, Object> model, final Principal principal) {
+    if (principal == null) {
+        return "redirect:/logout";
+    }
+    model.put("userId", principal);
+    return "home";
+}
+```
+
+## Run the Sample
+
+To run the sample from a terminal, change the directory to the root folder of the project and execute the following line:
+
+```bash
+./gradlew clean bootRun
+```
+
+After a few seconds, the application will be accessible on `http://localhost:8080/`. Try to access the protected resource [http://localhost:8080/portal/home](http://localhost:8080/portal/home) and note how you're redirected by the framework to the Auth0 Hosted Login Page. The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
+
+![Login using Lock](/media/articles/java/login-with-lock.png)
+
+After a successful authentication you'll be able to see the home page contents.
+
+![Display Token](/media/articles/java/display-token.png)
+
+Log out by clicking the **Logout** button at the top right of the home page.
