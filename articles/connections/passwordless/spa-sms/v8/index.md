@@ -1,7 +1,6 @@
 ---
 title: Using Passwordless Authentication in SPA with SMS
 ---
-
 # Authenticate Users With a One Time Code via SMS in a SPA
 
 <%= include('../../_introduction-sms', { isMobile: true }) %>
@@ -48,7 +47,9 @@ This will open a dialog that asks the user for their phone number.
 
 Then Auth0 will use Twilio to send to the user an SMS containing the one-time code:
 
+```html
 <div class="phone-mockup"><img src="/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png" alt="SMS one-time code"/></div>
+```
 
 Lock will ask for the code that has been sent via SMS to the provided number. The code can then be used as a one-time password to log in:
 
@@ -57,6 +58,12 @@ Lock will ask for the code that has been sent via SMS to the provided number. Th
 If the code is correct, the user will be authenticated. This will call the callback of the `lock.sms` function where the `id_token`, `refresh_token` and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application.
 
 ### Use your own UI
+
+<%= include('../../../../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-jquery-passwordless-sample',
+  path: ''
+}) %>
 
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
@@ -89,7 +96,7 @@ This will send an SMS to the provided phone number. The user must now enter the 
 function login(){
   var phone = $('input.phone-number').val();
   var code = $('input.code').val();
-  
+
   webAuth.passwordlessVerify({
     connection: 'sms',
     phoneNumber: phone,

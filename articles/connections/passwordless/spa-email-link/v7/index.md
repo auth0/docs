@@ -1,7 +1,6 @@
 ---
 title: Using Passwordless Authentication with a Magic Link via email on SPA
 ---
-
 # Authenticate users with a Magic Link via e-mail on SPA
 
 <%= include('../../_older-version-alert' %>
@@ -61,7 +60,7 @@ $(document).ready(function(){
 
 ### Use your own UI
 
-You can perform passwordless authentication with a magic link in your single-page application using your own UI with the [Auth0 JavaScript client library](/libraries/auth0js).
+You can perform passwordless authentication with a magic link in your single-page application using your own UI with the [Auth0 JavaScript client library](/libraries/auth0js/v7).
 
 <%= include('../../_init-auth0js', {withCallbackURL:false} ) %>
 

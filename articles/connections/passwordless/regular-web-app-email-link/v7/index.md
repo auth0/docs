@@ -1,7 +1,6 @@
 ---
 title: Using Passwordless Authentication with a magic link via email on Regular Web Apps
 ---
-
 # Passwordless Authentication with a magic link via e-mail on Regular Web Apps
 
 <%= include('../../_older-version-alert' %>
@@ -47,7 +46,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 ### Use your own UI
 
-You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
+You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js/v7).
 
 <%= include('../../_init-auth0js', {withCallbackURL:true} ) %>
 

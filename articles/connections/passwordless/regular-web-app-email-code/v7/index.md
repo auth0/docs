@@ -1,7 +1,6 @@
 ---
 title: Using Passwordless Authentication with a one-time code via email on Regular Web Apps
 ---
-
 # Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
 
 <%= include('../../_older-version-alert' %>
@@ -22,7 +21,7 @@ title: Using Passwordless Authentication with a one-time code via email on Regul
 
 Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the server-side authentication:
 
-```
+```html
 <script src="${lock_passwordless_url}"></script>
 <script type="text/javascript">
   function login(){
@@ -55,13 +54,7 @@ You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to s
 
 ### Use your own UI
 
-<%= include('../../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-node-passwordless-sample',
-  path: ''
-}) %>
-
-You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
+You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js/v7).
 
 <%= include('../../_init-auth0js', {withCallbackURL:true} ) %>
 
