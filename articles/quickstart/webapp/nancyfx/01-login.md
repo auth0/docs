@@ -6,7 +6,7 @@ budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
+  org: 'auth0-community',
   repo: 'auth0-nancyfx-samples',
   path: '00-Starter-Seed',
   requirements: [
@@ -85,7 +85,15 @@ public class Authentication : NancyModule
             if (this.SessionIsAuthenticated())
                 return Response.AsRedirect("securepage");
 
-            return View["login"];
+            var apiClient = new AuthenticationApiClient(ConfigurationManager.AppSettings["auth0:domain"]);
+            var authorizationUri = apiClient.BuildAuthorizationUrl()
+                .WithClient(ConfigurationManager.AppSettings["auth0:ClientId"])
+                .WithRedirectUrl(ConfigurationManager.AppSettings["auth0:CallbackUrl"])
+                .WithResponseType(AuthorizationResponseType.Code)
+                .WithScope("openid profile")
+                .Build();
+
+            return Response.AsRedirect(authorizationUri.ToString());
         };
 
         Get["/login-callback"] = o => this
@@ -98,25 +106,3 @@ public class Authentication : NancyModule
     }
 }
 ```
-
-## Integrating Auth0.js
-
-```html
-<script src="${auth0js_urlv8}"></script>
-<script>
-var webAuth = new auth0.WebAuth({
-	domain: '${account.namespace}',
-	clientID: '${account.clientId}',
-	redirectUri: 'http://localhost:3579/login-callback',
-	audience: 'https://${account.namespace}/userinfo',
-	responseType: 'code',
-	scope: 'openid name'
-});
-
-webAuth.authorize();
-</script>
-```
-
-::: note
-The `redirectUri` specified in the `webAuth` constructor **must match** the one specified in the previous step
-:::
