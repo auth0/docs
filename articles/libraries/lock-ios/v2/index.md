@@ -63,11 +63,28 @@ In your application bundle you can add a `plist` file named `Auth0.plist` that w
 
 Lock Classic handles authentication using Database, Social, and Enterprise connections.
 
+### OIDC Conformant Mode
+
+It is strongly encouraged that this SDK be used in OIDC Conformant mode. When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default this is `false`
+
+```swift
+.withOptions {
+    $0.oidcConformant = true
+}
+```
+
+::: note
+For more information, please see our [Introduction to OIDC Conformant Authentication](/api-auth/intro) and the [OIDC adoption guide](/api-auth/tutorials/adoption).
+:::
+
 To show Lock, add the following snippet in your `UIViewController`.
 
 ```swift
 Lock
     .classic()
+    .withOptions {
+        $0.oidcConformant = true
+    }
     // withConnections, withOptions, withStyle, etc
     .onAuth { credentials in
       // Save the Credentials object
@@ -128,7 +145,7 @@ To access user profile information, you will need to use the `Auth0.Swift` libra
 guard let accessToken = credentials.accessToken else { return }
 Auth0
     .authentication()
-    .userInfo(token: accessToken)
+    .userInfo(withAccessToken: accessToken)
     .start { result in
         switch result {
         case .success(let profile):
