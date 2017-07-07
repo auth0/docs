@@ -1,4 +1,4 @@
-To integrate Auth0 in a hybrid Ionic app, you can use the `@auth0/cordova` package available on npm. This package provides an interface with Cordova which allows you to use the [Proof Key for Code Exchange (PKCE)](https://tools.ietf.org/html/rfc7636) spec. PKCE is recommended for native and hybrid applications to mitigate the threat of authorization code interception.
+To integrate Auth0 in a hybrid Ionic, you can use the `@auth0/cordova` package available on npm. This package provides an interface with Cordova which allows you to use the [Proof Key for Code Exchange (PKCE)](https://tools.ietf.org/html/rfc7636) spec. PKCE is recommended for native and hybrid applications to mitigate the threat of authorization code interception.
 
 ::: note
 Please note that PKCE authentication requires testing on either an emulated or real device. Attempting authentication when testing in the browser will fail because PKCE requires a device browser.
@@ -8,7 +8,7 @@ Please note that PKCE authentication requires testing on either an emulated or r
 
 <%= include('../../../_includes/_callback_url') %>
 
-The **Callback URL** to be used for your Ionic application includes your app's package ID which is found in the `config.xml` file for your app.
+The **Callback URL** to be used for your application includes your app's package ID which is found in the `config.xml` file for your app.
 
 Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in your Auth0 dashboard and set your **Callback URL** in the **Allowed Callback URLs** box.
 

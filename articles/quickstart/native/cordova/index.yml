@@ -10,8 +10,8 @@ tags:
   - quickstart
 snippets:
   dependencies: native-platforms/cordova/dependencies
-  setup: native-platforms/jquery/setup
-  use: native-platforms/jquery/use
+  setup: native-platforms/cordova/setup
+  use: native-platforms/cordova/use
 alias:
   - cordova
   - apache-cordova
