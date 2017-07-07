@@ -26,7 +26,7 @@ Lock
 ```
 
 ::: note
-The snippet enables `oidcConformant`, when this mode is enabled it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
+The snippet enables `oidcConformant`, when this mode is enabled it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. For more information, please see our [Introduction to OIDC Conformant Authentication](/api-auth/intro) and the [OIDC adoption guide](/api-auth/tutorials/adoption).
 :::
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_2_login.png" alt="Lock UI"></div>
