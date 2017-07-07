@@ -52,6 +52,10 @@ Auth0's hosted login page can be used to allow users to log in.
 
 Add a route called `/login` and call `passport.authenticate` when the route is accessed. This middleware will check for a valid user session. If none is found, the user will be prompted to log in.
 
+::: note
+This snippet sets the `audience` to ensure an OIDC compliant responses, this can also be achieved by enabling the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. For more information please check [this documentation](/api-auth/intro#how-to-use-the-new-flows).
+:::
+
 ```js
 // routes/index.js
 
@@ -64,8 +68,9 @@ router.get('/login', passport.authenticate('auth0', {
   clientID: env.AUTH0_CLIENT_ID,
   domain: env.AUTH0_DOMAIN,
   redirectUri: env.AUTH0_CALLBACK_URL,
+  audience: 'https://' + env.AUTH0_DOMAIN + '/userinfo',
   responseType: 'code',
-  scope: 'openid profile'}),
+  scope: 'openid'}),
   function(req, res) {
     res.redirect("/");
 });
