@@ -50,7 +50,7 @@ app.use(passport.session());
 
 Auth0's hosted login page can be used to allow users to log in.
 
-Add a route called `/login` and call `passport.authenticate` when the route is accessed. This middleware will check for a valid user session. If none is found, the user will be prompted to log in.
+Add a route called `/login` and use the `env` object to set the **Client ID**, **Domain**, and **Callback URL** for your client. This route will instantiate `auth0.WebAuth` and call the `authorize` method to redirect the user to Auth0's hosted login page.
 
 ::: note
 This snippet sets the `audience` to ensure an OIDC compliant responses, this can also be achieved by enabling the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. For more information please check [this documentation](/api-auth/intro#how-to-use-the-new-flows).
@@ -62,6 +62,17 @@ This snippet sets the `audience` to ensure an OIDC compliant responses, this can
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
+
+const env = {
+  AUTH0_CLIENT_ID: '${account.clientId}',
+  AUTH0_DOMAIN: '${account.namespace}',
+  AUTH0_CALLBACK_URL: 'http://localhost:3000/callback'
+};
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index');
+});
 
 // Perform the login
 router.get('/login', passport.authenticate('auth0', {
@@ -75,43 +86,23 @@ router.get('/login', passport.authenticate('auth0', {
     res.redirect("/");
 });
 
-router.get(
-  '/login',
-  passport.authenticate('auth0', {
-    clientID: '${account.clientId}',
-    domain: '${account.namespace}',
-    redirectUri: 'http://localhost:3000/callback',
-    audience: 'https://${account.namespace}/userinfo',
-    responseType: 'code',
-    scope: 'openid profile'
-  }),
-  function(req, res) {
-    res.redirect('/');
-  }
-);
-
-router.get('/logout', function(req, res) {
+// Perform session logout and redirect to homepage
+router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
 
-router.get(
-  '/callback',
+// Perform the final stage of authentication and redirect to '/user'
+router.get('/callback',
   passport.authenticate('auth0', {
     failureRedirect: '/',
   }),
   function(req, res) {
     res.redirect(req.session.returnTo || '/user');
-  }
-);
-
-module.exports = router;
+  });
 ```
 
-
 ![hosted login](/media/articles/web/hosted-login.png)
-
-Create a view for the `/login` route.
 
 ## Embedded Login
 
