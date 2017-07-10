@@ -1304,5 +1304,9 @@ module.exports = [
   {
     from: '/quickstart/webapp/java-spring-mvc/getting-started',
     to: '/quickstart/webapp/java-spring-mvc'
+  },
+  {
+    from: '/quickstart/webapp/java-spring-security-mvc/00-intro',
+    to: '/quickstart/webapp/java-spring-security-mvc'
   }
 ];
