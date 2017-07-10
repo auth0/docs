@@ -48,7 +48,7 @@ Next, modify the `AndroidManifest.xml` file. Add the `android.permission.INTERNE
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Add the `PasswordlessLockActivity`.
+Add the `PasswordlessLockActivity`. Depending on which passwordless connection you need to handle, the `data` attribute of the **intent-filter** will differ:
 
 ```xml
 <activity
@@ -56,14 +56,28 @@ Add the `PasswordlessLockActivity`.
     android:label="@string/app_name"
     android:launchMode="singleTask"
     android:screenOrientation="portrait"
-    android:theme="@style/MyLock.Theme"/>
+    android:theme="@style/MyLock.Theme">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data
+            android:host="@string/com_auth0_domain"
+            android:pathPrefix="/android/${applicationId}/email"
+            android:scheme="https" />
+    </intent-filter>
+</activity>
 ```
 
+The `data` attribute of the intent-filter defines which syntax of "Callback URI" your app is going to capture. In the above case it's going to capture calls from `email` passwordless connections. In case you're using the `sms` passwordless connection, the `pathPrefix` would end in `sms`.
+
+
 ::: note
-In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `LockActivity` to make possible to the library to capture the authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0 unless you need to use a custom scheme, as it's now done internally by the library for you.
+In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `PasswordlessLockActivity` to make possible to the library to capture a Social provider's authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0 unless you need to use a custom scheme, as it's now done internally by the library for you.
 :::
 
-In case you are using an older version of Lock or require to use a custom scheme for Social Authentication, the **intent-filter** must be added to the `PasswordlessLockActivity` by you. i.e. with a scheme value of `demo`.
+In case you are using an older version of Lock or require to use a custom scheme for Social Authentication, the **data** attribute inside the intent-filter must be added to the `PasswordlessLockActivity` by you. i.e. with a scheme value of `demo`.
 
 ```xml
 <activity
@@ -79,11 +93,18 @@ In case you are using an older version of Lock or require to use a custom scheme
 
         <data
             android:host="@string/com_auth0_domain"
+            android:pathPrefix="/android/${applicationId}/email"
+            android:scheme="https" />
+
+        <data
+            android:host="@string/com_auth0_domain"
             android:pathPrefix="/android/${applicationId}/callback"
             android:scheme="demo" />
     </intent-filter>
 </activity>
 ```
+
+Make sure the Activity's `launchMode` is declared as `singleTask` or the result won't come back in the authentication.
 
 When the Passwordless connection is SMS you must also add the `CountryCodeActivity` to allow the user to change the **Country Code** prefix of the phone number.
 
