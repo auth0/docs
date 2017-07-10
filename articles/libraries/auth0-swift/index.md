@@ -22,7 +22,7 @@ Auth0.swift is a client-side library for [Auth0](http://auth0.com).
 If you are using Carthage, add the following lines to your `Cartfile`:
 
 ```ruby
-pod 'Auth0', '~> 1.0'
+github "auth0/Auth0.swift" ~> 1.0
 ```
 
 Then run `carthage bootstrap`.
