@@ -55,7 +55,7 @@ Upon success, you need to store the `idToken` value for later use, which is the 
 
 Linking an account is simple. You have a user, and another account you want to link with that user. All you need to grab is these three values:
 
-- `id`: The `id` from the user's profile that is logged in.
+- `id`: The `id` from the logged in user's profile, available in profile.sub
 - `idToken`: The `idToken` obtained upon your user login.
 - `otherUserToken`: The `idToken` from the account you want to link the user with.
 
@@ -66,7 +66,7 @@ To link an account:
 ```objc
 // ProfileViewController.m
 
-NSString *id = ... // the id of the user
+NSString *id = ... // the id of the user, available in profile.sub
 NSString *idToken = ... // the user's idToken
 NSString *otherUserToken = ... // the idToken from the account you want to link the user with
 [auth linkUserAccountWithIdToken:idToken userId:id otherAccountToken:otherUserToken
@@ -87,7 +87,7 @@ Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the 
 // HomeViewController.m
 
 // Retrieve profile
-[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
+[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, UserInfo * _Nullable profile) {
     if (error) {
         // accessToken has expired or no longer valid
     } else {
@@ -97,7 +97,7 @@ Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the 
 }];
 ```
 
-Once you have the `id` from the profile you can retrieve the users identities through a management API call as follows:
+Once you have the `id` from the `profile.sub` you can retrieve the users identities through a management API call as follows:
 
 ```objc
 // HomeViewController.m
@@ -116,7 +116,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 ```
 
 ::: note
-Any linked account is handled as a `Profile` identity object. For further information on this object, check out the [Profile class](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) documentation.
+Any linked account is handled as a `Identity` object. For further information on this object, check out the [Identity class](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Identity.swift) documentation.
 :::
 
 ## Unlink an Account
@@ -125,7 +125,7 @@ The unlinking process is quite similar to the linking one. This time, you just n
 
 ```objc
 // ProfileViewController.m
-NSString *id = ... // the user id in profile
+NSString *id = ... // the id of the user, available in profile.sub
 NSString *idToken = ... // the user idToken
 A0Identity *identity = ... // the identity (account) you want to unlink from the user
 [auth unlinkUserAccountWithIdToken:idToken userId:id identity:identity callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
