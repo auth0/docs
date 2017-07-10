@@ -76,14 +76,14 @@ android {
         //...
 
         //---> Add the next line
-        manifestPlaceholders = [auth0Domain: "@string/auth0_domain"]
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain"]
         //<---
     }
     //...
 }
 ```
 
-It's a good practice to define reusable resources like `@string/auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
+It's a good practice to define reusable resources like `@string/com_auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
 
 Next, modify the `AndroidManifest.xml` file. Add the `android.permission.INTERNET` permission to allow Lock to make requests to the Auth0 API.
 
@@ -121,7 +121,7 @@ In case you are using an older version of Lock or require to use a custom scheme
         <category android:name="android.intent.category.BROWSABLE" />
 
         <data
-            android:host="@string/auth0_domain"
+            android:host="@string/com_auth0_domain"
             android:pathPrefix="/android/${applicationId}/callback"
             android:scheme="demo" />
     </intent-filter>

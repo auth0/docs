@@ -56,8 +56,8 @@ Method two is to save your client information in the `strings.xml` file using th
 
 ```xml
 <resources>
-    <string name="auth0_client_id">${account.clientId}</string>
-    <string name="auth0_domain">${account.namespace}</string>
+    <string name="com_auth0_client_id">${account.clientId}</string>
+    <string name="com_auth0_domain">${account.namespace}</string>
 </resources>
 
 ```
@@ -96,14 +96,14 @@ android {
         //...
 
         //---> Add the next line
-        manifestPlaceholders = [auth0Domain: "@string/auth0_domain"]
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain"]
         //<---
     }
     //...
 }
 ```
 
-It's a good practice to define reusable resources like `@string/auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
+It's a good practice to define reusable resources like `@string/com_auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
 
 Alternatively, you can declare the `RedirectActivity` in the `AndroidManifest.xml` file with your own **intent-filter** so it overrides the library's default. If you do this then the Manifest Placeholder don't need to be set as long as the activity contains the tools:node="replace" like in the snippet below.
 
@@ -127,7 +127,7 @@ In your manifest inside your application's tag add the `RedirectActivity` declar
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="@string/auth0_domain"
+                    android:host="@string/com_auth0_domain"
                     android:pathPrefix="/android/${applicationId}/callback"
                     android:scheme="https" />
             </intent-filter>
