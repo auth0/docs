@@ -106,7 +106,7 @@ When providing the URL list, you can:
 
 To redirect the user after they log out from a specific app, you must add the URL used in the `returnTo` parameter of the redirect URL to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the `CLIENT_ID` parameter.
 
-![Application level logout screen](/media/articles/logout/app-level-logout.png)
+![Application level logout screen](/media/articles/logout/client-level-logout.png)
 
 When providing the URL list, you can:
 
