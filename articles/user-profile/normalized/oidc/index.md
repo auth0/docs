@@ -4,6 +4,12 @@ description: Claims for a user profile returned via an OIDC-Compliant authorizat
 
 # User Profiles Returned from OIDC-Compliant Pipelines
 
+::: version-warning
+This article describes the claims included in the ID tokens returned when authenticating someone using an OIDC-conformant flow. The claims differ from those returned on the Auth0 Normalized Profile, which is a protocol-agnostic representation of the user that provides a standard way of storing user-related claims, regardless of the identity provider(s) involved. 
+
+Please toggle the versioning drop-down to **auth0** to see additional information on claims included on the Auth0 Normalized Profile.
+:::
+
 When you're using an OIDC-conformant authentication flow, the user profile you receive in return may differ slightly from the [Auth0 Normalized User Profile](/user-profile/normalized).
 
 The following is a [non-normative example of such a response](https://openid.net/specs/openid-connect-basic-1_0.html#StandardClaims):
@@ -14,11 +20,37 @@ The following is a [non-normative example of such a response](https://openid.net
    "name": "Jane Doe",
    "given_name": "Jane",
    "family_name": "Doe",
+   "middle_name": "",
+   "nickname": "",
    "preferred_username": "j.doe",
+   "profile": "",
+   "picture": "http://example.com/janedoe/me.jpg",
+   "website": "http://example.com",
    "email": "janedoe@example.com",
-   "picture": "http://example.com/janedoe/me.jpg"
+   "email_verified": true,
+   "gender": "female",
+   "birthdate": "",
+   "zoneinfo": "",
+   "locale": "",
+   "phone_number": "",
+   "phone_number_verified": false,
+   "address": "",
+   "updated_at": "",
   }
 ```
+
+## How to Retrieve the User Profile
+
+You can retrieve the user profile by retrieving an ID token using the Authentication API's [`oauth/token` endpoint](/api/authentication#get-token) or the [`/userinfo` endpoint](/api/authentication#get-user-info). Auth0's [Lock](https://auth0.com/docs/libraries#lock-login-signup-widgets) widget and the [Auth0 client-side SDKs](/libraries#auth0-client-side-sdks) also return the OIDC-compliant user profile.
+
+Additionally, the User Profile section of our [QuickStarts](/quickstarts) return user profiles compliant with the OIDC specification. Some of our more popular QuickStarts are:
+
+- [ASP.NET Core](/quickstart/webapp/aspnet-core/04-user-profile)
+- [Android](/quickstart/native/android/04-user-profile)
+- [Angular 1.x](/quickstart/spa/angularjs/02-user-profile) and [Angular 2](/quickstart/spa/angular2/03-user-profile)
+- [jQuery](/quickstart/spa/jquery/02-user-profile)
+- [Node.js](/quickstart/webapp/nodejs)
+- [React](/quickstart/spa/react/02-user-profile)
 
 ## Claims
 

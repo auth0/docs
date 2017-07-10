@@ -2,11 +2,15 @@
 description: Auth0 normalizes common user properties in the User Profile.
 ---
 
-::: version-warning
-The user profile returned after successful authentication using an OIDC-compliant flow may differ from the Auth0 normalized profile. Please use the toggle to see the claims available on that profile.
-:::
-
 # Auth0 Normalized User Profile
+
+::: version-warning
+This article describes the claims included in the normalized user profile created by Auth0. This is a protocol-agnostic representation of the user that provides a standard way of storing user-related claims, regardless of the identity provider(s) involved. 
+
+The Auth0 claims included in the normalized profile differ slightly from the standard set of claims that can be returned in ID tokens from the [Authentication API's `oauth/token` endpoint](/api/authentication#get-token) or the response from the `/userinfo` endpoint (both of which follow the requirements detailed in the OIDC specification). 
+
+Please toggle the versioning drop-down to **oidc** to see additional information on claims included with an OIDC-conformant set of user profile details.
+:::
 
 Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile.
 
@@ -191,15 +195,6 @@ This is a sample profile from **ADFS (Active Directory Federation Services)**:
 }
 ```
 
-## How to retrieve the User Profile
+## How to Retrieve the User Profile
 
-You can retrieve the user profile using [Lock](/libraries/lock/v10/api#getuserinfo-), [Auth0.js](/libraries/auth0js#user-management), or our [Authentication API /userinfo endpoint](/api/authentication#get-user-info).
-
-We also have a __User Profile__ section on most of our [quickstarts](/quickstarts). Some of the most popular technologies we offer quickstarts and samples for are:
-- [Android](/quickstart/native/android)
-- [Angular 1.x](/quickstart/spa/angularjs) and [Angular 2](/quickstart/spa/angular2)
-- [React](/quickstart/spa/react)
-- [Node.js](/quickstart/webapp/nodejs)
-- [ASP .NET Core](/quickstart/webapp/aspnet-core)
-- [jQuery](/quickstart/spa/jquery)
-- and [many more](/quickstarts)
+You can retrieve the user profile using the [Management API's Get a User endpoint](/api/management/v2#!/Users/get_users_by_id).
