@@ -1,13 +1,9 @@
 ---
   description: This doc covers the differences between a browser-based vs. native experience when implementing Auth0 on a mobile device.
 ---
-
 # Browser-Based vs. Native Login Flows on Mobile Devices
 
-When developing a native application, such as an app running on iOS or Android, you can choose between the following login flows:
-
-* Native;
-* Browser-based.
+When developing a native application, such as an app running on iOS or Android, you can choose between the following login flows: **native**, or **browser-based**.
 
 ![Native vs. browser-based UX](/media/articles/tutorials/mobile-ux.png)
 
@@ -63,8 +59,10 @@ There are upsides and downsides to using either a browser-based or native login 
 
 ### Keep Reading
 
+For instructions on implementing a native experience for your users, please see the final sections of these three articles.
+
+::: next-steps
 * [Implementing Browser-Based Flows for iOS (Swift)](/quickstart/native/ios-swift/00-login)
 * [Implementing Browser-Based Flows for Android](/quickstart/native/android/00-login)
 * [Implementing Browser-Based Flows for iOS (Objective-C)](/quickstart/native/ios-objc)
-
-For instructions on implementing a native experience for your users, please see the final sections of the three articles linked immediately above. 
+:::
