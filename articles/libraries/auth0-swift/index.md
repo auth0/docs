@@ -7,7 +7,7 @@ url: /libraries/auth0-swift
 
 # Auth0.swift
 
-Auth0.swift is a client-side library for [Auth0](http://auth0.com).
+Auth0.swift is a client-side library for Auth0.
 
 ## Requirements
 
@@ -27,7 +27,9 @@ github "auth0/Auth0.swift" ~> 1.0
 
 Then run `carthage bootstrap`.
 
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+::: note
+For more information about Carthage usage, check [the official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+:::
 
 #### Cocoapods
 
@@ -40,7 +42,9 @@ pod 'Auth0', '~> 1.0'
 
 Then, run `pod install`.
 
-> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+::: note
+For further reference on Cocoapods, check [the official documentation](http://guides.cocoapods.org/using/getting-started.html).
+:::
 
 ## Adding Auth0 Credentials
 
@@ -61,9 +65,9 @@ You will need to add an `Auth0.plist` file, containing your Auth0 client id and 
 
 ### Web-based Auth (iOS Only)
 
-First go to [Auth0 Dashboard](${manage_url}/#/clients) and go to client's settings. Make sure you have in *Allowed Callback URLs* a URL with the following format:
+First go to [Auth0 Dashboard](${manage_url}/#/clients) and go to client's settings. Make sure you have in **Allowed Callback URLs** a URL with the following format:
 
-```
+```text
 {YOUR_BUNDLE_IDENTIFIER}://${account.namespace}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback
 ```
 
@@ -86,7 +90,7 @@ In your application's `Info.plist` file register your iOS Bundle Identifier as a
 ```
 
 ::: note
-Auth0.swift will only handle URLs with your Auth0 domain as host, e.g. `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
+Auth0.swift will only handle URLs with your Auth0 domain as host, for example `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
 :::
 
 Allow Auth0 to handle authentication callbacks. In your `AppDelegate.swift` add the following:
@@ -101,7 +105,9 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 The first step in adding authentication to your iOS application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [login page](/hosted-pages/login).
 
-To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](/api-auth/intro#how-to-use-the-new-flows).
+::: note
+To ensure an [OpenID Connect compliant response](/api-auth/intro), you must either request an `audience` or enable the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Client > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
+:::
 
 ```swift
 Auth0
@@ -118,7 +124,7 @@ Auth0
 ```
 
 ::: note
-Please see [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) for information on choosing between the two types of login flows.
+If you need help between the two types of login flows, refer to [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile)
 :::
 
 #### Authenticate with a specific Auth0 connection
@@ -184,7 +190,7 @@ The Authentication API provides methods to authenticate the user against Auth0 s
 
 ### Login with a database connection
 
-Logging in with a database connection requires calling `login` with the user's username/email, password, and the name of the connection (such as *Username-Password-Authentication*) you wish to authenticate with. The response will be a Credentials object.
+Logging in with a database connection requires calling `login` with the user's username/email, password, and the name of the connection (such as `Username-Password-Authentication`) you wish to authenticate with. The response will be a Credentials object.
 
 ```swift
 Auth0
@@ -206,7 +212,7 @@ Auth0
 
 ### Signing Up with database connection
 
-Signing up requires calling the  `createUser` method, passing the user's given *email*, *password*, and the *connection* name to initiate the signup process. You can also specify additional user metadata to store.
+Signing up requires calling the  `createUser` method, passing the user's given `email`, `password`, and the `connection` name to initiate the signup process. You can also specify additional user metadata to store.
 
 ```swift
 Auth0
@@ -231,7 +237,7 @@ Auth0
 ### Passwordless
 
 ::: warning
-This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see [Client Grant Types](/clients/client-grant-types) for more information.
+This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please [contact support](${env.DOMAIN_URL_SUPPORT}) to discuss your use case and prevent the possibility of introducing security vulnerabilities. For more information, refer to [Client Grant Types](/clients/client-grant-types).
 :::
 
 Logging in with Passwordless is slightly different. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code.
