@@ -46,9 +46,9 @@ from flask import Flask, request, jsonify, _app_ctx_stack
 from flask_cors import cross_origin
 from jose import jwt
 
-auth0_domain = '${account.namespace}'
-api_audience = YOUR_API_AUDIENCE
-algorithms = ["RS256"]
+AUTH0_DOMAIN = '${account.namespace}'
+API_AUDIENCE = YOUR_API_AUDIENCE
+ALGORITHMS = ["RS256"]
 
 app = Flask(__name__)
 
@@ -111,7 +111,7 @@ def requires_auth(f):
                 payload = jwt.decode(
                     token,
                     rsa_key,
-                    algorithms=algorithms,
+                    algorithms=ALGORITHMS,
                     audience=API_AUDIENCE,
                     issuer="https://"+AUTH0_DOMAIN+"/"
                 )
