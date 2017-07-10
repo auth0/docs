@@ -1,4 +1,4 @@
-The first step in adding authentication to your application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the hosted [login page](https://auth0.com/docs/hosted-pages/login).
+The first step in adding authentication to your application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the hosted [login page](/hosted-pages/login).
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/lock_centralized_login.png" alt="Hosted Login Page"></div>
 
@@ -76,7 +76,7 @@ You can then register the identifier by adding the following snippet:
 ```
 
 ::: note
-For further reference on linking, check [their official documentation](https://facebook.github.io/react-native/docs/linking.html)
+For further reference on linking, check [the official documentation](https://facebook.github.io/react-native/docs/linking.html)
 :::
 
 ## Implement the login
@@ -90,12 +90,11 @@ Then present the hosted login screen, like this:
 ${snippet(meta.snippets.use)}
 
 ::: note
-This snippet sets the `audience` to ensure an OIDC compliant responses, this can also be achieved by enabling the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. For more information please check [this documentation](/api-auth/intro#how-to-use-the-new-flows).
+This snippet sets the `audience` to ensure an OIDC compliant response. This can also be achieved by enabling the **OIDC Conformant** switch in your [Auth0 dashboard](${manage_url}), under **Client > Settings > Show Advanced Settings > OAuth**. For more information, refer to [How to use the new flows](/api-auth/intro#how-to-use-the-new-flows).
 :::
 
 Upon successful authentication the user's `credentials` will be returned, containing an `access_token`, an `id_token` and an `expires_in` value.
 
 ::: note
-For further reference on the `accessToken`, please see
-[accessToken](https://auth0.com/docs/tokens/access-token).
+For more information on the `accessToken`, refer to [Access Token](/tokens/access-token).
 :::
