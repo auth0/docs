@@ -18,6 +18,12 @@ At this point you should set the following configuration variables:
 - **BATCH_SIZE**: The ammount of logs to be read on each execution. Maximun is 100.
 - **LOGSTASH_URL**: Your Logstash URL as defined for use with `logstash-input-http` plugin.
 - **LOGSTASH_INDEX**: Your Logstash Index to which the logs will be routed.
+- **LOGSTASH_TOKEN** (optional): The token required for your Logstash deployments that will be included in the querystring
+- **LOGSTASH_USER** (optional): The Logstash user
+- **LOGSTASH_PASSWORD** (optional): The password associated with your Logstash user
+- **START_FROM**: The checkpoint ID of the log from where you want to start
+- **SLACK_INCOMING_WEBHOOK**: The Slack incoming webhook URL used to send relevant updates
+- **SLACK_SEND_SUCCESS**: Toggle for sending verbose notifications to Slack
 - **LOG_LEVEL**: The minimal log level of events that you would like sent to Logstash.
 - **LOG_TYPES**: The events for which logs should be exported.
 
