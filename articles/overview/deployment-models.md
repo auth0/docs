@@ -179,9 +179,9 @@ The following table describes operational and feature differences between each o
         <tr>
           <th>MFA</th>
           <td>Yes</td>
-          <td>Google Authenticator, Duo over TOTP/HOTP. Guardian is <i>not</i> available.</td>
-          <td>Google Authenticator, Duo over TOTP/HOTP. Guardian is <i>not</i> available.</td>
-          <td>Google Authenticator, Duo over TOTP/HOTP. Guardian is <i>not</i> available.</td>
+          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
+          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
+          <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
         </tr>
         <tr>
           <th>Internet Restricted</th>
