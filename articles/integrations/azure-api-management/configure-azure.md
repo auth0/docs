@@ -76,7 +76,7 @@ When done, click **Save** to import your API. You'll be redirected to the summar
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/basic-calc-api.png)
 
-### Configure Your
+### Configure Your OAuth 2.0 Authorization Server
 
 To use Auth0 to secure your API, you'll need to register Auth0 as an OAuth 2.0 Authorization Server. You can do so using the Azure Publisher Portal.
 
