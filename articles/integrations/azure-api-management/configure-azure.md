@@ -49,9 +49,13 @@ Click **Create** to begin provisioning your service.
 For this tutorial, we will be importing and using the Calculator API provided by Microsoft. You can, however, create your own API instead of using the Calculator API.
 :::
 
-Navigate to the API Management service that you created in the previous step. Open up the Publisher Portal, and click on **Import API**.
+Launch the API Management service that you created in the previous step. 
 
-![](/media/articles/integrations/azure-api-mgmt/azure/publisher-profile.png)
+![](/media/articles/integrations/azure-api-mgmt/azure/api-mgmt-service-home.png)
+
+Open up the Publisher Portal, and click on **Import API**.
+
+![](/media/articles/integrations/azure-api-mgmt/azure/publisher-portal.png)
 
 You'll be importing an API **from URL**. 
 
