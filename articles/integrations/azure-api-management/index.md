@@ -12,8 +12,8 @@ Azure's API Management Service allows you to create new APIs or import existing 
 
 In this example, we will show you how to create an Azure API Management service, import an existing API, and secure it using Auth0.
 
-* Step 1: Configure Auth0
+* [Step 1: Configure Auth0](/integrations/azure-api-management/configure-azure.md)
 
-* Step 2: Configure Azure API Management
+* [Step 2: Configure Azure API Management](/integrations/azure-api-management/configure-auth0.md)
 
 ### Keep Reading
