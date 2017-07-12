@@ -79,7 +79,7 @@ The SPA will use the OAuth 2.0 [Implicit Grant](/api-auth/grant/implicit) to do 
 
 The Implicit Grant (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is similar to the [Authorization Code Grant](/api-auth/grant/authorization-code), but the main difference is that the client app receives an `access_token` directly, without the need for an `authorization_code`. This happens because the client app, which is typically a JavaScript app running within a browser, is less trusted than a web app running on the server, hence cannot be trusted with the `client_secret` (which is required in the Authorization Code Grant).
 
-Once the user authenticates, the client app receives the `id_token` and `ccess_token` in the hash fragment of the URI. The client app can now use the `id_token` to obtain information about the user, and `access_token` to call the API on behalf of the user.
+Once the user authenticates, the client app receives the `id_token` and `access_token` in the hash fragment of the URI. The client app can now use the `id_token` to obtain information about the user, and `access_token` to call the API on behalf of the user.
 
 ![Implicit Grant](/media/articles/api-auth/implicit-grant.png)
 
