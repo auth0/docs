@@ -30,13 +30,31 @@ The `id_token` can be returned when calling any of the Auth0 functions which inv
 
 ## Validate an ID token
 
-The way to validate an ID token depends on the hash algorithm used by your Client:
+In order to validate an `id_token`, an application needs to verify the signature of the token, as well as validate the standard claims of the token. Each of these steps are discussed in more detail below.
+
+::: note
+Most JWT libraries will take care of the token validation for you automatically, so be sure to reference the _Libraries for Token Signing/Verification_ section of [JWT.io](https://jwt.io/) to find a JWT library for your platform and programming language.
+:::
+
+### Verify the signature
+
+Verifying the signature of an `id_token` depends on the hash algorithm used by your Client:
 
 - If you used `HS256` then the token is signed with the Client Secret, using the HMAC algorithm. You can verify the signature using the Client Secret value, which you can find at the _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings)_ page.
 
 - If you used `RS256` then the token is signed with a public/private key pair, using RSA. You can verify the signature using the Public Key or Certificate, which you can find at the _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > Certificates_ page.
 
 To check or update the algorithm your Client uses go to _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm_. The most secure practice, and our recommendation, is to use `RS256`.
+
+## Validate the Claims
+
+Once the application verifies the token's signature, the next step is to validate the standard claims of the token's payload. The following validations need to be made:
+
+- _Token expiration_: The current date/time _must_ be before the expiration date/time listed in the `exp` claim (which is a Unix timestamp).
+
+- _Token issuer_: The `iss` claim denotes the issuer of the JWT. The value _must_ match the the URL of your Auth0 tenant. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
+
+- _Token audience_: The `aud` claim identifies the recipients that the JWT is intended for. The value _must_ match the Client ID of your Auth0 Client.
 
 ## Control the contents of an ID token
 
