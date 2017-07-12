@@ -124,6 +124,10 @@ For an example of how to define a server-side rule for assigning a role in an ad
 
 ## Obtain AWS Tokens to securely call AWS APIs and resources
 
+::: warning
+Newly-created clients may not use [legacy grant types](/clients/client-grant-types), which are required for use with the [Delegation endpoint](/api/authentication#get-token-info). If you have any questions about which alternative you should use, please contact [Support](http://support.auth0.com).
+:::
+
 This delegation scenario is more versatile. Auth0 interacts with **AWS STS** directly to obtain an **AWS token** that can be used to call the AWS API of any Auth0-supported [Identity Provider](/identityproviders).
 
 ![](/media/articles/integrations/aws/aws-sts.png)
