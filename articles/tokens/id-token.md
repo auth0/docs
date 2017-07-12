@@ -46,7 +46,7 @@ Verifying the signature of an `id_token` depends on the hash algorithm used by y
 
 To check or update the algorithm your Client uses go to _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm_. The most secure practice, and our recommendation, is to use `RS256`.
 
-## Validate the Claims
+### Validate the Claims
 
 Once the application verifies the token's signature, the next step is to validate the standard claims of the token's payload. The following validations need to be made:
 
