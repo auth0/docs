@@ -331,5 +331,4 @@ For a list of currently supported sandbox modules, see: [Modules Supported by th
 * [Use the Management API in rules](/rules/current/management-api)
 * [Using C# in Rules](/rules/current/csharp)
 * [Properties of the Context Argument](/rules/current/context)
-* [Properties of the Context Argument](/rules/current/context)
 :::
