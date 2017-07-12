@@ -10,10 +10,8 @@ If you have an API that you want published and secured, you can do so using Azur
 
 Azure's API Management Service allows you to create new APIs or import existing API definitions and publish them for use by the approved audiences. Auth0 makes authorizing users of your API using OAuth 2.0 standards easy.
 
-In this example, we will show you how to create an Azure API Management service, import an existing API, and secure it using Auth0.
+In this example, we will show you how to [create a representation of your API in Auth0](/integrations/azure-api-management/configure-auth0), set up the [Azure API Management service, import an existing API, and secure it using Auth0](/integrations/azure-api-management/configure-azure).
 
-* [Step 1: Configure Auth0](/integrations/azure-api-management/configure-azure.md)
-
-* [Step 2: Configure Azure API Management](/integrations/azure-api-management/configure-auth0.md)
-
-### Keep Reading
+<%= include('./_stepnav', {
+ next: ["1. Configure Auth0", "/integrations/azure-api-management/configure-auth0"]
+}) %>
