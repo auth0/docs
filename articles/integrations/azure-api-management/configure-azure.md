@@ -1,10 +1,6 @@
 
 ## Configure Azure
 
-4. Set up your OAuth 2.0 Service - AUTH0 CALLBACK
-5. Change your API's permissions so that authentication via OAuth 2.0 is allowed
-6. DEMO TIME
-
 ::: note
 To complete this, tutorial, you will need to have an account that grants you access to Microsoft's [Azure Portal](https://portal.azure.com).
 :::
