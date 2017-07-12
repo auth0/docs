@@ -154,6 +154,9 @@ articles:
 
       - title: "Use the Management API in rules"
         url: "/rules/current/management-api"
+      
+      - title: "Using C# in Rules"
+        url: "/rules/current/csharp"
 
       - title: "Deploy Rules with GitHub"
         url: "/extensions/github-deploy"
