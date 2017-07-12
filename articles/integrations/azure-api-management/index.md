@@ -15,7 +15,3 @@ In this example, we will show you how to [create a representation of your API in
 <%= include('./_stepnav', {
  next: ["1. Configure Auth0", "/integrations/azure-api-management/configure-auth0"]
 }) %>
-
-<%= include('./_stepnav', {
- next: ["2. Configure Azure API Management", "integrations/azure-api-management/configure-azure"]
-}) %>
