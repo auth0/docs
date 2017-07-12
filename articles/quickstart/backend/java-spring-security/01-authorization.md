@@ -96,7 +96,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         JwtWebSecurityConfigurer
-                .forRS256(apiAudience, issuer)
+                .forRS256(https://${account.namespace}/userinfo, ${account.clientId})
                 .configure(http)
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/login").permitAll()
