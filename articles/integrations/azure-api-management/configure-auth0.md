@@ -16,11 +16,11 @@ To begin, you'll need to log into the Auth0 [Management Dashboard](${manage_url}
 
 You'll be asked to provide values for the following parameters before Auth0 creates your new API:
 
-* **Name**: a descriptive name for your API
-
-* **Identifier**: a logical identifier for your API
-
-* **Signing Algorithm**: the method used to sign the tokens issued by Auth0
+| Parameter | Description |
+| --------- | ----------- |
+| Name | A descriptive name for your API |
+| Identifier | A logical identifier for your API |
+| Signing Algorithm | The method used to sign the tokens issued by Auth0 |
 
 ![](/media/articles/integrations/azure-api-mgmt/auth0/new-api-config.png)
 
