@@ -23,19 +23,15 @@ To create a new API management service, click on **New** > **Web + Mobile** > **
 
 You'll be asked to provide the following configuration variables:
 
-* **Name**: The name for your service (which will also be used to create the URL you need to access the service)
-
-* **Subscription**: The Azure subscription plan with which you'll use with the service
-
-* **Resource group**: The collection of [resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal) sharing a lifecycle, permissions, and policies. You can use an existing resource group or you can create a new one (you'll need to provide a name for the group if you create a new one)
-
-* **Location**: Choose the location that services your API instance
-
-* **Organization name**: The name of your organization
-
-* **Administrator email**: The email address of the person who will be administering this instance
-
-* **Pricing tier**: The pricing tier you want, which determines the number of calls you can make to your API, as well as the maximum amount of data transfer allowed
+| Parameter | Description |
+| --------- | ----------- |
+| Name | The name for your service (which will also be used to create the URL you need to access the service) |
+| Subscription | The Azure subscription plan with which you'll use with the service |
+| Resource group | The collection of [resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal) sharing a lifecycle, permissions, and policies. You can use an existing resource group or you can create a new one (you'll need to provide a name for the group if you create a new one) |
+| Location | Choose the location that services your API instance |
+| Organization name | The name of your organization |
+| Administrator email | The email address of the person who will be administering this instance |
+| Pricing tier | The pricing tier you want, which determines the number of calls you can make to your API, as well as the maximum amount of data transfer allowed |
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/api-mgmt-service-config.png)
 
@@ -63,12 +59,14 @@ You'll be importing an API **from URL**.
 
 To do so, provide values for the following parameters:
 
-* **Specification document URL**: the URL Azure will use to retrieve your API's specification. For this example, use `http://calcapi.cloudapp.net/calcapi.json`.
-* **Specification format**: the API specification format. Use `Swagger`.
-* **New/Existing API**: set this to **New**
-* **Web API URL suffix**: the value appended to the base URL of your API management service that uniquely identifies the API you're currently creating, such as `calc`
-* **Web API URL scheme**: the protocol used to access your API (for this example, set this to `HTTPs`)
-* **Products** (optional): Add this API to the `Starter` product. This is a basic, getting-started-with-Azure container that holds your sample products and applies entry-level rate limits to your calls.
+| Parameter | Description |
+| --------- | ----------- |
+| Specification document URL | the URL Azure will use to retrieve your API's specification. For this example, use `http://calcapi.cloudapp.net/calcapi.json`. |
+| Specification format | the API specification format. Use `Swagger`. |
+| New/Existing API | set this to **New** |
+| Web API URL suffix | the value appended to the base URL of your API management service that uniquely identifies the API you're currently creating, such as `calc` |
+| Web API URL scheme | the protocol used to access your API (for this example, set this to `HTTPs`) |
+| Products | Add this API to the `Starter` product. This is a basic, getting-started-with-Azure container that holds your sample products and applies entry-level rate limits to your calls. |
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/import-api-config.png)
 
@@ -94,25 +92,18 @@ For the purposes of this example, we'll use the **Authorization Code grant type*
 
 Provide values for the following fields:
 
-**Name**: a descriptive name for your authorization server
-
-**Description**: a description for your authorization server
-
-**Client registration page URL**: the page where users can create or manage their accounts; for the purposes of this example, we'll use `https://placeholder.contoso.com` as the placeholder
-
-**Authorization code grant types**: the grant type used for authorization
-
-**Authorization endpoint URL**: the URL Azure uses to make the authorization request
-
-**Authorization request method**: the HTTP method used by Azure to make the authorization request
-
-**Token endpoint URL**: the endpoint used to exchange authorization grants for access tokens; Auth0's can be reached at `https://auth0user.auth0.com/oauth/token`
-
-**Client authentication methods**: method used to authenticate the client; Auth0's is BASIC
-
-**Access token sending method**: the location of the access token in the sending method (typically the **Authorization header**)
-
-**Default scope**: specify a default scope if necessary
+| Parameter | Description |
+| --------- | ----------- |
+| Name | a descriptive name for your authorization server |
+| Description | a description for your authorization server |
+| Client registration page URL | the page where users can create or manage their accounts; for the purposes of this example, we'll use `https://placeholder.contoso.com` as the placeholder |
+| Authorization code grant types | the grant type used for authorization |
+| Authorization endpoint URL | the URL Azure uses to make the authorization request |
+| Authorization request method | the HTTP method used by Azure to make the authorization request |
+| Token endpoint URL | the endpoint used to exchange authorization grants for access tokens; Auth0's can be reached at `https://auth0user.auth0.com/oauth/token` |
+| Client authentication methods | method used to authenticate the client; Auth0's is BASIC |
+| Access token sending method | the location of the access token in the sending method (typically the **Authorization header**) |
+| Default scope | specify a default scope if necessary |
 
 Because we're using the *authorization code** grant, we'll need to provide the Auth0 **client ID** and **client secret**.
 
