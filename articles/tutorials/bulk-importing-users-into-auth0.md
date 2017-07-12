@@ -3,17 +3,17 @@ description: How to bulk import users using the Management API endpoint.
 crews: crew-2
 toc: true
 ---
-# Bulk Import Users to Auth0 Using a Job
+# Bulk Import Users to Auth0
 
-Our focus has always been not only greenfield projects but also existing applications that want to extend their authentication capabilities.
+If you already have a user base, you can use our [/post_users_imports Management API endpoint](/api/management/v2#!/Jobs/post_users_imports) to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. 
 
-With this in mind, our [Management API has an endpoint](/api/management/v2#!/Jobs/post_users_imports) that allows consumers to populate a database connection with users obtained from a file. Each of those users will have to reset their password when they log in for the first time.
+Note that each of those users will have to reset their password when they log in for the first time.
 
 ## Pre-requisites
 
-Before you launch the import users job, a database (to which the users will be imported) must already exist and it must be enabled for at least one client. For more information on how to configure a database connectionat your [dashboard](${manage_url}), refer to [Database Identity Providers](/connections/database).
+Before you launch the import users job, a database (to which the users will be imported) must already exist and it must be enabled for at least one client. For more information on how to configure a database connection at your [dashboard](${manage_url}), refer to [Database Identity Providers](/connections/database).
 
-### Users schema
+## File schema
 
 The users file must have an array with the users' information in JSON format. The following [JSON schema](http://json-schema.org) describes valid users:
 
