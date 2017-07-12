@@ -69,5 +69,5 @@ Click **Save** to proceed.
 At this point, you've set up Auth0 for use as an OAuth 2.0 authorization server. You will now configure the Azure API Management Service and import an API for use with the service.
 
 <%= include('./_stepnav', {
- next: ["2. Configure Azure API Management", "/integrations/azure-api-management//integrations/azure-api-management/configure-azure"]
+ next: ["2. Configure Azure API Management", "/integrations/azure-api-management/integrations/azure-api-management/configure-azure"]
 }) %>
