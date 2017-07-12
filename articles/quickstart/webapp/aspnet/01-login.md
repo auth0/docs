@@ -63,7 +63,7 @@ Once the user successfully authenticated to the application, a `ClaimsPrincipal`
 // Controllers/HomeController.cs
 public ActionResult Index()
 {
-  string email = ClaimsPrincipal.Current.FindFirst("nickname").Value;
+  string name = ClaimsPrincipal.Current.FindFirst("name")?.Value;
 }
 ```
 
