@@ -33,7 +33,7 @@ The `id_token` can be returned when calling any of the Auth0 functions which inv
 In order to validate an `id_token`, an application needs to verify the signature of the token, as well as validate the standard claims of the token. Each of these steps are discussed in more detail below.
 
 ::: note
-Most JWT libraries will take care of the token validation for you automatically, so be sure to reference the _Libraries for Token Signing/Verification_ section of [JWT.io](https://jwt.io/) to find a JWT library for your platform and programming language.
+Most JWT libraries will take care of the token validation for you automatically, so be sure to reference the [Libraries for Token Signing/Verification section of JWT.io](https://jwt.io/#libraries-io) to find a JWT library for your platform and programming language.
 :::
 
 ### Verify the signature
