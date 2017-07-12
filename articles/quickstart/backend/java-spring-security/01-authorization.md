@@ -63,6 +63,11 @@ Start by configuring your API to use the RS256 signing algorithm. If you downloa
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Value(value = "<%= "${auth0.apiAudience}" %>")
+    private String apiAudience;
+    @Value(value = "<%= "${auth0.issuer}" %>")
+    private String issuer;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         JwtWebSecurityConfigurer
@@ -82,6 +87,11 @@ This example assumes one entity called **Photos** and implements CRUD methods fo
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Value(value = "<%= "${auth0.apiAudience}" %>")
+    private String apiAudience;
+    @Value(value = "<%= "${auth0.issuer}" %>")
+    private String issuer;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
