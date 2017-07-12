@@ -10,7 +10,7 @@ Even though you typically write Rules in JavaScript, there is support for using 
 var edge = require('edge');
 ```
 
-You can then declare an Edge function, and embed the C# code inside the function body using a JavaScrip multi-line comment block:
+You can then declare an Edge function, and embed the C# code inside the function body using a JavaScript multi-line comment block:
 
 ```js
 var helloWorld = edge.func(function () {/*
