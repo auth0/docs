@@ -25,16 +25,20 @@ Modify the `/login` route so the `scope` parameter has the value `openid profile
 ```js
 // routes/index.js
 
-router.get('/login', passport.authenticate('auth0', {
-  clientID: env.AUTH0_CLIENT_ID,
-  domain: env.AUTH0_DOMAIN,
-  redirectUri: env.AUTH0_CALLBACK_URL,
-  audience: 'https://' + env.AUTH0_DOMAIN + '/userinfo',
-  responseType: 'code',
-  scope: 'openid profile'}),
+router.get(
+  "/login",
+  passport.authenticate("auth0", {
+    clientID: env.AUTH0_CLIENT_ID,
+    domain: env.AUTH0_DOMAIN,
+    redirectUri: env.AUTH0_CALLBACK_URL,
+    audience: "https://" + env.AUTH0_DOMAIN + "/userinfo",
+    responseType: "code",
+    scope: "openid profile"
+  }),
   function(req, res) {
     res.redirect("/");
-});
+  }
+);
 ```
 
 ## Showing the User Profile
@@ -58,12 +62,13 @@ To have full access to the user profile on  `userProfile`, we need to stringify 
 
 ```js
 // Get the user profile
-router.get('/', ensureLoggedIn, function(req, res, next) {
-  res.render('user', {
-    user: req.user ,
-    userProfile: JSON.stringify(req.user, null, '  ')
+router.get("/", ensureLoggedIn, function(req, res, next) {
+  res.render("user", {
+    user: req.user,
+    userProfile: JSON.stringify(req.user, null, "  ")
   });
 });
+
 ```
 
 You can now present a basic user profile.
