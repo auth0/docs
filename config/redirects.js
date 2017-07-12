@@ -783,7 +783,7 @@ module.exports = [
   },
   {
     from: '/tutorials/setup-up-authentication',
-    to: '/tutorials/step-up-authentication'
+    to: '/multifactor-authentication/developer/step-up-with-acr'
   },
   {
     from: ['/refresh-token', '/tokens/refresh_token'],
@@ -1308,5 +1308,9 @@ module.exports = [
   {
     from: '/quickstart/webapp/java-spring-security-mvc/00-intro',
     to: '/quickstart/webapp/java-spring-security-mvc'
+  },
+  {
+    from: '/tutorials/step-up-authentication',
+    to: '/multifactor-authentication/developer/step-up-with-acr'
   }
 ];
