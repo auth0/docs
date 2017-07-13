@@ -1,49 +1,15 @@
 # Roles
 
+Roles are collections of permissions. For example, let's say that you have an application that allows employees to enter in company expenses. You want all employees to be able to submit expenses, but want certain Finance users to have more admin type of actions such as being able to approve or delete expenses. These actions can be mapped to [Permissions](/extensions/authorization-extension#permissions) and then assigned to a certain role.
+
+For more information, refer to [Auth0 Authorization Extension](/extensions/authorization-extension#roles).
+
+## Get all Roles
+
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/DUMMY
-Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
-{
-  protocol: "PROTOCOL",
-  impersonator_id: "IMPERSONATOR_ID",
-  client_id: "${account.clientId}",
-  additionalParameters: [
-    "response_type": "code",
-    "state": "STATE"
-  ]
-}
-```
-
-```shell
-curl --request POST \
-  --url 'https://${account.namespace}/DUMMY' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
-  --header 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
-  --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "STATE"}}'
-```
-
-```javascript
-var url = 'https://' + ${account.namespace} + '/users/' + localStorage.getItem('user_id') + '/impersonate';
-var params = 'protocol=PROTOCOL&impersonator_id=IMPERSONATOR_ID&client_id=${account.clientId}';
-
-var xhr = new XMLHttpRequest();
-
-xhr.open('POST', url);
-xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
-
-xhr.onload = function() {
-  if (xhr.status == 200) {
-    fetchProfile();
-  } else {
-    alert("Request failed: " + xhr.statusText);
-  }
-};
-
-xhr.send(params);
+GET https://{extension_url}/roles
 ```
 
 > RESPONSE SAMPLE:
@@ -89,7 +55,193 @@ Use this endpoint to retrieve all roles.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `protocol` <br/><span class="label label-danger">Required</span> | The protocol to use against the identity provider: `oauth2`, `samlp`, `wsfed`, `wsfed-rms`. |
-| `impersonator_id` <br/><span class="label label-danger">Required</span> | The `user_id` of the impersonator. |
-| `client_id` <br/><span class="label label-danger">Required</span> | The  `client_id` of the client that is generating the impersonation link.|
-| `additionalParameters` | This is a JSON object. You can use this to set additional parameters, like `response_type`, `scope` and `state`. |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+
+## Get a single Role
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://{extension_url}/roles/{role_id}
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+   "_id":"9b814aac-87ba-4d84-8de6-3bcd0afee761",
+   "name":"Test",
+   "description":"Test"
+}
+```
+
+<% var path = '/roles/{role_id}'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": path,
+  "link": "#get-single-role"
+}) %>
+
+Use this endpoint to get a single role based on its unique identifier.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `role_id` <br/><span class="label label-danger">Required</span> | The id of the role to retrieve. |
+
+## Create Role
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+```
+
+```shell
+curl --request POST \
+  --url 'https://{extension_url}/roles' \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'content-type: application/json' \
+  --data '{ "name":"My new example name", "description":"Example description", "applicationType":"client", "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa", "permissions":["bc6945e0-393a-4405-99d9-96903eaec4a1"] }'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+   "name":"Example name",
+   "description":"Example description",
+   "applicationType":"client",
+   "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa",
+   "permissions":[
+      "bc6945e0-393a-4405-99d9-96903eaec4a1"
+   ],
+   "_id":"22787849-f39c-4165-814f-6996ad8e72a0"
+}
+```
+
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/roles",
+  "link": "#create-role"
+}) %>
+
+Use this endpoint to create a role.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `name` | The new role's name |
+| `description` | The new role's description |
+| `applicationType` | The new role's application type |
+| `applicationId` | The new role's application Id |
+| `permissions` | The list of permissions for the new role |
+
+## Update Role
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+PUT https://{extension_url}/roles/{role_id}
+Content-Type:   'application/json'
+Authorization:  'Bearer {access_token}'
+{
+   "name":"My new example name",
+   "description":"Example description",
+   "applicationType":"client",
+   "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa",
+   "permissions":[
+      "deeb552d-2d98-4efb-bb84-0c8babe5f431"
+   ]
+}
+```
+
+```shell
+curl --request PUT \
+  --url 'https://{extension_url}/roles/{role_id}' \
+  --header 'Authorization: Bearer {access_token}' \
+  --data '{ "name":"My new example name", "description":"Example description", "applicationType":"client", "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa", "permissions":["deeb552d-2d98-4efb-bb84-0c8babe5f431"] }'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+   "_id":"22787849-f39c-4165-814f-6996ad8e72a0",
+   "name":"My new example name",
+   "description":"Example description",
+   "applicationType":"client",
+   "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa",
+   "permissions":[
+      "deeb552d-2d98-4efb-bb84-0c8babe5f431"
+   ]
+}
+```
+
+<% var path = '/roles/{role_id}'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "PUT",
+  "path": path,
+  "link": "#update-role"
+}) %>
+
+Use this endpoint to update the details of a role.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role to update |
+| `name` | The updated role name |
+| `description` | The updated role description |
+| `applicationType` | The updated application type |
+| `applicationId` | The updated application Id |
+| `permissions` | The updated list of permissions |
+
+## Delete Role
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+DELETE https://{extension_url}/roles/{role_id}
+Authorization:  'Bearer {access_token}'
+```
+
+```shell
+curl --request DELETE \
+  --url 'https://{extension_url}/roles/{role_id}' \
+  --header 'Authorization: Bearer {access_token}'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/roles/{role_id}'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "DELETE",
+  "path": path,
+  "link": "#delete-role"
+}) %>
+
+Use this endpoint to remove a role.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role to delete |
