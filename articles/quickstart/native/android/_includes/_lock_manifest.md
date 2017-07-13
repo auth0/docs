@@ -1,39 +1,49 @@
 ## Configure the Manifest File
 
-Add the following code to your project's `AndroidManifest.xml`. This will ask for the INTERNET permission and register an Intent-Filter to handle web authentication.
+Declare the `LockActivity` in your project's `AndroidManifest.xml`:
 
 ```xml
-<uses-permission android:name="android.permission.INTERNET" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.auth0.samples">
 
-<activity
-    android:name="com.auth0.android.lock.LockActivity"
-    android:label="@string/app_name"
-    android:launchMode="singleTask"
-    android:screenOrientation="portrait"
-    android:theme="@style/Lock.Theme">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
 
-        <data
-            android:host="${account.namespace}"
-            android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
-            android:scheme="demo" />
-    </intent-filter>
-</activity>
+        <activity android:name="com.auth0.samples.MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.auth0.android.lock.LockActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Lock.Theme"/>
+
+    </application>
+
+</manifest>
 ```
 
 It's very important to specify the `android:launchMode="singleTask"` in your activity to ensure the authentication state it's not lost along redirects and that the result arrives back in the same activity instance that first requested it.
 
-The URL defined in the intent-filter will be called from the browser whenever you perform a successful web authentication. This URL must be whitelisted in the "Allowed Callback URLs" section of the [Client settings](${manage_url}/#/clients) and it should look similar to this:
+The next step is to whitelist the **Callback URL** of your client. Edit the "Allowed Callback URLs" section of the [Client settings](${manage_url}/#/clients) and add an URL that looks like this:
 
 ```text
-demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
+https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
-Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name.
+Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the app's `build.gradle` file as the `applicationId` attribute.
 
 
 ::: note

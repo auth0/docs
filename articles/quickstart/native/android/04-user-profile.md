@@ -25,12 +25,11 @@ Be sure that you have completed the [Login](/quickstart/native/android/00-login)
 Before launching the log in you need to ask for the `openid profile email` scopes in order to get a valid profile in the response. Locate the snippet were you're initializing the `WebAuthProvider` and add the `withScope("openid profile email")` line.
 
 ```java
-Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
 WebAuthProvider.init(auth0)
                 .withScope("openid profile email")
-                .withScheme("demo")                
-                .start(LoginActivity.this, callback);
+                .start(this, callback);
 ```
 
 ## Request User Data
@@ -40,7 +39,7 @@ The first step is to instantiate the API clients. This will be used to request t
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
 
-Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
 
 String idToken = CredentialsManager.getCredentials(this).getIdToken();
