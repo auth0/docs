@@ -6,7 +6,7 @@ budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
+  org: 'auth0-community',
   repo: 'auth0-symfony-php-web-app',
   path: '00-Starter-Seed',
   requirements: [

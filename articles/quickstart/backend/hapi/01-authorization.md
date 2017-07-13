@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to add authorization to a Hapi.js AP
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
+  org: 'auth0-community',
   repo: 'auth0-hapi-api-samples',
   path: '01-Authenticate-RS256',
   requirements: [
