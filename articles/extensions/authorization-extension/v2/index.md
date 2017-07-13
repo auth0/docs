@@ -57,7 +57,26 @@ Here you can configure:
 
 #### Storing Additional Data in Tokens
 
-If you want to store data on Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces.
+If you want to store the data for the Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces.
+
+Please note however that if your are using [OIDC Conformant Authentication](/api-auth/intro) that the custom attributes added to the token by the Authorization Extension will not be added to the `id_token` due to the fact that [custom claims need to be namespaced](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims).
+
+If you therefore choose to enable this option, you will also need to manually add an extra [Rule](/docs/rules) which will add namespaced claims for these attributes. An example of such a Rule can be seen below:
+
+```js
+function (user, context, callback) {
+  var namespace = 'http://yourdomain/claims/'; // You can set your own namespace, but do not use an Auth0 domain
+
+  // Add the namespaced tokens. Remove any which is not necessary for your scenario
+  context.idToken[namespace + "permissions"] = user.permissions;
+  context.idToken[namespace + "groups"] = user.groups;
+  context.idToken[namespace + "roles"] = user.roles;
+  
+  callback(null, user, context);
+}
+```
+
+It is important that this Rule must run **after** the Authorization Extension Rule, so be sure to place it below the Authorization Extension Rule.
 
 ::: note
 When calling the `/authorize` endpoint or configuring Lock, you will also have to specify the information you want in the `scope`: `groups`, `permissions` and/or `roles`.
