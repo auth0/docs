@@ -198,7 +198,7 @@ With the above code in place, a user can log in to your application using Auth0:
 
 ## Accessing the User's Information
 
-The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.
+The returned login result will indicate whether authentication was successful and if so contain the tokens and claims of the user.
 
 ### Authentication Error
 
