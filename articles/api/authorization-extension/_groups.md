@@ -1,49 +1,11 @@
 # Groups
 
+## Get all Groups
+
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/DUMMY
-Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
-{
-  protocol: "PROTOCOL",
-  impersonator_id: "IMPERSONATOR_ID",
-  client_id: "${account.clientId}",
-  additionalParameters: [
-    "response_type": "code",
-    "state": "STATE"
-  ]
-}
-```
-
-```shell
-curl --request POST \
-  --url 'https://${account.namespace}/DUMMY' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
-  --header 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
-  --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "STATE"}}'
-```
-
-```javascript
-var url = 'https://' + ${account.namespace} + '/users/' + localStorage.getItem('user_id') + '/impersonate';
-var params = 'protocol=PROTOCOL&impersonator_id=IMPERSONATOR_ID&client_id=${account.clientId}';
-
-var xhr = new XMLHttpRequest();
-
-xhr.open('POST', url);
-xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
-
-xhr.onload = function() {
-  if (xhr.status == 200) {
-    fetchProfile();
-  } else {
-    alert("Request failed: " + xhr.statusText);
-  }
-};
-
-xhr.send(params);
+GET https://{extension_url}/groups
 ```
 
 > RESPONSE SAMPLE:
@@ -102,7 +64,817 @@ Use this endpoint to retrieve all groups.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `protocol` <br/><span class="label label-danger">Required</span> | The protocol to use against the identity provider: `oauth2`, `samlp`, `wsfed`, `wsfed-rms`. |
-| `impersonator_id` <br/><span class="label label-danger">Required</span> | The `user_id` of the impersonator. |
-| `client_id` <br/><span class="label label-danger">Required</span> | The  `client_id` of the client that is generating the impersonation link.|
-| `additionalParameters` | This is a JSON object. You can use this to set additional parameters, like `response_type`, `scope` and `state`. |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+
+## Get a single Group
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://{extension_url}/groups/{GROUP_ID}
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+  "_id": "2a1e2b9f-3435-4954-8c5d-56e8e9ce763f",
+  "name": "Test",
+  "description": "Test"
+}
+```
+
+<% var path = '/groups/{group_id}'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": path,
+  "link": "#get-single-group"
+}) %>
+
+Use this endpoint to retrieve a single group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group to retrieve. |
+
+## Create Group
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+```
+
+```shell
+curl --request POST \
+  --url 'https://{extension_url}/groups' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'content-type: application/json' \
+  --data '{"name": "My name", "description": "My description"}'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+  "name":"My name",
+  "description":"My description",
+  "_id":"3ea7dc85-3e50-4ba8-ae5a-4956ed6b26d5"
+}
+```
+
+<% var path = '/groups'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": path,
+  "link": "#create-group"
+}) %>
+
+Use this endpoint to create a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `name` <br/><span class="label label-danger">Required</span> | The name of the new group |
+| `description` | A description of the new group |
+
+## Delete Group
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+POST https://{extension_url}/groups/{group_id}
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+```
+
+```shell
+curl --request POST \
+  --url 'https://{extension_url}/groups/{group_id}' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/groups/{group_id}'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "DELETE",
+  "path": path,
+  "link": "#delete-group"
+}) %>
+
+Use this endpoint to delete a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group to delete |
+
+## Update Group
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+PUT https://{extension_url}/groups/{group_id}
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+{
+  name: "New name",
+  description: "New description"
+}
+```
+
+```shell
+curl --request PUT \
+  --url 'https://{extension_url}/groups/{group_id}' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --data '{ "name": "New name", "description": "New description" }'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+  "_id": "2a1e2b9f-3435-4954-8c5d-56e8e9ce763f",
+  "name": "New name",
+  "description": "New description",
+  "members": [
+    "auth0|59396da1b3c34a15589c780d"
+  ]
+}
+```
+
+<% var path = '/groups/{group_id}'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "PUT",
+  "path": path,
+  "link": "#update-group"
+}) %>
+
+Use this endpoint to update the name or the description of a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group to update |
+| `name` <br/><span class="label label-danger">Required</span> | The updated group name |
+| `description` <br/><span class="label label-danger">Required</span> | The updated group description |
+
+## Get Group Mappings
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://{extension_url}/groups/{group_id}/mappings
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+  "_id":"529e053f-285b-4f7f-b73c-c8c37b0ae4f2",
+  "groupName":"Google",
+  "connectionName":"google-oauth2 (google-oauth2)"
+}
+```
+
+<% var path = '/groups/{group_id}/mappings'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": path,
+  "link": "#get-group-mappings"
+}) %>
+
+Use this endpoint to retrieve the mappings of a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to retrieve |
+
+## Create Group Mappings
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+PUT https://{extension_url}/groups/{group_id}/mappings
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+{
+  groupName: "Test",
+  connectionName: "google-oauth2"
+}
+```
+
+```shell
+curl --request PUT \
+  --url 'https://{extension_url}/groups/{group_id}/mappings' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --data '{"groupName": "Test", "connectionName": "google-oauth2"}'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/groups/{group_id}/mappings'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "PUT",
+  "path": path,
+  "link": "#create-group-mappings"
+}) %>
+
+Use this endpoint to create one or more mappings in a group.
+
+Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the Groups information provided by the IdP, you can dynamically make the user a member of the group in which you've created the appropriate mapping. For more information, refer to [Group Mappings](/extensions/authorization-extension/v2#group-mappings).
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to retrieve |
+| `groupName` <br/><span class="label label-danger">Required</span> | Group to add the users to |
+| `connectionName` <br/><span class="label label-danger">Required</span> | Connection for the mapping |
+
+## Delete Group Mappings
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+DELETE https://{extension_url}/groups/{group_id}/mappings
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+{
+  _id: [
+    "7b57312c-579a-4798-bd91-9647563e1b8a"
+  ],
+}
+```
+
+```shell
+curl --request DELETE \
+  --url 'https://{extension_url}/groups/{group_id}/mappings' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --data '{"_id": ["7b57312c-579a-4798-bd91-9647563e1b8a"]}'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/groups/{group_id}/mappings'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "DELETE",
+  "path": path,
+  "link": "#delete-group-mappings"
+}) %>
+
+Use this endpoint to delete one or more group mappings from a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to delete |
+
+## Get Group Members
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://{extension_url}/groups/{group_id}/members
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+   "total":1,
+   "users":[
+      {
+         "email":"richard.dowinton@auth0.com",
+         "email_verified":true,
+         "user_id":"auth0|59396da1b3c34a15589c780d",
+         "picture":"https://s.gravatar.com/avatar/3e8ce75cfe7c53f13715df274f63e129?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png",
+         "nickname":"richard.dowinton",
+         "identities":[
+            {
+               "user_id":"59396da1b3c34a15589c780d",
+               "provider":"auth0",
+               "connection":"Username-Password-Authentication",
+               "isSocial":false
+            }
+         ],
+         "updated_at":"2017-06-25T07:28:54.719Z",
+         "created_at":"2017-06-08T15:30:41.237Z",
+         "name":"richard.dowinton@auth0.com",
+         "app_metadata":{
+            "authorization":{
+               "roles":[
+
+               ],
+               "permissions":[
+
+               ]
+            }
+         },
+         "last_ip":"83.208.22.80",
+         "last_login":"2017-06-25T07:28:54.719Z",
+         "logins_count":12
+      }
+   ]
+}
+```
+
+<% var path = '/groups/{group_id}/members'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": path,
+  "link": "#get-group-members"
+}) %>
+
+Use this endpoint to get the members for a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group whose members you want to retrieve |
+
+## Add Group Members
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+PATCH https://{extension_url}/groups/{group_id}/members
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+[ "google-oauth2|113108011846505476166" ]
+```
+
+```shell
+curl --request PATCH \
+  --url 'https://{extension_url}/groups/{group_id}/members' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --data '[ "google-oauth2|113108011846505476166" ]'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/groups/{group_id}/members'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "PATCH",
+  "path": path,
+  "link": "#add-group-members"
+}) %>
+
+Use this endpoint to add one or more members in a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add members |
+| `[]` | List of members to add in a group |
+
+## Delete Group Members
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+DELETE https://{extension_url}/groups/{group_id}/members
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+["7b57312c-579a-4798-bd91-9647563e1b8a"]
+```
+
+```shell
+curl --request DELETE \
+  --url 'https://{extension_url}/groups/{group_id}/members' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --data '["7b57312c-579a-4798-bd91-9647563e1b8a"]'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/groups/{group_id}/members'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "DELETE",
+  "path": path,
+  "link": "#delete-group-members"
+}) %>
+
+Use this endpoint to remove one or more members from a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove members |
+
+## Get Nested Group Members
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://{extension_url}/groups/{group_id}/members/nested
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+   "total":1,
+   "nested":[
+      {
+         "user":{
+            "user_id":"auth0|59396da1b3c34a15589c780d",
+            "name":"richard.dowinton@auth0.com",
+            "nickname":"richard.dowinton",
+            "email":"richard.dowinton@auth0.com"
+         },
+         "group":{
+            "_id":"2a1e2b9f-3435-4954-8c5d-56e8e9ce763f",
+            "name":"New name",
+            "description":"New description"
+         }
+      }
+   ]
+}
+```
+
+<% var path = '/groups/{group_id}/members/nested'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": "",
+  "link": "#get-nested-group-members"
+}) %>
+
+Use this endpoint to get the nested members for a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
+
+## Get Nested Groups
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://{extension_url}/groups/{group_id}/nested
+```
+
+> RESPONSE SAMPLE:
+
+```text
+[
+   {
+      "_id":"2a1e2b9f-3435-4954-8c5d-56e8e9ce763f",
+      "name":"Test",
+      "description":"Test",
+      "members":[
+         "auth0|59396da1b3c34a15589c780d"
+      ]
+   }
+]
+```
+
+<% var path = '/groups/{group_id}/nested'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": path,
+  "link": "#get-nested-groups"
+}) %>
+
+Use this endpoint to get the nested groups for a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
+
+## Add Nested Groups
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+PATCH https://{extension_url}/groups/{group_id}/nested
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+[ "google-oauth2|113108011846505476166" ]
+```
+
+```shell
+curl --request PATCH \
+  --url 'https://{extension_url}/groups/{group_id}/nested' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --data '[ "google-oauth2|113108011846505476166" ]'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/groups/{group_id}/nested'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "PATCH",
+  "path": path,
+  "link": "#add-nested-groups"
+}) %>
+
+Use this endpoint to add nested groups.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add members |
+| `[]` | List of members to add in a group |
+
+## Delete Nested Groups
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+DELETE https://{extension_url}/groups/{group_id}/nested
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+["{NESTED_GROUP_ID}"]
+```
+
+```shell
+curl --request DELETE \
+  --url 'https://{extension_url}/groups/{group_id}/nested' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --data '["{NESTED_GROUP_ID}"]'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/groups/{group_id}/nested'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "DELETE",
+  "path": path,
+  "link": "#delete-nested-group"
+}) %>
+
+Use this endpoint to remove one or more nested groups.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove members |
+
+## Get Group Roles
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://{extension_url}/groups/{group_id}/roles
+```
+
+> RESPONSE SAMPLE:
+
+```text
+[
+   {
+      "applicationType":"client",
+      "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa",
+      "description":"Test",
+      "name":"Test",
+      "permissions":[
+
+      ],
+      "_id":"9b814aac-87ba-4d84-8de6-3bcd0afee761"
+   }
+]
+```
+
+<% var path = '/groups/{group_id}/roles'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": path,
+  "link": "#get-group-roles"
+}) %>
+
+Use this endpoint to get the roles for a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
+
+## Add Group Roles
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+PATCH https://{extension_url}/groups/{group_id}/roles
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+[ "google-oauth2|113108011846505476166" ]
+```
+
+```shell
+curl --request PATCH \
+  --url 'https://{extension_url}/groups/{group_id}/roles' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --data '[ "google-oauth2|113108011846505476166" ]'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/groups/{group_id}/roles'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "PATCH",
+  "path": path,
+  "link": "#add-group-roles"
+}) %>
+
+Use this endpoint to add roles to a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add members |
+| `[]` | List of role IDs to add in the group |
+
+## Delete Group Roles
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+DELETE https://{extension_url}/groups/{group_id}/roles
+Content-Type:   'application/json'
+Authorization:  'Bearer {ACCESS_TOKEN}'
+["{GROUP_ROLES_ID}"]
+```
+
+```shell
+curl --request DELETE \
+  --url 'https://{extension_url}/groups/{group_id}/roles' \
+  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --data '["{GROUP_ROLES_ID}"]'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/groups/{group_id}/roles'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "DELETE",
+  "path": path,
+  "link": "#delete-group-roles"
+}) %>
+
+Use this endpoint to remove one or more groups roles.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove members |
+| `{GROUP_ROLES_ID}` <br/><span class="label label-danger">Required</span> | The IDs of the group roles to be removed |
+
+## Get Nested Group Roles
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://{extension_url}/groups/{group_id}/roles/nested
+```
+
+> RESPONSE SAMPLE:
+
+```text
+[
+   {
+      "role":{
+         "_id":"9b814aac-87ba-4d84-8de6-3bcd0afee761",
+         "applicationType":"client",
+         "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa",
+         "description":"Test",
+         "name":"Test",
+         "permissions":[
+
+         ],
+         "users":[
+            "auth0|59396da1b3c34a15589c780d"
+         ]
+      },
+      "group":{
+         "_id":"81097bea-f7a3-48b6-a3fc-e2c3eb6c1ace",
+         "name":"Google",
+         "description":"Google",
+         "mappings":[
+            {
+               "_id":"529e053f-285b-4f7f-b73c-c8c37b0ae4f2",
+               "groupName":"Google",
+               "connectionName":"google-oauth2"
+            }
+         ],
+         "members":[
+            "auth0|59396da1b3c34a15589c780d",
+            "google-oauth2|113108011846505476166"
+         ],
+         "nested":[
+            "2a1e2b9f-3435-4954-8c5d-56e8e9ce763f"
+         ],
+         "roles":[
+            "9b814aac-87ba-4d84-8de6-3bcd0afee761"
+         ]
+      }
+   }
+]
+```
+
+<% var path = '/groups/{group_id}/roles/nested'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": path,
+  "link": "#get-nested-roles"
+}) %>
+
+Use this endpoint to get the nested roles for a group.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
