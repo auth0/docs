@@ -25,6 +25,7 @@ For this, you will need to handle the user's `Credentials`. Let's take a look at
 * `refreshToken`: Refresh Token that can be used to request new tokens without signing in again.
 * `tokenType`: The type of the tokens issued by the server.
 * `expiresIn`: The amount in seconds in which the tokens will be deemed invalid.
+* `expiresAt`: The Date in which the tokens will be deemed invalid.
 * `scope`: The granted scope, if different from the requested one.
 
 The Tokens are the objects used to prove your identity against the Auth0 APIs. Read more about them [here](https://auth0.com/docs/tokens).
@@ -39,11 +40,10 @@ Before launching the log in you need to ask for the `offline_access` scope in or
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
 
-Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
 WebAuthProvider.init(auth0)
-                .withScheme("demo")
-                .withAudience("https://${account.namespace}/userinfo")
+                .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
                 .withScope("openid offline_access")
                 .start(LoginActivity.this, callback);
 ```

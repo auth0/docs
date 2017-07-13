@@ -95,22 +95,30 @@ private void performLink(String secondaryIdToken) {
 
 ## Retrieve Linked Accounts
 
-The linked accounts are stored within the `UserProfile` received from a `UsersAPIClient` call as a list of `UserIdentity`.
+The `AuthenticationAPIClient#userInfo` response doesn't include the identities array, but still you need to use it to obtain the user `id`. Then, by calling the `UsersAPIClient#getProfile` method you can obtain a user's full profile, which includes the linked accounts as an array of `UserIdentities`.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
 
-@Override
-public void onSuccess(UserProfile profile) {
-  profile.getIdentities();  //Get all the profile accounts
-}
+usersClient.getProfile(userInfo.getId())
+    .start(new BaseCallback<UserProfile, ManagementException>() {
+        @Override
+        public void onSuccess(UserProfile fullProfile) {
+            //refreshScreenInformation
+        }
+
+        @Override
+        public void onFailure(ManagementException error) {
+            //show error
+        }
+    });
 ```
 
 ::: note
 For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) class.
 :::
 
-### 4. Unlink An Account
+### Unlink An Account
 
 The unlink process is similar to the linking one, the only difference being that you need to specify both the two `user id``s and the `provider name` to unlink the connections. Additionally, the token used to instantiate the `UsersAPIClient` must be the `id_token` of the main identity.
 
