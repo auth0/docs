@@ -1312,5 +1312,25 @@ module.exports = [
   {
     from: '/tutorials/step-up-authentication',
     to: '/multifactor-authentication/developer/step-up-with-acr'
+  },
+  {
+    from: '/quickstart/spa/angular2/00-login',
+    to: '/quickstart/spa/angular2'
+  },
+  {
+    from: '/quickstart/spa/angular2/03-user-profile',
+    to: '/quickstart/spa/angular2/02-user-profile'
+  },
+  {
+    from: '/quickstart/spa/angular2/04-calling-an-api',
+    to: '/quickstart/spa/angular2/03-calling-an-api'
+  },
+  {
+    from: '/quickstart/spa/angular2/05-authorization',
+    to: '/quickstart/spa/angular2/04-authorization'
+  },
+  {
+    from: '/quickstart/spa/angular2/06-token-renewal',
+    to: '/quickstart/spa/angular2/05-token-renewal'
   }
 ];
