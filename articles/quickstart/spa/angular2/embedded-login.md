@@ -14,7 +14,7 @@ budicon: 448
   ]
 }) %>
 
-As an alternative to Auth0's centralized login page, the Lock widget can be embedded directly in your application.
+As an alternative to Auth0's hosted login page, the Lock widget can be embedded directly in your application. Please note that certain functionality, such as single sign-on, is limited to the hosted login page and will not work when Lock is embedded in your app.
 
 <%= include('../_includes/_install_lock') %>
 
@@ -24,16 +24,18 @@ The Lock widget can also be retrieved from Auth0's CDN.
 <script src="${lock_url}"></script>
 ```
 
+<%= include('../../_includes/_allowed_origin', { callback: 'http://localhost:4200' }) %>
+
+<%= include('../../_includes/_cross_origin_auth') %>
+
 ## Create an Authentication Service
 
-The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `auth.service.ts`. An instance of the `Auth0Lock` can be created in the service.
+The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for the service is at your discretion, but in these examples it will be called `AuthService` and the filename will be `auth.service.ts`. An instance of the `Auth0Lock` can be created in the service.
 
 ```ts
 // src/app/auth/auth.service.ts
 
 import { Injectable } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
-import 'rxjs/add/operator/filter';
 import Auth0Lock from 'auth0-lock';
 
 @Injectable()
@@ -52,13 +54,39 @@ export class AuthService {
     }
   });
 
-  constructor(public router: Router) {}
+  constructor() {}
 
   public login(): void {
     this.lock.show();
   }
 
-  // Call this method in app.component
+}
+```
+
+::: note
+**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
+:::
+
+![embedded login](/media/articles/web/embedded-login.png)
+
+## Finish Out the Service
+
+Add some additional methods to the `AuthService` to fully handle authentication in the app.
+
+```ts
+// src/app/auth/auth.service.ts
+
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import Auth0Lock from 'auth0-lock';
+
+@Injectable()
+export class AuthService {
+
+  // ...
+  constructor(public router: Router) {}
+
+  // Call this method in app.component.ts
   // if using path-based routing
   public handleAuthentication(): void {
     this.lock.on('authenticated', (authResult) => {
@@ -101,6 +129,8 @@ export class AuthService {
 ```
 
 <%= include('../_includes/_auth_service_methods') %>
+
+### About the Authentication Service
 
 <%= include('../_includes/_auth_service_method_description_lock') %>
 
@@ -153,8 +183,6 @@ The `click` events on the **Log In** and **Log Out** buttons make the appropriat
 
 When the **Log In** button is clicked, the Lock widget will be shown.
 
-![embedded login](/media/articles/web/embedded-login.png)
-
 ## Process the Authentication Result
 
 When users authenticate with the Lock widget, they are redirected back to your application with authentication information in the URL where it can be picked up and processed by Lock. The `handleAuthentication` method in the `AuthService` listens for the appropriate Lock events and sets the user's client-side session or logs an error to the console.
@@ -197,15 +225,15 @@ Create a component named `CallbackComponent` and populate it with a loading indi
 </div>
 ```
 
-:;: note
+::: note
 This example assumes some kind of loading spinner is available in an `assets` directory. See the downloadable sample for a demonstration.
 :::
 
-The options that were passed to the `Auth0Lock` instance above include a `redirectUrl` set to the `/callback` route. This means that the user will be redirected to this newly created route after they authenticate with a redirect-based flow.
+The options object passed to the `Auth0Lock` instance above includes a `redirectUrl` set to the `/callback` route. This means that the user will be redirected to this newly created route after they authenticate.
 
 ## Using HashLocationStrategy
 
-Single page applications generally provide two ways to accomplish routing: with hashes or without hashes. The benefit to not uses hashes is that the URLs produced for the routes are cleaner, but this also requires some configuration on the server to make it work properly.
+Single page applications generally provide two ways to accomplish routing: with hashes or without hashes. The benefit to not using hashes is that the URLs produced for the routes are cleaner, but this also requires some configuration on the server to make it work properly.
 
 Angular 2+ uses `PathLocationStrategy` by default, meaning that there will be no hash fragment in the URL when routes are produced. You can elect to use `HashLocationStrategy` if you like, but doing so will require a different way to handle the `authenticated` event fired by the Lock widget.
 
@@ -214,17 +242,23 @@ If you are using `HashLocationStrategy`, use the following method to respond to 
 ```js
 // src/app/auth/auth.service.ts
 
-// Call this method in app.component
+import { Router, NavigationStart } from '@angular/router';
+
+// Call this method in app.component.ts
 // if using hash-based routing
 public handleAuthenticationWithHash(): void {
   this
     .router
     .events
-    .filter(event => event.constructor.name === 'NavigationStart')
-    .filter(event => (/access_token|id_token|error/).test(event.url))
+    .filter(event => event instanceof NavigationStart)
+    .filter((event: NavigationStart) => (/access_token|id_token|error/).test(event.url))
     .subscribe(() => {
-      this.lock.resumeAuth(window.location.hash, (error, authResult) => {
-        if (error) return console.log(error);
+      this.lock.resumeAuth(window.location.hash, (err, authResult) => {
+        if (err) {
+          this.router.navigate(['/']);
+          console.log(err);
+          return;
+        }
         this.setSession(authResult);
         this.router.navigate(['/']);
       });
