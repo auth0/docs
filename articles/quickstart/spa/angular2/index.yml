@@ -16,8 +16,8 @@ snippets:
 seo_alias: angular2
 default_article: dashboard-default
 articles:
-  - 00-login
-  - 03-user-profile
-  - 04-calling-an-api
-  - 05-authorization
-  - 06-token-renewal
+  - 01-login
+  - 02-user-profile
+  - 03-calling-an-api
+  - 04-authorization
+  - 05-token-renewal
