@@ -87,7 +87,7 @@ In the `AndroidManifest.xml` file add the intent-filters inside the `Passwordles
         <category android:name="android.intent.category.BROWSABLE"/>
         <data
           android:host="${account.namespace}"
-          android:pathPrefix="/android/${applicationId}/email"
+          android:pathPrefix="/android/<%= "${applicationId}" %>/email"
           android:scheme="https" />
     </intent-filter>
     <!-- End Email Intent-Filter-->
@@ -98,7 +98,7 @@ In the `AndroidManifest.xml` file add the intent-filters inside the `Passwordles
         <category android:name="android.intent.category.BROWSABLE"/>
         <data
           android:host="${account.namespace}"
-          android:pathPrefix="/android/${applicationId}/sms"
+          android:pathPrefix="/android/<%= "${applicationId}" %>/sms"
           android:scheme="https" />
     </intent-filter>
     <!-- End SMS Intent-Filter-->
@@ -182,7 +182,7 @@ Auth0 will generate the [Digital Asset Links](https://developers.google.com/digi
     <category android:name="android.intent.category.BROWSABLE"/>
     <data
       android:host="${account.namespace}"
-      android:pathPrefix="/android/${applicationId}/sms"
+      android:pathPrefix="/android/<%= "${applicationId}" %>/sms"
       android:scheme="https" />
 </intent-filter>
 ```

@@ -128,7 +128,7 @@ In your manifest inside your application's tag add the `RedirectActivity` declar
 
                 <data
                     android:host="@string/com_auth0_domain"
-                    android:pathPrefix="/android/${applicationId}/callback"
+                    android:pathPrefix="/android/<%= "${applicationId}" %>/callback"
                     android:scheme="https" />
             </intent-filter>
         </activity>
