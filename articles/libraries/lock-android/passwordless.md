@@ -19,20 +19,92 @@ In order to be able to authenticate the user, your application must have the Ema
 
 ## Implementing CODE Passwordless
 
-The first step is to add the `PasswordlessLockActivity` to your `AndroidManifest.xml` inside the `application` tag.
+In your `app/build.gradle` file add a [Manifest Placeholder](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain property which is going to be used internally by the library to register an intent-filter.
+
+```groovy
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    defaultConfig {
+        applicationId "com.auth0.samples"
+        minSdkVersion 15
+        targetSdkVersion 25
+        //...
+
+        //---> Add the next line
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain"]
+        //<---
+    }
+    //...
+}
+```
+
+It's a good practice to define reusable resources like `@string/com_auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
+
+Next, modify the `AndroidManifest.xml` file. Add the `android.permission.INTERNET` permission to allow Lock to make requests to the Auth0 API.
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+Add the `PasswordlessLockActivity`. Depending on which passwordless connection you need to handle, the `data` attribute of the **intent-filter** will differ:
 
 ```xml
 <activity
     android:name="com.auth0.android.lock.PasswordlessLockActivity"
-    android:theme="@style/Lock.Theme"
     android:label="@string/app_name"
+    android:launchMode="singleTask"
     android:screenOrientation="portrait"
-    android:launchMode="singleTask"/>
+    android:theme="@style/MyLock.Theme">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data
+            android:host="@string/com_auth0_domain"
+            android:pathPrefix="/android/${applicationId}/email"
+            android:scheme="https" />
+    </intent-filter>
+</activity>
 ```
 
+The `data` attribute of the intent-filter defines which syntax of "Callback URI" your app is going to capture. In the above case it's going to capture calls from `email` passwordless connections. In case you're using the `sms` passwordless connection, the `pathPrefix` would end in `sms`.
+
+
 ::: note
-If your client has Social connections enabled you must add the corresponding Intent-Filter in the `PasswordlessLockActivity` to capture the call to the expected callback URL.
+In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `PasswordlessLockActivity` to make possible to the library to capture a Social provider's authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0 unless you need to use a custom scheme, as it's now done internally by the library for you.
 :::
+
+In case you are using an older version of Lock or require to use a custom scheme for Social Authentication, the **data** attribute inside the intent-filter must be added to the `PasswordlessLockActivity` by you. i.e. with a scheme value of `demo`.
+
+```xml
+<activity
+  android:name="com.auth0.android.lock.PasswordlessLockActivity"
+  android:label="@string/app_name"
+  android:launchMode="singleTask"
+  android:screenOrientation="portrait"
+  android:theme="@style/MyLock.Theme">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data
+            android:host="@string/com_auth0_domain"
+            android:pathPrefix="/android/${applicationId}/email"
+            android:scheme="https" />
+
+        <data
+            android:host="@string/com_auth0_domain"
+            android:pathPrefix="/android/${applicationId}/callback"
+            android:scheme="demo" />
+    </intent-filter>
+</activity>
+```
+
+Make sure the Activity's `launchMode` is declared as `singleTask` or the result won't come back in the authentication.
 
 When the Passwordless connection is SMS you must also add the `CountryCodeActivity` to allow the user to change the **Country Code** prefix of the phone number.
 
@@ -40,12 +112,6 @@ When the Passwordless connection is SMS you must also add the `CountryCodeActivi
 <activity
   android:name="com.auth0.android.lock.CountryCodeActivity"
   android:theme="@style/Lock.Theme.ActionBar" />
-```
-
-Next, add the **Internet** permission to your application:
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
 ```
 
 ## Usage
