@@ -67,7 +67,7 @@ Edit the `AndroidManifest.xml` file to add the INTERNET permission and an Intent
 
                 <data
                     android:host="${account.namespace}"
-                    android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+                    android:pathPrefix="/android/<%= "${applicationId}" %>/callback"
                     android:scheme="demo" />
             </intent-filter>
 

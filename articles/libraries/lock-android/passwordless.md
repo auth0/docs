@@ -64,7 +64,7 @@ Add the `PasswordlessLockActivity`. Depending on which passwordless connection y
 
         <data
             android:host="@string/com_auth0_domain"
-            android:pathPrefix="/android/${applicationId}/email"
+            android:pathPrefix="/android/<%= "${applicationId}" %>/email"
             android:scheme="https" />
     </intent-filter>
 </activity>
@@ -93,12 +93,12 @@ In case you are using an older version of Lock or require to use a custom scheme
 
         <data
             android:host="@string/com_auth0_domain"
-            android:pathPrefix="/android/${applicationId}/email"
+            android:pathPrefix="/android/<%= "${applicationId}" %>/email"
             android:scheme="https" />
 
         <data
             android:host="@string/com_auth0_domain"
-            android:pathPrefix="/android/${applicationId}/callback"
+            android:pathPrefix="/android/<%= "${applicationId}" %>/callback"
             android:scheme="demo" />
     </intent-filter>
 </activity>
