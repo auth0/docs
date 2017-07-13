@@ -71,6 +71,9 @@ articles:
       - title: Client Types
         url: /clients/client-types
 
+      - title: Grant Types
+        url: /clients/client-grant-types
+
   - title: "APIs"
     url: "/apis"
     children:
