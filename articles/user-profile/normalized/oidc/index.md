@@ -56,23 +56,23 @@ Additionally, the User Profile section of our [QuickStarts](/quickstarts) return
 
 | Parameter | Definition |
 | --------- | ---------- |
-| sub <br/><span class="label">String</span> | unique identifier for the user |
-| name <br/><span class="label">String</span> | name of the user |
-| given_name <br/><span class="label">String</span> | the first/given name of the user |
-| family_name <br/><span class="label">String</span> | the surname/last name of the user |
-| middle_name <br/><span class="label">String</span> | the middle name of the user |
-| nickname <br/><span class="label">String</span> | casual name of the user that may/may not be the same as the `given_name` |
-| preferred_username <br/><span class="label">String</span> | identifier by which the user wishes to be referred to |
-| profile <br/><span class="label">String</span> | URL of the user's profile page |
-| picture <br/><span class="label">String</span> | URL of the user's profile picture |
-| website <br/><span class="label">String</span> | URL of the user's website/blog |
-| email <br/><span class="label">String</span> | preferred email address of the user |
-| email_verified <br/><span class="label">Boolean</span | `true` if user's email address is verified; else, `false` |
-| gender <br/><span class="label">String</span> | gender of the user |
-| birthdate <br/><span class="label">String</span> | birthday of the user |
-| zoneinfo <br/><span class="label">String</span> | time zone in which the user is located |
-| locale <br/><span class="label">String</span> | location where the user is located |
-| phone_number <br/><span class="label">String</span> | preferred telephone number for the user |
-| phone_number_verified <br/><span class="label">Boolean</span | `true` if user's phone number is verified; else, `false` |
-| address <br/><span class="label">JSON Object</span | preferred postal address of the user |
-| updated_at <br/><span class="label">Number</span | time when the user's profile was last updated |
+| `sub` <br/><span class="label label-primary">String</span> | unique identifier for the user |
+| `name` <br/><span class="label label-primary">String</span> | name of the user |
+| `given_name` <br/><span class="label label-primary">String</span> | the first/given name of the user |
+| `family_name` <br/><span class="label label-primary">String</span> | the surname/last name of the user |
+| `middle_name` <br/><span class="label label-primary">String</span> | the middle name of the user |
+| `nickname` <br/><span class="label label-primary">String</span> | casual name of the user that may/may not be the same as the `given_name` |
+| `preferred_username` <br/><span class="label label-primary">String</span> | identifier by which the user wishes to be referred to |
+| `profile` <br/><span class="label label-primary">String</span> | URL of the user's profile page |
+| `picture` <br/><span class="label label-primary">String</span> | URL of the user's profile picture |
+| `website` <br/><span class="label label-primary">String</span> | URL of the user's website/blog |
+| `email` <br/><span class="label label-primary">String</span> | preferred email address of the user |
+| `email_verified` <br/><span class="label label-primary">Boolean</span | `true` if user's email address is verified; else, `false` |
+| `gender` <br/><span class="label label-primary">String</span> | gender of the user |
+| `birthdate` <br/><span class="label label-primary">String</span> | birthday of the user |
+| `zoneinfo` <br/><span class="label label-primary">String</span> | time zone in which the user is located |
+| `locale` <br/><span class="label label-primary">String</span> | location where the user is located |
+| `phone_number` <br/><span class="label label-primary">String</span> | preferred telephone number for the user |
+| `phone_number_verified` <br/><span class="label label-primary">Boolean</span | `true` if user's phone number is verified; else, `false` |
+| `address` <br/><span class="label label-primary">JSON Object</span | preferred postal address of the user |
+| `updated_at` <br/><span class="label label-primary">Number</span | time when the user's profile was last updated |
