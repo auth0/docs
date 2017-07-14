@@ -12,7 +12,7 @@ Claims are used in the following cases:
 
 - When you want to get additional user information, like email or picture. For details refer to [Standard Claims](#standard-claims).
 
-- When you want to have granular access control to your API. In this case, you need to define custom scopes for your API and add these values  as part of the `scope` request parameter, for example: `scope=read:contacts`. For details refer to [API Scopes](#api-scopes).
+- When you want to have granular access control to your API. In this case, you need to define custom scopes for your API and add these values as part of the `scope` request parameter, for example: `scope=read:contacts`. For details refer to [API Scopes](#api-scopes).
 
 
 ## Standard Claims
@@ -115,7 +115,7 @@ Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any n
 
 If you need to add custom claims to the access token, the same applies but using `context.accessToken` instead.
 
-Please note that adding custom claims to id tokens trough this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
+Please note that adding custom claims to id tokens through this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
 
 ## API Scopes
 
