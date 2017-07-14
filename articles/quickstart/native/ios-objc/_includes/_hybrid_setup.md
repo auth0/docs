@@ -2,7 +2,7 @@
 
 ### Project settings
 
-1. Download the [HybridAuth.swift](https://github.com/auth0-samples/auth0-ios-objc-sample/blob/added-p2-hybrid-reboot/07-Linking-Accounts/Auth0Sample/HybridAuth.swift) file and add this to your project.
+1. Download the [HybridAuth.swift](https://github.com/auth0-samples/auth0-ios-objc-sample/blob/master/07-Linking-Accounts/Auth0Sample/HybridAuth.swift) file and add this to your project.
 2. A popup window will appear and ask "Would You like to configure an Objective-C bridging Header". **Choose Yes**
 3. Click on your Xcode Project file
 4. Click on Build Settings
