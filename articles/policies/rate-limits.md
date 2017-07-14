@@ -164,7 +164,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 ### Authentication API
 
-The following Auth0 Authenticaion API endpoints return rate limit-related headers:
+The following Auth0 Authentication API endpoints return rate limit-related headers:
 
 <table class="table">
   <tr>
