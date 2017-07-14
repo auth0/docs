@@ -1,3 +1,7 @@
+---
+description: How to run the Auth0 Pre-Deployment Tests to ensure that your Clients are production-ready
+---
+
 # How to Run the Pre-Deployment Test
 
 The Pre-Deployment Tests are available via the [Auth0 Support Center](https://support.auth0.com/).
