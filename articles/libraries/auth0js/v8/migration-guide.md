@@ -21,6 +21,17 @@ The first question to answer before getting into the changes is why to migrate y
 * v8 was rewritten from scratch, improving its cohesion and performance and coming with more tests to be utilized.
 * Long term support - As is often the case with new iterations of projects, it is likely that v8 will be supported for quite a bit longer than v7.
 
+### Use of API Auth and Metadata
+
+If you need to use [API Auth](/docs/api-auth) features, we recommend that you upgrade to [auth0.js v8](/docs/libraries/auth0js/v8). 
+
+If, however, your application is relying on being able to request metadata via [scopes](/docs/scopes), you have two choices:
+
+* Continue to use v7 until it is no longer an option
+* Use v8 without using API Auth. Do not mark your client as OIDC Conformant, do not pass the `audience` parameter. For example, if using [authorize()](http://auth0.github.io/auth0.js/global.html#authorize), [loginWithResourceOwner()](http://auth0.github.io/auth0.js/global.html#loginWithResourceOwner), [loginWithCredentials()](http://auth0.github.io/auth0.js/global.html#loginWithCredentials), or [signupAndLogin()](http://auth0.github.io/auth0.js/global.html#signupAndLogin) (_Note that some of the methods mentioned here use the legacy Resource Owner grant in order to be used and are unavailable to some customers._).
+
+Alternatively, you could also simply request the metadata in a different way, for example with a rule to add custom claims to either the returned `id_token` or `access_token` as described in the [custom claims](https://auth0.com/docs/scopes/current#custom-claims) section of the scopes documentation.
+
 ## Initialization of auth0.js
 
 Initialization of auth0.js in your application will now use `auth0.WebAuth` instead of `Auth0`
