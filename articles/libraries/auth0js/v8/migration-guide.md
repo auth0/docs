@@ -4,16 +4,15 @@ title: Auth0.js v7 to v8 Migration Guide
 description: How to migrate from auth0.js v7 to auth0.js v8
 toc: true
 ---
-
 # Auth0.js v7 to v8 Migration Guide
 
-The following instructions assume you are migrating from **auth0.js v7** to **auth0.js v8**. 
+The following instructions assume you are migrating from **auth0.js v7** to **auth0.js v8**.
 
-The goal of this migration guide is to provide you with all of the information you would need to update Auth0.js in your application. Of course, your first step is to include the latest version of auth0.js. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation of auth0.js to reflect the new changes. 
+The goal of this migration guide is to provide you with all of the information you would need to update Auth0.js in your application. Of course, your first step is to include the latest version of auth0.js. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation of auth0.js to reflect the new changes.
 
 Take a look below for more information about changes and additions to auth0.js in version 8!
 
-## Why Migrate?
+## Reasons to Migrate
 
 The first question to answer before getting into the changes is why to migrate your app to the new version at all. Here are a few quick points that address that:
 
@@ -23,7 +22,7 @@ The first question to answer before getting into the changes is why to migrate y
 
 ### Use of API Auth and Metadata
 
-If you need to use [API Auth](/docs/api-auth) features, we recommend that you upgrade to [auth0.js v8](/docs/libraries/auth0js/v8). 
+If you need to use [API Auth](/docs/api-auth) features, we recommend that you upgrade to [auth0.js v8](/docs/libraries/auth0js/v8).
 
 If, however, your application is relying on being able to request metadata via [scopes](/docs/scopes), you have two choices:
 
@@ -35,6 +34,7 @@ Alternatively, you could also simply request the metadata in a different way, fo
 ## Initialization of auth0.js
 
 Initialization of auth0.js in your application will now use `auth0.WebAuth` instead of `Auth0`
+
 ```html
 <script src="https://cdn.auth0.com/js/auth0/8.1.0/auth0.min.js"></script>
 <script type="text/javascript">
@@ -51,14 +51,13 @@ The `login` method of version 7 was divided into several different methods in ve
 
 ### webAuth.authorize()
 
-The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below. 
+The `authorize` method can be used for logging in users via the [Hosted Login Page](/libraries/auth0js#hosted-login-page), or via social connections, as exhibited below.
 
 For hosted login, one must call the authorize endpoint
 
-
 ```js
-webAuth.authorize({ 
-  //Any additional options can go here 
+webAuth.authorize({
+  //Any additional options can go here
 });
 ```
 
@@ -72,13 +71,13 @@ webAuth.authorize({
 
 ### webAuth.popup.authorize()
 
-For popup authentication, the `popup.authorize` method can be used. 
+For popup authentication, the `popup.authorize` method can be used.
 
 Hosted login with popup
 
 ```js
-webAuth.popup.authorize({ 
-  //Any additional options can go here 
+webAuth.popup.authorize({
+  //Any additional options can go here
 });
 ```
 
@@ -171,6 +170,7 @@ Please note that altering the signing algorithm for your client will immediately
 :::
 
 To switch from HS256 to RS256 for a specific client, follow these instructions:
+
 1. Go to [Dashboard > Clients](${manage_url}/#/clients)
 1. Select your client
 1. Go to _Settings_
@@ -180,14 +180,13 @@ To switch from HS256 to RS256 for a specific client, follow these instructions:
 
 Remember that if the token is being validated anywhere else, changes might be needed there as well in order to comply.
 
-### Manually Parsing Hashes 
+### Manually Parsing Hashes
 
 If you would rather manually parse hashes, to avoid the `parseHash` method since it only works with RS256, feel free to take a look at [this example](https://github.com/auth0/auth0.js/blob/master/src/web-auth/index.js#L97) or [this one](https://github.com/auth0/auth0.js/blob/master/src/helper/qs.js#L10) to help you get started.
 
 ## Refreshing Tokens
 
-In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken` and `refreshToken` methods were used to renew tokens. In [auth0.js v8](/libraries/auth0js#using-renewauth-to-acquire-new-tokens), 
-refreshing tokens is now done via the `renewAuth` method. If a user is already authenticated, `renewAuth` can acquire a new token for that user.
+In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken` and `refreshToken` methods were used to renew tokens. In [auth0.js v8](/libraries/auth0js#using-renewauth-to-acquire-new-tokens), refreshing tokens is now done via the `renewAuth` method. If a user is already authenticated, `renewAuth` can acquire a new token for that user.
 
 ## Delegation
 
