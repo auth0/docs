@@ -1,6 +1,6 @@
 ---
 title: Embedded Login
-description: This tutorial demonstrates how to add user login to an Angular 2+ application with Auth0
+description: This tutorial demonstrates how to add user login to your app with Auth0's Lock widget
 budicon: 448
 ---
 
@@ -14,7 +14,7 @@ budicon: 448
   ]
 }) %>
 
-As an alternative to Auth0's hosted login page, the Lock widget can be embedded directly in your application. Please note that certain functionality, such as single sign-on, is limited to the hosted login page and will not work when Lock is embedded in your app.
+<%= include('../_includes/_embedded_lock_preamble') %>
 
 <%= include('../_includes/_install_lock') %>
 
@@ -24,13 +24,13 @@ The Lock widget can also be retrieved from Auth0's CDN.
 <script src="${lock_url}"></script>
 ```
 
-<%= include('../../_includes/_allowed_origin', { callback: 'http://localhost:4200' }) %>
+<%= include('../../_includes/_allowed_origins', { callback: 'http://localhost:4200' }) %>
 
 <%= include('../../_includes/_cross_origin_auth') %>
 
 ## Create an Authentication Service
 
-The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for the service is at your discretion, but in these examples it will be called `AuthService` and the filename will be `auth.service.ts`. An instance of the `Auth0Lock` can be created in the service.
+The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for the service is at your discretion, but in these examples it will be called `AuthService` and the filename will be `auth.service.ts`. An instance of `Auth0Lock` can be created in the service.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -64,7 +64,7 @@ export class AuthService {
 ```
 
 ::: note
-**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
+**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the Lock widget.
 :::
 
 ![embedded login](/media/articles/web/embedded-login.png)
