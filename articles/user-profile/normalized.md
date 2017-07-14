@@ -191,11 +191,11 @@ This is a sample profile from **ADFS (Active Directory Federation Services)**:
 
 You can retrieve the user profile using [Lock](/libraries/lock/v10/api#getuserinfo-), [Auth0.js](/libraries/auth0js#user-management), or our [Authentication API /userinfo endpoint](/api/authentication#get-user-info).
 
-We also have a _User Profile_ section on most of our [quickstarts](/quickstarts). Some of the most popular technologies we offer quickstarts and samples for are:
-- [Android](/quickstart/native/android/04-user-profile)
-- [Angular 1.x](/quickstart/spa/angularjs/04-user-profile) and [Angular 2](/quickstart/spa/angular2/04-user-profile)
-- [React](/quickstart/spa/react/04-user-profile)
-- [Node.js](/quickstart/webapp/nodejs/04-user-profile)
-- [ASP .NET Core](/quickstart/webapp/aspnet-core/05-user-profile)
-- [jQuery](/quickstart/spa/jquery/04-user-profile)
+We also have a __User Profile__ section on most of our [quickstarts](/quickstarts). Some of the most popular technologies we offer quickstarts and samples for are:
+- [Android](/quickstart/native/android)
+- [Angular 1.x](/quickstart/spa/angularjs) and [Angular 2](/quickstart/spa/angular2)
+- [React](/quickstart/spa/react)
+- [Node.js](/quickstart/webapp/nodejs)
+- [ASP .NET Core](/quickstart/webapp/aspnet-core)
+- [jQuery](/quickstart/spa/jquery)
 - and [many more](/quickstarts)
