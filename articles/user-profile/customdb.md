@@ -5,13 +5,13 @@ description: Considerations regarding the User Profile when using a Custom DB.
 
 Auth0 [caches the User Profile](/user-profile/user-profile-details#caching-of-the-user-profile-in-auth0) received from a Custom Database Connection prior to passing it on to the calling client application. This cache is stored in the Auth0 database, and the information in the cache that originates from the Custom Database Connection is refreshed each time the user authenticates.
 
-The values of the fields for the [Normalized User Profile](docs/user-profile/normalized) which is cached will be populated based on the values being returned from the Login Script of your Custom Database Connection.
+The values of the fields for the [Normalized User Profile](/user-profile/normalized) which is cached will be populated based on the values being returned from the Login Script of your Custom Database Connection.
 
 ## Updating via the Management API
 
 The only fields you are allowed to update for a user in a Custom Database Connection using the [Management API](/api/management/v2) are the `user_metadata`, `app_metadata` and `blocked` fields.
 
-If you need to update any of the other user fields you will need to do it directly on the custom database.
+If you need to update any of the other user fields you will need to do it directly in the custom database.
 
 ## Updating the Custom Database directly
 
