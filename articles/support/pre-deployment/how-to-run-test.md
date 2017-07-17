@@ -38,6 +38,8 @@ There are three types of test results: Required, Recommended, and Best Practices
 
 ## How to Read Your Results Set
 
+The following are possible results for your test: Passed, Failed, Unable to Verify.
+
 Under each set of test results, Auth0 tells you how many tests your Client passed, as well as how many tests your Clients failed.
 
 ![](/media/articles/support/pre-deployment-tests/reading-results.png)
