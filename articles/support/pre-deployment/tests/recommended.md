@@ -8,12 +8,12 @@ The following tests check to see if you've completed all recommendations (which 
 
 | Test | Description |
 | ---- | ----------- |
-| Customer Error Page Configured | It is recommended to configure a Custom Error Page with your application specific details and corporate branding. |
-| Customize Guardian Multifactor Page | If you are using Guardian Multifactor Authentication it is recommended to configure a custom Hosted Page for Guardian Multifactor with your application details and corporate branding. |
-| Customize Hosted Login Page | It is recommended to configure a custom Hosted Page for Login with your application details and corporate branding. |
-| Customize Password Reset Page | It is recommended to configure a custom Hosted Page for Password Reset with your application details and corporate branding. |
-| Email Templates Configured | It is recommended to configure custom email templates with your application specific details and corporate branding. |
-| Enable MFA for Tenant Administrators | It is recommended that tenant administrators have multifactor authentication enabled. |
-| Guardian Multifactor or other Multifactor Authentication Providers | It is recommended that you consider multifactor authentication as part of the authentication strategy. |
-| Redirect Logout URL | It is recommended the review of the Allowed Redirect Logout URLs. |
-| Use RS256 Instead of HS256 | It is recommended that the JsonWebToken Signature Algorithm is set to RS256 over HS256. |
+| Customer Error Page Configured | Configure a Custom Error Page with your application-specific details and corporate branding |
+| Customize Guardian Multifactor Page | If you're using Guardian Multifactor Authentication, configure a Custom Hosted Page for Guardian Multifactor with your application details and corporate branding |
+| Customize Hosted Login Page | Configure a Custom Hosted Page for Login with your application details and corporate branding |
+| Customize Password Reset Page | Configure a Custom Hosted Page for Password Reset with your application details and corporate branding |
+| Email Templates Configured | Configure custom email templates with your application specific details and corporate branding |
+| Enable MFA for Tenant Administrators | Enable multifactor authentication for tenant administrators |
+| Guardian Multifactor or other Multifactor Authentication Providers | Consider multifactor authentication as part of the authentication strategy |
+| Redirect Logout URL | Review of the Allowed Redirect Logout URLs for your Clients |
+| Use RS256 Instead of HS256 | Set the JSONWebToken Signature Algorithm to RS256 instead of HS256 |
