@@ -7,7 +7,7 @@ description: Recommendations on how you can improve your Auth0 Client prior to p
 The following tests check to see if you've completed all recommendations (which are optional) for successful deployment to Production.
 
 ::: note
-See [How to Read Your Results Set](/support/pre-deployment-tests/how-to-run-test#How-to-Read-Your-Results-Set) for additional information on your testing output.
+See [How to Read Your Results Set](/support/pre-deployment/how-to-run-test#how-to-read-your-results-set) for additional information on your testing output.
 :::
 
 | Test | Description |
