@@ -10,26 +10,32 @@ The following instructions assume you are migrating from **auth0.js v7** to **au
 
 The goal of this migration guide is to provide you with all of the information you would need to update Auth0.js in your application. Of course, your first step is to include the latest version of auth0.js. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation of auth0.js to reflect the new changes.
 
-Take a look below for more information about changes and additions to auth0.js in version 8!
+Take a look below for more information about changes and additions to Auth0.js in version 8!
 
 ## Reasons to Migrate
 
 The first question to answer before getting into the changes is why to migrate your app to the new version at all. Here are a few quick points that address that:
 
-* v8 is tailored for usage with the Authentication API and for OIDC compliance.
-* v8 was rewritten from scratch, improving its cohesion and performance and coming with more tests to be utilized.
-* Long term support - As is often the case with new iterations of projects, it is likely that v8 will be supported for quite a bit longer than v7.
+* With version 8 of the Auth0.js SDK, you can use our latest and most secure authentication pipeline, compliant with the OpenID Connect specification. For more information, refer to the below section [Use of API Auth and Metadata](#use-of-api-auth-and-metadata).
+* Auth0.js v8 was rewritten from scratch, improving its cohesion and performance and coming with more tests to be utilized.
+* Long term support - As is often the case with new iterations of projects, v8 will be supported for significantly longer than v7.
 
 ### Use of API Auth and Metadata
 
-If you need to use [API Auth](/docs/api-auth) features, we recommend that you upgrade to [auth0.js v8](/docs/libraries/auth0js/v8).
+There are often situations where your APIs will need to authorize limited access to users, servers, or servers on behalf of users. Managing these types of authorization flows and access to your APIs is much easier with Auth0. If you need to use these [API Auth](/api-auth) features, we recommend that you upgrade to [auth0.js v8](/libraries/auth0js/v8).
 
-If, however, your application is relying on being able to request metadata via [scopes](/docs/scopes), you have two choices:
+However, if your application is currently relying on being able to request metadata via scopes (as described in the legacy [scopes documentation](/scopes/legacy)), and you do not wish to use API Auth features to handle that instead, you have two choices:
 
-* Continue to use v7 until it is no longer an option
-* Use v8 without using API Auth. Do not mark your client as OIDC Conformant, do not pass the `audience` parameter. For example, if using [authorize()](http://auth0.github.io/auth0.js/global.html#authorize), [loginWithResourceOwner()](http://auth0.github.io/auth0.js/global.html#loginWithResourceOwner), [loginWithCredentials()](http://auth0.github.io/auth0.js/global.html#loginWithCredentials), or [signupAndLogin()](http://auth0.github.io/auth0.js/global.html#signupAndLogin) (_Note that some of the methods mentioned here use the legacy Resource Owner grant in order to be used and are unavailable to some customers._).
+* Continue to use Auth0.js v7 until it is no longer an option
+* Use Auth0.js v8 without using API Auth. 
+  * Do not mark your client as OIDC Conformant in the dashboard
+  * Do not pass the `audience` parameter when using `authorize()`, or use methods which do not support API Auth, such as `loginWithCredentials()`, `signupAndLogin()` or `loginWithResourceOwner()` (note that `loginWithResourceOwner()` requires the legacy Resource Owner grant in order to be used and is unavailable to some customers).
 
-Alternatively, you could also simply request the metadata in a different way, for example with a rule to add custom claims to either the returned `id_token` or `access_token` as described in the [custom claims](https://auth0.com/docs/scopes/current#custom-claims) section of the scopes documentation.
+Alternatively, you could also simply request the metadata in a different way, for example with a rule to add custom claims to either the returned `id_token` or `access_token` as described in the [custom claims](/scopes/current#custom-claims) section of the scopes documentation.
+
+::: panel-note Function Reference
+Note that you can find detailed information about supported methods in the [Auth0.js v8](/libraries/auth0js) documentation, and generated documentation on all methods [here](http://auth0.github.io/auth0.js/global.html) for further reading.
+:::
 
 ## Initialization of auth0.js
 
@@ -186,7 +192,9 @@ If you would rather manually parse hashes, to avoid the `parseHash` method since
 
 ## Refreshing Tokens
 
-In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken` and `refreshToken` methods were used to renew tokens. In [auth0.js v8](/libraries/auth0js#using-renewauth-to-acquire-new-tokens), refreshing tokens is now done via the `renewAuth` method. If a user is already authenticated, `renewAuth` can acquire a new token for that user.
+When a token is nearing expiration, or is expired, you may wish to simply renew the token rather than requiring a new transaction.
+
+In [auth0.js v7](/libraries/auth0js/v7#refresh-token), the `renewIdToken` and `refreshToken` methods were used to refresh tokens. In [auth0.js v8](/libraries/auth0js#using-renewauth-to-acquire-new-tokens), refreshing tokens is done via the `renewAuth` method. If a user is already authenticated, `renewAuth` can be used to acquire a new token for that user.
 
 ## Delegation
 
