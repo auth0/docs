@@ -1,49 +1,15 @@
 # Permissions
 
+Permissions are actions or functions that a user, or group of user, is allowed to do. For example, let's say that you have an application that allows employees to enter in company expenses. You want all employees to be able to submit expenses, but want certain Finance users to have more admin type of actions such as being able to approve or delete expenses. These actions can be mapped to [permissions](/extensions/authorization-extension#permissions) (which later on can be grouped in [roles](/extensions/authorization-extension#roles)):
+
+For more information, refer to [Auth0 Authorization Extension](/extensions/authorization-extension#permissions).
+
+## Get all Permissions
+
 <h5 class="code-snippet-title">Examples</h5>
 
 ```http
-POST https://${account.namespace}/permissions
-Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
-{
-  protocol: "PROTOCOL",
-  impersonator_id: "IMPERSONATOR_ID",
-  client_id: "${account.clientId}",
-  additionalParameters: [
-    "response_type": "code",
-    "state": "STATE"
-  ]
-}
-```
-
-```shell
-curl --request POST \
-  --url 'https://${account.namespace}/DUMMY' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
-  --header 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \
-  --data '{"protocol":"PROTOCOL", "impersonator_id":"IMPERSONATOR_ID", "client_id":"${account.clientId}", "additionalParameters": {"response_type": "code", "state": "STATE"}}'
-```
-
-```javascript
-var url = 'https://' + ${account.namespace} + '/users/' + localStorage.getItem('user_id') + '/impersonate';
-var params = 'protocol=PROTOCOL&impersonator_id=IMPERSONATOR_ID&client_id=${account.clientId}';
-
-var xhr = new XMLHttpRequest();
-
-xhr.open('POST', url);
-xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
-
-xhr.onload = function() {
-  if (xhr.status == 200) {
-    fetchProfile();
-  } else {
-    alert("Request failed: " + xhr.statusText);
-  }
-};
-
-xhr.send(params);
+GET https://{extension_url}/permissions
 ```
 
 > RESPONSE SAMPLE:
@@ -76,7 +42,179 @@ Use this endpoint to retrieve all permissions.
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `protocol` <br/><span class="label label-danger">Required</span> | The protocol to use against the identity provider: `oauth2`, `samlp`, `wsfed`, `wsfed-rms`. |
-| `impersonator_id` <br/><span class="label label-danger">Required</span> | The `user_id` of the impersonator. |
-| `client_id` <br/><span class="label label-danger">Required</span> | The  `client_id` of the client that is generating the impersonation link.|
-| `additionalParameters` | This is a JSON object. You can use this to set additional parameters, like `response_type`, `scope` and `state`. |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+
+## Get a single Permission
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+GET https://{extension_url}/permissions/{permission_id}
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+   "_id":"deeb552d-2d98-4efb-bb84-0c8babe5f431",
+   "name":"Example",
+   "description":"Example permission"
+}
+```
+
+<% var path = '/permissions/{permission_id}'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "GET",
+  "path": path,
+  "link": "#get-single-permission"
+}) %>
+
+Use this endpoint to get a single permission based on its unique identifier.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{permission_id}` <br/><span class="label label-danger">Required</span> | The id of the permission to retrieve. |
+
+## Create Permission
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+```
+
+```shell
+curl --request POST \
+  --url 'https://{extension_url}/permissions' \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'content-type: application/json' \
+  --data '{ "name":"Example name", "description":"Example description", "applicationType":"client", "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa" }'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+   "name":"Example name",
+   "description":"Example description",
+   "applicationType":"client",
+   "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa",
+   "_id":"4dcdbcbb-e598-4b8f-abc1-7feb57dc54fe"
+}
+```
+
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "POST",
+  "path": "/permissions",
+  "link": "#create-permission"
+}) %>
+
+Use this endpoint to create a permission.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `name` | The new permission's name |
+| `description` | The new permission's description |
+| `applicationType` | The new permission's application type |
+| `applicationId` | The new permission's application Id |
+
+## Update Permission
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+PUT https://{extension_url}/permissions/{permission_id}
+Content-Type:   'application/json'
+Authorization:  'Bearer {access_token}'
+{
+   "name":"New example name",
+   "description":"Example description",
+   "applicationType":"client",
+   "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa"
+}
+```
+
+```shell
+curl --request PUT \
+  --url 'https://{extension_url}/permissions/{permission_id}' \
+  --header 'Authorization: Bearer {access_token}' \
+  --data '{ "name":"New example name", "description":"Example description", "applicationType":"client", "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa" }'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+{
+   "_id":"bc6945e0-393a-4405-99d9-96903eaec4a1",
+   "name":"New example name",
+   "description":"Example description",
+   "applicationType":"client",
+   "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa"
+}
+```
+
+<h5 class="http-method-box">
+  <span class="badge badge-warning" href="#update-permission">PUT</span>
+  <span class="path" href="#update-permission">/permissions/{permission_id}</span>
+</h5>
+
+Use this endpoint to update the details of a permission.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `{permission_id}` <br/><span class="label label-danger">Required</span> | The id of the permission to update |
+| `name` | The updated permission name |
+| `description` | The updated permission description |
+| `applicationType` | The updated application type |
+| `applicationId` | The updated application Id |
+
+## Delete Permission
+
+<h5 class="code-snippet-title">Examples</h5>
+
+```http
+DELETE https://{extension_url}/permissions/{permission_id}
+Authorization:  'Bearer {access_token}'
+```
+
+```shell
+curl --request DELETE \
+  --url 'https://{extension_url}/permissions/{permission_id}' \
+  --header 'Authorization: Bearer {access_token}'
+```
+
+> RESPONSE SAMPLE:
+
+```text
+(empty response body)
+```
+
+<% var path = '/permissions/{permission_id}'; %>
+<%=
+include('../../_includes/_http-method', {
+  "http_method": "DELETE",
+  "path": path,
+  "link": "#delete-permission"
+}) %>
+
+Use this endpoint to remove a permission.
+
+### Request Parameters
+
+| Parameter        | Description |
+|:-----------------|:------------|
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `{permission_id}` <br/><span class="label label-danger">Required</span> | The id of the permission to delete |
