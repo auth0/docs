@@ -1,17 +1,16 @@
 ---
 description: How to execute an Authorization Code Grant flow from a Regular Web application
+toc: true
 ---
-
 # Execute an Authorization Code Grant Flow
 
 <%= include('../../_includes/_pipeline2') %>
 
-The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quickstart/webapp) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access the API using the token.
-
 ::: note
-  This tutorial will help you implement the Authorization Code grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code">Calling APIs from Server-side Web Apps</a>.
+This tutorial will help you implement the Authorization Code grant. If you are looking for some theory on the flow refer to [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code).
 :::
 
+The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quickstart/webapp) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access the API using the token.
 
 ## 1. Get the User's Authorization
 
@@ -126,18 +125,11 @@ For details on the validations that should be performed refer to [Verify Access 
 
 If you wish to execute special logic unique to the Authorization Code grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code grant.
 
-## More reading
+## Keep Reading
 
 - [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code)
 - [How to refresh a token](/tokens/refresh-token)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Web App Quickstarts](/quickstart/webapp)
 - [Client Authentication for Server-side Web Apps](/client-auth/server-side-web)
-- [Authentication API: GET /authorize](/api/authentication?http#authorization-code-grant)
-- [Authentication API: POST /oauth/token](/api/authentication?http#authorization-code)
-- [The OAuth 2.0 protocol](/protocols/oauth2)
-- [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
-- [Integrating a Web App with Auth0](/protocols/oauth2/oauth-web-protocol)
-- [RFC 6749](https://tools.ietf.org/html/rfc6749)
