@@ -1,5 +1,9 @@
 # Groups
 
+Groups are collections of users. The groups that you will create are dependent on the needs of your business process. For example, you might have a group for your users in Finance, a group for your users in IT, and so on.
+
+For more information, refer to [Auth0 Authorization Extension](/extensions/authorization-extension#groups).
+
 ## Get all Groups
 
 <h5 class="code-snippet-title">Examples</h5>
@@ -111,7 +115,7 @@ Use this endpoint to retrieve a single group.
 ```shell
 curl --request POST \
   --url 'https://{extension_url}/groups' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
   --header 'content-type: application/json' \
   --data '{"name": "My name", "description": "My description"}'
 ```
@@ -151,13 +155,13 @@ Use this endpoint to create a group.
 ```http
 POST https://{extension_url}/groups/{group_id}
 Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
+Authorization:  'Bearer {access_token}'
 ```
 
 ```shell
 curl --request POST \
   --url 'https://{extension_url}/groups/{group_id}' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
 ```
 
 > RESPONSE SAMPLE:
@@ -190,7 +194,7 @@ Use this endpoint to delete a group.
 ```http
 PUT https://{extension_url}/groups/{group_id}
 Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
+Authorization:  'Bearer {access_token}'
 {
   name: "New name",
   description: "New description"
@@ -200,7 +204,7 @@ Authorization:  'Bearer {ACCESS_TOKEN}'
 ```shell
 curl --request PUT \
   --url 'https://{extension_url}/groups/{group_id}' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
   --data '{ "name": "New name", "description": "New description" }'
 ```
 
@@ -217,13 +221,10 @@ curl --request PUT \
 }
 ```
 
-<% var path = '/groups/{group_id}'; %>
-<%=
-include('../../_includes/_http-method', {
-  "http_method": "PUT",
-  "path": path,
-  "link": "#update-group"
-}) %>
+<h5 class="http-method-box">
+  <span class="badge badge-warning" href="#update-group">PUT</span>
+  <span class="path" href="#update-group">/groups/{group_id}</span>
+</h5>
 
 Use this endpoint to update the name or the description of a group.
 
@@ -278,7 +279,7 @@ Use this endpoint to retrieve the mappings of a group.
 ```http
 PUT https://{extension_url}/groups/{group_id}/mappings
 Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
+Authorization:  'Bearer {access_token}'
 {
   groupName: "Test",
   connectionName: "google-oauth2"
@@ -288,7 +289,7 @@ Authorization:  'Bearer {ACCESS_TOKEN}'
 ```shell
 curl --request PUT \
   --url 'https://{extension_url}/groups/{group_id}/mappings' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
   --data '{"groupName": "Test", "connectionName": "google-oauth2"}'
 ```
 
@@ -326,7 +327,7 @@ Group Mappings allow you to dynamically "add" users to different Groups based on
 ```http
 DELETE https://{extension_url}/groups/{group_id}/mappings
 Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
+Authorization:  'Bearer {access_token}'
 {
   _id: [
     "7b57312c-579a-4798-bd91-9647563e1b8a"
@@ -337,7 +338,7 @@ Authorization:  'Bearer {ACCESS_TOKEN}'
 ```shell
 curl --request DELETE \
   --url 'https://{extension_url}/groups/{group_id}/mappings' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
   --data '{"_id": ["7b57312c-579a-4798-bd91-9647563e1b8a"]}'
 ```
 
@@ -437,14 +438,14 @@ Use this endpoint to get the members for a group.
 ```http
 PATCH https://{extension_url}/groups/{group_id}/members
 Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
+Authorization:  'Bearer {access_token}'
 [ "google-oauth2|113108011846505476166" ]
 ```
 
 ```shell
 curl --request PATCH \
   --url 'https://{extension_url}/groups/{group_id}/members' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
   --data '[ "google-oauth2|113108011846505476166" ]'
 ```
 
@@ -479,14 +480,14 @@ Use this endpoint to add one or more members in a group.
 ```http
 DELETE https://{extension_url}/groups/{group_id}/members
 Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
+Authorization:  'Bearer {access_token}'
 ["7b57312c-579a-4798-bd91-9647563e1b8a"]
 ```
 
 ```shell
 curl --request DELETE \
   --url 'https://{extension_url}/groups/{group_id}/members' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
   --data '["7b57312c-579a-4798-bd91-9647563e1b8a"]'
 ```
 
@@ -608,14 +609,15 @@ Use this endpoint to get the nested groups for a group.
 ```http
 PATCH https://{extension_url}/groups/{group_id}/nested
 Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
+Authorization:  'Bearer {access_token}'
 [ "google-oauth2|113108011846505476166" ]
 ```
 
 ```shell
 curl --request PATCH \
   --url 'https://{extension_url}/groups/{group_id}/nested' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'Content-Type: application/json' \
   --data '[ "google-oauth2|113108011846505476166" ]'
 ```
 
@@ -650,14 +652,14 @@ Use this endpoint to add nested groups.
 ```http
 DELETE https://{extension_url}/groups/{group_id}/nested
 Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
+Authorization:  'Bearer {access_token}'
 ["{NESTED_GROUP_ID}"]
 ```
 
 ```shell
 curl --request DELETE \
   --url 'https://{extension_url}/groups/{group_id}/nested' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
   --data '["{NESTED_GROUP_ID}"]'
 ```
 
@@ -733,14 +735,14 @@ Use this endpoint to get the roles for a group.
 ```http
 PATCH https://{extension_url}/groups/{group_id}/roles
 Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
+Authorization:  'Bearer {access_token}'
 [ "google-oauth2|113108011846505476166" ]
 ```
 
 ```shell
 curl --request PATCH \
   --url 'https://{extension_url}/groups/{group_id}/roles' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
   --data '[ "google-oauth2|113108011846505476166" ]'
 ```
 
@@ -775,14 +777,14 @@ Use this endpoint to add roles to a group.
 ```http
 DELETE https://{extension_url}/groups/{group_id}/roles
 Content-Type:   'application/json'
-Authorization:  'Bearer {ACCESS_TOKEN}'
+Authorization:  'Bearer {access_token}'
 ["{GROUP_ROLES_ID}"]
 ```
 
 ```shell
 curl --request DELETE \
   --url 'https://{extension_url}/groups/{group_id}/roles' \
-  --header 'Authorization: Bearer {ACCESS_TOKEN}' \
+  --header 'Authorization: Bearer {access_token}' \
   --data '["{GROUP_ROLES_ID}"]'
 ```
 
