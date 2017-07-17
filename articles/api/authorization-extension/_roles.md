@@ -184,13 +184,10 @@ curl --request PUT \
 }
 ```
 
-<% var path = '/roles/{role_id}'; %>
-<%=
-include('../../_includes/_http-method', {
-  "http_method": "PUT",
-  "path": path,
-  "link": "#update-role"
-}) %>
+<h5 class="http-method-box">
+  <span class="badge badge-warning" href="#update-role">PUT</span>
+  <span class="path" href="#update-role">/roles/{role_id}</span>
+</h5>
 
 Use this endpoint to update the details of a role.
 
