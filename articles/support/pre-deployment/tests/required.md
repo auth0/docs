@@ -6,6 +6,10 @@ description: Fixes you must make to your Auth0 Client prior to production deploy
 
 The following tests check to see if you've completed all requirements for successful deployment to Production.
 
+::: note
+See [How to Read Your Results Set](/support/pre-deployment-tests/how-to-run-test#How-to-Read-Your-Results-Set) for additional information on your testing output.
+:::
+
 | Test | Description |
 | ---- | ----------- |
 | [Allowed Callback Urls](tutorials/redirecting-users) Not Localhost | Validates the [Client Allowed Callback URLs do not point to localhost](${manage_url}/#/clients), 127.0.0.1, etc |
