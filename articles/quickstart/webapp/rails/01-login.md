@@ -156,7 +156,7 @@ end
 
 ## Display Error Descriptions
 
-Configuration the application to display erros by adding the following to `config/environments/production.rb`:
+Configure the application to display errors by adding the following to `config/environments/production.rb`:
 
 ```ruby
 OmniAuth.config.on_failure = Proc.new { |env|
