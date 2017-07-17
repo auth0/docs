@@ -14,6 +14,10 @@ Applications often rely on user databases for authentication. Auth0 enables you 
 
 This tutorial will guide you through a series of steps to connect your custom user store to Auth0. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
+::: note
+Please also read the section on the [considerations regarding the User Profile when using a Custom DB](/user-profile/customdb), as it contains important information about how to update fields of the User Profile.
+:::
+
 ## 1. Create a database connection
 
 Log into Auth0, and select the [Connections > Database](${manage_url}/#/connections/database) menu option. Click the **New Database Connection** button and provide a name for the database, or select a database you have created.
