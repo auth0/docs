@@ -9,7 +9,7 @@ toc: true
 <%= include('../../_includes/_pipeline2') %>
 
 ::: note
-  This tutorial will help you implement the Implicit Grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/implicit">Call APIs from Client-side Web Apps</a>.
+This tutorial will help you implement the Implicit Grant. If you are looking for some theory on the flow refer to [Call APIs from Client-side Web Apps](/api-auth/grant/implicit).
 :::
 
 The __Implicit Grant__ is an OAuth 2.0 flow that [client-side apps](/quickstart/spa) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access an API using the token.
@@ -35,11 +35,7 @@ Where:
 
 * `audience`: The unique identifier of the API the app wants to access. Use the value of the __Identifier__ field at your [API Settings](${manage_url}/#/apis).
 
-* `scope`: The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Note that user's consent will be requested, every time the `scope` value changes.
-
-  ::: panel Custom claims namespaced format
-  Auth0 returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`. You can [add namespaced claims using Rules](#optional-customize-the-tokens).
-  :::
+* `scope`: The scopes which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format (see panel below for more info), or any scopes supported by the target API (for example, `read:contacts`). Note that user's consent will be requested, every time the `scope` value changes. The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
 
 * `response_type`: Indicates the type of credentials returned in the response. For this flow you can either use `token`, to get only an `access_token`, `id_token` to get only an `id_token` (if you don't plan on accessing an API), or `id_token token` to get both an `id_token` and an `access_token`.
 
@@ -126,17 +122,8 @@ For details on how to implement this, refer to [Silent Authentication](/api-auth
 
 ## Keep reading
 
-- [Implicit Grant overview](/api-auth/grant/implicit)<br/>
-- [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)<br/>
-- [Silent authentication for SPAs](/api-auth/tutorials/silent-authentication)<br/>
-- [How to configure an API in Auth0](/apis)<br/>
-- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)<br/>
-- [Single Page App Quickstarts](/quickstart/spa)<br/>
-- [ID Token](/tokens/id-token)<br/>
-- [Access Token](/tokens/access-token)<br/>
-- [Client Authentication for Client-side Web Apps](/client-auth/client-side-web)<br/>
-- [Authentication API: GET /authorize](/api/authentication#implicit-grant)<br/>
-- [The OAuth 2.0 protocol](/protocols/oauth2)<br/>
-- [The OpenID Connect protocol](/protocols/oidc)<br/>
-- [Tokens used by Auth0](/tokens)<br/>
-- [RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+- [How to protect your SPA against replay attacks](/api-auth/tutorials/nonce)
+- [How to configure an API in Auth0](/apis)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+- [Client Authentication for Client-side Web Apps](/client-auth/client-side-web)
+- [Tokens used by Auth0](/tokens)
