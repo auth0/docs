@@ -296,9 +296,6 @@ articles:
           - title: "For Users"
             url: "/multifactor-authentication/duo/user-guide"
 
-      - title: "For Native Applications"
-        url: "/multifactor-authentication/mfa-native"
-
       - title: "Custom MFA"
         url: "/multifactor-authentication/custom"
 
