@@ -30,8 +30,7 @@ The following is a sample login using Lock:
     lock.show();
   }
 
-  function lockAuthenticated(authResult)
-  {
+  function lockAuthenticated(authResult) {
     // Called when the user is authenticated
     lock.getUserInfo(authResult.accessToken, function(error, profile) {
       if (error) {
