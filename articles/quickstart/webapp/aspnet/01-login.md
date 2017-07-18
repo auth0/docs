@@ -6,12 +6,12 @@ budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0',
-  repo: 'auth0-aspnet',
-  path: 'examples/auth0-aspnet-mvc4-sample/',
+  org: 'auth0-samples',
+  repo: 'aspnet-samples',
+  path: 'Quickstart/00-Starter-Seed/auth0-aspnet-mvc4-sample/',
   requirements: [
-    'Microsoft Visual Studio 2015',
-    'Auth0-ASPNET v1.4.0'
+    'Microsoft Visual Studio 2017',
+    'Auth0-ASPNET v2.0.0'
   ]
 }) %>
 
