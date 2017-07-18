@@ -4,7 +4,7 @@ description: How to run the Auth0 Pre-Deployment Tests to ensure that your Clien
 
 # How to Run the Pre-Deployment Test
 
-The Pre-Deployment Tests are available via the [Auth0 Support Center](https://support.auth0.com/).
+The Pre-Deployment Tests are available via the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}).
 
 ![](/media/articles/support/pre-deployment-tests/support-home.png)
 
@@ -53,4 +53,4 @@ If your Clients **failed** one or more tests, Auth0 provides you:
 
 ![](/media/articles/support/pre-deployment-tests/detailed-results.png)
 
-All of the tests that your Client **passed** are group together at the bottom of the results set. You can view the name of and information about the test, as well as review the associated documentation and use the hyperlink to go to the corresponding configuration area where you can make changes (if desired).
+All of the tests that your Client **passed** are grouped together at the bottom of the results set. You can view the name of and information about the test, as well as review the associated documentation and use the hyperlink to go to the corresponding configuration area where you can make changes (if desired).

@@ -14,4 +14,4 @@ The following checks cannot be automated, so we recommend manually checking thes
 | SSO Timeout Values | Review the default [SSO cookie timeout values](${manage_url}/#/account/advanced) and ensure it aligns with your requirements |
 | Tenants and Administrators | Review all tenants and tenant administrators to ensure they are correct. Decommission tenants that are no longer in use. Ensure that tenant administrators are limited to the necessary users. |
 | Verify Client Ids in App Code | Ensure that the Client IDs in your application code match those with their Auth0 Client configurations |
-| Whitelist Auth0 Public IPs | Whitelist Auth0 IPs if you're connecting to internal services or services behind a firewall when using Rules, Hooks, or custom databases |
+| Whitelist Auth0 Public IPs | Whitelist Auth0 IPs if you're connecting to internal services or services behind a firewall when using Rules, Hooks, or custom databases. You can get a list of IP addresses in the tool tip when configuring any of these items |
