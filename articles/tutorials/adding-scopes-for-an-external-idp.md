@@ -19,7 +19,7 @@ For example, if you click the Google connection, you can select the required sco
 
 ## 2. Pass Scopes to Authorize endpoint
 
-You can also pass the scopes you wish to request as a comma-separated list in the `connection_scope` parameter when calling the ['/authorize` endpoint](/api/authentication#login). For example, if you want to request the `https://www.googleapis.com/auth/contacts.readonly` and `https://www.googleapis.com/auth/analytics` scopes from Google, you can pass these along with the `connection` parameter to ensure the user logs in with their Google account:
+You can also pass the scopes you wish to request as a comma-separated list in the `connection_scope` parameter when calling the [authorize endpoint](/api/authentication#login). For example, if you want to request the `https://www.googleapis.com/auth/contacts.readonly` and `https://www.googleapis.com/auth/analytics` scopes from Google, you can pass these along with the `connection` parameter to ensure the user logs in with their Google account:
 
 ```text
 https://${account.namespace}/authorize
