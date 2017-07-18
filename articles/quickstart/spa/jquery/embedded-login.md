@@ -6,7 +6,7 @@ budicon: 448
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-javascript-samples',
+  repo: 'auth0-jquery-samples',
   path: '01-Embedded-Login',
   branch: 'embedded-login'
 }) %>
@@ -32,7 +32,7 @@ Add a new file called `app.js`. In this file you can create and manage an instan
 ```js
 // app.js
 
-window.addEventListener('load', function() {
+$('docuemnt').ready(function() {
 
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     oidcConformant: true,
@@ -51,12 +51,8 @@ window.addEventListener('load', function() {
     lock.show();
   }
 
-  var loginBtn = document.getElementById('btn-login');
-
-  loginBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    login();
-  });
+  var loginBtn = $('#btn-login');
+  loginBtn.click(login);
 
 });
 ```
@@ -74,8 +70,8 @@ Add some additional functions to `app.js` to fully handle authentication in the 
 ```js
 // app.js
 
-window.addEventListener('load', function() {
-  
+$('docuemnt').ready(function() {
+
   // ...
   lock.on('authenticated', function(authResult) {
     if (authResult && authResult.accessToken && authResult.idToken) {
@@ -90,11 +86,11 @@ window.addEventListener('load', function() {
   });
 
   // buttons and event listeners
-  var loginBtn = document.getElementById('btn-login');
-  var logoutBtn = document.getElementById('btn-logout');
+  var loginBtn = $('#btn-login');
+  var logoutBtn = $('#btn-logout');
 
-  loginBtn.addEventListener('click', login);
-  logoutBtn.addEventListener('click', logout);
+  loginBtn.click(login);
+  logoutBtn.click(logout);
 
   function login() {
     lock.show();
@@ -126,16 +122,15 @@ window.addEventListener('load', function() {
   }
 
   function displayButtons() {
-    var loginStatus = document.querySelector('.container h4');
+    var loginStatus = $('.container h4');
     if (isAuthenticated()) {
-      loginBtn.style.display = 'none';
-      logoutBtn.style.display = 'inline-block';
-      loginStatus.innerHTML = 'You are logged in!';
+      loginBtn.css('display', 'none');
+      logoutBtn.css('display', 'inline-block');
+      loginStatus.text('You are logged in!');
     } else {
-      loginBtn.style.display = 'inline-block';
-      logoutBtn.style.display = 'none';
-      loginStatus.innerHTML =
-        'You are not logged in! Please log in to continue.';
+      loginBtn.css('display', 'inline-block');
+      logoutBtn.css('display', 'none');
+      loginStatus.text('You are not logged in! Please log in to continue.');
     }
   }
 
@@ -172,7 +167,7 @@ Provide a template with controls for the user to log in and log out.
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Auth0 - JavaScript</a>
+        <a class="navbar-brand" href="#">Auth0 - jQuery</a>
 
         <button class="btn btn-primary btn-margin">
             Home
