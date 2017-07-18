@@ -19,6 +19,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [allowedConnections](#allowedconnections-array-) | limit the client connections shown in Lock to a particular set |
+| [allowShowPassword](#allowshowpassword-boolean-) | Whether to allow the user to show password as typing |
 | [autoclose](#autoclose-boolean-) | Whether or not Lock auto closes after a login |
 | [autofocus](#autofocus-boolean-) | Whether or not focus is set on first input field |
 | [avatar](#avatar-object-) | Obtain avatar from a non gravatar source |
@@ -122,6 +123,16 @@ Examples of `allowedConnections`:
 ![Lock - Allowed Connections](/media/articles/libraries/lock/v10/customization/lock-allowedconnections-database.png)
 
 ![Lock - Allowed Connections](/media/articles/libraries/lock/v10/customization/lock-allowedconnections-social.png)
+
+### allowShowPassword {Boolean}
+
+This option determines whether or not add a checkbox to the UI which, when selected, will allow the user to show their password when typing it. The option defaults to `false`.
+
+```js
+var options = {
+  allowShowPassword: true
+};
+```
 
 ### autoclose {Boolean}
 
