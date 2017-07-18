@@ -17,8 +17,8 @@ Admins can be removed by clicking the **REMOVE** button after they have been add
 
 ## Enabling Multifactor Authentication
 
-As an Admin you can enable Multifactor Authentication for your account by going to the [Account Settings](${manage_url}/#/account)], and clicking on the _Enroll your device now_ link.
+As an Admin you can enable Multifactor Authentication for your account by going to the _General_ tab of your [Account Settings](${manage_url}/#/account), and clicking on the _Enroll your device now_ link.
 
-![Change Dashboard Admins](/media/articles/tutorials/manage-admins.png)
+![Change Dashboard Admins](/media/articles/tutorials/admin-mfa.png)
 
 This will walk you through the steps for [enrolling with MFA](/multifactor-authentication/guardian/user-guide).
