@@ -1,3 +1,8 @@
+---
+description: Configure Auth0 for use as an OAuth 2.0 server to authenticate users wanting access to an API managed by the Azure API Management service
+toc: true
+---
+
 # Configure Auth0
 
 To use Auth0 as an OAuth 2.0 authorization server, you'll need to execute the following set-up steps:

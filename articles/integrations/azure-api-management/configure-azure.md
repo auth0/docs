@@ -1,17 +1,23 @@
+---
+description: Configure Azure to accept Auth0 for use as an OAuth 2.0 server to authenticate users wanting access to an API managed by the Azure API Management service
+toc: true
+---
 
-## Configure Azure
+# Configure Azure
 
-::: note
-To complete this, tutorial, you will need to have an account that grants you access to Microsoft's [Azure Portal](https://portal.azure.com).
+::: warning
+To complete this tutorial you will need to have an account that grants you access to Microsoft's [Azure Portal](https://portal.azure.com).
 :::
 
-In this section, you'll begin by creating an API management instance, as well as the API to manage your cookies application.
+In this section, you'll:
 
-### Create Your API Management Instance
+* Create an API management instance
+* Import the Basic Calculator API
+* Configure an OAuth 2.0 Server
+* Set Auth0 as the OAuth 2.0 Server handling authentication requests to the API
+* Test the Auth0-Azure API integration
 
-To create your API management instance, log into the Azure Portal.
-
-![](/media/articles/integrations/azure-api-mgmt/azure/azure-portal-home.png)
+### Step 1: Create Your API Management Instance
 
 To create a new API management service, click on **New** > **Web + Mobile** > **API management**.
 
@@ -35,11 +41,9 @@ Click **Create** to begin provisioning your service.
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/deployment-in-progress.png)
 
-### Import Your API
+### Step 2: Import Your API
 
-::: note
 For this tutorial, we will be importing and using the Calculator API provided by Microsoft. You can, however, create your own API instead of using the Calculator API.
-:::
 
 Launch the API Management service that you created in the previous step. 
 
@@ -53,15 +57,15 @@ You'll be importing an API **from URL**.
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/import-api.png)
 
-To do so, provide values for the following parameters:
+Set the following parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| Specification document URL | the URL Azure will use to retrieve your API's specification. For this example, use `http://calcapi.cloudapp.net/calcapi.json`. |
-| Specification format | the API specification format. Use `Swagger`. |
+| Specification document URL | The URL Azure will use to retrieve your API's specification. For this example, use `http://calcapi.cloudapp.net/calcapi.json`. |
+| Specification format | The API specification format. Use `Swagger`. |
 | New/Existing API | set this to **New** |
-| Web API URL suffix | the value appended to the base URL of your API management service that uniquely identifies the API you're currently creating, such as `calc` |
-| Web API URL scheme | the protocol used to access your API (for this example, set this to `HTTPs`) |
+| Web API URL suffix | The value appended to the base URL of your API management service that uniquely identifies the API you're currently creating, such as `calc` |
+| Web API URL scheme | The protocol used to access your API (for this example, set this to `HTTPs`) |
 | Products | Add this API to the `Starter` product. This is a basic, getting-started-with-Azure container that holds your sample products and applies entry-level rate limits to your calls. |
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/import-api-config.png)
@@ -70,7 +74,7 @@ When done, click **Save** to import your API. You'll be redirected to the summar
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/basic-calc-api.png)
 
-### Configure Your OAuth 2.0 Authorization Server
+### Step 3: Configure Your OAuth 2.0 Authorization Server
 
 To use Auth0 to secure your API, you'll need to register Auth0 as an OAuth 2.0 Authorization Server. You can do so using the Azure Publisher Portal.
 
@@ -82,28 +86,28 @@ Click on **Add Authorization Server**. You'll see the configuration screen that 
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/new-oauth2-server-config.png)
 
-::: note
-For the purposes of this example, we'll use the **Authorization Code grant type**, but you're free to use whichever grant type is most appropriate for your use case. Azure currently supports the following grant types: Authorization Code, Implicit, Resource Owner Password, Client Credentials.
-:::
+For the purposes of this example, we'll use the **Authorization Code grant type**, but you're free to use whichever grant type is most appropriate for your use case. Azure currently supports the following grant types: [Authorization Code](/api-auth/grant/authorization-code), [Implicit](/api-auth/grant/implicit), [Resource Owner Password](/api-auth/grant/password), [Client Credentials](/api-auth/grant/client-credentials).
 
-Provide values for the following fields:
+Set the following parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
-| Name | a descriptive name for your authorization server |
-| Description | a description for your authorization server |
-| Client registration page URL | the page where users can create or manage their accounts; for the purposes of this example, we'll use `https://placeholder.contoso.com` as the placeholder |
-| Authorization code grant types | the grant type used for authorization |
-| Authorization endpoint URL | the URL Azure uses to make the authorization request |
-| Authorization request method | the HTTP method used by Azure to make the authorization request |
-| Token endpoint URL | the endpoint used to exchange authorization grants for access tokens; Auth0's can be reached at `https://auth0user.auth0.com/oauth/token` |
-| Client authentication methods | method used to authenticate the client; Auth0's is BASIC |
-| Access token sending method | the location of the access token in the sending method (typically the **Authorization header**) |
-| Default scope | specify a default scope if necessary |
+| Name | A descriptive name for your authorization server, such as `Auth0` |
+| Description | A description for your authorization server, such as `Auth0 API Authentication` |
+| Client registration page URL | The page where users can create or manage their accounts; for the purposes of this example, we'll use `https://placeholder.contoso.com` as the placeholder |
+| Authorization code grant types | The grant type used for authorization. Select `authorization code` |
+| Authorization endpoint URL | The URL Azure uses to make the authorization request. See the [Auth0 docs on generating the URL](/api-auth/tutorials/authorization-code-grant#1-get-the-user-s-authorization) |
+| Authorization request method | The HTTP method used by Azure to make the authorization request. By default, this is `GET` |
+| Token endpoint URL | The endpoint used to exchange authorization grants for access tokens; Auth0's can be reached at `https://auth0user.auth0.com/oauth/token` |
+| Client authentication methods | Method used to authenticate the client; Auth0's is `BASIC` |
+| Access token sending method | The location of the access token in the sending method (typically the **Authorization header**) |
+| Default scope | Specify a default scope (if necessary) |
 
-Because we're using the *authorization code** grant, we'll need to provide the Auth0 **client ID** and **client secret**.
+Because we're using the **authorization code** grant, we'll need to provide the **client ID** and **client secret** for the [Auth0 Client we previously registered]().
 
 Once you've provided both the client ID and client secret, you'll see an auto-generated **redirect URI**. Take note of this URL, since you'll need to provide this URI in your Auth0 Client Settings page in the Allowed Callback URLs section.
+
+![](/auth0-server-settings.png)
 
 ::: note
 If you're using the resource owner password flow, you'll need to provide the **resource owner username** and **resource owner password** instead of the client ID and secret.
@@ -121,7 +125,7 @@ You'll need to provide the **redirect URI** that was auto-generated during the O
 
 Click **Save**.
 
-### Authorize Your OAuth 2.0 Server for Use with Your API
+### Step 4: Authorize Your OAuth 2.0 Server for Use with Your API
 
 Before you can use Auth0 to secure your API, you'll need to set your API to use Auth0. You can do so using the Azure Publisher Portal.
 
@@ -139,7 +143,7 @@ Under **User Authorization**, select **OAuth 2.0**. In the new **Authorization S
 
 Click **Save**.
 
-## Test Your Integration
+### Step 5: Test Your Integration
 
 Navigate to the Developer Portal.
 
