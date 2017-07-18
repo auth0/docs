@@ -24,33 +24,32 @@ The following is a sample login using Lock:
 ```html
 <script src="${lock_url}"></script>
 <script type="text/javascript">
+
   //Log in using Lock in Redirect Mode
   function login(){
     lock.show();
   }
 
-  //handle redirection from iDP after login
-  $(document).ready(function() {
-    var hash = lock.parseHash();
-    if (hash) {
-      if (hash.error) {
-        alert('There was an error logging in ' + hash.error );
-      } else {
-        ...
-        // the hash comes from the site's first time login
-        lock.getProfile(hash.id_token, function(err, profile) {
-          if (err) {
-            alert('There was an error logging in. ' + err);
-          } else {
-            // Save the JWT token.
-            localStorage.setItem('id_token', hash.id_token);
-            localStorage.setItem('user_id', profile.user_id);
-            showLoggedInUser(profile);
-          }
-        });
+  function lockAuthenticated(authResult)
+  {
+    // Called when the user is authenticated
+    lock.getUserInfo(authResult.accessToken, function(error, profile) {
+      if (error) {
+        alert('There was an error getting user info. ' + error);
+        return;
       }
-    }
+
+      localStorage.setItem('access_token', authResult.accessToken);
+      localStorage.setItem('id_token', authResult.idToken);
+      localStorage.setItem('user_id', profile.user_id);
+      showLoggedInUser(profile);
+    });
+  }
+
+  $(document).ready(function() {
+    lock.on("authenticated", lockAuthenticated);
   });
+
 </script>
 <button onclick="javascript:login()">Login</button>
 ```
@@ -73,40 +72,40 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
     var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
     function linkPasswordAccount(connection){
-      var opts = {
+      var opts = { 
         rememberLastLogin: false,
         dict: {
           signin: {
             title: 'Link another account'
+          },
+          auth: {
+            responseType: 'token id_token'
           }
         }
       };
-      if (connection){
+            
+      if (connection) {
         opts.connections = [connection];
       }
-      //open lock in signin mode, with the customized options for linking
-      lock.showSignin(opts);
+
+      // open lock in signin mode with the customized options for linking
+      lock = new Auth0Lock('${account.clientId}', '${account.namespace}', opts);
+      lock.show();
+    }
+
+    function lockAuthenticated(authResult)
+    {
+        if (isUserLoggedIn) {
+          linkAccount(authResult.idToken, authResult.idTokenPayload.sub);
+        } else {
+          // handle authentication for the first login
+        }
     }
 
     $(document).ready(function() {
-      ...
-      var hash = lock.parseHash();
-      //handle redirection from iDP after login
-      if (hash) {
-        if (hash.error) {
-          alert('There was an error logging in ' + hash.error );
-        } else {
-          // there is already a logged in user, the hash comes from a linking account operation,
-          // and we should continue with the linking procedure
-          if (isUserLoggedIn){
-            linkAccount(hash.id_token);
-          } else {
-            // the hash comes from the site's first time login
-            ...
-          }
-        }
-      }
+      lock.on("authenticated", lockAuthenticated); 
     });
+    
   </script>
   <button onclick="linkPasswordAccount()">Link Account</button>
   ```
@@ -117,8 +116,9 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
   <script src="${lock_passwordless_url}"></script>
   <script type="text/javascript">
     function linkPasswordlessSMS(){
+      
       // Initialize Passwordless Lock instance
-      var lock = new Auth0LockPasswordless( '#{env.AUTH0_CLIENT_ID}', '#{env.AUTH0_DOMAIN}' );
+      var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
 
       var opts = {
         autoclose: true,
@@ -152,7 +152,7 @@ function linkAccount(secondaryJWT){
   var primaryUserId = localStorage.getItem('user_id');
   $.ajax({
     type: 'POST',
-    url: 'https://' + AUTH0_DOMAIN + '/api/v2/users/' + primaryUserId + '/identities',
+    url: 'https://' + '${account.namespace}' + '/api/v2/users/' + primaryUserId + '/identities',
     data: {
       link_with: secondaryJWT
     },
@@ -182,7 +182,7 @@ function unlinkAccount(secondaryProvider, secondaryUserId){
   var primaryJWT = localStorage.getItem('id_token');
   $.ajax({
     type: 'DELETE',
-    url: 'https://' + AUTH0_DOMAIN +'/api/v2/users/' + primaryUserId +
+    url: 'https://' + '${account.namespace}' + '/api/v2/users/' + primaryUserId +
          '/identities/' + secondaryProvider + '/' + secondaryUserId,
     headers: {
       'Authorization': 'Bearer ' + primaryJWT
