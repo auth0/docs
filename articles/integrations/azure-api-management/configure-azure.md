@@ -103,14 +103,12 @@ Set the following parameters:
 | Access token sending method | The location of the access token in the sending method (typically the **Authorization header**) |
 | Default scope | Specify a default scope (if necessary) |
 
-Because we're using the **authorization code** grant, we'll need to provide the **client ID** and **client secret** for the [Auth0 Client we previously registered]().
+Because we're using the **authorization code** grant, we'll need to provide the **client ID** and **client secret** for the [Auth0 Client we previously registered](/integrations/azure-api-management/configure-auth0#step-1-create-an-api-and-non-interactive-client). You can find both values in the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
-Once you've provided both the client ID and client secret, you'll see an auto-generated **redirect URI**. Take note of this URL, since you'll need to provide this URI in your Auth0 Client Settings page in the Allowed Callback URLs section.
-
-![](/auth0-server-settings.png)
+Once you've provided both the client ID and client secret, you'll see an auto-generated **redirect URI**. Copy this URL, since you'll need to provide this URI in your Auth0 Client Settings page in the Allowed Callback URLs section.
 
 ::: note
-If you're using the resource owner password flow, you'll need to provide the **resource owner username** and **resource owner password** instead of the client ID and secret.
+If you're using the [resource owner password](/api-auth/grant/password) flow, you'll need to provide the **resource owner username** and **resource owner password** instead of the client ID and secret.
 :::
 
 When complete, click **Save** to persist your changes.
@@ -125,7 +123,7 @@ You'll need to provide the **redirect URI** that was auto-generated during the O
 
 Click **Save**.
 
-### Step 4: Authorize Your OAuth 2.0 Server for Use with Your API
+### Step 4: Authorize Auth0 for Use with Your API
 
 Before you can use Auth0 to secure your API, you'll need to set your API to use Auth0. You can do so using the Azure Publisher Portal.
 
@@ -145,7 +143,7 @@ Click **Save**.
 
 ### Step 5: Test Your Integration
 
-Navigate to the Developer Portal.
+While logged in to the Azure Portal, open up your instance of the API Management Service. Click **Developer Portal** to launch the developer-facing side of your APIs.
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/developer-portal.png)
 
@@ -171,6 +169,19 @@ If you were able to successfully sign in, you'll see a message appear with the e
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/dev-portal-token.png)
 
-Scroll to the bottom, and click **Send** to send your request. If successful, you'll see a message containing the HTTP 200 response at the bottom of the page.
+Scroll to the bottom, and click **Send** to send your request. If successful, you'll see a message containing the `HTTP 200` response at the bottom of the page.
 
 ![](/media/articles/integrations/azure-api-mgmt/azure/dev-portal-200-response.png)
+
+## Summary
+
+In this tutorial, you've:
+
+1. Configured your Auth0 account to act as an OAuth 2.0 server.
+2. Set up an API Management Service in Azure.
+3. Imported an API that's managed by Azure's API Management Service.
+4. Secured your API using Auth0.
+
+<%= include('./_stepnav', {
+ prev: ["1. Configure Auth0", "/integrations/azure-api-management/configure-auth0"]
+}) %>
