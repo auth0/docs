@@ -352,7 +352,7 @@ articles:
     url: "/pre-deployment-tests"
     children:
       - title: Useful Tips
-        url: /pre-deployment/prelaunch-tips.md
+        url: /pre-deployment/prelaunch-tips
       
       - title: Run Tests
         url: /pre-deployment/how-to-run-test
