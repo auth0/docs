@@ -3,17 +3,17 @@ section: appliance
 description: This document covers how to add new users to Grafana.
 ---
 
-# Auth0 Appliance: Adding Users to Grafana
+# PSaaS Appliance: Adding Users to Grafana
 
 
-By default, each Grafana instance (every Appliance node comes with its own instance of Grafana) includes the following users:
+By default, each Grafana instance (every PSaaS Appliance node comes with its own instance of Grafana) includes the following users:
 
 * `admin`
 * `root@auth0.com`
 
-To visualize the instrumentation page with an Appliance administrative user *other* than `root@auth0.com`, you will need to add that user to the Grafana instances for **each** Appliance node.
+To visualize the instrumentation page with an PSaaS Appliance administrative user *other* than `root@auth0.com`, you will need to add that user to the Grafana instances for **each** PSaaS Appliance node.
 
-1. Navigate to the Appliance node's instance of Grafana (`https://<appliance_manage_domain>.com/grafana/<private_ip>`), and log in using a set of valid credentials.
+1. Navigate to the PSaaS Appliance node's instance of Grafana (`https://<appliance_manage_domain>.com/grafana/<private_ip>`), and log in using a set of valid credentials.
 2. Click the **Grafana icon** located in the top left corner. Select **Admin** and then **Global Users**.
 
   ![Grafana Admin Menu](/media/articles/appliance/instrumentation/grafana-users-1.png)

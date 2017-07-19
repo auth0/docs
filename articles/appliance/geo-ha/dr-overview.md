@@ -1,20 +1,22 @@
 ---
 section: appliance
-description: Descriptions of Appliance Geo HA Failure and Disaster Recovery
+description: Descriptions of PSaaS Appliance Geo HA Failure and Disaster Recovery
 ---
 
-# Geographic High-Availability Appliance Failure & Disaster Recovery
+<!-- markdownlint-disable MD033 -->
 
-One key aspect of the Geographic High-Availability (GEO HA) Appliance is the data center redundancy and failure handling that ensures the highest form of Appliance uptime offered by Auth0.
+# Geographic High-Availability PSaaS Appliance Failure & Disaster Recovery
+
+One key aspect of the Geographic High-Availability (GEO HA) PSaaS Appliance is the data center redundancy and failure handling that ensures the highest form of PSaaS Appliance uptime offered by Auth0.
 
 ## Standard Configuration
 
-The standard configuration of a GEO HA Appliance is a stretched cluster that consists of the following pieces:
+The standard configuration of a GEO HA PSaaS Appliance is a stretched cluster that consists of the following pieces:
 
-* one geographically-aware global load balancer/DNS failover configuration;
-* one primary data center with three Appliance instances;
-* one secondary data center with three Appliance instances;
-* one arbiter, a seventh instance that is located in its own data center.
+* One geographically-aware global load balancer/DNS failover configuration;
+* One primary data center with three PSaaS Appliance instances;
+* One secondary data center with three PSaaS Appliance instances;
+* One arbiter, a seventh instance that is located in its own data center.
 
 ## Failure Scenarios and Handling
 

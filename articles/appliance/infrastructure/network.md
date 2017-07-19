@@ -1,23 +1,23 @@
 ---
 section: appliance
-description: Appliance infrastructure information about Networks
+description: PSaaS Appliance infrastructure information about Networks
 ---
 
-# Auth0 Appliance Infrastructure Requirements: Network
+# PSaaS Appliance Infrastructure Requirements: Network
 
-This document details the requirements for the network on which the Appliance runs.
+This document details the requirements for the network on which the PSaaS Appliance runs.
 
 ::: note
-Auth0 Appliance can only be deployed in 1 NIC.
+Auth0 PSaaS Appliance can only be deployed in 1 NIC.
 :::
 
-In on-premise environment, all virtual machines should be in the same LAN in order for database replication to work properly. No other appliance cluster (Dev/Test) should be running on this subnet.
+In on-premise environment, all virtual machines should be in the same LAN in order for database replication to work properly. No other PSaaS Appliance cluster (Dev/Test) should be running on this subnet.
 
 In AWS Cloud environment, Auth0 supports and recommends cross-LAN availability zones.
 
 ## IP Addresses
 
-Each Appliance virtual machine (VM) must have its own private static IP address and outbound access. This can be accomplished through:
+Each PSaaS Appliance virtual machine (VM) must have its own private static IP address and outbound access. This can be accomplished through:
 
 * a public IP address;
 * NAT or transparent proxy.
@@ -31,29 +31,29 @@ For **multi-node** clusters, all virtual machines must be:
   Production and non-Production (test/development) must be on completely isolated networks.
 :::
 
-For a full list of IP addresses, domains, and ports used by the Appliance clusters, as well as what they are used for, please see [Appliance Infrastructure: IP/Domain and Port List](/appliance/infrastructure/ip-domain-port-list).
+For a full list of IP addresses, domains, and ports used by the PSaaS Appliance clusters, as well as what they are used for, please see [Appliance Infrastructure: IP/Domain and Port List](/appliance/infrastructure/ip-domain-port-list).
 
 
 ## Internet Connectivity
 
-Each Appliance VM needs connectivity to the Internet. At a minimum, the VM needs access during Appliance configuration, maintenance windows, and troubleshooting. For implementations requiring integration with social providers and/or third-party API calls, the VM will need Internet access at all times.
+Each PSaaS Appliance VM needs connectivity to the Internet. At a minimum, the VM needs access during Appliance configuration, maintenance windows, and troubleshooting. For implementations requiring integration with social providers and/or third-party API calls, the VM will need Internet access at all times.
 
-Since the Appliance is delivered as a subscription-based managed service, Auth0 will need access to specified endpoints to provide proactive monitoring.
+Since the PSaaS Appliance is delivered as a subscription-based managed service, Auth0 will need access to specified endpoints to provide proactive monitoring.
 
 ## DNS Records
 
-DNS records are required for all Appliance instances (development/test *and* production). A standard single-node or cluster deployment requires four DNS entries for the following:
+DNS records are required for all PSaaS Appliance instances (development/test *and* production). A standard single-node or cluster deployment requires four DNS entries for the following:
 
-* **Management Dashboard**: the Management Dashboard is the web interface that acts as a client for the configuration and application tenants on the Appliance;
-* **Root Tenant Authority**: the tenant on the Appliance that controls Appliance settings, configuration, and local Dashboard Admin users;
+* **Management Dashboard**: the Management Dashboard is the web interface that acts as a client for the configuration and application tenants on the PSaaS Appliance;
+* **Root Tenant Authority**: the tenant on the PSaaS Appliance that controls PSaaS Appliance settings, configuration, and local Dashboard Admin users;
 * **webtask**: webtask DNS is used for web extensions and to use Webtasks externally;
-* **App Tenant**: the tenant on the Appliance created for your apps. It manages settings for your apps, user profiles, rules, etc. This is the tenant you will interact with primarily through the Management Dashboard and the API.
+* **App Tenant**: the tenant on the PSaaS Appliance created for your apps. It manages settings for your apps, user profiles, rules, etc. This is the tenant you will interact with primarily through the Management Dashboard and the API.
 
 Please refer to the [DNS page](/appliance/infrastructure/dns) for additional requirements.
 
 ## Load Balancers (for Multi-Node Clusters only)
 
-You must include a round-robin load balancer in your infrastructure when implementing a multi-node cluster Appliance with high-availability.
+You must include a round-robin load balancer in your infrastructure when implementing a multi-node cluster PSaaS Appliance with high-availability.
 
 We recommend a layer 7/application layer load balancer that supports:
 
@@ -70,10 +70,10 @@ We recommend a layer 7/application layer load balancer that supports:
 
 ### Software Load Balancers
 
-You may use NGINX or HA Proxy as a software load balancer in front of the Auth0 Appliance. The reverse proxy must be configured with:
+You may use NGINX or HA Proxy as a software load balancer in front of the PSaaS Appliance. The reverse proxy must be configured with:
 
 * TCP mode with Proxy Protocol or HTTPS mode (SSL offloading)
-* the incoming hostname forwarded to the Appliance nodes
+* the incoming hostname forwarded to the PSaaS Appliance nodes
 
 ::: note
   The Auth0 AD/LDAP Connector does not work in HTTPS mode.
@@ -83,6 +83,6 @@ In addition to load balancing, you may use this for **IP address whitelisting** 
 
 #### SSL Offloading
 
-The Appliance supports the use of SSL offloading at the load balancer if your IT standards require the use of HTTP within the local network. The load balancer must add a `X-Forwarded-Proto` header with the value `https`.
+The PSaaS Appliance supports the use of SSL offloading at the load balancer if your IT standards require the use of HTTP within the local network. The load balancer must add a `X-Forwarded-Proto` header with the value `https`.
 
 Please note that the use of SSL offloading is not required to achieve high throughput.

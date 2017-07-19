@@ -2,6 +2,9 @@
 description: An in-depth summary of the roles and responsibilities allocated between Auth0 and the subscriber
 section: appliance
 ---
+
+<!-- markdownlint-disable MD033 -->
+
 # Disaster Recovery: Detailed Division of Responsibility
 
 The following RACI Matrix provides an in-depth summary of the roles and responsibilities allocated between Auth0 and the subscriber.
@@ -27,7 +30,7 @@ The following table details the task division for configuring, creating, and mon
 <table class="table">
     <thead>
         <tr>
-            <th>Appliance-Related Tasks or Actions </th>
+            <th>PSaaS Appliance-Related Tasks or Actions </th>
             <th>Auth0</th>
             <th>Subscriber</th>
             <th>Notes</th>
@@ -41,13 +44,13 @@ The following table details the task division for configuring, creating, and mon
             <td>The subscriber will need to <a href="/appliance/infrastructure/virtual-machines#virtual-machine-infrastructure-requirements">provision an additional drive</a> for backup purposes.</td>
         </tr>
         <tr>
-            <td>Download Appliance CLI tool</td>
+            <td>Download PSaaS Appliance CLI tool</td>
             <td>C</td>
             <td>R, A</td>
             <td>The subscriber will need to contact their Auth0 Customer Success Manager for the <a href="/appliance/cli/configure-cli#downloading-the-cli-setup-files">custom download link</a>.</td>
         </tr>
         <tr>
-            <td>Install Appliance CLI Tool</td>
+            <td>Install PSaaS Appliance CLI Tool</td>
             <td>I</td>
             <td>R, A</td>
             <td>The subscriber will need to <a href="/appliance/cli/configure-cli#installing-and-using-the-cli">install the CLI tool</a>.</td>
@@ -68,7 +71,7 @@ The following table details the task division for configuring, creating, and mon
             <td>Store Data Backup at a Secondary Site</td>
             <td>I</td>
             <td>R, A</td>
-            <td>The subscriber will need to retrieve an existing backup and store it in a safe location outside the Auth0 Appliance.</td>
+            <td>The subscriber will need to retrieve an existing backup and store it in a safe location outside the PSaaS Appliance.</td>
         </tr>
         <tr>
             <td>Delete Data Backups</td>
@@ -86,7 +89,7 @@ The following table details the task division for configuring, creating, and mon
 <table class="table">
     <thead>
         <tr>
-            <th>Appliance-Related Tasks or Actions </th>
+            <th>PSaaS Appliance-Related Tasks or Actions </th>
             <th>Auth0</th>
             <th>Subscriber</th>
             <th>Notes</th>
@@ -127,7 +130,7 @@ The following table details the task division for configuring, creating, and mon
 <table class="table">
     <thead>
         <tr>
-            <th>Appliance-Related Tasks or Actions </th>
+            <th>PSaaS Appliance-Related Tasks or Actions </th>
             <th>Auth0</th>
             <th>Subscriber</th>
             <th>Notes</th>
