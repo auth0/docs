@@ -62,7 +62,7 @@ The following instructions discuss implementing Lock for Android. If you specifi
 
 ### Configuring the SDK
 
-In your `app/build.gradle` file add a [Manifest Placeholder](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain property which is going to be used internally by the library to register an intent-filter.
+In your `app/build.gradle` file add the [Manifest Placeholders](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain and the Auth0 Scheme properties which are going to be used internally by the library to register an intent-filter that captures the callback URI.
 
 ```groovy
 apply plugin: 'com.android.application'
@@ -76,7 +76,7 @@ android {
         //...
 
         //---> Add the next line
-        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain"]
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "https"]
         //<---
     }
     //...
@@ -103,10 +103,10 @@ Add the `LockActivity`.
 ```
 
 ::: note
-In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `LockActivity` to make possible to the library to capture the authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0 unless you need to use a custom scheme, as it's now done internally by the library for you.
+In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `LockActivity` to make possible to the library to capture the authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0, as it's now done internally by the library for you.
 :::
 
-In case you are using an older version of Lock or require to use a custom scheme for Social Authentication, the **intent-filter** must be added to the `LockActivity` by you. i.e. with a scheme value of `demo`.
+In case you are using an older version of Lock the **intent-filter** must be added to the `LockActivity` by you:
 
 ```xml
 <activity
@@ -119,11 +119,10 @@ In case you are using an older version of Lock or require to use a custom scheme
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
-
         <data
             android:host="@string/com_auth0_domain"
             android:pathPrefix="/android/<%= "${applicationId}" %>/callback"
-            android:scheme="demo" />
+            android:scheme="https" />
     </intent-filter>
 </activity>
 ```
@@ -229,6 +228,11 @@ startActivity(lock.newIntent(this));
 ```
 
 That's it! Lock will handle the rest for you.
+
+### Android App Links - Custom Scheme
+The callback URI scheme used in this article is `https`. This works best for Android Marshmallow (API 23) or newer if you're using [Android App Links](https://developer.android.com/training/app-links/index.html), but in previous Android versions this may show the intent chooser dialog prompting the user to chose either your application or the browser to resolve the intent. You can change this behavior by using a custom unique scheme so that the OS opens the link directly with your app.
+Do so by updating the `app/build.gradle` file and changing the `auth0Scheme` value. Then go to your client's dashboard and update the "Allowed callback URL" value to match the new scheme. Now call `withScheme()` in the Lock.Builder and pass the custom value so that Lock requests the correct redirect URI.
+
 
 ## Implementing Passwordless authentication with Lock for Android
 
