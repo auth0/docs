@@ -16,7 +16,7 @@ Take a look below for more information about changes and additions to Auth0.js i
 
 The first question to answer before getting into the changes is why to migrate your app to the new version at all. Here are a few quick points that address that:
 
-* With version 8 of the Auth0.js SDK, you can use our latest and most secure authentication pipeline, compliant with the OpenID Connect specification. For more information, refer to the below section [Use of API Auth and Metadata](#use-of-api-auth-and-metadata).
+* With version 8 of the Auth0.js SDK, you can use [our latest and most secure authentication pipeline](/api-auth/intro), compliant with the OpenID Connect specification. For more information, refer to the below section [Use of API Auth and Metadata](#use-of-api-auth-and-metadata).
 * Auth0.js v8 was rewritten from scratch, improving its cohesion and performance and coming with more tests to be utilized.
 * Long term support - As is often the case with new iterations of projects, v8 will be supported for significantly longer than v7.
 
@@ -33,8 +33,8 @@ However, if your application is currently relying on being able to request metad
 
 Alternatively, you could also simply request the metadata in a different way, for example with a rule to add custom claims to either the returned `id_token` or `access_token` as described in the [custom claims](/scopes/current#custom-claims) section of the scopes documentation.
 
-::: panel-note Function Reference
-Note that you can find detailed information about supported methods in the [Auth0.js v8](/libraries/auth0js) documentation, and generated documentation on all methods [here](http://auth0.github.io/auth0.js/global.html) for further reading.
+::: note
+You can find detailed information about supported methods in the [Auth0.js v8](/libraries/auth0js) documentation, and generated documentation on all methods [here](http://auth0.github.io/auth0.js/global.html) for further reading.
 :::
 
 ## Initialization of auth0.js
