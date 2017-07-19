@@ -14,6 +14,7 @@ private void login() {
     Auth0 auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
     WebAuthProvider.init(auth0)
+                  .withScheme("demo")
                   .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
                   .start(MainActivity.this, new AuthCallback() {
                       @Override
@@ -40,10 +41,10 @@ private void login() {
 You'll first need to whitelist the **Callback URL** in the "Allowed Callback URLs" section of the [Client settings](${manage_url}/#/clients) by adding the URL below. Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the `app/build.gradle` file as the `applicationId` attribute:
 
 ```text
-https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
+demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
-The browser will redirect to your application with the authentication result. Because you've defined a _Manifest Placeholder_ with your Auth0 Domain value, the SDK will be able to capture the result and parse it automatically without you needing to declare a specific **intent-filter** for your activity. The `AndroidManifest.xml` file should look like this:
+The browser will redirect to your application with the authentication result. Because you've defined the _Manifest Placeholders_ with your Auth0 Domain and Scheme values, the SDK will be able to capture the result and parse it automatically without you needing to declare a specific **intent-filter** for your activity. The `AndroidManifest.xml` file should look like this:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"

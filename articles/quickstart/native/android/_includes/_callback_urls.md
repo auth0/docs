@@ -7,7 +7,7 @@ To set a callback URL, navigate to the [settings](${manage_url}/#/applications/$
 This tutorial series make use of a **Callback URL** that looks like this:
 
 ```js
-https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
+demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
 Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the `app/build.gradle` file as the `applicationId` attribute.

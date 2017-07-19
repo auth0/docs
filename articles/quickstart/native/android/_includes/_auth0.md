@@ -22,7 +22,7 @@ dependencies {
 You can check for the latest version on the repository [Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0).
 :::
 
-Now add a _Manifest Placeholder_, required by the SDK to define internally an **intent-filter** to capture the authentication callback. You do that by adding the next line:
+Now add the _Manifest Placeholders_, required by the SDK to define internally an **intent-filter** to capture the authentication callback. You do that by adding the next line:
 
 ```xml
 apply plugin: 'com.android.application'
@@ -36,7 +36,7 @@ android {
         //...
 
         //---> Add the next line
-        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain"]
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "demo"]
         //<---
     }
 }

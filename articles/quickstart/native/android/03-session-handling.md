@@ -43,6 +43,7 @@ Before launching the log in you need to ask for the `offline_access` scope in or
 Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
 WebAuthProvider.init(auth0)
+                .withScheme("demo")
                 .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
                 .withScope("openid offline_access")
                 .start(LoginActivity.this, callback);
