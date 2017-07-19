@@ -25,35 +25,19 @@ GET https://{extension_url}/users
          "identities":[
             {
                "isSocial":false,
-               "user_id":"59396da1b3c34a15589c780d",
+               "user_id":"59091da1b3c34a15589c780d",
                "provider":"auth0",
                "connection":"Username-Password-Authentication"
             }
          ],
-         "user_id":"auth0|59396da1b3c34a15589c780d",
+         "user_id":"auth0|59091da1b3c34a15589c780d",
          "last_login":"2017-06-25T07:28:54.719Z",
-         "name":"richard.dowinton@auth0.com",
-         "picture":"https://s.gravatar.com/avatar/3e8ce75cfe7c53f13715df274f63e129?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png",
+         "name":"dummy.user@example.com",
+         "picture":"https://s.gravatar.com/avatar/your-gravatar.png",
          "email":"richard.dowinton@auth0.com"
-      },
-      {
-         "logins_count":2,
-         "identities":[
-            {
-               "isSocial":true,
-               "user_id":"118058861744652728706",
-               "provider":"google-oauth2",
-               "connection":"google-oauth2"
-            }
-         ],
-         "user_id":"google-oauth2|118058861744652728706",
-         "last_login":"2017-06-23T06:10:49.275Z",
-         "name":"Richard Dowinton",
-         "picture":"https://lh5.googleusercontent.com/-4-hB01MUesA/AAAAAAAAAAI/AAAAAAAAAWY/9hrMwc2t9oc/photo.jpg",
-         "email":"richard.dowinton@gmail.com"
       }
    ],
-   "total":2
+   "total":1
 }
 ```
 
@@ -84,14 +68,14 @@ GET https://{extension_url}/users/{user_id}
 
 ```text
 {
-   "email":"richard.dowinton@auth0.com",
+   "email":"dummy.user@example.com",
    "email_verified":true,
-   "user_id":"auth0|59396da1b3c34a15589c780d",
-   "picture":"https://s.gravatar.com/avatar/3e8ce75cfe7c53f13715df274f63e129?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fri.png",
-   "nickname":"richard.dowinton",
+   "user_id":"auth0|59091da1b3c34a15589c780d",
+   "picture":"https://s.gravatar.com/avatar/your-gravatar.png",
+   "nickname":"dummy.user",
    "identities":[
       {
-         "user_id":"59396da1b3c34a15589c780d",
+         "user_id":"59091da1b3c34a15589c780d",
          "provider":"auth0",
          "connection":"Username-Password-Authentication",
          "isSocial":false
@@ -99,7 +83,7 @@ GET https://{extension_url}/users/{user_id}
    ],
    "updated_at":"2017-06-25T07:28:54.719Z",
    "created_at":"2017-06-08T15:30:41.237Z",
-   "name":"richard.dowinton@auth0.com",
+   "name":"dummy.user@example.com",
    "app_metadata":{
       "authorization":{
          "roles":[
@@ -215,8 +199,9 @@ Use this endpoint to add one or more users in a group.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `user_id` <br/><span class="label label-danger">Required</span> | The id of the user that you want to add to groups |
-| `group_id` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add users |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user that you want to add to groups |
+| `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add users |
 
 ## Calculate Group Memberships
 
@@ -344,8 +329,9 @@ Use this endpoint to add one or more users in a group.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `user_id` <br/><span class="label label-danger">Required</span> | The id of the user that you want to assign to roles |
-| `group_id` <br/><span class="label label-danger">Required</span> | The id of the role to which you want to assign users |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user that you want to assign to roles |
+| `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role to which you want to assign users |
 
 ## Remove User from Roles
 
@@ -387,6 +373,7 @@ Use this endpoint to remove one or more user from a role.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user you want to remove from roles |
 | `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role(s) you want to remove users from |
 
@@ -446,7 +433,7 @@ curl --request POST \
   --url 'https://{extension_url}/users/{user_id}/policy/{client_id}' \
   --header 'Authorization: Bearer {access_token}' \
   --header 'content-type: application/json' \
-  --data '{ "connectionName": "Username-Password-Database", "groups": [] }'
+  --data '{ "connectionName": "Username-Password-Database", "groups": [{group_id}] }'
 ```
 
 > RESPONSE SAMPLE:
@@ -483,7 +470,8 @@ Use this endpoint to execute the authorization policy for a user in the context 
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> |  |
 | `{client_id}` <br/><span class="label label-danger">Required</span> |  |
-| `connectionName` |  |
-| `groups` |  |
+| `connectionName` | The connection name |
+| `groups` | List of group IDs |

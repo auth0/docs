@@ -120,7 +120,7 @@ Use this endpoint to create a permission.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
 | `name` | The new permission's name |
 | `description` | The new permission's description |
 | `applicationType` | The new permission's application type |
@@ -173,7 +173,7 @@ Use this endpoint to update the details of a permission.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
 | `{permission_id}` <br/><span class="label label-danger">Required</span> | The id of the permission to update |
 | `name` | The updated permission name |
 | `description` | The updated permission description |
@@ -216,5 +216,5 @@ Use this endpoint to remove a permission.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
 | `{permission_id}` <br/><span class="label label-danger">Required</span> | The id of the permission to delete |

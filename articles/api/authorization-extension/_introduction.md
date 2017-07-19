@@ -13,4 +13,8 @@ For each endpoint in this explorer, you will find sample snippets you can use, i
 
 - HTTP request
 - Curl command
-- JavaScript: depending on the endpoint each snippet may use the [Auth0.js library](/libraries/auth0js), Node.js code or simple JavaScript
+- JavaScript: depending on the endpoint each snippet may use Node.js or simple JavaScript
+
+## Get an Access Token
+
+## Find your extension URL

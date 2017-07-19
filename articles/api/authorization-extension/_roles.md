@@ -90,7 +90,7 @@ Use this endpoint to get a single role based on its unique identifier.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `role_id` <br/><span class="label label-danger">Required</span> | The id of the role to retrieve. |
+| `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role to retrieve. |
 
 ## Create Role
 
@@ -104,7 +104,7 @@ curl --request POST \
   --url 'https://{extension_url}/roles' \
   --header 'Authorization: Bearer {access_token}' \
   --header 'content-type: application/json' \
-  --data '{ "name":"My new example name", "description":"Example description", "applicationType":"client", "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa", "permissions":["bc6945e0-393a-4405-99d9-96903eaec4a1"] }'
+  --data '{ "name":"My new example name", "description":"Example description", "applicationType":"client", "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa", "permissions":["{permission_id}"] }'
 ```
 
 > RESPONSE SAMPLE:
@@ -136,12 +136,12 @@ Use this endpoint to create a role.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
 | `name` | The new role's name |
 | `description` | The new role's description |
 | `applicationType` | The new role's application type |
 | `applicationId` | The new role's application Id |
-| `permissions` | The list of permissions for the new role |
+| `permissions` | A comma separated list of permissions (`{permission_id}`) for the new role |
 
 ## Update Role
 
@@ -157,7 +157,7 @@ Authorization:  'Bearer {access_token}'
    "applicationType":"client",
    "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa",
    "permissions":[
-      "deeb552d-2d98-4efb-bb84-0c8babe5f431"
+      "{permission_id}"
    ]
 }
 ```
@@ -166,7 +166,7 @@ Authorization:  'Bearer {access_token}'
 curl --request PUT \
   --url 'https://{extension_url}/roles/{role_id}' \
   --header 'Authorization: Bearer {access_token}' \
-  --data '{ "name":"My new example name", "description":"Example description", "applicationType":"client", "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa", "permissions":["deeb552d-2d98-4efb-bb84-0c8babe5f431"] }'
+  --data '{ "name":"My new example name", "description":"Example description", "applicationType":"client", "applicationId":"LcGQZRtjVPPtZfq33I8vtKxldPKPRwBa", "permissions":["{permission_id}"] }'
 ```
 
 > RESPONSE SAMPLE:
@@ -196,7 +196,7 @@ Use this endpoint to update the details of a role.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
 | `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role to update |
 | `name` | The updated role name |
 | `description` | The updated role description |
@@ -240,5 +240,5 @@ Use this endpoint to remove a role.
 | Parameter        | Description |
 |:-----------------|:------------|
 | `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | access token |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
 | `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role to delete |
