@@ -2,7 +2,7 @@
 
 The Authentication API exposes the identity functionality of Auth0, as well as the supported identity protocols like [OpenID Connect](/protocols/oidc), [OAuth 2.0](/protocols/oauth2), and [SAML](/protocols/saml).
 
-If you want to implement authentication in your application, it is suggested that you reference our [Quickstart Tutorials](/quickstarts) which walks you through the implementation for a wide range of technologies and platforms.
+If you want to implement authentication in your application, it is suggested that you reference our [Quickstart Tutorials](/quickstarts) which walk you through the implementation for a wide range of technologies and platforms.
 
 You can make use of the Authentication API by making the HTTP requests yourself or by making use of the [Auth0.js library](/libraries/auth0js). You can also use the [Lock widget](/libraries/lock) for web applications, or alternatively you can make use of [Lock for iOS](/libraries/lock-ios/v2) and [Lock for Android](/libraries/lock-android).
 
