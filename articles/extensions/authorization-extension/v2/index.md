@@ -11,8 +11,8 @@ The Auth0 Authorization Extension provides user authorization support in Auth0. 
 
 First make sure you have a Client created that can support the Authorization extension. Supported client types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Clients with no type assigned or non-interactive clients are not supported.
 
-::: note
-  Installing this extension creates an `auth0-authz` client for your account. <strong>Do not delete this client!</strong> If you uninstall the extension at a later date, it will automatically delete this client as well.
+::: warning
+Installing this extension creates an `auth0-authz` client for your account. **Do not delete this client!** If you uninstall the extension at a later date, this client will be deleted automatically.
 :::
 
 To install the Authorization extension, click on the "Auth0 Authorization" box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app. You will also need to choose where to store the data which is documented under [Storage Types](#storage-types).
@@ -59,9 +59,9 @@ Here you can configure:
 
 If you want to store the data for the Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces.
 
-Please note however that if your are using [OIDC Conformant Authentication](/api-auth/intro) that the custom attributes added to the token by the Authorization Extension will not be added to the `id_token` due to the fact that [custom claims need to be namespaced](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims).
+Please note however that if your are using [OIDC Conformant Authentication](/api-auth/intro), the custom attributes added to the token by the Authorization Extension will not be added to the `id_token` due to the fact that [custom claims need to be namespaced](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims).
 
-If you therefore choose to enable this option, you will also need to manually add an extra [Rule](/docs/rules) which will add namespaced claims for these attributes. An example of such a Rule can be seen below:
+If you therefore choose to enable this option, you will also need to manually add an extra [Rule](/rules) which will add namespaced claims for these attributes. An example of such a Rule can be seen below:
 
 ```js
 function (user, context, callback) {
@@ -125,12 +125,12 @@ There are two ways for you to manage users and their Group memberships:
 The Groups that you will create are dependent on the needs of your business process. For example, you might have a Group for your users in Finance, a group for your users in IT, and so on. Additionally, you may create nested groups, similar to the following:
 
 * Example Company
-    * Accounting
-        * External Accountants
-    * Human Resources
-    * Finance
-        * Finance IT Support
-    * Management
+  * Accounting
+    * External Accountants
+  * Human Resources
+  * Finance
+    * Finance IT Support
+  * Management
 
 To create nested Groups, you must first create all of the individual groups via the **CREATE** button on the Groups page of the Authorization Dashboard.
 
@@ -138,9 +138,9 @@ To create nested Groups, you must first create all of the individual groups via 
 
 To nest the groups:
 
-1. Open up the top-level Group (in the example above, this would be the Example Company Group);
-2. Click on the **Nested Groups** tab;
-3. Click on the **ADD NESTED GROUP** button. Then you will be presented with a list of Groups that can be added to the primary Group. To select a particular Group, click on the check box to the left of the name. After each selection, you will be returned to the primary Group page. Continue this process until you have included all the Groups you need.
+1. Open up the top-level Group (in the example above, this would be the Example Company Group)
+2. Click on the **Nested Groups** tab
+3. Click on the **ADD NESTED GROUP** button. You will be presented with a list of Groups that can be added to the primary Group. To select a particular Group, click on the check box to the left of the name. After each selection, you will be returned to the primary Group page. Continue this process until you have included all the Groups you need.
 
 With nested Groups, adding a user to a sub-Group also grants the user permissions granted to the Groups that are parents of that Group. For example, adding a user to the External Accountants group automatically makes them a member of the Finance and Company Groups. Please note, however, that the user is only explicitly a member of External Accountants; all other memberships are purely dynamic and are calculated as needed (for example, when loading the user's group memberships).
 
