@@ -1332,9 +1332,5 @@ module.exports = [
   {
     from: '/quickstart/spa/angular2/06-token-renewal',
     to: '/quickstart/spa/angular2/05-token-renewal'
-  },
-  {
-    from: '/prelaunch-tips',
-    to: '/pre-deployment/prelaunch-tips'
   }
 ];
