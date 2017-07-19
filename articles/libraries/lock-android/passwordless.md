@@ -19,7 +19,7 @@ In order to be able to authenticate the user, your application must have the Ema
 
 ## Implementing CODE Passwordless
 
-In your `app/build.gradle` file add a [Manifest Placeholder](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain property which is going to be used internally by the library to register an intent-filter.
+In your `app/build.gradle` file add the [Manifest Placeholders](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain and the Auth0 Scheme properties which are going to be used internally by the library to register an intent-filter that captures the callback URI.
 
 ```groovy
 apply plugin: 'com.android.application'
@@ -33,7 +33,7 @@ android {
         //...
 
         //---> Add the next line
-        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain"]
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "https"]
         //<---
     }
     //...
@@ -61,7 +61,6 @@ Add the `PasswordlessLockActivity`. Depending on which passwordless connection y
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
-
         <data
             android:host="@string/com_auth0_domain"
             android:pathPrefix="/android/<%= "${applicationId}" %>/email"
@@ -74,10 +73,10 @@ The `data` attribute of the intent-filter defines which syntax of "Callback URI"
 
 
 ::: note
-In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `PasswordlessLockActivity` to make possible to the library to capture a Social provider's authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0 unless you need to use a custom scheme, as it's now done internally by the library for you.
+In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `PasswordlessLockActivity` to make possible to the library to capture a **Social** provider's authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0 , as it's now done internally by the library for you.
 :::
 
-In case you are using an older version of Lock or require to use a custom scheme for Social Authentication, the **data** attribute inside the intent-filter must be added to the `PasswordlessLockActivity` by you. i.e. with a scheme value of `demo`.
+In case you are using an older version of Lock for Social Authentication, the **data** attribute that captures the "/callback" redirect URI inside the intent-filter must be added to the `PasswordlessLockActivity` by you.
 
 ```xml
 <activity

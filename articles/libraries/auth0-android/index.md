@@ -82,7 +82,7 @@ https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name, available in your `app/build.gradle` file as the `applicationId` value.
 :::
 
-Then in your `app/build.gradle` file add a [Manifest Placeholder](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain property which is going to be used internally by the library to register an intent-filter.
+Then in your `app/build.gradle` file add the [Manifest Placeholders](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain and the Auth0 Scheme properties which are going to be used internally by the library to register an intent-filter that captures the callback URI.
 
 ```groovy
 apply plugin: 'com.android.application'
@@ -96,7 +96,7 @@ android {
         //...
 
         //---> Add the next line
-        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain"]
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "https"]
         //<---
     }
     //...
@@ -105,9 +105,7 @@ android {
 
 It's a good practice to define reusable resources like `@string/com_auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
 
-Alternatively, you can declare the `RedirectActivity` in the `AndroidManifest.xml` file with your own **intent-filter** so it overrides the library's default. If you do this then the Manifest Placeholder don't need to be set as long as the activity contains the tools:node="replace" like in the snippet below.
-
-In your manifest inside your application's tag add the `RedirectActivity` declaration:
+Alternatively, you can declare the `RedirectActivity` in the `AndroidManifest.xml` file with your own **intent-filter** so it overrides the library's default. If you do this then the Manifest Placeholders don't need to be set as long as the activity declaration contains the `tools:node="replace"` attribute:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -122,10 +120,8 @@ In your manifest inside your application's tag add the `RedirectActivity` declar
             tools:node="replace">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="@string/com_auth0_domain"
                     android:pathPrefix="/android/<%= "${applicationId}" %>/callback"
@@ -139,8 +135,6 @@ In your manifest inside your application's tag add the `RedirectActivity` declar
 </manifest>
 ```
 
-If you choose to use a [custom scheme](#use-a-custom-scheme-for-the-redirect-uri) you **must** define your own intent-filter as explained above and replace the `android:scheme` value with the new one.
-
 Finally, don't forget to add the internet permission:
 
 ```xml
@@ -148,7 +142,7 @@ Finally, don't forget to add the internet permission:
 ```
 
 ::: note
-In versions 1.8.0 or lower of Auth0.Android you had to define the **intent-filter** inside your activity to capture the authentication result in the `onNewIntent` method and then call `WebAuthProvider.resume()` with the received data. The intent-filter declaration and resume call are no longer required for versions greater than 1.8.0 unless you need to use a custom scheme, as it's now done internally by the library for you.
+In versions 1.8.0 or lower of Auth0.Android you had to define the **intent-filter** inside your activity to capture the authentication result in the `onNewIntent` method and then call `WebAuthProvider.resume()` with the received data. The intent-filter declaration and resume call are no longer required for versions greater than 1.8.0, as it's now done internally by the library for you.
 :::
 
 Now, let's authenticate a user by presenting the Auth0 [Hosted Login Page](hosted-pages/login):
@@ -222,7 +216,7 @@ WebAuthProvider.init(account)
 
 ### Use a custom scheme for the Redirect URI
 
-If you're not using Android "App Links" or you just want to use a different scheme for the _redirect uri_ then use `withScheme`. Note that you'll need to add or update the `intent-filter` on the application's manifest as explained above:
+If you're not using Android "App Links" or you just want to use a different scheme for the _redirect uri_ then use `withScheme`. Note that you'll need to update the `auth0Scheme` Manifest Placeholder in the `app/build.gradle` file and the whitelisted Callback URL in the dashboard to match the chosen scheme:
 
 ```java
 WebAuthProvider.init(account)
