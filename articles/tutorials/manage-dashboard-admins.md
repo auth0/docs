@@ -11,14 +11,7 @@ Admin users can be added and removed from the dashboard, by going to **Account S
 
 ![Change Dashboard Admins](/media/articles/tutorials/manage-admins.png)
 
-To add an Admin, enter the email of the account and then select the applications you would like this user to have admin access to in the **Application** box. Then click the **ADD** button.
+To add an Admin, enter the email of the account and then select the applications you would like this user to have admin access to in the **Application** box. Then click the **ADD** button. Admins can be removed by clicking the **REMOVE** button after they have been added.
 
-Admins can be removed by clicking the **REMOVE** button after they have been added.
+The MFA indicator will indicate whether an Admin has enabled their account for [Mulfifactor Authentication](/multifactor-authentication). They can enable Multifactor Authentication for their accounts in their [Account Settings](/dashboard-account-settings#multifactor).
 
-## Enabling Multifactor Authentication
-
-As an Admin you can enable Multifactor Authentication for your account by going to the _General_ tab of your [Account Settings](${manage_url}/#/account), and clicking on the _Enroll your device now_ link.
-
-![Change Dashboard Admins](/media/articles/tutorials/admin-mfa.png)
-
-This will walk you through the steps for [enrolling with MFA](/multifactor-authentication/guardian/user-guide).
