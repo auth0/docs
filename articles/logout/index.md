@@ -216,3 +216,45 @@ To prevent a Session Participant from being notified, you can set `logout.slo_en
 #### Non Single Logout Scenario
 
 If your Service Provider does not support SAML SLO, but provides a redirect URL where the user will be redirected to after logging out of the SP, the best thing to do is configure the redirect URL to `https://${account.namespace}/logout`. This won't notify other session participants that a logout was initiated, but it will at remove the session from Auth0.
+
+## Implementing in your Application
+
+For guidance and sample code on how to implement logout functionality in your application please refer to our [Quickstarts](/quickstarts):
+
+### Mobile / Native Apps
+
+* [Android](/quickstart/native/android/03-session-handling#log-out)
+* [Chrome Extension](/quickstart/native/chrome)
+* [Cordova](/quickstart/native/cordova)
+* [Ionic](/quickstart/native/ionic)
+* [Ionic 2+](/quickstart/native/ionic2)
+* [iOS Objective-C](/quickstart/native/ios-objc/03-user-sessions#on-logout-clear-the-keychain)
+* [iOS Swift](/quickstart/native/ios-swift/03-user-sessions#on-logout-clear-the-keychain)
+
+### Single Page Apps
+
+* [Angular 2+](/quickstart/spa/angular2)
+* [AngularJS](/quickstart/spa/angularjs)
+* [Aurelia](/quickstart/spa/aurelia)
+* [Cycle](/quickstart/spa/cyclejs#5-implement-the-logout)
+* [Ember](/quickstart/spa/ember)
+* [JavaScript](/quickstart/spa/vanillajs)
+* [React](/quickstart/spa/react)
+* [Vue](/quickstart/spa/vuejs)
+* [jQuery](/quickstart/spa/jquery)
+
+### Web Apps
+
+* [ASP.NET (OWIN)](/quickstart/webapp/aspnet-owin/01-login#add-login-and-logout-methods)
+* [ASP.NET (System.Web)](/quickstart/webapp/aspnet#logout)
+* [ASP.NET Core](/quickstart/webapp/aspnet-core/01-login#add-login-and-logout-methods)
+* [Java](/quickstart/webapp/java)
+* [Java Spring MVC](/quickstart/webapp/java-spring-mvc)
+* [Java Spring Security](/quickstart/webapp/java-spring-security-mvc)
+* [NancyFX](/quickstart/webapp/nancyfx)
+* [Node.js](/quickstart/webapp/nodejs)
+* [PHP (Laravel)](/quickstart/webapp/laravel)
+* [PHP (Symfony)](/quickstart/webapp/symfony)
+* [Python](/quickstart/webapp/python#6-logout)
+* [Ruby on Rails](/quickstart/webapp/rails/02-session-handling#logout-action)
+
