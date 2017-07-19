@@ -349,7 +349,7 @@ articles:
         url: "/policies"
     
   - title: "Pre-Deployment"
-    url: "/pre-deployment-tests"
+    url: "/pre-deployment"
     children:
       - title: Useful Tips
         url: /pre-deployment/prelaunch-tips
