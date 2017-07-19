@@ -1,10 +1,9 @@
 ---
-url: /prelaunch-tips
 title: Pre-launch Tips 
 description: A list of helpful tips for when getting started with Auth0 services based on feedback and experience from others.
 ---
 
-# Pre-launch Tips 
+# Pre-Launch Tips 
 
 Here is a list of tips our customers have found most useful when first getting started with Auth0 services:
 
