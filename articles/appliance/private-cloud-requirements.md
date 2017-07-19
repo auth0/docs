@@ -1,6 +1,7 @@
 ---
 section: appliance
 description: This document details the requirements for the Auth0 Dedicated Cloud Service.
+toc: true
 ---
 # Requirements for the Auth0 Dedicated Cloud Service
 
@@ -10,13 +11,13 @@ If your subscription agreement includes a Private SaaS (PSaaS) Appliance that is
 
 Auth0 will provide you with an account to access the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}), where you can obtain information about your Auth0 environment and open support tickets. This account will be linked to your PSaaS Appliance and current [Support](/support) plan.
 
-In general, your tenant name is formatted as follows: **<customer>**-support
+In general, the tenant name you'll use for support is formatted as follows: **customer_name**-support
 
 You will also be asked to provide a list of tenant admins. Note that tenant admins can invite other support users.
 
 ## Preferred AWS Regions
 
-You'll be asked for your preferred AWS regions, such as AWS US-WEST-2, AWS US-East-1, AWS EU-Central-1, and so on. You'll need to select:
+You'll be asked for your preferred AWS regions, such as `AWS US-WEST-2`, `AWS US-East-1`, `AWS EU-Central-1`, and so on. You'll need to select:
 
 * One region for your Development node
 * One region (with at least three [availability zones](https://docs.google.com/document/d/1hGYOu8jHZbTHYz_yVZUWFyaOMFkaDag4DNPJ-0jk6lg/edit#)) for your Production cluster
@@ -27,12 +28,12 @@ You'll be asked for your preferred AWS regions, such as AWS US-WEST-2, AWS US-Ea
 Please finalize  DNS names prior to PSaaS Appliance deployment.
 :::
 
-First, you will choose the domain names for your environments. If you have Development and Production |environments, your domain names will typically be formatted as follows:
+You'll need to choose the domain names for your environments. If you have Development and Production environments, your domain names will typically be formatted as follows:
 
 | Environment | Sample Domain Name          |
 | ----------- | --------------------------- |
-| Development | **<company>**-dev.auth0.com |
-| Production  | **<company>**.auth0.com     |
+| Development | **company**-dev.auth0.com |
+| Production  | **company**.auth0.com     |
 
 You will then need to chose DNS names for the Management Dashboard, Webtask endpoints, and App Tenant.
 
@@ -68,7 +69,9 @@ The first (left-most) part of the name must have at least three characters.
 
 The word `login` is reserved and **cannot** be used.
 
-The domain name you use for tenants hosted in the Dedicated Cloud Service **cannot** be the same as any you're using for tenants hosted in the Public Cloud Service. **If you want to use your domain name in use on the Public Cloud Service in the Dedicated Cloud Service, we will need to delete your Public Cloud Service account.**
+The domain name you use for tenants hosted in the Dedicated Cloud Service **cannot** be the same as any you're using for tenants hosted in the Public Cloud Service. 
+
+**If you want to use your domain name in use on the Public Cloud Service in the Dedicated Cloud Service, we will need to delete your Public Cloud Service account.**
 
 ## Administrator Email Addresses
 
@@ -100,10 +103,6 @@ Custom domains are optional, and Auth0 SLAs do **not** cover this portion of the
 :::
 
 You can configure custom domain names for your app tenants' domains. 
-
-If you choose to use a custom domain, you'll need to obtain and renew the corresponding certificate (signed by a public Certificate Authority) and manage its DNS name records. You would then add the appropriate entries to your DNS that aliases the Auth0 identity (e.g. identity.\<yourname\>.com => identity.\<yourname\>.auth0.com)
-When you have the certificate ready, you can submit a Support Ticket and we will arrange a meeting with an Auth0 Managed Service Engineer so that you can upload the the certificate.
-Auth0 SLA agreement does not cover this part of the infrastructure.
 
 If you choose to use custom domains, you'll need to obtain the appropriate certificates signed by a public certificate authority (as well as renew them when the time comes), manage the DNS name records, and add the appropriate DNS entries that alias the Auth0 identity.
 
