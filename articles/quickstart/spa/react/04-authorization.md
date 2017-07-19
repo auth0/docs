@@ -57,7 +57,7 @@ userHasScopes(scopes) {
 }
 ```
 
-## Conditionally Dislay UI Elements
+## Conditionally Display UI Elements
 
 The `userHasScopes` method can now be used alongside `isAuthenticated` to conditionally show and hide certain UI elements based on those two conditions.
 
