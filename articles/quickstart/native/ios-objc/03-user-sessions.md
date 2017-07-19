@@ -259,6 +259,7 @@ Besides the defaults, you can request more information than returned in the basi
 You can store additional user information in the user metadata. In order to do so, you need to perform a `patch`:
 
 ```objc
+// ProfileViewController.m
 NSString *idToken = ... // You will need the idToken from your credentials instance 'credentials.idToken'
 UserInfo *profile = ... // the Profile instance you obtained before
 HybridAuth *auth = [[HybridAuth alloc] init];
@@ -276,6 +277,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 The `user_metadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one you're going to work with in this tutorial.
 
 ```objc
+// HomeViewController.m
 HybridAuth *auth = [[HybridAuth alloc] init];
 [auth userProfileWithIdToken:idToken userId:profile.sub callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
     if (error) {
@@ -290,6 +292,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 You can then access its fields as follows:
 
 ```objc
+// ProfileViewController.m
 NSString* firstName = [metaData objectForKey:@"first_name"];
 NSString* lastName = [metaData objectForKey:@"last_name"];
 NSString* country = [metaData objectForKey:@"country"];
