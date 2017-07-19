@@ -3,7 +3,6 @@ section: libraries
 toc: true
 description: Lock 10 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
 ---
-
 # Lock: Configuration Options
 
 The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the Lock widget behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
@@ -14,11 +13,12 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 ## Index of Configurable Options
 
-### Display Options
+### Display
 
 | Option | Description |
 | --- | --- |
 | [allowedConnections](#allowedconnections-array-) | limit the client connections shown in Lock to a particular set |
+| [allowShowPassword](#allowshowpassword-boolean-) | Whether to allow the user to show password as typing |
 | [autoclose](#autoclose-boolean-) | Whether or not Lock auto closes after a login |
 | [autofocus](#autofocus-boolean-) | Whether or not focus is set on first input field |
 | [avatar](#avatar-object-) | Obtain avatar from a non gravatar source |
@@ -29,7 +29,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [popupOptions](#popupoptions-object-) | Customize the location of the popup |
 | [rememberLastLogin](#rememberlastlogin-boolean-) | Whether to remember the last login option chosen |
 
-### Theming Options
+### Theming
 
 | Option | Description |
 | --- | --- |
@@ -39,13 +39,13 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [logo](#logo-string-) | What logo should be used |
 | [primaryColor](#primarycolor-string-) | Color of the primary button on the widget |
 
-### Social Options
+### Social
 
 | Option | Description |
 | --- | --- |
 | [socialButtonStyle](#socialbuttonstyle-string-) | Force small or large social connection buttons |
 
-### Authentication Setup
+### Authentication
 
 | Option | Description |
 | --- | --- |
@@ -59,7 +59,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [responseType](#responsetype-string-) | Response as a code or token |
 | [sso](#sso-boolean-) | Whether or not to enable Single Sign On behavior in Lock |
 
-### Database Options
+### Database
 
 | Option | Description |
 | --- | --- |
@@ -76,13 +76,13 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [signUpLink](#signuplink-string-) | Set a custom url to fire when clicking "sign up" |
 | [usernameStyle](#usernamestyle-string-) | Toggle "username", "password" or "username and password" |
 
-### Enterprise Options
+### Enterprise
 
 | Option | Description |
 | --- | --- |
 | [defaultEnterpriseConnection](#defaultenterpriseconnection-string-) | Specifies a connection if more than one present |
 
-### Other Options
+### Other
 
 | Option | Description |
 | --- | --- |
@@ -122,6 +122,20 @@ Examples of `allowedConnections`:
 ![Lock - Allowed Connections](/media/articles/libraries/lock/v10/customization/lock-allowedconnections-database.png)
 
 ![Lock - Allowed Connections](/media/articles/libraries/lock/v10/customization/lock-allowedconnections-social.png)
+
+### allowShowPassword {Boolean}
+
+This option determines whether or not to add a checkbox to the UI which, when selected, will allow the user to show their password when typing it. The option defaults to `false`.
+
+```js
+var options = {
+  allowShowPassword: true
+};
+```
+
+Lock with `allowShowPassword` set to `true` and toggled to show the password:
+
+![Lock - Avatar](/media/articles/libraries/lock/v10/customization/lock-allowshowpassword.png)
 
 ### autoclose {Boolean}
 
@@ -169,7 +183,7 @@ var options = {
       var displayName = obtainDisplayName(email);
       cb(null, displayName);
     }
-  }    
+  }
 };
 ```
 
@@ -185,7 +199,6 @@ Default behavior with Gravatar:
 
 ![Lock - Avatar](/media/articles/libraries/lock/v10/customization/lock-avatar.png)
 
-
 ### closable {Boolean}
 
 Determines whether or not the Lock can be closed. When a `container` option is provided its value is always `false`, otherwise it defaults to `true`.
@@ -198,7 +211,6 @@ var options = {
 
 ![Lock - Closable](/media/articles/libraries/lock/v10/customization/lock-closable.png)
 
-
 ### container {String}
 
 The `id` of the html element where the widget will be shown.
@@ -206,7 +218,6 @@ The `id` of the html element where the widget will be shown.
 ::: note
 This makes the widget appear inline within your `div` instead of in a modal pop-out window.
 :::
-
 
 ```html
 <div id="hiw-login-container"></div>
@@ -226,10 +237,9 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
 
 ![Lock - Container](/media/articles/libraries/lock/v10/customization/lock-container.png)
 
-### language {String}:
+### language {String}
 
 Specifies the language of the widget. Defaults to "en". See the [internationalization directory](https://github.com/auth0/lock/blob/master/src/i18n/) for a current list of provided languages.
-
 
 ```js
 // select a supported language
@@ -239,7 +249,6 @@ var options = {
 ```
 
 ![Lock - Language](/media/articles/libraries/lock/v10/customization/lock-language.png)
-
 
 ### languageDictionary {Object}
 
@@ -257,7 +266,6 @@ var options = {
 ![Lock - Language Dictionary](/media/articles/libraries/lock/v10/customization/lock-languagedictionary.png)
 
 Additionally, check out the [Customizing Error Messages](/libraries/lock/v10/customizing-error-messages) page or the [Internationalization](/libraries/lock/v10/i18n) page for more information about the use of the `languageDictionary` option.
-
 
 ### popupOptions {Object}
 
@@ -325,7 +333,7 @@ This option indicates whether or not the submit button should have a label, and 
 var options = {
   theme: {
     labeledSubmitButton: false
-  }  
+  }
 };
 ```
 
@@ -341,12 +349,11 @@ The value for `logo` is an URL for an image that will be placed in the Lock's he
 var options = {
   theme: {
     logo: 'https://example.com/logo.png'
-  }  
+  }
 };
 ```
 
 ![Lock - Theme - Logo](/media/articles/libraries/lock/v10/customization/lock-theme-logo.png)
-
 
 #### primaryColor {String}
 
@@ -357,7 +364,7 @@ var options = {
   theme: {
     logo: 'https://example.com/logo.png',
     primaryColor: '#31324F'
-  }  
+  }
 };
 ```
 
@@ -368,8 +375,9 @@ var options = {
 ### socialButtonStyle {String}
 
 Determines the size of the buttons for the social providers. Possible values are `big` and `small`. The default style depends on the connections that are available:
- - If only social connections are available, it will default to `big` when there are 5 connections at most, and default to `small` otherwise.
- - If connections from types other than social are also available, it will default to `big` when there are 3 social connections at most, and default to `small` otherwise.
+
+- If only social connections are available, it will default to `big` when there are 5 connections at most, and default to `small` otherwise.
+- If connections from types other than social are also available, it will default to `big` when there are 3 social connections at most, and default to `small` otherwise.
 
 First example, with three social connections, and other connections (in this case, a username-password connection) - with forced small buttons.
 
@@ -381,7 +389,6 @@ var options = {
 
 ![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small.png)
 
-
 Second example, with `socialButtonStyle` remaining at default behavior - three social connections, with no other connections enabled for this client in the dashboard.
 
 ```js
@@ -390,7 +397,6 @@ var options = {};
 
 ![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-default-social.png)
 
-
 Third example, with `socialButtonStyle` remaining at default behavior - the app has three social connections, with other connections turned on in the dashboard (in this case, a username-password connection).
 
 ```js
@@ -398,7 +404,6 @@ var options = {};
 ```
 
 ![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-default.png)
-
 
 Fourth example, with three social connections, and no other connections enabled in the dasbboard, but with forced small buttons.
 
@@ -409,7 +414,6 @@ var options = {
 ```
 
 ![Lock - Social Button Style](/media/articles/libraries/lock/v10/customization/lock-socialbuttonstyle-small-social.png)
-
 
 ## Authentication Options
 
@@ -438,7 +442,7 @@ var options = {
   auth: {
     autoParseHash: false
   }
-};  
+};
 ```
 
 #### connectionScopes {Object}
@@ -467,9 +471,9 @@ var options = {
     params: {
       state: 'foo',
       scope: 'openid email user_metadata app_metadata picture'
-    },
+    }
   }
-};  
+};
 ```
 
 ::: note
@@ -489,7 +493,7 @@ var options = {
   auth: {
     redirect: false
   }
-};  
+};
 ```
 
 #### redirectUrl {String}
@@ -501,7 +505,7 @@ var options = {
   auth: {
     redirectUrl: 'http://testurl.com'
   }
-};  
+};
 ```
 
 ::: note
@@ -519,7 +523,7 @@ var options = {
   auth: {
     responseMode: 'form_post'
   }
-};  
+};
 ```
 
 #### responseType {String}
@@ -531,7 +535,7 @@ var options = {
   auth: {
     responseType: 'token'
   }
-};  
+};
 ```
 
 #### sso {Boolean}
@@ -547,7 +551,7 @@ var options = {
   auth: {
     sso: true
   }
-};  
+};
 ```
 
 ## Database Options
@@ -589,7 +593,6 @@ var options = {
 ```
 
 ![Lock - Additional Signup Fields](/media/articles/libraries/lock/v10/customization/lock-additionalsignupfields.png)
-
 
 #### Select Field
 
