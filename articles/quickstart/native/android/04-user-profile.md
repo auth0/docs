@@ -28,6 +28,7 @@ Before launching the log in you need to ask for the `openid profile email` scope
 Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
 WebAuthProvider.init(auth0)
+                .withScheme("demo")
                 .withScope("openid profile email")
                 .start(this, callback);
 ```

@@ -24,7 +24,7 @@ This quickstart will show you how to add Auth0 login capabilities while using a 
 You'll first need to whitelist the **Callback URL** in the "Allowed Callback URLs" section of the [Client settings](${manage_url}/#/clients) by adding the URL below. Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the `app/build.gradle` file as the `applicationId` attribute:
 
 ```text
-https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
+demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
 <%= include('_includes/_auth0') %>__
@@ -89,6 +89,7 @@ private void login() {
     Auth0 auth0 = new Auth0(this);
     auth0.setOIDCConformant(true);
     WebAuthProvider.init(auth0)
+                  .withScheme("demo")
                   .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
                   .withConnection("twitter")
                   .start(this, new AuthCallback() {

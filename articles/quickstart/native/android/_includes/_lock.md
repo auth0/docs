@@ -23,7 +23,7 @@ You can check for the latest version on the repository [Readme](https://github.c
 :::
 
 
-Now add a _Manifest Placeholder_, required by the SDK to define internally an **intent-filter** to capture the authentication callback. You do that by adding the next line:
+Now add the _Manifest Placeholders_, required by the SDK to define internally an **intent-filter** to capture the authentication callback. You do that by adding the next line:
 
 ```xml
 apply plugin: 'com.android.application'
@@ -37,7 +37,7 @@ android {
         //...
 
         //---> Add the next line
-        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain"]
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "demo"]
         //<---
     }
 }

@@ -22,7 +22,7 @@ Declare the `LockActivity` in your project's `AndroidManifest.xml`:
               <category android:name="android.intent.category.LAUNCHER" />
           </intent-filter>
         </activity>
-        
+
         <activity
             android:name="com.auth0.android.lock.LockActivity"
             android:label="@string/app_name"
@@ -40,7 +40,7 @@ It's very important to specify the `android:launchMode="singleTask"` in your act
 The next step is to whitelist the **Callback URL** of your client. Edit the "Allowed Callback URLs" section of the [Client settings](${manage_url}/#/clients) and add an URL that looks like this:
 
 ```text
-https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
+demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
 Replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the app's `build.gradle` file as the `applicationId` attribute.
