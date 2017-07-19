@@ -1332,5 +1332,9 @@ module.exports = [
   {
     from: '/quickstart/spa/angular2/06-token-renewal',
     to: '/quickstart/spa/angular2/05-token-renewal'
+  },
+  {
+    from: '/security/token-exp',
+    to: '/tokens'
   }
 ];
