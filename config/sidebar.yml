@@ -54,9 +54,7 @@ articles:
           #   url: /architecture-scenarios/business/b2c
           
           # - title: B2E
-          #   url: /architecture-scenarios/business/b2e
-      - title: Pre-launch Tips
-        url: /prelaunch-tips  
+          #   url: /architecture-scenarios/business/b2e 
 
   - title: "Clients"
     url: "/clients"
@@ -352,6 +350,12 @@ articles:
     
   - title: "Pre-Deployment"
     url: "/pre-deployment-tests"
+    children:
+      - title: Useful Tips
+        url: /prelaunch-tips
+      
+      - title: Run Tests
+        url: /pre-deployment/how-to-run-test
 
   - title: "Professional Services"
     url: "/services"
