@@ -182,7 +182,7 @@ This example assumes you are using path-based routing with `<BrowserRouter>`. If
 
 ## Process the Authentication Result
 
-When a user authenticates at Auth0's hosted login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `Auth` service is responsbile for processing the hash.
+When a user authenticates at Auth0's hosted login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `Auth` service is responsible for processing the hash.
 
 Call `handleAuthentication` when the `Callback` route is rendered so that the authentication hash fragment can be processed when the `Callback` component is initialzed.
 
