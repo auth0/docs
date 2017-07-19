@@ -1,7 +1,7 @@
 ---
 description: Considerations regarding the User Profile when using a Custom DB.
 ---
-# Considerations when using a Custom Database Connection
+# Update Users using a Custom Database
 
 Auth0 [caches the User Profile](/user-profile/user-profile-details#caching-of-the-user-profile-in-auth0) received from a Custom Database Connection prior to passing it on to the calling client application. This cache is stored in the Auth0 database, and the information in the cache that originates from the Custom Database Connection is refreshed each time the user authenticates.
 

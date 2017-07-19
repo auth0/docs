@@ -157,5 +157,5 @@ You can also restrict users from clients by configuring a new connection and onl
 * [Auth0 Normalized User Profile](/user-profile/normalized)
 * [User Metadata](/metadata)
 * [User Profile: In-Depth Details](/user-profile/user-profile-details)
-* [Considerations regarding the User Profile when using a Custom DB](/user-profile/customdb)
+* [Update Users using a Custom Database](/user-profile/customdb)
 :::

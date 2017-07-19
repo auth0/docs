@@ -54,7 +54,7 @@ On the **Custom Database** page, under *Database Action Scripts*, you will see t
 
 ![Database Action Scripts page](/media/articles/connections/database/import-scripts.png)
 
-These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. For more information on implementing these scripts, see [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql).
+These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. For more information on implementing these scripts, see [Authenticate Users using a Custom Database](/connections/database/mysql).
 
 The **Login** script executes each time a user that is not found in Auth0 database attempts to log in. It verifies that the user exists in the legacy database without prompting the user for their password again.
 
