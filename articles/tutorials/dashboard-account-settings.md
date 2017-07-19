@@ -14,9 +14,9 @@ Here you can view the fields set for your account. If you have multiple accounts
 
 ### Multifactor 
 
-Here you can choose to use Multifactor Authentication for login into your Auth0 account. Click on the **Enroll your device now** link to set this up.
+Multifactor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information. You can enable Multifactor Authentication for your account by clicking on the _Enroll your device now_ link.
 
-See the [Multifactor Authentication in Auth0](/multifactor-authentication) docs to learn more.
+This will walk you through the steps for [enrolling with MFA](/multifactor-authentication/guardian/user-guide).
 
 ### Settings
 
