@@ -51,11 +51,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to retrieve all roles.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 
 ## Get a single Role
 
@@ -85,11 +86,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get a single role based on its unique identifier.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role to retrieve. |
 
 ## Create Role
@@ -131,12 +133,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to create a role.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `name` | The new role's name |
 | `description` | The new role's description |
 | `applicationType` | The new role's application type |
@@ -191,12 +193,12 @@ curl --request PUT \
 
 Use this endpoint to update the details of a role.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role to update |
 | `name` | The updated role name |
 | `description` | The updated role description |
@@ -235,10 +237,10 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to remove a role.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role to delete |

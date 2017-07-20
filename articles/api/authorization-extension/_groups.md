@@ -10,6 +10,7 @@ For more information, refer to [Auth0 Authorization Extension](/extensions/autho
 
 ```http
 GET https://{extension_url}/groups
+Authorization:  'Bearer {access_token}'
 ```
 
 > RESPONSE SAMPLE:
@@ -65,11 +66,22 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to retrieve all groups.
 
-### Request Parameters
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<div class="label label-default">read:groups</div>
+
+<span class="badge">read:groups</span>
+
+<span class="badge badge-info">read:groups</span>
+
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 
 ## Get a single Group
 
@@ -99,11 +111,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get a single group based on its unique identifier. Add "?expand" to also load all roles and permissions for this group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to retrieve. |
 
 ## Create Group
@@ -141,12 +154,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to create a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `name` <br/><span class="label label-danger">Required</span> | The name of the new group |
 | `description` | A description of the new group |
 
@@ -182,12 +195,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to delete a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to delete |
 
 ## Update Group
@@ -231,12 +244,12 @@ curl --request PUT \
 
 Use this endpoint to update the name or the description of a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to update |
 | `name` <br/><span class="label label-danger">Required</span> | The updated group name |
 | `description` <br/><span class="label label-danger">Required</span> | The updated group description |
@@ -269,11 +282,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to retrieve the mappings of a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to retrieve |
 
 ## Create Group Mappings
@@ -312,12 +326,12 @@ Use this endpoint to create one or more mappings in a group.
 
 Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the Groups information provided by the Identity Provider, you can dynamically make the user a member of the group in which you've created the appropriate mapping. For more information, refer to [Group Mappings](/extensions/authorization-extension/v2#group-mappings).
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to retrieve |
 | `groupName` <br/><span class="label label-danger">Required</span> | Group to add the users to |
 | `connectionName` <br/><span class="label label-danger">Required</span> | Connection for the mapping |
@@ -360,11 +374,11 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to delete one or more group mappings from a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose mappings you want to delete |
 
@@ -427,11 +441,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the members for a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group whose members you want to retrieve |
 
 ## Add Group Members
@@ -468,12 +483,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to add one or more members in a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add members |
 | `{user_id}` | Id of the user to add in a group |
 
@@ -511,12 +526,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to remove one or more members from a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove members |
 
 ## Get Nested Group Members
@@ -560,11 +575,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the nested members for a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
 
 ## Get Nested Groups
@@ -600,11 +616,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the nested groups for a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
 
 ## Add Nested Groups
@@ -642,12 +659,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to add nested groups.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add members |
 | `{member_id}` | List of members to add in a group |
 
@@ -685,12 +702,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to remove one or more nested groups.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove members |
 
 ## Get Group Roles
@@ -728,11 +745,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the roles for a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |
 
 ## Add Group Roles
@@ -769,12 +787,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to add roles to a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add members |
 | `{role_id}` | List of role IDs to add in the group |
 
@@ -812,12 +830,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to remove one or more groups roles.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which you want to remove members |
 | `{role_id}` <br/><span class="label label-danger">Required</span> | The IDs of the roles to be removed from the group |
 
@@ -883,9 +901,10 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the nested roles for a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group from which the nested members will be retrieved |

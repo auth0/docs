@@ -38,11 +38,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to retrieve all permissions.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 
 ## Get a single Permission
 
@@ -72,11 +73,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get a single permission based on its unique identifier.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{permission_id}` <br/><span class="label label-danger">Required</span> | The id of the permission to retrieve. |
 
 ## Create Permission
@@ -115,12 +117,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to create a permission.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `name` | The new permission's name |
 | `description` | The new permission's description |
 | `applicationType` | The new permission's application type |
@@ -168,12 +170,12 @@ curl --request PUT \
 
 Use this endpoint to update the details of a permission.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{permission_id}` <br/><span class="label label-danger">Required</span> | The id of the permission to update |
 | `name` | The updated permission name |
 | `description` | The updated permission description |
@@ -211,10 +213,10 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to remove a permission.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{permission_id}` <br/><span class="label label-danger">Required</span> | The id of the permission to delete |

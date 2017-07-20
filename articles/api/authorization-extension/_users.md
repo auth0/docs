@@ -50,11 +50,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to retrieve all users.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 
 ## Get a single User
 
@@ -110,11 +111,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get a single user based on its unique identifier.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user to retrieve. |
 
 ## Get User Groups
@@ -152,11 +154,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the groups of a single user, based on its unique identifier. Add "?expand" to also load all roles and permissions for these groups.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user to retrieve. |
 
 ## Add User to Groups
@@ -194,12 +197,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to add one or more users in a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user that you want to add to groups |
 | `{group_id}` <br/><span class="label label-danger">Required</span> | The id of the group to which you want to add users |
 
@@ -238,11 +241,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to calculate the group memberships for a user (including nested groups).
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user for whom you want to calculate the group memberships |
 
 ## Get User Roles
@@ -282,11 +286,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the roles of a single user, based on its unique identifier.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user for whom you want to retrieve the roles |
 
 ## Add User to Roles
@@ -324,12 +329,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to add one or more users in a group.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user that you want to assign to roles |
 | `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role to which you want to assign users |
 
@@ -368,12 +373,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to remove one or more user from a role.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user you want to remove from roles |
 | `{role_id}` <br/><span class="label label-danger">Required</span> | The id of the role(s) you want to remove users from |
 
@@ -414,11 +419,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to calculate the roles assigned to the user (including through group memberships).
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> | The id of the user for whom you want to calculate the roles |
 
 ## Execute Authorization Policy
@@ -465,12 +471,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to execute the authorization policy for a user in the context of a client. This will return the user's groups but also roles and permissions that apply to the current client.
 
-### Request Parameters
+### Parameters
 
 | Parameter        | Description |
 |:-----------------|:------------|
-| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension |
-| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more information on how to implement this, refer to our [Client Credentials implementation guide](/api-auth/tutorials/client-credentials) |
+| `{extension_url}` <br/><span class="label label-danger">Required</span> | The URL of your Authorization Extension. For more info, see [Find your extension URL](#find-your-extension-url) |
+| `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> |  |
 | `{client_id}` <br/><span class="label label-danger">Required</span> |  |
 | `connectionName` | The connection name |
