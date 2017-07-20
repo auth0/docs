@@ -20,9 +20,9 @@ For each endpoint in this explorer, you will find sample snippets you can use, i
 All endpoints in this explorer, start with `https://{extension_url}`. This is the URL of your Authorization Dashboard. It differs based on you tenant's region:
 
 <%
-  var urlUS = 'https://' + account.tenant + '.us.webtask.io/auth0-authentication-api-debugger';
-  var urlEU = 'https://' + account.tenant + '.eu.webtask.io/auth0-authentication-api-debugger';
-  var urlAU = 'https://' + account.tenant + '.au.webtask.io/auth0-authentication-api-debugger';
+  var urlUS = 'https://' + account.tenant + '.us.webtask.io/adf6e2f2b84784b57522e3b19dfc9201/api';
+  var urlEU = 'https://' + account.tenant + '.eu.webtask.io/adf6e2f2b84784b57522e3b19dfc9201/api';
+  var urlAU = 'https://' + account.tenant + '.au.webtask.io/adf6e2f2b84784b57522e3b19dfc9201/api';
 %>
 
 | Region | Extension URL |
