@@ -25,5 +25,5 @@
   url: "/libraries"
 
 - id: "appliance"
-  title: "Appliance"
+  title: "PSaaS Appliance"
   url: "/appliance"

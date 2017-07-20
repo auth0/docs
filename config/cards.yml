@@ -93,14 +93,14 @@
       forceFullReload: true
 
 - id: "appliance"
-  title: "Appliance"
+  title: "PSaaS Appliance"
   icon: "icon-budicon-359"
   color: "pink"
   description: "Deploying and managing a private instance of Auth0."
   url: "/appliance"
   articles:
 
-    - title: "Appliance Planning"
+    - title: "PSaaS Appliance Planning"
       url: "/appliance/appliance-overview"
 
     - title: Administrator's Manual

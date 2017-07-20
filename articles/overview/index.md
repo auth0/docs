@@ -76,4 +76,4 @@ You may choose to use a custom domain name that obscures the Auth0 reference, su
 
 Due to the additional features offered by these three options, these deployment options do come with a higher cost.
 
-If you are unable to use a multi-tenant cloud service due to compliance or other policy requirements, please take a look at [the Auth0 appliance](/appliance).
+If you are unable to use a multi-tenant cloud service due to compliance or other policy requirements, please take a look at [the PSaaS Appliance](/appliance).

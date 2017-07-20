@@ -76,9 +76,9 @@ When the domain does not exist or is unreachable `nltest` will return an error m
 
 ### UNABLE_TO_VERIFY_LEAF_SIGNATURE error message
 
-This error applies to the AD/LDAP Connector in combination with the Auth0 Appliance.
+This error applies to the AD/LDAP Connector in combination with the PSaaS Appliance.
 
-When the connector will fail to start if unable to validate the SSL certificate configured in the appliance. This can happen when the Root Certificate (or any Intermediate Certificates) are missing in the machine's Certificate Store (Windows). In order to solve this you should import the certificate chain in the **Local Machine > Trusted Root** certificate store on the machine where the AD/LDAP Connector is installed.
+When the connector will fail to start if unable to validate the SSL certificate configured in the PSaaS Appliance. This can happen when the Root Certificate (or any Intermediate Certificates) are missing in the machine's Certificate Store (Windows). In order to solve this you should import the certificate chain in the **Local Machine > Trusted Root** certificate store on the machine where the AD/LDAP Connector is installed.
 
 ### Running the connector behind a proxy
 

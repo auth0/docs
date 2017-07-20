@@ -567,7 +567,7 @@ appliance:
       - title: Enterprise Support
         url: /onboarding/enterprise-support
 
-  - title: Appliance Planning
+  - title: PSaaS Appliance Planning
     url: /appliance/appliance-overview
     expanded: 1
     children:
@@ -610,7 +610,7 @@ appliance:
       - title: Private Cloud Requirements
         url: /appliance/private-cloud-requirements
 
-  - title: "Appliance Administration"
+  - title: "PSaaS Appliance Administration"
     url: "/appliance/admin"
     expanded: 1
     children:

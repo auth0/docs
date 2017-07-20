@@ -4,7 +4,7 @@ description: Describes the Data Transfer Policy which governs requests for trans
 
 # Data Transfer Policy
 
-At this time, Auth0 will not transfer data from one Auth0 account to another. This applies to both Cloud and Appliance customers.
+At this time, Auth0 will not transfer data from one Auth0 account to another. This applies to both Cloud and PSaaS Appliance customers.
 
 All data in your Auth0 account is always under your control and is [available through the Management API](/api/v2) at any time. The only information which is not available through the API are the password hashes of your [Auth0-hosted database users](/connections/database) and private keys, for security reasons.
 

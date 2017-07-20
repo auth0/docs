@@ -3,6 +3,8 @@ description: This page explains the differences of the four different deployment
 toc: true
 ---
 
+<!-- markdownlint-disable MD033 -->
+
 # Auth0 Deployment Models
 
 Auth0 is offered in 4 deployment models:
@@ -10,7 +12,7 @@ Auth0 is offered in 4 deployment models:
 1. As a __multi-tenant cloud service__ running on Auth0's cloud.
 2. As a __dedicated cloud service__ running on Auth0's cloud.
 3. As a __dedicated cloud service__ running on Customer's cloud infrastructure.
-4. As an __on-premises virtual appliance__ running on Customer's data centers.
+4. As an __on-premises virtual PSaaS Appliance__ running on Customer's data centers.
 
 The following table describes operational and feature differences between each of these models.
 
@@ -193,11 +195,11 @@ The following table describes operational and feature differences between each o
     </tbody>
 </table>
 
-<sup>*</sup>See the [Auth0 Appliance: Extensions page](/appliance/extensions) to learn more about configuring extensions with the Appliance.
+<sup>*</sup>See the [Auth0 PSaaS Appliance: Extensions page](/appliance/extensions) to learn more about configuring extensions with the PSaaS Appliance.
 
-<sup>**</sup>See [Appliance Custom Domains](/appliance/custom-domains) for details. If your Appliance is hosted in the Auth0 Private Cloud, see [Private Cloud Requirements](/appliance/private-cloud-requirements).
+<sup>**</sup>See [PSaaS Appliance Custom Domains](/appliance/custom-domains) for details. If your PSaaS Appliance is hosted in the Auth0 Private Cloud, see [Private Cloud Requirements](/appliance/private-cloud-requirements).
 
-<sup>***</sup>You may choose to operate the Appliance in an Internet-restricted environment. If you do so, you will *not* have access to:
+<sup>***</sup>You may choose to operate the PSaaS Appliance in an Internet-restricted environment. If you do so, you will *not* have access to:
 
 * Extensions;
 * Lock (requires access to the CDN hosting Lock);
