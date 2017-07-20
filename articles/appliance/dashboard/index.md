@@ -5,7 +5,7 @@ description: >
 url: /appliance/dashboard
 ---
 
-# PSaaS Appliance Management Dashboard
+# Private SaaS (PSaaS) Appliance Management Dashboard
 
 Regardless of where you're hosting your PSaaS Appliance, you can use the Management Dashboard to configure things like your Applications, Connections, Users, and Rules.
 

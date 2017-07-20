@@ -4,7 +4,7 @@ section: appliance
 description: How to set up custom domains for your PSaaS Appliance
 ---
 
-# PSaaS Appliance: Custom Domains
+# Private SaaS (PSaaS) Appliance: Custom Domains
 
 If you are using **PSaaS Appliance Build 5XXX** or later, you may configure custom domains using the Management Dashboard.
 

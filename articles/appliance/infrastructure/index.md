@@ -5,7 +5,7 @@ section: appliance
 description: This document contains information about the PSaaS Appliance and its infrastructure requirements.
 ---
 
-# PSaaS Appliance Infrastructure Requirements
+# Private SaaS (PSaaS) Appliance Infrastructure Requirements
 
 This document contains the following information about the PSaaS Appliance and its infrastructure requirements:
 

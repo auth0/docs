@@ -4,7 +4,7 @@ section: appliance
 description: Descriptions of Appliance Geo HA
 ---
 
-# PSaaS Appliance: High Availability Geo Cluster (Geo HA)
+# Private SaaS (PSaaS) Appliance: High Availability Geo Cluster (Geo HA)
 
 The high availability geo cluster is a PSaaS Appliance implementation that provides data center redundancy and automatic failure handling. This is the highest form of PSaaS Appliance availability offered by Auth0.
 

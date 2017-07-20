@@ -4,7 +4,7 @@ section: appliance
 description: How to use the PSaaS Appliance CLI
 ---
 
-# Auth0 PSaaS Appliance Command Line Interface
+# Private SaaS (PSaaS) Appliance Command Line Interface
 
 The PSaaS Appliance Command Line Interface (CLI) allows you to perform operations on your PSaaS Appliance instances via authorized workstations.
 

@@ -4,7 +4,7 @@ section: appliance
 description: This document covers why and how to enable instrumentation in the PSaaS Appliance.
 ---
 
-# PSaaS Appliance: Instrumentation
+# Private SaaS (PSaaS) Appliance: Instrumentation
 
 The PSaaS Appliance ships with a feature called Instrumentation, which makes it easy for your PSaaS Appliance administrators or Auth0 Customer Success Engineers to gather information about the current (or previous) state of the PSaaS Appliance. With Instrumentation, you are collecting time series data about the overall PSaaS Appliance, as well as individual processes. You can then query or visualize this data to draw conclusions about the state of your PSaaS Appliance.
 

@@ -4,7 +4,7 @@ section: appliance
 description: Ways to monitor the PSaaS Appliance
 ---
 
-# Monitoring the PSaaS Appliance
+# Monitoring the Private SaaS (PSaaS) Appliance
 
 In addition to providing tools for monitoring your PSaaS Appliance, Auth0 provides integration with select third-party utilities.
 
