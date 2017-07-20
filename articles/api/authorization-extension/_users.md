@@ -50,6 +50,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to retrieve all users.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:users</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -111,6 +117,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get a single user based on its unique identifier.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:users</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -153,6 +165,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to get the groups of a single user, based on its unique identifier. Add "?expand" to also load all roles and permissions for these groups.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:users</span>
 
 ### Parameters
 
@@ -197,6 +215,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to add one or more users in a group.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">update:groups</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -240,6 +264,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to calculate the group memberships for a user (including nested groups).
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:groups</span>
 
 ### Parameters
 
@@ -286,6 +316,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the roles of a single user, based on its unique identifier.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:users</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -327,7 +363,13 @@ include('../../_includes/_http-method', {
   "link": "#add-user-to-roles"
 }) %>
 
-Use this endpoint to add one or more users in a group.
+Use this endpoint to assign a role to a user.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">update:users</span>
 
 ### Parameters
 
@@ -372,6 +414,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to remove one or more user from a role.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">update:roles</span>
 
 ### Parameters
 
@@ -418,6 +466,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to calculate the roles assigned to the user (including through group memberships).
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:users</span>
 
 ### Parameters
 
@@ -470,6 +524,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to execute the authorization policy for a user in the context of a client. This will return the user's groups but also roles and permissions that apply to the current client.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:users</span>
 
 ### Parameters
 

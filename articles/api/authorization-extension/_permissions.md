@@ -38,6 +38,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to retrieve all permissions.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:permissions</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -72,6 +78,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to get a single permission based on its unique identifier.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:permissions</span>
 
 ### Parameters
 
@@ -116,6 +128,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to create a permission.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">create:permissions</span>
 
 ### Parameters
 
@@ -170,6 +188,12 @@ curl --request PUT \
 
 Use this endpoint to update the details of a permission.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">update:permissions</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -212,6 +236,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to remove a permission.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">delete:permissions</span>
 
 ### Parameters
 

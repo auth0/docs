@@ -51,6 +51,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to retrieve all roles.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:roles</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -85,6 +91,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to get a single role based on its unique identifier.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:roles</span>
 
 ### Parameters
 
@@ -132,6 +144,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to create a role.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">create:roles</span>
 
 ### Parameters
 
@@ -193,6 +211,12 @@ curl --request PUT \
 
 Use this endpoint to update the details of a role.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">update:roles</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -236,6 +260,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to remove a role.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">delete:roles</span>
 
 ### Parameters
 

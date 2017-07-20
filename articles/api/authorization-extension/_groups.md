@@ -70,11 +70,7 @@ Use this endpoint to retrieve all groups.
 
 The [access token](#get-an-access-token) should have the following scopes:
 
-<div class="label label-default">read:groups</div>
-
 <span class="badge">read:groups</span>
-
-<span class="badge badge-info">read:groups</span>
 
 ### Parameters
 
@@ -110,6 +106,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to get a single group based on its unique identifier. Add "?expand" to also load all roles and permissions for this group.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:groups</span>
 
 ### Parameters
 
@@ -154,6 +156,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to create a group.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">create:groups</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -194,6 +202,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to delete a group.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">delete:groups</span>
 
 ### Parameters
 
@@ -244,6 +258,12 @@ curl --request PUT \
 
 Use this endpoint to update the name or the description of a group.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">update:groups</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -281,6 +301,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to retrieve the mappings of a group.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:groups</span>
 
 ### Parameters
 
@@ -325,6 +351,12 @@ curl --request PUT \
 Use this endpoint to create one or more mappings in a group.
 
 Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the Groups information provided by the Identity Provider, you can dynamically make the user a member of the group in which you've created the appropriate mapping. For more information, refer to [Group Mappings](/extensions/authorization-extension/v2#group-mappings).
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">create:groups</span>
 
 ### Parameters
 
@@ -373,6 +405,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to delete one or more group mappings from a group.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">delete:groups</span>
 
 ### Parameters
 
@@ -441,6 +479,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the members for a group.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:groups</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -482,6 +526,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to add one or more members in a group.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">create:groups</span>
 
 ### Parameters
 
@@ -525,6 +575,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to remove one or more members from a group.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">delete:groups</span>
 
 ### Parameters
 
@@ -575,6 +631,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the nested members for a group.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:groups</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -615,6 +677,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to get the nested groups for a group.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:groups</span>
 
 ### Parameters
 
@@ -659,6 +727,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to add nested groups.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">update:groups</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -701,6 +775,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to remove one or more nested groups.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">update:groups</span>
 
 ### Parameters
 
@@ -745,6 +825,12 @@ include('../../_includes/_http-method', {
 
 Use this endpoint to get the roles for a group.
 
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:groups</span>
+
 ### Parameters
 
 | Parameter        | Description |
@@ -786,6 +872,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to add roles to a group.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">update:groups</span>
 
 ### Parameters
 
@@ -829,6 +921,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to remove one or more groups roles.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">update:groups</span>
 
 ### Parameters
 
@@ -900,6 +998,12 @@ include('../../_includes/_http-method', {
 }) %>
 
 Use this endpoint to get the nested roles for a group.
+
+### Scopes
+
+The [access token](#get-an-access-token) should have the following scopes:
+
+<span class="badge">read:groups</span>
 
 ### Parameters
 
