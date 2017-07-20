@@ -119,7 +119,7 @@ With the above code in place, a user can log in to your application using Auth0:
 
 #### 1. Register the URL type
 
-First, you will need to register the URL Type:
+First, you will need to ensure that you have registered the URL scheme for your Callback URL which your application should handle:
 
 1. Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab.
 2. Under **URL Types**, click the **Add URL Type** button
@@ -150,30 +150,6 @@ var loginResult = await client.LoginAsync();
 ```
 
 #### 3. Handle the Callback URL
-
-First, you will need to ensure that you have registered the URL scheme for your Callback URL which your application should handle:
-
-1. Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab.
-2. Under **URL Types**, click the **Add URL Type** button
-3. Set the **Identifier** as `Auth0`, the **URL Schemes** the same as your application's **Bundle Identifier**, and the **Role** as `None`
-
-This is an example of the XML representation of your `Info.plist` file after you have added the URL Type:
-
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleTypeRole</key>
-        <string>None</string>
-        <key>CFBundleURLName</key>
-        <string>Auth0</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>YOUR_BUNDLE_IDENTIFIER</string>
-        </array>
-    </dict>
-</array>
-```
 
 After a user has logged in, Auth0 will redirect to the callback URL in your application. You need to handle the incoming link to your `AppDelegate` and resume the login flow of the Auth0 OIDC Client by calling the `Send` method of the `ActivityMediator` singleton, passing along the URL sent in. This will allow the Auth0 OIDC Client library to complete the authentication process:
 
