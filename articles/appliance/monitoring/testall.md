@@ -1,6 +1,6 @@
 ---
 section: appliance
-description: Overview of using the testall endpoint with the Appliance
+description: Overview of using the testall endpoint with the PSaaS Appliance
 ---
 
 # Using the `testall` Endpoint

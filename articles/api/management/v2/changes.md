@@ -72,7 +72,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [GET /api/connections/{connection}/users?search={criteria}](/api/v1) | None. | [GET  /api/v2/users](/api/v2#!/Users/get_users) (see note) |
 
 ::: note
-For appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"`
+For PSaaS Appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"`
 :::
 
 ### Rules endpoints

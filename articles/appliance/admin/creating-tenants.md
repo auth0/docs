@@ -1,11 +1,11 @@
 ---
 section: appliance
-description: How to automatically create tenants in the Appliance
+description: How to automatically create tenants in the PSaaS Appliance
 ---
 
-# Appliance Administration: Automatic Creation of Tenants
+# PSaaS Appliance Administration: Automatic Creation of Tenants
 
-If your business needs require you to create tenants regularly, you may automate this process in your Appliance instances. For example, you might need to create one tenant for each customer or project that goes live.
+If your business needs require you to create tenants regularly, you may automate this process in the PSaaS Appliance. For example, you might need to create one tenant for each customer or project that goes live.
 
 ## Creating a Management API Client for the Root Tenant Authority
 

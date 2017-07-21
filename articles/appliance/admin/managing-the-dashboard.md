@@ -1,9 +1,9 @@
 ---
 section: appliance
-description: How to access and restrict access to the Appliance Management Dashboard
+description: How to access and restrict access to the PSaaS Appliance Management Dashboard
 ---
 
-# Auth0 Appliance Administration: Managing the Dashboard
+# PSaaS Appliance Administration: Managing the Dashboard
 
 ### Accessing the Dashboard
 
@@ -14,7 +14,7 @@ Additionally, please [disable signups](/appliance/admin/disabling-sign-ups) for 
 :::
 
 
-The [Auth0 Dashboard](/appliance/dashboard) uses the Auth0 Appliance to authenticate its users.
+The [Auth0 Dashboard](/appliance/dashboard) uses the PSaaS Appliance to authenticate its users.
 
 Within the list of applications, you will see the Auth0 Application, which represents the Dashboard itself. It uses a connection called `Initial-Connection`, which stores the credentials of the administrators that have access to the Dashboard.
 
@@ -22,7 +22,7 @@ Within the list of applications, you will see the Auth0 Application, which repre
   Changes to the Auth0 Client or `Initial-Connection` may result in unexpected Dashboard behavior. Please makes changes with caution.
 :::
 
-Because the Dashboard uses the Appliance for authentication, any configured rules will run whenever a user accesses the Dashboard. Because errors in one or more of your rules may result in you losing access to the Dashboard, Auth0 suggests writing rules that exclude the Auth0 application:
+Because the Dashboard uses the PSaaS Appliance for authentication, any configured rules will run whenever a user accesses the Dashboard. Because errors in one or more of your rules may result in you losing access to the Dashboard, Auth0 suggests writing rules that exclude the Auth0 application:
 
 ```js
 
@@ -39,16 +39,16 @@ function (user, context, callback) {
 ```
 
 ::: note
-  The default user `root@auth0.com` has access to the Appliance and its configuration area. To prevent unauthorized access with this account, you should block this user via the Auth0 Dashboard.
+  The default user `root@auth0.com` has access to the PSaaS Appliance and its configuration area. To prevent unauthorized access with this account, you should block this user via the Auth0 Dashboard.
 :::
 
 To block the user, click *Actions*. Then, in the drop-down menu that appears, click *Block User*.
 
 ### Restricting Access to the Dashboard
 
-Because the Dashboard uses the Appliance to authenticate users, the Dashboard is using Connections, [Rules](/rules), and so on, just like any other application you might add in the future.
+Because the Dashboard uses the PSaaS Appliance to authenticate users, the Dashboard is using Connections, [Rules](/rules), and so on, just like any other application you might add in the future.
 
 As a result, you have several options for restricting access to the dashboard, including, but not limited to:
 
-* writing rules to allow users only from a specific IP address;
-* writing rules to allow only co-administrators of the Appliance to authenticate using their Active Directory (via either ADFS or AD Connector).
+* Writing rules to allow users only from a specific IP address;
+* Writing rules to allow only co-administrators of the PSaaS Appliance to authenticate using their Active Directory (via either ADFS or AD Connector).

@@ -1,6 +1,6 @@
 ---
 section: appliance
-description: How to manage the time on Appliances
+description: How to manage the time on PSaaS Appliance
 ---
 # Time Synchronization
 
@@ -8,7 +8,7 @@ Auth0 uses several cryptographic functions that depend on the system clock.
 
 If you are running Auth0 on an IaaS (Infrastracture as a Service) provider (e.g. AWS, Microsoft Azure, etc.), time synchronization is managed automatically and you can skip these instructions.
 
-If you are running Auth0 on your own hardware or a VM host, the Auth0 Appliance must have NTP configured correctly. In most cases, the NTP server is your Domain Controller. Contact your IT administrator for details.
+If you are running Auth0 on your own hardware or a VM host, the PSaaS Appliance must have NTP configured correctly. In most cases, the NTP server is your Domain Controller. Contact your IT administrator for details.
 
 The NTP server address can be changed in the configuration section of the Dashboard:
 
@@ -36,6 +36,6 @@ These options specify the minimum and maximum poll intervals for NTP messages in
 Fine tuning is only available to Auth0's engineers.
 :::
 
-If the virtual-machine hosting software, such as VMware, has an option for the host operating system (OS) to update the guest OS, this must be turned off so that the host will not interfere with the NTP time synchronization of the guest Auth0 appliance.
+If the virtual-machine hosting software, such as VMware, has an option for the host operating system (OS) to update the guest OS, this must be turned off so that the host will not interfere with the NTP time synchronization of the guest PSaaS Appliance.
 
 For example, in VMware Tools, the "sync guest time with host" checkbox must be unchecked (off) for the Auth0 guest virtual machine.

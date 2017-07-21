@@ -1,16 +1,16 @@
 ---
 url: /appliance/extensions
 section: appliance
-description: Explains implementation details for Extensions specific to the Auth0 Appliance.
+description: Explains implementation details for Extensions specific to the PSaaS Appliance.
 ---
 
-# Auth0 Appliance: Extensions
+# PSaaS Appliance: Extensions
 
-While using [Extensions](/extensions) in the Appliance is very similar to using Extensions in the multi-tenant installation of Auth0, there are some differences.
+While using [Extensions](/extensions) in the PSaaS Appliance is very similar to using Extensions in the multi-tenant installation of Auth0, there are some differences.
 
 ## Configure Extensions
 
-Extensions make use of Webtasks. When you activate a Webtask in the Appliance, you get a URL specific to that instance of the Webtask service. By default, this URL is structured as follows:
+Extensions make use of Webtasks. When you activate a Webtask in the PSaaS Appliance, you get a URL specific to that instance of the Webtask service. By default, this URL is structured as follows:
 
 `webtask.<auth0applianceurl>`
 

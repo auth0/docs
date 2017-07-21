@@ -1,11 +1,11 @@
 ---
 section: appliance
-description: The Auth0 Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service.
+description: The PSaaS Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service.
 ---
 
-# Auth0 Appliance Overview
+# PSaaS Appliance Overview
 
-The Auth0 Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 Appliance can be deployed in one of three places:
+The PSaaS Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The PSaaS Appliance can be deployed in one of three places:
 
 * a dedicated cloud environment hosted by Auth0 (you may opt for a shared cloud environment or an environment where resources are allocated only to your company).
 * your cloud environment using **Amazon AWS**, **Microsoft Azure**, and/or **Google Cloud Platform**;
@@ -23,10 +23,10 @@ If you choose to deploy to your own cloud environment or data center, you supply
 
 ## Deployment
 
-You may deploy the Appliance in several different configurations and use several different deployment models. The configurations support different levels of scale and high availability, and they are available in any of the Appliance deployment models. The following table shows the configuration options:
+You may deploy the PSaaS Appliance in several different configurations and use several different deployment models. The configurations support different levels of scale and high availability, and they are available in any of the PSaaS Appliance deployment models. The following table shows the configuration options:
 
 ::: zoomable
-![Appliance HA Options](/media/articles/appliance/Appliance-HA-Options.svg)
+![PSaaS Appliance HA Options](/media/articles/appliance/Appliance-HA-Options.svg)
 :::
 
 <!-- markdownlint-disable MD033 -->
@@ -61,7 +61,7 @@ You may deploy the Appliance in several different configurations and use several
 </table>
 <!-- markdownlint-enable MD033 -->
 
-[Auth0 Deployment Models](/overview/deployment-models) provides additional details and explains the differences between each of the Appliance deployment models and the standard multi-tenant cloud deployment.
+[Auth0 Deployment Models](/overview/deployment-models) provides additional details and explains the differences between each of the PSaaS Appliance deployment models and the standard multi-tenant cloud deployment.
 
 ## Maintenance and Connectivity
 
@@ -70,17 +70,17 @@ As a managed service, Auth0 performs:
 * initial setup and configuration;
 *  ongoing maintenance operations (security patching, troubleshooting, and updating).
 
-Auth0 will closely coordinate access to your Appliance instances with your operations team, since these activities will often run on your infrastructure (such as your network, servers, and so on). Depending on the time it takes to prepare the required infrastructure and the deployment complexity, the Appliance implementation project typically takes between 1-5 weeks.
+Auth0 will closely coordinate access to your PSaaS Appliance instances with your operations team, since these activities will often run on your infrastructure (such as your network, servers, and so on). Depending on the time it takes to prepare the required infrastructure and the deployment complexity, the PSaaS Appliance implementation project typically takes between 1-5 weeks.
 
-If Auth0 is managing a dedicated environment for you, Auth0 will obtain your consent prior to applying any updates or configuration changes. Auth0 will not access any Appliances, nor will any information be transferred off of the Appliances without your consent.
+If Auth0 is managing a dedicated environment for you, Auth0 will obtain your consent prior to applying any updates or configuration changes. Auth0 will not access any PSaaS Appliance, nor will any information be transferred off of the PSaaS Appliance without your consent.
 
 ### Connectivity
 
-During maintenance operations, the Appliance instances contact external Auth0 endpoints for updating under your consent and supervision. After maintenance completes, you can block Internet access to the Appliance.
+During maintenance operations, the PSaaS Appliance instances contact external Auth0 endpoints for updating under your consent and supervision. After maintenance completes, you can block Internet access to the PSaaS Appliance.
 
-For normal maintenance, Auth0 will access the Management Dashboard (either over a temporary SSH connection or through remote control software) to apply the update. Auth0 will also need SSH access in the event that updates to the Appliance are necessary. If you expose API endpoints to be used for monitoring, Auth0 will collect this information to proactively monitor Appliance behavior for you.
+For normal maintenance, Auth0 will access the Management Dashboard (either over a temporary SSH connection or through remote control software) to apply the update. Auth0 will also need SSH access in the event that updates to the PSaaS Appliance are necessary. If you expose API endpoints to be used for monitoring, Auth0 will collect this information to proactively monitor PSaaS Appliance behavior for you.
 
-Depending on which features are implemented, you may need to permit access to certain websites on the Internet from each Appliance instance. For example, if Facebook logins are needed, you must open connectivity from the Auth0 servers to `facebook.com`. If users will be logging in from the Internet (and not through a VPN), you must publish the authentication endpoints.
+Depending on which features are implemented, you may need to permit access to certain websites on the Internet from each PSaaS Appliance instance. For example, if Facebook logins are needed, you must open connectivity from the Auth0 servers to `facebook.com`. If users will be logging in from the Internet (and not through a VPN), you must publish the authentication endpoints.
 
 ### Update Cycle
 
@@ -98,19 +98,19 @@ You are responsible for monitoring all the dependencies the Auth0 Service relies
 
 If you provide access to the appropriate monitoring endpoints, Auth0 will monitor the nodes' health and notify you of any conditions that require action.
 
-If Auth0 hosts the Appliance for you, then Auth0 will monitor the related services.
+If Auth0 hosts the PSaaS Appliance for you, then Auth0 will monitor the related services.
 
 ### Monitoring Endpoints
 Auth0 provides specific monitoring endpoints that you can attach to your own monitoring tools (such as Microsoft System Center, IBM Tivoli, HP OpenView, and so on) for auditing, load balancing, and performance monitoring, such as in cases where the transaction under test includes application specific functionality (for example, a [rule](/rules) that integrates Auth0 with your own CRM).
 
 You may find detailed guidance at [Monitoring Auth0](/monitoring).
 
-In addition, the Appliance has authenticated monitoring endpoints for metrics like CPU, memory, and disk space that you can query for more detailed information.
+In addition, the PSaaS Appliance has authenticated monitoring endpoints for metrics like CPU, memory, and disk space that you can query for more detailed information.
 
-If the Auth0 appliance does not perform as expected, you can contact your Auth0 Customer Success Engineer. Auth0 provides an incident escalation procedure during the onboarding process that explains the steps to be followed when an incident occurs. Auth0 has a 24 x 7, around-the-clock support staff.
+If the PSaaS Appliance does not perform as expected, you can contact your Auth0 Customer Success Engineer. Auth0 provides an incident escalation procedure during the onboarding process that explains the steps to be followed when an incident occurs. Auth0 has a 24 x 7, around-the-clock support staff.
 
 ## Server Requirements
 
 You will be asked to set up a Dev/Test (non-Production) environment, as well as a Production environment.
 
-For the Production environment, the number of virtual machines required to host the Auth0 Appliance depends on the expected traffic and the desired availability. For a highly-available configuration, the Production environment requires a minimum of three network load-balanced Appliance instances and one for the Dev/Test (non-Production) environment (which also does *not* required any special load balancing logic/sticky sessions).
+For the Production environment, the number of virtual machines required to host the PSaaS Appliance depends on the expected traffic and the desired availability. For a highly-available configuration, the Production environment requires a minimum of three network load-balanced PSaaS Appliance instances and one for the Dev/Test (non-Production) environment (which also does *not* required any special load balancing logic/sticky sessions).

@@ -1,23 +1,23 @@
 ---
 section: appliance
-description: How to back up the Appliance using its CLI
+description: How to back up the PSaaS Appliance using its CLI
 toc: true
 ---
 
-# How to Back Up Appliance Instances Using the CLI
+# How to Back Up the PSaaS Appliance Using the CLI
 
-You may use Appliance CLI to perform a Mongo backup on a specific node.
+You may use the PSaaS Appliance CLI to perform a Mongo backup on a specific node.
 
 Beginning with version `11638`, the backup doesn't include sensitive configuration information such as encryption keys.
 
 ## Prior to Beginning the Backup
 
 Please ensure that:
-* You have configured the [Command Line Interface](/appliance/cli/configure-cli) on your Appliance instances;
+* You have configured the [Command Line Interface](/appliance/cli/configure-cli) on your PSaaS Appliance instances;
 * The node has disk space equal to or greater than twice the amount of Auth0 data present.
 
 ::: note
-Beginning with Appliance version `6868`, you may only back up nodes [added to the `backup` role](/appliance/cli/adding-node-to-backup-role).
+Beginning with PSaaS Appliance version `6868`, you may only back up nodes [added to the `backup` role](/appliance/cli/adding-node-to-backup-role).
 :::
 
 Please be aware that we use the following sample values throughout this document:
@@ -52,7 +52,7 @@ Only one backup may performed and stored at any given time. Prior to generating 
 
 ## Back up Sensitive Configuration Info
 
-Beginning with Appliance version `11638`, the `backup` command does **not** save sensitive configuration information such as encryption keys. You need to manually back up these keys (and any other sensitive information) if you want to fully recover an Appliance installation using a backup copy.
+Beginning with PSaaS Appliance version `11638`, the `backup` command does **not** save sensitive configuration information such as encryption keys. You need to manually back up these keys (and any other sensitive information) if you want to fully recover an PSaaS Appliance installation using a backup copy.
 
 To do this, you can use the `backup-sensitive` command, which works the same way as `backup`. You must run the command on a node where you previously ran `set-as-backup`.
 
