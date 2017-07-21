@@ -82,6 +82,6 @@ For details on the validations that should be performed by the API, refer to [Ve
 ::: next-steps
 - [Calling APIs from a Service](/api-auth/grant/client-credentials)
 - [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks).
+- [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 - [Tokens used by Auth0](/tokens)
 :::
