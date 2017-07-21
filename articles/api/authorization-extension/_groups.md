@@ -356,7 +356,7 @@ Group Mappings allow you to dynamically "add" users to different Groups based on
 
 The [access token](#get-an-access-token) should have the following scopes:
 
-<span class="badge">create:groups</span>
+<span class="badge">update:groups</span>
 
 ### Parameters
 
@@ -410,7 +410,7 @@ Use this endpoint to delete one or more group mappings from a group.
 
 The [access token](#get-an-access-token) should have the following scopes:
 
-<span class="badge">delete:groups</span>
+<span class="badge">update:groups</span>
 
 ### Parameters
 
@@ -531,7 +531,7 @@ Use this endpoint to add one or more members in a group.
 
 The [access token](#get-an-access-token) should have the following scopes:
 
-<span class="badge">create:groups</span>
+<span class="badge">update:groups</span>
 
 ### Parameters
 
@@ -580,7 +580,7 @@ Use this endpoint to remove one or more members from a group.
 
 The [access token](#get-an-access-token) should have the following scopes:
 
-<span class="badge">delete:groups</span>
+<span class="badge">update:groups</span>
 
 ### Parameters
 
