@@ -20,7 +20,10 @@
       <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/${branch}/${path}" class="github-link" rel="nofollow">Fork on Github</a>
       <% } else { %>
       <a href="/package/v2?org=${org}&repo=${repo}&path=${path}&client_id=${account.clientId}" class="btn btn-sm btn-success download-package" rel="nofollow">Download</a>
-      <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/master/${path}" class="github-link" rel="nofollow" target="_top">Fork on Github</a>
+      <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/master/${path}" class="github-link" rel="nofollow" target="_top" style="display:block;">Fork on Github</a>
+      <% } %>
+      <% if (typeof heroku !== 'undefined') { %>
+      <a href="https://heroku.com/deploy?template=https://github.com/${org}/${repo}/tree/${heroku}&env[AUTH0_CLIENT_ID]=${account.clientId}&env[AUTH0_DOMAIN]=${account.namespace}" class="github-link" rel="nofollow" target="_top" style="display:block;position:relative;top:-15px">Deploy to Heroku</a>
       <% } %>
     </div>
   </div>

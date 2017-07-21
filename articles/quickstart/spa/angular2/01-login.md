@@ -8,6 +8,7 @@ budicon: 448
   org: 'auth0-samples',
   repo: 'auth0-angular-samples',
   path: '01-Login',
+  heroku: '01-login-heroku',
   requirements: [
     'Angular 2+'
   ]
