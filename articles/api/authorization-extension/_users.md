@@ -471,7 +471,7 @@ Use this endpoint to calculate the roles assigned to the user (including through
 
 The [access token](#get-an-access-token) should have the following scopes:
 
-<span class="badge">read:users</span>
+<span class="badge">read:roles</span>
 
 ### Parameters
 
