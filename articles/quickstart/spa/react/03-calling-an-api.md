@@ -41,80 +41,32 @@ auth0 = new auth0.WebAuth({
 By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](/rules).
 :::
 
-## Configure a Custom Fetch Function
+## Send Authenticated HTTP Requests
 
 <%= include('../_includes/_calling_api_access_token') %>
 
-Attaching the user's `access_token` as an `Authorization` header to HTTP calls can be done on a one-off basis by adding the header as an option to your requests. However, it is recommended that you implement a custom function which does this automatically.
-
-Create three new functions: one which gets the user's `access_token`, another which wraps `fetch`, and lastly one which handles errors that may be returned.
-
-```js
-// src/Auth/Auth.js
-
-constructor() {
-  // ...
-  this.getAccessToken = this.getAccessToken.bind(this);
-  this.authFetch = this.authFetch.bind(this);
-}
-
-// ...
-
-getAccessToken() {
-  const accessToken = localStorage.getItem('access_token');
-  if (!accessToken) {
-    throw new Error('No access token found');
-  }
-  return accessToken;
-}
-
-authFetch(url, options) {
-  const headers = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  };
-
-  if (this.isAuthenticated()) {
-    headers['Authorization'] = 'Bearer ' + this.getAccessToken();
-  }
-
-  return fetch(url, { headers, ...options })
-    .then(this.checkStatus)
-    .then(response => response.json());
-}
-
-checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  } else {
-    let error = new Error(response.statusText);
-    error.response = response;
-    throw error;
-  }
-}
-```
-
-The `authFetch` method checks whether the user is authenticated and, if so, adds an `Authorization` header containing the `access_token`. This method can now be used to make calls to your API.
-
-## Make Authenticated Calls with `authFetch`
-
-With the `authFetch` function in place, you can now make calls to your API for protected resources.
+Attaching the user's `access_token` as an `Authorization` header to HTTP calls can be done on a one-off basis by adding the header as an option to your requests. This example demonstrates how to do so with [**axios**](https://github.com/mzabriskie/axios) but you are free to use whichever HTTP client you like.
 
 ```js
 // src/Ping/Ping.js
 
+import React, { Component } from 'react';
+import axios from 'axios';
+
+// ...
 class Ping extends Component {
   // ...
   securedPing() {
-    const { authFetch } = this.props.auth;
-    const API_URL = 'http://<your-application-domain>/api';
-    authFetch(`<%= "${API_URL}/private" %>`)
-      .then(data => this.setState({ message: data.message }))
+    const { getAccessToken } = this.props.auth;
+    const API_URL = 'http://<your-url>.com/api';
+    const headers = { 'Authorization': `Bearer <%= "${getAccessToken()}" %>`}
+    axios.get(`<%= "${API_URL}" %>/private`, { headers })
+      .then(response => this.setState({ message: response.data.message }))
       .catch(error => this.setState({ message: error.message }));
   }
-
-  render() { ... }
 }
+
+export default Ping;
 ```
 
 <%= include('../_includes/_calling_api_protect_resources') %>
