@@ -1,6 +1,7 @@
 ---
 description: Explains what features and settings can be changed in the Account Settings page of the dashboard.
 url: /dashboard-account-settings
+toc: true
 ---
 # Account Settings in the Auth0 Management Dashboard
 
