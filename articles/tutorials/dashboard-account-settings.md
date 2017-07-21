@@ -47,6 +47,8 @@ This setting is equivalent to appending the audience to every authorization requ
 
 ### Error Pages
 
+![](/media/articles/tutorials/account-settings/error-pages.png)
+
 In the event of an authorization error, you may choose to display to your users either a generic error page or you can redirect users you your own, customized error page.
 
 [Learn about Custom Error Pages](/hosted-pages/custom-error-pages).
@@ -55,7 +57,7 @@ In the event of an authorization error, you may choose to display to your users 
 
 ![](/media/articles/tutorials/account-settings/billing.png)
 
-The _Subscription_ tab allows you to review and change your current subscription to move to another plan, as well as specify your billing details. You can learn more [about changing your Subscription](/support/subscription).
+The _Subscription_ tab allows you to review and change your current subscription and to move to another plan, as well as specify your billing details. You can learn more [about changing your Subscription](/support/subscription).
 
 ## Active Users
 
@@ -63,7 +65,7 @@ The _Active Users_ functionality has been moved to the [Quota Utilization Report
 
 ## Dashboard Admins
 
-Allows you to add or remove administrators for your Auth0 tenant, as well as see whether administrators have Multifactor authentication enable for their account. [Learn about Dashboard Admins](/tutorials/manage-dashboard-admins).
+Allows you to add or remove administrators for your Auth0 tenant, as well as review whether administrators have Multifactor authentication enable for their account. [Learn about Dashboard Admins](/tutorials/manage-dashboard-admins).
 
 ## Webtasks
 
