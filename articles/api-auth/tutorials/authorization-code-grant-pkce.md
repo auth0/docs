@@ -1,12 +1,13 @@
 ---
 description: How to execute an Authorization Code Grant flow with PKCE for a Mobile Application
+toc: true
 ---
 # Execute an Authorization Code Grant Flow with PKCE
 
 <%= include('../../_includes/_pipeline2') %>
 
 ::: note
-This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code-pkce">Calling APIs from Mobile Apps</a>.
+This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to [Calling APIs from Mobile App](/api-auth/grant/authorization-code-pkce).
 :::
 
 The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/quickstart/native) use in order to access an API. In this document we will work through the steps needed in order to implement this: create a code verifier and a code challenge, get the user's authorization, get a token and access the API using the token.
@@ -239,16 +240,12 @@ For details on the validations that should be performed refer to [Verify Access 
 
 If you wish to execute special logic unique to the Authorization Code (PKCE) grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code (PKCE) grant.
 
-## Read more
+## Keep reading
 
-- [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
-- [How to configure an API in Auth0](/apis)
+::: next-steps
 - [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
 - [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
-- [Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
-- [Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
-- [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
-- [RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)
+:::
