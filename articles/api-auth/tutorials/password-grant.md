@@ -1,5 +1,6 @@
 ---
 description: How to execute a Resource Owner Password Grant
+toc: true
 ---
 # How to implement the Resource Owner Password Grant
 

@@ -1,7 +1,6 @@
 ---
 description: Describes the call APIs from mobile apps using the  Authentication Code Grant (PKCE).
 ---
-
 # Calling APIs from Mobile Apps
 
 <%= include('../../_includes/_pipeline2') %>
@@ -9,7 +8,7 @@ description: Describes the call APIs from mobile apps using the  Authentication 
 In order to access an API from a [mobile app](/quickstart/native), you need to implement the **Authorization Code using Proof Key for Code Exchange (PKCE)** OAuth 2.0 grant. In this document we will see how this flow works.
 
 ::: note
-  If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
+If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
 :::
 
 ## Overview of the flow
@@ -48,15 +47,10 @@ For details on how to implement this, refer to [Execute an Authorization Code Gr
 
 ## Keep reading
 
+::: next-steps
 - [Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Mobile/Native App Quickstarts](/quickstart/native)
 - [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
-- [Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
-- [Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
-- [The OAuth 2.0 protocol](/protocols/oauth2)
-- [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
-- [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
-- [RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)
+:::
