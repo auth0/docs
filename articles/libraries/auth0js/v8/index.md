@@ -150,7 +150,7 @@ webAuth.redirect.loginWithCredentials({
 ```
 
 ::: warning
-`webauth.redirect.loginWithCredentials` will be deprecated, and we recommended that you use `webauth.client.login` instead. However, if you're using `webauth.redirect.loginWithCredentials` on a Hosted Login Page, you can continue to do so.
+`webauth.redirect.loginWithCredentials` will be deprecated, and we recommend that you use `webauth.client.login` instead. However, if you're using `webauth.redirect.loginWithCredentials` on a Hosted Login Page, you can continue to do so.
 :::
 
 ### webAuth.popup.loginWithCredentials()
