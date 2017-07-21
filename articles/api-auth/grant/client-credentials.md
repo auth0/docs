@@ -37,6 +37,6 @@ For details on how to implement this using Auth0, refer to [Execute a Client Cre
 - [How to implement a Client Credentials flow](/api-auth/tutorials/client-credentials)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks).
+- [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 - [Tokens used by Auth0](/tokens)
 :::
