@@ -22,6 +22,7 @@ First, you need to generate and store a `code_verifier`.
       <li><a href="#verifier-java" data-toggle="tab">Java</a></li>
       <li><a href="#verifier-swift" data-toggle="tab">Swift 3</a></li>
       <li><a href="#verifier-objc" data-toggle="tab">Objective-C</a></li>
+      <li><a href="#verifier-cs" data-toggle="tab">C#</a></li>
     </ul>
   </div>
   <div class="tab-content">
@@ -62,6 +63,17 @@ NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
                         stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
                              stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
     </div>
+	    <div id="verifier-cs" class="tab-pane">
+      <pre>
+<code class="cs hljs">// using System.Security.Cryptography;
+var buffer = new byte[32];
+var rng = new RNGCryptoServiceProvider();
+rng.GetBytes(buffer);
+var verifier = Convert.ToBase64String(buffer)
+                      .Replace('+', '-')
+                      .Replace('/', '_')
+                      .Replace("=", "");</code></pre>
+    </div>
   </div>
 </div>
 
@@ -76,6 +88,7 @@ Using the `code_verifier`, generate a `code_challenge` that will be sent in the 
       <li><a href="#challenge-java" data-toggle="tab">Java</a></li>
       <li><a href="#challenge-swift" data-toggle="tab">Swift 3</a></li>
       <li><a href="#challenge-objc" data-toggle="tab">Objective-C</a></li>
+	  <li><a href="#verifier-cs" data-toggle="tab">C#</a></li>
     </ul>
   </div>
   <div class="tab-content">
@@ -122,6 +135,17 @@ NSString *challenge = [[[[hash base64EncodedStringWithOptions:0]
                          stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
                         stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
                        stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
+    </div>
+    <div id="challenge-cs" class="tab-pane">
+      <pre>
+<code class="cs hljs"> // using System.Security.Cryptography;
+var sha = new SHA256Managed();
+sha.ComputeHash(Encoding.UTF8.GetBytes(verifier));
+
+string challenge = Convert.ToBase64String(sha.Hash)
+                   .Replace('+', '-')
+                   .Replace('/', '_')
+                   .Replace("=", "");</code></pre>
     </div>
   </div>
 </div>
