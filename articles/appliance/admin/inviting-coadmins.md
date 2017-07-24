@@ -5,8 +5,8 @@ description: How to invite additional administrators to your PSaaS Appliance
 
 # PSaaS Appliance Administration: Inviting Co-Administrators
 
-::: note
-If you have a PSaaS Appliance in the Dedicated Cloud Service, you do not have access to the RTA tenant, since Auth0 manages this on your behalf. To add new administrators, you'll need to contact Support (be sure to mention that you have a PSaaS Appliance in the Dedicated Cloud Service). 
+::: panel-warning PSaaS Appliance in the Dedicated Cloud Service
+If you have a PSaaS Appliance in the Dedicated Cloud Service, you do not have access to the RTA tenant, since Auth0 manages this on your behalf. To add new administrators, you'll need to [contact Support](${env.DOMAIN_URL_SUPPORT}) (be sure to mention that you have a PSaaS Appliance in the Dedicated Cloud Service). 
 
 If you're an existing tenant administrator, you can simply forward the tenant administrator invitation link to new administrators.
 :::
