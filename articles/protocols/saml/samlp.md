@@ -32,8 +32,8 @@ You need to replace the `ACCESS_TOKEN` header value, with a Management APIv2 Tok
 * The __SAML Request Binding__ (also called the __Protocol Binding__): sent to the IdP from Auth0. If possible, dynamically set the value based on `connection.options.protocolBinding`:
 
     | `connection.options.protocolBinding` value | SAML Request Binding value |
-    | - | - |
-    | "" or not present | HTTP-Redirect |
+    | ----- | ----- |
+    | `` or not present | HTTP-Redirect |
     | urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect | HTTP-Redirect |
     | urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST | HTTP-POST |
 
