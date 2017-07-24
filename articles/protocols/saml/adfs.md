@@ -4,6 +4,8 @@ description: How to Set up an Auth0 SAML Connection Against ADFS
 
 # Set up an Auth0 SAML Connection Against ADFS
 
+Auth0 allows you to create a custom SAML connection to Microsoft's Active Directory Federation Services. In addition to getting a bit more flexibility when configuring your mappings, the SAML Connection allows you identity provider-initiated flows (this is something that you cannot do with WS-Fed).
+
 ## Step 1: Configure ADFS
 
 Begin by launching your instance of ADFS. Start the **Add Relying Party Trust** wizard.
@@ -26,8 +28,6 @@ Finally, review the settings you provided on the **Ready to Add Trust** page and
 
 If you were successfully, you'll see a message indicating such on the **Finish** page. Make sure that the **Configure claims issuance policy for this application** checkbox is selected, and click **Close**.
 
-
-
 ## Step 2: Configure Auth0
 
 Follow the tutorial on creating a SAML connection where [Auth0 acts as the service provider](/protocols/saml/saml-sp-generic). Where prompted, upload the signing certificate you exported from ADFS.
@@ -40,7 +40,7 @@ Click **Save**.
 
 ## Step 3: Create the Relying Party Trust
 
-Once you have set the required parameters and clicked **Save**, you'll see a page with instructions on creating a new relying party trust in ADFS. You'll need the following parameters:
+Once you have set the required parameters for creating your Auth0 connection and clicked **Save**, you'll see a page with instructions on creating a new relying party trust in ADFS. You'll need the following parameters:
 
 | Parameter | Sample Value |
 | - | - |
@@ -54,3 +54,14 @@ In the ADFS console, select the relying party trust you created in step 1 and cl
 Switch over to the **Identifiers** tab, and populate the **Relying Party Identifier** with the **Entity ID** value.
 
 Switch over to the **Endpoints** tab, edit the **SAML Endpoint** field, and populate the **Trusted URL** with the **Post-back URL** value.
+
+You'll now need to map your claims; for assistance on which LDAP attributes map to which Outgoing Claim Type, see [Connect Your App to ADFS](/connections/enterprise/adfs).
+
+## Step 4: Enable and Test Your Integration.
+
+Before you can test your Auth0-ADFS integration, you'll need to make sure that you've completed the following steps:
+
+1. Create a user for your newly-created Connection.
+2. Enable your Connection for at least one Client.
+
+## Troubleshooting
