@@ -29,7 +29,15 @@ These are the parameters used to configure a SAML Identity Provider:
 You need to replace the `ACCESS_TOKEN` header value, with a Management APIv2 Token. For information on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 :::
 
-* The __SAML Request Binding__ (also called the __Protocol Binding__): sent to the IdP from Auth0, set as either `HTTP-Redirect` or `HTTP-Post`
+* The __SAML Request Binding__ (also called the __Protocol Binding__): sent to the IdP from Auth0. If possible, dynamically set the value based on `connection.options.protocolBinding`:
+
+    | `connection.options.protocolBinding` value | SAML Request Binding value |
+    | - | - |
+    | "" or not present | HTTP-Redirect |
+    | urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect | HTTP-Redirect |
+    | urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST | HTTP-POST |
+
+    If dynamically setting the value isn't possible, then set as either `HTTP-Redirect` (default) or `HTTP-Post` if you selected this option in **Protocol Binding**
 * The __SAML Response Binding__ : how the SAML token is received by Auth0 from IdP, set as `HTTP-Post`
 * The __NameID format__: `unspecified`
 * The SAML assertion, and the SAML response can be individually or simultaneously signed.
