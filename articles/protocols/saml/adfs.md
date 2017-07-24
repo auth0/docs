@@ -64,4 +64,4 @@ Before you can test your Auth0-ADFS integration, you'll need to make sure that y
 1. Create a user for your newly-created Connection.
 2. Enable your Connection for at least one Client.
 
-## Troubleshooting
+## Troubleshooting 
