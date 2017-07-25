@@ -39,7 +39,7 @@ Auth0's [API authorization](/api-auth) features allow you to manage the authoriz
 
 Auth0 offers several ways to extend the platform's functionality:
 
-- **Rules**: [Rules](/rules) are functions written in JavaScript or C#, that are executed in Auth0 just after successful authentication and before control returns to your app. Rules can be chained together for modular coding and can be turned on and off individually.They can be used for Access Control, Webhooks, Profile Enrichment, Multi-factor Authentication, and many other things.
+- **Rules**: [Rules](/rules) are functions written in JavaScript or C#, that are executed in Auth0 just after successful authentication and before control returns to your app. Rules can be chained together for modular coding and can be turned on and off individually. They can be used for Access Control, Webhooks, Profile Enrichment, Multi-factor Authentication, and many other things.
 
 - **Hooks**: [Hooks](/hooks) allow you to customize the behavior of Auth0 using Node.js code that is executed against extensibility points (which are comparable to webhooks that come with a server). They are [Webtasks](https://webtask.io) associated with specific [extensibility points](/hooks/extensibility-points) of the Auth0 platform. Auth0 invokes the Hooks at runtime to execute your custom logic. Hooks will eventually replace Rules, the current Auth0 extensibility method. Currently, you can use both Hooks and Rules, but Auth0 will implement new functionality in Hooks.
 
