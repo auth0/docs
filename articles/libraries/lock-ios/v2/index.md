@@ -7,9 +7,11 @@ mobileimg: media/articles/libraries/lock-ios.png
 ---
 # Lock v2 for iOS
 
-You're looking at the documentation for the easiest way of securing your iOS apps!
+Lock is an embeddable login form, configurable to your needs and ready for use in your mobile applications. It's easier than ever to add social identity providers to Lock, allowing your users to login seamlessly using whichever providers make sense for your application.
 
-Lock is an embeddable login form, which is configurable to your needs and ready for use in your mobile applications. It's easier than ever to add social identity providers to Lock, as well, allowing your users to login seamlessly using whichever providers make sense for your application. Check out the basic usage guide below for more information!
+::: note
+Check out our [Lock.swift GitHub repository](https://github.com/auth0/Lock.swift).
+:::
 
 ## Requirements
 
