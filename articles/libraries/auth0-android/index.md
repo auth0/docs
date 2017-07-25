@@ -9,6 +9,10 @@ url: /libraries/auth0-android
 
 Auth0.Android is a client-side library for [Auth0](http://auth0.com). Using it with your Android native app development should simplify your interactions with Auth0.
 
+::: note
+Check out our [Auth0.Android GitHub repository](https://github.com/auth0/Auth0.Android).
+:::
+
 ## Requirements
 
 Android API version 15 or newer is required.
