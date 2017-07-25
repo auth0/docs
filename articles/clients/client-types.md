@@ -14,20 +14,20 @@ When working with Auth0 clients, which are used to represent your applications, 
 
 The OAuth 2.0 specification [defines two types of clients](https://tools.ietf.org/html/rfc6749#section-2.1): public and confidential.
 
-When creating a client through the [Dashboard](${manage_url}/#/clients), Auth0 will ask you what type of application it you want the client to represent and use that information to determine the client type.
+When creating a client through the [Dashboard](${manage_url}/#/clients), Auth0 will ask you what type of application you want the client to represent and use that information to determine the client type.
 
 ### Confidential Clients
 
-Confidential clients are able to hold credentials, such as a client ID and secret, in a secure way without exposing it to unauthorized parties. This means that you will need a trusted backend server to store the secret(s).
+Confidential clients are able to hold credentials (such as a client ID and secret) in a secure way without exposing them to unauthorized parties. This means that you will need a trusted backend server to store the secret(s).
 
 The following application types use confidential clients:
 
-* Web applications with a secure backend using the [Authorization Code grant](/api-auth/grant/authorization-code), [Password](/api-auth/grant/password) or [Password Realm](/api-auth/tutorials/password-grant#realm-support) grants
-* Non-interactive clients using the [Client Credentials grant](/api-auth/grant/client-credentials)
+* A web application with a secure backend using the [Authorization Code grant](/api-auth/grant/authorization-code), [Password](/api-auth/grant/password) or [Password Realm](/api-auth/tutorials/password-grant#realm-support) grants
+* A non-interactive client using the [Client Credentials grant](/api-auth/grant/client-credentials)
 
 All of these grants require clients to authenticate by specifying their client ID and secret when calling the token endpoint.
 
-Since confidential clients are capable of holding secrets, you can choose to have ID token issues to them that have been signed:
+Since confidential clients are capable of holding secrets, you can choose to have ID tokens issued to them that have been signed in one of two ways:
 
 * Symmetrically using their client secret (`HS256`)
 * Asymmetrically using a private key (`RS256`)
@@ -46,16 +46,16 @@ Since public clients are unable to hold secrets, [ID tokens](/tokens/id-token) i
 
 ## First vs. Third-Party Clients
 
-First-party and third-party refer to the ownership of the application. This has implications in terms of whom has administrative access to your Auth0 domain.
+First-party and third-party refer to the ownership of the application. This has implications in terms of who has administrative access to your Auth0 domain.
 
 ### First-Party Client
 
 First-party clients are those controlled by the same organization or person who owns the Auth0 domain. For example, if you wanted to access the Contoso API, you'd use a first-party client to log into `contoso.com`.
 
-All clients created via the [Dashboard](${manage_url}/#/clients) are, by default, first-party.
+All clients created via the [Dashboard](${manage_url}/#/clients) are first-party by default.
 
 ### Third-Party Client
 
-Third-party clients are controlled by someone who most likely should *not* have administrative access to your Auth0 domain. Third-party clients enable external parties or partners to access protected resources behind your API securely. For example, if you create a developer center that allows users to obtain credentials to integrate their apps with your API (this functionality is similar to those provided by well-known APIs such as Facebook, Twitter, and GitHub), you'd use a third-party client. 
+Third-party clients are controlled by someone who most likely should *not* have administrative access to your Auth0 domain. Third-party clients enable external parties or partners to access protected resources behind your API securely. For example, if you were to create a developer center that allows users to obtain credentials to integrate their apps with your API (this functionality is similar to those provided by well-known APIs such as Facebook, Twitter, and GitHub), you would use a third-party client. 
 
 Third-party clients must be created through the [Management API](/api/management/v2#!/Clients/post_clients) by setting `is_first_party` to `false`. Additionally, Auth0 considers all clients created via [Dynamic Client Registration](/api-auth/dynamic-client-registration) to be third-party.
