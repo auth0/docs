@@ -219,7 +219,7 @@ For both endpoints (retrieving the list of timesheets, and adding a new timeshee
 
 For retrieving the list of timesheets this is to ensure that we only return the timesheets belonging to the user making the request, and for adding a new timesheet this is to ensure that the timesheet is associated with the user making the request.
 
-One of the standard JWT claims is the `sub` claim which which identifies the principal that is the subject to the claim. In the case of the Implicit Grant flow this claim will contain the user's identity, which will be the unique identifier for the Auth0 user. You can use this to associate any information in external systems with a particular user.
+One of the standard JWT claims is the `sub` claim which identifies the principal that is the subject to the claim. In the case of the Implicit Grant flow this claim will contain the user's identity, which will be the unique identifier for the Auth0 user. You can use this to associate any information in external systems with a particular user.
 
 You can also use a custom claim to add another attribute of the user - such as their email address - to the `access_token` and use that to uniquely identify the user.
 
