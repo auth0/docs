@@ -285,6 +285,8 @@ The result of calling the delegation endpoint will contain the AWS token in the 
 
 :::panel Auth0 Libraries
 The [Auth0 client libraries](/libraries) simplify the process of calling these endpoints. See an example for client-side JavaScript at [Delegation Token Request](/libraries/auth0js/v7#delegation-token-request). Please note that this example is for **version 7** of the `auth0js` library; delegation is *not* supported in version 8 of `auth0js`.
+
+Additionally, AWS requires two additional parameters: **role** and **principal**. To modify the `role` and `principal` strings, specify the appropriate ARN values where the sample currently says `[omitted]` via [Rules](${manage_url}/#/rules). If you do not have these values, please see [Copy the ARN Values](/aws-api-setup#copy-the-arn-values) section of the AWS setup doc.
 :::
 
 Here is an example of client-side code used to obtain the token:
