@@ -1,4 +1,4 @@
-# Obtain AWS Tokens to securely call AWS APIs and resources
+# Call AWS APIs and Resources Securely with Tokens
 
 ::: warning
 Newly-created clients may not use [legacy grant types](/clients/client-grant-types), which are required for use with the [Delegation endpoint](/api/authentication#get-token-info). If you have any questions about which alternative you should use, please contact [Support](http://support.auth0.com).
