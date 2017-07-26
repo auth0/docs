@@ -294,7 +294,7 @@ The contents of the authResult object returned by `parseHash` depend upon which 
 | `idToken` |  An id token JWT containing user profile information |
 
 ```js
-webAuth.parseHash(window.location.hash, function(err, authResult) {
+webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
   if (err) {
     return console.log(err);
   }
