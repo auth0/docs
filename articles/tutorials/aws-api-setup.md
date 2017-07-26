@@ -1,110 +1,126 @@
 ---
 description: How to enable delegated authentication with AWS APIs.
 url: /aws-api-setup
+toc: true
 ---
-# Setup AWS for Delegated Authentication with APIs
+# Delegated Authentication with AWS APIs
 
-To enable delegated authentication with AWS APIs, you must create a **SAML Provider** and one or more **Roles**.
+The doc will walk you through creating a SAML Provider and its accompanying role(s) for use with delegated authentication with AWS APIs.
 
-## Create a SAML Provider
+## Step 1: Create a SAML Provider
 
-To create a SAML provider, follow these steps:
+Log in to AWS, and navigate to the [IAM console](https://console.aws.amazon.com/iam). Using the left-hand navigation menu, select **Identity Providers**. Click **Create Provider**. 
 
-1. Go to the [AWS IAM Console](https://console.aws.amazon.com/iam/home#home). Click on **Identity Providers** in the left menu and then click **Create Provider**:
+![](/media/articles/integrations/aws/create-provider.png)
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-1.png)
+Set the following parameters:
 
-2. Select **SAML** as the **Provider Type** and enter a name for your provider:
+| Parameter | Description and Sample Value |
+| - | - |
+| Provider Type | The type of provider. Set as `SAML` |
+| Provider Name | A descriptive name for the provider, such as `auth0SamlProvider` |
+| Metadata Document | Upload the file containing the Auth0 metadata you downloaded in the previous step here. |
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-2.png)
+![](/media/articles/integrations/aws/aws-configure-provider.png)
 
-3. Download your metadata document from <% if (account.userName) { %><https://${account.namespace}/samlp/metadata/${account.clientId}><% } else { %>`https://${account.namespace}/samlp/metadata/${account.clientId}`<% } %>.
+Click **Next Step**. Verify your settings and click **Create** if everything is correct.
 
-  Click **Choose File** and browse to the metadata document you just downloaded. Click **Next Step**:
+![](/media/articles/integrations/aws/create-provider-confirm.png)
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-3.png)
+## Step 2: Create a Role for Your SAML Provider
 
-4. Verify your provider information and click **Create**:
+To use the provider, you must create an IAM role using the provider in the role's trust policy. 
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-4.png)
+In the IAM console, navigate to [Roles](https://console.aws.amazon.com/iam/home#/roles). Click **Create New Role**.
 
-## Create a Role
+![](/media/articles/integrations/aws/iam-new-role.png)
 
-Now create a role with one or more associated policies. (You can create as many roles as required.)
+On the **Select role type** page, select **Role for identity provider access**. 
 
-1. On the AWS IAM Console, click on **Roles** in the left menu and then click **Create New Role**:
+![](/media/articles/integrations/aws/select-role-type.png)
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-5.png)
+Click **Select** for the **Grant Web Single Sign-On (WebSSO) access to SAML providers** option. Set the following values:
 
-2. Provide a name for your new role and click **Next Step**:
+| Parameter | Value |
+| - | - |
+| SAML Provider | Select the provider you created in the previous step |
+| Attribute | `SAML:iss` |
+| Value | `urn:${account.namespace}` |
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-6.png)
+![](/media/articles/tutorials/aws/establish-trust.png)
 
-3. Select **Role for Identity Provider Access**. Then select **Grant API access to SAML providers** and click **Next Step**:
+Click **Next Step** to proceed.
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-7.png)
+On the Verify Role Trust page, accept the **Policy Document** as provided and click **Next Step**. 
 
-4. Select or enter the following values:
+![](/media/articles/tutorials/aws/verify-role-trust.png)
 
-  * **SAML Provider**: the provider you just created
-  * **Attribute**: `SAML:iss`
-  * **Value**: `urn:${account.namespace}`
+When asked to **Attach Policy**, either select a pre-defined policy or [define a custom policy](#create-a-custom-policy). These define the permissions that users granted this role will have with AWS. Click **Next Step**
 
-  and click **Next Step**:
+Finally, set the role name and review your settings. Provide values for the following parameters:
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-8.png)
+| Parameter | Definition | 
+| - | - |
+| Role name | A descriptive name for your role |
+| Role description | A description of what your role is used for |
 
-5. On the Verify Role Trust page, accept the Policy Document as provided. Click **Next Step**:
+Review the **Trusted entities** and **Policies** information, then click **Create Role**.
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-9.png)
+![](/media/articles/integrations/aws/iam-review-role.png)
 
-6.  At **Attach Policy**, either select a pre-defined policy to attach or define a custom policy as defined in the [next section](#create-a-custom-policy). Click **Next Step**
-
-7. Review the information and click **Create Role**:
-
-  ![](/media/articles/aws-api-setup/aws-api-setup-10.png)
+At this point, you'll have created the necessary role to associate with your provider.
 
 ## Create a Custom Policy
 
-In this example, you will create a policy that grants full access to the S3 resource: `YOUR_BUCKET/<%= '${saml:sub}' %>`. This will be evaluated at run-time and replaced with the `user_id` of the logged-in user.
+In this example, you will create a policy that grants full access to the S3 resource `YOUR_BUCKET/<%= '${saml:sub}' %>`. AWS evaluates this policy at run-time and replaces the placeholder with the `user_id` of the user that's logged in.
 
-1. On the **Roles** page, select the role you just created.
+In the IAM console, navigate to [Roles](https://console.aws.amazon.com/iam/home#/roles). Select the role you just created to open up it's summary page.
 
-  On the **Permissions** tab under **Inline Policies**, click the link to create an inline policy:
+On the **Permissions** tab click the carrot to expand the **Inline Policies** area.
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-11.png)
+![](/media/articles/tutorials/aws/role-summary.png)
 
-2. Name your policy and enter the following code in the **Policy Document** field:
+Click the provided link to create an inline policy.
 
-  ```
-  {
-    "Version": "2012-10-17",
-    "Statement": [{
-        "Effect": "Allow",
-        "Action": [
-          "*"
-        ],
-        "Resource": [
-        "arn:aws:s3:::YOUR_BUCKET/<%= '${saml:sub}' %>",
-        "arn:aws:s3:::YOUR_BUCKET/<%= '${saml:sub}' %>/*"]
-    }]
-  }
-  ```
+You'll be creating a **Custom Policy**. Provide a **Policy Name** and populate the **Policy Document** field with the following:
 
-3. Click **Validate Policy** to check your syntax, then click **Apply Policy**.
+```text
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+      "Effect": "Allow",
+      "Action": [
+        "*"
+      ],
+      "Resource": [
+      "arn:aws:s3:::YOUR_BUCKET/<%= '${saml:sub}' %>",
+      "arn:aws:s3:::YOUR_BUCKET/<%= '${saml:sub}' %>/*"]
+  }]
+}
+```
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-12.png)
+Click **Validate Policy** to check your syntax.
 
-## Copy the ARN values
+![](/media/articles/tutorials/aws/review-validate-policy.png)
 
-1. From the summary page of the role you just created, copy the **Role ARN** value. You will use this value later when calling the `/delegation` endpoint in Auth0.
+Click **Apply Policy** to proceed.
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-13.png)
+## Copy the ARN Values
 
-2. From the summary page of the identity provider you created previously, copy the **Provider ARN** value. You will use this value as the **Principal ARN** in the [Rule you will build to be used in conjunction with the call to Auth0's `/delegation` endpoint](/integrations/aws#get-the-aws-token-for-an-authenticated-user).
+The following instructions will show you where you can find the Provider and Role ARN values.
 
-  ![](/media/articles/aws-api-setup/aws-api-setup-14.png)
+### Provider ARN
 
-::: note
-For more information on supported AWS APIs, see: [AWS Services That Work with IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SpecificProducts.html).
-:::
+In the IAM console, navigate to [Identity providers](https://console.aws.amazon.com/iam/home#/providers). Select the role in which you're interested to open up its summary page. Copy the **Provider ARN** value, which is listed first under **Summary**.
+
+![](/media/articles/tutorials/aws/provider-summary.png)
+
+### Role ARN
+
+In the IAM console, navigate to [Roles](https://console.aws.amazon.com/iam/home#/roles). Select the role in which you're interested to open up its summary page. Copy the **Role ARN** value, which is listed first under **Summary**.
+
+![](/media/articles/tutorials/aws/role-summary2.png)
+
+### Keep Reading
+
+* [AWS Services Supported by IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SpecificProducts.html).
