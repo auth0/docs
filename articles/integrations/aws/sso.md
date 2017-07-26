@@ -94,10 +94,10 @@ At this point, you'll have created the necessary role to associate with your pro
 ## Map the AWS Role to a User
 
 ::: note
-For an example of how to define a server-side rule for assigning a role in an advanced-use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway).
+For an example of how to define a server-side rule for assigning a role in an advanced use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway).
 :::
 
-The **AWS roles** you send will be associated with an **IAM policy** that enforces the type of access allowed to a resource, including the AWS Consoles. To map an AWS role to a user, you'll need to create a [rule](/rule) for this purpose.
+The **AWS roles** specified will be associated with an **IAM policy** that enforces the type of access allowed to a resource, including the AWS Consoles. To map an AWS role to a user, you'll need to create a [rule](/rules) for this purpose.
 
 ::: note
 For more information on roles and policies, see [Creating IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-creatingrole.html).
