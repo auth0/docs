@@ -130,10 +130,12 @@ var awsRoles = {
   'DomainUser': 'arn:aws:iam::951887872838:role/TestSAML,arn:aws:iam::95123456838:saml-provider/MyAuth0',
   'DomainAdmins': 'arn:aws:iam::957483571234:role/SysAdmins,arn:aws:iam::95123456838:saml-provider/MyAuth0'
 };
+user.awsRole = awsRoles[user.group];
+user.awsRoleSession = user.email;
 
 context.samlConfiguration.mappings = {
-  'https://aws.amazon.com/SAML/Attributes/Role': awsRoles[user.group],
-  'https://aws.amazon.com/SAML/Attributes/RoleSessionName': user.name,
+  'https://aws.amazon.com/SAML/Attributes/Role': 'awsRole',
+  'https://aws.amazon.com/SAML/Attributes/RoleSessionName': 'awsRoleSession',
 };
 ```
 
