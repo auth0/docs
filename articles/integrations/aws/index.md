@@ -8,3 +8,4 @@ Auth0 supports integration with AWS' Identity and Access Management (IAM) servic
 
  * [Perform SSO with the AWS Dashboard](/aws/sso)
  * [Obtain AWS Tokens to securely call AWS APIs and resources](/aws/tokens)
+ * [Delegated Authentication with AWS APIs](/aws-api-setup)

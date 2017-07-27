@@ -137,6 +137,52 @@ context.samlConfiguration.mappings = {
 };
 ```
 
+### Mapping Multiple Roles
+
+You can also assign an array to the role mapping (so you'd have `awsRoles = [ role1, role2 ]` instead of `awsRoles: role1`)
+
+For example, let's say that you have Active Directory Groups with the following structure:
+
+```text
+ var user = {
+   app_metadata: {
+     ad_groups: {
+       "admins": "some info not aws related",
+       "aws_dev_Admin": "arn:aws:iam::123456789111:role/Admin,arn:aws:iam::123456789111:saml-provider / Auth0",
+       "aws_prod_ReadOnly": "arn:aws:iam::123456789999:role/ReadOnly,arn:aws:iam::123456789999:saml-provider / Auth0"
+     }
+   }
+ };
+```
+
+Your rule might therefore looking something like this:
+
+```js
+function (user, context, callback) {
+
+  var userGroups = user.app_metadata.ad_groups;
+
+  function awsFilter(group) {
+    return group.startsWith('aws_');
+  }
+
+  function mapGroupToRole(awsGroup) {
+    return userGroups[awsGroup];
+  }
+
+  user.awsRole = Object.keys(userGroups).filter(awsFilter).map(mapGroupToRole);
+  user.awsRoleSession = 'myawsuser'; // unique per user http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
+
+  context.samlConfiguration.mappings = {
+    'https://aws.amazon.com/SAML/Attributes/Role': 'awsRole',
+    'https://aws.amazon.com/SAML/Attributes/RoleSessionName': 'awsRoleSession'
+  };
+
+  callback(null, user, context);
+
+}
+```
+
 ## Test Your Setup
 
 You are now set up for single sign-on to AWS. You can find the `Identity Provider Login URL` on the [Management Dashboard](${manage_url}). Open up your [client](${manage_url}/#/clients) to the **SAML2 Addon** settings area, and click over to the **Usage** tab.
