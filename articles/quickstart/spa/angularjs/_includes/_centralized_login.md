@@ -14,7 +14,7 @@ The angular-auth0 wrapper comes with a provider called `angularAuth0Provider`. T
   'use strict';
 
   angular
-    .module('app', ['auth0.auth0', 'ui.router'])
+    .module('app', ['auth0', 'ui.router'])
     .config(config);
 
   config.$inject = [
