@@ -5,7 +5,6 @@ title: Lock 10 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
 ---
-
 # Lock 10 for Web
 
 You're looking at the documentation for the _easiest_ way of securing your website and mobile apps!
@@ -58,7 +57,7 @@ If you are using browserify or webpack to build your project and bundle its depe
 
 ## Usage
 
-### Implementing Lock
+### 1) Implementing Lock
 
 ```js
 // Initiating our Auth0Lock
@@ -82,7 +81,7 @@ lock.on("authenticated", function(authResult) {
 });
 ```
 
-### Showing Lock
+### 2) Showing Lock
 
 ```js
 document.getElementById('btn-login').addEventListener('click', function() {
@@ -90,7 +89,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 });
 ```
 
-### Displaying the User's Profile
+### 3) Displaying the User's Profile
 
 ```js
 // Verify that there's a token in localStorage
@@ -114,7 +113,7 @@ function showLoggedIn() {
 This example demonstrates using Lock 10 with a Single Page Application (SPA). To learn how Lock can be modified to provide frictionless authentication for any app, see the [API Reference][lock-api] and the [Configuration Options Reference][lock-customization]. For details specifically about customizing the look and feel of Lock in your app, please take a look at the [UI Customization][ui-customization] page.
 :::
 
-## Start Using Lock
+## Further Examples
 
 <%= include('../../../_includes/_lock-sdk') %>
 
