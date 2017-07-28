@@ -72,7 +72,7 @@ class JsonWebToken
 end
 ```
 
-## Define an `authentincate!` method
+## Define an `authenticate!` method
 
 Create an `authenticate!` method to run before each endpoint which looks for the `access_token` in the `Authorization` header of an incoming request. If the token is present, it should be passed to `JsonWebToken.verify`.
 
