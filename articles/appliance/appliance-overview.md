@@ -49,7 +49,7 @@ You may deploy the PSaaS Appliance in several different configurations and use s
     <tr>
         <th>Geo HA</th>
         <td>Not Available</td>
-        <td colspan="2"><ul><li>Multiple data center with active-passive clustering and automated failover</li> <li>Auth0 continues to operate if a data center becomes unavailable</li> <li>If the primary data center fails, traffic can quickly be routed to the secondary cluster</li> <li>Cluster topology is replicated in each environment. Requires aa global load balancing solution like AWS Route 53 or F5 Global Traffic Manager.</li></ul></td>
+        <td colspan="2"><ul><li>Multiple data center with active-passive clustering and automated failover</li> <li>Auth0 continues to operate if a data center becomes unavailable</li> <li>If the primary data center fails, traffic can quickly be routed to the secondary cluster</li> <li>Cluster topology is replicated in each environment. Requires a global load balancing solution like AWS Route 53 or F5 Global Traffic Manager.</li></ul></td>
     </tr>
     <tr>
         <th>Backup and Recovery</th>
