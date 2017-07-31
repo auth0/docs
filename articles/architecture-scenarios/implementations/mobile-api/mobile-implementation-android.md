@@ -12,7 +12,7 @@ This document is part of the [Mobile + API Architecture Scenario](/architecture-
 The full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-mobile/android).
 :::
 
-## Set Up the Application
+## 1. Set Up the Application
 
 ### System Requirements
 
@@ -81,7 +81,7 @@ For this implementation, create directories for activities, models, and utils in
 - `models/`: this package will contain the `TimeSheet.java` and `User.java` data models.
 - `utils/`: this package will contain the `UserProfileManager.java`, `TimeSheetAdapter.java`, and `ImageTask.java`
 
-## Authorize the User
+## 2. Authorize the User
 
 ### Update the Manifest
 
@@ -302,7 +302,7 @@ public void onSuccess(@NonNull final Credentials credentials) {
 }
 ```
 
-## Get the User Profile
+## 3. Get the User Profile
 
 ### Create the User Model
 
@@ -428,7 +428,7 @@ public void onSuccess(@NonNull final Credentials credentials) {
 // ...
 ```
 
-## Call the API
+## 4. Call the API
 
 ### Update the Manifest
 
@@ -785,7 +785,7 @@ public class TimeSheetActivity extends AppCompatActivity {
 }
 ```
 
-## View the User Profile
+## 5. View the User Profile
 
 To display the logged in user’s profile we’ll create the `UserActivity`, a corresponding `user_activity.xml` layout, and the `user_action_menu.xml` for the Toolbar navigation. The view will display the user’s name, email, and profile picture.
 
@@ -974,7 +974,7 @@ public class UserActivity extends AppCompatActivity {
 }
 ```
 
-## Form for New Time Sheets
+## 6. Form for New Time Sheets
 
 Next create the `FormActivity` and layout to handle creating new timesheet entries.
 

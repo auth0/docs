@@ -233,6 +233,10 @@ See the implementation in [Node.js](/architecture-scenarios/application/mobile-a
 
 In this section we will see how we can implement a Mobile application for our scenario.
 
+::: note
+[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#1-set-up-the-application)
+:::
+
 #### Authorize the User
 
 To authorize the user we will implement an [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce). The mobile application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) along with the `code_challenge` and the method used to generate it:
@@ -260,7 +264,7 @@ The `GET` request to the authorization URL should include the following values:
 - __redirect_uri__: The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Client's Settings](https://manage.auth0.com/#/clients).
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#)
+[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#2-authorize-the-user)
 :::
 
 #### Get the Credentials
@@ -301,7 +305,7 @@ The response from the Token URL will contain:
 You will need to store the above credentials in local storage for use in calling your API and retrieving the user profile.
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#)
+[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials)
 :::
 
 #### Get the User Profile
@@ -324,7 +328,7 @@ To retrieve the [User Profile](/api/authentication?http#user-profile), your mobi
 ```
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#)
+[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#3-get-the-user-profile)
 :::
 
 #### Call the API
@@ -332,7 +336,7 @@ To retrieve the [User Profile](/api/authentication?http#user-profile), your mobi
 To access secured resources from your API, the authenticated user's `access_token` needs to be included in requests that are sent to it. This is accomplished by sending the `access_token` in an `Authorization` header using the `Bearer` scheme.
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#)
+[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#4-call-the-api)
 :::
 
 #### Renew the Token
@@ -357,13 +361,8 @@ The response will include the new `access_token`:
 ```
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#)
+[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials)
 :::
-
-## The API Implementation in Node.JS
-
-<%= include('../implementations/api-implementation-nodejs.md') %>
-
 
 ## Conclusion
 
