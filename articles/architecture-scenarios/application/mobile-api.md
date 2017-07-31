@@ -86,7 +86,7 @@ The Proof Key for Code Exchange (PKCE) (defined in [RFC 7636](https://tools.ietf
 
 With PKCE, the Client creates, for every authorization request, a cryptographically random key called `code_verifier` and its transformed value called `code_challenge`, which is sent to Auth0 to get the `authorization_code`. When the Client receives the `authorization_code`, it will send the code and the `code_verifier` to Auth0's token endpoint to exchange them for the requested tokens.
 
-![PKCE](/media/articles/architecture-scenarios/mobile-api/pkce.png)
+![PKCE](/media/articles/architecture-scenarios/mobile-api/authorization-code-grant-pkce.png)
 
 1. The native app initiates the flow and redirects the user to Auth0 (specifically to the [/authorize endpoint](/api/authentication#authorization-code-grant-pkce-)), sending the `code_challenge` and `code_challenge_method` parameters.
 2. Auth0 redirects the user to the native app with an `authorization_code` in the querystring.
@@ -108,7 +108,7 @@ You will be required to supply the following details for your API:
 - __Identifier__: a unique identifier for the API. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all. This value cannot be modified afterwards.
 - __Signing Algorithm__: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting RS256 the token will be signed with the tenant's private key. For more details on the signing algorithms see the Signing Algorithms paragraph below.
 
-![Create API](/media/articles/architecture-scenarios/spa-api/create-api.png)
+![Create API](/media/articles/architecture-scenarios/mobile-api/create-api.png)
 
 Fill in the required information and click the __Create__ button.
 
@@ -141,7 +141,7 @@ Once the client has been created you will need to configure the Scopes which cli
 
 In the settings for your API, go to the **Scopes** tab. In this section you can add all four of the scopes which were discussed before, namely `read:timesheets`, `create:timesheets`, `delete:timesheets`, `approve:timesheets`.
 
-![Add Scopes](/media/articles/architecture-scenarios/spa-api/add-scopes.png)
+![Add Scopes](/media/articles/architecture-scenarios/mobile-api/add-scopes.png)
 
 ### Create the Client
 
@@ -153,7 +153,7 @@ Set a name for your Client (we will use `Timesheets Mobile`) and select `Native`
 
 Click __Create__.
 
-![Create Client](/media/articles/architecture-scenarios/spa-api/create-client.png)
+![Create Client](/media/articles/architecture-scenarios/mobile-api/create-client.png)
 
 That's it for now. When we are done with the Mobile app implementation we will revisit the dashboard and this Client's settings to make some changes in its configuration.
 
