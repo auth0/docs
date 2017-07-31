@@ -677,6 +677,7 @@ The follow are the values for the package configuration.
 | `repo` | The name of the github repository. |
 | `path` | The path where the sample is contained. This will be the folder that gets downloaded. |
 | `requirements` | An array of strings representing the system requirements for the project and article. |
+| `branch` | The branch of the github repository. If omitted this will default to `master` |
 
 ## Updates Feed
 
