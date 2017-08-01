@@ -1,12 +1,21 @@
 ---
-description: How to install a Joomla application with Auth0.
+description: How to install Auth0 onto your Joomla platform.
 ---
-
 
 # Joomla Installation
 
-1. Download the latest release of the Joomla extension from [auth0-joomla](https://github.com/auth0/auth0-joomla/releases).
-2. Access the Joomla administrator interface and select *Extension Manager* from the **Extensions** dropdown menu.
-3. Select *Choose File* under *Upload & Install Joomla Extension* and select the downloaded zip file.
-4. Click *Upload & Install*.
-5. [Setup the plugin](/cms/joomla/configuration)
+[Download](https://github.com/auth0/auth0-joomla/releases) the latest release of the Auth0-Joomla extension.
+
+Log in to the Joomla Control Panel using an admin account. 
+
+![](/joomla1.png)
+
+Click **Install Extensions** from the left-hand navigation menu.
+
+![](/joomla2.png)
+
+On the **Upload & Install Joomla Extension** tab, select the `.zip` file you downloaded above containing the Auth0-Joomla extension. Once you've selected your file, Joomla automatically installs your extension.
+
+![](/joomla3.png)
+
+You're now ready to [set up the Auth0-Joomla extension](/cms/joomla/configuration).

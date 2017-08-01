@@ -1,5 +1,5 @@
 ---
-description: How to configure a Joomla application with Auth0.
+description: How to configure your Joomla instance for use with Auth0.
 ---
 
 # Joomla Configuration
