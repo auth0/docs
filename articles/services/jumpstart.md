@@ -4,8 +4,6 @@ description: Focused project to help customers get started with Auth0 during the
 
 # Jumpstart
 
-This offering consists of 3 blocks of 4 hours, each covering the following.
-
 The Jumpstart consists of **3 blocks**, each lasting **4 hours**. The blocks include:
 
 * [Scenario Guidance](#scenario-guidance)
@@ -55,6 +53,4 @@ The Architectural Review is one working session designed to help you understand 
 
 We recommend completing Architectural Review session no more than **30 days** after you complete the [Programming Advisory](#programming-advisory) sessions.
  
-## Additional Information
-
 <%= include('../_includes/_contact-sales') %>
