@@ -186,6 +186,13 @@ The following table describes operational and feature differences between each o
           <td>Available using SMS, Google Authenticator, Duo over TOTP/HOTP, and Push Notification with Guardian SDK.</td>
         </tr>
         <tr>
+          <th>Lock</th>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>Yes <sup>***</sup></td>
+        </tr>
+        <tr>
           <th>Internet Restricted</th>
           <td>No</td>
           <td>No</td>
