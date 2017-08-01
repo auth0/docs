@@ -7,7 +7,7 @@ budicon: 546
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-javascript-samples',
-  path: '03-Calling-an-Api'
+  path: '03-Calling-an-API'
 }) %>
 
 <%= include('../_includes/_calling_api_preamble') %>
