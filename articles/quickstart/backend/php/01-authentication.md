@@ -156,3 +156,5 @@ $router->get('/api/private/ping', function() use ($app){
     echo json_encode($app->privatePing());
 });
 ```
+
+<%= include('../_includes/_call_api') %>

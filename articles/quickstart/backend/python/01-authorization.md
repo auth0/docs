@@ -175,16 +175,4 @@ def secured_private_ping():
     return "You don't have access to this resource"
 ```
 
-## Make a Call to your API
-
-You can now make requests to your secure API by providing the `access_token` as an `Authorization` header in your requests.
-
-```har
-{
-  "method": "GET",
-  "url": "http://localhost:8000/path_to_your_api",
-  "headers": [
-    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN_HERE" }
-  ]
-}
-```
+<%= include('../_includes/_call_api') %>

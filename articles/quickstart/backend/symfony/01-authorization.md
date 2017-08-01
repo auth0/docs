@@ -120,18 +120,7 @@ Scopes provide a way for you to define which resources should be accessible by t
 
 To configure scopes in your Auth0 dashboard, navigate to [your API](${manage_url}/#/apis) and choose the **Scopes** tab. In this area you can apply any scopes you wish, including one called `read:messages`, which will be used in this example.
 
-## Call Your API
-
-You can now make requests to your protected API endpoint by providing the Authorization header in your requests with a valid JWT `access_token`.
-
-```har
-{
-"method": "GET",
-"url": "http://localhost:8000/api/private",
-"headers": [
-{ "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN_HERE" }
-]
-}
-```
-
 With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+
+<%= include('../_includes/_call_api') %>
+

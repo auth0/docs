@@ -158,3 +158,5 @@ func main() {
 ```
 
 In our example we only checked for the `read:messages` scope. You may want to extend the `checkScope` function or make it a standalone middleware that accepts multiple roles to fit your use case.
+
+<%= include('../_includes/_call_api') %>
