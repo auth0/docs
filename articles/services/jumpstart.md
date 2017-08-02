@@ -4,7 +4,7 @@ description: Focused project to help customers get started with Auth0 during the
 
 # Jumpstart
 
-The Jumpstart consists of **3 blocks** covering:
+The Jumpstart consists of **3 phases** covering:
 
 * [Scenario Guidance](#scenario-guidance)
 * [Programming Advisory](#programming-advisory)
@@ -26,13 +26,13 @@ Please note that this activity is *not* intended to review your full business or
 If you need a holistic review of your solution, please consider the [Architecture Design](/services/architectural-design) session offerings.
 :::
 
-Scenario Guidance includes one working session, where we will jointly draft a high-level solution to address the requirements of your scenario. We will provide a recommendations memo afterwards for your reference.
+The Scenario Guidance phase includes one working session, where we will jointly draft a high-level solution to address the requirements of your scenario. We will provide a recommendations memo afterwards for your reference.
 
-Please provide any diagrams or information you deem relevant prior to our session so that we can optimize the time available.
+Diagrams or information you deem relevant should be provided prior to our session so that we can optimize the time available.
 
 ## Programming Advisory
 
-The Programming Advisory activity consists of **two** working sessions where an Auth0 Solutions Architect works with and provides guidance to your development team on topics like:
+The Programming Advisory phase includes **two** working sessions where an Auth0 Solutions Architect works with and provides guidance to your development team on topics like:
 
 * Auth0 account configuration
 * Auth0 extensibility endpoints
@@ -44,7 +44,7 @@ We recommend completing the Programming Advisory sessions no more than **60 days
 
 ## Architectural Review
 
-The Architectural Review is one working session designed to help you understand what needs to be completed prior to Productive go-live, as well as what needs to be done afterwards regarding your Auth0 integration and usage. Topics covered include:
+The Architectural Review phase includes one session designed to help you understand what needs to be completed prior to Productive go-live, as well as what needs to be done afterwards regarding your Auth0 integration and usage. Topics covered include:
 
 * The production checklist
 * Auth0 features 
