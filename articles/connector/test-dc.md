@@ -49,6 +49,10 @@ You can run your VM on any cloud platform, but this guide will walk through how 
 > Install-windowsfeature -name AD-Domain-Services –IncludeManagementTools
 ```
 
+::: note
+Note that the `Install-windowsfeature` command first became available in Windows Server 2012. In Windows Server 2008, the equivalent command was `Add-windowsfeature` (See [MSDN](https://msdn.microsoft.com/en-us/library/ee662309.aspx) for more information). 
+:::
+
 ## Promote the Server to a Domain Controller
 
 1. Promote the server to a domain controller that manages a FQDN of `mycompany.local`:  
