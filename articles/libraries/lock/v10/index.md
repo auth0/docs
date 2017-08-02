@@ -7,9 +7,11 @@ img: media/articles/libraries/lock-web.png
 ---
 # Lock 10 for Web
 
-You're looking at the documentation for the _easiest_ way of securing your website and mobile apps!
+Lock is an embeddable login form, [configurable to your needs][lock-customization] and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using any provider they want.
 
-Lock is an embeddable login form, which is [configurable to your needs][lock-customization] and ready for use on mobile devices. It's easier than ever to add social identity providers to Lock, as well, allowing your users to login seamlessly using whichever providers make sense for your application. Check out one of the pages listed below to delve into details about Lock usage, if you know what you are looking for, or continue down this page for a basic installation and usage guide!
+::: note
+Lock is also available for use within Auth0's [Hosted Login Page](/hosted-pages/login), which is the simplest and most secure method by which to authenticate users for your applications.
+:::
 
 ## Lock 10 Installation
 
@@ -57,10 +59,12 @@ If you are using browserify or webpack to build your project and bundle its depe
 
 ## Usage
 
-### 1) Implementing Lock
+### 1. Initializing Lock
+
+First, you'll need to initialize a new `Auth0Lock` object, and provide it with your Auth0 client ID (the unique client ID for each Auth0 client app, which you can get from the [management dashboard](${manage_url})) and your Auth0 domain (i.e. `jeffstest.auth0.com`).
 
 ```js
-// Initiating our Auth0Lock
+// Initializing our Auth0Lock
 var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}'
@@ -81,7 +85,9 @@ lock.on("authenticated", function(authResult) {
 });
 ```
 
-### 2) Showing Lock
+### 2. Showing Lock
+
+Here you're showing the Lock widget after clicking a button; you can just as easily show Lock automatically when arriving at a page by just using `lock.show();`.
 
 ```js
 document.getElementById('btn-login').addEventListener('click', function() {
@@ -89,7 +95,9 @@ document.getElementById('btn-login').addEventListener('click', function() {
 });
 ```
 
-### 3) Displaying the User's Profile
+### 3. Displaying the User's Profile
+
+The following snippet demonstrates what could happen after your user logs in and you have successfully stored a token for them. Their `localStorage` is checked for a token, after which their profile is acquired by parsing said token, after which items from the profile can be displayed to the user (or used in other ways).
 
 ```js
 // Verify that there's a token in localStorage
@@ -109,17 +117,25 @@ function showLoggedIn() {
  <h2>Welcome <span id="nick" class="nickname"></span></h2>
 ```
 
-::: note
-This example demonstrates using Lock 10 with a Single Page Application (SPA). To learn how Lock can be modified to provide frictionless authentication for any app, see the [API Reference][lock-api] and the [Configuration Options Reference][lock-customization]. For details specifically about customizing the look and feel of Lock in your app, please take a look at the [UI Customization][ui-customization] page.
+## Browser Compatibility
+
+Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **IE >= 10**. Auth0 currently uses [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
+
+## Next Steps
+
+This document has shown how to use Lock 10 within a Single Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
+
+::: next-steps
+* [Lock v10 API Reference][lock-api]
+* [Lock Configuration Options][lock-customization]
+* [Lock UI Customization][ui-customization]
 :::
 
 ## Further Examples
 
+The below widget displays brief examples of implementing Auth0 in several ways: Lock as a modal "popup" widget, Lock embedded inline in a div, Lock Passwordless, a custom UI with [Auth0.js](/libraries/auth0js), and a simple link using the API.
+
 <%= include('../../../_includes/_lock-sdk') %>
-
-## Browser Compatibility
-
-Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **IE >= 10**. Auth0 currently uses [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
 
 <!--vars-->
 
