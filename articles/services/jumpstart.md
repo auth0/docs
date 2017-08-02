@@ -4,7 +4,7 @@ description: Focused project to help customers get started with Auth0 during the
 
 # Jumpstart
 
-The Jumpstart consists of **3 blocks**, each lasting **4 hours**. The blocks include:
+The Jumpstart consists of **3 blocks** covering:
 
 * [Scenario Guidance](#scenario-guidance)
 * [Programming Advisory](#programming-advisory)
