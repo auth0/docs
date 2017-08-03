@@ -15,7 +15,6 @@ budicon: 448
   ]
 }) %>
 
-
 ## Add the Auth0 Authentication SDK
 
 To log in the user you will be using the Auth0 Authentication SDK for .NET, so install the NuGet package:
