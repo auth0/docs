@@ -4,7 +4,7 @@ description: This tutorial will show you how assign roles to your users, and use
 budicon: 546
 ---
 
-<%= include('../../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-mvc-samples',
   path: 'Quickstart/05-Authorization',
