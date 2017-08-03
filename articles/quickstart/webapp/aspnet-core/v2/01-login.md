@@ -4,15 +4,16 @@ description: This tutorial will show you how to use the standard OpenID Connect 
 budicon: 448
 ---
 
-<%= include('../../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-mvc-samples',
   path: 'Quickstart/01-Login',
+  branch: 'v2',
   requirements: [
-    '.NET Core 1.1.0',
-    'ASP.NET Core 1.1.1',
-    'Microsoft.AspNetCore.Authentication.OpenIdConnect 1.1.1'
+    '.NET Core SDK 2.0 (Preview 2)',
+    '.NET Core 2.0 (Preview 2)',
+    'ASP.NET Core 2.0 (Preview 2)'
   ]
 }) %>
 
-<%= include('_includes/_login') %>
+<%= include('../_includes/v2/_login') %>

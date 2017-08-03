@@ -22,8 +22,8 @@ If you would like to follow along with this Quickstart you can download the [see
 
 The final project after each of the steps is also available in the Quickstart folder of the [ASP.NET Core MVC Samples repository](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Quickstart). You can find the final result for each step in the relevant folder inside the repository.
 
-<%= include('../../../_includes/_new_app') %>
+<%= include('../../../../_includes/_new_app') %>
 
-<%= include('_includes/_setup') %>
+<%= include('../_includes/_setup') %>
 
-Please continue with the [Login](/quickstart/webapp/aspnet-core/01-login) tutorial for instruction on how to implement basic login.
+Please continue with the [Login](/quickstart/webapp/aspnet-core/v1/01-login) tutorial for instruction on how to implement basic login.
