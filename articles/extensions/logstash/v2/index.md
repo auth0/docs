@@ -58,8 +58,8 @@ To replay logs:
 
 To set up [Slack](https://slack.com/) integration, provide an [Incoming Webhook URL](https://api.slack.com/incoming-webhooks) to the `SLACK_INCOMING_WEBHOOK` field in the Auth0 Logs to Logstash [extension settings](${manage_url}/#/extensions).
 
-![Slack Settings](/media/articles/extensions/logstash/slack-settings)
+![Slack Settings](/media/articles/extensions/logstash/slack-settings.png)
 
 The extension sends failed transaction notifications to Slack with the checkpoint code displayed in the message. You can also enable verbose notifications by turning on the `SLACK_SEND_SUCCESS` setting.
 
-![Slack Message](/media/articles/extensions/logstash/slack-message)
+![Slack Message](/media/articles/extensions/logstash/slack-message.png)
