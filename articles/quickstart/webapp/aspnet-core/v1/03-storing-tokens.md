@@ -4,7 +4,7 @@ description: This tutorial will show you how store the tokens returned from Auth
 budicon: 280
 ---
 
-<%= include('../../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-mvc-samples',
   path: 'Quickstart/03-Storing-Tokens',

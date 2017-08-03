@@ -20,7 +20,7 @@ This tutorial demonstrates how to use a previously saved token to authenticate y
 
 ## Before Starting
 
-You should already know how to handle the `Credentials` object, as explained in the [Session Management](03-session-handling) tutorial.
+You should already know how to handle the `Credentials` object, as explained in the [Session Management](/quickstart/native/android/03-session-handling) tutorial.
 
 This sample assumes that you have already setup a backend application as API. If you haven't done so, you can follow any backend quickstart defined [here](https://auth0.com/docs/quickstart/backend). Then obtain the endpoint in which you're expecting the user to be first authenticated and declare it as a constant in the current class.
 

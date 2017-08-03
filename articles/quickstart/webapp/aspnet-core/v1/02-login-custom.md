@@ -4,7 +4,7 @@ description: This tutorial will show you how to create a custom login page for y
 budicon: 448
 ---
 
-<%= include('../../../_includes/_package', {
+<%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-mvc-samples',
   path: 'Quickstart/02-Login-Custom',
@@ -14,7 +14,6 @@ budicon: 448
     'Auth0.AuthenticationApi 4.0.0'
   ]
 }) %>
-
 
 ## Add the Auth0 Authentication SDK
 
