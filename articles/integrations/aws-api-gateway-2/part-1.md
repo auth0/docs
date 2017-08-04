@@ -6,7 +6,7 @@ toc: true
 
 # AWS API Gateway Tutorial - Part 1
 
-In Part 1 of the AWS API Gateway tutorial, we will show you how to:
+In Part 1 of the AWS API Gateway tutorial, we will show you how to import and manage an API using API Gateway. More specifically, we will:
 
 * Import an API into API Gateway
 * Test an API import
@@ -19,13 +19,13 @@ In later parts of this tutorial, we will show how to secure the endpoints of thi
 
 Log in to your AWS account, and using the **Services** drop down located in the top navigation bar, go to the **API Gateway** Console.
 
+::: note
+If you've previously created an API, simply navigate to the API Gateway Console and click **Create API**. You'll be given the option to create the **Example API** on the **Create new API** form.
+:::
+
 If you've never created an API using API Gateway, you'll see the following screen. Click **Get Started** to proceed.
 
 ![](/media/articles/integrations/aws-api-gateway2/aws-pt1-1.png)
-
-If you have, you'll...
-
-![](/media/articles/integrations/aws-api-gateway2)
 
 You'll see a pop-up message welcoming you to API Gateway. Click **OK** to proceed.
 
