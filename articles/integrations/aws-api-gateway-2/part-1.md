@@ -21,27 +21,27 @@ Log in to your AWS account, and using the **Services** drop down located in the 
 
 If you've never created an API using API Gateway, you'll see the following screen. Click **Get Started** to proceed.
 
-![](/aws-pt1-1.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-1.png)
 
 If you have, you'll...
 
-![]()
+![](/media/articles/integrations/aws-api-gateway2)
 
 You'll see a pop-up message welcoming you to API Gateway. Click **OK** to proceed.
 
-![](/aws-pt1-3.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-3.png)
 
 On the **Create new API** form, you'll see that **Example API** is selected by default and there's an example API defined in the editor. We'll use this API for the rest of our tutorial, so begin the API creation process by clicking **Import**.
 
-![](/aws-pt1-4.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-4.png)
 
 When done, AWS will display a message indicated that your API created and populated with the provided data.
 
-![](/aws-pt1-5.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-5.png)
 
 Notice that the API already has methods associated with it (namely, `GET` and `POST`). You can view the details of a method, modify its setup, or test the method invocation by clicking the method name from the resource tree.
 
-![](/aws-pt1-5a.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-5a.png)
 
 ### Test Your API
 
@@ -56,11 +56,11 @@ We can use this area to test the API we've created.
 
 Click **Test** (shown on the **Client** sliver located in the middle of the page).
 
-![](/aws-pt1-5b.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-5b.png)
 
 You'll be redirected to the `/pets - POST - Method Test` page.
 
-![](/aws-pt1-5c.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-5c.png)
 
 Scroll to the bottom of the page, and provide the following snippet as the **Request Body**:
 
@@ -70,13 +70,13 @@ Scroll to the bottom of the page, and provide the following snippet as the **Req
 
 The request body indicates the attributes of the pet we want to add to the database, as well as the cost for the pet.
 
-![](/aws-pt1-5d.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-5d.png)
 
 Click **Test** to proceed.
 
 You'll see the results of the test at the right side of the page.
 
-![](/aws-pt1-5e.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-5e.png)
 
 ## Deploy the API
 
@@ -99,15 +99,15 @@ When the API has successfully deployed, you'll be redirected to the **Test Stage
 
 At the top of the **Test Stage Editor** window is a blue banner with your **Invoke URL**. This is the URL used to invoke the `GET` endpoint of your API. 
 
-![](/aws-pt1-7.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-7.png)
 
 Click on the link to submit the `GET / method` request in a browser. This should result in the following success response:
 
-![](/aws-pt1-8.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-8.png)
 
 Next, we'll make a call to **GET** under `/pets/{petId}`. In the **Stages** page, expand the tree under **Test**.
 
-![](/aws-pt1-9.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-9.png)
 
 You'll see an **Invoke URL** displayed in the blue banner at the top of the window. The final portion, `{petID}`, stands for a path variable. Replace this variable with `1`, and navigate to the new URL using your browser. You should receive an HTTP 200 request with the following JSON payload:
 
@@ -119,7 +119,7 @@ You'll see an **Invoke URL** displayed in the blue banner at the top of the wind
 }
 ```
 
-![](/aws-pt1-10.png)
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-10.png)
 
 ## Summary
 
