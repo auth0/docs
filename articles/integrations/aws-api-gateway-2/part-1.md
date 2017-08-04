@@ -4,7 +4,7 @@ description: Step 1 of Amazon API Gateway Tutorial
 toc: true
 ---
 
-# AWS API Gateway Tutorial - Part 1
+# AWS API Gateway Tutorial, Part 1: Import and Deploy the API
 
 ::: warning
 This portion of the tutorial has been adapted from the [official AWS example](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-from-example.html). Please refer to this example for in-depth notes and discussion.
@@ -140,5 +140,5 @@ Now that we have a fully functional API that's managed by API Gateway, we'll...
 
 <%= include('./_stepnav', {
  prev: ["Introduction", "/integrations/aws-api-gateway-2"],
- next: ["2. Part 2", "/integrations/aws-api-gateway-2/part-2"]
+ next: ["2. Secure the API", "/integrations/aws-api-gateway-2/part-2"]
 }) %>
