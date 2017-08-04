@@ -6,7 +6,7 @@ toc: true
 
 # AWS API Gateway Tutorial - Part 1
 
-::: note
+::: warning
 This portion of the tutorial has been adapted from the [official AWS example](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-from-example.html). Please refer to this example for in-depth notes and discussion.
 :::
 
@@ -96,6 +96,8 @@ You'll be asked to provide the following values:
 | Deployment description | Provide a description for your API deployment |
 
 Once you've provided the appropriate values, click **Deploy** to proceed.
+
+![](/media/articles/integrations/aws-api-gateway2/aws-pt1-6.png)
 
 ### Test the Deployment
 
