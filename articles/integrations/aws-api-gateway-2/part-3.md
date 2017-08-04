@@ -6,5 +6,5 @@ description:
 
 
 <%= include('./_stepnav', {
- prev: ["2. Part 2", "/integrations/aws-api-gatewa2/part-2"]
+ prev: ["2. Part 2", "/integrations/aws-api-gateway-2/part-2"]
 }) %>

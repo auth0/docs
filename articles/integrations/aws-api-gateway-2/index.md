@@ -51,3 +51,7 @@ Before beginning this tutorial, you'll need to [sign up for an AWS account](http
 * [Use API Gateway Custom Authorizers](http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html)
 
 * [Secure API Gateway Endpoints with Custom Authorizers](https://cloudacademy.com/amazon-web-services/labs/api-gateway-custom-authorizers-lambda-54/)
+
+<%= include('./_stepnav', {
+ next: ["1. Part 1", "/integrations/aws-api-gateway-2/part-1"]
+}) %>
