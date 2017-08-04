@@ -69,15 +69,15 @@ This endpoint will work only if `openid` was granted as a scope for the `access_
 
 Response Notes:
 
-* `Email` claim returns a snapshot of the email at the time of login
-* Standard claims (other than `email` return the latest value (unless the value comes from an external IdP)
+* The `Email` claim returns a snapshot of the email at the time of login
+* Standard claims (other than `email`) return the latest value (unless the value comes from an external IdP)
 * Custom claims return a snapshot of the value at the time of login
 
-*Use case*: I want to access the most up-to-date values for the `email` or custom claims.
+**Use case**: I want to access the most up-to-date values for the `email` or custom claims.
 
-If you want the newest user information, you must get new tokens. You can log in using silent authentication (where `prompt` equals `none`)
+If you want the newest user information, you must get new tokens. You can log in using silent authentication (where the `prompt` parameter for your call to the [`authorize` endpoint](/api/authentication#authorization-code-grant) equals `none`)
 
-*Use case*: I want to access the most up-to-date values for standard claims that were changed using an external IdP (for example, the user changed their email address in Facebook).
+**Use case**: I want to access the most up-to-date values for standard claims that were changed using an external IdP (for example, the user changed their email address in Facebook).
 
 If you want the newest user information, you must get new tokens. Log in again using the external IdP, but *not* with silent authentication.
 
