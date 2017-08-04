@@ -6,7 +6,9 @@ description: Guide on implementing Passwordless authentication with Lock for And
 # Lock Passwordless
 
 ::: warning
-This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see [Client Grant Types](/clients/client-grant-types) for more information.
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see [Client Grant Types](/clients/client-grant-types) for more information.
+
+As an alternative to using native passwordless, please check into using Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
 :::
 
 Lock Passwordless authenticates users by sending them an Email or SMS with a one-time password that the user must enter and confirm to be able to log in, similar to how WhatsApp authenticates you. This article will explain how to send a **CODE** using the `Lock.Android` library.
@@ -70,7 +72,6 @@ Add the `PasswordlessLockActivity`. Depending on which passwordless connection y
 ```
 
 The `data` attribute of the intent-filter defines which syntax of "Callback URI" your app is going to capture. In the above case it's going to capture calls from `email` passwordless connections. In case you're using the `sms` passwordless connection, the `pathPrefix` would end in `sms`.
-
 
 ::: note
 In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `PasswordlessLockActivity` to make possible to the library to capture a **Social** provider's authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0 , as it's now done internally by the library for you.

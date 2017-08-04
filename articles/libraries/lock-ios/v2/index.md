@@ -95,7 +95,9 @@ Lock
 ## Implementation of Lock Passwordless
 
 ::: warning
-This feature is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see [Client Grant Types](/clients/client-grant-types) for more information.
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see [Client Grant Types](/clients/client-grant-types) for more information.
+
+As an alternative to using native passwordless, please check into using Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
 :::
 
 Lock Passwordless handles passwordless authentication using email and sms connections.
@@ -230,10 +232,15 @@ Lock
 
 <%= include('../_includes/_roadmap') %>
 
-## Other Resources
+## Next Steps
 
-- [Styles Customization](/libraries/lock-ios/v2/customization) - customize the look and feel of Lock
-- [Behavior Configuration](/libraries/lock-ios/v2/configuration) - configure the behavior of Lock
-- [Custom Fields](/libraries/lock-ios/v2/custom-fields) - adding custom signup fields to Lock
-- [Internationalization](/libraries/lock-ios/v2/internationalization) - internationalization and localization support in Lock
-- [Migration Guide for v2](/libraries/lock-ios/v2/migration) - migrate from Lock v1 to Lock v2
+::: next-steps
+
+- [Customizing the Style of Lock](/libraries/lock-ios/v2/customization)
+- [Customizing the Behavior of Lock](/libraries/lock-ios/v2/configuration)
+- [Adding Custom Signup Fields to Lock](/libraries/lock-ios/v2/custom-fields)
+- [Lock Internationalization](/libraries/lock-ios/v2/internationalization)
+- [Logout Endpoint](/logout)
+- [Migration Guide for Lock for iOS v2](/libraries/lock-ios/v2/migration)
+
+:::
