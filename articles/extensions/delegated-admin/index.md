@@ -23,7 +23,7 @@ Prior to configuring the extension, you will need to:
 
 ## Create a Client
 
-The first step is to create the Client that the extension exposes to those who should have adminsitrative priviledges to the Users page.
+The first step is to create the Client that the extension exposes to those who should have administrative privileges to the Users page.
 
 After you've logged into the [Management Dashboard](${manage_url}), navigate to [Clients](${manage_url}/#/clients) and click on **+Create Client**. Provide a name for your Client (such as `Users Dashboard`) and set the Client type to `Single Page Web Applications`. Click **Create** to proceed.
 
