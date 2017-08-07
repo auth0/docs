@@ -2,47 +2,45 @@
 description: How to configure your Joomla instance for use with Auth0.
 ---
 
-# Configure the Joomla-Auth0 Integration
+# Joomla Integration
 
 Before you can use Auth0 to handle authentication and authorization requests for your Joomla users, you'll need to do some configuration from both sides of the integration.
 
-## Provide Auth0 Client Details to the Auth0-Joomla Extension
+## Configure Client Values
 
 To use Auth0 with Joomla, be sure you have a valid [Client](/clients). You'll need to provide information about your client to the Auth0-Joomla extension you [installed](/cms/joomla/installation).
 
-Log in to the Joomla Control Panel using an admin account. Using the top navigation bar, go to **Components > Auth0 > Auth0**. Click **Options** (located in the top right of the window). 
+1. Log in to the Joomla Control Panel using an admin account. Using the top navigation bar, go to **Components > Auth0 > Auth0**. Click **Options** (located in the top right of the window). 
 
-![](/media/articles/cms/joomla/configuration/joomla-1.png)
+    ![](/media/articles/cms/joomla/configuration/joomla-1.png)
 
-Provide the requested values for your Auth0 client. You can find the **Domain**, **Client ID**, and **Client Secret** values using the the [Client Settings page](${manage_url}/#/clients/${account.clientId}/settings). Click **Save & Close** to proceed.
+2. Provide the requested values for your Auth0 client. You can find the **Domain**, **Client ID**, and **Client Secret** values using the the [Client Settings page](${manage_url}/#/clients/${account.clientId}/settings). Click **Save & Close** to proceed.
 
-![](/media/articles/cms/joomla/configuration/joomla-2.png)
+    ![](/media/articles/cms/joomla/configuration/joomla-2.png)
 
-On the left-hand side, select **Test** (if you're not automatically redirected to the page). Make sure that the **Auth0 App Data** setting indicates **Complete**.
+3. On the left-hand side, select **Test** (if you're not automatically redirected to the page). Make sure that the **Auth0 App Data** setting indicates **Complete**.
 
-![](/media/articles/cms/joomla/configuration/joomla-3.png)
+    ![](/media/articles/cms/joomla/configuration/joomla-3.png)
 
 ## Configure the Joomla Module
 
-Log in to the Joomla Control Panel using an admin account. Using the top navigation bar, go to **Extensions > Modules**.
+1. Log in to the Joomla Control Panel using an admin account. Using the top navigation bar, go to **Extensions > Modules**.
 
-![](/media/articles/cms/joomla/configuration/joomla-4.png)
+    ![](/media/articles/cms/joomla/configuration/joomla-4.png)
 
-Publish the module but clicking on the small, red icon located immediately to the left of the module name.
+2. Publish the module but clicking on the small, red icon located immediately to the left of the module name.
 
-![](/media/articles/cms/joomla/configuration/joomla-5.png)
+    ![](/media/articles/cms/joomla/configuration/joomla-5.png)
 
-Click on the name of the module `Auth0` to launch the settings page.
+3. Click on the name of the module `Auth0` to launch the settings page. On the right-hand side, use the **Position** drop-down menu to indicate [where the Auth0 Login button will be located](https://docs.joomla.org/Module_Position) on your site.
 
-On the right-hand side, use the **Position** drop-down menu to indicate [where the Auth0 Login button will be located](https://docs.joomla.org/Module_Position) on your site.
+    ![](/media/articles/cms/joomla/configuration/joomla-6.png)
 
-![](/media/articles/cms/joomla/configuration/joomla-6.png)
-
-Switch over the the **Menu Assignment** tab, and using the **Module Assignment** drop-down menu, select **On all pages**.
+4. Switch over the the **Menu Assignment** tab, and using the **Module Assignment** drop-down menu, select **On all pages**.
 
 ![](/media/articles/cms/joomla/configuration/joomla-7.png)
 
-Click **Save & Close**. The Auth0 Login button will now appear in the location you selected on your Joomla pages. Whenever a user clicks **Login**, they will see the [Auth0 Lock widget](/libraries/lock).
+5. Click **Save & Close**. The Auth0 Login button will now appear in the location you selected on your Joomla pages. Whenever a user clicks **Login**, they will see the [Auth0 Lock widget](/libraries/lock).
 
 ![](/media/articles/cms/joomla/configuration/joomla-8.png)
 
