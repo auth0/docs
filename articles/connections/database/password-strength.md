@@ -31,11 +31,11 @@ At each level, new passwords must meet the following criteria:
  * **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (e.g. `!@#$%^&*`). Not more than 2 identical characters in a row (e.g. `111` is not allowed).
 
 
-## Change your policy
+## Change Your Policy
 
 To change the password strength policy, go to [Database connections](${manage_url}/#/connections/database). Select the database connection you want to change and click on the **Password Strength** tab:
 
-![Password Strength Panel in Auth0](/media/articles/connections/database/password-strength/jH0kabJPoi.png)
+![Password Strength Panel in Auth0](/media/articles/connections/database/password-strength/pw-manage.png)
 
 The new policy will be enforced on all subsequent user sign-ups and password changes. If the user enters a password that does not match the required criteria, the password will be rejected by Auth0 and the user will be asked to create one that complies with these requirements.
 
