@@ -22,16 +22,23 @@ You can run your VM on any cloud platform, but this guide will walk through how 
     * Region: (your choice)
 1. Click the **CREATE A VIRTUAL MACHINE** button. It will take a few minutes for the VM to provision.
 1. Click on the **ENDPOINTS** tab of the new VM, and take note of the **PUBLIC PORT** for the **Remote Desktop** endpoint.
+
     ![](/media/articles/connector/test-dc/remote-desktop-port.png)
+
 1. Open up Microsoft Remote Desktop client (Windows or Mac) or the client of your choice (such as [rdesktop](http://www.rdesktop.org/) for Linux systems). Create a new connection to your VM:
+
     ![](/media/articles/connector/test-dc/remote-desktop-connection.png)
+
 1. Open the connection, disregarding any certificate warnings presented by the Remote Desktop client. You should be logged in automatically and eventually see a desktop that looks like this:
+
     ![](/media/articles/connector/test-dc/new-vm-desktop.png)
+
 1. If you're prompted to find PC's, devices, and content on the local network, choose **No**.
 
 ## Install Active Directory Domain Services
 
 1. Click the PowerShell icon ![](/media/articles/connector/test-dc/powershell-icon.png) in the Windows Task Bar to open the **PowerShell Command Prompt**.
+
     ![](/media/articles/connector/test-dc/powershell-command-prompt.png)
 
 1. Install Active Directory Domain Services (ADDS) using this command:
@@ -91,6 +98,7 @@ You can run your VM on any cloud platform, but this guide will walk through how 
     * Click on the **Search** tab.
     * Under "Find User by Login", type `mary.smith`.
     * Click **Search**. You should get JSON back that contains that user's AD profile data:
+
     ![](/media/articles/connector/test-dc/test-find-user.png)
 
 ## Test an Authentication Flow from Auth0
@@ -110,6 +118,7 @@ To ensure that everything is working using your Auth0 account, we're going to co
 1. Log in with one of the test users that was created in the directory:
     * Username: `mary.smith` or `bob.johnson`
     * Password: `Pass@word1!`
+
     ![](/media/articles/connector/test-dc/auth-flow-login.png)
 1. If everything is working, you should be redirected to the JWT.io website to see the contents of the resulting JWT:
     ![](/media/articles/connector/test-dc/auth-success.png)
