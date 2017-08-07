@@ -564,10 +564,6 @@ module.exports = [
     to: '/libraries/lock'
   },
   {
-    from: '/login-widget',
-    to: '/libraries/login-widget'
-  },
-  {
     from: '/login-widget2',
     to: '/libraries/login-widget2'
   },
