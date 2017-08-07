@@ -1,5 +1,5 @@
 ---
-title: Authorization API Explorer
+title: Authentication API Explorer
 fullWidth: true
 ---
 
