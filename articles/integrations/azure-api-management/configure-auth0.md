@@ -15,7 +15,7 @@ To use Auth0 as an [OAuth 2.0 authorization server](/protocols/oauth2#oauth-role
 
 An API is an entity that represents an external resource that's capable of accepting and responding to requests made by clients. You'll need to create an [Auth0 API](/apis) using the Management Dashboard to represent the API managed by Azure's API Management Service that you want secured by Auth0.
 
-You'll also need a [Non Interactive Client](/client), which represents your application and allows use of Auth0 for authentication. By default, when you create an API, Auth0 automatically creates an associated API. 
+You'll also need a [Non Interactive Client](/client), which represents your application and allows use of Auth0 for authentication. When you create an API, Auth0 automatically creates an associated non interactive client by default.
 
 To begin, you'll need to log into the Auth0 Management Dashboard. Go the [APIs](${manage_url}/#/apis) and click **Create API**.
 
@@ -39,10 +39,10 @@ When your API is ready, you'll be shown the **Quick Start** page for the API. Sw
 
 ### Step 2: Create a Connection
 
-After you've created your API and your Client, you'll need to create a [Connection](/clients/connections), which are sources of users. For the purposes of this example, we'll create a [Database Connection](/connections/database).
+After you've created your API and your Client, you'll need to create a [Connection](/clients/connections), which is a source of users. For the purposes of this example, we'll create a [Database Connection](/connections/database).
 
 ::: note
-If you already have a set of users, you may [import them](/extensions/user-import-export) or create a [custom database connection](https://auth0.com/docs/connections/database/mysql.
+If you already have a set of users, you may [import them](/extensions/user-import-export) or create a [custom database connection](https://auth0.com/docs/connections/database/mysql).
 :::
 
 Go to the Management Dashboard. Navigate to [**Connections** > **Database Connections**](${manage_url}/#/connections/database), and click **Create DB Connection**.
