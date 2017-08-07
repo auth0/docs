@@ -4,6 +4,10 @@
 
 # Configure Auth0 as an Identity Provider
 
+::: warning
+Auth0 only supports using Auth0 as the identity provider in SAML configurations with **SAML 2.0**.
+:::
+
 Depending on the type of application you're working with, configuring Auth0 to serve as the SAML Identity Provider (IdP) is done in several places.
 
 ## SSO Integrations with Built-in Auth0 Support
