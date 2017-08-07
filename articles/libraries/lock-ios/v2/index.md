@@ -94,10 +94,10 @@ Lock
 
 ## Implementation of Lock Passwordless
 
-::: warning
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case and prevent the possibility of introducing security vulnerabilities. Please see [Client Grant Types](/clients/client-grant-types) for more information.
+::: panel-warning Passwordless on Native Platforms
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information.
 
-As an alternative to using native passwordless, please check into using Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
+Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
 :::
 
 Lock Passwordless handles passwordless authentication using email and sms connections.
@@ -235,12 +235,9 @@ Lock
 ## Next Steps
 
 ::: next-steps
-
 - [Customizing the Style of Lock](/libraries/lock-ios/v2/customization)
 - [Customizing the Behavior of Lock](/libraries/lock-ios/v2/configuration)
 - [Adding Custom Signup Fields to Lock](/libraries/lock-ios/v2/custom-fields)
 - [Lock Internationalization](/libraries/lock-ios/v2/internationalization)
-- [Logout Endpoint](/logout)
-- [Migration Guide for Lock for iOS v2](/libraries/lock-ios/v2/migration)
-
+- [Logging out Users](/logout)
 :::

@@ -260,12 +260,9 @@ For descriptions of common error messages, check out the [Error Messages](/libra
 ## Next Steps
 
 ::: next-steps
-
 * [Customizing the Style of Lock](/libraries/lock-android/v2/custom-theming)
 * [Customizing the Behavior of Lock](/libraries/lock-android/v2/configuration)
 * [Adding Custom Signup Fields to Lock](/libraries/lock-android/v2/custom-fields)
 * [Lock Internationalization](/libraries/lock-android/v2/internationalization)
-* [Logout Endpoint](/logout)
-* [Migration Guide for Lock Android v2](/libraries/lock-android/v2/migration-guide)
-
+* [Logging out Users](/logout)
 :::
