@@ -40,7 +40,7 @@ The following is a list of legacy `grant_types`:
 * `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
 * `http://auth0.com/oauth/legacy/grant-type/access_token`
 
-## Edit available grant_types
+## Edit Available `grant_types`
 
 You can set the the `grant_types` property for your Auth0 Client using the Management Dashboard.
 
@@ -59,6 +59,8 @@ Scroll down to the bottom of the settings page, and click **Advanced Settings**.
 Switch to the **Grant Types** tab and enable or disable the respective grants for this client. Click **Save Changes**.
 
 ![Auth0 Client Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
+
+Alternatively, you can set the client's grant type by making a [`PATCH` call to the Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) Management API to update the `grant_types` field.
 
 ::: warning
 As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Clients. Only customers as of 8 June 2017 can add legacy grant types to their existing Clients.
