@@ -10,7 +10,7 @@ toc: true
 
 To use the Resource Owner Password Grant (or any extensions of it), make a [`PATCH` call to the Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) Management API to update the `grant_types` field.
 
-You can also set the the `grant_types` property for your Auth0 Client [using the Management Dashboard](/clients/client-grant-types#edit-available-grant-types.
+You can also set the the `grant_types` property for your Auth0 Client [using the Management Dashboard](/clients/client-grant-types#edit-available-grant_types).
 
 ## Configure your tenant
 
