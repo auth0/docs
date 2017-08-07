@@ -1,14 +1,15 @@
 ---
-description: How to use auth0.js v7 in the Hosted Login page
+description: How to use Auth0.js v7 with the Hosted Login Page
 ---
-
 # Using Auth0.js v7 in the Hosted Login Page
 
-Within the Hosted Login page, you can use the the [Auth0.js library](/libraries/auth0js), instead of [Lock](/libraries/lock), to perform authentication using a custom UI. You can also use Auth0.js _in addition_ to Lock, for authentication or user management tasks. 
+Within the Hosted Login page, you can use the the [Auth0.js v7 SDK](/libraries/auth0js/v87), instead of [Lock](/libraries/lock), to perform authentication using a custom UI (you can also use Auth0.js _in addition_ to Lock, for authentication or user management tasks).
 
-To do this, you'll need to provide all the parameters requested in `config.internalOptions`.
+Auth0.js v7 is a legacy version of the SDK, and is *not* the recommended version for projects that [are able to [use Auth0.js v8](/hosted-pages/login/auth0js/v8) for their hosted login page instead. You can read the Reasons to Migrate and the API Auth sections of the [Auth0.js Migration Guide](/libraries/auth0js/v8/migration-guide#reasons-to-migrate) to learn whether version 8 of Auth0.js is appropriate for your applications.
 
-In this example, you'll create a username/password form that allows the user to log in and authenticate using [Auth0.js v7](/libraries/auth0js/v7). You'll use this custom form instead of Lock.
+## Login Form Example
+
+In this example, you'll create a basic username/password form that allows the user to log in and authenticate using [Auth0.js v7](/libraries/auth0js/v7).
 
 ```html
 <!DOCTYPE html>
