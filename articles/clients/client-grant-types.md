@@ -40,7 +40,7 @@ The following is a list of legacy `grant_types`:
 * `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
 * `http://auth0.com/oauth/legacy/grant-type/access_token`
 
-## Edit available grant_types
+## Edit Available `grant_types`
 
 You can set the the `grant_types` property for your Auth0 Client using the Management Dashboard.
 
