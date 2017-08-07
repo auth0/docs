@@ -18,7 +18,7 @@ Within the Dashboard, you can create, view, modify, or delete users. These optio
 User Management is included as part of the **Developer** subscription plan. You may need to [upgrade your plan](${manage_url}/#/account/billing/subscription) to access these features.
 :::
 
-![User Profile Dashboard](/media/articles/user-profile/user-profile-dashboard.png)
+![User Profile Dashboard](/media/articles/user-profile/user1.png)
 
 ### Create a New User
 
@@ -92,7 +92,7 @@ If you need to log in to your app as a user, see everything exactly as the user 
 
 Navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Select the user you want to impersonate from the list. When the User Details page opens, click the "Sign in as User" button. Select the app you want to log into from the dropdown menu.
 
-![Impersonate a User](/media/articles/user-profile/signin-as-user-01.png)
+![Impersonate a User](/media/articles/user-profile/user2.png)
 
 ::: panel I can't see the button
 Can't see the button? The following conditions are required for the button display:
@@ -102,7 +102,7 @@ Can't see the button? The following conditions are required for the button displ
 
 A popup will display the URL to use to impersonate the user. You can copy the URL into the clipboard (white button) or open the URL in a separate browser tab/window (blue button).
 
-![Impersonate a User](/media/articles/user-profile/signin-as-user-02.png)
+![Impersonate a User](/media/articles/user-profile/user3.png)
 
 ::: panel Impersonation API
 You can also use the [Impersonation API](/api/authentication/reference#impersonation) to impersonate a user. The API generates a link that you can use once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
@@ -116,19 +116,19 @@ To disable a user's access to your apps, you can block the user in the Dashboard
 
 To block a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to block. When the User Details page opens, click the "Actions" button. Select _Block User_ from the dropdown menu.
 
-![Block a User](/media/articles/user-profile/block-user.png)
+![Block a User](/media/articles/user-profile/user4.png)
 
 If a blocked user tries to access an application, they will see the error message `user is blocked`.
 
 To unblock a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to unblock. When the User Details page opens, click the "Actions" button. Select _Unblock User_ from the dropdown menu.
 
-![Unblock a User](/media/articles/user-profile/unblock-user.png)
+![Unblock a User](/media/articles/user-profile/user4.png)
 
 ### Delete a User
 
 To permanently delete a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to delete. When the User Details page opens, click the "Actions" button. Select _Delete User_ from the dropdown menu.
 
-![Delete a User](/media/articles/user-profile/delete-user.png)
+![Delete a User](/media/articles/user-profile/user4.png)
 
 A popup will warn you that the action cannot be undone and prompt you to confirm that you want to delete the user. Click the "Yes, Delete It" button to confirm. This will permanently delete the user.
 

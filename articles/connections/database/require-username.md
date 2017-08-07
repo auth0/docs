@@ -13,14 +13,15 @@ For database connections, you can have your users sign in with a username instea
 1. Go to the [Connections -> Database](${manage_url}/#/connections/database) section of the dashboard.
 
 1. Select the connection you wish to edit by clicking on the connection name or the Settings gear icon.
-![](/media/articles/connections/database/db-connections-page.png)
+![](/media/articles/connections/database/requires-username-toggle.png)
 
 1. Under **Settings**, you will see **Requires Username**, use the toggle here to enable/disable requiring a username.
-![](/media/articles/connections/database/requires-username-toggle.png)
+
+![](/media/articles/connections/database/username-length.png)
 
 You can see how the this will affect the login screen by clicking on **Try Connection**. You can see that once **Requires Username** is enabled, new users will have to enter a username and their email address to sign up.
 
-<img width="300" src="/media/articles/connections/database/lock-usernamestyle.png" />
+![](/media/articles/connections/database/lock-usernamestyle.png)
 
 Users can then login with either their username or their email address. For users who registered while **Requires Username** was disabled, there will be no Username field stored for them and they will have to login with their email.
 

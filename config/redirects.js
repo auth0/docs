@@ -564,10 +564,6 @@ module.exports = [
     to: '/libraries/lock'
   },
   {
-    from: '/login-widget',
-    to: '/libraries/login-widget'
-  },
-  {
     from: ['/okta', '/saml/identity-providers/okta'],
     to: '/protocols/saml/identity-providers/okta'
   },
