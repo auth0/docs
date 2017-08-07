@@ -31,8 +31,8 @@ To create a new user and their corresponding User Profile, click the [Users](${m
 
 Fill in the required information and click **Save** to create the new user. For more information refer to: [Creating Users via the Management Dashboard](/tutorials/creating-users-in-the-management-portal).
 
-::: panel Pending Users
-The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+::: note
+The User Details page will show `pending` when a user is first created until they have logged in for the first time.
 :::
 
 ### View Users
@@ -134,7 +134,7 @@ A popup will warn you that the action cannot be undone and prompt you to confirm
 
 ## Manage Users using the Management API
 
-Alternatively, you can retrieve, create, update or delete users using our [Management API](https://auth0.com/docs/api/management/v2#!/Users/get_users).
+Alternatively, you can retrieve, create, update or delete users using our [Management API](/api/management/v2#!/Users/get_users).
 
 First, you have to generate an `access_token` to call the Management API. For information on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 
