@@ -3,10 +3,9 @@ title: Password Strength in Auth0 Database Connections
 description: Auth0's Password Strength feature allows you to customize the level of enforced complexity for passwords entered during user sign-up. Auth0 offers 5 levels of security to match OWASP password recommendations.
 crews: crew-2
 ---
-
 # Password Strength in Auth0 Database Connections
 
-:::panel-warning Feature availability
+::: warning
 The **Password Strength** feature is only available for Database connections. The password complexity in Social and Enterprise connections is enforced by each provider.
 :::
 
@@ -40,7 +39,7 @@ To change the password strength policy, go to [Database connections](${manage_ur
 The new policy will be enforced on all subsequent user sign-ups and password changes. If the user enters a password that does not match the required criteria, the password will be rejected by Auth0 and the user will be asked to create one that complies with these requirements.
 
 ::: note
-  Existing passwords that were created prior to the change in policy will continue to validate.
+Existing passwords that were created prior to the change in policy will continue to validate.
 :::
 
 ### Lock
@@ -66,7 +65,7 @@ The response will also contain additional information that can be used to guide 
 * `verified` can be either `true` or `false`. Returns `false` if the rule has been violated.
 
 ::: note
-  Some rules are composites. A rule may contain an `items` field that specifies which sub-rules have failed. Each sub-rule will have a `message` and may have a `format`, if required.
+Some rules are composites. A rule may contain an `items` field that specifies which sub-rules have failed. Each sub-rule will have a `message` and may have a `format`, if required.
 :::
 
 ### Examples
