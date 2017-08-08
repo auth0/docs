@@ -5,12 +5,13 @@ title: Lock 10 for Web
 description: A widget that provides a frictionless login and signup experience for your web apps.
 img: media/articles/libraries/lock-web.png
 ---
-
 # Lock 10 for Web
 
-You're looking at the documentation for the _easiest_ way of securing your website and mobile apps!
+Lock is an embeddable login form, [configurable to your needs][lock-customization] and ready for use on web apps. It enables you to easily add social identity providers to Lock, allowing your users to login seamlessly using whichever provider they want.
 
-Lock is an embeddable login form, which is [configurable to your needs][lock-customization] and ready for use on mobile devices. It's easier than ever to add social identity providers to Lock, as well, allowing your users to login seamlessly using whichever providers make sense for your application. Check out one of the pages listed below to delve into details about Lock usage, if you know what you are looking for, or continue down this page for a basic installation and usage guide!
+::: note
+Check out our [Lock GitHub repository](https://github.com/auth0/lock).
+:::
 
 ## Lock 10 Installation
 
