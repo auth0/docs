@@ -70,6 +70,11 @@ var lock = new Auth0Lock(
   '${account.namespace}'
 );
 
+## 2. Authenticating and Getting User Info
+
+Next, listen using the `on` method for the `authenticated` event. When the event occurs, use the `accessToken` which was received to call the `getUserInfo` method and acquire the user's profile information (as needed). You can also save the token or profile to `localStorage` for later use.
+
+```js
 // Listening for the authenticated event
 lock.on("authenticated", function(authResult) {
   // Use the token in authResult to getUserInfo() and save it to localStorage
@@ -79,42 +84,34 @@ lock.on("authenticated", function(authResult) {
       return;
     }
 
+    document.getElementById('nick').textContent = profile.nickname;
+
     localStorage.setItem('accessToken', authResult.accessToken);
     localStorage.setItem('profile', JSON.stringify(profile));
   });
 });
 ```
 
-### 2. Showing Lock
+You can then manipulate page content and display profile information to the user (for example, displaying their name in a welcome message).
 
-Here you're showing the Lock widget after clicking a button; you can just as easily show Lock automatically when arriving at a page by just using `lock.show();`.
+```html
+ <h2>Welcome <span id="nick" class="nickname"></span></h2>
+```
+
+::: note
+Note that if you are storing the user profile, you will want to `JSON.stringify` the profile object and then, when using it later, `JSON.parse` it, because it will need to be stored in `localStorage` as a string rather than a JSON object.
+:::
+
+### 3. Showing Lock
+
+Here you're showing the Lock widget after the user clicks a login button; you can just as easily show Lock automatically when arriving at a page by just using `lock.show();` on page load.
+
+This will show the Lock widget, and paired with the above, you're now ready to handle logins!
 
 ```js
 document.getElementById('btn-login').addEventListener('click', function() {
   lock.show();
 });
-```
-
-### 3. Displaying the User's Profile
-
-The following snippet demonstrates what could happen after your user logs in and you have successfully stored a token for them. Their `localStorage` is checked for a token, after which their profile is acquired by parsing said token, after which items from the profile can be displayed to the user (or used in other ways).
-
-```js
-// Verify that there's a token in localStorage
-var token = localStorage.getItem('accessToken');
-if (token) {
-  showLoggedIn();
-}
-
-// Display the user's profile
-function showLoggedIn() {
-  var profile = JSON.parse(localStorage.getItem('profile'));
-  document.getElementById('nick').textContent = profile.nickname;
-}
-```
-
-```html
- <h2>Welcome <span id="nick" class="nickname"></span></h2>
 ```
 
 ## Browser Compatibility
