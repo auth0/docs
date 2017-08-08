@@ -47,10 +47,10 @@ b. Once you've obtained a token, create a local `event.json` file containing the
 
 To get the `methodArn`:
 
-    1. Using the API Gateway Console, open the **PetStore** API.
-    2. Click **Resources** in the left-hand navigation panel.
-    3. In the middle **Resources** panel, expand the resource tree. Underneath `/pets`, click **GET**.
-    4. In the **Method Request** box, you'll see the **ARN**.
+1. Using the API Gateway Console, open the **PetStore** API.
+2. Click **Resources** in the left-hand navigation panel.
+3. In the middle **Resources** panel, expand the resource tree. Underneath `/pets`, click **GET**.
+4. In the **Method Request** box, you'll see the **ARN**.
 
 c. Run the test using `npm test`. The test uses the [lambda-local](https://www.npmjs.com/package/lambda-local) package to test the custom authorizer using your token. If the test was successful, you'll see output similar to the following:
 
