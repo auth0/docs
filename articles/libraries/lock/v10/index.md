@@ -69,6 +69,7 @@ var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}'
 );
+```
 
 ## 2. Authenticating and Getting User Info
 
