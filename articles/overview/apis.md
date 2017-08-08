@@ -5,7 +5,6 @@ title: APIs Overview
 description: Learn the basics of APIs, their role in OAuth and how to configure an API in Auth0 Dashboard.
 crews: crew-2
 ---
-
 # APIs
 
 <%= include('../_includes/_pipeline2') %>
@@ -115,3 +114,11 @@ For more information ob how to do this, please refer the [Verify Access Tokens](
 :::
 
 For a more detailed overview of the JWT signing algorithms refer to: [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
+
+## Keep Reading
+
+::: next-steps
+- [API Authorization landing page](/api-auth)
+- [Identify the proper OAuth 2.0 flow for your use case](/api-auth/which-oauth-flow-to-use)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+:::
