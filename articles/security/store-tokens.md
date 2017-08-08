@@ -49,6 +49,10 @@ There are different options to control the lifetime of a cookie:
 * Cookies can be vulnerable cross-site request forgery (CSRF or XSRF) attacks. This type of attack occurs when a malicious web site causes a user’s web browser to perform an unwanted action on a trusted site where the user is currently authenticated. This is an exploit of how the browser handles cookies. Using a web app framework’s CSRF protection makes cookies a secure optionfor storing a JWT. CSRF can also be partially prevented by checking the HTTP `Referer` and `Origin` header.
 *  Can be difficult to implement if the application requires cross-domain access. Cookies have additional properties (Domain/Path) that can be modified to allow you to specify where the cookie is allowed to be sent. 
 
+## How to implement
+
+Many of our Quickstarts demonstrate how to store tokens. The exact implementation will be different based on the technology being used. Please refer to the Quickstarts at the top of our [Documentation Home Page](/), select the appropriate Quickstart based on your application type, and follow the code samples provided.
+
 ## Keep reading
 
 ::: next-steps
