@@ -10,6 +10,10 @@ Auth0 allows you to test a Social Identity Provider without specifying your own 
 
 For production environments, make sure to [follow the steps for your chosen provider](/identityproviders) to obtain the Client ID and Client secret from the provider, this will avoid the [limitations](#limitations-of-developer-keys) of using developer keys.
 
+::: panel-warning Custom Developer keys
+One or more connections are using Auth0 development keys which are only intended for use in development and testing. The connections should be configured with your own Developer Keys to enable the consent page to show your logo instead of Auth0's and to enable SSO for these connections. Auth0 development keys are not recommended for Production environments.
+:::
+
 ::: panel Client ID and Client Secret
 The exact terminology of a Client ID / Client Secret may differ between various Identity Providers. For example, Twitter refers to these as a Consumer Key / Consumer Secret and LinkedIn refers to an API Key / Secret Key.
 :::
