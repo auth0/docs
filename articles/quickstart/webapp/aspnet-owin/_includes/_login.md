@@ -2,13 +2,13 @@
 
 The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the Auth0 ASP.NET OAuth2 middleware which is available in the `Auth0-ASPNET-Owin` NuGet package, so install that first:
 
-``` bash
+```bash
 Install-Package Auth0-ASPNET-Owin
 ```
 
-Also, there is a bug in Microsoft's OWIN implementation for System.Web, which can cause cookies to disappear on some occasions. To work around this issue, you will need to install the `Kentor.OwinCookieSaver` NuGet package:
+There is a bug in Microsoft's OWIN implementation for System.Web, which can cause cookies to disappear on some occasions. To work around this issue, you will also need to install the `Kentor.OwinCookieSaver` NuGet package:
 
-```
+```bash
 Install-Package Kentor.OwinCookieSaver
 ```
 
