@@ -5,7 +5,7 @@ description: How to Use the Auth0.js v8 with the Hosted Login Page
 
 Within the Hosted Login page, you can use the the [Auth0.js v8 SDK](/libraries/auth0js/v8), instead of [Lock](/libraries/lock), to perform authentication using a custom UI (you can also use Auth0.js _in addition_ to Lock, for authentication or user management tasks).
 
-Auth0.js is the current version of the SDK, and is the recommended version for projects that [are able to use it. You can read the Reasons to Migrate and the API Auth sections of the [Auth0.js Migration Guide](/libraries/auth0js/v8/migration-guide#reasons-to-migrate) to learn whether version 8 of Auth0.js is appropriate for your applications.
+Auth0.js is the current version of the SDK, and is the recommended version for projects that are able to use it. You can read the Reasons to Migrate and the API Auth sections of the [Auth0.js Migration Guide](/libraries/auth0js/v8/migration-guide#reasons-to-migrate) to learn whether version 8 of Auth0.js is appropriate for your applications if you are uncertain.
 
 ## Auth0.js Template for Hosted Login Page
 

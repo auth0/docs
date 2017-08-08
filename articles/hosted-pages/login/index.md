@@ -8,13 +8,13 @@ crews: crew-2
 
 ## About the Hosted Login Page
 
-Auth0's Hosted Login Page is the most secure way to easily authenticate users for your applications. The Hosted Login Page is easily customizable right from the [management dashboard](${manage_url}). By default, it provides for the use of Auth0's [Lock Widget](/libraries/lock) for authentication, but the Hosted Login Page's code can be customized to add in the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js) for authentication.
+Auth0's Hosted Login Page is the most secure way to easily authenticate users for your applications. The Hosted Login Page is easily customizable right from the [management dashboard](${manage_url}). By default, the Hosted Login Page uses Auth0's [Lock Widget](/libraries/lock) to authenticate your users, but the code of the Hosted Login Page can be customized to replace Lock with the Lock Passwordless widget, or an entirely custom UI can be built in its place, using the [Auth0.js SDK](/libraries/auth0js) for authentication.
 
 ![Hosted Login Page](/media/articles/hosted-pages/hlp-lock.png)
 
 ### How Does the Hosted Login Page Work
 
-Auth0 shows the Hosted Login Page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request. Users will see the Hosted Login Page, typically with either Lock (see example screenshot below) or with a custom UI. Once they login, they will be redirected back to your application.
+Auth0 shows the Hosted Login Page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request. Users will see the Hosted Login Page, typically with either the Lock widget or with your custom UI. Once they login, they will be redirected back to your application.
 
 #### Social Providers
 
@@ -22,9 +22,9 @@ If the incoming authentication request includes a `connection` parameter that us
 
 #### SSO
 
-When SSO is desired, an a client should use the Hosted Login Page for logins rather than an embedded one. When a user logs in via the Hosted Login Page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user may not ever be redirected to the Hosted Login Page. They will see the page only when they need to actually login. 
+When SSO is desired, a client should use the Hosted Login Page for logins rather than an embedded login solution. When a user logs in via the Hosted Login Page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user may not ever be redirected to the Hosted Login Page. They will see the page only when they need to actually login. 
 
-This behavior occurs without modification of the actual Hosted Login Page, but rather by enabling SSO for the client in the [Dashboard](${manage_url}) and then using the `authorize` endpoint with `?prompt=none` for silent SSO.
+This behavior occurs without modification to the actual Hosted Login Page. The process involves enabling SSO for the client in the [Dashboard](${manage_url}) and then using the `authorize` endpoint with `?prompt=none` for silent SSO.
 
 For more information about how SSO works, see the [SSO documentation](/sso).
 
@@ -34,13 +34,13 @@ For more information about how SSO works, see the [SSO documentation](/sso).
 
 An important thing to remember is that the Hosted Login Page is intended to be only for signups and authentication. Attempting to host any significant amount of application logic in the Hosted Login Page is not advised.
 
-The Hosted Login Page is truly a single page within the editor, so all custom styling and inclusions will occur in the one page, and hosting other files or images along with it is not possible, so those will need to be hosted alongside the application itself, or elsewhere.
+The Hosted Login Page is truly a single page constructed within the editor, so all custom styling and includes will need to be put into the single editor window. Hosting other files or images along with the Hosted Login Page is not possible, so those will need to be hosted in the application itself, or elsewhere.
 
-### Why Use Hosted Login vs Embedded Login
+### Hosted Login vs Embedded Login
 
 Why use the Hosted Login Page rather than embedding your login functionality within your application?
 
-Security is the primary reason, followed by ease of setup. Cross-Origin Authentication is inherently more dangerous, and more likely to be vulnerable to man-in-the-middle attacks. Using the Hosted Login Page for the authentication process with Auth0 prevents that from ever being a concern. Additionally, the Hosted Login Page is very easy to implement, especially if a custom UI is not required.
+Security is the primary reason, followed by ease of setup. Cross-origin authentication is inherently more dangerous, and more likely to be vulnerable to man-in-the-middle attacks. Using the Hosted Login Page for the authentication process with Auth0 prevents that from ever being a concern. Additionally, the Hosted Login Page is very easy to implement, especially if a custom UI is not required.
 
 ### Passwordless on Native Platforms
 
@@ -59,21 +59,21 @@ In the [Auth0 Dashboard](${manage_url}), you can enable a custom Hosted Login Pa
 In order to get started using the Hosted Login Page, you'll first want to choose the technology that you'd like to use to power it. Click one of the links below to get started.
 
 - [Lock](/hosted-pages/login/lock) - Lock is the simplest way to use the HLP. Lock is a pre-built, customizable login widget that will allow your users to quickly and easily login to your application.
-- [Lock Passwordless](/hosted-pages/login/lock-passwordless) - Lock Passwordless uses the same interface as Lock, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a Passwordless authentication transaction.
+- [Lock Passwordless](/hosted-pages/login/lock-passwordless) - Lock Passwordless uses the same style of interface as Lock, but rather than offering identity providers as login options, will simply ask the user to enter an email or SMS number to begin a Passwordless authentication transaction.
 - [Auth0.js v8](/hosted-pages/login/auth0js/v8) - Auth0.js is the SDK used for interacting with the Auth0 authentication API. Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. Auth0.js v8 is the most up to date version of that SDK, and is fully capable of OIDC compliant transactions.
 - [Auth0.js v7](/hosted-pages/login/auth0js/v7) - Auth0.js is the SDK used for interacting with the Auth0 authentication API. Primarily, you would use the SDK if you need to build your own custom login UI, or implement more complex functionality than simply allowing your users to login. Version 7 is the older supported version, and is only for use by applications which are not yet ready to upgrade to version 8, or cannot be OIDC compatible.
 
 ### 3. Customization
 
-You can customize the Hosted Login Page at will. If you use Lock, you can alter its behavior and appearance with [customization options](/libraries/lock/v10/customization). If you are building a custom UI, you can create all of the styles and behaviors you desire right in the editor.
+You can customize the Hosted Login Page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [customization options](/libraries/lock/v10/customization). If you are building a custom UI, you can style the Hosted Login Page to your own specifications.
 
 All changes to the page's appearance and/or behavior will apply to *all* users shown this login page, regardless of the client or connection. Remember that the Hosted Login Page customizations are per _tenant_ rather than per client.
 
 ### Query String Parameters
 
-You can also pass [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters into the Hosted Login Page by adding them to the query you use to call the `authorize` endpoint. This allows you to make further customizations to your Hosted Login page. 
+You can also pass [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters into the Hosted Login Page from your application by adding them to the query you use to call the `authorize` endpoint. This allows you to make further customizations to your Hosted Login page from the application. 
 
-If you intend to pass any configuration parameters to the page from your client, you may need to become familiar with the `config` object. The `config` object contains the set of configuration values that adjusts the hosted login page's behavior at runtime. Some of the values in `config` are parameters which can be passed from your application code to your Hosted Login Page.
+If you intend to pass any configuration parameters to the page from your client, you may need to become familiar with the `config` object. The `config` object contains the set of configuration values that adjusts the hosted login page's behavior at runtime. Some of the values in `config` are parameters which are received from your application code to your Hosted Login Page.
 
 You can examine the contents of the `config` object using the following within the hosted login page editor:
 
@@ -86,7 +86,7 @@ The below examples assume that you are using [Auth0.js](/libraries/auth0js/v8) t
 
 #### Login Hint
 
-For example, suppose you wanted to add a login hint to your page; it can be done simply by passing the `login_hint` parameter to your authorize call:
+For example, suppose you wanted to add a login hint to your page; it can be done simply by passing the `login_hint` parameter to your `authorize` call:
 
 ```js
 webAuth.authorize({
@@ -94,11 +94,11 @@ webAuth.authorize({
 });
 ```
 
-You can access that value of `login_hint` using `config.extraParams.login_hint`.
+You will then be able to access the value of `login_hint` within the Hosted Login Page editor by using `config.extraParams.login_hint`.
 
 #### Callback URL
 
-You can pass a specific `redirect_uri` option to `authorize`, and access it within the Hosted Login Page editor by referring to `config.callbackURL`.
+You can also pass a specific `redirect_uri` option to `authorize`, and access it within the Hosted Login Page editor by referring to `config.callbackURL`.
 
 ::: note
 Make sure that you've added any redirect URLs you're using to the **Allowed Redirect URLs** field on the [Client's settings page](${manage_url}/#/clients/${account.clientId}/settings).
@@ -114,9 +114,9 @@ webAuth.authorize({
 
 In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured at tenant level (every client app you have set up on a single tenant would use the same Hosted Login Page), you would have to create a new tenant for each client that requires a different hosted page.
 
-For example, if you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same hosted pages and the other two (`app4`, `app5`) using different ones, you would do the following:
+For example, if you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same set of hosted pages and the other two (`app4`, `app5`) using different ones, you would do the following:
 
-- If you already have an account, you have a tenant configured. Configure three clients under this tenant, one to represent each app (`app1`, `app2`, `app3`), and one hosted login page  which these clients will use.
+- If you already have an account, you have a tenant configured. Configure three clients under this tenant, one to represent each app (`app1`, `app2`, `app3`), and one hosted login page  which these clients will all share.
 - Create a second tenant, configure a new client for `app4`, and configure the hosted login page for this client.
 - Create a third tenant, configure a new client for `app5`, and configure the hosted login page for this client.
 
