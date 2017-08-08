@@ -51,7 +51,7 @@ There are different options to control the lifetime of a cookie:
 
 ## How to implement
 
-Many of our Quickstarts demonstrate how to store tokens. The exact implementation will be different based on the technology being used. Please refer to the Quickstarts at the top of our [Documentation Home Page](/), select the appropriate Quickstart based on your application type, and follow the code samples provided.
+Many of our Quickstarts demonstrate how to store tokens, and the exact implementation will be different based on the technology being used. Please refer to the Quickstarts at the top of our [Documentation Home Page](/), select the appropriate Quickstart based on your application type, and follow the code samples provided.
 
 ## Keep reading
 
