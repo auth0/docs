@@ -45,6 +45,13 @@ You can [download a sample custom authorizer](https://github.com/auth0-samples/j
 
     b. Once you've obtained a token, create a local `event.json` file containing the token. You can copy the sample file (run `cp event.json.sample event.json`). Replace `ACCESS_TOKEN` with your JWT token, and `methodArn` with the appropriate ARN value for the `GET` method of your API.
 
+    To get the `methodArn`:
+
+        1. Using the API Gateway Console, open the **PetStore** API.
+        2. Click **Resources** in the left-hand navigation panel.
+        3. In the middle **Resources** panel, expand the resource tree. Underneath `/pets`, click **GET**.
+        4. In the **Method Request** box, you'll see the **ARN**.
+
     c. Run the test using `npm test`. The test uses the [lambda-local](https://www.npmjs.com/package/lambda-local) package to test the custom authorizer using your token. If the test was successful, you'll see output similar to the following:
 
     ```text
@@ -158,11 +165,33 @@ Now that you've configured your custom authorizer for your environment and teste
 
 6. Test the Lambda function you just created. Click **Test** in the top right corner.
 
-7. Copy the contents of your `event.json` file into the Input test event JSON. Click **Save and test**. If the test was successful, you'll see the following.
+7. Copy the contents of your `event.json` file into the Input test event JSON (you can use the default "Hello World" template). Click **Save and test**. If the test was successful, you'll see the following.
 
     Expanding the output window should show a message similar to the one you received after your successful local test.
 
 ## Configure API Gateway Custom Authorizer
+
+Return to API Gateway, and open the **PetStore** API we created earlier.
+
+Using the left-hand navigation bar, open **Authorizers**. If this is the first authorizer you've created, you'll see the **New custom authorizer** configuration screen by default. If not, you can bring up this screen by clicking **Create > Custom Authorizer** on the center panel.
+
+Set the following parameters:
+
+| Parameter | Value |
+| - | - |
+| Lambda region | Use the region for the Lambda function you created previously |
+| Lambda function | `jwtRsaCustomAuthorizer` |
+| Authorizer name | `jwt-rsa-custom-authorizer` |
+| Execution role | The IAM Role ARN you copied above |
+| Identity token source | `method.request.header.Authorization` |
+| Token validation expression | `^Bearer [-0-9a-zA-z\.]*$` |
+| Result TTL in seconds | `3600` |
+
+Click **Create**.
+
+After AWS creates the authorizer and the page refreshes, you'll see a new **Test your authorizer** section at the bottom of the screen. You can test your authorizer by providing the Auth0 token (`Bearer ey...`) you've previously used and clicking **Test**.
+
+If the test was successful, you'll see a response similar to the following.
 
 <%= include('./_stepnav', {
  prev: ["1. Import and Deploy the API", "/integrations/aws-api-gateway-2/part-1"],
