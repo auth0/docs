@@ -31,51 +31,51 @@ You can [download a sample custom authorizer](https://github.com/auth0-samples/j
 | `JWKS_URI` | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/.well-known/jwks.json` |
 | `AUDIENCE` | The token's `audience`. If Auth0 is the authorization server, the `audience` value is identical to the [API identifier](/apis#how-to-configure-an-api-in-auth0) |
 
-    As an example, the text of your .env file should look something like this when complete:
+As an example, the text of your .env file should look something like this when complete:
 
-    ```text
-    JWKS_URI=https://auth0user.auth0.com/.well-known/jwks.json
-    AUDIENCE=https://auth0user.auth0.com/api/v2/	
-    TOKEN_ISSUER=https://auth0user.auth0.com/
-    ```
+```text
+JWKS_URI=https://auth0user.auth0.com/.well-known/jwks.json
+AUDIENCE=https://auth0user.auth0.com/api/v2/	
+TOKEN_ISSUER=https://auth0user.auth0.com/
+```
 
 4. Test the custom authorizer locally.
 
-    a. First, obtain a valid JWT access token. You can [obtain one from Auth0](/tokens/access-token#how-to-get-an-access-token).
+a. First, obtain a valid JWT access token. You can [obtain one from Auth0](/tokens/access-token#how-to-get-an-access-token).
 
-    b. Once you've obtained a token, create a local `event.json` file containing the token. You can copy the sample file (run `cp event.json.sample event.json`). Replace `ACCESS_TOKEN` with your JWT token, and `methodArn` with the appropriate ARN value for the `GET` method of your API.
+b. Once you've obtained a token, create a local `event.json` file containing the token. You can copy the sample file (run `cp event.json.sample event.json`). Replace `ACCESS_TOKEN` with your JWT token, and `methodArn` with the appropriate ARN value for the `GET` method of your API.
 
-    To get the `methodArn`:
+To get the `methodArn`:
 
-        1. Using the API Gateway Console, open the **PetStore** API.
-        2. Click **Resources** in the left-hand navigation panel.
-        3. In the middle **Resources** panel, expand the resource tree. Underneath `/pets`, click **GET**.
-        4. In the **Method Request** box, you'll see the **ARN**.
+    1. Using the API Gateway Console, open the **PetStore** API.
+    2. Click **Resources** in the left-hand navigation panel.
+    3. In the middle **Resources** panel, expand the resource tree. Underneath `/pets`, click **GET**.
+    4. In the **Method Request** box, you'll see the **ARN**.
 
-    c. Run the test using `npm test`. The test uses the [lambda-local](https://www.npmjs.com/package/lambda-local) package to test the custom authorizer using your token. If the test was successful, you'll see output similar to the following:
+c. Run the test using `npm test`. The test uses the [lambda-local](https://www.npmjs.com/package/lambda-local) package to test the custom authorizer using your token. If the test was successful, you'll see output similar to the following:
 
-    ```text
-    Message
-    ------
-    {
-        "principalId": "C8npTEMVnBrILsBTI91MOh6dfuZbPVAU@clients",
-        "policyDocument": {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Action": "execute-api:Invoke",
-                    "Effect": "Allow",
-                    "Resource": "arn:aws:execute-api:us-east-1:1234567890:apiId/stage/method/resourcePath"
-                }
-            ]
-        },
-        "context": {
-            "scope": "FULL_LIST_OF_SCOPES"
-        }
+```text
+Message
+------
+{
+    "principalId": "C8npTEMVnBrILsBTI91MOh6dfuZbPVAU@clients",
+    "policyDocument": {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Action": "execute-api:Invoke",
+                "Effect": "Allow",
+                "Resource": "arn:aws:execute-api:us-east-1:1234567890:apiId/stage/method/resourcePath"
+            }
+        ]
+    },
+    "context": {
+        "scope": "FULL_LIST_OF_SCOPES"
     }
-    ```
+}
+```
 
-    If the value of `Effect` is `Allow`, your authorizer would've allowed the call to API Gateway.
+If the value of `Effect` is `Allow`, your authorizer would've allowed the call to API Gateway.
 
 ## Create the IAM Role
 
@@ -163,9 +163,9 @@ Now that you've configured your custom authorizer for your environment and teste
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-14.png)
 
-    a. Next, provide the function code. Under **Code entry type**, select **Upload a .ZIP file**. Click **Upload** and select the `custom-authorizer.zip` bundle you created earlier.
+a. Next, provide the function code. Under **Code entry type**, select **Upload a .ZIP file**. Click **Upload** and select the `custom-authorizer.zip` bundle you created earlier.
 
-    b. Then, create the following three **Environment variables**. Note that this information is identical to that which is the `.env` file.
+b. Then, create the following three **Environment variables**. Note that this information is identical to that which is the `.env` file.
 
 | Parameter | Value |
 | - | - |
@@ -173,7 +173,7 @@ Now that you've configured your custom authorizer for your environment and teste
 | `JWKS_URI` | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/.well-known/jwks.json` |
 | `AUDIENCE` | The token's `audience`. If Auth0 is the authorization server, the `audience` value is identical to the [API identifier](/apis#how-to-configure-an-api-in-auth0) |
 
-    c. In the **Lambda function handler and role** section, set the following values:
+c. In the **Lambda function handler and role** section, set the following values:
 
 | Parameter | Value |
 | - | - |
@@ -181,17 +181,17 @@ Now that you've configured your custom authorizer for your environment and teste
 | Role | `Choose an existing role` |
 | Existing role | Select the IAM role you created in the steps above. |  
 
-    d. Open up the **Advanced settings** area, and set **Timeout** to **30** sec.
+d. Open up the **Advanced settings** area, and set **Timeout** to **30** sec.
 
-    When you've provided all of the information above, click **Next**.
+When you've provided all of the information above, click **Next**.
 
-    e. Review the information you've provided for your Lambda function. If everything looks correct, click **Create function**. 
-    
-    ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-15.png)
-    
-    If AWS successfully creates your function, you'll see the following.
+e. Review the information you've provided for your Lambda function. If everything looks correct, click **Create function**. 
 
-    ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-16.png)
+![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-15.png)
+
+If AWS successfully creates your function, you'll see the following.
+
+![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-16.png)
 
 6. Test the Lambda function you just created. Click **Test** in the top right corner.
 
