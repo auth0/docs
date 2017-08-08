@@ -1,8 +1,7 @@
 ---
-description: blah blah
+description: How to use secure AWS API Gateway using custom authorizers that accept Auth0-issued access tokens
 ---
 
-<<<<<<< HEAD
 # Secure AWS API Gateway Endpoints Using Custom Authorizers
 
 With AWS, you can create powerful, serverless, highly scalable APIs and applications using [Lambda](https://aws.amazon.com/lambda/), [API Gateway](https://aws.amazon.com/api-gateway/), and a JavaScript client for the front-end.
@@ -21,18 +20,11 @@ More specifically, the custom authorizers will:
 
 To that end, this tutorial will be divided into the following sections.
 
-* [Step 1 - Set up the AWS API Gateway](/integrations/aws-api-gateway/part-1)
-* [Step 2 - Secure and Deploy the Amazon API Gateway](/integrations/aws-api-gateway/part-2)
-* [Step 3 - Build the Client Application](/integrations/aws-api-gateway/part-3)
+* [Step 1 - Set up and Deploy the AWS API Gateway](/integrations/aws-api-gateway/part-1)
+* [Step 2 - Create the Custom Authorizers](/integrations/aws-api-gateway/part-2)
+* [Step 3 - Secure the API Using Custom Authorizers](/integrations/aws-api-gateway/part-3)
 
 ## How API Gateway Custom Authorizers Work
-=======
-# AWS API Gateway
-
-In this tutorial, we will use custom authorizers to secure access to you AWS API Gateway instances.
-
-## API Gateway Custom Authorizers
->>>>>>> 87d8c28... Initial commit
 
 [According to Amazon](http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html), an API Gateway custom authorizer is a "Lambda function you provide to control access to your API using bearer token authentication strategies, such as OAuth or SAML."
 
@@ -44,25 +36,10 @@ You can use the custom authorizer to implement different types of authorization 
 
 For a valid policy, API caches the returned policy, associating it with the incoming token and using it for the current and subsequent requests. You can configure the amount of time for which the policy is cached. The default value is 300 seconds, and the maximum length of caching is 3600 seconds (you can also set the value to 0 to disable caching).
 
-<<<<<<< HEAD
 ## Before You Begin
 
 Before beginning this tutorial, you'll need to [sign up for an AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html). This grants you access to all of the AWS features we'll use in this tutorial, including API Gateway and Lambda. All new members receive twelve months of free tier access to AWS.
 
-### Keep Reading
-
-* [Get Ready to Use Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/setting-up.html)
-
-* [Build an API to Expose a Lambda Function](http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started.html)
-
-* [Creating an API in Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html)
-
-* [Use API Gateway Custom Authorizers](http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html)
-
-* [Secure API Gateway Endpoints with Custom Authorizers](https://cloudacademy.com/amazon-web-services/labs/api-gateway-custom-authorizers-lambda-54/)
-
 <%= include('./_stepnav', {
  next: ["1. Part 1", "/integrations/aws-api-gateway-2/part-1"]
 }) %>
-=======
->>>>>>> 87d8c28... Initial commit
