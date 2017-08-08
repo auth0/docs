@@ -2,11 +2,17 @@
 
 The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the Auth0 ASP.NET OAuth2 middleware which is available in the `Auth0-ASPNET-Owin` NuGet package, so install that first:
 
-``` bash
+```bash
 Install-Package Auth0-ASPNET-Owin
 ```
 
-Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware as well as the Auth0 middleware:
+There is a bug in Microsoft's OWIN implementation for System.Web, which can cause cookies to disappear on some occasions. To work around this issue, you will also need to install the `Kentor.OwinCookieSaver` NuGet package:
+
+```bash
+Install-Package Kentor.OwinCookieSaver
+```
+
+Now go to the `Configuration` method of your `Startup` class and configure the cookie middleware as well as the Auth0 middleware. Also be sure to register the [Kentor OWIN Cookie saver middleware](https://github.com/KentorIT/owin-cookie-saver) which must be added *before* any cookie handling middleware.
 
 ```cs
 // Startup.cs
@@ -17,6 +23,9 @@ public void Configuration(IAppBuilder app)
     string auth0Domain = ConfigurationManager.AppSettings["auth0:Domain"];
     string auth0ClientId = ConfigurationManager.AppSettings["auth0:ClientId"];
     string auth0ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"];
+
+    // Enable the Cookie saver middleware to work around a bug in the OWIN implementation
+    app.UseKentorOwinCookieSaver();
 
     // Set Cookies as default authentication type
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -37,7 +46,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-It is important that you register both pieces of middleware as both of them are required for the authentication to work. The Auth0 middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
+It is important that you register the cookie mmiddeware as well as the Auth0 middleware as all of them are required for the authentication to work. The Auth0 middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
 ## Add Login and Logout Methods
 
