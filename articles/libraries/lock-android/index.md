@@ -7,10 +7,9 @@ url: /libraries/lock-android
 description: A widget that provides a frictionless login and signup experience for your native Android apps.
 mobileimg: media/articles/libraries/lock-android.png
 ---
-
 # Lock for Android
 
-Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory. You can also use Lock for Android to provide Passwordless authentication using email or SMS.
+Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory.
 
 Get started using Lock for Android below, or if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Lock for Android.
 
@@ -230,9 +229,9 @@ startActivity(lock.newIntent(this));
 That's it! Lock will handle the rest for you.
 
 ### Android App Links - Custom Scheme
+
 The callback URI scheme used in this article is `https`. This works best for Android Marshmallow (API 23) or newer if you're using [Android App Links](https://developer.android.com/training/app-links/index.html), but in previous Android versions this may show the intent chooser dialog prompting the user to chose either your application or the browser to resolve the intent. You can change this behavior by using a custom unique scheme so that the OS opens the link directly with your app.
 Do so by updating the `app/build.gradle` file and changing the `auth0Scheme` value. Then go to your client's dashboard and update the "Allowed callback URL" value to match the new scheme. Now call `withScheme()` in the Lock.Builder and pass the custom value so that Lock requests the correct redirect URI.
-
 
 ## Implementing Passwordless authentication with Lock for Android
 
@@ -243,6 +242,7 @@ For instructions on how to implement Passwordless authentication with Lock for A
 The proguard rules should be applied automatically if your application is using `minifyEnabled = true`. If you want to include them manually check the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard). By default you should at least use the following files:
 
 By default you should at least use the following files:
+
 * `proguard-gson.pro`
 * `proguard-otto.pro`
 * `proguard-lock-2.pro`
@@ -257,18 +257,12 @@ For a full list of Lock's configuration options, check out the [Lock for Android
 
 For descriptions of common error messages, check out the [Error Messages](/libraries/error-messages) page. Also, if your callback receives an `AuthenticationException` you can check [source](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/authentication/AuthenticationException.java) to learn how to identify each error scenario.
 
-## Additional documents
+## Next Steps
 
-<ul>
-<% cache.find('articles/libraries/lock-android', {sort: 'toc_title'}).forEach(article => { %>
-  <% if (article.toc_title) { %>
-  <li>
-    <span><a href="<%- article.url %>"><%- article.toc_title %></a>
-    <% if (article.description) { %>
-      - <%- article.description %>
-    <% } %>
-    </span>
-  </li>
-  <% } %>
-<% }); %>
-</ul>
+::: next-steps
+* [Customizing the Style of Lock](/libraries/lock-android/v2/custom-theming)
+* [Customizing the Behavior of Lock](/libraries/lock-android/v2/configuration)
+* [Adding Custom Signup Fields to Lock](/libraries/lock-android/v2/custom-fields)
+* [Lock Internationalization](/libraries/lock-android/v2/internationalization)
+* [Logging out Users](/logout)
+:::

@@ -516,6 +516,9 @@ libraries:
       - title: "Custom Auth Providers"
         url: "/libraries/lock-android/custom-authentication-providers"
 
+      - title: "Android Dev Keystores"
+        url: "/libraries/lock-android/keystore"
+
       - title: "Custom Signup Fields"
         url: "/libraries/lock-android/custom-fields"
 
