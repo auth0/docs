@@ -119,6 +119,12 @@ document.getElementById('btn-login').addEventListener('click', function() {
 
 Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **IE >= 10**. Auth0 currently uses [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
 
+## More Examples
+
+The below widget displays brief examples of implementing Auth0 in several ways: Lock as a modal "popup" widget, Lock embedded inline in a div, Lock Passwordless, a custom UI with [Auth0.js](/libraries/auth0js), and a simple link using the API.
+
+<%= include('../../../_includes/_lock-sdk') %>
+
 ## Next Steps
 
 This document has shown how to use Lock 10 within a Single Page Application (SPA). Take a look at the following resources to see how Lock can be used with other kinds of web apps, or how it can be customized for your needs:
@@ -128,12 +134,6 @@ This document has shown how to use Lock 10 within a Single Page Application (SPA
 * [Lock Configuration Options][lock-customization]
 * [Lock UI Customization][ui-customization]
 :::
-
-## Further Examples
-
-The below widget displays brief examples of implementing Auth0 in several ways: Lock as a modal "popup" widget, Lock embedded inline in a div, Lock Passwordless, a custom UI with [Auth0.js](/libraries/auth0js), and a simple link using the API.
-
-<%= include('../../../_includes/_lock-sdk') %>
 
 <!--vars-->
 
