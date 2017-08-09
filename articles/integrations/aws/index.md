@@ -25,5 +25,4 @@ url: /integrations/aws
       How to obtain AWS tokens to securely call AWS APIs and Resources
     </p>
   </li>
-  <li>
 </ul>

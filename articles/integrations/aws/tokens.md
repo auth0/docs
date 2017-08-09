@@ -15,7 +15,7 @@ Auth0 integrates with the AWS Security Token Service (STS) to obtain an limited-
 
 ![](/media/articles/integrations/aws/aws-sts.png)
 
-1. The web app authenticates its users via Social providers, such as [Facebook](/connections/social/facebook), [LinkedIn](/connections/social/linkedin), or [Twitter]((/connections/social/twitter), or corporate credentials, such as [Active Directory]((/connections/social/active-directory), [Azure Active Directory](/connections/enterprise/azure-active-directory), or [Salesforce]((/connections/social/salesforce).
+1. The web app authenticates its users via Social providers, such as [Facebook](/connections/social/facebook), [LinkedIn](/connections/social/linkedin), or [Twitter](/connections/social/twitter), or corporate credentials, such as [Active Directory](/connections/social/active-directory), [Azure Active Directory](/connections/enterprise/azure-active-directory), or [Salesforce](connections/social/salesforce).
 2. The app calls Auth0's **delegation** endpoint to request a token for use with AWS.
 3. Auth0 obtains the token from AWS on behalf of the app.
 4. The app uses the newly-obtained token to connect with any AWS API.
