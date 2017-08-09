@@ -122,6 +122,10 @@ There are various possible values for `scope`:
 - `scope: 'openid'`: _(default)_ It will return, not only the Access Token, but also an [ID Token](/tokens/id-token) which is a _JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
 - `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the [ID Token](/tokens/id-token) (for example, `scope: 'openid name email picture'`).
 
+::: note
+Impersonation cannot be used to return JWT access tokens to your APIs.
+:::
+
 You can get more information about this in the [Scopes documentation](/scopes).
 
 Your request should look like the following:
