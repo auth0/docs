@@ -8,6 +8,11 @@ description: How to enable native login for some the supported social social con
 
 <%= include('../_includes/_lock-version-1') %>
 
+::: warning
+This feature relies on a deprecated grant type. Clients created after June 8th 2017 won't be able to use this feature. 
+We recommend using browser-based flows, as explained in [Web-based auth](/libraries/auth0-swift#web-based-auth-ios-only).
+:::
+
 **Lock** by default handles all social authentication with Safari (Web Login), but you can enable native login for some social connections. Currently we only provide integration with Facebook, Google & Twitter that can be included like this in your `Podfile`
 ```ruby
 pod 'Lock-Facebook'
