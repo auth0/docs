@@ -539,5 +539,5 @@ The [access token](#get-an-access-token) should have the following scopes:
 | `{access_token}` <br/><span class="label label-danger">Required</span> | The token your client retrieved from Auth0 in order to access the API. For more info, see [Get an Access Token](#get-an-access-token) |
 | `{user_id}` <br/><span class="label label-danger">Required</span> |  |
 | `{client_id}` <br/><span class="label label-danger">Required</span> |  |
-| `connectionName` | The connection name |
-| `groups` | List of group IDs |
+| `connectionName` | The connection name the user logged in with |
+| `groups` | List of group names received from the IdP (AD, ADFS, etc) |
