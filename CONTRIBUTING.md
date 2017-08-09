@@ -265,12 +265,15 @@ For close-ups and other screenshots that do not include the browser window, appl
 
 You can set various properties of articles in the front matter of the document. Each document should have the `title` and `description` properties set. You can set other variables depending on the document.
 
+`toc` adds a table of content dropdown at the top of the document, that lists all the paragraphs of the doc. By default it's disabled. Set it to `true` to display the dropdown.
+
 Example front matter:
 
 ```yaml
 ---
 title: My Document
 description: This is a document
+toc: true
 ---
 ```
 
