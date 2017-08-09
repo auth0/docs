@@ -42,6 +42,10 @@ The following is a list of legacy `grant_types`:
 
 ## Edit Available `grant_types`
 
+::: warning
+As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Clients. Only customers as of 8 June 2017 can add legacy grant types to their existing Clients.
+:::
+
 You can set the the `grant_types` property for your Auth0 Client using the Management Dashboard.
 
 Begin by navigating to the [Clients page](${manage_url}/#/clients) of the Management Dashboard.
@@ -61,10 +65,6 @@ Switch to the **Grant Types** tab and enable or disable the respective grants fo
 ![Auth0 Client Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
 
 Alternatively, you can set the client's grant type by making a [`PATCH` call to the Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) Management API to update the `grant_types` field.
-
-::: warning
-As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Clients. Only customers as of 8 June 2017 can add legacy grant types to their existing Clients.
-:::
 
 Attempting to use any flow with a client lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
 
