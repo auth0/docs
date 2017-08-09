@@ -23,6 +23,10 @@ When enabled, this rule will start sending events that will show up on Splunk's 
 
 ![](/media/articles/scenarios/splunk/splunk-dashbaord.png)
 
+::: panel Securely Storing Credentials
+This example has your Splunk credentials hard-coded into the Rule, but if you would prefer, you can store them instead in the `configuration` object (see the [Settings](${manage_url}/#/rules) under the list of your Rules). This allows you to use those credentials in multiple Rules if you require, and also prevents you from having to store them directly in the Rule code.
+:::
+
 ```js
 function(user, context, callback) {
   user.app_metadata = user.app_metadata || {};
