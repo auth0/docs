@@ -47,7 +47,6 @@ Method one is to simply create an instance of `Auth0` with your client informati
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
-account.setOIDCConformant(true);
 ```
 
 ### 2) Client information read from XML
@@ -66,8 +65,20 @@ And then create your new Auth0 instance by passing an Android Context:
 
 ```java
 Auth0 account = new Auth0(context);
-account.setOIDCConformant(true);
 ```
+
+## OIDC Conformant Mode
+
+It is strongly encouraged that this SDK be used in OIDC Conformant mode. When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
+
+```java
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+//Configure the account in OIDC conformant mode
+account.setOIDCConformant(true);
+//Use the account in the API clients
+```
+
+Passwordless authentication *cannot be used* with this flag set to `true`. For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
 
 
 ## Authentication with Auth0 Hosted Login Page
@@ -263,7 +274,7 @@ The Authentication Client provides methods to authenticate the user against Auth
 AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 ```
 
-To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+To ensure an Open ID Connect compliant response you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
 
 ### Login with database connection
 
@@ -292,7 +303,13 @@ Note that the default scope used is `openid`
 
 ### Passwordless login
 
-Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification.
+::: panel-warning Passwordless on Native Platforms
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information.
+
+Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
+:::
+
+Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. Note that Passwordless authentication *cannot be used* with the [OIDC Conformant Mode](/oidc-conformant-mode) enabled.
 
 **Step 1:** Request the code
 

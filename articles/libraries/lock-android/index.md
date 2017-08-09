@@ -137,10 +137,20 @@ Create an `Auth0` instance to hold your account details, which are the `AUTH0_CL
 
 ```java
 Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
-auth0.setOIDCConformant(true);
 ```
 
-To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+### OIDC Conformant Mode
+
+It is strongly encouraged that Lock be used in OIDC Conformant mode. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
+
+```java
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+//Configure the account in OIDC conformant mode
+account.setOIDCConformant(true);
+//Use the account to launch Lock
+```
+
+For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
 
 ### Authentication callback
 
@@ -173,7 +183,9 @@ The results of the AuthenticationCallback are in a `credentials` object. This ob
 
 To create a new `Lock` instance and configure it, use the `Lock.Builder` class. Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options as you need. After you're done, build the Lock instance and use it to start the `LockActivity`.
 
-This is an example of what your `Activity` should look like:
+To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+
+This is an example of what your `Activity` should look:
 
 ```java
 public class MainActivity extends Activity {
