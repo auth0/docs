@@ -3,11 +3,11 @@ description: How to enable delegated authentication with AWS APIs.
 url: /aws-api-setup
 toc: true
 ---
-# Delegated Authentication with AWS APIs
+# How to Set Up AWS for Delegated Authentication
 
-The doc will walk you through creating a SAML Provider and its accompanying role(s) for use with delegated authentication with AWS APIs.
+The doc will walk you through setting up AWS for delegated authentication.
 
-## Step 1: Create a SAML Provider
+## Step 1: Create a SAML Provider in AWS
 
 Log in to AWS, and navigate to the [IAM console](https://console.aws.amazon.com/iam). Using the left-hand navigation menu, select **Identity Providers**. Click **Create Provider**. 
 
