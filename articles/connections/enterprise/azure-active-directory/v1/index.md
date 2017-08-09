@@ -102,4 +102,4 @@ Signing keys are used by the identity provider to sign the authentication token 
 
 For security purposes, Azure AD’s signing key [rolls on a periodic basis](https://azure.microsoft.com/en-us/documentation/articles/active-directory-signing-key-rollover/). If this happens, **you do not need to take any action**. Auth0 will use the new key automatically.
 
-<%= include('../_quickstart-links.md') %>
+<%= include('../../../_quickstart-links.md') %>
