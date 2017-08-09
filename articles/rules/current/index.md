@@ -44,6 +44,10 @@ A Rule is a function with the following arguments:
 
 * `callback`: a function to send back potentially modified tokens back to Auth0, or an error. Because of the async nature of Node.js, it is important to always call the `callback` function, or else the script will timeout.
 
+::: note
+Rules execute after the actual login, so for the `user` object, properties such as the `last_ip` and `last_login` would be the values associated with the login that triggered the rules.
+:::
+
 ## Examples
 
 To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
