@@ -323,6 +323,14 @@ module.exports = [
     to: '/connections/social/aol'
   },
   {
+    from: '/connections/enterprise/azure-active-directory',
+    to: '/connections/enterprise/azure-active-directory/v2'
+  },
+  {
+    from: '/connections/enterprise/azure-active-directory-classic',
+    to: '/connections/enterprise/azure-active-directory/v1'
+  }
+  {
     from: '/dwolla-clientid',
     to: '/connections/social/dwolla'
   },
