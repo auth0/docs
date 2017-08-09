@@ -11,7 +11,7 @@ This example shows how you can very easily connect Auth0 to Splunk and stream `s
 
 ## Record a SignUp or Login Event in Splunk
 
-This Auth0 rule uses the [Splunk REST API](http://dev.splunk.com/view/rest-api-overview/SP-CAAADP8) to record `signup` and `login` events from users to your apps. This is tracked with the `signedUp` property. If the property is present, then we assume this is a `login` event. Otherwise we assume that this event is a new `signup`.
+This [Auth0 rule](/rules) uses the [Splunk REST API](http://dev.splunk.com/view/rest-api-overview/SP-CAAADP8) to record `signup` and `login` events from users to your apps. This is tracked with the `signedUp` property. If the property is present, then we assume this is a `login` event. Otherwise we assume that this event is a new `signup`.
 
 You can send any number of properties. This sample sends contextual information like the user IP address (can be used for location), the application, the username, etc.
 
@@ -22,7 +22,7 @@ When enabled, this rule will start sending events that will show up on Splunk's 
 ![](/media/articles/scenarios/splunk/splunk-dashbaord.png)
 
 ::: panel Securely Storing Credentials
-This example has your Splunk credentials hard-coded into the Rule, but if you would prefer, you can store them instead in the `configuration` object (see the [Settings](${manage_url}/#/rules) under the list of your Rules). This allows you to use those credentials in multiple Rules if you require, and also prevents you from having to store them directly in the Rule code.
+This example has your Splunk credentials hard-coded into the rule, but if you prefer, you can store them instead in the `configuration` object (see the [Settings](${manage_url}/#/rules) under the list of your rules). This allows you to use those credentials in multiple rules if you require, and also prevents you from having to store them directly in the code.
 :::
 
 ```js
