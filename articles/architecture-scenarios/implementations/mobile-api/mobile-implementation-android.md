@@ -4,7 +4,7 @@ url: /architecture-scenarios/application/mobile-api/mobile-implementation-androi
 toc: true
 ---
 
-# The Mobile Implementation in Android
+# Mobile + API: Android Implementation for the Mobile App
 
 This document is part of the [Mobile + API Architecture Scenario](/architecture-scenarios/application/mobile-api) and it explains how to implement the Mobile application in Android. Please refer to the scenario for information on the implemented solution.
 
@@ -23,10 +23,10 @@ The full source code for the Node.js API implementation can be found in [this Gi
 
 For this implementation, we will use the following dependencies within the app’s `build.gradle` file:
 
-- __[Auth0.Android](https://github.com/auth0/Auth0.Android)__: this package enables integration with Auth0 to authenticate users.
-- __[OkHttp](http://square.github.io/okhttp/)__: this package provides an HTTP client to make requests to the Node.JS API.
-- __[JWTDecode.Android](https://github.com/auth0/JWTDecode.Android)__: this package will assist with decoding JWTs.
-- __AppCompat__: this package lets us use the toolbar widget for navigation in our activities.
+- [Auth0.Android](https://github.com/auth0/Auth0.Android): this package enables integration with Auth0 to authenticate users.
+- [OkHttp](http://square.github.io/okhttp/): this package provides an HTTP client to make requests to the Node.JS API.
+- [JWTDecode.Android](https://github.com/auth0/JWTDecode.Android): this package will assist with decoding JWTs.
+- AppCompat: this package lets us use the toolbar widget for navigation in our activities.
 
 ```gradle
 dependencies {
@@ -61,7 +61,7 @@ We’ll also update the application details to utilize the Toolbar widget:
 
 ### Set Configuration Values
 
-Set your Auth0 Client ID, Auth0 Domain, and API’s url in the `strings.xml` resource:
+Set your Auth0 Client ID, Auth0 Domain, and API’s url in the `strings.xml` resource located in `/res/values/strings.xml`:
 
 ```xml
 <resources>
@@ -438,7 +438,7 @@ Open the app's `AndroidManifest.xml` and add the `TimeSheetActivity`:
 <activity android:name="com.auth0.samples.activities.TimeSheetActivity" />
 ```
 
-### Create the Time Sheets Activity Layouts
+### Create the Timesheets Activity Layouts
 
 Next create `timesheet_activity.xml`, the layout for the `TimeSheetsActivity`:
 
@@ -518,9 +518,9 @@ And for the Toolbar navigation on the `TimeSheetActivity`, we’ll create the `t
 </menu>
 ```
 
-### Create the Time Sheet Model
+### Create the Timesheet Model
 
-Create a model for working with time sheet data in our views:
+Create a model for working with timesheet data in our views:
 
 ```java
 package com.auth0.samples.models;
@@ -568,9 +568,9 @@ public class TimeSheet {
 }
 ```
 
-### Create the Time Sheet Adapter
+### Create the Timesheet Adapter
 
-The `TimeSheetAdapter` is a utility class which will take an array of time sheet entries and apply them to the `ListView` on the `TimeSheetActivity`.
+The `TimeSheetAdapter` is a utility class which will take an array of timesheet entries and apply them to the `ListView` on the `TimeSheetActivity`.
 
 ```java
 package com.auth0.samples.utils;
@@ -615,9 +615,9 @@ public class TimeSheetAdapter extends ArrayAdapter<TimeSheet> {
 }
 ```
 
-### Create the Time Sheet Activity
+### Create the Timesheet Activity
 
-The `TimeSheetActivity` displays the time sheet entries for the logged in user which are stored on the server.
+The `TimeSheetActivity` displays the timesheet entries for the logged in user which are stored on the server.
 
 - The `@string/api_url` is set to `http://10.0.2.2:8080/timesheets` so the Android Emulator can connect to the Node.JS API running on `http://localhost:8080`.
 - The `callAPI()` method retrieves timesheets from the Node.JS API.
@@ -974,7 +974,7 @@ public class UserActivity extends AppCompatActivity {
 }
 ```
 
-## 6. Form for New Time Sheets
+## 6. Form for New Timesheets
 
 Next create the `FormActivity` and layout to handle creating new timesheet entries.
 
@@ -1258,3 +1258,14 @@ public class FormActivity extends AppCompatActivity {
     }
 }
 ```
+
+## Test the App
+
+Before continuing, ensure you have [implemented the Node.JS API](/architecture-scenarios/application/mobile-api/api-implementation-nodejs). 
+
+1. Start the API by navigating to the API's directory in your terminal and entering the `node server` command.
+2. Open the mobile app in Android Studio and press the __Run__ button.
+3. Select the Nexus 5X API 23 virtual device.
+4. Once the emulator has loaded the mobile app, you can login user then, create and view timesheet entries from the running Node.JS API.
+
+That's it! You are done!

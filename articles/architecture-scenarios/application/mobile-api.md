@@ -4,7 +4,7 @@ title: Mobile + API
 image: /media/articles/architecture-scenarios/mobile-api.png
 extract: Mobile Application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.
 description: Explains the architecture scenario with a mobile application client communicating with an API.
-beta: true
+toc: true
 ---
 
 # Mobile + API
@@ -17,7 +17,7 @@ We will also be building a Mobile Application which will be used to view and log
 
 ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. All employees and external contractors are required to fill in their timesheets every week. 
 
-The company has built a timesheets application, a scenario we covered in [Single Sign-On for Regular Web Apps](/architecture-scenarios/application/web-app-sso). The internal employees use this web app to fill in their timesheets but the company wants to replace it with a SPA. The app will be used to log timesheet entries and send the data to the centralized timesheet database using the API.
+The company has built a timesheets application, a scenario we covered in [Single Sign-On for Regular Web Apps](/architecture-scenarios/application/web-app-sso). The internal employees use this web app to fill in their timesheets but the company wants to replace it with a Mobile application. The app will be used to log timesheet entries and send the data to the centralized timesheet database using the API.
 
 ### Goals & Requirements
 
@@ -96,11 +96,11 @@ With PKCE, the Client creates, for every authorization request, a cryptographica
 
 ## Auth0 Configuration
 
-In this section we will review all the configurations we need to apply at the [Auth0 Dashboard](https://manage.auth0.com/).
+In this section we will review all the configurations we need to apply at the [Auth0 Dashboard](${manage_url}/).
 
 ### Create the API
 
-Click on the [APIs menu option](https://manage.auth0.com/#/apis) on the left, and click the Create API button.
+Click on the [APIs menu option](${manage_url}/#/apis) on the left, and click the Create API button.
 
 You will be required to supply the following details for your API:
 
@@ -234,15 +234,15 @@ See the implementation in [Node.js](/architecture-scenarios/application/mobile-a
 In this section we will see how we can implement a Mobile application for our scenario.
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#1-set-up-the-application)
+[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#1-set-up-the-application)
 :::
 
 #### Authorize the User
 
 To authorize the user we will implement an [Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce). The mobile application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant-pkce-) along with the `code_challenge` and the method used to generate it:
 
-```
-https://YOUR_AUTH0_DOMAIN/authorize?
+```text
+https://${account.namespace}/authorize?
     audience=API_AUDIENCE&
     scope=SCOPE&
     response_type=code&
@@ -254,32 +254,46 @@ https://YOUR_AUTH0_DOMAIN/authorize?
 
 The `GET` request to the authorization URL should include the following values:
 
-- __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](https://manage.auth0.com/#/clients).
-- __client_id__: The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](https://manage.auth0.com/#/clients).
-- __audience__: The value of your API Identifier. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](https://manage.auth0.com/#/clients).
+- __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+- __client_id__: The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+- __audience__: The value of your API Identifier. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
 - __scope__: The [scopes](/scopes) which determine the information to be returned in the `id_token` and `access_token`. A scope of `openid profile email offline_access` will return all the user profile information the `id_token` and return a `refresh_token`. You also need to request the scopes required to call the API, in this case the `read:timesheets create:timesheets` scopes. This will ensure that the `access_token` has these scopes.
 - __response_type__: Indicates the Authentication Flow to use. For a Mobile application using PKCE, this should be set to `code`.
 - __code_challenge__: The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier).
 - __code_challenge_method__: Method used to generate the challenge. Auth0 supports only `S256`.
-- __redirect_uri__: The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Client's Settings](https://manage.auth0.com/#/clients).
+- __redirect_uri__: The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients).
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#2-authorize-the-user)
+[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#2-authorize-the-user)
 :::
 
 #### Get the Credentials
 
 After a successful request to the authorization URL, you should receive the following response:
 
-```
+```text
 HTTP/1.1 302 Found
-Location: https://YOUR_AUTH0_DOMAIN/callback?code=AUTHORIZATION_CODE
+Location: https://${account.namespace}/callback?code=AUTHORIZATION_CODE
 ```
 
 Next you can exchange the `authorization_code` from the response for an Access Token that can be used to call your API. Perform a `POST` request to the [Token URL](/api/authentication#authorization-code-pkce-) including the following data:
 
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"code_verifier\": \"YOUR_GENERATED_CODE_VERIFIER\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"com.myclientapp://myclientapp.com/callback\", }"
+  }
+}
+```
+
 - __grant_type__: This must be set to `authorization_code`.
-- __client_id__: The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](https://manage.auth0.com/#/clients).
+- __client_id__: The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
 - __code_verifier__: Cryptographically random key that was used to generate the `code_challenge` passed to [authorization URL](/api/authentication#authorization-code-grant-pkce-) (`/authorize`).
 - __code__: The `authorization_code` received from the previous authorize call.
 - __redirect_uri__: The URL must match the `redirect_uri` passed in the previous section to `/authorize`.
@@ -305,7 +319,7 @@ The response from the Token URL will contain:
 You will need to store the above credentials in local storage for use in calling your API and retrieving the user profile.
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials)
+[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials)
 :::
 
 #### Get the User Profile
@@ -328,7 +342,7 @@ To retrieve the [User Profile](/api/authentication?http#user-profile), your mobi
 ```
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#3-get-the-user-profile)
+[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#3-get-the-user-profile)
 :::
 
 #### Call the API
@@ -336,15 +350,19 @@ To retrieve the [User Profile](/api/authentication?http#user-profile), your mobi
 To access secured resources from your API, the authenticated user's `access_token` needs to be included in requests that are sent to it. This is accomplished by sending the `access_token` in an `Authorization` header using the `Bearer` scheme.
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#4-call-the-api)
+[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#4-call-the-api)
 :::
 
 #### Renew the Token
 
-To refresh your `access_token`, perform a `POST` request to the `/oauth/token` endpoint using the `refresh_token` from your authorization result. Your request should include:
+To refresh your `access_token`, perform a `POST` request to the `/oauth/token` endpoint using the `refresh_token` from your authorization result.
+
+A [Refresh Token](/tokens/refresh-token/current) will only be present if you included the `offline_access` scope in the previous authorization request and  enabled __Allow Offline Access__ for your API in the Dashboard.
+
+Your request should include:
 
 * __grant_type__: This must be set to `refresh_token`.
-* __client_id__: The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](https://manage.auth0.com/#/clients).
+* __client_id__: The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
 * __client_secret__: (optional) Your application's Client Secret.
 * __refresh_token__: the `refresh_token` to use, from the previous authentication result.
 
@@ -361,7 +379,7 @@ The response will include the new `access_token`:
 ```
 
 ::: note
-[See the implementation in Android at the bottom of this document](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials)
+[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials)
 :::
 
 ## Conclusion
