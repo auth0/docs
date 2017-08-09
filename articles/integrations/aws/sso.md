@@ -1,3 +1,8 @@
+---
+description: How to use SSO with AWS
+toc: true
+---
+
 # Enable SSO to the AWS Console
 
 By integrating Auth0 with AWS, you'll allow your users to log in to AWS using any supported [identity provider](/identityproviders). 

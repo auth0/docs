@@ -121,6 +121,6 @@ In the IAM console, navigate to [Roles](https://console.aws.amazon.com/iam/home#
 
 ![](/media/articles/tutorials/aws/role-summary2.png)
 
-### Keep Reading
+### Next Steps
 
 * [AWS Services Supported by IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SpecificProducts.html).
