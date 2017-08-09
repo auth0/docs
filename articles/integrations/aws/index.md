@@ -1,17 +1,29 @@
 ---
 classes: topic-page
 title: Amazon Web Services (AWS)
-url: /integrations/api
+url: /integrations/aws
 ---
 
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
   <h1>Integrate Auth0 with Amazon Web Services (AWS)</h1>
   <p>
-    Auth0 supports integration with AWS' Identity and Access Management (IAM) service, allowing you to:
-    <ul>
-        <li><a href="/aws/integrations/sso">Perform SSO with the AWS Dashboard</a></li>
-        <li><a href="/aws/integrations/tokens">Obtain AWS Tokens to securely call AWS APIs and resources</a></li>
-    </ul>
+    Auth0 supports integration with AWS' Identity and Access Management (IAM) service.
   </p>
 </div>
+
+<ul class="topic-links">
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/integrations/aws/sso">Enable SSO to the AWS Console</a>
+    <p>
+      How to allow your users to log in to AWS using any Auth0-supported identity provider.
+    </p>
+  </li>
+  <li>
+    <i class="icon icon-budicon-715"></i><a href="/integrations/aws/tokens">Call AWS APIs and Resources Securely with Tokens</a>
+    <p>
+      How to obtain AWS tokens to securely call AWS APIs and Resources
+    </p>
+  </li>
+  <li>
+</ul>
