@@ -17,6 +17,23 @@ Using the [Auth0 Dashboard](${manage_url}/#/password_reset), you can enable your
 
 Once you've enabled the Password Reset Page for your account, you'll be able to use the text editor built into the Auth0 Dashboard to change your HTML, style your page using CSS, and alter the JavaScript used to retrieve custom variables. After you've made your changes, and make sure to click _Save_.
 
+### Custom Variables
+
+You can use JavaScript to retrieve the following custom variables:
+
+* `email`
+* `ticket`
+* `csrf_token`
+* `tenant.name`
+* `tenant.friendly_name`
+* `tenant.picture_url`
+* `tenant.support_email`
+* `tenant.support_url`
+* `lang`
+* `password_policy`
+
+## Revert Your Changes
+
 If you'd like to revert to an earlier design, you have two options:
 
 * Reverting to the last saved template by clicking **Reset to Last**;
