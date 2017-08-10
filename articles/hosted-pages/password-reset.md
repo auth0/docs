@@ -21,16 +21,73 @@ Once you've enabled the Password Reset Page for your account, you'll be able to 
 
 You can use JavaScript to retrieve the following custom variables:
 
-* `email`
-* `ticket`
-* `csrf_token`
-* `tenant.name`
-* `tenant.friendly_name`
-* `tenant.picture_url`
-* `tenant.support_email`
-* `tenant.support_url`
-* `lang`
-* `password_policy`
+| Variable | Description |
+| - | - |
+| `email` | The email address of the user requesting the password change | 
+| `ticket` | The ticket representing the given password reset request | 
+| `csrf_token` | Token used to prevent CSRF activity | 
+| `tenant.name` | The name associated with your Auth0 account | 
+| `tenant.friendly_name` | The name displayed for your Auth0 account | 
+| `tenant.picture_url` | The URL leading to the logo representing you in Auth0 | 
+| `tenant.support_email` | The support email address for your company displayed to your Auth0 users | 
+| `tenant.support_url` | The support URL for your company displayed to your Auth0 users | 
+| `lang` | The user's language | 
+| `password_policy` | The active connection's security policy You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) | 
+
+Within the Password Reset Page Editor, you'll see the following JavaScript embedded:
+
+```js
+  <script>
+    new Auth0ChangePassword({
+      container:         "change-password-widget-container",     // required
+      email:             '{{email}}',                            // DO NOT CHANGE THIS
+      csrf_token:        '{{csrf_token}}',                       // DO NOT CHANGE THIS
+      ticket:            '{{ticket}}',                           // DO NOT CHANGE THIS
+      password_policy:   '{{password_policy}}',                  // DO NOT CHANGE THIS
+      theme: {
+        icon: "{{tenant.picture_url | default: '//cdn.auth0.com/styleguide/1.0.0/img/badge.png'}}",
+        primaryColor: "#ea5323"
+      },
+      dict: {
+        // passwordPlaceholder: "your new password",
+        // passwordConfirmationPlaceholder: "confirm your new password",
+        // passwordConfirmationMatchError: "Please ensure the password and the confirmation are the same.",
+        // passwordStrength: {
+        //   containsAtLeast: "Contain at least %d of the following %d types of characters:",
+        //   identicalChars: "No more than %d identical characters in a row (e.g., \"%s\" not allowed)",
+        //   nonEmpty: "Non-empty password required",
+        //   numbers: "Numbers (i.e. 0-9)",
+        //   lengthAtLeast: "At least %d characters in length",
+        //   lowerCase: "Lower case letters (a-z)",
+        //   shouldContain: "Should contain:",
+        //   specialCharacters: "Special characters (e.g. !@#$%^&*)",
+        //   upperCase: "Upper case letters (A-Z)"
+        // },
+        // successMessage: "Your password has been reset successfully.",
+        // configurationError: "An error ocurred. There appears to be a misconfiguration in the form.",
+        // networkError: "The server cannot be reached, there is a problem with the network.",
+        // timeoutError: "The server cannot be reached, please try again.",
+        // serverError: "There was an error processing the password reset.",
+        // headerText: "Enter a new password for<br />{email}",
+        // title: "Change Password",
+        // weakPasswordError: "Password is too weak."
+        // passwordHistoryError: "Password has previously been used."
+      }
+    });
+  </script>
+```
+
+Notice that the sample template uses the `tenant.picture_url` variable to return the value entered in the **Logo URL** field of the **Settings** area in [Account Settings](https://manage.auth0.com/#/account). Auth0 will retrieve the logo at that URL and display it on the password reset widget. If Auth0 cannot resolve the URL, it'll display a default image (note that the sample snippet has all unrelated content removed):
+
+```js
+  <script>
+    new Auth0ChangePassword({
+      theme: {
+        icon: "{{tenant.picture_url | default: '//cdn.auth0.com/styleguide/1.0.0/img/badge.png'}}",
+      }
+    });
+  </script>
+```
 
 ## Revert Your Changes
 
