@@ -44,17 +44,6 @@ If successful, you'll be redirected to the **Test Stage Editor**. Copy down the 
 
 You can test your deployment by making a `GET` call to the **Invoke URL** you copied in the previous step.
 
-```har
-{
-    "method": "GET",
-    "url": "https://YOUR_INVOKE_URL/pets",
-    "headers": [{
-        "name": "Authorization",
-        "value": "Bearer TOKEN"
-    }]
-}
-```
-
 ## Summary
 
 In this tutorial, you have
