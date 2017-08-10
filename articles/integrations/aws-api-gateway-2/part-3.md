@@ -40,8 +40,6 @@ If successful, you'll be redirected to the **Test Stage Editor**. Copy down the 
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-8.png)
 
-https://castdb0qvl.execute-api.us-east-1.amazonaws.com/Test
-
 ## Test Your Deployment
 
 You can test your deployment by making a `GET` call to the **Invoke URL** you copied in the previous step.
