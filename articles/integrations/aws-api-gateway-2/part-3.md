@@ -31,3 +31,11 @@ Under **Settings**, click the **pencil** icon to the right **Authorization** and
 Click the **check mark** icon to save your choice of custom authorizer. Make sure the **API Key Required** field is set to `false`.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-5.png)
+
+## Deploy the API
+
+To make your changes public, you'll need to [deploy your API](/integrations/aws-api-gateway-2/part-1#deploy-the-api).
+
+If successful, you'll be redirected to the **Test Stage Editor**. Copy down the **Invoke URL** provided in the blue ribbon at the top, since you'll need this to test your deployment.
+
+![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-8.png)
