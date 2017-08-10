@@ -56,7 +56,7 @@ The User Details page will show `pending` when a user is first created until the
 * `username` (unique): the user's username.
 
 ::: note
-In cases where you are accessing the User Profile from inside a [Rule](/rules) using the `user` object, properties such as the `last_ip` and `last_login` would be the values associated with the login that triggered the rules since Rules execute after the actual login.
+In cases where you are accessing the User Profile from inside a [Rule](/rules) using the `user` object, properties such as the `last_ip` and `last_login` would be the values associated with the login that triggered the rule since Rules execute after the actual login.
 :::
 
 ::: note
