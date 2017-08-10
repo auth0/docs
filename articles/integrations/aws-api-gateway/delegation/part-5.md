@@ -61,7 +61,7 @@ For additional details, see [Creating Deployment Packages using Node.js](http://
 
 The following seed project contains the code you'll need for your updated AWS Lambda function.
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0',
   repo: 'auth0-aws',
   path: 'examples/api-gateway/lambda'
