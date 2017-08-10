@@ -139,6 +139,6 @@ In Part 1 of the AWS API Gateway tutorial, we covered how to:
 Now that we have a fully functional API that's managed by API Gateway, we'll...
 
 <%= include('./_stepnav', {
- prev: ["Introduction", "/integrations/aws-api-gateway-2"],
- next: ["2. Create the Custom Authorizers", "/integrations/aws-api-gateway-2/part-2"]
+ prev: ["Introduction", "/integrations/aws-api-gateway/custom-authorizers"],
+ next: ["2. Create the Custom Authorizers", "/integrations/aws-api-gateway/custom-authorizers/part-2"]
 }) %>

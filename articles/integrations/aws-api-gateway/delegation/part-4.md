@@ -321,6 +321,6 @@ You will then be presented with the output of running your rule.
 ![Output from Trying Rules](/media/articles/integrations/aws-api-gateway/part-4/try-rules-output.png)
 
 <%= include('./_stepnav', {
- prev: ["3. Building the Client Application", "/integrations/aws-api-gateway/part-3"],
- next: ["5. Using Identity Tokens", "/integrations/aws-api-gateway/part-5"]
+ prev: ["3. Building the Client Application", "/integrations/aws-api-gateway/delegation/part-3"],
+ next: ["5. Using Identity Tokens", "/integrations/delegation/aws-api-gateway/part-5"]
 }) %>

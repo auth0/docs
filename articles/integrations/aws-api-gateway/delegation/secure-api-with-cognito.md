@@ -1,6 +1,7 @@
 ---
 title: Amazon API Gateway Tutorial - Secure AWS API Gateway Using Cognito
 description: How to secure the API Gateway Tutorial using Cognito instead of IAM roles and policies.
+url: /integrations/aws-api-gateway/secure-api-with-cognito
 ---
 
 # Secure AWS API Gateway Using Cognito

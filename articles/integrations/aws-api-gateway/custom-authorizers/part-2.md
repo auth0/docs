@@ -257,6 +257,6 @@ In this part of the API Gateway tutorial, we configured the custom authorizer we
 In the next part of the tutorial, we will use the custom authorizer we created.
 
 <%= include('./_stepnav', {
- prev: ["1. Import and Deploy the API", "/integrations/aws-api-gateway-2/part-1"],
- next: ["3. Secure the API Using Custom Authorizers", "/integrations/aws-api-gateway-2/part-3"]
+ prev: ["1. Import and Deploy the API", "/integrations/aws-api-gateway/custom-authorizers/part-1"],
+ next: ["3. Secure the API Using Custom Authorizers", "/integrations/aws-api-gateway/custom-authorizers/part-3"]
 }) %>

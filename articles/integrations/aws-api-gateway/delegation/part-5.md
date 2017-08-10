@@ -164,5 +164,5 @@ In this tutorial, you have:
 * Used a JWT to provide further authorization context and pass identity information into the appropriate Lambda function.
 
 <%= include('./_stepnav', {
- prev: ["4. Using Multiple Roles", "/integrations/aws-api-gateway/part-4"]
+ prev: ["4. Using Multiple Roles", "/integrations/delegation/aws-api-gateway/part-4"]
 }) %>
