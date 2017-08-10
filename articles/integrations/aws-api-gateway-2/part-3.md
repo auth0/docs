@@ -40,14 +40,17 @@ If successful, you'll be redirected to the **Test Stage Editor**. Copy down the 
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-8.png)
 
-## Summary
+## Test Your Deployment
 
-In this tutorial, you have
+You can test your deployment by making a `GET` call to the **Invoke URL** you copied in the previous step.
 
-1. Imported an API for use with API Gateway
-2. Created a custom authorizer to secure your API's endpoints, which required working with AWS IAM and Lambda
-3. Secured your API with your custom authorizer
-
-<%= include('./_stepnav', {
- prev: ["2. Create the Custom Authorizers", /integrations/aws-api-gateway-2/part-2"]
-}) %>
+```har
+{
+    "method": "GET",
+    "url": "https://YOUR_INVOKE_URL/pets",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer TOKEN"
+    }]
+}
+```
