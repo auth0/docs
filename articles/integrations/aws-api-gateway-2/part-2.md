@@ -230,7 +230,7 @@ Set the following parameters:
 | Authorizer name | `jwt-rsa-custom-authorizer` |
 | Execution role | The IAM Role ARN you copied above |
 | Identity token source | `method.request.header.Authorization` |
-| Token validation expression | `^Bearer [-0-9a-zA-z\.]*$` |
+| Token validation expression | `` |
 | Result TTL in seconds | `3600` |
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-24.png)
