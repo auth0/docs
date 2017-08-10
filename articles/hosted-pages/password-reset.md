@@ -77,7 +77,7 @@ Within the Password Reset Page Editor, you'll see the following JavaScript embed
   </script>
 ```
 
-Notice that the sample template uses the `tenant.picture_url` variable to return the value entered in the **Logo URL** field of the **Settings** area in [Account Settings](https://manage.auth0.com/#/account). Auth0 will retrieve the logo at that URL and display it on the password reset widget. If Auth0 cannot resolve the URL, it'll display a default image (note that the sample snippet has all unrelated content removed):
+Notice that the sample template uses the `tenant.picture_url` variable to return the value entered in the **Logo URL** field of the **Settings** area in [Account Settings](https://manage.auth0.com/#/account). Auth0 will retrieve the logo at that URL and display it on the password reset widget. If Auth0 cannot resolve the URL, it'll display a default image (note that the sample snippet below has all unrelated content removed, including mandatory fields):
 
 ```js
   <script>
