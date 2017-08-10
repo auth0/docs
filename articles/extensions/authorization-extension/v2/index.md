@@ -2,7 +2,6 @@
 toc: true
 description: This page explains how to setup and manage the Authorization Extension v2.
 ---
-
 # Auth0 Authorization Extension v2
 
 The Auth0 Authorization Extension provides user authorization support in Auth0. Currently the extension supports authorizations for Users using Groups, Roles and Permissions.
@@ -27,7 +26,7 @@ When you click on the link to open the extension for the first time, you will be
 
 ![Authorization Dashboard](/media/articles/extensions/authorization/auth-dashboard-v2.png)
 
-## Migration from v1 to v2 of the Authorization Extension (breaking changes)
+## Migration from v1 to v2 (breaking changes)
 
 ::: panel Application section
 One of the major changes of the v2 of the Authorization Extension is that the **Applications** section has been removed. The driving factor for this change is complexity: Defining a policy when someone can or cannot access an application depends on different factors (roles, groups, time of day, MFA, ...). This is why the desired approach for this use case is [rules](#controlling-application-access).
@@ -219,6 +218,10 @@ You can also set the Token Expiration, Token Issuer, Token Audience and Url. Cli
 Click the **Explorer** section to see the API endpoints that can be called.
 
 ![Explorer](/media/articles/extensions/authorization/api-explorer.png)
+
+::: note
+You can also find detailed information about the endpoints at our [Authorization Extension API Explorer](/api/authorization-extension).
+:::
 
 ## Rule Behavior for the Authorization Extension
 
