@@ -34,6 +34,10 @@ You can use JavaScript to retrieve the following custom variables:
 | `lang` | The user's language | 
 | `password_policy` | The active connection's security policy You can see what this is using `${manage_url}/#/connections/database/con_YOUR-CONNECTION-ID/security`. Be sure to provide your connection ID in the URL.) | 
 
+::: note
+You can set/check the values for your `tenant` variables in the **Settings** area in [Account Settings](https://manage.auth0.com/#/account)
+:::
+
 Within the Password Reset Page Editor, you'll see the following JavaScript embedded:
 
 ```js
