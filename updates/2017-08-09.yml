@@ -1,0 +1,9 @@
+changed:
+  -
+    title: "Updated Integrate Auth0 with Amazon Web Services (AWS) docs"
+    tags:
+      - SSO
+      - AWS
+      - tokens
+    description: |
+      Updated [AWS integration docs](https://auth0.com/docs/integrations/aws) to reflect changes to AWS and Auth0.
