@@ -54,3 +54,11 @@ You can test your deployment by making a `GET` call to the **Invoke URL** you co
     }]
 }
 ```
+
+## Summary
+
+In this tutorial, you have
+
+1. Imported an API for use with API Gateway
+2. Created a custom authorizer to secure your API's endpoints, which required working with AWS IAM and Lambda
+3. Secured your API with your custom authorizer
