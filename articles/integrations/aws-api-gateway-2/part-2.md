@@ -17,9 +17,9 @@ To do this, we will be using API Gateway's custom [request] authorizers, which a
 
 ## Prepare the Custom Authorizer
 
-You can [download a sample custom authorizer](https://github.com/auth0-samples/jwt-rsa-aws-custom-authorizer) that supports Auth0-issued tokens. Afterwards, you'll need to customize the files so that the custom authorizer works for your environment.
+You can [download a sample custom authorizer](https://github.com/auth0-samples/jwt-rsa-aws-custom-authorizer) that supports Auth0-issued tokens. Afterward, you'll need to customize the files so that the custom authorizer works for your environment.
 
-1. Unzip the folder containing the sample files you downloaded above to the location of your choice, and navigate into the folder using the command line.
+1. Unzip the folder containing the sample files you downloaded above to the location of your choice, and navigate to the folder using the command line.
 
 2. Within the sample folder, run `npm install` to install the Node.js packages required for deployment; AWS requires that these files be included in the bundle you will upload to AWS during a later step.
 
@@ -35,7 +35,7 @@ As an example, the text of your .env file should look something like this when c
 
 ```text
 JWKS_URI=https://auth0user.auth0.com/.well-known/jwks.json
-AUDIENCE=https://auth0user.auth0.com/api/v2/	
+AUDIENCE=https://auth0user.auth0.com/api/v2/    
 TOKEN_ISSUER=https://auth0user.auth0.com/
 ```
 
@@ -103,7 +103,7 @@ The IAM role has the required permissions to call Lambda functions; before we ca
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-6.png)
 
-7. On the **Summary** page for the role you've just created, click over to the **Trust relationships** tab.
+7. On the **Summary** page for the role you've just created, click on to the **Trust relationships** tab.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-8.png)
 

@@ -35,11 +35,11 @@ You'll see a pop-up message welcoming you to API Gateway. Click **OK** to procee
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-1/aws-pt1-3.png)
 
-On the **Create new API** form, you'll see that **Example API** is selected by default and there's an example API defined in the editor. We'll use this API for the rest of our tutorial, so begin the API creation process by clicking **Import**.
+On the **Create new API** form, you'll see that **Example API** is selected by default, and there's an example API defined in the editor. We'll use this API for the rest of our tutorial, so begin the API creation process by clicking **Import**.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-1/aws-pt1-4.png)
 
-When done, AWS will display a message indicated that your API created and populated with the provided data.
+When done, AWS will display a message indicating that your API created and populated with the provided data.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-1/aws-pt1-5.png)
 

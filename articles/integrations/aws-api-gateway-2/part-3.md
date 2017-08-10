@@ -13,7 +13,7 @@ Log in to AWS and navigate to the [API Gateway Console](http://console.aws.amazo
 ![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-1.png)
 
 ::: note
-Custom authorizers are set on a method by method basis; if you want to secure multiple methods using a single authorizer, you'll need to repeat the following instructures for each method.
+Custom authorizers are set on a method by method basis; if you want to secure multiple methods using a single authorizer, you'll need to repeat the following instructions for each method.
 :::
 
 Open the **PetStore** API we created in [part 1](/integrations/aws-api-gateway-2/part-1) of this tutorial. Under the **Resource** tree in the center pane, select the **GET** method under the `/pets` resource.
@@ -28,7 +28,7 @@ Under **Settings**, click the **pencil** icon to the right **Authorization** and
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-4.png)
 
-Click the **check mark** icon to save you choice of custom authorizer. Make sure the **API Key Required** field is set to `false`.
+Click the **check mark** icon to save your choice of custom authorizer. Make sure the **API Key Required** field is set to `false`.
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-3/pt3-5.png)
 
@@ -48,12 +48,12 @@ You can test your deployment by making a `GET` call to the **Invoke URL** you co
 
 ```har
 {
-	"method": "GET",
-	"url": "https://YOUR_INVOKE_URL/pets",
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer TOKEN"
-	}]
+    "method": "GET",
+    "url": "https://YOUR_INVOKE_URL/pets",
+    "headers": [{
+        "name": "Authorization",
+        "value": "Bearer TOKEN"
+    }]
 }
 ```
 
