@@ -217,9 +217,21 @@ The `state` parameter, is not required, but it is recommended. It is an opaque v
 
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
 
+
+In order to use Passwordless, you will want to initialize Auth0.js with a `redirectUri` and to set the `responseType: 'token'`. 
+
+```js
+var webAuth = new auth0.WebAuth({
+  clientID: '${account.clientId}',
+  domain: '${account.namespace}',
+  redirectUri: 'http://example.com',
+  responseType: 'token'
+});
+```
+
 #### Start passwordless
 
-The `passwordlessStart` method requires several parameters to be passed within its `options` object:
+The first step in Passwordless authentication with Auth0.js is the `passwordlessStart` method, which has several parameters which can be passed within its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -243,7 +255,7 @@ webAuth.passwordlessStart({
 
 #### Verify passwordless
 
-The `passwordlessVerify` method requires several paramters to be sent in its `options` object:
+If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessVerify` method, which has several paramaters which can be sent in its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -252,7 +264,7 @@ The `passwordlessVerify` method requires several paramters to be sent in its `op
 | `phoneNumber` | optional | (String) The user's phone number to which the code or link was delivered via SMS. |
 | `email` | optional | (String) The user's email to which the code or link was delivered via email. |
 
-Note that, as with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
+As with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
 
 ::: note
 In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
@@ -269,7 +281,7 @@ webAuth.passwordlessVerify({
 );
 ```
 
-## Extract the authResult and get user info
+## Extract the authResult and Get User Info
 
 After authentication occurs, the `parseHash` method parses a URL hash fragment to extract the result of an Auth0 authentication response.
 
@@ -305,7 +317,7 @@ webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
 });
 ```
 
-As shown above, the `client.userInfo` method can be called passing the returned `authResult.accessToken`. It will make a request to the `/userinfo` endpoint and return the `user` object, which contains the user's information, similar to the below example.
+As shown above, the `client.userInfo` method can be called passing the returned `accessToken`. It will make a request to the `/userinfo` endpoint and return the `user` object, which contains the user's information, formatted similarly to the below example.
 
 ```json
 {
