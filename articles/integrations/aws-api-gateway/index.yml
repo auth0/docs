@@ -1,5 +1,5 @@
 versioning:
-  baseUrl: /integrations/aws-api-gateway
+  baseUrl: integrations/aws-api-gateway
   current: custom-authorizers
   versions:
     - custom-authorizers
