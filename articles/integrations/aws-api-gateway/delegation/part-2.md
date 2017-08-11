@@ -237,6 +237,6 @@ On the result page, navigate to **SDK Generation**. Select *JavaScript* as the *
 Save the downloaded zip file for later use.
 
 <%= include('./_stepnav', {
- prev: ["1. Setup", "/integrations/delegation/aws-api-gateway/part-1"],
+ prev: ["1. Setup", "/integrations/aws-api-gateway/delegation/part-1"],
  next: ["3. Building the Client Application", "/integrations/aws-api-gateway/delegation/part-3"]
 }) %>
