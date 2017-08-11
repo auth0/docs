@@ -15,9 +15,13 @@ This doc refers to the client steps to connect your client. If you are looking t
 
 ## 1. Register a New App
 
-Log into [Salesforce](https://login.salesforce.com/). Click on **Setup** in the upper right, next to your account name. Navigate to **Build > Create > Apps**. Under **Connected Apps**, click **New**:
+Log into [Salesforce](https://login.salesforce.com/). Click on **Settings > Setup** in the upper right, next to your account name.
 
-![](/media/articles/connections/social/salesforce/salesforce-register-1.png)
+![](http://i.imgur.com/BD8RXZ2.png)
+
+Navigate to **Platform Tools > Apps**. Under **App Manager**, click **New Connected App**:
+
+![](http://i.imgur.com/YNJ9xRN.png)
 
 ## 2. Complete the *New Connected App* form
 
