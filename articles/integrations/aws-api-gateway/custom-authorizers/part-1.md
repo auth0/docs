@@ -10,7 +10,7 @@ toc: true
 This portion of the tutorial has been adapted from the [official AWS example](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-from-example.html). Please refer to this example for in-depth notes and discussion.
 :::
 
-In Part 1 of the AWS API Gateway tutorial, we will show you how to import and manage an API using API Gateway. More specifically, we will:
+In [Part 1](/integrations/aws-api-gateway/custom-authorizers/part-1) of the AWS API Gateway tutorial, we will show you how to import and manage an API using API Gateway. More specifically, we will:
 
 * Import an API into API Gateway
 * Test an API import

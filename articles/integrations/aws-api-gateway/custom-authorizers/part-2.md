@@ -6,7 +6,7 @@ toc: true
 
 # AWS API Gateway Tutorial, Part 2: Create the Custom Authorizers
 
-In [step 1](/integrations/aws-api-gateway-2/part-1) of this tutorial, we showed you how to import, test, and deploy an API using Amazon Web Services' (AWS) API Gateway. In this tutorial, we will show you how to secure this API so that only those with the appropriate authorization may access the back-end behind the API.
+In [step 1](/integrations/aws-api-gateway/custom-authorizers/part-1) of this tutorial, we showed you how to import, test, and deploy an API using Amazon Web Services' (AWS) API Gateway. In this tutorial, we will show you how to secure this API so that only those with the appropriate authorization may access the back-end behind the API.
 
 To do this, we will be using API Gateway's custom [request] authorizers, which allow you to authorize your APIs using bearer token authorization strategies, such as OAuth 2.0 or SAML. For each incoming request, the following happens:
 
