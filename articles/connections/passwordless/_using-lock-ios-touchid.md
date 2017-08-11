@@ -1,5 +1,10 @@
 # Authenticate users with Touch ID
 
+::: warning
+This feature is disabled for new tenants as of June 8th 2017. Any tenant created after that date won't have the necessary legacy grant types to use Touch ID. 
+This document is offered as reference for older implementations.
+:::
+
 A feature specific to iOS is the support for *Touch ID*, which allows users to authenticate with their fingerprint (biometric authentication).
 
 ![](/media/articles/connections/passwordless/passwordless-touchid-start.png)
