@@ -213,12 +213,11 @@ var url = webAuth.client.buildAuthorizeUrl({
 The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
 :::
 
-### Passwordless login
+## Passwordless Login
 
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
 
-
-In order to use Passwordless, you will want to initialize Auth0.js with a `redirectUri` and to set the `responseType: 'token'`. 
+In order to use Passwordless, you will want to initialize Auth0.js with a `redirectUri` and to set the `responseType: 'token'`.
 
 ```js
 var webAuth = new auth0.WebAuth({
@@ -229,7 +228,7 @@ var webAuth = new auth0.WebAuth({
 });
 ```
 
-#### Start passwordless
+### Start Passwordless
 
 The first step in Passwordless authentication with Auth0.js is the `passwordlessStart` method, which has several parameters which can be passed within its `options` object:
 
@@ -253,7 +252,7 @@ webAuth.passwordlessStart({
 );
 ```
 
-#### Verify passwordless
+### Verify passwordless
 
 If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessVerify` method, which has several paramaters which can be sent in its `options` object:
 
@@ -283,7 +282,7 @@ webAuth.passwordlessVerify({
 
 ## Extract the authResult and Get User Info
 
-After authentication occurs, the `parseHash` method parses a URL hash fragment to extract the result of an Auth0 authentication response.
+After authentication occurs, you can use the `parseHash` method to parse a URL hash fragment when the user is redirected back to your application in order to extract the result of an Auth0 authentication response. You may choose to handle this in a callback page that will then redirect to your main application, or in-page, as the situation dictates.
 
 The `parseHash` method takes an `options` object that contains the following parameters:
 
