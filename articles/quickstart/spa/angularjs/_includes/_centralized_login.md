@@ -73,7 +73,7 @@ The options object passed to `angularAuth0Provider.init` includes configuration 
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `authService` and the filename will be `auth.service.js`.
 
-Create a service and provide a method called `login` which calls the `authorize` from angular-auth0.
+Create a service and provide a method called `login` which calls the `authorize` method from angular-auth0.
 
 ```js
 // app/auth/auth.service.js
