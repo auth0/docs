@@ -254,7 +254,7 @@ webAuth.passwordlessStart({
 
 ### Verify passwordless
 
-If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessVerify` method, which has several paramaters which can be sent in its `options` object:
+If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessVerify` method, which has several parameters which can be sent in its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
