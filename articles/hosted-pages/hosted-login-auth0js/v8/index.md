@@ -19,7 +19,7 @@ In this example, you'll build an authorization link that takes the user directly
 
 <script>
   // standard config decoding as in the default template
-  var config = JSON.parse(decodeURIComponent(escape(window.atob('config'))));
+  var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 
   // builds an Auth0.js instance using config options
   var authClient = new auth0.Authentication({
