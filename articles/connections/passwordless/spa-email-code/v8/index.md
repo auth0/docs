@@ -1,7 +1,8 @@
 ---
 title: Using Passwordless Authentication with a one-time code via email on SPA
+description: Learn how to authenticate users with a one-time-code using email in a Single Page Application (SPA).
 ---
-# Authenticate users with a one-time code via e-mail on SPA
+# Using Passwordless Authentication in SPA with Email
 
 <%= include('../../_introduction-email', { isMobile: false }) %>
 
