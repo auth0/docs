@@ -9,5 +9,3 @@ If you are following along with the downloadable sample projects for this tutori
 ```bash
 ${callback}
 ```
-
-<%= include('../_includes/_install_auth0js') %>
