@@ -4,15 +4,15 @@ This is the repository for the Auth0 documentation.
 **Please review the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR or opening an issue.**
 
 ## Running the Docs Site
-You can run and test the docs site locally (you will need access - only employees). For instructions on running the site and testing see the [README](https://github.com/auth0/auth0-docs).
+You can run and test the docs site locally (you will need access - only employees). For instructions on running the site and testing see the [README](https://github.com/auth0/auth0-docs/blob/master/README.md).
 
 ## Issue Reporting
 
 If you found a bug or have a feature request, please report it in this repository's [issues](https://github.com/auth0/docs/issues) section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
 
-## Author
+## Author 
 
-[Auth0](auth0.com)
+[Auth0](https://auth0.com)
 
 ## License
 
