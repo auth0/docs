@@ -12,7 +12,7 @@ A delegation token should be obtained and used when a client program needs to ca
 
 Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API.
 
-The type of the delegation token will vary depending on the by provider. For example, if issued for Azure Blob Storage, it will be a SAS (Shared Access Signature). If it is for the Firebase add on, it will be a JWT.
+The type of the delegation token will vary depending on the by provider. For example, if issued for Azure Blob Storage, it will be a SAS (Shared Access Signature). If it is for the Firebase Addon, it will be a JWT.
 
 ## How to get a delegation token
 
