@@ -11,7 +11,7 @@ Error messages are returned in the standard format:
 ```json
 {
   "error": "error_code",
-  "error_description": "the description of the erorr.",
+  "error_description": "the description of the error.",
   "error_uri": "https://auth0.com/docs/errors/dbconnections/self_change_password"
 }
 ```
@@ -32,4 +32,4 @@ This error results from a bad `username`/`email` and `old_password` combination 
 
 ### `change_password_error`
 
-This error results from various conditions with the underlying identity provider. Generally, this results when you are using a custom database and have not implimented the change password script.
+This error results from various conditions with the underlying identity provider. Generally, this results when you are using a custom database and have not implemented the change password script.
