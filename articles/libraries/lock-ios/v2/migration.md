@@ -272,6 +272,6 @@ Auth0
 
 ### Delegation
 
-Delegation is not available through Lock. It can be implemented via a legacy method in [Auth0.Swift](/libraries/auth0-ios) for tenants which existed prior to June 2017, but delegation is deprecated and not recommended for most use cases. See the [Grant Types](/clients/client-grant-types#secure-alternatives-to-the-legacy-grant-types) documentation for more details.
+Delegation is not available through Lock. It can be implemented via a legacy method in [Auth0.Swift](/libraries/auth0-swift) for tenants which existed prior to June 2017, but delegation is deprecated and not recommended for most use cases. See the [Grant Types](/clients/client-grant-types#secure-alternatives-to-the-legacy-grant-types) documentation for more details.
 
 <%= include('../_includes/_roadmap') %>
