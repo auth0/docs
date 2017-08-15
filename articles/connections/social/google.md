@@ -62,7 +62,7 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
   ![Google API Manager Library](/media/articles/connections/social/google/api-manager-library.png)
 
-3. On the **Admin SDK** page, click **Enable**.
+3. On the **Admin SDK** page, click **Enable**. If successful, the **Enable** link turns into **Disable**.
 
   ![API Manager Dashboard for Admin SDK](/media/articles/connections/social/google/enable-admin-sdk.png)
 
