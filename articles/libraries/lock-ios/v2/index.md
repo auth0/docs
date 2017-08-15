@@ -217,6 +217,34 @@ Lock
 You can see the complete set of behavior configuration options to alter the way Lock works for your app in the [Configuration Guide](/libraries/lock-ios/v2/configuration).
 :::
 
+## Password Manager Support
+
+By default, password manager support using [1Password](https://1password.com/) is enabled for database connections. 1Password support will still require the user to have the 1Password app installed for the option to be visible in the login and signup screens. You can disable 1Password support using the enabled property of the passwordManager.
+
+```swift
+.withOptions {
+    $0.passwordManager.enabled = false
+}
+```
+
+By default the `appIdentifier` will be set to the app's bundle identifier and the `displayName` will be set to the app's display name. You can customize these as follows:
+
+```swift
+.withOptions {
+    $0.passwordManager.appIdentifier = "www.myapp.com"
+    $0.passwordManager.displayName = "My App"
+}
+```
+
+You will need to add the following to your app's `info.plist`:
+
+```
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>org-appextension-feature-password-management</string>
+</array>
+```
+
 ## Logging
 
 Lock provides options to easily turn on and off logging capabilities, as well as adjust other logging related settings. The example below displays logging turned on, but take a look at the [Behavior Configuration Options](/lock-ios/v2/configuration) page for more information about logs in Lock for iOS v2.
