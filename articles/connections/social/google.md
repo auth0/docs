@@ -10,56 +10,43 @@ alias:
  - google-oauth2
 seo_alias: google
 ---
-# Connect your app to Google
+# Connect Your App to Google
 
-To connect your Auth0 client to Google, you will need to generate a *Client ID* and *Client Secret* in a Google project, copy these keys into your Auth0 settings, and enable the Connection.
+To connect your Auth0 client to Google, you will need to:
+
+* Generate a *Client ID* and *Client Secret* in a Google project
+* Copy these keys into your Auth0 settings
+* Enable the Connection
 
 ::: note
-This doc refers to the client steps to connect your client to Google. If you are looking to manage authentication in your app, see [Next Steps](#next-steps) below.
+This doc only shows you how to connect your client to Google. To manage your app's authentication, see [Next Steps](#next-steps) below.
 :::
 
 ## Generate the Google Client ID and Client Secret
 
-1. While logged in to your Google account, go to the [API Manager](https://console.developers.google.com/projectselector/apis/credentials).
+1. Log in to your Google account and go to the [APIs & services](https://console.developers.google.com/projectselector/apis/credentials).
 
-2. Create your new app by navigating to **Credentials** using the left-hand menu:
+2. Navigate to **Credentials** using the left-hand menu:
 
   ![API Manager Credentials](/media/articles/connections/social/google/credentials.png)
 
-3. While you are on the **Credentials** page, click on **Create a project**.
+3. On the **Credentials** page, click **Create credentials** and choose **OAuth client ID**.
 
-4. In the dialog box that appears, provide a Project name, answer Google's email- and privacy-related questions, and click **Create**:
+  ![Create New Credentials](/media/articles/connections/social/google/create-new-credentials.png)
 
-  ![Create New Project](/media/articles/connections/social/google/create-new-project.png)
+4. On the **Create client id** page, select **Web application**. In the new fields that display, set the following parameters:
 
-5. Google will take a moment to create your project. When the process completes, Google will prompt you to create the credentials you need.
-
-  ![Create Google Credentials](/media/articles/connections/social/google/create-credentials.png)
-
-6. Click on **Create credentials** to display a pop-up menu listing the types of credentials you can create. Select the **OAuth client ID** option.
-
-7. At this point, Google will display a warning banner that says, "To create an OAuth client ID, you must first set a product name on the consent screen." Click **Configure consent screen** to begin this process.
-
-  ![Configure Consent Screen](/media/articles/connections/social/google/create-client-id.png)
-
-8. Provide a **Product Name** that will be shown to users when they log in through Google.
-
-  ![OAuth Consent Screen](/media/articles/connections/social/google/oauth-consent-screen.png)
-
-9. Click **Save**.
-
-10. At this point, you will be prompted to provide additional information about your newly-created app.
+| Field | Description |
+| - | - |
+| Name | The name of your web app |
+| Authorized JavaScript origins | `https://${account.namespace}` |
+| Authorized redirect URIs | `https://${account.namespace}/login/callback` |
 
   ![Web App Credentials Configuration](/media/articles/connections/social/google/create-client-id-config.png)
 
-11. Select **Web application**, and provide a name for your app.
+  Click **Create** to proceed.
 
-12. Under **Restrictions**, enter the following information:
-
-    * **Authorized JavaScript origins:** `https://${account.namespace}`
-    * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
-
-13. Click **Create**. Your `Client Id` and `Client Secret` will be displayed:
+5. Your `Client Id` and `Client Secret` will be displayed:
 
   ![OAuth Client ID and Secret](/media/articles/connections/social/google/oauth-client-info.png)
 
