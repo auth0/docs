@@ -28,6 +28,10 @@ You can add the following as claims to the issued token:
 
 The extensibility point will ignore all other response object properties.
 
+::: note
+If you need to configure client secrets and access them within your Hook, you can do so using `context.webtask.secrets.SECRET_NAME`.
+:::
+
 ## Starter Code and Parameters
 
 ```js
