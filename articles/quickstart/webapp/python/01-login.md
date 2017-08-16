@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 Python SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to use the Python Oauthlib to add authentication and authorization to your web app
 budicon: 448
 ---
 
@@ -15,8 +15,8 @@ You can get started by either downloading the seed project or if you would like 
     'Python 2.7, 3.0 and up',
     'Flask 0.10.1 and up',
     'Requests 2.3.0 and up'
-    'Flask-oauthlib 0.9.4',
-    'Six 1.10.0'
+    'Flask-oauthlib 0.9.4 and up',
+    'Six 1.10.0 and up'
   ]
 }) %>
 
@@ -68,26 +68,16 @@ auth0 = oauth.remote_app(
 )
 ```
 
-::: note
-You can set the `identifier` of some of your [APIs](/#/apis) as the `audience`.
-:::
-
+We define the route that will redirect the user to the authorization endpoint
 ```python
 @app.route('/login')
 def login():
     return auth0.authorize(callback='${account.callback}')
 ```
 
-Register the function as the access token getter.
-```python
-@auth0.tokengetter
-def get_auth0_oauth_token():
-    return session.get('access_token')
-```
-
 ## Add the Auth0 Callback Handler
 
-You'll need to create a callback handler that Auth0 will call once it redirects to your app. This handler exchanges the `code` we have obtained previously for an `access_token` and an `id_token`. For that, you can do the following:
+You'll need to create a callback handler so Auth0 will redirect the user after he authenticate and grant the access. This handler exchanges the `code` we have obtained previously for an `access_token` and an `id_token` and store them in the session. For that, you can do the following:
 
 ```python
 # Here we're using the /callback route.
@@ -102,15 +92,24 @@ def callback_handling():
     
     session['access_token'] = (resp['access_token'], '')
     
+    # Oauthlib will call userinfo endpoint with the access_token obtained from the function decorated
+    # with @auth0.tokengetter
     user_info = auth0.get('userinfo')
     session['profile'] = user_info.data
     
     return redirect('/dashboard')
 ```
 
+Register the function that will obtain the stored access token.
+```python
+@auth0.tokengetter
+def get_auth0_oauth_token():
+    return session.get('access_token')
+```
+
 ## Access User Information
 
-You can access the user information via the `profile` you stored in the session on step 2
+You can access the user information via the `profile` you stored in the session on previously step
 
 ```python
 @app.route("/dashboard")
