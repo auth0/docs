@@ -2,12 +2,13 @@
 title: Connect your app to Azure Active Directory (Classic Portal)
 description: How to obtain a ClientId and Client Secret for a Microsoft Azure Active Directory with the Classic Portal.
 crews: crew-2
+toc: true
 ---
 
 # Connect your app to Azure Active Directory (Classic Portal)
 
-::: note
-This page uses the Azure Active Directory Classic Portal, for information on using the current portal, [click here.](/connections/enterprise/azure-active-directory)
+::: version-warning
+This document covers the Azure Active Directory Classic Portal.
 :::
 
 To allow users to login using a Microsoft Azure Active Directory account, you must register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can [signup](http://www.windowsazure.com/en-us/pricing/free-trial) for free.
@@ -102,4 +103,4 @@ Signing keys are used by the identity provider to sign the authentication token 
 
 For security purposes, Azure AD’s signing key [rolls on a periodic basis](https://azure.microsoft.com/en-us/documentation/articles/active-directory-signing-key-rollover/). If this happens, **you do not need to take any action**. Auth0 will use the new key automatically.
 
-<%= include('../_quickstart-links.md') %>
+<%= include('../../../_quickstart-links.md') %>

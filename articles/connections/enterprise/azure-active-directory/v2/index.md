@@ -12,13 +12,10 @@ alias:
 seo_alias: azure-active-directory
 description: How to obtain a ClientId and Client Secret for Microsoft Azure Active Directory.
 crews: crew-2
+toc: true
 ---
 
 # Connect your app to Microsoft Azure Active Directory
-
-::: note
-This page uses the current portal of the Azure Active Directory, for information on using the classic portal, [click here.](/connections/enterprise/azure-active-directory-classic)
-:::
 
 There are different scenarios in which you might want to integrate with Microsoft Azure AD:
 
@@ -160,4 +157,4 @@ Signing keys are used by the identity provider to sign the authentication token 
 
 For security purposes, Azure AD’s signing key [rolls on a periodic basis](https://azure.microsoft.com/en-us/documentation/articles/active-directory-signing-key-rollover/). If this happens, **you do not need to take any action**. Auth0 will use the new key automatically.
 
-<%= include('../_quickstart-links.md') %>
+<%= include('../../../_quickstart-links.md') %>
