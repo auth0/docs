@@ -41,7 +41,7 @@ request(options, function (error, response, body) {
 > RESPONSE SAMPLE:
 
 ```JSON
-HTTP 200
+HTTP/1.1 200 OK
 (empty-response-body)
 ```
 
@@ -51,7 +51,7 @@ HTTP 200
   "link": "#revoke-refresh-token"
 }) %>
 
-Since refersh tokens never expire, you need to have a way to invalidate them in case they are compromised or you no longer need them. You can do use by using this endpoint.
+Since refersh tokens never expire, you need to have a way to invalidate them in case they are compromised or you no longer need them. You can do use using this endpoint.
 
 ### Request Parameters
 
