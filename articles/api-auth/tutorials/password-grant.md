@@ -10,9 +10,9 @@ toc: true
 
 Before beginning this tutorial, please:
 
-* Set the Client's [Grant Type property](/clients/client-grant-types)
+* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
-* Set the [Default Audience and/or Default Directory](/dashboard-account-settings#api-authorization-settings) 
+* Check that the [Default Audience and/or Default Directory](/dashboard-account-settings#api-authorization-settings) has been set appropriately
 :::
 
 ## Configure your tenant
