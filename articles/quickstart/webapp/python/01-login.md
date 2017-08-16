@@ -36,9 +36,9 @@ ${snippet(meta.snippets.dependencies)}
 
 This example uses `flask` but it could work with any server
 
-## Trigger Login With OAuth
+## Trigger Login With OAuthlib
 
-Now, you can use `OAuth` to call the authorize endpoint of the Authentication API and redirect your users to our [Hosted Login page](/hosted-pages/login). This way, you will be implementing the [Authorization Code](/api-auth/grant/authorization-code) grant flow, so you will obtain a `code`.
+Now, you can use `OAuthlib` to call the authorize endpoint of the Authentication API and redirect your users to our [Hosted Login page](/hosted-pages/login). This way, you will be implementing the [Authorization Code](/api-auth/grant/authorization-code) grant flow, so you will obtain a `code`.
 
 ```python
 # server.py
@@ -74,6 +74,11 @@ We define the route that will redirect the user to the authorization endpoint
 def login():
     return auth0.authorize(callback='${account.callback}')
 ```
+
+-::: note
+-The `callback` specified **must match** the URL specified in the previous step.
+-:::
+-
 
 ## Add the Auth0 Callback Handler
 
