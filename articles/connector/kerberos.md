@@ -93,5 +93,6 @@ By default, [Firefox](https://www.mozilla.org/firefox) [rejects all "negociate" 
 * Open a Firefox tab and type `about:config` in the address bar.
 * Dismiss any warning message, and in the search box type `negotiate`.
 * Locate the `network.negotiate-auth.trusted-uris` item and double click to change its value.
-* Type the domain name of the server where the connector is installed. The value accepts a comma-separated list of URL prefixes or domains in the form of `mydomain.com, https://myotherdomain.com`.
+* Type the domain name of the server where the connector is installed. If you have multiple instances of the connector behind a load balancer, add the dns name of the balancer. 
+The value accepts a comma-separated list of URL prefixes or domains in the form of `mydomain.com, https://myotherdomain.com`.
 * Click **Ok**. You don't need to restart the server for the changes to take effect.
