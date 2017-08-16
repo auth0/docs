@@ -67,7 +67,7 @@ If you are seeing issues with your Auth0 service, but the monitoring endpoints a
 
 ## Monitoring a Dedicated Deployment
 
-Please see the [Appliance](/appliance) pages for [information on monitoring a dedicated deployment](/appliance/monitoring).
+Please see the [PSaaS Appliance](/appliance) pages for [information on monitoring a dedicated deployment](/appliance/monitoring).
 
 ## Configure SCOM
 

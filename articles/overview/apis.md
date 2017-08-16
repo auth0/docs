@@ -5,7 +5,6 @@ title: APIs Overview
 description: Learn the basics of APIs, their role in OAuth and how to configure an API in Auth0 Dashboard.
 crews: crew-2
 ---
-
 # APIs
 
 <%= include('../_includes/_pipeline2') %>
@@ -104,4 +103,22 @@ The most secure practice, and our recommendation, is to use **RS256**. Some of t
 
 - With RS256 you can implement key rotation without having to re-deploy the API with the new secret.
 
+::: panel Verifying an RS256 signed token
+You can find the Public Key you can use to verify the signature of an RS256 signed token by going to the [Clients section](${manage_url}/#/clients) of your Auth0 Dashboard. Open the **Settings** of any Client, scroll down and open **Advanced Settings**. Open the **Certificates** tab and you will find the Public Key in the **Signing Certificate** field.
+
+If you want to use the Public Key to verify a JWT signature on [JWT.io](https://jwt.io/), you can copy the Public Key and paste it in the **Public Key or Certificate** field under the **Verify Signature** section on the [JWT.io](https://jwt.io/) website.
+
+If you want to verify the signature of a token from one of your applications, it is recommended that you obtain the Public Key from your tenant's [JSON Web Key Set (JWKS)](https://auth0.com/docs/jwks). Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
+
+For more information ob how to do this, please refer the [Verify Access Tokens](/api-auth/tutorials/verify-access-token#verify-the-signature).
+:::
+
 For a more detailed overview of the JWT signing algorithms refer to: [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
+
+## Keep Reading
+
+::: next-steps
+- [API Authorization landing page](/api-auth)
+- [Identify the proper OAuth 2.0 flow for your use case](/api-auth/which-oauth-flow-to-use)
+- [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
+:::

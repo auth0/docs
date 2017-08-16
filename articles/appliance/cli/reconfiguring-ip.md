@@ -1,17 +1,17 @@
 ---
 section: appliance
-description: How to reconfigure Appliance IP Addresses using the CLI
+description: How to reconfigure AppliPSaaS Applianceance IP Addresses using the CLI
 ---
 
 # How to Reconfigure IP Addresses Using the Command Line Interface
 
-When running in a cluster, the Auth0 Appliance nodes need to know the IP addresses of the other nodes within the same cluster (they do not automatically detect each other). Whenever you move the network of the cluster, you may change the individual IP addresses using the console (TTY1) interface in the Virtual Machine Manager. However, there is no easy way to tell the cluster nodes the new IP addresses of the other members of the cluster.
+When running in a cluster, the PSaaS Appliance nodes need to know the IP addresses of the other nodes within the same cluster (they do not automatically detect each other). Whenever you move the network of the cluster, you may change the individual IP addresses using the console (TTY1) interface in the Virtual Machine Manager. However, there is no easy way to tell the cluster nodes the new IP addresses of the other members of the cluster.
 
-Beginning with Appliance build **6576**, you may reconfigure the mapping of IP addresses to the names of nodes for each Appliance node using the Appliance's Command Line Interface (CLI). Once this is done, the nodes may resume communication with one another within that cluster.
+Beginning with PSaaS Appliance build **6576**, you may reconfigure the mapping of IP addresses to the names of nodes for each PSaaS Appliance node using the PSaaS Appliance's Command Line Interface (CLI). Once this is done, the nodes may resume communication with one another within that cluster.
 
 ## Prerequisites
 
-Prior to beginning, please be sure to [configure the CLI](/appliance/cli/configure-cli) for use in performing operations on your Appliance instances via authorized workstations.
+Prior to beginning, please be sure to [configure the CLI](/appliance/cli/configure-cli) for use in performing operations on your PSaaS Appliance instances via authorized workstations.
 
 ## Using the `re-ip` Task
 

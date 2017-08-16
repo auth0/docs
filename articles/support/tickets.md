@@ -4,9 +4,9 @@ decription: How to open and manage tickets with Support Center.
 
 # Opening and Managing Tickets in Support Center
 
-With [Support Center](${env.DOMAIN_URL_SUPPORT}), you can create tickets for questions or issues you are experiencing. You need to be a full administrator of an Auth0 account to access Support Center.
+With [Support Center](${env.DOMAIN_URL_SUPPORT}), you can create tickets for questions or issues you are experiencing. You can access Support Center if you are a full administrator of an Auth0 account, or have received an invitation to Support Center from an administrator. 
 
-If you are an existing Appliance customer, you will need to create an Auth0 cloud-based account to log in to the Support Center. This account can also be used for Dev/Test purposes at no additional cost. Please contact your Customer Success Manager or Sales Executive to associate your cloud-based account to your existing Appliance subscription.
+If you are an existing PSaaS Appliance customer, you will need to create an Auth0 cloud-based account to log in to the Support Center. This account can also be used for Dev/Test purposes at no additional cost. Please contact your Customer Success Manager or Sales Executive to associate your cloud-based account to your existing PSaaS Appliance subscription.
 
 ## Opening a New Ticket
 

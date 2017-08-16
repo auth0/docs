@@ -6,7 +6,6 @@ extract: Traditional web application which needs to authenticate users using Ope
 description: Regular web app scenario which needs to authenticate users using OpenID Connect.
 toc: true
 ---
-
 # Single Sign-On for Regular Web Apps
 
 In this scenario we will build a web application for a fictitious company named ABC Inc. The app is meant to be used by ABC's employees and contractors. Employees will use their existing corporate directory (Active Directory), while contractors will be managed in a separate user store.
@@ -222,7 +221,8 @@ Once you have configured the connection and the connector, be sure to enable you
 The AD/LDAP connector supports Kerberos to make it easer for your users to authenticate when they are on a domain-joined machine within the corporate network. To activate Kerberos on an Active Directory you have to simply enable the option in the dashboard. After enabling Kerberos you'll also be able to configure the __IP Ranges__. When users originate from these IP address ranges this information will be exposed in the SSO endpoint which means client-side SDKs like auth0.js and the Lock will be able to detect Kerberos support and allow Integrated Windows Authentication.
 [More information](/connector/kerberos)
 
-**NOTE**: If you enable Kerberos then you need to make some changes to the AD/LDAP's configuration file. For details refer to: [Modify the AD/LDAP Connector Settings](/connector/modify).
+::: note
+If you enable Kerberos then you need to make some changes to the AD/LDAP's configuration file. For details refer to: [Modify the AD/LDAP Connector Settings](/connector/modify).
 :::
 
 Now that we have designed our solution and discussed the configurations needed on Auth0 side, we can proceed with integrating Auth0 with our timesheets web app. That's what the next paragraph is all about, so keep reading!

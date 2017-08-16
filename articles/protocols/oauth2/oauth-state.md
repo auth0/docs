@@ -58,8 +58,8 @@ if(decodedString == auth0-authorize) {
 	// Request Denied
 }
 ```
-## Further Reading
+## Keep reading
 
-[Protecting against other common threats](/security/common-threats)
-
-[Using the `state` parameter for redirecting users](/tutorials/redirecting-users#using-the-state-parameter)
+::: next-steps
+* [Protecting against other common threats](/security/common-threats)
+:::

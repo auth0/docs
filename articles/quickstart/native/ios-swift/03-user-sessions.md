@@ -43,7 +43,7 @@ For more information about Carthage usage, check [their official documentation](
 If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
 
 ```ruby
-pod 'SimpleKeychain', '~> 0.7'
+pod 'SimpleKeychain', '~> 0.8'
 ```
 
 Then, run `pod install`.
@@ -105,7 +105,7 @@ Then, if such a token exists, you need to check whether it's still valid, has ex
 // Retrieve profile
 Auth0
   .authentication()
-  .userInfo(token: accessToken)
+  .userInfo(withAccessToken: accessToken)
    .start { result in
        switch(result) {
        case .success(let profile):
@@ -120,7 +120,7 @@ Auth0
 ## Dealing with a non-valid accessToken
 
 How to deal with a non-valid accessToken is up to you. You will normally choose between two scenarios:
-Either you ask users to re-enter theirs credentials, or you can use `.renew(withRefreshToken: refreshToken)` with a [refresh_token((/refresh-token)) to obtain a new valid accessToken again.
+Either you ask users to re-enter their credentials, or you can use `.renew(withRefreshToken: refreshToken)` with a [refresh_token](/refresh-token) to obtain a new valid accessToken again.
 
 If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
 
@@ -221,11 +221,10 @@ You need to call a method from the `Auth0` module that allows you to fetch the u
 ```swift
 // SessionManager.swift
 
-
- // Retrieve profile
- Auth0
+// Retrieve profile
+Auth0
     .authentication()
-    .userInfo(token: accessToken)
+    .userInfo(withAccessToken: accessToken)
     .start { result in
         switch(result) {
         case .success(let profile):
@@ -245,12 +244,13 @@ Showing the information contained in the user profile is pretty simple. You only
 ```swift
 // SessionManager.swift
 
-let name = profile.name
-let avatarURL = profile.pictureURL
+if let name = profile.name, let pictureURL = profile.picture {
+  // Show Information
+}
 ```
 
 ::: note
-Check out the [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) class documentation to learn more about its properties.
+Check out the [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) class documentation to learn more about its properties.
 :::
 
 #### Additional info
@@ -266,7 +266,7 @@ let idToken = ... // You will need the idToken from your credentials instance 'c
 let profile = ... // the Profile instance you obtained before
 Auth0
     .users(token: idToken)
-    .patch(profile.id, userMetadata: ["first_name": "John", "last_name": "Appleseed", "country": "Canada"]
+    .patch(profile.sub, userMetadata: ["first_name": "John", "last_name": "Appleseed", "country": "Canada"]
     .start { result in
         switch result {
           case .success(let ManagementObject):
@@ -286,7 +286,7 @@ You can specify the `fields` to be retrieved, or use an empty array `[]` to pull
 ```swift
 Auth0
     .users(token: idToken)
-    .get(userId, fields: ["user_metadata"], include: true)
+    .get(profile.sub, fields: ["user_metadata"], include: true)
     .start { result in
         switch result {
         case .success(let user):

@@ -8,8 +8,8 @@ toc: true
 
 The **Delegated Administration** extension allows you to grant a select group of people administrative permissions to the [Users page](${manage_url}/#/users) without providing access to any other area of the Management Dashboard by exposing the [Users Dashboard](${manage_url}/#/users) as an Auth0 client.
 
-:::panel Appliance Availability
-The Delegated Administration extension is available for [Appliance](/appliance) customers who:
+:::panel PSaaS Appliance Availability
+The Delegated Administration extension is available for [PSaaS Appliance](/appliance) customers who:
 
 * Are running build **10755** or later;
 * Have User Search enabled.
@@ -23,7 +23,7 @@ Prior to configuring the extension, you will need to:
 
 ## Create a Client
 
-The first step is to create the Client that the extension exposes to those who should have adminsitrative priviledges to the Users page.
+The first step is to create the Client that the extension exposes to those who should have administrative privileges to the Users page.
 
 After you've logged into the [Management Dashboard](${manage_url}), navigate to [Clients](${manage_url}/#/clients) and click on **+Create Client**. Provide a name for your Client (such as `Users Dashboard`) and set the Client type to `Single Page Web Applications`. Click **Create** to proceed.
 

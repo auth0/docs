@@ -4,7 +4,6 @@ section: apis
 crews: crew-2
 toc: true
 ---
-
 # The Auth0 Management APIv2 Token
 
 ::: note
@@ -51,7 +50,9 @@ Note, that each Non Interactive Client that accesses an API, has to be granted a
 The scopes are permissions that should be granted by the owner. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. From that we can deduce that if we need to read _and_ create clients, then our token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`.
 :::
 
-__NOTE__: If you have multiple apps that should access the Management API, and you need different sets of scopes per app, we recommend creating a new Non Interactive Client for each. For example, if one app is to read and create users (`create:users`, `read:users`) and another to read and create clients (`create:clients`, `read:clients`) create two Clients (one for user scopes, one for clients) instead of one.
+::: note
+If you have multiple apps that should access the Management API, and you need different sets of scopes per app, we recommend creating a new Non Interactive Client for each. For example, if one app is to read and create users (`create:users`, `read:users`) and another to read and create clients (`create:clients`, `read:clients`) create two Clients (one for user scopes, one for clients) instead of one.
+:::
 
 ### 2. Get the Token
 
@@ -110,7 +111,7 @@ The request parameters are:
 - `grant_type`: Denotes which [OAuth 2.0 flow](/protocols/oauth2#authorization-grant-types) you want to run. For machine to machine communication use the value `client_credentials`.
 - `client_id`: This is the value of the __Client ID__ field of the Non Interactive Client you created at [this step](#1-create-a-client). You can find it at the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings).
 - `client_secret`: This is the value of the __Client Secret__ field of the Non Interactive Client you created at [this step](#1-create-a-client). You can find it at the [Settings tab of your Client](${manage_url}/#/clients/${account.clientId}/settings).
-- `audience`: This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](https://${manage_url}/#/apis).
+- `audience`: This is the value of the __Identifier__ field of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
 
 The response will contain a [signed JWT (JSON Web Token)](/jwt), when it expires, the scopes granted, and the token type.
 
@@ -164,7 +165,7 @@ That's it! You are done!
 This python script gets a Management API v2 access token, uses it to call the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint, and prints the response in the console.
 
 Before you run it make sure that the following variables hold valid values:
-- `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](https://${manage_url}/#/apis).
+- `AUDIENCE`: The __Identifier__ of the `Auth0 Management API`. You can find it at the [Settings tab of the API](${manage_url}/#/apis).
 - `DOMAIN`: The __Domain__ of the Non Interactive Client you created at [this step](#1-create-a-client).
 - `CLIENT_ID`: The __Client ID__ of the Non Interactive Client you created at [this step](#1-create-a-client).
 - `CLIENT_SECRET`: The __Client Secret__ of the Non Interactive Client you created at [this step](#1-create-a-client).
@@ -240,11 +241,12 @@ You need to change the secret immediately. Go to your [Client's Settings](${mana
 __I can see some `current_user` scopes in my `id_token`. What is that?__</br>
 Within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the `id_token`, which are granted automatically to the logged in user.
 
-
 ## Keep reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Calling APIs from a Service](/api-auth/grant/client-credentials)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Information on the query string syntax](/api/management/v2/query-string-syntax)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Search for Users](/api/management/v2/user-search)<br/>
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)<br/>
+::: next-steps
+* [Calling APIs from a Service](/api-auth/grant/client-credentials)
+* [Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+* [Information on the query string syntax](/api/management/v2/query-string-syntax)
+* [Search for Users](/api/management/v2/user-search)
+* [Architecture Scenarios: Server + API](/architecture-scenarios/application/server-api)
+:::

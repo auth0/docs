@@ -1,7 +1,6 @@
 ---
 description: Describes how to call APIs from regular web apps using the  Authentication Code Grant.
 ---
-
 # Calling APIs from Server-side Web Apps
 
 <%= include('../../_includes/_pipeline2') %>
@@ -9,7 +8,7 @@ description: Describes how to call APIs from regular web apps using the  Authent
 In order to access an API from a [regular web app](/quickstart/webapp), you need to implement the **Authorization Code** OAuth 2.0 grant. In this document we will see how this flow works.
 
 ::: note
-  If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
+If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
 :::
 
 ## Overview of the flow
@@ -47,15 +46,10 @@ For details on how to implement this, refer to [Execute an Authorization Code Gr
 
 ## Keep reading
 
+::: next-steps
 - [How to implement an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Web App Quickstarts](/quickstart/webapp)
 - [Client Authentication for Server-side Web Apps](/client-auth/server-side-web)
-- [Authentication API: GET /authorize](/api/authentication?http#authorization-code-grant)
-- [Authentication API: POST /oauth/token](/api/authentication?http#authorization-code)
-- [The OAuth 2.0 protocol](/protocols/oauth2)
-- [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
-- [Integrating a Web App with Auth0](/protocols/oauth2/oauth-web-protocol)
-- [RFC 6749](https://tools.ietf.org/html/rfc6749)
+:::

@@ -1,6 +1,9 @@
 ---
 title: Using Passwordless Authentication on a Single Page Application
 ---
+# Using Passwordless Authentication on a SPA
+
+<!-- markdownlint-disable -->
 
 <%= include('./_introduction', { withFingerprint: false }) %>
 

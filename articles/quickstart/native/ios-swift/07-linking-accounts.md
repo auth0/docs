@@ -40,6 +40,7 @@ Then present the hosted login screen:
 
 Auth0
     .webAuth()
+    .audience("https://${account.namespace}/userinfo")
     .start {
         switch $0 {
         case .failure(let error):
@@ -58,7 +59,7 @@ Upon success, you need to store the `idToken` value for later use, which is the 
 
 Linking an account is simple. You have a user, and another account you want to link with that user. All you need to grab is these three values:
 
-- `id`: The `id` from the user that is logged in.
+- `id`: The `id` from the user that is logged in. (See profile.sub)
 - `idToken`: The `idToken` obtained upon your user login.
 - `otherUserToken`: The `idToken` from the account you want to link the user with. This is the value you stored in step 1.
 
@@ -69,9 +70,6 @@ import Auth0
 ```swift
 // UserIdentitiesViewController.swift
 
-let id = ... // the id of the user
-let idToken = ... // the user's idToken
-let otherUserToken = ... // the idToken from the account you want to link the user with
 Auth0
     .users(token: idToken)
     .link(id, withOtherUserToken: otherUserToken)
@@ -94,7 +92,7 @@ Linked accounts, a.k.a. the user's identities, can be retrieved by fetching the 
 
 Auth0
     .authentication()
-    .userInfo(token: accessToken)
+    .userInfo(withAccessToken: accessToken)
     .start { result in
         switch(result) {
         case .success(let profile):
@@ -104,14 +102,14 @@ Auth0
         }
 ```
 
-Once you have the `id` from the profile you can retrieve the users identities through a management API call as follows:
+Once you have the `sub` from the profile you can retrieve the users identities through a management API call as follows:
 
 ```swift
 // SessionManager.swift
 
 Auth0
     .users(token: idToken)
-    .get(userId, fields: ["identities"], include: true)
+    .get(profile.sub, fields: ["identities"], include: true)
     .start { result in
         switch result {
         case .success(let user):
@@ -124,7 +122,7 @@ Auth0
 ```
 
 ::: note
-Any linked account is handled as a `Profile` identity object. For further information on this object, check out the [Profile class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift)
+Any linked account is handled as an `Identity` instance. For further information on this object, check out the [Identity class documentation](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Identity.swift)
 :::
 
 ## Unlink an Account
@@ -134,7 +132,7 @@ The unlinking process is quite similar to the linking one. This time, you just n
 ```swift
 // UserIdentitiesViewController.swift
 
-let id = ... // the user id
+let id = ... // the user id. (See profile.sub)
 let idToken = ... // the user idToken
 let identity: Identity = ... // the identity (account) you want to unlink from the user
 Auth0

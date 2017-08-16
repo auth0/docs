@@ -8,9 +8,10 @@ crews: crew-2
 Auth0 supports automatic migration of users from a Custom Database Connection to Auth0. By activating this feature, your users are moved to Auth0 the first time they log in after you set up the integration. Your users are not asked to reset their password as a result of the migration.
 
 ::: panel Feature availability
-Only **Enterprise** subscription plans include the user migration feature.
 
-Only **Developer Pro** and **Enterprise** subscription plans include the ability to connect to an existing store or database via JavaScript running on Auth0's servers for every authentication request.
+Only **Developer**, **Developer Pro**, and **Enterprise** subscription plans include the database migration feature.
+
+Only **Enterprise** subscription plans include the ability to connect to an existing store or database via JavaScript running on Auth0's servers for every authentication request.
 
 [Click here](https://auth0.com/pricing) to learn more about Auth0 pricing plans.
 :::
@@ -53,7 +54,7 @@ On the **Custom Database** page, under *Database Action Scripts*, you will see t
 
 ![Database Action Scripts page](/media/articles/connections/database/import-scripts.png)
 
-These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. For more information on implementing these scripts, see [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql).
+These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **Oracle**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. For more information on implementing these scripts, see [Authenticate Users using a Custom Database](/connections/database/mysql).
 
 The **Login** script executes each time a user that is not found in Auth0 database attempts to log in. It verifies that the user exists in the legacy database without prompting the user for their password again.
 

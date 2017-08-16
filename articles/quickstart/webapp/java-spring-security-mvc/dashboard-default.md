@@ -1,7 +1,7 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Auth0 Java Spring Security MVC SDK to add authentication and authorization to your web app
+description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication and authorization to your Java Spring Security web app
 ---
 
 <%= include('../../../_includes/_package', {
@@ -10,9 +10,12 @@ description: This tutorial demonstrates how to use the Auth0 Java Spring Securit
   path: '01-Login',
   requirements: [
     'Java 7 or above',
-    'Maven 3.0.x or above'
+    'Gradle 3.3 or above',
+    'Spring Boot 1.5.3 or above'
   ]
 }) %>
+
+<%= include('../../../_includes/_new_app') %>
 
 <%= include('_includes/_setup') %>
 

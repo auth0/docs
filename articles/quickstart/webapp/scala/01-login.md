@@ -6,7 +6,7 @@ budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
+  org: 'auth0-community',
   repo: 'auth0-scala-samples',
   path: '00-Starter-Seed',
   requirements: [
@@ -112,22 +112,7 @@ Your callback URL should look something like:
 https://yourapp.com/callback
 ```
 
-## Integrate auth0.js
-
-```html
-<script src="https://cdn.auth0.com/js/auth0/8.6/auth0.min.js"></script>
-<script>
-  var auth0js = new auth0.WebAuth({
-      domain: '${account.namespace}',
-      clientID: '${account.clientId}',
-      redirectUri: '${account.callback}',
-      audience: 'https://${account.namespace}/userinfo',
-      responseType: 'code',
-      scope: 'openid profile'
-    });
-</script>
-<button onclick="lock.show();">Login</button>
-```
+${include('../_includes/_auth0_authorize')}
 
 ::: note
 The `redirectUri` specified in the `auth0.WebAuth` constructor must match the callback URL specified in the previous step.

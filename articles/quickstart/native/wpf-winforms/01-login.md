@@ -17,6 +17,8 @@ budicon: 448
 
 This tutorial explains how to integrate Auth0 with a WPF or Windows Forms application. The `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` NuGet packages helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
+<%= include('../_includes/_dotnet-oidc-client-configuration') %>
+
 ## Install Auth0.OidcClient.WPF or Auth0.OidcClient.WinForms NuGet Package
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the `Auth0.OidcClient.WPF` or `Auth0.OidcClient.WinForms` package, depending on whether you are building a WPF or Windows Forms application:
@@ -54,6 +56,8 @@ The returned login result will indicate whether authentication was successful, a
 You can check the `IsError` property of the result to see whether the login has failed. The `ErrorMessage` will contain more information regarding the error which occurred.
 
 ```csharp
+// Form1.cs
+
 var loginResult = await client.LoginAsync();
 
 if (loginResult.IsError)
@@ -67,6 +71,8 @@ if (loginResult.IsError)
 On successful login, the login result will contain the `id_token` and `access_token` in the `IdentityToken` and `AccessToken` properties respectively.
 
 ```csharp
+// Form1.cs
+
 var loginResult = await client.LoginAsync();
 
 if (!loginResult.IsError)
@@ -83,6 +89,8 @@ On successful login, the login result will contain the user information in the `
 To obtain information about the user, you can query the claims. You can for example obtain the user's name and email address from the `name` and `email` claims:
 
 ```csharp
+// Form1.cs
+
 if (!loginResult.IsError)
 {
     Debug.WriteLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
@@ -97,6 +105,8 @@ The exact claims returned will depend on the scopes that were requested. For mor
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 
 ```csharp
+// Form1.cs
+
 if (!loginResult.IsError)
 {
     foreach (var claim in loginResult.User.Claims)

@@ -1,10 +1,11 @@
 ---
 section: appliance
-description: Appliance infrastructure overview
+description: PSaaS Appliance infrastructure overview
 ---
+# PSaaS Appliance Deployment Architecture
 
-# Auth0 Appliance Deployment Architecture
+The typical Auth0 PSaaS Appliance production deployment is a three-node clusters that allows for high availability. The following diagram outlines the typical architecture.
 
-The typical Auth0 Appliance production deployment is a three-node clusters that allows for high availability. The following diagram outlines the typical architecture.
-
-![](/media/articles/appliance/overview.png)
+::: zoomable
+![](/media/articles/appliance/overview.svg)
+:::

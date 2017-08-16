@@ -6,11 +6,13 @@ description: This page lists all of Auth0's established operational policies.
 
 Auth0 has established the following operational policies.
 
--  [Data Transfer](/policies/data-transfer)
--  [Restoration of a Deleted Tenant](/policies/restore-deleted-tenant)
--  [Dashboard Authentication](/policies/dashboard-authentication)
--  [Load Testing](/policies/load-testing)
--  [Rate Limits](/policies/rate-limits)
--  [Endpoints](/policies/endpoints)
 -  [Billing](/policies/billing)
+-  [Dashboard Authentication](/policies/dashboard-authentication)
 -  [Data Export](policies/data-export)
+-  [Data Transfer](/policies/data-transfer)
+-  [Endpoints](/policies/endpoints)
+-  [Load Testing](/policies/load-testing)
+-  [Penetration Testing](/policies/penetration-testing)
+-  [Migrations](/migrations)
+-  [Rate Limits](/policies/rate-limits)
+-  [Restoration of a Deleted Tenant](/policies/restore-deleted-tenant)

@@ -1,15 +1,15 @@
 ---
 section: appliance
-description: Overview of the Appliance Dashboard Nodes page
+description: Overview of the PSaaS Appliance Dashboard Nodes page
 ---
 
 # Auth0 Appliance Dashboard: Nodes
 
 ::: note
-  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
-The Nodes page located under the Appliance configuration area provides a high-level overview of the nodes you have running as part of your Appliance setup. Each instance that you have with your web service provider is considered a node and is listed individually on this page.
+The Nodes page located under the PSaaS Appliance configuration area provides a high-level overview of the nodes you have running as part of your PSaaS Appliance setup. Each instance that you have with your web service provider is considered a node and is listed individually on this page.
 
 ![](/media/articles/appliance/dashboard/nodes.png)
 

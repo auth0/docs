@@ -1,7 +1,6 @@
 ---
 description: How to add a generic Oauth1 Authorization Server to Auth0.
 ---
-
 # Adding a generic OAuth1 Authorization Server to Auth0
 
 The most common [identity providers](/identityproviders) are available on Auth0's [dashboard](${manage_url}). However, you can add any __OAuth1 Authorization Server__ to Auth0 as an identity provider.
@@ -10,11 +9,13 @@ To create an arbitrary __OAuth1__ connection, you use __[Auth0's Connections API
 
 This example would create a custom Twitter connection:
 
-```
-curl -H "Content-Type: application/json" -H 'Authorization: Bearer YOUR_GLOBAL_CLIENT_ACCESS_TOKEN' -d @twitter.json https://${account.namespace}/api/connections
+```bash
+curl -H "Content-Type: application/json"
+     -H 'Authorization: Bearer YOUR_GLOBAL_CLIENT_ACCESS_TOKEN'
+     -d @twitter.json https://${account.namespace}/api/connections
 ```
 
-```
+```json
 {
   "name": "custom-twitter",
   "strategy": "oauth1",
@@ -46,9 +47,9 @@ The __options__ object:
 
 The script will have the following signature:
 
-```
+```js
 function(token, tokenSecret, ctx, callback){
-  
+
   var profile = {
     user_id: '123',
     given_name: 'Eugenio',
@@ -60,13 +61,17 @@ function(token, tokenSecret, ctx, callback){
 }
 ```
 
-The `token` and `tokenSecret` parameters will often be used for authenticating requests to the provider's API. 
+The `token` and `tokenSecret` parameters will often be used for authenticating requests to the provider's API.
 
-> We recommend using the field names in the [normalized profile](/user-profile).
+::: note
+We recommend using the field names in the [normalized profile](/user-profile).
+:::
 
 Notice that you can manipulate the profile returned from the provider to filter/remove/add anything in it. However, we recommend you keep this script as simple as possible. More sophisticated manipulation of the user information can be achieved through [Rules](/rules). 
 
-> One advantage of using Rules is that they apply to __any__ connection.
+::: note
+One advantage of using Rules is that they apply to __any__ connection.
+:::
 
 ## Using your new connection
 
@@ -78,10 +83,11 @@ A direct link would look like:
 https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION
 ```
 
+## Keep reading
 
-## Other resources
-
-* [Custom OAuth2/OAuth1 Connections samples](oauth2-examples)
-* [Identity Providers in Auth0](identityproviders)
-* [Protocols](protocols)
-* [Custom OAuth2 Connections](oauth2)
+::: next-steps
+* [Custom OAuth2/OAuth1 Connections samples](/oauth2-examples)
+* [Identity Providers in Auth0](/identityproviders)
+* [Protocols](/protocols)
+* [Custom OAuth2 Connections](/oauth2)
+:::

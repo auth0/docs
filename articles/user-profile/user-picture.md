@@ -36,8 +36,10 @@ function (user, context, callback) {
 
 ```
 
-## Further Reading:
+## Keep reading
 
+::: next-steps
 - [Structure of the User Profile](/user-profile/user-profile-structure)
 - [User Profile: In-Depth Details](/user-profile/user-profile-details)
 - [Auth0 Blog: Update of the user's details section](https://auth0.com/blog/update-of-the-user-details-section/)
+:::

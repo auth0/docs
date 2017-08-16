@@ -126,10 +126,15 @@ If you already closed the window on the previous step, select **Edit Claim Rules
 
 Yes, running the script is definitely easier.
 
-## Next steps
+## Next Steps
 
-After you configure the connection, you have to configure your application to use it. You can initiate login using [Lock](/libraries/lock), [Auth0.js](/libraries/auth0js), or use the [Authentication API endpoint](/api/authentication?http#enterprise-saml-and-others-).
+Now that you have a working connection, the next step is to configure your application to use it. You can follow our step-by-step quickstarts or use directly our libraries and API.
 
-For detailed instructions and samples for a variety of technologies, refer to our [Quickstarts](/quickstarts).
+::: next-steps
+* [Get started with our Quickstarts](/quickstarts)
+* [Configure your application using our Lock login form](/libraries/lock)
+* [Configure your application using our Auth0.js library and your own UI](/libraries/lock)
+* [Use our Authentication API to authenticate](/api/authentication)
+* [Authenticate PHP with ADFS using Auth0](https://auth0.com/authenticate/php/adfs)
+:::
 
-We also have a blog post that shows how to [Authenticate PHP with ADFS using Auth0](https://auth0.com/authenticate/php/adfs).

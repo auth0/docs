@@ -6,12 +6,12 @@ budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0',
-  repo: 'auth0-aspnet',
-  path: 'examples/auth0-aspnet-mvc4-sample/',
+  org: 'auth0-samples',
+  repo: 'aspnet-samples',
+  path: 'Quickstart/00-Starter-Seed/auth0-aspnet-mvc4-sample/',
   requirements: [
-    'Microsoft Visual Studio 2015',
-    'Auth0-ASPNET v1.4.0'
+    'Microsoft Visual Studio 2017',
+    'Auth0-ASPNET v2.0.0'
   ]
 }) %>
 
@@ -37,9 +37,23 @@ The NuGet package also created three settings on `<appSettings>`. Replace those 
 
 ${snippet(meta.snippets.setup)}
 
-## 4.Trigger Login Manually or Integrating Lock
+## 4. Integrating Auth0.js
 
-<%= include('../../../_includes/_lock-sdk') %>
+```html
+<script src="${auth0js_urlv8}"></script>
+<script type="text/javascript">
+var webAuth = new auth0.WebAuth({
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}',
+  redirectUri: 'http://localhost:4987/LoginCallback.ashx',
+  audience: 'https://${account.namespace}/userinfo',
+  responseType: 'code',
+  scope: 'openid profile'
+});
+</script>
+<button onclick="webAuth.authorize();">Log In</button>
+```
+
 
 ## 5. Access User Information
 
@@ -49,11 +63,11 @@ Once the user successfully authenticated to the application, a `ClaimsPrincipal`
 // Controllers/HomeController.cs
 public ActionResult Index()
 {
-  string email = ClaimsPrincipal.Current.FindFirst("email").Value;
+  string name = ClaimsPrincipal.Current.FindFirst("name")?.Value;
 }
 ```
 
-The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](/user-profile).
+The user profile is normalized regardless of where the user came from. We will always include these: `name`, `nickname`, `picture` and `updated_at`. For more information about the user profile [read this](/user-profile).
 
 ## 6. Further Reading
 

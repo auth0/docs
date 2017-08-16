@@ -21,9 +21,14 @@ There are three core concepts used when addressing authentication level at Auth0
 
 * `acr_values` can be used to request the class of `acr` above when authentication is to be performed. See [here](http://openid.net/specs/openid-connect-core-1_0.html) for more details.
 
-`acr` and `amr` are both available on the `id_token` of the current session, when appropriate. The `acr_values` field is added to the request for authentication.
+`acr` and `amr` are both available on the [ID token](/tokens/id-token) of the current session, when appropriate. The `acr_values` field is added to the request for authentication.
 
 ## Example
+
+Let's use an example where you have enabled MFA and have allowed the users the option to be [remembered and skip MFA](/multifactor-authentication/custom#change-the-frequency-of-authentication-requests) by setting the `allowRememberBrowser` option in your Rule to `true`. This means that the user will not be prompted for MFA authentication everytime the log in using Auth0.
+
+Now, when a user attempts to access a resource which requires stronger authenticaiton you want them to authenticate with MFA regardless of whether they have elected to be remembered for MFA.
+
 To request that Auth0 require a multifactor authentication, add the field `acr_values` to the authentication along with the `acr` level desired. For example, with [Auth0.js](/libraries/auth0js) it would work like the following code snippet.
 
 ```js
@@ -48,7 +53,7 @@ var options = {
 lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 ```
 
-To confirm that a session has had multifactor authentication, the id_token can be checked for its `acr` and `amr` claims.
+To confirm that a session has had multifactor authentication, the [ID token](/tokens/id-token) can be checked for its `acr` and `amr` claims.
 
 ```js
 var decoded = jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] });
@@ -66,11 +71,12 @@ if(decoded.acr !== 'http://schemas.openid.net/pape/policies/2007/06/multi-factor
 
 More example code with the step-up functionality can be found [here](https://github.com/auth0/guardian-example).
 
-## Further reading
+## Keep reading
 
-* [Auth0 id_token](/tokens/id_token)
-* [Overview of JSON Web Tokens](/jwt)
+::: next-steps
 * [acr and acr_values](http://openid.net/specs/openid-connect-core-1_0.html)
 * [Authentication policy definitions](http://openid.net/specs/openid-provider-authentication-policy-extension-1_0.html#rfc.section.4)
+* [Configuring Custom MFA](/multifactor-authentication/custom)
 * [JSON Web Token Example](https://github.com/auth0/node-jsonwebtoken)
 * [Guardian example (with step-up functionality)](https://github.com/auth0/guardian-example)
+:::

@@ -1,10 +1,12 @@
+## Add Authentication with Auth0
+
 <%= include('../../_includes/_login_preamble', { library: 'React' }) %>
 
 ## Create an Authentication Service
 
 The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `Auth` and the filename will be `Auth.js`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
 
-Create a service and instantiate `auth0.WebAuth`. Provide a method called `login` which calls the `authorize` from auth0.js.
+Create a service and instantiate `auth0.WebAuth`. Provide a method called `login` which calls the `authorize` method from auth0.js.
 
 ```js
 // src/Auth/Auth.js
@@ -28,7 +30,17 @@ export default class Auth {
 ```
 
 ::: note
-**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
+**Checkpoint:** Try importing the `Auth` service from some place in your application and calling the `login` method from it. This could be from a button click or in some lifecycle hook, just something that will trigger the method so you can see the login page. For example:
+
+```js
+// App.js
+import Auth from './Auth/Auth.js';
+
+const auth = new Auth();
+auth.login();
+```
+
+This isn't how the service will be used later but is useful for seeing the login page right away.
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)
@@ -97,9 +109,7 @@ export default class Auth {
 
 import createHistory from 'history/createBrowserHistory'
 
-export default createHistory({
-  forceRefresh: true
-})
+export default createHistory()
 ```
 
 The service now includes several other methods for handling authentication.
@@ -170,7 +180,7 @@ This example assumes you are using path-based routing with `<BrowserRouter>`. If
 
 ## Process the Authentication Result
 
-When a user authenticates at Auth0's hosted login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `Auth` service is responsbile for processing the hash.
+When a user authenticates at Auth0's hosted login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `Auth` service is responsible for processing the hash.
 
 Call `handleAuthentication` when the `Callback` route is rendered so that the authentication hash fragment can be processed when the `Callback` component is initialzed.
 
@@ -178,7 +188,7 @@ Call `handleAuthentication` when the `Callback` route is rendered so that the au
 // src/routes.js
 
 import React from 'react';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import App from './App';
 import Home from './Home/Home';
 import Callback from './Callback/Callback';
@@ -195,16 +205,16 @@ const handleAuthentication = (nextState, replace) => {
 
 export const makeMainRoutes = () => {
   return (
-      <BrowserRouter history={history} component={App}>
-        <div>
-          <Route path="/" render={(props) => <App auth={auth} {...props} />} />
-          <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
-          <Route path="/callback" render={(props) => {
-            handleAuthentication(props);
-            return <Callback {...props} /> 
-          }}/>
-        </div>
-      </BrowserRouter>
+    <Router history={history} component={App}>
+      <div>
+        <Route path="/" render={(props) => <App auth={auth} {...props} />} />
+        <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
+        <Route path="/callback" render={(props) => {
+          handleAuthentication(props);
+          return <Callback {...props} /> 
+        }}/>
+      </div>
+    </Router>
   );
 }
 ```

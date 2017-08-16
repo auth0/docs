@@ -13,6 +13,10 @@ description: This tutorial demonstrates how to add authentication and authorizat
   ]
 }) %>
 
+<%= include('../../../_includes/_api_auth_intro') %>
+
+<%= include('../_includes/_api_create_new') %>
+
 <%= include('../_includes/_api_auth_preamble') %>
 
 This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done in the `JWTVerifier` class from the **auth0-PHP** library which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
@@ -50,7 +54,7 @@ class Main {
       try {
         $verifier = new JWTVerifier([
           'supported_algs' => ['RS256'],
-          'valid_audiences' => [{API_IDENTIFIER}],
+          'valid_audiences' => ['${apiIdentifier}'],
           'authorized_iss' => ['https://${account.namespace}/']
         ]);
 
@@ -152,3 +156,5 @@ $router->get('/api/private/ping', function() use ($app){
     echo json_encode($app->privatePing());
 });
 ```
+
+<%= include('../_includes/_call_api') %>

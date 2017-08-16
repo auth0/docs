@@ -60,7 +60,7 @@ Navigate to the *Addons* tab for your newly-created Client. Using the appropriat
 
 #### Configure AWS
 
-Follow the [Set Up AWS for Delegated Authentication with APIs](/aws-api-setup) tutorial to configure AWS for delegated access, which uses SAML. Some caveats:
+Follow the [How to Set Up AWS for Delegated Authentication](/aws-api-setup) tutorial to configure AWS for delegated access, which uses SAML. Some caveats:
 
 * Follow the [instructions below](#setting-the-permissions-policy-on-your-iws-iam-role) for attaching the permissions policy to your role instead of the one for the linked tutorial;
 * Name the SAML provider you create `auth0`;

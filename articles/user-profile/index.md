@@ -1,18 +1,14 @@
 ---
 description: Explains the basics of a User profile, how to create a user and view users and their profile details.
-url: /user-profile
 toc: true
 ---
-
 # User Profile
 
-The Auth0 **User Profile** is the set of attributes that contains specific information about a user. User Profile information may include the user's name, email address, contact information, and so on. Please see [Structure of the User Profile](/user-profile/user-profile-structure) for more information about the attributes available on the User Profile.
+The Auth0 **User Profile** is the set of attributes that contains specific information about a user. User Profile information may include the user's name, email address, contact information, and so on.
 
 User Profile attributes can come from many places. Attributes may be returned by the authenticating service (such as Facebook), as well as via custom databases and web services. Auth0 refers to all attribute sources as **Connections** because Auth0 connects to them to authenticate the user.
 
-For more information about User Profiles, please see [User Profile: In-Depth Details](/user-profile/user-profile-details).
-
-## Manage User Profiles in the Management Dashboard
+## Manage Users using the Management Dashboard
 
 Use the Auth0 Management Dashboard ("Dashboard") to manage User Profiles.
 
@@ -22,7 +18,7 @@ Within the Dashboard, you can create, view, modify, or delete users. These optio
 User Management is included as part of the **Developer** subscription plan. You may need to [upgrade your plan](${manage_url}/#/account/billing/subscription) to access these features.
 :::
 
-![User Profile Dashboard](/media/articles/user-profile/user-profile-dashboard.png)
+![User Profile Dashboard](/media/articles/user-profile/user1.png)
 
 ### Create a New User
 
@@ -35,8 +31,8 @@ To create a new user and their corresponding User Profile, click the [Users](${m
 
 Fill in the required information and click **Save** to create the new user. For more information refer to: [Creating Users via the Management Dashboard](/tutorials/creating-users-in-the-management-portal).
 
-::: panel Pending Users
-The User Details page will show “pending” when a user is first created until they have logged in for the first time.
+::: note
+The User Details page will show `pending` when a user is first created until they have logged in for the first time.
 :::
 
 ### View Users
@@ -86,7 +82,7 @@ The Locations tab displays a map with pins indicating the user's location(s) whe
 
 The Raw JSON tab displays all of the information contained on the user's profile in JSON format so you can quickly view all of the available information about the user.
 
-## Impersonate a User
+### Impersonate a User
 
 ::: panel-warning Advanced Feature
 Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the __Sign in as User__ button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
@@ -96,7 +92,7 @@ If you need to log in to your app as a user, see everything exactly as the user 
 
 Navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Select the user you want to impersonate from the list. When the User Details page opens, click the "Sign in as User" button. Select the app you want to log into from the dropdown menu.
 
-![Impersonate a User](/media/articles/user-profile/signin-as-user-01.png)
+![Impersonate a User](/media/articles/user-profile/user2.png)
 
 ::: panel I can't see the button
 Can't see the button? The following conditions are required for the button display:
@@ -106,7 +102,7 @@ Can't see the button? The following conditions are required for the button displ
 
 A popup will display the URL to use to impersonate the user. You can copy the URL into the clipboard (white button) or open the URL in a separate browser tab/window (blue button).
 
-![Impersonate a User](/media/articles/user-profile/signin-as-user-02.png)
+![Impersonate a User](/media/articles/user-profile/user3.png)
 
 ::: panel Impersonation API
 You can also use the [Impersonation API](/api/authentication/reference#impersonation) to impersonate a user. The API generates a link that you can use once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
@@ -114,27 +110,35 @@ You can also use the [Impersonation API](/api/authentication/reference#impersona
 
 Please see [User Impersonation](/user-profile/user-impersonation) for more information about impersonating a user.
 
-## Block and Unblock a User
+### Block and Unblock a User
 
 To disable a user's access to your apps, you can block the user in the Dashboard.
 
 To block a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to block. When the User Details page opens, click the "Actions" button. Select _Block User_ from the dropdown menu.
 
-![Block a User](/media/articles/user-profile/block-user.png)
+![Block a User](/media/articles/user-profile/user4.png)
 
 If a blocked user tries to access an application, they will see the error message `user is blocked`.
 
 To unblock a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to unblock. When the User Details page opens, click the "Actions" button. Select _Unblock User_ from the dropdown menu.
 
-![Unblock a User](/media/articles/user-profile/unblock-user.png)
+![Unblock a User](/media/articles/user-profile/user4.png)
 
-## Delete a User
+### Delete a User
 
 To permanently delete a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to delete. When the User Details page opens, click the "Actions" button. Select _Delete User_ from the dropdown menu.
 
-![Delete a User](/media/articles/user-profile/delete-user.png)
+![Delete a User](/media/articles/user-profile/user4.png)
 
 A popup will warn you that the action cannot be undone and prompt you to confirm that you want to delete the user. Click the "Yes, Delete It" button to confirm. This will permanently delete the user.
+
+## Manage Users using the Management API
+
+Alternatively, you can retrieve, create, update or delete users using our [Management API](/api/management/v2#!/Users/get_users).
+
+First, you have to generate an `access_token` to call the Management API. For information on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+
+Instead of making the HTTP calls directly, and depending on the platform you use, you can use one of our SDKs. For a list of available SDKs, refer to [the SDKs section of our Support Matrix](/support/matrix#sdks).
 
 ## User Access to Clients
 
@@ -145,3 +149,13 @@ For total separation you can create a new account. To do this click on tenant na
 If you need to restrict some users to certain clients you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which client the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md).
 
 You can also restrict users from clients by configuring a new connection and only giving access to a specific client. To enable client access for a connection go to the the **Settings** section for a connection and click on the **Clients** tab, here you can enable/disable any client.
+
+## Keep reading
+
+::: next-steps
+* [User Profile Attributes](/user-profile/user-profile-structure)
+* [Auth0 Normalized User Profile](/user-profile/normalized)
+* [User Metadata](/metadata)
+* [User Profile: In-Depth Details](/user-profile/user-profile-details)
+* [Update Users using a Custom Database](/user-profile/customdb)
+:::

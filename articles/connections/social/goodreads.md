@@ -5,32 +5,33 @@ image: /media/connections/goodreads.png
 seo_alias: goodreads
 description: How to obtain a Consumer Key and Consumer Secret for Goodreads.
 ---
-
 # Connect your app to Goodreads
 
-To configure a Goodreads connection with Auth0, you will need to register your app on the Goodreads developers site.
+This doc refers to the steps required to configure a Goodreads social connection in your Auth0 [dashboard](${manage_url}). If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+To configure a Goodreads connection with Auth0, you will need to register your app on the Goodreads developers site.
 
 ## 1. Apply for a developer key
 
 Log into the [Goodreads developer site](https://www.goodreads.com/api), and select *developer key*:
 
-![](/media/articles/connections/social/goodreads/goodreads-register-1.png)
+![Apply for a developer key](/media/articles/connections/social/goodreads/goodreads-register-1.png)
 
 ## 2. Enter information about your app
 
 Complete the form then click **Apply for a Developer Key**. Enter this in the `Callback URL` field:
 
-  https://${account.namespace}/login/callback
+```text
+https://${account.namespace}/login/callback
+```
 
-![](/media/articles/connections/social/goodreads/goodreads-register-2.png)
+![Enter information about your app](/media/articles/connections/social/goodreads/goodreads-register-2.png)
 
-## 3. Get your *Consumer Key* and *Consumer Secret*
+## 3. Get your Consumer Key and Consumer Secret
 
-Once the application is registered, the `Key` and `Secret` for your new app will be displayed on the following page:
+Once the application is registered, the **Key** and **Secret** for your new app will be displayed on the following page:
 
-![](/media/articles/connections/social/goodreads/goodreads-register-3.png)
+![Get your Consumer Key and Consumer Secret](/media/articles/connections/social/goodreads/goodreads-register-3.png)
 
 ## 4. Create the Goodreads connection
 

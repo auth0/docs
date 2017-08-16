@@ -25,7 +25,9 @@ bucket:
 
 For example, the above states that, for the given bucket, there is a maximum request limit of `x` per minute, and for each minute that elapses, permissions for `y` requests are added back. In other words, for each `60 / y` seconds, one additional request is added to the bucket. This occurs automatically until the bucket contains the maximum permitted number of requests.
 
+::: warning
 For some API endpoints, the rate limits are defined per bucket, so the origins of the call do not influence the rate limit changes. For other buckets, the rate limits are defined using different keys, so the originating IP address is considered when counting the number of received API calls.
+:::
 
 ## Exceeding the Rate Limit
 
@@ -60,6 +62,8 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 Please note that there is a 50 requests per second limit on all [Management API v2](/api/management/v2) calls per tenant. **This includes calls made via [Rules](/rules).** The limit is set by tenant and not by endpoint.
 
 The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
+
+<!-- markdownlint-disable MD033 -->
 
 <table class="table">
   <tr>
@@ -164,7 +168,7 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 ### Authentication API
 
-The following Auth0 Authenticaion API endpoints return rate limit-related headers:
+The following Auth0 Authentication API endpoints return rate limit-related headers:
 
 <table class="table">
   <tr>

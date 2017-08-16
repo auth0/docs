@@ -16,6 +16,42 @@ budicon: 500
 
 This tutorial demonstrates how to protect your Spring Security API endpoints and how to limit access based on permissions. The permissions are handled with **scopes** which are set up in your Auth0 dashboard and which can be included in the `access_token` sent by a client (user).
 
+## Create an API
+
+Create a new API by accessing the [APIs section](${manage_url}/#/apis) of the dashboard.
+Type a name and an identifier, which will represent the `auth0.apiAudience` value that you have to set in the configuration file. Next, choose the signing algorithm. Click the **Create** button and you'll be redirected to the API you've just created. In the **Settings** tab you can change the token expiration and allow refreshing a token for that API.
+
+The example API in this tutorial will be centered around a **Photos** resource. Create some custom scopes to limit the access to the `PhotosController` which will be created in the next section. In the API screen, click the **Scopes** tab and add the following scopes: `create:photos`, `read:photos`, `update:photos` and `delete:photos`.
+
+![](/media/articles/server-apis/java-spring-security/add-api-scopes.png)
+
+## Install the Dependencies
+
+Add the `auth0-spring-security-api` dependency.
+
+If you are using Maven, add the dependency to your `pom.xml`:
+
+${snippet(meta.snippets.dependencies)}
+
+If you are using Gradle, add it to the dependencies block:
+
+${snippet(meta.snippets.dependenciesGradle)}
+
+## Configure your Spring Security API
+
+Your Spring Security API needs some information in order to authenticate against your Auth0 account. The downloadable sample comes with a configration file already in place but you may need to update some of the entries with the valid values for your API. The file is `/src/main/resources/auth0.properties` and it contains the following:
+
+${snippet(meta.snippets.setup)}
+
+| Attribute | Description|
+| --- | --- |
+| `auth0.issuer` | The issuer of the JWT Token. This is typically your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your `auth0.domain` is `example.auth0.com` then the `auth0.issuer` should be set to `https://example.auth0.com/` (the trailing slash is important). |
+| `auth0.apiAudience` | The unique identifier for your API. You can find the correct value on the [APIs](${manage_url}/#/apis) section of the Dashboard. * |
+
+::: note
+If you download the seed project using our **Download Sample** button then the `issuer` attribute will be populated for you, unless you are not logged in or you do not have at least one registered client. Do not forget to manually set the `apiAudience` attribute.
+:::
+
 ## Configure JSON Web Token Signature Algorithm
 
 Start by configuring your API to use the RS256 signing algorithm. If you downloaded the seed project above, `RS256` is configured by default.
@@ -26,6 +62,11 @@ Start by configuring your API to use the RS256 signing algorithm. If you downloa
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Value(value = "<%= "${auth0.apiAudience}" %>")
+    private String apiAudience;
+    @Value(value = "<%= "${auth0.issuer}" %>")
+    private String issuer;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -46,6 +87,11 @@ This example assumes one entity called **Photos** and implements CRUD methods fo
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Value(value = "<%= "${auth0.apiAudience}" %>")
+    private String apiAudience;
+    @Value(value = "<%= "${auth0.issuer}" %>")
+    private String issuer;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -170,7 +216,7 @@ A quick and easy way to obtain an `access_token` is to call the `/oauth/token` e
 curl --request POST \
   --url 'https://${account.namespace}/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{"grant_type":"password", "username":"USERNAME_OR_EMAIL", "password":"PASSWORD", "audience":"API_IDENTIFIER", "scope":"read:photos update:photos create:photos", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"
+  --data '{"grant_type":"password", "username":"USERNAME_OR_EMAIL", "password":"PASSWORD", "audience":"${apiIdentifier}", "scope":"read:photos update:photos create:photos", "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}"
  }'
 ```
 

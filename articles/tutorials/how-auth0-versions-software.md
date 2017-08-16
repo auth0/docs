@@ -2,14 +2,15 @@
 title: How Auth0 versioning works
 description: This page explains how Auth0 versioning works.
 ---
-
 # Versioning
 
 We believe versioning is a crucial part of our offering. By providing a consistent versioning scheme for our products we are able to help our users manage and predict how our changes will impact usage.
 
 ## Semantic versioning
 
-> This scheme is used in [Auth0 Lock](https://github.com/auth0/lock), [Auth0 AD Connector](https://github.com/auth0/ad-ldap-connector), [Auth0.js](https://github.com/auth0/auth0.js) and SDKs.
+::: note
+This scheme is used in [Auth0 Lock](https://github.com/auth0/lock), [Auth0 AD Connector](https://github.com/auth0/ad-ldap-connector), [Auth0.js](https://github.com/auth0/auth0.js) and SDKs.
+:::
 
 [Semantic versioning](http://semver.org) (also known as semver) is a versioning strategy whose main feature is making breaking changes discoverable. A version is composed of 3 numbers separated by dots: `{major}.{minor}.{patch}`. For instance, `2.12.5`, `0.1.0` and `10.5.35` are valid semver numbers. 
 
@@ -38,4 +39,6 @@ If you link to the major release (the first script) and we release a new minor, 
 
 **When Auth0 components are deployed to production, we encourage our users to anchor to a full version and thoroughly test using that version**. Although adding new features in a backwards compatible way shouldn’t break your code, the interactions with the component outcome could be hard to predict.  Even trivial bug fixes may introduce changes in the assumptions you were making about the component which may no longer be true.
 
-> Note about git: Each Auth0 open source component that follows semver will have a tag matching a released version in its git repository. As some of the projects use [npm](https://npmjs.com) tooling to release versions the tags will have a “v” letter as a prefix. For instance, version `5.2.3` tag will be `v5.2.3`.
+::: note
+Each Auth0 open source component that follows semver will have a tag matching a released version in its git repository. As some of the projects use [npm](https://npmjs.com) tooling to release versions the tags will have a `v` letter as a prefix. For instance, version `5.2.3` tag will be `v5.2.3`.
+:::

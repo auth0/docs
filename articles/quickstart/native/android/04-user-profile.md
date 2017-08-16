@@ -22,12 +22,25 @@ This tutorial will show you how to get and modify the user's profile data in you
 
 Be sure that you have completed the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) Quickstarts. You'll need a valid `access_token` and `id_token` to call the API clients.
 
+Before launching the log in you need to ask for the `openid profile email` scopes in order to get a valid profile in the response. Locate the snippet were you're initializing the `WebAuthProvider` and add the `withScope("openid profile email")` line.
+
+```java
+Auth0 auth0 = new Auth0(this);
+auth0.setOIDCConformant(true);
+WebAuthProvider.init(auth0)
+                .withScheme("demo")
+                .withScope("openid profile email")
+                .start(this, callback);
+```
+
 ## Request User Data
 
 The first step is to instantiate the API clients. This will be used to request the user's profile data.
 
 ```java
-Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+
+Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
 
 String idToken = CredentialsManager.getCredentials(this).getIdToken();
@@ -39,10 +52,12 @@ AuthenticationAPIClient authClient = new AuthenticationAPIClient(auth0);
 It's suggested that you add both the Auth0 `domain` and `clientId` to the `strings.xml` file rather than hardcode them.
 :::
 
-Next, use the `access_token` to obtain the user id with the `AuthenticationAPIClient`. Although the call returns a `UserProfile` instance, this is a basic OIDC conformant profile and the only value guaranteed to be present is the `sub` claim that indicates the user id. We're going to use this value to call later the [Management API](https://auth0.com/docs/api/management/v2#!/Users) and get a full profile.
+Next, use the `access_token` to obtain the user id with the `AuthenticationAPIClient`. Although the call returns a `UserProfile` instance, this is a basic OIDC conformant profile and the only guaranteed claim is the `sub` which contains the user's id, but depending on the requested scope the claims returned may vary. With the `sub` value call the [Management API](https://auth0.com/docs/api/management/v2#!/Users) and get a complete user profile back.
 
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+
 String accessToken = CredentialsManager.getCredentials(this).getAccessToken();
 authenticationClient.userInfo(accessToken)
     .start(new BaseCallback<UserProfile, AuthenticationException>() {
@@ -63,6 +78,8 @@ authenticationClient.userInfo(accessToken)
 Finally, use the `UsersAPIClient` and the user id to get the full User profile.
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+
 usersClient.getProfile(userId)
         .start(new BaseCallback<UserProfile, ManagementException>() {
             @Override
@@ -103,7 +120,7 @@ Besides the defaults, you can handle more information that is contained within a
 
 ##### A. USER METADATA
 
-The `userMetadata` map contains fields related to the user profile that can be added from the client-side (e.g. when editing the profile). We're going to edit this one in this tutorial. You can access its fields as follows:
+The `userMetadata` map contains fields related to the user profile that can be added from the client-side (e.g. when editing the profile). This tutorial explains how to achieve this. You can access its fields as follows:
 
 ```java
 String country = (String) profile.getUserMetadata().get("country");
@@ -137,6 +154,8 @@ userMetadata.put("country", "USA");
 And then with the `UsersAPIClient`, perform the update:
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+
 String idToken = CredentialsManager.getCredentials(this).getIdToken();
 UsersAPIClient usersClient = new UsersAPIClient(auth0, idToken);
 usersClient.updateMetadata(userInfo.getId(), userMetadata).start(new BaseCallback<UserProfile, ManagementException>() {

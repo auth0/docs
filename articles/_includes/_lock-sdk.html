@@ -1,5 +1,5 @@
 
-<% if (meta.path !== "articles/libraries/lock") { %>
+<% if (meta.path !== "articles/libraries/lock/v10") { %>
   <p>For more information on using Lock <a href="/libraries/lock">see the documentation.</a></p>
 <% } %>
 <div class="code-picker">
@@ -109,7 +109,7 @@
 &lt;script src=&quot;https://cdn.auth0.com/js/auth0/8.7/auth0.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;http://code.jquery.com/jquery.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-  var webAuth = new auth0.webAuth({
+  var webAuth = new auth0.WebAuth({
     domain:         '${account.namespace}',
     clientID:       '${account.clientId}',
     redirectUri:    '${account.callback}'

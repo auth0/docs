@@ -21,7 +21,7 @@ This tutorial will show you how to integrate Lock v2 in your Android project in 
 
 <%= include('_includes/_lock') %>
 
-<%= include('_includes/_manifest') %>
+<%= include('_includes/_lock_manifest') %>
 
 <%= include('_includes/_lock_login') %>
 

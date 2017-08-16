@@ -42,7 +42,7 @@ ${snippet(meta.snippets.setup)}
 ```objc
 // ProfileViewController.m
 
-NSString *userId = ... // the user's profile id
+NSString *userId = ... // the id of the user, available in profile.sub
 HybridAuth *auth = [[HybridAuth alloc] init];
 [auth userProfileWithIdToken:idToken userId:userId callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
   if (error) {

@@ -164,18 +164,9 @@ In the [Authorization Code](/api-auth/grant/authorization-code) grant, the clien
 
 In the [Client Credentials](/api-auth/grant/client-credentials) and [Resource Owner Password Credentials](/api-auth/grant/password) grants, the client authenticates using a set of credentials and then gets an access token.
 
-## More Information
+## Keep reading
 
-- [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
-
-- [How to Execute an Authorization Code Grant Flow](/api-auth/tutorials/authorization-code-grant)
-
-- [How to Execute an Authorization Code Grant Flow with PKCE](/api-auth/tutorials/authorization-code-grant-pkce)
-
-- [How to Execute the Implicit Grant Flow](/api-auth/tutorials/implicit-grant)
-
-- [How to Execute the Resource Owner Password Grant](/api-auth/tutorials/password-grant)
-
-- [How to Ask for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
-
-- [More docs on API Authorization](/api-auth)
+::: next-steps
+ * [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use)
+ * [More docs on API Authorization](/api-auth)
+ :::

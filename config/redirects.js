@@ -139,7 +139,7 @@ module.exports = [
   },
   {
     from: '/quickstart/native/ios-reactnative',
-    to: '/quickstart/native/react-native-ios'
+    to: '/quickstart/native/react-native'
   },
   {
     from: '/rubyapi-tutorial',
@@ -234,11 +234,19 @@ module.exports = [
   },
   {
     from: '/quickstart/:platform/reactnative-ios/:backend?',
-    to: '/quickstart/native/react-native-ios'
+    to: '/quickstart/native/react-native'
   },
   {
     from: '/quickstart/:platform/reactnative-android/:backend?',
-    to: '/quickstart/native/react-native-android'
+    to: '/quickstart/native/react-native'
+  },
+  {
+    from: '/quickstart/native/react-native-ios',
+    to: '/quickstart/native/react-native'
+  },
+  {
+    from: '/quickstart/native/react-native-android',
+    to: '/quickstart/native/react-native'
   },
 
   /* --- Renamed quickstart articles --- */
@@ -313,6 +321,14 @@ module.exports = [
   {
     from: '/aol-clientid',
     to: '/connections/social/aol'
+  },
+  {
+    from: '/connections/enterprise/azure-active-directory',
+    to: '/connections/enterprise/azure-active-directory/v2'
+  },
+  {
+    from: '/connections/enterprise/azure-active-directory-classic',
+    to: '/connections/enterprise/azure-active-directory/v1'
   },
   {
     from: '/dwolla-clientid',
@@ -474,10 +490,6 @@ module.exports = [
     to: '/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise'
   },
   {
-    from: '/scenarios/ionic-and-firebase',
-    to: '/tutorials/using-ionic-and-firebase'
-  },
-  {
     from: ['/scenarios/keenio', '/scenarios-keenio'],
     to: '/tutorials/sending-events-to-keenio'
   },
@@ -558,14 +570,6 @@ module.exports = [
   {
     from: '/lock',
     to: '/libraries/lock'
-  },
-  {
-    from: '/login-widget',
-    to: '/libraries/login-widget'
-  },
-  {
-    from: '/login-widget2',
-    to: '/libraries/login-widget2'
   },
   {
     from: ['/okta', '/saml/identity-providers/okta'],
@@ -779,7 +783,7 @@ module.exports = [
   },
   {
     from: '/tutorials/setup-up-authentication',
-    to: '/tutorials/step-up-authentication'
+    to: '/multifactor-authentication/developer/step-up-with-acr'
   },
   {
     from: ['/refresh-token', '/tokens/refresh_token'],
@@ -1170,7 +1174,171 @@ module.exports = [
     to: '/rules/current/metadata-in-rules'
   },
   {
-    from: '/libraries/lock/v9#api',
+    from: '/quickstart/native/ionic/00-intro',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/02-custom-login',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/03-user-profile',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/04-linking-accounts',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/05-rules',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/06-authorization',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/08-mfa',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/native/ionic/09-customizing-lock',
+    to: '/quickstart/native/ionic'
+  },
+  {
+    from: '/quickstart/backend/nodejs/00-getting-started',
+    to: '/quickstart/backend/nodejs'
+  },
+  {
+    from: '/quickstart/backend/aspnet-core-webapi/00-getting-started',
+    to: '/quickstart/backend/aspnet-core-webapi'
+  },
+  {
+    from: '/quickstart/backend/falcor/00-getting-started',
+    to: '/quickstart/backend/falcor'
+  },
+  {
+    from: '/quickstart/backend/golang/00-getting-started',
+    to: '/quickstart/backend/golang'
+  },
+  {
+    from: '/quickstart/backend/hapi/00-getting-started',
+    to: '/quickstart/backend/hapi'
+  },
+  {
+    from: '/quickstart/backend/java-spring-security/00-getting-started',
+    to: '/quickstart/backend/java-spring-security'
+  },
+  {
+    from: '/quickstart/backend/laravel/00-getting-started',
+    to: '/quickstart/backend/laravel'
+  },
+  {
+    from: '/quickstart/backend/php/00-getting-started',
+    to: '/quickstart/backend/php'
+  },
+  {
+    from: '/quickstart/backend/python/00-getting-started',
+    to: '/quickstart/backend/python'
+  },
+  {
+    from: '/quickstart/backend/rails/00-getting-started',
+    to: '/quickstart/backend/rails'
+  },
+  {
+    from: '/quickstart/backend/relay/00-getting-started',
+    to: '/quickstart/backend/relay'
+  },
+  {
+    from: '/quickstart/backend/ruby/00-getting-started',
+    to: '/quickstart/backend/ruby'
+  },
+  {
+    from: '/quickstart/backend/symfony/00-getting-started',
+    to: '/quickstart/backend/symfony'
+  },
+  {
+    from: '/quickstart/backend/webapi-owin/00-getting-started',
+    to: '/quickstart/backend/webapi-owin'
+  },
+  {
+    from: '/quickstart/webapp/rails/00-introduction',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/02-custom-login',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/03-session-handling',
+    to: '/quickstart/webapp/rails/02-session-handling'
+  },
+  {
+    from: '/quickstart/webapp/rails/04-user-profile',
+    to: '/quickstart/webapp/rails/03-user-profile'
+  },
+  {
+    from: '/quickstart/webapp/rails/05-linking-accounts',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/06-rules',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/07-authorization',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/08-mfa',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/rails/09-customizing-lock',
+    to: '/quickstart/webapp/rails'
+  },
+  {
+    from: '/quickstart/webapp/java/getting-started',
+    to: '/quickstart/webapp/java'
+  },
+  {
+    from: '/quickstart/webapp/java-spring-mvc/getting-started',
+    to: '/quickstart/webapp/java-spring-mvc'
+  },
+  {
+    from: '/quickstart/webapp/java-spring-security-mvc/00-intro',
+    to: '/quickstart/webapp/java-spring-security-mvc'
+  },
+  {
+    from: '/tutorials/step-up-authentication',
+    to: '/multifactor-authentication/developer/step-up-with-acr'
+  },
+  {
+    from: '/quickstart/spa/angular2/00-login',
+    to: '/quickstart/spa/angular2'
+  },
+  {
+    from: '/quickstart/spa/angular2/03-user-profile',
+    to: '/quickstart/spa/angular2/02-user-profile'
+  },
+  {
+    from: '/quickstart/spa/angular2/04-calling-an-api',
+    to: '/quickstart/spa/angular2/03-calling-an-api'
+  },
+  {
+    from: '/quickstart/spa/angular2/05-authorization',
+    to: '/quickstart/spa/angular2/04-authorization'
+  },
+  {
+    from: '/quickstart/spa/angular2/06-token-renewal',
+    to: '/quickstart/spa/angular2/05-token-renewal'
+  },
+  {
+    from: '/security/token-exp',
+    to: '/tokens'
+  },
+  {
+        from: '/libraries/lock/v9#api',
     to: '/libraries/lock/v9/api'
   },
   {

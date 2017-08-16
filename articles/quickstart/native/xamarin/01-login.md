@@ -19,23 +19,7 @@ budicon: 448
 
 This tutorial explains how to integrate the Auth0 OIDC Client with a Xamarin application.
 
-## Switching token signature algorithm to RS256
-
-The Auth0 OIDC Client requires that the __JsonWebToken Signature Algorithm__ for your client is set to `RS256`.
-
-::: warning
-Please note that altering the signing algorithm for your client will immediately change the way your user's tokens are signed. This means that if you have already implemented JWT verification for your client somewhere, your tokens will not be verifiable until you update the logic to account for the new signing algorithm.
-:::
-
-To switch from HS256 to RS256 for a specific client, follow these instructions:
-1. Go to [Dashboard > Clients](https://manage.auth0.com/#/clients)
-1. Select your client
-1. Go to _Settings_
-1. Click on __Show Advanced Settings__
-1. Click on the _OAuth_ tab in Advanced Settings
-1. Change the __JsonWebToken Signature Algorithm__ to `RS256`
-
-Remember that if the token is being validated anywhere else, changes might be needed there as well in order to comply.
+<%= include('../_includes/_dotnet-oidc-client-configuration') %>
 
 ## Install the Auth0.OidcClient.Android NuGet Package
 
@@ -135,7 +119,7 @@ With the above code in place, a user can log in to your application using Auth0:
 
 #### 1. Register the URL type
 
-First, you will need to register the URL Type:
+First, you will need to ensure that you have registered the URL scheme for your Callback URL which your application should handle:
 
 1. Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab.
 2. Under **URL Types**, click the **Add URL Type** button
@@ -167,30 +151,6 @@ var loginResult = await client.LoginAsync();
 
 #### 3. Handle the Callback URL
 
-First, you will need to ensure that you have registered the URL scheme for your Callback URL which your application should handle:
-
-1. Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab.
-2. Under **URL Types**, click the **Add URL Type** button
-3. Set the **Identifier** as `Auth0`, the **URL Schemes** the same as your application's **Bundle Identifier**, and the **Role** as `None`
-
-This is an example of the XML representation of your `Info.plist` file after you have added the URL Type:
-
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleTypeRole</key>
-        <string>None</string>
-        <key>CFBundleURLName</key>
-        <string>Auth0</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>YOUR_BUNDLE_IDENTIFIER</string>
-        </array>
-    </dict>
-</array>
-```
-
 After a user has logged in, Auth0 will redirect to the callback URL in your application. You need to handle the incoming link to your `AppDelegate` and resume the login flow of the Auth0 OIDC Client by calling the `Send` method of the `ActivityMediator` singleton, passing along the URL sent in. This will allow the Auth0 OIDC Client library to complete the authentication process:
 
 ```csharp
@@ -214,7 +174,7 @@ With the above code in place, a user can log in to your application using Auth0:
 
 ## Accessing the User's Information
 
-The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.
+The returned login result will indicate whether authentication was successful and if so contain the tokens and claims of the user.
 
 ### Authentication Error
 

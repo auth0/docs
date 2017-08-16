@@ -1,5 +1,5 @@
 ---
-title: Authorization API Explorer
+title: Authentication API Explorer
 fullWidth: true
 ---
 
@@ -54,6 +54,9 @@ fullWidth: true
 <div class="api-section" data-section="api-authz">
   <%= include('./api-authz/_get-token') %>
 </div>
+<div class="api-section" data-section="api-authz">
+  <%= include('./api-authz/_revoke-refersh-token') %>
+</div>
 
 <span data-section-label="legacy">Legacy</span>
 <div class="api-section" data-section="legacy">
@@ -72,6 +75,9 @@ fullWidth: true
 <span data-section-label="errors">Errors</span>
 <div class="api-section" data-section="errors">
  <%= include('./errors/_errors') %>
+</div>
+<div class="api-section" data-section="errors">
+ <%= include('./errors/_oauth-revoke') %>
 </div>
 <div class="api-section" data-section="errors">
  <%= include('./errors/_oauth-access_token') %>

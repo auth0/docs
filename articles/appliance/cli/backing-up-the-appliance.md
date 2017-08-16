@@ -1,23 +1,23 @@
 ---
 section: appliance
-description: How to back up the Appliance using its CLI
+description: How to back up the PSaaS Appliance using its CLI
 toc: true
 ---
 
-# How to Back Up Appliance Instances Using the CLI
+# How to Back Up the PSaaS Appliance Using the CLI
 
-You may use Appliance CLI to perform a Mongo backup on a specific node.
+You may use the PSaaS Appliance CLI to perform a Mongo backup on a specific node.
 
 Beginning with version `11638`, the backup doesn't include sensitive configuration information such as encryption keys.
 
 ## Prior to Beginning the Backup
 
 Please ensure that:
-* You have configured the [Command Line Interface](/appliance/cli/configure-cli) on your Appliance instances;
+* You have configured the [Command Line Interface](/appliance/cli/configure-cli) on your PSaaS Appliance instances;
 * The node has disk space equal to or greater than twice the amount of Auth0 data present.
 
 ::: note
-Beginning with Appliance version `6868`, you may only back up nodes [added to the `backup` role](/appliance/cli/adding-node-to-backup-role).
+Beginning with PSaaS Appliance version `6868`, you may only back up nodes [added to the `backup` role](/appliance/cli/adding-node-to-backup-role).
 :::
 
 Please be aware that we use the following sample values throughout this document:
@@ -52,7 +52,7 @@ Only one backup may performed and stored at any given time. Prior to generating 
 
 ## Back up Sensitive Configuration Info
 
-Beginning with Appliance version `11638`, the `backup` command does **not** save sensitive configuration information such as encryption keys. You need to manually back up these keys (and any other sensitive information) if you want to fully recover an Appliance installation using a backup copy.
+Beginning with PSaaS Appliance version `11638`, the `backup` command does **not** save sensitive configuration information such as encryption keys. You need to manually back up these keys (and any other sensitive information) if you want to fully recover an PSaaS Appliance installation using a backup copy.
 
 To do this, you can use the `backup-sensitive` command, which works the same way as `backup`. You must run the command on a node where you previously ran `set-as-backup`.
 
@@ -115,67 +115,4 @@ a0cli -t <target node> backup-delete
 
 ## Restore a Backup
 
-::: warning
-Beginning with Appliance version `11638`, you will need to restore your backup **and** the backup of your sensitive configuration information.
-:::
-
-To restore the Appliance using a backup, follow the next steps.
-
-### Step 1: Decrypt the Backup
-
-Because you created the backup using `aes-256-ctr` encryption, you need to decrypt it before you can use it to restore your Appliance. You can use the run the `decrypt` script to decrypt the `backup.tar.gz.enc` file:
-
-```bash
-node decrypt Passw0rd backup.tar.gz.enc backup.tar.gz
-```
-
-The `decrypt` script:
-
-```js
-'use strict';
-const fs     = require('fs');
-const crypto = require('crypto');
-
-const ALGO = 'aes-256-ctr';
-
-const password = process.argv[2]
-const input = process.argv[3];
-const output = process.argv[4];
-
-const decrypt = crypto.createDecipher(ALGO, password);
-const out = fs.createWriteStream(output);
-
-fs.createReadStream(input)
-  .pipe(decrypt)
-  .pipe(out);
-```
-
-### Step 2: Copy the Backup to the Node You Want to Restore
-
-Use the following command to copy your backup to the node you're restoring:
-
-```bash
-scp backup.tar.gz username@IP_ADDRESS:
-```
-
-Then, log into the node and untar the backup file inside a new folder:
-
-```bash
-ssh username@IP_ADDRESS
-mkdir backup
-tar xf backup.tar.gz backup
-```
-
-### Step 3: Restore the Backup Using `mongorestore`
-
-::: note
-For more information on the restore process, see MongoDB's [docs](https://docs.mongodb.org/manual/reference/program/mongorestore/).
-:::
-
-Begin the restoration by running the following:
-
-```bash
-mongorestore --db DATABASE_NAME --username USERNAME --host REPLICA_SET/ -p
-```
-
-The CLI then prompts you for the database password, as well as restore the backup on the specified replica set.
+To restore a backup, please open up a ticket requesting assistance via the [Auth0 Support Center](https://support.auth0.com/).

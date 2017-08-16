@@ -15,6 +15,10 @@ description: This tutorial demonatrates how to add authorization to your Laravel
   ]
 }) %>
 
+<%= include('../../../_includes/_api_auth_intro') %>
+
+<%= include('../_includes/_api_create_new') %>
+
 <%= include('../_includes/_api_auth_preamble') %>
 
 ## Install the Dependencies

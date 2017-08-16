@@ -6,12 +6,12 @@ budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
+  org: 'auth0-community',
   repo: 'auth0-symfony-php-web-app',
   path: '00-Starter-Seed',
   requirements: [
     'PHP 5.3.9',
-    'Symfony 2.8'
+    'Symfony 3.*'
   ]
 }) %>
 
@@ -46,6 +46,9 @@ hwi_oauth_login:
 
 auth0_login:
     path:    /auth0/callback
+
+auth0_logout:
+    path: /auth0/logout
 ```
 
 ## Configure Auth0
@@ -71,6 +74,7 @@ hwi_oauth:
             base_url:            https://${account.namespace}
             client_id:           ${account.clientId}
             client_secret:       ${account.clientSecret}
+            scope: "openid profile"
 ```
 
 ## User Provider
@@ -110,16 +114,42 @@ security:
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/demo/hello, roles: ROLE_OAUTH_USER }
+        - { path: ^/secured, roles: ROLE_OAUTH_USER }
 ```
 
 Notice that we need to identify the user provided selected in the step before both in the providers and in the firewall.
 
-## Triggering Login Manually or Integrating Lock
+## Triggering Login and accessing user information
 
-Set the following in `app/resources/views/base.html.twig`
+Set the following in `app/resources/views/index.html.twig`
 
-<%= include('../../../_includes/_lock-sdk') %>
+```html
+{% if app.user %}
+    Welcome, {{ app.user.username }}!<br/>
+    {{ dump(app.user) }}
+    <a href="{{ logout_url("secured_area") }}">
+        <button>Logout</button>
+    </a>
+{% else %}
+    <h1>Symfony Auth0 Quickstart</h1>
+    <script src="${auth0js_urlv8}"></script>
+    <script type="text/javascript">
+        var webAuth = new auth0.WebAuth({
+            domain: '${account.namespace}',
+            clientID: '${account.clientId}',
+            redirectUri: 'http://localhost:8000/auth0/callback',
+            audience: `https://${account.namespace}/userinfo`,
+            responseType: 'code',
+            scope: 'openid profile'
+        });
+
+        function signin() {
+            webAuth.authorize();
+        }
+    </script>
+    <button onclick="window.signin();">Login</button>
+{% endif %}
+```
 
 ### Troubleshooting
 

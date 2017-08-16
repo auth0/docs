@@ -1,9 +1,7 @@
 ---
-title: Introducing OIDC Conformant Authentication
 description: An overview of the OIDC Conformant authentication flows, why these changes were made and how you can adopt them.
 toc: true
 ---
-
 # Introducing OIDC Conformant Authentication
 
 As part of our efforts to improve security and standards-based interoperability, we have implemented several new features in our authentication flows and made changes to existing ones. This document will present an overview of these changes, explain why they were made and point you to other detailed tutorials to help you adopt these changes.
@@ -156,7 +154,7 @@ Some changes were introduced in the implementation of Resource Owner Password gr
 - The endpoint to execute token exchanges is [/oauth/token](/api/authentication#resource-owner-password).
 - [Auth0's own grant type](/api-auth/tutorials/password-grant#realm-support) is used to authenticate users from a specific connection (`realm`). The [standard OIDC password grant](/api-auth/tutorials/password-grant) is also supported, but it does not accept Auth0-specific parameters such as `realm`.
 - The returned access token is a [JWT](/jwt), valid for calling the [/userinfo endpoint](/api/authentication#get-user-info) and the API specified by the `audience` parameter.
-- The ID token will be forcibly signed using `RS256` if requested by a [public client](/api-auth/client-types).
+- The ID token will be forcibly signed using `RS256` if requested by a [public client](/clients/client-types#public-clients).
 - A refresh token will be returned only if the `offline_access` scope was granted.
 
 ::: note
@@ -191,7 +189,6 @@ Our new implementation does not support passwordless authentication. We are curr
 - [/oauth/access_token](/api/authentication#social-with-provider-s-access-token): The [/oauth/access_token](/api/authentication#social-with-provider-s-access-token) endpoint, used on native social authentication on mobile devices (for example, use the Facebook SDK and then this endpoint to create the user in Auth0), is now disabled. The alternative is to open the browser to do social authentication, which is what [Google and Facebook are recommending](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html) since last year.
 
 - [/oauth/ro](/api/authentication#resource-owner): Replaced in favor of password grant. This should be used only by highly trusted clients, with the current exception of native apps (not with SPAs). It's best use is to be called from the server-side of a regular web app or perhaps the backend API of a SPA.
-
 
 ## How to use the new flows
 
@@ -315,14 +312,9 @@ should be used instead with <code>"grant_type": "refresh_token"</code></td>
 
 ## Keep Reading
 
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read the [Adoption Guide](/api-auth/tutorials/adoption) which details all changes and provides suggestions on how to adapt your existing applications.<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Visit our [API Authorization index](/api-auth) to find information on the various OAuth 2.0 grants, which one you should implement, details on how to do so, and several other useful information.<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Access Token](/tokens/access-token).<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read more about the [Refresh Token](/tokens/refresh-token).<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;Read about [OAuth 2.0](/protocols/oauth2) and [OIDC](/protocols/oidc).<br/>
-
-<i class="notification-icon icon-budicon-345"></i>&nbsp;[Learn why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis).<br/>
+::: next-steps
+* [OIDC Adoption Guide](/api-auth/tutorials/adoption)
+* [API Authorization Index](/api-auth)
+* [Why you should use access tokens to secure APIs?](/api-auth/why-use-access-tokens-to-secure-apis)
+* [Tokens used by Auth0](/tokens)
+:::

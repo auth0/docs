@@ -7,10 +7,9 @@ url: /libraries/lock-android
 description: A widget that provides a frictionless login and signup experience for your native Android apps.
 mobileimg: media/articles/libraries/lock-android.png
 ---
-
 # Lock for Android
 
-Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory. You can also use Lock for Android to provide Passwordless authentication using email or SMS.
+Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory.
 
 Get started using Lock for Android below, or if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Lock for Android.
 
@@ -44,7 +43,9 @@ Head over to your Auth0 Dashboard and go to the client's settings. Add the follo
 https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
+::: note
+Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name, available in your `app/build.gradle` file as the `applicationId` value.
+:::
 
 ### Keystores and key hashes
 
@@ -56,17 +57,55 @@ For a release keystore, replace the file, alias, store password and key password
 
 ## Implementing Lock (Social, Database, Enterprise)
 
-The following instructions discuss implementing Lock for Android. If you specifically are looking to implement Passwordless lock for Android, read the [Passwordless Authentication with Lock for Android](/libraries/lock-android/passwordless) page.
+The following instructions discuss implementing Lock for Android. If you specifically are looking to implement Passwordless Lock for Android, read the [Passwordless Authentication with Lock for Android](/libraries/lock-android/passwordless) page.
 
-### Configuring AndroidManifest.xml
+### Configuring the SDK
 
-Add the `android.permission.INTERNET` permission to the Manifest to allow Lock to make requests to the Auth0 API.
+In your `app/build.gradle` file add the [Manifest Placeholders](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain and the Auth0 Scheme properties which are going to be used internally by the library to register an intent-filter that captures the callback URI.
 
-```java
+```groovy
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    defaultConfig {
+        applicationId "com.auth0.samples"
+        minSdkVersion 15
+        targetSdkVersion 25
+        //...
+
+        //---> Add the next line
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "https"]
+        //<---
+    }
+    //...
+}
+```
+
+It's a good practice to define reusable resources like `@string/com_auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
+
+Next, modify the `AndroidManifest.xml` file. Add the `android.permission.INTERNET` permission to allow Lock to make requests to the Auth0 API.
+
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Add `LockActivity` to your Manifest, using `"${account.namespace}"` as the `host` attribute  domain and `"{YOUR_APP_PACKAGE_NAME}"` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
+Add the `LockActivity`.
+
+```xml
+<activity
+  android:name="com.auth0.android.lock.LockActivity"
+  android:label="@string/app_name"
+  android:launchMode="singleTask"
+  android:screenOrientation="portrait"
+  android:theme="@style/MyLock.Theme"/>
+```
+
+::: note
+In versions 2.5.0 or lower of Lock.Android you had to define an **intent-filter** inside the `LockActivity` to make possible to the library to capture the authentication result. This intent-filter declaration is no longer required for versions greater than 2.5.0, as it's now done internally by the library for you.
+:::
+
+In case you are using an older version of Lock the **intent-filter** must be added to the `LockActivity` by you:
 
 ```xml
 <activity
@@ -76,22 +115,20 @@ Add `LockActivity` to your Manifest, using `"${account.namespace}"` as the `host
   android:screenOrientation="portrait"
   android:theme="@style/MyLock.Theme">
     <intent-filter>
-      <action android:name="android.intent.action.VIEW" />
-
-      <category android:name="android.intent.category.DEFAULT" />
-      <category android:name="android.intent.category.BROWSABLE" />
-
-      <data
-        android:host="${account.namespace}"
-        android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
-        android:scheme="https" />
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data
+            android:host="@string/com_auth0_domain"
+            android:pathPrefix="/android/<%= "${applicationId}" %>/callback"
+            android:scheme="https" />
     </intent-filter>
 </activity>
 ```
 
 #### Some restrictions
 
-* Make sure the Activity's launchMode is declared as `singleTask` or the result won't come back after the authentication.
+* Make sure the `LockActivity` launchMode is declared as `singleTask` or the result won't come back after the authentication.
 * Also note that for the time being, `LockActivity` can't be launched by calling `startActivityForResult`.
 
 ### Auth0
@@ -100,8 +137,20 @@ Create an `Auth0` instance to hold your account details, which are the `AUTH0_CL
 
 ```java
 Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
-auth0.setOIDCConformant(true);
 ```
+
+### OIDC Conformant Mode
+
+It is strongly encouraged that Lock be used in OIDC Conformant mode. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
+
+```java
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+//Configure the account in OIDC conformant mode
+account.setOIDCConformant(true);
+//Use the account to launch Lock
+```
+
+For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
 
 ### Authentication callback
 
@@ -134,6 +183,8 @@ The results of the AuthenticationCallback are in a `credentials` object. This ob
 
 To create a new `Lock` instance and configure it, use the `Lock.Builder` class. Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options as you need. After you're done, build the Lock instance and use it to start the `LockActivity`.
 
+To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+
 This is an example of what your `Activity` should look:
 
 ```java
@@ -147,6 +198,7 @@ public class MainActivity extends Activity {
     Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
     auth0.setOIDCConformant(true);
     lock = Lock.newBuilder(auth0, callback)
+      .withAudience("https://${account.namespace}/userinfo")
       // ... Options
       .build(this);
   }
@@ -178,7 +230,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-Remember to notify the `Lock` when your activity calls the `OnDestroy` method, as it helps to keep the Lock state.
+Remember to notify Lock's instance when your activity calls the `OnDestroy` method, as it helps to keep the state.
 
 Then, start `Lock` from inside your activity.
 
@@ -187,6 +239,11 @@ startActivity(lock.newIntent(this));
 ```
 
 That's it! Lock will handle the rest for you.
+
+### Android App Links - Custom Scheme
+
+The callback URI scheme used in this article is `https`. This works best for Android Marshmallow (API 23) or newer if you're using [Android App Links](https://developer.android.com/training/app-links/index.html), but in previous Android versions this may show the intent chooser dialog prompting the user to chose either your application or the browser to resolve the intent. You can change this behavior by using a custom unique scheme so that the OS opens the link directly with your app.
+Do so by updating the `app/build.gradle` file and changing the `auth0Scheme` value. Then go to your client's dashboard and update the "Allowed callback URL" value to match the new scheme. Now call `withScheme()` in the Lock.Builder and pass the custom value so that Lock requests the correct redirect URI.
 
 ## Implementing Passwordless authentication with Lock for Android
 
@@ -197,6 +254,7 @@ For instructions on how to implement Passwordless authentication with Lock for A
 The proguard rules should be applied automatically if your application is using `minifyEnabled = true`. If you want to include them manually check the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard). By default you should at least use the following files:
 
 By default you should at least use the following files:
+
 * `proguard-gson.pro`
 * `proguard-otto.pro`
 * `proguard-lock-2.pro`
@@ -211,18 +269,12 @@ For a full list of Lock's configuration options, check out the [Lock for Android
 
 For descriptions of common error messages, check out the [Error Messages](/libraries/error-messages) page. Also, if your callback receives an `AuthenticationException` you can check [source](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/authentication/AuthenticationException.java) to learn how to identify each error scenario.
 
-## Additional documents
+## Next Steps
 
-<ul>
-<% cache.find('articles/libraries/lock-android', {sort: 'toc_title'}).forEach(article => { %>
-  <% if (article.toc_title) { %>
-  <li>
-    <span><a href="<%- article.url %>"><%- article.toc_title %></a>
-    <% if (article.description) { %>
-      - <%- article.description %>
-    <% } %>
-    </span>
-  </li>
-  <% } %>
-<% }); %>
-</ul>
+::: next-steps
+* [Customizing the Style of Lock](/libraries/lock-android/v2/custom-theming)
+* [Customizing the Behavior of Lock](/libraries/lock-android/v2/configuration)
+* [Adding Custom Signup Fields to Lock](/libraries/lock-android/v2/custom-fields)
+* [Lock Internationalization](/libraries/lock-android/v2/internationalization)
+* [Logging out Users](/logout)
+:::

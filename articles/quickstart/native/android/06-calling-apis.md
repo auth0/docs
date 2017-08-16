@@ -20,11 +20,13 @@ This tutorial demonstrates how to use a previously saved token to authenticate y
 
 ## Before Starting
 
-You should already know how to handle the `Credentials` object, as explained in the [Session Management](03-session-handling) tutorial.
+You should already know how to handle the `Credentials` object, as explained in the [Session Management](/quickstart/native/android/03-session-handling) tutorial.
 
 This sample assumes that you have already setup a backend application as API. If you haven't done so, you can follow any backend quickstart defined [here](https://auth0.com/docs/quickstart/backend). Then obtain the endpoint in which you're expecting the user to be first authenticated and declare it as a constant in the current class.
 
 ```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
 private static final String API_URL = "localhost:8080/secure";
 ```
 
@@ -38,6 +40,8 @@ Your first step is to get an `access_token`. Use the basic [Login](/quickstart/n
 To prepare the request in this example we use the [OkHttp](https://github.com/square/okhttp) library. Create the `OkHttpClient` instance and a new `Request`. We use the provided builder to customize the request Http method, URL and headers. Here we set the **Authorization Header** with the token type and the `access_token` that identifies the logged-in user.
 
 ```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
 OkHttpClient client = new OkHttpClient();
 Request request = new Request.Builder()
     .get()
@@ -55,6 +59,8 @@ Notice that how you configure your authorization header should match the standar
 Finally we tell the client to create a new `Call` with the given request, and then invoke `enqueue` to execute the request asynchronously.
 
 ```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
 client.newCall(request).enqueue(new Callback() {
     @Override
     public void onFailure(Request request, IOException e) {

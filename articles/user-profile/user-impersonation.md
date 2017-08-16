@@ -38,7 +38,7 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 ![Links for User Impersonation](/media/articles/user-profile/signin-as-user-02.png)
 
 ::: note
-Impersonating a user using the Dashboard will not return a <a href="/jwt">JWT</a> to your application by default. To achieve this, call the <a href="/api/authentication/reference#impersonation">impersonation endpoint</a> manually or in the <a href="#advanced-settings">Advanced Settings</a>. If you call the endpoint manually, add <code>additionalParameters.scope: "openid"</code> to the request body.
+Impersonating a user using the Dashboard will not return a [ID Token](/tokens/id-token) to your application by default. To achieve this, call the [impersonation endpoint](/api/authentication/reference#impersonation) manually or in the [Advanced Settings](#advanced-settings). If you call the endpoint manually, add `additionalParameters.scope: "openid"` to the request body.
 :::
 
 ### Advanced Settings
@@ -94,7 +94,7 @@ Before calling the call the [Impersonation API](/api/authentication/reference#im
 
 ![Global Client Information](/media/articles/user-profile/global-client-info.png)
 
-You can now send a request to the [impersonation endpoint](/api/authentication/reference#impersonation) by sending an Authorization header with Bearer <TOKEN_FROM_MANAGEMENT_API_V1>.
+You can now send a request to the [impersonation endpoint](/api/authentication/reference#impersonation) by sending an `Authorization` header with `Bearer <TOKEN_FROM_MANAGEMENT_API_V1>`.
 
 The data part of the request should include the following:
 
@@ -119,10 +119,14 @@ The `state` is an optional parameter, but we strongly recommend you [use it as i
 The `callback_url` must match what is defined in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 There are various possible values for `scope`:
-- `scope: 'openid'`: _(default)_ It will return, not only the Access Token, but also an [ID Token](/tokens/id-token) which is a _JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
+- `scope: 'openid'`: _(default)_ It will return, not only an __opaque Access Token__, but also an [ID Token](/tokens/id-token) which is a __JSON Web Token__ ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
 - `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the [ID Token](/tokens/id-token) (for example, `scope: 'openid name email picture'`).
 
 You can get more information about this in the [Scopes documentation](/scopes).
+
+::: note
+Impersonation cannot be used to return [JWT Access Tokens](/tokens/access-token) to your APIs.
+:::
 
 Your request should look like the following:
 
@@ -142,14 +146,15 @@ Your request should look like the following:
 ```
 
 Replace the required values as follows:
-- The `YOUR_USER_ID` should be replaced with the `user_id` you retrieved at the second step (the user to impersonate).
-- The `YOUR_ACCESS_TOKEN` should be replaced with the token already retrieved at the first step.
-- The `PROTOCOL_TO_USE` should be replaced with the protocol to use against the identity provider, for example `oauth2`.
-- The `IMPERSONATOR_ID` should be replaced with the `user_id` of the impersonator.
+
+- `YOUR_USER_ID`: the `user_id` you retrieved at the second step (the user to impersonate)
+- `YOUR_ACCESS_TOKEN`: the token already retrieved at the first step
+- `PROTOCOL_TO_USE`: the protocol to use against the identity provider, for example `oauth2`
+- `IMPERSONATOR_ID`: the `user_id` of the impersonator
 
 Upon successful authentication, a URL will be returned as response that will look like the following:
 
-```test
+```text
 ${account.callback}/?code=AUTHORIZATION_CODE&state=STATE_VALUE
 ```
 
@@ -198,8 +203,9 @@ Content-Type: application/json
 
 Congratulations, you are done!
 
-## Read more
+## Keep Reading
 
-[Troubleshooting? This is what you shouldn’t do.](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
-
-[Identity Protocols supported by Auth0](/protocols)
+::: next-steps
+- [Troubleshooting? This is what you shouldn’t do.](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
+- [Identity Protocols supported by Auth0](/protocols)
+:::

@@ -29,14 +29,14 @@ articles:
         url: /architecture-scenarios
 
         children:
+          - title: SSO for Regular Web Apps
+            url: /architecture-scenarios/application/web-app-sso
+          
           - title: Server Client + API
             url: /architecture-scenarios/application/server-api
 
-          - title: SSO for Regular Web Apps
-            url: /architecture-scenarios/application/web-app-sso
-
-          # - title: SPA + API
-          #   url: /architecture-scenarios/application/spa-api
+          - title: SPA + API
+            url: /architecture-scenarios/application/spa-api
 
           # - title: Mobile + API
           #   url: /architecture-scenarios/application/mobile-api
@@ -54,9 +54,7 @@ articles:
           #   url: /architecture-scenarios/business/b2c
           
           # - title: B2E
-          #   url: /architecture-scenarios/business/b2e
-      - title: Pre-launch Tips
-        url: /prelaunch-tips  
+          #   url: /architecture-scenarios/business/b2e 
 
   - title: "Clients"
     url: "/clients"
@@ -67,6 +65,12 @@ articles:
 
       - title: Connections
         url: /clients/connections
+
+      - title: Client Types
+        url: /clients/client-types
+
+      - title: Grant Types
+        url: /clients/client-grant-types
 
   - title: "APIs"
     url: "/apis"
@@ -148,6 +152,12 @@ articles:
 
       - title: "User Metadata in Rules"
         url: "/rules/metadata-in-rules"
+
+      - title: "Use the Management API in rules"
+        url: "/rules/current/management-api"
+      
+      - title: "Using C# in Rules"
+        url: "/rules/current/csharp"
 
       - title: "Deploy Rules with GitHub"
         url: "/extensions/github-deploy"
@@ -284,9 +294,6 @@ articles:
           - title: "For Users"
             url: "/multifactor-authentication/duo/user-guide"
 
-      - title: "For Native Applications"
-        url: "/multifactor-authentication/mfa-native"
-
       - title: "Custom MFA"
         url: "/multifactor-authentication/custom"
 
@@ -302,6 +309,16 @@ articles:
 
       - title: "Breached Passwords"
         url: "/anomaly-detection/breached-passwords"
+
+  - title: "Analytics"
+    url: "/analytics/integrations"
+    children:
+
+      - title: "Facebook Analytics"
+        url: "/analytics/integrations/facebook-analytics"
+
+      - title: "Google Analytics"
+        url: "/analytics/integrations/google-analytics"
 
   - title: "Addons/Third-Party Apps"
     url: "/addons"
@@ -327,6 +344,18 @@ articles:
 
       - title: "Manage Subscription"
         url: "/support/subscription"
+
+      - title: "Operational Policies"
+        url: "/policies"
+    
+  - title: "Pre-Deployment"
+    url: "/pre-deployment"
+    children:
+      - title: Useful Tips
+        url: /pre-deployment/prelaunch-tips
+      
+      - title: Run Tests
+        url: /pre-deployment/how-to-run-test
 
   - title: "Professional Services"
     url: "/services"
@@ -386,7 +415,7 @@ apis:
   - title: Management API
     url: "/api/management/v2/tokens"
     forceFullReload: true
-    expanded: true
+    expanded: 1
     children:
 
       - title: API Tokens
@@ -487,6 +516,9 @@ libraries:
       - title: "Custom Auth Providers"
         url: "/libraries/lock-android/custom-authentication-providers"
 
+      - title: "Android Dev Keystores"
+        url: "/libraries/lock-android/keystore"
+
       - title: "Custom Signup Fields"
         url: "/libraries/lock-android/custom-fields"
 
@@ -531,36 +563,78 @@ appliance:
 
   - title: "Support"
     url: "/appliance/critical-issue"
-    expanded: true
+    expanded: 1
     children:
-      - title: Enterprise Support
-        url: /onboarding/enterprise-support
       - title: Critical Issue
         url: /appliance/critical-issue
+      - title: Enterprise Support
+        url: /onboarding/enterprise-support
 
-  - title: Appliance Planning
+  - title: PSaaS Appliance Planning
     url: /appliance/appliance-overview
-    expanded: true
+    expanded: 1
     children:
       - title: Overview
         url: /appliance/appliance-overview
+
       - title: Geographic High-Availability
         url: /appliance/geo-ha
+        children:
+          - title: Disaster Recovery
+            url: /appliance/geo-ha/disaster-recovery
+
       - title: Infrastructure Requirements
         url: /appliance/infrastructure
+        children:
+          - title: Installation Process
+            url: /appliance/infrastructure/installation
+          - title: Infrastructure Overview
+            url: /appliance/infrastructure/infrastructure-overview
+          - title: Webtasks and Web Extensions
+            url: /appliance/infrastructure/extensions
+
+          - title: Requirements
+            category: true
+          - title: Virtual Machines
+            url: /appliance/infrastructure/virtual-machines
+          - title: Network
+            url: /appliance/infrastructure/network
+          - title: IP/Domain and Port List
+            url: /appliance/infrastructure/ip-domain-port-list
+          - title: Security and Access
+            url: /appliance/infrastructure/security
+
       - title: Roles and Responsibilities
         url: /appliance/raci
+
       - title: Customer Onboarding
         url: /onboarding/appliance-sprint
+
       - title: Private Cloud Requirements
         url: /appliance/private-cloud-requirements
 
-  - title: "Appliance Administration"
+  - title: "PSaaS Appliance Administration"
     url: "/appliance/admin"
-    expanded: true
+    expanded: 1
     children:
       - title: Administrator's Manual
         url: /appliance/admin
+        children:
+          - title: Managing the Dashboard
+            url: /appliance/admin/managing-the-dashboard
+          - title: Disabling Sign-ups
+            url: /appliance/admin/disabling-sign-ups
+          - title: Inviting Co-Administrators
+            url: /appliance/admin/inviting-coadmins
+          - title: Appliance Backups
+            url: /appliance/admin/backing-up-the-appliance-instances
+          - title: Monitoring
+            url: /appliance/admin/monitoring
+          - title: Limiting SSH Access
+            url: /appliance/admin/limiting-ssh-access
+          - title: Updating
+            url: /appliance/admin/updating-the-appliance
+
       - title: Dashboard/Configuration Area
         url: /appliance/dashboard
       - title: Monitoring Tools
@@ -576,7 +650,11 @@ appliance:
       - title: Extensions
         url: /appliance/extensions
       - title: Disaster Recovery
-        url: /appliance/geo-ha/disaster-recovery
+        url: /appliance/disaster-recovery
+        children:
+          - title: Roles and Responsibilities
+            url: /appliance/disaster-recovery-raci
+
       - title: Release Notes
         url: https://auth0.com/changelog/appliance
         external: true

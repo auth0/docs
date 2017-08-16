@@ -47,7 +47,6 @@ Method one is to simply create an instance of `Auth0` with your client informati
 
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
-account.setOIDCConformant(true);
 ```
 
 ### 2) Client information read from XML
@@ -66,7 +65,205 @@ And then create your new Auth0 instance by passing an Android Context:
 
 ```java
 Auth0 account = new Auth0(context);
+```
+
+## OIDC Conformant Mode
+
+It is strongly encouraged that this SDK be used in OIDC Conformant mode. When this mode is enabled, it will force the SDK to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. By default is `false`.
+
+```java
+Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
+//Configure the account in OIDC conformant mode
 account.setOIDCConformant(true);
+//Use the account in the API clients
+```
+
+Passwordless authentication *cannot be used* with this flag set to `true`. For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
+
+
+## Authentication with Auth0 Hosted Login Page
+
+First go to [Auth0 Dashboard](${manage_url}/#/clients) and go to your client's settings. Make sure you have in *Allowed Callback URLs* a URL with the following format:
+
+```
+https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
+```
+
+::: note
+Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name, available in your `app/build.gradle` file as the `applicationId` value.
+:::
+
+Then in your `app/build.gradle` file add the [Manifest Placeholders](https://developer.android.com/studio/build/manifest-build-variables.html) for the Auth0 Domain and the Auth0 Scheme properties which are going to be used internally by the library to register an intent-filter that captures the callback URI.
+
+```groovy
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    defaultConfig {
+        applicationId "com.auth0.samples"
+        minSdkVersion 15
+        targetSdkVersion 25
+        //...
+
+        //---> Add the next line
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "https"]
+        //<---
+    }
+    //...
+}
+```
+
+It's a good practice to define reusable resources like `@string/com_auth0_domain` but you can also hard code the value to `${account.namespace}` in the file.
+
+Alternatively, you can declare the `RedirectActivity` in the `AndroidManifest.xml` file with your own **intent-filter** so it overrides the library's default. If you do this then the Manifest Placeholders don't need to be set as long as the activity declaration contains the `tools:node="replace"` attribute:
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="your.app.package">
+    <application android:theme="@style/AppTheme">
+
+        <!-- ... -->
+
+        <activity
+            android:name="com.auth0.android.provider.RedirectActivity"
+            tools:node="replace">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="@string/com_auth0_domain"
+                    android:pathPrefix="/android/<%= "${applicationId}" %>/callback"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+
+        <!-- ... -->
+
+    </application>
+</manifest>
+```
+
+Finally, don't forget to add the internet permission:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+::: note
+In versions 1.8.0 or lower of Auth0.Android you had to define the **intent-filter** inside your activity to capture the authentication result in the `onNewIntent` method and then call `WebAuthProvider.resume()` with the received data. The intent-filter declaration and resume call are no longer required for versions greater than 1.8.0, as it's now done internally by the library for you.
+:::
+
+Now, let's authenticate a user by presenting the Auth0 [Hosted Login Page](hosted-pages/login):
+
+```java
+WebAuthProvider.init(account)
+                .withAudience("https://${account.namespace}/userinfo")
+                .start(this, authCallback);
+```
+
+The authentication result will be delivered to the callback.
+
+
+### Authenticate with a specific Auth0 connection
+
+The `withConnection` option allows you to specify a connection that you wish to authenticate with.
+
+```java
+WebAuthProvider.init(account)
+                .withConnection("twitter")
+                .start(this, authCallback);
+```
+
+### Authenticate using a code grant with PKCE
+
+Code grant is the default mode, and will always be used unless calling `useCodeGrant` with `false`, or unless the device doesn't support the signing/hashing algorithms.
+
+Before you can use `Code Grant` in Android, make sure to go to your [client's section](${manage_url}/#/applications) in dashboard and check in the Settings that `Client Type` is `Native`.
+
+```java
+WebAuthProvider.init(account)
+                .useCodeGrant(true)
+                .start(this, authCallback);
+```
+
+### Authenticate using a specific scope
+
+Using scopes can allow you to return specific claims for specific fields in your request. Adding parameters to `withScope` will allow you to add more scopes. You should read our [documentation on scopes](/scopes) for further details about them.
+
+```java
+WebAuthProvider.init(account)
+                .withScope("openid email profile")
+                .start(this, authCallback);
+```
+
+::: panel Scope
+Note that the default scope used is `openid`
+:::
+
+### Authenticate using specific connection scopes
+
+There may be times when you need to authenticate with particular connection scopes, or permissions, from the Authentication Provider in question. Auth0 has [documentation on setting up connection scopes for external Authentication Providers](/tutorials/adding-scopes-for-an-external-idp), but if you need specific access for a particular situation in your app, you can do so by passing parameters to `withConnectionScope`. A full listing of available parameters can be found in that connection's settings in your dashboard, or from the Authentication Providers's documentation. The scope requested here is added on top of the ones specified in the Dashboard's Connection settings.
+
+```java
+WebAuthProvider.init(account)
+                .withConnectionScope("email", "profile", "calendar:read")
+                .start(this, authCallback);
+```
+
+### Authenticate using custom authentication parameters
+
+To send additional parameters on the authentication, use `withParameters`:
+
+```java
+Map<String, Object> parameters = new HashMap<>();
+//Add entries
+WebAuthProvider.init(account)
+                .withParameters(parameters)
+                .start(this, authCallback);
+```
+
+### Use a custom scheme for the Redirect URI
+
+If you're not using Android "App Links" or you just want to use a different scheme for the _redirect uri_ then use `withScheme`. Note that you'll need to update the `auth0Scheme` Manifest Placeholder in the `app/build.gradle` file and the whitelisted Callback URL in the dashboard to match the chosen scheme:
+
+```java
+WebAuthProvider.init(account)
+                .withScheme("myapp")
+                .start(this, authCallback);
+```
+
+**Scheme must be lowercase**
+
+### Specify Audience
+
+```java
+WebAuthProvider.init(account)
+                .withScope("openid")
+                .withAudience("https://${account.namespace}/userinfo")
+                .start(this, authCallback);
+```
+
+### Specify state
+
+By default a random state is always sent. If you need to use a custom one, use `withState`:
+
+```java
+WebAuthProvider.init(account)
+                .withState("my-custom-state")
+                .start(this, authCallback);
+```
+
+### Specify nonce
+
+By default a random nonce is sent when the response type includes `id_token`. If you need to use a custom one, use `withNonce`:
+
+```java
+WebAuthProvider.init(account)
+                .withNonce("my-custom-nonce")
+                .start(this, authCallback);
 ```
 
 ## Using the Authentication API
@@ -77,13 +274,16 @@ The Authentication Client provides methods to authenticate the user against Auth
 AuthenticationAPIClient authentication = new AuthenticationAPIClient(account);
 ```
 
+To ensure an Open ID Connect compliant response you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+
 ### Login with database connection
 
-Logging in with a database connection merely requires calling `login` with the user's email, password, and the name of the connection you wish to authenticate with. The response will be a Credentials object.
+Logging in with a database connection requires calling `login` with the user's *email*, *password*, and the *connection* you wish to authenticate with. The response will be a Credentials object. By specifying the *audience* an Open ID Connect compliant response will be yielded during authentication.
 
 ```java
 authentication
     .login("info@auth0.com", "a secret password", "my-database-connection")
+    .setAudience("https://${account.namespace}/userinfo")
     .start(new BaseCallback<Credentials, AuthenticationException>() {
         @Override
         public void onSuccess(Credentials payload) {
@@ -103,7 +303,13 @@ Note that the default scope used is `openid`
 
 ### Passwordless login
 
-Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification.
+::: panel-warning Passwordless on Native Platforms
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information.
+
+Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
+:::
+
+Logging in with a Passwordless is slightly different. Passwordless can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code. All of these methods of Passwordless authentication will require two steps - requesting the code, and then inputting the code for verification. Note that Passwordless authentication *cannot be used* with the [OIDC Conformant Mode](/oidc-conformant-mode) enabled.
 
 **Step 1:** Request the code
 
@@ -156,6 +362,7 @@ Signing up with a database connection is similarly easy. Call the `signUp` metho
 ```java
 authentication
     .signUp("info@auth0.com", "a secret password", "my-database-connection")
+    .setAudience("https://${account.namespace}/userinfo")
     .start(new BaseCallback<Credentials, AuthenticationException>() {
         @Override
         public void onSuccess(Credentials payload) {
@@ -293,168 +500,4 @@ users
             //Error!
         }
     });
-```
-
-## Implementing web-based auth
-
-First go to [Auth0 Dashboard](${manage_url}/#/clients) and go to your client's settings. Make sure you have in *Allowed Callback URLs* a URL with the following format:
-
-```
-https://${account.namespace}/android/{YOUR_APP_PACKAGE_NAME}/callback
-```
-
-Open your app's `AndroidManifest.xml` file and add the following permission.
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-```
-
-Also register the intent filters inside your activity's tag, so you can receive the call in your activity. **Note that you will have to specify the callback url inside the `data` tag**.
-
-```xml
-    <application android:theme="@style/AppTheme">
-
-        <!-- ... -->
-
-        <activity
-            android:name="com.mycompany.MainActivity"
-            android:theme="@style/MyAppTheme"
-            android:launchMode="singleTask">
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="${account.namespace}"
-                    android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
-                    android:scheme="https" />
-            </intent-filter>
-
-        </activity>
-
-        <!-- ... -->
-
-    </application>
-```
-
-Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name.
-
-Make sure the Activity's `launchMode` is declared as `singleTask` or the result won't come back after the authentication.
-
-When you launch the `WebAuthProvider` you'll expect a result back. To capture the response override the `onNewIntent` method and call `WebAuthProvider.resume()` with the received intent. If a previous authentication was initiated using the provider, the response data will try to be parsed.
-
-```java
-public class MyActivity extends Activity {
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        if (WebAuthProvider.resume(intent)) {
-            return;
-        }
-        super.onNewIntent(intent);
-    }
-}
-
-```
-
-### Authenticate with a specific Auth0 connection
-
-The `withConnection` option allows you to specify a connection that you wish to authenticate with.
-
-```java
-WebAuthProvider.init(account)
-                .withConnection("twitter")
-                .start(this, authCallback);
-```
-
-### Authenticate with Auth0 Hosted Login Page
-
-If no connection name is specified, the browser will show the Auth0 [Hosted Login Page](hosted-pages/login) with all of the connections which are enabled for this client.
-
-```java
-WebAuthProvider.init(account)
-                .start(this, authCallback);
-```
-
-### Authenticate using a code grant with PKCE
-
-Code grant is the default mode, and will always be used unless calling `useCodeGrant` with `false`, or unless the device doesn't support the signing/hashing algorithms.
-
-Before you can use `Code Grant` in Android, make sure to go to your [client's section](${manage_url}/#/applications) in dashboard and check in the Settings that `Client Type` is `Native`.
-
-```java
-WebAuthProvider.init(account)
-                .useCodeGrant(true)
-                .start(this, authCallback);
-```
-
-### Authenticate using a specific scope
-
-Using scopes can allow you to return specific claims for specific fields in your request. Adding parameters to `withScope` will allow you to add more scopes. You should read our [documentation on scopes](/scopes) for further details about them.
-
-```java
-WebAuthProvider.init(account)
-                .withScope("openid name nickname")
-                .start(this, authCallback);
-```
-
-::: panel Scope
-Note that the default scope used is `openid`
-:::
-
-### Authenticate using specific connection scopes
-
-There may be times when you need to authenticate with particular connection scopes, or permissions, from the Authentication Provider in question. Auth0 has [documentation on setting up connection scopes for external Authentication Providers](/tutorials/adding-scopes-for-an-external-idp), but if you need specific access for a particular situation in your app, you can do so by passing parameters to `withConnectionScope`. A full listing of available parameters can be found in that connection's settings in your dashboard, or from the Authentication Providers's documentation. The scope requested here is added on top of the ones specified in the Dashboard's Connection settings.
-
-```java
-WebAuthProvider.init(account)
-                .withConnectionScope("email", "profile", "calendar:read")
-                .start(this, authCallback);
-```
-
-### Authenticate using custom authentication parameters
-
-To send additional parameters on the authentication, use `withParameters`:
-
-```java
-Map<String, Object> parameters = new HashMap<>();
-//Add entries
-WebAuthProvider.init(account)
-                .withParameters(parameters)
-                .start(this);
-```
-
-### Use a custom scheme for the Redirect Uri
-
-If you're not using Android "App Links" or you just want to use a different scheme for the _redirect uri_ then use `withScheme`:
-
-```java
-WebAuthProvider.init(account)
-                .withScheme("myapp")
-                .start(this);
-```
-
-**Scheme must be lowercase**. Remember to update your intent-filter after changing this setting.
-
-### Specify state
-
-By default a random state is always sent. If you need to use a custom one, use `withState`:
-
-```java
-WebAuthProvider.init(account)
-                .withState("my-custom-state")
-                .start(this);
-```
-
-### Specify nonce
-
-By default a random nonce is sent when the response type includes `id_token`. If you need to use a custom one, use `withNonce`:
-
-```java
-WebAuthProvider.init(account)
-                .withNonce("my-custom-nonce")
-                .start(this);
 ```

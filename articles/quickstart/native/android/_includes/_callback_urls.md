@@ -10,4 +10,4 @@ This tutorial series make use of a **Callback URL** that looks like this:
 demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 ```
 
-Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name. Take note of this URL as it's also defined in the `AndroidManifest.xml` file.
+Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name, available in the `app/build.gradle` file as the `applicationId` attribute.

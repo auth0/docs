@@ -1,17 +1,16 @@
 ## Configure Callback URLs
 
-Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
+A Callback URL is a URL that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly which could be harmful. For security reasons, you will need to add your application's callback URL in the **Allowed Callback URLs** box in your app's [Client Settings](${manage_url}/#/applications/${account.clientId}/settings). This will allow Auth0 to recognize the URLs as valid. The same principle applies to **Logout URLs**. They must be whitelisted in the Auth0 Dashboard.
 
-![Callback error](/media/articles/java/callback_error.png)
+If you are following this guide directly, set the following for your Callback and Logout URLs:
 
-The same applies for the Logout URLs. They must be whitelisted in the Auth0 Dashboard. If you follow our seed project or the samples based on it, the values you must configure are:
 - Allowed Callback URLs: `http://localhost:8080/callback`
 - Allowed Logout URLs: `http://localhost:8080/logout`
 
 
 ## Setup Dependencies
 
-To integrate your Java application with Auth0 you need to add the following dependencies:
+To integrate your Java application with Auth0, add the following dependencies:
 
 - **javax.servlet-api**: is the library that allows you to create Java Servlets. You then need to add a Server dependency like Tomcat or Gretty, which one is up to you. Check our sample code for more information.
 - **auth0-java-mvc-commons**: is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It generates the Authorize URL that you need to call in order to authenticate and validates the result received on the way back to finally obtain the [Auth0 Tokens](/tokens) that identify the user. You can always check the latest version in the [library's GitHub](https://github.com/auth0/auth0-java-mvc-common).

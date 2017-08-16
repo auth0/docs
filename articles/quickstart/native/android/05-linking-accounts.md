@@ -36,7 +36,9 @@ Here's the scenario: Your logged-in user wants to link one (or multiple) account
 To do this, we will use the Auth0 library as we did in the [Login](/quickstart/native/android/00-login) tutorial. In this case, we will send as an extra a boolean value to indicate that this is a secondary login, along with the `userId` obtained from the first login.
 
 ```java
-Intent intent = new Intent(MainActivity.this, LoginActivity.class);        intent.putExtra(Constants.LINK_ACCOUNTS, true);
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+Intent intent = new Intent(MainActivity.this, LoginActivity.class);        
+intent.putExtra(Constants.LINK_ACCOUNTS, true);
 intent.putExtra(Constants.PRIMARY_USER_ID, profile.getId());
 startActivity(intent);
 ```
@@ -44,6 +46,8 @@ startActivity(intent);
 In the `LoginActivity` we obtain those values:
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/LoginActivity.java
+
 boolean linkSessions = getIntent().getExtras().getBoolean(Constants.LINK_ACCOUNTS, false);
 String userId = getIntent().getExtras().getString(Constants.PRIMARY_USER_ID);
 ```
@@ -51,6 +55,7 @@ String userId = getIntent().getExtras().getString(Constants.PRIMARY_USER_ID);
 Then, in the login response we decide if we advance to the `MainActivity` as usual or return to the already instantiated one:
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/LoginActivity.java
 @Override
 public void onAuthentication(Credentials credentials) {
   if (linkSessions) {
@@ -69,6 +74,8 @@ public void onAuthentication(Credentials credentials) {
 Now we can link the accounts. You have a main user along with another account you want to link to that user. All we need is the `id` of the logged-in user and the `id_token` for the two accounts: the one we had previously saved and the one that we just received in the login response.
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/LoginActivity.java
+
 private void performLink(String secondaryIdToken) {
   String primaryIdToken = CredentialsManager.getCredentials(LoginActivity.this).getIdToken();
   UsersAPIClient client = new UsersAPIClient(auth0, primaryIdToken);
@@ -88,24 +95,36 @@ private void performLink(String secondaryIdToken) {
 
 ## Retrieve Linked Accounts
 
-The linked accounts are stored within the `UserProfile` received from a `UsersAPIClient` call as a list of `UserIdentity`.
+The `AuthenticationAPIClient#userInfo` response doesn't include the identities array, but still you need to use it to obtain the user `id`. Then, by calling the `UsersAPIClient#getProfile` method you can obtain a user's full profile, which includes the linked accounts as an array of `UserIdentities`.
 
 ```java
-@Override
-public void onSuccess(UserProfile profile) {
-  profile.getIdentities();  //Get all the profile accounts
-}
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+
+usersClient.getProfile(userInfo.getId())
+    .start(new BaseCallback<UserProfile, ManagementException>() {
+        @Override
+        public void onSuccess(UserProfile fullProfile) {
+            //refreshScreenInformation
+        }
+
+        @Override
+        public void onFailure(ManagementException error) {
+            //show error
+        }
+    });
 ```
 
 ::: note
 For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) class.
 :::
 
-### 4. Unlink An Account
+### Unlink An Account
 
 The unlink process is similar to the linking one, the only difference being that you need to specify both the two `user id``s and the `provider name` to unlink the connections. Additionally, the token used to instantiate the `UsersAPIClient` must be the `id_token` of the main identity.
 
 ```java
+// app/src/main/java/com/auth0/samples/activities/MainActivity.java
+
 String primaryIdToken = CredentialsManager.getCredentials(LoginActivity.this).getIdToken();
 UsersAPIClient client = new UsersAPIClient(auth0, primaryIdToken);
 

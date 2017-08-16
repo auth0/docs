@@ -15,7 +15,7 @@ The features only available in Management API v1 include:
 * [Enterprise Users/Directory Searching](#enterprise-users/directory-searching)
 * [Impersonation](#impersonation)
 * [Rules Configuration](#rules-configuration)
-* [Searching via the Auth0 Appliance](#searching-via-the-auth0-appliance)
+* [Searching via the PSaaS Appliance](#searching-via-the-auth0-appliance)
 
 ## Active Directory Connector Monitoring
 
@@ -62,12 +62,12 @@ Management API v1 allows you to add values to a global `configuration` object th
 * To return all key/value pairs on the global `configuration` object: `GET /api/rules-configs`
 * To create or update a global `configuration` object: `POST /api/rules-configs`
 
-## Searching via the Auth0 Appliance
+## Searching via the PSaaS Appliance
 
 In Management API v1, you can perform a "starts with" search for users by name or email:
 
 [`/api/users?search={criteria}`](/api/v1#!#get--api-users-search--criteria-).
 
-This functionality works for both cloud instances and the Auth0 appliance.
+This functionality works for both cloud instances and the PSaaS Appliance.
 
 In Management API v2, the search operates with reduced functionality and does not currently support the Lucene query syntax.

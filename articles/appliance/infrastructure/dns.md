@@ -1,14 +1,16 @@
 ---
 section: appliance
-description: Appliance infrastructure information about DNS
+description: PSaaS Appliance infrastructure information about DNS
 ---
+
+<!-- markdownlint-disable MD033 -->
 
 # DNS
 
-The following document details the requirements of DNS records used for Appliance instances.
+The following document details the requirements of DNS records used for PSaaS Appliance instances.
 
 ::: note
-DNS records must be finalized for all of the tenants prior to Appliance deployment. They cannot be changed afterwards.
+DNS records must be finalized for all of the tenants prior to PSaaS Appliance deployment. They cannot be changed afterwards.
 :::
 
 ### Sample DNS Naming Scheme
@@ -32,7 +34,7 @@ DNS records must be finalized for all of the tenants prior to Appliance deployme
     </tr>
 </table>
 
-For a dev/test non-production Appliance a common practice is to append “-dev” to the hostname component in the domain name:
+For a dev/test non-production PSaaS Appliance a common practice is to append “-dev” to the hostname component in the domain name:
 
 <table class="table">
     <tr>
@@ -55,7 +57,7 @@ For a dev/test non-production Appliance a common practice is to append “-dev�
 
 #### Definitions of Terms Used in the DNS Naming Scheme
 
-* **Root Tenant Authority (RTA)**: highly-privileged tenant used to do the Appliance baseline configuration and for managing the security of other tenants;
+* **Root Tenant Authority (RTA)**: highly-privileged tenant used to do the PSaaS Appliance baseline configuration and for managing the security of other tenants;
 * **App**: the name of your application;
 * **Project**: the name of the overarching project or department;
 * **yourdomain.com**: your organization's domain name.
@@ -64,7 +66,7 @@ For a dev/test non-production Appliance a common practice is to append “-dev�
 
 ### Multi-Tenancy
 
-The Auth0 Appliance is capable of supporting multi-tenancy (that is, each tenant may have one or more associated apps). Auth0 may recommend this deployment model when multiple groups within your company share the Appliance for different projects. If a customer decides to create multiple app tenants, each app tenant must have its own DNS entry.
+The Auth0 PSaaS Appliance is capable of supporting multi-tenancy (that is, each tenant may have one or more associated apps). Auth0 may recommend this deployment model when multiple groups within your company share the PSaaS Appliance for different projects. If a customer decides to create multiple app tenants, each app tenant must have its own DNS entry.
 
 ### DNS Configuration Requirements
 
@@ -72,7 +74,7 @@ The Auth0 Appliance is capable of supporting multi-tenancy (that is, each tenant
 
 In a standard multi-node cluster deployment, the DNS records will point to the IP address of the [load balancer in front of the cluster](/appliance/infrastructure/infrastructure-overview).
 
-For a single-node Appliance instance, the DNS record(s) will point to the IP address of the virtual machine itself (this is often the case for the development/test node).
+For a single-node PSaaS Appliance instance, the DNS record(s) will point to the IP address of the virtual machine itself (this is often the case for the development/test node).
 
 ::: note
   Auth0 does not recommend using the same wildcard certificate(s) for Production **and** non-Production (Test/Development) environments **or** mapping the DNS for both environments to the same servers.
@@ -142,7 +144,7 @@ Three- or four-part domain names are supported (e.g. manage.project.yourdomain.c
 
 #### Custom Domains
 
-In the Appliance, you may map any arbitrary domain name to a tenant using the Custom Domains feature. You may also map multiple custom domains to a single tenant.
+In the PSaaS Appliance, you may map any arbitrary domain name to a tenant using the Custom Domains feature. You may also map multiple custom domains to a single tenant.
 
 Suppose these were your standard domains:
 

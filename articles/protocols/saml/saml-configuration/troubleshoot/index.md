@@ -75,6 +75,8 @@ If the troubleshooting steps listed above don't solve the issue you're seeing, p
 11. An Auth0 log entry for the failed authentication
 12. An authentication log file from any third-party applications (such as Sharepoint) involved
 
-### Further Reading
+### Keep reading
 
+::: next-steps
 * [Common SAML Errors](/protocols/saml/saml-configuration/troubleshoot/common-saml-errors)
+:::

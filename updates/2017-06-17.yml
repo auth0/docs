@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Client Settings"
+    tags:
+      - clients
+      - client-types
+    description: |
+      A new doc was added on what [settings are available when you choose a particular Client type](https://auth0.com/docs/clients/client-settings).

@@ -14,9 +14,6 @@ image: /media/platforms/ionic.jpeg
 tags:
   - quickstart
 snippets:
-  cordova: native-platforms/ionic2/cordova
-  profile: native-platforms/ionic2/profile
-  profiletemplate: native-platforms/ionic2/profiletemplate
   use: native-platforms/ionic2/use
 seo_alias: ionic2
 default_article: 01-login

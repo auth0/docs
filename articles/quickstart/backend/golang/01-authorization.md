@@ -12,6 +12,10 @@ description: This tutorial will show you how to use the Auth0 Go SDK to add auth
   ]
 }) %>
 
+<%= include('../../../_includes/_api_auth_intro') %>
+
+<%= include('../_includes/_api_create_new') %>
+
 <%= include('../_includes/_api_auth_preamble') %>
 
 This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done in the `checkJwt` middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
@@ -34,10 +38,10 @@ Configure the **checkJwt** middleware to use the remote JWKS for your Auth0 acco
 
 ```go
 // main.go
-const JWKS_URI = "https://{DOMAIN}/.well-known/jwks.json"
-const AUTH0_API_ISSUER = "https://{DOMAIN}.auth0.com/"
+const JWKS_URI = "https://${account.namespace}/.well-known/jwks.json"
+const AUTH0_API_ISSUER = "https://${account.namespace}"
 
-var AUTH0_API_AUDIENCE = []string{"{API_IDENTIFIER}"}
+var AUTH0_API_AUDIENCE = []string{"${apiIdentifier}"}
 
 func checkJwt(h http.Handler) http.Handler {
   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -154,3 +158,5 @@ func main() {
 ```
 
 In our example we only checked for the `read:messages` scope. You may want to extend the `checkScope` function or make it a standalone middleware that accepts multiple roles to fit your use case.
+
+<%= include('../_includes/_call_api') %>

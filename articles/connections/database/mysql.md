@@ -1,5 +1,5 @@
 ---
-title: Authenticate Users with Username and Password using a Custom Database
+title: Authenticate Users using a Custom Database
 connection: MySQL
 image: /media/connections/mysql.svg
 seo_alias: mysql
@@ -8,11 +8,15 @@ crews: crew-2
 toc: true
 ---
 
-# Authenticate Users with Username and Password using a Custom Database
+# Authenticate Users using a Custom Database
 
 Applications often rely on user databases for authentication. Auth0 enables you to connect to these repositories and use them as identity providers while preserving user credentials and providing additional features. You can read more about database connections and the different user store options at [Database Identity Providers](/connections/database).
 
 This tutorial will guide you through a series of steps to connect your custom user store to Auth0. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
+
+::: note
+Please also read the section on [Updating Users using a Custom Database](/user-profile/customdb), as it contains important information about how to update fields of the User Profile.
+:::
 
 ## 1. Create a database connection
 

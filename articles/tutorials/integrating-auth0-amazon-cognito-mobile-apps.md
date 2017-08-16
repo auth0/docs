@@ -1,7 +1,6 @@
 ---
 description: How to integrate Auth0 with Amazon Cognito using an OpenID Connect Provider.
 ---
-
 # Integrate Auth0 with Amazon Cognito
 
 **Amazon Cognito** is a backend as a service that lets you focus on writing a fantastic user experience for your client app (native or web).
@@ -12,25 +11,27 @@ This document will explain how you can integrate your app with two solutions: Au
 
 ### Create a new OpenID Connect Provider
 
-The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 **domain** (YOUR_ACCOUNT_NAME.auth0.com) and your **clientId** these values can be found in the [Settings of your chosen Client](${manage_url}/#/clients/). These values will be used to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home).
+The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 **domain** (`${account.namespace}`) and your **clientId** these values can be found in the [Settings of your chosen Client](${manage_url}/#/clients/). These values will be used to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home).
 
 1. In the [IAM Console](https://console.aws.amazon.com/iam/home) click on the **Identity Providers** link in the left sidebar. Click the **Create Provider** button.
 
-![Create Provider](/media/articles/scenarios/amazon-cognito/create-provider.png)
+    ![Create Provider](/media/articles/scenarios/amazon-cognito/create-provider.png)
 
-2. Next you will choose the provider type, select **OpenID Connect** from the dropdown. For the **Provider URL** enter: `https://YOUR_ACCOUNT_NAME.auth0.com` and for **Audience** enter your **ClientId** ([find your ClientID](${manage_url}#/clients/)).
+1. Next you will choose the provider type, select **OpenID Connect** from the dropdown. For the **Provider URL** enter: `https://YOUR_ACCOUNT_NAME.auth0.com` and for **Audience** enter your **ClientId** ([find your ClientID](${manage_url}#/clients/)).
 
-![Configure Provider](/media/articles/scenarios/amazon-cognito/configure-provider.png)
+    ![Configure Provider](/media/articles/scenarios/amazon-cognito/configure-provider.png)
 
-3. This will bring you to the **Verify Provider Information** screen, click the **Create** button.
+1. This will bring you to the **Verify Provider Information** screen, click the **Create** button.
 
-![Verify Provider](/media/articles/scenarios/amazon-cognito/verify-provider.png)
+    ![Verify Provider](/media/articles/scenarios/amazon-cognito/verify-provider.png)
 
-4. Then you will be able to click on your newly created provider to find the **Provider ARN** which will be used in a later step.
+1. Then you will be able to click on your newly created provider to find the **Provider ARN** which will be used in a later step.
 
-5. Use the Thumbprint to verify the server certificate of your IdP. To learn how, see [Obtaining the Thumbprint for an OpenID Connect Identity Provider](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html). 
+1. Use the Thumbprint to verify the server certificate of your IdP. To learn how, see [Obtaining the Thumbprint for an OpenID Connect Identity Provider](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html). 
 
-> It's not necessary to set up an IAM role after creating the identity provider. If you don't have one already, Cognito will create a default IAM role in the next step.
+::: note
+It's not necessary to set up an IAM role after creating the identity provider. If you don't have one already, Cognito will create a default IAM role in the next step.
+:::
 
 To obtain the Auth0 Dashboard's Thumbprint value:
 
@@ -46,27 +47,23 @@ Now, you need to create an Identity Pool in the [Cognito Console](https://consol
 
 1. Sign in to the [Cognito Console.](https://console.aws.amazon.com/cognito/home)
 
-2. Click **Manage Federated Identities** to start creating a new identity pool.
+1. Click **Manage Federated Identities** to start creating a new identity pool.
 
-3. For **Identity Pool Name**, specify a name for the pool e.g. `Auth0`. Under **Authentication Providers**, click the **OpenID** tab and select the name of the provider you created in the previous steps.
+1. For **Identity Pool Name**, specify a name for the pool e.g. `Auth0`. Under **Authentication Providers**, click the **OpenID** tab and select the name of the provider you created in the previous steps. Click **Create Pool**.
 
-![Create Identity Pool](/media/articles/scenarios/amazon-cognito/identity-pool.png)
+    ![Create Identity Pool](/media/articles/scenarios/amazon-cognito/identity-pool.png)
 
-Click **Create Pool**.
+1. This will bring up a confirmation page for allowing access to your resources. By default, Amazon Cognito creates a new role with limited permissions - end users only have access to Cognito Sync and Mobile Analytics. You can modify the roles if your application needs access to other AWS resources, such as S3 or DynamoDB. Click **Allow** to finish creating the new identity pool.
 
-4. This will bring up a confirmation page for allowing access to your resources. By default, Amazon Cognito creates a new role with limited permissions - end users only have access to Cognito Sync and Mobile Analytics. You can modify the roles if your application needs access to other AWS resources, such as S3 or DynamoDB.
+    ![Confirmation page](/media/articles/scenarios/amazon-cognito/allow-role.png)
 
-![Confirmation page](/media/articles/scenarios/amazon-cognito/allow-role.png)
+1. Click **Edit Identity Pool** to view the the Identity Pool ID.
 
-Click **Allow** to finish creating the new identity pool.
+    ![View the Identity Pool ID](/media/articles/scenarios/amazon-cognito/pool-id.png)
 
-5. Click **Edit Identity Pool** to view the the Identity Pool ID.
+1. Finally, grab the ARN of the role that was automatically created in the previous step from the [IAM console](https://console.aws.amazon.com/iam/home) this value will be used when sending credentials to Cognito.
 
-![View the Identity Pool ID](/media/articles/scenarios/amazon-cognito/pool-id.png)
-
-6. Finally, grab the ARN of the role that was automatically created in the previous step from the [IAM console](https://console.aws.amazon.com/iam/home) this value will be used when sending credentials to Cognito.
-
-![Role ARN](/media/articles/scenarios/amazon-cognito/role-arn.png)
+    ![Role ARN](/media/articles/scenarios/amazon-cognito/role-arn.png)
 
 ## Auth0 Configuration
 
@@ -102,7 +99,9 @@ dataset.setString(self.textValue.text, forKey: "value")
 dataset.synchronize()
 ```
 
-## Further Reading
+## Keep reading
 
+::: next-steps
 * [Amazon Cognito: Open ID Connect Providers](http://docs.aws.amazon.com/cognito/latest/developerguide/open-id.html)
 * [Amazon IAM: Creating OpenID Connect (OIDC) Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+:::

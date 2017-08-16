@@ -1,13 +1,13 @@
 ---
 description: How to execute an Authorization Code Grant flow with PKCE for a Mobile Application
+toc: true
 ---
-
 # Execute an Authorization Code Grant Flow with PKCE
 
 <%= include('../../_includes/_pipeline2') %>
 
 ::: note
-  This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to <a href="/api-auth/grant/authorization-code-pkce">Calling APIs from Mobile Apps</a>.
+This tutorial will help you implement the Authorization Code (PKCE) grant. If you are looking for some theory on the flow refer to [Calling APIs from Mobile App](/api-auth/grant/authorization-code-pkce).
 :::
 
 The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/quickstart/native) use in order to access an API. In this document we will work through the steps needed in order to implement this: create a code verifier and a code challenge, get the user's authorization, get a token and access the API using the token.
@@ -51,6 +51,7 @@ _ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
 let verifier = Data(bytes: buffer).base64EncodedString()
     .replacingOccurrences(of: "+", with: "-")
     .replacingOccurrences(of: "/", with: "_")
+    .replacingOccurrences(of: "=", with: "")
     .trimmingCharacters(in: .whitespaces)</code></pre>
     </div>
     <div id="verifier-objc" class="tab-pane">
@@ -107,6 +108,7 @@ let hash = Data(bytes: buffer)
 let challenge = hash.base64EncodedString()
     .replacingOccurrences(of: "+", with: "-")
     .replacingOccurrences(of: "/", with: "_")
+    .replacingOccurrences(of: "=", with: "")
     .trimmingCharacters(in: .whitespaces)</code></pre>
     </div>
     <div id="challenge-objc" class="tab-pane">
@@ -144,11 +146,7 @@ Where:
 
 * `audience`: The unique identifier of the API the native app wants to access. Use the value of the __Identifier__ field at your [API Settings](${manage_url}/#/apis).
 
-* `scope`: The [scopes](/scopes) that you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)).
-
-  ::: panel Custom claims namespaced format
-  Auth0 returns profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims) to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`. You can [add namespaced claims using Rules](#optional-customize-the-tokens).
-  :::
+* `scope`: The [scopes](/scopes) that you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)). The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
 
 * `response_type`: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be `code`.
 
@@ -242,17 +240,12 @@ For details on the validations that should be performed refer to [Verify Access 
 
 If you wish to execute special logic unique to the Authorization Code (PKCE) grant, you can look at the `context.protocol` property in your rule. If the value is `oidc-basic-profile`, then the rule is running during the Authorization Code (PKCE) grant.
 
-## Read more
+## Keep reading
 
-- [Calling APIs from Mobile Apps](/api-auth/grant/authorization-code-pkce)
-- [How to configure an API in Auth0](/apis)
+::: next-steps
 - [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [Mobile/Native App Quickstarts](/quickstart/native)
 - [Client Authentication for Mobile & Desktop Apps](/client-auth/mobile-desktop)
-- [Authentication API: GET /authorize](/api/authentication#authorization-code-grant-pkce-)
-- [Authentication API: POST /oauth/token](/api/authentication#authorization-code-pkce-)
 - [The OAuth 2.0 protocol](/protocols/oauth2)
 - [The OpenID Connect protocol](/protocols/oidc)
 - [Tokens used by Auth0](/tokens)
-- [RFC 6749 - The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
-- [RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)
+:::

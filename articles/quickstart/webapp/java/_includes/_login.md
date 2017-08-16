@@ -1,4 +1,5 @@
 ## Project Structure
+
 The Login project sample has the following structure:
 
 ```text

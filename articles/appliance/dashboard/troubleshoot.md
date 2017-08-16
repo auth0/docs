@@ -1,21 +1,21 @@
 ---
 section: appliance
-description: Overview of the Appliance Dashboard Troubleshoot page
+description: Overview of the PSaaS Appliance Dashboard Troubleshoot page
 ---
 
-# Auth0 Appliance Dashboard: Troubleshoot
+# PSaaS Appliance Dashboard: Troubleshoot
 
 ::: note
-  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
-The Troubleshoot page of the Appliance Dashboard provides you with tools to help diagnose any issues that might occur.
+The Troubleshoot page of the PSaaS Appliance Dashboard provides you with tools to help diagnose any issues that might occur.
 
 ![](/media/articles/appliance/dashboard/troubleshoot.png)
 
 ## Diagnostics Package
 
-You may create a diagnostic package containing detailed information about your Appliance instance(s) by clicking on the "Generate New Package" button.
+You may create a diagnostic package containing detailed information about your PSaaS Appliance instance(s) by clicking on the "Generate New Package" button.
 
 Once you've clicked "Generate New Package", you will see a notification message that indicates that your package is being generated. Once your package is ready, the message will disappear and a link to download the package related to a particular node instance will appear in the last column of your Nodes table.
 
@@ -31,7 +31,7 @@ Upon downloaded your package, you'll notice that the file name formatted as foll
 
 ## Health Check
 
-The Health Check offers a quick overview of the status of your Appliance instances. Data is available for the past hour through the past twenty-nine (29) days.
+The Health Check offers a quick overview of the status of your PSaaS Appliance instances. Data is available for the past hour through the past twenty-nine (29) days.
 
 To obtain data for a specific period of time, change the `Day` and/or `Hour` field to correspond to the time period whose data you want to analyze. Click "Get" to return the specified data.
 

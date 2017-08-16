@@ -2,7 +2,6 @@
 description: What is a Refresh Token and how you can use it.
 toc: true
 ---
-
 # Refresh Token
 
 A **Refresh Token** is a special kind of token that contains the information required to obtain a new [access token](/tokens/access-token) or [ID token](/tokens/id-token).
@@ -10,6 +9,15 @@ A **Refresh Token** is a special kind of token that contains the information req
 Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time.
 
 Refresh tokens are subject to strict storage requirements to ensure that they are not leaked. Also, [Refresh tokens can be revoked](#revoke-a-refresh-token) by the Authorization Server.
+
+::: panel-warning OIDC-conformant clients
+The behaviour in this document is applicable to [OIDC-conformant clients](/api-auth/tutorials/adoption/oidc-conformant). A client can be configured as OIDC-conformant in two ways:
+
+1. By enabling the **OIDC Conformant** flag for a Client
+2. By passing an `audience` to the `/authorize` endpoint
+
+For more information on our authentication pipeline, refer to [Introducing OIDC Conformant Authentication](/api-auth/intro).
+:::
 
 ## Overview
 
@@ -69,7 +77,7 @@ The response should contain an access token and a refresh token.
 }
 ```
 
-If you are requesting a `refresh_token` for a mobile app using the corresponding Native Client (which is public) then you don't need to send the `client_secret` in the request since it's only needed for confidential clients (which are those that have a Token Endpoint Authentication Method different than `None`). 
+If you are requesting a `refresh_token` for a mobile app using the corresponding Native Client (which is public) then you don't need to send the `client_secret` in the request since it's only needed for [confidential clients](/clients/client-types#confidential-clients). 
 
 ::: warning
 Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
@@ -108,7 +116,7 @@ To refresh your token, using the `refresh_token` you already got during authoriz
 Where:
 - `grant_type`: The type of grant to execute (the `/token` endpoint is used for various grants, for more information refer to the [Authentication API](/api/authentication#get-token)). To refresh a token use `refresh_token`.
 - `client_id`: Your application's Client ID.
-- `client_secret` (optional): Your application's Client Secret. Only required for [confidential](/api-auth/client-types#confidential-clients) clients.
+- `client_secret` (optional): Your application's Client Secret. Only required for [confidential clients](/clients/client-types#confidential-clients).
 - `refresh_token`: The refresh token to use.
 
 The response will include a new `access_token`, its type, its lifetime (in seconds), and the granted scopes. If the scope of the initial token included `openid`, then a new `id_token` will be in the response as well.
@@ -127,10 +135,9 @@ The response will include a new `access_token`, its type, its lifetime (in secon
 You should only ask for a new token if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it's a bad practice to call the endpoint to get a new `access_token` every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
-
 ## Revoke a Refresh Token
 
-Since refresh tokens never expire it is important to be able to revoke them. You can revoke a refresh token either by posting a revocation request to `https://${account.namespace}/oauth/revoke` or using the [dashboard](${manage_url}).
+Since refresh tokens never expire it is important to be able to revoke them. You can revoke a refresh token either by posting a request to [the Authentication API /oauth/revoke endpoint](/api/authentication#revoke-refresh-token) or using the [dashboard](${manage_url}).
 
 ### Use the API
 
@@ -158,7 +165,7 @@ To revoke a refresh token you can send a `POST` request to `https://${account.na
 
 Where:
 - `client_id`: Your application's Client ID.
-- `client_secret` (optional): Your application's Client Secret. Only required for [confidential](/api-auth/client-types#confidential-clients) clients.
+- `client_secret` (optional): Your application's Client Secret. Only required for [confidential clients](/clients/client-types#confidential-clients).
 - `token`: The refresh token you want to revoke.
 
 The client should match the one the refresh token was issued for.
@@ -239,8 +246,9 @@ For more information on using refresh tokens with our mobile SDKs refer to:
 
 * [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/v2)
 
-## More information
+## Keep reading
 
+::: next-steps
 * [Refresh Tokens: When to use them and how they interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-
-* [Using a refresh token with an access token](/tokens/access_token#lifetime)
+* [Using a refresh token with an access token](/tokens/access-token#lifetime)
+:::

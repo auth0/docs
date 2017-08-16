@@ -1,4 +1,5 @@
 title: Hapi API
+community: true
 thirdParty: false
 alias:
   - hapi
@@ -14,5 +15,4 @@ snippets:
   setup: server-apis/hapi/setup
   use: server-apis/hapi/use
 articles:
-  - 00-getting-started
   - 01-authorization

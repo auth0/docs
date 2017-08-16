@@ -1,15 +1,15 @@
 ---
 section: appliance
-description: Overview of the Appliance Dashboard Settings page
+description: Overview of the PSaaS Appliance Dashboard Settings page
 ---
 
 # Auth0 Appliance Dashboard: Settings
 
 ::: note
-  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
-The Settings page is where you will make most of the changes that pertain to your Appliance configuration.
+The Settings page is where you will make most of the changes that pertain to your PSaaS Appliance configuration.
 
 ![](/media/articles/appliance/dashboard/settings.png)
 
@@ -35,7 +35,7 @@ The Settings page is broken down into the following sections:
 
 ## Dashboard
 
-* **Enable "New Account" in Dashboard**: if enabled, you may create new isolated accounts (called tenants) in the Appliance;
+* **Enable "New Account" in Dashboard**: if enabled, you may create new isolated accounts (called tenants) in the PSaaS Appliance;
 * **Federated Logout**: if enabled, signing out of the Dashboard also signs you out from the ldP (e.g. when using enterprise connections with the Dashboard).
 
 ## HTTPS Configuration
@@ -55,7 +55,7 @@ The Settings page is broken down into the following sections:
 
 ## SMTP Server
 
-* **Send Mails From**: *Deprecated.* The email address used in the "From" field typically comes from that provided on your [custom email template](https://${manage_url}/#/emails);
+* **Send Mails From**: *Deprecated.* The email address used in the "From" field typically comes from that provided on your [custom email template](${manage_url}/#/emails);
 * **SMTP Server**: the name of your SMTP server;
 * **SMTP Port**: the port through which you access your SMTP server;
 * **SMTP User**: the username to log in to your SMTP server;
@@ -76,11 +76,11 @@ The Settings page is broken down into the following sections:
 
 ## Monitoring
 
-* **New Relic License Key**: if you use New Relic for monitoring, enter your license key here to monitor your Appliance instances.
+* **New Relic License Key**: if you use New Relic for monitoring, enter your license key here to monitor your PSaaS Appliance instances.
 
 ## API Keys
 
-* **Health service**: generates a key that authenticates your API calls for status information regarding your Appliance instances;
+* **Health service**: generates a key that authenticates your API calls for status information regarding your PSaaS Appliance instances;
 
     ![](/media/articles/appliance/dashboard/health-keys-api-service.png)
 

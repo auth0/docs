@@ -1,10 +1,11 @@
 ## Next Steps
 
-Now that you have a working connection, the next step is to configure your application to use it. You can initiate login using [Lock](/libraries/lock), [Auth0.js](/libraries/auth0js), or the [Authentication API endpoint](/api/authentication#social).
+Now that you have a working connection, the next step is to configure your application to use it. You can follow our step-by-step quickstarts or use directly our libraries and API.
 
-For detailed instructions and samples for a variety of technologies, refer to our [quickstarts](/quickstarts):
-- Quickstarts for [Mobile / Native Apps](/quickstart/native)
-- Quickstarts for [Single Page Apps](/quickstart/spa)
-- Quickstarts for [Web Apps](/quickstart/webapp)
-
-For more background information on client authentication refer to [Client Authentication](/client-auth).
+::: next-steps
+* [Get started with our Quickstarts](/quickstarts)
+* [Configure your application using our Lock login form](/libraries/lock)
+* [Configure your application using our Auth0.js library and your own UI](/libraries/auth0js)
+* [Use our Authentication API to authenticate](/api/authentication)
+* [Read more about client authentication](/client-auth)
+:::

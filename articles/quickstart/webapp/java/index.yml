@@ -7,5 +7,4 @@ alias:
 seo_alias: java
 default_article: dashboard-default
 articles:
-  - getting-started
   - 01-login
