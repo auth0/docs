@@ -1,4 +1,4 @@
-# POST /oauth/ro
+# POST /oauth/revoke
 
 <table class="table">
   <thead>
