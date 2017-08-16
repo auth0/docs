@@ -102,7 +102,7 @@ If you have configured everything correctly, you will see the **It works!!!** pa
 
    ![](/media/articles/connections/social/google/goog-api-works.png)
 
-## 4. Obtaining the Access Token and Refresh Token
+## 4. Obtain the Access Token and Refresh Token
 
 The `access_token` returned by Google can be obtained after the user has logged in by making an HTTP GET request to the [`/api/v2/user/{user-id}` endpoint](/api/management/v2#!/Users/get_users_by_id) containing an [Auth0 API access token](https://auth0.com/docs/api/management/v2/tokens#get-a-token-manually) generated with  `read:user_idp_tokens` scope.  The [`access_token` for the IdP](https://auth0.com/docs/tokens/idp) will be available in the `identities` array, under the element for the particular connection.
 
