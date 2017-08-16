@@ -101,7 +101,7 @@ By default, Public Clients are created with the following `grant_types`:
 * `refresh_token`
 
 ::: note
-Public clients **cannot** utilize the `client_credentials` grant type. To add this grant type to a Client using the Management API, set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Client is confidential, not public.
+Public clients **cannot** utilize the `client_credentials` grant type. To add this grant type to a Client using the [Management API](/api/management/v2#!/Clients/patch_clients_by_id), set the **token_endpoint_auth_method** to `client_secret_post` or `client_secret_basic`. Either of these will indicate the Client is confidential, not public.
 :::
 
 ### Confidential Clients
