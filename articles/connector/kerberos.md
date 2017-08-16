@@ -85,3 +85,13 @@ lock.$auth0.getSSOData(true, function(err, data) {
 ## Troubleshooting
 
 To enable verbose logging of Kerberos requests, add a system level environment variable `DEBUG=kerberos-server`. Then restart the Connector. Try logging in again, and check the logs for more information.
+
+### Firefox support for Kerberos
+
+By default, [Firefox](https://www.mozilla.org/firefox) [rejects all "negociate" requests required to authenticate users with Kerberos](https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication). If you wish to use Firefox with Kerberos, you need to whitelist the server where the connector is installed. To do that:
+
+* Open a Firefox tab and type `about:config` in the address bar.
+* Dismiss any warning message, and in the search box type `negotiate`.
+* Locate the `network.negotiate-auth.trusted-uris` item and double click to change its value.
+* Type the domain name of the server where the connector is installed. The value accepts a comma-separated list of URL prefixes or domains in the form of `mydomain.com, https://myotherdomain.com`.
+* Click **Ok**. You don't need to restart the server for the changes to take effect.
