@@ -79,9 +79,6 @@ To show Lock, add the following snippet in your `UIViewController`.
 ```swift
 Lock
     .classic()
-    .withOptions {
-        $0.oidcConformant = true
-    }
     // withConnections, withOptions, withStyle, etc
     .withOptions {
       $0.oidcConformant = true
@@ -244,6 +241,7 @@ If you are using Lock Passwordless and have specified the `.magicLink` option to
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
     return Lock.continueAuth(using: userActivity)
 }
+```
 
 ## Logging
 
