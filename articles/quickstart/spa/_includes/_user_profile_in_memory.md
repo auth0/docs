@@ -1,1 +1,3 @@
-A local `userProfile` member is included in the service which is intended to hold the `profile` that comes back from the `getProfile` call. As will be seen below, this example will utilize a dedicated profile area which will call `getProfile` when initialized. The `userProfile` member is included here so that the user's information can be held in memory after it is first retrieved, preventing the need for calls to `getProfile` every time the area is initialized. This behavior isn't required, but it can help to provide a better user experience.
+The `AuthService` service includes a local `userProfile` member that holds the profile information you requested with the `getProfile` call. 
+
+The example below shows a profile area that calls `getProfile` when the application starts. The `userProfile` member holds user information so that `getProfile` has to be called only once. This behavior is not required but it can enhance your users' experience. 

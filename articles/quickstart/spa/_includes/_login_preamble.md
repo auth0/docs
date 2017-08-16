@@ -1,3 +1,8 @@
-The first step in adding authentication to your ${library} application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [hosted login page](https://auth0.com/docs/hosted-pages/login).
+Use the  [hosted login page](https://auth0.com/docs/hosted-pages/login) to provide a way for your users to log in to your ${library} application.
 
-When authentication is successful, three items will be returned which can all be used at some point in your application: an `access_token`, an `id_token`, and the number of seconds until the `access_token` expires.
+When the users log in, Auth0 returns three items:
+* `access_token` - an access token
+* `id_token` - an ID token
+* `expires_in` - the number of seconds before the access token expires
+
+You can use these items in your application to set up and manage authentication. 

@@ -1,7 +1,27 @@
-The first noteworthy thing happening in this service is that an instance of `auth0.WebAuth` is created. The options object passed to it includes configuration for your client and domain, a response type to indicate you would like to receive an `access_token` and `id_token` after authentication, and an `audience` and `scope` which specify that authentication should be [OIDC conformant](https://auth0.com/docs/api-auth/tutorials/adoption). Also specified is the location that users should be returned to after authentication is complete. In this case, that's a route of `/callback`, which will be implemented later.
+When you set up the `AuthService` service, you create an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
+* Configuration for your client and domain
+* Response type, to show that you need a user's access token and an ID token after authentication
+* Audience and scope, which specify that authentication should be [OIDC conformant](https://auth0.com/docs/api-auth/tutorials/adoption)
+* The URL where your your users are redirected after authentication. In the example above, the route is `/callback`, which will be implemented later in the Add a Callback Component step. 
 
-When a user successfully authenticates at Auth0's hosted login page and is redirected back to your application, there will be a hash fragment in the URL containing their authentication information. Contained within will be an `access_token`, an `id_token` and an `expires_in` value. These values are extracted from the URL using the `parseHash` method from auth0.js and are then saved into local storage with the `setSession` method. This method also calculates the time at which the `access_token` will expire using the `expires_in` value from the hash.
+Your users authenticate at Auth0's hosted login page. They are then redirected back to your application. Their redirect URLs contain a hash fragment with each user's authentication information:
+* `access_token`
+* `id_token`
+* `expires_in`
 
-Authentication using JSON Web Tokens is stateless by nature, meaning that there is no information about the user's session stored on your server. In this way, setting up a session for the user on the client side is simply a matter of saving the `access_token`, `id_token`, and a time that the `access_token` expires at in browser storage. Conversely, logging the user out only requires that these items be removed from storage. These examples use local storage to save the tokens and the expiry time, but you may also use session storage or cookies if you wish.
+You can get these values from the URL using the `parseHash` method from the **auth0.js** library. You can save the values in local storage with the `setSession` method. This method also uses the `expires_in` value from the URL hash fragment to calculate when the user's access token expires.
 
-The application needs some way to make decisions about showing or hiding UI elements and restricting routing based on whether or not the user can be considered "authenticated". Once again, since JWT authentication is stateless, there is no real way to say whether the user is authenticated in any traditional sense, but there are clues that can be used. The best clue to go with is whether or not the `access_token` is expired. If it is expired, anything meaningful that the user could do with it--such as a call to your API for protected resources--will not work. It's at this point that the user would need to reauthenticate and get a new token. The `isAuthenticated` method checks whether the expiry time for the `access_token` has passed or not so that the above-mentioned decisions can be made.
+Authentication using JSON Web Tokens is stateless. This means that when you use it, there is no information about the user's session stored on your server. 
+
+To set up a session for the user on the client side, you need to save the following information in the browser storage: 
+* `access_token`
+* `id_token`
+* `expires_in`
+
+To log the user out, you need to remove these values from the storage. 
+
+::: note
+Our examples use local storage to save the user's authentication information. You can also use session storage or cookies.
+:::
+
+You need to provide a way for your application to recognize if the user is authenticated. To do that, use the `isAuthenticated` method to check if the user's access token is expired. The user is authenticated if the expiry time of their access token hasn't passed.
