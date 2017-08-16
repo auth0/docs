@@ -15,7 +15,7 @@ This architecture scenario is under construction and will be updated soon.
 
 ![](/media/articles/architecture-scenarios/b2b-b2e.png)
 
-This is essentially a hybrid between B2B and B2E where you have a larger SAAS application, like Zendesk for example, where users are grouped into companies. But you also have internal users (employees) who also log into the application, usually to perform support or administrative tasks.Those internal users will typically use federated identity to authenticate.
+This is essentially a hybrid between B2B and B2E for larger SAAS applications (such as Zendesk). In a situation like this, users would primarily be grouped into companies, but you may also have internal users (employees) who log into perform support or administrative tasks. Those internal users will typically use federated identity to authenticate.
 
 ## Read More
 
