@@ -10,11 +10,13 @@ You can get started by either downloading the seed project or if you would like 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-python-web-app',
-  path: '00-Starter-Seed',
+  path: '01-Login',
   requirements: [
-    'Python 2.7, 3.5.1',
+    'Python 2.7, 3.0 and up',
     'Flask 0.10.1 and up',
     'Requests 2.3.0 and up'
+    'Flask-oauthlib 0.9.4',
+    'Six 1.10.0'
   ]
 }) %>
 
@@ -34,45 +36,77 @@ ${snippet(meta.snippets.dependencies)}
 
 This example uses `flask` but it could work with any server
 
-## Trigger Login With auth0.js
+## Trigger Login With OAuth
 
-Now, you can use `Auth0.js` to call the authorize endpoint of the Authentication API and redirect your users to our [Hosted Login page](/hosted-pages/login). This way, you will be implementing the [Authorization Code](/api-auth/grant/authorization-code) grant flow, so you will obtain a `code`.
+Now, you can use `OAuth` to call the authorize endpoint of the Authentication API and redirect your users to our [Hosted Login page](/hosted-pages/login). This way, you will be implementing the [Authorization Code](/api-auth/grant/authorization-code) grant flow, so you will obtain a `code`.
 
-```html
-<script src="${auth0js_urlv8}"></script>
-```
+```python
+# server.py
 
-```js
-// public/app.js
+from flask import Flask
+from flask import redirect
+from flask import render_template
+from flask import request
+from flask import session
+from flask import url_for
+from flask_oauthlib.client import OAuth
 
-$(document).ready(function() {
-  var auth = new auth0.WebAuth({
-    domain: '${account.namespace}',
-    clientID: '${account.clientId}'
-   });
-
-
-    $('.btn-login').click(function(e) {
-      e.preventDefault();
-      auth.authorize({
-        audience: 'https://' + '${account.namespace}' + '/userinfo',
-        scope: 'openid profile',
-        responseType: 'code',
-        redirectUri: '${account.callback}'
-      });
-    });
-});  
+app = Flask(__name__)
+oauth = OAuth(app)
+auth0 = oauth.remote_app(
+    'auth0',
+    consumer_key='${account.clientId}',
+    consumer_secret='${account.clientSecret}',
+    request_token_params={
+        'scope': 'openid profile',
+        'audience': 'https://' + '${account.namespace}' + '/userinfo'
+    },
+    base_url='https://%s' % '${account.namespace}',
+    access_token_method='POST',
+    access_token_url='/oauth/token',
+    authorize_url='/authorize',
+)
 ```
 
 ::: note
-The `redirectUri` specified in the constructor **must match** the URL specified in the previous step.
+You can set the `identifier` of some of your [APIs](/#/apis) as the `audience`.
 :::
+
+```python
+@app.route('/login')
+def login():
+    return auth0.authorize(callback='${account.callback}')
+```
+
+Register the function as the access token getter.
+```python
+@auth0.tokengetter
+def get_auth0_oauth_token():
+    return session.get('access_token')
+```
 
 ## Add the Auth0 Callback Handler
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. This handler exchanges the `code` we have obtained previously for an `access_token` and an `id_token`. For that, you can do the following:
 
-${snippet(meta.snippets.setup)}
+```python
+# Here we're using the /callback route.
+@app.route('/callback')
+def callback_handling():
+    resp = auth0.authorized_response()
+    if resp is None:
+        return 'Access denied: reason=%s error=%s' % (
+            request.args['error_reason'],
+            request.args['error_description']
+        )
+    
+    session['access_token'] = (resp['access_token'], '')
+    
+    user_info = auth0.get('userinfo')
+    session['profile'] = user_info.data
+    
+    return redirect('/dashboard')
+```
 
 ## Access User Information
 
@@ -103,9 +137,8 @@ You can implement logout by clearing a session and redirecting to [logout endpoi
 @app.route('/logout')
 def logout():
     session.clear()
-    parsed_base_url = urlparse('${account.callback}')
-    base_url = parsed_base_url.scheme + '://' + parsed_base_url.netloc
-    return redirect('https://%s/v2/logout?returnTo=%s&client_id=%s' % ('${account.namespace}', base_url, '${account.clientId}'))
+    params = {'returnTo': url_for('home', _external=True), 'client_id': '${account.clientId}'}
+    return redirect(auth0.base_url + '/v2/logout?' + urlencode(params))
 ```
 
 ## Optional Steps
