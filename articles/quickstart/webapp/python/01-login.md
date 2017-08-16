@@ -43,6 +43,8 @@ Now, you can use `OAuthlib` to call the authorize endpoint of the Authentication
 ```python
 # server.py
 
+from functools import wraps
+from six.moves.urllib.parse import urlencode
 from flask import Flask
 from flask import redirect
 from flask import render_template
