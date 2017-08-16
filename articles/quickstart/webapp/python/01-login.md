@@ -69,6 +69,7 @@ auth0 = oauth.remote_app(
 ```
 
 We define the route that will redirect the user to the authorization endpoint
+
 ```python
 @app.route('/login')
 def login():
@@ -106,6 +107,7 @@ def callback_handling():
 ```
 
 Register the function that will obtain the stored access token.
+
 ```python
 @auth0.tokengetter
 def get_auth0_oauth_token():
