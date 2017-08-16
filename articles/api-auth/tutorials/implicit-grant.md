@@ -13,13 +13,10 @@ This tutorial will help you implement the Implicit Grant. If you are looking for
 
 The __Implicit Grant__ is an OAuth 2.0 flow that [client-side apps](/quickstart/spa) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access an API using the token.
 
-::: panel Prerequisites
-
 Before beginning this tutorial, please:
 
 * Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
-:::
 
 ## 1. Get the User's Authorization
 

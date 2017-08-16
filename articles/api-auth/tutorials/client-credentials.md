@@ -7,11 +7,8 @@ description: How to request tokens for your applications.
 
 ::: panel Prerequisites
 
-Before beginning this tutorial, please:
-
 * Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
-:::
 
 ## Ask for a Token
 

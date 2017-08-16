@@ -6,14 +6,11 @@ toc: true
 
 <%= include('../../_includes/_pipeline2') %>
 
-::: panel Prerequisites
-
 Before beginning this tutorial, please:
 
 * Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 * Check that the [Default Audience and/or Default Directory](/dashboard-account-settings#api-authorization-settings) has been set appropriately
-:::
 
 ## Configure your tenant
 

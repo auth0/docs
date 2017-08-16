@@ -12,13 +12,10 @@ This tutorial will help you implement the Authorization Code (PKCE) grant. If yo
 
 The __Authorization Code with PKCE__ is the OAuth 2.0 grant that [native apps](/quickstart/native) use in order to access an API. In this document we will work through the steps needed in order to implement this: create a code verifier and a code challenge, get the user's authorization, get a token and access the API using the token.
 
-::: panel Before You Start
-
 Before beginning this tutorial, please:
 
 * Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
 * [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
-:::
 
 ## 1. Create a Code Verifier
 
