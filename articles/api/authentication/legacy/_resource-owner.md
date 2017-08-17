@@ -60,6 +60,7 @@ request(options, function (error, response, body) {
 ```
 
 <%= include('../../../_includes/_http-method', {
+  "http_badge": "badge-success",
   "http_method": "POST",
   "path": "/oauth/ro",
   "link": "#resource-owner"

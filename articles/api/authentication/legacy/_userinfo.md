@@ -65,6 +65,7 @@ webAuth.parseHash(window.location.hash, function(err, authResult) {
 ```
 
 <%= include('../../../_includes/_http-method', {
+  "http_badge": "badge-success",
   "http_method": "POST",
   "path": "/tokeninfo",
   "link": "#get-token-info"
