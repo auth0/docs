@@ -46,7 +46,7 @@ HTTP/1.1 200 OK
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "POST",
+  "http_method": "badge-success",
   "path": "/oauth/revoke",
   "link": "#revoke-refresh-token"
 }) %>

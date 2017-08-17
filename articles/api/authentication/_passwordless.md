@@ -74,7 +74,7 @@ curl --request POST \
 ```
 
 <%= include('../../_includes/_http-method', {
-  "http_method": "POST",
+  "http_method": "badge-success",
   "path": "/passwordless/start",
   "link": "#get-code-or-link"
 }) %>
@@ -184,7 +184,7 @@ curl --request POST \
 ```
 
 <%= include('../../_includes/_http-method', {
-  "http_method": "POST",
+  "http_method": "badge-success",
   "path": "/oauth/ro",
   "link": "#authenticate-user"
 }) %>

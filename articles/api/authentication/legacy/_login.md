@@ -55,7 +55,7 @@ xhr.send(params);
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "POST",
+  "http_method": "badge-success",
   "path": "/oauth/access_token",
   "link": "#social-with-provider-s-access-token"
 }) %>
@@ -162,7 +162,7 @@ curl --request POST \
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "POST",
+  "http_method": "badge-success",
   "path": "/oauth/ro",
   "link": "#database-ad-ldap-active-"
 }) %>

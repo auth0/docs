@@ -30,7 +30,7 @@ curl --request POST \
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "POST",
+  "http_method": "badge-success",
   "path": "/delegation",
   "link": "#delegation"
 }) %>

@@ -14,7 +14,7 @@ GET https://${account.namespace}/authorize?
 ```
 
 <%= include('../../_includes/_http-method', {
-  "http_method": "GET",
+  "http_method": "badge-primary",
   "path": "/authorize",
   "link": "#link"
 }) %>
@@ -91,7 +91,7 @@ xhr.send(params);
 ```
 
 <%= include('../../_includes/_http-method', {
-  "http_method": "POST",
+  "http_method": "badge-success",
   "path": "/login/unlink",
   "link": "#unlink"
 }) %>
