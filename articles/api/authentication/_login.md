@@ -42,7 +42,8 @@ GET https://${account.namespace}/authorize?
 ```
 
 <%= include('../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
+  "http_method": "GET",
   "path": "/authorize",
   "link": "#social"
 }) %>
@@ -128,7 +129,8 @@ GET https://${account.namespace}/authorize?
 ```
 
 <%= include('../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
+  "http_method": "GET",
   "path": "/authorize",
   "link": "#database-ad-ldap-passive-"
 }) %>
@@ -214,7 +216,8 @@ GET https://${account.namespace}/authorize?
 ```
 
 <%= include('../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
+  "http_method": "GET",
   "path": "/authorize",
   "link": "#enterprise-saml-and-others-"
 }) %>

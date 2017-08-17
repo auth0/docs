@@ -33,7 +33,8 @@ curl --request GET \
 ```
 
 <%= include('../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
+  "http_method": "GET",
   "path": "/v2/logout",
   "link": "#logout"
 }) %>

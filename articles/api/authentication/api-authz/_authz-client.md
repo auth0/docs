@@ -35,7 +35,8 @@ Location: ${account.callback}?code=AUTHORIZATION_CODE&state=STATE
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
+  "http_method": "GET",
   "path": "/authorize",
   "link": "#authorization-code-grant"
 }) %>
@@ -102,7 +103,8 @@ Location: ${account.callback}?code=AUTHORIZATION_CODE
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
+  "http_method": "GET",
   "path": "/authorize",
   "link": "#authorization-code-grant-pkce-"
 }) %>
@@ -173,7 +175,8 @@ Location: ${account.callback}#access_token=TOKEN&state=STATE&token_type=TYPE&exp
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
+  "http_method": "GET",
   "path": "/authorize",
   "link": "#implicit-grant"
 }) %>

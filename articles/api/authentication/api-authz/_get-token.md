@@ -68,7 +68,8 @@ Content-Type: application/json
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-success",
+  "http_badge": "badge-success",
+  "http_method": "POST",
   "path": "/oauth/token",
   "link": "#authorization-code"
 }) %>
@@ -164,7 +165,8 @@ Content-Type: application/json
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-success",
+  "http_badge": "badge-success",
+  "http_method": "POST",
   "path": "/oauth/token",
   "link": "#authorization-code-pkce-"
 }) %>
@@ -258,7 +260,8 @@ Content-Type: application/json
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-success",
+  "http_badge": "badge-success",
+  "http_method": "POST",
   "path": "/oauth/token",
   "link": "#client-credentials"
 }) %>
@@ -355,7 +358,8 @@ Content-Type: application/json
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-success",
+  "http_badge": "badge-success",
+  "http_method": "POST",
   "path": "/oauth/token",
   "link": "#resource-owner-password"
 }) %>
@@ -485,7 +489,8 @@ Content-Type: application/json
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-success",
+  "http_badge": "badge-success",
+  "http_method": "POST",
   "path": "/mfa/challenge",
   "link": "#resource-owner-password-and-mfa"
 }) %>
@@ -570,7 +575,8 @@ Content-Type: application/json
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-success",
+  "http_badge": "badge-success",
+  "http_method": "POST",
   "path": "/oauth/token",
   "link": "#resource-owner-password-and-mfa"
 }) %>
@@ -666,7 +672,8 @@ Content-Type: application/json
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-success",
+  "http_badge": "badge-success",
+  "http_method": "POST",
   "path": "/oauth/token",
   "link": "#resource-owner-password-and-mfa"
 }) %>
@@ -749,7 +756,8 @@ Content-Type: application/json
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-success",
+  "http_badge": "badge-success",
+  "http_method": "POST",
   "path": "/oauth/token",
   "link": "#resource-owner-password-and-mfa"
 }) %>
@@ -825,7 +833,8 @@ Content-Type: application/json
 ```
 
 <%= include('../../../_includes/_http-method', {
-  "http_method": "badge-success",
+  "http_badge": "badge-success",
+  "http_method": "POST",
   "path": "/oauth/token",
   "link": "#refresh-token"
 }) %>
