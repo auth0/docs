@@ -9,63 +9,52 @@ alias:
  - google-oauth
  - google-oauth2
 seo_alias: google
+toc: true
 ---
-# Connect your app to Google
+# Connect your App to Google
 
-To connect your Auth0 client to Google, you will need to generate a *Client ID* and *Client Secret* in a Google project, copy these keys into your Auth0 settings, and enable the Connection.
+To connect your Auth0 client to Google, you will need to:
 
-::: note
-This doc refers to the client steps to connect your client to Google. If you are looking to manage authentication in your app, see [Next Steps](#next-steps) below.
+1. Generate a *Client ID* and *Client Secret* in a Google project
+2. Enable the Google Admin SDK Service
+3. Copy your Google *Client ID* and *Client Secret* keys into your Auth0 settings
+4. Enable the Connection
+
+::: warning
+Google OAuth clients requesting sensitive OAuth scopes may be [subject to review](https://developers.google.com/apps-script/guides/client-verification) by Google.
 :::
 
-## Generate the Google Client ID and Client Secret
+## 1. Generate the Google Client ID and Client Secret
 
-1. While logged in to your Google account, go to the [API Manager](https://console.developers.google.com/projectselector/apis/credentials).
+1. Log in to your Google account and go to the [APIs & services](https://console.developers.google.com/projectselector/apis/credentials).
 
-2. Create your new app by navigating to **Credentials** using the left-hand menu:
+2. Navigate to **Credentials** using the left-hand menu:
 
   ![API Manager Credentials](/media/articles/connections/social/google/credentials.png)
 
-3. While you are on the **Credentials** page, click on **Create a project**.
+3. On the **Credentials** page, click **Create credentials** and choose **OAuth client ID**.
 
-4. In the dialog box that appears, provide a Project name, answer Google's email- and privacy-related questions, and click **Create**:
+  ![Create New Credentials](/media/articles/connections/social/google/create-new-credentials.png)
 
-  ![Create New Project](/media/articles/connections/social/google/create-new-project.png)
+4. On the **Create client id** page, select **Web application**. In the new fields that display, set the following parameters:
 
-5. Google will take a moment to create your project. When the process completes, Google will prompt you to create the credentials you need.
-
-  ![Create Google Credentials](/media/articles/connections/social/google/create-credentials.png)
-
-6. Click on **Create credentials** to display a pop-up menu listing the types of credentials you can create. Select the **OAuth client ID** option.
-
-7. At this point, Google will display a warning banner that says, "To create an OAuth client ID, you must first set a product name on the consent screen." Click **Configure consent screen** to begin this process.
-
-  ![Configure Consent Screen](/media/articles/connections/social/google/create-client-id.png)
-
-8. Provide a **Product Name** that will be shown to users when they log in through Google.
-
-  ![OAuth Consent Screen](/media/articles/connections/social/google/oauth-consent-screen.png)
-
-9. Click **Save**.
-
-10. At this point, you will be prompted to provide additional information about your newly-created app.
+| Field | Description |
+| - | - |
+| Name | The name of your web app |
+| Authorized JavaScript origins | `https://${account.namespace}` |
+| Authorized redirect URIs | `https://${account.namespace}/login/callback` |
 
   ![Web App Credentials Configuration](/media/articles/connections/social/google/create-client-id-config.png)
 
-11. Select **Web application**, and provide a name for your app.
+  Click **Create** to proceed.
 
-12. Under **Restrictions**, enter the following information:
-
-    * **Authorized JavaScript origins:** `https://${account.namespace}`
-    * **Authorized redirect URI:** `https://${account.namespace}/login/callback`
-
-13. Click **Create**. Your `Client Id` and `Client Secret` will be displayed:
+5. Your `Client Id` and `Client Secret` will be displayed:
 
   ![OAuth Client ID and Secret](/media/articles/connections/social/google/oauth-client-info.png)
 
   Save your `Client Id` and `Client Secret` to enter into the Connection settings in Auth0.
 
-### Enable the Admin SDK Service
+## 2. Enable the Admin SDK Service
 
 If you are planning to connect to Google Apps enterprise domains, you will need to enable the **Admin SDK** service.
 
@@ -75,11 +64,11 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
   ![Google API Manager Library](/media/articles/connections/social/google/api-manager-library.png)
 
-3. On the **Admin SDK** page, click **Enable**.
+3. On the **Admin SDK** page, click **Enable**. If successful, the **Enable** link turns into **Disable**.
 
   ![API Manager Dashboard for Admin SDK](/media/articles/connections/social/google/enable-admin-sdk.png)
 
-## Enable the Connection in Auth0
+## 3. Enable the Connection in Auth0
 
 1. Log in to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left navigation.
 
@@ -97,7 +86,7 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
 5. Select the **Permissions** for each of the features you want to allow your app to access. Click **Save** when you're done.
 
-## Test Your Connection
+## 4. Test Your Connection
 
 1. Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard. If you have configured your connection correctly, you will see a **Try** icon next to the Google logo:
 
@@ -113,16 +102,20 @@ If you have configured everything correctly, you will see the **It works!!!** pa
 
    ![](/media/articles/connections/social/google/goog-api-works.png)
 
-## Obtaining the Access Token and Refresh Token
+## 5. Obtain the Access Token and Refresh Token
 
-The `access_token` returned by Google can be obtained after the user has logged in by making an HTTP GET request to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope.  The `access_token` for the IdP will be available in the `identities` array, under the element for the particular connection.
+The `access_token` returned by Google can be obtained after the user has logged in by making an HTTP GET request to the [`/api/v2/user/{user-id}` endpoint](/api/management/v2#!/Users/get_users_by_id) containing an [Auth0 API access token](https://auth0.com/docs/api/management/v2/tokens#get-a-token-manually) generated with  `read:user_idp_tokens` scope.  The [`access_token` for the IdP](https://auth0.com/docs/tokens/idp) will be available in the `identities` array, under the element for the particular connection.
 
 ::: note
-  For more information, please refer to the [Management API documentation](/api/management/v2#!/Users/get_users_by_id)
+Please see [Call an Identity Provider API](https://auth0.com/docs/tutorials/calling-an-external-idp-api) for additional details.
 :::
 
-You can also request a `refresh_token` from Google by passing along the `access_type=offline` parameter when calling the Auth0 `/authorize` endpoint (or passing it in `auth.params` when using [Lock](https://auth0.com/docs/libraries/lock/v10)).
+You can also request a `refresh_token` from Google by passing along the `access_type=offline` parameter when calling the [Auth0 `/authorize` endpoint](https://auth0.com/docs/api/authentication#implicit-grant) (or passing it in `auth.params` when using [Lock](https://auth0.com/docs/libraries/lock/v10)).
 
-The `refresh_token` can be retrieved in the same manner as described for the `access_token` above.
+If you need a refresh token, only the following OAuth 2.0 flows can retrieve them:
+
+* [Authorization Code](https://auth0.com/docs/api-auth/grant/authorization-code)
+* [Authorization Code with PKCE](https://auth0.com/docs/api-auth/grant/authorization-code-pkce)
+* [Resource Owner Password](https://auth0.com/docs/api-auth/grant/password)
 
 <%= include('../_quickstart-links.md') %>
