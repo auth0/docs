@@ -1,5 +1,6 @@
 ---
 description: Explains Kerberos Support with Auth0, how to configure it, the flow, and auto-login with Lock.
+toc: true
 ---
 
 # Kerberos Support
