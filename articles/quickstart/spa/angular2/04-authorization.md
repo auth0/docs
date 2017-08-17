@@ -17,7 +17,7 @@ budicon: 546
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
-## Handle Scopes in the `AuthService`
+## Handle Scopes in the `AuthService` service
 
 Adjust your `AuthService` service to use a local member with any scopes you want to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
 
@@ -34,8 +34,6 @@ auth0 = new auth0.WebAuth({
 
 In the `setSession` method, save the scopes granted for the user into local storage. 
 
-[](3di: the section section that was here originally repeated what was already said above)
-
 ```ts
 // src/app/auth/auth.service.ts
 
@@ -48,7 +46,8 @@ private setSession(authResult): void {
 }
 ```
 
-Add a method called `userHasScopes` that checks for scopes in local storage. Add an array of strings to the method and check if the array of scopes saved in local storage contains those values. You can use this method to conditionally hide and show UI elements to the user and to limit route access.
+Add a method called `userHasScopes` that checks for scopes in local storage. Add an array of strings to the method and check if the array of scopes saved in local storage contains those values. 
+You can use this method to conditionally hide and show UI elements to the user and to limit route access.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -117,7 +116,7 @@ export const ROUTES: Routes = [
 ];
 ```
 
-The guard implements the `CanActivate` interface which requires a method called `canActivate` in the service. This method returns `true` if the user is authenticated and `false` if they are not. It also navigates the user to the home route if they aren't authenticated.
+The guard implements the `CanActivate` interface which requires a method called `canActivate` in the service. This method returns `true` if the user is authenticated and `false` if they are not. It also navigates the user to the home route if they are not authenticated.
 
 ### Limit Route Access Based on Scopes
 
@@ -160,7 +159,7 @@ export const ROUTES: Routes = [
 ];
 ```
 
-If the user doesn't have the `write:messages` scope, they are redirected to the main route.
+If the user does not have the `write:messages` scope, they are redirected to the main route.
 
 <%= include('../_includes/_authz_conditionally_assign_scopes') %>
 
