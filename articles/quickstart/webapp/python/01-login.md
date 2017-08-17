@@ -14,7 +14,7 @@ You can get started by either downloading the seed project or if you would like 
   requirements: [
     'Python 2.7, 3.0 and up',
     'Flask 0.10.1 and up',
-    'Requests 2.3.0 and up'
+    'Requests 2.3.0 and up',
     'Flask-oauthlib 0.9.4 and up',
     'Six 1.10.0 and up'
   ]
