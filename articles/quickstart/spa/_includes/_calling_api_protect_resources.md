@@ -1,7 +1,11 @@
 ## How Do I Protect my API Resources?
 
-To restrict access to the resources served by your API, a check needs to be made to determine whether the incoming request contains valid authorization information. When you implement Auth0 in your client-side application and data API, that authorization information is the `access_token` issued for your user. This token must be checked against the [JSON Web Key Set (JWKS)](https://auth0.com/blog/navigating-rs256-and-jwks/) for your Auth0 account to verify that it is valid.
+To restrict access to the resources served by your API, you need to check if the incoming request contains vailid authorization information. 
+This information is in the `access_token` created for your user. To see if the token is valid, you need to check it against the [JSON Web Key Set (JWKS)](https://auth0.com/blog/navigating-rs256-and-jwks/) for your Auth0 account.
 
-The exact way in which `access_token` verification is implemented on your server will vary between languages and frameworks; however, a common pattern involves placing the token verification logic in a middleware function. If the `access_token` is valid, the request should proceed. If it is invalid, the request should be rejected with a `401 Unauthorized` error.
+Depending on the languages and frameworks you use for your application, the way the access token is verified varies. Typically, you would use a middleware function to verify the token. If the token is valid, the request proceeds and the user gets access to resources in your API. If the token is not invalid, the request is rejected with a `401 Unauthorized` error. 
 
-The downloadable sample linked above demonstrates how to accomplish this implementation using Node.js with the Express framework. For instructions on how to implement API protection for the specific server-side technology you are using, see the [Backend/API quickstart documentation](/quickstart/backend).
+::: note
+The sample project you can download from the top of this page shows how to implement this functionality using Node.js with the Express framework. 
+To learn how to implement API protection for your server-side technology, see the [Backend/API quickstart documentation](/quickstart/backend).
+:::

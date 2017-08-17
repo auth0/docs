@@ -48,8 +48,8 @@ export class AuthService {
 }
 ```
 
-::: note
-**Checkpoint:** Try calling the `login` method from somewhere in your application to see the login page.
+::: panel Checkpoint
+Try calling the `login` method from somewhere in your application to see the login page.
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)

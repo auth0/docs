@@ -19,7 +19,7 @@ budicon: 546
 
 ## Handle Scopes in the `AuthService`
 
-Adjust your `AuthService` to use a local member with any `scope`s you would like to request when users log in. Use this member in the `auth0.WebAuth` instance.
+Adjust your `AuthService` service to use a local member with any scopes you want to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -32,7 +32,9 @@ auth0 = new auth0.WebAuth({
 });
 ``` 
 
-In the `setSession` method, save the `scope`s granted for the user into local storage. The first place to check for these granted `scope` values is the `scope` key from the `authResult`. If something exists there it's because the `scope`s which were granted for the user differ from those that were requested. If there is nothing on `authResult.scope`, it means that the granted `scope`s match those that were requested, so the requested values can be used directly. If there are no values for either of these, you can fall back to an empty string.
+In the `setSession` method, save the scopes granted for the user into local storage. 
+
+[](3di: the section section that was here originally repeated what was already said above)
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -46,7 +48,7 @@ private setSession(authResult): void {
 }
 ```
 
-Add a method called `userHasScopes` which will check for a particular `scope` in local storage. This method should take an array of strings and check whether the array of `scope`s saved in local storage contains those values. This method can be used to conditionally hide and show various UI elements and to limit route access.
+Add a method called `userHasScopes` that checks for scopes in local storage. Add an array of strings to the method and check if the array of scopes saved in local storage contains those values. You can use this method to conditionally hide and show UI elements to the user and to limit route access.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -57,9 +59,9 @@ public userHasScopes(scopes: Array<string>): boolean {
 }
 ```
 
-## Conditionally Dislay UI Elements
+## Conditionally Display UI Elements
 
-The `userHasScopes` method can now be used alongside `isAuthenticated` to conditionally show and hide certain UI elements based on those two conditions.
+You can use the `userHasScopes` method with the `isAuthenticated` method to show and hide certain UI elements.
 
 ```html
 <!-- src/app/app.component.html -->
@@ -74,7 +76,7 @@ The `userHasScopes` method can now be used alongside `isAuthenticated` to condit
 
 ## Protect Client-Side Routes
 
-For some routes in your application, you may want to only allow access if the user is authenticated. This check can be made with the `canActivate` hook.
+You may want to give access to some routes in your application only to authenticated users. You can check if the user is authenticated with the `canActivate` hook.
 
 Create a new service called `AuthGuardService`.
 
@@ -101,7 +103,7 @@ export class AuthGuardService implements CanActivate {
 }
 ```
 
-In your route configuration, apply the `AuthGuardService` to the `canActivate` hook for whichever routes you wish to protect.
+In your route configuration, apply the `AuthGuardService` service to the `canActivate` hook for any routes you want to protect.
 
 ```ts
 // src/app/app.routes.ts
@@ -115,11 +117,11 @@ export const ROUTES: Routes = [
 ];
 ```
 
-The guard implements the `CanActivate` interface which requires a method called `canActivate` in the service. This method returns `true` if the user is authenticated and `false` if not. It also navigates the user to the home route if they aren't authenticated.
+The guard implements the `CanActivate` interface which requires a method called `canActivate` in the service. This method returns `true` if the user is authenticated and `false` if they are not. It also navigates the user to the home route if they aren't authenticated.
 
-### Limit Route Access Based on `scope`
+### Limit Route Access Based on Scopes
 
-To prevent access to client-side routes based on a particular `scope`, create another service called `ScopeGuard`. This service should use `ActivatedRouteSnapshot` to check for a set of `expectedScopes` passed in the `data` key of the route configuration.
+To prevent access to client-side routes based on a particular scope, create a service called `ScopeGuard`. This service uses the  `ActivatedRouteSnapshot` method to check for a set of `expectedScopes` passed in the `data` key of the route configuration.
 
 ```ts
 // src/app/auth/scope-guard.service.ts
@@ -158,7 +160,7 @@ export const ROUTES: Routes = [
 ];
 ```
 
-The user will now be redirected to the main route unless they have a `scope` of `write:messages`.
+If the user doesn't have the `write:messages` scope, they are redirected to the main route.
 
 <%= include('../_includes/_authz_conditionally_assign_scopes') %>
 

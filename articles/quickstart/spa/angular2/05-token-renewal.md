@@ -13,17 +13,21 @@ budicon: 448
   ]
 }) %>
 
-As a security measure, it is recommended that the lifetime of a user's `access_token` be kept short. When you create an API in the Auth0 dashboard, the default lifetime is 7200 seconds (2 hours).
+Keep the expiry time of a user's access token short for security. 
+When you create an API in the Auth0 dashboard, the default lifetime is 7200 seconds (2 hours).
 
-This short lifetime is good for security, but it isn't great for user experience. You will likely want to provide a way for your users to automatically get a new `access_token` so that their client-side session can be kept alive. This can be done with **Silent Authentication**.
+This short expiry time is good for security, but it isn't great for user experience. To improve that, you can provide a way for your users to automatically get a new access token so that their client-side session can be kept alive. This can be done with **Silent Authentication**.
 
 ::: note
-The `access_token` lifetime is controlled from the [APIs section](${manage_url}/#/apis), while the `id_token` lifetime is controlled from the [Clients section](${manage_url}/#/clients). These two settings are independent of one another.
+You can control the expiry time of an access token from the [APIs section](${manage_url}/#/apis). 
+You can control the expiry time of an id token from the [Clients section](${manage_url}/#/clients). 
+These settings are independent.
 :::
 
 ## Server Setup
 
-Renewing the user's `access_token` requires that a static HTML file to be served. The server setup you choose to do this is at your discretion, but an example using **Node.js** and **express** is given here.
+To renew the user's access token, you need a static HTML file to be served. You can choose any server setup to do this. 
+The example below uses **Node.js** and **express**.
 
 Create a simple server with **express** and add a file called `silent.html`.
 
@@ -69,15 +73,15 @@ console.log('Listening on http://localhost:3001');
 </html>
 ```
 
-In this example, the server is running at `localhost:3001` and this value is hardcoded as the `redirectUri` method below. The `silent.html` file makes reference to `localhost:4200` which is the address that the Angular CLI uses for development servers.
+In this example, the server is running at `localhost:3001`. This value is hardcoded as the `redirectUri` method. The `silent.html` file makes reference to `localhost:4200` which is the address that the Angular CLI uses for development servers.
 
 ::: note
-Be sure to add `http://localhost:3001/silent` to the **Callback URLs** section in your application's client settings.
+Add `http://localhost:3001/silent` to the **Callback URLs** section in your application's client settings.
 :::
 
 ## Add Token Renewal
 
-Add a method to the `AuthService` which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+Add a method to the `AuthService` service to call the `renewAuth` method from **auth0.js**. If the renewal is successful, use the existing `setSession` method to set new tokens in local storage.
 
 ```typescript
 // src/app/auth/auth.service.ts
@@ -98,7 +102,9 @@ public renewToken() {
 }
 ```
 
-This will load the silent callback page added earlier in an invisible `iframe`, make a call to Auth0, and give back the result. Add a method called `scheduleRenew` to set up a time at which authentication should be silently renewed. You'll also want to define a class property `refreshSubscription`, which holds a reference to the subscription that refreshes your token.
+The method loads the silent callback page added earlier in an invisible `iframe`, makes a call to Auth0, and gives back the result.
+
+Add a method called `scheduleRenewal` to set up a time when authentication is silently renewed. Define the `refreshSubscription` class property that holds a reference to the subscription that refreshes your token.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -135,9 +141,9 @@ public unscheduleRenewal() {
 }
 ```
 
-This will allow for scheduling and unscheduling token renewal any time it's appropriate. For example, you probably want to schedule a renewal after the user logs in and then again if the page is refreshed.
+You can now schedule token renewal. For example, you may want to schedule a renewal after the user logs in, and then again if the page is refreshed.
 
-The `setSession` method can be modified to add the function right after setting the `access_token` and `id_token` into local storage.
+You can modify the `setSession` method to add the function right after setting the `access_token` and `id_token` into local storage.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -154,7 +160,7 @@ private setSession(authResult): void {
 }
 ```
 
-Add a call to `scheduleRenewal` in the root app component so that a renewal is scheduled when the page is refreshed.
+Add a call to `scheduleRenewal` in the root app component to schedule renewing the tokens when the page is refreshed.
 
 ```ts
 // src/app/app.component.ts
@@ -169,7 +175,7 @@ export class AppComponent {
 }
 ```
 
-Since client-side sessions should not persist after the user logs out, call `unscheduleRenewal` in the `logout` method to unschedule the renewal.
+Client-side sessions should not be renewed after the user logs out. Call `unscheduleRenewal` in the `logout` method to cancel the renewal.
 
 ```typescript
 // src/app/auth/auth.service.ts
@@ -187,4 +193,4 @@ public logout(): void {
 
 #### Troubleshooting
 
-If you're having problems with token renewal (`login_required` error), make sure you're not using Auth0 dev keys for social login. You must use your own social authentication keys.
+If you're having problems with token renewal (for example, you get the `login_required` error), make sure you're not using Auth0 dev keys for social login. You must use your own social authentication keys.

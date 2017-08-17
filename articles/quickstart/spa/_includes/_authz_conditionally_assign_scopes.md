@@ -1,3 +1,4 @@
 ## Conditionally Assign Scopes to Users
 
-The default behavior when registering `scope`s in you API settings is that all of those `scope`s become immediately available and can be requested by any user. To properly handle access control, you will need to create policies which stipulate the conditions under which users can be granted certain `scope`s. This can be done with Rules. See the [documentation](/rules) for how to use Rules to create `scope` policies.
+By default, when you register scopes in your API settings, all the scopes are immediately available and can be requested by any user. 
+If you want to handle access control, you need to create policies for deciding which users can get certain scopes. You can use Rules to do it. See the [Rules documentation](/rules) to learn how to use Rules to create scope policies.

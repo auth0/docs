@@ -1,1 +1,7 @@
-To access secured resources from your API, the authenticated user's `access_token` needs to be included in requests that are sent to it. This is typically accomplished either by sending the `access_token` in an `Authorization` header using the `Bearer` scheme or by storing the token in a cookie so that it is included in all requests to your server. These example will focus on the former implementation, but both approaches are valid.
+To give the authenticated user access to secured resources from your API, you need to include the user's access token in requests you send to your API. 
+There are two common ways to accomplish this. 
+* Store the access token in a cookie. The access token is then included in all requests sent to your server. 
+Or
+* Add `access_token` to the `Authorization` header using the `Bearer` scheme. 
+
+The examples below use the second approach. 
