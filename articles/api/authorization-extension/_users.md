@@ -43,7 +43,7 @@ GET https://{extension_url}/users
 
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": '/users',
   "link": "#get-users"
@@ -111,7 +111,7 @@ GET https://{extension_url}/users/{user_id}
 <% var path = '/users/{user_id}'; %>
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-single-user"
@@ -161,7 +161,7 @@ GET https://{extension_url}/users/{user_id}/groups
 <% var path = '/users/{user_id}/groups'; %>
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-user-groups"
@@ -211,7 +211,7 @@ curl --request PATCH \
 <% var path = '/users/{user_id}/groups'; %>
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "badge-warning",
+  "http_badge": "badge-warning",
   "http_method": "PATCH",
   "path": path,
   "link": "#add-user-to-groups"
@@ -262,7 +262,7 @@ GET https://{extension_url}/users/{user_id}/groups/calculate
 <% var path = '/users/{user_id}/groups/calculate'; %>
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#calculate-group-memberships"
@@ -314,7 +314,7 @@ GET https://{extension_url}/users/{user_id}/roles
 <% var path = '/users/{user_id}/roles'; %>
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-user-roles"
@@ -364,7 +364,7 @@ curl --request PATCH \
 <% var path = '/users/{user_id}/roles'; %>
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "badge-warning",
+  "http_badge": "badge-warning",
   "http_method": "PATCH",
   "path": path,
   "link": "#add-user-to-roles"
@@ -415,7 +415,7 @@ curl --request DELETE \
 <% var path = '/users/{role_id}/roles'; %>
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "badge-danger",
+  "http_badge": "badge-danger",
   "http_method": "DELETE",
   "path": path,
   "link": "#remove-user-from-role"
@@ -468,7 +468,7 @@ GET https://{extension_url}/users/{user_id}/roles/calculate
 <% var path = '/users/{user_id}/roles/calculate'; %>
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "badge-primary",
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#calculate-roles"
@@ -527,7 +527,7 @@ curl --request POST \
 <% var path = '/users/{user_id}/policy/{client_id}'; %>
 <%=
 include('../../_includes/_http-method', {
-  "http_method": "badge-success",
+  "http_badge": "badge-success",
   "http_method": "POST",
   "path": path,
   "link": "#execute-authz-policy"
