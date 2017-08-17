@@ -59,6 +59,7 @@ Authorization:  'Bearer {access_token}'
 <% var path = '/groups'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-groups"
@@ -100,6 +101,7 @@ GET https://{extension_url}/groups/{group_id}
 <% var path = '/groups/{group_id}'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-single-group"
@@ -149,6 +151,7 @@ curl --request POST \
 <% var path = '/groups'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-success",
   "http_method": "POST",
   "path": path,
   "link": "#create-group"
@@ -196,6 +199,7 @@ curl --request POST \
 <% var path = '/groups/{group_id}'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-danger",
   "http_method": "DELETE",
   "path": path,
   "link": "#delete-group"
@@ -295,6 +299,7 @@ GET https://{extension_url}/groups/{group_id}/mappings
 <% var path = '/groups/{group_id}/mappings'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-group-mappings"
@@ -399,6 +404,7 @@ curl --request DELETE \
 <% var path = '/groups/{group_id}/mappings'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-danger",
   "http_method": "DELETE",
   "path": path,
   "link": "#delete-group-mappings"
@@ -472,6 +478,7 @@ GET https://{extension_url}/groups/{group_id}/members
 <% var path = '/groups/{group_id}/members'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-group-members"
@@ -520,6 +527,7 @@ curl --request PATCH \
 <% var path = '/groups/{group_id}/members'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-warning",
   "http_method": "PATCH",
   "path": path,
   "link": "#add-group-members"
@@ -569,6 +577,7 @@ curl --request DELETE \
 <% var path = '/groups/{group_id}/members'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-danger",
   "http_method": "DELETE",
   "path": path,
   "link": "#delete-group-members"
@@ -624,6 +633,7 @@ GET https://{extension_url}/groups/{group_id}/members/nested
 <% var path = '/groups/{group_id}/members/nested'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-nested-group-members"
@@ -671,6 +681,7 @@ GET https://{extension_url}/groups/{group_id}/nested
 <% var path = '/groups/{group_id}/nested'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-nested-groups"
@@ -720,6 +731,7 @@ curl --request PATCH \
 <% var path = '/groups/{group_id}/nested'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-warning",
   "http_method": "PATCH",
   "path": path,
   "link": "#add-nested-groups"
@@ -769,6 +781,7 @@ curl --request DELETE \
 <% var path = '/groups/{group_id}/nested'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-danger",
   "http_method": "DELETE",
   "path": path,
   "link": "#delete-nested-group"
@@ -818,6 +831,7 @@ GET https://{extension_url}/groups/{group_id}/roles
 <% var path = '/groups/{group_id}/roles'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-group-roles"
@@ -866,6 +880,7 @@ curl --request PATCH \
 <% var path = '/groups/{group_id}/roles'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-warning",
   "http_method": "PATCH",
   "path": path,
   "link": "#add-group-roles"
@@ -915,6 +930,7 @@ curl --request DELETE \
 <% var path = '/groups/{group_id}/roles'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-danger",
   "http_method": "DELETE",
   "path": path,
   "link": "#delete-group-roles"
@@ -992,6 +1008,7 @@ GET https://{extension_url}/groups/{group_id}/roles/nested
 <% var path = '/groups/{group_id}/roles/nested'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-nested-roles"
