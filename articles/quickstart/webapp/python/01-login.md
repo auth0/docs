@@ -78,14 +78,13 @@ def login():
     return auth0.authorize(callback='${account.callback}')
 ```
 
--::: note
--The `callback` specified **must match** the URL specified in the previous step.
--:::
--
+::: note
+The `callback` specified **must match** the URL specified in the previous step.
+:::
 
 ## Add the Auth0 Callback Handler
 
-You'll need to create a callback handler so Auth0 will redirect the user after he authenticate and grant the access. This handler exchanges the `code` we have obtained previously for an `access_token` and an `id_token` and store them in the session. For that, you can do the following:
+You'll need to create a callback handler so Auth0 will redirect users after they authenticate and grant access. This handler exchanges the `code` we have obtained previously for an `access_token` and an `id_token` and store them in the session. For that, you can do the following:
 
 ```python
 # Here we're using the /callback route.
