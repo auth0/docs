@@ -18,7 +18,6 @@ budicon: 292
 ## Request the Profile Scope
 
 To retrieve user information, request a scope of `openid profile` in the `WebAuth` instance. 
-[](3di: This introduction basically puts in words what's already in the code. Maybe we could provide a bit of context to the readers here?)
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -34,7 +33,6 @@ auth0 = new auth0.WebAuth({
 <%= include('../_includes/_user_profile_auth0js_method') %>
 
 Add a method calling the `client.userInfo` method to the `AuthService` service.
-[](3di: Try adding comments to the code sample, to indicate the steps mentioned above)
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -63,7 +61,7 @@ public getProfile(cb): void {
 
 ## Add a Profile Component
 
-Depending on what you need for your application, you can adjust how you show profile information to your users. Typically, there is a dedicated profile area for displaying user information. The example below shows how to set up such area. 
+Depending on what you need for your application, you can adjust how you show profile information to your users. Typically, there is a dedicated profile section for displaying user information. The example below shows how to set it up. 
 
 Create a new component called `ProfileComponent`.
 
@@ -97,7 +95,7 @@ export class ProfileComponent implements OnInit {
 }
 ```
 
-The component injects the `AuthService` service. It then checks the service for a populated `userProfile` object. If it doesn't find any, the component makes a call to `getProfile` to get the user's information.
+The component injects the `AuthService` service. Then, it checks the service for a populated `userProfile` object. If it doesn't find the object, the component makes a call to `getProfile` to get the user's information.
 
 The user's information can be displayed in a template.
 

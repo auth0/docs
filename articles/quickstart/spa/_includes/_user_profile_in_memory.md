@@ -1,3 +1,6 @@
 The `AuthService` service includes a local `userProfile` member that holds the profile information you requested with the `getProfile` call. 
 
-The example below shows a profile area that calls `getProfile` when the application starts. The `userProfile` member holds user information so that `getProfile` has to be called only once. This behavior is not required but it can enhance your users' experience. 
+::: note
+The example below shows a profile section that calls `getProfile` when the application starts. The `userProfile` member holds user information so that `getProfile` has to be called only once. 
+You don't have to set this behavior but it can improve your users' experience.
+:::

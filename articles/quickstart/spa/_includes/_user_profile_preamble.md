@@ -1,2 +1,4 @@
-Most appliactions display profile information to authenticated users. Auth0 provides a `/userinfo` endpoint. When you send an access token to the endpoint, it returns a JSON object with information about the user. The information stored in that object depends on how the user logged in to your application. 
-To learn more about the information returned by the `/userinfo` endpoint, see the [documentation](https://auth0.com/docs/api/authentication#get-user-info).
+::: panel Using the `/userinfo` endpoint
+Most applications display profile information to authenticated users. Auth0 provides a `/userinfo` endpoint for that. When you send an access token to the endpoint, it returns a JSON object with information about the user. The information stored in that object depends on how the user logged in to your application. 
+To learn more about the information returned by the `/userinfo` endpoint, see the [`/userinfo` endpoint documentation](https://auth0.com/docs/api/authentication#get-user-info).
+:::
