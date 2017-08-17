@@ -5,11 +5,11 @@ description: How to Use the Auth0.js v8 with the Hosted Login Page
 
 Within the Hosted Login page, you can use the the [Auth0.js v8 SDK](/libraries/auth0js/v8), instead of [Lock](/libraries/lock), to perform authentication using a custom UI (you can also use Auth0.js _in addition_ to Lock, for authentication or user management tasks).
 
-Auth0.js is the current version of the SDK, and is the recommended version for projects that are able to use it. You can read the Reasons to Migrate and the API Auth sections of the [Auth0.js Migration Guide](/libraries/auth0js/v8/migration-guide#reasons-to-migrate) to learn whether version 8 of Auth0.js is appropriate for your applications if you are uncertain.
+Auth0.js v8 is the current version of the SDK, and is the recommended version for projects that are able to use it. You can read the Reasons to Migrate and the API Auth sections of the [Auth0.js Migration Guide](/libraries/auth0js/v8/migration-guide#reasons-to-migrate) to learn whether version 8 of Auth0.js is appropriate for your applications.
 
 ## Auth0.js Template for Hosted Login Page
 
-You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js v8 in the Hosted Login Page. In the [dashboard](${manage_url}), go to Hosted Pages, and then to the Login page section. At the top of the code editor for the page contents, you'll see a dropdown, titled "Default Templates". Here you can choose from Lock, Lock Passwordless, or Custom UI. Choosing "Custom UI" will give you an example of an entire page using Auth0.js, including the custom UI styling. You can use this template as an example to get you started.
+You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js v8 in the Hosted Login Page. In the [dashboard](${manage_url}), go to **Hosted Pages**, and then to the **Login** page section. At the top of the code editor for the page contents, you'll see a dropdown, titled **Default Templates**. Here you can choose from `Lock`, `Lock Passwordless`, or `Custom UI`. Choose `Custom UI` to get started.
 
 ![Hosted Login Page](/media/articles/hosted-pages/hlp-customui.png)
 
@@ -19,7 +19,9 @@ Additionally, you can take a look at the following example scenario using Auth0.
 
 ### Passwordless Example
 
-With Passwordless, the user is prompted to enter an email or an SMS number, at which they will receive a one-time code to enter, or a "magic link" to click, which will authenticate them. In this example, the user will enter an email, and receive a one-time code.
+With [passwordless authentication](/connections/passwordless), the user is prompted to enter an email or an SMS number, at which they will receive a one-time code to enter, or a "magic link" to click, which will authenticate them. In this example, the user will enter an email, and receive a one-time code.
+
+For this example, replace the code in your Hosted Login Page editor with the following template:
 
 ```html
 <!DOCTYPE html>
@@ -163,12 +165,13 @@ With Passwordless, the user is prompted to enter an email or an SMS number, at w
 </html>
 ```
 
+This should allow you to prompt your users to enter their email address, receive a code, and enter it to verify. Once the transaction is complete and they're redirected to your application, you'll want to [parse the URL hash](/libraries/auth0js/v8#extract-the-authresult-and-get-user-info) to acquire their token and finish your authentication process.
+
 ## Next Steps
 
 Are you looking for more information about the SDK used here, or about Passwordless authentication? Or are you ready to get started with your own Hosted Login Page?
 
 ::: next-steps
 * [Read more About the Auth0.js SDK](/libraries/auth0js/v8)
-* [Read More About Passwordless Authentication](/connections/passwordless)
 * [Get Started on Your Own Hosted Login Page](${manage_url}/#/login_page)
 :::

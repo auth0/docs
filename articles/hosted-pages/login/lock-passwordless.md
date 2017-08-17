@@ -3,11 +3,11 @@ description: How to use Lock Passwordless with the Hosted Login Page
 ---
 # Hosted Login with Lock Passwordless
 
-Using Lock Passwordless in the Hosted Login Page is the easiest and most secure implementation of passwordless authentication that can be achieved. Additionally, the Hosted Login Page is the _only_ way to perform passwordless authentication with native applications at this time.
+Using Lock Passwordless in the Hosted Login Page is the easiest and most secure implementation of [passwordless authentication](/connections/passwordless) that can be achieved. Additionally, the Hosted Login Page is the **only** way to perform passwordless authentication with native applications at this time.
 
-## Lock Passwordless Template for the Hosted Login Page
+## Lock Passwordless Template
 
-You can start out with a basic template that will provide you with a working, ready-to-use example of Lock Passwordless in the Hosted Login Page. In the [dashboard](${manage_url}), go to Hosted Pages, and then to the Login page section. At the top of the code editor for the page contents, you'll see a dropdown, titled "Default Templates". Here you can choose from Lock, Lock Passwordless, or Custom UI. Choosing "Lock Passwordless" will give you a code example of the Hosted Login Page using Lock Passwordless. You can use this template as an example to get you started, or use it as is!
+You can start out with a basic template that will provide you with a working, ready-to-use example of Lock Passwordless in the Hosted Login Page. In the [dashboard](${manage_url}), go to **Hosted Pages**, and then to the **Login** page section. At the top of the code editor for the page contents, you'll see a dropdown, titled **Default Templates**. Here you can choose from `Lock`, `Lock Passwordless`, or `Custom UI`. Choose `Lock Passwordless` to get started.
 
 ![Hosted Login Page](/media/articles/hosted-pages/hlp-lock-passwordless.png)
 
