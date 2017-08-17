@@ -10,23 +10,43 @@ Auth0 allows you to create a custom SAML connection to Microsoft's Active Direct
 
 Begin by launching your instance of ADFS. Start the **Add Relying Party Trust** wizard.
 
+![](/media/articles/protocols/saml-adfs/saml1.png)
+
 On the **Welcome** page, choose **Claims aware** and click **Start**.
+
+![](/media/articles/protocols/saml-adfs/saml2.png)
 
 You'll see the **Select Data Source** page at this point. Select **Enter data about the relying party manually** and click Next to proceed.
 
-On the **Specify Display Name** page, provide a descriptive name for your relying party and a brief description under **Notes**. Click **Next**.
+![](/media/articles/protocols/saml-adfs/saml3.png)
+
+On the **Specify Display Name** page, provide a descriptive name for your relying party (the typical format is `urn:auth0:${account.namespace}`) and a brief description under **Notes**. Click **Next**.
+
+![](/media/articles/protocols/saml-adfs/saml4.png)
 
 Next up is the **Configure Certificate** page. For now, we will skip this step, so click **Next** to proceed.
 
+![](/media/articles/protocols/saml-adfs/saml5.png)
+
 On the **Configure URL** page, check the box for **Enable support for the SAML 2.0 WebSSO protocol**. The wizard then asks for a **Relying party SAML 2.0 SSO service URL**. For the time being, provide a placeholder URL; we will return to this step at a later point. Click **Next**.
 
-On the **Configure Identifiers** page, indicate that the **Relying party trust identifier** is `urn:auth0:adfssaml` (be sure to replace this sample value with the display name you chose when you started using the wizard). Click **Next**.
+![](/media/articles/protocols/saml-adfs/saml6.png)
+
+On the **Configure Identifiers** page, indicate that the **Relying party trust identifier** is `urn:auth0:${account.namespace}` (or whatever value you used as the display name when you started using the wizard). Click **Next**.
+
+![](/media/articles/protocols/saml-adfs/saml7.png)
 
 On the **Choose Access Control Policy** page, select **Permit everyone** and click **Next**.
 
+![](/media/articles/protocols/saml-adfs/saml8.png)
+
 Finally, review the settings you provided on the **Ready to Add Trust** page and click **Next** to save your information.
 
+![](/media/articles/protocols/saml-adfs/saml9.png)
+
 If you were successfully, you'll see a message indicating such on the **Finish** page. Make sure that the **Configure claims issuance policy for this application** checkbox is selected, and click **Close**.
+
+![](/media/articles/protocols/saml-adfs/saml10.png)
 
 ## Step 2: Configure Auth0
 
