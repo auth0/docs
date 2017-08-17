@@ -11,7 +11,7 @@ alias:
 seo_alias: google
 toc: true
 ---
-# Connect Your App to Google
+# Connect your App to Google
 
 To connect your Auth0 client to Google, you will need to:
 
@@ -54,7 +54,7 @@ Google OAuth clients requesting sensitive OAuth scopes may be [subject to review
 
   Save your `Client Id` and `Client Secret` to enter into the Connection settings in Auth0.
 
-### 2. Enable the Admin SDK Service
+## 2. Enable the Admin SDK Service
 
 If you are planning to connect to Google Apps enterprise domains, you will need to enable the **Admin SDK** service.
 
@@ -86,7 +86,7 @@ If you are planning to connect to Google Apps enterprise domains, you will need 
 
 5. Select the **Permissions** for each of the features you want to allow your app to access. Click **Save** when you're done.
 
-### Test Your Connection
+## 4. Test Your Connection
 
 1. Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard. If you have configured your connection correctly, you will see a **Try** icon next to the Google logo:
 
@@ -102,7 +102,7 @@ If you have configured everything correctly, you will see the **It works!!!** pa
 
    ![](/media/articles/connections/social/google/goog-api-works.png)
 
-## 4. Obtain the Access Token and Refresh Token
+## 5. Obtain the Access Token and Refresh Token
 
 The `access_token` returned by Google can be obtained after the user has logged in by making an HTTP GET request to the [`/api/v2/user/{user-id}` endpoint](/api/management/v2#!/Users/get_users_by_id) containing an [Auth0 API access token](https://auth0.com/docs/api/management/v2/tokens#get-a-token-manually) generated with  `read:user_idp_tokens` scope.  The [`access_token` for the IdP](https://auth0.com/docs/tokens/idp) will be available in the `identities` array, under the element for the particular connection.
 
