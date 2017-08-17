@@ -88,7 +88,7 @@ Using the `code_verifier`, generate a `code_challenge` that will be sent in the 
       <li><a href="#challenge-java" data-toggle="tab">Java</a></li>
       <li><a href="#challenge-swift" data-toggle="tab">Swift 3</a></li>
       <li><a href="#challenge-objc" data-toggle="tab">Objective-C</a></li>
-	  <li><a href="#verifier-cs" data-toggle="tab">C#</a></li>
+      <li><a href="#challenge-cs" data-toggle="tab">C#</a></li>
     </ul>
   </div>
   <div class="tab-content">
