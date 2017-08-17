@@ -6,7 +6,7 @@ toc: true
 # Call AWS APIs and Resources Securely with Tokens
 
 ::: warning
-As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their Clients, , which are required for use with the [Delegation endpoint](/api/authentication#get-token-info). Only customers as of 8 June 2017 can add legacy grant types to their existing Clients. If you have any questions about which alternative you should use, please contact [Support](${env.DOMAIN_URL_SUPPORT}).
+As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their Clients, which are required for use with the [Delegation endpoint](/api/authentication#get-token-info). Only customers as of 8 June 2017 can add legacy grant types to their existing Clients. If you have any questions about which alternative you should use, please contact [Support](${env.DOMAIN_URL_SUPPORT}).
 :::
 
 Auth0 integrates with the AWS Security Token Service (STS) to obtain an limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). These credentials can then be used to call the AWS API of any Auth0-supported [identity provider](/identityproviders).
