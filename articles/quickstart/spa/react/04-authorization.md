@@ -19,7 +19,7 @@ budicon: 546
 
 ## Handle Scopes in the `Auth` Service
 
-Adjust your `Auth` service to use a local member with any `scope`s you would like to request when users log in. Use this member in the `auth0.WebAuth` instance.
+Adjust your `Auth` service to use a local member with any scopes you would like to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
 
 ```js
 // src/Auth/Auth.js
@@ -59,7 +59,7 @@ userHasScopes(scopes) {
 
 ## Conditionally Display UI Elements
 
-The `userHasScopes` method can now be used alongside `isAuthenticated` to conditionally show and hide certain UI elements based on those two conditions.
+You can use the `userHasScopes` method with the `isAuthenticated` method to show and hide certain UI elements.
 
 ```js
 // src/App.js
@@ -89,7 +89,7 @@ render() {
 
 ## Protect Client-Side Routes
 
-For some routes in your application, you may want to only allow access if the user is authenticated. This check can be made in the `render` function for whichever route you like.
+You may want to give access to some routes in your application only to authenticated users. You can check if the user is authenticated with the `render` function.
 
 ```js
 // src/routes.js
@@ -103,11 +103,11 @@ For some routes in your application, you may want to only allow access if the us
 )} />
 ```
 
-In this example, if an unauthenticated user tries to access the `/ping` route, they will be redirected to `/home`.
+In this example, if an unauthenticated user tries to access the `/ping` route, they are redirected to the `/home` route.
 
 ### Limit Route Access Based on `scope`
 
-To prevent access to client-side routes based on a particular `scope`, make a call to `userHasScopes` in the route's `render` function
+To prevent access to client-side routes based on a particular scope, make a call to `userHasScopes` in the route's `render` function.
 
 ```js
 // src/routes.js
@@ -121,7 +121,7 @@ To prevent access to client-side routes based on a particular `scope`, make a ca
 )} />
 ```
 
-The user will now be redirected to the `/home` route unless they have a `scope` of `write:messages`.
+If the user does not have the `write:messages` scope, they are redirected to the main route.
 
 <%= include('../_includes/_authz_conditionally_assign_scopes') %>
 

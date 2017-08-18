@@ -1,1 +1,7 @@
-In the `setSession` method, save the `scope`s granted for the user into local storage. The first place to check for these granted `scope` values is the `scope` key from the `authResult`. If something exists there it's because the `scope`s which were granted for the user differ from those that were requested. If there is nothing on `authResult.scope`, it means that the granted `scope`s match those that were requested, so the requested values can be used directly. If there are no values for either of these, you can fall back to an empty string.
+Check for the scopes granted for the user. 
+
+First, check for these values in the `scope` key from `authResult`.
+If you find scopes in this key, the scopes granted for the user are different than the ones you requested. Use these values in the `setSession` method.
+If you don't find anything in the `authResult.scope` key, all the scopes you requested were granted. Use the scopes you requested in the `setSession` method. 
+
+In the `setSession` method, save the scopes granted for the user into local storage. 
