@@ -1,7 +1,6 @@
 ---
 description: How to request tokens for your applications.
 ---
-
 # How to implement the Client Credentials Grant
 
 <%= include('../../_includes/_pipeline2') %>
@@ -80,15 +79,9 @@ For details on the validations that should be performed by the API, refer to [Ve
 
 ## Keep reading
 
+::: next-steps
 - [Calling APIs from a Service](/api-auth/grant/client-credentials)
-- [How to configure an API in Auth0](/apis)
 - [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
-- [How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
-- [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks).
-- [Backend Quickstarts](/quickstart/backend)
-- [Authentication API: POST /oauth/token](/api/authentication#client-credentials)
-- [The OAuth 2.0 protocol](/protocols/oauth2)
-- [The OpenID Connect protocol](/protocols/oidc)
+- [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 - [Tokens used by Auth0](/tokens)
-- [RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+:::

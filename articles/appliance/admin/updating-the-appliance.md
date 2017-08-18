@@ -1,14 +1,14 @@
 ---
 section: appliance
-description: How to update the Appliance
+description: How to update the PSaaS Appliance
 ---
 
-# Updating the Appliance
+# Updating the PSaaS Appliance
 
-To ensure that your Appliance has the latest functionality, security, and bug fixes, Auth0 requires you to perform regular updates. While the Auth0 engineering team releases updates on a monthly basis, you should plan updates on a monthly, bi-monthly, and quarterly basis. You should not exceed **90 days** without updating the Appliance.
+To ensure that your PSaaS Appliance has the latest functionality, security, and bug fixes, Auth0 requires you to perform regular updates. While the Auth0 engineering team releases updates on a monthly basis, you should plan updates on a monthly, bi-monthly, and quarterly basis. You should not exceed **90 days** without updating the PSaaS Appliance.
 
 ::: note
-For more information about Appliance Releases, please see the [Change Log](https://auth0.com/changelog/appliance).
+For more information about PSaaS Appliance Releases, please see the [Change Log](https://auth0.com/changelog/appliance).
 :::
 
 ## Best Practices
@@ -24,16 +24,16 @@ To ensure the update process goes as smoothly as possible, we recommend followin
   * Ensure that all [Health Checks](/appliance/dashboard/troubleshoot#health-check) are okay.
 
 ::: note
-For additional information on gathering testing information, please see [Appliance Monitoring](/appliance/monitoring).
+For additional information on gathering testing information, please see [PSaaS Appliance Monitoring](/appliance/monitoring).
 :::
 
 * Update the Development and Test nodes prior to upgrading Production. This allows you to test the new version to identify any issues before you apply it to Production. We recommend performing this test for a one-week period.
-* Ensure that the Appliance is able to access the internet during the update process. The update is [trigged via the Management Dashboard](/appliance/dashboard/updates) and requires the downloading of the application itself, as well as any operating system updates. This takes between 60 minutes (for a single Development node) to 90 minutes (for a three-node Production cluster).
+* Ensure that the PSaaS Appliance is able to access the internet during the update process. The update is [trigged via the Management Dashboard](/appliance/dashboard/updates) and requires the downloading of the application itself, as well as any operating system updates. This takes between 60 minutes (for a single Development node) to 90 minutes (for a three-node Production cluster).
 
 ### After the Update
 
 ::: note
-For additional information on gathering testing information, please see [Appliance Monitoring](/appliance/monitoring).
+For additional information on gathering testing information, please see [PSaaS Appliance Monitoring](/appliance/monitoring).
 :::
 
 * Perform the post-test check:
@@ -59,4 +59,4 @@ If you update during non-business hours, we ask for confirmation that the upgrad
 
 ## Automatic Updates
 
-Auth0 is currently to provide an automatic update option for Appliance customers where you can select the frequence and time window during which an update occurs.
+Auth0 is currently to provide an automatic update option for PSaaS Appliance customers where you can select the frequence and time window during which an update occurs.

@@ -1,15 +1,15 @@
 ---
 section: appliance
-description: Overview of the Appliance Dashboard Tenants page
+description: Overview of the PSaaS Appliance Dashboard Tenants page
 ---
 
-# Auth0 Appliance Dashboard: Tenants
+# PSaaS Appliance Dashboard: Tenants
 
 ::: note
-  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
-The Tenants page of the Appliance Dashboard lists all tenants associated with your Appliance instance.
+The Tenants page of the PSaaS Appliance Dashboard lists all tenants associated with your PSaaS Appliance instance.
 
 ![](/media/articles/appliance/dashboard/tenants.png)
 

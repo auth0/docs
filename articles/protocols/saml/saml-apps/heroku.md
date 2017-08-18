@@ -1,62 +1,67 @@
 ---
-title: Configuring SSO with Heroku
 description: How to SSO with Heroku.
 ---
 
-# Configuring SSO with Heroku
+# Configure SSO with Heroku
 
-Follow these simple steps to configure SSO for Heroku's dashboard. Once enabled you will be able to login into Heroku using any of the [Auth0 supported identity providers](identityproviders).
+::: note
+You must have administrative rights to your organization account on Heroku to configure SSO. Organization accounts are included with Heroku Enterprise plans.
+:::
 
-## 1. Login to Heroku
+You can configure SSO so that your users can log into Heroku using any of Auth0's supported [identity providers](/identityproviders).
 
-Go to your organization settings page in Heroku, and scroll to the SSO settings:
+## 1. Obtain Your Heroku Identifiers
+
+On the Settings page for your organization in Heroku, scroll to the **Single Sign On (SSO) section.
 
 ![](/media/articles/saml/saml-apps/heroku/heroku-dashboard.png)
 
-Keep this page open. The two parameters you will need in the next step are:
+You will need the following two parameters from this section to integrate with Auth0:
 
 * __Heroku Entity ID__
 * __ACS URL__
 
-## 2. Register Heroku in Auth0
+## 2. Register Heroku with Auth0
 
-Log in to your dashboard and [create a new application](${manage_url}/#/applications). Pick a name (e.g. Heroku), select the __Addons__ section of the new app, and enable __SAML2__:
+Log in to your [Auth0 Dashboard](${manage_url}/#/clients) and select the [client](/clients) for which you want to enable SSO with Heroku. Go to the __Addons__ section of your Client, and enable __SAML2 Web App__:
 
 ![](/media/articles/saml/saml-apps/heroku/auth0-dashboard.png)
 
-Enter the __ACS URL__ from the previous step into the __Application Callback URL__. Then enter the following settings:
+Enter the __ACS URL__ from the previous step into the __Application Callback URL__ field and update the settings as follows:
 
-```
+```json
 {
- "audience":  "{THE HEROKU ENTITY ID}",
+ "audience":"THE-HEROKU-ENTITY-ID",
  "mappings": {
-   "email":       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+   "email": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
  },
- "createUpnClaim":       false,
+ "createUpnClaim": false,
  "passthroughClaimsWithNoMapping": false,
  "mapUnknownClaimsAsIs": false,
- "mapIdentities":        false,
+ "mapIdentities": false,
  "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
  "nameIdentifierProbes": [
-   "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
- ],
+   "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
+ ]
 }
 ```
 
 ![](/media/articles/saml/saml-apps/heroku/auth0-dashboard-saml.png)
 
 ::: note
-Notice the `audience` parameter is the __Heroku Entity ID__ value from step 1. It will be of the form: `https://sso.heroku.com/saml/{YOUR HEROKU ORG}`
+The `audience` parameter is the __Heroku Entity ID__. It will be formatted like this: `https://sso.heroku.com/saml/YOUR-HEROKU-ORG`
 :::
 
-Scroll down and click on "Save". Now select the __Usage__ section in the __SAML__ configuration and download the __Identity Provider Metadata__:
+Click **Save**. 
 
 ![](/media/articles/saml/saml-apps/heroku/auth0-dashboard-saml-usage.png)
 
-## 3. Complete configuration in Heroku
+## 3. Provide Auth0 Metadata to Heroku
 
-Back on Heroku, click on __Upload Metadata__ and select the file you downloaded in the previous step:
+Open up the __Usage__ section of the SAML2 Web App Configuration pop-up and download the __Identity Provider Metadata__.
 
-![](/media/articles/saml/saml-apps/heroku/heroku-dashboard-metadata.png)
+Return to Heroku. Click on __Upload Metadata__ and select the file containing the **Identity Provider Metadata** you downloaded in the previous step.
 
-You are done, congratulations!
+![](/media/articles/saml/saml-apps/heroku/heroku-dashboard.png)
+
+Once you've uploaded your metadata, your SSO integration is fully set up.

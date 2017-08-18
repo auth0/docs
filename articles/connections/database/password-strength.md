@@ -3,10 +3,9 @@ title: Password Strength in Auth0 Database Connections
 description: Auth0's Password Strength feature allows you to customize the level of enforced complexity for passwords entered during user sign-up. Auth0 offers 5 levels of security to match OWASP password recommendations.
 crews: crew-2
 ---
-
 # Password Strength in Auth0 Database Connections
 
-:::panel-warning Feature availability
+::: warning
 The **Password Strength** feature is only available for Database connections. The password complexity in Social and Enterprise connections is enforced by each provider.
 :::
 
@@ -31,16 +30,16 @@ At each level, new passwords must meet the following criteria:
  * **Excellent**: at least 10 characters including at least 3 of the following 4 types of characters: a lower-case letter, an upper-case letter, a number, a special character (e.g. `!@#$%^&*`). Not more than 2 identical characters in a row (e.g. `111` is not allowed).
 
 
-## Change your policy
+## Change Your Policy
 
 To change the password strength policy, go to [Database connections](${manage_url}/#/connections/database). Select the database connection you want to change and click on the **Password Strength** tab:
 
-![Password Strength Panel in Auth0](/media/articles/connections/database/password-strength/jH0kabJPoi.png)
+![Password Strength Panel in Auth0](/media/articles/connections/database/password-strength/pw-manage.png)
 
 The new policy will be enforced on all subsequent user sign-ups and password changes. If the user enters a password that does not match the required criteria, the password will be rejected by Auth0 and the user will be asked to create one that complies with these requirements.
 
 ::: note
-  Existing passwords that were created prior to the change in policy will continue to validate.
+Existing passwords that were created prior to the change in policy will continue to validate.
 :::
 
 ### Lock
@@ -66,7 +65,7 @@ The response will also contain additional information that can be used to guide 
 * `verified` can be either `true` or `false`. Returns `false` if the rule has been violated.
 
 ::: note
-  Some rules are composites. A rule may contain an `items` field that specifies which sub-rules have failed. Each sub-rule will have a `message` and may have a `format`, if required.
+Some rules are composites. A rule may contain an `items` field that specifies which sub-rules have failed. Each sub-rule will have a `message` and may have a `format`, if required.
 :::
 
 ### Examples

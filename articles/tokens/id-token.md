@@ -30,13 +30,33 @@ The `id_token` can be returned when calling any of the Auth0 functions which inv
 
 ## Validate an ID token
 
-The way to validate an ID token depends on the hash algorithm used by your Client:
+In order to validate an `id_token`, an application needs to verify the signature of the token, as well as validate the standard claims of the token. Each of these steps are discussed in more detail below.
 
-- If you used `HS256` then the token is signed with the Client Secret, using the HMAC algorithm. You can verify the signature using the Client Secret value, which you can find at the _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings)_ page.
+::: note
+Most JWT libraries will take care of the token validation for you automatically, so be sure to reference the [Libraries for Token Signing/Verification section of JWT.io](https://jwt.io/#libraries-io) to find a JWT library for your platform and programming language.
+:::
 
-- If you used `RS256` then the token is signed with a public/private key pair, using RSA. You can verify the signature using the Public Key or Certificate, which you can find at the _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > Certificates_ page.
+### Verify the signature
 
-To check or update the algorithm your Client uses go to _[Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm_. The most secure practice, and our recommendation, is to use `RS256`.
+Verifying the signature of an `id_token` depends on the hash algorithm used by your Client:
+
+- If you used `HS256` then the token is signed with the **Client Secret**, using the HMAC algorithm. You can verify the signature using the Client Secret value, which you can find at the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) page.
+
+- If you used `RS256` then the token is signed with a public/private key pair, using RSA. You can verify the signature using the Public Key or Certificate, which you can find at the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > Certificates page.
+
+To check or update the algorithm your Client uses go to [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm. 
+
+The most secure practice, and our recommendation, is to use `RS256`.
+
+### Validate the Claims
+
+Once the application verifies the token's signature, the next step is to validate the standard claims of the token's payload. The following validations need to be made:
+
+- **Token expiration**: The current date/time _must_ be before the expiration date/time listed in the `exp` claim (which is a Unix timestamp).
+
+- **Token issuer**: The `iss` claim denotes the issuer of the JWT. The value **must** match the the URL of your Auth0 tenant. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
+
+- **Token audience**: The `aud` claim identifies the recipients that the JWT is intended for. The value _must_ match the Client ID of your Auth0 Client.
 
 ## Control the contents of an ID token
 
@@ -91,7 +111,7 @@ The payload's claims can include some or all of the following:
 | name | The name of the user which is returned from the Identity Provider. |
 | email | The email address of the user which is returned from the Identity Provider. |
 | picture | The profile picture of the user which is returned from the Identity Provider. |
-| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format `(identity provider)&#124;(unique id in the provider)`, e.g. `github&#124;1234567890`. |
+| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format `(identity provider)|(unique id in the provider)`, e.g. `github|1234567890`. |
 | iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued `id_token`, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |

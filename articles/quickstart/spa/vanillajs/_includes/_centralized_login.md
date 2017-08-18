@@ -1,3 +1,5 @@
+## Add Authentication with Auth0
+
 <%= include('../../_includes/_login_preamble', { library: 'JavaScript' }) %>
 
 ## Create an Authentication Service
@@ -29,7 +31,7 @@ window.addEventListener('load', function() {
 ```
 
 ::: note
-**Checkpoint:** Try adding a `button` with a class of `btn-login` to your app. This will call the `authorize` method from auth0.js so you can see the login page.
+**Checkpoint:** Try adding a `button` with the id `btn-login` to your app. This will call the `authorize` method from auth0.js so you can see the login page.
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)

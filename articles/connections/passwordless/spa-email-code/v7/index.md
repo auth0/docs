@@ -1,7 +1,6 @@
 ---
 title: Using Passwordless Authentication with a one-time code via email on SPA
 ---
-
 # Authenticate users with a one-time code via e-mail on SPA
 
 <%= include('../../_older-version-alert' %>
@@ -58,13 +57,7 @@ Once the user enters the code received by email, Lock will authenticate them and
 
 ### Use your own UI
 
-<%= include('../../../../_includes/_package', {
-  org: 'auth0-samples',
-  repo: 'auth0-jquery-passwordless-sample',
-  path: ''
-}) %>
-
-You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
+You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js/v7).
 
 <%= include('../../_init-auth0js', {withCallbackURL:false} ) %>
 

@@ -30,9 +30,11 @@ jwt.verify(id_token, AUTH0_CLIENT_SECRET, { algorithms: ['HS256'] }, function(er
  });
 ```
 
-## Further reading
+## Keep reading
 
-* [Auth0 id_token](/tokens/id_token)
+::: next-steps
+* [Auth0 id_token](/tokens/id-token)
 * [Overview of JSON Web Tokens](/jwt)
 * [OpenID and amr](http://openid.net/specs/openid-connect-core-1_0.html)
 * [JSON Web Token Example](https://github.com/auth0/node-jsonwebtoken)
+:::

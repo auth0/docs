@@ -1,1 +1,3 @@
+## Add API Authorization
+
 To restrict access to the resources served by your API, a check needs to be made to determine whether the incoming request contains valid authorization information. There are various methods for including authorization information in a request, but for integration with Auth0, your API needs to check for a valid [JSON Web Token (JWT)](https://jwt.io). When users log into your application, they will receive an `id_token` and an `access_token` which are both JWTs. The specific JWT that needs to be sent to your API is the `access_token`.

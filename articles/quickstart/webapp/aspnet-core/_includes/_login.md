@@ -90,7 +90,34 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large `id_token` being returned. It is suggested that you be more explicit about the scopes you want to be returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/05-user-profile). 
+Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large `id_token` being returned. It is suggested that you be more explicit about the scopes you want to be returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/04-user-profile). 
+
+### Obtaining an Access Token for calling an API
+
+You may want to call an API from your MVC application, in which case you need to obtain an `access_token` which was issued for the particular API you want to call. In this case you will need to pass an extra `audience` parameter containing the API Identifier to the Auth0 authorization endpoint. 
+
+If you want to do this, simply handle the `OnRedirectToIdentityProvider` event when configuring the `OpenIdConnectOptions` object, and add the `audience` parameter to the `ProtocolMessage`
+
+```csharp
+var options = new OpenIdConnectOptions("Auth0")
+{
+    // Other configuration and standard parameters
+    // ...
+    Events = new OpenIdConnectEvents
+    {
+        OnRedirectToIdentityProvider = context =>
+        {
+            context.ProtocolMessage.SetParameter("audience", "${apiIdentifier}");
+
+            return Task.FromResult(0);
+        }
+    }
+};
+```
+
+For more information on storing and saving the `access_token` to use later when calling the API, see the [Storing Tokens step](/quickstart/webapp/aspnet-core/03-storing-tokens).
+
+For general information on using APIs with web applications, please read [Calling APIs from Server-side Web Apps](/api-auth/grant/authorization-code).
 
 ## Add Login and Logout Methods
 

@@ -4,13 +4,17 @@ description: This tutorial demonstrates how to add authentication and authorizat
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
+  org: 'auth0-community',
   repo: 'auth0-ruby-api-samples',
-  path: '01-Authenticate-RS256',
+  path: '01-Authorization-RS256',
   requirements: [
     'Ruby 2.3.0'
   ]
 }) %>
+
+<%= include('../../../_includes/_api_auth_intro') %>
+
+<%= include('../_includes/_api_create_new') %>
 
 <%= include('../_includes/_api_auth_preamble') %>
 
@@ -68,7 +72,7 @@ class JsonWebToken
 end
 ```
 
-## Define an `authentincate!` method
+## Define an `authenticate!` method
 
 Create an `authenticate!` method to run before each endpoint which looks for the `access_token` in the `Authorization` header of an incoming request. If the token is present, it should be passed to `JsonWebToken.verify`.
 
@@ -136,3 +140,5 @@ end
 ```
 
 With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+
+<%= include('../_includes/_call_api') %>

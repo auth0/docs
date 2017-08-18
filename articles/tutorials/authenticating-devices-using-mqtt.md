@@ -1,7 +1,7 @@
 ---
 description: How to authenticate and authorize devices using MQTT with Auth0.
+toc: true
 ---
-
 # Authenticating & Authorizing Devices using MQTT with Auth0
 
 [MQTT](http://en.wikipedia.org/wiki/MQ_Telemetry_Transport) is a lightweight protocol often used for devices to communicate with other systems. It is designed for the __publish/subscribe__ messaging pattern.
@@ -18,7 +18,9 @@ The MQTT protocol supports a basic authentication mechanism based on `usernames`
 
 This article shows an integration between nodejs based MQTT broker: [mosca](https://github.com/mcollina/mosca) and [Auth0](http://auth0.com). In this example, Auth0 is used to __authenticate__ `publishers` and `subscribers` to the broker, and then __authorize__ routing of messages.
 
-> mosca is a nodejs based messaging broker that implements other protocols besides MQTT. It offers great extensibility features. It is surprisingly simple to integrate with Auth0.
+::: note
+mosca is a nodejs based messaging broker that implements other protocols besides MQTT. It offers great extensibility features. It is surprisingly simple to integrate with Auth0.
+:::
 
 ![](/media/articles/scenarios/mqtt/mqtt-dataflow.png)
 
@@ -29,7 +31,7 @@ This article shows an integration between nodejs based MQTT broker: [mosca](http
 __mosca__ is straightforward to host and can be embedded in other servers. For the purpose of this sample, we simply self-host a __mosca__ server:
 
 
-```
+```js
 var mosca = require('mosca')
 var Auth0Mosca = require('auth0mosca');
 
@@ -68,7 +70,7 @@ In this sample, we are using a very simple module `auth0mosca` to perform these 
 
 This little [module](https://www.npmjs.org/package/auth0mosca) provides the 4 functions used by __mosca__, `authenticateWithCredentials`, `authenticateWithJWT`, `authorizePublish` and `authorizeSubscribe`:
 
-```
+```js
 var request = require('request');
 var jwt = require('jsonwebtoken');
 
@@ -154,7 +156,7 @@ module.exports = Auth0Mosca;
 
 ```
 
-`authenticateWithCredentials` uses the [OAuth2 Resource Owner Password Credential Grant](/protocols#oauth-resource-owner-password-credentials-grant) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it validates and parses the Json Web Token to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. That's done in the `jwt.verify` call.
+`authenticateWithCredentials` uses the [OAuth2 Resource Owner Password Credential Grant](/protocols#oauth-resource-owner-password-credentials-grant) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__ message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it validates and parses the Json Web Token to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. That's done in the `jwt.verify` call.
 
 By convention, all devices connected to the broker have an account in Auth0:
 
@@ -167,9 +169,9 @@ The `authorizePublish` and `authorizeSubscribe` functions simply check that a pa
 The `authenticateWithJWT` expects a JWT in the `password` field. The flow in this case is slightly different:
 
 1. The publisher & subscriber will obtain a token
-2. They connect to `mosca` submitting the JWT
-3. `mosca` validates the JWT
-4. Messages are sent and re-transmitted to subscribers
+1. They connect to `mosca` submitting the JWT
+1. `mosca` validates the JWT
+1. Messages are sent and re-transmitted to subscribers
 
 ![](/media/articles/scenarios/mqtt/mqtt-dataflow2.png)
 
@@ -179,7 +181,7 @@ Publishers and subscribers will obtain the JWT through some means. Notice that t
 
 For this sample, the publisher is a simple nodejs program that uses the `mqtt` module, and adds the right credentials:
 
-```
+```js
 var mqtt = require('mqtt')
   , host = 'localhost'
   , port = '9999';
@@ -213,7 +215,7 @@ Of course `username` & `password` here will have to match whatever is stored in 
 ### The subscriber
 The subscriber is very similar to the publisher:
 
-```
+```js
 var mqtt = require('mqtt')
   , host = 'localhost'
   , port = '9999';
@@ -243,9 +245,13 @@ client.on('message', function(topic, message) {
 ```
 
 ## Summary
+
 This shows how easy it is to use Auth0 in various scenarios. Auth0's user store is being used to manage devices. Of course much more sophisticated authorization rules could be written based on other conditions: time, location, device_id, etc. All these would be very simple to implement, either through additional profile attributes or through [Auth0 Rules](/rules). This also shows how the flexible Auth0 Profile can be extended to support arbitrary artifacts (e.g. `topics` in the example).
 
-> Caveats: it is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revealed. __mosca__ supports TLS as an example. Likely a production deployment would favor this, unless all traffic happens in a closed network.
+::: note
+Ιt is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revealed. __mosca__ supports TLS as an example. Likely a production deployment would favor this, unless all traffic happens in a closed network.
+:::
 
 ### Acknowledgements
+
 Many thanks to [Matteo Collina](http://www.matteocollina.com/) for the review of this article, and for building the awesome __mosca__.

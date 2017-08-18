@@ -4,27 +4,58 @@ description: Auth0 is an identity hub that supports the many authentication prov
 ---
 
 <style>
+.connections-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.connections-container:after {
+  content: '';
+  flex: auto;
+}
 .connection {
-  padding: 15px;
-  /*border: 1px solid $gray-lighter;*/
+  padding: 24px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  flex-basis: 23%;
+  margin-bottom: 16px;
+  margin-right: 2.6666666%;
+  overflow: hidden;
+  transition: transform 0.2s, border 0.2s;
+}
+.connection:nth-child(4n) {
+  margin-right: 0;
+}
+@media (max-width: 768px) {
+  .connection {
+    flex-basis: 48%;
+    margin-right: 4%;
+  }
+  .connection:nth-child(2n){
+    margin-right: 0;
+  }
+}
+.connection.connection-public:hover {
+  border: 1px solid rgb(10, 132, 174);
+  transform: scale(1.02);
 }
 .connection-content {
   text-align: center;
-  min-height: 150px;
 }
-.connection-content:before {
-  content: ' ';
-  display: inline-block;
-  vertical-align: middle;
-  height: 90px;
+
+.connection-title {
+  font-size: 18px;
+  margin-top: 16px;
+  margin-bottom: 0;
+  line-height: 1.2em;
 }
+
 .connection-image-wrap {
   display: inline-block;
   vertical-align: middle;
 }
 .connection-image-wrap img {
-  max-height: 80px;
-  max-width: 120px;
+  max-height: 60px;
+  max-width: 60px;
 }
 </style>
 
@@ -78,7 +109,6 @@ Full documentation on Passwordless authentication can be found at the links belo
   <% } %>
 <% }); %>
 </ul>
-
 
 ## Additional Information
 

@@ -40,13 +40,22 @@ A Rule is a function with the following arguments:
 
 * `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
 
+    ::: note
+    Rules execute after the actual login, so for the `user` object, properties such as the `last_ip` and `last_login` would be the values associated with the login that triggered the rules.
+    :::
+
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
 * `callback`: a function to send back potentially modified tokens back to Auth0, or an error. Because of the async nature of Node.js, it is important to always call the `callback` function, or else the script will timeout.
 
+
 ## Examples
 
 To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
+
+::: note
+You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
+:::
 
 ### Hello World
 
@@ -319,6 +328,12 @@ For security reasons, the Rules code runs in a JavaScript sandbox based on [webt
 
 For a list of currently supported sandbox modules, see: [Modules Supported by the Sandbox](https://tehsis.github.io/webtaskio-canirequire).
 
-## Further reading
+## Keep reading
 
-* [Redirecting users from within rules](/rules/current/redirect)
+::: next-steps
+* [Redirecting users from rules](/rules/current/redirect)
+* [User Metadata in rules](/rules/current/metadata-in-rules)
+* [Use the Management API in rules](/rules/current/management-api)
+* [Using C# in Rules](/rules/current/csharp)
+* [Properties of the Context Argument](/rules/current/context)
+:::

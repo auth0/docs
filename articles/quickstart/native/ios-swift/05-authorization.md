@@ -44,7 +44,7 @@ import Auth0
 
 Auth0
     .users(token: idToken)
-    .get(userId, fields: ["app_metadata"], include: true)
+    .get(profile.sub, fields: ["app_metadata"], include: true)
     .start { result in
         switch result {
         case .success(let user):

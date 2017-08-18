@@ -15,5 +15,4 @@ snippets:
   setup: server-apis/nodejs/setup
   use: server-apis/nodejs/use
 articles:
-  - 00-getting-started
   - 01-authorization

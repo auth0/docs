@@ -1,25 +1,18 @@
 ---
-url: /extensions
-title: Auth0 Extensions
+description: Extensions enable you to install applications or run commands/scripts that extend the functionality of Auth0.
 toc: true
-description: Auth0 Extensions enable you to install applications or run commands/scripts that extend the functionality of the Auth0 base product.
 ---
-
 # Auth0 Extensions
 
 Auth0 Extensions enable you to install applications (such as [Webtasks](https://webtask.io/)) or run commands/scripts that extend the functionality of the Auth0 base product.
 
 Each extension is separate from all other extensions. Auth0 defines extensions per tenant, so data is stored by the pair `tenant\extension`.
 
-When creating extensions, you have two options:
-- [building off of one of Auth0's provided extensions](#using-an-auth0-provided-extension) in the Management Portal;
-- [creating and installing your own](#creating-your-own-extension).
+## Using an Extension
 
-## Using an Auth0-Provided Extension
+Auth0 provides the following pre-defined extensions, and they are available for installation via the [Dashboard](${manage_url}). To use one or more of the following apps, you must provide the required configuration information and finish installing the extensions.
 
-Auth0 provides the following pre-defined extensions, and they are available for installation via the Management Portal. They have not, however, been fully installed. To use one or more of the following apps, you must provide the required configuration information and finish installing the extensions.
-
-![](/media/articles/extensions/auth0-provided-extensions.png)
+![Auth0 Extensions](/media/articles/extensions/auth0-provided-extensions.png)
 
 ## What types of actions can I do with extensions?
 
@@ -67,15 +60,3 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 
 ### Create a SSO dashboard with multiple enterprise applications 
 - [SSO Dashboard Extension](extensions/sso-dashboard)
-
-## Creating Your Own Extension
-
-If you would like to [create your own extension](/extensions/custom-extensions), Auth0 provides the following sample code to help you get started:
-
-- [Auth0 Extension Boilerplate](https://github.com/auth0/auth0-extension-boilerplate)
-- [Auth0 Extension with API Boilerplate](https://github.com/auth0/auth0-extension-boilerplate-with-api)
-- [Auth0 Extension with React Boilerplate](https://github.com/auth0/auth0-extension-boilerplate-with-react)
-
-Alternatively, you may follow the Development Instructions provided via the "New Extension" window that appears when you click on the "+ Extension" button. This allows you to create your own extension using the command line.
-
-For instructions on how to install your custom extension, please see [Installing a Custom Extension](/extensions/custom-extensions#installing-a-custom-extension).

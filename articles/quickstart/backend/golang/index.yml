@@ -13,5 +13,4 @@ snippets:
   setup: server-apis/golang/setup
   use: server-apis/golang/use
 articles:
-  - 00-getting-started
   - 01-authorization

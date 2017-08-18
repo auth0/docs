@@ -3,10 +3,9 @@ title: Password Options in Auth0 Database Connections
 description: Auth0's Password Options allow you to disallow users from repeating prior passwords, to customize a password dictionary of passwords to disallow, and to disallow passwords related to the user's personal data.
 crews: crew-2
 ---
-
 # Password Options in Auth0 Database Connections
 
-:::panel-warning Feature availability
+::: warning
 The **Password Options** feature is only available for Database connections. The password limitations in Social and Enterprise connections are enforced by each provider.
 :::
 
@@ -14,7 +13,7 @@ An important concern when using passwords for authentication is the creation of 
 
 One facet of strong passwords is their uniqueness and difficulty to guess. Auth0's password options for database connections are designed to allow you to force your users to make better decisions when choosing their passwords.
 
-![Password Options](/media/articles/connections/database/password-options.png)
+![Password Options](/media/articles/connections/database/pw-options.png)
 
 The Password Options area is located in your [Auth0 Dashboard](${manage_url}). Go to Connections -> Database, choose a database connection, and then open its settings, and click _Password Policy_. The Password Policy settings page contains the ability to configure the [Password Strength Policy](/connections/database/password-strength) as well as the Password Options below.
 

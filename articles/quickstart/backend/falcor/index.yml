@@ -13,5 +13,4 @@ snippets:
   setup: server-apis/falcor/setup
   use: server-apis/falcor/use
 articles:
-  - 00-getting-started
   - 01-authentication

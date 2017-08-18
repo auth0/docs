@@ -1,22 +1,36 @@
 # POST /oauth/access_token
 
-### HTTP 400
-
-JSON | Description
----- | -------
-`{"error": "invalid_request", "error_description": "the connection was disabled"}` | The `connection` is not active or not enabled for your `client_id`.
-`{"error": "invalid_request", "error_description": "the connection was not found"}` | Invalid `connection` name.
-`{"error": "invalid_request", "error_description": "missing client_id parameter"}` | The `client_id` value is null.
-`{"error": "invalid_request", "error_description": "missing access_token parameter"}` | The `access_token` value is null.
-`{"error": "invalid_request", "error_description": "missing connection parameter"}` | The `connection` value is null.
-
-### HTTP 401
-
-JSON | Description
---- | ---
-`{"error": "invalid_request", "error_description": "invalid access_token: invalid_token"}` | The `access_token` is invalid or does not contain the `scope` you set.
-
-### HTTP 403
-JSON | Description
----- | -------
-`{"error": "unauthorized_client", "error_description": "invalid client"}` | The `client_id` is invalid.
+<table class="table">
+    <thead>
+      <tr>
+        <th width="20%">Status</th>
+        <th width="80%">Response</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-danger">400</span></td>
+        <td><code>{"error": "invalid_request", "error_description": "the connection was disabled"}</code></br>The connection is not active or not enabled for your <code>client_id</code></td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-danger">400</span></td>
+        <td><code>{"error": "invalid_request", "error_description": "the connection was not found"}</code></td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-danger">400</span></td>
+        <td><code>{"error": "invalid_request", "error_description": "missing client_id parameter"}</code></td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-danger">400</span></td>
+        <td><code>{"error": "invalid_request", "error_description": "missing access_token parameter"}</code></td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-danger">401</span></td>
+        <td><code>{"error": "invalid_request", "error_description": "invalid access_token: invalid_token"}</code></br>The <code>access_token</code> is invalid or does not contain the <code>scope</code> you set</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-danger">403</span></td>
+        <td><code>{"error": "unauthorized_client", "error_description": "invalid client"}</code></td>
+      </tr>
+    </tbody>
+  </table>

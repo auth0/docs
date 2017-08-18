@@ -2,13 +2,12 @@
 description: "Auth0 allows you to store data related to each user that has not come from the identity provider as either of two kinds of metadata: user_metadata and app_metadata."
 crews: crew-2
 ---
-
 # User Metadata
 
 Auth0 allows you to store **metadata**, or data related to each user that has not come from the identity provider. There are two kinds of metadata:
 
-* **user\_metadata**: stores user attributes (such as user preferences) that do not impact a user's core functionality;
-* **app\_metadata**: stores information (such as a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
+* **user_metadata**: stores user attributes (such as user preferences) that do not impact a user's core functionality;
+* **app_metadata**: stores information (such as a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
 
 ::: note
 An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
@@ -16,10 +15,7 @@ An authenticated user can modify data in their profile's `user_metadata`, but no
 
 ### How to Read, Create or Edit Metadata
 
-You can manage your metadata by either:
-
-* [Using Rules](/rules/metadata-in-rules)
-* [Auth0 APIs](/metadata/management-api)
+You can manage your metadata using [Rules](/rules/metadata-in-rules) or the [Auth0 APIs](/metadata/management-api).
 
 ## Metadata Usage
 
@@ -107,11 +103,11 @@ Currently, Auth0 limits the total size of your user metadata to 16 MB. However, 
 
 When setting this field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup) size is limited to no more than 10 fields and must be less than 500 characters.
 
-## Further Reading
+## Keep reading
 
+::: next-steps
 * [User Data Storage Guidance](/user-profile/user-data-storage)
-* [User Metadata in Rules](/rules/metadata-in-rules)
-* [Metadata with Auth0 APIs](/metadata/management-api)
 * [Change a User's Picture](/user-profile/user-picture#change-a-user-s-picture)
 * [Management API: Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id)
 * [Using Metadata with Auth0 Lock](/metadata/lock)
+:::

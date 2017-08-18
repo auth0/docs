@@ -1,4 +1,5 @@
 title: Ruby API
+community: true
 alias:
   - ruby
 languages:
@@ -12,5 +13,4 @@ snippets:
   setup: server-apis/ruby/setup
   use: server-apis/ruby/use
 articles:
-  - 00-getting-started
   - 01-authorization

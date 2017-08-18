@@ -12,8 +12,17 @@ tags:
   - quickstart
 snippets:
   dependencies: server-apis/aspnet-core-webapi/dependencies
-articles:
-  - 00-getting-started
-  - 01-authorization
-  - 02-using
-  - 03-troubleshooting
+current_version: v1
+versions:
+  v1:
+    title: v1.1
+    articles:
+      - 01-authorization
+      - 02-using
+      - 03-troubleshooting
+  v2:
+    title: v2.0
+    articles:
+      - 01-authorization
+      - 02-using
+      - 03-troubleshooting

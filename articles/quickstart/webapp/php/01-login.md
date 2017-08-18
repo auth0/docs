@@ -33,7 +33,7 @@ $auth0 = new Auth0([
   'client_id' => '${account.clientId}',
   'client_secret' => '${account.clientSecret}',
   'redirect_uri' => '${account.callback}',
-  'audience' => 'urn:test:api',
+  'audience' => 'https://${account.namespace}/userinfo',
   'persist_id_token' => true,
   'persist_access_token' => true,
   'persist_refresh_token' => true,
@@ -70,12 +70,36 @@ In this case, the redirectUrl should look something like:
 http://yourUrl/callback.php
 ```
 
-## Triggering Login Manually or Integrating Lock
+## Integrating Auth0.js
 
-<%= include('../../../_includes/_lock-sdk') %>
+```html
+<!-- index.php -->
+
+<a class="btn btn-primary btn-lg btn-login btn-block">SignIn</a>
+```
+
+```js
+// public/app.js
+
+$(document).ready(function() {
+  var webAuth = new auth0.WebAuth({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    redirectUri: '${account.callback}',
+    audience: `https://${account.namespace}/userinfo`,
+    responseType: 'code',
+    scope: 'openid profile'
+  });
+
+  $('.btn-login').click(function(e) {
+    e.preventDefault();
+    webAuth.authorize();
+  });
+});
+```
 
 ::: note
-The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+The `redirectUrl` specified in the `webAuth` constructor **must match** the one specified in the previous step
 :::
 
 ## Accessing User Information

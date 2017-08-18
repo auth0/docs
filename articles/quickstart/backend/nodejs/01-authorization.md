@@ -14,6 +14,10 @@ description: This tutorial demonstrates how to add authentication and authorizat
   ]
 }) %>
 
+<%= include('../../../_includes/_api_auth_intro') %>
+
+<%= include('../_includes/_api_create_new') %>
+
 <%= include('../_includes/_api_auth_preamble') %>
 
 This sample demonstrates how to check for a JWT in the `Authorization` header of an incoming HTTP request and verify that it is valid. The validity check is done in an Express middleware function which can be applied to any endpoints you wish to protect. If the token is valid, the resources which are served by the endpoint can be released, otherwise a `401 Authorization` error will be returned.
@@ -55,7 +59,7 @@ const checkJwt = jwt({
   }),
 
   // Validate the audience and the issuer.
-  audience: '{API_ID}',
+  audience: '${apiIdentifier}',
   issuer: `https://${account.namespace}/`,
   algorithms: ['RS256']
 });
@@ -88,3 +92,5 @@ app.get('/api/private', checkJwt, checkScopes, function(req, res) {
 ```
 
 With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+
+<%= include('../_includes/_call_api') %>

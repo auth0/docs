@@ -38,13 +38,31 @@ Please proceed by downgrading your subscription to free or by cancelling your su
 5. On the `Subscription` tab, scroll down to the box associated with the `Free plan` and click `Checkout`.
 6. To confirm your subscription change, click `Subscribe` Now.
 
-## I signed up for a paid plan but haven't used my account since then, can I get a refund?
+## Refunds
+
+### I signed up for a paid plan but haven't used my account since then, can I get a refund?
 
 We understand that sometimes developers create accounts for demo or testing purposes. So if you have a subscription plan, but you have not been using our service in a while and you would like to get a refund, you should [downgrade](/tutorials/cancel-paid-subscriptions#downgrade-a-paid-subscription-to-a-free-subscription) your account to use a Free Plan. Notice that we do not provide refunds for when a plan is downgraded to another paid one that has less features.
 
 If you have already downgraded, please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide information about why the account has not been used and for how long. Please note that this request must come from a Dashboard Administrator.
 
 We will evaluate the case and verify that the account has not been used in the aforementioned period in order to process the refund. Please note that if we consider the usage of the account not to be minimal, we reserve the right to not refund your card.
+
+### I purchased more tenant subscriptions than desired/needed, can I get a refund?
+
+If you bought unneeded subscriptions, you are eligible for a refund. 
+
+Please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide all the information possible. Please note that this request must come from a Dashboard Administrator.
+
+### I purchased a wrong plan in self service or trial and would like to downgrade, can I get a refund?
+
+You can get a refund only for an unused portion of subscription of 3 months or less, when there has been no logins. 
+
+Please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide all the information possible. Please note that this request must come from a Dashboard Administrator.
+
+### Any other scenario not mentioned above
+
+Please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide all the information possible. Please note that this request must come from a Dashboard Administrator.
 
 ## Where can I get a copy of an invoice?
 

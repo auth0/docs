@@ -12,7 +12,7 @@ A delegation token should be obtained and used when a client program needs to ca
 
 Given an existing token, this endpoint will generate a new token signed with the `target` client's secret. This is used to flow the identity of the user from the application to an API.
 
-The type of the delegation token will vary depending on the by provider. For example, if issued for Azure Blob Storage, it will be a SAS (Shared Access Signature). If it is for the Firebase add on, it will be a JWT.
+The type of the delegation token will vary depending on the by provider. For example, if issued for Azure Blob Storage, it will be a SAS (Shared Access Signature). If it is for the Firebase Addon, it will be a JWT.
 
 ## How to get a delegation token
 
@@ -29,3 +29,13 @@ For an example on how to get a new token for an addon that you have activated, u
 ## Validity Period and Termination
 
 The validity period and the ability to revoke a delegation token, varies by individual Addon. The documentation available from the provider of any Addon API should be consulted for further information.
+
+## Using Delegation Tokens with Public Clients
+
+There is an important caveat to note when using the delegation endpoint with [Public Clients](/clients/client-types#public-clients). 
+
+If you call the [Token endpoint](/api/authentication#get-token) from a Public Client, the `id_token` will be forcibly signed using `RS256`, even if the _JsonWebToken Signature Algorithm_ in the Client settings is configured as `HS256`.
+
+If you then subsequently call the delegation endpoint with that `id_token`, it will fail if the Client's _JsonWebToken Signature Algorithm_ was configured as `HS256`. This is because delegation performs validation according to the Client's settings, but the `id_token` was issued with a different algorithm because of the forced algorithm change.
+
+It is therefore important that if you intend to use delegation with a Public Client, that you configure the _JsonWebToken Signature Algorithm_ of your client as `RS256`.

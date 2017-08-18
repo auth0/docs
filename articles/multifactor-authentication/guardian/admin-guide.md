@@ -142,6 +142,7 @@ Here are all the possible events related to MFA:
 | `gd_sms_failure` | When a SMS failed to be sent. It usually means a configuration mistake for Twilio provider. You can check the provider error message and code as part of the details. |
 | `gd_start_auth` | Start second factor authentication  |
 | `gd_start_enroll` | Second factor auth enrollment is started |
+| `gd_enrollment_complete` | Second factor enrollment has been completed |
 | `gd_module_switch` | When changing feature config |
 | `gd_tenant_update` | When tenant info has been updated |
 | `gd_user_delete` | When calling (user delete => unenroll) |

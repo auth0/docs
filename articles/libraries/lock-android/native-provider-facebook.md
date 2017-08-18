@@ -5,6 +5,11 @@ description: Lock for Android - Google as a Provider
 
 # Native Provider - Facebook
 
+::: warning
+This feature relies on a deprecated grant type. Clients created after June 8th 2017 won't be able to use this feature. 
+We recommend using browser-based flows, as explained in [Authentication with Auth0 Hosted Login Page](/libraries/auth0-android#authentication-with-auth0-hosted-login-page).
+:::
+
 You can use Facebook AuthProvider to log in with or without **Lock**. Make sure to follow the instructions in the [setup](#setup) section.
 
 ## Latest version

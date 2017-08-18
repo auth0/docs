@@ -5,7 +5,7 @@ var auth = new auth0.WebAuth({domain: '${account.namespace}', clientID: '${accou
 
 function signin() {
      auth.authorize({
-         audience: API_AUDIENCE,
+         audience: '${apiIdentifier}',
          scope: 'openid profile',
          responseType: 'code',
          redirectUri: '${account.callback}'

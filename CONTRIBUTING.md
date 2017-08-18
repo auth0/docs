@@ -4,7 +4,7 @@
 
 The following is a set of guidelines for contributing to the Auth0 documentation. These are just guidelines, not rules, use your best judgment and feel free to propose changes to this document in a pull request.
 
-## Table Of Contents
+## Table of Contents
 
 * [General Guidelines](#general-guidelines)
 * [Reusing Content](#reusing-content)
@@ -13,14 +13,15 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [UI Components](#ui-components)
   * [HTTP Request Snippets](#http-request-snippets)
   * [Escaping Strings](#escaping-strings)
+  * [Image zooming](#image-zooming)
   * [Screenshots](#screenshots)
   * [Front Matter](#front-matter)
   * [Linting](#linting)
 * [Sidebar](#sidebar)
-* [Versioning](#versioning)
+* [Beta Content](#beta-content)
 * [Finishing](#finishing)
-* [Editing Text](#editing-with-wordy)
-* [Test Procedures](#text-procedures)
+* [Editing with Wordy](#editing-with-wordy)
+* [Test Procedures](#test-procedures)
 * [Review Apps](#review-apps)
 * [Quickstarts](#quickstarts)
   * [Creating Quickstarts](#creating-quickstarts)
@@ -29,10 +30,12 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Seed Projects](#seed-projects)
 * [Updates Feed](#updates-feed)
 * [API](#api)
+* [Code snippets](#code-snippets)
 * [Document Front-matter](#document-front-matter)
 * [Document Variables](#document-variables)
   * [Common Variables](#common-variables)
   * [User Specific Variables](#user-specific-variables)
+* [Versioning](#versioning)
 
 ## General Guidelines
 
@@ -148,6 +151,22 @@ It is important to understand that the Authorization Code flow should only be us
 
 ![Panel warning container](https://cloud.githubusercontent.com/assets/6318057/26082243/588586b0-39a5-11e7-88ef-3290be88e96a.png)
 
+##### Next steps list
+
+Use this container to mark a Next to read/Continue reading list of links.
+
+Try to keep the list length to a minimum (up to 5 links).
+
+```
+::: next-steps
+* [Access Token](/tokens/access-token)
+* [ID Token](/tokens/id-token)
+* [OpenID Connect Overview](/protocols/oidc)
+:::
+```
+
+![Next steps list](https://user-images.githubusercontent.com/6318057/27233085-b116f28a-528e-11e7-9ac3-4463a9c5db3d.png)
+
 ### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing the HTTP request in various languages.
 
@@ -184,7 +203,7 @@ You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spe
 * bodySize [number] - Size of the request body (POST data payload) in bytes. Set to -1 if the info is not available.
 * comment [string, optional] (new in 1.2) - A comment provided by the user or the application.
 
-#### Escaping Strings
+### Escaping Strings
 
 Occasionally you will need to use strings that contain the characters that are used for template replacement. The examples of this are `${example}`, `<% example %>` and `<%= example %>`. If you try to include these in your doc or a code snippet the document will fail to render because our template engine will try to replace your variable, i.e. `example`. However, you can include these by escaping them as shown below.
 
@@ -193,6 +212,18 @@ Change `${example}` to `<%= "${example}" %>`.
 Change `<%= example %>` to `${ "<%= example %>" }`.
 
 Change `<% example %>` to `${ "<% example %>" }`.
+
+### Image zooming
+
+You can enable zooming for large images using the `zoomable` container:
+
+```
+::: zoomable
+![Client Credentials Grant Flow](/media/articles/architecture-scenarios/server-api/client-credentials-grant.png)
+:::
+```
+
+It's recommended to add this only for large images (like diagrams) and use it for images with .svg format.
 
 ### Screenshots
 
@@ -234,12 +265,15 @@ For close-ups and other screenshots that do not include the browser window, appl
 
 You can set various properties of articles in the front matter of the document. Each document should have the `title` and `description` properties set. You can set other variables depending on the document.
 
+`toc` adds a table of content dropdown at the top of the document, that lists all the paragraphs of the doc. By default it's disabled. Set it to `true` to display the dropdown.
+
 Example front matter:
 
 ```yaml
 ---
 title: My Document
 description: This is a document
+toc: true
 ---
 ```
 
@@ -403,7 +437,6 @@ description: The article's description
 The `title` will generally be a single word like Introduction or Login as it will be contacted when displayed.
 
 After you publish the doc update, the new quickstart will automatically appear on both docs and manage.
-
 
 #### Hiding Articles in Navigation
 
@@ -647,6 +680,7 @@ The follow are the values for the package configuration.
 | `repo` | The name of the github repository. |
 | `path` | The path where the sample is contained. This will be the folder that gets downloaded. |
 | `requirements` | An array of strings representing the system requirements for the project and article. |
+| `branch` | The branch of the github repository. If omitted this will default to `master` |
 
 ## Updates Feed
 
@@ -820,7 +854,7 @@ The `versioning` object has the following properties:
 * `versions` -- An array of all versions of the topic. Each of these must have a corresponding subdirectory beneath the topic directory.
 * `defaultArticles` -- A map of default articles for each version. (Explained below)
 
-## User interface
+### User interface
 
 When a user views an article within a versioned topic, a select will be added after the main title:
 
@@ -841,9 +875,9 @@ This document covers an outdated version of Lock. We recommend you to <a href="/
 
 ![image](https://cloud.githubusercontent.com/assets/6318057/26082485/90f464fc-39a6-11e7-90ac-2a22773b02a5.png)
 
-## Limitations
+### Limitations
 
-### No sub-directories
+#### No sub-directories
 
 This versioning system has one major limitation: all articles for each version must exist in the same directory. For example, this is a valid hierarchy:
 
@@ -875,7 +909,7 @@ example/
 
 This limitation is a result of the implementation of `AutoVersionPlugin`, and how the paths are calculated for the different versions. Fixing this is possible, but makes things a little more tricky, so I decided to cut it from the first version of the feature. If it's a desired behavior we can always add it later.
 
-### Case Sensitive
+#### Case Sensitive
 
 The folder name must match exactly the names listed in the yaml file. This is case sensitive.
 

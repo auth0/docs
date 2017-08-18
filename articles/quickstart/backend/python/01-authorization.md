@@ -14,6 +14,10 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
   ]
 }) %>
 
+<%= include('../../../_includes/_api_auth_intro') %>
+
+<%= include('../_includes/_api_create_new') %>
+
 <%= include('../_includes/_api_auth_preamble') %>
 
 ## Install the Dependencies
@@ -42,8 +46,9 @@ from flask import Flask, request, jsonify, _app_ctx_stack
 from flask_cors import cross_origin
 from jose import jwt
 
-auth0_domain = '${account.namespace}'
-api_audience = YOUR_API_AUDIENCE
+AUTH0_DOMAIN = '${account.namespace}'
+API_AUDIENCE = YOUR_API_AUDIENCE
+ALGORITHMS = ["RS256"]
 
 app = Flask(__name__)
 
@@ -106,7 +111,7 @@ def requires_auth(f):
                 payload = jwt.decode(
                     token,
                     rsa_key,
-                    algorithms=unverified_header["alg"],
+                    algorithms=ALGORITHMS,
                     audience=API_AUDIENCE,
                     issuer="https://"+AUTH0_DOMAIN+"/"
                 )
@@ -170,16 +175,4 @@ def secured_private_ping():
     return "You don't have access to this resource"
 ```
 
-## Make a Call to your API
-
-You can now make requests to your secure API by providing the `access_token` as an `Authorization` header in your requests.
-
-```har
-{
-  "method": "GET",
-  "url": "http://localhost:8000/path_to_your_api",
-  "headers": [
-    { "name": "Authorization", "value": "Bearer YOUR_ACCESS_TOKEN_HERE" }
-  ]
-}
-```
+<%= include('../_includes/_call_api') %>

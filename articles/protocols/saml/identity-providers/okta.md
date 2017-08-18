@@ -49,7 +49,7 @@ You will also need to add the following *Attribute Statement*:
 
 * **Name**: email
 * **Name format** (optional): Unspecified
-* **Value**: <%= "${user.email}" %>"
+* **Value**: <%= "${user.email}" %>
 
 At this point, you can click **Preview the SAML Assertion** to generate XML you can use to verify that your provided settings are correct.
 

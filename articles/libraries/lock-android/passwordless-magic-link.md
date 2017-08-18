@@ -14,7 +14,7 @@ These links include the same code that would be used in the traditional password
 
 Go to your [client settings](${manage_url}/#/clients/${account.clientId}/settings) and click "Show Advanced Settings" at the bottom of the page. Then in the "Mobile Settings" tab you will need to provide both the Application's **Package Name** and certificate **Key Hash**.
 
-- **App Package Name**: This is the package name, as declared in the app's manifest. An example would be `com.example.android.myapp`
+- **App Package Name**: This is the package name, as declared in the app's manifest. It's also available in the `app/build.gradle` file as the `applicationId` attribute. An example would be `com.example.android.myapp`
 - **Key Hashes**: This is an array of the SHA256 fingerprints of our android app’s signing certificates. This is an arbitrary length array, it can include all the fingerprints we want, so for example we could add both our release and debug fingerprints. An example would be `DE:1A:5B:75:27:AA:48:D5:A6:72:2F:76:43:95:9B:79:C6:86:1A:5B:75:27:AA:48:D5:A6:73:FE`.
 
 After you set the values make sure to click the "Save Changes" button. Next we'll have to configure either the SMS or Email connection.
@@ -87,7 +87,7 @@ In the `AndroidManifest.xml` file add the intent-filters inside the `Passwordles
         <category android:name="android.intent.category.BROWSABLE"/>
         <data
           android:host="${account.namespace}"
-          android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/email"
+          android:pathPrefix="/android/<%= "${applicationId}" %>/email"
           android:scheme="https" />
     </intent-filter>
     <!-- End Email Intent-Filter-->
@@ -98,14 +98,14 @@ In the `AndroidManifest.xml` file add the intent-filters inside the `Passwordles
         <category android:name="android.intent.category.BROWSABLE"/>
         <data
           android:host="${account.namespace}"
-          android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/email"
+          android:pathPrefix="/android/<%= "${applicationId}" %>/sms"
           android:scheme="https" />
     </intent-filter>
     <!-- End SMS Intent-Filter-->
 </activity>
 ```
 
-Remember to replace `YOUR_APP_PACKAGE_NAME` with your actual application's package name. Also make sure the Activity's `launchMode` is declared as `singleTask` or the result won't come back after the authentication.
+Make sure the Activity's `launchMode` is declared as `singleTask` or the result won't come back after the authentication.
 
 ## Usage
 
@@ -182,7 +182,7 @@ Auth0 will generate the [Digital Asset Links](https://developers.google.com/digi
     <category android:name="android.intent.category.BROWSABLE"/>
     <data
       android:host="${account.namespace}"
-      android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/sms"
+      android:pathPrefix="/android/<%= "${applicationId}" %>/sms"
       android:scheme="https" />
 </intent-filter>
 ```

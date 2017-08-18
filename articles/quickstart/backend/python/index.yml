@@ -12,5 +12,4 @@ snippets:
   setup: server-apis/python/setup
   use: server-apis/python/use
 articles:
-  - 00-getting-started
   - 01-authorization

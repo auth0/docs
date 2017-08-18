@@ -1,13 +1,13 @@
 ---
 section: appliance
-description: Overview of the Appliance Dashboard OSS Components page
+description: Overview of the PSaaS Appliance Dashboard OSS Components page
 
 ---
 
 # OSS Components
 
 ::: note
-  For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+  For additional information on navigating to and using the PSaaS Appliance Dashboard, please see the section on [PSaaS Appliance Controls](/appliance/dashboard#appliance-controls).
 :::
 
 Auth0 makes use of best-in-class open source software (OSS) components to deliver the Auth0 cloud service. On this page, you will find a comprehensive list of the OSS components that are utilized to deliver Auth0, along with the text of their licenses.

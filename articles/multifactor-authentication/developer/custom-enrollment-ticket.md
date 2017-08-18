@@ -7,7 +7,7 @@ In addition to [directly sending emails to enroll users](/multifactor-authentica
 
 This API will return an _enrollment ticket_ containing a `ticket_id` and a `ticket_url`, which can be used to enroll a user.
 
-The `ticket_url` can be delivered to the user -- for instance, via email -- and used to kick off the enrollment process.
+The `ticket_url` can be delivered to the user (for instance, via email) and used to kick off the enrollment process.
 
 Alternatively, the ticket can be leveraged inside the Guardian [Hosted Page](${manage_url}/#/guardian_mfa_page) to customize the Guardian widget's appearance:
 
@@ -117,6 +117,8 @@ For example, the following code could be used to used to alter the message:
 
 Note that this conditional logic around the existence of the `ticket` variable is also used in the initialization of the `Auth0MFAWidget` above.
 
-## Further reading
+## Keep reading
 
+::: next-steps
 * [Sending Guardian Enrollment Emails](/multifactor-authentication/administrator/guardian-enrollment-email)
+:::

@@ -1,6 +1,7 @@
 ---
 title: Using Passwordless Authentication on a Regular Web Application
 ---
+# Using Passwordless Authentication on a Regular Web App
 
 <%= include('./_introduction', { withFingerprint: false }) %>
 

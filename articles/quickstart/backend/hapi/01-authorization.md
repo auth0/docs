@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to add authorization to a Hapi.js AP
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
+  org: 'auth0-community',
   repo: 'auth0-hapi-api-samples',
   path: '01-Authenticate-RS256',
   requirements: [
@@ -12,6 +12,10 @@ description: This tutorial demonstrates how to add authorization to a Hapi.js AP
     'hapi-auth-jwt2 7.2.4'
   ]
 }) %>
+
+<%= include('../../../_includes/_api_auth_intro') %>
+
+<%= include('../_includes/_api_create_new') %>
 
 <%= include('../_includes/_api_auth_preamble') %>
 
@@ -55,7 +59,7 @@ server.register(jwt, err => {
       jwksUri: `https://${account.namespace}/.well-known/jwks.json`
     }),
     verifyOptions: {
-      audience: '{API_ID}',
+      audience: '${apiIdentifier}',
       issuer: `https://${account.namespace}/`,
       algorithms: ['RS256']
     },
@@ -65,7 +69,11 @@ server.register(jwt, err => {
 });
 ```
 
-The **hapi-auth-jwt2** plugin does the work of actually verifying that the JWT is valid. However, the `validateFunc` key requires some function that can do further checking. This might simply be a check to ensure the JWT has a `sub` claim, but your needs may vary in your own application.
+The **hapi-auth-jwt2** plugin does the work of actually verifying that the JWT is valid. However, the `validateFunc` key requires a function which is the final stop for accepting or rejecting authorization for a given request. This function must return a callback with either `true` or `false` to indicate the the request can proceed. The function can also operate on the decoded payload of the JWT and supply a modified `req.auth.credentials` object based on custom logic.
+
+When you request multiple `scope`s in an Auth0 authentication transaction, they come back as a space-delimited string in the `access_token` payload. However, the **hapi-auth-jwt2** plugin expects an array when multiple `scope`s are used. This conversion can be handled in the `validateFunc` function.
+
+Add a function called `validateUser` and modify the `req.auth.credentials` object such that the `scope` key is parsed into an array instead of a space-delimited string.
 
 ```js
 // server.js
@@ -75,12 +83,16 @@ const validateUser = (decoded, request, callback) => {
   // exists in the access token. Modify it to suit
   // the needs of your application
   if (decoded && decoded.sub) {
-    return callback(null, true);
+    return callback(null, true, {
+      scope: decoded.scope.split(' ')
+    });
   }
 
   return callback(null, false);
 }
 ```
+
+When a valid JWT access token is received at an endpoint, the `scope`s from the payload will be available as an array on `req.auth.credentials`.
 
 ## Protect Individual Endpoints
 
@@ -110,3 +122,5 @@ server.route({
 ```
 
 With this configuration in place, only valid `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+
+<%= include('../_includes/_call_api') %>

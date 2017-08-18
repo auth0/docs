@@ -1,13 +1,13 @@
 ---
-title: Auth0 Appliance Infrastructure Requirements
+title: PSaaS Appliance Infrastructure Requirements
 url: /appliance/infrastructure
 section: appliance
-description: This document contains information about the Appliance and its infrastructure requirements.
+description: This document contains information about the PSaaS Appliance and its infrastructure requirements.
 ---
 
-# Auth0 Appliance Infrastructure Requirements
+# Private SaaS (PSaaS) Appliance Infrastructure Requirements
 
-This document contains the following information about the Appliance and its infrastructure requirements:
+This document contains the following information about the PSaaS Appliance and its infrastructure requirements:
 
 * [installation process](/appliance/infrastructure/installation);
 * [infrastructure overview](/appliance/infrastructure/infrastructure-overview);
@@ -18,4 +18,4 @@ This document contains the following information about the Appliance and its inf
     * [Security and Access](/appliance/infrastructure/security).
 * [Webtasks and Web Extensions](/appliance/infrastructure/extensions)
 
-Please consult the [FAQ](/appliance/infrastructure/faq) for further information about the Appliance.
+Please consult the [FAQ](/appliance/infrastructure/faq) for further information about the PSaaS Appliance.

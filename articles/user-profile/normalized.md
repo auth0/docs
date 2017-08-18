@@ -19,7 +19,7 @@ Fields that are always generated:
 * **`picture`**: the URL of the [user's picture](/user-profile/user-picture). If unavailable, Auth0 uses the Gravatar image associated with the user's email address.
 * **`user_id`**: the user's unique identifier. This is unique per Connection, but the same for all apps that authenticate via that Connection.
 
-A user's `name`, `nickname`, and `picture` attributes are not directly editable, however you can update the fields in the `user_metadata` to update them for your front-end as desired. [Click here for more details for changing a user's picture](/user-profile/user-picture#change-a-user-s-picture); the `name`, 'nickname' fields can be updated in the same way.
+A user's `name`, `nickname`, and `picture` attributes are not directly editable, however you can update the fields in the `user_metadata` to update them for your front-end as desired. [Click here for more details for changing a user's picture](/user-profile/user-picture#change-a-user-s-picture); the `name`, `nickname` fields can be updated in the same way.
 
 Fields that are generated when the details are available:
 
@@ -191,11 +191,11 @@ This is a sample profile from **ADFS (Active Directory Federation Services)**:
 
 You can retrieve the user profile using [Lock](/libraries/lock/v10/api#getuserinfo-), [Auth0.js](/libraries/auth0js#user-management), or our [Authentication API /userinfo endpoint](/api/authentication#get-user-info).
 
-We also have a _User Profile_ section on most of our [quickstarts](/quickstarts). Some of the most popular technologies we offer quickstarts and samples for are:
-- [Android](/quickstart/native/android/04-user-profile)
-- [Angular 1.x](/quickstart/spa/angularjs/04-user-profile) and [Angular 2](/quickstart/spa/angular2/04-user-profile)
-- [React](/quickstart/spa/react/04-user-profile)
-- [Node.js](/quickstart/webapp/nodejs/04-user-profile)
-- [ASP .NET Core](/quickstart/webapp/aspnet-core/05-user-profile)
-- [jQuery](/quickstart/spa/jquery/04-user-profile)
+We also have a __User Profile__ section on most of our [quickstarts](/quickstarts). Some of the most popular technologies we offer quickstarts and samples for are:
+- [Android](/quickstart/native/android)
+- [Angular 1.x](/quickstart/spa/angularjs) and [Angular 2](/quickstart/spa/angular2)
+- [React](/quickstart/spa/react)
+- [Node.js](/quickstart/webapp/nodejs)
+- [ASP .NET Core](/quickstart/webapp/aspnet-core)
+- [jQuery](/quickstart/spa/jquery)
 - and [many more](/quickstarts)

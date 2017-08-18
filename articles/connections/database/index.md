@@ -48,7 +48,7 @@ Some specifics to keep in mind:
 * Database scripts run in the same [Webtask](https://webtask.io) container, which is shared with all other extensibility points (i.e. rules, webtasks or other databases) belonging to the same Auth0 domain. Therefore, you must carefully code for error handling and throttling.
 
 ::: note
-See the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure a custom user store.
+See the custom database connection tutorial at [Authenticate Users using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure a custom user store.
 :::
 
 ### Migrating to Auth0 from a custom user store

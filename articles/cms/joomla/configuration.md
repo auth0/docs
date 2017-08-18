@@ -1,59 +1,70 @@
 ---
-description: How to configure a Joomla application with Auth0.
+description: How to configure your Joomla instance for use with Auth0.
 ---
 
-# Joomla Configuration
+# Joomla Integration
 
-## Component configuration
+Before you can use Auth0 to handle authentication and authorization requests for your Joomla users, you'll need to do some configuration from both sides of the integration.
 
-### Set up your *Auth0 Domain*, *Client Id* and *Client Secret*
+## Configure Client Values
 
-Copy the *Auth0 Domain*, *Client Id* and *Client Secret* settings from your app's *Application Settings* page on Auth0 to the *Auth0 Setup* page of your Joomla installation.
+To use Auth0 with Joomla, be sure you have a valid [Client](/clients). You'll need to provide information about your client to the Auth0-Joomla extension you [installed](/cms/joomla/installation).
 
-#### Existing App
-1. From the Joomla administrator interface, select *Auth0 > Auth0* from the **Components** dropdown menu.
-2. Click on the *Options* button on the upper right of the *Auth0 Setup* page.
-So, go to your account and under the [Apps section](${manage_url}/#/applications) and access to the setting of the app you want to use (or create a new one). If you don't have an account, create one [here](https://auth0.com) and the create a new app.
-4. From the *Application Settings* page on Auth0, copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the *Auth0 Setup* page of the Joomla interface.
-5. Click on *Save & Close*.
-6. Select the *Test* menu option to check that the Auth0 app data is complete.
+1. Log in to the Joomla Control Panel using an admin account. Using the top navigation bar, go to **Components > Auth0 > Auth0**. Click **Options** (located in the top right of the window). 
 
-#### New App
-1. From the Joomla administrator interface, select *Auth0 > Auth0* from the **Components** drop-down menu.
-2. On the *Auth0 Setup* page, click *Create a free Auth0* or *Create an  Auth0 App*.
-3. In the new browser window, login to Auth0. (If you don't already have an Auth0 account, you can [create one](https://auth0.com).)
-4. Select the **Apps / APIs** menu item then click on *+ New App / API*.
-5. On the *Apps / APIs* page, name the new app and click *Save*.
-6. On the new app's *Quick Settings* page, click *Settings*.
-7. From the *Application Settings* page on Auth0, copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the *Auth0 Setup* page of the Joomla interface.
-8. Click on *Save & Close*.
-9. Select the *Test* menu option to check that the Auth0 app data is complete.
+    ![](/media/articles/cms/joomla/configuration/joomla-1.png)
 
-## Module configuration
+2. Provide the requested values for your Auth0 client. You can find the **Domain**, **Client ID**, and **Client Secret** values using the the [Client Settings page](${manage_url}/#/clients/${account.clientId}/settings). Click **Save & Close** to proceed.
 
-1. From the Joomla administrator interface, select *Module Manager* from the **Extensions** drop-down menu.
-2. To publish the Auth0 module, click on the small red icon to the left of the module name.
-3. Click on the module name to access the settings page.
-4. Select from the *Position* drop-down menu a location where the module will be displayed.
-5. Under the *Menu Assignment* tab, select *On all pages* from the drop-down.
-6. Click on *Save & Close*.
-7. The Auth0 *Login* button will now appear on your Joomla homepage.
+    ![](/media/articles/cms/joomla/configuration/joomla-2.png)
 
-## Settings
+3. On the left-hand side, select **Test** (if you're not automatically redirected to the page). Make sure that the **Auth0 App Data** setting indicates **Complete**.
 
-### Module
+    ![](/media/articles/cms/joomla/configuration/joomla-3.png)
 
-- **Show login form**: Toggles Lock visibility. Deselect to disable login through the Auth0 extension.
-- **Show as modal**: If enabled, displays a *Login* button that triggers Lock to appear as a modal form. If disabled, Lock is embedded in your page.
-- **Form Title:** Sets the Lock title.
-- **Show big social buttons:** Toggles the social buttons size between big and small
-- **Icon URL:** Sets the Lock icon.
-- **Enable Gravatar integration:** When user enters their email, their associated gravatar picture is displayed in the Lock header.
-- **Customize the Login Widget CSS:** A valid CSS applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget)
+## Configure the Joomla Module
 
-### Advanced Settings
+1. Log in to the Joomla Control Panel using an admin account. Using the top navigation bar, go to **Extensions > Modules**.
 
-- **Translation:** A valid JSON object representing the Lock's dict parameter. If set, will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
-- **Username style:** Set this to *username* if you don't wish to force a username to be a valid email.
-- **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
-- **Widget URL:** The URL of to the latest available widget in the CDN.
+    ![](/media/articles/cms/joomla/configuration/joomla-4.png)
+
+2. Publish the module but clicking on the small, red icon located immediately to the left of the module name.
+
+    ![](/media/articles/cms/joomla/configuration/joomla-5.png)
+
+3. Click on the name of the module `Auth0` to launch the settings page. On the right-hand side, use the **Position** drop-down menu to indicate [where the Auth0 Login button will be located](https://docs.joomla.org/Module_Position) on your site.
+
+    ![](/media/articles/cms/joomla/configuration/joomla-6.png)
+
+4. Switch over the the **Menu Assignment** tab, and using the **Module Assignment** drop-down menu, select **On all pages**.
+
+![](/media/articles/cms/joomla/configuration/joomla-7.png)
+
+5. Click **Save & Close**. The Auth0 Login button will now appear in the location you selected on your Joomla pages. Whenever a user clicks **Login**, they will see the [Auth0 Lock widget](/libraries/lock).
+
+![](/media/articles/cms/joomla/configuration/joomla-8.png)
+
+## Module Settings
+
+You can configure your Auth0-Joomla Extension by adjusting the **Module** and **Advanced** Settings.
+
+### Settings Located Under the Module Tab
+
+| Parameter | Description |
+| - | - |
+| Show login form | Toggles Lock visibility. Deselect to disable login through the Auth0 extension |
+| Show as modal | If enabled, displays a *Login* button that triggers Lock to appear as a modal form; if disabled, Lock is embedded in your page. |
+| Form title | Title displayed in Lock |
+| Show big social buttons | Sets the size of the Social buttons in Lock |
+| Icon URL | Sets the Lock icon |
+| Enable Gravatar integration | Displays the user's gravatar picture when they enter their email address |
+| Customize the Login Widget CSS | CSS snippet that will [apply custom styles to the login widget](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget) |
+
+### Settings Located Under the Advanced Settings Tab
+
+| Parameter | Description |
+| - | - |
+| Translation | A valid JSON object representing the [Lock's `dict` parameter](/libraries/lock/customization#dict-string-object-). If set, this overrides the Title setting |
+| Username style | Toggles whether the username should be a value selected by the user or their email address |
+| Remember last login | Requests SS0 data and [enables SSO](/libraries/lock/customization#rememberlastlogin-boolean-) |
+| Widget URL | The URL of the [latest Lock version](https://github.com/auth0/lock#install) |

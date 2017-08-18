@@ -90,7 +90,7 @@ For details on how to set up a Client Credentials Grant in Auth0 refer to [Setti
 
 You can add custom claims to your access token (or [ID Token](/tokens/id-token)) using [Rules](/rules).
 
-The claim name must conform to a namespaced format, which basically means addind any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io` and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
+The claim name must conform to a namespaced format, which basically means adding any non-Auth0 HTTP or HTTPS URL as a prefix. The Auth0 namespaces you cannot use are `auth0.com`, `webtask.io` and `webtask.run`. The format you should follow is this:  `http://my-namespace/claim-name`.
 
 For more information on the namespaced format of custom claims, refer to [User profile claims and scope](/api-auth/tutorials/adoption/scope-custom-claims).
 
@@ -125,14 +125,18 @@ The token in this example decodes to the following claims:
 }
 ```
 
-Before permitting access to the API using this token, the API must do the following:
+Before permitting access to the API using this token, the API must verify the token using the following steps:
 
-1. Ensure that the token is intended to be used at the API by checking that the value of `aud` is identical to the API's identifier.
-1. Ensure that the token has not expired by comparing the value of `exp` to the current time.
-1. Ensure that the token was issued by a trusted authorization server. In this case, Auth0 is the trusted authorization server and a secret, `keyboardcat`, is known only to Auth0 and the API. The signature of the token is validated using this secret.
-1. Ensure that the token has the correct scopes to perform the requested operation.
+1. Check that the JWT is well formed.
+1. Check the signature.
+1. Validate the standard claims (specifically the `exp`, `iss` and `aud` claims)
+1. Check the Client permissions (scopes)
 
-If any of these check fail, the token is invalid and the request should be rejected.
+::: note
+For a more detailed discussion on verifying access tokens, please refer to [Verify Access Tokens](/api-auth/tutorials/verify-access-token).
+:::
+
+If any of these checks fail, the token is invalid and the request should be rejected.
 
 Once these checks have been performed successfully, the API can be assured that:
 

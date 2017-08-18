@@ -137,9 +137,7 @@ public class HelloService : Service
 Notice we are not doing anything useful with these properties. You can place a breakpoint here and explore the session object.
 :::
 
-## Triggering Login Manually or Integrating Lock
-
-<%= include('../../../_includes/_lock-sdk') %>
+${include('../_includes/_auth0_authorize')}
 
 ## Add UI Code to Login and Invoke the `HelloService`
 

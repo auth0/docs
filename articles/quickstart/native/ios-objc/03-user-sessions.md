@@ -111,7 +111,7 @@ Then, if such a token exists, you need to check whether it's still valid, has ex
 ```objc
 // HomeViewController.m
 
-[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
+[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, UserInfo * _Nullable profile) {
         if (error) {
             // accessToken has expired or no longer valid
         } else {
@@ -158,7 +158,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
        if (error) {
            // Handle the error
        } else {
-           [auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
+           [auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, UserInfo * _Nullable profile) {
                if (error) {
                      NSLog(@"Error: %@", error.localizedDescription);
                } else {
@@ -225,7 +225,7 @@ You need to call a method from the `Auth0` module that allows you to fetch the u
 // HomeViewController.m
 
 // Retrieve profile
-[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, A0Profile * _Nullable profile) {
+[auth userInfoWithAccessToken:accessToken callback:^(NSError * _Nullable error, UserInfo * _Nullable profile) {
         if (error) {
             // Handle the error
         } else {
@@ -242,12 +242,12 @@ Showing the information contained in the user profile is pretty simple. You only
 
 ```objc
 // ProfileViewController.m
-NSURL *pictureURL = self.userProfile.pictureURL;
+NSURL *pictureURL = self.userProfile.picture;
 NSString *name = self.userProfile.name;
 ```
 
 ::: note
-Check out the [Profile](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Profile.swift) class documentation to learn more about its properties.
+Check out the [UserInfo](https://github.com/auth0/Auth0.swift/blob/master/Auth0/UserInfo.swift) class documentation to learn more about its properties.
 :::
 
 #### Additional info
@@ -259,10 +259,11 @@ Besides the defaults, you can request more information than returned in the basi
 You can store additional user information in the user metadata. In order to do so, you need to perform a `patch`:
 
 ```objc
+// ProfileViewController.m
 NSString *idToken = ... // You will need the idToken from your credentials instance 'credentials.idToken'
-A0Profile *profile = ... // the Profile instance you obtained before
+UserInfo *profile = ... // the Profile instance you obtained before
 HybridAuth *auth = [[HybridAuth alloc] init];
-[auth patchProfileWithIdToken:idToken userId:profile.id metaData:@{@"first_name": @"John", @"last_name": @"Doe", @"country": @"USA"} callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
+[auth patchProfileWithIdToken:idToken userId:profile.sub metaData:@{@"first_name": @"John", @"last_name": @"Doe", @"country": @"USA"} callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
     if (error) {
         // Handle the error
     } else {
@@ -276,8 +277,9 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 The `user_metadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one you're going to work with in this tutorial.
 
 ```objc
+// HomeViewController.m
 HybridAuth *auth = [[HybridAuth alloc] init];
-[auth userProfileWithIdToken:idToken userId:profile.id callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
+[auth userProfileWithIdToken:idToken userId:profile.sub callback:^(NSError * _Nullable error, NSDictionary<NSString *, id> * _Nullable user) {
     if (error) {
         // Deal with error
     } else {
@@ -290,6 +292,7 @@ HybridAuth *auth = [[HybridAuth alloc] init];
 You can then access its fields as follows:
 
 ```objc
+// ProfileViewController.m
 NSString* firstName = [metaData objectForKey:@"first_name"];
 NSString* lastName = [metaData objectForKey:@"last_name"];
 NSString* country = [metaData objectForKey:@"country"];

@@ -58,7 +58,9 @@ Make sure the clock of your server is current.
 
 If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring that the System is properly configured to use to pool a sync server via the NTP (Network Time Protocol).
 
-Note: on windows environments the ntp provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
+::: note
+On windows environments the ntp provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
+:::
 
 ### No connection to Active Directory
 
@@ -70,14 +72,13 @@ In a Windows Network with Active Directory you can try the `nltest` command. To 
 
 To see to which domain the current server is connected you can also try: `nltest /dsgetdc:``
 
-
 When the domain does not exist or is unreachable `nltest` will return an error message: `Getting DC name failed: Status = 1355 0x54b ERROR_NO_SUCH_DOMAIN`
 
 ### UNABLE_TO_VERIFY_LEAF_SIGNATURE error message
 
-This error applies to the AD/LDAP Connector in combination with the Auth0 Appliance.
+This error applies to the AD/LDAP Connector in combination with the PSaaS Appliance.
 
-When the connector will fail to start if unable to validate the SSL certificate configured in the appliance. This can happen when the Root Certificate (or any Intermediate Certificates) are missing in the machine's Certificate Store (Windows). In order to solve this you should import the certificate chain in the **Local Machine > Trusted Root** certificate store on the machine where the AD/LDAP Connector is installed.
+When the connector will fail to start if unable to validate the SSL certificate configured in the PSaaS Appliance. This can happen when the Root Certificate (or any Intermediate Certificates) are missing in the machine's Certificate Store (Windows). In order to solve this you should import the certificate chain in the **Local Machine > Trusted Root** certificate store on the machine where the AD/LDAP Connector is installed.
 
 ### Running the connector behind a proxy
 

@@ -35,19 +35,9 @@ If Auth0 acts as the service provider, you need to make the following changes to
 * Ensure the IdP includes the Connection parameter in the assertion consumer service (ACS) URL.
 * When configuring the Connection, use the IdP-initiated tab to specify the following:
 
-    1. The default application to which the user gets redirected after IdP login;
-    2. The protocol to be used between Auth0 and the client application when Auth0 forwards the results of the user authentication to the client application (note that this will most likely be **Open ID Connect**, unless your Auth0 client is configured to act as a SAML Identity Provider).
+    1. The application to which the user gets redirected after IdP login;
+    2. The protocol to be used between Auth0 and the client application when Auth0 forwards the results of the user authentication to the client application;
     3. Query parameters to pass to the app.
-    
-### Multiple target applications
-
-When making the IdP-Initiated SSO call from the identity provider, you can specify a target `client_id` in the `RelayState` that will override the default target application selected in the IdP-Initiated tab settings. With this feature, a single SAML connection can have multiple target applications for IdP-Initiated flows.
-
-The `RelayState` value in the POSTed body should have this format:
-
-```
-Key1=Value1&Key2=Value2&...&client_id=[THE TARGET CLIENT_ID]
-```
 
 ## Auth0 as Identity Provider Where IdP Initiates SSO
 

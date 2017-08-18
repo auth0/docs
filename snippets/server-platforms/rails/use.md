@@ -1,19 +1,18 @@
 ```html
-<script src="${lock_url}"></script>
+<script src="${auth0js_urlv8}"></script>
 <script>
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-
-
-function signin() {
-  lock.show({
-      callbackURL: 'http://localhost:CHANGE-TO-YOUR-PORT/callback'
-    , responseType: 'code'
-    , authParams: {
-      scope: 'openid name email' //Details: https:///scopes
-    }
+  var webAuth = new auth0.WebAuth({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    redirectUri: '${account.callback}',
+    audience: 'https://${account.namespace}/userinfo',
+    responseType: 'code',
+    scope: 'openid profile',
+    state: '${ "<%= get_state %>" }'
   });
-}
-</script>
 
-<button onclick="signin()">Login</button>
+  function signin() {
+    webAuth.authorize();
+  }
+</script>
 ```

@@ -13,11 +13,12 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 ## Index of Configurable Options
 
-### Display Options Index
+### Display
 
 | Option | Description |
 | --- | --- |
 | [allowedConnections](#allowedconnections-array-) | limit the client connections shown in Lock to a particular set |
+| [allowShowPassword](#allowshowpassword-boolean-) | Whether to allow the user to show password as typing |
 | [autoclose](#autoclose-boolean-) | Whether or not Lock auto closes after a login |
 | [autofocus](#autofocus-boolean-) | Whether or not focus is set on first input field |
 | [avatar](#avatar-object-) | Obtain avatar from a non gravatar source |
@@ -28,7 +29,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [popupOptions](#popupoptions-object-) | Customize the location of the popup |
 | [rememberLastLogin](#rememberlastlogin-boolean-) | Whether to remember the last login option chosen |
 
-### Theming Options Index
+### Theming
 
 | Option | Description |
 | --- | --- |
@@ -38,13 +39,13 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [logo](#logo-string-) | What logo should be used |
 | [primaryColor](#primarycolor-string-) | Color of the primary button on the widget |
 
-### Social Options Index
+### Social
 
 | Option | Description |
 | --- | --- |
 | [socialButtonStyle](#socialbuttonstyle-string-) | Force small or large social connection buttons |
 
-### Authentication Setup Index
+### Authentication
 
 | Option | Description |
 | --- | --- |
@@ -58,7 +59,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [responseType](#responsetype-string-) | Response as a code or token |
 | [sso](#sso-boolean-) | Whether or not to enable Single Sign On behavior in Lock |
 
-### Database Options Index
+### Database
 
 | Option | Description |
 | --- | --- |
@@ -75,13 +76,13 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | [signUpLink](#signuplink-string-) | Set a custom url to fire when clicking "sign up" |
 | [usernameStyle](#usernamestyle-string-) | Toggle "username", "password" or "username and password" |
 
-### Enterprise Options Index
+### Enterprise
 
 | Option | Description |
 | --- | --- |
 | [defaultEnterpriseConnection](#defaultenterpriseconnection-string-) | Specifies a connection if more than one present |
 
-### Other Options Index
+### Other
 
 | Option | Description |
 | --- | --- |
@@ -121,6 +122,20 @@ Examples of `allowedConnections`:
 ![Lock - Allowed Connections](/media/articles/libraries/lock/v10/customization/lock-allowedconnections-database.png)
 
 ![Lock - Allowed Connections](/media/articles/libraries/lock/v10/customization/lock-allowedconnections-social.png)
+
+### allowShowPassword {Boolean}
+
+This option determines whether or not to add a checkbox to the UI which, when selected, will allow the user to show their password when typing it. The option defaults to `false`.
+
+```js
+var options = {
+  allowShowPassword: true
+};
+```
+
+Lock with `allowShowPassword` set to `true` and toggled to show the password:
+
+![Lock - Avatar](/media/articles/libraries/lock/v10/customization/lock-allowshowpassword.png)
 
 ### autoclose {Boolean}
 
@@ -456,7 +471,7 @@ var options = {
     params: {
       state: 'foo',
       scope: 'openid email user_metadata app_metadata picture'
-    },
+    }
   }
 };
 ```

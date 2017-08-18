@@ -25,6 +25,8 @@ For this, you will need to handle the user's `Credentials`. Let's take a look at
 * `refreshToken`: Refresh Token that can be used to request new tokens without signing in again.
 * `tokenType`: The type of the tokens issued by the server.
 * `expiresIn`: The amount in seconds in which the tokens will be deemed invalid.
+* `expiresAt`: The Date in which the tokens will be deemed invalid.
+* `scope`: The granted scope, if different from the requested one.
 
 The Tokens are the objects used to prove your identity against the Auth0 APIs. Read more about them [here](https://auth0.com/docs/tokens).
 
@@ -36,10 +38,13 @@ Be sure that you have completed the [Login](/quickstart/native/android/00-login)
 Before launching the log in you need to ask for the `offline_access` scope in order to get a valid `refresh_token` in the response. Locate the snippet were you're initializing the `WebAuthProvider` and add the `withScope("openid offline_access")` line.
 
 ```java
-Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
+Auth0 auth0 = new Auth0(this);
 auth0.setOIDCConformant(true);
 WebAuthProvider.init(auth0)
                 .withScheme("demo")
+                .withAudience(String.format("https://%s/userinfo", getString(R.string.com_auth0_domain)))
                 .withScope("openid offline_access")
                 .start(LoginActivity.this, callback);
 ```
@@ -49,6 +54,8 @@ WebAuthProvider.init(auth0)
 Save **through a secure method** the user's credentials obtained in the login success response.
 
 ```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
 private final AuthCallback callback = new AuthCallback() {
     @Override
     public void onFailure(@NonNull final Dialog dialog) {
@@ -79,6 +86,8 @@ The main purpose of storing this token is to save users from having to re-enter 
 To do so, we check whether this value exists at startup to either prompt for login credentials or to try to perform an automated login.
 
 ```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
 String accessToken = CredentialsManager.getCredentials(this).getAccessToken();
 if (accessToken == null) {
   // Prompt Login screen.
@@ -97,6 +106,8 @@ We will explain the latter approach by calling the `/userinfo` endpoint.
 
 
 ```java
+// app/src/main/java/com/auth0/samples/LoginActivity.java
+
 AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
 aClient.userInfo(accessToken)
         .start(new BaseCallback<UserProfile, AuthenticationException>() {
@@ -126,12 +137,16 @@ We will use the previously saved `refresh_token` to get a new `access_token`. It
 First instantiate an `AuthenticationAPIClient`:
 
 ```java
+// app/src/main/java/com/auth0/samples/MainActivity.java
+
 AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
 ```
 
 Then use the `refresh_token` to get fresh new credentials:
 
 ```java
+// app/src/main/java/com/auth0/samples/MainActivity.java
+
 String refreshToken = CredentialsManager.getCredentials(this).getRefreshToken();
 aClient.renewAuth(refreshToken)
       .start(new BaseCallback<Credentials, AuthenticationException>() {
@@ -158,6 +173,8 @@ To log the user out, you just need to remove the saved user's credentials and na
 An example would be:
 
 ```java
+// app/src/main/java/com/auth0/samples/MainActivity.java
+
 private void logout() {
   CredentialsManager.deleteCredentials(this);
   startActivity(new Intent(this, LoginActivity.class));

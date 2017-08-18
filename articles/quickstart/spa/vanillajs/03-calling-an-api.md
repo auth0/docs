@@ -7,7 +7,7 @@ budicon: 546
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-javascript-samples',
-  path: '03-Calling-an-Api'
+  path: '03-Calling-an-API'
 }) %>
 
 <%= include('../_includes/_calling_api_preamble') %>
@@ -25,7 +25,7 @@ Pass the API identifier for your newly created API as the `audience` value in yo
 
 var webAuth = new auth0.WebAuth({
   // ...
-  audience: '{YOUR_API_IDENTIFIER}',
+  audience: '${apiIdentifier}',
   scope: 'openid profile read:messages'
 });
 ```

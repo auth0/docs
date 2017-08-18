@@ -6,7 +6,7 @@ budicon: 448
 ---
 
 <%= include('../../../_includes/_package', {
-  org: 'auth0-samples',
+  org: 'auth0-community',
   repo: 'auth0-nancyfx-samples',
   path: '00-Starter-Seed',
   requirements: [
@@ -85,7 +85,15 @@ public class Authentication : NancyModule
             if (this.SessionIsAuthenticated())
                 return Response.AsRedirect("securepage");
 
-            return View["login"];
+            var apiClient = new AuthenticationApiClient(ConfigurationManager.AppSettings["auth0:domain"]);
+            var authorizationUri = apiClient.BuildAuthorizationUrl()
+                .WithClient(ConfigurationManager.AppSettings["auth0:ClientId"])
+                .WithRedirectUrl(ConfigurationManager.AppSettings["auth0:CallbackUrl"])
+                .WithResponseType(AuthorizationResponseType.Code)
+                .WithScope("openid profile")
+                .Build();
+
+            return Response.AsRedirect(authorizationUri.ToString());
         };
 
         Get["/login-callback"] = o => this
@@ -98,11 +106,3 @@ public class Authentication : NancyModule
     }
 }
 ```
-
-## Triggering Login Manually or Integrating Lock
-
-<%= include('../../../_includes/_lock-sdk') %>
-
-::: note
-The `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
-:::

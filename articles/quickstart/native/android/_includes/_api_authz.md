@@ -71,7 +71,7 @@ public void startAuth() {
     WebAuthProvider.init(account)
             .withConnection("Username-Password-Authentication")
             .withScope("openid profile {API_SCOPES}")
-            .withAudience("{YOUR_API_IDENTIFIER}")
+            .withAudience("${apiIdentifier}")
             .withScheme("demo")
             .start(MainActivity.this, authCallback);
 }

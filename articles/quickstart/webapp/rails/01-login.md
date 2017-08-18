@@ -1,6 +1,6 @@
 ---
 title: Login
-description: Learn how to login using the Auth0 Lock widget and OmniAuth.
+description: Ruby on Rails Login with Auth0
 budicon: 448
 ---
 
@@ -14,11 +14,33 @@ budicon: 448
   ]
 }) %>
 
-The easiest way to add authentication to your Rails application is to use Auth0's [Lock widget](/lock) and OmniAuth authentication [strategy](https://github.com/auth0/omniauth-auth0).
+The first step in adding authentication to your Ruby on Rails application is to provide a way for your users to log in. The fastest, most secure, and most feature-rich way to do this with Auth0 is to use the [hosted login page](/hosted-pages/login).
+
+## Create a Client
+
+Create a new client application in your [Auth0 dashboard](${manage_url}) and retrieve the __Domain__, __Client ID__ and __Client Secret__ for the app. The downloadable samples throughout the quickstart steps will be configured with the credentials for your default application.
+
+![App Dashboard](/media/articles/server-platforms/rails/app_dashboard.png)
+
+<%= include('../../../_includes/_callback_url') %>
+
+${include('../_callbackRegularWebApp')}
+
+In this case, the callbackURL should look something like:
+
+```bash
+https://example.com/auth/oauth2/callback
+```
+
+## Install the Dependencies
+
+To follow along with this guide, add the following dependencies to your `Gemfile` and run `bundle install`.
+
+${snippet(meta.snippets.dependencies)}
 
 ## Initialize Omniauth Auth0
 
-Create a file named `auth0.rb` under `config/initializers` with the following content:
+Create a file named `auth0.rb` under `config/initializers` and configure the **OmniAuth** middleware in it.
 
 ${snippet(meta.snippets.setup)}
 
@@ -61,27 +83,51 @@ get "/auth/oauth2/callback" => "auth0#callback"
 get "/auth/failure" => "auth0#failure"
 ```
 
-## Trigger Login with Lock
+## Trigger Login with Auth0.js
 
-<%= include('../../../_includes/_lock-sdk') %>
-
-::: note
-The `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the **Allowed Callback URLs** area in your Auth0 dashboard. Follow the [introduction](/quickstart/webapp/rails/00-introduction) step for further detail.
-:::
-
-If you wish to force an identity provider, you may redirect the user and specify the connection name in the query string.
+Create a file called `session_helper.rb`:
 
 ```ruby
-redirect_to '/auth/oauth2?connection=CONNECTION_NAME'
+# app/helpers/session_helper.rb
+
+module SessionHelper
+  def get_state
+    state = SecureRandom.hex(24)
+    session['omniauth.state'] = state
+
+    state
+  end
+end
+```
+
+Create an instance of `WebAuth` from auth0.js and configure it with the keys for your client.
+
+```html
+<script src="${auth0js_urlv8}"></script>
+<script>
+  var webAuth = new auth0.WebAuth({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    redirectUri: '${account.callback}',
+    audience: 'https://${account.namespace}/userinfo',
+    responseType: 'code',
+    scope: 'openid profile',
+    state: '${ "<%= get_state %>" }'
+  });
+
+  function signin() {
+    webAuth.authorize();
+  }
+</script>
 ```
 
 ::: note
-[Click here](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema) to check all the information that the userinfo hash has.
+The `redirectUri` specified in the `WebAuth` constructor **must match** the one specified in the **Allowed Callback URLs** area in your Auth0 dashboard. Follow the [introduction](/quickstart/webapp/rails/00-introduction) step for further detail.
 :::
 
 ## Check the User's Authentication Status
 
-You can use a controller concern to control access to routes that require the user to be authenticated.
+You can use a controller `concern` to control access to routes that require the user to be authenticated.
 
 ```ruby
 module Secured
@@ -97,7 +143,7 @@ module Secured
 end
 ```
 
-Include the concern in the corresponding controller to prevent unauthenticated users from accessing its routes:
+Include the `concern` in the corresponding controller to prevent unauthenticated users from accessing its routes:
 
 ```ruby
 class DashboardController < ApplicationController
@@ -110,7 +156,7 @@ end
 
 ## Display Error Descriptions
 
-Configuration the application to display erros by adding the following to `config/environments/production.rb`:
+Configure the application to display errors by adding the following to `config/environments/production.rb`:
 
 ```ruby
 OmniAuth.config.on_failure = Proc.new { |env|

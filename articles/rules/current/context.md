@@ -43,14 +43,14 @@ The following properties are available for the `context` object:
   - `query`: an object containing the querystring properties of the login transaction sent by the application. 
   - `body`: the body of the POST request on login transactions used on `oauth2-resource-owner`, `oauth2-resource-owner-jwt-bearer` or `wstrust-usernamemixed` protocols.
   - `geoip`: an object containing geographic IP information. It has the following properties:
-  - `country_code`: a two-character code for the country associated with the IP address
-  - `country_code3`: a three-character code for the country associated with the IP address
-  - `country_name`: the country name associated with the IP address
-  - `city_name`: the city or town name associated with the IP address
-  - `latitude`: the latitude associated with the IP address.
-  - `longitude`: the longitude associated with the IP address.
-  - `time_zone`: the timezone associated with the IP address.
-  - `continent_code`: a two-character code for the continent associated with the IP address.
+    - `country_code`: a two-character code for the country associated with the IP address
+    - `country_code3`: a three-character code for the country associated with the IP address
+    - `country_name`: the country name associated with the IP address
+    - `city_name`: the city or town name associated with the IP address
+    - `latitude`: the latitude associated with the IP address.
+    - `longitude`: the longitude associated with the IP address.
+    - `time_zone`: the timezone associated with the IP address.
+    - `continent_code`: a two-character code for the continent associated with the IP address.
 
 ## Sample Object
 

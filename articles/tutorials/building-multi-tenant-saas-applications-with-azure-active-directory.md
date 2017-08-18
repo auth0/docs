@@ -1,52 +1,61 @@
 ---
 description: How to build a multi-tenant SaaS application with Azure AD and Auth0.
+toc: true
 ---
 
-# Building multi-tenant, SaaS applications with Azure AD and Auth0
+# Build Multi-tenant SaaS Apps with Azure Active Directory
 
-Azure AD is often used as a user directory for Office 365, Intune, Dynamics CRM and applications you're building for the users in your organization.
+Azure Active Directory (AD) is often used as a user directory for Office 365, Intune, Dynamics CRM, and possibly applications you're building for the users that are a part of your organization.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-ad-mt-single-tenant-example.png)
 
-In that case the users in your organization's directory (contoso.onmicrosoft.com) will be able to access the applications you registered in your directory (Contoso Intranet and Office 365). This is how the [standard integration with Auth0 works](/waad-clientid), you'll create an application in Azure AD that points to Auth0 after which you can create it as an Azure AD Connection in the dashboard.
+When creating an Active Directory for your organization, users in your organization's directory (contoso.onmicrosoft.com) can access the apps you register to your directory (Contoso Intranet and Office 365). This is how the [standard integration with Auth0 works](/waad-clientid): you create an application in Azure AD that points to Auth0, where you can then create an Azure AD Connection in the [Dashboard](${manage_url}).  
 
 A more advanced concept in Azure AD is the support for multi-tenant applications. This is where your directory can define an application (typically a SaaS application) which can be used by other directories (your customers).
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-ad-multi-tenant-example.png)
 
-In this example Fabrikam Corporation is an ISV hosting a Timesheet SaaS applications. They have been using Auth0 to make sure customers can login with their Facebook, Google, LinkedIn, ... accounts. But now they want to extend this support and provide SSO to organizations which are using Azure AD (or Office 365). For Fabrikam Corporation this can be a great way to attract new customers because they can offer SSO to thousands of companies already using Azure AD/Office 365 in just a few clicks.
+In this example, Fabrikam Corporation is an ISV hosting Timesheet SaaS applications. They have been using Auth0 to make sure customers can login with their Facebook, Google, LinkedIn, and other Social accounts. Now they want to extend this support and provide SSO to organizations which are using Azure AD or Office 365. For Fabrikam Corporation, this can be a great way to attract new customers because they can offer SSO to thousands of companies already using Azure AD/Office 365 with just a few clicks.
 
 Contoso is one of their new customers which have signed up with their Azure AD. Users in this directory will now have SSO to Fabrikam's Timesheet SaaS and will be able to use their existing Contoso credentials after going through a simple consent flow.
 
-This document will cover how Fabrikam can create a multi-tenant Azure AD application, how it will integrate with Auth0 and how the end user experience will be when signing up for the application.
+This document will cover:
+
+* How Fabrikam can create a multi-tenant Azure AD application
+* How Fabrikam will integrate with Auth0
+* What the end user's experience will be when signing up for the application
+
+::: note
+You can get a copy of the sample application we build in this article from [GitHub](https://github.com/auth0/auth0-azuread-multi-tenant-apps-sample).
+:::
 
 ## Prerequisites
 
-Before you can create a multi-tenant application in Azure AD you'll need a Microsoft Azure subscription and a domain name (like fabrikamcorp.com). This domain name is a requirement for adding multi-tenant applications to Azure AD.
+Before you can create a multi-tenant application in Azure AD you'll need a Microsoft Azure subscription and a domain name (like fabrikamcorp.com).
 
-## Creating an application in Auth0
+## Create a Client in Auth0
 
-We'll start by creating an application in Auth0 in which we define the Allowed Callback URLs for our application. In this example we're building an ASP.NET MVC application which runs locally and in Azure Web Sites, but keep in mind that this scenario works with any technology and any hosting platform.
+We'll start by creating a Client in Auth0 where we define the Allowed Callback URLs for our application. In this example, we're building an ASP.NET MVC application that runs locally and in Azure Web Sites, but remember that this scenario works with any technology and any hosting platform.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-new-a0-app.png)
 
 ## Creating an application in Azure AD
 
-The first thing Fabrikam will do is create a new directory in Azure AD if they haven't got one already.
+The first thing Fabrikam will do is create a new directory in Azure AD if don't have one already.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-create-directory.png)
 
-The final application will be running on https://timesheets.fabrikamcorp.com so we'll need to register `fabrikamcorp.com` as a domain first before we can create the multi-tenant application.
+The final application will run on https://timesheets.fabrikamcorp.com, so we'll need to register `fabrikamcorp.com` as the domain.
 
-On the Domains tab you can create a new domain:
+On the *Domains* tab, you can create a new domain:
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-domain-name.png)
 
-This domain will also require verification and you'll need to add a TXT/MX record as described in the verification page.
+Microsoft requires you to add a TXT/MX record (as described on the setup page itself) and verify your domain.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-domain-verified.png)
 
-The DNS propagation can take some minutes so if you see the "Could not verify domain" error that's normal. You can use sites like [What's My DNS](http://www.whatsmydns.net) to follow up on the DNS propagation of your domain.
+DNS propagation can take some time, so if you see the "could not verify domain" error, check again at at a later point in time. You can use sites like [What's My DNS](http://www.whatsmydns.net) to follow up on the DNS propagation of your domain.
 
 The next step will be to create a new Application in your Directory.
 
@@ -54,52 +63,51 @@ The next step will be to create a new Application in your Directory.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-new-app-name.png)
 
-The SIGN-ON URL is the url of your application that users will see when adding the application to their directory (in the consent flow).
+The **Sign-On URL** is the url of your application that users will see when adding the application to their directory (in the consent flow).
 
-The APP ID URI is the unique identifier for your application (next to the Client ID) and must match a domain you registered under domains.
+The **App ID URI** is the unique identifier for your application (next to the Client ID) and must match a domain you registered under domains.
 
-![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-new-app-prop.png)
+Once the application has been created, we'll need to enable it for multi-tenancy, generate a key, and configure the callback urls. You'll have 2 types of callback urls: the callback url for Auth0's login endpoint and the callback url for the consent flow.
 
-Once the application has been created we'll need to enable it for multi-tenancy, generate a key and configure the callback urls. You'll have 2 types of callback urls: the callback url for Auth0's login endpoint and the callback url for the consent flow.
-
-When new customers sign up with their Azure AD directory the consent flow will redirect back to your application after approval/denial. In this example the page is available from different urls (http://localhost:55000/registration/complete, ...) which is why we're adding this page multiple times.
+When new customers sign up with their Azure AD directory, the consent flow redirects them back to your application afterwards.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-app-config.png)
 
-The final step is to configure the permissions for the application and this is where it gets interesting. 
+The final step is to configure the permissions for the application.
 
-The first option is to ask for the 'Read directory data' and 'Enable SSO' permissions. Enabling these options will allow you to get more information about the user and the directory using the [Azure AD Graph API](https://msdn.microsoft.com/en-us/library/azure/hh974476.aspx). This is really useful if you want to access additional information about the user like the groups the user belongs to etc... The only downside is that you'll need to be an administrator to give this type of consent.
+The first option for doing this is to ask for the 'Read directory data' and 'Enable SSO' permissions. Enabling these options will allow you to get more information about the user and the directory using the [Azure AD Graph API](https://msdn.microsoft.com/en-us/library/azure/hh974476.aspx). This is really useful if you want to access additional information about the user like the groups to which the user belongs. Typically, only administrators may grant this type of consent.
 
-The other option is to only ask for the 'Enable SSO' permission, which we'll be using in this example. The interesting part here is that regular users will also be able to go through the consent flow. This will allow you to reach even more users:
+The second option is to only ask for the 'Enable SSO' permission, which is the option we show in this example. By doing this, even regular users can go through the consent flow. This allows you to reach even more users because:
 
 - Organization administrators will be able to give consent for the whole directory (all users in the directory will be able to access the application)
-- Regular users will be able to give consent just for their own. The reason why this is even more interesting is because this enables single users to sign up for your application and have SSO, even if this user is the only person in the organization using your application (no administrator permissions are required here)
+- Regular users will be able to give consent just for their own. This enables single users to sign up for your application and have SSO, even if this user is the only person in the organization using your application (no administrator permissions are required in this instance)
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-app-perm.png)
 
-## Creating a connection in Auth0
+![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azuread-mt-app-perm2.png)
 
-After configuring our application in Azure AD we can add it as a connection in the Auth0 dashboard. Here we'll need to enter the Client ID and Client Secret of the application:
+## Create a Connection in Auth0
+
+After configuring our application in Azure AD we can add it as a connection in the Auth0 dashboard. Here, we'll need to enter the Client ID and Client Secret of the application:
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-new-conn.png)
 
-And when creating the connection we'll need to enter the name of the directory (`fabrikamcorporation.onmicrosoft.com`) and enable the Common Endpoint. This is required if you're building multi tenant applications.
+And when creating the connection we'll need to enter the name of the directory (`fabrikamcorporation.onmicrosoft.com`) and enable the Common Endpoint. This is required if you're building multi-tenant applications.
 
-![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-conn-comm-endpoint.png)
+## Create the Application
 
-## Creating the application
-
-Azure AD, the Auth0 connection and the Auth0 application have been configured, now it's time to create the actual application.
+Now that you've configured Azure AD, the Auth0 Connection, and the Auth0 Client, it's time to create the application itself.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-app-homepage.png)
 
 ### Registration
 
-Before users from an other directory (your customers) are able to authenticate they'll need to go through a consent flow. The homepage allows users to sign up with a social account or with their organization. And the `Register` button will start the consent flow for a single user. Checking the option **Enable for my organization** will require an administrator, to give consent for the whole organization.
+Before users from another directory are able to authenticate, they'll need to go through a consent flow. The `Register` button starts the consent flow for a single user, and users can sign up with a social account or as part of their organization. Opting for **Enable for my organization** requires administrative permissions for the whole organization.
 
-The following code will store a "registration request" with a unique ID (the SignupToken) after which it will redirect to the consent page. The SignupToken is added as the state of the request, and we'll be able to use this value once the user went through the flow to correlate this back to the original request.
+The following code snippet stores a "registration request" with a unique ID (the `SignupToken`) before redirecting the user to the consent page. The `SignupToken` is added as the state of the request, and we'll be able to use this value once the user goes through the flow.
 
 ```cs
+// URL with parameters to be populated with custom parameters two code blocks down
 private const string OnboardingUrl =
     "https://login.windows.net/common/oauth2/authorize?response_type=code
         &client_id={0}&resource={1}&redirect_uri={2}&state={3}";
@@ -137,11 +145,13 @@ public async Task<ActionResult> Start(RegistrationModel model)
 }
 ```
 
-This will redirect the user to the consent page and in case we've enabled this for the whole organization this will trigger an admin consent which requires an administrator give consent.
+Notice that the second block of this code snippet redirects the user to the consent page.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-consent-page.png)
 
-After accepting the user is redirected back to the application where the registration request is being processed. If everything went well the application will receive a code which can be used to receive an authorization code, the `result` variable.
+After accepting the request for access, the user is redirected back to the application where the registration request is being processed. 
+
+The application receives a code which can be used to receive an authorization code, the `result` variable.
 
 ```cs
 [HttpGet]
@@ -201,13 +211,13 @@ public async Task<ActionResult> Complete(string code, string error, string error
 
 The `result` variable contains information about the user and the tenant and can be used to persist the user and the tenant in the database.
 
-Note that the code will first validate if the state matches and existing SignupToken in the database to make sure this request was initiated from the application (eg: after a payment was made).
+::: note
+The code will first check to see if the state matches an existing SignupToken in the database to make sure this request was initiated from the application (for example, after a payment was made).
+:::
 
-### Signin
+### Sign In
 
-We're using the Lock for signing in users, but for enterprise connections like Azure AD it only supports HRD (home realm discovery) based on the email address. But since we don't know all email domains that customers will use when logging in with Azure AD we'll modify the Lock a little.
-
-Before showing the Lock we're adding a button to allow login with Azure AD connection.
+We're using the Lock for signing in users, but for enterprise connections like Azure AD, Lock only supports HRD (home realm discovery) based on email address. In this case, we don't know all of the possible email domains the customers will use when logging in, so we'll modify Lock to handle this: we'll add a button for users to click on if they're using an Azure AD connection.
 
 ```js
 import Auth0Lock from 'auth0-lock';
@@ -258,12 +268,10 @@ lock.show({
 });
 ```
 
-After registering the user can now login by clicking the "Login with Azure AD" button.
+After registering, the user can now login by clicking the "Login with Azure AD" button.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-login-popup.png)
 
-And finally the user is signed in and the profile page shows the user's information. From now on these users will be able to use the same credentials they use for Office 365, Intune, ... to access Fabrikam's Timesheet SaaS.
+When the user is signed in, the profile page shows the user's information. These users will now be able to use the same credentials they use for Office 365, Intune, and so on to access Fabrikam's Timesheet SaaS.
 
 ![](/media/articles/scenarios/multi-tenant-saas-azure-ad/azure-mt-profile.png)
-
-The sample application is available on [GitHub](https://github.com/auth0/auth0-azuread-multi-tenant-apps-sample).

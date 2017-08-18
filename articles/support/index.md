@@ -3,7 +3,6 @@ url: /support
 toc: true
 description: Explains the different types of support options provided by Auth0.
 ---
-
 # Support Options
 
 ## Support Options Overview
@@ -31,12 +30,12 @@ Auth0 offers the following support plans:
 
 ### No Support
 
-Customers with Auth0's free subscription plan can seek support through the Auth0 Community. Response times may vary and are not guaranteed.
+Customers with Auth0's free subscription plan can seek support through the [Auth0 Community](${auth0_community}). Response times may vary and are not guaranteed.
 
 :::panel Trial Subscriptions
 New Auth0 customers receive Standard Support during the 22-day trial period (customers may check on how many trial days they have left by logging into the [Dashboard](${manage_url})).
 
-At the end of the trial period, customers who have not opted to purchase a paid subscription can use the Auth0 Community for assistance. They will no longer be able to access or open tickets in the [Support Center](https://support.auth0.com/).
+At the end of the trial period, customers who have not opted to purchase a paid subscription can use the [Auth0 Community](${auth0_community}) for assistance. They will no longer be able to access or open tickets in the [Support Center](https://support.auth0.com/).
 :::
 
 ### Standard Support
@@ -52,7 +51,7 @@ The Auth0 Support Center offers ticketed support, where support specialists are 
 
 Customers with an Enterprise subscription plan receive extended support hours for outages, quicker response times, and Auth0 Sprint onboarding assistance.
 
-Please contact the [Auth0 Sales Team](sales@auth0.com) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
+Please contact the [Auth0 Sales Team](https://auth0.com/?contact=true) if you have specific support requirements or are interested in the Enterprise Support Plan (with or without the Preferred Support option).
 
 ## Support Channels
 
@@ -60,7 +59,7 @@ Auth0 offers the following support channels.
 
 ### Auth0 Community
 
-Auth0's public [question and answer community](https://ask.auth0.com) offers support for __all__ subscribers. All customers, even those on free accounts, can search existing through questions and post a new question if theirs hasn't been answered. There are no guaranteed response times for questions posted.
+Auth0's public [question and answer community](${auth0_community}) offers support for __all__ subscribers. All customers, even those on free accounts, can search existing through questions and post a new question if theirs hasn't been answered. There are no guaranteed response times for questions posted.
 
 ### Support Center
 
@@ -96,7 +95,7 @@ Using this page, you can:
 
 ## Ticket Response Times
 
-Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the [Auth0 Community](https://ask.auth0.com).
+Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the [Auth0 Community](${auth0_community}).
 
 <table class="table">
   <thead>

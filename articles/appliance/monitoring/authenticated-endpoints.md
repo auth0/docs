@@ -1,15 +1,15 @@
 ---
 section: appliance
-description: Overview of using the authenticated endpoint with the Appliance
+description: Overview of using the authenticated endpoint with the PSaaS Appliance
 ---
 
-# Appliance: Using Authenticated Testing Endpoints
+# PSaaS Appliance: Using Authenticated Testing Endpoints
 
-For calls to the testing endpoints that return detailed information, Auth0 requires these requests to be authenticated using a key generated using the Appliance Dashboard. This key is used in the request header of the call sent to the endpoint.
+For calls to the testing endpoints that return detailed information, Auth0 requires these requests to be authenticated using a key generated using the PSaaS Appliance Dashboard. This key is used in the request header of the call sent to the endpoint.
 
 ## Generating the API Key
 
-To generate an API Key for use the authenticated testing endpoints, navigate to the [Settings](/appliance/dashboard/settings) page of your Appliance Dashboard. There, you will find an [API Keys section](/appliance/dashboard/settings#api-keys) that allows you to generate new keys.
+To generate an API Key for use the authenticated testing endpoints, navigate to the [Settings](/appliance/dashboard/settings) page of your PSaaS Appliance Dashboard. There, you will find an [API Keys section](/appliance/dashboard/settings#api-keys) that allows you to generate new keys.
 
 During the first use, you will see a that there is no key. To generate your first key, click on the "Generate" button at the far right of the row.
 
@@ -50,9 +50,9 @@ You may also make the call via https, though you will have to make the following
 
 For example, `http://10.1.0.248:9110/status/cpu` becomes `https://10.1.0.248/health/status/cpu`.
 
-## Access from Outside the Appliance
+## Access from Outside the PSaaS Appliance
 
-If you'd like to access these endpoints from outside the Appliance, you can do so using your `manage` domain.
+If you'd like to access these endpoints from outside the PSaaS Appliance, you can do so using your `manage` domain.
 
 | Internal Access | External Access |
 | --------------- | --------------- |

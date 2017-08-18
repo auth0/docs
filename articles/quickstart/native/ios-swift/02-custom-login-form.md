@@ -161,8 +161,9 @@ Finally, you can now perform webAuth authentication by specifying the social con
 ```swift
 Auth0
     .webAuth()
+    .audience("https://${account.namespace}/userinfo")
+    .scope("openid profile")
     .connection("facebook")
-    .scope("openid")
     .start { result in
         switch result {
         case .success(let credentials):
@@ -183,9 +184,10 @@ a comma separated list of provider permissions.
 ```swift
 Auth0
     .webAuth()
+    .audience("https://${account.namespace}/userinfo")
     .connection("facebook")
     .connectionScope("public_profile,email,user_friends,user_birthday")
-    .scope("openid")
+    .scope("openid profile")
     .start { result in
         switch result {
         case .success(let credentials):

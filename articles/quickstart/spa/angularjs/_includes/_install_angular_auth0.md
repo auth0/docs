@@ -4,10 +4,10 @@ Using auth0.js in your AngularJS application requires a thin wrapper called **an
 
 ```bash
 # installation with npm
-npm install --save angular-auth0@beta
+npm install --save angular-auth0
 
 # installation with yarn
-yarn add angular-auth0@beta
+yarn add angular-auth0
 ```
 
 Once **angular-auth0** is installed, add it to your build system or bring it in to your project as a script tag.

@@ -1,7 +1,6 @@
 ---
 description: How to authenticate and authorize a Tessel device with Auth0.
 ---
-
 # Authenticating & Authorizing a Tessel device with Auth0
 
 [Tessel](https://tessel.io) is an amazing board. Not only it has a great hardware spec and a great extensibility story, you can program it in Javascript! When it was announced on Kickstarter we immediately supported it and waited long weeks to get hold of one.
@@ -10,20 +9,21 @@ description: How to authenticate and authorize a Tessel device with Auth0.
 
 It finally arrived and were able to write our first program: get a token from Auth0 and call an API.
 
-> Tessel aims for full compatibility with Javascript. Most of core node modules also work, but not all of them. See [the docs for full details](https://github.com/tessel/docs/blob/master/compatibility.md).
+::: note
+Tessel aims for full compatibility with Javascript. Most of core node modules also work, but not all of them. See [the docs for full details](https://github.com/tessel/docs/blob/master/compatibility.md).
+:::
 
 ## The sample
 
 This example is straight-forward:
 
 1. We call the `Resource Owner` endpoint on Auth0 with device credentials
-2. Get a token back
-3. We use the token to call an API
+1. Get a token back
+1. We use the token to call an API
 
 ![](/media/articles/scenarios/tessel/tessel-flow.png)
 
-
-```
+```js
 var http = require('https');
 var tessel = require('tessel');
 
@@ -114,7 +114,7 @@ tessel.syncClock(function () {
 Noteworthy highlights of the code:
 
 1. This is 99% compatible with node (the only device specific module.is `tessel` that we only use to make sure all SSL calls happen with adequate time references.
-2. The `request` function, is a simple wrapper on `http` module functions. The `request` module doesn't currently work in Tessel.
+1. The `request` function, is a simple wrapper on `http` module functions. The `request` module doesn't currently work in Tessel.
 
 The `Resource Owner` endpoint requires credentials (e.g. username/password), so the backend user store connected to Auth0 needs to support this (like a Database connection or Active Directory).
 
@@ -124,6 +124,9 @@ The `Resource Owner` endpoint requires credentials (e.g. username/password), so 
 * You will obviously need connection to the web. You can setup WiFi with the `tessel wifi` command.
 
 ## Summary
+
 Tessel is awesome. We see a lot of potential. This sample shows how easy it is to connect it with Auth0.
 
-> Always send credentials (e.g. `username`/`password`) over secured networks.
+::: warning
+Always send credentials (e.g. `username`/`password`) over secured networks.
+:::

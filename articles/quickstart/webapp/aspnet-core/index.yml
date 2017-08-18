@@ -8,10 +8,23 @@ alias:
   - aspnetcore
 seo_alias: aspnet-core
 default_article: dashboard-default
-articles:
-  - 00-intro
-  - 01-login
-  - 02-login-custom
-  - 03-storing-tokens
-  - 04-user-profile
-  - 05-authorization
+current_version: v1
+versions:
+  v1:
+    title: v1.1
+    articles:
+      - 00-intro
+      - 01-login
+      - 02-login-custom
+      - 03-storing-tokens
+      - 04-user-profile
+      - 05-authorization
+  v2:
+    title: v2.0
+    articles:
+      - 00-intro
+      - 01-login
+      - 02-login-custom
+      - 03-storing-tokens
+      - 04-user-profile
+      - 05-authorization

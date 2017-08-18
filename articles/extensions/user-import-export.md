@@ -38,4 +38,4 @@ There are two ways of using this extension, they are described below:
 
 ### Observations
 
-This extension is not supported in the Appliance.
+The User Import / Export extension is available in the PSaaS Appliance beginning with version 10755 when User search is enabled.

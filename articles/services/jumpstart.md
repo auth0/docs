@@ -4,23 +4,53 @@ description: Focused project to help customers get started with Auth0 during the
 
 # Jumpstart
 
-This offering consists of 3 blocks of 4 hours, each covering the following.
+The Jumpstart consists of **3 phases** covering:
+
+* [Scenario Guidance](#scenario-guidance)
+* [Programming Advisory](#programming-advisory)
+* [Architectural Review](#architectural-review)
 
 ## Scenario Guidance
 
-A lighter weight version of [full Scenario Guidance offering](/services/scenario-guidance), this activity is designed to help you assess your requirements, and jointly draft a solution to address these.
+This activity is designed to help Auth0 understand your specific scenario requirements. Example scenarios include, but aren't limited to:
 
-We recommend completing this activity during the first 60 days of your subscription.
+* Single sign-on across different web applications
+* Mobile authentication
+* User-database migration
+* API authorization
+* Step-up authentication
 
-## Code Review / Programming Advisory
+Please note that this activity is *not* intended to review your full business or solution architecture, nor will we review more than one scenario. Instead, we will focus on how you can integrate your solution with Auth0.
 
-A quick review of your implementation, including integration with your applications, general Auth0 configuration, rules, custom db connections, and so forth. The goal is to make sure you are optimally using Auth0's capabilities.
+::: note
+If you need a holistic review of your solution, please consider the [Architecture Design](/services/architectural-design) session offerings.
+:::
 
-We recommend completing this activity no later than your subscription mid-term.
+The Scenario Guidance phase includes one working session, where we will jointly draft a high-level solution to address the requirements of your scenario. We will provide a recommendations memo afterwards for your reference.
+
+Diagrams or information you deem relevant should be provided prior to our session so that we can optimize the time available.
+
+## Programming Advisory
+
+The Programming Advisory phase includes **two** working sessions where an Auth0 Solutions Architect works with and provides guidance to your development team on topics like:
+
+* Auth0 account configuration
+* Auth0 extensibility endpoints
+* Your application integration with Auth0
+
+The goal of the Programming Advisory sessions is to make sure you are getting the most out of Auth0's capabilities. The work done during these sessions will focus on the scenario covered during the [Scenario Guidance](#scenario-guidance) session.
+
+We recommend completing the Programming Advisory sessions no more than **60 days** after you complete the Scenario Guidance session.
 
 ## Architectural Review
 
-This activity is designed to perform an evaluation of the Auth0 installation to ensure optimal use. It's an opportunity to update any documentation available, and includes an overview of different environments, applications, connections, and overall configuration. It also includes a walk-through of Auth0's roadmap, features to come, and an open discussion about other usage of Auth0 inside the company in the near future.
- 
+The Architectural Review phase includes one session designed to help you understand what needs to be completed prior to Productive go-live, as well as what needs to be done afterwards regarding your Auth0 integration and usage. Topics covered include:
 
+* The production checklist
+* Auth0 features 
+* Development lifecycle best practices
+* Engaging with the Auth0 Support Team
+
+We recommend completing Architectural Review session no more than **30 days** after you complete the [Programming Advisory](#programming-advisory) sessions.
+ 
 <%= include('../_includes/_contact-sales') %>

@@ -76,8 +76,8 @@ There are two required parameters that must be passed in the `options` object wh
 | `redirectUri` | optional | (String)  The default `redirectUri` used. Defaults to an empty string (none). |
 | `scope` | optional | (String)  The default scope(s) used by the application. Using scopes can allow you to return specific claims for specific fields in your request. You should read our [documentation on scopes](/scopes) for further details. |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
-| `responseType` | optional | (String)  The default `responseType` used. The value must be `'token'` or `'code'`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
-| `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. |
+| `responseType` | optional | (String)  The default `responseType` used. It can be any space separated list of the values `code`, `token`, `id_token`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
+| `responseMode` | optional | (String)  This option is omitted by default. Can be set to `'form_post'` in order to send the token or code to the `'redirectUri'` via POST. Supported values are `query`, `fragment` and `form_post`. |
 | `_disableDeprecationWarnings` | optional | (Boolean)  Disables the deprecation warnings, defaults to `false`. |
 
 ## Login
@@ -92,9 +92,8 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | --- | --- | --- |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
 | `scope` | required | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
-| `responseType` | required | (String) The value must be `'token'` or `'code'`. It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
+| `responseType` | required | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
-| `state` | recommended | (String)  An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
 
 For hosted login, one must call the `authorize()` method.
@@ -151,7 +150,7 @@ webAuth.redirect.loginWithCredentials({
 ```
 
 ::: warning
-Note that `webauth.redirect.loginWithCredentials` will be soon deprecated, and it is recommended that you use `webauth.client.login` instead.
+`webauth.redirect.loginWithCredentials` will be deprecated, and we recommend that you use `webauth.client.login` instead. However, if you're using `webauth.redirect.loginWithCredentials` on a Hosted Login Page, you can continue to do so.
 :::
 
 ### webAuth.popup.loginWithCredentials()
@@ -210,15 +209,28 @@ var url = webAuth.client.buildAuthorizeUrl({
 // ...
 ```
 
-__NOTE__: The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
+::: note
+The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
+:::
 
-### Passwordless login
+## Passwordless Login
 
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
 
-#### Start passwordless
+In order to use Passwordless, you will want to initialize Auth0.js with a `redirectUri` and to set the `responseType: 'token'`.
 
-The `passwordlessStart` method requires several parameters to be passed within its `options` object:
+```js
+var webAuth = new auth0.WebAuth({
+  clientID: '${account.clientId}',
+  domain: '${account.namespace}',
+  redirectUri: 'http://example.com',
+  responseType: 'token'
+});
+```
+
+### Start Passwordless
+
+The first step in Passwordless authentication with Auth0.js is the `passwordlessStart` method, which has several parameters which can be passed within its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -240,9 +252,9 @@ webAuth.passwordlessStart({
 );
 ```
 
-#### Verify passwordless
+### Verify passwordless
 
-The `passwordlessVerify` method requires several paramters to be sent in its `options` object:
+If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessVerify` method, which has several parameters which can be sent in its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -251,7 +263,7 @@ The `passwordlessVerify` method requires several paramters to be sent in its `op
 | `phoneNumber` | optional | (String) The user's phone number to which the code or link was delivered via SMS. |
 | `email` | optional | (String) The user's email to which the code or link was delivered via email. |
 
-Note that, as with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
+As with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
 
 ::: note
 In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
@@ -268,9 +280,9 @@ webAuth.passwordlessVerify({
 );
 ```
 
-## Extract the authResult and get user info
+## Extract the authResult and Get User Info
 
-After authentication occurs, the `parseHash` method parses a URL hash fragment to extract the result of an Auth0 authentication response.
+After authentication occurs, you can use the `parseHash` method to parse a URL hash fragment when the user is redirected back to your application in order to extract the result of an Auth0 authentication response. You may choose to handle this in a callback page that will then redirect to your main application, or in-page, as the situation dictates.
 
 The `parseHash` method takes an `options` object that contains the following parameters:
 
@@ -293,7 +305,7 @@ The contents of the authResult object returned by `parseHash` depend upon which 
 | `idToken` |  An id token JWT containing user profile information |
 
 ```js
-webAuth.parseHash(window.location.hash, function(err, authResult) {
+webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
   if (err) {
     return console.log(err);
   }
@@ -304,7 +316,7 @@ webAuth.parseHash(window.location.hash, function(err, authResult) {
 });
 ```
 
-As shown above, the `client.userInfo` method can be called passing the returned `authResult.accessToken`. It will make a request to the `/userinfo` endpoint and return the `user` object, which contains the user's information, similar to the below example.
+As shown above, the `client.userInfo` method can be called passing the returned `accessToken`. It will make a request to the `/userinfo` endpoint and return the `user` object, which contains the user's information, formatted similarly to the below example.
 
 ```json
 {
@@ -333,13 +345,29 @@ You can now do something else with this information as your application needs, s
 
 ## Using `nonce`
 
-By default, `auth0.js` will generate a random `nonce` when you call `webAuth.authorize`, store it in local storage, and pull it out in `webAuth.parseHash`. The default behavior should work in most cases, but some use cases may require a developer to control the `nonce`.
+By default (and if `responseType` contains `id_token`), `auth0.js` will generate a random `nonce` when you call `webAuth.authorize`, store it in local storage, and pull it out in `webAuth.parseHash`. The default behavior should work in most cases, but some use cases may require a developer to control the `nonce`.
 If you want to use a developer generated `nonce`, then you must provide it as an option to both `webAuth.authorize` and `webAuth.parseHash`.
 
 ```js
-webAuth.authorize({nonce: '1234'});
-webAuth.parseHash({nonce:'1234'}, callback);
+webAuth.authorize({nonce: '1234', responseType: 'token id_token'});
+webAuth.parseHash({nonce: '1234'}, callback);
 ```
+
+If you're calling `webAuth.renewAuth` instead of `webAuth.authorize`, then you only have to specify your custom `nonce` as an option to `renewAuth`:
+
+```js
+webAuth.renewAuth({
+  audience: 'https://example.com/api/v2',
+  scope: 'openid read:something write:otherthing',
+  responseType: 'token id_token',
+  nonce: '1234',
+  usePostMessage: true
+}, function (err, authResult) {
+    ...
+});
+```
+
+The `webAuth.renewAuth` method will automatically verify that the returned `id_token`'s `nonce` claim is the same as the option.
 
 ## Logout
 
@@ -405,31 +433,21 @@ webAuth.renewAuth({
   redirectUri: 'https://example.com/auth/silent-callback',
   usePostMessage: true
 }, function (err, authResult) {
-    ...
+  // err if automatic parseHash fails
+  ...
 });
 ```
 
-::: note
-This will use postMessage to communicate between the silent callback and the SPA. When false, the SDK will attempt to parse the URL hash, should ignore the URL hash, and no extra behavior is needed.
-:::
-
 The actual redirect to `/authorize` happens inside an iframe, so it will not reload your application or redirect away from it. However, it is strongly recommended to have a dedicated callback page for silent authentication in order to avoid the delay of loading your entire application again inside an iframe.
 
-This callback page should only parse the URL hash and post it to the parent document, so that your application can take action depending on the outcome of the silent authentication attempt. The callback page should be something like the following one. It will parse the URL hash and post it to the parent document:
+This callback page should simply pass the local URL hash to the parent document via postMessage. The `webAuth.renewAuth` method will receive the hash string and automatically perform a `webAuth.parseHash`, passing the `err` or `authResult` to the callback function. The callback page should be something like the following one:
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js"></script>
     <script type="text/javascript">
-      var webAuth = new auth0.WebAuth({
-        domain: '${account.namespace}',
-        clientID: '...'
-      });
-      var result = webAuth.parseHash(window.location.hash, function(err, data) {
-        parent.postMessage(err || data, "https://example.com/");
-      });
+      parent.postMessage(window.location.hash, "https://example.com/");
     </script>
   </head>
   <body></body>

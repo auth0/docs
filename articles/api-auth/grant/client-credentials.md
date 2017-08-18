@@ -1,7 +1,6 @@
 ---
 description: Describes how to call APIs from server processes using the Client Credentials Grant.
 ---
-
 # Calling APIs from a Service
 
 <%= include('../../_includes/_pipeline2') %>
@@ -9,7 +8,7 @@ description: Describes how to call APIs from server processes using the Client C
 The OAuth 2.0 grant that machine-to-machine interfaces utilize in order to access an API, is the **Client Credentials Grant**. In this document we will see how this flow works.
 
 ::: note
-  If you need a refresher on the OAuth 2.0 protocol, you can go through our <a href="/protocols/oauth2">OAuth 2.0</a> article.
+If you need a refresher on the OAuth 2.0 protocol, you can go through our [OAuth 2.0](/protocols/oauth2) article.
 :::
 
 ## Overview of the flow
@@ -34,15 +33,10 @@ For details on how to implement this using Auth0, refer to [Execute a Client Cre
 
 ## Keep reading
 
+::: next-steps
 - [How to implement a Client Credentials flow](/api-auth/tutorials/client-credentials)
 - [How to configure an API in Auth0](/apis)
 - [Why you should always use access tokens to secure an API](/api-auth/why-use-access-tokens-to-secure-apis)
-- [How to set up a Client Credentials Grant using the Dashboard](/api-auth/config/using-the-auth0-dashboard)
-- [How to set up a Client Credentials Grant using the Management API](/api-auth/config/using-the-management-api)
-- [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks).
-- [Backend Quickstarts](/quickstart/backend)
-- [Authentication API: POST /oauth/token](/api/authentication#client-credentials)
-- [The OAuth 2.0 protocol](/protocols/oauth2)
-- [The OpenID Connect protocol](/protocols/oidc)
+- [How to change the scopes and add custom claims to the tokens using Hooks](/api-auth/tutorials/client-credentials/customize-with-hooks)
 - [Tokens used by Auth0](/tokens)
-- [RFC 6749: The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)
+:::

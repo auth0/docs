@@ -71,7 +71,7 @@ To redirect a user after logout, add a `returnTo` querystring parameter with the
 https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
 ```
 
-You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples it is `http://www.example.com`) as an `Allowed Logout URLs` in one of two places:
+You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples it is `http://www.example.com`) as an **Allowed Logout URLs** in one of two places:
 
 * For logout requests that do not include the `client_id` parameter, for example:
 
@@ -79,7 +79,7 @@ You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples
     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
     ```
 
-  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the `Allowed Logout URLs` list in the *Advanced* tab of your **Account settings** page. See [Set the Allowed Logout URLs at the Account Level](#set-the-allowed-logout-urls-at-the-account-level) for more information.
+  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the **Advanced** tab of your **Account settings** page. See [Set the Allowed Logout URLs at the Account Level](#set-the-allowed-logout-urls-at-the-account-level) for more information.
 
 * For logout requests that include the `client_id` parameter, for example:
 
@@ -87,10 +87,10 @@ You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples
     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com&client_id=CLIENT_ID
     ```
 
-  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the `Allowed Logout URLs` list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the App Level](#set-the-allowed-logout-urls-at-the-app-level) for more information.
+  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the App Level](#set-the-allowed-logout-urls-at-the-app-level) for more information.
 
 
-### Set the *Allowed Logout URLs* at the Account Level
+### Set the Allowed Logout URLs at the Account Level
 
 To add a list of URLs that the user may be redirected to after logging out at the account level, go to the [Account Settings > Advanced](${manage_url}/#/account/advanced) of the **Auth0 Management Console**.
 
@@ -102,11 +102,11 @@ When providing the URL list, you can:
 * Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
 
 
-### Set the *Allowed Logout URLs* at the App Level
+### Set the Allowed Logout URLs at the App Level
 
-To redirect the user after they log out from a specific app, you must add the URL used in the `returnTo` parameter of the redirect URL to the `Allowed Logout URLs` list in the **Settings** tab of your Auth0 app that is associated with the `CLIENT_ID` parameter.
+To redirect the user after they log out from a specific app, you must add the URL used in the `returnTo` parameter of the redirect URL to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the `CLIENT_ID` parameter.
 
-![Application level logout screen](/media/articles/logout/app-level-logout.png)
+![Application level logout screen](/media/articles/logout/client-level-logout.png)
 
 When providing the URL list, you can:
 
@@ -122,6 +122,8 @@ In order to avoid validation errors, make sure that you do include the protocol 
 * The validation of URLs provided as values to the `returnTo` parameter, the querystring and hash information provided as part of the URL are not taken into account.
 
 * The `returnTo` parameter does not function for all social providers. Please check your social provider's settings to ensure that they will accept the `redirectTo` parameter.
+
+* The URLs provided to the **Allowed Logout URLs** list are case-sensitive, so the URL used for logouts must match the case of the logout URL configured on the dashboard. Note, that the scheme and host parts, are case-insensitive. For example, in `http://www.Example.Com/FooHoo.html`, the `http://www.Example.Com` is case-insensitive, while the `FooHoo.html` is case-sensitive.
 
 ::: note
 If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the **Auth0 Management Console** for the logout to function.
@@ -214,3 +216,45 @@ To prevent a Session Participant from being notified, you can set `logout.slo_en
 #### Non Single Logout Scenario
 
 If your Service Provider does not support SAML SLO, but provides a redirect URL where the user will be redirected to after logging out of the SP, the best thing to do is configure the redirect URL to `https://${account.namespace}/logout`. This won't notify other session participants that a logout was initiated, but it will at remove the session from Auth0.
+
+## Implementing in your Application
+
+For guidance and sample code on how to implement logout functionality in your application please refer to our [Quickstarts](/quickstarts):
+
+### Mobile / Native Apps
+
+* [Android](/quickstart/native/android/03-session-handling#log-out)
+* [Chrome Extension](/quickstart/native/chrome)
+* [Cordova](/quickstart/native/cordova)
+* [Ionic](/quickstart/native/ionic)
+* [Ionic 2+](/quickstart/native/ionic2)
+* [iOS Objective-C](/quickstart/native/ios-objc/03-user-sessions#on-logout-clear-the-keychain)
+* [iOS Swift](/quickstart/native/ios-swift/03-user-sessions#on-logout-clear-the-keychain)
+
+### Single Page Apps
+
+* [Angular 2+](/quickstart/spa/angular2)
+* [AngularJS](/quickstart/spa/angularjs)
+* [Aurelia](/quickstart/spa/aurelia)
+* [Cycle](/quickstart/spa/cyclejs#5-implement-the-logout)
+* [Ember](/quickstart/spa/ember)
+* [JavaScript](/quickstart/spa/vanillajs)
+* [React](/quickstart/spa/react)
+* [Vue](/quickstart/spa/vuejs)
+* [jQuery](/quickstart/spa/jquery)
+
+### Web Apps
+
+* [ASP.NET (OWIN)](/quickstart/webapp/aspnet-owin/01-login#add-login-and-logout-methods)
+* [ASP.NET (System.Web)](/quickstart/webapp/aspnet#logout)
+* [ASP.NET Core](/quickstart/webapp/aspnet-core/01-login#add-login-and-logout-methods)
+* [Java](/quickstart/webapp/java)
+* [Java Spring MVC](/quickstart/webapp/java-spring-mvc)
+* [Java Spring Security](/quickstart/webapp/java-spring-security-mvc)
+* [NancyFX](/quickstart/webapp/nancyfx)
+* [Node.js](/quickstart/webapp/nodejs)
+* [PHP (Laravel)](/quickstart/webapp/laravel)
+* [PHP (Symfony)](/quickstart/webapp/symfony)
+* [Python](/quickstart/webapp/python#6-logout)
+* [Ruby on Rails](/quickstart/webapp/rails/02-session-handling#logout-action)
+

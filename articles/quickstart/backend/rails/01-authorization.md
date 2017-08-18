@@ -6,12 +6,16 @@ description: This tutorial demonstrates how to add authentication to Ruby on Rai
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-rubyonrails-api-samples',
-  path: '01-Authenticate-RS256',
+  path: '01-Authentication-RS256',
   requirements: [
     'Ruby 2.1.8',
     'Rails 4.2.5.1'
   ]
 }) %>
+
+<%= include('../../../_includes/_api_auth_intro') %>
+
+<%= include('../_includes/_api_create_new') %>
 
 <%= include('../_includes/_api_auth_preamble') %>
 
@@ -33,7 +37,7 @@ bundle install
 Create a class called `JsonWebToken` which decodes and verifies the incoming `access_token` taken from the `Authorization` header of the request. The public key for your Auth0 tenant can be fetched to verify the token.
 
 ```rb
-# lib/tasks/json_web_token.rb
+# lib/json_web_token.rb
 
 # frozen_string_literal: true
 class JsonWebToken
@@ -159,3 +163,5 @@ In this example the `SCOPES` array for the given key `/restricted_resource` is i
 ```
 
 With this configuration in place, only `access_token`s which have a scope of `read:messages` will be allowed to access this endpoint.
+
+<%= include('../_includes/_call_api') %>

@@ -1,14 +1,12 @@
 ---
 title: OIDC-conformant Resource Owner Password Credentials exchange
 ---
-
 # Resource Owner Password Credentials exchange
 
 <%= include('./_about.md') %>
 
-The [Resource Owner Password Credentials exchange](/api-auth/grant/password) is used by highly-trusted clients to provide active authentication.
-Unlike the authorization code and implicit grants, this authentication mechanism does not redirect users to Auth0.
-It authenticates users with a single request, exchanging their password credentials for a token.
+The [Resource Owner Password Credentials exchange](/api-auth/grant/password) is used by highly-trusted clients to provide active authentication. Unlike the authorization code and implicit grants, this authentication mechanism does not redirect users to Auth0. It authenticates users with a single request, exchanging their password credentials for a token.
+
 This document describes the differences of this flow between the legacy and OIDC-conformant authentication pipelines.
 
 ## Authentication request
@@ -101,7 +99,7 @@ Pragma: no-cache
 }</code></pre>
     <ul>
         <li>The returned access token is valid for calling the <a href="/api/authentication#get-user-info">/userinfo endpoint</a> (provided that the API specified by the <code>audience</code> param uses <code>RS256</code> as signing algorithm) and optionally the resource server specified by the <code>audience</code> parameter.</li>
-        <li>The ID token will be forcibly signed using RS256 if requested by a <a href="/api-auth/client-types">public client</a>.</li>
+        <li>The ID token will be forcibly signed using RS256 if requested by a <a href="/clients/client-types#public-clients">public client</a>.</li>
         <li>A refresh token will be returned only if the <code>offline_access</code> scope was granted.</li>
     </ul>
     </div>
@@ -189,8 +187,7 @@ Pragma: no-cache
 
 ## Standard password grant requests
 
-The Auth0 password realm grant is not defined by standard OIDC, but it is suggested as an alternative to the legacy resource owner endpoint because it supports the Auth0-specific `realm` parameter.
-The [standard OIDC grant is also supported](/api-auth/tutorials/password-grant) when using OIDC authentication.
+The Auth0 password realm grant is not defined by standard OIDC, but it is suggested as an alternative to the legacy resource owner endpoint because it supports the Auth0-specific `realm` parameter. The [standard OIDC grant is also supported](/api-auth/tutorials/password-grant) when using OIDC authentication.
 
 ## Further reading
 
