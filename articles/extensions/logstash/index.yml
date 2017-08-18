@@ -1,8 +1,0 @@
-versioning:
-  baseUrl: extensions/logstash
-  current: v2
-  versions:
-    - v1
-    - v2
-  defaultArticles:
-    v2: index
