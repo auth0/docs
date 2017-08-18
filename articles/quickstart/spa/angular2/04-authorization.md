@@ -46,8 +46,7 @@ private setSession(authResult): void {
 }
 ```
 
-Add a method called `userHasScopes` that checks for scopes in local storage. Add an array of strings to the method and check if the array of scopes saved in local storage contains those values. 
-You can use this method to conditionally hide and show UI elements to the user and to limit route access.
+<%= include('../_includes/_authz_user_has_scopes') %>
 
 ```ts
 // src/app/auth/auth.service.ts
