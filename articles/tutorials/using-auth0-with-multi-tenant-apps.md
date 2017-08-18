@@ -6,7 +6,7 @@ toc: true
 
 # Using Auth0 with Multi-Tenant Applications
 
-Multi-tenancy refers to the software architecture principle where a single instance of software runs on a server that is accessible to multiple groups of users (each referred to as a __tenant__ and represented in Auth0 as a __Client__).
+Multi-tenancy refers to the software architecture principle where a single instance of software runs on a server that is accessible to multiple groups of users.
 
 By using a single Auth0 account for all of your applications, you maintain simplicity in your architecture and are able to manage all of your authentication flows in one place. Only if you need to share access to the Management Dashboard with individual applications would you need to create multiple Auth0 accounts (see this [GitHub repo](https://github.com/auth0/auth0-multitenant-spa-api-sample) for a sample application using this architecture scheme).
 
