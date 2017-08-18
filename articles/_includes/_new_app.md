@@ -5,12 +5,12 @@
   The first step for integrating Auth0 in your app is to create an [account](${manage_url}/login). When you sign up for Auth0, you will be invited to create a new client.
 
 <% } else { %>
-  When you signed up for Auth0, you were invited to create a new client.
+  When you signed up for Auth0, you created a new client.
 
 <% } %>
   Your application needs to know some details about this client to communicate with Auth0. You can get these details from the **Settings** section for your client in the [Auth0 dashboard](${manage_url}/#/).
 
-  You need the following details:
+  You need the following information:
   * **Client ID**
   * **Domain**
 

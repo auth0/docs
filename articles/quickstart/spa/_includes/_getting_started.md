@@ -1,4 +1,4 @@
-This guide will walk you through setting up authentication and authorization in your ${library} apps with Auth0.
+This guide walks you through setting up authentication and authorization in your ${library} apps with Auth0.
 
 <%= include('../../../_includes/_new_app') %>
 
