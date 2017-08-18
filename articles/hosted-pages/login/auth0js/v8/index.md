@@ -9,7 +9,13 @@ Auth0.js v8 is the current version of the SDK, and is the recommended version fo
 
 ## Auth0.js Template for Hosted Login Page
 
-You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js v8 in the Hosted Login Page. In the [dashboard](${manage_url}), go to **Hosted Pages**, and then to the **Login** page section. At the top of the code editor for the page contents, you'll see a dropdown, titled **Default Templates**. Here you can choose from `Lock`, `Lock Passwordless`, or `Custom UI`. Choose `Custom UI` to get started.
+You can start out with a basic template that will provide you with a working, ready-to-use example of a custom UI using Auth0.js v8 in the Hosted Login Page. 
+
+In the [dashboard](${manage_url}), go to **Hosted Pages**, and then to the **Login** page section. 
+
+At the top of the code editor for the page contents, you'll see a dropdown, titled **Default Templates**. Here you can choose from `Lock`, `Lock Passwordless`, or `Custom UI`. 
+
+Choose `Custom UI` to get started.
 
 ![Hosted Login Page](/media/articles/hosted-pages/hlp-customui.png)
 
