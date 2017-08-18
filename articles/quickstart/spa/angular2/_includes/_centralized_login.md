@@ -15,10 +15,10 @@ Create a reusable service to manage and coordinate the tasks necessary for user 
 You can create an instance of the `WebAuth` object from the auth0.js library in the service.
 
 ::: note
-You can name the service anything you want. In the examples below, the service is called `AuthService` and the filename is called `auth.service.ts`.
+You can name the service anything you want. In the examples below, the service is called `AuthService` and the filename is `auth.service.ts`.
 :::
 
-Create a service and and instance of a `auth0.WebAuth` object. Provide a `login` method that calls the `authorize` method from auth0.js.
+Create a service and add an instance of the `auth0.WebAuth` object. Provide a `login` method that calls the `authorize` method from auth0.js.
 
 ```ts
 // src/app/auth/auth.service.ts
