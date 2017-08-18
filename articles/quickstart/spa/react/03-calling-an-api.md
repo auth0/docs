@@ -22,7 +22,7 @@ budicon: 546
 ## Set the Audience and Scope in `auth0.WebAuth`
 
 In your `auth0.WebAuth` instance, enter your API identifier as the value for `audience`.
-Add your newly created scopes to the `scope` key.
+Addthe scopes you created to the `scope` key.
 
 ```js
 // src/Auth/Auth.js
@@ -35,7 +35,7 @@ auth0 = new auth0.WebAuth({
 ```
 
 ::: panel Checkpoint
-Try to log in to your application again. Look at how the `access_token` differs from before. Instead of being an opaque token, it is now a JSON Web Token with a payload that contains your API identifier as audience and the scopes you created.
+Try to log in to your application again. Look at how the `access_token` differs from before. It is no longer an opaque token. Instead, it is now a JSON Web Token with a payload that contains your API identifier as audience and the scopes you created.
 :::
 
 ::: note
