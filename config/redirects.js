@@ -1336,5 +1336,17 @@ module.exports = [
   {
     from: '/security/token-exp',
     to: '/tokens'
+  },
+  {
+    from: ['/hosted-pages/hosted-login-auth0js'],
+    to: '/hosted-pages/login/auth0js'
+  },
+  {
+    from: ['/hosted-pages/hosted-login-auth0js/v8'],
+    to: '/hosted-pages/login/auth0js/v8'
+  },
+  {
+    from: ['/hosted-pages/hosted-login-auth0js/v7'],
+    to: '/hosted-pages/login/auth0js/v7'
   }
 ];

@@ -1,5 +1,5 @@
 versioning:
-  baseUrl: hosted-pages/hosted-login-auth0js
+  baseUrl: hosted-pages/login/auth0js
   current: v8
   versions:
     - v7
