@@ -94,9 +94,9 @@ The possible parameters are detailed below.
 * **clientID {String}**: Your application clientID in Auth0.
 * **domain {String}**: Your Auth0 domain. Usually ```<account>.auth0.com```.
 * **options {Object}**:
-  * _**cdn {String}**_: Use as CDN base url. Defaults to `domain` if it doesn't equal `*.auth0.com`.
-  * _**assetsUrl {String}**_: Use as assets base url. Defaults to `domain` if it doesn't equal `*.auth0.com`.
-  * _**useCordovaSocialPlugins {boolean}**_: When Lock is used in a Cordova/Phonegap application, it will try authenticating with social connections using a native plugin. The only plugin supported is [phonegap-facebook-plugin](https://github.com/Wizcorp/phonegap-facebook-plugin) but more will come soon.
+  * **cdn {String}**: Use as CDN base url. Defaults to `domain` if it doesn't equal `*.auth0.com`.
+  * **assetsUrl {String}**: Use as assets base url. Defaults to `domain` if it doesn't equal `*.auth0.com`.
+  * **useCordovaSocialPlugins {boolean}**: When Lock is used in a Cordova/Phonegap application, it will try authenticating with social connections using a native plugin. The only plugin supported is [phonegap-facebook-plugin](https://github.com/Wizcorp/phonegap-facebook-plugin) but more will come soon.
 
 ## Usage
 
@@ -123,11 +123,11 @@ login.onclick = function (e) {
 };
 ```
 
-This is just one example of how **Auth0Lock** could work with a **Single Page Application** (_SPA_). Read the [Single Page Applications][spa-notes] and the [Regular Web Applications][webapps-notes] articles for a full explanation on how to implement those scenarios with Auth0 Lock and when to use each.
+This is just one example of how **Auth0Lock** could work with a **Single Page Application** (SPA). Read the [Single Page Applications][spa-notes] and the [Regular Web Applications][webapps-notes] articles for a full explanation on how to implement those scenarios with Auth0 Lock and when to use each.
 
 ## Examples
 
-The **example** directory has a ready-to-go app. In order to run it you need [node](http://nodejs.org/) installed.
+The `example` directory has a ready-to-go app. In order to run it you need [node](http://nodejs.org/) installed.
 
 Then execute `npm i` to install dependencies (only once) and `npm example` from the root of this project.
 
