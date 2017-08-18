@@ -5,7 +5,8 @@ description: This tutorial demonstrates how to use the Python Oauthlib to add au
 budicon: 448
 ---
 
-You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application 
+you can follow the tutorial steps.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
@@ -15,45 +16,38 @@ You can get started by either downloading the seed project or if you would like 
     'Python 2.7, 3.0 and up',
     'Flask 0.10.1 and up',
     'Requests 2.3.0 and up',
-    'Flask-oauthlib 0.9.4 and up',
-    'Six 1.10.0 and up'
+    'Flask-oauthlib 0.9.4 and up'
   ]
 }) %>
 
-## Specify the Callback URLs
-
-${include('../_callbackRegularWebApp')}
-
-In this case, the callbackURL should look something like:
-
-```text
-http://yourUrl/callback
-```
 
 ## Add the Dependencies
 
-${snippet(meta.snippets.dependencies)}
+Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`
+
+```js
+flask
+requests
+flask-oauthlib
+```
 
 This example uses `flask` but it could work with any server
 
-## Trigger Login With OAuthlib
 
-Now, you can use `OAuthlib` to call the authorize endpoint of the Authentication API and redirect your users to our [Hosted Login page](/hosted-pages/login). This way, you will be implementing the [Authorization Code](/api-auth/grant/authorization-code) grant flow, so you will obtain a `code`.
+## Initialize Flask-OAuthlib
+
+Create a file named server.py and add the following
 
 ```python
 # server.py
 
-from functools import wraps
-from six.moves.urllib.parse import urlencode
 from flask import Flask
-from flask import redirect
 from flask import render_template
 from flask import request
-from flask import session
-from flask import url_for
 from flask_oauthlib.client import OAuth
 
 app = Flask(__name__)
+app.secret_key = 'A_SECRET_KEY'
 oauth = OAuth(app)
 auth0 = oauth.remote_app(
     'auth0',
@@ -70,21 +64,23 @@ auth0 = oauth.remote_app(
 )
 ```
 
-We define the route that will redirect the user to the authorization endpoint
+## Specify the Callback URLs
 
-```python
-@app.route('/login')
-def login():
-    return auth0.authorize(callback='${account.callback}')
+The callback URL is a URL in your web application where Auth0 redirects to after the user has authenticated 
+to the [authorization endpoint](/protocols/oauth2#authorization-endpoint) and granted permissions
+
+${include('../_callbackRegularWebApp')}
+
+In this case, the callbackURL should look something like:
+
+```text
+http://yourUrl/callback
 ```
-
-::: note
-The `callback` specified **must match** the URL specified in the previous step.
-:::
 
 ## Add the Auth0 Callback Handler
 
-You'll need to create a callback handler so Auth0 will redirect users after they authenticate and grant access. This handler exchanges the `code` we have obtained previously for an `access_token` and an `id_token` and store them in the session. For that, you can do the following:
+This handler exchanges the `code` that Auth0 sends to the callback URL and exchange for an `access_token` 
+and an `id_token`. For that, you can do the following:
 
 ```python
 # Here we're using the /callback route.
@@ -97,71 +93,20 @@ def callback_handling():
             request.args['error_description']
         )
     
-    session['access_token'] = (resp['access_token'], '')
-    
-    # Oauthlib will call userinfo endpoint with the access_token obtained from the function decorated
-    # with @auth0.tokengetter
-    user_info = auth0.get('userinfo')
-    session['profile'] = user_info.data
-    
-    return redirect('/dashboard')
+    return render_template('dashboard.html')
 ```
 
-Register the function that will obtain the stored access token.
+## Trigger Login With Flask-OAuthlib
+
+You can use `Flask-OAuthlib` to redirect the user to the authorize endpoint 
+to start the [Authorization Code](/api-auth/grant/authorization-code) grant flow, now we define that route
 
 ```python
-@auth0.tokengetter
-def get_auth0_oauth_token():
-    return session.get('access_token')
+@app.route('/login')
+def login():
+    return auth0.authorize(callback='${account.callback}')
 ```
 
-## Access User Information
-
-You can access the user information via the `profile` you stored in the session on previously step
-
-```python
-@app.route("/dashboard")
-@requires_auth
-def dashboard():
-    return render_template('dashboard.html', user=session['profile'])
-
-```
-
-```html
-<div>
-  <img class="avatar" src="{{user['picture']}}"/>
-  <h2>Welcome {{user['nickname']}}</h2>
-</div>
-```
-
-[Click here](/user-profile) to check all the information that the userinfo hash has.
-
-## Logout
-
-You can implement logout by clearing a session and redirecting to [logout endpoint](/logout#redirect-users-after-logout).
-
-```python
-@app.route('/logout')
-def logout():
-    session.clear()
-    params = {'returnTo': url_for('home', _external=True), 'client_id': '${account.clientId}'}
-    return redirect(auth0.base_url + '/v2/logout?' + urlencode(params))
-```
-
-## Optional Steps
-
-#### Check if the user is authenticated
-
-You can add the following annotation to your `Flask` app to check if the user is authenticated. Note that you should import `wraps` first, adding the following line to your file `from functools import wraps`.
-
-```python
-def requires_auth(f):
-  @wraps(f)
-  def decorated(*args, **kwargs):
-    if 'profile' not in session:
-      # Redirect to Login page here
-      return redirect('/')
-    return f(*args, **kwargs)
-
-  return decorated
-```
+::: note
+The `callback` specified **must match** the URL specified in the previous step.
+:::
