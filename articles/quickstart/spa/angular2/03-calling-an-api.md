@@ -21,7 +21,7 @@ budicon: 546
 
 ## Set the Audience and Scope in `auth0.WebAuth`
 
-Enter your API identifier as the value for `audience` in your `auth0.WebAuth` instance.
+In your `auth0.WebAuth` instance, enter your API identifier as the value for `audience`.
 Add your newly created scopes to the `scope` key.
 
 ```ts
