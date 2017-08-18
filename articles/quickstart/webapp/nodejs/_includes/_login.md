@@ -1,6 +1,6 @@
 ## Install the Middleware Dependencies
 
-Install the necessary middelwares.
+Install the necessary middlewares.
 
 ```bash
 # installation with npm
