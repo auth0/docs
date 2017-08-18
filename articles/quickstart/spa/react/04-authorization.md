@@ -19,7 +19,7 @@ budicon: 546
 
 ## Handle Scopes in the `Auth` Service
 
-Adjust your `Auth` service to use a local member with any scopes you would like to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
+Adjust your `Auth` service to use a local member with any scopes you want to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
 
 ```js
 // src/Auth/Auth.js
@@ -107,7 +107,7 @@ In this example, if an unauthenticated user tries to access the `/ping` route, t
 
 ### Limit Route Access Based on `scope`
 
-To prevent access to client-side routes based on a particular scope, make a call to `userHasScopes` in the route's `render` function.
+To prevent access to client-side routes based on a particular scope, make a call to the `userHasScopes` method in the route's `render` function.
 
 ```js
 // src/routes.js
