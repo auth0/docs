@@ -19,7 +19,7 @@ Set the following parameters:
 | - | - |
 | Provider Type | The type of provider. Set as `SAML` |
 | Provider Name | A descriptive name for the provider, such as `auth0SamlProvider` |
-| Metadata Document | Upload the file containing the Auth0 metadata you downloaded in the previous step here. |
+| Metadata Document | Upload the file containing the Auth0 metadata, found in client settings->advanced settings->endpoints->SAML Metadata URL |
 
 ![](/media/articles/integrations/aws/aws-configure-provider.png)
 
