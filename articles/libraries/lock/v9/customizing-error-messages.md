@@ -2,7 +2,6 @@
 section: libraries
 description: Customizing error messages with Lock V9
 ---
-
 # Lock: Customizing Error Messages
 
 <%= include('../_includes/_lock-version-9') %>
@@ -39,6 +38,7 @@ var dict = {
 // Invoke the lock show method with the customized dictionary
 lock.show({ dict: dict });
 ```
+
 These errors will be shown on the widget header:
 
 ![Widget Header Errors](/media/articles/libraries/lock/v9/custom-error.png)

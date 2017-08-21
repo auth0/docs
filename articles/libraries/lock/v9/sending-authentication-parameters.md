@@ -2,7 +2,6 @@
 section: libraries
 description: Supported parameters that can be used with Lock V9.
 ---
-
 # Lock: Authentication Parameters
 
 <%= include('../_includes/_lock-version-9') %>
@@ -25,6 +24,7 @@ This would be analogous to trigger the login with `https://${account.namespace}/
 :::
 
 ## Supported parameters
+
 ### scope {string}
 
 ```js
@@ -53,7 +53,7 @@ lock.show({
     connections: ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication', 'fabrikam.com'],
     connection_scopes: {
       'facebook': ['public_profile', 'user_friends'],
-      'google-oauth2': ['https://www.googleapis.com/auth/orkut'],
+      'google-oauth2': ['https://www.googleapis.com/auth/orkut']
       // none for twitter
     }
   }
@@ -63,6 +63,7 @@ lock.show({
 ::: note
 The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.
 :::
+
 ### state {string}
 
 The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [XSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information (such as a return url) that you might need after the authentication process is finished.

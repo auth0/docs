@@ -1348,5 +1348,17 @@ module.exports = [
   {
     from: ['/hosted-pages/hosted-login-auth0js/v7'],
     to: '/hosted-pages/login/auth0js/v7'
+  },
+  {
+    from: '/libraries/lock/v9#api',
+    to: '/libraries/lock/v9/api'
+  },
+  {
+    from: '/libraries/lock/v9/events',
+    to: '/libraries/lock/v9/api#events'
+  },
+  {
+    from: '/libraries/lock/v9/initialization',
+    to: '/libraries/lock/v9#initialization'
   }
 ];
