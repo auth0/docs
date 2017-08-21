@@ -90,7 +90,7 @@ You'll be asked to provide the following values:
 
 | **Parameter** | **Value** |
 | - | - |
-| **Deployment stagev | Choose `[New Stage]` |
+| **Deployment stage** | Choose `[New Stage]` |
 | **Stage name** | Provide a name for your stage |
 | **Stage description** | Provide a description for your stage |
 | **Deployment description** | Provide a description for your API deployment |
