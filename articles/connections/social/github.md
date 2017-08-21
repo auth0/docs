@@ -34,15 +34,15 @@ On the [Register a new application](https://github.com/settings/applications/new
 
 After completing the form click **Register application** to proceed.
 
-## 3. Get your *Client Id* and *Client Secret*
+## 3. Get your GitHub app's Client ID and Client Secret
 
-Once the application is registered, your app's `Client Id` and `Client Secret` will be displayed on the following page:
+Once the application is registered, your app's `Client ID` and `Client Secret` will be displayed on the following page:
 
 ![](/media/articles/connections/social/github/github-add-app-3.png)
 
-### 4. Copy your *Client Id* and *Client Secret*
+### 4. Copy your GitHub app's Client ID and Client Secret
 
-Go to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social**, then choose **Github**. Copy the `Client Id` and `Client Secret` from the **Developer Applications** of your app on Github into the fields on this page on Auth0.
+Go to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social**, then choose **Github**. Copy the `Client ID` and `Client Secret` from the **Developer Applications** of your app on Github into the fields on this page on Auth0.
 
 ![](/media/articles/connections/social/github/github-add-app-4.png)
 
