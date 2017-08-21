@@ -10,7 +10,7 @@ toc: true
 This portion of the tutorial has been adapted from the [official AWS example](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-from-example.html). Please refer to this example for in-depth notes and discussion.
 :::
 
-In [Part 1](/integrations/aws-api-gateway/custom-authorizers/part-1) of the AWS API Gateway tutorial, we will show you how to import and manage an API using API Gateway. More specifically, we will:
+In Part 1 of the AWS API Gateway tutorial, we will show you how to import and manage an API using API Gateway. More specifically, we will:
 
 * Import an API into API Gateway
 * Test an API import
@@ -88,12 +88,12 @@ The test we just completed was done using the API Gateway console. To use the AP
 
 You'll be asked to provide the following values:
 
-| Parameter | Value |
+| **Parameter** | **Value** |
 | - | - |
-| Deployment stage | Choose `[New Stage]` |
-| Stage name | Provide a name for your stage |
-| Stage description | Provide a description for your stage |
-| Deployment description | Provide a description for your API deployment |
+| **Deployment stagev | Choose `[New Stage]` |
+| **Stage name** | Provide a name for your stage |
+| **Stage description** | Provide a description for your stage |
+| **Deployment description** | Provide a description for your API deployment |
 
 Once you've provided the appropriate values, click **Deploy** to proceed.
 

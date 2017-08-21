@@ -25,18 +25,18 @@ You can [download a sample custom authorizer](https://github.com/auth0-samples/j
 
 3. Configure your local environment with a `.env` file. You can copy the `.env.sample` file (while simultaneously renaming it `.env`) using `cp .env.sample .env`. Make the following changes:
 
-| Parameter | Value |
+| **Parameter** | **Value** |
 | - | - |
-| `TOKEN_ISSUER` | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/` |
-| `JWKS_URI` | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/.well-known/jwks.json` |
-| `AUDIENCE` | The token's `audience`. If Auth0 is the authorization server, the `audience` value is identical to the [API identifier](/apis#how-to-configure-an-api-in-auth0) |
+| **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/` |
+| **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/.well-known/jwks.json` |
+| **`AUDIENCE`** | The token's `audience`. If Auth0 is the authorization server, the `audience` value is identical to the [API identifier](/apis#how-to-configure-an-api-in-auth0) |
 
 As an example, the text of your .env file should look something like this when complete:
 
 ```text
-JWKS_URI=https://auth0user.auth0.com/.well-known/jwks.json
-AUDIENCE=https://auth0user.auth0.com/api/v2/    
-TOKEN_ISSUER=https://auth0user.auth0.com/
+JWKS_URI=https://${account.namespace}.auth0.com/.well-known/jwks.json
+AUDIENCE=https://${account.namespace}.auth0.com/api/v2/    
+TOKEN_ISSUER=https://${account.namespace}.auth0.com/
 ```
 
 4. Test the custom authorizer locally.
@@ -155,11 +155,11 @@ Now that you've configured your custom authorizer for your environment and teste
 
 5. On the **Configure function** page, you'll provide all of the information needed for your new Lambda function. Under **Basic information**, provide values for the following parameters:
 
-| Parameter | Value |
+| **Parameter** | **Value** |
 | - | - |
-| Name | A name for your Lambda function, such as `jwtRsaCustomAuthorizer` |
-| Description | A description for your Lambda function (optional) |
-| Runtime | Select `Node.js 4.3` |
+| **Name** | A name for your Lambda function, such as `jwtRsaCustomAuthorizer` |
+| **Description** | A description for your Lambda function (optional) |
+| **Runtime** | Select `Node.js 4.3` |
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-14.png)
 
@@ -167,19 +167,19 @@ a. Next, provide the function code. Under **Code entry type**, select **Upload a
 
 b. Then, create the following three **Environment variables**. Note that this information is identical to that which is the `.env` file.
 
-| Parameter | Value |
+| **Parameter** | **Value** |
 | - | - |
-| `TOKEN_ISSUER` | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/` |
-| `JWKS_URI` | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/.well-known/jwks.json` |
-| `AUDIENCE` | The token's `audience`. If Auth0 is the authorization server, the `audience` value is identical to the [API identifier](/apis#how-to-configure-an-api-in-auth0) |
+| **`TOKEN_ISSUER`** | The issuer of the token. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/` |
+| **`JWKS_URI`** | The URL of the JWKS endpoint. If Auth0 is the token issuer, use `https://${account.namespace}.auth0.com/.well-known/jwks.json` |
+| **`AUDIENCE`** | The token's `audience`. If Auth0 is the authorization server, the `audience` value is identical to the [API identifier](/apis#how-to-configure-an-api-in-auth0) |
 
 c. In the **Lambda function handler and role** section, set the following values:
 
-| Parameter | Value |
+| **Parameter** | **Value** |
 | - | - |
-| Handler | `index.handler` |
-| Role | `Choose an existing role` |
-| Existing role | Select the IAM role you created in the steps above. |  
+| **Handler** | `index.handler` |
+| **Role** | `Choose an existing role` |
+| **Existing role** | Select the IAM role you created in the steps above. |  
 
 d. Open up the **Advanced settings** area, and set **Timeout** to **30** sec.
 
@@ -223,15 +223,15 @@ Using the left-hand navigation bar, open **Authorizers**. If this is the first a
 
 Set the following parameters:
 
-| Parameter | Value |
+| **Parameter** | **Value** |
 | - | - |
-| Lambda region | Use the region for the Lambda function you created previously |
-| Lambda function | `jwtRsaCustomAuthorizer` |
-| Authorizer name | `jwt-rsa-custom-authorizer` |
-| Execution role | The IAM Role ARN you copied above |
-| Identity token source | `method.request.header.Authorization` |
-| Token validation expression | `^Bearer [-0-9a-zA-z\.]*$` |
-| Result TTL in seconds | `3600` |
+| **Lambda region** | Use the region for the Lambda function you created previously |
+| **Lambda function** | `jwtRsaCustomAuthorizer` |
+| **Authorizer name** | `jwt-rsa-custom-authorizer` |
+| **Execution role** | The IAM Role ARN you copied above |
+| **Identity token source** | `method.request.header.Authorization` |
+| **Token validation expression** | `^Bearer [-0-9a-zA-z\.]*$` |
+| **Result TTL in seconds** | `3600` |
 
 ![](/media/articles/integrations/aws-api-gateway-2/part-2/pt2-24.png)
 

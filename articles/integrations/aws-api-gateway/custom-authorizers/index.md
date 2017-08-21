@@ -14,9 +14,13 @@ This tutorial will show you how to set up your API with API Gateway, create and 
 
 More specifically, the custom authorizers will:
 
-1. Confirm that the OAuth 2.0 token has been passed via the `authorization` header of the request to access the API
-2. Verify the RS256 signature of the OAuth 2.0 token using a public key obtained via a JWKS endpoint
-3. Ensure the token has the required Issuer `iss` and Audience `aud` claims
+1. Confirm that the access token has been passed via the `authorization` header of the request to access the API
+2. Verify the [RS256 signature](/apis#signing-algorithms) of the access token using a public key obtained via a [JWKS endpoint](/jwks)
+3. Ensure the access token has the required Issuer `iss` and Audience `aud` claims
+
+::: note
+New to OAuth 2.0? Check out our [introduction to OAuth 2.0](/protocols/oauth2).
+:::
 
 To that end, this tutorial will be divided into the following sections.
 
@@ -34,17 +38,17 @@ If **there is a custom authorizer for the API**, API Gateway calls the custom au
 
 You can use the custom authorizer to implement different types of authorization strategies, including [JWT](/jwt) verification, to return IAM policies authorizing the request. If the policy returned is invalid or if the permissions are denied, the API call fails.
 
-For a valid policy, API caches the returned policy, associating it with the incoming token and using it for the current and subsequent requests. You can configure the amount of time for which the policy is cached. The default value is 300 seconds, and the maximum length of caching is 3600 seconds (you can also set the value to 0 to disable caching).
+For a valid policy, API caches the returned policy, associating it with the incoming token and using it for the current and subsequent requests. You can configure the amount of time for which the policy is cached. The default value is `300` seconds, and the maximum length of caching is `3600` seconds (you can also set the value to 0 to disable caching).
 
 ## Before You Begin
 
 Before beginning this tutorial, you'll need to [sign up for an AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html). This grants you access to all of the AWS features we'll use in this tutorial, including API Gateway and Lambda. All new members receive twelve months of free tier access to AWS.
 
-## Helpful Resources
-
+::: next-steps
 * [API Authorization](/api-auth)
 * [Obtain an Auth0 Access Token](/tokens/access-token#how-to-get-an-access-token)
 * [JSON Web Key Sets (JWKS)](/jwks)
+:::
 
 <%= include('./_stepnav', {
  next: ["1. Part 1", "/integrations/aws-api-gateway/custom-authorizers/part-1"]
