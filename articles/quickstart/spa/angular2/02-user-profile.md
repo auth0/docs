@@ -59,11 +59,8 @@ public getProfile(cb): void {
 
 <%= include('../_includes/_user_profile_in_memory') %>
 
-## Add a Profile Component
+<%= include('../_includes/_user_profile_add_profile_component') %>
 
-You can adjust how you show profile information to your users. Some applications have a dedicated profile section for displaying user information. The example below shows how to set it up. 
-
-Create a new component called `ProfileComponent`.
 
 ```ts
 // src/app/profile/profile.component.ts
