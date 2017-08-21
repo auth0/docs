@@ -1,7 +1,7 @@
 ## Install auth0.js
 
-You need the auth0.js library to integrate Auth0 in your application. Install it using npm or yarn.
-
+You need the auth0.js library to integrate Auth0 into your application.
+Install auth0.js.
 ```bash
 # installation with npm
 npm install --save auth0-js

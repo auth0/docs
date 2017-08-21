@@ -55,7 +55,7 @@ Try calling the `login` method from somewhere in your application to see the log
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish Out the Service
+### Finish the Service
 
 Add more methods to the `AuthService` service to handle authentication in the app.
 
@@ -119,7 +119,7 @@ export class AuthService {
 
 ## Provide a Login Control
 
-Provide a template with controls for the user to log in and log out.
+Provide a template with controls for the user to log in and out.
 
 ```html
 <!-- src/app/app.component.html -->
@@ -159,10 +159,10 @@ Provide a template with controls for the user to log in and log out.
 ```
 
 ::: note
-This example uses Bootstrap styles. You can use any style library you want, or not use one at all.
+This example uses Bootstrap styles. You can use any style library, or not use one at all.
 :::
 
-Depending on whether the user is authenticated or not, they see the **Log Out** or **Log In** button. The `click` events on the buttons make calls to the `AuthService` service to let the user log out or log in. When the user clicks the **Log In** button, they are redirected to the Auth0 hosted login page. 
+Depending on whether the user is authenticated or not, they see the **Log Out** or **Log In** button. The `click` events on the buttons make calls to the `AuthService` service to let the user log in or out. When the user clicks **Log In**, they are redirected to the Auth0 hosted login page. 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 

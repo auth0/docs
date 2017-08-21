@@ -119,7 +119,9 @@ The guard implements the `CanActivate` interface which requires a method called 
 
 ### Limit Route Access Based on Scopes
 
-To prevent access to client-side routes based on a particular scope, create a service called `ScopeGuard`. This service uses the  `ActivatedRouteSnapshot` method to check for a set of `expectedScopes` passed in the `data` key of the route configuration.
+To prevent access to client-side routes based on a scope, create a service called `ScopeGuard`. This service uses the  `ActivatedRouteSnapshot` method to check for a set of `expectedScopes` passed in the `data` key of the route configuration.
+
+If the user does not have the `write:messages` scope, they are redirected to the main route.
 
 ```ts
 // src/app/auth/scope-guard.service.ts
@@ -157,8 +159,6 @@ export const ROUTES: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [ScopeGuard], data: { expectedScopes: ['write:messages']} },
 ];
 ```
-
-If the user does not have the `write:messages` scope, they are redirected to the main route.
 
 <%= include('../_includes/_authz_conditionally_assign_scopes') %>
 

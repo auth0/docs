@@ -4,7 +4,7 @@ When you set up the `AuthService` service, you create an instance of the `auth0.
 * Audience and scope, which specify that authentication must be [OIDC conformant](https://auth0.com/docs/api-auth/tutorials/adoption)
 * The URL where your users are redirected to after authentication.
 ::: note
-In this tutorial, the route is `/callback`. It will be implemented in the dd a Callback Component step. 
+In this tutorial, the route is `/callback`, which is implemented in the Add a Callback Component step. 
 :::
 
 Your users authenticate at the Auth0 hosted login page. They are then redirected back to your application. Their redirect URLs contain a hash fragment with each user's authentication information:
@@ -16,7 +16,7 @@ You can get the tokens from the URL using the `parseHash` method in the auth0.js
 
 Authentication using JSON Web Tokens is stateless. This means that when you use it, no information about the user's session is stored on your server. 
 
-To set up a session for the user on the client side, save the following information in the browser storage: 
+To set up a session for the user on the client side, save the following information in browser storage: 
 * `access_token`
 * `id_token`
 * `expires_in`

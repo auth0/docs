@@ -13,10 +13,10 @@ budicon: 448
   ]
 }) %>
 
-Keep the expiry time of a user's access token short for security. 
+For security, keep the expiry time of a user's access token short. 
 When you create an API in the Auth0 dashboard, the default lifetime is 7200 seconds (2 hours).
 
-This short expiry time is good for security, but can affect user experience. To improve your users' experience, provide a way for your users to automatically get a new access token so and keep their client-side session alive. You can do this with **Silent Authentication**.
+This short expiry time is good for security, but can affect user experience. To improve user experience, provide a way for your users to automatically get a new access token and keep their client-side session alive. You can do this with [Silent Authentication](/api-auth/tutorials/silent-authentication).
 
 ::: note
 You can control the expiry time of an access token from the [APIs section](${manage_url}/#/apis). 
@@ -77,7 +77,7 @@ console.log('Listening on http://localhost:3001');
 ```
 
 ::: note
-In this example, the server is running at `localhost:3001`. This value is hardcoded as the `redirectUri` method. The `silent.html` file makes reference to `localhost:4200` which is the address that the Angular CLI uses for development servers.
+In this example, the server is running at `localhost:3001`. This value is hardcoded as the `redirectUri` method. The `silent.html` file refers to `localhost:4200` which is the address that the Angular CLI uses for development servers.
 :::
 
 ::: note
@@ -107,9 +107,9 @@ public renewToken() {
 }
 ```
 
-The method loads the silent callback page added earlier in an invisible `iframe`, makes a call to Auth0, and gives back the result.
+The method loads the silent callback page added earlier in an invisible iframe, makes a call to Auth0, and gives back the result.
 
-Add a method called `scheduleRenewal` to set up a time when authentication is silently renewed. Define the `refreshSubscription` class property. The class property holds a reference to the subscription that refreshes your token.
+Add a method called `scheduleRenewal` to set up a time when authentication is silently renewed. Define the `refreshSubscription` class property. The property holds a reference to the subscription that refreshes your token.
 
 ```ts
 // src/app/auth/auth.service.ts
