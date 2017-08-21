@@ -21,6 +21,7 @@ curl --request GET \
 <% var acceptReqPath = '/samlp/YOUR_CLIENT_ID'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": acceptReqPath,
   "link": "#accept-request"
@@ -68,6 +69,7 @@ curl --request GET \
 <% var getMetadataPath = '/samlp/metadata/YOUR_CLIENT_ID'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": getMetadataPath,
   "link": "#get-metadata"
@@ -111,6 +113,7 @@ curl --request POST \
 <% var idpInitPath = '/login/callback'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-success",
   "http_method": "POST",
   "path": idpInitPath,
   "link": "#idp-initiated-sso-flow"

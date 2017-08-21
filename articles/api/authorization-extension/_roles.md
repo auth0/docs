@@ -44,6 +44,7 @@ GET https://{extension_url}/roles
 
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": '/roles',
   "link": "#get-roles"
@@ -85,6 +86,7 @@ GET https://{extension_url}/roles/{role_id}
 <% var path = '/roles/{role_id}'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-single-role"
@@ -138,6 +140,7 @@ curl --request POST \
 
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-success",
   "http_method": "POST",
   "path": "/roles",
   "link": "#create-role"
@@ -254,6 +257,7 @@ curl --request DELETE \
 <% var path = '/roles/{role_id}'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-danger",
   "http_method": "DELETE",
   "path": path,
   "link": "#delete-role"

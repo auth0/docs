@@ -1338,7 +1338,19 @@ module.exports = [
     to: '/tokens'
   },
   {
-        from: '/libraries/lock/v9#api',
+    from: ['/hosted-pages/hosted-login-auth0js'],
+    to: '/hosted-pages/login/auth0js'
+  },
+  {
+    from: ['/hosted-pages/hosted-login-auth0js/v8'],
+    to: '/hosted-pages/login/auth0js/v8'
+  },
+  {
+    from: ['/hosted-pages/hosted-login-auth0js/v7'],
+    to: '/hosted-pages/login/auth0js/v7'
+  },
+  {
+    from: '/libraries/lock/v9#api',
     to: '/libraries/lock/v9/api'
   },
   {

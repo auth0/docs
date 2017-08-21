@@ -8,7 +8,7 @@ The **Auth0 Logs to Logstash** is a scheduled job that takes all of your Auth0 l
 
 ## Configure the Extension
 
-To install and configure this extension, click on the _Auth0 Logs to Logstash_ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}). The _Install Extension_ window pops open.
+To install and configure this extension, click on the **Auth0 Logs to Logstash** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}). The **Install Extension** window pops open.
 
 ![Dashboard > Logstash Extension](/media/articles/extensions/logstash/extension-mgmt-logstash.png)
 
@@ -43,4 +43,23 @@ You can view more details by clicking on the job you created. In this page you c
 
 ![View Cron Job Details](/media/articles/extensions/logstash/view-cron-details.png)
 
-That's it, you are done! Have fun analyzing and visualizing those logs!
+## Replay Logs
+
+In the event of a Logstash failure or service interuption you can replay the logs starting from the failed log.
+
+To replay logs: 
+
+1. Get the checkpoint ID of the failed log.
+2. Go to the Auth0 Logs to Logstash extension settings.
+3. Enter the checkpoint in the **START_FROM** field.
+4. Click the **Save** button to replay the failed logs.
+
+## Slack Integration
+
+To set up [Slack](https://slack.com/) integration, provide an [Incoming Webhook URL](https://api.slack.com/incoming-webhooks) to the **SLACK_INCOMING_WEBHOOK** field in the Auth0 Logs to Logstash [extension settings](${manage_url}/#/extensions).
+
+![Slack Settings](/media/articles/extensions/logstash/slack-settings.png)
+
+The extension sends failed transaction notifications to Slack with the checkpoint code displayed in the message. You can also enable verbose notifications by turning on the `SLACK_SEND_SUCCESS` setting.
+
+![Slack Message](/media/articles/extensions/logstash/slack-message.png)

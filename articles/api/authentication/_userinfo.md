@@ -58,6 +58,7 @@ curl --request GET \
 ```
 
 <%= include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": "/userinfo",
   "link": "#get-user-info"

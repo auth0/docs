@@ -31,6 +31,7 @@ GET https://{extension_url}/permissions
 
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": '/permissions',
   "link": "#get-permissions"
@@ -72,6 +73,7 @@ GET https://{extension_url}/permissions/{permission_id}
 <% var path = '/permissions/{permission_id}'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": path,
   "link": "#get-single-permission"
@@ -122,6 +124,7 @@ curl --request POST \
 
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-success",
   "http_method": "POST",
   "path": "/permissions",
   "link": "#create-permission"
@@ -230,6 +233,7 @@ curl --request DELETE \
 <% var path = '/permissions/{permission_id}'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-danger",
   "http_method": "DELETE",
   "path": path,
   "link": "#delete-permission"

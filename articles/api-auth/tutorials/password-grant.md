@@ -6,11 +6,11 @@ toc: true
 
 <%= include('../../_includes/_pipeline2') %>
 
-## Add the Client Grant Type
+Before beginning this tutorial, please:
 
-To use the Resource Owner Password Grant (or any extensions of it), set the the `grant_types` property for your Auth0 Client [using the Management Dashboard](/clients/client-grant-types#edit-available-grant_types).
-
-You can also set the client's grant type by making a [`PATCH` call to the Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) Management API to update the `grant_types` field.
+* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
+* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
+* Check that the [Default Audience and/or Default Directory](/dashboard-account-settings#api-authorization-settings) has been set appropriately
 
 ## Configure your tenant
 
@@ -45,7 +45,7 @@ Where:
 * `grant_type`: This must be `password`.
 * `username`: The end user's identifier.
 * `password`: The end user's password.
-* `audience`: The value of the **Identifier** field on the [Settings tab of the API](${manage_url}/#/apis).
+* `audience`: The **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 * `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
 * `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients). This is required when the **Token Endpoint Authentication Method** field at your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) is `Post` or `Basic`. Do not set this parameter if your client is not highly trusted (for example, SPA).
 * `scope`: String value of the different [scopes](/scopes) the client is asking for. Multiple scopes are separated with whitespace.
