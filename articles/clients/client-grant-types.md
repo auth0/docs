@@ -140,11 +140,7 @@ Those implementing Passwordless Authentication should use hosted login pages ins
 ## Enable a Legacy Grant Type
 
 ::: warning
-Only Auth0 customers as of 8 June 2017 may enable a legacy grant type for existing Clients.
+As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their clients. Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. To find the secure alternative for your case refer to [Secure Alternatives to the Legacy Grant Types](#secure-alternatives-to-the-legacy-grant-types).
 :::
 
 To enable a legacy grant type, you will need to update the `grant_types` property for you client, so it can be used. For details on how to do so refer to [Edit the grant_types Property](#edit-available-grant_types).
-
-::: note
-If you are a new customer and you are interested in using a legacy flow, please [contact Support for assistance](https://support.auth0.com/).
-:::
