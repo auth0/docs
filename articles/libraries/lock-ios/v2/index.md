@@ -146,7 +146,7 @@ Lock provides many styling options to help you apply your own brand identity to 
 }
 ```
 
-::: panel Styling Customization Options
+::: note
 You can see the complete set of styling options to alter the appearance of Lock for your app in the [Customization Guide](/libraries/lock-ios/v2/customization).
 :::
 
@@ -198,10 +198,8 @@ You will need to add the following to your app's `info.plist`:
 
 ## Lock Passwordless
 
-::: panel-warning Passwordless on Native Platforms
-Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information.
-
-Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
+::: warning
+Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).
 :::
 
 Lock Passwordless handles passwordless authentication using email and sms connections.
