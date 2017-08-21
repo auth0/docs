@@ -15,7 +15,7 @@ This doc refers to the steps to connect your client. If you are looking to manag
 
 ## 1. Add a new application
 
-To add a new application, login to [GitHub](https://github.com/) and go to **OAuth applications** in your [developer settings](https://github.com/settings/developers). Next click [Register a new application](https://github.com/settings/applications/new).
+To add a new application, log in to [GitHub](https://github.com/) and go to **OAuth applications** in your [developer settings](https://github.com/settings/developers). Next click [Register a new application](https://github.com/settings/applications/new).
 
 ![](/media/articles/connections/social/github/github-add-app-1.png)
 
