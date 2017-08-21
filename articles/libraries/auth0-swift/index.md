@@ -4,7 +4,6 @@ toc: true
 description: How to install, initialize and use Auth0.Swift
 url: /libraries/auth0-swift
 ---
-
 # Auth0.swift
 
 Auth0.swift is a client-side library for Auth0.
@@ -17,7 +16,7 @@ Auth0.swift is a client-side library for Auth0.
 
 ## Installation
 
-#### Carthage
+### Carthage
 
 If you are using Carthage, add the following lines to your `Cartfile`:
 
@@ -31,7 +30,7 @@ Then run `carthage bootstrap`.
 For more information about Carthage usage, check [the official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 :::
 
-#### Cocoapods
+### Cocoapods
 
 If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
 
@@ -242,7 +241,7 @@ This feature is disabled by default for new tenants as of 8 June 2017. If you wo
 
 Logging in with Passwordless is slightly different. Passwordless authentication can be done via email or via SMS, and either by sending the user a code, or sending them a link which contains a code.
 
-#### How Passwordless Works
+#### How Passwordless works
 
 Passwordless requires two steps. Requesting the code, and inputting the code. When using links, this is slightly different, because the user does not have to input a code themselves - but the code is just included in the URL.
 
@@ -272,9 +271,9 @@ Once the user has a code, they can input it. Call the `login` method, and pass i
 Auth0
    .authentication()
    .login(
-       usernameOrEmail: "support@auth0.com",
-       password: "123456",
-       connection: "email"
+       usernameOrEmail: "support@auth0.com", 
+       password: "123456", 
+       realm: "Username-Password-Authentication"
        )
    .start { result in
        switch result {
@@ -286,7 +285,7 @@ Auth0
    }
 ```
 
-#### Passwordless Parameters
+#### Passwordless parameters
 
 As you can see, Passwordless authentication can be started with a variety of different parameters.
 
@@ -306,7 +305,7 @@ or
 
 ## Management API
 
-The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to retrieve and update the user metadata.
+The Management API provides functionality that allows you to link and unlink separate user accounts from different providers, tying them to a single profile (Read more about [Linking Accounts](/link-accounts) with Auth0). It also allows you to update user metadata.
 
 #### Linking users
 
@@ -328,7 +327,7 @@ Auth0
    }
 ```
 
-#### Unlinking users
+### Unlinking users
 
 Unlinking users is a similar provess to the linking of users. The `unlink` method takes three parameters, though: the secondary user id, and the secondary provider (the provider of the secondary user), and the primary user id.
 The parameters read, essentially: "Unlink this **secondary user** (with this **provider**) from this **primary user**".
@@ -351,7 +350,7 @@ Auth0
 Note that when accounts are linked, the secondary account's metadata is not merged with the primary account's metadata. Similarly, when unlinking two accounts, the secondary account does not retain the primary account's metadata when it becomes separate again.
 :::
 
-#### Retrieving user metadata
+### Retrieving user metadata
 
 ```swift
 Auth0
@@ -367,7 +366,7 @@ Auth0
     }
 ```
 
-#### Update user metadata
+### Update user metadata
 
 When updating user metadata, you will create a `userMetadata` object, and then call the `patch` method, passing it the user id and the `userMetadata` object. The values in this object will overwrite existing values with the same key, or add new ones for those that don't yet exist in the user metadata.
 

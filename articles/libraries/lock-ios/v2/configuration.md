@@ -47,6 +47,10 @@ Scope used for authentication. By default is `openid`. It will return not only t
 }
 ```
 
+#### Refresh Tokens
+
+Specifying the `offline_access` scope in your Lock options will allow a [refresh token](/tokens/refresh-token) to be returned along with the access\_token and the id\_token. Refresh tokens can be saved and used to acquire a new access token when the old one expires. For more information about using refresh tokens for Auth0 authentication, take a look at the reference documentation for the [Auth0.Swift SDK](/libraries/auth0-swift), which you would use to implement refresh tokens, or at the [Swift QuickStart Guide](/quickstart/native/ios-swift/03-user-sessions), which provides a comprehensive example of use of Auth0 in Swift development, including the management of refresh tokens.
+
 ### termsOfService
 
 By default Lock will use Auth0's [Terms of Service](https://auth0.com/terms) and [Privacy Policy](https://auth0.com/privacy), but other URLs can be filled in to link to other terms and policies.
