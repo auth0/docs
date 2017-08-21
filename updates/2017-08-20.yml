@@ -1,0 +1,10 @@
+added:
+  -
+    title: "AWS API Gateway "
+    tags:
+      - azure
+      - api
+      - microsoft
+      - tutorials
+    description: |
+      A [new tutorial](https://auth0.com/docs/integrations/azure-api-gateway) was added on how to use Auth0 to secure APIs managed by Azure's API Gateway.
