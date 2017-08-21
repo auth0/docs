@@ -22,7 +22,7 @@ budicon: 546
 ## Set the Audience and Scope in `auth0.WebAuth`
 
 In your `auth0.WebAuth` instance, enter your API identifier as the value for `audience`.
-Addthe scopes you created to the `scope` key.
+Add your newly created scopes to the `scope` key.
 
 ```js
 // src/Auth/Auth.js
@@ -39,7 +39,7 @@ Try to log in to your application again. Look at how the `access_token` differs 
 :::
 
 ::: note
-By default, any user can ask for any scope you defined. You can implement access policies to limit this behaviour using [Rules](https://auth0.com/docs/rules).
+By default, any user can ask for any scope you defined. You can implement access policies to limit this behavior using [Rules](https://auth0.com/docs/rules).
 :::
 
 ## Send Authenticated HTTP Requests

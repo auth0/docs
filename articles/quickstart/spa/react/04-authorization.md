@@ -109,6 +109,8 @@ In this example, if an unauthenticated user tries to access the `/ping` route, t
 
 To prevent access to client-side routes based on a particular scope, make a call to the `userHasScopes` method in the route's `render` function.
 
+If the user does not have the `write:messages` scope, they are redirected to the main route.
+
 ```js
 // src/routes.js
 
@@ -120,8 +122,6 @@ To prevent access to client-side routes based on a particular scope, make a call
   )
 )} />
 ```
-
-If the user does not have the `write:messages` scope, they are redirected to the main route.
 
 <%= include('../_includes/_authz_conditionally_assign_scopes') %>
 
