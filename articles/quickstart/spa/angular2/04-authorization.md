@@ -68,9 +68,7 @@ public userHasScopes(scopes: Array<string>): boolean {
 </button>
 ```
 
-## Protect Client-Side Routes
-
-You may want to give access to some routes in your application only to authenticated users. You can check if the user is authenticated with the `canActivate` hook.
+<%= include('../_includes/_authz_protect_client_side_routes', { check: '`canActivate` hook' }) %>
 
 Create a new service called `AuthGuardService`.
 
