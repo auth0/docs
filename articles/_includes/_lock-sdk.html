@@ -23,6 +23,7 @@
       <pre class="hljs html"><code>&lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+    oidcConformant: true,      // Forces an OIDC comformant flow    
     auth: {
       redirectUrl: '${account.callback}',
       responseType: 'code',
@@ -42,11 +43,12 @@
 &lt;script&gt;
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     container: 'root',
+    oidcConformant: true,                    // Forces an OIDC comformant flow
     auth: {
-      redirectUrl: '${account.callback}',
+      redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
       responseType: 'code',
       params: {
-        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+        scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
       }
     }
   });
@@ -54,46 +56,64 @@
 &lt;/script&gt;</code></pre>
     </div>
     <div id="passwordless-sms" class="tab-pane">
-      <pre class="hljs html"><code>&lt;script src=&quot;https://cdn.auth0.com/js/lock-passwordless-2.2.min.js&quot;&gt;&lt;/script&gt;
+      <pre class="hljs html"><code>&lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-  var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-  function open() {
-    lock.sms({
-      callbackURL: '${account.callback}',
-      authParams: {
-        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+  var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+        oidcConformant: true,                    // Forces an OIDC comformant flow
+        allowedConnections: ['sms'],             // Should match the SMS connection name  
+        auth: {
+          redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
+          params: {
+            scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
+          }          
+        }
       }
-    });
-  }
+  );
+
+  function open() {
+    lock.show();
+  };
+
 &lt;/script&gt;
 &lt;button onclick=&quot;window.open();&quot;&gt;SMS&lt;/button&gt;</code></pre>
     </div>
     <div id="passwordless-magiclink" class="tab-pane">
-      <pre class="hljs html"><code>&lt;script src=&quot;https://cdn.auth0.com/js/lock-passwordless-2.2.min.js&quot;&gt;&lt;/script&gt;
+      <pre class="hljs html"><code>&lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-  var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+  var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+    oidcConformant: true,                    // Forces an OIDC comformant flow
+    passwordlessMethod: "link",              // Sets Lock to use magic link
+    auth: {
+      redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
+      params: {
+        scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
+      }          
+    }
+  });
+
   function open() {
-    lock.magiclink({
-      callbackURL: '${account.callback}',
-      authParams: {
-        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
-      }
-    });
-  }
+    lock.show();
+   }
 &lt;/script&gt;
 &lt;button onclick=&quot;window.open();&quot;&gt;Magic Link&lt;/button&gt;</code></pre>
     </div>
     <div id="passwordless-emailcode" class="tab-pane">
       <pre class="hljs html"><code>&lt;script src=&quot;https://cdn.auth0.com/js/lock-passwordless-2.2.min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-  var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+  var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+    oidcConformant: true,                    // Forces an OIDC comformant flow
+    allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
+    passwordlessMethod: 'code',              // If not specified, defaults to 'code'
+    auth: {
+      redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
+      params: {
+        scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
+      }          
+    }
+  });
+
   function open() {
-    lock.emailcode({
-      callbackURL: '${account.callback}',
-      authParams: {
-        scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes
-      }
-    });
+    lock.show();
   }
 &lt;/script&gt;
 &lt;button onclick=&quot;window.open();&quot;&gt;Email Code&lt;/button&gt;</code></pre>

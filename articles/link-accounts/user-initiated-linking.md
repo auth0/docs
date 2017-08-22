@@ -68,18 +68,19 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
   ```html
   <script src="${lock_url}"></script>
   <script type="text/javascript">
-    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+      oidcConformant: true
+    });
 
     function linkPasswordAccount(connection){
       var opts = { 
+        oidcConformant: true,
         rememberLastLogin: false,
-        dict: {
-          signin: {
-            title: 'Link another account'
-          },
-          auth: {
+        languageDictionary: {
+          title: 'Link with another account'
+        },
+        auth: {
             responseType: 'token id_token'
-          }
         }
       };
             
@@ -112,28 +113,25 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
  * Handling the second authentication with Lock Passwordless:
 
   ```html
-  <script src="${lock_passwordless_url}"></script>
+  <script src="${lock_url}"></script>
   <script type="text/javascript">
     function linkPasswordlessSMS(){
       
       // Initialize Passwordless Lock instance
-      var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-
-      var opts = {
+      var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
         autoclose: true,
-        rememberLastLogin: false,
-        dict:{
-          phone: {
-            headerText: "Enter your phone to sign in <br>or create an account to link to."
-          }
-        }
-      };
-      // Open the lock in SMS mode with the ability to handle the authentication in page
-      lock.sms( opts, function (err, profile, id_token) {
-        if (!err){
-          linkAccount(id_token);
+        oidcConformant: true,
+        allowedConnections: ["sms"],
+        languageDictionary: {
+          passwordlessSMSInstructions: "Enter your phone to sign in <br>or create an account to link to."
         }
       });
+
+      lock.on("authenticated", function(authResult)) {
+          linkAccount(authResult.idToken);
+      }
+
+      lock.show();
     }
   </script>
   <button onclick="linkPasswordlessSMS()">SMS</a>

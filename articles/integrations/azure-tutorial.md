@@ -50,7 +50,7 @@ Then, whenever you have to reference the ClientID, Secret or callback, you use t
 ```
 <script src="${lock_url}"></script>
 <script type="text/javascript">
-    var lock = new Auth0Lock('@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]', '${account.namespace}');
+    var lock = new Auth0Lock('@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]', '${account.namespace}', { oidcConformant: true });
 
     lock.show({
       callbackURL: '@System.Configuration.ConfigurationManager.AppSettings["auth0:CallbackUrl"]'

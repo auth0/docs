@@ -20,14 +20,22 @@ title: Using Passwordless Authentication in a Regular Web App with SMS
 Then you can trigger the login widget with the following code:
 
 ```html
-<script src="${lock_passwordless_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
-  function login(){
-    // Initialize Passwordless Lock instance
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-    // Open Lock in SMS mode
-    lock.sms( {callbackURL: '${account.callback}'} );
-  }
+  function login() {
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+        oidcConformant: true,                    // Forces an OIDC comformant flow
+        allowedConnections: ['sms'],             // Should match the SMS connection name  
+        auth: {
+          redirectUrl: '${account.callback}',    
+          params: {
+            scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
+          }          
+        }
+      }
+ 
+    lock.show();
+  };
 </script>
 <a href="javascript:login()">Login</a>
 ```
@@ -92,7 +100,7 @@ function login(){
   var phone = $('input.phone-number').val();
   var code = $('input.code').val();
 
-  webAuth.passwordlessVerify({
+  webAuth.passwordlessLogin({
     connection: 'sms',
     phoneNumber: phone,
     verificationCode: code

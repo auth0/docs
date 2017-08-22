@@ -25,6 +25,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
 
       $(function () {
             var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+                oidcConformant: true,
                 auth: {
                     redirectUrl: '<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %><%= "${loginCallback}" %>',
                     responseType: 'code',

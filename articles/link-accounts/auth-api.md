@@ -13,19 +13,22 @@ This method of linking accounts using the linking endpoint of the [Authenticatio
 ```js
 <script src="${lock_url}"></script>
 <script type="text/javascript">
-  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+    oidcConformant: true,
+    callbackURL: '${account.callback}',
+    languageDictionary: {
+      title: 'Link with another account'
+    },
+    auth: { 
+      params: {
+        access_token: '...LOGGED_IN_USER_ACCESS_TOKEN...' 
+      }
+    }
+  });
 
   function signin () {
     lock.show({
-      callbackURL:  '${account.callback}',
-      dict: {
-        signin: {
-          title: 'Link with another account'
-        }
-      },
-      authParams: {
-        access_token: '...LOGGED_IN_USER_ACCESS_TOKEN...'
-      }
+     
     })
   }
 </script>

@@ -36,6 +36,7 @@ The following HTML snippet demonstrates how to implement login using Lock:
 <script type="text/javascript">
   function signin() {
     var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+      oidcConformant: true,
       auth: {
         redirectUrl: '${account.callback}',
         responseType: 'code',

@@ -171,7 +171,7 @@ In this section, you will create a simple HTML page that uses the **Auth0 Lock W
           redirectUrl: 'http://jwt.io',
           responseType: 'token',
           params: {
-            scope: 'openid name email'
+            scope: 'openid profile email'
           }
         }
       });

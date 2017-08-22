@@ -2,7 +2,7 @@
 <script src="${lock_url}"></script>
 <script type="text/javascript">
 
-    var lock = new Auth0Lock('{{ $auth0Config['client_id'] }}', '{{ $auth0Config['domain'] }}');
+    var lock = new Auth0Lock('{{ $auth0Config['client_id'] }}', '{{ $auth0Config['domain'] }}', { oidcConformant: true });
 
     function signin() {
         lock.show({

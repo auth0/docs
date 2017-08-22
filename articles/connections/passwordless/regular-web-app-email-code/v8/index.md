@@ -20,15 +20,25 @@ title: Using Passwordless Authentication with a one-time code via email on Regul
 Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the server-side authentication:
 
 ```html
-<script src="${lock_passwordless_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
-  function login(){
-    // Initialize Passwordless Lock instance
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-    // Open Lock in Email Code mode
-    lock.emailcode( {callbackURL: '${account.callback}'} );
+  function login() {
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+      oidcConformant: true,                    // Forces an OIDC comformant flow
+      allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
+      passwordlessMethod: 'code',              // If not specified, defaults to 'code'
+      auth: {
+        redirectUrl: '${account.callback}',    
+        params: {
+          scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
+        }          
+      }
+    });
+
+    lock.show();
   }
 </script>
+
 <a href="javascript:login()">Login</a>
 ```
 
@@ -90,7 +100,7 @@ function login(){
   var email = $('input.email').val();
   var code = $('input.code').val();
 
-  webAuth.passwordlessVerify({
+  webAuth.passwordlessLogin({
     connection: 'email',
     email: email,
     verificationCode: code

@@ -26,7 +26,7 @@ Enabling this flag on a client will have the following effects:
 * [Refresh tokens must be used at the token endpoint]() instead of /delegation.
 * The `device` parameter, originally used to obtain refresh tokens, is now considered invalid.
 * The legacy [resource owner endpoint](/api/authentication#database-ad-ldap-active-) is disabled.
-    - Passwordless authentication is implemented at this endpoint, so it will be disabled as well.
+    - Passwordless authentication for embedded login is implemented at this endpoint, so it will be disabled as well. 
       Support for OIDC-conformant passwordless authentication will be added in future releases.
 * The [/oauth/access_token endpoint](/api/authentication#post-oauth-access_token), used for social authentication from native mobile applications, is disabled.
   An OIDC-conformant alternative will be added in future releases.

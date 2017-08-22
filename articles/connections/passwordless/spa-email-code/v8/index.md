@@ -21,20 +21,27 @@ description: Learn how to authenticate users with a one-time-code using email in
 Then you can trigger the login with the following code:
 
 ```html
-<script src="${lock_passwordless_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
-  function login(){
-    // Initialize Passwordless Lock instance
-    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-    // Open the lock in Email Code mode with the ability to handle
-    // the authentication in page
-    lock.emailcode( function (err, profile, id_token, state) {
-      if (!err) {
-        // Save the JWT token.
-        localStorage.setItem('userToken', id_token);
-        //use profile
-      }
-    });
+  function login()
+  {
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
+        oidcConformant: true,                    // Forces an OIDC comformant flow
+        allowedConnections: ['email'],           // Should match the Email connection name, it defaults to 'email'     
+        passwordlessMethod: 'code',              // If not specified, defaults to 'code'
+        auth: {
+          redirectUrl: '${account.callback}',    // If not specified, defaults to the current page 
+          params: {
+            scope: 'openid email'                // Learn about scopes: https://auth0.com/docs/scopes
+          }          
+        }
+      });
+
+      lock.on('authenticated', function(authResult) {
+          localStorage.setItem('id_token', authResult.idToken);
+      });
+
+      lock.show();
   }
 </script>
 <a href="javascript:login()">Login</a>
@@ -52,7 +59,7 @@ Lock will ask for the code that has been emailed to the provided address. The co
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-Once the user enters the code received by email, Lock will authenticate them and call the callback function where the `id_token` and profile will be available.
+Once the user enters the code received by email, Lock will authenticate them trigger the on('authenticated') event where the `id_token` and profile will be available.
 
 ### Use your own UI
 
@@ -103,7 +110,7 @@ function login(){
   var email = $('input.email').val();
   var code = $('input.code').val();
 
-  webAuth.passwordlessVerify({
+  webAuth.passwordlessLogin({
     connection: 'email',
     email: email,
     verificationCode: code
@@ -116,7 +123,7 @@ function login(){
 };
 ```
 
-The `passwordlessVerify` method will verify the Passwordless transaction, then redirect the user back to the `redirectUri` that was set. You will then need to parse the URL hash in order to acquire the token, and then call the `client.userInfo` method to acquire your user's information, as in the following example:
+The `passwordlessLogin` method will verify the Passwordless transaction, then redirect the user back to the `redirectUri` that was set. You will then need to parse the URL hash in order to acquire the token, and then call the `client.userInfo` method to acquire your user's information, as in the following example:
 
 ```js
 $(document).ready(function() {

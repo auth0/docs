@@ -76,6 +76,7 @@ If you are using Lock, the `options` object used in Lock’s instantiation can s
 
 ```js
 var options = {
+  oidcConformant: true,
   auth: {
     responseType: 'id_token',
     params: {scope: 'openid email'}

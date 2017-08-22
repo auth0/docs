@@ -2,6 +2,7 @@
 <script src="${lock_url}"></script>
 <script>
 const options = {
+  oidcConformant: true,
   auth: {
     redirectUrl: 'http://localhost:CHANGE-TO-YOUR-PORT/callback',
     params: {
