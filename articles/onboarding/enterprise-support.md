@@ -12,13 +12,13 @@ Refer to your subscription agreement to confirm which support offering was inclu
 
 ## For general queries related to functionality, integration, best practice advice etc
 
-[Auth0 Support Forum](https://ask.auth0.com) - Post questions to our audience of Customer Success Engineers, as well as other Auth0 users, or search and read existing posts for useful information.
+[Auth0 Support Forum](https://community.auth0.com) - Post questions to our audience of Customer Success Engineers, as well as other Auth0 users, or search and read existing posts for useful information.
 
 __Customer Success Manager__ - Your Auth0 Customer Success Manager is always a great source for general queries and helping you navigate to the right Auth0 resource.  The orientation information you received during onboarding should have the contact details for your Customer Success Manager.
 
 [Auth0 Docs](https://auth0.com/docs) - Offers comprehensive documentation across the Auth0 platform.
 
-[Search all resources](/search#gsc.tab=0) - Quering from this search page will return results across Docs, Ask.Auth0 and our popular [Auth0 blog](https://auth0.com/blog).
+[Search all resources](/search#gsc.tab=0) - Quering from this search page will return results across Docs, Auth0 Support Forum and our popular [Auth0 blog](https://auth0.com/blog).
 
 ## For issues impacting or blocking production (SLA applied)
 
