@@ -195,7 +195,7 @@ To create a new permission, go to the **Permissions** section of the Authorizati
 
 ![Permissions](/media/articles/extensions/authorization/permissions.png)
 
-Then click the **CREATE PERMISSION** button. Then enter the name of the permission, the ddescription and select the application for which this permission applies.
+Then click the **CREATE PERMISSION** button. Then enter the name of the permission, the description and select the application for which this permission applies.
 
 ![Create Permission](/media/articles/extensions/authorization/create-permission.png)
 
