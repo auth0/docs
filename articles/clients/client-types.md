@@ -23,23 +23,20 @@ You can use the Management API's Get a Client endpoint to check your existing Cl
 ```har
 {
 	"method": "GET",
-	"url": "https://${account.namespace}.auth0.com//api/v2/clients/CLIENT_ID",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
+	"url": "https://${account.namespace}.auth0.com/api/v2/clients/CLIENT_ID",
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer MGMT_API_ACCESS_TOKEN"
 	}],
-	"queryString": [
-        {
-            "name": "fields",
-            "value": "is_first_party"
-        },
-        {
-            "name": "include_fields",
-            "value": true
-        }
-    ]
+	"queryString": [{
+			"name": "fields",
+			"value": "is_first_party"
+		},
+		{
+			"name": "include_fields",
+			"value": true
+		}
+	]
 }
 ```
 
