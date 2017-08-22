@@ -82,8 +82,8 @@ Make the following `GET` request to the API:
 ```har
 {
   "method": "GET",
-  "url": "https://${account.namespace}/api/v2/users/user_id"
-    "httpVersion": "HTTP/1.1",
+  "url": "https://${account.namespace}/api/v2/users/user_id",
+  "httpVersion": "HTTP/1.1",
   "cookies": [],
   "headers": [{
     "name": "Authorization",
@@ -108,7 +108,7 @@ Make the following `GET` request to the API:
 }
 ```
 
-The response should include:
+The response will now appear as follows:
 
 ```json
 {
