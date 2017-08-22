@@ -74,7 +74,9 @@ Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) rep
 
 ### Length of SSO Sessions
 
-If the SSO flag is set for a Client, Auth0 will maintain an SSO session for any user authenticating via that Client. If the user remains active, the session will last no more than **7 days**, but if not, the session will terminate after **3 days**. To be considered active, the user must access the Client that created the session within the given timeframe.
+If the SSO flag is set for a Client, Auth0 will maintain an SSO session for any user authenticating via that Client. In the [Dashboard](${manage_url}/#/account/advanced) under Account settings (top right) and Advanced, there is an SSO "Session Timeout" setting. This setting determines how long the session will stay valid, and can be set to a custom value (in minutes). The default value is 10080 minutes (or 7 days).
+
+![](/media/articles/sso/single-sign-on/accountsettings-ssotimeout.png)
 
 ## What is Single Log Out?
 
