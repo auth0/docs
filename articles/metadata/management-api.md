@@ -112,7 +112,6 @@ The response should include:
 
 ```json
 {
-  "email": "jane.doe@example.com",
   "user_metadata": {
       "hobby": "surfing"
   }
