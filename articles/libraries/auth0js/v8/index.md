@@ -149,9 +149,9 @@ webAuth.redirect.loginWithCredentials({
 });
 ```
 
-::: warning
-`webauth.redirect.loginWithCredentials` will be deprecated, and we recommend that you use `webauth.client.login` instead. However, if you're using `webauth.redirect.loginWithCredentials` on a Hosted Login Page, you can continue to do so.
-:::
+The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.client.login` instead. 
+
+However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the Hosted Login Page, and is the only way to have SSO cookies set for your users who login using the Hosted Login Page.
 
 ### webAuth.popup.loginWithCredentials()
 
