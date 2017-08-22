@@ -129,7 +129,7 @@ Suppose you now update a second user with the following metadata:
     }
 ```
 
-This second user will be violating the formerly inferred schema since `address` is now a String. The net result is that any User Search containing the `address` field in the query will not return the second user as part of the results.
+This second user will be violating the formerly inferred schema since `address` is now a String. The net result is that any User Search containing any metadata field in the query will not return the second user as part of the results.
 
 Keep in mind that while the user won't participate of searches on the `address` attribute, you will be able to search for any other attribute and the result will contain all matching users.
 
