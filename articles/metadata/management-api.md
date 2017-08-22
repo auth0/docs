@@ -38,7 +38,7 @@ you would make the following `POST` call to the Management API to create the use
 ```har
 {
   "method": "POST",
-  "url": "https://YOURACCOUNT.auth0.com/api/v2/users",
+  "url": "https://${account.namespace}/api/v2/users",
   "httpVersion": "HTTP/1.1",
   "cookies": [],
   "headers": [{
@@ -56,6 +56,66 @@ you would make the following `POST` call to the Management API to create the use
   "headersSize": -1,
   "bodySize": -1,
   "comment": ""
+}
+```
+
+## Management API: Retrieve User Metadata
+
+To retrieve the user's metadata make a `GET` request to the Management API.
+
+Assuming you created the user as shown above with the following metadata values:
+
+```json
+{
+    "email": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "app_metadata": {
+        "plan": "full"
+    }
+}
+```
+
+Make the following `GET` request to the API:
+
+```har
+{
+  "method": "GET",
+  "url": "https://${account.namespace}/api/v2/users/user_id"
+    "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer ABCD"
+  }, {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [{
+    "name": "fields",
+    "value": "user_metadata",
+    "comment": ""
+  },
+  {
+    "name": "include_fields",
+    "value": "true",
+    "comment": ""
+  }],
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
+}
+```
+
+The response should include:
+
+```json
+{
+  "email": "jane.doe@example.com",
+  "user_metadata": {
+      "hobby": "surfing"
+  }
 }
 ```
 
@@ -92,7 +152,7 @@ you would make the following `PATCH` call to the API:
 ```har
 {
   "method": "PATCH",
-  "url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
+  "url": "https://${account.namespace}/api/v2/users/user_id",
   "httpVersion": "HTTP/1.1",
   "cookies": [],
   "headers": [{
