@@ -98,7 +98,7 @@
 &lt;button onclick=&quot;window.open();&quot;&gt;Magic Link&lt;/button&gt;</code></pre>
     </div>
     <div id="passwordless-emailcode" class="tab-pane">
-      <pre class="hljs html"><code>&lt;script src=&quot;https://cdn.auth0.com/js/lock-passwordless-2.2.min.js&quot;&gt;&lt;/script&gt;
+      <pre class="hljs html"><code>&lt;script src=&quot;${lock_url}&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
   var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}', {
     oidcConformant: true,                    // Forces an OIDC comformant flow

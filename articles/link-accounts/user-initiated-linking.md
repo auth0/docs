@@ -15,7 +15,7 @@ The following steps implement user-initiated account linking for a Single Page A
 
 ## 1. Initial login
 
-First, the user will authenticate to the Single Page App using either [Lock](https://github.com/auth0/lock), [Lock Passwordless](https://github.com/auth0/lock-passwordless), or [Auth0.js](/libraries/auth0js) and a custom UI.
+First, the user will authenticate to the Single Page App using either [Lock](https://github.com/auth0/lock) or [Auth0.js](/libraries/auth0js) and a custom UI.
 
 ![](/media/articles/link-accounts/spa-initial-login.png)
 
