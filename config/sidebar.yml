@@ -143,6 +143,28 @@ articles:
           - title: "FAQ"
             url: "/connections/passwordless/faq"
 
+  - title: "Hosted Pages"
+    url: "/hosted-pages"
+    children:
+
+      - title: "Overview"
+        url: "/hosted-pages"
+
+      - title: "Login Page"
+        url: "/hosted-pages/login"
+
+      - title: "Password Reset Page"
+        url: "/hosted-pages/password-reset"
+      
+      - title: "Guardian MFA"
+        url: "/hosted-pages/guardian"
+
+      - title: "Error Pages"
+        url: "/hosted-pages/error-pages"
+
+      - title: "Version Control"
+        url: "/hosted-pages/version-control"
+
   - title: "Rules"
     url: "/rules/current"
     children:

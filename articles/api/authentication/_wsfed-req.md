@@ -15,6 +15,7 @@ curl --request GET \
 
 <% var acceptWSReqPath = '/wsfed/YOUR_CLIENT_ID'; %>
 <%= include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": acceptWSReqPath,
   "link": "#accept-request20"
@@ -78,6 +79,7 @@ curl --request GET \
 <% var getMetadataPath = '/wsfed/YOUR_CLIENT_ID/FederationMetadata/2007-06/FederationMetadata.xml'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-primary",
   "http_method": "GET",
   "path": getMetadataPath,
   "link": "#get-metadata21"

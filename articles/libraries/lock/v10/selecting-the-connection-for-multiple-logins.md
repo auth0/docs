@@ -14,7 +14,7 @@ Selecting the appropriate Identity Providers from multiple options is called "Ho
 
 ## Option 1: Programmatically
 
-When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any __connection__ defined in your [dashboard](${manage_url}).
+When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in the [Dashboard](${manage_url}).
 
 If using the [Lock](/libraries/lock/v10), this is as simple as initiating Lock with the following option:
 
@@ -34,7 +34,7 @@ Note that you can also provide the `allowedConnections` option to the `lock.show
 
 There are multiple practical ways of determining which of your `connection` value to indicate for any given user. Here are two common scenarios:
 
-* You can use __vanity URLs__: `https://{connection}.yoursite.com` or `https://www.yoursite.com/{connection}`. When a user arrives at your application with the vanity URL, you can pick up that value and pass it to Lock as the `allowedConnections` value.
+* You can use vanity URLs: `https://{connection}.yoursite.com` or `https://www.yoursite.com/{connection}`. When a user arrives at your application with the vanity URL, you can pick up that value and pass it to Lock as the `allowedConnections` value.
 * You can just ask the user to pick from a list of all of your available connections (or those you want to be chosen from) at some point, and then show only that connection to that user.
 * You could use non-human-readable connection names and use some external mechanism to map these to users (e.g. through a primary verification, out of band channel for example).
 

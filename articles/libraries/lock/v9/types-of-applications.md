@@ -2,7 +2,6 @@
 section: libraries
 description: Explains the types of applications that can be used with Lock.
 ---
-
 # Lock: Types of applications
 
 <%= include('../_includes/_lock-version-9') %>
@@ -15,7 +14,7 @@ When you're using a Single Page App, you need that after a successful login thro
 
 Lock can work in [2 Authentication modes: Redirect and Popup](/libraries/lock/v9/authentication-modes).
 
-### Popup Mode
+### Popup Mode in SPA
 
 ````js
 var lock = new Auth0Lock('dsa7d77dsa7d7', 'mine.auth0.com');
@@ -29,7 +28,8 @@ lock.show(function(err, profile, id_token) {
   console.log("Hey dude", profile);
 })
 ````
-### Redirect mode
+
+### Redirect Mode in SPA
 
 In this first example you'll see that a callbackURL isn't set. That's because by default the callbackURL is set to `location.href` which means current URL.
 
@@ -60,13 +60,13 @@ lock.show();
 
 To learn more about `parseHash` please [read this](https://github.com/auth0/auth0.js#redirect-mode).
 
-## Regular Webapp
+## Regular Web Apps
 
 When you're doing a Regular web app, you need that after a successful login through Auth0, your app is redirected to a callback endpoint that you've created in your server. That callback endpoint will receive the `code` from Auth0 which must then [be exchanged for an `access_token` to get the user information](/protocols#3-getting-the-access-token).
 
 This means that in this case, only [redirect mode](/libraries/lock/v9/authentication-modes#redirect-mode) makes sense.
 
-### Redirect mode
+### Redirect Mode in Regular Web Apps
 
 ```js
 var lock = new Auth0Lock('dsa7d77dsa7d7', 'mine.auth0.com');

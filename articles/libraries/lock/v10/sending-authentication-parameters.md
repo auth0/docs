@@ -2,7 +2,6 @@
 section: libraries
 description: Lock V10 documentation on setting authentication parameters.
 ---
-
 # Lock: Authentication Parameters
 
 You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `'foo'`.
@@ -12,7 +11,7 @@ var options = {
   auth: {
     params: {state: 'foo'},
   }
-};  
+};
 ```
 
 The following parameters are supported: `access_token`, `scope`, `protocol`, `device`, `request_id`, `nonce` and `state`.
@@ -30,7 +29,7 @@ var options = {
   auth: {
     params: {scope: 'openid email user_metadata app_metadata picture'},
   }
-};  
+};
 ```
 
 There are different values supported for scope:

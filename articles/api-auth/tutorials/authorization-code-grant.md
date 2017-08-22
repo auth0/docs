@@ -12,6 +12,11 @@ This tutorial will help you implement the Authorization Code grant. If you are l
 
 The __Authorization Code__ is an OAuth 2.0 grant that [regular web apps](/quickstart/webapp) use in order to access an API. In this document we will work through the steps needed in order to implement this: get the user's authorization, get a token and access the API using the token.
 
+Before beginning this tutorial, please:
+
+* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
+* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
+
 ## 1. Get the User's Authorization
 
 To begin an Authorization Code flow, your web application should first send the user to the [authorization URL](/api/authentication#authorization-code-grant):
@@ -28,7 +33,7 @@ https://${account.namespace}/authorize?
 
 Where:
 
-* `audience`: The unique identifier of the API the web app wants to access. Use the value of the __Identifier__ field at your [API Settings](${manage_url}/#/apis).
+* `audience`: The unique identifier of the API the web app wants to access. Use the **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
 * `scope`: The [scopes](/scopes) which you want to request authorization for. These must be separated by a space. You can request any of the [standard OIDC scopes](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token (make sure that the __Allow Offline Access__ field is enabled in the [API Settings](${manage_url}/#/apis)). The custom scopes must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). For more information on this, refer to the [Namespacing Custom Claims](#optional-customize-the-tokens) panel.
 

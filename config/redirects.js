@@ -323,6 +323,14 @@ module.exports = [
     to: '/connections/social/aol'
   },
   {
+    from: '/connections/enterprise/azure-active-directory',
+    to: '/connections/enterprise/azure-active-directory/v2'
+  },
+  {
+    from: '/connections/enterprise/azure-active-directory-classic',
+    to: '/connections/enterprise/azure-active-directory/v1'
+  },
+  {
     from: '/dwolla-clientid',
     to: '/connections/social/dwolla'
   },
@@ -1328,5 +1336,17 @@ module.exports = [
   {
     from: '/security/token-exp',
     to: '/tokens'
+  },
+  {
+    from: ['/hosted-pages/hosted-login-auth0js'],
+    to: '/hosted-pages/login/auth0js'
+  },
+  {
+    from: ['/hosted-pages/hosted-login-auth0js/v8'],
+    to: '/hosted-pages/login/auth0js/v8'
+  },
+  {
+    from: ['/hosted-pages/hosted-login-auth0js/v7'],
+    to: '/hosted-pages/login/auth0js/v7'
   }
 ];

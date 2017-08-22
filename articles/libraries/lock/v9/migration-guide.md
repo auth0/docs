@@ -2,7 +2,6 @@
 section: libraries
 description: Guide to migrate from Auth0 Widget to Auth0 Lock.
 ---
-
 # Lock: Migration Guide
 
 <%= include('../_includes/_lock-version-9') %>
@@ -95,6 +94,7 @@ Some of the customization options have been renamed. You can check the [[Auth0Lo
 
 You can also follow here the most important breaking changes on namings:
 
+<!-- markdownlint-disable MD033 -->
 Widget Name                   | Lock Name
 ------------------------------|-------------------------------------------------------
 `callbackOnLocationHash`      | `responseType` <sup>[1](#response-type-ref)</sup>
@@ -117,6 +117,7 @@ Widget Name                   | Lock Name
 <a name="show-icon-ref"></a> <sup>2</sup>: The `showIcon` option has been removed. When [`icon`][icon] property is provided it will be immediately displayed. In case you'd like to hide the default icon badge, the recommended way is by CSS customization. Check our [[UI customization]] page for that.
 
 <a name="chrome-ref"></a> <sup>3</sup>: The `chrome` option has been removed. In case you'd like to hide the default icon badge, the recommended way is by CSS customization. Check our [[UI customization]] page for that.
+<!-- markdownlint-enable MD033 -->
 
 ::: note
 The following options have been moved under `authParams` main property for a matter of semantics: `access_token`, `scope`, `protocol`, `device`, `request_id`, `connection_scopes`, `nonce`, `offline_mode` and `state`.
@@ -124,14 +125,13 @@ The following options have been moved under `authParams` main property for a mat
 
 ## Events
 
-Many of the event names changed. The general rule to apply for the proper handling is to replace the `_` for ` ` (single space).
+Many of the event names changed. The general rule to apply for the proper handling is to replace the underscore with a single space.
 
 So, for example if you had `signin_ready` now it is `signin ready`.
 
 Also, the one named `transition_mode` has been deprecated and removed from the list of Events.
 
 For more information about events, check [Auth0 Lock Events](/libraries/lock/v9/events) section.
-
 
 <!-- Links -->
 [readme-url]: /libraries/lock

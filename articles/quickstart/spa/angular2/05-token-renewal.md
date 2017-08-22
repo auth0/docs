@@ -13,76 +13,10 @@ budicon: 448
   ]
 }) %>
 
-For security, keep the expiry time of a user's access token short. 
-When you create an API in the Auth0 dashboard, the default lifetime is 7200 seconds (2 hours).
+<%= include('../_includes/_token_renewal_preamble') %>
 
-This short expiry time is good for security, but can affect user experience. To improve user experience, provide a way for your users to automatically get a new access token and keep their client-side session alive. You can do this with [Silent Authentication](/api-auth/tutorials/silent-authentication).
+<%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '4200' }) %>
 
-::: note
-You can control the expiry time of an access token from the [APIs section](${manage_url}/#/apis). 
-You can control the expiry time of an ID token from the [Clients section](${manage_url}/#/clients). 
-These settings are independent.
-:::
-
-## Server Setup
-
-To renew the user's access token, you need to serve a static HTML file. You can choose any server setup to do this. 
-
-::: note
-The example below uses Node.js and express.
-:::
-
-Create a simple server with express and add a file called `silent.html`.
-
-```js
-// server.js
-
-const express = require('express');
-const app = express();
-const cors = require('cors');
-const staticFile = require('connect-static-file');
-
-app.use(cors());
-app.use('/silent', staticFile(`<%= "${__dirname}/silent.html" %>`));
-
-app.listen(3001);
-console.log('Listening on http://localhost:3001');
-```
-
-```html
-<!-- silent.html -->
-
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <script src="${auth0js_urlv8}"></script>
-  <script>
-    var webAuth = new auth0.WebAuth({
-      domain: '${account.namespace}',
-      clientID: '${account.clientId}',
-      scope: 'openid profile',
-      responseType: 'token id_token',
-      redirectUri: 'http://localhost:4200'
-    });
-  </script>
-  <script>
-    webAuth.parseHash(window.location.hash, function (err, response) {
-      parent.postMessage(err || response, 'http://localhost:4200');
-    });
-  </script>
-</head>
-<body></body>
-</html>
-```
-
-::: note
-In this example, the server is running at `localhost:3001`. This value is hardcoded as the `redirectUri` method. The `silent.html` file refers to `localhost:4200` which is the address that the Angular CLI uses for development servers.
-:::
-
-::: note
-Add `http://localhost:3001/silent` to the **Callback URLs** section in your application's client settings.
-:::
 
 ## Add Token Renewal
 
@@ -98,9 +32,8 @@ public renewToken() {
     usePostMessage: true
   }, (err, result) => {
     if (err) {
-      alert(`<%= "Could not get a new token using silent authentication (${err.error})." %>`);
+      console.log(err);
     } else {
-      alert(`Successfully renewed auth!`);
       this.setSession(result);
     }
   });
@@ -182,7 +115,7 @@ export class AppComponent {
 
 Client-side sessions should not be renewed after the user logs out. Call `unscheduleRenewal` in the `logout` method to cancel the renewal.
 
-```typescript
+```ts
 // src/app/auth/auth.service.ts
 
 public logout(): void {

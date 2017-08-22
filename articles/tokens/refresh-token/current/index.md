@@ -135,10 +135,9 @@ The response will include a new `access_token`, its type, its lifetime (in secon
 You should only ask for a new token if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it's a bad practice to call the endpoint to get a new `access_token` every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
-
 ## Revoke a Refresh Token
 
-Since refresh tokens never expire it is important to be able to revoke them. You can revoke a refresh token either by posting a revocation request to `https://${account.namespace}/oauth/revoke` or using the [dashboard](${manage_url}).
+Since refresh tokens never expire it is important to be able to revoke them. You can revoke a refresh token either by posting a request to [the Authentication API /oauth/revoke endpoint](/api/authentication#revoke-refresh-token) or using the [dashboard](${manage_url}).
 
 ### Use the API
 

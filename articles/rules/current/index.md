@@ -179,7 +179,7 @@ This will read the `favorite_color` user metadata, and add it as a namespaced cl
 function(user, context, callback) {
 
   // copy user metadata value in id_token
-  context.idToken['http://fiz/favorite_color'] = user.favorite_color;
+  context.idToken['http://fiz/favorite_color'] = user.user_metadata.favorite_color;
 
   callback(null, user, context);
 }

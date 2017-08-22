@@ -4,7 +4,6 @@ description: Lock V9 documentation
 title: Lock 9 for Web
 toc: true
 ---
-
 # Lock 9 for Web
 
 <%= include('../_includes/_lock-version-9') %>
@@ -76,6 +75,28 @@ If you are using browserify to build your project, you will need to add the foll
 }
 ```
 
+## Initialization
+
+Auth0Lock v9 can be initialized with just a clientID and domain, or it can also take a third parameter, an `options` object.
+
+```js
+// Initialize with clientID and domain
+var lock = new Auth0Lock(clientID, domain);
+
+// Or, initialize with options
+var lock = new Auth0Lock(clientID, domain, options);
+```
+
+### Parameters
+
+The possible parameters are detailed below.
+
+* **clientID {String}**: Your application clientID in Auth0.
+* **domain {String}**: Your Auth0 domain. Usually ```<account>.auth0.com```.
+* **options {Object}**:
+  * **cdn {String}**: Use as CDN base url. Defaults to `domain` if it doesn't equal `*.auth0.com`.
+  * **assetsUrl {String}**: Use as assets base url. Defaults to `domain` if it doesn't equal `*.auth0.com`.
+  * **useCordovaSocialPlugins {boolean}**: When Lock is used in a Cordova/Phonegap application, it will try authenticating with social connections using a native plugin. The only plugin supported is [phonegap-facebook-plugin](https://github.com/Wizcorp/phonegap-facebook-plugin) but more will come soon.
 
 ## Usage
 
@@ -102,164 +123,11 @@ login.onclick = function (e) {
 };
 ```
 
-This is just one example of how **Auth0Lock** could work with a **Single Page Application** (_SPA_). Read the [Single Page Applications][spa-notes] and the [Regular Web Applications][webapps-notes] articles for a full explanation on how to implement those scenarios with Auth0 Lock and when to use each.
-
-
-## API
-
-### Auth0Lock(clientID, domain[, options])
-
-Initialize `Auth0Lock` with a `clientID` and the account's `domain`.
-
-```js
-var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
-```
-
-::: note
-For a full detail on options and parameters you can check the [Auth0Lock initialization][lock-initialization] wiki notes.
-:::
-
-### .show([options, callback])
-
-Open the widget on `signin` mode with `signup` and `reset` button actions if enabled for the configured/default account connection.
-
-You may call this method with a single parameter, two or even none. The following examples ilustrate this:
-
-```js
-var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
-
-// using defaults and resolved configuration
-// from you account details
-lock.show();
-
-// passing some options
-lock.show(options);
-
-// provide with a callback `fn` to be invoked
-// at success or error authentication
-lock.show(function (err, profile, token) {});
-
-// or both options and callback
-lock.show(options, function (err, profile, token) {});
-
-```
-
-::: note
-Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
-:::
-
-### .showSignin([options, callback])
-
-Open the widget on `signin` mode, but without the bottom `signup` nor `reset` button actions. This method is useful when your site has custom *signup* and *reset* links at a different form.
-
-You may call this method with a single parameter, two or even none. The following examples ilustrate this:
-
-```js
-var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
-
-// using defaults and resolved configuration
-// from you account details
-lock.showSignin();
-
-// passing some options
-lock.showSignin(options);
-
-// provide with a callback `fn` to be invoked
-// on `reset` success or error
-lock.showSignin(function (err, profile, token) {});
-
-// or both options and callback
-lock.showSignin(options, function (err, profile, token) {});
-```
-::: note
-Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
-:::
-
-### .showSignup([options, callback])
-
-Open the widget on `signup` mode, but without the `cancel` button action to go back to `signin`. This method is useful when your site has custom *signin* and *reset* links at a different form.
-
-You may call this method with a single parameter, two or even none. The following examples ilustrate this:
-
-```js
-var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
-
-// using defaults and resolved configuration
-// from you account details
-lock.showSignup();
-
-// passing some options
-lock.showSignup(options);
-
-// provide with a callback `fn` to be invoked
-// on `reset` success or error
-lock.showSignup(function (err) {});
-
-// or both options and callback
-lock.showSignup(options, function (err) {});
-```
-::: note
-Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
-:::
-
-### .showReset([options, callback])
-
-Open the widget on `reset` mode, but without the bottom `cancel` button action to go back to `signin`.  This method is useful when your site has custom *signin* and *signup* links at a different form.
-
-You may call this method with a single parameter, two or even none. The following examples ilustrate this:
-
-```js
-var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
-
-// using defaults and resolved configuration
-// from you account details
-lock.showReset();
-
-// passing some options
-lock.showReset(options);
-
-// provide with a callback `fn` to be invoked
-// on `reset` success or error
-lock.showReset(function (err) {});
-
-// or both options and callback
-lock.showReset(options, function (err) {});
-```
-::: note
-Check the [Auth0Lock customization][lock-customization] article for more examples and options specification. Or enter the [Authentication modes][application-types] notes to learn more about implementing different authentication mechanics.
-:::
-
-### .hide([callback])
-
-Close the widget and invoke `callback` when removed from DOM.
-
-```js
-var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
-
-// normal display
-lock.show(options);
-
-// trigger hide when esc key pressed
-document.addEventListener('keypress', function(e) {
-  // hide if esc
-  lock.hide();
-}, false);
-```
-
-### .logout([query])
-
-Log out loggedin user with optional query parameters for the `GET` request.
-
-```js
-var lock = new Auth0Lock('xxxxxx', '<account>.auth0.com');
-
-// Call logout with query parameters
-lock.logout({ ref: window.location.href });
-```
+This is just one example of how **Auth0Lock** could work with a **Single Page Application** (SPA). Read the [Single Page Applications][spa-notes] and the [Regular Web Applications][webapps-notes] articles for a full explanation on how to implement those scenarios with Auth0 Lock and when to use each.
 
 ## Examples
 
-The **example** directory has a ready-to-go app. In order to run it you need [node](http://nodejs.org/) installed.
+The `example` directory has a ready-to-go app. In order to run it you need [node](http://nodejs.org/) installed.
 
 Then execute `npm i` to install dependencies (only once) and `npm example` from the root of this project.
 

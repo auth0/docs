@@ -2,7 +2,6 @@
 section: libraries
 description: Describes the new features with Lock V10.
 ---
-
 # New Features in Lock 10
 
 ## Custom Sign Up Fields
@@ -163,6 +162,7 @@ var lock = new Auth0Lock(
 ## Initial Screen
 
 You may now choose the screen that will be first displayed when Lock is shown with the `initialScreen` option. The following are valid values:
+
 * `login` (default);
 * `forgotPassword`;
 * `signUp`;

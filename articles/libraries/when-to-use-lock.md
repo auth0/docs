@@ -5,7 +5,7 @@ description: When should you use Lock, Auth0's drop-in authentication widget, an
 
 # Lock vs. a Custom UI
 
-When adding Auth0 to your web apps, you have the option to implement either:
+When adding Auth0 to your web apps, the best solution is to use Auth0's [Hosted Login Page](/hosted-pages/login). Using the Hosted Login Page is an incredibly simple process, and prevents the dangers of cross-origin authentication. The Hosted Login Page uses the Lock Widget to allow your userse to authenticate, by default, but also has templates for Lock Passwordless and for a custom UI built with Auth0.js SDK. You can customize the page in the [Hosted Pages Editor](${manage_url}/#/login_page), and use any of the following to implement your auth needs. 
 
 * Lock, Auth0's drop-in login and signup widget
   * [Lock for Web](/libraries/lock)
@@ -17,12 +17,22 @@ When adding Auth0 to your web apps, you have the option to implement either:
   * [Auth0 SDK for Android](/libraries/auth0-android)
 * Or, a custom user interface that you have created directly tying into the [Authentication API](/auth-api).
 
-**Lock** is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface. The Auth0 Libraries are client-side libraries that *do not* come with a user interface but allow for expanded customization of the behavior and appearance of the login. The **Authentication API** provides integration without requiring the use of Auth0 libraries. The best option to choose will depend on the needs of your app.
+If the Hosted Login Page doesn't work for you, all of the above can be embedded in your own application and used in that way, as well.  
+ 
+::: note 
+Passwordless authentication from native mobile apps currently must go through the Hosted Login Page - there is no native passwordless option at this time. 
+::: 
 
 ## When to Implement Lock vs. a Custom UI 
 
-Below is a quick overview of reasons you might want to use Lock, versus using an Auth0 library or the authentication API. There are details about each option (Lock, Auth0 Libraries, Authentication API) below the table, to assist you in finding the right way to implement Auth0 in your application!
-
+**Lock** is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface.  
+ 
+**Auth0 SDKs** are client-side libraries that **do not** come with a user interface but allow for expanded customization of the behavior and appearance of the login page. 
+ 
+The **Authentication API** provides integration without requiring the use of Auth0 SDKs. The best option to choose will depend on the needs of your app. 
+ 
+Below is a quick overview of reasons you might want to use Lock, versus using an Auth0 SDK or the authentication API. There are details about each option (Lock, Auth0 SDKs, Authentication API) below the table, to assist you in finding the right way to implement Auth0 in your application! 
+ 
 <table class="table"> 
     <thead> 
         <tr> 
