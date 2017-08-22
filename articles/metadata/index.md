@@ -105,7 +105,7 @@ When setting this field with the [Authentication API Signup endpoint](/api/authe
 
 ### A word about metadata structure
 
-Whenever you use metadata Auth0 will infer an schema for it. This means that once you use metadata for a user we will expect the same format on every other user. This schema is inferred when a property is presented for the first time. Following usages on different users that do not follow such schema will result on Auth0 not allowing such users to be retrieved by a search querying for the offending attribute.
+Whenever you use metadata Auth0 will infer a schema for it. This means that once you use metadata for a user we will expect the same format on every other user. This schema is inferred when a property is presented for the first time. Following usages on different users that do not follow such schema will result on Auth0 not allowing such users to be retrieved by a search querying for the offending attribute.
 
 When this happens, we will generate a log entry letting you know of the user that contains the problem so you can normalize its schema.
 
