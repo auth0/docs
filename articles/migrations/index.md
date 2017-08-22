@@ -43,7 +43,7 @@ If you are using a custom database connection, rule, and/or custom email provide
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-### ew IP Addresses for Whitelisting in Europe
+### New IP Addresses for Whitelisting in Europe
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
