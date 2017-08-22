@@ -103,6 +103,36 @@ Currently, Auth0 limits the total size of your user metadata to 16 MB. However, 
 
 When setting this field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup) size is limited to no more than 10 fields and must be less than 500 characters.
 
+### A word about metadata structure
+
+Whenever you use metadata Auth0 will infer a schema for it. This means that once you use metadata for a user we will expect the same format on every other user. This schema is inferred when a property is presented for the first time. Following usages on different users that do not follow such schema will result on Auth0 not allowing such users to be retrieved by a search querying for the offending attribute.
+
+When this happens, we will generate a log entry letting you know of the user that contains the problem so you can normalize its schema.
+
+As an example, suppose that the first time that you use the metadata attribute it contains the following:
+
+```json
+{
+    "address": {
+        "street": "My Street"
+    }
+}
+```
+
+Auth0 will now expect the `address` key to be an object on any following user that contains such field, and will expect `street` to be a String.
+
+Suppose you now update a second user with the following metadata:
+
+```json
+{
+    "address": "My Street"
+}
+```
+
+This second user will be violating the formerly inferred schema since `address` is now a String. The net result is that any User Search containing any metadata field in the query will not return the second user as part of the results.
+
+Keep in mind that while the user won't participate of searches on the `address` attribute, you will be able to search for any other attribute and the result will contain all matching users.
+
 ## Keep reading
 
 ::: next-steps
