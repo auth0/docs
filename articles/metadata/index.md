@@ -112,11 +112,11 @@ When this happens, we will generate a log entry letting you know of the user tha
 As an example, suppose that the first time that you use the metadata attribute it contains the following:
 
 ```json
-    {
-        "address": {
-            "street": "My Street"
-        }
+{
+    "address": {
+        "street": "My Street"
     }
+}
 ```
 
 Auth0 will now expect the `address` key to be an object on any following user that contains such field, and will expect `street` to be a String.
@@ -124,9 +124,9 @@ Auth0 will now expect the `address` key to be an object on any following user th
 Suppose you now update a second user with the following metadata:
 
 ```json
-    {
-        "address": "My Street"
-    }
+{
+    "address": "My Street"
+}
 ```
 
 This second user will be violating the formerly inferred schema since `address` is now a String. The net result is that any User Search containing any metadata field in the query will not return the second user as part of the results.
