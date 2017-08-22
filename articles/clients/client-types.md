@@ -22,8 +22,10 @@ You can use the Management API's Get a Client endpoint to check your existing Cl
 
 ```har
 {
-	"method": "GET",
+	"method": "POST",
 	"url": "https://${account.namespace}.auth0.com/api/v2/clients/CLIENT_ID",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer MGMT_API_ACCESS_TOKEN"
@@ -35,8 +37,11 @@ You can use the Management API's Get a Client endpoint to check your existing Cl
 		{
 			"name": "include_fields",
 			"value": true
-		}
-	]
+		}],
+	"postData": {},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
 }
 ```
 
