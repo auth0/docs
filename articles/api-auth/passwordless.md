@@ -6,8 +6,6 @@ title: Passwordless authentication (OIDC-conformant)
 
 <%= include('./tutorials/adoption/_about.md') %>
 
-Auth0 currently does not support an [OIDC-conformant](/api-auth/tutorials/adoption) passwordless authentication mechanism.
+Auth0 currently supports [OIDC-conformant](/api-auth/tutorials/adoption) passwordless authentication using centralized login (with Auth0 hosted login page).
 
-OIDC-conformant clients will not be able to use the new authentication pipeline or request API access tokens.
-
-We plan on implementing OIDC-conformant passwordless authentication in future releases.
+Customers can use the Lock (Passwordless) template in Dashboard under Hosted Pages -> Default Templates, or customize it to fit specific requirements.
