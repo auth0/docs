@@ -43,6 +43,10 @@ This doc refers to the client steps to connect your client. If you are looking t
 
 9. Click **Save**.
 
+::: note
+Google may show an "unverified app" screen before displaying the consent screen for your app. To remove the unverified app screen, complete the [OAuth Developer Verification](https://support.google.com/code/contact/oauth_app_verification) process.
+:::
+
 10. At this point, you will be prompted to provide additional information about your newly-created app.
 
   ![Web App Credentials Configuration](/media/articles/connections/social/google/create-client-id-config.png)
