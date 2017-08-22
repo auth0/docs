@@ -115,7 +115,7 @@ webAuth.authorize({
 
 In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at tenant level (every client app you have set up on a single tenant would use the same Hosted Login Page), you would have to create a new tenant for each client that requires a different hosted page.
 
-There are two ways to handle this. First, you can create different tenants for each client or sets of clients that you need to have separate custom pages for. Secondly, you can use the [Management API](/api/management/v2) to set up a custom page for the speific client rather than using the editor in the dashboard.
+There are two ways to handle this. The first option is to create different tenants for each client or sets of clients that you need to have separate custom pages for. Alternatively, you can use the [Management API](/api/management/v2) to set up a custom page for the specific client rather than using the editor in the [Dashboard](${manage_url}).
 
 ### Creating New Tenants
 
@@ -133,8 +133,8 @@ You can easily switch between tenants using the top right menu on the [Dashboard
 
 ## Using the Management API
 
-However, there is also the option of setting per-client hosted pages using the [Management API](/api/management/v2). To do this, one would `PATCH` the `/api/v2/clients/{id}` and alter the properties `custom_login_page` and `custom_login_page_on`. See the [documentation on patching a client](/api/management/v2#!/Clients/patch_clients_by_id)
+There is also the option of setting per-client hosted pages using the [Management API](/api/management/v2). To do this, send a `PATCH` request at the `/api/v2/clients/{id}`, and alter the properties `custom_login_page` and `custom_login_page_on`. See the [documentation on patching a client](/api/management/v2#!/Clients/patch_clients_by_id)
 ) for more details.
 
-The `custom_login_page` will need to be updated to contain the entire HTML contents for the Hosted Login Page specific to that client. The `custom_login_page_on` would just need set to `true`. Once this is done, the specific client which has been patched will have its own custom login page, whereas any other clients on the same tenant would continue to use the one set up in the [editor in the dashboard](${manage_url}/#/login_page).
+The `custom_login_page` will need to be updated to contain the entire HTML contents for the Hosted Login Page specific to that client. The `custom_login_page_on` would just need set to `true`. Once this is done, the specific client will have its own custom login page, whereas any other clients on the same tenant would continue to use the one set up in the [editor in the dashboard](${manage_url}/#/login_page).
 
