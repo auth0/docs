@@ -18,30 +18,16 @@ When creating a client through the [Dashboard](${manage_url}/#/clients), Auth0 w
 
 ### Checking Your Client Type
 
-You can use the Management API's Get a Client endpoint to check your existing Client's type. If the client is first party, the `is_first_party` equals `true`, else `false`.
+You can use the Management API's Get a Client endpoint to check your existing Client's type. If the client is first party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your Client.
 
 ```har
 {
-	"method": "POST",
-	"url": "https://${account.namespace}.auth0.com/api/v2/clients/CLIENT_ID",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
+	"method": "GET",
+	"url": "https://${account.namespace}.auth0.com/api/v2/clients/CLIENT_ID?fields=is_first_party&include_fields=true",
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer MGMT_API_ACCESS_TOKEN"
-	}],
-	"queryString": [{
-			"name": "fields",
-			"value": "is_first_party"
-		},
-		{
-			"name": "include_fields",
-			"value": true
-		}],
-	"postData": {},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
+	}]
 }
 ```
 
