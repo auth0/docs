@@ -15,7 +15,7 @@ For general queries related to functionality, integration, best practice, or adv
 
 - [Auth0 Community](https://community.auth0.com/): Post questions to our audience of Customer Success Engineers, as well as other Auth0 users, or search and read existing posts for useful information.
 - __Customer Success Manager__: Your Auth0 Customer Success Manager is always a great source for general queries and helping you navigate to the right Auth0 resource.  The orientation information you received during onboarding should have the contact details for your Customer Success Manager.
-- [Search our docs](/search#gsc.tab=0): Search our documentation.
+- [Search our docs](/search#gsc.tab=0)
 
 ## For issues impacting or blocking production (SLA applied)
 
