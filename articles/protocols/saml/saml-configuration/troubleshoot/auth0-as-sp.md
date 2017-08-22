@@ -98,7 +98,7 @@ If the attribute is missing, check to see if the attribute was included in the a
 
 ![](/media/articles/protocols/saml/saml-configuration/debug-connection.png)
 
-If the missing attribute is not in the assertion at all, please work with the IdP to make sure it is included.
+With **Debug Mode** enabled, **Success Login** log entries [in the dashboard](${manage_url}/#/logs) will have an `original_profile` property listing every attribute included in the SAML assertion by the Identity Provider. You can use this list to know the information that the IdP is sending and to help you create the mappings. If the missing attribute is not in the assertion at all, please work with the IdP to make sure it is included.
 
 ### If the User Profile Attribute is Incorrectly Mapped
 
