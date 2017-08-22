@@ -11,7 +11,7 @@ The behavior of the `scope` parameter has been changed to conform to the [OIDC s
 Instead of requesting arbitrary application-specific claims, clients can request any of the standard OIDC scopes such as `profile` and `email`, as well as any [scopes supported by the API they want to access](/api-auth/tutorials/adoption/api-tokens).
 
 ::: note
-See  for additional information on the various types of Auth0 User Profiles.
+See [User Profile](/user-profile) for additional information on the various types of Auth0 User Profiles.
 :::
 
 ## Standard claims
