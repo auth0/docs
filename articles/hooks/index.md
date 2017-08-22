@@ -20,7 +20,7 @@ Hooks allow you to customize the behavior of Auth0 using Node.js code that is ex
 
 ### Hooks vs. Rules
 
-Hooks will eventually replace Rules, the current Auth0 extensibility method. Currently, you can use both Hooks and Rules, but Auth0 will implement new functionality in Hooks.
+Hooks will eventually replace [Rules](/rules), the current Auth0 extensibility method. Currently, you can use both Hooks and Rules, but Auth0 will implement new functionality in Hooks.
 
 If you created your Hook early on during the beta testing period, your Webtask Editor window might not populate with the schema required to successfully use the Test Runner. If that is the case, you'll need to save the Hook's code, delete the Hook, and create a new Hook using your existing code.
 
