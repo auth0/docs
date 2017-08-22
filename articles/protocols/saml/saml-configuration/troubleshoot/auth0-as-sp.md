@@ -187,18 +187,12 @@ If you're using an IdP-initiated flow (for example, the user starts at the ident
 
   * The application to which the user should be sent;
 
-  * The protocol between the application and Auth0 (which may not be SAML -- it could be OIDC);
+  * The protocol between the application and Auth0 (which is not necessarily **SAML** like the connection, and most likely is **Open ID Connect**);
 
   * Any protocol-specific values to include in the query string, such as `scope`, `response_type`, `redirect_uri`, and `audience`. These values should match the ones expected by the application when using a SP-initiated flow.
 
-* If you're using an Auth0 Database Connection:
+* Disable your [rules](/rules) temporarily to make sure that nothing is interfering with the login process.
 
-  * Check that the user exists and the entered password is correct.
+* If you've enabled [multifactor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
 
-  * Disable your [rules](/rules) temporarily to make sure that nothing is interfering with the login process.
-
-  * If you've enabled [multifactor authentication](/multifactor-authentication), disable it temporarily to make sure that it is not interfering with the login process.
-
-* If you're using an Auth0 Database Connection **or** a remote SAML connection:
-
-  * Check that the SAML Connection works by [using **Try** to run a Connection test](#issue-the-idp-login-page-doesn-t-display).
+* Check that the SAML Connection works in an SP-Initiated flow by [using **Try** to run a Connection test](#issue-the-idp-login-page-doesn-t-display).
