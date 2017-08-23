@@ -19,9 +19,7 @@ budicon: 546
 
 <%= include('../_includes/_calling_api_create_scope') %>
 
-## Set the Audience and Scope
-
-Pass the API identifier for your newly created API as the `audience` value to `angularAuth0Provider`. Additionally, pass any of your newly created scopes to the `scope` key.
+<%= include('../_includes/_calling_api_set_audience_scope') %>
 
 ```js
 // app/app.js
@@ -32,19 +30,15 @@ angularAuth0Provider.init({
 });
 ```
 
-At this point you should try logging into your application again to take note of how the `access_token` differs from before. Instead of being an opaque token, it is now a JSON Web Token which has a payload that contains your API identifier as an `audience` and any `scope`s you've requested.
-
-::: note
-By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](/rules).
-:::
+<%= include('../_includes/_calling_api_use_rules') %>
 
 ## Configure angular-jwt
 
 <%= include('../_includes/_calling_api_access_token') %>
 
-The [angular-jwt](https://github.com/auth0/angular-jwt) module can be used to automatically attach JSON Web Tokens to requests made with Angular's `$http` service.
+You can use the [angular2-jwt](https://github.com/auth0/angular2-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `$http` service. 
 
-If you haven't already done so, install angular-jwt.
+Install angular-jwt.
 
 ```bash
 # installation with npm
@@ -54,7 +48,10 @@ npm install --save angular-jwt
 yarn add angular-jwt
 ```
 
-Reference the `angular-jwt` module from your application's main module and inject `jwtOptionsProvider` and `$httpProvider`. Specify a `tokenGetter` function in the provider which retrieves the user's `access_token` from local storage so that it can be attached as an `Authorization` header. Whitelist any domains you wish to enable authenticated `$http` calls for. Finally, push the `jwtInterceptor` into the `$httpProvider.interceptors` array.
+Reference the `angular-jwt` module from your application's main module. Inject `jwtOptionsProvider` and `$httpProvider`. In the provider, specify a `tokenGetter` function which retrieves the user's access token from local storage. The token can then be attached as an `Authorization` header. 
+
+Whitelist any domains you want to enable authenticated `$http` calls for. 
+Push `jwtInterceptor` into the `$httpProvider.interceptors` array.
 
 ```js
 // app/app.js
@@ -94,7 +91,8 @@ Reference the `angular-jwt` module from your application's main module and injec
 
 ## Make Authenticated Calls with `$http`
 
-With the `jwtInterceptor` in place, the user's `access_token` will automatically be attached to `$http` calls when they are made. You can now make `$http` calls as you normally would and, because the user's `access_token` will be included in the call, protected API resources will be accessible to them.
+With `jwtInterceptor` in place, the user's access token is automatically attached to `$http` calls. 
+When you make `$http` calls, your protected API resources become accessible to the user. 
 
 ```js
 // app/ping/ping.controller.js
@@ -129,8 +127,9 @@ With the `jwtInterceptor` in place, the user's `access_token` will automatically
 
 })();
 ```
+
 ::: note
-To find out more about configuration options for angular-jwt, see the [main project repo](https://github.com/auth0/angular-jwt).
+To learn more about configuration options for angular-jwt, see the [main project repo](https://github.com/auth0/angular-jwt).
 :::
 
 <%= include('../_includes/_calling_api_protect_resources') %>
