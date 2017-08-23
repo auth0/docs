@@ -1,4 +1,4 @@
-Check for the scopes granted for the user. 
+Check for the scopes granted to the user. 
 
 First, check for the scopes in the `scope` key from `authResult`.
 If you find values in this key, the scopes granted for the user are different than the ones you requested. 
