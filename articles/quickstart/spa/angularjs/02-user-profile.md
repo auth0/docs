@@ -63,8 +63,6 @@ function getCachedProfile() {
 
 <%= include('../_includes/_user_profile_in_memory') %>
 
-## Add a Profile Component
-
 <%= include('../_includes/_user_profile_add_profile_component') %>
 
 Create a new controller and view to display the profile.
