@@ -1,0 +1,1 @@
+The [Auth0 hosted login page](https://auth0.com/docs/hosted-pages/login) is the easiest way to set up authentication in your application. 
