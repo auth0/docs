@@ -1,4 +1,4 @@
-Use the  hosted login page to provide a way for your users to log in to your ${library} application.
+Use the Auth0 hosted login page to provide a way for your users to log in to your ${library} application.
 
 When the user logs in, Auth0 returns three items:
 * `access_token` - an access token
