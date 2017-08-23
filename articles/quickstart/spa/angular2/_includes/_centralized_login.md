@@ -8,11 +8,11 @@
 
 ## Create an Authentication Service
 
-Create a reusable service to manage and coordinate the tasks necessary for user authentication. You can call the service's methods from your application. 
+Create a reusable service to manage and coordinate user authentication. You can call the service's methods from your application. 
 You can create an instance of the `WebAuth` object from the auth0.js library in the service.
 
 ::: note
-You can name the service anything you want. In the examples below, the service is called `AuthService` and the filename is `auth.service.ts`.
+You can give the service any name. In the examples below, the service is called `AuthService` and the filename is `auth.service.ts`.
 :::
 
 Create a service and add an instance of the `auth0.WebAuth` object. Provide a `login` method that calls the `authorize` method from auth0.js.
@@ -58,7 +58,7 @@ Add more methods to the `AuthService` service to handle authentication in the ap
 
 The example below shows the following methods:
 * `handleAuthentication` - looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession` - sets the user's access token, ID token, and the access token's expiry time 
+* `setSession` - sets the user's access token and ID token, and the access token's expiry time 
 * `logout` - removes the user's tokens and expiry time from browser storage
 * `isAuthenticated` - checks whether the expiry time for the user's access token has passed
 

@@ -71,6 +71,8 @@ getProfile(cb) {
 
 <%= include('../_includes/_user_profile_add_profile_component') %>
 
+Create a new component called `ProfileComponent`.
+
 ```js
 // src/Profile/Profile.js
 
