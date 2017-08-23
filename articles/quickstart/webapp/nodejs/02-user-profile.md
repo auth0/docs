@@ -16,11 +16,10 @@ budicon: 292
 
 ## User Profile
 
-Getting the user's profile information is very simple with Auth0. After the user has authenticated, a `user` object
-with the entire profile is attached to every express request. By default this will be a minimal profile, to retrieve additional profile information
-the `profile` scope should be added to the authentication scopes.
+After the users has authenticated, every express request has a `user` object with the entire user profile. 
+By default, it is a minimal profile. Add the `profile` scope to the authentication scopes to get additional profile information. 
 
-Modify the `/login` route so the `scope` parameter has the value `openid profile`
+Add the `openid profile` value to the `scope` parameter in the `/login` route. 
 
 ```js
 // routes/index.js
@@ -42,9 +41,9 @@ router.get(
 
 ```
 
-## Showing the User Profile
+## Show the User Profile
 
-We can modify the `/user` endpoint to display the user object. Update the `views/user.pug` template:
+Modify the `/user` endpoint to display the user object. Update the `views/user.pug` template:
 
 ```pug
 extends layout
@@ -59,7 +58,7 @@ block content
   a(href='/logout') Logout
 ```
 
-To have full access to the user profile on  `userProfile`, we need to stringify the `user` object. Modify the `/` endpoint in `routes/user.js` to include `userProfile`.
+To have full access to the user profile on  `userProfile`, put the `user` object in a string. Modify the `/` endpoint in `routes/user.js` to include `userProfile`.
 
 ```js
 // routes/user.js
