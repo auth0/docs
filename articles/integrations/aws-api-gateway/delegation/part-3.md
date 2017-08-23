@@ -12,7 +12,7 @@ In this step, you will build a single page, serverless client application using 
 
 For a simple starter app, download this seed project.
 
-<%= include('../../_includes/_package', {
+<%= include('../../../_includes/_package', {
   org: 'auth0',
   repo: 'auth0-aws',
   path: 'examples/api-gateway/client'
@@ -248,6 +248,6 @@ The `getSecureApiClient` function provided for you retrieves the AWS token from 
 ```
 
 <%= include('./_stepnav', {
- prev: ["2. Securing and Deploying", "/integrations/aws-api-gateway/part-2"],
- next: ["4. Using Multiple Roles", "/integrations/aws-api-gateway/part-4"]
+ prev: ["2. Securing and Deploying", "/integrations/aws-api-gateway/delegation/part-2"],
+ next: ["4. Using Multiple Roles", "/integrations/aws-api-gateway/delegation/part-4"]
 }) %>

@@ -1,12 +1,13 @@
 ---
-url: /integrations/aws-api-gateway
 title: Amazon API Gateway Tutorial Introduction
 description: How to build a serverless application using Token-based Authentication with AWS API Gateway and Lambda.
 ---
 
-# Amazon API Gateway Tutorial
+# Build a Serverless Application Using Token-Based Authentication with AWS API Gateway and Lambda
 
-## Build a Serverless Application Using Token-Based Authentication with AWS API Gateway and Lambda
+::: warning
+Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers; you can use the versioning drop-down above to switch to the appropriate set of docs.
+:::
 
 With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a JavaScript client.
 
