@@ -1,13 +1,14 @@
 ---
-description: How to update metadata through the Auth0 Management API and Authentication API.
+description: How to retrieve and update metadata through the Auth0 APIs.
 crews: crew-2
+toc: true
 ---
 
 # Metadata with Auth0 APIs
 
 ### Management API
 
-Using Auth0's Management APIv2, you can create a user and set both their `app_metadata` and `user_metadata`. You can also update these two fields.
+Using [Auth0's Management APIv2](/api/management/v2), you can create a user and set both their `app_metadata` and `user_metadata`. You can also update these two fields.
 
 ::: note
 The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
@@ -33,7 +34,7 @@ To create a user with the following profile details:
 }
 ```
 
-you would make the following `POST` call to the Management API to create the user and set the property values:
+you would make the following `POST` call to the [Create User endpoint of the Management API](/api/management/v2#!/Users/post_users), to create the user and set the property values:
 
 ```har
 {
@@ -61,7 +62,7 @@ you would make the following `POST` call to the Management API to create the use
 
 ## Management API: Retrieve User Metadata
 
-To retrieve the user's metadata make a `GET` request to the Management API.
+To retrieve a user's metadata make a `GET` request to the [Get User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id).
 
 Assuming you created the user as shown above with the following metadata values:
 
@@ -77,7 +78,7 @@ Assuming you created the user as shown above with the following metadata values:
 }
 ```
 
-Make the following `GET` request to the API:
+Make the following `GET` request:
 
 ```har
 {
@@ -108,7 +109,7 @@ Make the following `GET` request to the API:
 }
 ```
 
-The response will now appear as follows:
+The response will be as follows:
 
 ```json
 {
@@ -120,7 +121,7 @@ The response will now appear as follows:
 
 ## Management API: Update User Metadata
 
-You can update a user's metadata by making the appropriate `PATCH` call to the Management API.
+You can update a user's metadata by making a `PATCH` call to the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
 
 Assuming you created the user as shown above with the following metadata values:
 
@@ -146,7 +147,7 @@ To update `user_metadata` and add the user's home address as a second-level prop
 }
 ```
 
-you would make the following `PATCH` call to the API:
+you would make the following `PATCH` call:
 
 ```har
 {
