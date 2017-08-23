@@ -15,7 +15,7 @@ While Auth0 hosts your custom pages, you can still [manage your pages using the 
 
 ## Why Use Hosted Pages
 
-Hosted pages are an easy to implement and secure. For example, using Auth0 hosted pages instead of hosting them externally provides seamless XSRF protection. This helps prevent third party impersonation or the hijacking of sessions.
+Hosted pages are easy to implement and secure. For example, using Auth0 hosted pages instead of hosting them externally provides seamless XSRF protection. This helps prevent third party impersonation or the hijacking of sessions.
 
 ## How to Enable and Customize Hosted Pages
 
