@@ -17,9 +17,9 @@ budicon: 546
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
-## Handle Scopes in the `angularAuth0` Config
+## Handle Scopes in the `angularAuth0` Configuration
 
-Adjust the `angularAuth0` configuration to use a variable with any `scope`s you would like to request when users log in.
+In the `angularAuth0` configuration, use a variable with any scopes you want to request when users log in.
 
 ```js
 // app/app.js
@@ -67,9 +67,7 @@ return {
 }
 ```
 
-## Conditionally Dislay UI Elements
-
-The `userHasScopes` function can now be used alongside `isAuthenticated` to conditionally show and hide certain UI elements based on those two conditions.
+<%= include('../_includes/_authz_conditionally_display_ui_elements') %>
 
 ```html
 <!-- app/navbar/navbar.html -->
@@ -84,9 +82,9 @@ The `userHasScopes` function can now be used alongside `isAuthenticated` to cond
 
 ## Protect Client-Side Routes
 
-For some routes in your application, you may want to only allow access if the user is authenticated. If you are using UI Router v1, this check can be made in the `onEnter` hook for a specific state.
+You may want to give access to some routes in your application only to authenticated users. If you are using UI Router v1,you can check if the user is authenticated with the `onEnter` hook for a specific state.
 
-Define a function which uses the `authService` to check whether the user is authenticated and redirects to the home route if they are not. Use this function in the `onEnter` hook for whichever states you wish to protect.
+Define a function that uses the `authService` service to check if the user is authenticated. If the user is not authenticated, they are redirected to the home route. Use this function in the `onEnter` hook for any states you want to protect.
 
 ```js
 // app/app.js
@@ -112,11 +110,15 @@ function checkAuthentication($transition$) {
 }
 ```
 
-In this example, if an unauthenticated user tries to access the `/ping` route, they will be redirected to `/home`.
+::: note
+In this example, when an unauthenticated user tries to access the `/ping` route, they are redirected to the `/home` route.
+:::
 
-### Limit Route Access Based on `scope`
+### Limit Route Access Based on Scopes
 
-To prevent access to client-side routes based on a particular `scope`, continue to use the `onEnter` hook, but call a different function which passes a particular scope to the `userHasScopes` function from the `authService`.
+You can use the `onEnter` hook to prevent access to client-side routes based on scopes. Call a function that passes the scope you choose to the `userHasScopes` function from the `authService` service.
+
+If the user does not have the `write:messages` scope, they are redirected to the main route.
 
 ```js
 // app/app.js
@@ -141,8 +143,6 @@ function checkForScopes(scopes) {
   }
 }
 ```
-
-The user will now be redirected to the `/home` route unless they have a `scope` of `write:messages`.
 
 <%= include('../_includes/_authz_conditionally_assign_scopes') %>
 
