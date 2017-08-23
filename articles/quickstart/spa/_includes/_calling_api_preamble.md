@@ -1,4 +1,4 @@
-Some single-page apps use resources from data APIs. You may want to restrict access to those resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](https://auth0.com/docs/api-auth).
+Some single-page apps use resources from data APIs. You may want to restrict access to those resources, so that only authenticated users with sufficient privileges can access them. Auth0 lets you manage access to these resources using [API Authorization](/api-auth).
 
 This tutorial shows you how to access protected resources in your data API. 
 
