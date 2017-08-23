@@ -10,5 +10,5 @@
   - [Client Credentials exchange](/api-auth/tutorials/adoption/client-credentials) (only available in new pipeline)
 * [Refresh tokens](/api-auth/tutorials/adoption/refresh-tokens)
 * [Delegation (deprecated)](/api-auth/tutorials/adoption/delegation)
-* [Passwordless authentication for Embedded Login (unsupported)](/api-auth/passwordless)
+* [Passwordless authentication](/api-auth/passwordless)
 * [List of breaking changes for OIDC-conformant clients](/api-auth/tutorials/adoption/oidc-conformant)

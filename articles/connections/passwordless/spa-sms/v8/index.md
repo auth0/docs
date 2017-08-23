@@ -59,7 +59,7 @@ Lock will ask for the code that has been sent via SMS to the provided number. Th
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
 
-If the code is correct, the user will be authenticated. This will trigger the on('authenticated') Lock event where `id_token`, `refresh_token` can be accessed and stored. Then the user will be allowed to continue to the authenticated part of the application.
+If the code is correct, the user will be authenticated. This will trigger the 'authenticated' event where `id_token`, `refresh_token` can be accessed and stored. Then the user will be allowed to continue to the authenticated part of the application.
 
 ### Use your own UI
 

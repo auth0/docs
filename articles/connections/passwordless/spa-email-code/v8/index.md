@@ -59,7 +59,7 @@ Lock will ask for the code that has been emailed to the provided address. The co
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-Once the user enters the code received by email, Lock will authenticate them trigger the on('authenticated') event where the `id_token` and profile will be available.
+Once the user enters the code received by email, Lock will trigger the 'authenticated' event where the `id_token` and profile will be available.
 
 ### Use your own UI
 
