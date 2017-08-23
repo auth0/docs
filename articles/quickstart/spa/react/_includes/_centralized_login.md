@@ -1,11 +1,8 @@
 ## Add Authentication with Auth0
 
-The [Auth0 hosted login page](https://auth0.com/docs/hosted-pages/login) is the easiest way to set up authentication in your application. 
+<%= include('../../../_includes/_login_auth0_hosted_login_page') %>
 
-::: panel Embed the Lock widget
-You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
-To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-react-samples/tree/embedded-login/01-Embedded-Login).
-:::
+<%= include('../../../_includes/_login_embed_lock_widget') %>
 
 <%= include('../../_includes/_login_preamble', { library: 'React' }) %>
 
@@ -56,7 +53,7 @@ auth.login();
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-### Finish Out the Service
+### Finish the Service
 
 Add more methods to the `Auth` service to handle authentication in the app.
 

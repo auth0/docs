@@ -1,11 +1,8 @@
 ## Add Authentication with Auth0
 
-The Auth0 hosted login page is the easiest way to implement authentication in your app. 
+<%= include('../../../_includes/_login_auth0_hosted_login_page') %>
 
-::: panel Embed the Lock widget 
-You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
-To learn how to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-angular-samples/tree/embedded-login/01-Embedded-Login).
-:::
+<%= include('../../../_includes/_login_embed_lock_widget') %>
 
 <%= include('../../_includes/_login_preamble', { library: 'Angular 2+' }) %>
 
