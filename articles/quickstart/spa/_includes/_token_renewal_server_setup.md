@@ -1,8 +1,14 @@
 ## Server Setup
 
-Renewing the user's `access_token` requires that a static HTML file to be served. The server setup you choose for this is at your discretion, but an example using **Node.js** and **express** is given here.
+To renew the user's access token, you need to serve a static HTML file. You can choose any server setup to do this. 
 
-Create a simple server with **express** and add a file called `silent.html`.
+::: note
+The example below uses Node.js and express.
+:::
+
+Create a simple server with express and add a file called `silent.html`.
+
+The `silent.html` file receives and parses the result of a token renewal. An instance of the `WebAuth` object from auth0.js is created. The `parseHash` method creates a usable object from the hash with the authentication result. The object is then posted back to the parent window and the client-side session sets again. 
 
 ```js
 // server.js
@@ -45,9 +51,6 @@ console.log('Listening on http://localhost:${serverPort}');
 <body></body>
 </html>
 ```
-
-The `silent.html` file exists to receive and parse the result of a token renewal. An instance of `WebAuth` from auth0.js is created and its `parseHash` method is used to produce a usable object out of the authentication result hash. This is then posted back to the parent window where the client side session can be set again.
-
 ::: note
-Be sure to add `http://localhost:${serverPort}/silent` to the **Callback URLs** section in your application's client settings.
+Add `http://localhost:${serverPort}/silent` to the **Callback URLs** section in your application's client settings.
 :::
