@@ -17,7 +17,7 @@ budicon: 292
 
 ## Request the Profile Scope
 
-To retrieve user information, request a scope of `openid profile` in the `WebAuth` instance. 
+To retrieve user information, request a scope of `openid profile` in the instance of the `WebAuth` object. 
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -61,6 +61,7 @@ public getProfile(cb): void {
 
 <%= include('../_includes/_user_profile_add_profile_component') %>
 
+Create a new component called `ProfileComponent`.
 
 ```ts
 // src/app/profile/profile.component.ts
