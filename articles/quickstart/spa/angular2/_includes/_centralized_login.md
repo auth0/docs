@@ -1,6 +1,6 @@
 ## Add Authentication with Auth0
 
-<%= include('../../../_includes/_login_auth0_hosted_login_page') %>
+The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. 
 
 <%= include('../../../_includes/_login_embed_lock_widget') %>
 
