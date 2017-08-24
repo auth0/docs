@@ -24,7 +24,7 @@ To set up a session for the user on the client side, save the following informat
 To log the user out, remove these values from the storage. 
 
 ::: note
-Our examples use local storage to save the user's authentication information. You can also use session storage or cookies.
+Our examples use local storage to save the user's authentication information. You can also use session storage or cookies. Read more about storing user information in the [security documentation](/security/store-tokens).
 :::
 
 You need to provide a way for your application to recognize if the user is authenticated. To do that, use the `isAuthenticated` method to check if the user's access token has expired. The user is no longer authenticated when the expiry time of their access token passes.
