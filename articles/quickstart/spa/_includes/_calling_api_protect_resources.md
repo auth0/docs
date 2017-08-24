@@ -1,7 +1,7 @@
 ## How Do I Protect my API Resources?
 
 To restrict access to the resources served by your API, check the incoming requests for valid authorization information. 
-The authorization information is in the `access_token` created for the user. To see if the token is valid, check it against the [JSON Web Key Set (JWKS)](https://auth0.com/blog/navigating-rs256-and-jwks/) for your Auth0 account.
+The authorization information is in the `access_token` created for the user. To see if the token is valid, check it against the [JSON Web Key Set (JWKS)](/jwks) for your Auth0 account. To learn more about validating access tokens, read the [Verify Access Tokens tutorial](/api-auth/tutorials/verify-access-token).
 
 In each language language and framework, you verify the access token differently.
 Typically, you use a middleware function to verify the token. If the token is valid, the request proceeds and the user gets access to resources in your API. If the token is invalid, the request is rejected with a `401 Unauthorized` error. 
