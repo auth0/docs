@@ -12,7 +12,7 @@ By using a single Auth0 account for all of your applications, you maintain simpl
 
 In Auth0, there are many ways you can handle multi-tenancy. While this article will cover several of the options available, it is by no means comprehensive. For additional assistance on how you can customize Auth0, please contact [Sales](https://auth0.com/?contact=true).
 
-## Use User Metadata
+## Use App Metadata
 
 For many users, we find that creating a single [Connection](/identityproviders) is sufficient. You can then control user access to one or more [Clients](/clients) by assigning the appropriate `metadata` value(s) to the user.
 
