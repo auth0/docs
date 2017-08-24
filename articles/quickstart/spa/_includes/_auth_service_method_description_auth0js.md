@@ -4,7 +4,7 @@ When you set up the `AuthService` service, you create an instance of the `auth0.
 * Audience and scope, which specify that authentication must be [OIDC-conformant](/api-auth/intro)
 * The URL where your users are redirected to after authentication.
 ::: note
-In this tutorial, the route is `/callback`, which is implemented in the Add a Callback Component step. 
+In this tutorial, the route is `/callback`, which is implemented in the [Add a Callback Component](#add-a-callback-component) step. 
 :::
 
 Your users authenticate at the Auth0 hosted login page. They are then redirected back to your application. Their redirect URLs contain a hash fragment with each user's authentication information:
