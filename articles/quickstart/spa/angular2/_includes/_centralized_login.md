@@ -57,10 +57,10 @@ Try calling the `login` method from somewhere in your application to see the log
 Add more methods to the `AuthService` service to handle authentication in the app.
 
 The example below shows the following methods:
-* `handleAuthentication` - looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession` - sets the user's access token, ID token, and the access token's expiry time 
-* `logout` - removes the user's tokens and expiry time from browser storage
-* `isAuthenticated` - checks whether the expiry time for the user's access token has passed
+* `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js
+* `setSession`: sets the user's access token, ID token, and the access token's expiry time 
+* `logout`: removes the user's tokens and expiry time from browser storage
+* `isAuthenticated`: checks whether the expiry time for the user's access token has passed
 
 ```ts
 // src/app/auth/auth.service.ts
