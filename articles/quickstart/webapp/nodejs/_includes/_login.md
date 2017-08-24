@@ -53,7 +53,7 @@ app.use(passport.session());
 
 ## Trigger Authentication
 
-<%= include('../../../_includes/_login_auth0_hosted_login_page') %>
+The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application.
 
 <%= include('../../../_includes/_login_embed_lock_widget') %>
 
@@ -70,7 +70,7 @@ You need to make sure you get an OIDC-conformant response. You can achieve it tw
 
 ::: note
 The example below shows how to set the audience to get an OIDC-conformant response. 
-To turn on the **OIDC conformant** switch, in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings). Click on **Show Advanced Settings** > **OAuth**. To learn more, read the [net flows documentation](/api-auth/intro#how-to-use-the-new-flows).
+To turn on the **OIDC conformant** switch, in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings), click on **Show Advanced Settings** > **OAuth**. To learn more, read the [net flows documentation](/api-auth/intro#how-to-use-the-new-flows).
 :::
 
 ```js
