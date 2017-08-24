@@ -10,6 +10,10 @@ The behavior of the `scope` parameter has been changed to conform to the [OIDC s
 
 Instead of requesting arbitrary application-specific claims, clients can request any of the standard OIDC scopes such as `profile` and `email`, as well as any [scopes supported by the API they want to access](/api-auth/tutorials/adoption/api-tokens).
 
+::: note
+See [User Profile](/user-profile) for additional information on the various types of Auth0 User Profiles.
+:::
+
 ## Standard claims
 
 The OIDC specification defines a [set of standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) about users that can be returned in ID tokens or in the response from /userinfo.
