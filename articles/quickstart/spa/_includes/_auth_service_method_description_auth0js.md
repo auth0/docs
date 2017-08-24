@@ -1,7 +1,7 @@
 When you set up the `AuthService` service, you create an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
 * Configuration for your client and domain
 * Response type, to show that you need a user's access token and an ID token after authentication
-* Audience and scope, which specify that authentication must be [OIDC-conformant](https://auth0.com/docs/api-auth/tutorials/adoption)
+* Audience and scope, which specify that authentication must be [OIDC-conformant](/api-auth/intro)
 * The URL where your users are redirected to after authentication.
 ::: note
 In this tutorial, the route is `/callback`, which is implemented in the Add a Callback Component step. 
