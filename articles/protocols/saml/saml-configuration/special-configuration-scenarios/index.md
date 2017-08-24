@@ -1,8 +1,6 @@
 ---
 description: Special configuration scenarios when setting up a SAML Integration
-url: /protocols/saml/saml-configuration/special-configuration-scenarios
 ---
-
 # Special Configuration Scenarios
 
 Once you've set up a basic SAML Integration, there are a number of additional requirements you might need to implement so that your integration reflects your needs and requirements.
