@@ -28,7 +28,7 @@ angularAuth0Provider.init({
 });
 ``` 
 
-## Make a Call for the User's Info
+## Make a Call for the User's Information
 
 <%= include('../_includes/_user_profile_auth0js_method') %>
 

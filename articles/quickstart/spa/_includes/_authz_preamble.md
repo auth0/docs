@@ -1,6 +1,6 @@
 This tutorial shows you how to control authorization in your client-side single page application.
 
-## Access Control in Single Page Apps
+## Access Control in Single Page Applications
 
 Access control is the control over what different users can see in your application and which routes they can access.
 With Auth0, you can implement access control by using scopes granted to users.

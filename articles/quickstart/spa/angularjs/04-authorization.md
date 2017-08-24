@@ -82,7 +82,7 @@ return {
 
 ## Protect Client-Side Routes
 
-You may want to give access to some routes in your application only to authenticated users. If you are using UI Router v1,you can check if the user is authenticated with the `onEnter` hook for a specific state.
+You may want to give access to some routes in your application only to authenticated users. If you are using UI Router v1, you can check if the user is authenticated with the `onEnter` hook for a specific state.
 
 Define a function that uses the `authService` service to check if the user is authenticated. If the user is not authenticated, they are redirected to the home route. Use this function in the `onEnter` hook for any states you want to protect.
 
