@@ -16,7 +16,7 @@ budicon: 292
 
 ## User Profile
 
-After the users has authenticated, every express request has a `user` object with the entire user profile. 
+After the user has authenticated, every express request has a `user` object with the entire user profile. 
 By default, it is a minimal profile. Add the `profile` scope to the authentication scopes to get additional profile information. 
 
 Add the `openid profile` value to the `scope` parameter in the `/login` route. 

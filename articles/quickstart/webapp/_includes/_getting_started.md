@@ -6,9 +6,5 @@ This guide walks you through setting up authentication and authorization in your
 
 ::: note
 If you are following along with the sample project you downloaded from the top of this page,  **Callback URL** should be set to
-
-```bash
-${callback}
-```
-
+`${callback}`.
 :::
