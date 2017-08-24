@@ -111,8 +111,8 @@ Create a service and provide a `login` method that calls the `authorize` method 
 })();
 ```
 
-::: panel Checkpoint
-Try calling the `login` method from somewhere in your application to see the login page.
+::: note
+**Checkpoint:** Try to call the `login` method from somewhere in your application to see the login page.
 :::
 
 
