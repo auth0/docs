@@ -1,6 +1,6 @@
 ## Add Authentication with Auth0
 
-<%= include('../../../_includes/_login_auth0_hosted_login_page') %>
+The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. 
 
 <%= include('../../../_includes/_login_embed_lock_widget') %>
 
@@ -123,10 +123,10 @@ Try calling the `login` method from somewhere in your application to see the log
 Add more methods to the `authService` service to handle authentication in the app.
 
 The example below shows the following methods:
-* `handleAuthentication` - looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession` - sets the user's access token and ID token, and the access token's expiry time 
-* `logout` - removes the user's tokens and expiry time from browser storage
-* `isAuthenticated` - checks whether the expiry time for the user's access token has passed
+* `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js
+* `setSession`: sets the user's access token and ID token, and the access token's expiry time 
+* `logout`: removes the user's tokens and expiry time from browser storage
+* `isAuthenticated`: checks whether the expiry time for the user's access token has passed
 
 ```js
 // app/auth/auth.service.js
@@ -250,7 +250,7 @@ This example assumes you are using path-based routing by setting `$locationProvi
 
 <%= include('../../_includes/_callback_component') %>
 
-Create a controller and template to use for a callback route and add a loading indicator.
+Create a controller and a template to use for a callback route and add a loading indicator.
 
 ::: note
 To display a loading indicator, you need a loading spinner or another indicator in the `assests` directory. See the downloadable sample for demonstration. 
