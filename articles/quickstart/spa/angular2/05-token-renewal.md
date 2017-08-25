@@ -112,7 +112,7 @@ export class AppComponent {
 }
 ```
 
-Client-side sessions should not be renewed after the user logs out. Call the `unscheduleRenewal` method in the `logout` method.
+Since client-side sessions should not be renewed after the user logs out, call the `unscheduleRenewal` method in the `logout` method.
 
 ```ts
 // src/app/auth/auth.service.ts
