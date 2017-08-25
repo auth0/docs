@@ -215,34 +215,6 @@ Depending on whether the user is authenticated or not, they see the **Log Out** 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
-## Process the Authentication Result
-
-When a user authenticates at the Auth0 hosted login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `authService` service processes the hash. 
-
-Call the `handleAuthentication` method in your app's run block. The method processess the authentication hash while your app loads. 
-
-```js
-// app/app.run.js
-
-(function () {
-
-  'use strict';
-
-  angular
-    .module('app')
-    .run(run);
-
-  run.$inject = ['authService'];
-    
-  function run(authService) {
-    // Handle the authentication
-    // result in the hash
-    authService.handleAuthentication();
-  }
-
-})();
-```
-
 ## Add a Callback Component
 
 When you use the Auth0 hosted login page, your users are taken away from your application. After they authenticate, they are automatically returned to your application and a client-side session is set for them. 
@@ -284,3 +256,31 @@ To display a loading indicator, you need a loading spinner or another indicator 
 ```
 
 After authentication, your users are taken to the `/callback` route. They see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the `/home` route.
+
+## Process the Authentication Result
+
+When a user authenticates at the Auth0 hosted login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `authService` service processes the hash. 
+
+Call the `handleAuthentication` method in your app's run block. The method processess the authentication hash while your app loads. 
+
+```js
+// app/app.run.js
+
+(function () {
+
+  'use strict';
+
+  angular
+    .module('app')
+    .run(run);
+
+  run.$inject = ['authService'];
+    
+  function run(authService) {
+    // Handle the authentication
+    // result in the hash
+    authService.handleAuthentication();
+  }
+
+})();
+```
