@@ -55,7 +55,9 @@ userHasScopes(scopes) {
 }
 ```
 
-<%= include('../_includes/_authz_conditionally_display_ui_elements') %>
+## Conditionally Display UI Elements
+
+You can use the `userHasScopes` method with the `isAuthenticated` method to show and hide certain UI elements.
 
 ```js
 // src/App.js
