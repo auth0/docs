@@ -36,7 +36,7 @@ angularAuth0Provider.init({
 
 <%= include('../_includes/_calling_api_access_token') %>
 
-You can use the [angular2-jwt](https://github.com/auth0/angular2-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `$http` service. 
+You can use the [angular-jwt](https://github.com/auth0/angular-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `$http` service. 
 
 Install angular-jwt.
 
