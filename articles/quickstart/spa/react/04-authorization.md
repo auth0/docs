@@ -17,7 +17,9 @@ budicon: 546
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
-<%= include('../_includes/_authz_handle_scopes', { service: '`Auth` service' }) %>
+## Handle Scopes in the `Auth` service
+
+Adjust your `Auth` service, so it uses a local member with any scopes you want to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
 
 ```js
 // src/Auth/Auth.js
@@ -55,7 +57,9 @@ userHasScopes(scopes) {
 }
 ```
 
-<%= include('../_includes/_authz_conditionally_display_ui_elements') %>
+## Conditionally Display UI Elements
+
+You can use the `userHasScopes` method with the `isAuthenticated` method to show and hide certain UI elements.
 
 ```js
 // src/App.js

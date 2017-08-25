@@ -14,7 +14,9 @@ budicon: 546
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
-<%= include('../_includes/_authz_handle_scopes', { service: '`app.js` file' }) %>
+## Handle Scopes in the `app.js` file
+
+Adjust your `app.js` file, so it uses a local member with any scopes you want to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
 
 ```js
 // app.js
