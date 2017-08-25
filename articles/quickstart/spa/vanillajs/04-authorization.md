@@ -14,9 +14,7 @@ budicon: 546
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
-## Handle Scopes
-
-Adjust your `app.js` file to use a local variable with any `scope`s you would like to request when users log in. Use this in the `auth0.WebAuth` instance.
+<%= include('../_includes/_authz_handle_scopes', { service: '`app.js` file' }) %>
 
 ```js
 // app.js
@@ -43,7 +41,8 @@ function setSession(authResult) {
 }
 ```
 
-Add a function called `userHasScopes` which will check for a particular `scope` in local storage. This function should take an array of strings and check whether the array of `scope`s saved in local storage contains those values. The function can be used to conditionally hide and show various UI elements and to limit route access.
+Add a function called `userHasScopes` that checks for scopes in local storage. Add an array of strings to the method and check if the array of scopes saved in local storage contains those values. 
+You can use this method to conditionally hide and show UI elements to the user and to limit route access.
 
 ```js
 // app.js
@@ -61,9 +60,9 @@ function userHasScopes(scopes) {
 }
 ```
 
-## Conditionally Dislay UI Elements
+## Conditionally Display UI Elements
 
-The `userHasScopes` function can now be used alongside `isAuthenticated` to conditionally show and hide certain UI elements based on those two conditions.
+You can use the `userHasScopes` function with the `isAuthenticated` function to show and hide certain UI elements.
 
 ```js
 // app.js
@@ -79,13 +78,11 @@ function displayButtons() {
 }
 ```
 
-## Protect Client-Side Routes
+<%= include('../_includes/_authz_protect_client_side_routes', { check: '`userHasScopes` function' }) %>
 
-Limiting access to client-side routes can be done by checking which `scope`s the user has. This can be done with the `userHasScopes` function created in the previous step.
+Depending on the routing library you use, you apply the `userHasScopes` function differently. 
 
-The way that the `userHasScopes` function gets applied to protect various client-side routes depends on the routing library being used. The examples presented here don't assume any particular router.
-
-Some routing libraries provide hooks which will run a function before the route is activated. This kind of hook might be called something like `beforeEnter` or `onEnter`. This is a good place to run the `userHasScopes` function to check whether the user has the `scope`s required to enter the route.
+Some routing libraries provide hooks which run a function before the route is activated. This kind of hook might be called something like `beforeEnter` or `onEnter`. This is a good place to run the `userHasScopes` function to check whether the user has the scopes required to enter the route.
 
 <%= include('../_includes/_authz_conditionally_assign_scopes') %>
 
