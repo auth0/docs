@@ -53,5 +53,5 @@ console.log('Listening on http://localhost:${serverPort}');
 ```
 
 ::: note
-Add `http://localhost:$(serverPort)/silent` to the **Callback URLs** section in your application's client settings.
+Add `http://localhost:$(serverPort)/silent` to the **Allowed Callback URLs** section in your application's [Client Settings](${manage_url}/#/applications/${account.clientId}/settings).
 :::
