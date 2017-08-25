@@ -14,7 +14,7 @@ budicon: 292
 
 ## Request the Profile Scope
 
-To retrieve user information, request a scope of `openid profile` in the instance of the `WebAuth` object. 
+To retrieve user information, request a scope of `openid profile` in the instance of the `auth0WebAuth` object. 
 
 ```js
 // app.js
