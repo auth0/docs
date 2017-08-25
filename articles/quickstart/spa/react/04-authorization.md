@@ -17,7 +17,7 @@ budicon: 546
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
-<%= include('../_includes/_authz_handle_scopes', { service: '`Auth`' }) %>
+<%= include('../_includes/_authz_handle_scopes', { service: '`Auth` service' }) %>
 
 ```js
 // src/Auth/Auth.js

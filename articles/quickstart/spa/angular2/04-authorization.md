@@ -30,7 +30,7 @@ auth0 = new auth0.WebAuth({
 });
 ``` 
 
-In the `setSession` method, save the scopes granted for the user into local storage. 
+In the `setSession` method, save the scopes granted to the user into local storage. 
 
 ```ts
 // src/app/auth/auth.service.ts
