@@ -17,7 +17,9 @@ budicon: 546
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
-<%= include('../_includes/_authz_handle_scopes', { service: '`AuthService` service' }) %>
+## Handle Scopes in the `AuthService` service`
+
+Adjust your `AuthService` service, so it uses a local member with any scopes you want to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -55,7 +57,9 @@ public userHasScopes(scopes: Array<string>): boolean {
 }
 ```
 
-<%= include('../_includes/_authz_conditionally_display_ui_elements') %>
+## Conditionally Display UI Elements
+
+You can use the `userHasScopes` method with the `isAuthenticated` method to show and hide certain UI elements.
 
 ```html
 <!-- src/app/app.component.html -->
@@ -68,7 +72,9 @@ public userHasScopes(scopes: Array<string>): boolean {
 </button>
 ```
 
-<%= include('../_includes/_authz_protect_client_side_routes', { check: '`canActivate` hook' }) %>
+## Protect Client-Side Routes
+
+You may want to give access to some routes in your application only to authenticated users. You can check if the user is authenticated with the `canActivate` hook.
 
 Create a new service called `AuthGuardService`.
 
@@ -109,7 +115,7 @@ export const ROUTES: Routes = [
 ];
 ```
 
-The guard implements the `CanActivate` interface which requires a method called `canActivate` in the service. This method returns `true` if the user is authenticated and `false` if they are not. It also navigates the user to the home route if they are not authenticated.
+The guard implements the `CanActivate` interface which requires the `canActivate` method in the service. This method returns `true` if the user is authenticated and `false` if they are not. It also navigates the user to the home route if they are not authenticated.
 
 ### Limit Route Access Based on Scopes
 

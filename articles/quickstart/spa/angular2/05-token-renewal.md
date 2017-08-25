@@ -20,7 +20,7 @@ budicon: 448
 
 ## Add Token Renewal
 
-Add a method to the `AuthService` service to call the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set new tokens in local storage.
+To the `AuthService` service, add a method which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set new tokens in local storage.
 
 The method loads the silent callback page added earlier in an invisible iframe, makes a call to Auth0, and gives back the result.
 
@@ -113,7 +113,7 @@ export class AppComponent {
 }
 ```
 
-Client-side sessions should not be renewed after the user logs out. Call `unscheduleRenewal` in the `logout` method to cancel the renewal.
+Since client-side sessions should not be renewed after the user logs out, call `unscheduleRenewal` in the `logout` method to cancel the renewal.
 
 ```ts
 // src/app/auth/auth.service.ts

@@ -19,7 +19,10 @@ budicon: 546
 
 <%= include('../_includes/_calling_api_create_scope') %>
 
-<%= include('../_includes/_calling_api_set_audience_scope') %>
+## Set the Audience and Scope in `auth0.WebAuth`
+
+In your `auth0.WebAuth` instance, enter your API identifier as the value for `audience`.
+Add your newly created scopes to the `scope` key.
 
 ```js
 // app/app.js
@@ -36,7 +39,7 @@ angularAuth0Provider.init({
 
 <%= include('../_includes/_calling_api_access_token') %>
 
-You can use the [angular2-jwt](https://github.com/auth0/angular2-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `$http` service. 
+You can use the [angular-jwt](https://github.com/auth0/angular-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `$http` service. 
 
 Install angular-jwt.
 

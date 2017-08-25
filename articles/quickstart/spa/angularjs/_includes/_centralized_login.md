@@ -1,6 +1,6 @@
 ## Add Authentication with Auth0
 
-The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. 
+The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features.
 
 ::: note
 You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
@@ -16,6 +16,10 @@ The angular-auth0 wrapper comes with a provider called `angularAuth0Provider`. T
 Inject the `angularAuth0Provider` provider. 
 In the options object you pass to `angularAuth0Provider.init`, include the following information:
 <%= include('../../_includes/_auth_service_configure_client_details') %>
+
+::: note
+In this tutorial, the route is `/callback`, which is implemented in the [Add a Callback Component](#add-a-callback-component) step. 
+:::
 
 ```js
 // app/app.js
@@ -225,7 +229,7 @@ This example assumes you are using path-based routing by setting `$locationProvi
 
 <%= include('../../_includes/_callback_component') %>
 
-Create a controller and a template to use for a callback route and add a loading indicator.
+Create a controller and a template to use for a callback route. Add a loading indicator.
 
 ::: note
 To display a loading indicator, you need a loading spinner or another indicator in the `assests` directory. See the downloadable sample for demonstration. 
