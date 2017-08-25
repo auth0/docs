@@ -52,7 +52,7 @@ The seed project already references the new ASP.NET Core metapackage (`Microsoft
 If you are not referencing this new metapackage, then please ensure that your add the `Microsoft.AspNetCore.Authentication.JwtBearer` package to your application.
 
 ```text
-Install-Package Microsoft.AspNetCore.Authentication.JwtBearer -Pre
+Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
 ## Configuration
@@ -63,7 +63,7 @@ The ASP.NET Core JWT Bearer authentication handler will take care of downloading
 
 In your application you will need to register the Authentication services by making a call to `AddAuthentication`, and also configure JWT Bearer tokens as the default authentication scheme and defaut challenge scheme.
 
-Next you will need to register the JWT Bearer authentication scheme by making a call to `AddJwtBearerAuthentication`. Configure your Auth0 Domain as the `Authority`, and your Auth0 API Identifier as the `Audience`:
+Next you will need to register the JWT Bearer authentication scheme by making a call to `AddJwtBearer`. Configure your Auth0 Domain as the `Authority`, and your Auth0 API Identifier as the `Audience`:
 
 ```csharp
 // Startup.cs
@@ -78,7 +78,7 @@ public void ConfigureServices(IServiceCollection services)
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
-    }).AddJwtBearerAuthentication(options =>
+    }).AddJwtBearer(options =>
     {
         options.Authority = domain;
         options.Audience = Configuration["Auth0:ApiIdentifier"];
@@ -192,7 +192,8 @@ public void ConfigureServices(IServiceCollection services)
     {
         options.Authority = domain;
         options.Audience = Configuration["Auth0:ApiIdentifier"];
-    }).AddAuthorization(options =>
+    });
+    services.AddAuthorization(options =>
     {
         options.AddPolicy("read:messages", policy => policy.Requirements.Add(new HasScopeRequirement("read:messages", domain)));
         options.AddPolicy("create:messages", policy => policy.Requirements.Add(new HasScopeRequirement("create:messages", domain)));
