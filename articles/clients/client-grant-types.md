@@ -4,7 +4,11 @@ toc: true
 ---
 # Client Grant Types
 
-Auth0 provides many authentication and authorization flows to suit your needs. Depending on your use case, you may wish to limit the use of certain flows (or grant types as we will refer to them) for a particular client. This is controlled using the `grant_types` property that each client has.
+Auth0 provides many different authentication and authorization flows to suit your needs. For example, if you are securing a mobile app, you might use the [Authorization Code using Proof Key for Code Exchange (PKCE) OAuth 2.0 Grant](/api-auth/grant/authorization-code-pkce), and if you're securing a client-side app (such as a mobile app that's *not* native), you might use the [Implicit Grant](api-auth/grant/implicit).
+
+However, you might want to limit the use of certain flows (which we'll refer to as "grant types" in this doc) depending on the type of application you're securing. You can control these limitations using the `grant_types` property that each Client has.
+
+In this doc, we'll talk about the grant types available, how to set the Client's `grant_type` property, and finally, what grant types are available based on the `grant_type` property value you set.
 
 ## Grant Types
 
@@ -12,13 +16,16 @@ Auth0 provides many authentication and authorization flows to suit your needs. D
 Not sure which non-legacy grant type is appropriate for your use case? Refer to [Which OAuth 2.0 flow should I use?](/api-auth/which-oauth-flow-to-use) for help.
 :::
 
-The following is a list of grant types valid for Auth0 Clients. There are three possible types of authorization flows:
+The following is a list of grant types valid for Auth0 Clients. The grant types can be divided into three different categories:
 
 * Grants that conform with specifications (such as [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html))
 * [Auth0 extension grants](https://tools.ietf.org/html/rfc6749#section-4.5)
 * Auth0 legacy grants
 
-The following `grant_types`, are either OIDC-conformant (i.e. their implementation conforms to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html)) or Auth0 extension grants:
+The following `grant_types`, are either:
+
+* OIDC-conformant (that is, their implementation conforms to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html))
+* Auth0 extension grants
 
 | `grant_type` | More info |
 |:-----|:----|
@@ -32,7 +39,7 @@ The following `grant_types`, are either OIDC-conformant (i.e. their implementati
 | `http://auth0.com/oauth/grant-type/mfa-otp` | [Multifactor Authentication OTP Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-otp-grant-request) |
 | `http://auth0.com/oauth/grant-type/mfa-recovery-code` | [Multifactor Authentication Recovery Grant Request](/api-auth/tutorials/multifactor-resource-owner-password#mfa-recovery-grant-request) |
 
-The following is a list of legacy `grant_types`:
+The following are legacy grant types:
 
 * `http://auth0.com/oauth/legacy/grant-type/ro`
 * `http://auth0.com/oauth/legacy/grant-type/ro/jwt-bearer`
@@ -40,7 +47,7 @@ The following is a list of legacy `grant_types`:
 * `http://auth0.com/oauth/legacy/grant-type/delegation/id_token`
 * `http://auth0.com/oauth/legacy/grant-type/access_token`
 
-## Edit Available `grant_types`
+## Edit the Client `grant_types` Property
 
 ::: warning
 As of 8 June 2017, new Auth0 customers **cannot** add *any* of the legacy grant types to their Clients. Only customers as of 8 June 2017 can add legacy grant types to their existing Clients.
@@ -64,13 +71,21 @@ Switch to the **Grant Types** tab and enable or disable the respective grants fo
 
 ![Auth0 Client Grant Types](/media/articles/clients/client-grant-types/grant-types.png)
 
+### Use the Management API
+
 Alternatively, you can set the client's grant type by making a [`PATCH` call to the Update a Client endpoint](/api/management/v2#!/Clients/patch_clients_by_id) Management API to update the `grant_types` field.
+
+### Errors
 
 Attempting to use any flow with a client lacking the appropriate `grant_types` for that flow (or with the field empty) will result in the following error:
 
 ```text
 Grant type `grant_type` not allowed for the client.
 ```
+
+## Information for Existing and New Auth0 Customers
+
+As of 8 June 2017, all Auth0 clients have a `grant_types` property that **must** be populated. Here's how Auth0 will handle this change based on whether you're a current customer with an existing Client or a new customer.
 
 ### Existing Clients
 
