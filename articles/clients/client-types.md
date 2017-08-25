@@ -18,7 +18,7 @@ When creating a client through the [Dashboard](${manage_url}/#/clients), Auth0 w
 
 ### Checking Your Client Type
 
-You can use the Management API's Get a Client endpoint to check your existing Client's type. If the client is first party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your Client.
+You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Clients/get_clients_by_id) to check your existing Client's type. If the client is first party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your Client.
 
 ```har
 {
@@ -30,6 +30,10 @@ You can use the Management API's Get a Client endpoint to check your existing Cl
 	}]
 }
 ```
+
+::: note
+See [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for instructions on obtaining the access token required to call the Management API.
+:::
 
 ### Confidential Clients
 
