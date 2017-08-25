@@ -53,7 +53,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 | `client_id` <br/><span class="label label-danger">Required</span> | Your application's Client ID. |
 | `state` <br/><span class="label label-primary">Recommended</span> | An opaque value the clients adds to the initial request that Auth0 includes when redirecting the back to the client. This value must be used by the client to prevent CSRF attacks. |
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
-| `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none`. |
+| `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none` (see Remarks for more info). |
 
 ### Test with Authentication API Debugger
 
@@ -72,6 +72,7 @@ This is the OAuth 2.0 grant that regular web apps utilize in order to access an 
 - In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
 - Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code). Make sure that the **Allow Offline Access** field is enabled in the [API Settings](${manage_url}/#/apis).
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+- Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. When an access token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
 
 ### More Information
 
@@ -125,7 +126,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `code_challenge_method` <br/><span class="label label-danger">Required</span> | Method used to generate the challenge. The PKCE spec defines two methods, `S256` and `plain`, however, Auth0 supports only `S256` since the latter is discouraged. |
 | `code_challenge` <br/><span class="label label-danger">Required</span> | Generated challenge from the `code_verifier`. |
-| `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none`. |
+| `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none` (see Remarks for more info). |
 
 
 ### Test with Authentication API Debugger
@@ -146,6 +147,7 @@ This is the OAuth 2.0 grant that mobile apps utilize in order to access an API. 
 - In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
 - Include `offline_access` to the `scope` request parameter to get a refresh token from [POST /oauth/token](#authorization-code-pkce-). Make sure that the **Allow Offline Access** field is enabled in the [API Settings](${manage_url}/#/apis).
 - The `redirect_uri` value must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
+- Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. When an access token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
 
 
 ### More Information
@@ -199,7 +201,7 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 | `redirect_uri` | The URL to which Auth0 will redirect the browser after authorization has been granted by the user. |
 | `nonce` <br/><span class="label label-primary">Recommended</span> | A string value which will be included in the ID token response from Auth0, [used to prevent token replay attacks](/api-auth/tutorials/nonce). It is required for `response_type=id_token token`. |
 | `connection` | The name of the connection configured to your client. |
-| `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none`. |
+| `prompt` | To initiate a [silent authentication](/api-auth/tutorials/silent-authentication) request, use `prompt=none` (see Remarks for more info). |
 
 
 ### Test with Authentication API Debugger
@@ -221,7 +223,7 @@ This is the OAuth 2.0 grant that Client-side web apps utilize in order to access
 - If `response_type=token`, after the user authenticates with the provider, this will redirect them to your application callback URL while passing the `access_token` in the address `location.hash`. This is used for Single Page Apps and on Native Mobile SDKs.
 - The Implicit Grant does not support the issuance of refresh tokens. You can use [Silent Authentication](/api-auth/tutorials/silent-authentication) instead.
 - In order to improve compatibility for client applications, Auth0 will now return profile information in a [structured claim format as defined by the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace `https://foo.com/` and you want to add a custom claim named `myclaim`, you would name the claim `https://foo.com/myclaim`, instead of `myclaim`.
-
+- Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. When an access token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
 
 ### More Information
 
