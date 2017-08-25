@@ -37,6 +37,10 @@ The `prompt=none` parameter will cause Auth0 to immediately redirect to the spec
 * A successful authentication response if the user was already logged in via SSO
 * An error response if the user is not logged in via SSO and therefore cannot be silently authenticated
 
+::: note
+Any applicable [rules](/rules) will be executed as part of the silent authentication process.
+:::
+
 ### Successful authentication response
 
 If the user was already logged in via SSO, Auth0 will respond exactly as if the user had authenticated manually through the SSO login page.
