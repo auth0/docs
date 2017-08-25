@@ -42,6 +42,12 @@ The first part of the function instantiates a variable called `profile` and has 
 
 In this example, `department` is the name of the attribute in the Auth0 User Profile and `companydept` is the name of the attribute in the source directory service (e.g. AD).
 
+### Setting email addresses as verified
+
+If the LDAP directory provides verified email addresses, you can add the `email_verified` property to the profile for completeness:
+
+`profile['email_verified'] = true;`
+
 ## Import / Export
 
 The __Import/Export__ feature of the **Connector Admin Console** can be used to export the configuration of the AD/LDAP Connector or import a previously exported configuration.  This is useful for deployments with more than one node of the AD/LDAP connector deployed for high availability. The configuration can be set up and tested on one node, then exported from there, and imported into all subsequent nodes.
