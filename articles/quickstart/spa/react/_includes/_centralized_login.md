@@ -61,10 +61,10 @@ auth.login();
 Add more methods to the `Auth` service to handle authentication in the app.
 
 The example below shows the following methods:
-* `handleAuthentication` - looks for the result of authentication in the URL hash. The method processes the hash with the `parseHash` method from auth0.js
-* `setSession` - sets the user's access token, ID token, and the access token's expiry time 
-* `logout` - removes the user's tokens and expiry time from browser storage
-* `isAuthenticated` - checks whether the expiry time for the user's access token has passed
+* `handleAuthentication`: looks for the result of authentication in the URL hash. The method processes the hash with the `parseHash` method from auth0.js
+* `setSession`: sets the user's access token, ID token, and the access token's expiry time 
+* `logout`: removes the user's tokens and expiry time from browser storage
+* `isAuthenticated`: checks whether the expiry time for the user's access token has passed
 
 ```js
 // src/Auth/Auth.js
