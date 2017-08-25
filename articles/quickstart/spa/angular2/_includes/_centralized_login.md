@@ -1,7 +1,6 @@
 ## Add Authentication with Auth0
 
-The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. 
-
+The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features.
 
 ::: note
 You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
@@ -50,8 +49,8 @@ export class AuthService {
 }
 ```
 
-::: panel Checkpoint
-Try calling the `login` method from somewhere in your application to see the login page.
+::: note
+**Checkpoint:** Try to call the `login` method from somewhere in your application to see the login page.
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)
@@ -116,7 +115,18 @@ export class AuthService {
 
 ### About the Authentication Service
 
-<%= include('../../_includes/_auth_service_method_description_auth0js') %>
+When you set up the `AuthService` service, you create an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
+<%= include('../../_auth_service_configure_client_details') %>
+
+::: note
+In this tutorial, the route is `/callback`, which is implemented in the [Add a Callback Component](#add-a-callback-component) step. 
+:::
+
+<%= include('../../_auth_service_hash_fragment_information') %>
+
+<%= include('../../_auth_service_using_json_web_tokens') %>
+
+<%= include('../../_auth_service_check_access_token_expiry') %>
 
 ## Provide a Login Control
 
