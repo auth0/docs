@@ -118,11 +118,11 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
-    <td>Updates and web extensions</td>
+    <td>Web extensions</td>
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
-    <td>Required to run web extensions; Provides update packages for PSaaS Appliance instances running versions `6868` or earlier</td>
+    <td>Required to run web extensions</td>
     <td>Yes</td>
   </tr>
   <tr>
