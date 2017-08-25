@@ -2,7 +2,6 @@
 description: Learn what Rules are and how you can use them to customize and extend Auth0's capabilities.
 toc: true
 ---
-
 # Rules
 
 **Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. They are executed after the authentication and before the authorization.
@@ -47,7 +46,6 @@ A Rule is a function with the following arguments:
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
 * `callback`: a function to send back potentially modified tokens back to Auth0, or an error. Because of the async nature of Node.js, it is important to always call the `callback` function, or else the script will timeout.
-
 
 ## Examples
 
@@ -217,19 +215,52 @@ function(user, context, callback) {
 
 After this rule executes, the `access_token` will contain one additional namespaced claim: `http://foo/bar=value`.
 
+### Using the Configuration Object
+
+The global `configuration` object is available in your rules if you wish to save some commonly used items, such as credentials, URLs, etc, that might be subject to change or that you wish to keep out of your Rule code.
+
+The following example is a Rule template for sending a Slack message when a new user has signed up via Auth0:
+
+```js
+function(user, context, callback) {
+  // short-circuit if the user signed up already
+  if (context.stats.loginsCount > 1) return callback(null, user, context);
+
+  // get your slack's hook url from: https://slack.com/services/10525858050
+  var SLACK_HOOK = configuration.SLACK_HOOK;
+
+  var slack = require('slack-notify')(SLACK_HOOK);
+  var message = 'New User: ' + (user.name || user.email) + ' (' + user.email + ')';
+  var channel = '#some_channel';
+
+  slack.success({
+   text: message,
+   channel: channel
+  });
+
+  // don’t wait for the Slack API call to finish, return right away (the request will continue on the sandbox)`
+  callback(null, user, context);
+}
+```
+
+This Rule will require that you have a `configuration` value set for the key `SLACK_HOOK`. At the [Rules](${manage_url}/#/rules/) page in the Dashboard you can scroll down beneath your list of Rules to the configuration area and enter `SLACK_HOOK` as the key and your Slack URL to post a message to the appropriate channel as the value, then hit "Create". Now your URL will be available to all rules via `configuration.SLACK_HOOK`. Bear in mind that `configuration` is global to all rules on the account.
+
+![Rules Configuration](/media/articles/rules/rules-configuration.png)
+
+::: note
+Note that you need to have created at least one rule in order for the configuration area to show up, otherwise the Rules demo shows instead.
+:::
+
 ## Create Rules with the Management API
 
 Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](/api/management/v2#!/Rules/post_rules).
 
 This will creates a new rule according to the following input arguments:
 
-- **name**: The name of the rule. It can only contain alphanumeric characters, spaces and '-', and cannot start nor end with '-' or spaces.
-
-- **script** : Τhe script that contains the rule's code. This is the same as what you would enter when creating a new rule using the [dashboard](${manage_url}/#/rules/create).
-
-- **order**: This field is optional and contains a `number`. This number represents the rule's order in relation to other rules. A rule with a lower order than another rule executes first. If no order is provided it will automatically be one greater than the current maximum.
-
-- **enabled**: This field can contain an optional `boolean`. If `true`, the rule will be enabled, if it's `false` it will be disabled.
+* **name**: The name of the rule. It can only contain alphanumeric characters, spaces and '-', and cannot start nor end with '-' or spaces.
+* **script** : Τhe script that contains the rule's code. This is the same as what you would enter when creating a new rule using the [dashboard](${manage_url}/#/rules/create).
+* **order**: This field is optional and contains a `number`. This number represents the rule's order in relation to other rules. A rule with a lower order than another rule executes first. If no order is provided it will automatically be one greater than the current maximum.
+* **enabled**: This field can contain an optional `boolean`. If `true`, the rule will be enabled, if it's `false` it will be disabled.
 
 Example of a body schema:
 
@@ -241,6 +272,7 @@ Example of a body schema:
   "enabled": true
 }
 ```
+
 Use this to create the POST request:
 
 ```har
@@ -270,11 +302,10 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
 1. **TRY THIS RULE**: opens a pop-up where you can run a rule in isolation. The tool provides a mock **user** and **context** objects. Clicking **TRY** will result on the the Rule being run with those two objects as input. `console.log` output will be displayed too.
 
-![Try this Rule](/media/articles/rules/try-rule.png)
+    ![Try this Rule](/media/articles/rules/try-rule.png)
 
-2. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
-
-3. **DEBUG RULE**: similar to the above, displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
+1. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
+1. **DEBUG RULE**: similar to the above, displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
   For example:
 
@@ -297,26 +328,26 @@ This example, shows how to use the `global` object to keep a mongodb connection:
 
 ```js
 
+...
+
+//If the db object is there, use it.
+if (global.db){
+  return query(global.db, callback);
+}
+
+//If not, get the db (mongodb in this case)
+mongo('mongodb://user:pass@mymongoserver.com/my-db',  function (db){
+  global.db = db;
+  return query(db, callback);
+});
+
+//Do the actual work
+function query(db, cb){
+  //Do something with db
   ...
+});
 
-  //If the db object is there, use it.
-  if (global.db){
-    return query(global.db, callback);
-  }
-
-  //If not, get the db (mongodb in this case)
-  mongo('mongodb://user:pass@mymongoserver.com/my-db',  function (db){
-    global.db = db;
-    return query(db, callback);
-  });
-
-  //Do the actual work
-  function query(db, cb){
-    //Do something with db
-    ...
-  });
-
-  ...
+...
 
 ```
 
