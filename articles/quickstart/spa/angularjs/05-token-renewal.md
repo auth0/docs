@@ -44,20 +44,21 @@ function renewToken() {
 }
 ```
 
-The access token should be renewed when it expires. The expiry time of the token is stored in local storage as `expires_at`.
+The access token should be renewed when it expires. In this tutorial, the expiry time of the token is stored in local storage as `expires_at`.
 
 Define a timing mechanism for renewing the access token. 
 
 ::: note
-You can define any timing mechanism you want. Choose any library that handles timers. This example shows how to use a `setTimeout` call. 
+You can define any timing mechanism you want. You can choose any library that handles timers. This example shows how to use a `setTimeout` call. 
 :::
 
 In the `authService` service, add a property called `tokenRenewalTimeout`. The property refers to the `setTimeout` call used to schedule the renewal.
 
-Add a method called `scheduleRenewal` to set up a time when authentication is silently renewed.
+Add a method called `scheduleRenewal` to set up the time when authentication is silently renewed.
 The method subtracts the current time from the access token's expiry time and calculates delay. 
-The `setTimeout` call uses the delay and makes a call to `renewToken`.
-The `setTimeout` call is assigned to the `tokenRenewalTimeout` property. When the user logs out, the timeout clears. 
+The `setTimeout` call uses the calculated delay and makes a call to `renewToken`.
+
+The `setTimeout` call is assigned to the `tokenRenewalTimeout` property. When the user logs out, the timeout is cleared. 
 
 ```js
 // app/auth/auth.service.js
@@ -93,7 +94,7 @@ function setSession(authResult) {
 }
 ```
 
-In the application's `run` block, add a call to the `scheduleRenewal` method to schedule renewing the tokens when the page is refreshed.
+To schedule renewing the tokens when the page is refreshed, in the application's `run` block, add a call to the `scheduleRenewal` method.
 
 ```js
 // app/app.run.js
@@ -110,7 +111,7 @@ function run(authService) {
 }
 ```
 
-Client-side sessions should not be renewed after the user logs out. Call `unscheduleRenewal` in the `logout` method to cancel the renewal.
+Since client-side sessions should not be renewed after the user logs out, call `unscheduleRenewal` in the `logout` method to cancel the renewal.
 
 ```js
 // app/auth/auth.service.js
