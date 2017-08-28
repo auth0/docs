@@ -52,7 +52,7 @@ The seed project already references the new ASP.NET Core metapackage (`Microsoft
 If you are not referencing this new metapackage, then please ensure that your add the `Microsoft.AspNetCore.Authentication.JwtBearer` package to your application.
 
 ```text
-Install-Package Microsoft.AspNetCore.Authentication.JwtBearer -Pre
+Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
 ## Configuration
