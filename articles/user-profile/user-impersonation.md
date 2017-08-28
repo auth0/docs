@@ -9,9 +9,9 @@ toc: true
 Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the __Sign in as User__ button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
 :::
 
-Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation the administrators can login to an app as a specific user, see everything exactly as that user sees it, and do everything exactly as that user does it.
+Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation the administrators can log in to an app as a specific user, see everything exactly as that user sees it, and do everything exactly as that user does it.
 
-Auth0 provides a _Sign in As_ feature for user impersonation, and provides the following:
+Auth0 provides a __Sign in As__ feature for user impersonation, and provides the following:
 - Detailed auditing of who impersonated when.
 - Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data.
 - Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works.
@@ -22,7 +22,7 @@ Auth0 provides a _Sign in As_ feature for user impersonation, and provides the f
 
 ## Use the Dashboard
 
-Navigate to the [Users](${manage_url}/#/users) page in the Management Dashboard and select the user you want to login as. Click on the __Sign in as User__ and select the client you want to log into using the dropdown menu.
+Navigate to the [Users](${manage_url}/#/users) page in the Auth0 Dashboard and select the user you want to login as. Click on the __Sign in as User__ and select the client you want to log into using the dropdown menu.
 
 ![Click Sign in as User](/media/articles/user-profile/signin-as-user-01.png)
 
@@ -90,7 +90,7 @@ Alternatively, you can retrieve the `user_id` information from the Dashboard. Go
 
 ### Get an Authorization Code
 
-Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Account Settings](${manage_url}/#/account) and clicking on the **Advanced** tab.
+Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
 ![Global Client Information](/media/articles/user-profile/global-client-info.png)
 

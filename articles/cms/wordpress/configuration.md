@@ -4,7 +4,7 @@ description: How to configure WordPress as a client with Auth0.
 
 # Configuration of the Login by Auth0 WordPress Plugin
 
-To configure the "Login by Auth0" WordPress Plugin, you will need to copy the *Domain*, *Client Id* and *Client Secret* from the *Settings* page of your app in the Auth0 dashboard to the *Basic* settings page of the Auth0 plugin in WordPress.
+To configure the [Login by Auth0](https://wordpress.org/plugins/auth0/) WordPress Plugin, copy the **Domain**, **Client Id** and **Client Secret** from the **Settings** page of your client in the [Auth0 dashboard](${manage_url}) to the **Basic** settings page of the Auth0 plugin in WordPress.
 
 ::: note
 In order to install or customize plugins, you will need to use a self-hosted WordPress.org site. Using the WordPress.com site does not allow installing plugins.
@@ -12,20 +12,20 @@ In order to install or customize plugins, you will need to use a self-hosted Wor
 
 ## Create a New Client
 
-You must first create a client in the Auth0 dashboard before you can configure the *Auth0 for WordPress* plugin. If you already have created the client you want to connect to WordPress, you can [skip to the next section](#get-your-domain-client-id-and-client-secret).
+You must first create a client in the Auth0 dashboard before you can configure the Auth0 for WordPress plugin. If you already have created the client you want to connect to WordPress, you can [skip to the next section](#get-your-domain-client-id-and-client-secret).
 
 1. Log in to the [Auth0 dashboard](${manage_url}). (If you don't already have an Auth0 account, you can [create one](https://auth0.com).
-2. Navigate to the *Clients* page and click **+ Create Client**.
+2. Navigate to the [Clients](${manage_url}/#/clients) page and click **+ Create Client**.
 
   ![Listing of Auth0 Clients in the Management Dashboard](/media/articles/cms/wordpress/management-dashboard.png)
 
-3. In the *Create Client* window, name your Client and select your Client type, and click **Save**.
+3. In the **Create Client** window, name your Client and select your Client type, and click **Save**.
 
   ![Creating the Client in the Management Dashboard](/media/articles/cms/wordpress/create-client.png)
 
 ## Get your Domain, Client Id and Client Secret
 
-1. Go to the [Clients](${manage_url}/#/clients) of the Auth0 dashboard and select the client you want to connect to WordPress.
+1. Go to the [Clients](${manage_url}/#/clients) section of the Auth0 dashboard and select the client you want to connect to WordPress.
 
   ![Client Settings in the Management Dashboard](/media/articles/cms/wordpress/auth0-client-settings.png)
 
@@ -37,7 +37,7 @@ You must first create a client in the Auth0 dashboard before you can configure t
 
 2. Click on **Plugins** in the left menu of the WordPress dashboard and select the **Settings** link associated with the Login by Auth0 plugin.
 
-3. Copy the **Domain**, **Client Id** and **Client Secret** settings from the *Settings* page of your app in the Auth0 dashboard to the *Auth0 Settings > Basic* page of your WordPress account.
+3. Copy the **Domain**, **Client Id** and **Client Secret** settings from the **Settings** page of your app in the Auth0 dashboard to the **Auth0 Settings > Basic** page of your WordPress account.
 
   ![Providing Auth0 Client Settings to WordPress](/media/articles/cms/wordpress/plugin-settings.png)
 

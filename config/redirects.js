@@ -1348,5 +1348,9 @@ module.exports = [
   {
     from: ['/hosted-pages/hosted-login-auth0js/v7'],
     to: '/hosted-pages/login/auth0js/v7'
+  },
+  {
+    from: '/dashboard-account-settings',
+    to: '/dashboard-tenant-settings'
   }
 ];

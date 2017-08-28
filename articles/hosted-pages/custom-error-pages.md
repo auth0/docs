@@ -4,10 +4,10 @@ crews: crew-2
 ---
 # Custom Error Pages
 
-In the event of an authorization error, you may choose to display to your users either the default Auth0 error page or a customized error page. This doc will show you how to enable the use of a customized error page.
+In the event of an authorization error, you may choose to display either the default Auth0 error page or a customized error page to your users. This doc will show you how to enable the use of a customized error page.
 
 ::: note
-You can choose to display to your users the default Auth0 error page. For additional information, see [Error Pages](/hosted-pages/error-pages)
+You can choose to display the default Auth0 Error page to your users. For additional information, see [Error Pages](/hosted-pages/error-pages)
 :::
 
 ## Customize Error Pages via the Management Dashboard
@@ -16,9 +16,9 @@ You can select the type of error page Auth0 displays to your users in the event 
 
 To get to the error page settings:
 
-1.  Go to the top right-hand side of the Auth0 Management Portal
-2.  Click on your user name/icon
-3.  Choose "Account Settings" in the menu the pops open.
+1. Log in to the Auth0 [Management Dashboard](${manage_url}).
+2. Click on your tenant name in the top right corner to bring up the associated dropdown box.
+3.  Select **Settings** to open the [Tenant Settings](${manage_url}/#/tenant/) page.
 
 ![Account Settings](/media/articles/error-pages/account-settings.png)
 
@@ -26,14 +26,14 @@ To get to the error page settings:
 
 If you choose to display a custom error page, you have two options:
 
--  You may redirect the user to a custom error page;
--  You may configure Auth0 to render a custom error page on your behalf (please note that this feature is only available via the Management API).
+-  Redirect the user to a custom error page.
+-  Configure Auth0 to render a custom error page on your behalf (please note that this feature is only available via the Management API).
 
 #### Redirecting Users to a Custom Error Page
 
 To redirect users to a custom error page:
 
-1.  On the Account Settings page, scroll down to the Error Pages section.
+1.  On the [Tenant Settings](${manage_url}/#/tenant/) page, scroll down to the Error Pages section.
 2.  Select the option "redirect users to your own error page."
 3.  Provide the URL of the error page you would like your users to see.
 
@@ -45,7 +45,7 @@ Instead of using the Management Portal, you may configure your error pages by ma
 
 ### Redirecting Users to a Custom Error Page
 
-To redirect users to a custom error page, update the "url" field of your JSON body to point to the location of the error page.
+To redirect users to a custom error page, update the `url` field of your JSON body to point to the location of the error page.
 
 HTTP Request:
 
@@ -71,7 +71,7 @@ HTTP Request:
 
 ### Rendering a Custom Error Page
 
-To provide the appropriate HTML, pass in a string containing the appropriate Liquid syntax to the "html" element:
+To provide the appropriate HTML, pass in a string containing the appropriate Liquid syntax to the `html` element:
 
 HTTP Request:
 

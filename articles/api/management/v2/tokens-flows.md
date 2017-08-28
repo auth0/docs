@@ -27,7 +27,7 @@ For details on how to follow this new process refer to <a href="/api/management/
 
 #### Why this changed
 
-In order to generate the token, the Management API had access to your __Global Client Secret__ (used to sign the token). This is information that should __not__ be exposed to web browsers.
+In order to generate the token, the Management API requires access to your __Global Client Secret__ (used to sign the token). This is information that should __not__ be exposed to web browsers.
 
 Furthermore, the API Explorer has no way to do authorization. This means that if you could login and access the API explorer, you could generate a token with __any__ scope, even if you as the logged in user were not allowed to have that scope.
 
@@ -92,7 +92,7 @@ To generate a token follow the next steps:
 
   - __iss__: Who issued the token. Use your tenant's __Domain__. You can find this value at any [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
-  - __aud__: Who is the intended audience for this token. Use the __Global Client Id__ of your tenant. You can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced).
+  - __aud__: Who is the intended audience for this token. Use the __Global Client Id__ of your tenant. You can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced).
 
   - __scope__: The (space separated) list of authorized scopes for the token. Each [Auth0 Management API v2](/api/management/v2) endpoint requires specific scopes. For example, the [Get all clients](/api/management/v2#!/Clients/get_clients) endpoint requires the scopes `read:clients` and `read:client_keys`, while the [Create a client](/api/management/v2#!/Clients/post_clients) endpoint requires the scope `create:clients`. So if you need to read _and_ create clients, then the token should include three scopes: `read:clients`, `read:client_keys` and `create:clients`. In this case you would set the scope at the editor to the value `read:clients read:client_keys create:clients`.
 
@@ -127,9 +127,9 @@ To generate a token follow the next steps:
 
   Note the following:
 
-  - The token is signed using `HS256` and the __Global Client Secret__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)).
+  - The token is signed using `HS256` and the __Global Client Secret__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)).
 
-  - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)).
+  - The audience (claim `aud`) is the __Global Client Id__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)).
 
   - We want this token in order to call the [Get all clients](/api/management/v2#!/Clients/get_clients) so we only asked for the scopes required by this endpoint: `read:clients read:client_keys`.
 
