@@ -50,5 +50,5 @@ console.log('Listening on http://localhost:${serverPort}');
 </html>
 ```
 ::: note
-Add `http://localhost:${serverPort}/silent` to the **Allowed Callback URLs** section in your [client's settings](${manage_url}/#/clients/${account.clientId}/settings).
+Add `http://localhost:${serverPort}/silent` to the **Allowed Callback URLs** section in your [Client Settings](${manage_url}/#/clients/${account.clientId}/settings).
 :::
