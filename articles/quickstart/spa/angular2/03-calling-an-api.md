@@ -42,7 +42,7 @@ auth0 = new auth0.WebAuth({
 
 You can use the [angular2-jwt](https://github.com/auth0/angular2-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `Http` class. The module provides an `AuthHttp` class which is a wrapper over the `Http` class.
 
-Install angular2-jwt.
+Install angular2-jwt using npm or yarn.
 
 ```bash
 # installation with npm
