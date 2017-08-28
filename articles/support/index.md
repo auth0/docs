@@ -59,11 +59,11 @@ Auth0 offers the following support channels.
 
 ### Auth0 Community
 
-Auth0's public [question and answer community](${auth0_community}) offers support for __all__ subscribers. All customers, even those on free accounts, can search existing through questions and post a new question if theirs hasn't been answered. There are no guaranteed response times for questions posted.
+Auth0's public [question and answer community](${auth0_community}) offers support for __all__ subscribers. All customers, even those with free subscription plans, can search existing through questions and post a new question if theirs hasn't been answered. There are no guaranteed response times for questions posted.
 
 ### Support Center
 
-In addition to the Auth0 Community, paid subscribers can create a private ticket via [Support Center](${env.DOMAIN_URL_SUPPORT}). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
+In addition to the Auth0 Community, paid subscribers can create a private ticket via [Support Center](${env.DOMAIN_URL_SUPPORT}). All tenant administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
 
 [Learn more about creating tickets with Support Center](/support/tickets)
 
@@ -71,7 +71,7 @@ Critical Production issues should always be reported via the [Support Center](ht
 
 #### Add Support-Only Users
 
-You can support-only to your Auth0 account. This will allow them to open, view, and comment on Suppoer Center tickets, receive relevant notifications, and see service details.  They do not, however, have full administration access to the Auth0 Dashboard.
+You can support-only users to your Auth0 tenant. This will allow them to open, view, and comment on Support Center tickets, receive relevant notifications, and see service details.  They do not, however, have full administration access to the Auth0 Dashboard.
 
 You can add support-only users via the Support Center. Click on your name in the top right, and click **Support Center Users**.
 

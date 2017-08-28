@@ -17,7 +17,7 @@ The migration process is outlined below:
 1. We update the platform and add a new migration option for existing customers, allowing a grace period for opt-in. New customers are always automatically enrolled in all migrations.
 2. After a certain period, the migration is enabled for all customers. This grace period varies based on the severity and impact of the breaking change, typically 30 or 90 days.
 
-During the grace period, customers are informed via dashboard notifications and emails to account administrators. You will continue to receive emails until the migration has been enabled on each account you administer.
+During the grace period, customers are informed via dashboard notifications and emails to tenant administrators. You will continue to receive emails until the migration has been enabled on each tenant you administer.
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
@@ -127,11 +127,11 @@ Even if you are not using Lock, the vulnerable reset flow can be accessed direct
 | --- | --- | --- |
 | Medium | 2017-01-03 |  2017-03-01 |
 
-As part of Auth0's efforts to improve security and standards compliance, we will stop supporting account linking as part of the authorization callback (that is, accepting an `access_token` as part of the `/authorize` call as stated [here](/api/authentication?http#account-linking).
+As part of Auth0's efforts to improve security and standards compliance, we will stop supporting tenant linking as part of the authorization callback (that is, accepting an `access_token` as part of the `/authorize` call as stated [here](/api/authentication?http#account-linking).
 
 #### Am I affected by the change?
 
-If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link accounts](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link an account."_. These entries will be logged if you are sending an `access_token` in your `/authorize` calls.
+If you received an email notification about it, then you are impacted by this change. As you work to update your applications to [use the Management API to link tenants](/api/management/v2#!/Users/post_identities), you can check if you are still impacted, by checking your tenant logs for warnings indicating _"Account linking via /authorize is being deprecated. Please refer to https://auth0.com/docs/link-accounts for supported ways to link a tenant."_. These entries will be logged if you are sending an `access_token` in your `/authorize` calls.
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
@@ -182,7 +182,7 @@ If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
 #### Am I affected by the change?
 
-If you are calling the `/tokeninfo` endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 account namespace: `https://${account.namespace}/`.
+If you are calling the `/tokeninfo` endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
 
 ::: note
 You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` attribute value.
@@ -208,7 +208,7 @@ You are affected by the change only if you are using the Identity Provider acces
 For more information on how to obtain an access token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
 
 ::: note
-If your account was created after the change, this update will be applied automatically.
+If your tenant was created after the change, this update will be applied automatically.
 :::
 
 ### Email Delivery Changes: Template Customizations
