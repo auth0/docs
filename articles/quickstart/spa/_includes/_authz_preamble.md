@@ -12,5 +12,5 @@ To set up access control in your application, define the following restrictions:
 The previous step used the `read:messages` scope for accessing API resources. This scope indicates that the user can only view the data. You can consider users with this scope regular users. If you want to give some users permission to edit the data, you can add the `write:messages` scope. 
 
 ::: note
-You can give your scopes any names and map them to any access levels you want. 
+Read about naming scopes and mapping them to access levels in the [Scopes documentation](/scopes). To learn more about custom scope claims, follow the [User profile claims and scope tutorial](/api-auth/tutorials/adoption/scope-custom-claims).
 :::
