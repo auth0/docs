@@ -78,7 +78,7 @@ public void ConfigureServices(IServiceCollection services)
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
-    }).AddJwtBearerAuthentication(options =>
+    }).AddJwtBearer(options =>
     {
         options.Authority = domain;
         options.Audience = Configuration["Auth0:ApiIdentifier"];
@@ -188,11 +188,13 @@ public void ConfigureServices(IServiceCollection services)
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
-    }).AddJwtBearerAuthentication(options =>
+    }).AddJwtBearer(options =>
     {
         options.Authority = domain;
         options.Audience = Configuration["Auth0:ApiIdentifier"];
-    }).AddAuthorization(options =>
+    });
+    
+    services.AddAuthorization(options =>
     {
         options.AddPolicy("read:messages", policy => policy.Requirements.Add(new HasScopeRequirement("read:messages", domain)));
         options.AddPolicy("create:messages", policy => policy.Requirements.Add(new HasScopeRequirement("create:messages", domain)));
