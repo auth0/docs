@@ -43,7 +43,7 @@ router.get(
 
 ## Show the User Profile
 
-Modify the `/user` endpoint to display the user object. Update the `views/user.pug` template:
+Modify the `/user` endpoint to display the user object. Update the `views/user.pug` template.
 
 ```pug
 extends layout
