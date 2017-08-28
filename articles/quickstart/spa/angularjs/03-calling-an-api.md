@@ -41,7 +41,7 @@ angularAuth0Provider.init({
 
 You can use the [angular-jwt](https://github.com/auth0/angular-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `$http` service. 
 
-Install angular-jwt.
+Install angular-jwt using npm or yarn.
 
 ```bash
 # installation with npm

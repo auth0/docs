@@ -17,7 +17,7 @@ budicon: 546
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
-## Handle Scopes in the `Auth` service
+## Handle Scopes in the `Auth` Service
 
 Adjust your `Auth` service, so it uses a local member with any scopes you want to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
 
@@ -103,7 +103,7 @@ render() {
 
 In this example, if an unauthenticated user tries to access the `/ping` route, they are redirected to the `/home` route.
 
-### Limit Route Access Based on `scope`
+### Limit Route Access Based on Scopes
 
 To prevent access to client-side routes based on a particular scope, make a call to the `userHasScopes` method in the route's `render` function.
 

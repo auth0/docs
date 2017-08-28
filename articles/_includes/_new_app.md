@@ -15,7 +15,7 @@
   * **Domain**
 
   ::: note
-  If you download the samples from the top of this page, these details are filled out for you. If you have more than one client in your account, the sample comes with the values for your **Default App**.
+  If you download the sample from the top of this page, these details are filled out for you. If you have more than one client in your account, the sample comes with the values for your **Default App**.
   :::
 
   ![App Dashboard](/media/articles/dashboard/client_settings.png)

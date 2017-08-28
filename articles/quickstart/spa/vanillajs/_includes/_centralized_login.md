@@ -137,15 +137,15 @@ window.addEventListener('load', function() {
 ### About the Authentication Functions
 
 When you set up authentication, you create an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
-<%= include('../../_auth_service_configure_client_details') %>
+<%= include('../../_includes/_auth_service_configure_client_details') %>
 
 ::: note
 In this case, the route is the main URL for your application.
 :::
 
-<%= include('../../_auth_service_hash_fragment_information') %>
+<%= include('../../_includes/_auth_service_hash_fragment_information') %>
 
-<%= include('../../_auth_service_using_json_web_tokens') %>
+<%= include('../../_includes/_auth_service_using_json_web_tokens') %>
 
 <%= include('../../_includes/_auth_service_check_access_token_expiry') %>
 

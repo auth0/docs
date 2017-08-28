@@ -42,7 +42,7 @@ public renewToken() {
 }
 ```
 
-Add a method called `scheduleRenewal` to set up a time when authentication is silently renewed. Define the `refreshSubscription` class property. The property holds a reference to the subscription that refreshes your token.
+Add a method called `scheduleRenewal` to set up the time when authentication is silently renewed. Define the `refreshSubscription` class property. The property holds a reference to the subscription that refreshes your token.
 
 ```ts
 // src/app/auth/auth.service.ts
