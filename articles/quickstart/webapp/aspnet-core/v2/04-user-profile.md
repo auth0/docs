@@ -10,9 +10,9 @@ budicon: 292
   path: 'Quickstart/04-User-Profile',
   branch: 'v2',
   requirements: [
-    '.NET Core SDK 2.0 (Preview 2)',
-    '.NET Core 2.0 (Preview 2)',
-    'ASP.NET Core 2.0 (Preview 2)'
+    '.NET Core SDK 2.0',
+    '.NET Core 2.0',
+    'ASP.NET Core 2.0'
   ]
 }) %>
 
@@ -71,8 +71,8 @@ public void ConfigureServices(IServiceCollection services)
         options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     })
-    .AddCookieAuthentication()
-    .AddOpenIdConnectAuthentication("Auth0", options => {
+    .AddCookie()
+    .AddOpenIdConnect("Auth0", options => {
         // ...
 
         // Configure the scope
