@@ -14,9 +14,7 @@ Save your changes.
 
 ## Dependencies
 
-To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) authentication handlers. The seed project already references the ASP.NET Core metapackage (`Microsoft.AspNetCore.All`) which includes **all** NuGet packages shipped by Microsoft as part of ASP.NET Core 2.0, including the packages for the Cookie and OIDC authentication handlers.
-
-If you are adding this to your own existing project, and you have note referenced the metapackage, then please make sure that you add the `Microsoft.AspNetCore.Authentication.Cookies` and `Microsoft.AspNetCore.Authentication.OpenIdConnect` packages to your application.
+To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) Middleware. Add the `Microsoft.AspNetCore.Authentication.Cookies` and `Microsoft.AspNetCore.Authentication.OpenIdConnect` packages to your application.
 
 ```bash
 Install-Package Microsoft.AspNetCore.Authentication.Cookies

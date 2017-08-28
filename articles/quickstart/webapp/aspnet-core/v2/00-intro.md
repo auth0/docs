@@ -25,6 +25,6 @@ The final project after each of the steps is also available in the Quickstart fo
 
 <%= include('../../../../_includes/_new_app') %>
 
-<%= include('../_includes/v2/_setup') %>
+<%= include('../_includes/_setup') %>
 
 Please continue with the [Login](/quickstart/webapp/aspnet-core/v2/01-login) tutorial for instruction on how to implement basic login.

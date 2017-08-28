@@ -7,6 +7,7 @@ budicon: 448
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-mvc-samples',
+  branch: 'v1',
   path: 'Quickstart/01-Login',
   requirements: [
     '.NET Core 1.1.0',
@@ -15,4 +16,4 @@ budicon: 448
   ]
 }) %>
 
-<%= include('../_includes/_login') %>
+<%= include('../_includes/v1/_login') %>
