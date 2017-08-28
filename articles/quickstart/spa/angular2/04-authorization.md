@@ -17,7 +17,7 @@ budicon: 546
 
 <%= include('../_includes/_authz_determining_scopes') %>
 
-## Handle Scopes in the `AuthService` service`
+## Handle Scopes in the `AuthService` service
 
 Adjust your `AuthService` service, so it uses a local member with any scopes you want to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
 
