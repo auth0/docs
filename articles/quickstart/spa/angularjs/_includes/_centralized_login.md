@@ -87,7 +87,7 @@ In this tutorial, the route is `/callback`, which is implemented in the [Add a C
 Create a reusable service to manage and coordinate user authentication. You can call the service's methods from your application. 
 
 ::: note
-You can give the service any name. In the examples below, the service is called `authService` and the filename is `auth.service.js`.
+You can give the service any name. In the examples below, the service is `authService` and the filename is `auth.service.js`.
 :::
 
 Create a service and provide a `login` method that calls the `authorize` method from angular-auth0.
