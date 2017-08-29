@@ -52,7 +52,7 @@ npm install --save angular2-jwt
 yarn add angular2-jwt
 ```
 
-Create a factory function with configuration values for angular2-jwt and add it to the `providers` array in your application's `@NgModule`. Add a `tokenGetter` function to the factory function to fetch the access token from local storage.
+Create a factory function with configuration values for angular2-jwt. Add the function to the `providers` array in your application's `@NgModule`. Add a `tokenGetter` function to the factory function to fetch the access token from local storage.
 
 ```ts
 // src/app/app.module.ts
