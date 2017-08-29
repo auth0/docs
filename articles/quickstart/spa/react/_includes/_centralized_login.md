@@ -14,7 +14,7 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 Create a reusable service to manage and coordinate user authentication. You can call the service's methods from your application. You can create an instance of the `WebAuth` object from the auth0.js library in the service.
 
 ::: note
-You can name the service anything you want. In the examples below, the service is called  `Auth` and the filename is `Auth.js`.
+You can name the service anything you want. In the examples below, the service is  `Auth` and the filename is `Auth.js`.
 :::
 
 Create a service and add an instance of the `auth0.WebAuth` object. Add a `login` method that calls the `authorize` method from auth0.js.
