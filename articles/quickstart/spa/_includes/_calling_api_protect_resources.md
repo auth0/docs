@@ -7,6 +7,6 @@ In each language and framework, you verify the access token differently.
 Typically, you use a middleware function to verify the token. If the token is valid, the request proceeds and the user gets access to resources in your API. If the token is invalid, the request is rejected with a `401 Unauthorized` error. 
 
 ::: note
-The sample project you can download from the top of this page shows how to implement this functionality using Node.js with the Express framework. 
+The sample project shows how to implement this functionality using Node.js with the Express framework. 
 To learn how to implement API protection for your server-side technology, see the [Backend/API quickstart documentation](/quickstart/backend).
 :::
