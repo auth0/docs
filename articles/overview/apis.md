@@ -35,6 +35,10 @@ Click the **+ Create API** button.
 
 ![Create a new API](/media/articles/api/overview/create-api.png)
 
+::: note
+Need to detail what to do if user receives a 'Forbidden' notification.
+::: note
+
 You need to provide the following information for your API:
 
 - **Name**: a friendly name for the API. Does not affect any functionality.
