@@ -123,6 +123,32 @@ Search for all users that have never logged in | `(_missing_:logins_count OR log
 Search for all users who logged in before 2015 | `last_login:[* TO 2014-12-31]`
 Fuzziness: Search for terms that are similar to, but not exactly like, `jhn` | `name:jhn~`
 
+### Example Request
+
+Below is an example request for searching all users whose email is exactly "john@contoso.com".
+
+```har
+{
+  "method": "GET",
+  "url": "https://${account.namespace}/api/v2/users",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" }
+  ],
+  "queryString": [
+    {
+      "name": "q",
+      "value": "email.raw:\"john@contoso.com\"",
+      "comment": "Query in Lucene query string syntax"
+    },
+    {
+      "name": "search_engine",
+      "value": "v2",
+      "comment": "Use 'v2' if you want to try our new search engine"
+    }
+  ]
+}
+```
+
 ### Search using ranges
 
 Inclusive ranges are specified with square brackets: `[min TO max]` and exclusive ranges with curly brackets: `{min TO max}`. Curly and square brackets can be combined in the same range expression: `logins_count:[100 TO 200}`.
