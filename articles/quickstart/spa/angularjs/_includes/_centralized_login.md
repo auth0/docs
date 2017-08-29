@@ -130,7 +130,7 @@ Create a service and provide a `login` method that calls the `authorize` method 
 Add more methods to the `authService` service to handle authentication in the app.
 
 The example below shows the following methods:
-* `handleAuthentication`: looks for the result of authentication in the URL hash and processes it with the `parseHash` method from auth0.js
+* `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the parseHash method from auth0.js
 * `setSession`: sets the user's access token and ID token, and the access token's expiry time 
 * `logout`: removes the user's tokens and expiry time from browser storage
 * `isAuthenticated`: checks whether the expiry time for the user's access token has passed
