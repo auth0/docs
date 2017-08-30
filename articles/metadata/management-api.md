@@ -34,7 +34,7 @@ To create a user with the following profile details:
 }
 ```
 
-you would make the following `POST` call to the [Create User endpoint of the Management API](/api/management/v2#!/Users/post_users), to create the user and set the property values:
+You would make the following `POST` call to the [Create User endpoint of the Management API](/api/management/v2#!/Users/post_users), to create the user and set the property values:
 
 ```har
 {
@@ -234,5 +234,23 @@ Therefore, the corresponding `PATCH` call to the API would be:
   "headersSize": -1,
   "bodySize": -1,
   "comment": ""
+}
+```
+
+### Deleting
+
+Patching the metadata with an empty object removes the metadata completely. For example, sending this body removes everything in `app_metadata`:
+
+```json
+{
+  "app_metadata": {}
+}
+```
+
+Similarly, this clears out `user_metadata`:
+
+```json
+{
+  "user_metadata": {}
 }
 ```
