@@ -124,14 +124,16 @@ https://${account.namespace}/authorize?
 
 The `GET` request to the authorization URL should include the following values:
 
-- __domain__: The value of your Auth0 Domain. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
-- __client_id__: The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
-- __audience__: The value of your API Identifier. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
-- __scope__: The [scopes](/scopes) which determine the information to be returned in the `id_token` and `access_token`. A scope of `openid profile email offline_access` will return all the user profile information the `id_token` and return a `refresh_token`. You also need to request the scopes required to call the API, in this case the `read:timesheets create:timesheets` scopes. This will ensure that the `access_token` has these scopes.
-- __response_type__: Indicates the Authentication Flow to use. For a Mobile application using PKCE, this should be set to `code`.
-- __code_challenge__: The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier).
-- __code_challenge_method__: Method used to generate the challenge. Auth0 supports only `S256`.
-- __redirect_uri__: The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients).
+Parameter | Description
+----------|------------
+__domain__ | The value of your Auth0 Domain. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+__audience__ | The value of your API Identifier. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+__scope__ | The [scopes](/scopes) which determine the information to be returned in the `id_token` and `access_token`. A scope of `openid profile email offline_access` will return all the user profile information the `id_token` and return a `refresh_token`. You also need to request the scopes required to call the API, in this case the `read:timesheets create:timesheets` scopes. This will ensure that the `access_token` has these scopes.
+__response_type__ | Indicates the Authentication Flow to use. For a Mobile application using PKCE, this should be set to `code`.
+__code_challenge__ | The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier).
+__code_challenge_method__ | Method used to generate the challenge. Auth0 supports only `S256`.
+__redirect_uri__ | The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients).
 
 ::: note
 [See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#2-authorize-the-user)
@@ -162,11 +164,13 @@ Next you can exchange the `authorization_code` from the response for an Access T
 }
 ```
 
-- __grant_type__: This must be set to `authorization_code`.
-- __client_id__: The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
-- __code_verifier__: Cryptographically random key that was used to generate the `code_challenge` passed to [authorization URL](/api/authentication#authorization-code-grant-pkce-) (`/authorize`).
-- __code__: The `authorization_code` received from the previous authorize call.
-- __redirect_uri__: The URL must match the `redirect_uri` passed in the previous section to `/authorize`.
+Parameter | Description
+----------|------------
+__grant_type__ | This must be set to `authorization_code`.
+__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+__code_verifier__ | Cryptographically random key that was used to generate the `code_challenge` passed to [authorization URL](/api/authentication#authorization-code-grant-pkce-) (`/authorize`).
+__code__ | The `authorization_code` received from the previous authorize call.
+__redirect_uri__ | The URL must match the `redirect_uri` passed in the previous section to `/authorize`.
 
 The response from the Token URL will contain:
 
@@ -231,10 +235,32 @@ A [Refresh Token](/tokens/refresh-token/current) will only be present if you inc
 
 Your request should include:
 
-* __grant_type__: This must be set to `refresh_token`.
-* __client_id__: The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
-* __client_secret__: (optional) Your application's Client Secret.
-* __refresh_token__: the `refresh_token` to use, from the previous authentication result.
+Parameter | Description
+----------|------------
+__grant_type__ | This must be set to `refresh_token`.
+__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+__client_secret__ | (optional) Your application's Client Secret.
+__refresh_token__ | the `refresh_token` to use, from the previous authentication result.
+
+```har
+{
+    "method": "POST",
+    "url": "https://${account.namespace}/oauth/token",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      { "name": "Content-Type", "value": "application/json" }
+    ],
+    "queryString" : [],
+    "postData" : {
+      "mimeType": "application/json",
+      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
+    },
+    "headersSize" : 150,
+    "bodySize" : 0,
+    "comment" : ""
+}
+```
 
 The response will include the new `access_token`:
 
