@@ -8,11 +8,7 @@ A project to assist with the design, and deployment of a Private SaaS Auth0 envi
 
 ## Estimated effort
 
-40 hours.
-
-::: note
-Auth0 Professional Services are delivered in 40 hs. "blocks".
-:::
+This is typically a 2-3 week part-time engagement effort with an Auth0 Managed Service Engineer and your infrastructure team.
 
 ## Typical work-streams
 
