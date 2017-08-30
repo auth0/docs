@@ -2,17 +2,13 @@
 description: Project to help customers analyze common design patterns.
 ---
 
-# Advisory Hours: Code Review
+# Advisory Sessions: Code Review
 
 An offering to analyze common design patterns and review customer's code flows and integrations. Goal is to detect potential pitfalls and problems, and provide guidance to address these.
 
 ## Estimated effort
 
-40 hours.
-
-::: note
-Auth0 Professional Services are delivered in 40 hs. "blocks".
-:::
+Time-boxed working sessions based on customer requirements with an Auth0 Solutions Architect and the customer's development team.
 
 ## Typical work-streams
 
