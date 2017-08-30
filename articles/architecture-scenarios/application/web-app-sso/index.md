@@ -6,6 +6,7 @@ extract: Traditional web application which needs to authenticate users using Ope
 description: Regular web app scenario which needs to authenticate users using OpenID Connect.
 toc: true
 ---
+
 # Single Sign-On for Regular Web Apps
 
 In this scenario, we will build a web application for a fictitious company named ExampleCo. The app is meant to be used by ExampleCo's employees and contractors. Employees will use their existing corporate directory (Active Directory), while contractors will be managed in a separate user store.

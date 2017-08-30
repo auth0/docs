@@ -3,7 +3,7 @@ description: Regular web app scenario application implementation
 toc: true
 ---
 
-# Application Implementation
+# Single Sign-On for Regular Web Apps: Application Implementation
 
 Let's walk through the implementation of our regular web application. We used ASP .NET Core for the implementation, you can find the code in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-webapp-oidc).
 
