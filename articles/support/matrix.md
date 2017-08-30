@@ -153,6 +153,63 @@ toc: true
     </tbody>
   </table>
 
+
+  ### Auth0 Analytics
+
+  #### Desktop Browsers
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="80%">Browser</th>
+        <th width="20%">Level of Support</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google Chrome</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td>Apple Safari</td>
+        <td><div class="label label-warning">Supported</div></td>
+      </tr>
+      <tr>
+        <td>Microsoft Internet Explorer 10/11</td>
+        <td><div class="label label-warning">Supported</div></td>
+      </tr>
+      <tr>
+        <td>Microsoft Edge</td>
+        <td><div class="label label-warning">Supported</div></td>
+      </tr>
+      <tr>
+        <td>Mozilla Firefox</td>
+        <td><div class="label label-warning">Supported</div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  #### Mobile Browsers
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="80%">Mobile browser</th>
+        <th width="20%">Level of Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Apple Safari for iOS 9 (or later)</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td>Google Chrome for Android KitKit (4.4) or later</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+    </tbody>
+  </table>
+
 ## Operating Systems
 
 This section covers the operating systems (OS) that Auth0 will support when using the Auth0 Dashboard, Lock Library or executing authentication transactions.
@@ -191,6 +248,28 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
   </table>
 
   ### Auth0 Lock and Authentication
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="80%">OS</th>
+        <th width="20%">Level of Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Apple iOS 9 (or later)</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+      <tr>
+        <td>Google Android KitKat (4.4) or later</td>
+        <td><div class="label label-primary">Supported</div></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  ### Auth0 Analytics
 
   <table class="table">
     <thead>
