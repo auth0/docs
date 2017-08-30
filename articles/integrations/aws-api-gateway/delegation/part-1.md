@@ -324,5 +324,5 @@ At this point, the AWS Lambda functions and the Amazon API Gateway methods are d
 
 <%= include('./_stepnav', {
  prev: ["0. Introduction", "/integrations/aws-api-gateway/delegation"],
- next: ["2. Securing and Deploying", "/integrations/delegation/aws-api-gateway/part-2"]
+ next: ["2. Securing and Deploying", "/integrations/aws-api-gateway/delegation/part-2"]
 }) %>
