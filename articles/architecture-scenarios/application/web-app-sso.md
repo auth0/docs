@@ -8,7 +8,7 @@ toc: true
 ---
 # Single Sign-On for Regular Web Apps
 
-In this scenario we will build a web application for a fictitious company named ABC Inc. The app is meant to be used by ABC's employees and contractors. Employees will use their existing corporate directory (Active Directory), while contractors will be managed in a separate user store.
+In this scenario we will build a web application for a fictitious company named ExampleCo The app is meant to be used by ExampleCo's employees and contractors. Employees will use their existing corporate directory (Active Directory), while contractors will be managed in a separate user store.
 
 ::: note
 By _Regular Web App_, we mean an app that uses primarily server side, page `GET`, `POST`, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single Page App), that heavily relies on client side JavaScript code calling an API.
@@ -16,7 +16,7 @@ By _Regular Web App_, we mean an app that uses primarily server side, page `GET`
 
 ## The Premise
 
-ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. Most of the employees work from the company's main office, but there are some teams that work remotely. Additionally, some employees frequently travel to customer locations and work from mobile devices.
+ExampleCo is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. Most of the employees work from the company's main office, but there are some teams that work remotely. Additionally, some employees frequently travel to customer locations and work from mobile devices.
 
 All employees and external contractors are required to fill in their timesheets every week using spreadsheets. The current system is inefficient and the company decided that they need to move to a better and more automated solution.
 
@@ -24,15 +24,15 @@ The company evaluated several of the available timesheets application and conclu
 
 ### Goals & Requirements
 
-ABC Inc. wants to launch the new solution quickly so they chose to start simple and build into it as they gather feedback from their employees.
+ExampleCo wants to launch the new solution quickly so they chose to start simple and build into it as they gather feedback from their employees.
 
 The application should be available to logged in users only. Each user will have a role, and based on this role, they should be able to perform certain actions and view specific data.
 
 ::: panel Authentication vs Authorization
-ABC wants to __authenticate__ and __authorize__ each user. Authentication has to do with identity: verifying that the user is indeed who they claim to be. Authorization is about deciding which resources a user should have access to, and what they should be allowed to do with those resources.
+ExampleCo wants to __authenticate__ and __authorize__ each user. Authentication has to do with identity: verifying that the user is indeed who they claim to be. Authorization is about deciding which resources a user should have access to, and what they should be allowed to do with those resources.
 :::
 
-ABC's timesheets app needs to support two roles: _User_ and _Admin_:
+ExampleCo's timesheets app needs to support two roles: _User_ and _Admin_:
 - Someone with the User role can add timesheet entries, by specifying the date, the client and the hours worked. The Admin role also has this same right.
 - Those with the User role should have access only to their own timesheets entries.
 - Someone with the Admin role can additionally:
@@ -41,9 +41,9 @@ ABC's timesheets app needs to support two roles: _User_ and _Admin_:
 
 Each user will be required to fill in their timesheets by the end of the week. They can either choose to register daily their timesheets or add the entries for the whole week together. The timesheets will have to be reviewed and approved by an Admin. The rejected entries will have to be updated by each employee and re-submitted for approval.
 
-The company uses Active Directory for all employees and employees will sign into the Timesheet application using their Active Directory credentials. The external contractors can sign in with a username and password. Contractors are not on ABC's corporate directory.
+The company uses Active Directory for all employees and employees will sign into the Timesheet application using their Active Directory credentials. The external contractors can sign in with a username and password. Contractors are not on ExampleCo's corporate directory.
 
-ABC wants to minimize user login burden, but wants to maintain a level of security depending on the operation: submitting timesheet entries is lower risk than approving them. However the approved timesheets are used for customer charging so security is definitely a requirement. The authentication strategy should be flexible so it can adapt as the company grows. For example, they should easily be able to add additional authentication requirements, like multifactor authentication, for Admins.
+ExampleCo wants to minimize user login burden, but wants to maintain a level of security depending on the operation: submitting timesheet entries is lower risk than approving them. However the approved timesheets are used for customer charging so security is definitely a requirement. The authentication strategy should be flexible so it can adapt as the company grows. For example, they should easily be able to add additional authentication requirements, like multifactor authentication, for Admins.
 
 The solution should be available both to the employees with a physical presence in the company office, as well as to those working remotely, without the overhead of a VPN connection, hence the app should be deployed on a cloud provider like Heroku or Microsoft Azure.
 
@@ -53,7 +53,7 @@ The solution should be available both to the employees with a physical presence 
 
 ### Identity Management
 
-ABC decided to use Auth0 as their Identity as a Service (IDaaS) provider. The reasoning behind this decision was that the company did not want to commit resources on  training, implementation and maintenance of identity and access management. Furthermore, the company plans on building into this solution in the future, possibly adding a mobile native app and an API to push approved timesheets to their internal systems. Auth0 provides the flexibility to incorporate such changes in their architecture with minimum effort.
+ExampleCo decided to use Auth0 as their Identity as a Service (IDaaS) provider. The reasoning behind this decision was that the company did not want to commit resources on  training, implementation and maintenance of identity and access management. Furthermore, the company plans on building into this solution in the future, possibly adding a mobile native app and an API to push approved timesheets to their internal systems. Auth0 provides the flexibility to incorporate such changes in their architecture with minimum effort.
 
 ::: note
 Identity-as-Service ("IDaaS") is a cloud-based service for identity and access management. The offered services often include SSO, federated identity, password management, and more.
@@ -79,7 +79,7 @@ __SAML__ is an XML-based protocol, that provides both authentication and authori
 
 Compared to SAML, OpenID Connect is lighter weight and simpler to deal with. SAML is proven, powerful and flexible, but for the requirements of this app, that flexibility and power is not required. Identity federation (one of the most compelling reasons for adopting SAML) is not required here either, And if it ever became a requirement, it can be easily handled by Auth0, in the same way it deals with AD (that uses LDAP).
 
-For these reasons, ABC will use OpenID Connect for their implementation.
+For these reasons, ExampleCo will use OpenID Connect for their implementation.
 
 ### Authentication Flow
 
@@ -139,19 +139,19 @@ In this section we will review all the configurations we need to apply using the
 The Auth0 configuration part starts with registering the timesheets app at the Auth0 dashboard as a __client__. A client is an application making protected resource requests on behalf of the resource owner (end-user).
 
 ::: note
-The term "client" does not imply any particular implementation characteristics. A client can be a web app, a mobile app or an SPA. In the case of ABC it is a ASP.NET Core web app.
+The term "client" does not imply any particular implementation characteristics. A client can be a web app, a mobile app or an SPA. In the case of ExampleCo it is a ASP.NET Core web app.
 :::
 
 The main characteristics of a Client in Auth0 are:
 - __Name__: The canonical name of the client. This is used to identify the client at the portal, emails, logs, and more.
 - __Client ID__ (read-only): The unique identifier for the client. This is the ID used in the application when setting up authentication with Auth0. It is an auto-generated alphanumeric string.
 - __Client secret__ (read-only): A string used to sign and validate tokens which will be used in the different authentication flows. It is auto-generated and it must be kept confidential.
-- __Domain__: The domain name assigned to the Auth0 account. The format of the domain is `{account-name}.auth0.com` or `{account-name}.{location}.auth0.com`, for example `abc.auth0.com`.
+- __Domain__: The domain name assigned to the Auth0 account. The format of the domain is `{account-name}.auth0.com` or `{account-name}.{location}.auth0.com`, for example `ExampleCoauth0.com`.
 - __Callback URL__: The URL where the user is redirected after they authenticate.
 
 #### Create a Client
 
-ABC's scenario involves only one application: the timesheets web app. Hence we have to configure one Client at Auth0 side.
+ExampleCo's scenario involves only one application: the timesheets web app. Hence we have to configure one Client at Auth0 side.
 
 To register a database connection, go to the [dashboard](${manage_url}) and in the side navigation select [Clients](${manage_url}/#/clients).
 
@@ -176,7 +176,7 @@ The Callback URL for our sample project is `http://localhost:5000/signin-auth0`.
 
 The next step is to configure the identity providers that will be used for authentication at the web app. Each identity provides maps to a __connection__ in Auth0. Each client needs at least one connection, and each connection can be used for more than one client.
 
-ABC needs to configure two connections: one Active Directory connection for the internal employees, and one Database connection for external parties.
+ExampleCo needs to configure two connections: one Active Directory connection for the internal employees, and one Database connection for external parties.
 
 ::: panel Supported identity providers
 Auth0 supports a vast variety of protocols and identity providers:
