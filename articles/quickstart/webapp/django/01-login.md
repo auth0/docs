@@ -49,6 +49,25 @@ user sessions. The system ley you handle both authentication and authorization.
 You use the authentication framework and its default models to manage user storage.
 Also has middleware to manage session across requests and associate users with request.
 
+## Create Django project
+
+To create a Django project you’ll need to auto-generate some code that establishes a Django project.
+From the command line into a directory where you’d like to store your code, run the following command:
+
+```bash
+$ django-admin startproject mysite
+```
+
+Where `mysite` is the name of the project.
+
+Then to create your app, make sure you’re in the same directory as manage.py and type this command:
+
+```bash
+$ python manage.py startapp YOUR_DJANGO_APP_NAME
+```
+
+Where `YOUR_DJANGO_APP_NAME` is the name of your app.
+
 ## Django Settings
 
 A Django settings file contains all the configuration of your Django installation.
