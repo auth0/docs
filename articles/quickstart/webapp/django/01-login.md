@@ -114,6 +114,13 @@ LOGIN_REDIRECT_URL = "/dashboard"
 LOGOUT_REDIRECT_URL = "/"
 ```
 
+Some of the needed applications in `INSTALLED_APPS` makes use of database, so we need to create the tables in the 
+database before we can use them. To do that, run the following command:
+
+```bash
+$ python manage.py migrate
+```
+
 ## Create the Auth0 Authentication Backend
 
 Create a file to implement the custom `Auth0` authentication backend. To do that you have to extends BaseOAuth2 class.
