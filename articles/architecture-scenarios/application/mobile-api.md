@@ -13,6 +13,16 @@ In this scenario we will build a Timesheet API for a fictitious company named AB
 
 We will also be building a Mobile Application which will be used to view and log timesheet entries in the centralized timesheet database using the API.
 
+
+::: panel TL;DR
+* Auth0 provides API Authentication and Authorizaion as a means to secure access to API endpoints (see [API Authentication and Authorization](#api-authentication-and-authorization))
+* For authorizing a Non Interactive Client (a CLI, service or daemon where no user interaction is involved) Auth0 supports the Client Credentials grant (see [Client Credentials Grant](#client-credentials-grant))
+* Both the Non Interactice Client and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](#auth0-configuration))
+* The API will be secured by ensuring that a valid Access Token (which is implemented as a JSON Web Token) is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](#implement-the-api))
+* Upon successful authorization an Access Token is issued to the Non Interactive Client (see [Get an Access Token](#get-an-access-token))
+* The Non Interactive Client can in turn use this Access Token to pass along as an HTTP Authorization header to authenticate calls to API endpoints (see [Invoke the API](#invoke-the-api))
+:::
+
 ## The Premise
 
 ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. All employees and external contractors are required to fill in their timesheets every week. 
