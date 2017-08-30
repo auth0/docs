@@ -12,7 +12,7 @@ In this scenario we will build a Timesheet API for a fictitious company named AB
 
 We will also be building a Single Page Application (SPA) which will be used to log timesheet entries and send them to the centralized timesheet database using the API.
 
-::: TL;DR
+::: panel TL;DR
 * Auth0 provides API Authentication and Authorizaion as a means to secure access to API endpoints (see [API Authentication and Authorization](#api-authentication-and-authorization))
 * For authorizing a user of a SPA, Auth0 supports the Implicit Grant (see [Implicit Grant](#implicit-grant))
 * Both the SPA and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](#auth0-configuration))
