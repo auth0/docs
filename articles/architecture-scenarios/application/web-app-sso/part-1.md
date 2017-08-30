@@ -3,7 +3,7 @@ description: Regular web app scenario solution overview
 toc: true
 ---
 
-# Solution Overview
+# Single Sign-On for Regular Web Apps: Solution Overview
 
 In this section, we'll cover the solution we're implementing, including details on identity management, protocols to use, and the authentication flow required.
 
