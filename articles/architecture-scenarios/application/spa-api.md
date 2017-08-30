@@ -12,6 +12,15 @@ In this scenario we will build a Timesheet API for a fictitious company named AB
 
 We will also be building a Single Page Application (SPA) which will be used to log timesheet entries and send them to the centralized timesheet database using the API.
 
+::: TL;DR
+* Auth0 provides API Authentication and Authorizaion as a means to secure access to API endpoints (see [API Authentication and Authorization](#api-authentication-and-authorization))
+* For authorizing a user of a SPA, Auth0 supports the Implicit Grant (see [Implicit Grant](#implicit-grant))
+* Both the SPA and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](#auth0-configuration))
+* The API will be secured by ensuring that a valid Access Token is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](#implement-the-api))
+* The Auth0.js library can be used to authorize the user of the SPA and obtain a valid Access Token which can be used to call the API (see [Authorize the User](#authorize-the-user))
+* The SPA can pass the Access Token in the HTTP Authorization header when making calls to the API (see [Call the API](#call-the-api))
+:::
+
 ## The Premise
 
 ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. All employees and external contractors are required to fill in their timesheets every week.
