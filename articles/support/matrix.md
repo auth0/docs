@@ -348,7 +348,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     </thead>
     <tbody>
       <tr>
-        <td><a href="github.com/auth0/auth0-analytics.js">auth0-analytics.js</a></td>
+        <td><a href="https://github.com/auth0/auth0-analytics.js">auth0-analytics.js</a></td>
         <td>v1</td>
         <td><div class="label label-primary">Supported</div></td>
       </tr>
