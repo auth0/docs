@@ -11,7 +11,7 @@ In this section of the tutorial, we will take an in-depth look into our API and 
   For simplicity reasons we will keep our implementation solely focused on the authentication and authorization part. As you will see in the samples the input timesheet entry will be hard-coded and the API will not persist the timesheet entry, simply echo back some of the info.
 :::
 
-#### Define the API endpoints
+## Define the API endpoints
 
 First we need to define the endpoints of our API.
 
@@ -38,7 +38,7 @@ The API will print the JSON, so we can verify the contents and echo back a messa
   See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#1-define-the-api-endpoint)
 :::
 
-#### Secure the API endpoints
+### Secure the API endpoints
 
 ::: panel-warning Configure the API
 In order to secure your endpoints you need to have your API configured in the Auth0 Dashboard. For information on how to do that refer to the [Configure the API](#configure-the-api) paragraph of this document.
@@ -50,7 +50,7 @@ The first step towards securing our API endpoint is to get an access token as pa
   See the implementation in [Node.js](/architecture-scenarios/application/server-api/api-implementation-nodejs#2-secure-the-api-endpoint)
 :::
 
-##### Get an Access Token
+#### Get an Access Token
 
 To get an access token without using our Client sample implementation, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
 
@@ -67,7 +67,7 @@ To get an access token without using our Client sample implementation, perform a
   For more information on this refer to: [API Authorization: Asking for Access Tokens for a Client Credentials Grant](/api-auth/config/asking-for-access-tokens).
 :::
 
-#### Check the Client permissions
+## Check the Client permissions
 
 Now we have secured our API's endpoint with an access token but we still haven't ensured that the process calling the API has indeed the rights to post a new timesheet entry.
 
@@ -87,7 +87,7 @@ In this section we will see how we can implement a Non Interactive Client for ou
   For simplicity reasons we  will keep our implementations solely focused on the authentication and authorization part and configure our client to send a single hard-coded timesheet entry to the API. Also, we will print in the console, something we wouldn't do with a server running process.
 :::
 
-#### Get an Access Token
+### Get an Access Token
 
 We will start by invoking the Auth0 `/oauth/token` API endpoint in order to get an access token.
 
@@ -118,7 +118,7 @@ For more information on this refer to: [API Authorization: Asking for Access Tok
   See the implementation in [Python](/architecture-scenarios/application/server-api/cron-implementation-python#get-an-access-token).
 :::
 
-#### Invoke the API
+## Invoke the API
 
 Now that we have an access token, which includes the valid scopes, we can invoke our API.
 
