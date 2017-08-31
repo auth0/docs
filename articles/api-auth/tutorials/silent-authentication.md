@@ -73,7 +73,7 @@ The possible values for `ERROR_CODE` are defined by the [OpenID Connect specific
 
 If any of these errors are returned, the user must be redirected to the Auth0 login page without the `prompt=none` parameter to authenticate.
 
-## Refresh expired tokens
+## Renew expired tokens
 
 Access tokens are opaque to clients. This means that clients are unable to inspect the contents of access tokens to determine their expiration date.
 
@@ -89,3 +89,14 @@ The `expires_in` parameter indicates how many seconds the access token will be v
 When the access token has expired, silent authentication can be used to retrieve a new one without user interaction, assuming the user's SSO session has not expired.
 
 In the case of single-page applications, the [`renewAuth` method from auth0.js](https://github.com/auth0/auth0.js#api) can be used to perform silent authentication within a hidden iframe, which results in no UX disruption at all.
+
+### How to implement
+
+Implementation of token renewal will depend on the type of application and framework being used. Sample implementations for some of the common platforms can be found below:
+
+* [Plain JavaScript](/quickstart/spa/vanillajs/05-token-renewal)
+* [jQuery](/quickstart/spa/jquery/05-token-renewal)
+* [React](/quickstart/spa/react/05-token-renewal)
+* [Angular](/quickstart/spa/angular2/05-token-renewal)
+* [ASP.NET Core MVC](https://github.com/auth0-samples/auth0-aspnetcore-mvc-samples/tree/master/Samples/silent-auth)
+
