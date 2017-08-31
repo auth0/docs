@@ -4,7 +4,9 @@ The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up 
 
 ::: note
 You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
+<% if (embeddedLoginLink) { %>
 To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](${embeddedLoginLink}).
+<% } %>
 :::
 
 When a user logs in, Auth0 returns three items:
