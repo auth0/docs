@@ -164,7 +164,7 @@ Provide a template with controls for the user to log in and out.
 This example uses Bootstrap styles. You can use any style library, or not use one at all.
 :::
 
-Depending on whether the user is authenticated or not, they see the **Log Out** or **Log In** button. The `click` events on the buttons make calls to the `AuthService` service to let the user log in or out. When the user clicks **Log In**, they are redirected to the Auth0 hosted login page. 
+Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `AuthService` service to let the user log in or out. When the user clicks **Log In**, they are redirected to the Auth0 hosted login page. 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
