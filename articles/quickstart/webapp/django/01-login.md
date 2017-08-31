@@ -25,10 +25,12 @@ you can follow the tutorial steps.
 
 ${include('../_callbackRegularWebApp')}
 
+You must add `http://localhost:8000/complete/auth0` callback URL in the `Allowed Callback URLs`.
+
 In this case, the callbackURL should look something like:
 
 ```text
-http://yourUrl/callback
+http://yourUrl/complete/auth0/
 ```
 
 ## Add the Dependencies
@@ -87,6 +89,7 @@ Add the client secret and client id, scope and and domain of the client applicat
 You can get this information from your [client settings](/#/applications/${account.clientId}/settings).
 
 ```python
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
 SOCIAL_AUTH_AUTH0_KEY = '${account.clientId}'
 SOCIAL_AUTH_AUTH0_SECRET = '${account.clientSecret}'
 SOCIAL_AUTH_AUTH0_SCOPE = [
@@ -94,7 +97,10 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
     'profile'
 ]
 SOCIAL_AUTH_AUTH0_DOMAIN = '${account.namespace}'
+SOCIAL_AUTH_AUTH0_AUTH_EXTRA_ARGUMENTS = 'YOUR_API_AUIDIENCE'
 ```
+
+In `SOCIAL_AUTH_AUTH0_AUTH_EXTRA_ARGUMENTS` replace `YOUR_API_AUDIENCE` with your API identifier.
 
 Register the necessary authentication backend in the `AUTHENTICATION_BACKENDS`. You have to add the custom backend 
 for `Auth0` and `ModelBackend` to users be able to login with username/password method.
@@ -147,11 +153,11 @@ class Auth0(BaseOAuth2):
     def access_token_url(self):
         """Return the token endpoint."""
         return "https://" + self.setting('DOMAIN') + "/oauth/token"
-
+    
     def get_user_id(self, details, response):
         """Return current user id."""
         return details['user_id']
-
+    
     def get_user_details(self, response):
         # Obtain JWT and the keys to validate the signature
         idToken = response.get('id_token')
@@ -160,7 +166,7 @@ class Auth0(BaseOAuth2):
         audience = self.setting('KEY') #CLIENT_ID
         # Decode the jwt to get the user information
         payload = jwt.decode(idToken, jwks.read(), algorithms=['RS256'], audience=audience, issuer=issuer)
-
+        
         return {'username': payload['nickname'],
                 'email': payload['email'],
                 'first_name': payload['name'],
