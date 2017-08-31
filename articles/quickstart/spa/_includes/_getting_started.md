@@ -4,7 +4,7 @@ If you are new to Auth0 please check our [Auth0 Overview](https://auth0.com/docs
 
 If you want to have a complete picture of how to integrate Authentication and Authorization for Single Page Application, you can read about it [here](https://auth0.com/docs/architecture-scenarios/application/spa-api). 
 
-If you are interested in a deeper undertanding of the OAuth flows that are used by Single Page Application, read about the [Implicit Grant Flow)(https://auth0.com/docs/api-auth/tutorials/implicit-grant)
+If you are interested in a deeper undertanding of the OAuth flows that are used by Single Page Application, read about the [Implicit Grant Flow](https://auth0.com/docs/api-auth/tutorials/implicit-grant)
 
 <%= include('../../../_includes/_new_app') %>
 
