@@ -170,27 +170,8 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers:
 
-<table class="table">
-  <tr>
-      <th><strong>Endpoint</strong></th>
-      <th><strong>GET</strong></th>
-      <th><strong>POST</strong></th>
-  </tr>
-  <tr>
-      <td>User Profile</td>
-      <td>/userinfo</td>
-      <td>/tokeninfo</td>
-  </tr>
-  <tr>
-  <td>Delegated Authentication<sup>*</sup></td>
-      <td></td>
-      <td>/delegation</td>
-  </tr>
-    <tr>
-      <td>Database and Active Directory / LDAP Authentication</td>
-      <td></td>
-      <td>/dbconnections/change_password</td>
-  </tr>
-</table>
-
-**The `/delegation` endpoint limits up to 10 requests per minute from the same IP address with the same user_id*
+| Endpoint | Scope | `GET` | `POST` |
+| - | - | - | - |
+| User Profile | Per User ID (`GET`), Per IP (`POST`) | `/userinfo` | `/tokeninfo` |
+| Delegated Authentication | Per User ID per IP | | `/delegation` |
+| Database and Active Directory / LDAP Authentication | Per User ID Per IP | | `/dbconnections/change_password` |
