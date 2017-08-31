@@ -170,8 +170,8 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers:
 
-| Endpoint | Scope | GET | POST |
+| Endpoint | Scope | `GET` | `POST` |
 | - | - | - | - |
-| User Profile | Per User ID (GET), Per IP (POST) | /userinfo | /tokeninfo |
-| Delegated Authentication | Per User ID per IP | | /delegation |
-| Database and Active Directory / LDAP Authentication | Per User ID Per IP | | /dbconnections/change_password |
+| User Profile | Per User ID (`GET`), Per IP (`POST`) | `/userinfo` | `/tokeninfo` |
+| Delegated Authentication | Per User ID per IP | | `/delegation` |
+| Database and Active Directory / LDAP Authentication | Per User ID Per IP | | `/dbconnections/change_password` |
