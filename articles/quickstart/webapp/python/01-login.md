@@ -35,17 +35,17 @@ This example uses `flask` but it could work with any server.
 
 ## Initialize Flask-OAuthlib
 
-Create a file named `server.py` and then create OAuth object and register the remote application to connect to a remote
-application. To do that add the following:
+Create a file named `server.py`. Then create an `OAuth client` for Auth0 with your client keys, scopes, and OAuth endpoints.
+For that do the following:
 
 ```python
 # server.py
-
+    
 from flask import Flask
 from flask import render_template
 from flask import request
 from flask_oauthlib.client import OAuth
-
+    
 app = Flask(__name__)
 # This secret key is used by flask to store the session as a signed cookie.
 app.secret_key = 'A_SECRET_KEY'
@@ -72,8 +72,6 @@ to the [authorization endpoint](/protocols/oauth2#authorization-endpoint) and gr
 
 ${include('../_callbackRegularWebApp')}
 
-You must add `http://localhost:3000/callback` to your `Allowed Callback URLs`.
-
 In this case, the callbackURL should look something like:
 
 ```text
@@ -83,10 +81,10 @@ http://yourUrl/callback
 ## Add the Auth0 Callback Handler
 
 This handler exchanges the `code` that Auth0 sends to the callback URL and exchange for an `access_token` 
-and an `id_token`. For that, you can do the following:
-This endpoint made several tasks. First get an `access_token` and `id_token` from the token endpoint.
-Then decode the [JWK](/jwt) `id_token` to get the user information.
-And store the user information into the flask session.
+and an `id_token`.
+
+The `id_token` is a [JWT](/jwt) that contains the information of the user profile, to get the information from it you have
+to decode and validate its signature. After the user information is obtained, store then in the flask `session`.
 
 ```python
 # Here we're using the /callback route.
@@ -102,12 +100,12 @@ def callback_handling():
     
     # Obtain JWT and the keys to validate the signature
     idToken = resp['id_token']
-    jwks = urlopen("https://"+AUTH0_DOMAIN+"/.well-known/jwks.json")
+    jwks = urlopen("https://"+${account.namespace}+"/.well-known/jwks.json")
     
     payload = jwt.decode(idToken, jwks.read(), algorithms=['RS256'], audience=${account.clientId},
                         issuer="https://"+${account.namespace}+"/")
     
-    # Store the tue user information obtained in the id_token in flask sessison.
+    # Store the tue user information obtained in the id_token in flask session.
     session[constants.JWT_PAYLOAD] = payload
     
     session[constants.PROFILE_KEY] = {
@@ -136,8 +134,8 @@ The `callback` specified **must match** the URL specified in the previous step.
 
 ## Logout
 
-To logout a user you have to do two things, first clear the data from the session, and redirect the user to logout URI
-checkout [logout documentation](/logout) for more information.
+To logout the user you have to clear the data from the session, and then redirect the user to the Auth0 logout endpoint.
+Checkout [logout documentation](/logout) for more information.
 
 ```python
 @app.route('/logout')
@@ -145,7 +143,7 @@ def logout():
     # Clear session stored data
     session.clear()
     # Redirect user to logout endpoint
-    params = {'returnTo': url_for('home', _external=True), 'client_id': AUTH0_CLIENT_ID}
+    params = {'returnTo': url_for('home', _external=True), 'client_id': ${account.clientId}}
     return redirect(auth0.base_url + '/v2/logout?' + urlencode(params))
 ```
 
@@ -154,9 +152,27 @@ The final destination URL (the `returnTo` value) needs to be in the list of `All
 See the [logout documentation](/logout#redirecting-users-after-logout) for more.
 :::
 
+
+## Check if the user is authenticated
+
+You can add the following decorator to your `Flask` app to check if the user is authenticated. 
+Note that you should import `wraps` first, adding the following line to your file `from functools import wraps`.
+
+```python
+def requires_auth(f):
+  @wraps(f)
+  def decorated(*args, **kwargs):
+    if 'profile' not in session:
+      # Redirect to Login page here
+      return redirect('/')
+    return f(*args, **kwargs)
+    
+  return decorated
+```
+
 ## Display user information
 
-You can access to the user information stored on the `session` when request to token endpoint.
+You can access the user information stored on the `session`.
 Add the following endpoint to render the template with the user information:
 
 ```python
@@ -168,6 +184,8 @@ def dashboard():
                            userinfo_pretty=json.dumps(session[constants.JWT_PAYLOAD], indent=4))
 ```
 
+To show the user information create `dashboard.html` file in a `template` folder in the root of the project.
+
 ```html
 <div class="logged-in-box auth0-box logged-in">
     <h1 id="logo"><img src="//cdn.auth0.com/samples/auth0_logo_final_blue_RGB.png" /></h1>
@@ -176,23 +194,4 @@ def dashboard():
     <pre>{{userinfo_pretty}}</pre>
     <a class="btn btn-primary btn-lg btn-logout btn-block" href="/logout">Logout</a>
 </div>
-```
-
-[Click here](/user-profile) to check all the information that the userinfo hash has.
-
-## Check if the user is authenticated
-
-You can add the following annotation to your `Flask` app to check if the user is authenticated. 
-Note that you should import `wraps` first, adding the following line to your file `from functools import wraps`.
-
-```python
-def requires_auth(f):
-  @wraps(f)
-  def decorated(*args, **kwargs):
-    if 'profile' not in session:
-      # Redirect to Login page here
-      return redirect('/')
-    return f(*args, **kwargs)
-
-  return decorated
 ```
