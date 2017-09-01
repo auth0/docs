@@ -76,7 +76,7 @@ The Settings page is broken down into the following sections:
 
 ## Monitoring
 
-* **New Relic License Key**: if you use New Relic for monitoring, enter your license key here to monitor your PSaaS Appliance instances.
+* **New Relic License Key**: if you use New Relic for monitoring, enter your license key here to monitor your PSaaS Appliance instances. Once entered, _fatal_ errors will be logged to the "APM" section of New Relic. These will be under the Application "`Auth0 Core`".
 
 ## API Keys
 
