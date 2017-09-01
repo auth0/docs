@@ -2,14 +2,16 @@
 
 ## Create an Authentication Service
 
-Create a reusable service to manage and coordinate user authentication. You can call the service's methods from your application. 
-You can create an instance of the `WebAuth` object from the auth0.js library in the service.
+Create a reusable service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is `AuthService` and the filename is `auth.service.ts`.
+
+Create a service and add an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
+<%= include('../../_includes/_auth_service_configure_client_details') %>
 
 ::: note
-You can give the service any name. In the examples below, the service is `AuthService` and the filename is `auth.service.ts`.
+In this tutorial, the route is `/callback`, which is implemented in the [Add a Callback Component](#add-a-callback-component) step. 
 :::
 
-Create a service and add an instance of the `auth0.WebAuth` object. Provide a `login` method that calls the `authorize` method from auth0.js.
+Provide a `login` method that calls the `authorize` method from auth0.js.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -103,21 +105,6 @@ export class AuthService {
 
 }
 ```
-
-### About the Authentication Service
-
-When you set up the `AuthService` service, you create an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
-<%= include('../../_includes/_auth_service_configure_client_details') %>
-
-::: note
-In this tutorial, the route is `/callback`, which is implemented in the [Add a Callback Component](#add-a-callback-component) step. 
-:::
-
-<%= include('../../_includes/_auth_service_hash_fragment_information') %>
-
-<%= include('../../_includes/_auth_service_using_json_web_tokens') %>
-
-<%= include('../../_includes/_auth_service_check_access_token_expiry') %>
 
 ## Provide a Login Control
 
