@@ -20,7 +20,7 @@ To get to the error page settings:
 2. Click on your tenant name in the top right corner to bring up the associated dropdown box.
 3.  Select **Settings** to open the [Tenant Settings](${manage_url}/#/tenant/) page.
 
-![Account Settings](/media/articles/error-pages/account-settings.png)
+![Tenant Settings](/media/articles/error-pages/account-settings.png)
 
 ### Customized Error Pages
 

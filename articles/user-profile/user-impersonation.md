@@ -28,8 +28,8 @@ Navigate to the [Users](${manage_url}/#/users) page in the Auth0 Dashboard and s
 
 ::: panel I can't see this button
 In order to see this button the following conditions should apply:
-- Impersonation should be enabled for your account (see panel at the top of this page)
-- The Clients registered in the account must have at least one __callback URL__ listed
+- Impersonation should be enabled for your tenant (see panel at the top of this page)
+- The Clients registered in the tenant must have at least one __callback URL__ listed
 - The Clients must have the connections turned on that the users who are to be impersonated belong to
 :::
 

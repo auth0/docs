@@ -27,7 +27,7 @@ It is common for an initial load test to experience some unexpected issues, resu
 The load testing request must include the following information:
 
 * A description of the test to be done
-* The Auth0 account to be used during the test
+* The Auth0 tenant to be used during the test
 * The requested duration of the test (2 hour maximum)
 * The Auth0 features, such as rules, email, used during the test
 * The Auth0 API endpoints to be used
@@ -52,7 +52,7 @@ Note that load testing will require customer to:
 ## Limitations
 Auth0 reserves the right to reject or request modifications to load test plans.
 
-A load testing approval will specify pre-arranged dates/times in which load testing can be performed.  All load testing must be limited to those pre-arranged dates/times. Load testing windows will be a maximum of 2 hours in duration. Failure to abide by this policy may result in temporary blocking of access to an account until the issue is remediated.
+A load testing approval will specify pre-arranged dates/times in which load testing can be performed.  All load testing must be limited to those pre-arranged dates/times. Load testing windows will be a maximum of 2 hours in duration. Failure to abide by this policy may result in temporary blocking of access to an tenant until the issue is remediated.
 
 ## Effectivity
 This policy is effective April 4, 2016

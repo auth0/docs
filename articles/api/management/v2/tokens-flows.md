@@ -66,7 +66,7 @@ To generate a token follow the next steps:
 
 1. Go to [JWT.io Debugger](https://jwt.io/#debugger-io). Notice that there is a sample token on the left hand editor. The right hand editor contains the header, payload and verify signature parts.
 
-2. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Account Settings](${manage_url}/#/account/advanced)) and check the __secret base64 encoded__ flag.
+2. Delete the dummy `secret` value from the _Verify Signature_ panel. Set your __Global Client Secret__ (you can find this value at [Advanced Tenant Settings](${manage_url}/#/tenant/advanced)) and check the __secret base64 encoded__ flag.
 
 3. Make sure the _Header_ contains the `alg` and `typ` claims, as follows.
 

@@ -8,7 +8,7 @@ toc: true
 
 Multi-tenancy refers to the software architecture principle where a single instance of software runs on a server that is accessible to multiple groups of users.
 
-By using a single Auth0 account for all of your applications, you maintain simplicity in your architecture and are able to manage all of your authentication flows in one place. Only if you need to share access to the Management Dashboard with individual applications would you need to create multiple Auth0 accounts (see this [GitHub repo](https://github.com/auth0/auth0-multitenant-spa-api-sample) for a sample application using this architecture scheme).
+By using a single Auth0 tenant for all of your applications, you maintain simplicity in your architecture and are able to manage all of your authentication flows in one place. Only if you need to share access to the Management Dashboard with individual applications would you need to create multiple Auth0 tenants (see this [GitHub repo](https://github.com/auth0/auth0-multitenant-spa-api-sample) for a sample application using this architecture scheme).
 
 In Auth0, there are many ways you can handle multi-tenancy. While this article will cover several of the options available, it is by no means comprehensive. For additional assistance on how you can customize Auth0, please contact [Sales](https://auth0.com/?contact=true).
 
@@ -95,7 +95,7 @@ The overall architecture includes the following features:
 * Support for Enterprise connections;
 * Home realm discovery using email domains.
 
-Because a user can have access to multiple apps, each with its own permissions level (for example, the user can be an admin for App A, but just a regular user on App B), we show this by assigning a `user_id` property to an **account-level** entity (for administrative permissions) or an **app-level** entity (for user-level permissions).
+Because a user can have access to multiple apps, each with its own permissions level (for example, the user can be an admin for App A, but just a regular user on App B), we show this by assigning a `user_id` property to an **tenant-level** entity (for administrative permissions) or an **app-level** entity (for user-level permissions).
 
 ##### Auth0 User Profile
 

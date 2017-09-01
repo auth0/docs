@@ -105,14 +105,14 @@ The `config.json` file is the AD/LDAP Connector's main configuration file.  It c
 
 ## Point an AD/LDAP Connector to a new connection
 
-Sometimes you will need to point your AD/LDAP Connector instance to a new connection in Auth0. For instance: If you have migrated to a new Auth0 account (tenant), or if you changed the name of the Auth0 connection.
+Sometimes you will need to point your AD/LDAP Connector instance to a new connection in Auth0. For instance: If you have migrated to a new Auth0 tenant, or if you changed the name of the Auth0 connection.
 
 Since you cannot rename connections in Auth0, the only option is to create a new Active Directory / LDAP connection and point your existing Connector instances to it. Here's how:
 
 1. Create the new Active Directory / LDAP connection in the Auth0 dashboard and copy the resulting **TICKET URL**.
 2. On the AD/LDAP Connector host in the Connector Admin app, perform an export of the existing settings via the **Import/Export** tab. This is just a precaution in case something were to happen in the following steps that would accidentally overwrite your custom settings. If you are running the Connector on a host that does not have a web browser to access to the Connector Admin website, simply make a copy of your `config.json` file.
 3. On the AD/LDAP Connector host, edit the `config.json` file and change the value of the `PROVISIONING_TICKET` property to the **TICKET URL** you copied in Step 1.
-4. If you moved from one Auth0 account to another, remove the property in the `config.json` file that has the name `urn:auth0:OLD_AUTH0_TENANT_NAME`. If this is not removed, the Connector will still function but this old configuration data is not needed.
+4. If you moved from one Auth0 tenant to another, remove the property in the `config.json` file that has the name `urn:auth0:OLD_AUTH0_TENANT_NAME`. If this is not removed, the Connector will still function but this old configuration data is not needed.
 5. Restart the AD/LDAP Connector service (the **Auth0 ADLDAP** service in Windows).
 6. Take a look at the Connector logs (**Troubleshooting** tab in the Connector Admin tool or tail the `logs.log` file) and make sure there is a recent entry that looks something like:  
 

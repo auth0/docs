@@ -43,13 +43,13 @@ Please proceed by downgrading your subscription to free or by cancelling your su
 
 ## Refunds
 
-### I signed up for a paid plan but haven't used my account since then, can I get a refund?
+### I signed up for a paid plan but haven't used my tenant since then, can I get a refund?
 
-We understand that sometimes developers create accounts for demo or testing purposes. So if you have a subscription plan, but you have not been using our service in a while and you would like to get a refund, you should [downgrade](/tutorials/cancel-paid-subscriptions#downgrade-a-paid-subscription-to-a-free-subscription) your account to use a Free Plan. Notice that we do not provide refunds for when a plan is downgraded to another paid one that has less features.
+We understand that sometimes developers create tenants for demo or testing purposes. So if you have a subscription plan, but you have not been using our service in a while and you would like to get a refund, you should [downgrade](/tutorials/cancel-paid-subscriptions#downgrade-a-paid-subscription-to-a-free-subscription) your tenant to use a Free Plan. Notice that we do not provide refunds for when a plan is downgraded to another paid one that has less features.
 
-If you have already downgraded, please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide information about why the account has not been used and for how long. Please note that this request must come from a Tenant Administrator.
+If you have already downgraded, please explain the situation by filing a ticket trough our [Support Center](${env.DOMAIN_URL_SUPPORT}), and provide information about why the tenant has not been used and for how long. Please note that this request must come from a Tenant Administrator.
 
-We will evaluate the case and verify that the account has not been used in the aforementioned period in order to process the refund. Please note that if we consider the usage of the account not to be minimal, we reserve the right to not refund your card.
+We will evaluate the case and verify that the tenant has not been used in the aforementioned period in order to process the refund. Please note that if we consider the usage of the tenant not to be minimal, we reserve the right to not refund your card.
 
 ### I purchased more tenant subscriptions than desired/needed, can I get a refund?
 
@@ -77,7 +77,7 @@ The way to do this is by filing a ticket trough our [Support Center](${env.DOMAI
 
 Please note that you have to be a Tenant admin to do this request.
 
-Also, more than often the email which receives the receipt is the one that created the Auth0 account. Please make sure that you are in touch with the owner of that email. That person can also forward you the receipt of the payment. If you want to change this setting, please let us know through our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+Also, more than often the email which receives the receipt is the one that created the Auth0 tenant. Please make sure that you are in touch with the owner of that email. That person can also forward you the receipt of the payment. If you want to change this setting, please let us know through our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
 ## In our pricing, what is the difference between internal and external users? Are they different technically?
 
@@ -95,6 +95,6 @@ On the other hand, internal users have to login everyday to their different tool
 
 Definitely. In the Dashboard, you can do this by going to the upper right corner, and selecting **Settings** from the drop down menu. Then in the **Subscriptions** tab you can select them depending on your needs. More information about it can be found there or in our [Pricing page](https://auth0.com/pricing/).
 
-## How can I convert my account from a free trial to any other version?
+## How can I convert my tenant from a free trial to any other version?
 
 You can do this by heading to the upper right corner of the Dashboard, clicking your tenant name and selecting **Settings**. Then in the **Subscriptions** tab you can select the plan that best suits your needs. More information about this can be found there or in our [Pricing page](https://auth0.com/pricing/).
