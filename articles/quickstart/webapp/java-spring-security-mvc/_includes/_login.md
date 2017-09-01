@@ -39,8 +39,6 @@ The project contains also five Controllers:
 - `LogoutController.java`: Invoked when the user clicks the logout link. The controller invalidates the user session and redirects the user to the login page, handled by the `LoginController`.
 - `ErrorController.java`: The controller triggers upon any non-handled exception and redirects the user to the `/login` path.
 
-Lastly, the project defines an Authentication class to hold this status: the `TokenAuthentication.java`. This class will parse the user's *id_token* to check for expiration and also extract the "granted authorities" from a custom claim we can set. We will see more regarding authorization in a next tutorial.
-
 
 ## Authenticate the User
 
@@ -80,25 +78,26 @@ protected void configure(HttpSecurity http) throws Exception {
 }
 ```
 
-Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Do that by defining a method that returns the Bean in the same `AppConfig` class. Any customization on the behavior of the component should be done here. i.e. requesting a different scope or using a different signature verification algorithm.
+Now create the `AuthenticationController` instance that will create the Authorize URLs and handle the request received in the callback. Do that by defining a method that returns the Bean in the same `AppConfig` class. Any customization on the behavior of the component should be done here. i.e. requesting a different response type or using a different signature verification algorithm.
 
 ```java
 @Bean
 public AuthenticationController authenticationController() throws UnsupportedEncodingException {
     return AuthenticationController.newBuilder(domain, clientId, clientSecret)
-            .withResponseType("code")
             .build();
 }
 ```
 
-To authenticate the users you will redirect them to the **Auth0 Hosted Login Page** which uses the best version available of [Lock](/lock). This page is accessible from what we call the "Authorize URL". By using this library you can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where your app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. After you create the Authorize URL, you redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
+To authenticate the users you will redirect them to the **Auth0 Hosted Login Page** which uses the best version available of [Lock](/lock). This page is accessible from what we call the "Authorize URL". By using this library you can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where your app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, request the "User Info" *audience* in order to obtain an Open ID Connect compliant response. After you create the Authorize URL, you redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginController` class of our sample.
 
 ```java
 @RequestMapping(value = "/login", method = RequestMethod.GET)
 protected String login(final HttpServletRequest req) {
-   String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
-   AuthorizeUrl authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri);
-   return "redirect:" + authorizeUrl.build();
+    String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
+    String authorizeUrl = controller.buildAuthorizeUrl(req, redirectUri)
+        .withAudience(String.format("https://%s/userinfo", appConfig.getDomain()))
+        .build();
+    return "redirect:" + authorizeUrl;
 }
 ```
 
