@@ -4,7 +4,7 @@
 
 Create a reusable service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is `AuthService` and the filename is `auth.service.ts`.
 
-In the service add an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
+In the service add an instance of the `auth0.WebAuth` object. When creating that instance, you can specify the following:
 <%= include('../../_includes/_auth_service_configure_client_details') %>
 
 ::: note
