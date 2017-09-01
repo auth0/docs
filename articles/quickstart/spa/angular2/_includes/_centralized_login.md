@@ -4,7 +4,7 @@
 
 Create a reusable service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is `AuthService` and the filename is `auth.service.ts`.
 
-Create a service and add an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
+In the service add an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
 <%= include('../../_includes/_auth_service_configure_client_details') %>
 
 ::: note
@@ -41,12 +41,6 @@ export class AuthService {
 
 }
 ```
-
-::: note
-**Checkpoint:** Try to call the `login` method from somewhere in your application to see the login page.
-:::
-
-![hosted login](/media/articles/web/hosted-login.png)
 
 ### Finish the Service
 
@@ -159,13 +153,11 @@ Depending on whether the user is authenticated or not, they see the **Log In** o
 
 When you use the Auth0 hosted login page, your users are taken away from your application. After they authenticate, they are automatically returned to your application and a client-side session is set for them. 
 
-Select a callback URL for your users to return to.
+<%= include('../../_includes/_callback_component') %>
 
 ::: note
 This example assumes you are using the default Angular path-based routing. If you are using hash-based routing with `{ useHash: true }`, you will not be able to specify a dedicated callback route. The URL hash will be used to hold the user's authentication information.
 :::
-
-<%= include('../../_includes/_callback_component') %>
 
 Create a component named `CallbackComponent` and add a loading indicator.
 
