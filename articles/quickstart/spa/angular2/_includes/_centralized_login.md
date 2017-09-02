@@ -48,7 +48,7 @@ Add more methods to the `AuthService` service to handle authentication in the ap
 
 The example below shows the following methods:
 * `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js
-* `setSession`: sets the user's access token, ID token, and the access token's expiry time 
+* `setSession`: stores the user's access token, ID token, and the access token's expiry time in browser storage
 * `logout`: removes the user's tokens and expiry time from browser storage
 * `isAuthenticated`: checks whether the expiry time for the user's access token has passed
 
