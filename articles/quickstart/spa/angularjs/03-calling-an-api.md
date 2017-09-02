@@ -19,10 +19,9 @@ budicon: 546
 
 <%= include('../_includes/_calling_api_create_scope') %>
 
-## Set the Audience and Scope in `auth0.WebAuth`
+## Set the Audience and Scope
 
-In your `auth0.WebAuth` instance, enter your API identifier as the value for `audience`.
-Add your scopes to the `scope` key.
+In the 'angularAuth0Provider.init' call, enter your API identifier as the value for 'audience'. Set the scopes in the 'scope' parameter.
 
 ```js
 // app/app.js
