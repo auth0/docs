@@ -189,14 +189,6 @@ The example below shows the following methods:
 })();
 ```
 
-### About the Authentication Service
-
-<%= include('../../_includes/_auth_service_hash_fragment_information') %>
-
-<%= include('../../_includes/_auth_service_using_json_web_tokens') %>
-
-<%= include('../../_includes/_auth_service_check_access_token_expiry') %>
-
 ## Provide a Login Control
 
 Provide a component with controls for the user to log in and log out.
