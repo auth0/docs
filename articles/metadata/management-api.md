@@ -190,8 +190,8 @@ The user's profile will now appear as follows:
 }
 ```
 
-::: note
-When you send a `PATCH` call where you've set the property/value to null (for example, `{user_metadata: {color: null}}`), Auth0 **deletes** the property/value from the database.
+::: warning
+When you send a `PATCH` call where you've set the property/value to `null` (for example, `{user_metadata: {color: null}}`), Auth0 **deletes** the property/value from the database. Also, patching the metadata with an empty object removes the metadata completely (see [Deleting](#deleting)).
 :::
 
 ### Merging
