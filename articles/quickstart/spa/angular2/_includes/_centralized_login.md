@@ -42,6 +42,12 @@ export class AuthService {
 }
 ```
 
+-::: note
+ -**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
+ -:::
+ -
+ -![hosted login](/media/articles/web/hosted-login.png)
+ 
 ### Finish the Service
 
 Add more methods to the `AuthService` service to handle authentication in the app.
