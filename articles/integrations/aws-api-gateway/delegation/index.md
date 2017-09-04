@@ -21,12 +21,12 @@ Next, the tutorial walks you through setting up the Amazon API Gateway using AWS
 
 You will be taken through the following steps:
 
-* [Step 1 - Set up the AWS API Gateway](/integrations/aws-api-gateway/part-1)
-* [Step 2 - Secure and Deploy the Amazon API Gateway](/integrations/aws-api-gateway/part-2)
-* [Step 3 - Build the Client Application](/integrations/aws-api-gateway/part-3)
-* [Step 4 - Use Multiple Roles with Amazon API Gateway](/integrations/aws-api-gateway/part-4)
-* [Step 5 - Use Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5)
+* [Step 1 - Set up the AWS API Gateway](/integrations/aws-api-gateway/delegation/part-1)
+* [Step 2 - Secure and Deploy the Amazon API Gateway](/integrations/aws-api-gateway/delegation/part-2)
+* [Step 3 - Build the Client Application](/integrations/aws-api-gateway/delegation/part-3)
+* [Step 4 - Use Multiple Roles with Amazon API Gateway](/integrations/aws-api-gateway/delegation/part-4)
+* [Step 5 - Use Identity Tokens to Flow Identity](/integrations/aws-api-gateway/delegation/part-5)
 
 <%= include('./_stepnav', {
- next: ["1. Setup", "/integrations/aws-api-gateway/part-1"]
+ next: ["1. Setup", "/integrations/aws-api-gateway/delegation/part-1"]
 }) %>
