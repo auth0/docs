@@ -6,7 +6,7 @@ description: How to request child tenants for your Auth0 account
 
 This request process is for self-service customers requesting a development, test, or staging account that's linked to their paid production account. This account is called a **child account**.
 
-::: note
+::: warning
 Free accounts do not include a child account.
 :::
 
