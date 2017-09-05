@@ -9,7 +9,7 @@ toc: true
 
 # Mobile + API
 
-In this scenario we will build a Timesheet API for a fictitious company named ABC Inc. The API will allow management of timesheet entries for an employee or a contractor.
+In this scenario we will build a Timesheet API for a fictitious company named ExampleCo. The API will allow management of timesheet entries for an employee or a contractor.
 
 We will also be building a Mobile Application which will be used to view and log timesheet entries in the centralized timesheet database using the API.
 
@@ -27,15 +27,15 @@ We will also be building a Mobile Application which will be used to view and log
 
 ## The Premise
 
-ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. All employees and external contractors are required to fill in their timesheets every week. 
+ExampleCo is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. All employees and external contractors are required to fill in their timesheets every week. 
 
 The company has built a timesheets application, a scenario we covered in [Single Sign-On for Regular Web Apps](/architecture-scenarios/application/web-app-sso). The internal employees use this web app to fill in their timesheets but the company wants to replace it with a Mobile application. The app will be used to log timesheet entries and send the data to the centralized timesheet database using the API.
 
 ### Goals & Requirements
 
-ABC wants to build a flexible solution. There are potential multiple clients which should be able to log timesheet entries, as well as batch processes which may upload timesheet entries from other, external systems.
+ExampleCo wants to build a flexible solution. There are potential multiple clients which should be able to log timesheet entries, as well as batch processes which may upload timesheet entries from other, external systems.
 
-Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this Mobile Client, but by all other clients as well. They want to put in place a security architecture that is flexible enough to accommodate this. ABC Inc. wants to ensure that a large part of the code and business logic for the application can be shared across the different client applications.
+Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this Mobile Client, but by all other clients as well. They want to put in place a security architecture that is flexible enough to accommodate this. ExampleCo wants to ensure that a large part of the code and business logic for the application can be shared across the different client applications.
 
 It is required that only authorized users and applications are allowed access to the Timesheets API.
 
