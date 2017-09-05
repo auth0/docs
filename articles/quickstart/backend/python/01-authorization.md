@@ -11,7 +11,7 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
     'flask 0.11.1',
     'python-jose 1.3.2',
     'flask-cors 3.0.2',
-    'Six 1.10.0 and up'
+    'six 1.10.0'
   ]
 }) %>
 
@@ -23,8 +23,7 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
 
 ## Install the Dependencies
 
-This quickstart demonstrates how to add authorization to your Python API using [Flask](http://flask.pocoo.org/). Add the following dependencies to
-your `requirements.txt`:
+This quickstart demonstrates how to add authorization to your Python API using [Flask](http://flask.pocoo.org/). Add the following dependencies to your `requirements.txt`:
 
 ```python
 flask
@@ -45,11 +44,11 @@ from functools import wraps
 from flask import Flask, request, jsonify, _app_ctx_stack
 from flask_cors import cross_origin
 from jose import jwt
-    
+
 AUTH0_DOMAIN = '${account.namespace}'
 API_AUDIENCE = YOUR_API_AUDIENCE
 ALGORITHMS = ["RS256"]
-    
+
 APP = Flask(__name__)
 
 # Error handler
@@ -80,27 +79,28 @@ def get_token_auth_header():
     auth = request.headers.get("Authorization", None)
     if not auth:
         raise AuthError({"code": "authorization_header_missing",
-                             "description":
-                                 "Authorization header is expected"}, 401)
+                        "description":
+                            "Authorization header is expected"}, 401)
     
     parts = auth.split()
     
     if parts[0].lower() != "bearer":
         raise AuthError({"code": "invalid_header",
-                             "description":
-                                 "Authorization header must start with"
-                                 "Bearer"}, 401)
+                        "description":
+                            "Authorization header must start with"
+                            " Bearer"}, 401)
     elif len(parts) == 1:
         raise AuthError({"code": "invalid_header",
-                             "description": "Token not found"}, 401)
+                        "description": "Token not found"}, 401)
     elif len(parts) > 2:
         raise AuthError({"code": "invalid_header",
-                             "description": "Authorization header must be"
-                                            "Bearer token"}, 401)
-    
+                        "description":
+                            "Authorization header must be"
+                            " Bearer token"}, 401)
+
     token = parts[1]
     return token
-    
+
 def requires_auth(f):
     """Determines if the access token is valid
     """
@@ -131,20 +131,22 @@ def requires_auth(f):
                 )
             except jwt.ExpiredSignatureError:
                 raise AuthError({"code": "token_expired",
-                                     "description": "token is expired"}, 401)
+                                "description": "token is expired"}, 401)
             except jwt.JWTClaimsError:
                 raise AuthError({"code": "invalid_claims",
-                                     "description": "incorrect claims,"
-                                                    "please check the audience and issuer"}, 401)
+                                "description":
+                                    "incorrect claims,"
+                                    "please check the audience and issuer"}, 401)
             except Exception:
                 raise AuthError({"code": "invalid_header",
-                                     "description": "Unable to parse authentication"
-                                                    "token."}, 400)
-            
+                                "description":
+                                    "Unable to parse authentication"
+                                    " token."}, 400)
+
             _app_ctx_stack.top.current_user = payload
             return f(*args, **kwargs)
         raise AuthError({"code": "invalid_header",
-                             "description": "Unable to find appropriate key"}, 400)
+                        "description": "Unable to find appropriate key"}, 400)
     return decorated
 ```
 
