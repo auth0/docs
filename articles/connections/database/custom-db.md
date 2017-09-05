@@ -87,7 +87,7 @@ function login(email, password, callback) {
 
 This script connects to a **MySQL** database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. You can tweak this script in the editor to adjust it to your own requirements.
 
-You can also [cache connections](/rules/current#cache-expensive-resources) such that it will survive individual execution.
+You can also [cache connections](/rules#cache-expensive-resources) such that it will survive individual execution.
 
 ::: note
 If you are using [IBM's DB2](https://www.ibm.com/analytics/us/en/technology/db2/) product, [click here](/connections/database/db2-script) for a sample login script.
