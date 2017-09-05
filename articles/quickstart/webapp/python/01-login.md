@@ -31,12 +31,11 @@ requests
 flask-oauthlib
 ```
 
-This example uses `flask` but it could work with any server.
+This example uses [Flask](http://flask.pocoo.org) and the [Flask OAuthlib](https://flask-oauthlib.readthedocs.io) OAuth client library.
 
 ## Initialize Flask-OAuthlib
 
-Create a file named `server.py`. Then create an `OAuth client` for Auth0 with your client keys, scopes, and OAuth endpoints.
-For that do the following:
+Create a file named `server.py`, and instantiate a client with your client keys, scopes, and OAuth endpoints.
 
 ```python
 # server.py
@@ -68,14 +67,14 @@ auth0 = oauth.remote_app(
 ## Specify the Callback URLs
 
 The callback URL is a URL in your web application where Auth0 redirects to after the user has authenticated 
-to the [authorization endpoint](/protocols/oauth2#authorization-endpoint) and granted permissions.
+to the [authorization endpoint](/protocols/oauth2#authorization-endpoint).
 
 ${include('../_callbackRegularWebApp')}
 
-In this case, the callbackURL should look something like:
+If you are following along with the downloadable sample projects for this tutorial directly, the **Callback URL** should be set to:
 
 ```text
-http://yourUrl/callback
+http://localhost:3000/callback
 ```
 
 ## Add the Auth0 Callback Handler
@@ -119,8 +118,7 @@ def callback_handling():
 
 ## Trigger Login With Flask-OAuthlib
 
-You can use `Flask-OAuthlib` to redirect the user to the authorize endpoint 
-to start the [Authorization Code](/api-auth/grant/authorization-code) grant flow, now we define that route:
+Add an route that uses the `Flask-OAuthlib` client instance to redirect the user to the authorize endpoint.
 
 ```python
 @app.route('/login')
@@ -155,8 +153,11 @@ See the [logout documentation](/logout#redirecting-users-after-logout) for more.
 
 ## Check if the user is authenticated
 
-You can add the following decorator to your `Flask` app to check if the user is authenticated. 
-Note that you should import `wraps` first, adding the following line to your file `from functools import wraps`.
+Add the following decorator to your `Flask` app to check if the user is authenticated. 
+
+::: note
+You should import `wraps` first, adding the following line to your `server.py` file: `from functools import wraps`.
+:::
 
 ```python
 def requires_auth(f):
@@ -172,8 +173,7 @@ def requires_auth(f):
 
 ## Display user information
 
-You can access the user information stored on the `session`.
-Add the following endpoint to render the template with the user information:
+To access the user information stored on the `session` add an endpoint to render it in a template .
 
 ```python
 @app.route('/dashboard')
@@ -184,7 +184,7 @@ def dashboard():
                            userinfo_pretty=json.dumps(session[constants.JWT_PAYLOAD], indent=4))
 ```
 
-To show the user information create `dashboard.html` file in a `template` folder in the root of the project.
+Create a `dashboard.html` file in a `template` folder in the root of the project to display the user information.
 
 ```html
 <div class="logged-in-box auth0-box logged-in">
