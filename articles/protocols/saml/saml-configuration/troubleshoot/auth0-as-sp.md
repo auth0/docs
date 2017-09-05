@@ -47,7 +47,7 @@ If Auth0's logs don't show a successful login event, there is probably an issue 
 
 Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har) and analyzing the HTTP trace.
 
-#### 1. Retrieve the Assertion
+#### Retrieve the Assertion
 
 You can view the HTTP trace in a HAR file analyzer, such as [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
 
@@ -60,7 +60,7 @@ You can view the HTTP trace in a HAR file analyzer, such as [Google's HAR Analyz
 5. Copy and paste the SAML response into a [SAML debugger](https://samltool.io/).
 6. Remove the "SAML response" at the beginning, as well as anything beginning with `&RelayState=` at the end.
 
-#### 2. Check the Assertion
+#### Check the Assertion
 
 After retrieving and decoding the SAML message, check the following fields:
 
@@ -100,11 +100,15 @@ With **Debug Mode** enabled, **Success Login** log entries [in the dashboard](${
 
 If an attribute value exists in the Auth0 user profile, but is not mapped to the right attribute, you can correct this via the Connection Mapping capability.
 
-You can do this by navigating to [Connections -> Enterprise](${manage_url}/#/connections/enterprise). Open up the list of **SAMLP Identity Providers**, click on **Settings**, and switching over to the *Mappings* tab.
+You can do this by navigating to [Connections -> Enterprise](${manage_url}/#/connections/enterprise). Open up the list of **SAMLP Identity Providers**, click on **Settings**, and switching over to the **Mappings** tab.
 
 ![](/media/articles/protocols/saml/saml-configuration/mappings.png)
 
 Within the provided editor, there is a JSON snippet you can edit to configure your mappings. The name on the left is the Auth0 user profile attribute to which the assertion value will be mapped. The value on the right is the identifier in the SAML assertion from which the attribute comes.
+
+::: warning
+When Auth0 incorporates unmapped SAML attributes into the user profile, attribute identifiers containing dots `.` are replaced with semicolons `:`. While configuring your mappings, ensure the identifiers you provide match those in the SAML assertion.
+:::
 
 ## Issue: The User Cannot Access the Application
 
@@ -119,11 +123,11 @@ The two most common causes for this issue are:
 * Missing user profile information
 * Incorrect or missing authorization information.
 
-### Check the SAML Authentication Assertion
+### Check the SAML Assertion
 
 Check the information that Auth0 sends to the application by [capturing an HTTP trace of the login sequence](/har) and analyzing the HTTP trace.
 
-#### 1. Retrieve the Assertion
+#### Retrieve the Assertion
 
 You can view the HTTP trace in a HAR file analyzer, such as [Google's HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/).
 
@@ -136,7 +140,7 @@ You can view the HTTP trace in a HAR file analyzer, such as [Google's HAR Analyz
 5. Copy and paste the SAML response into a [SAML debugger](https://samltool.io/).
 6. Remove the "SAML response" at the beginning, as well as anything beginning with `&RelayState=` at the end.
 
-#### 2. Check the Assertion
+#### Check the Assertion
 
 After retrieving and decoding the SAML message, check the following fields:
 
