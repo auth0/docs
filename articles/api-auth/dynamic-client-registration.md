@@ -41,7 +41,7 @@ In this section we will see how you can enable the dynamic registration feature 
 
 By default, the feature is disabled for all tenants. To change this, you have to update some tenant settings, promote the connections you will use with your dynamic clients to **domain connections**, and update your client's login page (if you use Lock).
 
-::: panel-warning Security warning
+::: warning
 Auth0 supports Open Dynamic Registration, which means that if you enable this feature, **anyone** will be able to create clients in your tenant without a token.
 :::
 
