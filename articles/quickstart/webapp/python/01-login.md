@@ -126,6 +126,17 @@ def login():
     return auth0.authorize(callback='${account.callback}')
 ```
 
+Create a `home.html` file in a `template` folder in the root of the project to display the link to login.
+
+```html
+<div class="login-box auth0-box before">
+    <img src="https://i.cloudup.com/StzWWrY34s.png" />
+    <h3>Auth0 Example</h3>
+    <p>Zero friction identity infrastructure, built for developers</p>
+    <a class="btn btn-primary btn-lg btn-login btn-block" href="/login">Log In</a>
+</div>
+```
+
 ::: note
 The `callback` specified **must match** the URL specified in the previous step.
 :::
