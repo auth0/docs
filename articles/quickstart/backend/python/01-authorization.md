@@ -23,7 +23,7 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
 
 ## Install the Dependencies
 
-This quickstart demonstrates how to add authorization to your Python API using Flask. Add the following dependencies to
+This quickstart demonstrates how to add authorization to your Python API using [Flask](http://flask.pocoo.org/). Add the following dependencies to
 your `requirements.txt`:
 
 ```python
