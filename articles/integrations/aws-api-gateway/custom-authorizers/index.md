@@ -54,5 +54,5 @@ Before beginning this tutorial, you'll need to [sign up for an AWS account](http
 :::
 
 <%= include('./_stepnav', {
- next: ["1. Configure the Auth0 API", "/integrations/aws-api-gateway/custom-authorizers/part-1"]
+ next: ["Configure the Auth0 API", "/integrations/aws-api-gateway/custom-authorizers/part-1"]
 }) %>
