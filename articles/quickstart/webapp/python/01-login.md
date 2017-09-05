@@ -108,8 +108,8 @@ def callback_handling():
     session[constants.JWT_PAYLOAD] = payload
     
     session[constants.PROFILE_KEY] = {
-        'user_id': payload['user_id'],
-        'email': payload['email'],
+        'user_id': payload['sub'],
+        'name': payload['name'],
         'picture': payload['picture']
     }
     
@@ -190,7 +190,7 @@ Create a `dashboard.html` file in a `template` folder in the root of the project
 <div class="logged-in-box auth0-box logged-in">
     <h1 id="logo"><img src="//cdn.auth0.com/samples/auth0_logo_final_blue_RGB.png" /></h1>
     <img class="avatar" src="{{userinfo['picture']}}"/>
-    <h2>Welcome {{userinfo['email']}}</h2>
+    <h2>Welcome {{userinfo['name']}}</h2>
     <pre>{{userinfo_pretty}}</pre>
     <a class="btn btn-primary btn-lg btn-logout btn-block" href="/logout">Logout</a>
 </div>
