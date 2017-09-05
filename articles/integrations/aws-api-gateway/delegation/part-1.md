@@ -3,6 +3,11 @@ title: AWS API Gateway Tutorial - Set Up the Amazon API Gateway
 description: Step 1 of Amazon API Gateway Tutorial
 ---
 # AWS API Gateway Tutorial
+
+::: version-warning
+Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
+:::
+
 ## Step 1 - Set up the Amazon API Gateway
 
 After completing this step, you will have:
@@ -324,5 +329,5 @@ At this point, the AWS Lambda functions and the Amazon API Gateway methods are d
 
 <%= include('./_stepnav', {
  prev: ["0. Introduction", "/integrations/aws-api-gateway/delegation"],
- next: ["2. Securing and Deploying", "/integrations/delegation/aws-api-gateway/part-2"]
+ next: ["2. Securing and Deploying", "/integrations/aws-api-gateway/delegation/part-2"]
 }) %>

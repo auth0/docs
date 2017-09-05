@@ -27,7 +27,7 @@ https://${account.namespace}/authorize
   &client_id=${account.clientId}
   &redirect_uri=${account.callback}
   &scope=openid%20profile
-  &connection=google
+  &connection=google-oauth2
   &connection_scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fanalytics%2Chttps%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts.readonly
   &nonce=abc
 ```

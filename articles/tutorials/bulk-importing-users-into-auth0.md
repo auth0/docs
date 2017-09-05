@@ -7,7 +7,9 @@ toc: true
 
 If you already have a user base, you can use our [/post_users_imports Management API endpoint](/api/management/v2#!/Jobs/post_users_imports) to populate a database connection with this information. The user data should first be exported in JSON format. You can then import that file using our API. 
 
-Note that each of those users will have to reset their password when they log in for the first time.
+::: note
+Each affected user will need to reset their password when they log in the first time after the bulk import.
+:::
 
 ## Pre-requisites
 

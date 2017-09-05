@@ -11,7 +11,7 @@ mobileimg: media/articles/libraries/lock-android.png
 
 Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory.
 
-Get started using Lock for Android below, or if you're looking for a specific document, try the listing of [additional documents](#additional-documents) related to Lock for Android.
+Get started using Lock for Android below, or if you're looking for a specific document beyond basic setup of Lock, try the listing of [next steps](#next-steps) for working with Lock for Android.
 
 ## Requirements
 
@@ -272,9 +272,9 @@ For descriptions of common error messages, check out the [Error Messages](/libra
 ## Next Steps
 
 ::: next-steps
-* [Customizing the Style of Lock](/libraries/lock-android/v2/custom-theming)
-* [Customizing the Behavior of Lock](/libraries/lock-android/v2/configuration)
-* [Adding Custom Signup Fields to Lock](/libraries/lock-android/v2/custom-fields)
-* [Lock Internationalization](/libraries/lock-android/v2/internationalization)
+* [Customizing the Style of Lock](/libraries/lock-android/custom-theming)
+* [Customizing the Behavior of Lock](/libraries/lock-android/configuration)
+* [Adding Custom Signup Fields to Lock](/libraries/lock-android/custom-fields)
+* [Lock Internationalization](/libraries/lock-android/internationalization)
 * [Logging out Users](/logout)
 :::

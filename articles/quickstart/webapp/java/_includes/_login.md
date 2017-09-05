@@ -49,7 +49,7 @@ AuthenticationController controller = AuthenticationController.newBuilder(domain
                 .build();
 ```
 
-To authenticate the users we will redirect them to the **Auth0 Login Page** which uses the best version available of [Lock](/lock). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginServlet` class of our sample.
+To authenticate the users we will redirect them to the **Auth0 Login Page** which uses the best version available of [Lock](/lock). This page is what we call the "Authorize URL". By using this library we can generate it with a simple method call. It will require a `HttpServletRequest` to store the call context in the session and the URI to redirect the authentication result to. This URI is normally the address where our app is running plus the path where the result will be parsed, which happens to be also the "Callback URL" whitelisted before. Finally, we will request the "User Info" *audience* in order to obtain an Open ID Connect compliant response. After we create the Authorize URL, we redirect the request there so the user can enter their credentials. The following code snippet is located on the `LoginServlet` class of our sample.
 
 ```java
 @Override
@@ -57,6 +57,7 @@ protected void doGet(final HttpServletRequest req, final HttpServletResponse res
     String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/callback";
 
     String authorizeUrl = authenticationController.buildAuthorizeUrl(req, redirectUri)
+            .withAudience(String.format("https://%s/userinfo", domain))
             .build();
     res.sendRedirect(authorizeUrl);
 }

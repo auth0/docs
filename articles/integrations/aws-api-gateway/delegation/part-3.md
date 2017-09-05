@@ -2,8 +2,12 @@
 title: Amazon API Gateway Tutorial - Building the Client App
 description: Step 3 of Amazon API Gateway Tutorial
 ---
-
 # AWS API Gateway Tutorial
+
+::: version-warning
+Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
+:::
+
 ## Step 3 - Build the Client Application
 
 In this step, you will build a single page, serverless client application using the AngularJS framework that you will serve out of an AWS S3 bucket configured to act as a static website.

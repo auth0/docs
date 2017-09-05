@@ -2,8 +2,12 @@
 title: Amazon API Gateway Tutorial - Flowing Identity
 description: Step 5 of Amazon API Gateway Tutorial
 ---
-
 # AWS API Gateway Tutorial
+
+::: version-warning
+Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
+:::
+
 ## Step 5 - Use Identity Tokens to Flow Identity
 
 In this final step, you will:

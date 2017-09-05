@@ -24,7 +24,7 @@ You can search for users in the [Users section of the Auth0 Dashboard](${manage_
 
 ## Search for Users Using the Management API
 
-You can also search for users using the [Management API](/api/v2). Two of the easiest ways to do this is by either making use of the **API Explorer** or by using **Postman**. These 2 techniques are discussed briefly below, but please note that the Auth0 Management API is a REST API, so you can make API calls using anything that can make HTTP requests, or by using one of the [Auth0 SDKs](/support/matrix#sdks).
+You can also search for users using the [Management API](/api/v2). Two of the easiest ways to do this is by either making use of the **API Explorer** or by using **Postman**. These two techniques are discussed briefly below, but please note that the Auth0 Management API is a REST API, so you can make API calls using anything that can make HTTP requests, or by using one of the [Auth0 SDKs](/support/matrix#sdks).
 
 In order to make requests to the Management API, you will need a token. Please refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for more information.
 
@@ -122,6 +122,32 @@ Search for users from a specific connection or provider | `identities.provider:"
 Search for all users that have never logged in | `(_missing_:logins_count OR logins_count:0)`
 Search for all users who logged in before 2015 | `last_login:[* TO 2014-12-31]`
 Fuzziness: Search for terms that are similar to, but not exactly like, `jhn` | `name:jhn~`
+
+### Example Request
+
+Below is an example request for searching all users whose email is exactly "john@contoso.com".
+
+```har
+{
+  "method": "GET",
+  "url": "https://${account.namespace}/api/v2/users",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer ACCESS_TOKEN" }
+  ],
+  "queryString": [
+    {
+      "name": "q",
+      "value": "email.raw:\"john@contoso.com\"",
+      "comment": "Query in Lucene query string syntax"
+    },
+    {
+      "name": "search_engine",
+      "value": "v2",
+      "comment": "Use 'v2' if you want to try our new search engine"
+    }
+  ]
+}
+```
 
 ### Search using ranges
 
