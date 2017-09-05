@@ -5,8 +5,8 @@ description: How to build a serverless application using Token-based Authenticat
 
 # Build a Serverless Application Using Token-Based Authentication with AWS API Gateway and Lambda
 
-::: warning
-Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers; you can use the versioning drop-down above to switch to the appropriate set of docs.
+::: version-warning
+Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
 :::
 
 With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a JavaScript client.
@@ -21,12 +21,12 @@ Next, the tutorial walks you through setting up the Amazon API Gateway using AWS
 
 You will be taken through the following steps:
 
-* [Step 1 - Set up the AWS API Gateway](/integrations/aws-api-gateway/part-1)
-* [Step 2 - Secure and Deploy the Amazon API Gateway](/integrations/aws-api-gateway/part-2)
-* [Step 3 - Build the Client Application](/integrations/aws-api-gateway/part-3)
-* [Step 4 - Use Multiple Roles with Amazon API Gateway](/integrations/aws-api-gateway/part-4)
-* [Step 5 - Use Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5)
+* [Step 1 - Set up the AWS API Gateway](/integrations/aws-api-gateway/delegation/part-1)
+* [Step 2 - Secure and Deploy the Amazon API Gateway](/integrations/aws-api-gateway/delegation/part-2)
+* [Step 3 - Build the Client Application](/integrations/aws-api-gateway/delegation/part-3)
+* [Step 4 - Use Multiple Roles with Amazon API Gateway](/integrations/aws-api-gateway/delegation/part-4)
+* [Step 5 - Use Identity Tokens to Flow Identity](/integrations/aws-api-gateway/delegation/part-5)
 
 <%= include('./_stepnav', {
- next: ["1. Setup", "/integrations/aws-api-gateway/part-1"]
+ next: ["1. Setup", "/integrations/aws-api-gateway/delegation/part-1"]
 }) %>

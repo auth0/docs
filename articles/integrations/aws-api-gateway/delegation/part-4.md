@@ -2,8 +2,12 @@
 title: Amazon API Gateway Tutorial - Using Multiple Roles
 description: Step 4 of Amazon API Gateway Tutorial
 ---
-
 # AWS API Gateway Tutorial
+
+::: version-warning
+Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
+:::
+
 ## Step 4 - Use Multiple Roles with Amazon API Gateway
 
 In this step, you'll assign different AWS IAM roles to users based on authentication information:
@@ -322,5 +326,5 @@ You will then be presented with the output of running your rule.
 
 <%= include('./_stepnav', {
  prev: ["3. Building the Client Application", "/integrations/aws-api-gateway/delegation/part-3"],
- next: ["5. Using Identity Tokens", "/integrations/delegation/aws-api-gateway/part-5"]
+ next: ["5. Using Identity Tokens", "/integrations/aws-api-gateway/delegation/part-5"]
 }) %>

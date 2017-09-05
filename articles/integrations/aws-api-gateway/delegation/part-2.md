@@ -2,8 +2,12 @@
 title: Amazon API Gateway Tutorial - Adding Security and Deploying
 description: Step 2 of Amazon API Gateway Tutorial
 ---
-
 # AWS API Gateway Tutorial
+
+::: version-warning
+Delegation is considered deprecated in Auth0. Please integrate Auth0 using custom authorizers. Use the drop-down to switch to these docs.
+:::
+
 ## Step 2 - Secure and Deploy the Amazon API Gateway
 
 Now that you have your API running, you need to add security. In this step, you will:
