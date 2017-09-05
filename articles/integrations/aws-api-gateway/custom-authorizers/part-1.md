@@ -30,5 +30,5 @@ More specifically, you'll need to refer to your API's **Identifier** (or `audien
 
 <%= include('./_stepnav', {
  prev: ["Introduction", "/integrations/aws-api-gateway/custom-authorizers"],
- next: ["2. Import and Deploy the API Gateway API", "/integrations/aws-api-gateway/custom-authorizers/part-2"]
+ next: ["Import and Deploy the API Gateway API", "/integrations/aws-api-gateway/custom-authorizers/part-2"]
 }) %>

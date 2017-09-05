@@ -64,5 +64,5 @@ In this tutorial, you have
 3. Secured your API with your custom authorizer
 
 <%= include('./_stepnav', {
- prev: ["3. Create the Custom Authorizers", "/integrations/aws-api-gateway/custom-authorizers/part-3"]
+ prev: ["Create the Custom Authorizer", "/integrations/aws-api-gateway/custom-authorizers/part-3"]
 }) %>
