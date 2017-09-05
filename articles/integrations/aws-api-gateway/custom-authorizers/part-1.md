@@ -8,7 +8,7 @@ You will need to configure the APIs consumed by the clients that successfully au
 
 Click **Create API** to create a new API for your integration.
 
-![](/api-1.png)
+![](/media/articles/integrations/aws-api-gateway-2/api-1.png)
 
 You'll be asked to provide values for the following fields:
 
@@ -20,11 +20,11 @@ You'll be asked to provide values for the following fields:
 
 Click **Create** to proceed.
 
-![](/api-2.png)
+![](/media/articles/integrations/aws-api-gateway-2/api-2.png)
 
 You can refer to the **Settings** page for the details of your newly-created API. 
 
-![](/api-3.png)
+![](/media/articles/integrations/aws-api-gateway-2/api-3.png)
 
 More specifically, you'll need to refer to your API's **Identifier** (or `audience` parameter) when you [configure your API Gateway custom authorizer in step 3](/integrations/aws-api-gateway/custom-authorizers/part-3#prepare-the-custom-authorizer) of this tutorial.
 
