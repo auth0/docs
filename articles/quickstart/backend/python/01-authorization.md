@@ -39,8 +39,8 @@ Create a `server.py` file and initializate the Flask App. Set the domain, audien
 ```python
 import json
 from six.moves.urllib.request import urlopen
-
 from functools import wraps
+
 from flask import Flask, request, jsonify, _app_ctx_stack
 from flask_cors import cross_origin
 from jose import jwt
