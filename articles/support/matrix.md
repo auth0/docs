@@ -154,7 +154,7 @@ toc: true
   </table>
 
 
-  ### Auth0 Analytics
+  ### Auth0 Analytics SDK
 
   #### Desktop Browsers
 
@@ -314,7 +314,7 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
     </tbody>
   </table>
   
-  ### Auth0 Analytics
+  ### Auth0 Analytics SDK
 
   <table class="table">
     <thead>
