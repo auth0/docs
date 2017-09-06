@@ -12,7 +12,7 @@ This document will demonstrate the various ways in which you can search for user
 
 ## Searchable Fields
 
-You can search for user using the following fields:
+You can search for users using the following fields:
 
 * All the [normalized user profile](/user-profile/normalized) fields
 
