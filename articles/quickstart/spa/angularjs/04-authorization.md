@@ -19,7 +19,7 @@ budicon: 546
 
 ## Handle Scopes in the `angularAuth0` Configuration
 
-In the `angularAuth0` configuration, use a variable with any scopes you want to request when users log in.
+In the `angularAuth0` configuration, initialize a variable with all the scopes you want to request when users log in.
 
 ```js
 // app/app.js
@@ -118,7 +118,7 @@ In this example, when an unauthenticated user tries to access the `/ping` route,
 
 ### Limit Route Access Based on Scopes
 
-You can use the `onEnter` hook to prevent access to client-side routes based on scopes. Call a function that passes the scope you choose to the `userHasScopes` function from the `authService` service.
+You can use the `onEnter` hook to prevent access to client-side routes based on scopes. Call a `checkForScopes` function that passes the scope you choose to the `userHasScopes` function from the `authService` service.
 
 If the user does not have the `write:messages` scope, they are redirected to the main route.
 
