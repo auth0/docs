@@ -1,6 +1,5 @@
 ## Lock for Android v1 Resources
 
-::: next-steps
 * [Lock v1 Configuration](/libraries/lock-android/v1/configuration)
 * [Lock v1 Use Your Own UI](/libraries/lock-android/v1/use-your-own-ui)
 * [Lock v1 Error Messages](/libraries/lock-android/v1/error-messages)
@@ -10,4 +9,3 @@
 * [Lock v1 Sending Authentication Params](/libraries/lock-android/v1/sending-authentication-parameters)
 * [Lock v1 Installation and Setup](/libraries/lock-android/v1)
 * [Logging out Users](/logout)
-:::
