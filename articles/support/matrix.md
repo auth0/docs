@@ -267,28 +267,6 @@ Auth0 support is limited to the most recent version of the OS listed (unless oth
       </tr>
     </tbody>
   </table>
-  
-  
-  ### Auth0 Analytics
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th width="80%">OS</th>
-        <th width="20%">Level of Support</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Apple iOS 9 (or later)</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-      <tr>
-        <td>Google Android KitKat (4.4) or later</td>
-        <td><div class="label label-primary">Supported</div></td>
-      </tr>
-    </tbody>
-  </table>
 
   ## SDKs and Libraries
 
