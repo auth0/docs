@@ -2,13 +2,16 @@
 
 ## Create an Authentication Service
 
-Create a reusable service to manage and coordinate user authentication. You can call the service's methods from your application. You can create an instance of the `WebAuth` object from the auth0.js library in the service.
+Create a service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is  `Auth` and the filename is `Auth.js`.
+
+In the service add an instance of the `auth0.WebAuth` object. When creating that instance, you can specify the following:
+<%= include('../../_includes/_auth_service_configure_client_details') %>
 
 ::: note
-You can name the service anything you want. In the examples below, the service is  `Auth` and the filename is `Auth.js`.
+In this tutorial, the route is `/callback`, which is implemented in the [Add a Callback Component](#add-a-callback-component) step. 
 :::
 
-Create a service and add an instance of the `auth0.WebAuth` object. Add a `login` method that calls the `authorize` method from auth0.js.
+Add a `login` method that calls the `authorize` method from auth0.js.
 
 ```js
 // src/Auth/Auth.js
@@ -19,7 +22,7 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: '${account.namespace}',
     clientID: '${account.clientId}',
-    redirectUri: 'http://localhost:3000',
+    redirectUri: 'http://localhost:3000/callback',
     audience: 'https://${account.namespace}/userinfo',
     responseType: 'token id_token',
     scope: 'openid'
@@ -120,10 +123,6 @@ import createHistory from 'history/createBrowserHistory'
 export default createHistory()
 ```
 
-### About the Authentication Service
-
-<%= include('../../_includes/_auth_service_method_description_auth0js') %>
-
 ## Provide a Login Control
 
 Provide a component with controls for the user to log in and log out.
@@ -134,7 +133,7 @@ ${snippet(meta.snippets.use)}
 This example uses Bootstrap styles. You can use any style library you want, or not use one at all.
 :::
 
-Depending on whether the user is authenticated or not, they see the **Log Out** or **Log In** button. The `click` events on the buttons make calls to the `Auth` service to let the user log out or log in. When the user clicks the **Log In** button, they are redirected to the Auth0 hosted login page. 
+Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `Auth` service to let the user log out or log in. When the user clicks the **Log In** button, they are redirected to the Auth0 hosted login page. 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
