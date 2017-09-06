@@ -5,7 +5,7 @@ toc: true
 
 # Call AWS APIs and Resources Securely with Tokens
 
-::: warning
+::: panel-warning Legacy Grant Types
 As of 8 June 2017, new Auth0 customers cannot add any of the legacy grant types to their clients, which are required for use with the [Delegation endpoint](/api/authentication#get-token-info). Legacy grant types are only available for previous customers while they migrate to new flows, to avoid breaking changes. To find the secure alternative for your case refer to [Secure Alternatives to the Legacy Grant Types](#secure-alternatives-to-the-legacy-grant-types). If you have any questions about which alternative you should use, please contact [Support](${env.DOMAIN_URL_SUPPORT}).
 :::
 
