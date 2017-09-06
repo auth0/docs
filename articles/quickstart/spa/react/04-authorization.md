@@ -19,7 +19,7 @@ budicon: 546
 
 ## Handle Scopes in the `Auth` Service
 
-Adjust your `Auth` service, so it uses a local member with any scopes you want to request when users log in. Use this member in your instance of the `auth0.WebAuth` object.
+Add a local member to your `Authe` service and intialize it with all the scopes you want to request when users log in. Use this member when initializing your instance of the `auth0.WebAuth` object.
 
 ```js
 // src/Auth/Auth.js
