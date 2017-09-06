@@ -105,6 +105,10 @@ Refer to the developer's customer as the "user". Be sure to keep the idea of the
 
 The [Auth0 management console](${manage_url}) is referred to as the "dashboard".
 
+### Proper Entities
+
+If you need to use the name of a fictitious company, please use ExampleCo.
+
 ### More
 
 For more information refer to [WORDS](WORDS.md).
