@@ -9,7 +9,7 @@ toc: true
 
 # Server + API
 
-In this scenario we will build a Timesheet API for a fictitious company named ABC Inc. The API will allow to add timesheet entries for an employee or a contractor.
+In this scenario we will build a Timesheet API for a fictitious company named ExampleCo The API will allow to add timesheet entries for an employee or a contractor.
 
 We will also be building a cron job which will process timesheet entries from an external system to the centralized timesheet database using the API.
 
@@ -23,17 +23,17 @@ We will also be building a cron job which will process timesheet entries from an
 :::
 ## The Premise
 
-ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. All employees and external contractors are required to fill in their timesheets every week. For this purpose, they built a timesheets application, a scenario we covered in [Single Sign-On for Regular Web Apps](/architecture-scenarios/application/web-app-sso). The internal employees use this web app to fill in their timesheets but some of the external contractors already use another tool to track their timesheets. Hence a solution to avoid the double work is required. It was decided to build a cron job which will read the timesheet entries from this external system, and automatically upload those to ABC's backend using an API.
+ExampleCo is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. All employees and external contractors are required to fill in their timesheets every week. For this purpose, they built a timesheets application, a scenario we covered in [Single Sign-On for Regular Web Apps](/architecture-scenarios/application/web-app-sso). The internal employees use this web app to fill in their timesheets but some of the external contractors already use another tool to track their timesheets. Hence a solution to avoid the double work is required. It was decided to build a cron job which will read the timesheet entries from this external system, and automatically upload those to ExampleCo's backend using an API.
 
 ### Goals & Requirements
 
-ABC wants to build a flexible solution. At the moment only an automated process needs to push timesheet entries but in the future the company plans on launching more clients, like a mobile app to accommodate their sales teams. Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this server process, but by all future clients as well. They want to put in place a security architecture that is flexible enough to accommodate this. ABC Inc. wants to ensure that a large part of the code and business logic for the application can be shared across the different client applications.
+ExampleCo wants to build a flexible solution. At the moment only an automated process needs to push timesheet entries but in the future the company plans on launching more clients, like a mobile app to accommodate their sales teams. Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this server process, but by all future clients as well. They want to put in place a security architecture that is flexible enough to accommodate this. ExampleCo wants to ensure that a large part of the code and business logic for the application can be shared across the different client applications.
 
 It is required that only authorized users and applications are allowed access to the Timesheets API.
 
 ## Overview of the Solution
 
- In order to ensure that only authorized users and applications are allowed access to the Timesheets API, ABC Inc. has decided to make use of the [OAuth 2.0 authorization framework](https://tools.ietf.org/html/rfc6749). The framework provides the flexibility the company wants since the different grants can allow them to easily authorize the various types of application which need to communicate with the Timesheets API.
+ In order to ensure that only authorized users and applications are allowed access to the Timesheets API, ExampleCo has decided to make use of the [OAuth 2.0 authorization framework](https://tools.ietf.org/html/rfc6749). The framework provides the flexibility the company wants since the different grants can allow them to easily authorize the various types of application which need to communicate with the Timesheets API.
 
 ### API Authentication and Authorization
 
@@ -305,7 +305,7 @@ In order to do so we will:
 
 ## Conclusion
 
-In this document we covered a simple scenario: an API, used to import timesheet entries in ABC's systems, and a cron job, used by external contractors to send in their timesheets using this API.
+In this document we covered a simple scenario: an API, used to import timesheet entries in ExampleCo's systems, and a cron job, used by external contractors to send in their timesheets using this API.
 
 We learned about the Client Credentials Grant, what an access token is, how to configure an API in Auth0, how to configure a non interactive client to communicate securely with this API, how to define and secure our API endpoints, how to use the provided libraries to validate the access token and how to retrieve a new one from Auth0.
 
