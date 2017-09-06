@@ -27,7 +27,7 @@ For details on how to follow this new process refer to <a href="/api/management/
 
 #### Why this changed
 
-In order to generate the token, the Management API requires access to your __Global Client Secret__ (used to sign the token). This is information that should __not__ be exposed to web browsers.
+In order to generate the token, the Management API required access to your __Global Client Secret__ (used to sign the token). This is information that should __not__ be exposed to web browsers.
 
 Furthermore, the API Explorer has no way to do authorization. This means that if you could login and access the API explorer, you could generate a token with __any__ scope, even if you as the logged in user were not allowed to have that scope.
 

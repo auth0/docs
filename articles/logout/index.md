@@ -79,7 +79,7 @@ You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples
     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
     ```
 
-  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the [Advanced tab of your Tenant Settings](${manage_url}/#/tenant/advanced). See [Set the Allowed Logout URLs at the Tenant Level](#set-the-allowed-logout-urls-at-the-account-level) for more information.
+  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the [Advanced tab of your Tenant Settings](${manage_url}/#/tenant/advanced). See [Set the Allowed Logout URLs at the Tenant Level](#set-the-allowed-logout-urls-at-the-tenant-level) for more information.
 
 * For logout requests that include the `client_id` parameter, for example:
 
@@ -126,7 +126,7 @@ In order to avoid validation errors, make sure that you do include the protocol 
 * The URLs provided to the **Allowed Logout URLs** list are case-sensitive, so the URL used for logouts must match the case of the logout URL configured on the dashboard. Note, that the scheme and host parts, are case-insensitive. For example, in `http://www.Example.Com/FooHoo.html`, the `http://www.Example.Com` is case-insensitive, while the `FooHoo.html` is case-sensitive.
 
 ::: note
-If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the **Auth0 Dashboard** for the logout to function.
+If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the [Dashboard](${manage_url}) for the logout to function.
 :::
 
 #### Facebook Users

@@ -228,7 +228,7 @@ Make sure you are logged into the **Tenant 1 Auth0 dashboard**.
 
 In this section, you will test to make sure the SAML configuration between Auth0 tenant 1 (Service Provider) and Auth0 tenant 2 (Identity Provider) is working.
 
-* In the **Auth0 dashboard**, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
+* On the [Dashboard](${manage_url}), navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-14.jpg)
 
