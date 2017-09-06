@@ -9,6 +9,10 @@ __Development__, __Test__, __Q&A__ environments are easy to setup in Auth0. Simp
 
 The example above uses a simple naming convention to distinguish each environment, you can name your multiple environments anyway you prefer. No need to use this naming convention, though it is the one recommended.
 
+::: note
+You can request a [child account](/dev-lifecycle/child-tenants) for use in a development/staging/testing environment. Note that free accounts do not include a child account.
+:::
+
 ## Migration
 
 Through the [Management API v2](/api/management/v2), you can automate the migration of assets (rules, database connections, and so forth) between tenants.
