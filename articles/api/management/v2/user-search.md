@@ -10,10 +10,24 @@ Auth0 allows you, as an administrator, to search for users using [Lucene Query S
 
 This document will demonstrate the various ways in which you can search for users, as well as give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
 
-All the [normalized user profile](/user-profile/normalized) fields, as well as the `user_metadata` and `app_metadata` are searchable.
+## Searchable Fields
+
+You can search for user using the following fields:
+
+* All the [normalized user profile](/user-profile/normalized) fields
+
+* __Only__ the profile information under the `user_metadata` object:
+  - `name`
+  - `nickname`
+  - `given_name`
+  - `family_name`
+
+::: warning
+__None__ of the `app_metadata` fields are searchable.
+:::
 
 ::: note
-For more information on working with `user_metadata` and `app_metadata`, please read the [Metadata documentation](https://auth0.com/docs/metadata).
+For more information on user related metadata refer to [User Metadata](](/metadata).
 :::
 
 ## Search for Users in the Dashboard
