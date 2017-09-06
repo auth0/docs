@@ -71,7 +71,7 @@ getProfile(cb) {
 
 ## Add a Profile Component
 
-You can adjust how you show profile information to your users. Some applications have a dedicated profile section for displaying user information. The example below shows how to set it up. 
+Some applications have a dedicated profile section for displaying user information. The example below shows how to set it up. 
 
 Create a new component called `ProfileComponent`.
 
@@ -117,6 +117,6 @@ class Profile extends Component {
 export default Profile;
 ```
 
-The component first looks for a profile held in memory on the service. If it doesn't find the profile, the component makes a call to `getProfile` to get the user's information.
+The component first looks for a profile cached on the service. If it doesn't find the profile, the component makes a call to `getProfile` to get the user's information.
 
 <%= include('../_includes/_user_profile_additional_info') %>
