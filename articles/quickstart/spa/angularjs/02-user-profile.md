@@ -117,6 +117,6 @@ Create a new controller and view to display the profile.
 </div>
 ```
 
-The component first looks for a profile in the service memory. If it doesn't find the profile, the component calls the `getProfile` function to get the user's profile from Auth0.
+The component first looks for a profile cached in the service. If it doesn't find the profile, the component calls the `getProfile` function to get the user's profile from Auth0.
 
 <%= include('../_includes/_user_profile_additional_info') %>
