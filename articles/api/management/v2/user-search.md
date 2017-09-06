@@ -6,21 +6,29 @@ toc: true
 ---
 # User Search
 
-Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html). This syntax can be used either in the [Users section of the Auth0 Dashboard](${manage_url}/#/users) or with the [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) of the [Management API](/api/v2)  
+Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
 
-This document will demonstrate the various ways in which you can search for users, as well as give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
+This document will demonstrate how you can search for users and give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
 
-All the [normalized user profile](/user-profile/normalized) fields, as well as the `user_metadata` and `app_metadata` are searchable.
+## Searchable Fields
 
-::: note
-For more information on working with `user_metadata` and `app_metadata`, please read the [Metadata documentation](https://auth0.com/docs/metadata).
+You can search for users using the following fields:
+
+* All the [normalized user profile](/user-profile/normalized) fields
+
+* __Only__ the profile information under the `user_metadata` object:
+  - `name`
+  - `nickname`
+  - `given_name`
+  - `family_name`
+
+::: warning
+__None__ of the `app_metadata` fields are searchable.
 :::
 
-## Search for Users in the Dashboard
-
-You can search for users in the [Users section of the Auth0 Dashboard](${manage_url}/#/users). To use the [Lucene Query Syntax](/api/management/v2/query-string-syntax), go to the **Search By** drop down and select **Lucene Syntax (advanced)**.
-
-![Select Lucene Syntax](/media/articles/api/user-search-lucene.png)
+::: note
+For more information on user related metadata refer to [User Metadata](/metadata).
+:::
 
 ## Search for Users Using the Management API
 
@@ -30,7 +38,7 @@ In order to make requests to the Management API, you will need a token. Please r
 
 ### Search using the API Explorer
 
-To search users using the [Management API Explorer](/api/v2#!/users/get_users), go to the **Users** section and then select **List or search users**. Scroll down to the `q` parameter. You can use any query string which uses the [query string syntax](/api/management/v2/query-string-syntax) in this field.
+To search users using the [Management API Explorer](/api/management/v2#!/Users/get_users), go to the **Users** section and then select **List or search users**. Scroll down to the `q` parameter. You can use any query string which uses the [query string syntax](/api/management/v2/query-string-syntax) in this field.
 
 ![Searching users in API Explorer](/media/articles/api/search-users-api.png)
 
@@ -62,23 +70,6 @@ Because of the manner in which ElasticSearch handles tokenization on `+` and `-`
 
 You can solve this problem either by using structured JSON in your metadata, or by using the raw subfield.
 
-### Structured JSON vs Delimited Strings
-
-Using structured JSON in your metadata is the ideal. Using delimited strings can result in security risks and exposure to problems. Here is an example of structured JSON which can be stored in the `user_metadata` (or `app_metadata`) field:
-
-```json
-{
-  "preference": {
-    "color": "pink",
-    "displayTitleBar": true
-  }
-}
-```
-
-::: note
-For further information on metadata and how it should be structured can be found in the [metadata documentaton](/metadata).
-:::
-
 ### Using the `raw` Subfield
 
 If you wish to avoid the potential pitfalls of analyzed data and search for an exact match to your term - an exact string comparison - then for some fields you can use the `raw` subfield, which will be `not_analyzed`.
@@ -100,7 +91,7 @@ The fields that support `raw` subfield queries are:
 
 ## Example Queries
 
-Below are some example queries to illustrate the kinds of queries that are possible using the dashboard or the Management API V2.
+Below are some example queries to illustrate the kinds of queries that are possible using the Management API V2.
 
 Use Case | Query
 ---------|----------
@@ -112,12 +103,7 @@ Search for user names that start with "john" and end with "smith" | `name:john*s
 Search for all users whose email _is_ exactly "john@contoso\.com" | `email.raw:"john@contoso.com"`
 Search for all users whose email is exactly "john@contoso\.com" or "mary@contoso\.com" using `OR` | `email.raw:("john@contoso.com" OR "mary@contoso.com")`
 Search for users without verified email | `email_verified:false OR _missing_:email_verified`
-Search for user users who has the `user_metadata` field named `blog_url` with the value of "www.johnsblog.com" | `user_metadata.blog_url:"www.johnsblog.com"`
-Search for users where the _nested_ `user_metadata` field named `preference.color` has the value of "pink" | `user_metadata.preference.color:"pink"`
-Search for users where the `app_metadata` field named `firstName` has a value of "John" | `app_metadata.firstName:"John"`
-Search for users that have an `app_metadata` field named `plan` | `_exists_:app_metadata.plan`
-Search for users without the `app_metadata` field named `plan` | `_missing_:app_metadata.plan`
-Search for users how have the role of "admin" | `app_metadata.roles:"admin"`
+Search for users who have the `user_metadata` field named `name` with the value of "John Doe" | `user_metadata.name:"John Doe"`
 Search for users from a specific connection or provider | `identities.provider:"google-oauth2"`
 Search for all users that have never logged in | `(_missing_:logins_count OR logins_count:0)`
 Search for all users who logged in before 2015 | `last_login:[* TO 2014-12-31]`
