@@ -38,7 +38,9 @@ To get started, in your `AndroidManifest.xml` you need to add the following:
 
 Where `@string/facebook_app_id` is your Facebook Application ID that you can get from [Facebook Dev Site](https://developers.facebook.com/apps).
 
-> For more information please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/android/getting-started).
+::: note
+For more information please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/android/getting-started).
+:::
 
 Finally, you need to register Auth0 Facebook Provider with Lock so it can do all Facebook authentication. This can be done in your Application object `onCreate` method right after you initialise Lock:
 
