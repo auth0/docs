@@ -104,31 +104,6 @@ Refer to the developer's customer as the "user". Be sure to keep the idea of the
 
 The [Auth0 management console](${manage_url}) is referred to as the "dashboard".
 
-## Dashboard-Related Terminology
-
-![](/media/readme/structure.png)
-
-### Account
-
-Represents a user, their credentials, and (optionally) a profile and other attributes
-
-### Tenant
-
-A logical isolation unit of the products we offer. e.g. a tenant of Auth0 would be `foo.auth0.com` vs. another tenant `bar.auth0.com`.
-
-### Subscription
-
-Defines custom terms; this is a contract or service plan e.g. trial, free, developer or developer-pro
-
-#### Within Appliance subscriptions
-
-* **Auth0 tenants** refers to regular cloud tenants
-* **Private instances** refers to appliance instances
-
-### TL;DR
-
-Generally speaking, unless you're referring to MFA configuration, payment options, or user profiles (for the *owner* of the account), you'll use `tenant`, not `account`.
-
 ### More
 
 For more information refer to [WORDS](WORDS.md).
