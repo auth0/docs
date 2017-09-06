@@ -19,7 +19,9 @@ budicon: 546
 
 ## Handle Scopes in the `angularAuth0` Configuration
 
-In the `angularAuth0` configuration, initialize a variable with all the scopes you want to request when users log in.
+Add a local variable to `app/app.js` and initialize it with all the scopes you want to request when users log in.
+
+Use that variable to set the scopes in the `angularAuth0Provider` initialization.
 
 ```js
 // app/app.js
