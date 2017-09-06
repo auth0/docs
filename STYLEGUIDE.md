@@ -51,7 +51,6 @@ For example, when referring to something that happens at "run time", the proper 
 
 Other commonly encountered compound words include "server side" and "client side". The same rules apply. When you write code for the "client side", you use two words. When you write "client-side code", the adjective form uses a hyphen. "Client side" and "server side" are never single words (clientside).
 
-
 ## Punctuation
 
 ### Colons
