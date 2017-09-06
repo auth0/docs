@@ -6,9 +6,9 @@ toc: true
 ---
 # User Search
 
-Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html). This syntax can be used either in the [Users section of the Auth0 Dashboard](${manage_url}/#/users) or with the [`GET /api/v2/users` endpoint](/api/management/v2#!/Users/get_users) of the [Management API](/api/v2)  
+Auth0 allows you, as an administrator, to search for users using [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html).
 
-This document will demonstrate the various ways in which you can search for users, as well as give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
+This document will demonstrate how you can search for users and give some example queries. It is however suggested that you also reference the [Query String Syntax document](/api/management/v2/query-string-syntax) for more examples of the query string syntax.
 
 ## Searchable Fields
 
@@ -29,12 +29,6 @@ __None__ of the `app_metadata` fields are searchable.
 ::: note
 For more information on user related metadata refer to [User Metadata](/metadata).
 :::
-
-## Search for Users in the Dashboard
-
-You can search for users in the [Users section of the Auth0 Dashboard](${manage_url}/#/users). To use the [Lucene Query Syntax](/api/management/v2/query-string-syntax), go to the **Search By** drop down and select **Lucene Syntax (advanced)**.
-
-![Select Lucene Syntax](/media/articles/api/user-search-lucene.png)
 
 ## Search for Users Using the Management API
 
@@ -114,7 +108,7 @@ The fields that support `raw` subfield queries are:
 
 ## Example Queries
 
-Below are some example queries to illustrate the kinds of queries that are possible using the dashboard or the Management API V2.
+Below are some example queries to illustrate the kinds of queries that are possible using the Management API V2.
 
 Use Case | Query
 ---------|----------
