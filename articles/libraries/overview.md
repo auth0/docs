@@ -31,7 +31,7 @@ The Lock widget is a simple way to integrate Auth0 into existing projects and pr
 <%= include('../_includes/_topic-links', { links: [
   'libraries/lock/v10',
   'libraries/lock-ios/v2',
-  'libraries/lock-android'
+  'libraries/lock-android/v2'
 ] }) %>
 
 ## Auth0 SDKs
