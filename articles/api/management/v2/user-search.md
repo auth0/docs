@@ -78,7 +78,7 @@ You can solve this problem either by using structured JSON in your metadata, or 
 
 ### Structured JSON vs Delimited Strings
 
-Using structured JSON in your metadata is the ideal. Using delimited strings can result in security risks and exposure to problems. Here is an example of structured JSON which can be stored in the `user_metadata` (or `app_metadata`) field:
+Using structured JSON in your metadata is the ideal. Using delimited strings can result in security risks and exposure to problems. Here is an example of structured JSON which can be stored in the `user_metadata` field:
 
 ```json
 {
@@ -126,12 +126,7 @@ Search for user names that start with "john" and end with "smith" | `name:john*s
 Search for all users whose email _is_ exactly "john@contoso\.com" | `email.raw:"john@contoso.com"`
 Search for all users whose email is exactly "john@contoso\.com" or "mary@contoso\.com" using `OR` | `email.raw:("john@contoso.com" OR "mary@contoso.com")`
 Search for users without verified email | `email_verified:false OR _missing_:email_verified`
-Search for user users who has the `user_metadata` field named `blog_url` with the value of "www.johnsblog.com" | `user_metadata.blog_url:"www.johnsblog.com"`
-Search for users where the _nested_ `user_metadata` field named `preference.color` has the value of "pink" | `user_metadata.preference.color:"pink"`
-Search for users where the `app_metadata` field named `firstName` has a value of "John" | `app_metadata.firstName:"John"`
-Search for users that have an `app_metadata` field named `plan` | `_exists_:app_metadata.plan`
-Search for users without the `app_metadata` field named `plan` | `_missing_:app_metadata.plan`
-Search for users how have the role of "admin" | `app_metadata.roles:"admin"`
+Search for users who have the `user_metadata` field named `name` with the value of "John Doe" | `user_metadata.name:"John Doe"`
 Search for users from a specific connection or provider | `identities.provider:"google-oauth2"`
 Search for all users that have never logged in | `(_missing_:logins_count OR logins_count:0)`
 Search for all users who logged in before 2015 | `last_login:[* TO 2014-12-31]`
