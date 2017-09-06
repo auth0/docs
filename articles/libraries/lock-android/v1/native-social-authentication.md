@@ -6,6 +6,11 @@ description: How to implement native social authentication with Lock Android
 
 <%= include('../_includes/_lock-version') %>
 
+::: warning
+This feature relies on a deprecated grant type. Clients created after June 8th 2017 won't be able to use this feature.
+We recommend using browser-based flows, as explained in [Authentication with Auth0 Hosted Login Page](/libraries/auth0-android/v2z#authentication-with-auth0-hosted-login-page).
+:::
+
 **Lock** by default handles all social authentication with a Browser installed in your Android device, but for some social connections you can take advantage of our native integration.
 We implemented native integration with Facebook and Google+ and bundled each of them in a separate Android Library (*aar* file), to start using them just add these lines in your `build.gradle`:
 

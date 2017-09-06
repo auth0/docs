@@ -14,14 +14,14 @@ mobileimg: media/articles/libraries/lock-android.png
 ## Requirements
 
 Android API level 15+ is required in order to use Lock's UI.
-If you'll create your own API and just call Auth0 API via the `com.auth0.android:core:1.13.+`, the minimum required API level is 9.
+If you'll create your own API and just call Auth0 API via the `com.auth0.android:core:1.+`, the minimum required API level is 9.
 
 ## Install
 
 Lock is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Lock* add these lines to your `build.gradle` dependencies file:
 
 ```gradle
-compile 'com.auth0.android:lock:1.13.+'
+compile 'com.auth0.android:lock:1.+'
 ```
 
 Once it's installed, you'll need to configure LockActivity in your`AndroidManifest.xml`, inside the `application` tag:
@@ -165,7 +165,7 @@ And you'll see our native login screen
 `LockPasswordlessActivity` is not included in `com.auth0:lock:aar` as it's part of the library `lock-passwordless`, but you can add it with this line in your `build.gradle`:
 
 ```gradle
-compile 'com.auth0.android:lock-passwordless:1.13.+'
+compile 'com.auth0.android:lock-passwordless:1.+'
 ```
 
 Then in your `AndroidManifest.xml` register the following activities:

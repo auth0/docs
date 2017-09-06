@@ -48,7 +48,7 @@ public boolean shouldUseWebView();
 public void setUseWebView(boolean useWebView);
 ```
 
-Forces Lock to use an embedded `android.webkit.WebView` and by  default is `false`.
+Forces Lock to use an embedded `android.webkit.WebView` and by default is `false`.
 
 ```java
 public boolean shouldLoginAfterSignUp();
@@ -115,7 +115,7 @@ Removes all session information the Identity Provider handlers might have.
 
 ### Lock.Builder
 
-A simple builder to help you create and configure Lock in your  application.
+A simple builder to help you create and configure Lock in your application.
 
 #### Lock.Builder Constants
 
