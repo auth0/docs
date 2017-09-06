@@ -27,7 +27,7 @@ __None__ of the `app_metadata` fields are searchable.
 :::
 
 ::: note
-For more information on user related metadata refer to [User Metadata](](/metadata).
+For more information on user related metadata refer to [User Metadata](/metadata).
 :::
 
 ## Search for Users in the Dashboard
