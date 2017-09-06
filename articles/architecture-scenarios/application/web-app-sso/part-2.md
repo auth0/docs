@@ -12,19 +12,19 @@ In this section we will review all the configurations we need to apply using the
 The Auth0 configuration part starts with registering the timesheets app at the Auth0 dashboard as a __client__. A client is an application making protected resource requests on behalf of the resource owner (end-user).
 
 ::: note
-The term "client" does not imply any particular implementation characteristics. A client can be a web app, a mobile app or an SPA. In the case of ABC it is a ASP.NET Core web app.
+The term "client" does not imply any particular implementation characteristics. A client can be a web app, a mobile app or an SPA. In the case of ExampleCo it is a ASP.NET Core web app.
 :::
 
 The main characteristics of a Client in Auth0 are:
 - __Name__: The canonical name of the client. This is used to identify the client at the portal, emails, logs, and more.
 - __Client ID__ (read-only): The unique identifier for the client. This is the ID used in the application when setting up authentication with Auth0. It is an auto-generated alphanumeric string.
 - __Client secret__ (read-only): A string used to sign and validate tokens which will be used in the different authentication flows. It is auto-generated and it must be kept confidential.
-- __Domain__: The domain name assigned to the Auth0 account. The format of the domain is `{account-name}.auth0.com` or `{account-name}.{location}.auth0.com`, for example `abc.auth0.com`.
+- __Domain__: The domain name assigned to the Auth0 account. The format of the domain is `{account-name}.auth0.com` or `{account-name}.{location}.auth0.com`, for example `ExampleCo.auth0.com`.
 - __Callback URL__: The URL where the user is redirected after they authenticate.
 
 #### Create a Client
 
-ABC's scenario involves only one application: the timesheets web app. Hence we have to configure one Client at Auth0 side.
+ExampleCo's scenario involves only one application: the timesheets web app. Hence we have to configure one Client at Auth0 side.
 
 To register a database connection, go to the [dashboard](${manage_url}) and in the side navigation select [Clients](${manage_url}/#/clients).
 
@@ -49,7 +49,7 @@ The Callback URL for our sample project is `http://localhost:5000/signin-auth0`.
 
 The next step is to configure the identity providers that will be used for authentication at the web app. Each identity provides maps to a __connection__ in Auth0. Each client needs at least one connection, and each connection can be used for more than one client.
 
-ABC needs to configure two connections: one Active Directory connection for the internal employees, and one Database connection for external parties.
+ExampleCo needs to configure two connections: one Active Directory connection for the internal employees, and one Database connection for external parties.
 
 ::: panel Supported identity providers
 Auth0 supports a vast variety of protocols and identity providers:

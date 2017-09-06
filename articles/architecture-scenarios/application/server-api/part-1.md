@@ -5,7 +5,7 @@ toc: true
 
 # Server + API: Solution Overview
 
-To ensure that only authorized users and applications are allowed access to the Timesheets API, ABC Inc. has decided to make use of the [OAuth 2.0 authorization framework](https://tools.ietf.org/html/rfc6749). The framework provides the flexibility the company wants since the different grants can allow them to easily authorize the various types of application which need to communicate with the Timesheets API.
+To ensure that only authorized users and applications are allowed access to the Timesheets API, ExampleCo has decided to make use of the [OAuth 2.0 authorization framework](https://tools.ietf.org/html/rfc6749). The framework provides the flexibility the company wants since the different grants can allow them to easily authorize the various types of application which need to communicate with the Timesheets API.
 
 ## API Authentication and Authorization
 
