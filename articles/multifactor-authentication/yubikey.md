@@ -16,7 +16,7 @@ Enabling this functionality relies on three core features available in Auth0:
 
 ## Configure the Webtask
 
-Auth0 Webtask allows you to run arbitrary code on the Auth0 sandbox. It is the same underlying technology used for *rules* and *custom db connections*.
+Auth0 Webtask allows you to run arbitrary code on the Auth0 sandbox. It is the same underlying technology used for rules and custom database connections.
 
 This sample uses a single Webtask to handle 3 states:
 
@@ -219,9 +219,9 @@ No keys are hard-coded into the Webtask code. They are referred to by the variab
 
 ### 1. Initialize Webtask CLI
 
-*Rules* code is automatically packaged as Webtasks by Auth0. Since this is a custom Webtask, it must be created with the Webtask CLI.
+**Rules** code is automatically packaged as Webtasks by Auth0. Since this is a custom Webtask, it must be created with the Webtask CLI.
 
-Follow the instructions for installing Webtask CLI under [Account Settings > Webtasks](${manage_url}/#/account/webtasks) on the Auth0 dashboard.
+Follow the instructions for installing Webtask CLI under [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) on the Auth0 dashboard.
 
 Once the Webtask CLI is installed, run:
 
@@ -230,7 +230,7 @@ wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --sec
 ```
 
 ::: note
-Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Account Settings > Webtasks](${manage_url}/#/account/webtasks) page.
+Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) page.
 :::
 
 The `create` command will generate a URL that will look like:

@@ -126,7 +126,7 @@ If it works, you will get a response similar to the following one:
 
 The returned entity represents the import job.
 
-Once the job finishes, whether it failed or was successful, the owner of the Auth0 account that the job is being run on will get an e-mail notifying them about the result (if `send_completion_email` was set to `true`). A notification email for a job that failed might notify the owner(s) that it failed to parse the users file JSON when importing users.
+Once the job finishes, whether it failed or was successful, the owner of the Auth0 tenant that the job is being run on will get an e-mail notifying them about the result (if `send_completion_email` was set to `true`). A notification email for a job that failed might notify the owner(s) that it failed to parse the users file JSON when importing users.
 
 ### Query for Job Status
 

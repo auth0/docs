@@ -10,18 +10,18 @@ While you can change your subscription plan using the Management Dashboard, you 
 :::
 
 1. Log in to the Auth0 [Management Dashboard](${manage_url}).
-2. Click on your username in the top right corner to bring up the associated dropdown box.
+2. Click on your tenant name in the top right corner to bring up the associated dropdown box.
 
   ![](/media/articles/support/subscriptions/account-dropdown.png)
 
-3. Select **Account Settings**.
-4. On the **Account Settings** page, click on the **Subscription** tab. Note that you have the option of paying for your plan on a **monthly** or **yearly** basis.
+3.  Select **Settings** to open the [Tenant Settings](${manage_url}/#/tenant/) page.
+4. On the **Tenant Settings** page, click on the **Subscription** tab. Note that you have the option of paying for your plan on a **monthly** or **yearly** basis.
 
   ![](/media/articles/support/subscriptions/subscription.png)
 
 ## Upgrade a Subscription
 
-You can use the [Management Dashboard](${manage_url}) upgrade your subscription from:
+You can use the [Management Dashboard](${manage_url}) to upgrade your subscription from:
 
 * The Free plan to the Developer or Developer Pro plan;
 * The Developer plan to the Developer Pro plan.

@@ -1,31 +1,17 @@
 ---
-description: Explains what features and settings can be changed in the Account Settings page of the dashboard.
-url: /dashboard-account-settings
+description: Explains what features and settings can be changed in the Tenant Settings page of the dashboard.
+url: /dashboard-tenant-settings
 toc: true
 ---
-# Account Settings in the Auth0 Management Dashboard
+# Tenant Settings in the Auth0 Management Dashboard
 
-The [Account Settings](${manage_url}/#/account) page of the dashboard allows you to configure various settings related to your Auth0 tenant, as well as your own account.
+The [Tenant Settings](${manage_url}/#/tenant) page of the dashboard allows you to configure various settings related to your Auth0 tenant.
 
 ## General
 
-### Your Profile
-
-![](/media/articles/tutorials/account-settings/your-profile.png)
-
-Allows you to review some of your personal account settings. If you manage multiple tenants, you can change the default tenant from the **Default Account** dropdown.
-
-### Multifactor 
-
-![](/media/articles/tutorials/account-settings/multifactor.png)
-
-Multifactor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information. You can enable Multifactor Authentication for your account by clicking on the _Enroll your device now_ link. Alternatively, if you are already enrolled for MFA, you can remove the MFA enrollment.
-
-This will walk you through the steps for [enrolling with MFA](/multifactor-authentication/guardian/user-guide).
-
 ### Settings
 
-![](/media/articles/tutorials/account-settings/settings.png)
+![](/media/articles/tutorials/tenant-settings/settings.png)
 
 Use this section to customize some of the settings related to your tenant. These settings will be used in [Lock](https://auth0.com/lock), emails and various other pages being displayed to your end users.
 
@@ -44,29 +30,29 @@ Click **SAVE** when finished to submit your changes.
 This setting is equivalent to appending the audience to every authorization request made to the tenant for every client. This will cause new behaviour that might result in breaking changes for some of your clients. Please contact support if you require assistance.
 :::
 
-**Default Directory**: Name of the connection to be use for [Password Grant exchanges](/api-auth/tutorials/password-grant). The _Default Directory_ value should be the exact name of an existing [connection](/connections) of one of the following strategies: `auth0-adldap`, `ad`, `auth0`, `email`, `sms`, `waad` or `adfs`.
+**Default Directory**: Name of the connection to be use for [Password Grant exchanges](/api-auth/tutorials/password-grant). The __Default Directory__ value should be the exact name of an existing [connection](/connections) of one of the following strategies: `auth0-adldap`, `ad`, `auth0`, `email`, `sms`, `waad` or `adfs`.
 
 ### Error Pages
 
-![](/media/articles/tutorials/account-settings/error-pages.png)
+![](/media/articles/tutorials/tenant-settings/error-pages.png)
 
-In the event of an authorization error, you may choose to display to your users either a generic error page or you can redirect users you your own, customized error page.
+In the event of an authorization error, you may choose to display to your users either a generic error page or you can redirect users to your own customized error page.
 
 [Learn about Custom Error Pages](/hosted-pages/custom-error-pages).
 
 ## Subscription and Payment
 
-![](/media/articles/tutorials/account-settings/billing.png)
+![](/media/articles/tutorials/tenant-settings/billing.png)
 
-The _Subscription_ tab allows you to review and change your current subscription and to move to another plan, as well as specify your billing details. You can learn more [about changing your Subscription](/support/subscription).
+The __Subscription__ tab allows you to review and change your current subscription and to move to another plan, as well as specify your billing details. You can learn more [about changing your Subscription](/support/subscription).
 
 ## Active Users
 
-The _Active Users_ functionality has been moved to the [Quota Utilization Report](https://support.auth0.com/reports/quota) in the Support Center.
+The __Active Users__ functionality has been moved to the [Quota Utilization Report](https://support.auth0.com/reports/quota) in the Support Center.
 
 ## Dashboard Admins
 
-Allows you to add or remove administrators for your Auth0 tenant, as well as review whether administrators have Multifactor authentication enable for their account. [Learn about Dashboard Admins](/tutorials/manage-dashboard-admins).
+Allows you to add or remove administrators for your Auth0 tenant, as well as review whether administrators have Multifactor authentication enabled for their account. [Learn about Dashboard Admins](/tutorials/manage-dashboard-admins).
 
 ## Webtasks
 
@@ -78,7 +64,7 @@ The Auth0 rules engine uses [webtask.io](https://webtask.io/). This section expl
 
 ### Logout
 
-![](/media/articles/tutorials/account-settings/logout-urls.png)
+![](/media/articles/tutorials/tenant-settings/logout-urls.png)
 
 Allows you to specify the **Allowed Logout URLs** for your tenant. These are a set of URLs that are valid to redirect to after logout from Auth0 when no `client_id` is specified on the logout endpoint invocation. It's useful as a global list when SSO is enabled. 
 
@@ -86,7 +72,7 @@ Learn more about [Logout](/logout).
 
 ### Session Timeout
 
-![](/media/articles/tutorials/account-settings/session-timeout.png)
+![](/media/articles/tutorials/tenant-settings/session-timeout.png)
 
 Allows you to specify the **SSO Cookie Timeout**. This value is the login session lifetime, which is how long the session will stay valid measured in minutes. The default value is 10080 minutes (or 7 days).
 
@@ -94,7 +80,7 @@ Learn more about [Single Sign On](/sso/current).
 
 ### Global Client Information
 
-![](/media/articles/tutorials/account-settings/global-client-information.png)
+![](/media/articles/tutorials/tenant-settings/global-client-information.png)
 
 The **Global Client ID** and **Global Client Secret** are used to generate tokens for legacy Auth0 APIs. Typically, you will not need these values. If you need to have the global client secret changed, please [contact support](https://support.auth0.com).
 

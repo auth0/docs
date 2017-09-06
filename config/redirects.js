@@ -1352,5 +1352,9 @@ module.exports = [
   {
     from: '/connections/database/mysql',
     to: '/connections/database/custom-db'
+  },
+  {
+    from: '/dashboard-account-settings',
+    to: '/dashboard-tenant-settings'
   }
 ];

@@ -59,7 +59,7 @@ Auth0 offers the following support channels.
 
 ### Auth0 Community
 
-Auth0's public [question and answer community](${auth0_community}) offers support for __all__ subscribers. All customers, even those with free subscription plans, can search existing through questions and post a new question if theirs hasn't been answered. There are no guaranteed response times for questions posted.
+Auth0's public [question and answer community](${auth0_community}) offers support for __all__ subscribers. All customers, even those on free tenants, can search existing through questions and post a new question if theirs hasn't been answered. There are no guaranteed response times for questions posted.
 
 ### Support Center
 
@@ -198,7 +198,7 @@ We provide all technical support in English, but we will make an effort to accom
 
 ## Pricing
 
-For pricing information on Auth0's subscription plans, please see [Pricing Page] or your [Account Settings](${manage_url}/#/account/billing/subscription).
+For pricing information on Auth0's subscription plans, please see [Pricing Page](https://auth0.com/pricing) or your [Tenant Settings](${manage_url}/#/tenant/billing/subscription).
 
 ## Additional Support Resources
 
