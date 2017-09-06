@@ -70,23 +70,6 @@ Because of the manner in which ElasticSearch handles tokenization on `+` and `-`
 
 You can solve this problem either by using structured JSON in your metadata, or by using the raw subfield.
 
-### Structured JSON vs Delimited Strings
-
-Using structured JSON in your metadata is the ideal. Using delimited strings can result in security risks and exposure to problems. Here is an example of structured JSON which can be stored in the `user_metadata` field:
-
-```json
-{
-  "preference": {
-    "color": "pink",
-    "displayTitleBar": true
-  }
-}
-```
-
-::: note
-For further information on metadata and how it should be structured can be found in the [metadata documentaton](/metadata).
-:::
-
 ### Using the `raw` Subfield
 
 If you wish to avoid the potential pitfalls of analyzed data and search for an exact match to your term - an exact string comparison - then for some fields you can use the `raw` subfield, which will be `not_analyzed`.
