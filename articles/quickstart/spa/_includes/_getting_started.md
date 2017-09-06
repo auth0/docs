@@ -1,10 +1,6 @@
-This guide walks you through setting up authentication and authorization in your ${library} apps with Auth0.
+This guide walks you through setting up authentication and authorization in your ${library} apps with Auth0. If you are new to Auth0 we suggest you check our [Overview](https://auth0.com/docs/overview). For a complete picture of authentication and authorization for all Single Page Applications, check our [SPA + API](https://auth0.com/docs/architecture-scenarios/application/spa-api) documentation.
 
-If you are new to Auth0 please check our [Auth0 Overview](https://auth0.com/docs/overview).
-
-If you want to have a complete picture of Authentication and Authorization for Single Page Applications, you can read about it [here](https://auth0.com/docs/architecture-scenarios/application/spa-api). 
-
-If you are interested in a deeper undertanding of the OAuth flows that are used by Single Page Applications, read about the [Implicit Grant Flow](https://auth0.com/docs/api-auth/tutorials/implicit-grant)
+Auth0 uses OAuth. In case you are interested in a deeper understanding of the OAuth flows used by Single Page Applications, read about the [Implicit Grant Flow](https://auth0.com/docs/api-auth/tutorials/implicit-grant)
 
 <%= include('../../../_includes/_new_app') %>
 
