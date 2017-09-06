@@ -22,7 +22,9 @@ This feature works as long as the user has not already chosen a default app to h
 
 You could find more information about App Links in the [Android docs](http://developer.android.com/training/app-links/index.html).
 
-> The links will work in all versions of Android, but the dialog asking the user whether to use the browser or the app to open the link will be displayed (whether the verification passed or not) in versions of Andrdoi prior to 6.0, at least until the user chooses to always open the links with the app.
+::: note
+The links will work in all versions of Android, but the dialog asking the user whether to use the browser or the app to open the link will be displayed (whether the verification passed or not) in versions of Andrdoi prior to 6.0, at least until the user chooses to always open the links with the app.
+:::
 
 In this article we'll show how Auth0 helps you set up your app to use app links to log in.
 
@@ -68,7 +70,9 @@ In the *id* field we must introduce the *client_id* of our Auth0 App, and the *b
 }
 ```
 
-> Don't forget to change the body to use your package name and keystore fingerprint!
+::: warning
+Don't forget to change the body to use your package name and keystore fingerprint!
+:::
 
 Next we'll have to configure either the SMS or Email connection. This is available from the dashboard, so we'll show how to do it from there.
 
@@ -86,7 +90,9 @@ Your verification code is: {{ code }}
 {% endif %}
 ```
 
-> We assume that you have the SMS connection correctly configured, including the Twilio account. If you haven't, please do so.
+::: note
+We assume that you have the SMS connection correctly configured, including the Twilio account. If you haven't, please do so.
+:::
 
 ### Email
 
