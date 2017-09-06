@@ -44,7 +44,7 @@ In order to make requests to the Management API, you will need a token. Please r
 
 ### Search using the API Explorer
 
-To search users using the [Management API Explorer](/api/v2#!/users/get_users), go to the **Users** section and then select **List or search users**. Scroll down to the `q` parameter. You can use any query string which uses the [query string syntax](/api/management/v2/query-string-syntax) in this field.
+To search users using the [Management API Explorer](/api/management/v2#!/Users/get_users), go to the **Users** section and then select **List or search users**. Scroll down to the `q` parameter. You can use any query string which uses the [query string syntax](/api/management/v2/query-string-syntax) in this field.
 
 ![Searching users in API Explorer](/media/articles/api/search-users-api.png)
 
