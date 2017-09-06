@@ -126,7 +126,7 @@ The `context.addonConfiguration.aws.mappings` variable allows you to specify par
 [Other mappings are available in AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.html), so if you wanted to use the `eduPersonAffiliation` AWS Context Key, you can set this mapping in a rule as follows:
 
 ```js
-function(user,context,callback){
+function(user, context, callback){
 
     context.addonConfiguration.aws.mappings: {
           'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier': 'name',
@@ -185,14 +185,12 @@ Here is an example of client-side code used to obtain the token:
 
   var options = {
     id_token: LOGGED_IN_USER_ID_TOKEN,
-    api: 'aws',
-    role: AWS_ROLE_ARN,
-    principal: AWS_SAML_PROVIDER_ARN
+    api: 'aws'
   };
 
-  auth0.getDelegationToken(options, function(err,delegationResult){
+  auth0.getDelegationToken(options, function(err, delegationResult){
     if (!err){
-      //use delegationResult.Credentials to access AWS API
+      // Use delegationResult.Credentials to access AWS API
     }
   });
 }
