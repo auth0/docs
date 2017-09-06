@@ -1350,6 +1350,10 @@ module.exports = [
     to: '/hosted-pages/login/auth0js/v7'
   },
   {
+    from: '/connections/database/mysql',
+    to: '/connections/database/custom-db'
+  },
+  {
     from: '/dashboard-account-settings',
     to: '/dashboard-tenant-settings'
   }

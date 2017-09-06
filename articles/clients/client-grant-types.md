@@ -149,6 +149,10 @@ Trusted first-party clients can additionally use the following `grant_types`:
 * `http://auth0.com/oauth/grant-type/mfa-otp`
 * `http://auth0.com/oauth/grant-type/mfa-recovery-code`
 
+::: note
+If you are using the [Dashboard](${manage_url}) to enable or disable these grant types, note that all the Password and MFA grant types are enabled when you add the `Password` or `MFA` grant type on your client. You cannot select these individually.
+:::
+
 ## Secure Alternatives to the Legacy Grant Types
 
 If you're currently using a legacy grant type, refer to the chart below to see which of the secure alternatives you should use instead.
