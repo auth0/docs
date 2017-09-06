@@ -32,7 +32,11 @@ auth0 = new auth0.WebAuth({
 });
 ``` 
 
-In the `setSession` method, save the scopes granted to the user into local storage. Look for them in 'authResult.scope', and then look for them in 'this.requestedScopes'.
+In the `setSession` method, save the scopes granted to the user into local storage. 
+
+First, check for the scopes in the `scope` key from authResult. If it's not empty, the user was granted a different set of scopes than the one the application requested, so you need to use the ones in authResult.scope.
+
+If it's empty, all the scopes requested were granted, so you can use the values from `REQUESTED_SCOPES`.
 
 ```ts
 // src/app/auth/auth.service.ts
