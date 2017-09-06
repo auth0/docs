@@ -3,7 +3,6 @@ section: libraries
 toc: true
 toc_title: Lock for Android v1
 title: Lock for Android v1
-url: /libraries/lock-android/v1
 description: A widget that provides a frictionless login and signup experience for your native Android apps.
 mobileimg: media/articles/libraries/lock-android.png
 ---
@@ -45,8 +44,13 @@ Once it's installed, you'll need to configure LockActivity in your`AndroidManife
 <!--Auth0 Lock End-->
 ```
 
-> The value `@string/auth0_client_id` is your application's clientID and `@string/auth0_domain` is your tenant's domain in Auth0, both values can be found in your app's settings.
-> The final value of `android:scheme` must be in lowercase
+::: note
+The value `@string/auth0_client_id` is your application's clientID and `@string/auth0_domain` is your tenant's domain in Auth0, both values can be found in your app's settings.
+:::
+
+::: note
+The final value of `android:scheme` must be in lowercase.
+:::
 
 Also, you'll need to add *Internet* permission to your application:
 
@@ -156,7 +160,9 @@ And you'll see our native login screen
 
 ![Lock Screenshot](/media/articles/libraries/lock-android/Lock-Widget-Android-Screenshot.png)
 
-> By default all social authentication will be done using an external browser, if you want native integration please check this [wiki page](/libraries/lock-android/native-social-authentication).
+::: note
+By default all social authentication will be done using an external browser, if you want native integration please check this [wiki page](/libraries/lock-android/native-social-authentication).
+:::
 
 ### Passwordless
 
