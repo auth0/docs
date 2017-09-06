@@ -77,7 +77,7 @@ In order to get started using the Hosted Login Page, you'll first want to choose
 
 You can customize the Hosted Login Page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [customization options](/libraries/lock/v10/customization). If you are building a custom UI, you can style the Hosted Login Page to your own specifications.
 
-All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the Hosted Login Page customizations are per **tenant** rather than per client. You can provide different pages to different clients via the [methods discussed here](/hosted-pages#customize-your-hosted-page).
+All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the Hosted Login Page customizations are per **tenant** rather than per client. When necessary, you can provide different pages to different clients via a method discussed later in this document.
 
 #### Query String Parameters
 
