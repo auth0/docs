@@ -7,6 +7,10 @@ description: The User Import / Export is an extension that allows you to import 
 
 The __User Import / Export__ is an extension that allows you to import / export users from or to any database you have configured in your account. Please note that you need to be a Dashboard Admin in order to use this extension.
 
+::: note
+Export is limited to 10 thousand users. If you require to export more than this please [contact support](${env.DOMAIN_URL_SUPPORT}).
+:::
+
 ## Configuring the Extension
 
 To install this extension, click on __User Import / Export__ in the list of provided extensions on the [Extensions page](${manage_url}/#/extensions) of the [Dashboard](${manage_url}). When authorizing the application, you will be asked to provide the following information about your Auth0 account:
