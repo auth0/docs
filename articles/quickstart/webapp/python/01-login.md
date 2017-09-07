@@ -5,8 +5,7 @@ description: This tutorial demonstrates how to use the Python OAuthlib to add au
 budicon: 448
 ---
 
-You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application 
-you can follow the tutorial steps.
+You can get started by either downloading the complete sample or following the tutorial steps to integrate Auth0 with an existing application.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
@@ -20,8 +19,11 @@ you can follow the tutorial steps.
   ]
 }) %>
 
+<%= include('../_includes/_getting_started', { library: 'Python', callback: 'http://localhost:3000/callback' }) %>
 
 ## Add the Dependencies
+
+This example uses [Flask](http://flask.pocoo.org) and the [Flask OAuthlib](https://flask-oauthlib.readthedocs.io) OAuth client library.
 
 Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`.
 
@@ -30,8 +32,6 @@ flask
 requests
 flask-oauthlib
 ```
-
-This example uses [Flask](http://flask.pocoo.org) and the [Flask OAuthlib](https://flask-oauthlib.readthedocs.io) OAuth client library.
 
 ## Initialize Flask-OAuthlib
 
@@ -46,8 +46,7 @@ from flask import request
 from flask_oauthlib.client import OAuth
     
 app = Flask(__name__)
-# This secret key is used by flask to store the session as a signed cookie.
-app.secret_key = 'A_SECRET_KEY'
+
 oauth = OAuth(app)
 auth0 = oauth.remote_app(
     'auth0',
@@ -64,26 +63,12 @@ auth0 = oauth.remote_app(
 )
 ```
 
-## Specify the Callback URLs
-
-The callback URL is a URL in your web application where Auth0 redirects to after the user has authenticated 
-to the [authorization endpoint](/protocols/oauth2#authorization-endpoint).
-
-${include('../_callbackRegularWebApp')}
-
-If you are following along with the downloadable sample projects for this tutorial directly, the **Callback URL** should be set to:
-
-```text
-http://localhost:3000/callback
-```
-
 ## Add the Auth0 Callback Handler
 
 This handler exchanges the `code` that Auth0 sends to the callback URL and exchange for an `access_token` 
 and an `id_token`.
 
-The `id_token` is a [JWT](/jwt) that contains the information of the user profile, to get the information from it you have
-to decode and validate its signature. After the user information is obtained, store then in the flask `session`.
+The `id_token` is a [JWT](/jwt) that contains the information of the user profile, to get the information from it you have to decode and validate its signature. After the user information is obtained, store then in the flask `session`.
 
 ```python
 # Here we're using the /callback route.
@@ -116,9 +101,9 @@ def callback_handling():
     return redirect('/dashboard')
 ```
 
-## Trigger Login With Flask-OAuthlib
+## Trigger Authentication
 
-Add an route that uses the `Flask-OAuthlib` client instance to redirect the user to the authorize endpoint.
+Add a `/login` route that uses `Flask-OAuthlib` client instance to redirect the user to Auth0's hosted login page.
 
 ```python
 @app.route('/login')
@@ -126,7 +111,7 @@ def login():
     return auth0.authorize(callback='${account.callback}')
 ```
 
-Create a `home.html` file in a `template` folder in the root of the project to display the link to login.
+Create a `home.html` file in a `/template` folder. Add a link to the `/login` route.
 
 ```html
 <div class="login-box auth0-box before">
@@ -137,13 +122,10 @@ Create a `home.html` file in a `template` folder in the root of the project to d
 </div>
 ```
 
-::: note
-The `callback` specified **must match** the URL specified in the previous step.
-:::
-
 ## Logout
 
-To logout the user you have to clear the data from the session, and then redirect the user to the Auth0 logout endpoint.
+To logout the user you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint.
+
 Checkout [logout documentation](/logout) for more information.
 
 ```python
@@ -161,10 +143,9 @@ The final destination URL (the `returnTo` value) needs to be in the list of `All
 See the [logout documentation](/logout#redirecting-users-after-logout) for more.
 :::
 
-
 ## Check if the user is authenticated
 
-Add the following decorator to your `Flask` app to check if the user is authenticated. 
+Add the following decorator to your `Flask` app. Use it to decorate methods that require authentication.
 
 ::: note
 You should import `wraps` first, adding the following line to your `server.py` file: `from functools import wraps`.
@@ -182,9 +163,11 @@ def requires_auth(f):
   return decorated
 ```
 
-## Display user information
+## Showing the User Profile
 
-To access the user information stored on the `session` add an endpoint to render it in a template .
+Add a `/dashboard` route to `server.py` that will render the user information stored in the Flask session. 
+
+Decorate it with `@requires_auth`. It will only be accessible if the user has been authenticated.
 
 ```python
 @app.route('/dashboard')
@@ -195,7 +178,9 @@ def dashboard():
                            userinfo_pretty=json.dumps(session[constants.JWT_PAYLOAD], indent=4))
 ```
 
-Create a `dashboard.html` file in a `template` folder in the root of the project to display the user information.
+Add a `dashboard.html` file in a `/template` folder to display the user information. 
+
+Add a link to allow users to Log Out.
 
 ```html
 <div class="logged-in-box auth0-box logged-in">
