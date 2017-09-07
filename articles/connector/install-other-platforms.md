@@ -27,7 +27,7 @@ For most platforms, you will need to run the required commands with root privile
     > npm install
     ```
 
-3. Start your server:
+3. Start your server.
 
     ```text
     > node server.js
@@ -66,6 +66,8 @@ For most platforms, you will need to run the required commands with root privile
       .text('curl -Lo /tmp/adldap.tar.gz https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz');
   })
 </script>
+
+7. Run `node admin/server.js` to access the admin UI -- the admin UI will be running and available on `http://localhost:8357`.
 
 #### Notes
 

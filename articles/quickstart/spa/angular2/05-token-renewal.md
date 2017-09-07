@@ -17,9 +17,12 @@ budicon: 448
 
 <%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '4200' }) %>
 
+
 ## Add Token Renewal
 
-Add a method to the `AuthService` which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+Add a method to the `AuthService` service which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+
+The method loads your silent callback page in an invisible `iframe`. Then, the method makes a call to Auth0 and gives back the result. 
 
 ```typescript
 // src/app/auth/auth.service.ts
@@ -39,7 +42,9 @@ public renewToken() {
 }
 ```
 
-This will load the silent callback page added earlier in an invisible `iframe`, make a call to Auth0, and give back the result. Add a method called `scheduleRenew` to set up a time at which authentication should be silently renewed. You'll also want to define a class property `refreshSubscription`, which holds a reference to the subscription that refreshes your token.
+Add a method called `scheduleRenewal` to set up the time when authentication is silently renewed. 
+
+Define the `refreshSubscription` class property, which will hold a reference to the subscription that refreshes your token.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -76,9 +81,9 @@ public unscheduleRenewal() {
 }
 ```
 
-This will allow for scheduling and unscheduling token renewal any time it's appropriate. For example, you probably want to schedule a renewal after the user logs in and then again if the page is refreshed.
+This lets you schedule token renewal any time. For example, you can schedule a renewal after the user logs in and then again, if the page is refreshed. 
 
-The `setSession` method can be modified to add the function right after setting the `access_token` and `id_token` into local storage.
+In the `setSession` method, add the function right after setting the `access_token` and `id_token` into local storage.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -95,7 +100,7 @@ private setSession(authResult): void {
 }
 ```
 
-Add a call to `scheduleRenewal` in the root app component so that a renewal is scheduled when the page is refreshed.
+Add a call to the `scheduleRenewal` method in the root app component to schedule a renewal when the page is refreshed.
 
 ```ts
 // src/app/app.component.ts
@@ -110,7 +115,7 @@ export class AppComponent {
 }
 ```
 
-Since client-side sessions should not persist after the user logs out, call `unscheduleRenewal` in the `logout` method to unschedule the renewal.
+Since client-side sessions should not be renewed after the user logs out, call the `unscheduleRenewal` method in the `logout` method to cancel the renewal.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -126,6 +131,5 @@ public logout(): void {
 }
 ```
 
-#### Troubleshooting
+<%= include('../_includes/_token_renewal_troubleshooting') %>
 
-If you're having problems with token renewal (`login_required` error), make sure you're not using Auth0 dev keys for social login. You must use your own social authentication keys.

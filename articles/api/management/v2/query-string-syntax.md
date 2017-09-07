@@ -4,7 +4,6 @@ description: This page explains query string syntax, which you can use to constr
 section: apis
 crews: crew-2
 ---
-
 # Query String Syntax
 
 This page explains query string syntax, the mini-language used by the Query String Query.
@@ -17,74 +16,44 @@ The query string is parsed into a series of *terms* and *operators*. A term can 
 
 Some examples of query string syntax are:
 
-* Where the `date` field contains `2016`:
-
-    `date:2016`
+* Where the `created_at` field contains `2016`: `created_at:2016`
 
 * Where the `user_name` field contains `john` or `smith`. If you omit the OR operator the default operator will be used.
 
     `user_name: (john OR smith)`
     `user_name: (john smith)`
 
-* Where the `user_name` field contains the exact phrase `"john smith"`:
+* Where the `user_name` field contains the exact phrase `"john smith"`: `user_name: "john smith"`
 
-    `user_name: "john smith"`
+* Where the field `nickname` has no value or is missing: `_missing_: nickname`
 
-* Where any of the fields of `app_metadata` contain `john` or `smith`. (Note that you need to escape the \* with a backslash.)
+* Where the field `nickname` has any non-null value: `_exists_: nickname`
 
-    `app_metadata.\*: (john smith)`
-
-* Where the field `description` has no value or is missing:
-
-    `_missing_: description`
-
-* Where the field `description` has any non-null value:
-
-    `_exists_: description`
-
-* Your query can search across more than one field by using the `AND` & `OR` condition. Where the username field is exactly `"john"` AND the field `description` has any non-null value:
-
-    `username: "john" AND _exists_: description`
+* Your query can search across more than one field by using the `AND` & `OR` condition. Where the username field is exactly `"john"` AND the field `nickname` has any non-null value: `username: "john" AND _exists_: nickname`
 
 ### Wildcards
 
-Wildcard searches can be run on individual terms, using `?` to replace a single character, and `*` to replace zero or more characters:
-
-`2016-0?-*`
+Wildcard searches can be run on individual terms, using `?` to replace a single character, and `*` to replace zero or more characters: `2016-0?-*`
 
 Note that certain wildcard queries will require an enormous amount of memory and perform poorly. (For example, imagine how many terms need to be queried to match the query string `"a* b* c*"`.)
 
-::: panel-warning Leading wildcards and memory
-Including a wildcard at the beginning of a word (e.g. `"*ing"`) is particularly memory intensive since all terms in the index will be examined for a match. Leading wildcards can be disabled by setting the `allow_leading_wildcard` option to `false`.
-:::
-
 ### Regular expressions
 
-Regular expression patterns can be embedded in the query string by wrapping them in forward-slashes ("/"):
-
-`name:/joh?n(ath[oa]n)/`
+Regular expression patterns can be embedded in the query string by wrapping them in forward-slashes ("/"): `name:/joh?n(ath[oa]n)/`
 
 ::: note
-  A detailed explanation of the supported regular expression syntax is explained on the Elastic's site at <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax">Regular Expression Syntax</a>.
-:::
-
-::: panel-warning Leading wildcards and regular expressions
-The `allow_leading_wildcard` parameter does not affect regular expressions. A query string, such as the following, would force Elasticsearch to visit every term in the index: `/.*n/`. Use with caution.
+A detailed explanation of the supported regular expression syntax is explained on the Elastic's site at [Regular Expression Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax).
 :::
 
 ### Fuzziness
 
-You can search for terms that are similar to, but not exactly like, your search terms using the `~` as a "fuzzy" operator:
-
-`oauth~`
+You can search for terms that are similar to, but not exactly like, your search terms using the `~` as a "fuzzy" operator: `oauth~`
 
 This is useful for commonly misspelled fields.
 
 ### Proximity searches
 
-While a phrase query (eg `"john smith"`) matches all of the terms in  the exact same order, a proximity query allows the specified words to be further apart or in a different order. In the same way that a fuzzy query can specify a maximum edit distance between characters in a word, a proximity search allows you to specify a maximum distance between words in a phrase:
-
-`"fox quick"~5`
+While a phrase query (eg `"john smith"`) matches all of the terms in  the exact same order, a proximity query allows the specified words to be further apart or in a different order. In the same way that a fuzzy query can specify a maximum edit distance between characters in a word, a proximity search allows you to specify a maximum distance between words in a phrase: `"fox quick"~5`
 
 The closer the text in a field is to the original order specified in the query string, the more relevant that result is ranked. When compared to the above example query, the phrase `"quick fox"` would be considered more relevant than `"quick brown fox"`.
 
@@ -188,8 +157,8 @@ If the query string is empty or contains only whitespaces, the query will yield 
 
 ## Additional Information
 
-For example queries for searching users, see: [Users Search](/api/v2/user-search).
+For example queries for searching users, see [Users Search](/api/v2/user-search).
 
 ::: note
-  The preceding information is adapted from Elastic's <a href="http://elastic.co">Elasticsearch Reference</a>.
+The preceding information is adapted from Elastic's [Elasticsearch Reference](http://elastic.co).
 :::

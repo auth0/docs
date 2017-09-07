@@ -10,10 +10,10 @@ budicon: 448
   path: 'Quickstart/01-Login',
   branch: 'v2',
   requirements: [
-    '.NET Core SDK 2.0 (Preview 2)',
-    '.NET Core 2.0 (Preview 2)',
-    'ASP.NET Core 2.0 (Preview 2)'
+    '.NET Core SDK 2.0',
+    '.NET Core 2.0',
+    'ASP.NET Core 2.0'
   ]
 }) %>
 
-<%= include('../_includes/v2/_login') %>
+<%= include('../_includes/_login') %>

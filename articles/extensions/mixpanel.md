@@ -8,7 +8,7 @@ The Auth0 Logs to Mixpanel is a scheduled job that takes all of your Auth0 logs 
 
 ## Configuring the Extension
 
-To install and configure this extension, click on the _Auth0 Logs to Mixpanel_ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}). The _Install Extension_ window pops open.
+To install and configure this extension, click on the **Auth0 Logs to Mixpanel** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Auth0 Dashboard](${manage_url}). The **Install Extension** window pops open.
 
 ![](/media/articles/extensions/mixpanel/extension-mgmt-mixpanel.png)
 
@@ -20,17 +20,17 @@ At this point you should set the following configuration variables:
 - **LOG_LEVEL**: The minimal log level of events that you would like sent to Mixpanel.
 - **LOG_TYPES**: The events for which logs should be exported.  If you want you can send only events with a specific type (for example, failed logins).
 
-Once you have provided this information, click the *Install* button to finish installing the extension.
+Once you have provided this information, click the **Install** button to finish installing the extension.
 
 ## Retrieve the required information from Mixpanel
 
-In order to acquire the *MIXPANEL_TOKEN* and *MIXPANEL_KEY* information, navigate to [Mixpanel](https://mixpanel.com) and click on your [Account Settings](https://mixpanel.com/account/). Click on the *Projects* tab. You now need to copy the *Token* and *API Key* information. These map respectively to the *MIXPANEL_TOKEN* and *MIXPANEL_KEY* variables.
+In order to acquire the **MIXPANEL_TOKEN** and **MIXPANEL_KEY** information, navigate to [Mixpanel](https://mixpanel.com) and click on your [Account Settings](https://mixpanel.com/account/). Click on the **Projects** tab. You now need to copy the **Token** and **API Key** information. These map respectively to the **MIXPANEL_TOKEN** and **MIXPANEL_KEY** variables.
 
 ![](/media/articles/extensions/mixpanel/mixpanel-project-info.png)
 
 ## Using Your Installed Extension
 
- To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Mixpanel* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution.
+To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Auth0 Dashboard](${manage_url}), click on the **Installed Extensions** link, and select the **Auth0 Logs to Mixpanel** line. There you can see the job you just created, modify its state by toggling the **State** switch, see when the next run is due and what was the result of the last execution.
 
 ![](/media/articles/extensions/mixpanel/view-cron-jobs.png)
 

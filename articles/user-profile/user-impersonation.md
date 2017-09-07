@@ -2,57 +2,57 @@
 description: This page explains how to impersonate a user, often used for testing and troubleshooting purposes.
 toc: true
 ---
-
 # User Impersonation
 
-::: panel-warning Advanced Feature
-Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the __Sign in as User__ button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
+::: warning
+Impersonation functionality may be disabled by default for your tenant. To check, go to the [Users](${manage_url}/#/users) page in the Dashboard, select a user, and see if the **Sign in as User** button is displayed. If you can't see it, [contact support](${env.DOMAIN_URL_SUPPORT}) and ask them to enable the feature for your tenant.
 :::
 
-Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation the administrators can login to an app as a specific user, see everything exactly as that user sees it, and do everything exactly as that user does it.
+Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation the administrators can log in to an app as a specific user, see everything exactly as that user sees it, and do everything exactly as that user does it.
 
-Auth0 provides a _Sign in As_ feature for user impersonation, and provides the following:
+Auth0 provides a __Sign in As__ feature for user impersonation, and provides the following:
+
 - Detailed auditing of who impersonated when.
 - Restrictions on impersonation which allows you to reject an impersonated authentication transaction based on, for instance, corporate policies around privacy and sensitive data.
 - Unlimited customization on who can impersonate who, when, depending on whatever context, using our [Rules](/rules) engine. In a Rule, you have access to `user.impersonated` (the impersonated login) and `user.impersonator` (the impersonating login) and you can write arbitrary Javascript to define how it works.
 
 ::: note
-  Any Rules that you've implemented will run when you impersonate a user, including any actions that update the user.
+Any [Rules](/rules) that you've implemented will run when you impersonate a user, including any actions that update the user.
 :::
 
 ## Use the Dashboard
 
-Navigate to the [Users](${manage_url}/#/users) page in the Management Dashboard and select the user you want to login as. Click on the __Sign in as User__ and select the client you want to log into using the dropdown menu.
+Navigate to the [Users](${manage_url}/#/users) page in the Auth0 Dashboard and select the user you want to log in as. Click on the __Sign in as User__ and select the client you want to log in to using the dropdown menu.
 
-![Click Sign in as User](/media/articles/user-profile/signin-as-user-01.png)
+![Click Sign in as User](/media/articles/user-profile/user2.png)
 
 ::: panel I can't see this button
 In order to see this button the following conditions should apply:
-- Impersonation should be enabled for your account (see panel at the top of this page)
-- The Clients registered in the account must have at least one __callback URL__ listed
+- Impersonation should be enabled for your tenant (see panel at the top of this page)
+- The Clients registered in the tenant must have at least one __callback URL__ listed
 - The Clients must have the connections turned on that the users who are to be impersonated belong to
 :::
 
 A popup displays the URL to be used in order to impersonate the user. You can choose either to copy the URL into the clipboard (white button) or open it in a separate browser tab/window (blue button).
 
-![Links for User Impersonation](/media/articles/user-profile/signin-as-user-02.png)
+![Links for User Impersonation](/media/articles/user-profile/user3.png)
 
-::: note
-Impersonating a user using the Dashboard will not return a [ID Token](/tokens/id-token) to your application by default. To achieve this, call the [impersonation endpoint](/api/authentication/reference#impersonation) manually or in the [Advanced Settings](#advanced-settings). If you call the endpoint manually, add `additionalParameters.scope: "openid"` to the request body.
+::: panel Acquiring a Token
+Impersonating a user using the [Dashboard](${manage_url}) will not return an [ID Token](/tokens/id-token) to your application by default. There are two ways to achieve this. You can alter the **Response Type** setting in the impersonation menu's [Advanced Settings](#advanced-settings) from `Code` to `Token` (**Sign in as user** -> **Show Advanced Settings**). Alternatively, you can add `additionalParameters.scope: "openid"` to the request body while calling the [impersonation endpoint](/api/authentication/reference#impersonation) manually.
 :::
 
 ### Advanced Settings
 
-When impersonating a user in Dashboard, after clicking __Sign in as User__ you will see a link to expand __Advanced Settings__.
+When impersonating a user in Dashboard, after clicking **Sign in as User** you will see a link to expand "Advanced Settings".
 
 ![Advanced Settings](/media/articles/user-profile/impersonation-adv.png)
 
 This reveals fields to make it easier to [impersonate a User using the Impersonation API](#impersonate-a-user-using-the-impersonation-api):
 
-* **Response mode**: `GET` or `POST`. This is only for server side apps, client side apps default to `GET`.
-* **Response type**: `Code` or `Token`. This is only for server side apps, client side apps default to `Token`.
-* **Scope**: This field will have `openid` in it is as default, [other scopes](/scopes) can be added as a list using whitespace as separator.
-* **State**: The `state` is an optional parameter. Learn more about [using the state parameter here](/protocols/oauth2/oauth-state).
+- **Response mode**: `GET` or `POST`. This is only for server side apps, client side apps default to `GET`.
+- **Response type**: `Code` or `Token`. This is only for server side apps, client side apps default to `Token`.
+- **Scope**: This field will have `openid` in it is as default, [other scopes](/scopes) can be added as a list using whitespace as separator.
+- **State**: The `state` is an optional parameter. Learn more about [using the state parameter here](/protocols/oauth2/oauth-state).
 
 ## Use the Impersonation API
 
@@ -60,19 +60,19 @@ You can also use the [Impersonation API](/api/authentication/reference#impersona
 
 ## Sample Implementation
 
-Let's assume that you have two apps, `app1` and `app2`, and you want to impersonate the users of `app2`.
+Let's assume that you have two apps, `app1` and `app2`, and you want to impersonate the users of `app2`. You will need to locate the `user_id` of the user you wish to impersonate, either via the Dashboard or the Management API. Next, you will need to obtain an authorization code via the impersonation endpoint. Finally, you will need to exchange your code for a valid access token, and your impersonation process will be complete. You can walk through the steps below which use the example `app1` and `app2`.
 
-### Get a Token
+### 1. Find the User Id
 
-First, you have to generate a token that you can use to call the [Management APIv2](/api/management/v2), specifically the [Impersonation endpoint](/api/authentication/reference#impersonation). This token is called __Auth0 Management APIv2 Token__.
+You can use one of two methods to locate the `user_id` of a given user that you want to impersonate. You can either use the Management API v2 to retrieve it, or you can use the Dashboard.
 
-You can get one either using the Dashboard or by making a `POST` operation to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
+#### Option A: Use the Management API
 
-The Management APIv2 Token will be valid for __24 hours__, so you should ask for a token everytime you make a request to the API or handle vigorously `401` responses.
+First, you will need an APIv2 token, if you want to retrieve the `user_id` via the Management API. You can get one by making a `POST` request to the [Token endpoint](/api/authentication#client-credentials). For details on how to do that refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens) documentation.
 
-### Find the User Id
+The Management APIv2 Token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API, or vigorously handle `401` responses.
 
-Afterwards, you would have to find out the user id of the user that you want to impersonate. That would be the user of `app2`. You can retrieve this information with the [Management API /api/v2/users](/api/management/v2#!/Users/get_users) endpoint.
+After you have a token, you will have to use the token to retrieve the user id of the user that you want to impersonate (in this example, a user of `app2`). You can retrieve this information with the [Management API /api/v2/users](/api/management/v2#!/Users/get_users) endpoint.
 
 ```har
 {
@@ -86,11 +86,13 @@ Afterwards, you would have to find out the user id of the user that you want to 
 
 Replace `YOUR_ACCESS_TOKEN` with the Management APIv2 token you got in the previous step.
 
-Alternatively, you can retrieve the `user_id` information from the Dashboard. Go to the [Users](${manage_url}/#/users) section and look at the user's profile. The `user_id` is displayed under the _Identity Provider Attributes_ section.
+#### Option B: Use the Dashboard
 
-### Get an Authorization Code
+Alternatively, you can retrieve the `user_id` information from the Dashboard. Go to the [Users](${manage_url}/#/users) section and look at the user's profile. The `user_id` is displayed under the **Identity Provider Attributes** section.
 
-Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Account Settings](${manage_url}/#/account) and clicking on the **Advanced** tab.
+### 2. Get an Authorization Code
+
+Before calling the call the [Impersonation API](/api/authentication/reference#impersonation) you will need to generate a Bearer token. You can generate it with the [Management API V1 /oauth/token endpoint](/api/management/v1#authentication) with your **Global Client ID** and **Global Client Secret** which both can be found in the dashboard under [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
 ![Global Client Information](/media/articles/user-profile/global-client-info.png)
 
@@ -119,7 +121,8 @@ The `state` is an optional parameter, but we strongly recommend you [use it as i
 The `callback_url` must match what is defined in your [Client's Settings](${manage_url}/#/clients/${account.clientId}/settings).
 
 There are various possible values for `scope`:
-- `scope: 'openid'`: _(default)_ It will return, not only an __opaque Access Token__, but also an [ID Token](/tokens/id-token) which is a __JSON Web Token__ ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
+
+- `scope: 'openid'`: _(default)_ It will return, not only an opaque Access Token, but also an [ID Token](/tokens/id-token) which is a JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
 - `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the [ID Token](/tokens/id-token) (for example, `scope: 'openid name email picture'`).
 
 You can get more information about this in the [Scopes documentation](/scopes).
@@ -166,11 +169,11 @@ ${account.callback}/?code=AUTHORIZATION_CODE&state=STATE_VALUE
 The process described applies to Regular Web Applications. In case yours is a Single Page Application (SPA) you would have to use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication/reference#impersonation). Once you do this Auth0 will redirect to your SPA _Callback URL_ with Access Token and ID Token in the `#` params. You can read more on the OAuth2 Implicit flow [here](/protocols/oauth2/oauth-implicit-protocol).
 :::
 
-### Exchange Code with Token
+### 3. Exchange Code with Token
 
 Now you should exchange the Authorization Code you received for a token. Note that this should already be implemented if you have a regular webapp and are using OAuth Server Side flow for authenticating normal users.
 
-If not you should send a `POST` request to the [Token endpoint in Auth0](/api/authentication#authorization-code). You will need to send the __Authorization Code__ obtained before along with your __Client Id__ and __Client Secret__.
+If not you should send a `POST` request to the [Token endpoint in Auth0](/api/authentication#authorization-code). You will need to send the Authorization Code obtained before along with your Client ID and Client Secret.
 
 ```har
 {

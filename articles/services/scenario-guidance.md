@@ -2,13 +2,16 @@
 description: Project to help customers address specific requirements related to a current project that is expected to use Auth0.
 ---
 
-# Advisory Hours: Scenario guidance
+# Advisory Sessions: Scenario guidance
 
 An offering to help customers address specific requirements related to a current project that is expected to use Auth0. This service is applicable in all phases of a product lifecycle, delivered remotely in a variety of ways (e.g. technology briefings, Q&A sessions, etc).
 
 ## Estimated effort
 
-20 hours.
+Includes up to three (3) working sessions, where we will jointly draft a high-level solution to address the requirements of your scenario with an Auth0 Solutions Architect. We will provide a recommendations memo afterwards for your reference.
+
+Diagrams or information you deem relevant should be provided prior to this engagement so that we can optimize the time available.
+
 
 ## Typical work-streams
 

@@ -15,7 +15,7 @@ Enrolling for MFA is a separate, distinct step from the initial sign-up for Auth
 
 ### Enrolling from the Guardian widget
 
-In this scenario, after your initial authentication you will see the option to download the Auth0 Guardian app from either the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). Underneath that, is there is the option to use [Google Authenticator](#google-authenticator) or [SMS](#sms) depending on the application's settings.
+In this scenario, after your initial authentication you will see the option to download the Auth0 Guardian app from either the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). Underneath that, there is the option to use [Google Authenticator](#google-authenticator) or [SMS](#sms) depending on the application's settings.
 
 ![](/media/articles/mfa/choose-mfa.png)
 

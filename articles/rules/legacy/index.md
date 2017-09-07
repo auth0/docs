@@ -39,7 +39,7 @@ Watch this video learn all about rules in just a few minutes.
 
 A Rule is a function with the following arguments:
 
-* user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
+* `user`: the user object as it comes from the identity provider. For a complete list of the user properties, see [User Profile Structure](/user-profile/user-profile-structure).
 
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. For a complete list of context properties, see [Context Argument Properties in Rules](/rules/context).
 
@@ -172,13 +172,13 @@ Rules can also be created by creating a POST request to `/api/v2/rules` using th
 
 This will creates a new rule according to the following input arguments:
 
-- **name**: The name of the rule. It can only contain alphanumeric characters, spaces and '-', and cannot start nor end with '-' or spaces.
+- ``name``: The name of the rule. It can only contain alphanumeric characters, spaces and '-', and cannot start nor end with '-' or spaces.
 
-- **script** : Τhe script that contains the rule's code. This is the same as what you would enter when creating a new rule using the [dashboard](${manage_url}/#/rules/create).
+- ``script`` : Τhe script that contains the rule's code. This is the same as what you would enter when creating a new rule using the [dashboard](${manage_url}/#/rules/create).
 
-- **order**: This field is optional and contains a `number`. This number represents the rule's order in relation to other rules. A rule with a lower order than another rule executes first. If no order is provided it will automatically be one greater than the current maximum.
+- ``order``: This field is optional and contains a `number`. This number represents the rule's order in relation to other rules. A rule with a lower order than another rule executes first. If no order is provided it will automatically be one greater than the current maximum.
 
-- **enabled**: This field can contain an optional `boolean`. If `true`, the rule will be enabled, if it's `false` it will be disabled.
+- ``enabled``: This field can contain an optional `boolean`. If `true`, the rule will be enabled, if it's `false` it will be disabled.
 
 Example of a body schema:
 

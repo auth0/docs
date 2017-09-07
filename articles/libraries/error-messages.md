@@ -16,7 +16,7 @@ You may encounter one or more of the following messages when signing up:
 
 In the case of a failed login, the errors can be one of the following:
 
-* **user is blocked**: the user you are attempting to sign up with is blocked.
+* **unauthorized**: the user you are attempting to sign in with is blocked.
 * **too_many_attempts**: too many attempts to sign in have been made and the account was blocked.
 * **mfa_required**: the user must provide the multifactor authentication (MFA) code to authenticate;
 * **mfa_registration_required**: the administrator has required multifactor authentication (MFA), but the user has not enrolled;

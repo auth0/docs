@@ -7,7 +7,7 @@ description: This page details Auth0's Penetration Testing Policy.
 This policy is effective August 1, 2017.
 :::
 
-While conducting a security test of your own application it is *not* permitted to directly test Auth0 infrastructure (e.g. `tenant.auth0.com`) without prior approval. Please notify us in advance via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}). Auth0 requires at least *1 week* (7 days) notice prior to the test's planned start date. 
+While conducting a security test of your own application it is **not** permitted to directly test Auth0 infrastructure (e.g. `tenant.auth0.com`) without prior approval. Please notify us in advance via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}). Auth0 requires at least **1 week** (7 days) notice prior to the test's planned start date. 
 
 Please provide the following information in the support ticket:
 
@@ -19,7 +19,7 @@ Please provide the following information in the support ticket:
 
 Auth0 requires that:
 
-* The test be restricted to only your account 
+* The test be restricted to only your tenant 
 * You disclose any suspected findings to the Auth0 Security team for explanation/discussion
 
 Private SaaS Appliance customers should also request permission to run a penetration test via the [Auth0 support center](${env.DOMAIN_URL_SUPPORT}). Please include the information listed above with your support request.

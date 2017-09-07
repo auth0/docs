@@ -101,4 +101,6 @@ Since in many cases it is desirable to retrieve additional user information at t
 * [User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
 * [OAuth 2.0 Overview](/protocols/oauth2)
 * [OpenID Connect Overview](/protocols/oidc)
+* [Obtaining and Using Access Tokens](/tokens/access-token)
+* [Obtaining and Using ID Tokens](/tokens/id-token)
 :::
