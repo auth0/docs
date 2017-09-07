@@ -28,18 +28,16 @@ If the incoming authentication request includes a `connection` parameter that us
 
 #### Single Sign-On (SSO)
 
-When SSO is desired, a client should use the Hosted Login Page for logins rather than an embedded login solution. When a user logs in via the Hosted Login Page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the Hosted Login Page. They will see the page only when they need to actually login. 
+If you want to use single sign on, you should use the Hosted Login Page for logins rather than an embedded login solution. When a user logs in via the Hosted Login Page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the Hosted Login Page. They will see the page only when they need to actually login. 
 
-This behavior occurs without modification to the actual Hosted Login Page. The is a simple two step process:
+This behavior occurs without modification to the actual Hosted Login Page. This is a simple two step process:
 
-1. Enable SSO for the client in the [Dashboard](${manage_url}) (Go to the Client's Settings, then scroll down to the "Use Auth0 instead of the IdP to do Single Sign On" setting and toggle it on.
-1. Use the `authorize` endpoint with `?prompt=none` for silent SSO.
+1. Enable SSO for the client in the [Dashboard](${manage_url}) (Go to the Client's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign On** setting and toggle it on.
+1. Use the [authorize endpoint](/api/authentication#authorization-code-grant) with `?prompt=none` for [silent SSO](/api-auth/tutorials/silent-authentication).
 
 ::: note 
 For more details about how SSO works, see the [SSO documentation](/sso).
 :::
-
-![Hosted Login Page Preview](/media/articles/hosted-pages/hlp-preview-lock.png)
 
 ### Why Use the Hosted Login Page
 
@@ -99,7 +97,7 @@ if (config.extraParams.title) {
 } 
 ```
 
-#### Parameters for Authorize Endpoint
+#### Parameters for the Authorize Endpoint
 
 If you choose to initiate the Hosted Login Page via the `authorize` endpoint, whether by an SDK like auth0.js or by calling the endpoint directly, you may also pass some customization parameters to the Hosted Login Page. However, parameters passed to the `authorize` endpoint must be [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters.
 
@@ -141,9 +139,11 @@ webAuth.authorize({
 
 In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every client app you have set up on a single tenant would use the same Hosted Login Page), you would have to create a new tenant for each client that requires a different hosted page. 
 
-::: note
-Remember that creating a new tenant is only really a viable option for one organization that needs two separate sets of custom pages, and can also have two distinct sets of clients, users, etc. as these items cannot be shared between tenants.
-:::
+In most cases, it would be preferred to use a single login page, which unifies your brand and the authentication experience for your users across thevarious areas in which they might encounter it. Additionally, using the same pages, and the same tenant, will allow you to share the resources that would otherwise need to be separated across multiple tenants.
+
+Creating a separate tenant is only really a viable option for an organization that needs two or more separate sets of custom pages, such as for branding reasons. If an example corporation has multiple branded subsidiaries or products, and separate APIs for all of them, it might make sense for them to create several separate Auth0 tenants, each with their own hosted pages set up for that brand or product's specific needs. 
+
+Bear in mind that separating tenants with the goal of having separate hosted pages will also mean that those separate tenants will have two distinct sets of clients, users, settings, etc. as these things are not shared between tenants.
 
 ### Creating New Tenants
 
