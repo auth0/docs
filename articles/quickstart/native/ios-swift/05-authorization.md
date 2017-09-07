@@ -63,11 +63,13 @@ guard
     let roles = jwt.claim(name: "https://access.control/roles").array
     else { // Couldn't retrieve claim }
 
-    if roles.contains("admin") {
-        // Authorised
-    } else {
-        // Deny
-    }
+if roles.contains("admin") {
+    // Access Granted
+    // Present Admin Screen
+} else {
+    // Access Denied
+    // Show warning
+}
 ```
 
 ## Restrict Content Based On Access Level
