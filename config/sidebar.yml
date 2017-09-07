@@ -152,6 +152,16 @@ articles:
 
       - title: "Login Page"
         url: "/hosted-pages/login"
+        children:
+
+            - title: "Using Lock"
+              url: "/hosted-pages/login/lock"
+
+            - title: "Using Lock Passwordless"
+              url: "/hosted-pages/login/lock-passwordless"
+
+            - title: "Using Auth0.js"
+              url: "/hosted-pages/login/auth0js/v8"
 
       - title: "Password Reset Page"
         url: "/hosted-pages/password-reset"
