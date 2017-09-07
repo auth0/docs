@@ -6,7 +6,7 @@ description: Helpful docs for implementing Auth0
 
 <div class="topic-page-header">
   <div data-name="example" class="topic-page-badge"></div>
-  <h1>Gudes</h1>
+  <h1>Guides</h1>
   <p>
     In addition to the docs featured on the documentation homepage, there are other materials many find useful. The following is a list of commonly-used docs, guides, and tutorials you may find helpful as you implement Auth0.
   </p>

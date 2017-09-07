@@ -12,7 +12,7 @@ tags:
   - quickstart
 snippets:
   dependencies: server-apis/aspnet-core-webapi/dependencies
-current_version: v1
+current_version: v2
 versions:
   v1:
     title: v1.1

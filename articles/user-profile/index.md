@@ -15,7 +15,7 @@ Use the Auth0 Management Dashboard ("Dashboard") to manage User Profiles.
 Within the Dashboard, you can create, view, modify, or delete users. These options are available via the [Users](${manage_url}/#/users) page.
 
 ::: note
-User Management is included as part of the **Developer** subscription plan. You may need to [upgrade your plan](${manage_url}/#/account/billing/subscription) to access these features.
+User Management is included as part of the **Developer** subscription plan. You may need to [upgrade your plan](${manage_url}/#/tenant/billing/subscription) to access these features.
 :::
 
 ![User Profile Dashboard](/media/articles/user-profile/user1.png)
@@ -27,7 +27,7 @@ To create a new user and their corresponding User Profile, click the [Users](${m
 * **Email**: the user's email address. The maximum length is 64 chars for the user/local part and 256 chars for the domain part.
 * **Password**: the user's password. There is no limit for max password length. For more information refer to [Password Strength in Auth0 Database Connections](/connections/database/password-strength).
 * **Repeat Password**: retype the user's password to ensure that you entered the password correctly.
-* **Connection**: the database connection to use to authenticate the user. The dropdown lists all the configured database connections in your account. The connection you use must be associated with a Client.
+* **Connection**: the database connection to use to authenticate the user. The dropdown lists all the configured database connections in your tenant. The connection you use must be associated with a Client.
 
 Fill in the required information and click **Save** to create the new user. For more information refer to: [Creating Users via the Management Dashboard](/tutorials/creating-users-in-the-management-portal).
 
@@ -96,7 +96,7 @@ Navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Select the
 
 ::: panel I can't see the button
 Can't see the button? The following conditions are required for the button display:
-- The applications registered in the account must have at least one callback URL listed.
+- The applications registered in the tenant must have at least one callback URL listed.
 - The applications must have the connections that the impersonated user belongs to turned on.
 :::
 
@@ -142,9 +142,9 @@ Instead of making the HTTP calls directly, and depending on the platform you use
 
 ## User Access to Clients
 
-Inside a single tenant (Auth0 account) the users are shared between clients. The idea here is that the all the clients in a single tenant will usually belong to the same app.
+Inside a single Auth0 tenant the users are shared between clients. The idea here is that the all the clients in a single tenant will usually belong to the same app.
 
-For total separation you can create a new account. To do this click on tenant name on top right of the dashboard and select **New Account** . If you have multiple tenants, you can easily switch between them from the accounts menu.
+For total separation you can create a new tenant. To do this click on tenant name on top right of the dashboard and select **+ Create Tenant** . If you have multiple tenants, you can easily switch between them from the tenants menu.
 
 If you need to restrict some users to certain clients you can use rules. Inside a rule, the `context.clientName` and `context.clientID` variables are available to check which client the user is using for login. See [this rule for an example](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md).
 

@@ -114,6 +114,7 @@ Once the `access_token` has been obtained it can be used to make calls to the AP
   ]
 }
 ```
+
 ## 4. Verify the Token
 
 Once your API receives a request with a Bearer `access_token`, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.

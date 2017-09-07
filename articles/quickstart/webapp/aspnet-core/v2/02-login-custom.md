@@ -10,9 +10,9 @@ budicon: 448
   path: 'Quickstart/02-Login-Custom',
   branch: 'v2',
   requirements: [
-    '.NET Core SDK 2.0 (Preview 2)',
-    '.NET Core 2.0 (Preview 2)',
-    'ASP.NET Core 2.0 (Preview 2)'
+    '.NET Core SDK 2.0',
+    '.NET Core 2.0',
+    'ASP.NET Core 2.0'
   ]
 }) %>
 
@@ -40,7 +40,7 @@ public void ConfigureServices(IServiceCollection services)
         options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     })
-    .AddCookieAuthentication();
+    .AddCookie();
 }
 ```
 
@@ -280,8 +280,8 @@ public void ConfigureServices(IServiceCollection services)
         options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     })
-    .AddCookieAuthentication()
-    .AddOpenIdConnectAuthentication("Auth0", options => {
+    .AddCookie()
+    .AddOpenIdConnect("Auth0", options => {
         // Set the authority to your Auth0 domain
         options.Authority = $"https://{Configuration["Auth0:Domain"]}";
 

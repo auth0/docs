@@ -1,0 +1,1 @@
+The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. 

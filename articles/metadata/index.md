@@ -17,6 +17,10 @@ An authenticated user can modify data in their profile's `user_metadata`, but no
 
 You can manage your metadata using [Rules](/rules/metadata-in-rules) or the [Auth0 APIs](/metadata/management-api).
 
+::: warning
+Note that `app_metadata` fields are not [searchable](/api/management/v2/user-search). For `user_metadata`, you can only search for profile information: `name`, `nickname`, `given_name`, `family_name`.
+:::
+
 ## Metadata Usage
 
 Suppose the following data is stored for a user with the email address `jane.doe@example.com`:

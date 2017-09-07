@@ -1,5 +1,5 @@
 ---
-description: How to logout a user and optionally redirect them to an authorized URL.
+description: How to log out a user and optionally redirect them to an authorized URL.
 toc: true
 ---
 
@@ -9,13 +9,13 @@ toc: true
 
 When you are implementing the logout functionality of your app there are typically three layers of sessions you need to consider:
 
-- __Application Session__: The first is the session inside the application. Even though your application uses Auth0 to authenticate users, you will still need to keep track of the fact that the user has logged in to your application. In a normal web application this is achieved by storing information inside a cookie. You need to log out the user from your application, by clearing their session.
+- __Application Session__: The first is the session inside the application. Even though your application uses Auth0 to authenticate users, you will still need to track that the user has logged in to your application. In a normal web application this is achieved by storing information inside a cookie. You need to log out the user from your application, by clearing their session.
 
-- __Auth0 session__: Next, Auth0 will also keep a session and store the user's information inside a cookie. Next time when a user is redirected to the Auth0 Lock screen, the user's information will be remembered. In order to logout a user from Auth0 you need to clear the SSO cookie.
+- __Auth0 session__: Next, Auth0 will also keep a session and store the user's information inside a cookie. The next time a user is redirected to the Auth0 Lock screen, the user's information will be remembered. In order to log out a user from Auth0 you need to clear the single sign-on (SSO) cookie.
 
 - __Identity Provider session__: The last layer is the Identity Provider, for example Facebook or Google. When you allow users to sign in with any of these providers, and they are already signed into the provider, they will not be prompted to sign in. They may simply be required to give permissions to share their information with Auth0 and in turn your application.
 
-This document explains how to logout a user from the Auth0 session and optionally from the Identity Provider session. Keep in mind though that you should handle also the Application Session in your app!
+This document explains how to log out a user from the Auth0 session and optionally from the Identity Provider session. Keep in mind though that you should handle also the Application Session in your app!
 
 ## Log Out a User
 
@@ -79,7 +79,7 @@ You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples
     https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
     ```
 
-  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the **Advanced** tab of your **Account settings** page. See [Set the Allowed Logout URLs at the Account Level](#set-the-allowed-logout-urls-at-the-account-level) for more information.
+  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the [Advanced tab of your Tenant Settings](${manage_url}/#/tenant/advanced). See [Set the Allowed Logout URLs at the Tenant Level](#set-the-allowed-logout-urls-at-the-tenant-level) for more information.
 
 * For logout requests that include the `client_id` parameter, for example:
 
@@ -90,11 +90,11 @@ You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples
   you must add the `returnTo` URL (i.e. `http://www.example.com`) to the **Allowed Logout URLs** list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Set the Allowed Logout URLs at the App Level](#set-the-allowed-logout-urls-at-the-app-level) for more information.
 
 
-### Set the Allowed Logout URLs at the Account Level
+### Set the Allowed Logout URLs at the Tenant Level
 
-To add a list of URLs that the user may be redirected to after logging out at the account level, go to the [Account Settings > Advanced](${manage_url}/#/account/advanced) of the **Auth0 Management Console**.
+To add a list of URLs that the user may be redirected to after logging out at the tenant level, go to the [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) of the Auth0 Dashboard.
 
-![Account level logout screen](/media/articles/logout/account-level-logout.png)
+![Tenant level logout screen](/media/articles/logout/tenant-level-logout.png)
 
 When providing the URL list, you can:
 
@@ -126,7 +126,7 @@ In order to avoid validation errors, make sure that you do include the protocol 
 * The URLs provided to the **Allowed Logout URLs** list are case-sensitive, so the URL used for logouts must match the case of the logout URL configured on the dashboard. Note, that the scheme and host parts, are case-insensitive. For example, in `http://www.Example.Com/FooHoo.html`, the `http://www.Example.Com` is case-insensitive, while the `FooHoo.html` is case-sensitive.
 
 ::: note
-If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the **Auth0 Management Console** for the logout to function.
+If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the [Dashboard](${manage_url}) for the logout to function.
 :::
 
 #### Facebook Users

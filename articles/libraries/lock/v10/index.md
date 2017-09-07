@@ -31,7 +31,7 @@ Install via [bower](http://bower.io):
 bower install auth0-lock
 ```
 
-Include via our CDN (Replace `.x` and `.y` with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock)):
+Include via our CDN (Replace `.x` and `.y` with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock/releases)):
 
 ```html
 <!-- Latest minor release -->
@@ -42,7 +42,7 @@ Include via our CDN (Replace `.x` and `.y` with the latest minor and patch relea
 ```
 
 ::: note
-It is recommended that production applications use a specific patch version, or at the very least a specific minor version. Regardless of the method by which Lock is included, the recommendation is that the version should be locked down and only manually updated, to ensure that those updates do not adversely affect your implementation.
+It is recommended that production applications use a specific patch version, or at the very least a specific minor version. Regardless of the method by which Lock is included, the recommendation is that the version should be locked down and only manually updated, to ensure that those updates do not adversely affect your implementation. Check the [GitHub repository](https://github.com/auth0/lock/releases) for a current list of releases.
 :::
 
 ### Mobile

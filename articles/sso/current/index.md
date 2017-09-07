@@ -22,9 +22,9 @@ In the case of SSO with Auth0, the *Central Service* is the Auth0 Authorization 
 
 Let's look at how the SSO flow looks when using Auth0 and a user visits your application for the first time:
 
-1. Your application will redirect the user to the Auth0 Hosted Lock page where they can log in.
+1. Your application will redirect the user to the Auth0 Hosted Login page where they can log in.
 2. Auth0 will check to see whether there is an existing SSO cookie.
-3. Because this is the first time the user visits this Hosted Lock page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
+3. Because this is the first time the user visits this Hosted Login page, and no SSO cookie is present, they may be presented with username and password fields and also possibly some Social Identity Providers such as LinkedIn, GitHub, etc. (The exact layout of the Lock screen will depend on the [Identity Providers](/identityproviders) you have configured.
 
     ![](/media/articles/sso/single-sign-on/lock-no-sso-cookie.png)
 
@@ -33,7 +33,7 @@ Let's look at how the SSO flow looks when using Auth0 and a user visits your app
 
 Now let's look at flow when the user returns to your website for a subsequent visit:
 
-1. Your application will redirect the user to the Auth0 Hosted Lock page where they can sign in.
+1. Your application will redirect the user to the Auth0 Hosted Login page where they can sign in.
 2. Auth0 will check to see whether there is an existing SSO cookie.
 3. This time Auth0 finds an SSO cookie and instead of displaying the normal Lock screen with the username and password fields, it will display a Lock screen which indicates that we know you the user is, as they have already logged in before. They can simply confirm that they want to log in with that same account.
 
@@ -50,7 +50,7 @@ If an SSO cookie is present you can also sign the user in silently, i.e. without
 Prior to enabling SSO for a given Client, you must first [configure the Identity Provider(s)](/identityproviders) you want to use.
 :::
 
-To enable SSO for one of your Clients (recall that each Client is independent of one another), navigate to the [Clients section of the Auth0 Management Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Client with which you want to use SSO.
+To enable SSO for one of your Clients (recall that each Client is independent of one another), navigate to the Clients section of the [Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Client with which you want to use SSO.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
@@ -60,7 +60,7 @@ Near the bottom of the **Settings** page, toggle **Use Auth0 instead of the IdP 
 
 Alternatively you can also set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 
-Once you have set the SSO flag for your Client in the Auth0 Dashboard, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the `getSSOData()` function in the [auth0.js library](/libraries/auth0js#sso).
+Once you have set the SSO flag for your Client, you must add logic to your application to check the user's SSO status. Checking the user's SSO status can only be done via JavaScript by making use of the `getSSOData()` function in the [auth0.js library](/libraries/auth0js#sso).
 
 The result of this function will indicate whether an SSO cookie is present, and if so it will return the SSO data of the user which can then subsequently be used to log the user in silently without even displaying Lock.
 
@@ -74,7 +74,9 @@ Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) rep
 
 ### Length of SSO Sessions
 
-If the SSO flag is set for a Client, Auth0 will maintain an SSO session for any user authenticating via that Client. If the user remains active, the session will last no more than **7 days**, but if not, the session will terminate after **3 days**. To be considered active, the user must access the Client that created the session within the given timeframe.
+If the SSO flag is set for a Client, Auth0 will maintain an SSO session for any user authenticating via that Client. In the [Dashboard](${manage_url}/#/account/advanced) under Account settings (top right) and Advanced, there is an SSO **Session Timeout** setting. This setting determines how long the session will stay valid, and can be set to a custom value (in minutes). The default value is `10080` minutes (which equals to `7` days).
+
+![](/media/articles/sso/single-sign-on/accountsettings-ssotimeout.png)
 
 ## What is Single Log Out?
 
