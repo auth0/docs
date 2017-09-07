@@ -6,7 +6,7 @@ toc: true
 
 # Mobile + API: Android Implementation for the Mobile App
 
-This document is part of the [Mobile + API Architecture Scenario](/architecture-scenarios/application/mobile-api) and it explains how to implement the Mobile application in Android. Please refer to the scenario for information on the implemented solution.
+This document is part of the [Mobile + API Architecture Scenario](/architecture-scenarios/application/mobile-api) and it explains how to implement the mobile application in Android. Please refer to the scenario for information on the implemented solution.
 
 ::: note
 The full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-mobile/android).
@@ -14,10 +14,16 @@ The full source code for the Node.js API implementation can be found in [this Gi
 
 ## 1. Set Up the Application
 
-### System Requirements
-
-- [Android Studio 2.3.3](https://developer.android.com/studio/index.html)
-- [Nexus 5X virtual device running Marshmallow (API 23) Android 6.0](https://developer.android.com/studio/run/managing-avds.html)
+<%= include('../../../_includes/_package', {
+  org: 'auth0-samples',
+  repo: 'auth0-pnp-abc-timesheets',
+  path: 'timesheets-mobile/android',
+  requirements: [
+    'Android Studio 2.3',
+    'Android SDK 25',
+    'Emulator - Nexus 5X - Android 6.0'
+  ]
+}) %>
 
 ### Set the Dependencies
 
@@ -263,7 +269,7 @@ public class LoginActivity extends Activity {
 }
 ```
 
-### Store Credentials
+### Store the Credentials
 
 To store the credentials received after login, we’ll use the `CredentialsManager` from the Auth0.Android library and [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences.html) for storage.
 
@@ -336,7 +342,7 @@ public class User {
 }
 ```
 
-### Store User Profile
+### Store the User Profile
 
 To handle storing user profile information we'll create a manager class; `UserProfileManager`. The `UserProfileManager` will use [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences.html) to store data.
 
@@ -858,7 +864,7 @@ And create the `user_actions_menu.xml` for the `UserActivity` Toolbar:
 </menu>
 ```
 
-### Load Profile Picture from URL
+### Load the Profile Picture from URL
 
 In order to load the user profile picture from the URL, create a task which extends `AsyncTask` and executes in the background.
 

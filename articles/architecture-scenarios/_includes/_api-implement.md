@@ -14,7 +14,7 @@ First we need to define the endpoints of our API.
 An **API endpoint** is a unique URL that represents an object. In order to interact with this object you need to point your client towards that URL. For example, if you had an API that could return either order or customers, you might configure two endpoints: `/orders` and `/customers`. Your client would interact with these endpoints using different HTTP methods, for example `POST /orders` to create a new order, or `GET /orders` to retrieve the dataset of one or more orders.
 :::
 
-For this implementation we will only define 2 endpoints; one for retrieving a list of all timesheets for an employee, and another which will allow an employee to create a new timesheet entry.
+For this implementation we will only define two endpoints; one for retrieving a list of all timesheets for an employee, and another which will allow an employee to create a new timesheet entry.
 
 An `HTTP GET` request to the `/timesheets` endpoint will allow a user to retrieve their timesheets, and an `HTTP POST` request to the `/timesheets` endpoint will allow a user to add a new timesheet.
 

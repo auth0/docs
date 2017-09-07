@@ -2,7 +2,7 @@
 order: 04
 title: Mobile + API
 image: /media/articles/architecture-scenarios/mobile-api.png
-extract: Mobile Application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.
+extract: Mobile application which talks to an API. The application will use OpenID Connect with the Authorization Code Grant using Proof Key for Code Exchange (PKCE) to authenticate users.
 description: Explains the architecture scenario with a mobile application client communicating with an API.
 toc: true
 ---
@@ -11,31 +11,31 @@ toc: true
 
 In this scenario we will build a Timesheet API for a fictitious company named ExampleCo. The API will allow management of timesheet entries for an employee or a contractor.
 
-We will also be building a Mobile Application which will be used to view and log timesheet entries in the centralized timesheet database using the API.
+We will also be building a mobile application which will be used to view and log timesheet entries in the centralized timesheet database using the API.
 
 
 ::: panel TL;DR
-* Auth0 provides API Authentication and Authorizaion as a means to secure access to API endpoints (see [API Authentication and Authorization](#api-authentication-and-authorization))
-* For authorizing a Mobile app user and granting access to the API, Auth0 supports the Proof Key for Code Exchange (see [Proof Key for Code Exchange](#proof-key-for-code-exchange-pkce))
-* Both the Mobile app and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](#auth0-configuration))
-* The API is secured by ensuring that a valid Access Token is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](#implement-the-api))
-* The Auth0.Android SDK can be used to authorize the user of the Mobile app and obtain a valid Access Token which can be used to call the API (see [Authorize the User](#authorize-the-user))
-* The Mobile app can retrieve the user's profile information by decoding the ID Token (see [Get the User Profile](#get-the-user-profile))
-* The Mobile app provides the Access Token in the HTTP Authorization header when making calls to the API (see [Call the API](#call-the-api))
-* The Mobile app user's Access Token can be renewed to ensure the user does not have to log in again during a session (see [Renew the Token](#renew-the-token))
+* Auth0 provides API Authentication and Authorization as a means to secure access to API endpoints (see [API Authentication and Authorization](#api-authentication-and-authorization))
+* For authorizing a mobile app user and granting access to the API, Auth0 supports the Authorization Code Grant Flow with PKCE (see [Proof Key for Code Exchange](#proof-key-for-code-exchange-pkce-))
+* Both the mobile app and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](#auth0-configuration))
+* The API is secured by ensuring that a valid [Access Token](/tokens/access-token) is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](#implement-the-api))
+* The Auth0.Android SDK can be used to authorize the user of the mobile app and obtain a valid Access Token which can be used to call the API (see [Authorize the User](#authorize-the-user))
+* The mobile app can retrieve the user's profile information by decoding the ID Token (see [Get the User Profile](#get-the-user-profile))
+* The mobile app provides the Access Token in the HTTP Authorization header when making calls to the API (see [Call the API](#call-the-api))
+* The mobile app user's Access Token can be renewed to ensure the user does not have to log in again during a session (see [Renew the Token](#renew-the-token))
 :::
 
 ## The Premise
 
 ExampleCo is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. All employees and external contractors are required to fill in their timesheets every week. 
 
-The company has built a timesheets application, a scenario we covered in [Single Sign-On for Regular Web Apps](/architecture-scenarios/application/web-app-sso). The internal employees use this web app to fill in their timesheets but the company wants to replace it with a Mobile application. The app will be used to log timesheet entries and send the data to the centralized timesheet database using the API.
+The company has built a timesheets application, a scenario we covered in [Single Sign-On for Regular Web Apps](/architecture-scenarios/application/web-app-sso). The internal employees use this web app to fill in their timesheets, but the company wants a mobile application for employees and contractors to use while not on the premises. The app will be used to log timesheet entries and send the data to the centralized timesheet database using the API.
 
 ### Goals & Requirements
 
-ExampleCo wants to build a flexible solution. There are potential multiple clients which should be able to log timesheet entries, as well as batch processes which may upload timesheet entries from other, external systems.
+ExampleCo wants to build a flexible solution. There are potential multiple employees and contractors who should be able to log timesheet entries, as well as batch processes which may upload timesheet entries from other, external systems.
 
-Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this Mobile Client, but by all other clients as well. They want to put in place a security architecture that is flexible enough to accommodate this. ExampleCo wants to ensure that a large part of the code and business logic for the application can be shared across the different client applications.
+Hence the company has decided to develop a single Timesheets API which will be used to log time not only by this mobile app, but by all other apps as well. They want to put in place a security architecture that is flexible enough to accommodate this. ExampleCo wants to ensure that a large part of the code and business logic for the application can be shared across the different client applications.
 
 It is required that only authorized users and applications are allowed access to the Timesheets API.
 
@@ -85,7 +85,7 @@ Fill in the required information and click the __Create__ button.
 
 ### Create the Client
 
-There are four client types in Auth0: __Native__ (used by mobile or desktop apps), __Single Page Web Applications__, __Regular Web Applications__ and __Non Interactive Clients__ (used by CLIs, Daemons, or services running on your backend). For this scenario we want to create a new Client for our Mobile Application, hence we will use Native as the client type.
+There are four client types in Auth0: __Native__ (used by mobile or desktop apps), __Single Page Web Applications__, __Regular Web Applications__ and __Non Interactive Clients__ (used by CLIs, Daemons, or services running on your backend). For this scenario we want to create a new Client for our mobile application, hence we will use Native as the client type.
 
 To create a new Client, navigate to the [dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients}) menu option on the left. Click the __+ Create Client__ button.
 
@@ -95,7 +95,7 @@ Click __Create__.
 
 ![Create Client](/media/articles/architecture-scenarios/mobile-api/create-client.png)
 
-That's it for now. When we are done with the Mobile app implementation we will revisit the dashboard and this Client's settings to make some changes in its configuration.
+That's it for now. When we are done with the mobile app implementation we will revisit the dashboard and this Client's settings to make some changes in its configuration.
 
 ## Inside the Implementation
 
@@ -103,7 +103,7 @@ That's it for now. When we are done with the Mobile app implementation we will r
 
 ### Implement the Mobile App
 
-In this section we will see how we can implement a Mobile application for our scenario.
+In this section we will see how we can implement a mobile application for our scenario.
 
 ::: note
 [See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#1-set-up-the-application)
@@ -128,11 +128,10 @@ The `GET` request to the authorization URL should include the following values:
 
 Parameter | Description
 ----------|------------
-__domain__ | The value of your Auth0 Domain. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
 __client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
-__audience__ | The value of your API Identifier. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
-__scope__ | The [scopes](/scopes) which determine the information to be returned in the `id_token` and `access_token`. A scope of `openid profile email offline_access` will return all the user profile information the `id_token` and return a `refresh_token`. You also need to request the scopes required to call the API, in this case the `read:timesheets create:timesheets` scopes. This will ensure that the `access_token` has these scopes.
-__response_type__ | Indicates the Authentication Flow to use. For a Mobile application using PKCE, this should be set to `code`.
+__audience__ | The value of your API Identifier. You can retrieve it from the Settings of your API at the [Auth0 Dashboard](${manage_url}/#/apis).
+__scope__ | The [scopes](/scopes) which determine the claims to be returned in the `id_token` and `access_token`. For example, a scope of `openid` will return an `id_token` in the response. In our example mobile app, we use the following scopes: `create:timesheets read:timesheets openid profile email offline_access`. These scopes allow the mobile app to call the API, obtain a `refresh_token`, and return the user's `name`, `picture`, and `email` claims in the `id_token`.
+__response_type__ | Indicates the Authentication Flow to use. For a mobile application using PKCE, this should be set to `code`.
 __code_challenge__ | The generated code challenge from the code verifier. You can find instructions on generating a code challenge [here](/api-auth/tutorials/authorization-code-grant-pkce#1-create-a-code-verifier).
 __code_challenge_method__ | Method used to generate the challenge. Auth0 supports only `S256`.
 __redirect_uri__ | The URL which Auth0 will redirect the browser to after authorization has been granted by the user. The Authorization Code will be available in the code URL parameter. This URL must be specified as a valid callback URL under your [Client's Settings](${manage_url}/#/clients).
@@ -231,18 +230,17 @@ To access secured resources from your API, the authenticated user's `access_toke
 
 #### Renew the Token
 
+::: warning
+Refresh tokens must be stored securely by an application since they do not expire and allow a user to remain authenticated essentially forever.
+
+If refresh tokens are compromised or you no longer need them, you can revoke the refresh tokens using the [Authentication API](/api/authentication#revoke-refresh-token).
+:::
+
 To refresh your `access_token`, perform a `POST` request to the `/oauth/token` endpoint using the `refresh_token` from your authorization result.
 
 A [Refresh Token](/tokens/refresh-token/current) will only be present if you included the `offline_access` scope in the previous authorization request and  enabled __Allow Offline Access__ for your API in the Dashboard.
 
 Your request should include:
-
-Parameter | Description
-----------|------------
-__grant_type__ | This must be set to `refresh_token`.
-__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
-__client_secret__ | (optional) Your application's Client Secret.
-__refresh_token__ | the `refresh_token` to use, from the previous authentication result.
 
 ```har
 {
@@ -256,13 +254,19 @@ __refresh_token__ | the `refresh_token` to use, from the previous authentication
     "queryString" : [],
     "postData" : {
       "mimeType": "application/json",
-      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
+      "text" : "{ \"grant_type\": \"refresh_token\", \"client_id\": \"${account.clientId}\", \"refresh_token\": \"YOUR_REFRESH_TOKEN\" }"
     },
     "headersSize" : 150,
     "bodySize" : 0,
     "comment" : ""
 }
 ```
+
+Parameter | Description
+----------|------------
+__grant_type__ | This must be set to `refresh_token`.
+__client_id__ | The value of your Auth0 Client Id. You can retrieve it from the Settings of your Client at the [Auth0 Dashboard](${manage_url}/#/clients).
+__refresh_token__ | the `refresh_token` to use, from the previous authentication result.
 
 The response will include the new `access_token`:
 
