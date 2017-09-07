@@ -7,6 +7,7 @@ budicon: 292
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-mvc-samples',
+  branch: 'v1',
   path: 'Quickstart/04-User-Profile',
   requirements: [
     '.NET Core 1.1.0',

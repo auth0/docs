@@ -14,6 +14,17 @@ In this scenario we will build a web application for a fictitious company named 
 By _Regular Web App_, we mean an app that uses primarily server side, page `GET`, `POST`, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single Page App), that heavily relies on client side JavaScript code calling an API.
 :::
 
+::: panel TL;DR
+* Auth0 supports open standards such as OAuth 2.0 and OpenID Connect (OIDC) for authentication and authorization (see [Which protocol to use](#which-protocol-to-use))
+* OIDC supports several different authorization flows - the most appropriate one for Web Applications being the Authorization Code Flow (see [Authentication Flow](#authentication-flow))
+* Your application will be configured in Auth0 as a Client (see [Client](#client))
+* Identity Providers will be configured in Auth0 as a Connection (see [Connections](#connections))
+* Auth0 provides a Lock widget, which allow users to log in to the application (see [User Login](#user-login))
+* The web application needs to manage session state to keep track of the fact that the user is logged in. Along with this, Auth0 and the Identity Provider is also managing session information. (see [Session Management](#session-management))
+* Conversely, logging a user out also involves three layers of session management (see [User Logout](#user-logout))
+* Access Control can be managed with the Auth0 Authorization Extension (see [Access Control](#access-control))
+:::
+
 ## The Premise
 
 ABC Inc. is a consulting startup company. Currently they have approximately 100 employees and they also outsource several activities to external contractors. Most of the employees work from the company's main office, but there are some teams that work remotely. Additionally, some employees frequently travel to customer locations and work from mobile devices.

@@ -3,7 +3,7 @@ description: Reset a User's MFA
 ---
 # Resetting a User's multifactor account
 
-If a user has lost their mobile device they can use their recovery code to log in. If they do not have recovery code, they will need their account administrator to reset their multifactor.
+If a user has lost their mobile device they can use their recovery code to log in. If they do not have recovery code, they will need their tenant administrator to reset their multifactor.
 
 To reset a user's multifactor authentication:
 

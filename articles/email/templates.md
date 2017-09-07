@@ -4,7 +4,7 @@ description: The Emails section of the Auth0 dashboard allows you to customize y
 
 # Customizing Your Emails
 
-::: panel-warning Email Setup
+::: warning
 You must setup your own email provider using a [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) to be able to customize your emails.
 :::
 

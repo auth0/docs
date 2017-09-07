@@ -17,13 +17,49 @@ The migration process is outlined below:
 1. We update the platform and add a new migration option for existing customers, allowing a grace period for opt-in. New customers are always automatically enrolled in all migrations.
 2. After a certain period, the migration is enabled for all customers. This grace period varies based on the severity and impact of the breaking change, typically 30 or 90 days.
 
-During the grace period, customers are informed via dashboard notifications and emails to account administrators. You will continue to receive emails until the migration has been enabled on each account you administer.
+During the grace period, customers are informed via dashboard notifications and emails to tenant administrators. You will continue to receive emails until the migration has been enabled on each tenant you administer.
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
 ## Current Migrations
 
 Current migrations are listed below, newest first. For migrations that have already been enabled see [Past Migrations](#past-migrations).
+
+### New IP Addresses for Whitelisting in Australia
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Low | 2017-08-22 |  2017-09-30 |
+
+Auth0 is updating its cloud environments, and traffic from these regions will originate from new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
+
+#### Am I affected by the change?
+
+If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to make sure the following IP addresses are allowed to go through your firewall:
+
+```
+13.55.232.24, 13.54.254.182, 13.210.52.131, 52.62.91.160, 52.63.36.78, 52.64.84.177, 52.64.111.197, 52.64.120.184, 54.66.205.24, 54.79.46.4, 54.153.131.0
+```
+
+If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
+
+### New IP Addresses for Whitelisting in Europe
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Low | 2017-08-22 |  2017-09-30 |
+
+Auth0 is updating its cloud environments, and traffic from these regions will originate from new IP addresses. If you are whitelisting IP addresses, you will need to add the new addresses to your firewall rules.
+
+#### Am I affected by the change?
+
+If you are using a custom database connection, rule, and/or custom email provider that connects to your environment, **and** you have implemented firewall restrictions for IP address ranges, then you are affected by this change. You will need to make sure the following IP addresses are allowed to go through your firewall:
+
+```
+34.253.4.94, 35.156.51.163, 35.157.221.52, 52.16.193.66, 52.16.224.164, 52.28.45.240, 52.28.56.226, 52.28.184.187, 52.28.212.16, 52.29.176.99, 52.50.106.250, 52.57.230.214, 52.211.56.181, 52.213.216.142, 52.213.38.246, 52.213.74.69
+```
+
+If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
 ### CDN provider migration in the Europe and Australia environments
 
@@ -43,7 +79,11 @@ This change shouldn't cause any disruption or change in behavior in your applica
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-### Whitelisting IP Address Ranges
+## Past Migrations
+
+These are migrations that have already been enabled for all customers.
+
+### Whitelisting IP Address Ranges (Q1 2017)
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- |
@@ -64,10 +104,6 @@ If you are using a custom database connection, rule, and/or custom email provide
 
 If you have any questions, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT}).
 
-
-## Past Migrations
-
-These are migrations that have already been enabled for all customers.
 
 ### Vulnerable Password Flow
 
@@ -118,7 +154,7 @@ You can add logic to your rules to alter their behavior for these exchanges by c
 - `oauth2-password` indicates the password (and password-realm) exchange
 - `oauth2-refresh-token` indicates the refresh token exchange
 
-If you would like to enable the new behavior on this tenant for testing before the mandatory opt-in date, login to [Dashboard](${manage_url}) and enable the __Run Rules on Password and Refresh Token Exchanges__ toggle in [Account Settings > Advanced](${manage_url}/#/account/advanced).
+If you would like to enable the new behavior on this tenant for testing before the mandatory opt-in date, login to [Dashboard](${manage_url}) and enable the __Run Rules on Password and Refresh Token Exchanges__ toggle in [Tenant Settings > Advanced](${manage_url}/#/tenant/advanced).
 
 If you need help with the migration, create a ticket in our [Support Center](${env.DOMAIN_URL_SUPPORT})
 
@@ -146,7 +182,7 @@ If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
 #### Am I affected by the change?
 
-If you are calling the `/tokeninfo` endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 account namespace: `https://${account.namespace}/`.
+If you are calling the `/tokeninfo` endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 tenant namespace: `https://${account.namespace}/`.
 
 ::: note
 You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` attribute value.
@@ -172,7 +208,7 @@ You are affected by the change only if you are using the Identity Provider acces
 For more information on how to obtain an access token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
 
 ::: note
-If your account was created after the change, this update will be applied automatically.
+If your tenant was created after the change, this update will be applied automatically.
 :::
 
 ### Email Delivery Changes: Template Customizations

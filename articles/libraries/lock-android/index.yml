@@ -1,0 +1,9 @@
+versioning:
+  baseUrl: libraries/lock-android
+  current: v2
+  versions:
+    - v1
+    - v2
+  defaultArticles:
+    v1: index
+    v2: index
