@@ -1,6 +1,4 @@
-## Add Authentication with Auth0
-
-<%= include('../../_includes/_login_preamble', { library: 'jQuery' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'jQuery', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-jquery-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
 ## Create an Authentication Service
 
@@ -207,7 +205,3 @@ $('document').ready(function() {
   handleAuthentication();
 });
 ```
-
-## Embedded Login
-
-Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the hosted login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-jquery-samples/tree/embedded-login/01-Embedded-Login).

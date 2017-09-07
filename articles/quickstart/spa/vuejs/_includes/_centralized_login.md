@@ -1,6 +1,4 @@
-## Add Authentication with Auth0
-
-<%= include('../../_includes/_login_preamble', { library: 'Vue.js' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'Vue.js', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-vue-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
 ## Create an Authentication Service
 
@@ -174,7 +172,3 @@ After authentication, users will be taken to the `/callback` route for a brief t
 ::: note
 This example assumes you are using path-based routing with `mode: 'history'`. If you are using hash-based routing, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.
 :::
-
-## Embedded Login
-
-Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the hosted login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-vue-samples/tree/embedded-login/01-Embedded-Login).
