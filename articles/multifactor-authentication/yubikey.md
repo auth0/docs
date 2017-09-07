@@ -14,9 +14,11 @@ Implementing MFA using YubiKey NEO requires use of the following Auth0 features 
 | The [Redirect Protocol](/protocols#redirect-protocol-in-rules) | Redirects the user to the website that performs the second authentication factor using YubiKey |
 | [Rules](/rules) | Evaluates whether the conditions you set for triggering MFA have been met or not |
 
+In this tutorial, we will walk you through the configuration required for the Webtask, redirect protocol, and rules.
+
 ## Configure the Webtask
 
-The first thing we'll do is create the website where the user completes the second authentication step using YubiKey. We'll be using Webtask, which allows you to run code using the Auth0 sandbox, to host the site. In this tutorial, we'll use a single Webtask to handle three steps:
+The first thing we'll do is create the website where the user completes the second authentication step using YubiKey. We'll use a Webtask, which allows you to run code using the Auth0 sandbox, to host the site. More specifically, the Webtask will: 
 
 * **Render** the UI with the `otpForm` function
 * **Capture** the YubiKey NEO code and validate it using the Yubico API
@@ -32,21 +34,23 @@ No actual key values are hard-coded into the Webtask code. Your Yubico Client ID
 
 ### Step 2: Initialize the Webtask CLI
 
-Now that we have the code required for a Webtask, we have to create the Webtask itself. This is done using the Webtask CLI.
+Now that we have the code for our Webtask, we'll need to create the Webtask itself. We do this using the Webtask CLI.
 
-First, install the Webtask CLI. You can find instructions for doing so under [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) on the Auth0 dashboard.
+To use the Webtask CLI, you'll need to install it using instructions that can be found under [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) on the Auth0 Dashboard.
 
-Once you've installed the Webtask CLI, run the following `create` command after replacing the placeholders with the values applicable to you:
+![](/media/articles/mfa/yubi-1.png)
+
+Once you've installed the Webtask CLI, run the following code after you've replaced the placeholders with your Yubico Client ID and Secret values (make sure that the Webtask CLI can access to location where you have your `yubico-mfa-wt.js` file):
 
 ```txt
 wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --secret yubikey_clientid={YOUR YUBIKEY CLIENT ID} --secret returnUrl=https://${account.namespace}/continue --profile {WEBTASK PROFILE} yubico-mfa-wt.js
 ```
 
 ::: note
-You can find the `WEBTASK PROFILE` required in the code above on the [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) page. The value is shown at the end of **step 2**.
+You can get your `WEBTASK PROFILE` value (needed for the-p parameter shown at the end of the code above) in **Step 2** of the Webtask installation instructions shown on the [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) page.
 :::
 
-Running the `create` command will generate a URL that looks like this:
+Running the `create` command as shown above will generate a URL that looks like this:
 
 ```txt
 https://sandbox.it.auth0.com/api/run/${account.tenant}/yubikey-mfa?webtask_no_cache=1
@@ -54,12 +58,14 @@ https://sandbox.it.auth0.com/api/run/${account.tenant}/yubikey-mfa?webtask_no_ca
 
 Keep a copy of this URL.
 
-## Configure the Rule
+## Create the Rule
 
-This sample uses a rule that handles the:
+This sample uses a single rule that handles:
 
-* Initial redirect to the Webtask
-* Returned result
+* The initial redirect to the Webtask
+* The returned result
+
+Here is what the rule looks like:
 
 ```js
 function (user, context, callback) {
@@ -87,25 +93,42 @@ function (user, context, callback) {
 }
 ```
 
-Some notes on the behavior of the rules code:
+Some notes regarding the rule code:
 
-* The `context.redirect` statement instructs Auth0 to redirect the user to the Webtask URL instead of calling back to the app.
-* Returning is indicated by the `protocol` property of the `context` object.
-* The returning section of the rule validates the JWT issued by the Webtask. This prevents the result of the MFA part of the transaction from being tampered with because the payload is digitally signed with a shared secret.
+* The `context.redirect` statement instructs Auth0 to redirect the user to the Webtask URL instead of calling back to the app
+* The return is indicated by the `protocol` property of the `context` object
+* The section handling the return validates the JWT issued by the Webtask to ensure that the result of MRA hasn't been tampered by an unauthorized party
 
-Every time the user logs in they will be redirected to the Webtask and will see something like:
+You'll [create the rule using the Management Dashboard](${manage_url}/#/rules).
+
+![](/media/articles/mfa/yubi-2.png)
+
+Click **Create Your First Rule** (or **Create Rule** if you've already created rules before). Choose **empty rule**.
+
+![](/media/articles/mfa/yubi-3.png)
+
+You'll see the following editor window where you can paste in the rule code above.
+
+![](/media/articles/mfa/yubi-4.png)
+
+You can test your code for correctness using **Try This Rule**. When done, click **Save** to proceed.
+
+With this rule in place, the user will be redirected to the Webtask after every login. They will see the following prompt for their second factor:
 
 ![](/media/articles/mfa/yubico-mfa.png)
 
-### Rule customizations
-You can add logic to the rule to decide under which  conditions the challenge will be triggered based on:
+### Customize the Rule
+
+You can add logic to the rule to determine which conditions the challenge will be triggered based on:
+
+You can add logic to the rule to set the conditions under which the MFA challenge will be triggered. Some examples include:
 
 * The IP address or location of the user
 * The application the user is logging into
-* The type of authentication used (e.g. AD, LDAP, social, etc.)
+* The type of authentication used (such as AD, LDAP, or Social)
 
-## Additional Information:
-
+::: next-steps
 * [Rules](/rules)
 * [Multi-factor in Auth0](/multifactor-authentication)
 * [Auth0 Webtask](https://webtask.io/)
+:::
