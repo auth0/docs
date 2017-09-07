@@ -2,7 +2,15 @@
 
 ## Create an Authentication Service
 
-Add a new file called `app.js`. In the file, you can create and manage an instance of the `auth0.WebAuth` object. You can also use it to hold logic for hiding and displaying DOM elements.
+Add a new file called `app.js`. In the file, you can create and manage an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
+
+<%= include('../../_includes/_auth_service_configure_client_details') %>
+
+::: note
+In this case, the route is the main URL for your application.
+:::
+
+You can also use it to hold logic for hiding and displaying DOM elements.
 
 ```js
 // app.js
@@ -125,21 +133,6 @@ window.addEventListener('load', function() {
 });
 ```
 
-### About the Authentication Functions
-
-When you set up authentication, you create an instance of the `auth0.WebAuth` object. In that instance, you can define the following:
-<%= include('../../_includes/_auth_service_configure_client_details') %>
-
-::: note
-In this case, the route is the main URL for your application.
-:::
-
-<%= include('../../_includes/_auth_service_hash_fragment_information') %>
-
-<%= include('../../_includes/_auth_service_using_json_web_tokens') %>
-
-<%= include('../../_includes/_auth_service_check_access_token_expiry') %>
-
 ## Provide a Login Control
 
 Provide a template with controls for the user to log in and out.
@@ -184,7 +177,7 @@ Provide a template with controls for the user to log in and out.
 This example uses Bootstrap styles. You can use any style library, or not use one at all.
 :::
 
-Depending on whether the user is authenticated or not, they see the **Log Out** or **Log In** button. The `click` event listeners on the buttons make calls to functions in the `app.js` file to let the user log in or out. When the user clicks **Log In**, they are redirected to the Auth0 hosted login page. 
+Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` event listeners on the buttons make calls to functions in the `app.js` file to let the user log in or out. When the user clicks **Log In**, they are redirected to the Auth0 hosted login page. 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
