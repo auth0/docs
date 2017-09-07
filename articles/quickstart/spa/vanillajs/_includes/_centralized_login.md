@@ -20,10 +20,10 @@ window.addEventListener('load', function() {
   var webAuth = new auth0.WebAuth({
     domain: '${account.namespace}',
     clientID: '${account.clientId}',
-    redirectUri: window.location.href,
-    audience: 'https://${account.namespace}/userinfo',
     responseType: 'token id_token',
-    scope: 'openid'
+    audience: 'https://${account.namespace}/userinfo',
+    scope: 'openid',
+    redirectUri: window.location.href
   });
 
   var loginBtn = document.getElementById('btn-login');
