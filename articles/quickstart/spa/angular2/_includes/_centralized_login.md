@@ -1,12 +1,17 @@
-## Add Authentication with Auth0
-
-<%= include('../../_includes/_login_preamble', { library: 'Angular 2+' }) %>
+<%= include('../../_includes/_login_preamble', { library: 'Angular 2+', embeddedLoginLink: 'https://github.com/auth0-samples/auth0-angular-samples/tree/embedded-login/01-Embedded-Login'}) %>
 
 ## Create an Authentication Service
 
-The best way to manage and coordinate the tasks necessary for user authentication is to create a reusable service. With the service in place, you'll be able to call its methods throughout your application. The name for it is at your discretion, but in these examples it will be called `AuthService` and the filename will be `auth.service.ts`. An instance of the `WebAuth` object from **auth0.js** can be created in the service.
+Create a service to manage and coordinate user authentication. You can give the service any name. In the examples below, the service is `AuthService` and the filename is `auth.service.ts`.
 
-Create a service and instantiate `auth0.WebAuth`. Provide a method called `login` which calls the `authorize` method from auth0.js.
+In the service add an instance of the `auth0.WebAuth` object. When creating that instance, you can specify the following:
+<%= include('../../_includes/_auth_service_configure_client_details') %>
+
+::: note
+In this tutorial, the route is `/callback`, which is implemented in the [Add a Callback Component](#add-a-callback-component) step. 
+:::
+
+Add a `login` method that calls the `authorize` method from auth0.js.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -38,14 +43,20 @@ export class AuthService {
 ```
 
 ::: note
-**Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
-:::
+ **Checkpoint:** Try calling the `login` method from somewhere in your application. This could be from a button click or in some lifecycle event, just something that will trigger the method so you can see the login page.
+ :::
+ 
+ ![hosted login](/media/articles/web/hosted-login.png)
+ 
+### Finish the Service
 
-![hosted login](/media/articles/web/hosted-login.png)
+Add more methods to the `AuthService` service to handle authentication in the app.
 
-### Finish Out the Service
-
-Add some additional methods to the `AuthService` to fully handle authentication in the app.
+The example below shows the following methods:
+* `handleAuthentication`: looks for the result of authentication in the URL hash. Then, the result is processed with the `parseHash` method from auth0.js
+* `setSession`: stores the user's access token, ID token, and the access token's expiry time in browser storage
+* `logout`: removes the user's tokens and expiry time from browser storage
+* `isAuthenticated`: checks whether the expiry time for the user's access token has passed
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -95,20 +106,9 @@ export class AuthService {
 }
 ```
 
-The service now includes several other methods for handling authentication.
-
-* `handleAuthentication` - looks for an authentication result in the URL hash and processes it with the `parseHash` method from auth0.js
-* `setSession` - sets the user's `access_token`, `id_token`, and a time at which the `access_token` will expire
-* `logout` - removes the user's tokens from browser storage
-* `isAuthenticated` - checks whether the expiry time for the `access_token` has passed
-
-### About the Authentication Service
-
-<%= include('../../_includes/_auth_service_method_description_auth0js') %>
-
 ## Provide a Login Control
 
-Provide a template with controls for the user to log in and log out.
+Provide a template with controls for the user to log in and out.
 
 ```html
 <!-- src/app/app.component.html -->
@@ -148,20 +148,44 @@ Provide a template with controls for the user to log in and log out.
 ```
 
 ::: note
-This example uses Bootstrap styles, but that's unimportant. Use whichever style library you like, or don't use one at all.
+This example uses Bootstrap styles. You can use any style library, or not use one at all.
 :::
 
-The `click` events on the **Log In** and **Log Out** buttons make the appropriate calls to the `AuthService` to allow the user to log in and log out. Notice that these buttons are conditionally hidden and shown depending on whether or not the user is currently authenticated.
-
-When the **Log In** button is clicked, the user will be redirected to Auth0's hosted login page.
+Depending on whether the user is authenticated or not, they see the **Log In** or **Log Out** button. The `click` events on the buttons make calls to the `AuthService` service to let the user log in or out. When the user clicks **Log In**, they are redirected to the Auth0 hosted login page. 
 
 <%= include('../../_includes/_hosted_login_customization' }) %>
 
+## Add a Callback Component
+
+When you use the Auth0 hosted login page, your users are taken away from your application. After they authenticate, they are automatically returned to your application and a client-side session is set for them. 
+
+::: note
+This example assumes you are using the default Angular path-based routing. If you are using hash-based routing with `{ useHash: true }`, you will not be able to specify a dedicated callback route. The URL hash will be used to hold the user's authentication information.
+:::
+
+<%= include('../../_includes/_callback_component') %>
+
+Create a component named `CallbackComponent` and add a loading indicator.
+
+::: note
+To display a loading indicator, you need a loading spinner or another indicator in the `assests` directory. See the downloadable sample for demonstration. 
+:::
+
+```html
+<!-- app/callback/callback.html -->
+
+<div class="loading">
+  <img src="assets/loading.svg" alt="loading">
+</div>
+```
+
+After authentication, your users are taken to the `/callback` route. They see the loading indicator while the application sets up a client-side session for them. After the session is set up, the users are redirected to the `/home` route.
+
 ## Process the Authentication Result
 
-When a user authenticates at Auth0's hosted login page and is then redirected back to your application, their authentication information will be contained in a URL hash fragment. The `handleAuthentication` method in the `AuthService` is responsbile for processing the hash.
+When a user authenticates at the Auth0 hosted login page, they are redirected to your application. Their URL contains a hash fragment with their authentication information. The `handleAuthentication` method in the `AuthService` service processes the hash. 
 
-Call `handleAuthentication` in your app's root component so that the authentication hash fragment can be processed when the app first loads after the user is redirected back to it.
+Call the `handleAuthentication` method in your app's root component. The method processess the authentication hash while your app loads. 
 
 ```ts
 // src/app/app.component.ts
@@ -182,33 +206,3 @@ export class AppComponent {
 
 }
 ```
-
-## Add a Callback Component
-
-Using Auth0's hosted login page means that users are taken away from your application to a page hosted by Auth0. After they successfully authenticate, they are returned to your application where a client-side session is set for them.
-
-<%= include('../../_includes/_callback_component') %>
-
-Create a component named `CallbackComponent` and populate it with a loading indicator.
-
-```html
-<!-- app/callback/callback.html -->
-
-<div class="loading">
-  <img src="assets/loading.svg" alt="loading">
-</div>
-```
-
-::: note
-This example assumes some kind of loading spinner is available in an `assets` directory. See the downloadable sample for a demonstration.
-:::
-
-After authentication, users will be taken to the `/callback` route for a brief time where they will be shown a loading indicator. During this time, their client-side session will be set, after which they will be redirected to the `/home` route.
-
-::: note
-This example assumes you are using path-based routing which Angular defaults to. If you are using hash-based routing with `{ useHash: true }`, you won't be able to specify a dedicated callback route because the URL hash will be used to hold the user's authentication information.
-:::
-
-## Embedded Login
-
-Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the hosted login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-angular-samples/tree/embedded-login/01-Embedded-Login).
