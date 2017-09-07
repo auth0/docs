@@ -86,12 +86,17 @@ function (user, context, callback) {
 
   //Trigger MFA
   context.redirect = {
-        url: config.WEBTASK_URL + "?user=" + user.name
+        url: configuration.WEBTASK_URL + "?user=" + user.name
   }
 
   callback(null,user,context);
 }
 ```
+
+You also need to create two new settings on [Rules](${manage_url}/#/rules): 
+
+* One using `WEBTASK_URL` as the key, and the URL returned by the `create` command as the value.
+* Another using `YUBIKEY_SECRET` as the key, and `{YOUR YUBIKEY SECRET}` passed to `create` as the value.
 
 Some notes regarding the rule code:
 
