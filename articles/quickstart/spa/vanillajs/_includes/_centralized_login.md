@@ -74,6 +74,24 @@ window.addEventListener('load', function() {
 
   logoutBtn.addEventListener('click', logout);
 
+  function handleAuthentication() {
+    webAuth.parseHash(function(err, authResult) {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        window.location.hash = '';
+        setSession(authResult);
+        loginBtn.style.display = 'none';
+        homeView.style.display = 'inline-block';
+      } else if (err) {
+        homeView.style.display = 'inline-block';
+        console.log(err);
+        alert(
+          'Error: ' + err.error + '. Check the console for further details.'
+        );
+      }
+      displayButtons();
+    });
+  }
+
   function setSession(authResult) {
     // Set the time that the access token will expire at
     var expiresAt = JSON.stringify(
@@ -97,25 +115,6 @@ window.addEventListener('load', function() {
     // access token's expiry time
     var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
-  }
-
-
-  function handleAuthentication() {
-    webAuth.parseHash(function(err, authResult) {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
-        setSession(authResult);
-        loginBtn.style.display = 'none';
-        homeView.style.display = 'inline-block';
-      } else if (err) {
-        homeView.style.display = 'inline-block';
-        console.log(err);
-        alert(
-          'Error: ' + err.error + '. Check the console for further details.'
-        );
-      }
-      displayButtons();
-    });
   }
 
   function displayButtons() {
