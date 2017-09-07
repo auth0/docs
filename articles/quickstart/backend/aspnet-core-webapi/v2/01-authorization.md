@@ -11,8 +11,8 @@ budicon: 500
   repo: 'auth0-aspnetcore-webapi-samples',
   path: 'Quickstart/01-Authorization',
   requirements: [
-    '.NET Core 2.0 (Preview 2)',
-    'ASP.NET Core 2.0 (Preview 2)',
+    '.NET Core 2.0',
+    'ASP.NET Core 2.0',
     'Visual Studio 2017 (Optional)',
     'Visual Studio Code (Optional)'
   ]
@@ -52,7 +52,7 @@ The seed project already references the new ASP.NET Core metapackage (`Microsoft
 If you are not referencing this new metapackage, then please ensure that your add the `Microsoft.AspNetCore.Authentication.JwtBearer` package to your application.
 
 ```text
-Install-Package Microsoft.AspNetCore.Authentication.JwtBearer -Pre
+Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
 ## Configuration
@@ -78,7 +78,7 @@ public void ConfigureServices(IServiceCollection services)
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
-    }).AddJwtBearerAuthentication(options =>
+    }).AddJwtBearer(options =>
     {
         options.Authority = domain;
         options.Audience = Configuration["Auth0:ApiIdentifier"];
@@ -188,11 +188,13 @@ public void ConfigureServices(IServiceCollection services)
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
-    }).AddJwtBearerAuthentication(options =>
+    }).AddJwtBearer(options =>
     {
         options.Authority = domain;
         options.Audience = Configuration["Auth0:ApiIdentifier"];
-    }).AddAuthorization(options =>
+    });
+    
+    services.AddAuthorization(options =>
     {
         options.AddPolicy("read:messages", policy => policy.Requirements.Add(new HasScopeRequirement("read:messages", domain)));
         options.AddPolicy("create:messages", policy => policy.Requirements.Add(new HasScopeRequirement("create:messages", domain)));

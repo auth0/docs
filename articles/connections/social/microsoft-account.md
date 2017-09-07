@@ -66,7 +66,7 @@ Scroll down to **Advanced Options** and make sure **Live SDK support** is checke
 
 Click **Save**.
 
-## 5. Copy your *Client Id* and *Client Secret*
+## 5. Copy your Client ID and Client Secret
 
 Go to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** from the left menu.
 

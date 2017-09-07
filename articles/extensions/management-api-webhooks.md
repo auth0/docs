@@ -23,3 +23,53 @@ Once you have provided the required pieces of information, click "Install" to fi
 ## Using Your Installed Extension
 
 You can view all scheduled jobs by clicking on the Auth0 Management API Webhooks line under the "Installed Extensions" tab.
+
+## Sample Payload
+
+Here is an example of the payload that will be sent:
+
+```json
+{
+   "date":"2017-09-06T07:33:10.424Z",
+   "request":{
+      "method":"post",
+      "path":"/api/v2/clients",
+      "query":{
+
+      },
+      "body":{
+         "name":"auth0-webhooks"
+      },
+      "channel":"https://manage.auth0.com/",
+      "ip":"127.0.0.1",
+      "auth":{
+         "user":{
+            "user_id":"auth0|56541aaa73ec334341338bbe",
+            "name":"John Doe",
+            "email":"johndoe@gmail.com"
+         },
+         "strategy":"jwt",
+         "credentials":{
+            "jti":"0615b65ee0b5b29f4517153d2a943463",
+            "scopes":[
+               "read:clients",
+               "create:clients",
+               "update:clients",
+               "delete:clients"
+            ]
+         }
+      }
+   },
+   "response":{
+      "statusCode":201,
+      "body":{
+         "callback_url_template":false,
+         "client_id":"vRrHLFDHKSMEVLBmyV3UCoBBgsIPZBr5",
+         "custom_login_page_on":true,
+         "global":false,
+         "name":"auth0-webhooks",
+         "tenant":"test-tenant"
+      }
+   }
+}
+```

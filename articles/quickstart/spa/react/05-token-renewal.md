@@ -19,7 +19,10 @@ budicon: 448
 
 ## Add Token Renewal
 
-Add a method to the `Auth` service which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+To the `Auth` service, add a method which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set new tokens in local storage.
+
+The method loads the silent callback page added earlier in an invisible iframe, makes a call to Auth0, and gives back the result.
+
 
 ```js
 // src/Auth/Auth.js
@@ -41,13 +44,19 @@ renewToken() {
 }
 ```
 
-This method will load the silent callback page added earlier in an invisible `iframe`, make a call to Auth0, and give back the result which is used to set a new client-side session.
+The access token should be renewed when it expires. In this tutorial, the expiry time of the token is stored in local storage as `expires_at`.
 
-The time at which token renewal should happen is when the `access_token` expires. If you've followed the previous steps of this tutorial, this time will be stored in local storage as `expires_at`.
+Define a timing mechanism for renewing the token. 
 
-The specific timing mechanism used to defer renewal until it is required is at your discretion. A simple `setTimeout` will be used in this example but you are free to choose a library which handles timers in a more feature-rich way if you like.
+::: note
+You can define any timing mechanism you want. You can choose any library that handles timers. This example shows how to use a `setTimeout` call.
+:::
 
-In the `Auth` service, add a property called `tokenRenewalTimeout` which will hold a reference to the `setTimeout` call used to schedule the renewal. Next, add a method called `scheduleRenewal` to set up a time at which authentication should be silently renewed.
+In the `Auth` service, add a property called `tokenRenewalTimeout` which refer to the `setTimeout` call. 
+
+Add a method called `scheduleRenewal` to set up the time when the authentication is silently renewed. The method subtracts the current time from the access token's expiry time and calculates delay. The `setTimeout` call uses the calculated delay and makes a call to `renewToken`.
+
+The `setTimeout` call call is assigned to the `tokenRenewalTimeout` property. When the user logs out, the timeout is cleared. 
 
 ```js
 // src/Auth/Auth.js
@@ -65,11 +74,7 @@ scheduleRenewal() {
 }
 ```
 
-A `delay` is calculated by taking the time at which the `access_token` expires and subtracting the current time from it. This `delay` is then used in a `setTimeout`, inside of which a call to `renewToken` is made.
-
-Assigning the `setTimeout` to `tokenRenewalTimeout` is done so that the timeout can be cleared when the user logs out.
-
-The `setSession` method can now be modified to include a call to `scheduleRenewal`.
+You can now include a call to the `scheduleRenewal` method in the `setSession` method.
 
 ```js
 // src/Auth/Auth.js
@@ -93,7 +98,7 @@ setSession(authResult) {
 }
 ```
 
-Add a call to `scheduleRenewal` in the constructor of the `Auth` service so that token renewal scheduling can be handled on page refresh.
+To schedule renewing the tokens when the page is refreshed, in the constructor of the `Auth` service, add a call to the `scheduleRenewal` method.
 
 ```js
 // src/Auth/Auth.js
@@ -105,7 +110,7 @@ constructor() {
 }
 ```
 
-Since client-side sessions should not persist after the user logs out, use a `clearTimeout` in the `logout` method to unschedule the renewal.
+Since client-side sessions should not be renewed after the user logs out, call `clearTimeout` in the `logout` method to cancel the renewal.
 
 ```js
 // src/Auth/Auth.js
@@ -116,6 +121,4 @@ logout() {
 }
 ```
 
-#### Troubleshooting
-
-If you're having problems with token renewal (`login_required` error), make sure you're not using Auth0 dev keys for social login. You must use your own social authentication keys.
+<%= include('../_includes/_token_renewal_troubleshooting') %>

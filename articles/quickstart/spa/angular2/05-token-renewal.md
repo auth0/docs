@@ -17,9 +17,11 @@ budicon: 448
 
 <%= include('../_includes/_token_renewal_server_setup', { serverPort: '3001', clientPort: '4200' }) %>
 
+
 ## Add Token Renewal
 
 Add a method to the `AuthService` service which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+
 The method loads your silent callback page in an invisible `iframe`. Then, the method makes a call to Auth0 and gives back the result. 
 
 ```typescript
@@ -41,7 +43,8 @@ public renewToken() {
 ```
 
 Add a method called `scheduleRenewal` to set up the time when authentication is silently renewed. 
-Define a class property `refreshSubscription` which refers to the subscription that refreshes your token.
+
+Define the `refreshSubscription` class property, which will hold a reference to the subscription that refreshes your token.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -112,7 +115,7 @@ export class AppComponent {
 }
 ```
 
-Since client-side sessions should not be renewed after the user logs out, call the `unscheduleRenewal` method in the `logout` method.
+Since client-side sessions should not be renewed after the user logs out, call the `unscheduleRenewal` method in the `logout` method to cancel the renewal.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -128,6 +131,5 @@ public logout(): void {
 }
 ```
 
-#### Troubleshooting
+<%= include('../_includes/_token_renewal_troubleshooting') %>
 
-If you're having problems with token renewal (for example, you get the `login_required` error), make sure you're not using Auth0 dev keys for social login. You must use your own social authentication keys.

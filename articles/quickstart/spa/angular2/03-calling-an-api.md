@@ -21,7 +21,8 @@ budicon: 546
 
 ## Set the Audience and Scope in `auth0.WebAuth`
 
-Pass the API identifier for your newly created API as the `audience` value in your `auth0.WebAuth` instance. Additionally, pass any of your newly created scopes to the `scope` key.
+In your `auth0.WebAuth` instance, enter your API identifier as the value for `audience`.
+Add your scopes to the `scope` key.
 
 ```ts
 // src/app/auth/auth.service.ts
@@ -33,21 +34,15 @@ auth0 = new auth0.WebAuth({
 });
 ```
 
-::: note
-**Checkpoint**: You should try logging into your application again to take note of how the `access_token` differs from before. Instead of being an opaque token, it is now a JSON Web Token which has a payload that contains your API identifier as an `audience` and any `scope`s you've requested.
-:::
-
-::: note
-By default, any user on any client can ask for any scope defined in the scopes configuration area. You can implement access policies to limit this behaviour via [Rules](https://auth0.com/docs/rules).
-:::
+<%= include('../_includes/_calling_api_use_rules') %>
 
 ## Configure angular2-jwt
 
 <%= include('../_includes/_calling_api_access_token') %>
 
-The [angular2-jwt](https://github.com/auth0/angular2-jwt) module can be used to automatically attach JSON Web Tokens to requests made with Angular's `Http` class. To to so, it provides an `AuthHttp` class which is a wrapper over `Http`.
+You can use the [angular2-jwt](https://github.com/auth0/angular2-jwt) module to automatically attach JSON Web Tokens to requests you make with Angular's `Http` class. The module provides an `AuthHttp` class which is a wrapper over the `Http` class.
 
-If you haven't already done so, install angular2-jwt.
+Install angular2-jwt using npm or yarn.
 
 ```bash
 # installation with npm
@@ -57,7 +52,7 @@ npm install --save angular2-jwt
 yarn add angular2-jwt
 ```
 
-Create a factory function with some configuration values for angular2-jwt and add it to the `providers` array in your application's `@NgModule`. The factory function should have a `tokenGetter` functon which fetches the `access_token` from local storage.
+Create a factory function with configuration values for angular2-jwt. Add the function to the `providers` array in your application's `@NgModule`. Add a `tokenGetter` function to the factory function to fetch the access token from local storage.
 
 ```ts
 // src/app/app.module.ts
@@ -88,7 +83,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 ## Make Authenticated Calls with `AuthHttp`
 
-After angular2-jwt is configured, you can use the `AuthHttp` class to make secure calls to your API from anywhere in the application. To do so, inject `AuthHttp` in any component or service where it is needed and use it just as you would use Angular's regular `Http` class. Assuming you have an API which returns a `message` from some protected endpoint called `/private`, you could craft an API call as such:
+After you configure angular2-jwt, you can use the `AuthHttp` class to make secure calls to your API from anywhere in the application. 
+Inject `AuthHttp` into any component or service and use it as you would use Angular's regular `Http` class. 
+If you have an API that sends messages from the protected `/private` endpoint, you can create an API call. 
 
 ```ts
 // src/app/ping/ping.component.ts
@@ -117,7 +114,7 @@ export class PingComponent {
 ```
 
 ::: note
-To find out more about configuration options for angular2-jwt, see the [main project repo](https://github.com/auth0/angular2-jwt).
+To learn more about configuration options for angular2-jwt, see the [main project repo](https://github.com/auth0/angular2-jwt).
 :::
 
 <%= include('../_includes/_calling_api_protect_resources') %>
