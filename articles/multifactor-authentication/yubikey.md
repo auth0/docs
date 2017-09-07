@@ -30,23 +30,23 @@ Within the code provided is a redirect URL to Auth0. It contains querystring par
 
 No actual key values are hard-coded into the Webtask code. Your Yubico Client ID and Secret values are referred to using `context.data.yubico_clientid` and `context.data.yubico_secret`. These parameters are securely embedded in the Webtask token when you created the Webtask.
 
-### 1. Initialize Webtask CLI
+### Step 2: Initialize the Webtask CLI
 
-**Rules** code is automatically packaged as Webtasks by Auth0. Since this is a custom Webtask, it must be created with the Webtask CLI.
+Now that we have the code required for a Webtask, we have to create the Webtask itself. This is done using the Webtask CLI.
 
-Follow the instructions for installing Webtask CLI under [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) on the Auth0 dashboard.
+First, install the Webtask CLI. You can find instructions for doing so under [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) on the Auth0 dashboard.
 
-Once the Webtask CLI is installed, run:
+Once you've installed the Webtask CLI, run the following `create` command after replacing the placeholders with the values applicable to you:
 
 ```txt
 wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --secret yubikey_clientid={YOUR YUBIKEY CLIENT ID} --secret returnUrl=https://${account.namespace}/continue --profile {WEBTASK PROFILE} yubico-mfa-wt.js
 ```
 
 ::: note
-Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) page.
+You can find the `WEBTASK PROFILE` required in the code above on the [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) page. The value is shown at the end of **step 2**.
 :::
 
-The `create` command will generate a URL that will look like:
+Running the `create` command will generate a URL that looks like this:
 
 ```txt
 https://sandbox.it.auth0.com/api/run/${account.tenant}/yubikey-mfa?webtask_no_cache=1
@@ -56,13 +56,12 @@ Keep a copy of this URL.
 
 ## Configure the Rule
 
-This sample uses a single rule that handles both the initial redirect to the Webtask, and the returned result.
+This sample uses a rule that handles the:
 
- * The `context.redirect` statement instructs Auth0 to redirect the user to the Webtask URL instead of calling back to the app.
+* Initial redirect to the Webtask
+* Returned result
 
- * Returning is indicated by the `protocol` property of the `context` object.
-
-```JS
+```js
 function (user, context, callback) {
   var jwt = require('jsonwebtoken@5.7.0');
   var yubikey_secret = configuration.YUBIKEY_SECRET;
@@ -88,9 +87,11 @@ function (user, context, callback) {
 }
 ```
 
-::: note
-The returning section of the rule validates the JWT issued by the Webtask. This prevents the result of the MFA part of the transaction from being tampered with because the payload is digitally signed with a shared secret.
-:::
+Some notes on the behavior of the rules code:
+
+* The `context.redirect` statement instructs Auth0 to redirect the user to the Webtask URL instead of calling back to the app.
+* Returning is indicated by the `protocol` property of the `context` object.
+* The returning section of the rule validates the JWT issued by the Webtask. This prevents the result of the MFA part of the transaction from being tampered with because the payload is digitally signed with a shared secret.
 
 Every time the user logs in they will be redirected to the Webtask and will see something like:
 
