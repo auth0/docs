@@ -58,7 +58,7 @@ block content
   a(href='/logout') Logout
 ```
 
-To have full access to the user profile on  `userProfile`, put the `user` object in a string. Modify the `/` endpoint in `routes/user.js` to include `userProfile`.
+To have full access to the user profile on  `userProfile`, stringify the `user` object. Modify the `/` endpoint in `routes/user.js` to include `userProfile`.
 
 ```js
 // routes/user.js
