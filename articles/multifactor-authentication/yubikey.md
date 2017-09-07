@@ -96,7 +96,6 @@ Every time the user logs in they will be redirected to the Webtask and will see 
 
 ![](/media/articles/mfa/yubico-mfa.png)
 
-
 ### Rule customizations
 You can add logic to the rule to decide under which  conditions the challenge will be triggered based on:
 
