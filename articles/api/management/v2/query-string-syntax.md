@@ -37,20 +37,12 @@ Wildcard searches can be run on individual terms, using `?` to replace a single 
 
 Note that certain wildcard queries will require an enormous amount of memory and perform poorly. (For example, imagine how many terms need to be queried to match the query string `"a* b* c*"`.)
 
-::: warning
-Including a wildcard at the beginning of a word (e.g. `"*ing"`) is particularly memory intensive since all terms in the index will be examined for a match. Leading wildcards can be disabled by setting the `allow_leading_wildcard` option to `false`.
-:::
-
 ### Regular expressions
 
 Regular expression patterns can be embedded in the query string by wrapping them in forward-slashes ("/"): `name:/joh?n(ath[oa]n)/`
 
 ::: note
 A detailed explanation of the supported regular expression syntax is explained on the Elastic's site at [Regular Expression Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax).
-:::
-
-::: warning
-The `allow_leading_wildcard` parameter does not affect regular expressions. A query string, such as the following, would force Elasticsearch to visit every term in the index: `/.*n/`. Use with caution.
 :::
 
 ### Fuzziness
