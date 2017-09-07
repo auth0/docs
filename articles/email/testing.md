@@ -2,22 +2,24 @@
 description: Auth0 recommends you setup a fake SMTP server while in development or testing.
 ---
 
-# Set up a Test SMTP Provider
+# Set Up a Test SMTP Provider
 
-Auth0 recommends you setup a fake SMTP server while in development or testing that you can use to check delivery and view how emails will appear without the risk of spamming your users.
+While working in your development or testing environment, we recommend that you use a test SMTP server so that you can:
 
-You can either setup your own SMTP server, or use a services like [mailtrap.io](https://mailtrap.io/) that are designed for this purpose.
+* Check that deliveries are successful
+* View how emails you sent appear to recipients prior to go live
 
-## Fake SMTP Services
+You can either:
 
-* [mailtrap.io](https://mailtrap.io/)
-* [debugmail.io](https://debugmail.io/)
+* Set up your own SMTP server
+* Use a third-party service (see the [Resources to Consider](#resources-to-consider) section for options you might use)
 
-## Frameworks & other tools
+Once you have either your own SMTP server set up or a test service available, you can provide its credentials the way you typically would for a [custom email provider](/email/providers#configure-a-custom-smtp-server-for-sending-email).
 
+## Resources to Consider
+
+* [Debug Mail](https://debugmail.io/)
 * [FakeSMTP](https://nilhcem.github.io/FakeSMTP/)
 * [Haraka](https://haraka.github.io/)
-
-::: note
-Auth0 has only tested [mailtrap.io](https://mailtrap.io/) in this scenario.
-:::
+* [MailTrap](https://mailtrap.io/)
+* [smtp4dev](https://smtp4dev.codeplex.com/)
