@@ -46,6 +46,10 @@ Upon successful authentication the user's `credentials` will be returned.
 For more information on the `credentials` object, refer to [Credentials](https://github.com/auth0/Auth0.swift/blob/master/Auth0/Credentials.swift). We will cover the storage of the user's credentials in a later chapter.  By default Auth0 will not store this for you.
 :::
 
+### User Profile
+
+The login snippet adds the `profile` scope to enable [retrieving the User Profile](/quickstart/native/ios-swift/03-user-sessions#fetch-the-user-profile).
+
 ## Embedded Login
 
 Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use this login (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, you can follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/embedded-login/01-Embedded-Login).
