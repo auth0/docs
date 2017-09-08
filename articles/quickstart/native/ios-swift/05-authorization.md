@@ -45,7 +45,7 @@ function (user, context, callback) {
 The rule will run every time a user attempts to authenticate. If the user has a valid `email` and the email's domain is `admin.com`, the user will be granted the `user` and `admin` roles. On any other case, the user will be granted a simple `user` role. This new claim is saved in the *id_token* under the `https://access.control/roles` name, which you will have to check on your app.
 
 ::: note
-Feel free to customize the conditions and the roles to grant on each of them. You can define as many roles as your project requires, beyond `admin` and `user`. There are some restrictions on the naming of the claims detailed in the [rules documentation](/rules/#hello-world).
+Feel free to customize the conditions and the roles to grant on each of them. You can define as many roles as your project requires, beyond `admin` and `user`. There are some restrictions on the naming of the claims detailed in the [rules documentation](/rules#hello-world).
 :::
 
 ## Test the Rule
