@@ -18,8 +18,10 @@ Once you have either your own SMTP server set up or a test service available, yo
 
 ## Resources to Consider
 
+::: next-steps
 * [Debug Mail](https://debugmail.io/)
 * [FakeSMTP](https://nilhcem.github.io/FakeSMTP/)
 * [Haraka](https://haraka.github.io/)
 * [MailTrap](https://mailtrap.io/)
 * [smtp4dev](https://smtp4dev.codeplex.com/)
+:::
