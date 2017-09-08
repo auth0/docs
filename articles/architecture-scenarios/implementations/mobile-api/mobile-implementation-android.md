@@ -8,10 +8,6 @@ toc: true
 
 This document is part of the [Mobile + API Architecture Scenario](/architecture-scenarios/application/mobile-api) and it explains how to implement the mobile application in Android. Please refer to the scenario for information on the implemented solution.
 
-::: note
-The full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-mobile/android).
-:::
-
 ## 1. Set Up the Application
 
 <%= include('../../../_includes/_package', {
