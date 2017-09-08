@@ -231,9 +231,7 @@ To access secured resources from your API, the authenticated user's `access_toke
 #### Renew the Token
 
 ::: warning
-Refresh tokens must be stored securely by an application since they do not expire and allow a user to remain authenticated essentially forever.
-
-If refresh tokens are compromised or you no longer need them, you can revoke the refresh tokens using the [Authentication API](/api/authentication#revoke-refresh-token).
+Refresh tokens must be stored securely by an application since they do not expire and allow a user to remain authenticated essentially forever. If refresh tokens are compromised or you no longer need them, you can revoke the refresh tokens using the [Authentication API](/api/authentication#revoke-refresh-token).
 :::
 
 To refresh your `access_token`, perform a `POST` request to the `/oauth/token` endpoint using the `refresh_token` from your authorization result.
