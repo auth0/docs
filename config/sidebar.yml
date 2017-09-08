@@ -536,35 +536,35 @@ libraries:
         url: "/libraries/lock-ios/v1"
 
   - title: "Lock for Android"
-    url: "/libraries/lock-android"
+    url: "/libraries/lock-android/v2"
     children:
 
       - title: "Overview"
-        url: "/libraries/lock-android"
+        url: "/libraries/lock-android/v2"
 
       - title: "Configuration Options"
-        url: "/libraries/lock-android/configuration"
+        url: "/libraries/lock-android/v2/configuration"
 
       - title: "Custom Auth Providers"
-        url: "/libraries/lock-android/custom-authentication-providers"
+        url: "/libraries/lock-android/v2/custom-authentication-providers"
 
       - title: "Android Dev Keystores"
-        url: "/libraries/lock-android/keystore"
+        url: "/libraries/lock-android/v2/keystore"
 
       - title: "Custom Signup Fields"
-        url: "/libraries/lock-android/custom-fields"
+        url: "/libraries/lock-android/v2/custom-fields"
 
       - title: "Custom Theming"
-        url: "/libraries/lock-android/custom-theming"
+        url: "/libraries/lock-android/v2/custom-theming"
 
       - title: "Migration v1 to v2"
-        url: "/libraries/lock-android/migration-guide"
+        url: "/libraries/lock-android/v2/migration-guide"
 
       - title: "Passwordless Auth"
-        url: "/libraries/lock-android/passwordless"
+        url: "/libraries/lock-android/v2/passwordless"
 
       - title: "Internationalization"
-        url: "/libraries/lock-android/internationalization"
+        url: "/libraries/lock-android/v2/internationalization"
 
   - title: "Lock vs. Custom UI"
     url: "/libraries/when-to-use-lock"
