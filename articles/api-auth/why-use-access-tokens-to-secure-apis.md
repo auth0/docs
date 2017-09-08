@@ -44,7 +44,7 @@ The `access_token` can be any type of token (not necessarily a JWT) and is meant
 
 Now that we've seen what these tokens can be used for, let's see what they cannot be used for.
 
-- __An `access_token` cannot be used for authentication__. It holds no information about the user. It cannot tell us if the user has authenticated and when.
+- __An `access_token` cannot be used for authentication__. It holds no authenticating information about the user. It cannot tell us if the user has authenticated and when.
 
 - __An `id_token` cannot be used for API access__. Each token contains information on the intended audience (recipient). According to the OpenID Connect specification, the audience (claim `aud`) of each `id_token` must be the `client_id` of the client making the authentication request. If it isn't you shouldn't trust the token. An API, on the other hand, expects a token with the audience set to the API's unique identifier. So unless you are in control of both the client and the API, sending an `id_token` to an API will not work. Furthermore, the `id_token` is signed with a secret that is known to the client (since it is issued to a particular client). This means that if an API were to accept such token, it would have no way of knowing if the client has modified the token (to add more scopes) and then signed it again.
 
