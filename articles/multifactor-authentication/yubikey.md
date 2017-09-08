@@ -113,12 +113,6 @@ You'll see the following editor window where you can paste in the rule code abov
 
 You can test your code for correctness using **Try This Rule**. When done, click **Save** to proceed.
 
-With this rule in place, the user will be redirected to the Webtask after every login. They will see the following prompt for their second factor:
-
-![](/media/articles/mfa/yubico-mfa.png)
-
-### Rules Settings
-
 You also need to create two new Settings for your [Rules](${manage_url}/#/rules): 
 
 | Setting | Value |
@@ -129,6 +123,10 @@ You also need to create two new Settings for your [Rules](${manage_url}/#/rules)
 With these settings, you can access the provded values in your rules code using the configuration global object (such as `configuration.WEBTASK_URL`).
 
 ![](/media/articles/mfa/yubi-5.png)
+
+With this rule in place, the user will be redirected to the Webtask after every login. They will see the following prompt for their second factor:
+
+![](/media/articles/mfa/yubico-mfa.png)
 
 ### Customize the Rule
 
