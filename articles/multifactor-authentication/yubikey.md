@@ -93,11 +93,6 @@ function (user, context, callback) {
 }
 ```
 
-You also need to create two new settings on [Rules](${manage_url}/#/rules): 
-
-* One using `WEBTASK_URL` as the key, and the URL returned by the `create` command as the value.
-* Another using `YUBIKEY_SECRET` as the key, and `{YOUR YUBIKEY SECRET}` passed to `create` as the value.
-
 Some notes regarding the rule code:
 
 * The `context.redirect` statement instructs Auth0 to redirect the user to the Webtask URL instead of calling back to the app
@@ -121,6 +116,19 @@ You can test your code for correctness using **Try This Rule**. When done, click
 With this rule in place, the user will be redirected to the Webtask after every login. They will see the following prompt for their second factor:
 
 ![](/media/articles/mfa/yubico-mfa.png)
+
+### Rules Settings
+
+You also need to create two new Settings for your [Rules](${manage_url}/#/rules): 
+
+| Setting | Value |
+| - | - |
+| `WEBTASK_URL` | The URL you saved after running the `CREATE` command in the Webtask CLI |
+| `YUBIKEY_SECRET` | Your YubiKey client secret |
+
+With these settings, you can access the provded values in your rules code using the configuration global object (such as `configuration.WEBTASK_URL`).
+
+![](/media/articles/mfa/yubi-5.png)
 
 ### Customize the Rule
 
