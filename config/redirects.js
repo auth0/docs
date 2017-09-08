@@ -1356,5 +1356,9 @@ module.exports = [
   {
     from: '/dashboard-account-settings',
     to: '/dashboard-tenant-settings'
+  },
+  {
+    from: '/metadata/lock',
+    to: '/metadata#using-lock-to-manage-metadata'
   }
 ];
