@@ -21,7 +21,7 @@ Using [Auth0's Management APIv2](/api/management/v2), you can create a user and 
 The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
 :::
 
-### Management API: Set Metadata Fields on Creation
+### Set Metadata Fields on Creation
 
 To create a user with the following profile details:
 
@@ -63,7 +63,7 @@ You would make the following `POST` call to the [Create User endpoint of the Man
 }
 ```
 
-### Management API: Retrieve User Metadata
+### Retrieve User Metadata
 
 To retrieve a user's metadata make a `GET` request to the [Get User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id).
 
@@ -122,7 +122,7 @@ The response will be as follows:
 }
 ```
 
-### Management API: Update User Metadata
+### Update User Metadata
 
 You can update a user's metadata by making a `PATCH` call to the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
 
