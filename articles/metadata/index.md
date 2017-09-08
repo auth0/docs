@@ -17,13 +17,13 @@ An authenticated user can modify data in their profile's `user_metadata`, but no
 
 You can manage your metadata using [Rules](/rules/metadata-in-rules) or the [Auth0 APIs](/metadata/management-api).
 
-::: note
+::: warning
 Note that `app_metadata` fields are not [searchable](/api/management/v2/user-search). For `user_metadata`, you can only search for profile information, such as `name`, `nickname`, `given_name`, or `family_name`.
 :::
 
 ## Metadata Usage
 
-Suppose the following mdata is stored for a user with the email address `jane.doe@example.com`:
+Suppose the following metadata is stored for a user with the email address `jane.doe@example.com`:
 
 ```json
 {
@@ -41,7 +41,7 @@ Suppose the following mdata is stored for a user with the email address `jane.do
 Any valid JSON snippet can be used as metadata.
 :::
 
-To read metadata, simply access the correct property as you would from any JSON object. For example, if were working with the above example metadata within a [Rule](/rules) or via a call to the [Management API](/metadata/management-api), you could reference specific items from the data set as follows:
+To read metadata, simply access the correct property as you would from any JSON object. For example, if you were working with the above example metadata within a [Rule](/rules) or via a call to the [Management API](/metadata/management-api), you could reference specific items from the data set as follows:
 
 ```js
 console.log(user.email); // "jane.doe@example.com"
@@ -124,7 +124,7 @@ lock.getUserInfo(accessToken, function(error, profile) {
 ```
 
 ::: note
-For details on how to use Lock to authenticate users and access their profile information, check out the [Lock documentation](/libraries/lock)
+For details on how to use Lock to authenticate users and access their profile information, check out the [Lock documentation](/libraries/lock).
 :::
 
 ## Keep Reading
