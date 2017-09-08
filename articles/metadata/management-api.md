@@ -3,10 +3,17 @@ description: How to retrieve and update metadata through the Auth0 APIs.
 crews: crew-2
 toc: true
 ---
-
 # Metadata with Auth0 APIs
 
-### Management API
+## Authentication API
+
+Using the [Authentication API Signup endpoint](/api/authentication?javascript#signup) you can create a new user for database connections and set the `user_metadata` field. 
+
+::: note
+When setting the `user_metadata` field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup) size is limited to no more than 10 fields and must be less than 500 characters.
+:::
+
+## Management API
 
 Using [Auth0's Management APIv2](/api/management/v2), you can create a user and set both their `app_metadata` and `user_metadata`. You can also update these two fields.
 
@@ -14,11 +21,7 @@ Using [Auth0's Management APIv2](/api/management/v2), you can create a user and 
 The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
 :::
 
-### Authentication API
-
-Using the [Authentication API Signup endpoint](/api/authentication?javascript#signup) you can create a new user for database connections and set the `user_metadata` field.
-
-## Management API: Set Metadata Fields on Creation
+### Management API: Set Metadata Fields on Creation
 
 To create a user with the following profile details:
 
@@ -60,7 +63,7 @@ You would make the following `POST` call to the [Create User endpoint of the Man
 }
 ```
 
-## Management API: Retrieve User Metadata
+### Management API: Retrieve User Metadata
 
 To retrieve a user's metadata make a `GET` request to the [Get User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id).
 
@@ -119,7 +122,7 @@ The response will be as follows:
 }
 ```
 
-## Management API: Update User Metadata
+### Management API: Update User Metadata
 
 You can update a user's metadata by making a `PATCH` call to the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
 
@@ -147,7 +150,7 @@ To update `user_metadata` and add the user's home address as a second-level prop
 }
 ```
 
-you would make the following `PATCH` call:
+You would make the following `PATCH` call:
 
 ```har
 {
@@ -191,10 +194,10 @@ The user's profile will now appear as follows:
 ```
 
 ::: warning
-When you send a `PATCH` call where you've set the property/value to `null` (for example, `{user_metadata: {color: null}}`), Auth0 **deletes** the property/value from the database. Also, patching the metadata with an empty object removes the metadata completely (see [Deleting](#deleting)).
+When you send a `PATCH` call in which you have set a property's value to `null` (for example, `{user_metadata: {color: null}}`), Auth0 **deletes** the property/value from the database. Also, patching the metadata itself with an empty object removes the metadata completely (see [Deleting](#deleting)).
 :::
 
-### Merging
+#### Merging
 
 Only properties at the root level are merged into the object. All lower-level properties will be replaced.
 
@@ -237,7 +240,7 @@ Therefore, the corresponding `PATCH` call to the API would be:
 }
 ```
 
-### Deleting
+#### Deleting
 
 Patching the metadata with an empty object removes the metadata completely. For example, sending this body removes everything in `app_metadata`:
 
