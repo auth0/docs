@@ -56,3 +56,112 @@ To facilitate this, you will provide a link from your site with the following qu
 | response_type | `code` |
 | scope | `openid` |
 | redirect_uri | The URI that the user will be redirected to after authentication (`${account.callback}`)|
+
+```html
+<a href="https://${account.namespace}/authorize?response_type=code&scope=openid&redirect_uri=${account.callback}">Log In</a>
+```
+
+## Handle the Callback
+
+
+
+After the user has authenticated, Auth0 will redirect the user to the URI specified in the `redirect_uri` parameter of the query string. A query string will be add to the redirect URI, providing a code.
+
+```text
+${account.callback}?code=tQPUv...
+```
+
+Your application must then:
+
+ - handle the request, responding to the user appropriately;
+ - extract the value of the `code` parameter;
+ - call `/oauth/token` endpoint.
+ 
+Since your application will *not* have received the ID token when the user first attempts to access the callback URI, you have two choics:
+
+ - Serve an intermediary page which then redirects once the user's identity has been verified
+ - Wait to complete the request until the user's identity has been verified.
+
+In the mean time, you will need to verify the user's identy by getting an `id_token`.
+
+
+## Exchange the `code` for an `id_token`
+
+Call the `oauth/token` endpoint.
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"${account.callback}\"}"
+  }
+}
+```
+
+The response from `/oauth/token` contains `access_token`, `expires_in`, `id_token` and `token_type` values (and also potentially a `refresh_token`), for example:
+
+```json
+{
+  "access_token": "subBe48...",
+  "expires_in": 86400,
+  "id_token": "eyJ0eXAi...",
+  "token_type": "Bearer"
+}
+```
+
+The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. 
+
+## Decode the JWT
+
+Decode the `id_token` to read the claims (that is, the identity and attributes) of the user. See the [JWT section of our website](/jwt) for more information about the structure of a JWT.
+
+Refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the `id_token`.
+
+Once the JWT is decoded, extract the information about the user from the Payload of the `id_token`. 
+
+### The `id_token` Payload
+
+The payload for an `id_token` will look something like this:
+
+```json
+{
+  "name": "Jerrie Pelser",
+  "email": "jerrie@j...",
+  "picture": "https://s.gravatar.com/avatar/6222081fd7dcea7dfb193788d138c457?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fje.png",
+  "iss": "https://auth0pnp.auth0.com/",
+  "sub": "auth0|581...",
+  "aud": "xvt...",
+  "exp": 1478113129,
+  "iat": 1478077129
+}
+```
+
+The payload above contains the following claims:
+
+
+| Parameter | Description |
+|:------------------|:---------|
+| name | The name of the user which is returned from the Identity Provider. |
+| email | The email address of the user which is returned from the Identity Provider. |
+| picture | The profile picture of the user which is returned from the Identity Provider. |
+| sub | The unique identifier of the user. This is guaranteed to be unique per user and will be in the format (identity provider)&#124;(unique id in the provider), e.g. github&#124;1234567890. |
+| iss | The _issuer_. A case-sensitive string or URI that uniquely identiﬁes the party that issued the JWT. For an Auth0 issued `id_token`, this will be **the URL of your Auth0 tenant**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| aud | The _audience_. Either a single case-sensitive string or URI or an array of such values that uniquely identify the intended recipients of this JWT. For an Auth0 issued `id_token`, this will be the **Client ID of your Auth0 Client**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+| iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
+
+The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an `id_token` issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
+
+::: note
+The [JWT.io website](https://jwt.io) has a handy debugger which will allow you to debug any JSON Web Token. This is useful is you quickly want to decode a JWT to see the information contained in the token.
+:::
+
+### Keep the user logged in
+
+It is up to you to use a cookie or other session storage to keep track of a logged-in user in your application.
+
