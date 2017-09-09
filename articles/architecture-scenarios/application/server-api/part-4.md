@@ -5,7 +5,7 @@ toc: true
 
 # Server + API: Conclusion
 
-In this document we covered a simple scenario: an API, used to import timesheet entries in ABC's systems, and a cron job, used by external contractors to send in their timesheets using this API.
+In this document we covered a simple scenario: an API, used to import timesheet entries in ExampleCo's systems, and a cron job, used by external contractors to send in their timesheets using this API.
 
 We learned about the Client Credentials Grant, what an access token is, how to configure an API in Auth0, how to configure a non interactive client to communicate securely with this API, how to define and secure our API endpoints, how to use the provided libraries to validate the access token and how to retrieve a new one from Auth0.
 
