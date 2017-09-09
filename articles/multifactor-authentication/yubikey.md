@@ -1,5 +1,6 @@
 ---
 description: How to implement Multifactor Authentication Using YubiKey NEO.
+toc: true
 ---
 
 # Multifactor Authentication with YubiKey NEO
@@ -137,6 +138,8 @@ You can add logic to the rule to set the conditions under which the MFA challeng
 * The IP address or location of the user
 * The application the user is logging into
 * The type of authentication used (such as AD, LDAP, or Social)
+
+## Keep Reading
 
 ::: next-steps
 * [Rules](/rules)
