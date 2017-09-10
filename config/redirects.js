@@ -1348,5 +1348,17 @@ module.exports = [
   {
     from: ['/hosted-pages/hosted-login-auth0js/v7'],
     to: '/hosted-pages/login/auth0js/v7'
+  },
+  {
+    from: '/connections/database/mysql',
+    to: '/connections/database/custom-db'
+  },
+  {
+    from: '/dashboard-account-settings',
+    to: '/dashboard-tenant-settings'
+  },
+  {
+    from: '/metadata/lock',
+    to: '/metadata#using-lock-to-manage-metadata'
   }
 ];

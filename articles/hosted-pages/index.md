@@ -19,11 +19,11 @@ Hosted pages are easy to implement and secure. For example, using Auth0 hosted p
 
 ## How to Enable and Customize Hosted Pages
 
-To enable a particular type of hosted page, navigate to the [Hosted Pages section of the Auth0 Dashboard](${manage_url}/#/login_page) (note that Error Page settings are located under [Account Settings](${manage_url}/#/account)). Click on the slider to enable the page.
+To enable a particular type of hosted page, navigate to the [Hosted Pages section of the Auth0 Dashboard](${manage_url}/#/login_page) (note that Error Page settings are located under [Tenant Settings](${manage_url}/#/tenant)). Click on the slider to enable the page.
 
 ## Customize Your Hosted Page
 
-In the Auth0 Dashboard, you'll see an HTML editor, as well as a *Preview* tab, for each of the hosted page types. You can either use the editor to create your HTML or paste in the HTML you've created elsewhere.
+In the Auth0 Dashboard, you'll see an HTML editor, as well as a **Preview** tab, for each of the hosted page types. You can either use the editor to create your HTML or paste in the HTML you've created elsewhere.
 
 For detailed instructions on how to customize each type of hosted page, please see the following docs:
 

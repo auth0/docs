@@ -7,7 +7,7 @@ If you would like to export your data from Auth0 there are a several ways you ca
 
 ## Use the Import/Export Extension
 
-You can use our [Import/Export Extension](/extensions/user-import-export) to export nearly all data in your Auth0 account. 
+You can use our [Import/Export Extension](/extensions/user-import-export) to export nearly all data in your Auth0 tenant. 
 
 ## Use the Management API
 

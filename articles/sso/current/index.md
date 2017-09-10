@@ -78,6 +78,12 @@ If the SSO flag is set for a Client, Auth0 will maintain an SSO session for any 
 
 ![](/media/articles/sso/single-sign-on/accountsettings-ssotimeout.png)
 
+This is the session timeout for the Auth0 session. You can configure separately the timeouts used with tokens issued by Auth0, such as the OpenID Connect ID Token expiration claim or the SAML lifetime assertions. These are often used to drive the sessions on the applications (SAML Service Providers) themselves and are independent of the Auth0 (Identity Provider) session.
+
+However, if there's no activity for **3 days**, the token expires. For example, if no web application on that user's machine (in the same browser) performed a login using the SSO session itself (such as using silent authentication), then the cookie would disappear after 3 days, even though a server side session might persist. That server session would essentially be unusable/orphaned, since you need a valid cookie to use it. Performing a new standard login would reset the whole SSO session.
+
+The session inactivity duration is 3 days and is not configurable on the Public Cloud. PSaaS Appliance users, however, can control this account-level setting.
+
 ## What is Single Log Out?
 
 Single Logout is the process where you terminate the session of each application or service where the user is logged in. To continue with the Google example, if you logout from Gmail, you get logged out also from YouTube, Google Analytics, etc.

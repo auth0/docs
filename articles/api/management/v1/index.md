@@ -16,7 +16,7 @@ Please use the [new version](/api/v2) instead.
   <div class="span4 col-sm-4 api-description" style="text-align:right">Obtain a token to call the API</div>
 </div>
 
-Auth0 API requires an `access_token`. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the "Advanced" section under "Account Settings" in the Auth0 [dashboard](${manage_url}/#/account/advanced).
+Auth0 API requires an `access_token`. You can get one by authenticating with your `client_id` and `client_secret` (It will be valid for 24 hours). To obtain the global client ID and global client secret see the **Advanced** tab under [Tenant Settings](${manage_url}/#/tenant/advanced) in the Auth0 dashboard.
 
 ```text
 POST /oauth/token

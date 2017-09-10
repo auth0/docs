@@ -16,6 +16,25 @@ The OAuth 2.0 specification [defines two types of clients](https://tools.ietf.or
 
 When creating a client through the [Dashboard](${manage_url}/#/clients), Auth0 will ask you what type of application you want the client to represent and use that information to determine the client type.
 
+### Checking Your Client Type
+
+You can use the Management API's [Get a Client endpoint](/api/management/v2#!/Clients/get_clients_by_id) to check your existing Client's type. If the client is first party, the `is_first_party` equals `true`, else `false`. Be sure to replace `CLIENT_ID` with the ID of your Client.
+
+```har
+{
+	"method": "GET",
+	"url": "https://${account.namespace}.auth0.com/api/v2/clients/CLIENT_ID?fields=is_first_party&include_fields=true",
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer MGMT_API_ACCESS_TOKEN"
+	}]
+}
+```
+
+::: note
+See [The Auth0 Management APIv2 Token](/api/management/v2/tokens) for instructions on obtaining the access token required to call the Management API.
+:::
+
 ### Confidential Clients
 
 Confidential clients are able to hold credentials (such as a client ID and secret) in a secure way without exposing them to unauthorized parties. This means that you will need a trusted backend server to store the secret(s).

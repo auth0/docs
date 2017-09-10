@@ -1,1 +1,5 @@
-In the `setSession` method, save the `scope`s granted for the user into local storage. The first place to check for these granted `scope` values is the `scope` key from the `authResult`. If something exists there it's because the `scope`s which were granted for the user differ from those that were requested. If there is nothing on `authResult.scope`, it means that the granted `scope`s match those that were requested, so the requested values can be used directly. If there are no values for either of these, you can fall back to an empty string.
+Add a `setSession` method to save the scopes granted to the user into browser storage. 
+
+First, check for the scopes in the `scope` key from `authResult`. If it's not empty, the user was granted a different set of scopes than the one the application requested, so you need to use the ones in `authResult.scope`.
+
+If it's empty, all the scopes requested were granted, so you can use the values from variable that stores the requested scopes.

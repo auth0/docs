@@ -10,9 +10,9 @@ budicon: 280
   path: 'Quickstart/03-Storing-Tokens',
   branch: 'v2',
   requirements: [
-    '.NET Core SDK 2.0 (Preview 2)',
-    '.NET Core 2.0 (Preview 2)',
-    'ASP.NET Core 2.0 (Preview 2)'
+    '.NET Core SDK 2.0',
+    '.NET Core 2.0',
+    'ASP.NET Core 2.0'
   ]
 }) %>
 
@@ -24,7 +24,7 @@ The seed project contains a controller action and view which will display the cl
 
 ## Storing the Tokens
 
-Sometimes you may want to access the tokens received from Auth0. For example, you may want to get the `access_token` to authenticate against API calls. In order to do this, you will need to set the `SaveTokens` property to `true` when calling `AddOpenIdConnectAuthentication`. This will save the tokens to the `AuthenticationProperties`:
+Sometimes you may want to access the tokens received from Auth0. For example, you may want to get the `access_token` to authenticate against API calls. In order to do this, you will need to set the `SaveTokens` property to `true` when calling `AddOpenIdConnect`. This will save the tokens to the `AuthenticationProperties`:
 
 ```csharp
 // Startup.cs
@@ -37,8 +37,8 @@ public void ConfigureServices(IServiceCollection services)
         options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     })
-    .AddCookieAuthentication()
-    .AddOpenIdConnectAuthentication("Auth0", options => {
+    .AddCookie()
+    .AddOpenIdConnect("Auth0", options => {
         // ...
 
         // Saves tokens to the AuthenticationProperties

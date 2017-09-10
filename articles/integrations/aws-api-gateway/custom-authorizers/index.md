@@ -24,9 +24,10 @@ New to OAuth 2.0? Check out our [introduction to OAuth 2.0](/protocols/oauth2).
 
 To that end, this tutorial will be divided into the following sections.
 
-* [Step 1 - Set up and Deploy the AWS API Gateway](/integrations/aws-api-gateway/part-1)
-* [Step 2 - Create the Custom Authorizers](/integrations/aws-api-gateway/part-2)
-* [Step 3 - Secure the API Using Custom Authorizers](/integrations/aws-api-gateway/part-3)
+* [Step 1 - Configure Auth0](/integrations/aws-api-gateway/part-1)
+* [Step 2 - Set up and Deploy the AWS API Gateway](/integrations/aws-api-gateway/part-2)
+* [Step 3 - Create the Custom Authorizers](/integrations/aws-api-gateway/part-3)
+* [Step 4 - Secure the API Using Custom Authorizers](/integrations/aws-api-gateway/part-4)
 
 ## How API Gateway Custom Authorizers Work
 
@@ -53,5 +54,5 @@ Before beginning this tutorial, you'll need to [sign up for an AWS account](http
 :::
 
 <%= include('./_stepnav', {
- next: ["1. Part 1", "/integrations/aws-api-gateway/custom-authorizers/part-1"]
+ next: ["Configure the Auth0 API", "/integrations/aws-api-gateway/custom-authorizers/part-1"]
 }) %>

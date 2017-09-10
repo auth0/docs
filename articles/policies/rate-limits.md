@@ -59,7 +59,9 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 
 ### Management API v2
 
-Please note that there is a 50 requests per second limit on all [Management API v2](/api/management/v2) calls per tenant. **This includes calls made via [Rules](/rules).** The limit is set by tenant and not by endpoint.
+Please note that there is a 50 requests per second limit on all [Management API v2](/api/management/v2) calls per *production tenant of paying customers*. **This includes calls made via [Rules](/rules).** The limit is set by tenant and not by endpoint.
+
+Please note that there is a 2 requests per second limit on all [Management API v2](/api/management/v2) calls for *free tenants or non-production child tenants of enterprise customers*. **This includes calls made via [Rules](/rules).** The limit is set by tenant and not by endpoint.
 
 The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
 
@@ -170,27 +172,8 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers:
 
-<table class="table">
-  <tr>
-      <th><strong>Endpoint</strong></th>
-      <th><strong>GET</strong></th>
-      <th><strong>POST</strong></th>
-  </tr>
-  <tr>
-      <td>User Profile</td>
-      <td>/userinfo</td>
-      <td>/tokeninfo</td>
-  </tr>
-  <tr>
-  <td>Delegated Authentication<sup>*</sup></td>
-      <td></td>
-      <td>/delegation</td>
-  </tr>
-    <tr>
-      <td>Database and Active Directory / LDAP Authentication</td>
-      <td></td>
-      <td>/dbconnections/change_password</td>
-  </tr>
-</table>
-
-**The `/delegation` endpoint limits up to 10 requests per minute from the same IP address with the same user_id*
+| Endpoint | Scope | GET | POST |
+| - | - | - | - |
+| User Profile | Per User ID (GET), Per IP (POST) | /userinfo | /tokeninfo |
+| Delegated Authentication | Per User ID per IP | | /delegation |
+| Database and Active Directory / LDAP Authentication | Per User ID Per IP | | /dbconnections/change_password |

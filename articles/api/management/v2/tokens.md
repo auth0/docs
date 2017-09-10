@@ -89,7 +89,7 @@ Before you proceed with the implementation, you must have [created and authorize
 
 ### 1. Get a Token
 
-To ask Auth0 for a Management API v2 token, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint, using the credentials of the Non Interactive Client you created at [this step](#1-create-a-client).
+To ask Auth0 for a Management API v2 token, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint, using the credentials of the Non Interactive Client you created at [this step](#1-create-and-authorize-a-client).
 
 The payload should be in the following format:
 

@@ -41,13 +41,6 @@ These scenarios describe the different type of technology architectures your app
       </div>
     </article>
   </a>
-</div>
-
-## Under Construction
-
-These scenarios are under construction and will soon be updated. Some describe the different type of technology architectures your application may use, while others describe the architecture depending on the type of businesses (B2C, B2B, B2E), and how Auth0 can help in each of these scenarios.
-
-<div class="architecture-scenarios-container">
   <a href="/architecture-scenarios/application/mobile-api" class="architecture-scenarios-card">
     <article>
       <img src="/media/articles/architecture-scenarios/mobile-api.png" alt="Architecture Diagram">
@@ -57,6 +50,13 @@ These scenarios are under construction and will soon be updated. Some describe t
       </div>
     </article>
   </a>
+</div>
+
+## Under Construction
+
+These scenarios are under construction and will soon be updated. Some describe the different type of technology architectures your application may use, while others describe the architecture depending on the type of businesses (B2C, B2B, B2E), and how Auth0 can help in each of these scenarios.
+
+<div class="architecture-scenarios-container">
   <a href="/architecture-scenarios/application/web-saml" class="architecture-scenarios-card">
     <article>
       <img src="/media/articles/architecture-scenarios/web-saml.png" alt="Architecture Diagram">

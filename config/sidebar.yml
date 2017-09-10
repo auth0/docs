@@ -38,8 +38,8 @@ articles:
           - title: SPA + API
             url: /architecture-scenarios/application/spa-api
 
-          # - title: Mobile + API
-          #   url: /architecture-scenarios/application/mobile-api
+          - title: Mobile + API
+            url: /architecture-scenarios/application/mobile-api
 
           # - title: SAML for Regular Web Apps
           #   url: /architecture-scenarios/application/web-saml
@@ -152,6 +152,16 @@ articles:
 
       - title: "Login Page"
         url: "/hosted-pages/login"
+        children:
+
+            - title: "Using Lock"
+              url: "/hosted-pages/login/lock"
+
+            - title: "Using Lock Passwordless"
+              url: "/hosted-pages/login/lock-passwordless"
+
+            - title: "Using Auth0.js"
+              url: "/hosted-pages/login/auth0js/v8"
 
       - title: "Password Reset Page"
         url: "/hosted-pages/password-reset"
@@ -526,35 +536,35 @@ libraries:
         url: "/libraries/lock-ios/v1"
 
   - title: "Lock for Android"
-    url: "/libraries/lock-android"
+    url: "/libraries/lock-android/v2"
     children:
 
       - title: "Overview"
-        url: "/libraries/lock-android"
+        url: "/libraries/lock-android/v2"
 
       - title: "Configuration Options"
-        url: "/libraries/lock-android/configuration"
+        url: "/libraries/lock-android/v2/configuration"
 
       - title: "Custom Auth Providers"
-        url: "/libraries/lock-android/custom-authentication-providers"
+        url: "/libraries/lock-android/v2/custom-authentication-providers"
 
       - title: "Android Dev Keystores"
-        url: "/libraries/lock-android/keystore"
+        url: "/libraries/lock-android/v2/keystore"
 
       - title: "Custom Signup Fields"
-        url: "/libraries/lock-android/custom-fields"
+        url: "/libraries/lock-android/v2/custom-fields"
 
       - title: "Custom Theming"
-        url: "/libraries/lock-android/custom-theming"
+        url: "/libraries/lock-android/v2/custom-theming"
 
       - title: "Migration v1 to v2"
-        url: "/libraries/lock-android/migration-guide"
+        url: "/libraries/lock-android/v2/migration-guide"
 
       - title: "Passwordless Auth"
-        url: "/libraries/lock-android/passwordless"
+        url: "/libraries/lock-android/v2/passwordless"
 
       - title: "Internationalization"
-        url: "/libraries/lock-android/internationalization"
+        url: "/libraries/lock-android/v2/internationalization"
 
   - title: "Lock vs. Custom UI"
     url: "/libraries/when-to-use-lock"

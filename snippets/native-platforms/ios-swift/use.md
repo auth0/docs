@@ -3,6 +3,7 @@
 
 Auth0
     .webAuth()
+    .scope("openid profile")
     .audience("https://${account.namespace}/userinfo")
     .start {
         switch $0 {

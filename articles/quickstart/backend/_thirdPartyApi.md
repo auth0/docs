@@ -1,6 +1,6 @@
 # <%= meta.name %> API
 
-Please follow the steps below to configure your Auth0 account to work with <%= meta.name %>.
+Please follow the steps below to configure your Auth0 tenant to work with <%= meta.name %>.
 
 ### 1. Activate the add-on.
 

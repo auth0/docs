@@ -2,22 +2,22 @@
 connection: Auth0 OpenIDConnect
 seo_alias: auth0-oidc
 image: /media/connections/auth0.png
-description: You can use a Client on another Auth0 account as an identity provider in your current Auth0 account.
+description: You can use a Client on another Auth0 tenant as an identity provider in your current Auth0 tenant.
 ---
 
-# Authenticate using OpenIDConnect to another Auth0 account
+# Authenticate using OpenIDConnect to another Auth0 Tenant
 
-You can use a Client on another Auth0 account (referred to below as the **child account**) as an identity provider in your current Auth0 account (the **master account**).
+You can use a Client on another Auth0 tenant (referred to below as the **child tenant**) as an identity provider in your current Auth0 tenant (the **master tenant**).
 
-## Configure the Child Auth0 Account
+## Configure the Child Auth0 Tenant
 
 1. Create a Client or edit an existing one.
-2. Take note of its **clientID** and **clientSecret**. You will need these to create the connection in the master account.
-3. Add the master account's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
+2. Take note of its **clientID** and **clientSecret**. You will need these to create the connection in the master tenant.
+3. Add the master tenant's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
 
 ![](/media/articles/connections/social/auth0-oidc/child-app.png)
 
-## Configure the Master Auth0 Account
+## Configure the Master Auth0 Tenant
 
 The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Create a connection](/api/v2#!/Connections/post_connections) endpoint, which will require an [Management API V2 token](/api/management/v2/tokens) with `create:connections` scope.
 
@@ -47,9 +47,9 @@ The required parameters for this connection are:
 
 * **name**: how the connection will be referenced in Auth0 or in your app.
 * **strategy**: defines the protocol implemented by the provider. This should always be `auth0-oidc`.
-* **options.client_id**: the `clientID` of the target Client in the child Auth0 account.
-* **options.client_secret**: the `cliendSecret` of the target Client in the child Auth0 account.
-* **options.domain**: the domain of the child Auth0 account.
+* **options.client_id**: the `clientID` of the target Client in the child Auth0 tenant.
+* **options.client_secret**: the `cliendSecret` of the target Client in the child Auth0 tenant.
+* **options.domain**: the domain of the child Auth0 tenant.
 
 Optionally, you can add:
 
@@ -66,7 +66,7 @@ A direct link would look like:
 
 To add a custom connection in Lock, you can add a custom button as described in [Adding a new UI element using JavaScript](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript) and use the direct link as the button `href`.
 
-The user will be redirected to the built-in login page of the child Auth0 account where they can choose their identity provider (from the enabled connections of the target Client) and enter their credentials.
+The user will be redirected to the built-in login page of the child Auth0 tenant where they can choose their identity provider (from the enabled connections of the target Client) and enter their credentials.
 
 ![](/media/articles/connections/social/auth0-oidc/login-page.png)
 
@@ -122,4 +122,4 @@ The `access_token` is the JWT of the user in the child Auth0 connection. If you 
 }
 ```
 
-This token can be used to access the Auth0 API of the child account.
+This token can be used to access the Auth0 API of the child tenant.

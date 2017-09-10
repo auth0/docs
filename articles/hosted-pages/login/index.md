@@ -14,23 +14,30 @@ Auth0's Hosted Login Page is the most secure way to easily authenticate users fo
 
 ### How Does the Hosted Login Page Work
 
-Auth0 shows the Hosted Login Page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request. Users will see the Hosted Login Page, typically with either the Lock widget or with your custom UI. Once they login, they will be redirected back to your application.
+Auth0 shows the Hosted Login Page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request. It can also be accessed via a request, in the following format:
+
+```html
+https://${account.namespace}.auth0.com/login?client=${account.clientId}
+```
+
+Users will see the Hosted Login Page, typically with either the Lock widget or with your custom UI. Once they login, they will be redirected back to your application.
 
 ::: warning
 If the incoming authentication request includes a `connection` parameter that uses an external identity provider (such as a social provider), the Hosted Login Page will not display. Instead, Auth0 will direct the user to the [identity provider's](/identityproviders) login page.
 :::
 
-#### SSO
+#### Single Sign-On (SSO)
 
-When SSO is desired, a client should use the Hosted Login Page for logins rather than an embedded login solution. When a user logs in via the Hosted Login Page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the Hosted Login Page. They will see the page only when they need to actually login. 
+If you want to use single sign on, you should use the Hosted Login Page for logins rather than an embedded login solution. When a user logs in via the Hosted Login Page, a cookie will be created and stored. On future calls to the `authorize` endpoint, the cookie will be checked, and if SSO is achieved, the user will not ever be redirected to the Hosted Login Page. They will see the page only when they need to actually login. 
 
-This behavior occurs without modification to the actual Hosted Login Page. The process involves enabling SSO for the client in the [Dashboard](${manage_url}) and then using the `authorize` endpoint with `?prompt=none` for silent SSO.
+This behavior occurs without modification to the actual Hosted Login Page. This is a simple two step process:
+
+1. Enable SSO for the client in the [Dashboard](${manage_url}) (Go to the Client's Settings, then scroll down to the **Use Auth0 instead of the IdP to do Single Sign On** setting and toggle it on.
+1. Use the [authorize endpoint](/api/authentication#authorization-code-grant) with `?prompt=none` for [silent SSO](/api-auth/tutorials/silent-authentication).
 
 ::: note 
-For more information about how SSO works, see the [SSO documentation](/sso).
+For more details about how SSO works, see the [SSO documentation](/sso).
 :::
-
-![Hosted Login Page Preview](/media/articles/hosted-pages/hlp-preview-lock.png)
 
 ### Why Use the Hosted Login Page
 
@@ -68,22 +75,39 @@ In order to get started using the Hosted Login Page, you'll first want to choose
 
 You can customize the Hosted Login Page at will right from the editor. If you use Lock, you can alter its behavior and appearance with [customization options](/libraries/lock/v10/customization). If you are building a custom UI, you can style the Hosted Login Page to your own specifications.
 
-All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the Hosted Login Page customizations are per **tenant** rather than per client. You can provide different pages to different clients via the [methods discussed here](/hosted-pages#customize-your-hosted-page).
+All changes to the page's appearance and/or behavior will apply to **all** users shown this login page, regardless of the client or connection. Remember that the Hosted Login Page customizations are per **tenant** rather than per client. When necessary, you can provide different pages to different clients via a method discussed later in this document.
 
 #### Query String Parameters
 
-You can also pass [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters into the Hosted Login Page from your application by adding them to the query you use to call the `authorize` endpoint. This allows you to make further customizations to your Hosted Login page from the application. 
+You can add query string parameters to the URL you are using to call your Hosted Login Page from your application, and use those items to customize its behavior or appearance.
 
-If you intend to pass any configuration parameters to the page from your client, you may need to become familiar with the `config` object. The `config` object contains the set of configuration values that adjusts the hosted login page's behavior at runtime. Some of the values in `config` are parameters which are received from your application code to your Hosted Login Page.
+For example, you can pass the parameter `title` in your request as a query parameter, and then access it in your Hosted Login Page Code by using `config.extraParams.title`.
 
-You can examine the contents of the `config` object using the following within the hosted login page editor:
+The `config` object contains the set of configuration values that adjusts the behavior of the Hosted Login Page at runtime. Set the `config` object up in the Hosted Login Page editor so that you can access the config parameters to use in your page:
 
 ```js
-// Decode configuration options
 var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
 ```
 
-The below examples assume that you are using [Auth0.js](/libraries/auth0js/v8) within your application to call the `authorize` endpoint and show the Hosted Login Page. If not using Auth0.js for this purpose, the important thing to note is that these options can be added to the Query String as needed.
+After which you can set the value of your Lock Widget's title (or use the value to alter the title of your own custom coded UI):
+
+```js
+if (config.extraParams.title) {
+  languageDictionary = { title: config.extraParams.title };
+} 
+```
+
+#### Parameters for the Authorize Endpoint
+
+If you choose to initiate the Hosted Login Page via the `authorize` endpoint, whether by an SDK like auth0.js or by calling the endpoint directly, you may also pass some customization parameters to the Hosted Login Page. However, parameters passed to the `authorize` endpoint must be [OIDC specification](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest) compliant parameters.
+
+The `config` object contains the set of configuration values that adjusts the behavior of the Hosted Login Page at runtime. Set the `config` object up in the Hosted Login Page editor so that you can access the config parameters to use in your page:
+
+```js
+var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+```
+
+The below examples assume that you are using [Auth0.js](/libraries/auth0js/v8) within your application to call the `authorize` endpoint and show the Hosted Login Page. 
 
 ##### Login Hint
 
@@ -111,15 +135,21 @@ webAuth.authorize({
 });
 ```
 
-## Configure Different Pages per Client
+## Configure Multiple Pages by Using Separate Tenants
 
-In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at tenant level (every client app you have set up on a single tenant would use the same Hosted Login Page), you would have to create a new tenant for each client that requires a different hosted page.
+In some cases, you might have multiple apps and want to configure separate login pages for each. Since the hosted pages are configured in the [Dashboard](${manage_url}) at the tenant level (every client app you have set up on a single tenant would use the same Hosted Login Page), you would have to create a new tenant for each client that requires a different hosted page. 
 
-There are two ways to handle this. The first option is to create different tenants for each client or sets of clients that you need to have separate custom pages for. Alternatively, you can use the [Management API](/api/management/v2) to set up a custom page for the specific client rather than using the editor in the [Dashboard](${manage_url}).
+In most cases, it would be preferable to use a single login page, which unifies your brand and the authentication experience for your users across the various areas in which they might encounter it. Additionally, using the same pages, and the same tenant, will allow you to share the resources that would otherwise need to be separated across multiple tenants.
+
+Creating a separate tenant is only really a viable option for an organization that needs two or more separate sets of custom pages, such as for branding reasons. If an example corporation has multiple branded subsidiaries or products, and separate APIs for all of them, it might make sense for them to create several separate Auth0 tenants, each with their own hosted pages set up for that brand or product's specific needs. 
+
+Bear in mind that separating tenants with the goal of having separate hosted pages will also mean that those separate tenants will have two distinct sets of clients, users, settings, etc. as these things are not shared between tenants.
 
 ### Creating New Tenants
 
-For example, if you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same set of hosted pages and the other two (`app4`, `app5`) using different ones, you would do the following:
+If your use case requires separate sets of custom pages, let's see how you would go about creating them.
+
+If you have five different applications, with three of them (`app1`, `app2`, `app3`) using the same set of hosted pages and the other two (`app4`, `app5`) using different ones, you would do the following:
 
 - If you already have an account, you have a tenant configured. Configure three clients under this tenant, one to represent each app (`app1`, `app2`, `app3`), and one hosted login page  which these clients will all share.
 - Create a second tenant, configure a new client for `app4`, and configure the hosted login page for this client.
@@ -130,11 +160,3 @@ To create a new tenant go to the [Dashboard](${manage_url}), and using the top r
 ![Create new tenant](/media/articles/hosted-pages/create-new-tenant.png)
 
 You can easily switch between tenants using the top right menu on the [Dashboard](${manage_url}). You can also [configure different administrators for each](/tutorials/manage-dashboard-admins).
-
-## Using the Management API
-
-There is also the option of setting per-client hosted pages using the [Management API](/api/management/v2). To do this, send a `PATCH` request at the `/api/v2/clients/{id}`, and alter the properties `custom_login_page` and `custom_login_page_on`. See the [documentation on patching a client](/api/management/v2#!/Clients/patch_clients_by_id)
-) for more details.
-
-The `custom_login_page` will need to be updated to contain the entire HTML contents for the Hosted Login Page specific to that client. The `custom_login_page_on` would just need set to `true`. Once this is done, the specific client will have its own custom login page, whereas any other clients on the same tenant would continue to use the one set up in the [editor in the dashboard](${manage_url}/#/login_page).
-
