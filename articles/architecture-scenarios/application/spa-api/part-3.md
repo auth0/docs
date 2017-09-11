@@ -175,12 +175,22 @@ auth0.client.userInfo(accessToken, (err, profile) => {
 See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#3-get-the-user-profile)
 :::
 
+### Display UI Elements Conditionally Based on Scope
+
+Based on the `scope` of the user, you may want to show or hide certain UI elements. To determine the scope issued to a user, you will need to store the scope which was initially requested during the authorization process. When a user is authorized, the `scope` will also be returned in the `authResult`. 
+
+If the `scope` in the `authResult` is empty, then all the scopes which was requested was granted. If the `scope` in the `authResult` is not empty, it means a different set of scopes were granted, and you should use the ones in `authResult.scope`.
+
+::: note
+See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#4-display-ui-elements-conditionally-based-on-scope)
+:::
+
 ### Call the API
 
 To access secured resources from your API, the authenticated user's `access_token` needs to be included in requests that are sent to it. This is accomplished by sending the `access_token` in an `Authorization` header using the `Bearer` scheme. 
 
 ::: note
-See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#4-call-the-api)
+See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#5-call-the-api)
 :::
 
 ### Renew the Access Token
@@ -194,7 +204,7 @@ Obtaining a new `access_token` can be done by repeating the authentication flow,
 In cases like this you can make use of [Silent Authentication](/api-auth/tutorials/silent-authentication). Silent authentication lets you perform an authentication flow where Auth0 will only reply with redirects, and never with a login page. This does however require that the user was already logged in via [SSO (Single Sign-On)](/sso).
 
 ::: note
-See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#5-renew-the-access-token)
+See the implementation in [Angular 2](/architecture-scenarios/application/spa-api/spa-implementation-angular2#6-renew-the-access-token)
 :::
 
 <%= include('./_stepnav', {

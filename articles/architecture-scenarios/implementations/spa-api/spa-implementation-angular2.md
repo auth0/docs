@@ -256,7 +256,131 @@ The template for this component looks as follows:
 </div>
 ```
 
-## 4. Call the API
+## 4. Display UI Elements Conditionally Based on Scope
+
+During the authorization process we already stored the actual scopes which a user was granted in the local storage. If the `scope` returned in the `authResult` is not empty, it means that a user was issued a different set of scopes than what was initially requested, and we should therefore use `authResult.scope` to determine the scopes granted to the user.
+
+If the `scope` returned in `authResult` is issued is empty, it means the user was granted all the scopes that were requested, and we can therefore use the requested scopes to determine the scopes granted to the user.
+
+Here is the code we wroter earlier for the `setSession` function that does that check:
+
+```js
+private setSession(authResult): void {
+  // Set the time that the access token will expire at
+  const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+
+  // If there is a value on the `scope` param from the authResult,
+  // use it to set scopes in the session for the user. Otherwise
+  // use the scopes as requested. If no scopes were requested,
+  // set it to nothing
+  const scopes = authResult.scope || this.requestedScopes || '';
+
+  localStorage.setItem('access_token', authResult.accessToken);
+  localStorage.setItem('id_token', authResult.idToken);
+  localStorage.setItem('expires_at', expiresAt);
+  localStorage.setItem('scopes', JSON.stringify(scopes));
+  this.scheduleRenewal();
+}
+```
+
+Next we need to add a functio to the `AuthService` class which we can call to determine if a user was granted a specific scope:
+
+```js
+@Injectable()
+export class AuthService {
+  // some code omitted for brevity
+
+  public userHasScopes(scopes: Array<string>): boolean {
+    const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
+    return scopes.every(scope => grantedScopes.includes(scope));
+  }
+}
+```
+
+You can call this method to determine whether we should display a specific UI element, or not. As an example we only want to display the **Approve Timesheets** link if the user has the `approve:timesheets` scope. Note in the code below that we added a call to the `userHasScopes` function to deteremine whether that link should be displayed or not.
+
+```html
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Timesheet System</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a routerLink="/">Home</a></li>
+        <li><a *ngIf="auth.isAuthenticated()" routerLink="/profile">My Profile</a></li>
+        <li><a *ngIf="auth.isAuthenticated()" routerLink="/timesheets">My Timesheets</a></li>
+        <li><a *ngIf="auth.isAuthenticated() && auth.userHasScopes(['approve:timesheets'])" routerLink="/approval">Approve Timesheets</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a *ngIf="!auth.isAuthenticated()" href="javascript:void(0)" (click)="auth.login()">Log In</a></li>
+        <li><a *ngIf="auth.isAuthenticated()" href="javascript:void(0)" (click)="auth.logout()">Log Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
+```
+
+### Protect a route
+
+We should also protect a route to not allow a route to be navigated to if a user has not been granted the correct scopes. For this we can add a new `ScopeGuardService` service class:
+
+```js
+import { Injectable } from '@angular/core';
+import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
+import { AuthService } from './auth.service';
+
+@Injectable()
+export class ScopeGuardService implements CanActivate {
+
+  constructor(public auth: AuthService, public router: Router) {}
+
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+
+    const scopes = (route.data as any).expectedScopes;
+
+    if (!this.auth.isAuthenticated() || !this.auth.userHasScopes(scopes)) {
+      this.router.navigate(['']);
+      return false;
+    }
+    return true;
+  }
+
+}
+```
+
+And then use that when we configure the routes to determine whether a route can be activated. Notice the use of the new `ScopeGuardService` in the definition for the `approval` route below:
+
+
+```js
+// app.routes.ts
+
+import { Routes, CanActivate } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CallbackComponent } from './callback/callback.component';
+import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
+import { ScopeGuardService as ScopeGuard } from './auth/scope-guard.service';
+import { TimesheetListComponent } from './timesheet-list/timesheet-list.component';
+import { TimesheetAddComponent } from './timesheet-add/timesheet-add.component';
+import { ApprovalComponent } from './approval/approval.component';
+
+export const ROUTES: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'callback', component: CallbackComponent },
+  { path: 'timesheets/add', component: TimesheetAddComponent, canActivate: [AuthGuard] },
+  { path: 'timesheets', component: TimesheetListComponent, canActivate: [AuthGuard] },
+  { path: 'approval', component: ApprovalComponent, canActivate: [ScopeGuard], data: { expectedScopes: ['approve:timesheets']} },
+  { path: '**', redirectTo: '' }
+];
+```
+
+## 5. Call the API
 
 The [angular2-jwt](https://github.com/auth0/angular2-jwt) module can be used to automatically attach JSON Web Tokens to requests made to your API. It does this by providing an `AuthHttp` class which is a wrapper over Angular's `Http` class.
 
@@ -322,7 +446,7 @@ export class TimesheetsService {
 }
 ```
 
-## 5. Renew the Access Token
+## 6. Renew the Access Token
 
 Renewing the user's `access_token` requires that a static HTML file to be served. The server setup you choose to do this is at your discretion, but an example using Node.js and express is given here.
 
