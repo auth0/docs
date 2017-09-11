@@ -26,8 +26,8 @@ Custom provisioning uses the Azure AD Graph API to provision new users in Azure 
     3. Insert a sign-on URL. Any valid url as this won't be really used.
 5. The recently created app will appear in the *App registrations* list. Select it.
 6. In the *Settings* blade (Microsoft call these sections as blade), choose *Keys*.
-7. Input a *Description* (like *auth0 provision*) and choose a *Duration* for the new key. If you choose to issue non-permanent key, take note of the expiration date and create a reminder to replace the key with a new one before it expires.
-8. Click on save the key and copy the *Client Key*. This key will be shown only once and it's needed for the Auth0 rule.
+7. Input a *Description* (like *Auth0 Provision*) and choose a *Duration* for the new key. If you choose to issue non-permanent key, take note of the expiration date and create a reminder to replace the key with a new one before it expires.
+8. Click on save the key and copy the *App Key*. This key will be shown only once and it's needed for the Auth0 rule.
 ![Creating a key on Azure AD apps registration](/media/articles/integrations/office-365/office-365-app-key.png)
 9. Choose *Required permissions* and click *Add* in the new blade.
 10. Select the *Microsoft Graph* API and then check *Read and write directory data* under *Application Permissions*.
@@ -46,6 +46,8 @@ The following rule shows the provisioning process:
 
 The username is generated with the `createAzureADUser` function, which by default generates a username in the format `auth0-c3fb6eec-3afd-4d52-8e0a-d9f357dd19ab@fabrikamcorp.be`. You can change this to whatever you like, just make sure this value is unique for all your users.
 
+Make sure you set the correct values for the `AUTH0_OFFICE365_CLIENT_ID`, `AAD_CUSTOM_DOMAIN`, `AAD_DOMAIN`, `AAD_APPLICATION_ID` and `AAD_APPLICATION_API_KEY` values in the rule code.
+
 In the code you'll also see that the rule will wait about 15 seconds after the user is provisioned. This is because it takes a few seconds before the provisioned user is available for Office 365.
 
 ```js
@@ -62,15 +64,15 @@ function (user, context, callback) {
   // You can get it from the URL when editing the SSO integration,
   // it will look like 
   // https://manage.auth0.com/#/externalapps/{the_client_id}/settings
-  var AUTH0_OFFICE365_CLIENTID = 'CLIENT_ID_OF_MY_THIRD_PARTY_APP_IN_AUTH0';
+  var AUTH0_OFFICE365_CLIENT_ID = 'CLIENT_ID_OF_MY_THIRD_PARTY_APP_IN_AUTH0';
   // The main domain of our company.
-  var AAD_CUSTOM_DOMAIN = 'mycompanyurl.com';
+  var YOUR_COMPANY_DOMAIN = 'mycompanyurl.com';
   // Your Azure AD domain.
-  var AAD_TENANT_NAME = 'mycompanyurl.onmicrosoft.com';
-  // The client ID generated while creating the Azure AD app.
-  var AAD_CLIENT_ID = 'fc885c73-ce83-4d1e-9fo3-kako45460489';
-  // The client secret generated while creating a key for the Azure AD app.
-  var AAD_CLIENT_SECRET = 'ZqnwPIsiMP07Wz7AQkx0RsD7mYTElny1tpKot8lizE9=';
+  var AAD_DOMAIN = 'mycompanyurl.onmicrosoft.com';
+  // The Application ID generated while creating the Azure AD app.
+  var AAD_APPLICATION_ID = 'fc885c73-ce83-4d1e-9fo3-kako45460489';
+  // The generated API key for the Azure AD app.
+  var AAD_APPLICATION_API_KEY = 'ZqnwPIsiMP07Wz7AQkx0RsD7mYTElny1tpKot8lizE9=';
   // The location of the users that are going to access Microsoft products.
   var AAD_USAGE_LOCATION = 'US';
   // Azure AD doesn't recognize the user instantly, it needs a few seconds
@@ -81,7 +83,7 @@ function (user, context, callback) {
   var OFFICE365_KEY = 'O365_BUSINESS';
 
   // Only execute this rule for the Office 365 SSO integration.
-  if (context.clientID !== AUTH0_OFFICE365_CLIENTID) {
+  if (context.clientID !== AUTH0_OFFICE365_CLIENT_ID) {
     return callback(null, user, context);
   }
 
@@ -121,14 +123,14 @@ function (user, context, callback) {
   function getAzureADToken() {
     var options = {
       method: 'POST',
-      url: 'https://login.windows.net/' + AAD_TENANT_NAME + '/oauth2/token?api-version=1.5',
+      url: 'https://login.windows.net/' + AAD_DOMAIN + '/oauth2/token?api-version=1.5',
       headers: {
         'Content-type': 'application/json',
         },
       json: true,
       form: {
-        client_id: AAD_CLIENT_ID,
-        client_secret: AAD_CLIENT_SECRET,
+        client_id: AAD_APPLICATION_ID,
+        client_secret: AAD_APPLICATION_API_KEY,
         grant_type: 'client_credentials',
         resource: 'https://graph.windows.net'
       },
@@ -141,10 +143,10 @@ function (user, context, callback) {
   // to provision the new Microsoft AD user.
   function createAzureADUser(response) {
     token = response.access_token;
-    userPrincipalName = 'auth0-' + uuid + '@' + AAD_CUSTOM_DOMAIN;
+    userPrincipalName = 'auth0-' + uuid + '@' + YOUR_COMPANY_DOMAIN;
 
     var options = {
-      url: 'https://graph.windows.net/' + AAD_TENANT_NAME + '/users?api-version=1.6',
+      url: 'https://graph.windows.net/' + AAD_DOMAIN + '/users?api-version=1.6',
       headers: {
         'Content-type': 'application/json',
         'Authorization': 'Bearer ' + token
@@ -172,7 +174,7 @@ function (user, context, callback) {
   function getAvailableLicenses(response) {
     userId = response.objectId;
     var options = {
-      url: 'https://graph.windows.net/' + AAD_TENANT_NAME + '/subscribedSkus?api-version=1.6',
+      url: 'https://graph.windows.net/' + AAD_DOMAIN + '/subscribedSkus?api-version=1.6',
       json: true,
       headers: {
         'Content-type': 'application/json',
@@ -197,7 +199,7 @@ function (user, context, callback) {
     }
 
     var options = {
-      url: ' https://graph.windows.net/' + AAD_TENANT_NAME + '/users/' + userId + '/assignLicense?api-version=1.6',
+      url: ' https://graph.windows.net/' + AAD_DOMAIN + '/users/' + userId + '/assignLicense?api-version=1.6',
       headers: {
         'Content-type': 'application/json',
         'Authorization': 'Bearer ' + token
@@ -261,11 +263,11 @@ The easiest way for your external users to authenticate is by using IdP initiate
 You will basically need to redirect your users to the following URL (eg: using a "smart link" like `https://office.fabrikamcorp.com`):
 
 ```
-https://${account.namespace}/login?client=AUTH0_OFFICE365_CLIENTID&protocol=wsfed&state=&redirect_uri=&
+https://${account.namespace}/login?client=AUTH0_OFFICE365_CLIENT_ID&protocol=wsfed&state=&redirect_uri=&
 ```
 
-::: panel AUTH0_OFFICE365_CLIENTID
-The `AUTH0_OFFICE365_CLIENTID` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see an URL in the form of `${manage_url}/#/externalapps/${account.clientId}/settings`. The `${account.clientId}` is the value you need here.
+::: panel AUTH0_OFFICE365_CLIENT_ID
+The `AUTH0_OFFICE365_CLIENT_ID` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see an URL in the form of `${manage_url}/#/externalapps/${account.clientId}/settings`. The `${account.clientId}` is the value you need here.
 :::
 
 This will show them the Auth0 login page after which they'll be redirected to Office 365. It will be important to explain external users that this is the only way they can authenticate, since the Office 365 login page does not support Home Realm Discover for these external users. This also means that, when they try to open a link, they'll need to visit the smart link first before the can access the link they tried to open.
