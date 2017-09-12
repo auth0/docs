@@ -283,7 +283,7 @@ private setSession(authResult): void {
 }
 ```
 
-Next we need to add a functio to the `AuthService` class which we can call to determine if a user was granted a specific scope:
+Next we need to add a function to the `AuthService` class which we can call to determine if a user was granted a specific scope:
 
 ```js
 @Injectable()

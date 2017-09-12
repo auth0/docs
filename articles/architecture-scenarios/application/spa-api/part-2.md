@@ -67,17 +67,13 @@ Click __Create__.
 
 That's it for now. When we are done with the SPA implementation we will revisit the dashboard and this Client's settings to make some changes in its configuration.
 
-<%= include('./_stepnav', {
- prev: ["1. Solution Overview", "/architecture-scenarios/application/spa-api/part-1"], next: ["3. API + SPA Implementation", "/architecture-scenarios/application/spa-api/part-3"]
-}) %>
-
 ## Configure the Authorization Extension
 
 You will need to ensure that the Authorization Extension is installed for your tenant. You can refer to the [Authorization Extension documentation](/extensions/authorization-extension#how-to-install) for details on how to do this.
 
 ### Define Permissions 
 
-You will need to define Permissions which correlate with the scopes you have already defined. In the Authorization Extension, click the _Permissions_ tab, and then click on the **Create Permission** button. In the dialog, capture the details for each permission. Ensure that the name of the permission is exactly the same as the corresponding scope:
+You will need to define Permissions which correlates with the scopes you have already defined. In the Authorization Extension, click the _Permissions_ tab, and then click on the **Create Permission** button. In the dialog, capture the details for each permission. Ensure that the name of the permission is exactly the same as the corresponding scope:
 
 ![Create Permission](/media/articles/architecture-scenarios/spa-api/create-permission.png)
 
@@ -91,7 +87,7 @@ Head over to the _Roles_ tab and create 2 Roles. Click the **Create Role** butto
 
 ![Create Employee Role](/media/articles/architecture-scenarios/spa-api/create-employee-role.png)
 
-Next, follow the same process to create a Manager role, and ensure that you have selected all the permissions:
+Next, follow the same process to create a **Manager** role, and ensure that you have selected all the permissions:
 
 ![Create Manager Role](/media/articles/architecture-scenarios/spa-api/create-manager-role.png)
 
@@ -107,7 +103,7 @@ You will also need to ensure that the Rule for the Authorization Extension is pu
 
 ![Navigate to COnfiguration](/media/articles/architecture-scenarios/spa-api/select-configuration.png)
 
-Ensure that you have enabled **Permissions** and then click on the **Publish Rule** button:
+Ensure that you have enabled **Permissions** and then click the **Publish Rule** button:
 
 ![Pulish Rule](/media/articles/architecture-scenarios/spa-api/publish-rule.png)
 
@@ -141,6 +137,10 @@ function (user, context, callback) {
 
 The code above will ensure that all access tokens will only contain the scopes which are valid according to a user's permissions. Once you are done you can click on the **Save** button.
 
-Rules execute in the order they are displayed on the Rules page, so ensure that the new rule you create is positioned below the rule for the Authorization Extension, so it executes after the Authorization Extension rule:
+Rules execute in the order they are displayed on the Rules page, so ensure that the new rule you created is positioned below the rule for the Authorization Extension, so it executes after the Authorization Extension rule:
 
 ![Rules](/media/articles/architecture-scenarios/spa-api/rules-2.png)
+
+<%= include('./_stepnav', {
+ prev: ["1. Solution Overview", "/architecture-scenarios/application/spa-api/part-1"], next: ["3. API + SPA Implementation", "/architecture-scenarios/application/spa-api/part-3"]
+}) %>
