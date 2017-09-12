@@ -5,9 +5,7 @@ beta: true
 
 # Extensibility Point: Pre-User Registration
 
-For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to:
-
-* Add custom `app_metadata` or `user_metadata` to a newly-created user.
+For [Database Connections](/connections/database), the `pre-user-registration` extensibility point allows you to add custom `app_metadata` or `user_metadata` to a newly-created user.
 
 This allows you to implement scenarios including (but not limited to):
 
