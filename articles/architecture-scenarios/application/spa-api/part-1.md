@@ -70,6 +70,12 @@ Once the user authenticates, the client app receives the `id_token` and `access_
 
 1. The app can use the `access_token` to call the API on behalf of the user.
 
+## Authorization Extension
+
+The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to provide authorization support in your application, by assigning Roles, Groups and Permissions to Users. 
+
+The Authorization Extension creates a [Rule](/rules) which will augment the [User profile](/rules/current#rule-syntax) during the authentication flow with the Roles, Groups and Permissions assigned to the user. You can then use this information to ensure that the `access_token` issued to a user only contains scopes which are allowed according to the permissions defined in the Authorization Extension.
+
 <%= include('./_stepnav', {
  prev: ["Introduction", "/architecture-scenarios/application/spa-api"], next: ["2. Auth0 Configuration", "/architecture-scenarios/application/spa-api/part-2"]
 }) %>
