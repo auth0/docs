@@ -17,9 +17,12 @@ We will also be building a Single Page Application (SPA) which will be used to l
 * Auth0 provides API Authentication and Authorizaion as a means to secure access to API endpoints (see [API Authentication and Authorization](/architecture-scenarios/application/spa-api/part-1#api-authentication-and-authorization))
 * For authorizing a user of a SPA, Auth0 supports the Implicit Grant (see [Implicit Grant](/architecture-scenarios/application/spa-api/part-1#implicit-grant))
 * Both the SPA and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](/architecture-scenarios/application/spa-api/part-2#auth0-configuration))
+* User Permissions can be enforced using the Authorization Extension (see [Configure the Authorization Extension](/architecture-scenarios/application/spa-api/part-2#configure-the-authorization-extension))
 * The API will be secured by ensuring that a valid Access Token is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](/architecture-scenarios/application/spa-api/part-3#implement-the-api))
 * The Auth0.js library can be used to authorize the user of the SPA and obtain a valid Access Token which can be used to call the API (see [Authorize the User](/architecture-scenarios/application/spa-api/part-3#authorize-the-user))
 * The SPA can pass the Access Token in the HTTP Authorization header when making calls to the API (see [Call the API](/architecture-scenarios/application/spa-api/part-3#call-the-api))
+* The SPA can display UI elements conditionally based on scopes granted to user (see [Display UI Elements Conditionally Based on Scope](/architecture-scenarios/application/spa-api/part-3#display-ui-elements-conditionally-based-on-scope))
+
 :::
 
 ## The Premise
