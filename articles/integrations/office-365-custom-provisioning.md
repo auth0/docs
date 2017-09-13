@@ -17,21 +17,21 @@ The [Office 365 tutorial](/integrations/office-365) explains how to register a c
 Custom provisioning uses the Azure AD Graph API to provision new users in Azure AD. In order to access the Azure AD Graph API an application must be created within the Azure AD Directory that has been linked to the Office 365 subscription.
 
 1. Log into the [Azure Portal](https://portal.azure.com).
-2. Choose [*Azure Active Directory* in the left navigation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
-3. Select *App registrations* in the new menu.
-4. Click on *New application registration*.
+2. Choose [Azure Active Directory in the left navigation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+3. Select **App registrations** in the new menu.
+4. Click on **New application registration**.
 5. Fill the form:
-    1. Input a name for the application (e.g. *Auth0 Provisioning*)
-    2. Select *Web app / API* as the *Application type*.
+    1. Input a name for the application (e.g. `Auth0 Provisioning`)
+    2. Select **Web app / API** as the **Application type**.
     3. Insert a sign-on URL. Any valid url as this won't be really used.
-5. The recently created app will appear in the *App registrations* list. Select it.
-6. In the *Settings* blade (Microsoft call these sections as blade), choose *Keys*.
-7. Input a *Description* (like *Auth0 Provision*) and choose a *Duration* for the new key. If you choose to issue non-permanent key, take note of the expiration date and create a reminder to replace the key with a new one before it expires.
-8. Click on save the key and copy the *App Key*. This key will be shown only once and it's needed for the Auth0 rule.
+5. The recently created app will appear in the **App registrations** list. Select it.
+6. In the **Settings** blade (Microsoft call these sections as blade), choose **Keys**.
+7. Input a **Description** (like `Auth0 Provision`) and choose a **Duration** for the new key. If you choose to issue non-permanent key, take note of the expiration date and create a reminder to replace the key with a new one before it expires.
+8. Click on save the key and copy the **App Key**. This key will be shown only once and it's needed for the Auth0 rule.
 ![Creating a key on Azure AD apps registration](/media/articles/integrations/office-365/office-365-app-key.png)
-9. Choose *Required permissions* and click *Add* in the new blade.
-10. Select the *Microsoft Graph* API and then check *Read and write directory data* under *Application Permissions*.
-11. Back in the *Required permissions*, click on the *Grant Permissions* button and then click *Yes* to grant the requested permissions.
+9. Choose **Required permissions** and click **Add** in the new blade.
+10. Select the **Microsoft Graph** API and then check `Read and write directory data` under **Application Permissions**.
+11. Back in the **Required permissions**, click on the **Grant Permissions** button and then click **Yes** to grant the requested permissions.
 
 ## Azure AD Provisioning Rule
 
