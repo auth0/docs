@@ -15,10 +15,6 @@ Only Enterprise customers may [request load testing against Auth0](/policies/loa
 
 When conducting performance testing, you may encounter issues with your implementation. The following are steps you can take to begin the troubleshooting process and identify where there might be issues of concern.
 
-::: note
-Please review the details regarding our [Load Testing Policies](/policies/load-testing) prior to beginning.
-:::
-
 ### The Auth0 Dashboard
 
 The [Logs section of the Auth0 Dashboard](${manage_url}/#/logs)] stores data on:
@@ -46,12 +42,3 @@ These tools should provide activity logs that help you identify anything that is
 ### HAR Files
 
 If you discover an issue that you can reproduce, you can [create a HAR file](/tutorials/troubleshooting-with-har-files) and send it to our Support team for additional assistance.
-
-### Custom Scripts
-
-If you're running custom scripts, and you think they may be the source of latency, consider using `console.log` statements to the beginning and end of the script to log the start and end times. This should indicate whether the issue is due to transit time between Auth0's servers and yours or simply the execution time on your server.
-
-Use the Performance panel in your browser to see where latency is coming from
-
-
-directions on where to insert instrumentation code into Lock if it’s a not-dependably-reproducible problem
