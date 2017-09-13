@@ -149,9 +149,9 @@ webAuth.redirect.loginWithCredentials({
 });
 ```
 
-::: warning
-`webauth.redirect.loginWithCredentials` will be deprecated, and we recommend that you use `webauth.client.login` instead. However, if you're using `webauth.redirect.loginWithCredentials` on a Hosted Login Page, you can continue to do so.
-:::
+The use of `webauth.redirect.loginWithCredentials` is not recommended when using Auth0.js in your apps; it is recommended that you use `webauth.client.login` instead. 
+
+However, using `webauth.redirect.loginWithCredentials` **is** the correct choice for use in the Hosted Login Page, and is the only way to have SSO cookies set for your users who login using the Hosted Login Page.
 
 ### webAuth.popup.loginWithCredentials()
 
@@ -213,13 +213,24 @@ var url = webAuth.client.buildAuthorizeUrl({
 The `state` parameter, is not required, but it is recommended. It is an opaque value that Auth0 will send back to you. This method helps prevent CSRF attacks.
 :::
 
-### Passwordless login
+## Passwordless Login
 
 Passwordless authentication allows users to log in by receiving a one-time password via email or text message. The process will require you to start the Passwordless process, generating and dispatching a code to the user, (or a code within a link), followed by accepting their credentials via the verification method. That could happen in the form of a login screen which asks for their (email or phone number) and the code you just sent them. It could also be implemented in the form of a Passwordless link instead of a code sent to the user. They would simply click the link in their email or text and it would hit your endpoint and verify this data automatically using the same verification method (just without manual entry of a code by the user).
 
-#### Start passwordless
+In order to use Passwordless, you will want to initialize Auth0.js with a `redirectUri` and to set the `responseType: 'token'`.
 
-The `passwordlessStart` method requires several parameters to be passed within its `options` object:
+```js
+var webAuth = new auth0.WebAuth({
+  clientID: '${account.clientId}',
+  domain: '${account.namespace}',
+  redirectUri: 'http://example.com',
+  responseType: 'token'
+});
+```
+
+### Start Passwordless
+
+The first step in Passwordless authentication with Auth0.js is the `passwordlessStart` method, which has several parameters which can be passed within its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -241,9 +252,9 @@ webAuth.passwordlessStart({
 );
 ```
 
-#### Verify passwordless
+### Verify passwordless
 
-The `passwordlessVerify` method requires several paramters to be sent in its `options` object:
+If sending a code, you will then need to prompt the user to enter that code. You will process the code, and authenticate the user, with the `passwordlessVerify` method, which has several parameters which can be sent in its `options` object:
 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
@@ -252,7 +263,7 @@ The `passwordlessVerify` method requires several paramters to be sent in its `op
 | `phoneNumber` | optional | (String) The user's phone number to which the code or link was delivered via SMS. |
 | `email` | optional | (String) The user's email to which the code or link was delivered via email. |
 
-Note that, as with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
+As with `passwordlessStart`, exactly _one_ of the optional `phoneNumber` and `email` parameters must be sent in order to verify the Passwordless transaction.
 
 ::: note
 In order to use `passwordlessVerify`, the options `redirectUri` and `responseType: 'token'` must be specified when first initializing WebAuth.
@@ -269,9 +280,9 @@ webAuth.passwordlessVerify({
 );
 ```
 
-## Extract the authResult and get user info
+## Extract the authResult and Get User Info
 
-After authentication occurs, the `parseHash` method parses a URL hash fragment to extract the result of an Auth0 authentication response.
+After authentication occurs, you can use the `parseHash` method to parse a URL hash fragment when the user is redirected back to your application in order to extract the result of an Auth0 authentication response. You may choose to handle this in a callback page that will then redirect to your main application, or in-page, as the situation dictates.
 
 The `parseHash` method takes an `options` object that contains the following parameters:
 
@@ -305,7 +316,7 @@ webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
 });
 ```
 
-As shown above, the `client.userInfo` method can be called passing the returned `authResult.accessToken`. It will make a request to the `/userinfo` endpoint and return the `user` object, which contains the user's information, similar to the below example.
+As shown above, the `client.userInfo` method can be called passing the returned `accessToken`. It will make a request to the `/userinfo` endpoint and return the `user` object, which contains the user's information, formatted similarly to the below example.
 
 ```json
 {

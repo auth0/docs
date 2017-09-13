@@ -5,14 +5,10 @@ description: How to request tokens for your applications.
 
 <%= include('../../_includes/_pipeline2') %>
 
-## Prerequisites
+Before beginning this tutorial, please:
 
-To start using the Client Credentials Grant, the following must apply:
-- You have configured a Non Interactive Client at the Dashboard, for your application.
-- You have configured an API at the Dashboard, for your API.
-- You have authorized the Non Interactive Client to access your API.
-
-You can do this either [using the Dashboard](/api-auth/config/using-the-auth0-dashboard) or [using the Management API](/api-auth/config/using-the-management-api).
+* Check that your Client's [Grant Type property](/clients/client-grant-types) is set appropriately
+* [Register the API](/apis#how-to-configure-an-api-in-auth0) with Auth0
 
 ## Ask for a Token
 
@@ -37,7 +33,7 @@ Where:
 * `grant_type`: This must be `client_credentials`.
 * `client_id`: Your application's Client ID. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
 * `client_secret`: Your application's Client Secret. You can find this value at the [Settings tab of the Non Interactive Client](${manage_url}/#/clients).
-* `audience`: The value of the **Identifier** field on the [Settings tab of the API](${manage_url}/#/apis).
+* `audience`: The **Identifier** value on the [Settings](${manage_url}/#/apis) tab for the API you created as part of the prerequisites for this tutorial.
 
 The response contains a [signed JSON Web Token](/jwt), the token's type (which is `Bearer`), and in how much time it expires in [Unix time](https://en.wikipedia.org/wiki/Unix_time) (86400 seconds, which means 24 hours).
 

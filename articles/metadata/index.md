@@ -1,8 +1,8 @@
 ---
-description: "Auth0 allows you to store data related to each user that has not come from the identity provider as either of two kinds of metadata: user_metadata and app_metadata."
+description: Auth0 allows you to store data related to each user that has not come from the identity provider as either of two kinds of metadata: user_metadata and app_metadata.
 crews: crew-2
 ---
-# User Metadata
+# Metadata
 
 Auth0 allows you to store **metadata**, or data related to each user that has not come from the identity provider. There are two kinds of metadata:
 
@@ -13,13 +13,17 @@ Auth0 allows you to store **metadata**, or data related to each user that has no
 An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
 :::
 
-### How to Read, Create or Edit Metadata
+## How to Read, Create or Edit Metadata
 
 You can manage your metadata using [Rules](/rules/metadata-in-rules) or the [Auth0 APIs](/metadata/management-api).
 
+::: warning
+Note that `app_metadata` fields are not [searchable](/api/management/v2/user-search). For `user_metadata`, you can only search for profile information, such as `name`, `nickname`, `given_name`, or `family_name`.
+:::
+
 ## Metadata Usage
 
-Suppose the following data is stored for a user with the email address `jane.doe@example.com`:
+Suppose the following metadata is stored for a user with the email address `jane.doe@example.com`:
 
 ```json
 {
@@ -37,7 +41,7 @@ Suppose the following data is stored for a user with the email address `jane.doe
 Any valid JSON snippet can be used as metadata.
 :::
 
-To read metadata, simply access the correct property. For example, if you want to work with the values of the following properties in your [Rules](/rules) or via a call to the [Management API](/api/management/v2):
+To read metadata, simply access the correct property as you would from any JSON object. For example, if you were working with the above example metadata within a [Rule](/rules) or via a call to the [Management API](/metadata/management-api), you could reference specific items from the data set as follows:
 
 ```js
 console.log(user.email); // "jane.doe@example.com"
@@ -51,7 +55,7 @@ With Management APIv1, all metadata was stored in the `metadata` field. Data sto
 
 ### Naming Metadata Fields
 
-Metadata field names must not contain a dot. For example, use of the following returns a Bad Request (400) error:
+Metadata field **names** must not contain a dot. For example, use of the following field name would return a Bad Request (400) error:
 
 ```json
 {
@@ -59,19 +63,19 @@ Metadata field names must not contain a dot. For example, use of the following r
 }
 ```
 
-One way of handling this is to nest attributes:
+One way of handling this limitation is to nest attributes:
 
 ```json
-    {
-        "preference": {
-            "color": "pink"
-        }
+{
+    "preference": {
+        "color": "pink"
     }
+}
 ```
 
 Alternately, you can use any delimiter that is not  `.` or `$`.
 
-However, the usage of the `.` delimiter is acceptable in the data values:
+However, the usage of the `.` delimiter is acceptable in the data **values** such as in the below example:
 
 ```json
 {
@@ -79,7 +83,7 @@ However, the usage of the `.` delimiter is acceptable in the data values:
 }
 ```
 
-## Restrictions
+## Metadata Restrictions
 
 The following fields may not be stored in the `app_metadata` field:
 
@@ -101,13 +105,32 @@ The following fields may not be stored in the `app_metadata` field:
 
 Currently, Auth0 limits the total size of your user metadata to 16 MB. However, when using Rules and/or the Management Dashboard, your metadata limits may be lower.
 
-When setting this field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup) size is limited to no more than 10 fields and must be less than 500 characters.
+When setting the `user_metadata` field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup) size is limited to no more than 10 fields and must be less than 500 characters.
 
-## Keep reading
+## Using Lock to Manage Metadata
+
+Users of the [Lock](/libraries/lock) widget are able to add new items to `user_metadata` as well as read `user_metadata` after authentication occurs.
+
+* For information on adding `user_metadata` on signup, see the section in the Lock documentation on [Additional Signup Fields](/libraries/lock/v10/customization#additionalsignupfields-array-)
+* When using Lock, you can read the user's `user_metadata` properties the same way you would for any other user profile property. This example retrieves the value associated with `user_metadata.hobby` and assigns it to an element on the page:
+
+```js
+// Use the accessToken acquired upon authentication to call getUserInfo
+lock.getUserInfo(accessToken, function(error, profile) {
+  if (!error) {
+    document.getElementById('hobby').textContent = profile.user_metadata.hobby;
+  }
+});
+```
+
+::: note
+For details on how to use Lock to authenticate users and access their profile information, check out the [Lock documentation](/libraries/lock).
+:::
+
+## Keep Reading
 
 ::: next-steps
+* [Updating Metadata with Auth0 APIs](/metadata/management-api)
 * [User Data Storage Guidance](/user-profile/user-data-storage)
 * [Change a User's Picture](/user-profile/user-picture#change-a-user-s-picture)
-* [Management API: Update a user endpoint](/api/management/v2#!/Users/patch_users_by_id)
-* [Using Metadata with Auth0 Lock](/metadata/lock)
 :::

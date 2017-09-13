@@ -18,7 +18,7 @@ You can get started by either downloading the seed project or if you would like 
   ]
 }) %>
 
-## 1. Specify the Callback URLs
+## Specify the Callback URLs
 
 ${include('../_callbackRegularWebApp')}
 
@@ -28,18 +28,22 @@ In this case, the callbackURL should look something like:
 http://yourUrl/callback
 ```
 
-## 2. Add the Dependencies
+## Add the Dependencies
 
 ${snippet(meta.snippets.dependencies)}
 
 This example uses `flask` but it could work with any server
 
-## 3. Trigger Login With Auth0.js
+## Trigger Login With auth0.js
 
 Now, you can use `Auth0.js` to call the authorize endpoint of the Authentication API and redirect your users to our [Hosted Login page](/hosted-pages/login). This way, you will be implementing the [Authorization Code](/api-auth/grant/authorization-code) grant flow, so you will obtain a `code`.
 
-```j
-/public/app.js
+```html
+<script src="${auth0js_urlv8}"></script>
+```
+
+```js
+// public/app.js
 
 $(document).ready(function() {
   var auth = new auth0.WebAuth({
@@ -64,13 +68,13 @@ $(document).ready(function() {
 The `redirectUri` specified in the constructor **must match** the URL specified in the previous step.
 :::
 
-## 4. Add the Auth0 Callback Handler
+## Add the Auth0 Callback Handler
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. This handler exchanges the `code` we have obtained previously for an `access_token` and an `id_token`. For that, you can do the following:
 
 ${snippet(meta.snippets.setup)}
 
-## 5. Access User Information
+## Access User Information
 
 You can access the user information via the `profile` you stored in the session on step 2
 
@@ -91,7 +95,7 @@ def dashboard():
 
 [Click here](/user-profile) to check all the information that the userinfo hash has.
 
-## 6. Logout
+## Logout
 
 You can implement logout by clearing a session and redirecting to [logout endpoint](/logout#redirect-users-after-logout).
 
@@ -104,7 +108,7 @@ def logout():
     return redirect('https://%s/v2/logout?returnTo=%s&client_id=%s' % ('${account.namespace}', base_url, '${account.clientId}'))
 ```
 
-### 7. Optional steps
+## Optional Steps
 
 #### Check if the user is authenticated
 

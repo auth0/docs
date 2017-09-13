@@ -2,7 +2,6 @@
 section: libraries
 description: Customizing how Lock with CSS and Javascript
 ---
-
 # Lock: Customize the look and feel
 
 <%= include('../_includes/_lock-version-9') %>
@@ -13,7 +12,7 @@ All CSS `class`es and `id`s are prefixed with `a0-` to avoid conflicts with your
 
 There are two ways to override the Lock's main styles:
 
-### CSS specification
+## CSS specification
 
 Prepend a `body` key in front of the customization CSS in order to win in CSS specification:
 
@@ -23,7 +22,7 @@ body #a0-lock {
 }
 ```
 
-### Disabling animations
+## Disabling animations
 
 Since all `Lock` animations are CSS animations the way to disable them is through CSS
 
@@ -36,7 +35,7 @@ Since all `Lock` animations are CSS animations the way to disable them is throug
 }
 ```
 
-### Adding a new UI element using JavaScript
+## Adding a new UI element using JavaScript
 
 This code adds a new button to the widget. Since the widget runs as part of the same DOM of the page, you can manipulate it in the way you want.
 
@@ -54,7 +53,7 @@ widget.once('signin ready', function() {
 
 Here is a fiddle to play around with it <http://jsfiddle.net/auth0/2qws7nqz/>
 
-### Automatically logging in with "Windows Authentication"
+## Automatically logging in with "Windows Authentication"
 
 When Kerberos is available you can automatically trigger Windows Authentication. As a result the user will immediately be authenticated without having to click the **windows authentication** button.
 
@@ -68,7 +67,7 @@ lock.getClient().getSSOData(true, function (err, ssoData) {
 });
 ```
 
-### Order of definition
+## Order of definition
 
 Auth0 Lock inserts it's CSS definitions in the `head` node of the HTML Document and it does this at the very end. So, in order to override the Lock's main styles you must insert your CSS in the `body` node, right after the `<script>` tag definition for the Auth0 Lock inclusion:
 
@@ -94,16 +93,12 @@ Make sure to use the one that fits the best to your use case.
 
 ![](/media/articles/libraries/lock/ui-customization/reflex-theme.png)
 
-- **repo**: https://github.com/auth0/lock-theme-reflex
-- **demo**: https://cdn.auth0.com/widget-theme-reflex/index.html
+- **repo**: <https://github.com/auth0/lock-theme-reflex>
+- **demo**: <https://cdn.auth0.com/widget-theme-reflex/index.html>
 
 ### Gradient theme
 
 ![](/media/articles/libraries/lock/ui-customization/gradient-theme.png)
 
-- **repo**: https://github.com/auth0/lock-theme-gradient
-- **demo**: https://cdn.auth0.com/widget-theme-gradient/index.html
-
-## Send us an screenshot!
-
-We would love to see what you can do.
+- **repo**: <https://github.com/auth0/lock-theme-gradient>
+- **demo**: <https://cdn.auth0.com/widget-theme-gradient/index.html>

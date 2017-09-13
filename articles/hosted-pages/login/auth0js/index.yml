@@ -1,0 +1,9 @@
+versioning:
+  baseUrl: hosted-pages/login/auth0js
+  current: v8
+  versions:
+    - v7
+    - v8
+  defaultArticles:
+    v7: index
+    v8: index

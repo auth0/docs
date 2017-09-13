@@ -1,20 +1,21 @@
 ---
 description: This page details Auth0's Rate Limit Policy with hitting Auth0 API endpoints.
 ---
-
 # Auth0 API Rate Limit Policy
 
-To ensure the quality of Auth0's services, the Auth0 API is subject to rate limiting.
+To ensure the quality of Auth0's services, the Auth0 APIs are subject to rate limiting.
 
-If you are looking for information on the rate limits on user logins [click here.](/connections/database/rate-limits)
+::: note
+If you are looking for information on the rate limits on user logins, refer to [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
+:::
 
 ## Limits
 
-Depending on the API endpoint, the request limit and the rate limit window in which the request limit resets varies.
+Depending on the API endpoint, the request limit and the rate limit window in which the request limit resets, varies.
 
 Each endpoint is configured with a bucket that defines:
 
--  the request limit
+-  the request limit, and
 -  the rate limit window (per second, per minute, per hour, etc.)
 
 ```text
@@ -45,7 +46,7 @@ If your app triggers the rate limit, please refrain from making additional reque
 
 ## HTTP Response Headers
 
-API requests to selected Authentication or Management API endpoints will return HTTP Response Headers that provide relevant data on where you are at for a given rate limit. If you receive a rate limit-related response header, it will include numeric information detailing your status.
+API requests to selected [Authentication](/api/authentication) or [Management API](/api/management/v2) endpoints will return HTTP Response Headers that provide relevant data on where you are at for a given rate limit. If you receive a rate limit-related response header, it will include numeric information detailing your status.
 
 * **X-RateLimit-Limit**: Request limit
 * **X-RateLimit-Remaining**: Requests available for the current time frame
@@ -59,7 +60,22 @@ If you are using an API endpoint **not** listed below and you receive rate limit
 
 ### Management API v2
 
-Please note that there is a 50 requests per second limit on all [Management API v2](/api/management/v2) calls per tenant. **This includes calls made via [Rules](/rules).** The limit is set by tenant and not by endpoint.
+The rate limits for this API defer depending on whether your tenant is free or paid, production or not.
+
+::: note
+- The tenants that have no credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment) are free.
+- To set an environment for your tenant (development, staging or production), go to [Support Center > Tenants](${env.DOMAIN_URL_SUPPORT}/tenants/public), find your tenant, select __Assign Environment Tag__, set the environment and save changes.
+:::
+
+The following rate limits apply:
+
+- For all __free tenants__, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 12 at 1PM PT__.
+- For __non-production tenants__ of enterprise customers, usage of the Management API is restricted to 2 requests per second (and bursts up to 10 requests). This policy goes into effect on __Tuesday, September 19 at 1PM PT__.
+- For __paid__ tenants, usage of the Management API is restricted to 50 requests per second.
+
+The aforementioned rate limits include calls made via [Rules](/rules).
+
+Note, that the limit is set by tenant and not by endpoint, and that it does not apply to [Private Instance deployments](/appliance).
 
 The following Auth0 Management API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
 
@@ -170,27 +186,8 @@ The following Auth0 Management API endpoints return rate limit-related headers. 
 
 The following Auth0 Authentication API endpoints return rate limit-related headers:
 
-<table class="table">
-  <tr>
-      <th><strong>Endpoint</strong></th>
-      <th><strong>GET</strong></th>
-      <th><strong>POST</strong></th>
-  </tr>
-  <tr>
-      <td>User Profile</td>
-      <td>/userinfo</td>
-      <td>/tokeninfo</td>
-  </tr>
-  <tr>
-  <td>Delegated Authentication<sup>*</sup></td>
-      <td></td>
-      <td>/delegation</td>
-  </tr>
-    <tr>
-      <td>Database and Active Directory / LDAP Authentication</td>
-      <td></td>
-      <td>/dbconnections/change_password</td>
-  </tr>
-</table>
-
-**The `/delegation` endpoint limits up to 10 requests per minute from the same IP address with the same user_id*
+| Endpoint | Scope | GET | POST |
+| - | - | - | - |
+| User Profile | Per User ID (GET), Per IP (POST) | /userinfo | /tokeninfo |
+| Delegated Authentication | Per User ID per IP | | /delegation |
+| Database and Active Directory / LDAP Authentication | Per User ID Per IP | | /dbconnections/change_password |

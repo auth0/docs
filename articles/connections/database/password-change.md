@@ -7,11 +7,11 @@ crews: crew-2
 # Changing a User's Password
 
 :::panel-warning Notice
-This information applies to those using *Change Password flow v2*. If you are using the old *Change Password flow* or Lock v. 8, check the notice panels (like this one) for information on differences between the two flows.
+This information applies to those using **Change Password flow v2**. If you are using the old **Change Password flow** or Lock v. 8, check the notice panels (like this one) for information on differences between the two flows.
 
-To determine the flow version you are using, navigate to [Dashboard > Account Settings > Advanced](${manage_url}/#/account/advanced) to check if the *Change Password flow v2* toggle is enabled. If it is, use Lock version 9/10. If not, use an older version of Lock to trigger the old Change Password flow.
+To determine the flow version you are using, navigate to [Dashboard > Tenant Settings > Advanced](${manage_url}/#/tenant/advanced) to check if the **Change Password flow v2** toggle is enabled. If it is, use Lock version 9/10. If not, use an older version of Lock to trigger the old Change Password flow.
 
-We strongly encourage you to enable *Change Password flow v2* and upgrade to Lock version 9 and above. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow.](/migrations#vulnerable-password-flow). To learn more about migrating to Lock 10, please take a look at the [Lock 10 Migration Guide](/libraries/lock/v10/migration-guide).
+We strongly encourage you to enable **Change Password flow v2** and upgrade to Lock version 9 and above. To learn more about the vulnerability and migration, please see [Vulnerable Password Flow.](/migrations#vulnerable-password-flow). To learn more about migrating to Lock 10, please take a look at the [Lock 10 Migration Guide](/libraries/lock/v10/migration-guide).
 :::
 
 
@@ -97,7 +97,7 @@ They would then enter their email address:
 ![](/media/articles/connections/database/lock_v9/lock_request_reset.png)
 
 :::panel-warning Notice
-If you are using Lock version 8, the user will be asked, immediately after clicking the **Don't remember your password?** link on the Lock screen, to provide their email address *and* their new password. The user would then confirm this action via email.
+If you are using Lock version 8, the user will be asked, immediately after clicking the **Don't remember your password?** link on the Lock screen, to provide their email address and their new password. The user would then confirm this action via email.
 
 However, this flow is not considered safe. We recommend that you upgrade to Lock 9 or later to utilize a more secure flow. To learn more about migrating Lock, see [Vulnerable Password Flow](/migrations#vulnerable-password-flow).
 :::
@@ -120,7 +120,7 @@ After submitting the new password, the user will be able to login with their new
 Users will not receive notification that their password has been manually changed.
 :::
 
-You, or anyone with sufficient administrative privledges to your Auth0 account, can manually change a user's password in the [Users](${manage_url}/#/users) section of the Dashboard.
+You, or anyone with administrative privileges to your Auth0 tenant, can manually change a user's password in the [Users](${manage_url}/#/users) section of the Dashboard.
 
 Click on the name of the user for whom you want to change the password. Then, click on the **Actions** button on the right side of the page, and select **Change Password**.
 
@@ -131,7 +131,7 @@ Enter the new password and click **Save**.
 
 ## Customizing the Change Password Email
 
-You can change the content of the Change Password emails in the  [Emails > Templates](${manage_url}/#/emails) section of the Dashboard. Select the **Change Password Confirmation** tab to edit the email fields:
+You can change the content of the Change Password emails in the  [Emails > Templates](${manage_url}/#/emails) section of the Dashboard. Select the **Change Password** template to edit the email fields:
 
 ![](/media/articles/connections/database/change-password-email.png)
 

@@ -1,46 +1,52 @@
 ---
-description: How to request to have a child tenant
+description: How to request child tenants for your Auth0 tenant
 ---
 
-# Child account request process
+# Child Tenant Request Process
 
-This process is for self service customers that request a test/dev/staging account to be linked to their paid production account. It is not applicable for accounts that have a free plan.
+This request process is for self-service customers requesting a development, test, or staging tenant that's linked to their paid production tenant. This tenant is called a **child tenant**.
 
-The test/dev/staging accounts are called child accounts.
+::: note
+Free tenants do not include a child tenant.
+:::
 
-## Child account policy
+## Child Tenant Policy
 
-* Accounts that pay 167 US$ per month or more are eligible for one free test account, with the same plan/features.
-* The child account will be subject to Auth0’s [Operational Policies](/policies).
-* If the child account is downgraded to a free plan and a paid plan subscription is terminated, all the additional features that it had will be removed or restricted as outlined in [pricing](https://auth0.com/pricing).
-* **The child account must not be used in a production environment.**
+* If you're billed $167 USD/month (or more), you're eligible for one free child tenant with the same plan/features as the production tenant.
+* Your child tenant is subject to Auth0’s [Operational Policies](/policies).
+* If you cancel your paid subscription plan and Auth0 downgrades your child tenant to the free plan, you'll lose access to features (as outlined in [pricing](https://auth0.com/pricing)) available to paid plans.
 
+::: warning
+Child tenants **must not** be used in production environments.
+:::
 
-## How to request a child account?
+## Request a Child Tenant
 
-Requests for a child account must be made via the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}), at least 5 business days in advance of the desired implementation date.
+Please use the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) to request that a child tenant be created for you. Requests must be made at least five business days in advance of your desired implementation date.
 
-You must include the following information in your request:
-* The name of the Auth0 paying account for which the child account will be linked to.
-* The name of the new Auth0 child account.
+Please include the following information with your request:
 
-## How to alter the plan of my account?
+* The name of the paid Auth0 tenant to which the child tenant will be linked
+* The name of the new Auth0 child tenant
 
-If you are upgrading your account, your child accounts will be upgraded too. Please note that before downgrading your plan, you have to contact us via the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}), otherwise there might be collateral effects on both of your accounts.
+## Alter Your Tenant's Subscription Plan
 
-## Does the child account need to belong to the same region as the master account?
+If you are upgrading the subscription plan associated with your paid tenant, your child tenant will be upgraded as well. If you downgrade, your child tenant will also be affected -- please contact the Auth0 Support team using the [Support Center](${env.DOMAIN_URL_SUPPORT}) for additional details.
 
-No, there is no limitation regarding this.
+## Child Tenant Cloud Region
 
-## Can I have more than one child account for my master account?
+The child tenant does **not** have to be located in the same cloud environment as your production tenant.
 
-The default answer is no. However, this will be decided for each case. Please contact us via the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}) and inform us the following:
-* The name of the Auth0 paying account for which the child account will be linked to.
-* The number of child accounts that you need.
-* The name of each of the new Auth0 child accounts.
+## Additional Child Tenants
 
-Note that you can ask up to 3 child accounts. So you can have one for development, one for staging and one for testing. We encourage you to keep things simple and have only one child account.
+Generally speaking, we only permit one child tenant per paid production tenant. However, if you need additional tenants, please contact us via the [Support Center](${env.DOMAIN_URL_SUPPORT}) and include the following information with your request:
 
-## Usage considerations
+* The name of the paid Auth0 tenant to which the additional child tenant will be linked
+* The number of new child tenants needed
+* A name for each of the new child tenants
 
-Please notice that usage on child accounts counts towards the master's account usage.
+In limited circumstances, you may have up to three child tenants associated with a paid tenant. However, we encourage you to use as few child tenants as possible.
+
+## Usage
+
+Activity and usage on child tenants count toward the master's tenant activity and usage limitations.

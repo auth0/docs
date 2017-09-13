@@ -55,6 +55,7 @@ https:/YOUR_DOMAIN/users/IMPERSONATOR_ID/impersonate?&bewit=WFh0MUtm...
 <% var path = '/users/{user_id}/impersonate'; %>
 <%=
 include('../../_includes/_http-method', {
+  "http_badge": "badge-success",
   "http_method": "POST",
   "path": path,
   "link": "#impersonation"

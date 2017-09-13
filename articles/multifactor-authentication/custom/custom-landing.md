@@ -3,7 +3,6 @@ title: Configuring Custom Multifactor Authentication
 url: /multifactor-authentication/custom
 description: Examples for configuring custom MFA implementations.
 ---
-
 # Configuring Custom MFA
 
 You may configure [rules](/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
@@ -38,21 +37,23 @@ function (user, context, callback) {
 
 You can have Auth0 request MFA from users whose requests originate from outside the corporate network:
 
-```JS
+```js
 function (user, context, callback) {
+  var ipaddr = require('ipaddr.js');
+  var corp_network = "192.168.1.134/26";
 
-  if (IsExtranet()) {
+  var current_ip = ipaddr.parse(context.request.ip);
+  if (!current_ip.match(ipaddr.parseCIDR(corp_network))) {
     context.multifactor = {
-      allowRememberBrowser: false,
-      provider: 'google-authenticator'
+        provider: 'guardian',
+
+        // optional, defaults to true. Set to false to force Guardian authentication every time.
+        // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
+        allowRememberBrowser: false
     };
   }
 
   callback(null, user, context);
-
-  function IsExtranet() {
-    return !rangeCheck.inRange(context.request.ip, '10.0.0.0/8');
-  }
 }
 ```
 

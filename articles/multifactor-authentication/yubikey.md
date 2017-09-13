@@ -1,239 +1,57 @@
 ---
-description: How to implement Multifactor Authentication with YubiKey-NEO.
+description: How to implement Multifactor Authentication Using YubiKey NEO.
+toc: true
 ---
 
-# Multifactor Authentication with YubiKey-NEO
+# Multifactor Authentication with YubiKey NEO
 
-This tutorial shows how to implement Multifactor Authentication with [YubiKey-NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
+This tutorial shows you how to implement Multifactor Authentication (MFA) using [YubiKey NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
 
-Enabling this functionality relies on three core features available in Auth0:
+Implementing MFA using YubiKey NEO requires use of the following Auth0 features for the described reasons:
 
-* [Rules](/rules)
-* The [redirect protocol](/protocols#redirect-protocol-in-rules)
-* [Auth0 Webtask](https://webtask.io)
+| Feature | Usage |
+| - | - |
+| [Webtask](https://webtask.io) | Hosts the website where the user undergoes the second authentication factor using YubiKey |
+| The [Redirect Protocol](/protocols#redirect-protocol-in-rules) | Redirects the user to the website that performs the second authentication factor using YubiKey |
+| [Rules](/rules) | Evaluates whether the conditions you set for triggering MFA have been met or not |
 
-**Rules** are used to evaluate a condition that will trigger the multifactor challenge. The **redirect protocol** is used to direct the user to a website that will perform the 2nd authentication factor with YubiKey. **Webtask** hosts that website.
+In this tutorial, we will walk you through the configuration required for the Webtask, redirect protocol, and rules.
 
 ## Configure the Webtask
 
-Auth0 Webtask allows you to run arbitrary code on the Auth0 sandbox. It is the same underlying technology used for *rules* and *custom db connections*.
+The first thing we'll do is create the website where the user completes the second authentication step using YubiKey. We'll use a Webtask, which allows you to run code using the Auth0 sandbox, to host the site. More specifically, the Webtask will: 
 
-This sample uses a single Webtask to handle 3 states:
+* **Render** the UI with the `otpForm` function
+* **Capture** the YubiKey NEO code and validate it using the Yubico API
+* **Return** the result of the validation to Auth0 -- if successful, Auth0 continues to process the login transaction
 
-* **Render** the UI with the `otpForm` function.
-* **Capture** the YubiKey-NEO code and validate it with the Yubico API.
-* **Return** the result to Auth0. If validation succeeds, the result is returned to Auth0 to continue the login transaction.
+### Step 1: Create the Webtask Code
 
-Save this code locally in a file named `yubico-mfa-wt.js`. The full source code is also available [here](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md).
+Webtask runs code you provide, so we'll begin by creating the code needed. We've provided you with a [fully-functional sample](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md), which you need to save locally in a file called `yubico-mfa-wt.js`.
 
-::: note
-The styling of the HTML form below was omitted for brevity. Please check the [full source code for a styled example](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md).
-:::
+Within the code provided is a redirect URL to Auth0. It contains querystring parameters called `id_token` and `state`. The `id_token` parameter is used to transfer information back to Auth0. The `state`parameter is used to protect against CSRF attacks.
 
-```JS
-var request = require('request');
-var qs = require('qs');
-var jwt = require('jsonwebtoken');
+No actual key values are hard-coded into the Webtask code. Your Yubico Client ID and Secret values are referred to using `context.data.yubico_clientid` and `context.data.yubico_secret`. These parameters are securely embedded in the Webtask token when you created the Webtask.
 
-return function (context, req, res) {
+### Step 2: Initialize the Webtask CLI
 
-    require('async').series([
-    /*
-     * We only care about POST and GET
-     */
-        function(callback) {
-            if (req.method !== 'POST' && req.method !== 'GET') {
-                res.writeHead(404);
-                return res.end('Page not found');
-            }
-            return callback();
-        },
+Now that we have the code for our Webtask, we'll need to create the Webtask itself. We do this using the Webtask CLI.
 
-    /*
-     * 1. GET: Render initial View with OTP.
-     */
-        function(callback) {
-            console.log('get callback is ', callback);
-            if (req.method === 'GET') {
-                renderOtpView();
-            }
-            return callback();
-        },
+To use the Webtask CLI, you'll need to install it using instructions that can be found under [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) on the Auth0 Dashboard.
 
-    /*
-     * 2. Validate OTP
-     */
-        function(callback) {
-            if (req.method === 'POST') {
-                yubico_validate(context.data.yubikey_clientid, context.data.otp, function(err,resp) {
-                    if (err) {
-                        return callback(err);
-                    }
+![](/media/articles/mfa/yubi-1.png)
 
-                    if(resp.status==='OK'){
-          //Return result to Auth0 (includes OTP and Status. Only when OK)
-                        var token = jwt.sign({
-                            status: resp.status,
-                            otp: resp.otp
-                        },
-                new Buffer(context.data.yubikey_secret, 'base64'),
-                            {
-                                subject: context.data.user,
-                                expiresIn: 60,
-                                audience: context.data.yubikey_clientid,
-                                issuer: 'urn:auth0:yubikey:mfa'
-                            });
-                        res.writeHead(301, {Location: context.data.returnUrl + "?id_token=" + token + "&state=" + context.data.state});
-                        res.end();
-                        callback();
-                    } else {
-                        return callback([resp.status]);
-                    }
-                });
-
-      //return callback();
-            }
-        },
-    ], function(err) {
-        if (Array.isArray(err)) {
-            return renderOtpView(err);
-        }
-
-        if (typeof err === 'string') {
-            return renderOtpView([err]);
-        }
-
-        if (err !== null && typeof err === 'object') {
-            var errors = [];
-            errors.push(err.message || err);
-            return renderOtpView(errors);
-        }
-    });
-
-    function yubico_validate(clientId, otp, done){
-        var params = {
-            id: clientId,
-            otp: otp,
-            nonce: uid(16)
-        };
-
-        request.get('http://api.yubico.com/wsapi/2.0/verify',
-            {
-                qs: params
-            },function(e,r,b){
-                if (e) { return done(e); }
-                if (r.statusCode !== 200) { return done(new Error('Error: ' + r.statusCode)); }
-                var yubico_response = qs.parse(b.replace(/\r\n/g, '&'));
-                if (yubico_response.nonce !== params.nonce) {
-                  return done(new Error('Invalid response - nonce doesn\'t match'));
-                }
-                done(null,yubico_response);
-            });
-    }
-
-    function uid(len) {
-        var buf = [],
-        chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-        charlen = chars.length;
-
-        for (var i = 0; i < len; ++i) {
-            buf.push(chars[getRandomInt(0, charlen - 1)]);
-        }
-
-        return buf.join('');
-    }
-
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function renderOtpView(errors) {
-        res.writeHead(200, {
-            'Content-Type': 'text/html'
-        });
-        res.end(require('ejs').render(otpForm.toString().match(/[^]*\/\*([^]*)\*\/\s*\}$/)[1], {
-            user: context.data.user,
-            errors: errors || []
-        }));
-    }
-
-    function otpForm() {
-    /*
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="UTF-8">
-        <title>Auth0 - Yubikey MFA</title>
-        <style>
-
-        <!--
-
-        All styling of this HTML form is omitted for brevity. Please see the full source code here: https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md
-        -->
-
-        </style>
-      </head>
-      <body>
-        <div class="modal-wrapper">
-          <div class="modal-centrix">
-            <div class="modal">
-              <form onsubmit="showSpinner();" action="" method="POST" enctype="application/x-www-form-urlencoded">
-                <div class="head"><img src="https://cdn.auth0.com/styleguide/2.0.9/lib/logos/img/badge.png" class="logo auth0"><span class="first-line">Yubikey 2FA</span></div>
-                <div class="errors ${"<%- (errors.length === 0 ? 'hidden' : '') %>"}">
-                  ${"<% errors.forEach(function(error){ %>"}
-                  <div class="p">${"<%= error %>"}</div>
-                  ${"<%"}})${"%>"}
-                </div>
-                <div class="body"><span class="description">Hi <strong>${'<%- user || "" %>'}</strong>, please tap your Yubikey.</span><span class="description domain"><span>Yubikey OTP:</span>
-                    <input type="text" autocomplete="off" name="otp" required autofocus id="otp"></span></div>
-                <div id="ok-button" class="ok-cancel">
-                  <button class="ok full-width">
-                    <div class="icon icon-budicon-509"></div>
-                    <div class="spinner"></div>
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-          <script>
-            function showSpinner() {
-              document.getElementById('ok-button').className += " auth0-spinner";
-            }
-          </script>
-        </div>
-      </body>
-    </html>
-    */
-  }
-}
-```
-
-::: note
-The redirect to Auth0 contains two querystring parameters: `id_token` and `state`. `id_token` is a convenient and secure way of transferring information back to Auth0. `state` is mandatory to protect against CSRF attacks.
-:::
-
-::: note
-No keys are hard-coded into the Webtask code. They are referred to by the variables `context.data.yubico_clientid` and `context.data.yubico_secret`. These parameters are securely embedded in the Webtask token when the Webtask is created.
-:::
-
-### 1. Initialize Webtask CLI
-
-*Rules* code is automatically packaged as Webtasks by Auth0. Since this is a custom Webtask, it must be created with the Webtask CLI.
-
-Follow the instructions for installing Webtask CLI under [Account Settings > Webtasks](${manage_url}/#/account/webtasks) on the Auth0 dashboard.
-
-Once the Webtask CLI is installed, run:
+Once you've installed the Webtask CLI, run the following code after you've replaced the placeholders with your Yubico Client ID and Secret values (make sure that the Webtask CLI can access to location where you have your `yubico-mfa-wt.js` file):
 
 ```txt
 wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --secret yubikey_clientid={YOUR YUBIKEY CLIENT ID} --secret returnUrl=https://${account.namespace}/continue --profile {WEBTASK PROFILE} yubico-mfa-wt.js
 ```
 
 ::: note
-Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Account Settings > Webtasks](${manage_url}/#/account/webtasks) page.
+You can get your `WEBTASK PROFILE` value (needed for the-p parameter shown at the end of the code above) in **Step 2** of the Webtask installation instructions shown on the [Tenant Settings > Webtasks](${manage_url}/#/tenant/webtasks) page.
 :::
 
-The `create` command will generate a URL that will look like:
+Running the `create` command as shown above will generate a URL that looks like this:
 
 ```txt
 https://sandbox.it.auth0.com/api/run/${account.tenant}/yubikey-mfa?webtask_no_cache=1
@@ -241,15 +59,16 @@ https://sandbox.it.auth0.com/api/run/${account.tenant}/yubikey-mfa?webtask_no_ca
 
 Keep a copy of this URL.
 
-## Configure the Rule
+## Create the Rule
 
-This sample uses a single rule that handles both the initial redirect to the Webtask, and the returned result.
+This sample uses a single rule that handles:
 
- * The `context.redirect` statement instructs Auth0 to redirect the user to the Webtask URL instead of calling back to the app.
+* The initial redirect to the Webtask
+* The returned result
 
- * Returning is indicated by the `protocol` property of the `context` object.
+Here is what the rule looks like:
 
-```JS
+```js
 function (user, context, callback) {
   var jwt = require('jsonwebtoken@5.7.0');
   var yubikey_secret = configuration.YUBIKEY_SECRET;
@@ -268,31 +87,71 @@ function (user, context, callback) {
 
   //Trigger MFA
   context.redirect = {
-        url: config.WEBTASK_URL + "?user=" + user.name
-  }
+        url: configuration.WEBTASK_URL + "?user=" + user.name
+  };
 
   callback(null,user,context);
 }
 ```
 
+You also need to create two new settings on [Rules](${manage_url}/#/rules): 
+
+* One using `WEBTASK_URL` as the key, and the URL returned by the `create` command as the value.
+* Another using `YUBIKEY_SECRET` as the key, and `{YOUR YUBIKEY SECRET}` passed to `create` as the value.
+
 ::: note
 The returning section of the rule validates the JWT issued by the Webtask. This prevents the result of the MFA part of the transaction from being tampered with because the payload is digitally signed with a shared secret.
 :::
 
-Every time the user logs in they will be redirected to the Webtask and will see something like:
+Some notes regarding the rule code:
+
+* The `context.redirect` statement instructs Auth0 to redirect the user to the Webtask URL instead of calling back to the app
+* The return is indicated by the `protocol` property of the `context` object
+* The section handling the return validates the JWT issued by the Webtask to ensure that the result of MRA hasn't been tampered by an unauthorized party
+
+You'll [create the rule using the Management Dashboard](${manage_url}/#/rules).
+
+![](/media/articles/mfa/yubi-2.png)
+
+Click **Create Your First Rule** (or **Create Rule** if you've already created rules before). Choose **empty rule**.
+
+![](/media/articles/mfa/yubi-3.png)
+
+You'll see the following editor window where you can paste in the rule code above.
+
+![](/media/articles/mfa/yubi-4.png)
+
+You can test your code for correctness using **Try This Rule**. When done, click **Save** to proceed.
+
+You also need to create two new Settings for your [Rules](${manage_url}/#/rules): 
+
+| Setting | Value |
+| - | - |
+| `WEBTASK_URL` | The URL you saved after running the `CREATE` command in the Webtask CLI |
+| `YUBIKEY_SECRET` | Your YubiKey client secret |
+
+With these settings, you can access the provded values in your rules code using the configuration global object (such as `configuration.WEBTASK_URL`).
+
+![](/media/articles/mfa/yubi-5.png)
+
+With this rule in place, the user will be redirected to the Webtask after every login. They will see the following prompt for their second factor:
 
 ![](/media/articles/mfa/yubico-mfa.png)
 
+### Customize the Rule
 
-### Rule customizations
-You can add logic to the rule to decide under which  conditions the challenge will be triggered based on:
+You can add logic to the rule to determine which conditions the challenge will be triggered based on:
+
+You can add logic to the rule to set the conditions under which the MFA challenge will be triggered. Some examples include:
 
 * The IP address or location of the user
 * The application the user is logging into
-* The type of authentication used (e.g. AD, LDAP, social, etc.)
+* The type of authentication used (such as AD, LDAP, or Social)
 
-## Additional Information:
+## Keep Reading
 
+::: next-steps
 * [Rules](/rules)
 * [Multi-factor in Auth0](/multifactor-authentication)
 * [Auth0 Webtask](https://webtask.io/)
+:::

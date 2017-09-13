@@ -172,10 +172,6 @@ Given that [ID tokens should no longer be used as API tokens](/api-auth/tutorial
 
 At the moment there is no OIDC-compliant mechanism to obtain third-party API tokens. In order to facilitate a gradual migration to the new authentication pipeline, delegation can still be used to obtain third-party API tokens. This will be deprecated in future releases.
 
-::: note
-  For more information, refer to <a href="/api-auth/tutorials/adoption/delegation">Delegation</a>.
-:::
-
 ### Passwordless
 
 Our new implementation does not support passwordless authentication. We are currently evaluating this feature and our approach. We plan on supporting this in future releases.

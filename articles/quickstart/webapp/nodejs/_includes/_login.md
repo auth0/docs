@@ -1,6 +1,6 @@
 ## Install the Middleware Dependencies
 
-Install the necessary middelwares.
+Install the necessary middleware.
 
 ```bash
 # installation with npm
@@ -12,7 +12,8 @@ yarn add passport passport-auth0 connect-ensure-login
 
 ## Configure the Middleware
 
-Provide your Auth0 client details as configuration values for an instance of `Auth0Strategy`. Tell **passport** to use the strategy.
+Create a new instance of the `Auth0Strategy` strategy. 
+Enter your Auth0 client details as configuration values. Tell `passport` to use the strategy. 
 
 ```js
 // app.js
@@ -52,12 +53,27 @@ app.use(passport.session());
 
 ## Trigger Authentication
 
-Auth0's hosted login page can be used to allow users to log in.
-
-Add a route called `/login` and use the `env` object to set the **Client ID**, **Domain**, and **Callback URL** for your client. This route will instantiate `auth0.WebAuth` and call the `authorize` method to redirect the user to Auth0's hosted login page.
+The [Auth0 hosted login page](/hosted-pages/login) is the easiest way to set up authentication in your application. We recommend using the Auth0 hosted login page for the best experience, best security and the fullest array of features.
 
 ::: note
-This snippet sets the `audience` to ensure an OIDC conformant response, this can also be achieved by enabling the **OIDC conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. For more information please check [this documentation](/api-auth/intro#how-to-use-the-new-flows).
+You can also embed the Lock widget directly in your application. If you use this method, some features, such as single sign-on, will not be accessible. 
+To learn how to embed the Lock widget in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/tree/embedded-login/01-Embedded-Login).
+:::
+
+Add a route called `/login`. Use the `env` object to set the following properties for your client: 
+* Client ID
+* Domain
+* Callback URL
+
+The route creates an instance of the `auth0.WebAuth` object. Then, the route calls the `authorize` method and redirects the user to the Auth0 hosted login page.
+
+You need to make sure you get an OIDC-conformant response. You can achieve it two ways:
+* set the audience. 
+* turn on the **OIDC conformant** switch in your Auth0 dashboard. 
+
+::: note
+The example below shows how to set the audience to get an OIDC-conformant response. 
+To turn on the **OIDC conformant** switch, in your [Client Settings](${manage_url}/#/applications/${account.clientId}/settings), click on **Show Advanced Settings** > **OAuth**. To learn more, read the [net flows documentation](/api-auth/intro#how-to-use-the-new-flows).
 :::
 
 ```js
@@ -114,7 +130,3 @@ router.get(
 ```
 
 ![hosted login](/media/articles/web/hosted-login.png)
-
-## Embedded Login
-
-Auth0's hosted login page provides the fastest, most secure, and most feature-rich way to implement authentication in your app. If required, the Lock widget can also be embedded directly into your application, but certain features such as single sign-on won't be accessible. It is highly recommended that you use the hosted login page (as covered in this tutorial), but if you wish to embed the Lock widget directly in your application, follow the [Embedded Login sample](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/tree/embedded-login/01-Embedded-Login).

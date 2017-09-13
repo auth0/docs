@@ -120,7 +120,7 @@ Auth0
 ## Dealing with a non-valid accessToken
 
 How to deal with a non-valid accessToken is up to you. You will normally choose between two scenarios:
-Either you ask users to re-enter their credentials, or you can use `.renew(withRefreshToken: refreshToken)` with a [refresh_token((/refresh-token)) to obtain a new valid accessToken again.
+Either you ask users to re-enter their credentials, or you can use `.renew(withRefreshToken: refreshToken)` with a [refresh_token](/refresh-token) to obtain a new valid accessToken again.
 
 If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
 

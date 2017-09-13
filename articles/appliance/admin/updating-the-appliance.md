@@ -53,9 +53,9 @@ Production upgrades should **always** be performed in conjunction with an Auth0 
 
 ## Downtime
 
-During an upgrade, we expect there to be 1-2 minute window of downtime. This occurs when we restart services. Because of this, we are willing to schedule updates to Production clusters during non-business hours. Please contact your Customer Success Manager to select a time that would be best for you.
+During an upgrade, we expect there to be 3-5 minute window of downtime. This occurs when we restart services. Because of this, we are willing to schedule updates to Production clusters during non-business hours. Please contact your Customer Success Manager to select a time that would be best for you.
 
-If you update during non-business hours, we ask for confirmation that the upgrade was successful and shows no issues during business hours.
+If you require your Production update during non-business hours, we ask that you confirm the day prior during normal business hours.
 
 ## Automatic Updates
 

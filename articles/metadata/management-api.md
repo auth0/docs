@@ -1,23 +1,27 @@
 ---
-description: How to update metadata through the Auth0 Management API and Authentication API.
+description: How to retrieve and update metadata through the Auth0 APIs.
 crews: crew-2
+toc: true
 ---
-
 # Metadata with Auth0 APIs
 
-### Management API
+## Authentication API
 
-Using Auth0's Management APIv2, you can create a user and set both their `app_metadata` and `user_metadata`. You can also update these two fields.
+Using the [Authentication API Signup endpoint](/api/authentication?javascript#signup) you can create a new user for database connections and set the `user_metadata` field. 
+
+::: note
+When setting the `user_metadata` field with the [Authentication API Signup endpoint](/api/authentication?javascript#signup) size is limited to no more than 10 fields and must be less than 500 characters.
+:::
+
+## Management API
+
+Using [Auth0's Management APIv2](/api/management/v2), you can create a user and set both their `app_metadata` and `user_metadata`. You can also update these two fields.
 
 ::: note
 The Auth0 Management APIv2 token is required to call the Auth0 Management API. [Click here to learn more about how to get a Management APIv2 Token.](/api/management/v2/tokens)
 :::
 
-### Authentication API
-
-Using the [Authentication API Signup endpoint](/api/authentication?javascript#signup) you can create a new user for database connections and set the `user_metadata` field.
-
-## Management API: Set Metadata Fields on Creation
+### Set Metadata Fields on Creation
 
 To create a user with the following profile details:
 
@@ -33,12 +37,12 @@ To create a user with the following profile details:
 }
 ```
 
-you would make the following `POST` call to the Management API to create the user and set the property values:
+You would make the following `POST` call to the [Create User endpoint of the Management API](/api/management/v2#!/Users/post_users), to create the user and set the property values:
 
 ```har
 {
   "method": "POST",
-  "url": "https://YOURACCOUNT.auth0.com/api/v2/users",
+  "url": "https://${account.namespace}/api/v2/users",
   "httpVersion": "HTTP/1.1",
   "cookies": [],
   "headers": [{
@@ -59,9 +63,68 @@ you would make the following `POST` call to the Management API to create the use
 }
 ```
 
-## Management API: Update User Metadata
+### Retrieve User Metadata
 
-You can update a user's metadata by making the appropriate `PATCH` call to the Management API.
+To retrieve a user's metadata make a `GET` request to the [Get User endpoint of the Management API](/api/management/v2#!/Users/get_users_by_id).
+
+Assuming you created the user as shown above with the following metadata values:
+
+```json
+{
+    "email": "jane.doe@example.com",
+    "user_metadata": {
+        "hobby": "surfing"
+    },
+    "app_metadata": {
+        "plan": "full"
+    }
+}
+```
+
+Make the following `GET` request:
+
+```har
+{
+  "method": "GET",
+  "url": "https://${account.namespace}/api/v2/users/user_id",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer ABCD"
+  }, {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [{
+    "name": "fields",
+    "value": "user_metadata",
+    "comment": ""
+  },
+  {
+    "name": "include_fields",
+    "value": "true",
+    "comment": ""
+  }],
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
+}
+```
+
+The response will be as follows:
+
+```json
+{
+  "user_metadata": {
+      "hobby": "surfing"
+  }
+}
+```
+
+### Update User Metadata
+
+You can update a user's metadata by making a `PATCH` call to the [Update User endpoint of the Management API](/api/management/v2#!/Users/patch_users_by_id).
 
 Assuming you created the user as shown above with the following metadata values:
 
@@ -87,12 +150,12 @@ To update `user_metadata` and add the user's home address as a second-level prop
 }
 ```
 
-you would make the following `PATCH` call to the API:
+You would make the following `PATCH` call:
 
 ```har
 {
   "method": "PATCH",
-  "url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
+  "url": "https://${account.namespace}/api/v2/users/user_id",
   "httpVersion": "HTTP/1.1",
   "cookies": [],
   "headers": [{
@@ -130,11 +193,11 @@ The user's profile will now appear as follows:
 }
 ```
 
-::: note
-When you send a `PATCH` call where you've set the property/value to null (for example, `{user_metadata: {color: null}}`), Auth0 **deletes** the property/value from the database.
+::: warning
+When you send a `PATCH` call in which you have set a property's value to `null` (for example, `{user_metadata: {color: null}}`), Auth0 **deletes** the property/value from the database. Also, patching the metadata itself with an empty object removes the metadata completely (see [Deleting](#deleting)).
 :::
 
-### Merging
+#### Merging
 
 Only properties at the root level are merged into the object. All lower-level properties will be replaced.
 
@@ -174,5 +237,23 @@ Therefore, the corresponding `PATCH` call to the API would be:
   "headersSize": -1,
   "bodySize": -1,
   "comment": ""
+}
+```
+
+#### Deleting
+
+Patching the metadata with an empty object removes the metadata completely. For example, sending this body removes everything in `app_metadata`:
+
+```json
+{
+  "app_metadata": {}
+}
+```
+
+Similarly, this clears out `user_metadata`:
+
+```json
+{
+  "user_metadata": {}
 }
 ```

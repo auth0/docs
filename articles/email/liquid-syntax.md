@@ -24,6 +24,10 @@ There are two types of markup in Liquid: **output** and **tag**.
 
 `Hello {{ name }}!`
 
+::: note
+For more information on supported output attributes and their usage, see [Customizing Your Emails](/email/templates).
+:::
+
 You can further customize the appearance of the output by using filters, which are simple methods. For example, the `upcase` filter will convert the text which is passed to the filter to upper case:
 
 `Hello {{ name | upcase }}!`

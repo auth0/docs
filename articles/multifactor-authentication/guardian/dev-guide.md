@@ -9,6 +9,7 @@ Guardian is Auth0's multifactor authentication (MFA) application that provides a
 For applications where Guardian MFA is enabled, the user will be required to sign in **and** confirm the login with a verified mobile device. You can find additional information on user login and sign-up process and common user questions at: [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
 
 ## Implementing Multifactor Authentication
+
 Within Auth0, you may implement MFA via the [Multifactor Auth](${manage_url}/#/guardian) page of the Management Dashboard.
 
 ![](/media/articles/mfa/guardian-dashboard.png)
@@ -65,9 +66,9 @@ Once you have finished making your desired changes, click "Save" so that they pe
 
 ### Configuring Guardian for Select Users
 
-You may choose to enable Guardian only for select users. Within the Customize MFA code snippet, you may include the conditions for Guardian is enabled.
+You may choose to enable Guardian only for select users. Within the Customize MFA code snippet, you may include the conditions for when Guardian is enabled.
 
-For example, suppose you want to *omit* MFA for all users signing in from the `foo.com` domain.
+For example, suppose you want to disable MFA for all users signing in from the `foo.com` domain.
 
 
 ```js
@@ -83,11 +84,11 @@ function (user, context, callback) {
 }
 ```
 
-Once you have finished making your desired changes, click "Save" so that they persist.
+Once you have finished making your desired changes, click **Save** so that they persist.
 
 ### Customizing the Guardian Screen
 
-You may change the logo and the friendly name that is displayed to your users. To do so, you may make the appropriate settings changes from the Guardian page's link to Account Settings. You may also reach the Account Settings page by clicking on your user name on the top right of the page and then selecting Account Settings from the dropdown menu that appears.
+You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate changes to the Guardian page settings on the [Tenant Settings](${manage_url}/#/tenant) page. You may also reach the **Tenant Settings** page by clicking on your tenant name on the top right of the page and then selecting **Settings** from the dropdown menu that appears.
 
 ![](/media/articles/mfa/guardian-logo-and-name-settings.png)
 
