@@ -2,14 +2,14 @@
 description: How an API can verify a bearer JWT access token
 toc: true
 ---
-
-# Verify Access Tokens
+# Verify Access Tokens for Custom APIs
 
 <%= include('../../_includes/_pipeline2') %>
 
-When an API receives a request with a bearer access token, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request _must_ be rejected.
+When a custom API receives a request with a bearer [access token](/tokens/access-token), the first thing to do is to validate the token. At Auth0, an access token used for a custom API is formatted as a [JSON Web Token](/jwt). Validating the token consists of a series of steps, and if any of these fails then the request _must_ be rejected.
 
 This document lists all the validations that your API should perform:
+
 - Check that the JWT is well formed
 - Check the signature
 - Validate the standard claims
@@ -82,9 +82,7 @@ Following the Node.js example of the previous section, the [jwt.verify()](https:
 Once the API verifies the token's signature, the next step is to validate the standard claims of the token's payload. The following validations need to be made:
 
 - _Token expiration_: The current date/time _must_ be before the expiration date/time listed in the `exp` claim (which is a Unix timestamp). If not, the request must be rejected.
-
 - _Token issuer_: The `iss` claim denotes the issuer of the JWT. The value _must_ match the one configured in your API. For JWTs issued by Auth0, `iss` holds your Auth0 domain with a `https://` prefix and a `/` suffix: `https://${account.namespace}/`.
-
 - _Token audience_: The `aud` claim identifies the recipients that the JWT is intended for. For JWTs issued by Auth0, `aud` holds the unique identifier of the target API (field __Identifier__ at your [API's Settings](${manage_url}/#/apis)). If the API is not the intended audience of the JWT, it _must_ reject the request.
 
 ### How can I validate the claims?
@@ -94,6 +92,7 @@ To validate the claims, you have to decode the JWT, retrieve the claims (`exp`, 
 The easiest way however, is to use one of the libraries listed in the _Libraries for Token Signing/Verification_ section of [JWT.io](https://jwt.io/). Note that not all libraries validate all the claims. In [JWT.io](https://jwt.io/) you can see which validations each library supports (look for the green check marks).
 
 Following the Node.js example, the [jwt.verify()](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback) method of the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), validates these claims, depending on the input arguments:
+
 - `audience`: set `aud` to the __Identifier__ of the API
 - `issuer`: string or array of strings of valid values for the `iss` field
 - `ignoreExpiration`: set to `false` to validate the expiration of the token
@@ -109,6 +108,7 @@ To do so, you need to check the [scopes](/scopes) of the decoded JWT. This claim
 To check the permissions granted to the client, you need to check the contents of the `scope`.
 
 For example, a user management API might provide three endpoints to read, create or delete a user record: `/create`, `/read` and `/delete`. We have configured this API, so each endpoint requires a specific permission (or scope):
+
 - The `read:users` scope provides access to the `/read` endpoint.
 - The `create:users` scope provides access to the `/create` endpoint.
 - The `delete:users` scope provides access to the `/delete` endpoint.
