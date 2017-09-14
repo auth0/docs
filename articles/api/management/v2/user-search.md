@@ -23,7 +23,7 @@ You can search for users using the following fields:
   - `family_name`
 
 ::: warning
-__None__ of the `app_metadata` fields are searchable.
+New tenants, starting September 1st 2017, cannot search any of the `app_metadata` fields. Paid tenants (i.e. tenants that have a credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment)), that were created up to August 31st 2017, can search using the `app_metadata` fields.
 :::
 
 ::: note
