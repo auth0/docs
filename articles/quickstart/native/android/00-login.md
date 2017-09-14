@@ -5,7 +5,7 @@ seo_alias: android
 budicon: 448
 ---
 
-This tutorial will show you how to integrate the Auth0 Login in your Android project in order to present the login box.
+This tutorial shows you how to integrate the Auth0 Login in your Android project and present the login box.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',

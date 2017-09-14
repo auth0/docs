@@ -1,9 +1,14 @@
 ## Start the Authentication
 
-In the login method create a new `Auth0` instance to hold the credentials. If you've added the `R.string.com_auth0_client_id` and `R.string.com_auth0_domain` String resources, you'll be able to use the constructor that receives an android Context. If you prefer to hardcode them, use the constructor that receives both strings. Then by using the `WebAuthProvider` class authenticate with any connection enabled on your client in the Auth0 dashboard.
+In the `login` method, create a new instance of the `Auth0` object to hold user credentials. 
 
-To ensure Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+If you've added the following String resources, you can use a constructor that receives an Android Context: 
+* `R.string.com_auth0_client_id`
+* `R.string.com_auth0_domain`
 
+If you prefer to hardcode the resources, use the constructor that receives both strings. Then, use the `WebAuthProvider` class to authenticate with any connection you enabled on your client in the Auth0 dashboard.
+
+To ensure Open ID Connect-compliant responses, you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
 
 After calling `WebAuthProvider#start` the browser will launch and show **Lock**, and the final result will be received in the callback that you pass.
 
