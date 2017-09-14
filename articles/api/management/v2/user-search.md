@@ -22,10 +22,6 @@ You can search for users using the following fields:
   - `given_name`
   - `family_name`
 
-::: warning
-__None__ of the `app_metadata` fields are searchable.
-:::
-
 ::: note
 For more information on user related metadata refer to [User Metadata](/metadata).
 :::
