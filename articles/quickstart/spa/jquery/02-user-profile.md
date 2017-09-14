@@ -17,7 +17,7 @@ budicon: 292
 
 ## Request the Profile Scope
 
-The user's `access_token` requires a `scope` of `openid profile` to successfully retrieve their information. In the `WebAuth` instance, specify that you would like to ask for these scopes.
+To retrieve user information, request a scope of `openid profile` in the instance of the `WebAuth` object.
 
 ```js
 // app.js
@@ -28,11 +28,11 @@ var webAuth = new auth0.WebAuth({
 });
 ``` 
 
-## Make a Call for the User's Info
+## Make a Call for the User's Information
 
 <%= include('../_includes/_user_profile_auth0js_method') %>
 
-Add a function which calls `client.userInfo` to the `Auth` service.
+Add a function that calls the `client.userInfo` function to the `Auth` service.
 
 ```js
 // app.js
