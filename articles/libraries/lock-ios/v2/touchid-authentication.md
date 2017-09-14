@@ -62,3 +62,7 @@ credentialsManager.credentials { error, credentials in
 ```
 
 There is no need to store the credentials again as you did with the Login as this is done by the Credentials Manager for you during renewal.
+
+## Next Steps
+
+You can download a sample project and follow the tutorial in our [Touch ID Authentication](/quickstart/native/ios-swift/08-touch-id-authentication) quickstart. 
