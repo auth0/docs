@@ -17,10 +17,6 @@ An authenticated user can modify data in their profile's `user_metadata`, but no
 
 You can manage your metadata using [Rules](/rules/metadata-in-rules) or the [Auth0 APIs](/metadata/management-api).
 
-::: warning
-Note that `app_metadata` fields are not [searchable](/api/management/v2/user-search). For `user_metadata`, you can only search for profile information, such as `name`, `nickname`, `given_name`, or `family_name`.
-:::
-
 ## Metadata Usage
 
 Suppose the following metadata is stored for a user with the email address `jane.doe@example.com`:
@@ -82,6 +78,14 @@ However, the usage of the `.` delimiter is acceptable in the data **values** suc
     "preference": "light.blue"
 }
 ```
+
+## Searching Metadata
+
+New tenants, starting September 1st 2017, cannot search any of the `app_metadata` fields. 
+
+Paid tenants (i.e. tenants that have a credit card associated in the [Dashboard](${manage_url}/#/tenant/billing/payment)), that were created up to August 31st 2017, can search using the `app_metadata` fields.
+
+For `user_metadata`, you can only search for profile information, such as `name`, `nickname`, `given_name`, or `family_name`.
 
 ## Metadata Restrictions
 
