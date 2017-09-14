@@ -1,4 +1,5 @@
 ---
+title: Using the Credentials Exchange Extensibility Point
 description: The credentials-exchange extensibility point for use with Hooks
 toc: true
 beta: true
@@ -36,7 +37,7 @@ For detailed steps on implementing the grant, please refer to [Using Hooks with 
 
 ### Starter Code and Parameters
 
-After you've created a new Hook that uses the Client Credentials Exchange extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
+After you've created a new Hook that uses the Credentials Exchange extensibility point, you can open up the Hook and edit it using the Webtask Editor embedded in the Dashboard. 
 
 The parameters listed in the comment at the top of the code indicate the Auth0 objects (and the parameters within the objects) that can be passed into and used by the Hook's function. For example, the `client` object comes with the following parameters: client name, client ID, the Auth0 tenant name with which the client is associated, and client metadata. 
 
@@ -83,7 +84,7 @@ The default response object every time you run this Hook is as follows:
 Executing the code using the Runner requires a save, which means that your original code will be overwritten.
 :::
 
-Once you've modified the sample code with the specific scopes of additional claims you'd like added to your access tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the same body/payload that you would get with a Client Credentials Exchange. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
+Once you've modified the sample code with the specific scopes of additional claims you'd like added to your access tokens, you can test your Hook using the Runner. The runner simulates a call to the Hook with the same body/payload that you would get with a Credentials Exchange. The following is the sample body that populates the Runner by default (these are the same objects/parameters detailed in the comment at the top of the sample Hook code):
 
 ```json
 {

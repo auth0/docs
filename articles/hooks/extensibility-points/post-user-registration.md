@@ -1,6 +1,8 @@
 ---
+title: Using the Post-User Registration Extensibility Point
 description: The post-user-registration extensibility point for use with Hooks
 beta: true
+toc: true
 ---
 
 # Extensibility Point: Post-User Registration
