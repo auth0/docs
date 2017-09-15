@@ -215,13 +215,18 @@ The `result` variable contains information about the user and the tenant and can
 The code will first check to see if the state matches an existing SignupToken in the database to make sure this request was initiated from the application (for example, after a payment was made).
 :::
 
-### Sign In
+### Log In
 
-We're using the Lock for signing in users, but for enterprise connections like Azure AD, Lock only supports HRD (home realm discovery) based on email address. In this case, we don't know all of the possible email domains the customers will use when logging in, so we'll modify Lock to handle this: we'll add a button for users to click on if they're using an Azure AD connection.
+We're using Lock as the login UI, but for enterprise connections like Azure AD, Lock only supports HRD (home realm discovery) based on matching email addresses to previously configured domains. In this case we don't know all of the possible email domains that end users will use when logging in, so we'll modify Lock to handle this case by adding button for users to click on if they're using an Azure AD connection. 
+
+::: note 
+Adding buttons directly to Lock's DOM is not officially supported, so make sure you test this code when upgrading to new versions.
+:::
 
 ```js
-import Auth0Lock from 'auth0-lock';
-import Auth0js from 'auth0-js';
+<script src="https://cdn.auth0.com/js/lock/10.20/lock.min.js"></script>
+<script src="${auth0js_urlv8}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 const YOUR_AUTH0_CONNECTION_AZURE_AD_NAME = 'fabrikamcorp-waad';
 const YOUR_AUTH0_DOMAIN = 'fabrikamcorp.auth0.com';
@@ -247,7 +252,7 @@ function createReadyCallback(btnText) {
             .append('<div class="auth0-lock-social-button-icon">')
             .append($('<div class="auth0-lock-social-button-text">').text(btnText))
             .on('click', function() {
-                var webAuth = new Auth0js.WebAuth({YOUR_AUTH0_DOMAIN, YOUR_AUTH0_CLIENTID});
+                var webAuth = new auth0.WebAuth({domain: YOUR_AUTH0_DOMAIN, clientID: YOUR_AUTH0_CLIENTID});
 
                 webAuth.authorize({
                     connection: YOUR_AUTH0_CONNECTION_AZURE_AD_NAME,
@@ -261,8 +266,12 @@ function createReadyCallback(btnText) {
             })
     );
 }
-lock.on('signin ready', createReadyCallback('Log in with Azure AD'));
-lock.on('signup ready', createReadyCallback('Sign up with Azure AD'));
+lock.on('signin ready', function() {
+    createReadyCallback('Log in with Azure AD');
+});
+lock.on('signup ready', function() {
+    createReadyCallback('Sign up with Azure AD');
+});
 lock.show({
     callbackURL: window.location.origin + '/signin-auth0'
 });
