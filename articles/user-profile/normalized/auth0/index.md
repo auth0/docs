@@ -5,16 +5,16 @@ description: Auth0 normalizes common user properties in the User Profile.
 # Auth0 Normalized User Profile
 
 ::: version-warning
-This article describes the claims included in the normalized user profile created by Auth0. This is a protocol-agnostic representation of the user that provides a standard way of storing user-related claims, regardless of the identity provider(s) involved. 
-
-The Auth0 claims included in the normalized profile differ slightly from the standard set of claims that can be returned in ID tokens from the [Authentication API's `oauth/token` endpoint](/api/authentication#get-token) or the response from the `/userinfo` endpoint (both of which follow the requirements detailed in the OIDC specification). 
-
-Please toggle the versioning drop-down to **oidc** to see additional information on claims included with an OIDC-conformant set of user profile details.
+This version described a user's profile as normalized by Auth0. Use the dropdown for the user profile structure that conforms with the OIDC specification and includes only the standard claims.
 :::
 
-Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile.
+This article describes the claims included in the normalized user profile, as created by Auth0. This is a protocol-agnostic representation of the user that provides a standard way of storing user-related claims, regardless of the identity provider(s) involved. 
 
-For example, `family_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
+Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile. For example, `family_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
+
+::: note
+The Auth0 claims included in the normalized profile differ from the standard set of claims that can be returned in ID tokens from the [Authentication API's `oauth/token` endpoint](/api/authentication#get-token) or the response from the [/userinfo](/api/authentication#user-profile) endpoint (both of which follow the requirements detailed in the OIDC specification). 
+:::
 
 ## Normalized User Profile Schema
 
