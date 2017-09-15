@@ -1,6 +1,6 @@
 ## Determine a User's Scopes
 
-You can use the scopes to make decisions about the behavior of your application's interface.
+You can use scopes to make decisions about the behavior of your application's interface.
 
 You can specify which scopes you want to request at the beginning of the login process.
 
@@ -9,4 +9,3 @@ If a scope you requested is available to the user, their access token receives a
 To get the scopes, you can use the value of the `scope` parameter that comes back after authentication. This parameter is a string containing all the scopes granted to the user, separated by spaces. This parameter will be populated only if the scopes granted to the user are different than those you requested. 
 
 To see which scopes are granted to the user, check for the value of `authResult.scope`. If there is no value for `authResult.scope`, all the requested scopes were granted.
-

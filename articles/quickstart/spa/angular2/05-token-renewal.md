@@ -20,7 +20,7 @@ budicon: 448
 
 ## Add Token Renewal
 
-Add a method to the `AuthService` service which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
+To the `AuthService` service, Add a method which calls the `renewAuth` method from auth0.js. If the renewal is successful, use the existing `setSession` method to set the new tokens in local storage.
 
 The method loads your silent callback page in an invisible `iframe`. Then, the method makes a call to Auth0 and gives back the result. 
 
