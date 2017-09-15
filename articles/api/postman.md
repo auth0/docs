@@ -46,7 +46,7 @@ Once the environment is configured, you can follow these steps to execute an Aut
 
 ![](/media/articles/api/postman/execute-api-method.png)
 
-You man also optionally have to configure query parameters or the JSON method body, depending on the API call. For more information please refer to the [Sending Requests](https://www.getpostman.com/docs/requests) document on the Postman website.
+You may also optionally have to configure query parameters or the JSON method body, depending on the API call. For more information please refer to the [Sending Requests](https://www.getpostman.com/docs/requests) document on the Postman website.
 
 ## A word about storing tokens in Postman variables
 
