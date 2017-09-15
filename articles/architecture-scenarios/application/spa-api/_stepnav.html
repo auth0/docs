@@ -1,0 +1,14 @@
+<div class="tutorial-prev-next" data-swiftype-index="false">
+  <% if (typeof prev !== 'undefined') { %>
+  <div class="tutorial-prev-next-prev">
+    <div class="tutorial-prev-next-header">Previous Tutorial</div>
+    <a href="${prev[1]}"><i class="icon-budicon-463"></i> ${prev[0]}</a>
+  </div>
+  <% } %>
+  <% if (typeof next !== 'undefined') { %>
+  <div class="tutorial-prev-next-next">
+    <div class="tutorial-prev-next-header">Next Tutorial</div>
+    <a href="${next[1]}">${next[0]} <i class="icon-budicon-461"></i></a>
+  </div>
+  <% } %>
+</div>
