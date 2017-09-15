@@ -29,8 +29,6 @@ If you plan on allowing users to login using a Microsoft Azure Active Directory 
 There is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.
 :::
 
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
-
 ## 1. Create a new application
 
 Login to Microsoft Azure and choose **Azure Active Directory** from the sidebar.

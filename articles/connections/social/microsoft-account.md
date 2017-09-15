@@ -10,13 +10,12 @@ alias:
  - windows-live
 seo_alias: microsoft-account
 description: How to configure your Auth0 app for an OAuth connection to Microsoft Account.
+toc: true
 ---
 
 # Connect your app to Microsoft Account
 
 To connect your Auth0 app to Microsoft Account, you will need to create an app on the Microsoft Application Registration Portal, generate an `Application Id` and `Secret`, copy these credentials into Auth0, and enable the connection.
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Create an application
 
