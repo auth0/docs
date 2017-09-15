@@ -91,10 +91,11 @@ The `authorize()` method can be used for logging in users via the [Hosted Login 
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
-| `scope` | required | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
-| `responseType` | required | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
+| `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims), or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
+| `responseType` | optional | (String) It can be any space separated list of the values `code`, `token`, `id_token`.  It defaults to `'token'`, unless a `redirectUri` is provided, then it defaults to `'code'`. |
 | `clientID` | optional | (String)  Your Auth0 client ID. |
 | `redirectUri` | optional | (String) The URL to which Auth0 will redirect the browser after authorization has been granted for the user. |
+| `leeway` | optional | (Integer) Add leeway for clock skew to JWT expiration times. |
 
 For hosted login, one must call the `authorize()` method.
 
@@ -103,8 +104,6 @@ webAuth.authorize({
   //Any additional options can go here
 });
 ```
-
-If `authorize()` is called without any parameters, it will use those which were set when `webAuth` was instantiated. The first required parameter, `client_id`, will be thus passed to `authorize()`. The second required parameter is `response_type`, and this will either be acquired from the same place, or, if it was never set, default to `token` in most cases.
 
 For social logins, the `connection` parameter will need to be specified:
 
