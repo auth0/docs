@@ -4,13 +4,12 @@ connection: Docomo
 image: /media/connections/daccount.png
 seo_alias: docomo
 description: How to obtain a Client ID and Client Secret for Docomo dAccount.
+toc: true
 ---
 
 # Connect your app to Docomo dAccount
 
 To configure a Docomo dAccount connection you will need to register Auth0 on the [dAccount Connect Portal](https://dac-g.apl01.spmode.ne.jp/VIEW_OC01/GOCA00004/).
-
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
 
 ## 1. Add a new Service
 
