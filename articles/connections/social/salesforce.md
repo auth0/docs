@@ -12,8 +12,6 @@ toc: true
 
 To configure a Salesforce OAuth2 connection you will need to register your Auth0 tenant on their **Administer** panel.
 
-This doc refers to the client steps to connect your client. If you are looking to manage authentication in your application, see [Next Steps](#next-steps) below.
-
 ## 1. Register a New App
 
 Log into [Salesforce](https://login.salesforce.com/). Click on **Settings > Setup** in the upper right, next to your account name.
