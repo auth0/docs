@@ -14,12 +14,20 @@ This is how user authentiation happens between a conventional server-side web ap
 1. Your application redirects the user's browser to Auth0 `/authorize` endpoint, with a *redirect URI* in the query string.
 2. The user logs in, using the Auth0 login form on that page.
 3. Auth0 authenticates the user. 
-    - Authentication is performed against the list of users provided by you to Auth0.
 4. Auth0 redirects the user to your `redirect_uri`, with an *Authorization Code* in the querystring.
 5. Your application calls the Auth0 /oauth/token endpoint with the Authorization Code, asking to exchange it with an access_token.
 6. Auth0 authenticates the web app, validates the Authorization Code, and responds back with the token.
 7. The web application decodes and verifies the token, which confirms the user's identity.
 8. Your application uses sessions or cookies to persist a user login.
+
+
+### About User Authentication
+
+When a user arrives at the Auth0 authentication endpoint, they can log in with a third-party service (such as Google, Facebook, or Github) or with email and password. Email and password logins are authenticated against a database of users stored with Auth0 and associated to your account. 
+
+You can import existing user information in bulk or add users manually in the Auth0 dashboard. Users may also *sign up* for your application with their email address, which Auth0 will verify via confirmation email.
+
+In any case, Auth0 provides back to your application the authenticated identity of the user --- a unique third-party profile or email address --- and it is up to your application to respond to that identity apporopriately. 
 
 ## Register Your App as a Client
 
@@ -37,13 +45,9 @@ While you are editing your Client settings, update your Allowed Callbacks list t
 
 ### Enable OIDC Conformance
 
-Before you leave Client Setting, click on **Show Advanced Settings**. Go to the **OAuth** tab and make sure tha the **OIDC Conformant** switch is enabled.
+Before you leave Client Setting, click on **Show Advanced Settings**. Go to the **OAuth** tab and make sure that the **OIDC Conformant** switch is enabled.
 
 Save your settings.
-
-## Add Users
-
-Before users can login, you need to [add some registered users](/user-profile).
 
 ## Create a Log In Link
 
@@ -54,38 +58,45 @@ To facilitate this, you will provide a link from your site with the following qu
 | Parameter | Value |
 |:----------|:---------|
 | response_type | `code` |
+| client_id | ${account.clientId} |
 | scope | `openid` |
 | redirect_uri | The URI that the user will be redirected to after authentication (`${account.callback}`)|
+| state | YOUR_OPAQUE_VALUE
 
 ```html
-<a href="https://${account.namespace}/authorize?response_type=code&scope=openid&redirect_uri=${account.callback}">Log In</a>
+<a href="https://${account.namespace}/authorize?response_type=code&client_id=${account.clientId}&scope=openid&redirect_uri=${account.callback}&state=YOUR_OPAQUE_VALUE">Log In</a>
 ```
+
+### State Value
+
+The `state` is a nonce, or arbitrary value, which the client provides and which the Auth0 service includes in its redirect.
+This helps guard against cross-site request forgery. 
+
+Your application should create this value, store in the browser, and compare it to the state value received in the callback querystring. If they don't match, you should deny access to the user.
+
+[Learn more here.](/protocols/oauth2/oauth-state)
+
 
 ## Handle the Callback
 
-
-
-After the user has authenticated, Auth0 will redirect the user to the URI specified in the `redirect_uri` parameter of the query string. A query string will be add to the redirect URI, providing a code.
+After the user has authenticated, Auth0 will redirect the user to the URI specified in the `redirect_uri` parameter of the query string. A query string will be added to the redirect URI, providing a code. 
 
 ```text
 ${account.callback}?code=tQPUv...
 ```
 
-Your application must then:
+Your application must then handle the request appropriately.
 
- - handle the request, responding to the user appropriately;
- - extract the value of the `code` parameter;
- - call `/oauth/token` endpoint.
+Typically, this means:
+
+ - catch the request as it comes in
+ - extract the value of the `code` parameter in the quesrystring
+ - call `/oauth/token` endpoint to exchange the code for an id_token
+ - decode the id_token, identifying the user
+ - responding the request appropriately, based on the verified identity of the user.
  
-Since your application will *not* have received the ID token when the user first attempts to access the callback URI, you have two choics:
 
- - Serve an intermediary page which then redirects once the user's identity has been verified
- - Wait to complete the request until the user's identity has been verified.
-
-In the mean time, you will need to verify the user's identy by getting an `id_token`.
-
-
-## Exchange the `code` for an `id_token`
+### Exchange the `code` for an `id_token`
 
 Call the `oauth/token` endpoint.
 
@@ -116,7 +127,7 @@ The response from `/oauth/token` contains `access_token`, `expires_in`, `id_toke
 
 The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. 
 
-## Decode the JWT
+### Decode the JWT
 
 Decode the `id_token` to read the claims (that is, the identity and attributes) of the user. See the [JWT section of our website](/jwt) for more information about the structure of a JWT.
 
@@ -124,7 +135,7 @@ Refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries
 
 Once the JWT is decoded, extract the information about the user from the Payload of the `id_token`. 
 
-### The `id_token` Payload
+#### The `id_token` Payload
 
 The payload for an `id_token` will look something like this:
 
