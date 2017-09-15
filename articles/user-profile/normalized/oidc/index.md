@@ -1,13 +1,10 @@
 ---
 description: Claims for a user profile returned via an OIDC-Compliant authorization flow
 ---
-
 # User Profiles Returned from OIDC-Compliant Pipelines
 
 ::: version-warning
-This article describes the claims included in the ID tokens returned when authenticating someone using an OIDC-conformant flow. The claims differ from those returned on the Auth0 Normalized Profile, which is a protocol-agnostic representation of the user that provides a standard way of storing user-related claims, regardless of the identity provider(s) involved. 
-
-Please toggle the versioning drop-down to **auth0** to see additional information on claims included on the Auth0 Normalized Profile.
+This article describes the user profile that includes only the [OpenID Connect standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). Use the toggle for information on the Auth0 normalized profile, which might contain information from many identity providers.
 :::
 
 When you're using an OIDC-conformant authentication flow, the user profile you receive in return may differ slightly from the [Auth0 Normalized User Profile](/user-profile/normalized).
