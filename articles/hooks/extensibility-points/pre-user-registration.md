@@ -78,10 +78,7 @@ The default response object every time the Hook runs is as follows:
 If you specify `app_metadata` and `user_metadata` in the response object, Auth0 adds this information to the new user.
 
 ::: note
-Metadata property names must not:
-
-* Start with the `$` character;
-* Contain the `.` character.
+Metadata property names must not start with the `$` character or contain the `.` character.
 :::
 
 ### Testing Your Hook
