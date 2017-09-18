@@ -5,7 +5,7 @@ description: This tutorial demonstrates how to integrate Auth0 authentication in
 budicon: 
 ---
 
-This guide explains in general terms how to integrate Auth0 authentication into a conventional server-based web app serving static HTML pages to the user. 
+This guide explains in general terms how to integrate Auth0 authentication into a conventional server-based web application. 
 
 ## Overview
 
@@ -15,9 +15,9 @@ This is how user authentiation happens between a conventional server-side web ap
 2. The user logs in, using the Auth0 login form on that page.
 3. Auth0 authenticates the user. 
 4. Auth0 redirects the user to your `redirect_uri`, with an *Authorization Code* in the querystring.
-5. Your application calls the Auth0 /oauth/token endpoint with the Authorization Code, asking to exchange it with an access_token.
-6. Auth0 authenticates the web app, validates the Authorization Code, and responds back with the token.
-7. The web application decodes and verifies the token, which confirms the user's identity.
+5. Your application calls the Auth0 /oauth/token endpoint with the Authorization Code.
+6. Auth0 authenticates the web app, validates the Authorization Code, and responds back with a JSON object containing the id_token.
+7. The web application decodes and verifies the id_token, identifying the user.
 8. Your application uses sessions or cookies to persist a user login.
 
 
@@ -59,13 +59,15 @@ To facilitate this, you will provide a link from your site with the following qu
 |:----------|:---------|
 | response_type | `code` |
 | client_id | ${account.clientId} |
-| scope | `openid` |
+| scope | `openid profile email` |
 | redirect_uri | The URI that the user will be redirected to after authentication (`${account.callback}`)|
 | state | YOUR_OPAQUE_VALUE
 
 ```html
-<a href="https://${account.namespace}/authorize?response_type=code&client_id=${account.clientId}&scope=openid&redirect_uri=${account.callback}&state=YOUR_OPAQUE_VALUE">Log In</a>
+<a href="https://${account.namespace}/authorize?response_type=code&client_id=${account.clientId}&scope=openid%20profile%20email&redirect_uri=${account.callback}&state=YOUR_OPAQUE_VALUE">Log In</a>
 ```
+
+For simple identification of the the user, a scope of `openid` will suffice. Using `openid profile email` will provide more details, including the user's full name and (if available) picture. For more details, see the [Scope page](/scopes/current).
 
 ### State Value
 
@@ -93,7 +95,7 @@ Typically, this means:
  - extract the value of the `code` parameter in the quesrystring
  - call `/oauth/token` endpoint to exchange the code for an id_token
  - decode the id_token, identifying the user
- - responding the request appropriately, based on the verified identity of the user.
+ - respond to the request appropriately, based on the verified identity of the user.
  
 
 ### Exchange the `code` for an `id_token`
@@ -114,7 +116,14 @@ Call the `oauth/token` endpoint.
 }
 ```
 
-The response from `/oauth/token` contains `access_token`, `expires_in`, `id_token` and `token_type` values (and also potentially a `refresh_token`), for example:
+The response from `/oauth/token` is a JSON object containing:
+
+ - `access_token`
+ - `expires_in`
+ - `id_token`
+ - `token_type` 
+ 
+For example:
 
 ```json
 {
@@ -125,13 +134,17 @@ The response from `/oauth/token` contains `access_token`, `expires_in`, `id_toke
 }
 ```
 
-The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user. 
+The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user.
+
+For this guide, we will get the user identity by decoding the `id_token`. It is also possible to get the user details by [calling the Authorization API with the `acess_token`](api/authentication#get-user-info).
 
 ### Decode the JWT
 
-Decode the `id_token` to read the claims (that is, the identity and attributes) of the user. See the [JWT section of our website](/jwt) for more information about the structure of a JWT.
+Decode the `id_token` to read the claims (that is, the identity and attributes) of the user. 
 
-Refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the `id_token`.
+- See the [JWT section of our website](/jwt) for more information about the structure of a JWT.
+
+- Refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the `id_token`.
 
 Once the JWT is decoded, extract the information about the user from the Payload of the `id_token`. 
 
@@ -166,10 +179,10 @@ The payload above contains the following claims:
 | exp | The _expiration time_. A number representing a speciﬁc date and time in the format “seconds since epoch” as [deﬁned by POSIX6](https://en.wikipedia.org/wiki/Unix_time). This claim sets the exact moment from which this **JWT is considered invalid**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 | iat | The _issued at time_. A number representing a speciﬁc date and time (in the same format as `exp`) at which this **JWT was issued**.<br/><br/>**This is a [registered claim](https://tools.ietf.org/html/rfc7519#section-4.1) according to the JWT Specification** |
 
-The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an `id_token` issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. You can refer to the [examples below](#examples) to see examples of how the scope influences the claims being returned.
+The exact claims contained in the `id_token` will depend on the `scope` parameter you sent to the `/authorize` endpoint. In an `id_token` issued by Auth0, the **registered claims** and the `sub` claim will always be present, but the other claims depends on the `scope`. 
 
 ::: note
-The [JWT.io website](https://jwt.io) has a handy debugger which will allow you to debug any JSON Web Token. This is useful is you quickly want to decode a JWT to see the information contained in the token.
+The [JWT.io website](https://jwt.io) has a handy debugger which will allow you to debug any JSON Web Token. This is useful if you quickly want to decode a JWT to see the information contained in the token.
 :::
 
 ### Keep the user logged in
