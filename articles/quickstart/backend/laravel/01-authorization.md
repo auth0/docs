@@ -110,7 +110,7 @@ Configure the `driver` in `/config/auth.php` to use `auth0`.
 ],
 ```
 
-## Protect Routes with the Auth0 Middleware
+## Protect the API Routes
 
 Protecting individual API endpoints can be done by applying the `auth:api` middleware to them.
 
