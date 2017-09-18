@@ -7,7 +7,7 @@ budicon: 345
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
   repo: 'auth0-ios-swift-sample',
-  path: '00-Credentials-TouchID',
+  path: '08-Credentials-TouchID',
   requirements: [
     'CocoaPods 1.2.1',
     'Version 8.3.2 (8E2002)',
@@ -23,7 +23,7 @@ It is recommended that you are explore the [User Sessions](/quickstart/native/io
 
 ## Touch ID Authentication
 
-Here's the scenario: You are using `webAuth` to present the HLP for the user to Login. After user authentication you want to store the user's credentials and use the `refreshToken` to renew the user's credentials without having to present the HLP. Additionally you want to utilize Touch ID to validate this renewal process.
+Here's the scenario: You are using `webAuth` to present the Hosted Login Page (HLP) for the user Login. After user authentication you want to store the user's credentials and use the `refreshToken` to renew the user's credentials without having to present the HLP. Additionally you want to utilize Touch ID to validate this renewal process.
 
 You will to be using the [Credentials Manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in [Auth0.swift](https://github.com/auth0/Auth0.swift/) to streamline the management of user credentials and Touch ID.
 
@@ -39,7 +39,7 @@ Add a property to your class for the credentials manager:
 let credentialsManager: CredentialsManager!
 ```
 
-Next, ensure the credentials manager is initialized in the appropriate `init` method for your class:
+Next, ensure the credentials manager is initialized in the appropriate `init` method of your class:
 
 ```swift
 self.credentialsManager = CredentialsManager(authentication: Auth0.authentication())
@@ -92,7 +92,7 @@ self.credentialsManager.credentials { error, credentials in
 }
 ```
 
-If you were paying attention, you will have noticed there was no Touch ID prompt.
+If you were paying attention, you should have noticed there was no Touch ID prompt.
 
 ## Enable Touch ID
 
@@ -102,7 +102,7 @@ The Credentials Manager can take care of this for you, once enabled. Go back to 
 self.credentialsManager.enableTouchAuth(withTitle: "Touch to Authenticate")
 ```
 
-Next time you call the `credentials` method, the user will be promoted for their Touch ID with the title "Touch to Authenticate".
+Next time you call the `credentials` method, the user will be prompted for their Touch ID with the title "Touch to Authenticate".
 
 ## Improving the User Experience
 
@@ -115,7 +115,7 @@ self.credentialsManager.clear()
 In this case the user will still be promoted for their touch and an error will be returned in the `credentials` closure as there
 are no credentials to renew from.
 
-The Credentials Manager has a `hasValid()` method that quickly lets you know if their are valid credentials that can be returned either directly or renewed and returned.
+The Credentials Manager has a `hasValid()` method that quickly lets you know if there are valid credentials that can be returned either directly or renewed and returned.
 
 You can add this check before you call the `credentials` method.
 
