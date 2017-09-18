@@ -131,7 +131,7 @@ To retrieve the [User Profile](/api/authentication?http#user-profile), your mobi
 Based on the `scope` of the user, you may want to show or hide certain UI elements. To determine the scope issued to a user, you will need to inspect the the `scope` which was granted when the user was authenticated. This will be a string containing all the scopes, so you therefore need to inspect this string to see whether it contains the required `scope` and based on that make a decision whether to display a particular UI element.
 
 ::: note
-[See the implementation in Android](/architecture-scenarios/application/spa-api/mobile-implementation-android#4-display-ui-elements-conditionally-based-on-scope)
+[See the implementation in Android](/architecture-scenarios/application/mobile-api/mobile-implementation-android#4-display-ui-elements-conditionally-based-on-scope)
 :::
 
 ### Call the API
@@ -193,7 +193,7 @@ The response will include the new `access_token`:
 ```
 
 ::: note
-[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-credentials)
+[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#store-the-credentials)
 :::
 
 <%= include('./_stepnav', {

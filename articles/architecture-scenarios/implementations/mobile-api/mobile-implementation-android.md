@@ -427,7 +427,7 @@ To determine whether a user has permissions to perform certain actions, we can l
 
 ### Store the Scope
 
-First, we can update the `User` class to store the granted scopes, and then provide a helper method, `hasScope` which can be user whether the granted scopes contain a particular scope:
+First, we can update the `User` class to store the granted scopes, and then provide a helper method, `hasScope()` which can be used to determine whether the granted scopes contain a particular scope:
 
 ```java
 public class User {

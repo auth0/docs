@@ -32,3 +32,7 @@ With PKCE, the Client creates, for every authorization request, a cryptographica
 The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to provide authorization support in your application, by assigning Roles, Groups and Permissions to Users. 
 
 The Authorization Extension creates a [Rule](/rules) which will augment the [User profile](/rules/current#rule-syntax) during the authentication flow with the Roles, Groups and Permissions assigned to the user. You can then use this information to ensure that the `access_token` issued to a user only contains scopes which are allowed according to the permissions defined in the Authorization Extension.
+
+<%= include('./_stepnav', {
+ prev: ["Introduction", "/architecture-scenarios/application/mobile-api"], next: ["2. Auth0 Configuration", "/architecture-scenarios/application/mobile-api/part-2"]
+}) %>

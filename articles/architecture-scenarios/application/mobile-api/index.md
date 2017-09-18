@@ -15,14 +15,16 @@ We will also be building a mobile application which will be used to view and log
 
 
 ::: panel TL;DR
-* Auth0 provides API Authentication and Authorization as a means to secure access to API endpoints (see [API Authentication and Authorization](#api-authentication-and-authorization))
-* For authorizing a mobile app user and granting access to the API, Auth0 supports the Authorization Code Grant Flow with PKCE (see [Proof Key for Code Exchange](#proof-key-for-code-exchange-pkce-))
-* Both the mobile app and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](#auth0-configuration))
-* The API is secured by ensuring that a valid [Access Token](/tokens/access-token) is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](#implement-the-api))
-* The Auth0.Android SDK can be used to authorize the user of the mobile app and obtain a valid Access Token which can be used to call the API (see [Authorize the User](#authorize-the-user))
-* The mobile app can retrieve the user's profile information by decoding the ID Token (see [Get the User Profile](#get-the-user-profile))
-* The mobile app provides the Access Token in the HTTP Authorization header when making calls to the API (see [Call the API](#call-the-api))
-* The mobile app user's Access Token can be renewed to ensure the user does not have to log in again during a session (see [Renew the Token](#renew-the-token))
+* Auth0 provides API Authentication and Authorization as a means to secure access to API endpoints (see [API Authentication and Authorization](/architecture-scenarios/application/mobile-api/part-1#api-authentication-and-authorization))
+* For authorizing a mobile app user and granting access to the API, Auth0 supports the Authorization Code Grant Flow with PKCE (see [Proof Key for Code Exchange](/architecture-scenarios/application/mobile-api/part-1#proof-key-for-code-exchange-pkce-))
+* Both the mobile app and the API must be configured in the Auth0 Dashboard (see [Auth0 Configuration](/architecture-scenarios/application/mobile-api/part-2))
+* User Permissions can be enforced using the Authorization Extension (see [Configure the Authorization Extension](/architecture-scenarios/application/mobile-api/part-2#configure-the-authorization-extension))
+* The API is secured by ensuring that a valid [Access Token](/tokens/access-token) is passed in the HTTP Authorization header when calls are made to the API (see [Implement the API](/architecture-scenarios/application/mobile-api/part-3#secure-the-endpoints))
+* The Auth0.Android SDK can be used to authorize the user of the mobile app and obtain a valid Access Token which can be used to call the API (see [Authorize the User](/architecture-scenarios/application/mobile-api/part-3#authorize-the-user))
+* The mobile app can retrieve the user's profile information by decoding the ID Token (see [Get the User Profile](/architecture-scenarios/application/mobile-api/part-3#get-the-user-profile))
+* UI Elements can be displayed conditionally based on the scope that was granted to the user(see [Display UI Elements Conditionally Based on Scope](/architecture-scenarios/application/mobile-api/part-3#display-ui-elements-conditionally-based-on-scope))
+* The mobile app provides the Access Token in the HTTP Authorization header when making calls to the API (see [Call the API](/architecture-scenarios/application/mobile-api/part-3#call-the-api))
+* The mobile app user's Access Token can be renewed to ensure the user does not have to log in again during a session (see [Renew the Token](/architecture-scenarios/application/mobile-api/part-3#renew-the-token))
 :::
 
 ## The Premise
