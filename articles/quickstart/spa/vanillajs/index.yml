@@ -24,5 +24,3 @@ articles:
   - 03-calling-an-api
   - 04-authorization
   - 05-token-renewal
-hidden_articles:
-  - embedded-login
