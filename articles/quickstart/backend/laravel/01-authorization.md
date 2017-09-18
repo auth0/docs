@@ -11,7 +11,7 @@ description: This tutorial demonatrates how to add authorization to your Laravel
     'Composer 1.0-dev',
     'PHP 5.6.18',
     'Laravel 5.3',
-    'laravel-auth0 5.0'
+    'laravel-auth0 5.0.2'
   ]
 }) %>
 
@@ -112,35 +112,21 @@ Configure the `driver` in `/config/auth.php` to use `auth0`.
 
 ## Protect Routes with the Auth0 Middleware
 
-Protecting individual API endpoints can be done by applying the `auth0.jwt` middleware to them.
-
-Add the middleware to the `$routeMiddleware` array in `app/Http/Kernel.php`.
-
-```php
-// app/Http/Kernel.php
-
-// ...
-protected $routeMiddleware = [
-    // ...
-    'auth0.jwt' => \Auth0\Login\Middleware\Auth0JWTMiddleware::class,
-];
-```
-
-This middleware can now be applied to individual routes.
+Protecting individual API endpoints can be done by applying the `auth:api` middleware to them.
 
 ```php
 // routes/api.php
 
 Route::get('/private', function (Request $request) {
     return response()->json(["message" => "Hello from a private endpoint! You need to have a valid access token to see this."]);
-})->middleware('auth0.jwt');
+})->middleware('auth:api');
 ```
 
 This route is now only accessible if an `access_token` is included in the `Authorization` header of the incoming request.
 
 ## Make Calls to the API
 
-With the **laravel-auth0** plugin configured and the `auth0.jwt` middleware applied to a route, you can now run the application and make calls to it.
+With the **laravel-auth0** plugin configured and the `auth:api` middleware applied to a route, you can now run the application and make calls to it.
 
 Use `artisan` to serve the application.
 
@@ -263,29 +249,3 @@ After installation, add the following to the configuration file for `CORS`:
     ),
 ),
 ```
-
-### Authenticate your Requests Without Laravel Passport
-
-If you don't want to use Laravel Passport, you can use the middlewares provided by this package.
-
-To register the middlewares, go to `app/Http/Kernel.php` and add these lines to the `routeMiddleware` collection:
-
-```php
-protected $routeMiddleware = [
-  ...
-  'auth0.jwt' => '\Auth0\Login\Middleware\Auth0JWTMiddleware',
-  'auth0.jwt_verification' => '\Auth0\Login\Middleware\Auth0OptionalJWTMiddleware',
-  'auth0.jwt_force' => '\Auth0\Login\Middleware\ForceAuthMiddleware',
-  ...
-];
-```
-
-### Auth0JWTMiddleware
-
-This middleware will extract, decode, and verify the `access_token` from the `Authorization` header. If the token is not present, it will reject the login with a `401 Unauthorized` response.
-
-### Auth0OptionalJWTMiddleware & ForceAuthMiddleware
-
-`Auth0OptionalJWTMiddleware` with extract, decode, and verify the `access_token` from the `Authorization` header. If the token is not present it will not set the user.
-
-`ForceAuthMiddleware` will check if there is a user set up. If there is not, it will reject the login with a `401 Unauthorized` response.
