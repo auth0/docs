@@ -15,7 +15,7 @@ This is how user authentiation happens between a conventional server-side web ap
 2. The user logs in, using the Auth0 login form on that page.
 3. Auth0 authenticates the user. 
 4. Auth0 redirects the user to your `redirect_uri`, with an *Authorization Code* in the querystring.
-5. Your application calls the Auth0 /oauth/token endpoint with the Authorization Code.
+5. Your application calls the Auth0 `/oauth/token` endpoint with the Authorization Code.
 6. Auth0 authenticates the web app, validates the Authorization Code, and responds back with a JSON object containing the id_token.
 7. The web application decodes and verifies the id_token, identifying the user.
 8. Your application uses sessions or cookies to persist a user login.
@@ -33,7 +33,7 @@ In any case, Auth0 provides back to your application the authenticated identity 
 
 Go to the [Clients](${manage_url}/#/clients) page from the [Auth0 Dashboard](${manage_url}). Edit the default client or create a new client by clicking **Create Client**.
 
-Name your new application, and set the Client Type to **Regular Web Applications** as the **Client Type**.
+Name your new application, and set the Client Type to **Regular Web Application** as the **Client Type**.
 
 ### Set Allowed Callback URI
 
@@ -74,20 +74,22 @@ For simple identification of the the user, a scope of `openid` will suffice. Usi
 The `state` is a nonce, or arbitrary value, which the client provides and which the Auth0 service includes in its redirect.
 This helps guard against cross-site request forgery. 
 
-Your application should create this value, store in the browser, and compare it to the state value received in the callback querystring. If they don't match, you should deny access to the user.
+Your application should create this value, store it in the browser, and compare it to the state value received in the callback querystring. If they don't match, you should deny access to the user.
 
 [Learn more here.](/protocols/oauth2/oauth-state)
 
 
 ## Handle the Callback
 
-After the user has authenticated, Auth0 will redirect the user to the URI specified in the `redirect_uri` parameter of the query string. A query string will be added to the redirect URI, providing a code. 
+After the user has authenticated, Auth0 will redirect the user to the URI specified in the `redirect_uri` parameter of the query string. A query string will be added to the redirect URI, containing values for `code` and `state`.
 
 ```text
-${account.callback}?code=tQPUv...
+${account.callback}?code=tQPUv...&state=fkjbl23...
 ```
 
-Your application must then handle the request appropriately.
+If the `state` value does not match the `state` value you sent in the original call to the `/authorize` endpoint, the request should be denied.
+
+If they do match, your application must then handle the request appropriately.
 
 Typically, this means:
 
@@ -136,7 +138,7 @@ For example:
 
 The `token_type` will be set to **Bearer** and the `id_token` will be a [JSON Web Token (JWT)](/jwt) containing information about the user.
 
-For this guide, we will get the user identity by decoding the `id_token`. It is also possible to get the user details by [calling the Authorization API with the `acess_token`](api/authentication#get-user-info).
+For this guide, we will get the user identity by decoding the `id_token`. It is also possible to get the user details by [calling the Authorization API with the `access_token`](api/authentication#get-user-info).
 
 ### Decode the JWT
 
@@ -144,7 +146,7 @@ Decode the `id_token` to read the claims (that is, the identity and attributes) 
 
 - See the [JWT section of our website](/jwt) for more information about the structure of a JWT.
 
-- Refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will assist you in decoding the `id_token`.
+- Refer to the [libraries section on the JWT.io website](https://jwt.io/#libraries-io) in order to obtain a library for your programming language of choice which will decode the `id_token`.
 
 Once the JWT is decoded, extract the information about the user from the Payload of the `id_token`. 
 
