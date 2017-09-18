@@ -20,3 +20,5 @@ articles:
   - 02-user-profile
   - 03-calling-an-api
   - 04-authorization
+hidden_articles:
+  - embedded-login

@@ -31,7 +31,7 @@ window.addEventListener('load', function() {
 ```
 
 ::: note
-**Checkpoint:** Try adding a `button` with an `id` of `btn-login` to your app. This will call the `authorize` method from auth0.js so you can see the login page.
+**Checkpoint:** Try to add a button with the `btn-login` ID to your app. This will call the `authorize` method from auth0.js so you can see the login page.
 :::
 
 ![hosted login](/media/articles/web/hosted-login.png)
