@@ -1,12 +1,10 @@
-### Implement the API
-
 In this section we will see how we can implement an API for our scenario.
 
 ::: note
 For simplicity reasons we will keep our implementation solely focused on the authentication and authorization part. As you will see in the samples the input timesheet entry will be hard-coded and the API will not persist the timesheet entry, simply echo back some of the info.
 :::
 
-#### Define the API endpoints
+## Define the API endpoints
 
 First we need to define the endpoints of our API.
 
@@ -22,7 +20,7 @@ An `HTTP GET` request to the `/timesheets` endpoint will allow a user to retriev
 See the implementation in [Node.js](/architecture-scenarios/application/mobile-api/api-implementation-nodejs#1-define-the-api-endpoints)
 :::
 
-#### Secure the Endpoints
+### Secure the Endpoints
 
 When an API receives a request with a bearer access token as part of the header, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request must be rejected with a `Missing or invalid token` error message to the calling app.
 
@@ -44,7 +42,7 @@ For more information on validating access tokens, refer to [Verify Access Tokens
 See the implementation in [Node.js](/architecture-scenarios/application/mobile-api/api-implementation-nodejs#2-secure-the-api-endpoints)
 :::
 
-#### Check the Client's Permissions
+### Check the Client's Permissions
 
 By now we have verified that the JWT is valid. The last step is to verify that the client has the permissions required to access the protected resources.
 
@@ -54,7 +52,7 @@ To do so, the API needs to check the [scopes](/scopes) of the decoded JWT. This 
 See the implementation in [Node.js](/architecture-scenarios/application/mobile-api/api-implementation-nodejs#3-check-the-client-permissions)
 :::
 
-#### Determine user identity
+### Determine user identity
 
 For both endpoints (retrieving the list of timesheets, and adding a new timesheet) we will need to determine the identity of the user.
 
