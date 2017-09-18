@@ -15,7 +15,9 @@ When working with multi-tenant software, you can serve multiple customers from a
 | Multi-Tenant | One instance, multiple customers |
 | Single-Tenant | One instance, one customer |
 
-We define **tenant** as a group of users who share access to one particular application instance. One example of this includes a company with multiple employees, all of whom have access to your SaaS offering. When you use a multi-tenant setup, one single instance of your SaaS offering would be shared across multiple tenants (or multiple companies), each of whom has its own group fo employees. However, each tenant has a dedicated share of that instance, and you can then customize each share to meet the needs of the tenant that's using it. Such customizations include (but aren't limited to) branding, functionality, and access control.
+We define **tenant** as a group of users who share access to one particular application instance. One example of this includes a company with multiple employees, all of whom have access to your SaaS offering. 
+
+When you use a multi-tenant setup, one single instance of your SaaS offering would be shared across multiple tenants (or multiple companies), each of whom has its own group fo employees. However, each tenant has a dedicated share of that instance, and you can then customize each share to meet the needs of the tenant that's using it. Such customization includes (but isn't limited to) branding, functionality, and access control.
 
 ## Auth0 and Multi-Tenancy
 
