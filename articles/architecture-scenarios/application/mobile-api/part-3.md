@@ -126,12 +126,20 @@ To retrieve the [User Profile](/api/authentication?http#user-profile), your mobi
 [See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#3-get-the-user-profile)
 :::
 
+### Display UI Elements Conditionally Based on Scope
+
+Based on the `scope` of the user, you may want to show or hide certain UI elements. To determine the scope issued to a user, you will need to inspect the the `scope` which was granted when the user was authenticated. This will be a string containing all the scopes, so you therefore need to inspect this string to see whether it contains the required `scope` and based on that make a decision whether to display a particular UI element.
+
+::: note
+[See the implementation in Android](/architecture-scenarios/application/spa-api/mobile-implementation-android#4-display-ui-elements-conditionally-based-on-scope)
+:::
+
 ### Call the API
 
 To access secured resources from your API, the authenticated user's `access_token` needs to be included in requests that are sent to it. This is accomplished by sending the `access_token` in an `Authorization` header using the `Bearer` scheme.
 
 ::: note
-[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#4-call-the-api)
+[See the implementation in Android.](/architecture-scenarios/application/mobile-api/mobile-implementation-android#5-call-the-api)
 :::
 
 ### Renew the Token
