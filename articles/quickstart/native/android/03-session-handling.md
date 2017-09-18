@@ -32,9 +32,11 @@ The tokens are the objects used to prove your identity against the Auth0 APIs. R
 
 ## Before Starting
 
-Be sure that you have completed the [Login quickstart](/quickstart/native/android/00-login).
+::: note
+Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) tutorial.
+:::
 
-Before launching the login process, you need to make sure you get a valid refresh token in the reposne. To do that, ask for the `offline_access` scope. Find the snippet in which you are initializing the `WebAuthProvider` class. To that snippet, add the line `withScope("openid offline_access")`.
+Before launching the login process, you need to make sure you get a valid refresh token in the response. To do that, ask for the `offline_access` scope. Find the snippet in which you are initializing the `WebAuthProvider` class. To that snippet, add the line `withScope("openid offline_access")`.
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -48,7 +50,7 @@ WebAuthProvider.init(auth0)
                 .start(LoginActivity.this, callback);
 ```
 
-## Save The User's Credentials
+## Save the User's Credentials
 
 Save the user's credentials obtained in the login success response.
 
@@ -83,7 +85,7 @@ User credentials are stored in the seed project in [Private mode](https://develo
 You can achieve this with the `CredentialsManager`class. You can check the implementation in the project code. There are better and more secure ways to store tokens, but we won't cover them in this tutorial.
 :::
 
-## Check For Tokens When The Application Starts
+## Check for Tokens when the Application Starts
 
 To save your users the effort of logging in every time they open your app, use their access tokens. You can check for the access token when a user starts the app. If you find the token, you can automatically log the user in and direct them straight to your app's main flow.  
 
@@ -154,7 +156,7 @@ Create an instance of the `AuthenticationAPIClient` object:
 AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
 ```
 
-Then use the `refresh_token` to get fresh new credentials:
+Use the `refresh_token` to get fresh new credentials:
 
 ```java
 // app/src/main/java/com/auth0/samples/MainActivity.java
