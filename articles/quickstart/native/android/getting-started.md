@@ -4,7 +4,7 @@ description: Short Introduction to the Auth0 Android Quickstarts.
 budicon: 715
 ---
 
-This quickstart guide walks you through managing authentication in your Android apps with Auth0.
+This quickstart guide walks you through managing authentication  with Auth0 in your Android apps.
 
 ## Sample Projects
 

@@ -7,7 +7,7 @@ You need the following information:
 * **Client ID**
 * **Domain**
 
-We suggest you don't hard code these values as you may need to change them in the future. Instead, use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html), such as `@string/com_auth0_domain`, to define the values. 
+We suggest you don't hardcode these values as you may need to change them in the future. Instead, use [String Resources](https://developer.android.com/guide/topics/resources/string-resource.html), such as `@string/com_auth0_domain`, to define the values. 
 
 Edit your `res/values/strings.xml` file as follows:
 
