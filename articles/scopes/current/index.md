@@ -6,26 +6,29 @@ toc: true
 
 # Scopes
 
-In OpenID Connect (OIDC) we have the notion of __claims__. These are strings, sent as part of the `scope` request parameter. These claims can be standard (as defined by the specification) or custom.
+In OpenID Connect (OIDC), we have the notion of __claims__. These are strings that are sent as part of the `scope` request parameter. There are two types of claims:
 
-Claims are used in the following cases:
+* [Standard](#standard-claims) (which means that they meet OIDC specification)
+* [Custom](#custom-claims)
 
-- When you want to get additional user information, like email or picture. For details refer to [Standard Claims](#standard-claims).
+Claims are used to:
 
-- When you want to have granular access control to your API. In this case, you need to define custom scopes for your API and add these values as part of the `scope` request parameter, for example: `scope=read:contacts`. For details refer to [API Scopes](#api-scopes).
+- Get additional user information, such as their email or picture. For details, refer to [Standard Claims](#standard-claims).
 
+- Implement granular access control to your API. In this case, you need to define custom scopes for your API and add these newly-created scopes to your `scope` request parameter: `scope=read:contacts`. For details, refer to [API Scopes](#api-scopes).
 
 ## Standard Claims
 
-OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These are user attributes, intended to supply the client with user details such as email, name and picture.
+OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These claims are user attributes and are intended to supply the client with user details such as email, name and picture.
 
-This information can be returned in the `id_token` or in the response from [the /userinfo endpoint](/api/authentication#get-user-info).
+This information can be returned in the `id_token` or in the retrieved from [the /userinfo endpoint](/api/authentication#get-user-info).
 
-### Example: Asking for Standard Claims
+### Example: Ask for Standard Claims
 
-In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and get back an `id_token` that contains the user's name, nickname, profile picture and email information.
+In this example, we will use the [OAuth 2.0 Implicit Grant](/api-auth/grant/implicit) to authenticate a user and retrieve an `id_token` that contains the user's name, nickname, profile picture, and email information.
 
-The following apply:
+The following applies:
+
 - `scope=openid`: will only return the `iss`, `sub`, `aud`, `exp`, `iat` and `at_hash` claims.
 - `scope=openid profile`: will return the claims listed above, plus `name`, `nickname`, `picture` and `updated_at`.
 - `scope=openid profile email`: will return the claims listed above, plus `email` and `email_verified`.
@@ -70,15 +73,19 @@ When decoded, the `id_token` contains the following claims:
 }
 ```
 
-Your app now can retrieve these values and personalize the UI.
+Your app now can retrieve these values and use them personalize the UI.
 
 ## Custom Claims
 
-In order to add custom claims to ID tokens or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). This is to avoid possible collisions with standard OIDC claims.
+When adding custom claims to ID or access tokens, they must [conform to a namespaced format](/api-auth/tutorials/adoption/scope-custom-claims). This is to avoid any possible collision with standard OIDC claims.
 
 ### Example: Add Custom Claims
 
-Suppose an identity provider returns a `favorite_color` claim as part of the user’s profile, and that we’ve used the Auth0 management API to set application-specific information for this user. We also save the `preferred_contact` information as part of the `user_metadata`.
+Suppose that:
+
+* The identity provider returns a `favorite_color` claim as part of the user’s profile 
+* We’ve used the Auth0 management API to set application-specific information for this user
+* We've saveed the `preferred_contact` information as part of the `user_metadata`
 
 This would be the profile stored by Auth0:
 
@@ -94,7 +101,10 @@ This would be the profile stored by Auth0:
 }
 ```
 
-In order to add these claims to the `id_token` we need to create a rule to customize the token, and add these scopes using namespaced format in the rule.
+In order to add these claims to the `id_token`, we need to create a [rule](/rules) to: 
+
+* Customize the token 
+* Add these scopes using namespaced format in the rule
 
 Sample Rule:
 
@@ -107,23 +117,27 @@ function (user, context, callback) {
 }
 ```
 
-Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. The namespace URL does not have to point to an actual resource, it’s only used as an identifier and will not be called by Auth0. This follows a [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not mandatory according to the specification, Auth0 will always enforce namespacing, meaning that any non-namespaced claims will be silently excluded from tokens.
+Any non-Auth0 HTTP or HTTPS URL can be used as a namespace identifier, and any number of namespaces can be used. 
 
 ::: warning 
 `auth0.com`, `webtask.io` and `webtask.run` are Auth0 domains and therefore cannot be used as a namespace identifier. 
 :::
 
-If you need to add custom claims to the access token, the same applies but using `context.accessToken` instead.
+The namespace URL does not have to point to an actual resource, since it’s only used as an identifier and will not be called by Auth0. This follows the [recommendation from the OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#AdditionalClaims) stating that custom claim identifiers should be collision-resistant. While this is not required by the the specification, Auth0 will always enforce namespacing, which means that any non-namespaced claims will be silently excluded from tokens.
 
-Please note that adding custom claims to id tokens through this method will also let you obtain them when calling the `/userinfo` endpoint. However, rules run when the user is authenticating, not when `/userinfo` is called.
+::: note
+Adding custom claims to the access token is very similar to the process of adding custom claims to the ID token. However, you would use `context.accessToken` instead of `context.idToken`.
+:::
+
+Custom claims added to ID tokens using this method allows you to obtain them when calling the `/userinfo` endpoint. However, note that rules run during the user authentication process only, not when `/userinfo` is called.
 
 ## API Scopes
 
 Scopes allow you to define the API data accessible to your client applications. When you [create an API in Auth0](/apis), you'll need to define one scope for each API represented and action. For example, if you want to `read` and `delete` contact information, you would create two scopes: `read:contacts` and `delete:contacts`.
 
-Once you create an API and define the scopes, the client applications can request these defined permissions when they initiate an authorization flow, and include them in the access token as part of the scope request parameter.
+Once you create an API and define the scopes, the client applications can request these defined permissions when they initiate an authorization flow and include them in the access token as part of the scope request parameter.
 
-If you wanted to expand [our example](#example-asking-for-standard-claims) to include also the `read:contacts` permission, then to initiate the authentication flow, using Implicit Grant, you would use something like this:
+If you wanted to expand [our example](#example-asking-for-standard-claims) to include also the `read:contacts` permission, then you would using something like the following sample URL to initiate the authentication flow using the Implicit grant:
 
 ```text
 https://${account.namespace}/authorize?
@@ -143,3 +157,22 @@ Note the differences between the two examples. In the latest, we want to get an 
 - `scope`: We appended the value `read:contacts`. This denotes the rights that we want to be granted at the API (in this case, read contact information).
 
 - `response_type`: We appended the value `token`. This tells the Authorization Server (Auth0 in our case) to issue an `access_token` as well, not only an `id_token`. The `access_token` will be sent to the API as credentials.
+
+## Define Scopes Using the Dashboard
+
+::: warning
+By default, any user on any client can ask for any scope defined here. You can implement access policies to limit this behaviour via Rules.
+:::
+
+You can define API scopes using the [Dashboard](${manage_url}/#/apis). Select the API you want to edit, and open up its **Scopes** tab.
+
+Provide the following parameters:
+
+| Parameter | Description |
+| - | - |
+| Name | The name of your scope |
+| Description | A friendly description for your scope |
+
+Click **Add** when you've provided the requested values.
+
+![API Scopes](/media/articles/scopes/api-scopes.png)
