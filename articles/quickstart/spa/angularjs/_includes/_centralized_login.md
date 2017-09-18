@@ -107,9 +107,9 @@ Create a service and provide a method called `login` which calls the `authorize`
 
 ![hosted login](/media/articles/web/hosted-login.png)
 
-## Finish the Service
+### Finish the Service
 
-Add some additional methods to the `authService` to fully handle authentication in the app.
+Add more methods to the `authService` service to handle authentication in the app.
 
 ```js
 // app/auth/auth.service.js
