@@ -1,30 +1,15 @@
 ---
 toc: true
-description: This page explains how to setup and manage the Authorization Extension v2.
+title: Authorization Extension
+description: Guidance on setting up and managing the Authorization Extension
 ---
-# Auth0 Authorization Extension v2
+# Authorization Extension
 
-The Auth0 Authorization Extension provides user authorization support in Auth0. Currently the extension supports authorizations for Users using Groups, Roles and Permissions.
+The Authorization Extension provides support for user authorization via Groups, Roles, and Permissions.
 
-## How to Install
 
-First make sure you have a Client created that can support the Authorization extension. Supported client types for the Authorization extension are: **Native**, **Single Page Web Applications** and **Regular Web Applications**. Clients with no type assigned or non-interactive clients are not supported.
 
-::: warning
-Installing this extension creates an `auth0-authz` client for your account. **Do not delete this client!** If you uninstall the extension at a later date, this client will be deleted automatically.
-:::
 
-To install the Authorization extension, click on the "Auth0 Authorization" box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app. You will also need to choose where to store the data which is documented under [Storage Types](#storage-types).
-
-![Install Authorization Extension](/media/articles/extensions/authorization/app-install-v2.png)
-
-Once installed, you will see the app listed under **Installed Extensions**.
-
-![Installed Extensions](/media/articles/extensions/authorization/installed-extensions-v2.png)
-
-When you click on the link to open the extension for the first time, you will be prompted to provide permission for the extension to access your Auth0 account. Then you will be redirected to the Authorization Dashboard.
-
-![Authorization Dashboard](/media/articles/extensions/authorization/auth-dashboard-v2.png)
 
 ## Migration from v1 to v2 (breaking changes)
 
