@@ -1,6 +1,7 @@
 ---
 title: Configuring the Authorization Extension
 description: How to configure the Authorization Extension
+toc: true
 ---
 
 # Authorization Extension: Configuration
