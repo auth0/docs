@@ -18,7 +18,7 @@ This tutorial shows you how to link two different accounts for the same user usi
   ]
 }) %>__
 
-## Before Starting
+## Before You Start
 
 ::: panel Complete the previous tutorials
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:

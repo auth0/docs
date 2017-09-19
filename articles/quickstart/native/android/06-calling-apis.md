@@ -18,7 +18,7 @@ This tutorial shows you how to use a previously saved token to authenticate your
   ]
 }) %>__
 
-## Before Starting
+## Before You Start
 
 ::: panel Complete the previous tutorials
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:

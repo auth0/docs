@@ -18,7 +18,7 @@ This tutorial shows you how to get and modify the user's profile data with Auth0
   ]
 }) %>__
 
-## Before Starting
+## Before You Start
 
 ::: note
 Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorial. To call the API clients, you need a valid access token and ID token.

@@ -2,7 +2,7 @@
 
 Add the [Auth0 Android](https://github.com/auth0/Auth0.Android) SDK into your project. The library makes requests to the Auth0's Authentication and Management APIs.
 
-### Gradle
+### Add Auth0 to Gradle
 
 In your app's `build.gradle` dependencies section, add the following:
 
@@ -22,9 +22,9 @@ dependencies {
 You can check for the latest version on the [repository Readme](https://github.com/auth0/auth0.android#installation), in [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22auth0%22%20g%3A%22com.auth0.android%22), or in [JCenter](https://bintray.com/auth0/android/auth0).
 :::
 
-Add the Manifest Placeholders, required by the SDK. The placeholders internally define an `intent-filter` to capture the authentication callback URL. 
+Add manifest placeholders required by the SDK. The placeholders define internally an `intent-filter` to capture the authentication callback URL. 
 
-To add the Manifest Placeholders, add the next line:
+To add the manifest placeholders, add the next line:
 
 ```xml
 apply plugin: 'com.android.application'
@@ -44,8 +44,8 @@ android {
 }
 ```
 
-Run **Sync Project with Gradle** Files inside Android Studio or `./gradlew clean assembleDebug` from the command line.
+Run **Sync Project with Gradle Files** inside Android Studio or `./gradlew clean assembleDebug` from the command line.
 
 ::: note
-For more information about using Gradle, check [Gradle official documentation](https://gradle.org/getting-started-android-build/).
+For more information about using Gradle, check the [Gradle official documentation](https://gradle.org/getting-started-android-build/).
 :::

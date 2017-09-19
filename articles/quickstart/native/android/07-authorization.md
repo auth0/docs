@@ -18,7 +18,7 @@ This tutorial shows you how to use Auth0 to create access roles for your users. 
   ]
 }) %>__
 
-## Before Starting
+## Before You Start
 
 ::: note
 Before you continue with this tutorial, make sure that you have completed the [User Profile](04-user-profile) tutorial.

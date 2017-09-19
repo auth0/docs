@@ -18,7 +18,7 @@ This tutorial shows you how to let users log in and maintain an active session w
   ]
 }) %>__
 
-You need the `Credentials` class to handle users' credentials. The class is composed of five objects:
+You need the `Credentials` class to handle users' credentials. The class is composed of seven objects:
 
 * `accessToken`: Access token used by the Auth0 API. To learn more, see the [access token documentation](/tokens/access-token).
 * `idToken`: Identity token that proves the identity of the user. To learn more, see the [ID token documentation](/tokens/id-token).
@@ -30,13 +30,13 @@ You need the `Credentials` class to handle users' credentials. The class is comp
 
 The tokens are the objects used to prove your identity against the Auth0 APIs. Read more about them in the [tokens documentation](https://auth0.com/docs/tokens).
 
-## Before Starting
+## Before You Start
 
 ::: note
 Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) tutorial.
 :::
 
-Before launching the login process, you need to make sure you get a valid refresh token in the response. To do that, ask for the `offline_access` scope. Find the snippet in which you are initializing the `WebAuthProvider` class. To that snippet, add the line `withScope("openid offline_access")`.
+Before you launch the login process, make sure you get a valid refresh token in the response. To do that, ask for the `offline_access` scope. Find the snippet in which you are initializing the `WebAuthProvider` class. To that snippet, add the line `withScope("openid offline_access")`.
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -81,7 +81,7 @@ private final AuthCallback callback = new AuthCallback() {
 ```
 
 ::: note
-User credentials are stored in the seed project in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE) in the `SharedPreferences` file.
+User credentials are stored in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE) in the seed project in the `SharedPreferences` file.
 You can achieve this with the `CredentialsManager`class. You can check the implementation in the project code. There are better and more secure ways to store tokens, but we won't cover them in this tutorial.
 :::
 
@@ -101,7 +101,7 @@ if (accessToken == null) {
 }
 ```
 
-## Validate an Existing Token
+## Validate the Existing Token
 
 If the access token exists, the next step is to check if it's valid. 
 You can do it one of two ways: 
@@ -139,7 +139,7 @@ You need to decide how to deal with an invalid token. Typically, you can choose 
 This tutorial shows how to use a refresh token. If you want users to re-enter their credentials, clear the stored data and prompt the login screen.
 :::
 
-## Refresh the Token
+## Refresh the User's Session
 
 ::: panel
 Before you go further with this tutorial, read the [refresh token documentation](/refresh-token).
@@ -156,7 +156,7 @@ Create an instance of the `AuthenticationAPIClient` object:
 AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
 ```
 
-Use the `refresh_token` to get fresh new credentials:
+Use the `refresh_token` to get new credentials:
 
 ```java
 // app/src/main/java/com/auth0/samples/MainActivity.java

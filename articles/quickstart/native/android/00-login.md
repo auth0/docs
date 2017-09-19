@@ -23,5 +23,5 @@ This tutorial shows you how to integrate the Auth0 Login in your Android project
 <%= include('_includes/_login') %>
 
 ::: note
-Read [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) to learn how to choose between the two types of login flows.
+Follow the [Browser-Based vs. Native Login Flows on Mobile Devices](/tutorials/browser-based-vs-native-experience-on-mobile) tutorial to learn how to choose between the two types of login flows.
 :::

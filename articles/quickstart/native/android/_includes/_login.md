@@ -67,7 +67,11 @@ demo://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
 Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available in the `app/build.gradle` file as the `applicationId` attribute.
 :::
 
-After authentication, the browser redirects to your application with the authentication result. The SDK captures the result and parses it. You don't need to declare a specific intent-filter for your activity, because you have defined the manifest Placeholders with your Auth0 **Domain** and **Scheme** values.
+After authentication, the browser redirects the user to your application with the authentication result. The SDK captures the result and parses it. 
+
+::: note
+You don't need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values.
+:::
 
 The `AndroidManifest.xml` file should look like this:
 
