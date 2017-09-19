@@ -110,7 +110,7 @@ The code above will ensure that all access tokens will only contain the scopes w
 
 Rules execute in the order they are displayed on the Rules page, so ensure that the new rule you created is positioned below the rule for the Authorization Extension, so it executes after the Authorization Extension rule:
 
-![Rules](/media/articles/architecture-scenarios/mpbile-api/rules-2.png)
+![Rules](/media/articles/architecture-scenarios/mobile-api/rules-2.png)
 
 <%= include('./_stepnav', {
  prev: ["1. Solution Overview", "/architecture-scenarios/application/mobile-api/part-1"], next: ["3. API + Mobile Implementation", "/architecture-scenarios/application/mobile-api/part-3"]
