@@ -35,9 +35,17 @@ The important thing to remember is that the client should not be depending on th
 
 Access tokens are issued via Auth0's OAuth 2.0 endpoints: [/authorize](/api/authentication#authorize-client) and [/oauth/token](/api/authentication#get-token). You can use any OAuth 2.0-compatible library to obtain access tokens. If you do not already have a preferred OAuth 2.0 library, Auth0 provides libraries for many languages and frameworks that work seamlessly with our endpoints.
 
-* Authentication via the Lock widget will return an `access_token` as shown in the [Lock documentation](/libraries/lock).
-* Authentication via the Auth0.js SDK will return an `access_token` as shown in the [Auth0.js documentation](/libraries/auth0js).
-* Check the [List of tutorials](/tutorials) information on other languages, platforms, and SDKs.
+### Using the Authentication API
+
+* To retrieve an `access_token` when using a:
+  * **Server-side web app**, please see the docs for the [Authorization Code Grant](/api-auth/grant/authorization-code)
+  * **Mobile app**, please see the docs for the [Authorization Code using Proof Key for Code Exchange (PKCE) Grant](/api-auth/grant/authorization-code-pkce)
+  * **Client-side app**, please see the docs for the [Implicit Grant](/api-auth/grant/implicit)
+  * **Command line interface**, please see the docs for the [Client Credentials Grant](/api-auth/grant/client-credentials)
+  * **Trusted client**, please see the docs for the [Resource Owner Password Grant](/api-auth/grant/password)
+* For a list of widgets and SDKs that can help you implement Auth0, see our [Libraries](/libraries).
+* Calls to the Lock widget will return an `access_token` as shown in the [Lock documentation](/libraries/lock).
+* If you need only a client-side library for authorization and authentication, use [auth0.js](/libraries/auth0js).
 
 ## How to use an access token
 
