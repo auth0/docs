@@ -11,17 +11,7 @@ The Authorization Extension provides support for user authorization via Groups, 
 
 
 
-## Migration from v1 to v2 (breaking changes)
 
-::: panel Application section
-One of the major changes of the v2 of the Authorization Extension is that the **Applications** section has been removed. The driving factor for this change is complexity: Defining a policy when someone can or cannot access an application depends on different factors (roles, groups, time of day, MFA, ...). This is why the desired approach for this use case is [rules](#controlling-application-access).
-:::
-
-### Upgrade the Extension Version
-
-To upgrade your existing version of the Authorization Extension, go to [Extensions section](${manage_url}/#/extensions) of the dashboard, then click **Installed Extensions**.
-
-Next to the Authorization Extension, you should see a link to upgrade to the latest version.
 
 ## Configure the Extension
 
