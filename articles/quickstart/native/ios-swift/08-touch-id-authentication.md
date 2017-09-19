@@ -112,8 +112,7 @@ What happens if the user has logged out and you have cleared the credentials fro
 self.credentialsManager.clear()
 ```
 
-In this case the user will still be promoted for their touch and an error will be returned in the `credentials` closure as there
-are no credentials to renew from.
+In this case the user will still be promoted for their touch and an error will be returned in the `credentials` closure as there are no credentials to renew from.
 
 The Credentials Manager has a `hasValid()` method that quickly lets you know if there are valid credentials that can be returned either directly or renewed and returned.
 
