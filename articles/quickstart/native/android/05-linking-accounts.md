@@ -22,9 +22,9 @@ This tutorial shows you how to link two different accounts for the same user usi
 
 ::: panel Complete the previous tutorials
 Before you continue with this tutorial, make sure that you have completed the previous tutorials. This tutorial assumes that:
-* You've integrated [Auth0](https://github.com/auth0/Auth0.Android) as a dependency in your project. 
-* You're familiar with the `WebAuthProvider` class. To learn more, see the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorials.
-* You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the [Session Handling](/quickstart/native/android/03-session-handling) and the [User Profile](/quickstart/native/android/04-user-profile) tutorial.
+* You have integrated [Auth0](https://github.com/auth0/Auth0.Android) as a dependency in your project. 
+* You are familiar with the `WebAuthProvider` class. To learn more, see the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorials.
+* You are familiar with the concepts of `userId` and `idToken`. You can find info about them in the [Session Handling](/quickstart/native/android/03-session-handling) and the [User Profile](/quickstart/native/android/04-user-profile) tutorial.
 :::
 
 ::: note
@@ -33,13 +33,13 @@ We recommend that you read the [Linking Accounts](/link-accounts) documentation 
 
 ## Enter Account Credentials
 
-Your users may want to link their other accounts to the account they are logged in. 
+Your users may want to link their other accounts to the account they are logged in to. 
 
 ::: note
 Use the [Auth0 Android](https://github.com/auth0/Auth0.Android) library.
 :::
 
-To allow your users to link their accounts, in your requests, you need to send the an additional boolean value, that will tell the application that it's a secondary login, with the `userID` value obtained after the first login.
+To allow your users to link their accounts, in your requests, you need to send an additional boolean value. The boolean value tells the application that it is a secondary login, with the `userID` value obtained after the first login.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -75,10 +75,10 @@ public void onAuthentication(Credentials credentials) {
 }
 ```
 
-## Link an Account
+## Link the Accounts
 
-Now, you can link the accounts. To do this, you need the logged-in user's ID and the ID token for the two accounts: 
-* The saved account the user initially logged into
+Now, you can link the accounts. To do this, you need the logged-in user's ID and the ID tokens for the two accounts: 
+* The saved account the user initially logged in to
 * The second account received in the login response
 
 ```java
@@ -126,7 +126,7 @@ usersClient.getProfile(userInfo.getId())
 For more information, check the [UserIdentity.java class documentation](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java).
 :::
 
-### Unlink an Account
+### Unlink the Accounts
 
 To unlink the accounts, you need to specify the following: 
 * user ID for the main account

@@ -26,9 +26,9 @@ Before you continue with this tutorial, make sure that you have completed the [U
 
 ## Create a Rule to Assign Roles
 
-Create a rule that assigns your users access roles: 
+Create a rule that assigns the following access roles to your user: 
 * An admin role
-* A single user role
+* A regular user role
 
 To assign roles, go to the [New rule](${manage_url}/#/rules/new) page. In the **Access Control** section,  select the **Set roles to a user** template. 
 
@@ -39,8 +39,7 @@ if (user.email.indexOf('@example.com') > -1)
 ```
 
 The default rules for assigning access roles are:
-* If the user's email contains @example.com, the user gets the admin role
-* If the user's email contain anything else, the user gets the regular user role
+* If the user's email contains @example.com, the user gets the admin roles anything else, the user gets the regular user role
 
 ::: note
 Depending on your needs, you can define roles other than admin and user.
@@ -60,7 +59,7 @@ In the demo app, we use `@admin.com` to validate the user:
 
 ## Test the Rule in Your Project
 
-Once you have the user profile, you can save the profile and access it at any point. To learn more about user profile, see the [User Profile](04-user-profile) tutorial. 
+Once you have the user profile, you can save the profile and access it at any point. To learn more about user profiles, see the [User Profile](04-user-profile) tutorial. 
 
 The user profile contains the access role assigned to the user. 
 
@@ -74,7 +73,7 @@ if (roles.contains("admin")) {
 ```
 
 ::: note
-Application metadata can't be modified by users and the user metadata can be. Because of that, the information about user roles is in the `appMetadata` HashMap, not in the `userMetadata` HashMap.
+Application metadata cannot be modified by users but the user metadata can be modified. Because of that, the information about user roles is in the `appMetadata` HashMap, not in the `userMetadata` HashMap.
 :::
 
 ## Restrict Content Based on Access Level

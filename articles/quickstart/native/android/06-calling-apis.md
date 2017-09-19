@@ -34,7 +34,7 @@ After you set up an API, obtain the endpoint where your users authenticate. Decl
 private static final String API_URL = "localhost:8080/secure";
 ```
 
-## Get a Token
+## Get the User's Access Token
 
 Get the user's access token. For instructions, see the [Login](/quickstart/native/android/00-login) tutorial. 
 
@@ -66,7 +66,7 @@ Request request = new Request.Builder()
 
 ## Send the Request
 
-Tell the client to create a new `Call` with the request you created.  Call the `enqueue` function to asynchronously execute the request.
+Tell the client to create a new `Call` with the request you created.  Call the `enqueue` function to execute the request asynchronously.
 
 ```java
 // app/src/main/java/com/auth0/samples/LoginActivity.java
@@ -90,4 +90,4 @@ client.newCall(request).enqueue(new Callback() {
 
 Check if the request was made and if the response that came back was what you expected. 
 
-You need to configure your server-side to protect your API endpoints with the secret key for our Auth0 application. In this example, you can use the user's access token issued by Auth0 to call Auth0 APIs.
+You need to configure your server side to protect your API endpoints with the secret key for our Auth0 application. In this example, you can use the user's access token issued by Auth0 to call Auth0 APIs.

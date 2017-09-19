@@ -9,13 +9,13 @@ To learn how to embed the Lock widget in your application, follow the [Embedded 
 
 In the `login` method, create a new instance of the `Auth0` object to hold user credentials. 
 
-You can use a constructor that receives an Android Context if you've added the following String resources: 
+You can use a constructor that receives an Android Context if you have added the following String resources: 
 * `R.string.com_auth0_client_id`
 * `R.string.com_auth0_domain`
 
 If you prefer to hardcode the resources, use the constructor that receives both strings. Then, use the `WebAuthProvider` class to authenticate with any connection you enabled on your client in the  [Auth0 dashboard](${manage_url}/#/).
 
-You need to make sure you get a reponse compliant with the OpenID Connect protocol. You can achieve it two ways:
+You need to make sure you get a reponse compliant with the OpenID Connect protocol. You can choose between two options:
 
 * Set the audience
 * Turn on the **OIDC conformant** switch in your Auth0 dashboard
@@ -70,7 +70,7 @@ Replace `YOUR_APP_PACKAGE_NAME` with your application's package name, available 
 After authentication, the browser redirects the user to your application with the authentication result. The SDK captures the result and parses it. 
 
 ::: note
-You don't need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values.
+You do not need to declare a specific `intent-filter` for your activity, because you have defined the manifest placeholders with your Auth0 **Domain** and **Scheme** values.
 :::
 
 The `AndroidManifest.xml` file should look like this:

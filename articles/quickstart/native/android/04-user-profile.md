@@ -24,7 +24,7 @@ This tutorial shows you how to get and modify the user's profile data with Auth0
 Before you continue with this tutorial, make sure that you have completed the [Login](/quickstart/native/android/00-login) and the [Session Handling](/quickstart/native/android/03-session-handling) tutorial. To call the API clients, you need a valid access token and ID token.
 :::
 
-Before launching the login process, you need to make sure you get a valid profile in the response. To do that, ask for the `openid profile email` scope. Find the snippet in which you are initializing the `WebAuthProvider` class. To that snippet, add the line `withScope("openid profile email")`.
+Before launching the login process, you need to make sure you get a valid profile in the response. To do that, ask for the `openid profile email` scope. Find the snippet in which you initialize the `WebAuthProvider` class. To that snippet, add the line `withScope("openid profile email")`.
 
 ```java
 Auth0 auth0 = new Auth0(this);
@@ -37,7 +37,7 @@ WebAuthProvider.init(auth0)
 
 ## Request User Data
 
-Create instances of the API clients. You will use them to request the user's profile data.
+Create instances of the API clients. You will use them to request the users' profile data.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -56,7 +56,7 @@ Do not hardcode the Auth0 `domain` and `clientId` values. We recommend you add t
 
 Use the access token and the `AuthenticationAPIClient` client to obtain the user's ID. 
 
-When you call the `AuthenticationAPIClient` client, it returns an instance of the `UserProfile` profile. This profile is a basic, OIDC-conformant profile which guarantees only the `sub` claim. The `sub` claim contains the user's ID. Depending on the scope you requested, the remaining claims returned by the `UserProfile` are different. 
+When you call the `AuthenticationAPIClient` client, it returns an instance of the `UserProfile` profile. This profile is a basic, OIDC-conformant profile, which guarantees only the `sub` claim. The `sub` claim contains the user's ID. Depending on the scope you requested, the remaining claims returned by the `UserProfile` are different. 
 
 When you get the `sub` value, call the [Management API](https://auth0.com/docs/api/management/v2#!/Users).
 
@@ -80,7 +80,7 @@ authenticationClient.userInfo(accessToken)
     });
 ```
 
-Use the `UsersAPIClient` client and the user's ID to get the full User profile.
+Use the `UsersAPIClient` client and the user's ID to get the full user profile.
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -115,7 +115,7 @@ profile.getPictureURL();
 ```
 
 ::: panel Modifying the UI
-You can't modify the UI inside the `onSuccess()` method because the method works in a second thread. To solve this issue, you can:
+You cannot modify the UI inside the `onSuccess()` method because the method works in a second thread. To solve this issue, you can choose between three options:
 * Persist the data
 * Create a task in the UI thread
 * Create a handler to receive the information

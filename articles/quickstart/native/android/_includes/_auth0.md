@@ -44,7 +44,7 @@ android {
 }
 ```
 
-Run **Sync Project with Gradle Files** inside Android Studio or `./gradlew clean assembleDebug` from the command line.
+Run **Sync Project with Gradle Files** inside Android Studio or execute `./gradlew clean assembleDebug` from the command line.
 
 ::: note
 For more information about using Gradle, check the [Gradle official documentation](https://gradle.org/getting-started-android-build/).

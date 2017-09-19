@@ -81,8 +81,7 @@ private final AuthCallback callback = new AuthCallback() {
 ```
 
 ::: note
-User credentials are stored in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE) in the seed project in the `SharedPreferences` file.
-You can achieve this with the `CredentialsManager`class. You can check the implementation in the project code. There are better and more secure ways to store tokens, but we won't cover them in this tutorial.
+User credentials are stored in [Private mode](https://developer.android.com/reference/android/content/Context.html#MODE_PRIVATE) in the seed project in the `SharedPreferences` file. You can achieve this with the `CredentialsManager`class. For details, check the implementation in the project code. There are better and more secure ways to store tokens, but we will not cover them in this tutorial.
 :::
 
 ## Check for Tokens when the Application Starts
@@ -103,9 +102,9 @@ if (accessToken == null) {
 
 ## Validate the Existing Token
 
-If the access token exists, the next step is to check if it's valid. 
-You can do it one of two ways: 
-* If you save the time when the user receives a new pair of credentials, you can check if the time since the user got the access token exceedes the time defined in the `expires_in` value. W
+If the access token exists, the next step is to check if it is valid. 
+You can choose between two options: 
+* Ssave the time when the user receives a new pair of credentials. Then, check if the time since the user got the access token exceeds the time defined in the `expires_in` value.
 * Call the Auth0 Authentication API and check the response.
 
 ::: note 
@@ -145,7 +144,7 @@ This tutorial shows how to use a refresh token. If you want users to re-enter th
 Before you go further with this tutorial, read the [refresh token documentation](/refresh-token).
 It is important that you remember the following:
 * Even though the refresh token cannot expire and must be securely saved, it can be revoked. 
-* The new pair of credentials will never have different scope than the scope you requested during the first login.
+* The new pair of credentials will never have a different scope than the scope you requested during the first login.
 :::
 
 Create an instance of the `AuthenticationAPIClient` object:
