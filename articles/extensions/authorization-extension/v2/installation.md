@@ -23,7 +23,56 @@ Installing this extension creates an `auth0-authz` client for your account. **Do
 
 To install the Authorization Extension, click on the "Auth0 Authorization" box located on the [Extensions](${manage_url}/#/extensions) page of the Management Dashboard. 
 
-You'll be prompted to install the extension and to choose [where you'd like your data stored](#storage-types).
+You'll be prompted to install the extension and to choose [where you'd like your data stored]. You can choose between Webtask Storage and an Amazon S3 bucket.
+
+### Webtask Storage
+
+The extension will use Webtask Storage by default, and you're limited to 500 KB of data. This is equivalent to:
+
+ - 1000 groups and 3000 users, where each user is member of 3 groups
+ - 20 groups and 7000 users, where each user is member of 3 groups
+
+### Amazon S3
+
+Alternatively, you can use Amazon S3 as a storage provider. To do so, you'll need to:
+
+ 1. Create an S3 bucket
+ 2. Create an IAM user and get the Key ID and Key for that user
+ 3. Create a policy for the IAM user which allows the user to make changes to the bucket
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteObject",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::NAME-OF-YOUR-BUCKET/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::NAME-OF-YOUR-BUCKET"
+            ],
+            "Condition": {}
+        }
+    ]
+}
+```
+
+::: note
+Amazon S3 is a file-based storage platform, which means it writes in parallel. This may cause issues, but the extension's storage logic attempts to take this into account. However, if you automate the creation of groups/roles/permissions, we suggest that you do so using sequential calls to the API.
+:::
 
 ![Install Authorization Extension](/media/articles/extensions/authorization/app-install-v2.png)
 
