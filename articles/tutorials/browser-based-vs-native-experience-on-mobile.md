@@ -39,7 +39,7 @@ Using a browser-based flow protects you from this, since the callback URL is lin
 
 ### Implementation Time
 
-Using browser-based flows reduces the implementation time required, since everything is handled by the login page (including multifactor authetication and anomoly detection).
+Using browser-based flows reduces the implementation time required, since everything is handled by the login page (including multifactor authentication and anomaly detection).
 
 By default, [Lock](/libraries/lock) provides the UX, but you can customize it completely by providing your own UX written in HTML/CSS and integrating it with [auth0.js](libraries/auth0js/v8)
 
@@ -55,7 +55,7 @@ However, it's worth noting that the number of times a user logs in with the mobi
 
 ## Conclusion
 
-There are upsides and downsides to using either a browser-based or native login flow on movile devices, but regardless of which option you choose, Auth0 supports either.
+There are upsides and downsides to using either a browser-based or native login flow on mobile devices, but regardless of which option you choose, Auth0 supports either.
 
 ### Keep Reading
 
