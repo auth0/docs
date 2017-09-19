@@ -6,14 +6,18 @@ toc: true
 
 ## Overview
 
-The Access Token, commonly referred to as `access_token` in code samples, is a credential that can be used by a client to access an API. The `access_token` can be any type of token (not necessarily a JSON Web Token) and is meant for the API. The purpose of the `access_token` is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the `scope` that has been granted). The `access_token` should be used as a `Bearer` credential and transmitted in an HTTP `Authorization` header to the API. 
+The Access Token, commonly referred to as `access_token` in code samples, is a credential that can be used by a client to access an API. The `access_token` can be any type of token (such as an opaque string, or a JWT) and is meant for the API. The purpose of the `access_token` is to inform the API that the bearer of this token has been authorized to access the API and perform specific actions (as specified by the `scope` that has been granted). The `access_token` should be used as a `Bearer` credential and transmitted in an HTTP `Authorization` header to the API. 
 
 ## Access Tokens at Auth0
 
 Auth0 currently generates access tokens in two formats:
 
-* As opaque strings, when `/userinfo` is the audience (no custom API audience, no openid scope).
-* As a [JSON Web Token (JWT)](/jwt), an industry standard. Access tokens may be generated as JWTs when a custom API audience is specified with an `openid` scope. Both the client and the API will also need to be using the same signing algorithm (RS256/HS256) in order to get and use a properly formed JWT access token. 
+* As opaque strings, when `${account.namespace}/userinfo` is the audience.
+* As a [JSON Web Token (JWT)](/jwt) when a custom API is specified as the audience.
+
+JWTs are an industry standard, and are the format access tokens are generated in by Auth0 when a custom API is the audience. When a custom API audience is specified along with an `openid` scope, an access token is generated that will be valid for both the `/userinfo` endpoint and for the custom API. 
+
+Both the client and the API will also need to be using the same signing algorithm (RS256/HS256) in order to get and use a properly formed JWT access token. 
 
 The client signing algorithm can be specified in the [Dashboard](${manage_url}) under the client's settings -> Advanced Settings -> Oauth. 
 
@@ -23,8 +27,8 @@ When setting up an API in the [Dashboard](${manage_url}/#/apis), the signing alg
 
 ![Token Signing Algorithm - API](/media/articles/tokens/tokens-algorithm-api.png)
 
-::: note
-While Auth0 currently uses JWTs for many access tokens, the important thing to remember is that the client should not be depending on the access token to be any specific format, but instead should treat the access token as opaque.
+::: warning
+The important thing to remember is that the client should not be depending on the access token to be any specific format, but instead should treat the access token as opaque.
 :::
 
 ## How to get an access token
@@ -110,17 +114,25 @@ For an example of how to add a custom claim, refer to [Add Custom Claims](/scope
 
 The token lifetime can be controlled on a per-API basis. The validity period can be increased or decreased based on the security requirements of each API.
 
-To configure the amount of time a token lives, use the **Token Expiration (Seconds)** field for your API at the [APIs dashboard](${manage_url}/#/apis). The default value is `24` hours (`86400` seconds).
+To configure the amount of time a token lives, use the **Token Expiration (Seconds)** field for your API at the [Dashboard](${manage_url}/#/apis) APIs section. The default value is `24` hours (`86400` seconds).
 
 ![Token Expiration - API](/media/articles/tokens/tokens-expiration-api.png)
 
 Once expired, an access token can no longer be used to access an API. In order to obtain access again, a new access token needs to be obtained. This can be done by repeating the OAuth flow used to obtain the initial access token.
 
-In some situations, it is desirable to have permanent, ongoing access to an API without having to repeat an OAuth flow. This is often referred to as `offline access`, and is possible with the use of a [refresh token](/tokens/refresh-token).
+In some situations, it is desirable to have permanent, ongoing access to an API without having to repeat an OAuth flow. This is often referred to as `offline_access`, and is possible with the use of a [refresh token](/tokens/refresh-token).
 
-A refresh token is issued from the OAuth 2.0 endpoints along with the access token. When the access token expires, the refresh token can be used to obtain a fresh access token with the same permissions, without further involvement from a user. Note that offline access is enabled as a policy of the API the access token grants access to. If the API does not permit offline access, a refresh token will not be issued. In such circumstances, the OAuth flow must be repeated in order to obtain a new access token.
+A refresh token is issued from the OAuth 2.0 endpoints along with the access token. When the access token expires, the refresh token can be used to obtain a fresh access token with the same permissions, without further involvement from a user. 
 
+Note that offline access is enabled as a policy of the API the access token grants access to. This is a setting that can be altered in the [Dashboard](${manage_url}/#/apis) under the APIs section.
+
+![Offline Access - API](/media/articles/tokens/tokens-offlineaccess-api.png)
+
+If the API does not permit offline access, a refresh token will not be issued. In such circumstances, the OAuth flow must be repeated in order to obtain a new access token.
+
+::: note
 For more information on refresh tokens and how to use them refer to: [Refresh Token](/tokens/refresh-token).
+:::
 
 ## Revoke access token
 
@@ -138,7 +150,7 @@ Auth0 creates access tokens in JWT format for custom APIs. JWTs contain three pa
 
 ### Authorize Access Tokens
 
-Once a client has obtained an access token for a custom API, it will include that token as a credential when making API requests.
+Once a client has obtained an access token, it will include that token as a credential when making API requests.
 
 ```text
 GET /calandar/v1/events
