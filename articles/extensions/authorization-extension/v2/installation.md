@@ -1,6 +1,6 @@
 ---
-title: Installing the Authorization Extension v2
-description: How to install the Authorization Extension v2
+title: Installing the Authorization Extension
+description: How to install the Authorization Extension
 ---
 
 # Authorization Extension: Installation

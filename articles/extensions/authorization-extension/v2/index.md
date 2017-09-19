@@ -13,60 +13,11 @@ The Authorization Extension provides support for user authorization via Groups, 
 
 
 
-## Configure the Extension
 
-The extension needs to be configured before it can enforce your authorization logic.
 
-Click **Configuration** on the dropdown on the top right of the **Authorization Dashboard**.
 
-![Click Configuration](/media/articles/extensions/authorization/click-configuration.png)
 
-This will bring you to the **Rule Configuration** section of the **Configuration** page.
 
-![Configuration page](/media/articles/extensions/authorization/configuration.png)
-
-Here you can configure:
-
-### Token Contents
-
-#### Storing Additional Data in Tokens
-
-If you want to store the data for the Groups, Roles, or Permissions of a user in the token, use the toggle buttons to add the desired data pieces.
-
-Please note however that if your are using [OIDC Conformant Authentication](/api-auth/intro), the custom attributes added to the token by the Authorization Extension will not be added to the `id_token` due to the fact that [custom claims need to be namespaced](/api-auth/tutorials/adoption/scope-custom-claims#custom-claims).
-
-If you therefore choose to enable this option, you will also need to manually add an extra [Rule](/rules) which will add namespaced claims for these attributes. An example of such a Rule can be seen below:
-
-```js
-function (user, context, callback) {
-  var namespace = 'http://yourdomain/claims/'; // You can set your own namespace, but do not use an Auth0 domain
-
-  // Add the namespaced tokens. Remove any which is not necessary for your scenario
-  context.idToken[namespace + "permissions"] = user.permissions;
-  context.idToken[namespace + "groups"] = user.groups;
-  context.idToken[namespace + "roles"] = user.roles;
-  
-  callback(null, user, context);
-}
-```
-
-It is important that this Rule must run **after** the Authorization Extension Rule, so be sure to place it below the Authorization Extension Rule.
-
-::: note
-When calling the `/authorize` endpoint or configuring Lock, you will also have to specify the information you want in the `scope`: `groups`, `permissions` and/or `roles`.
-:::
-
-::: warning
-Storing too much data in the token can cause performance issues or even prevent the token to be issued. Make sure you only choose to store the data that you'll really need. If this data can grow too large, consider using persistence instead of adding it to the token.
-:::
-
-#### Passthroughs
-
-If you have users that receive groups from the Identity Provider (such as Active Directory) then you can merge these groups (in order to preserve them) with the groups defined in your Authorization Extension. Use the toggle buttons to choose which to merge of Groups, Roles and Permissions.
-
-### Persistence
-
-You can also store the authorization context information in the user profile. The data will be stored in the [user's `app_metadata`](/metadata) and you can then use the [Management API](/api/management/v2) or the [`/userinfo` endpoint](/api/authentication/reference#get-user-info) to retrieve this information after the user has logged in.
 
 ## Setup the Authorization Extension
 
