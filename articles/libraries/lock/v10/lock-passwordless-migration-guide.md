@@ -1,17 +1,24 @@
 ---
 section: libraries
 toc: true
-description: lock-passwordless to Lock 10 with Passwordless Mode Migration Guide
+description: Migration Guide for lock-passwordless to Lock 10 with Passwordless Mode
 ---
-# lock-passwordless to Lock 10 with Passwordless Mode Migration Guide
+# Migration Guide for lock-passwordless to Lock 10 with Passwordless Mode
 
 The following instructions assume you are migrating from **lock-passwordless** to the latest **Lock 10** using the **Passwordless** mode.
 
-The goal of this migration guide is to provide you with all of the information you would need to update your lock-passwordless installation to Lock 10 using the Passwordless Mode. Your first step is to remove lock-passwordless from your project and include the latest version of Lock 10. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation to reflect the new changes, not only the initialization of `Auth0LockPasswordless` and your calls to Lock methods, but especially any customization options you were implementing may need inspected and changed. Take a look below for more information!
+The [lock-passwordless](https://github.com/auth0/lock-passwordless) widget was previously a standalone library, separate from [Lock 10](https://auth0.com/docs/libraries/lock/v10). Now, you can migrate your apps to use the newest Lock Passwordless, which is integrated directly into Lock 10. Lock 10 with Passwordless Mode is the latest method by which to quickly and simply deploy a login widget for passwordless authentication in your apps.
+
+The goal of this migration guide is to provide you with all of the information that you will need to update your **lock-paswordless** installation to **Lock 10** (using Lock 10's **Passwordless Mode**). 
+
+First, you will need to remove **lock-passwordless** from your project, and instead include the [latest release version of Lock 10](https://github.com/auth0/lock/releases). Beyond that, you will then need to take a careful look at each of the sections in this migration guide in order to find out which changes you will need to make to your implementation.
+
+Of particular importance will be the initialization of `Auth0LockPasswordless`, your calls to Lock methods (now the same methods as used in Lock 10), and also your previously implemented customization options, which will need inspected and changed to use the corresponding options for Lock 10.
 
 ## General Changes and Additions
 
 ### Importing Auth0LockPasswordless
+
 If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The difference is that you'll provide options in the constructor, like we do with `Auth0Lock`:
 
 #### Using the CDN
@@ -100,6 +107,7 @@ var lock = new Auth0LockPasswordless(clientID, domain, options);
 ```
 
 ### Show the widget
+
 In the previous version, you can call the passwordless method directly (sms, socialOrMagiclink, socialOrSms etc). In the new version, you'll have to use [the show method](/libraries/lock/v10/api#show-) in order to display the widget.
 
 ```js
@@ -111,6 +119,7 @@ lock.show();
 ```
 
 ### Subscribe to events
+
 As of Lock 10, we expose a few events that you can subscribe to in order to be notified when the user is authenticated or an error occurs. So, instead of callbacks from `lock-passwordless`, you have to subscribe to events that you want to know about. To read more about Lock events, see [here](/libraries/lock/v10/api#on-).
 
 ```js
