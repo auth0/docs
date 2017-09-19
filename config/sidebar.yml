@@ -401,9 +401,6 @@ articles:
       - title: "Performance and Scalability"
         url: "/services/performance-scalability"
 
-      - title: "Geo High Availability"
-        url: "/services/geo-ha"
-
       - title: "Scenario guidance"
         url: "/services/scenario-guidance"
 
@@ -421,9 +418,6 @@ articles:
 
       - title: "Auth0 Advanced Topics"
         url: "/services/auth0-advanced"
-
-      - title: "Private SaaS Introduction"
-        url: "/services/private-saas-introduction"
 
       - title: "Private SaaS Management Workshop"
         url: "/services/private-saas-management"
