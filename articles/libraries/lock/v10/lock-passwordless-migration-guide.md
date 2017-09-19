@@ -33,7 +33,9 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
 <script src="https://cdn.auth0.com/js/lock/10.x.y/lock.min.js"></script>
 
 <script>
-  var options = {}
+  var options = {
+    oidcConformant: true
+  }
   var lock = new Auth0LockPasswordless(clientID, domain, options);
 </script>
 ```
@@ -51,7 +53,9 @@ var lock = new Auth0LockPasswordless(clientID, domain);
 
 ```js
 import Auth0LockPasswordless from 'auth0-lock/passwordless';
-var options = {};
+var options = {
+  oidcConformant: true
+};
 var lock = new Auth0LockPasswordless(clientID, domain, options);
 ```
 
@@ -64,6 +68,7 @@ var lock = new Auth0LockPasswordless(clientID, domain, options);
 
 ```js
 var options = {
+  oidcConformant: true,
   passwordlessMethod: 'code' //or link
 };
 var lock = new Auth0LockPasswordless(clientID, domain, options);
@@ -78,6 +83,7 @@ If you have both `sms` and `email` passwordless connections enabled in the dashb
 
 ```js
 var options = {
+  oidcConformant: true,
   allowedConnections: ['sms']
 };
 var lock = new Auth0LockPasswordless(clientID, domain, options);
@@ -87,6 +93,7 @@ var lock = new Auth0LockPasswordless(clientID, domain, options);
 
 ```js
 var options = {
+  oidcConformant: true,
   allowedConnections: ['email']
 };
 var lock = new Auth0LockPasswordless(clientID, domain, options);
@@ -95,11 +102,21 @@ var lock = new Auth0LockPasswordless(clientID, domain, options);
 ### Show the widget
 In the previous version, you can call the passwordless method directly (sms, socialOrMagiclink, socialOrSms etc). In the new version, you'll have to use [the show method](/libraries/lock/v10/api#show-) in order to display the widget.
 
+```js
+var options = {
+  oidcConformant: true
+};
+var lock = new Auth0LockPasswordless(clientID, domain, options);
+lock.show();
+```
+
 ### Subscribe to events
 As of Lock 10, we expose a few events that you can subscribe to in order to be notified when the user is authenticated or an error occurs. So, instead of callbacks from `lock-passwordless`, you have to subscribe to events that you want to know about. To read more about Lock events, see [here](/libraries/lock/v10/api#on-).
 
 ```js
-var options = {};
+var options = {
+  oidcConformant: true
+};
 var lock = new Auth0LockPasswordless(clientID, domain, options);
 lock.on("authenticated", function(authResult) {
   alert(authResult.accessToken);

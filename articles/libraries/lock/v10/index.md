@@ -71,9 +71,13 @@ var lock = new Auth0Lock(
 );
 
 // Initializing Auth0LockPasswordless
+var passwordlessOptions = {
+  oidcConformant: true
+};
 var lockPasswordless = new Auth0LockPasswordless(
   '${account.clientId}',
-  '${account.namespace}'
+  '${account.namespace}',
+  passwordlessOptions
 );
 ```
 
