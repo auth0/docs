@@ -1,6 +1,5 @@
 ---
 description: Conclusion for the Mobile + API architecture scenario
-toc: true
 ---
 
 # Mobile + API: Conclusion
