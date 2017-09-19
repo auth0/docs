@@ -5,7 +5,7 @@ seo_alias: android
 budicon: 500
 ---
 
-This step demonstrates how to use Auth0 to create access roles for your users. With access roles, you can authorize or deny content to different users based on the level of access they have.
+This tutorial shows you how to use Auth0 to create access roles for your users. With access roles, you can authorize or deny access to your content to different users based on the level of access they have.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
@@ -20,26 +20,33 @@ This step demonstrates how to use Auth0 to create access roles for your users. W
 
 ## Before Starting
 
-Be sure that you have completed the [user profile](04-user-profile) quickstart.
+::: note
+Before you continue with this tutorial, make sure that you have completed the [User Profile](04-user-profile) tutorial.
+:::
 
-## Create A Rule To Assign Roles
+## Create a Rule to Assign Roles
 
-First, you need to create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+Create a rule that assigns your users access roles: 
+* An admin role
+* A single user role
+
+To assign roles, go to the [New rule](${manage_url}/#/rules/new) page. In the **Access Control** section,  select the **Set roles to a user** template. 
+
+Edit the following line from the default script to match the conditions that fit your needs:
 
 ```java
 if (user.email.indexOf('@example.com') > -1)
 ```
-to match the condition that fits your needs.
 
-By default, it says that if the user email contains `@example.com` then they will be given an `admin` role, otherwise a regular `user` role.
-
-::: note
-You can define more roles other than `admin` and `user`, depending on your product requirements.
-:::
+The default rules for assigning access roles are:
+* If the user's email contains @example.com, the user gets the admin role
+* If the user's email contain anything else, the user gets the regular user role
 
 ::: note
-In the demo app, we use `@admin.com` to validate, like the next rule:
+Depending on your needs, you can define roles other than admin and user.
 :::
+
+In the demo app, we use `@admin.com` to validate the user:
 
 ```js
   var addRolesToUser = function(user, cb) {
@@ -53,9 +60,9 @@ In the demo app, we use `@admin.com` to validate, like the next rule:
 
 ## Test the Rule in Your Project
 
-Once you have the user profile (as explained in the [user profile](04-user-profile) tutorial), you can save it and access it at any point.
+Once you have the user profile, you can save the profile and access it at any point. To learn more about user profile, see the [User Profile](04-user-profile) tutorial. 
 
-Inside it, you will have the role, and you will be ready to perform the access control.
+The user profile contains the access role assigned to the user. 
 
 ```java
 // app/src/main/java/com/auth0/samples/activities/MainActivity.java
@@ -67,9 +74,9 @@ if (roles.contains("admin")) {
 ```
 
 ::: note
-Notice that you'll find the `roles` information within the `appMetadata` HashMap and not in the `userMetadata`. Application metadata cannot be modified by users, whereas User metadata can be.
+Application metadata can't be modified by users and the user metadata can be. Because of that, the information about user roles is in the `appMetadata` HashMap, not in the `userMetadata` HashMap.
 :::
 
-## Restrict Content Based On Access Level
+## Restrict Content Based on Access Level
 
-At this point, you are able to distinguish the users roles in your app and authorize or deny (depending on the user) access to a certain feature.
+Now you can recognize the users with different roles in your app. You can use this information to give and restrict access to selected features in your app to users with different roles.
