@@ -19,9 +19,9 @@ Claims are used to:
 
 ## Standard Claims
 
-OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These claims are user attributes and are intended to supply the client with user details such as email, name and picture.
+OpenID Connect specifies a set of [standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). These claims are user attributes and are intended to provide the client with user details such as email, name and picture.
 
-This information can be returned in the `id_token` or in the retrieved from [the /userinfo endpoint](/api/authentication#get-user-info).
+This information can be returned in the `id_token` or in the response from [the /userinfo endpoint](/api/authentication#get-user-info).
 
 ### Example: Ask for Standard Claims
 
@@ -73,7 +73,7 @@ When decoded, the `id_token` contains the following claims:
 }
 ```
 
-Your app now can retrieve these values and use them personalize the UI.
+Your app now can retrieve these values and use them to personalize the UI.
 
 ## Custom Claims
 
@@ -83,9 +83,9 @@ When adding custom claims to ID or access tokens, they must [conform to a namesp
 
 Suppose that:
 
-* The identity provider returns a `favorite_color` claim as part of the user’s profile 
-* We’ve used the Auth0 management API to set application-specific information for this user
-* We've saveed the `preferred_contact` information as part of the `user_metadata`
+* The identity provider returns a `favorite_color` claim as part of the user's profile 
+* We've used the Auth0 Management API to set application-specific information for this user
+* We've saved the `preferred_contact` information as part of the `user_metadata`
 
 This would be the profile stored by Auth0:
 
@@ -161,7 +161,7 @@ Note the differences between the two examples. In the latest, we want to get an 
 ## Define Scopes Using the Dashboard
 
 ::: warning
-By default, any user on any client can ask for any scope defined here. You can implement access policies to limit this behaviour via Rules.
+By default, any user of any client can ask for any scope defined here. You can implement access policies to limit this behaviour via [Rules](/rules).
 :::
 
 You can define API scopes using the [Dashboard](${manage_url}/#/apis). Select the API you want to edit, and open up its **Scopes** tab.
