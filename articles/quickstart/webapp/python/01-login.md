@@ -35,6 +35,7 @@ flask-oauthlib
 
 ## Initialize Flask-OAuthlib
 
+With `OAuth` you call the authorize endpoint of the Authentication API and redirect your users to our [hosted login page](/hosted-pages/login). This way, you will be implementing the [authorization code grant flow](https://auth0.com/docs/api-auth/tutorials/authorization-code-grant), so you will obtain a `code`.
 Create a file named `server.py`, and instantiate a client with your client keys, scopes, and OAuth endpoints.
 
 ```python
@@ -65,10 +66,10 @@ auth0 = oauth.remote_app(
 
 ## Add the Auth0 Callback Handler
 
-This handler exchanges the `code` that Auth0 sends to the callback URL and exchange for an `access_token` 
+This handler exchanges the `code` that Auth0 sends to the callback URL for an `access_token` 
 and an `id_token`.
 
-The `id_token` is a [JWT](/jwt) that contains the information of the user profile, to get the information from it you have to decode and validate its signature. After the user information is obtained, store then in the flask `session`.
+The `id_token` is a [JWT](/jwt) that contains the user profile information for the requested [OIDC Conformant claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) , to get the information from it you have to decode and validate its signature. After the user information is obtained, store then in the flask `session`.
 
 ```python
 # Here we're using the /callback route.
@@ -83,10 +84,10 @@ def callback_handling():
         ))
     
     # Obtain JWT and the keys to validate the signature
-    idToken = resp['id_token']
+    id_token = resp['id_token']
     jwks = urlopen("https://"+${account.namespace}+"/.well-known/jwks.json")
     
-    payload = jwt.decode(idToken, jwks.read(), algorithms=['RS256'], audience=${account.clientId},
+    payload = jwt.decode(id_token, jwks.read(), algorithms=['RS256'], audience=${account.clientId},
                         issuer="https://"+${account.namespace}+"/")
     
     # Store the tue user information obtained in the id_token in flask session.
@@ -103,7 +104,7 @@ def callback_handling():
 
 ## Trigger Authentication
 
-Add a `/login` route that uses `Flask-OAuthlib` client instance to redirect the user to Auth0's hosted login page.
+Add a `/login` route that uses the `Flask-OAuthlib` client instance to redirect the user to Auth0's [hosted login page](/hosted-pages/login).
 
 ```python
 @app.route('/login')
@@ -124,9 +125,7 @@ Create a `home.html` file in a `/template` folder. Add a link to the `/login` ro
 
 ## Logout
 
-To logout the user you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint.
-
-Checkout [logout documentation](/logout) for more information.
+To log the user out, you have to clear the data from the session, and redirect the user to the Auth0 logout endpoint. You can find more information about this in [our documentation logout documentation](/logout).
 
 ```python
 @app.route('/logout')
@@ -139,8 +138,7 @@ def logout():
 ```
 
 ::: note
-The final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. 
-See the [logout documentation](/logout#redirecting-users-after-logout) for more.
+Please take into consideration that the return to URL needs to be in the list of Allowed Logout URLs in the settings section of the client as explained in [our documentation](/logout#redirect-users-after-logout)
 :::
 
 ## Check if the user is authenticated
