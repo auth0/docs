@@ -9,7 +9,7 @@ toc: true
 The ID token, usually referred to in our docs as `id_token`, is a [JSON Web Token (JWT)](/jwt) that contains user profile information (like the user's name, email, and so forth), represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can [verify its signature](#validate-an-id-token).
 
 ::: warning
-If you rely on the `id_token`, then you __must__ [verify its signature](#verify-the-signature) before storing and using it.
+Υou __must__ [verify the ID token's signature](#verify-the-signature) before storing and using it.
 :::
 
 You will need to decode this token to read the claims (or attributes) of the user. The JWT website provides a [list of libraries you can use to decode](https://jwt.io/#libraries-io) the `id_token`.
