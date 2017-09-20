@@ -89,6 +89,10 @@ In your application's `Info.plist` file register your iOS Bundle Identifier as a
 ```
 
 ::: note
+If your `Info.plist` is not shown in this format, you can **Right Click** on `Info.plist` in Xcode and then select **Open As / Source Code**.
+:::
+
+::: note
 Auth0.swift will only handle URLs with your Auth0 domain as host, for example `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
 :::
 
