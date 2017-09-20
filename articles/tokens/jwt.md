@@ -171,6 +171,8 @@ _Comparison of the length of an encoded JWT and an encoded SAML_
 
 ## Read More
 
+::: next-steps
 * [JWT Handbook](https://auth0.com/e-books/jwt-handbook)
 * [10 Things You Should Know About Tokens](https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/)
 * [Cookies vs Tokens. Getting auth right with Angular.JS](https://auth0.com/blog/angularjs-authentication-with-cookies-vs-token/)
+:::
