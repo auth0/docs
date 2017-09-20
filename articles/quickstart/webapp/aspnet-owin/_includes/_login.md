@@ -62,7 +62,7 @@ public void Configuration(IAppBuilder app)
 It is important that you register the cookie mmiddeware as well as the Auth0 middleware as all of them are required for the authentication to work. The Auth0 middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
 ::: note
-We are passing the Auth0 tenant's user info endpont as the `audience` parameter to the `/authorize` endpoint. This is to ensure that all authentication reponses are [OIDC Conformant](https://auth0.com/docs/api-auth/intro).
+We are passing the Auth0 tenant's user info endpont as the `audience` parameter to the `/authorize` endpoint. This is to ensure that all authentication reponses are [OIDC Conformant](/api-auth/intro).
 :::
 
 ## Add Login and Logout Methods
@@ -71,7 +71,7 @@ Next, you will need to add `Login` and `Logout` actions to the `AccountControlle
 
 The `Login` action will return a `ChallengeResult` which will instruct the OWIN middleware to challenge the particular piece of Authentication middleware (in the case the "Auth0" middleware) to authenticate. 
 
-For the `Logout` action you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as Auth0. For more information you can refer to the Auth0 [Logout](https://auth0.com/docs/logout) documentation.
+For the `Logout` action you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as Auth0. For more information you can refer to the Auth0 [Logout](/logout) documentation.
 
 ```cs
 // Controllers/AccountController.cs
