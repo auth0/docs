@@ -38,15 +38,16 @@ Most JWT libraries will take care of the token validation for you automatically,
 
 ### Verify the signature
 
-Verifying the signature of an `id_token` depends on the hash algorithm used by your Client:
+The signature is used to verify that the sender of the token is who it says it is and to ensure that the message wasn't changed along the way.
 
-- If you used `HS256` then the token is signed with the **Client Secret**, using the HMAC algorithm. You can verify the signature using the Client Secret value, which you can find at the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) page.
+Remember that the `id_token` is always a JWT, and the signature is created using its header and payload, a secret and the hashing algorithm being used (as specified in the header: `HMAC`, `SHA256` or `RSA`). The way to verify it, depends on the hashing algorithm:
 
-- If you used `RS256` then the token is signed with a public/private key pair, using RSA. You can verify the signature using the Public Key or Certificate, which you can find at the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > Certificates page.
-
-To check or update the algorithm your Client uses go to [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm. 
+- For `HS256`, the API's __Signing Secret__ is used. You can find this information at your [API's Settings](${manage_url}/#/apis). Note that the field is only displayed for APIs that use `HS256`.
+- For `RS256`, the tenant's [JSON Web Key Set (JWKS)](/jwks) is used. Your tenant's JWKS is `https://${account.namespace}/.well-known/jwks.json`.
 
 The most secure practice, and our recommendation, is to use `RS256`.
+
+To check or update the algorithm your Client uses go to [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) > Show Advanced Settings > OAuth > JsonWebToken Signature Algorithm. 
 
 ### Validate the Claims
 
