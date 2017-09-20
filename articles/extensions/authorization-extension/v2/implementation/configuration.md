@@ -28,13 +28,13 @@ Storing too much data in the token may cause performance issues or even prevent 
 
 To add groups, roles, and/or permissions information to the outgoing token, simply enable the slider next to the option you want included.
 
-![Set token contents](/user-info.png)
+![Set token contents](/media/articles/extensions/authorization/user-info.png)
 
 ### Passthroughs
 
 You might have users that receive groups, roles, or permissions from the identity provider you're using, such as Active Directory. If you want to merge these items (to preserve them) with the ones defined in the Authorization Extension, make sure you enable the appropriate Passthrough options. Simply enable the slider next to the appropriate merges you want enabled.
 
-![Enable passthroughs](/passthrough.png)
+![Enable passthroughs](/media/articles/extensions/authorization/passthrough.png)
 
 ### Persistence
 
@@ -42,7 +42,7 @@ In addition to storing the authorization context in the token, you can choose to
 
 The data will be stored in the user's `app_metadata` field, and you can then use the [Management API](/api/management/v2) or the Authentication API's [User Profile endpoint](/api/authentication#user-profile) to retrieve this information after the user has logged in.
 
-![Enable persistence](/persistence.png)
+![Enable persistence](/media/articles/extensions/authorization/persistence.png)
 
 ## Publish the Authorization Extension Rule
 
