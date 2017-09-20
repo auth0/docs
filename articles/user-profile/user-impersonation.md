@@ -52,7 +52,7 @@ This reveals fields to make it easier to [impersonate a User using the Impersona
 - **Response mode**: `GET` or `POST`. This is only for server side apps, client side apps default to `GET`.
 - **Response type**: `Code` or `Token`. This is only for server side apps, client side apps default to `Token`.
 - **Scope**: This field will have `openid` in it is as default, [other scopes](/scopes) can be added as a list using whitespace as separator.
-- **State**: The `state` is an optional parameter. Learn more about [using the state parameter here](/protocols/oauth2/oauth-state).
+- **State**: The `state` is a required parameter and leaving it blank may lead to errors like `Impersonation - Bad mac`. Learn more about [using the state parameter here](/protocols/oauth2/oauth-state).
 
 ## Use the Impersonation API
 
