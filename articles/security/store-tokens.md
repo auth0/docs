@@ -10,7 +10,11 @@ description: Explains how to securely store tokens used in token-based authentic
 
 ## Where to Store Your JWTs
 
-With token-based auth, you are given the choice of where to store the JWT. We strongly recommend that you store your tokens in local storage/session storage or a cookie. 
+::: warning
+You __must__ [verify a JWT's signature](/tokens/id-token#verify-the-signature) before storing and using it.
+:::
+
+With token-based authentication, you are given the choice of where to store the JWT. We strongly recommend that you store your tokens in local storage/session storage or a cookie.
 
 ### Web Storage (local storage/session storage)
 
