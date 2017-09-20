@@ -67,7 +67,7 @@ Set your Auth0 Client ID, Auth0 Domain, and API’s url in the `strings.xml` res
 
 ```xml
 <resources>
-    <string name="app_name">ABC Timesheets</string>
+    <string name="app_name">ExampleCo Timesheets</string>
     <string name="login">Log in</string>
     <string name="auth0_client_id">...</string>
     <string name="auth0_domain">...</string>
@@ -150,7 +150,7 @@ Next create `login_activity.xml`, the layout for the `LoginActivity`:
 The `LoginActivity` will handle user authorization and be the initial screen users see. We'll create a `login()` method to initialize a `WebAuthProvider` and start authentication. Ensure you provide the correct scheme, audience, and scope to the `WebAuthProvider`. For this implementation we will use:
 
 - __scheme__: `demo`
-- __audience__: `https://api.abcinc.com/timesheets` (the Node.JS API)
+- __audience__: `https://api.exampleco.com/timesheets` (the Node.JS API)
 - __response_type__: `code`
 - __scope__: `create:timesheets read:timesheets openid profile email offline_access`. These scopes will enable us to `POST` and `GET` to the Node.JS API, as well as retrieve the user profile and a refresh token.
 
@@ -161,7 +161,7 @@ private void login() {
 
         WebAuthProvider.init(auth0)
                 .withScheme("demo")
-                .withAudience("https://api.abcinc.com/timesheets")
+                .withAudience("https://api.exampleco.com/timesheets")
                 .withResponseType(ResponseType.CODE)
                 .withScope("create:timesheets read:timesheets openid profile email offline_access")
                 .start(
@@ -226,7 +226,7 @@ public class LoginActivity extends Activity {
 
         WebAuthProvider.init(auth0)
                 .withScheme("demo")
-                .withAudience("https://api.abcinc.com/timesheets")
+                .withAudience("https://api.exampleco.com/timesheets")
                 .withResponseType(ResponseType.CODE)
                 .withScope("create:timesheets read:timesheets openid profile email")
                 .start(LoginActivity.this, new AuthCallback() {

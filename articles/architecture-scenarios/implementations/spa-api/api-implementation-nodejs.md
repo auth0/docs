@@ -212,7 +212,7 @@ You can give the rule a descriptive name, for example `Add email to access token
 
 ```js
 function (user, context, callback) {
-  const namespace = 'https://api.abcinc.com/';
+  const namespace = 'https://api.exampleco.com/';
   context.accessToken[namespace + 'email'] = user.email;
   callback(null, user, context);
 }
@@ -231,7 +231,7 @@ app.get('/timesheets', checkJwt, jwtAuthz(['read:timesheets']), function(req, re
   var timesheet = req.body;
 
   // Associate the timesheet entry with the current user
-  var userId = req.user['https://api.abcinc.com/email'];
+  var userId = req.user['https://api.exampleco.com/email'];
   timesheet.user_id = userId;
 
   // Save the timesheet to the database...
