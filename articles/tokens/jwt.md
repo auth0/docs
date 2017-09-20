@@ -8,7 +8,7 @@ toc: true
 # JSON Web Tokens (JWT) in Auth0
 
 ::: note
-For more information on all the types of access tokens used by Auth0, see [Tokens](/tokens).
+For more information on all the types of tokens used by Auth0, see [Tokens](/tokens).
 :::
 
 <%= include('../videos/_video', { id: 'dxfz716cw9' }) %>
@@ -116,6 +116,10 @@ If you want to play with JWT and put these concepts into practice, you can use [
 ## How do JSON Web Tokens work?
 
 In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned and must be saved locally (typically in local storage, but cookies can be also used), instead of the traditional approach of creating a session in the server and returning a cookie.
+
+::: warning
+You __must__ [verify a JWT's signature](/tokens/id-token#verify-the-signature) before storing and using it.
+:::
 
 Whenever the user wants to access a protected route or resource, the user agent should send the JWT, typically in the **Authorization** header using the **Bearer** schema. The content of the header should look like the following:
 
