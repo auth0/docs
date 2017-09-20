@@ -58,38 +58,36 @@ So change the existing middleware registration in the `Startup` class to extract
 
 var options = new Auth0AuthenticationOptions()
 {
-    Domain = auth0Domain,
-    ClientId = auth0ClientId,
-    ClientSecret = auth0ClientSecret,
+  Domain = auth0Domain,
+  ClientId = auth0ClientId,
+  ClientSecret = auth0ClientSecret,
 
-    Provider = new Auth0AuthenticationProvider
+  Provider = new Auth0AuthenticationProvider
+  {
+    OnApplyRedirect = context =>
     {
-        OnAuthenticated = context =>
+        string userInfoAudience = $"https://{auth0Domain}/userinfo";
+        string redirectUri = context.RedirectUri + "&audience=" + WebUtility.UrlEncode(userInfoAudience);
+
+        context.Response.Redirect(redirectUri);
+    },
+    OnAuthenticated = context =>
+    {
+        // Get the user's roles
+        var rolesObject = context.User["https://schemas.quickstarts.com/roles"];
+        if (rolesObject != null)
         {
-            // Get the user's country
-            JToken countryObject = context.User["https://schemas.quickstarts.com/country"];
-            if (countryObject != null)
+            string[] roles = rolesObject.ToObject<string[]>();
+            foreach (var role in roles)
             {
-                string country = countryObject.ToObject<string>();
-
-                context.Identity.AddClaim(new Claim("country", country, ClaimValueTypes.String, context.Connection));
+                context.Identity.AddClaim(new Claim(ClaimTypes.Role, role, ClaimValueTypes.String, context.Connection));
             }
-
-            // Get the user's roles
-            var rolesObject = context.User["https://schemas.quickstarts.com/roles"];
-            if (rolesObject != null)
-            {
-                string[] roles = rolesObject.ToObject<string[]>();
-                foreach (var role in roles)
-                {
-                    context.Identity.AddClaim(new Claim(ClaimTypes.Role, role, ClaimValueTypes.String, context.Connection));
-                }
-            }
-
-
-            return Task.FromResult(0);
         }
+
+
+        return Task.FromResult(0);
     }
+  }
 };
 app.UseAuth0Authentication(options);
 ```
