@@ -2,7 +2,6 @@
 title: Enabling API Access to the Authorization Extension
 description: How to enable API access to the Authorization Extension
 ---
-
 # Authorization Extension: API Access
 
 Once configured and set up, your extension should contain users, as well as groups, roles, and permissions. You can automate provisioning and query the authorization context of your users in real-time if you enable API access to your extension.

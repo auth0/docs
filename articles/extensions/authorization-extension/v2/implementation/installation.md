@@ -84,4 +84,6 @@ When you click the link to open the extension for the first time, you'll be aske
 
 ![Authorization Dashboard](/media/articles/extensions/authorization/auth-dashboard-v2.png)
 
-You can now use the Authorization Extension.
+<%= include('./_stepnav', {
+ next: ["Configure the Extension", "/extensions/authorization-extension/v2/implementation/configuration"]
+}) %>

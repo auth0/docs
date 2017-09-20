@@ -74,3 +74,8 @@ This rule must run **after** the Authorization Extension rule. To make sure this
 ::: note
 When calling the `/authorize` endpoint or configuring Lock, you'll need to specify the information you want in the `scope` by indicating `groups`, `permissions` and/or `roles`.
 :::
+
+<%= include('./_stepnav', {
+ prev: ["Install the Extension", "/extensions/authorization-extension/v2/implementation/install"],
+ next: ["Setup the Extension", "/extensions/authorization-extension/v2/implementation/setup"]
+}) %>
