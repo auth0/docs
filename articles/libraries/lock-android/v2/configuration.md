@@ -3,7 +3,6 @@ section: libraries
 toc_title: Lock for Android Configuration Options
 description: Altering the appearance and behavior of Lock for Android
 ---
-
 # Lock Configuration Options
 
 These are options that can be used to configure Lock for Android to your project's needs. **Note that if you are a user of Lock v1 who is now migrating to Lock v2**, you'll want to take note first of those [options that have been renamed or whose behavior have changed](/libraries/lock-android/migration-guide), and then look over the new list below, which contains quite a few options new to v2.

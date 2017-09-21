@@ -3,12 +3,12 @@ section: libraries
 toc_title: Custom Theming
 description: Customizing the Lock for Android UI
 ---
-
 # Lock for Android Custom Theming
 
 The **Lock.Android** UI is very customizable.
 
 ## Supported attributes list
+
 | Name | Type | Description |
 | :--- | :---: | :--- |
 |Auth0.HeaderLogo | drawable - reference | Logo drawable to display inside the header. |
@@ -23,6 +23,7 @@ The **Lock.Android** UI is very customizable.
 First you need to create a new `Theme` that extends from `Lock.Theme`, and override the attributes you want to customize.
 
 styles.xml
+
 ```xml
 <resources>
   <style name="MyTheme" parent="Lock.Theme">
@@ -62,6 +63,6 @@ Then, you need to tell the Manifest that you want to use the new `MyTheme` in th
 </manifest>
 ```
 
-## Pay Attention to the Manifest!
+## Pay Attention to the Manifest
 
 Please note that if you define your own Theme in a style resource file and forget to specify that the Theme's parent is `Lock.Theme`, or you forget to tell the Manifest which will be the Theme for the Activity, you will end up with a really bad looking UI. This may also happen if the values you specify in your custom Theme are invalid.

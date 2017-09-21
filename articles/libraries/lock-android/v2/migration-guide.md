@@ -3,9 +3,7 @@ section: libraries
 toc_title: Migration Notes v1 to v2
 description: A reference for changed option names and behaviors in Lock for Android v2
 ---
-
 # Lock for Android v1 to v2 Migration Guide
-
 
 ## Application Class and Initializing Lock
 
@@ -16,8 +14,8 @@ In v1 of Lock for Android, you were asked to create a custom `Application` class
 In v1, when an authentication was successful, you could obtain the UserProfile from the received Intent. As of v2, the only received value is a `Credentials` object. You can get the `access_token` and request the information associated to that user, by making a request to Auth0.
 
 1. Create a new `AuthenticationAPIClient` instance by passing an instance of the `Auth0` object. It can be the same instance used to launch Lock in the first place.
-2. Call the `userInfo` method on the API client passing the previously obtained `access_token`.
-3. A `UserProfile` instance is returned
+1. Call the `userInfo` method on the API client passing the previously obtained `access_token`.
+1. A `UserProfile` instance is returned
 
 ```java
 Auth0 auth0 = new Auth0("${account.clientId}", "${account.namespace}");
@@ -52,6 +50,5 @@ As in the previous version, Lock for Android v2 can be configured with extra opt
 * `defaultUserPasswordConnection`: Renamed to `setDefaultDatabaseConnection`. Defines which will be the default Database connection. This is useful if your application has many Database connections configured.
 * `setConnections`: Renamed to `allowedConnections`. Filters the allowed connections from the list configured in the Dashboard. If this value is empty, all the connections defined in the dashboard will be available. This is also the default behavior.
 * `setAuthenticationParameters`: Renamed to `withAuthenticationParameters`. Defines extra authentication parameters to be sent on sign up and log in/sign in. The default `scope` used on authentication calls is `openid`. This is changed from v1, which also included the `offline_access` scope.
-
 
 Lock for Android v2 also features a bunch of new options. Check the [configuration options page](/libraries/lock-android/configuration) for a complete list of them.

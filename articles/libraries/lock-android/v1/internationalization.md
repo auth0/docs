@@ -4,7 +4,9 @@ toc_title: Internationalization
 title: Internationalization
 description: Internationalization support in Lock for Android
 ---
-# Internationalization in Lock for Android v2
+# Internationalization in Lock for Android v1
+
+<%= include('../_includes/_lock-version') %>
 
 By default, **Lock.Android** displays all text in English. If you wish to display text in another language, you may provide a `strings.xml` file and define values to be used for the various text items that Lock might display.
 
@@ -14,8 +16,8 @@ Some of the default values provided by Lock include:
 
 ```html
 <resources>
-  <string name="com_auth0_lock_social_error_authentication">Error parsing Authentication data</string>
-  <string name="com_auth0_lock_social_error_title">There was an error during authentication</string>
+  <string name="sms_login_btn_text">Login SMS</string>
+  <string name="no_login_text">Login not found</string>
   ...
 </resources>
 ```
@@ -24,12 +26,12 @@ By providing your own `strings.xml` file, these values can be adjusted as such:
 
 ```html
 <resources>
-  <string name="com_auth0_lock_social_error_authentication">There was an authentication error!</string>
-  <string name="com_auth0_lock_social_error_title">Social login error!!</string>
+  <string name="sms_login_btn_text">Login with SMS</string>
+  <string name="no_login_text">This user was not found!</string>
   ...
 </resources>
 ```
 
 ## Lock String Values
 
-For a full list of the names used by Lock, see the [default strings.xml file](https://github.com/auth0/Lock.Android/blob/master/lib/src/main/res/values/strings.xml) in the Lock.Android repository.
+For a full list of the names used by Lock, see the [default strings.xml file](https://github.com/auth0/Lock.Android/blob/v1/app/src/main/res/values/strings.xml) in the Lock.Android repository.

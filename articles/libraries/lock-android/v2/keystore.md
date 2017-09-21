@@ -4,7 +4,6 @@ toc_title: Android Development Keystores and Key Hashes
 title: Android Development Keystores and Key Hashes
 description: Instructions on acquiring development keystores/key hashes during Android app development.
 ---
-
 # Android Development Keystores and Key Hashes
 
 When creating a new OAuth Credential for many connections you will need to provide the SHA-1 of the certificate you're using to sign your application. When completing your Client's configuration in the [Auth0 Dashboard](${manage_url}) you will also need to provide the SHA-256 value.

@@ -2,12 +2,12 @@
 section: libraries
 description: Integrate with third-party apps with the delegation API.
 ---
-
 # Lock Android: Delegation API
 
 After a successful authentication, you can request credentials to access third party apps like Firebase or AWS that are configured in your Auth0 App's Add-On section. In order to do that you need to make a request to our [Delegation API](/api/authentication/reference#delegation) using a valid JWT.
 
 Here's an example
+
 ```java
 Auth0 account = new Auth0("${account.clientId}", "${account.namespace}");
 auth0.setOIDCConformant(true);
@@ -18,7 +18,7 @@ client.delegationWithIdToken(token, apiType)
   .start(new BaseCallback<Map<String, Object>, AuthenticationException>() {
         @Override
         public void onSuccess(Map<String, Object> payload) {
-            //Your Firebase token will be in payload        
+            //Your Firebase token will be in payload
         }
 
         @Override
