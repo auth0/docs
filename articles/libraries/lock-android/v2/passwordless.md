@@ -1,9 +1,9 @@
 ---
 section: libraries
-toc_title: Passwordless Authentication with Lock for Android
+title: Lock Android v2 Passwordless
 description: Guide on implementing Passwordless authentication with Lock for Android
 ---
-# Lock Passwordless
+# Lock Android: Passwordless
 
 ::: warning
 Passwordless on native platforms is disabled by default for new tenants as of 8 June 2017. If you would like this feature enabled, please contact support to discuss your use case. See [Client Grant Types](/clients/client-grant-types) for more information. Alternatively, you can use Lock Passwordless on Auth0's [Hosted Login Page](/hosted-pages/login).

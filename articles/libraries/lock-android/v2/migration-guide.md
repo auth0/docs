@@ -1,9 +1,9 @@
 ---
 section: libraries
-toc_title: Migration Notes v1 to v2
+title: Lock Android v2 Migration Guide
 description: A reference for changed option names and behaviors in Lock for Android v2
 ---
-# Lock for Android v1 to v2 Migration Guide
+# Lock Android: Migration Guide
 
 ## Application Class and Initializing Lock
 

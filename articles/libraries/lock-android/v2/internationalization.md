@@ -1,10 +1,9 @@
 ---
 section: libraries
-toc_title: Internationalization
-title: Internationalization
+title: Lock Android v2 Internationalization
 description: Internationalization support in Lock for Android
 ---
-# Internationalization in Lock for Android v2
+# Lock Android: Internationalization
 
 By default, **Lock.Android** displays all text in English. If you wish to display text in another language, you may provide a `strings.xml` file and define values to be used for the various text items that Lock might display.
 

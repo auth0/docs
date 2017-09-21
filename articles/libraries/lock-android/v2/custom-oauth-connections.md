@@ -1,8 +1,9 @@
 ---
 section: libraries
+title: Lock Android v2 Custom OAuth Connections
 description: Lock for Android - Custom OAuth Connections
 ---
-# Custom OAuth Connections
+# Lock Android: Custom OAuth Connections
 
 ## Create the OAuth Connection in the Dashboard
 

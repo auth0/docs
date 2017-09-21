@@ -1,8 +1,8 @@
 ---
-toc_title: Passwordless with Magic Link
+title: Lock Android v1 Passwordless with Magic Link
 description: Passwordless with Magic Link with Lock Android
 ---
-# Passwordless with Lock Android
+# Lock Android: Passwordless Magic link
 
 <%= include('../_includes/_lock-version') %>
 

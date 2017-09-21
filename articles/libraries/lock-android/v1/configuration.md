@@ -1,7 +1,9 @@
 ---
+toc: true
+title: Lock for Android v1 Configuration
 description: Configuration options and methods for Lock for Android v1
 ---
-# Lock v1 Configuration
+# Lock Android: Configuration
 
 <%= include('../_includes/_lock-version') %>
 

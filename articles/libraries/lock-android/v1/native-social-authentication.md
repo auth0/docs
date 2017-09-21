@@ -1,8 +1,8 @@
 ---
-toc_title: Native Social Authentication
+title: Lock Android v1 Native Social Authentication
 description: How to implement native social authentication with Lock Android
 ---
-# Native Social Authentication
+# Lock Android: Native Social Authentication
 
 <%= include('../_includes/_lock-version') %>
 

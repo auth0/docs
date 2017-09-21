@@ -1,5 +1,6 @@
 ---
 section: libraries
+title: Lock for Android v2 Delegation API
 description: Integrate with third-party apps with the delegation API.
 ---
 # Lock Android: Delegation API

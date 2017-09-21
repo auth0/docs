@@ -1,12 +1,11 @@
 ---
 section: libraries
 toc: true
-toc_title: Lock for Android v1
 title: Lock for Android v1
 description: A widget that provides a frictionless login and signup experience for your native Android apps.
 mobileimg: media/articles/libraries/lock-android.png
 ---
-# Lock for Android
+# Lock Android: Getting Started
 
 <%= include('../_includes/_lock-version') %>
 

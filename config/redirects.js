@@ -986,10 +986,6 @@ module.exports = [
     to: '/libraries/lock-android/custom-theming'
   },
   {
-    from: '/libraries/lock-android/native-social-authentication',
-    to: '/libraries/lock-android/custom-authentication-providers'
-  },
-  {
     from: '/onboarding/appliance-outage',
     to: '/appliance/critical-issue'
   },

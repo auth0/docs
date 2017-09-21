@@ -1,10 +1,9 @@
 ---
 section: libraries
-toc_title: Internationalization
-title: Internationalization
+title: Lock Android v1 Internationalization
 description: Internationalization support in Lock for Android
 ---
-# Internationalization in Lock for Android v1
+# Lock Android: Internationalization
 
 <%= include('../_includes/_lock-version') %>
 

@@ -1,8 +1,9 @@
 ---
 section: libraries
+title: Lock Android v2 Native Social Authentication
 description: Lock for Android - Native Social Authentication
 ---
-# Native Social Authentication
+# Lock Android: Native Social Authentication
 
 ::: warning
 This feature relies on a deprecated grant type. Clients created after June 8th 2017 won't be able to use this feature. 

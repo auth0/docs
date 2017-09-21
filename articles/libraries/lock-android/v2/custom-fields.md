@@ -1,9 +1,9 @@
 ---
 section: libraries
-toc_title: Custom Fields at Signup
+title: Lock Android v2 Custom Fields at Signup
 description: Adding additional fields to signups with Lock for Android
 ---
-# Lock for Android Custom Fields at Signup
+# Lock Android: Custom Fields at Signup
 
 **Lock.Android** allows you to specify additional fields that the user must complete before creating a new account. The extra fields will be shown on a second screen after the user completes the basic fields (email, username, password).
 

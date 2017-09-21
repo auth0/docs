@@ -1,9 +1,9 @@
 ---
 section: libraries
-toc_title: Custom Theming
+title: Lock Android v2 Custom Theming
 description: Customizing the Lock for Android UI
 ---
-# Lock for Android Custom Theming
+# Lock Android: Custom Theming
 
 The **Lock.Android** UI is very customizable.
 

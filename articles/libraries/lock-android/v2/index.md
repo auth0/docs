@@ -1,13 +1,11 @@
 ---
 section: libraries
 toc: true
-toc_title: Lock for Android v2
 title: Lock for Android v2
-url: /libraries/lock-android/v2
 description: A widget that provides a frictionless login and signup experience for your native Android apps.
 mobileimg: media/articles/libraries/lock-android.png
 ---
-# Lock for Android
+# Lock Android: Getting Started
 
 Lock for Android can integrate into your native Android apps to provide a beautiful way to log your users in and to sign them up in your app. It provides support for social identity providers such as Facebook, Google, or Twitter, as well as enterprise providers such as Active Directory.
 
