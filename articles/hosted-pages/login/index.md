@@ -16,8 +16,8 @@ Auth0's Hosted Login Page is the most secure way to easily authenticate users fo
 
 Auth0 shows the Hosted Login Page whenever something (or someone) triggers an authentication request, such as calling the `/authorize` endpoint (OIDC/OAuth) or sending a SAML login request. It can also be accessed via a request, in the following format:
 
-```html
-https://${account.namespace}.auth0.com/login?client=${account.clientId}
+```text
+https://${account.namespace}/login?client=${account.clientId}
 ```
 
 Users will see the Hosted Login Page, typically with either the Lock widget or with your custom UI. Once they login, they will be redirected back to your application.
