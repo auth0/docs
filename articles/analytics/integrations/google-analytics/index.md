@@ -7,7 +7,7 @@ This article explains how to install and configure the **Google Analytics for Au
 
 <%= include('../_install', { name: "Google Analytics" }) %>
 
-### Setup
+## Setup
 
 There are several ways you can use the Google Analytics integration. If you already have the Google Analytics Script on your site, configure Auth0 Analytics with the `preload` option as shown below. If you don't have Google Analytics loaded you need to set your Google Analytics ID using the Google Analytics configuration below.
 

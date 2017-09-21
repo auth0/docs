@@ -5,9 +5,9 @@ description: This article explains how to install and configure the Facebook Ana
 
 This article explains how to install and configure the **Facebook Analytics for Auth0** integration. You can use this integration on your own page that is using [Lock](/libraries/lock) or you can use this on the [hosted Lock pages](/hosted-pages/login). Additionally, you will find instructions on how to configure funnels and reports inside of Facebook Analytics to get the most out of this integration.
 
-<%= include('../_usage', { name: "Facebook Analytics" }) %>
+<%= include('../_install', { name: "Facebook Analytics" }) %>
 
-### Setup
+## Setup
 
 There are several ways you can use the Facebook Analytics integration. If you already have either the Facebook Tracking Pixel or the Facebook Javascript SDK referenced on your site, configure Auth0 Analytics with the `preload` option as shown below. If you don't have either script loaded you need to set your Facebook Analytics App ID using the Facebook Javascript SDK configuration below.
 
