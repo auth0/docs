@@ -101,7 +101,7 @@ On the **Authorization Servers** page, locate the authorization server you creat
 
 The **Issuer URI** will be used in the next step.
 
-### 6. Update Your Custom Okta Connection
+## 6. Update Your Custom Okta Connection
 
 Visit to the [Extensions](${manage_url}/#/extensions) page on the Auth0 dashboard and click **Custom Social Connections**.
 
