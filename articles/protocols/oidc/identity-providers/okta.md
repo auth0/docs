@@ -79,7 +79,7 @@ Auth0 supports creating custom OpenID Connections by using the [Custom Social Co
 
 Click **Save** to proceed and then continue following the instructions to enable the [connection in your applications](https://auth0.com/docs/extensions/custom-social-extensions#new-connection-apps).
 
-## 4. Get Custom Claims From Okta
+## 4. Create an Okta Authorization Server
 
 To retrieve custom claims from Okta, ensure you've set up an Okta authorization server and configured your custom claims in the authorization server settings.
 
@@ -89,7 +89,7 @@ For more information on creating an Okta authorization server and adding claims,
 
 Once the Okta authorization server is set up, continue with the following sections to update the [custom connection](/extensions/custom-social-extensions) you previously created for Okta.
 
-### 4.1 Get Your Okta Authorization Server Issuer URI
+## 5. Get Your Okta Authorization Server Issuer URI
 
 [Log in](https://login.okta.com) to your Okta dashboard and select **Authorization Servers** from the **API** menu at the top.
 
@@ -101,7 +101,7 @@ On the **Authorization Servers** page, locate the authorization server you creat
 
 The **Issuer URI** will be used in the next step.
 
-### 4.2 Update Your Custom Okta Connection
+### 6. Update Your Custom Okta Connection
 
 Visit to the [Extensions](${manage_url}/#/extensions) page on the Auth0 dashboard and click **Custom Social Connections**.
 
