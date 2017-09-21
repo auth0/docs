@@ -9,6 +9,10 @@ Some extensions, such as the [Authorization Extension](/extensions/authorization
 
 Beginning with PSaaS Appliance version `13451`, you may now configure Webtask on a dedicated domain. This mirrors how the Auth0 Public Cloud handles Webtask domains and enables you to use extensions with ease in multi-tenant environments.
 
+::: note
+If you do not use Webtask or [Web Extensions](/appliance/extensions), you do not need to implement Webtask dedicated domains.
+:::
+
 To configure Webtask on a dedicated domain, you will need to set up a DNS zone to host the name entries for *each* tenant. As with the authentication domain, the Webtask dedicated domain requires a valid certificate issued by a public certificate authority (CA). If you're not certain how many tenants you'll be hosting, we recommend using a wildcard certificate such as `*.your-webtask-dedicated-domain`.
 
 This will give to each container a URL of the form:
@@ -17,25 +21,45 @@ This will give to each container a URL of the form:
 tenant-name.webtask-dedicated-domain/container-name
 ```
 
+```panel PSaaS Appliance Hosted Using the Auth0 Dedicated Service
+If your PSaaS Appliance is hosted in the Auth0 Dedicated Service, we recommend setting up a DNS zone and issuing certificates using the following recommended nomenclature:
+
+For Development environments: `*.wt.<customer>-dev.auth0.com`
+For Production environments: `*.wt.<customer>.auth0.com`
+```
+
 For example, let's say that your tenant name is **acme** and your Webtask dedicated domain is **wt.example.com**. If you create a container named **hello**, your Webtask URL will be **acme.wt.example.com/hello**.
+
+Note that you can still use the original Webtask URL (for example, `webtask.example.com/api/run/acme/hello`). The primary difference is that, during runtime, the Webtask will remove any headers bearing cookies from the request.
 
 ## Requirements
 
 For each environment (such as Development, Testing, or Production), you will need:
 
-* A certificate for your Webtask's dedicated domain
+* A certificate for your Webtask dedicated domain
 * A DNS zone for each domain to manage the name records of your tenants
 
 ### Sample Architecture
 
 To clarify the requirements, let's look at a sample setup.
 
-What You Have:
+The following are applicable to your environment as it current exists:
 
 * Your Production environment is accessible via **example.com**
 * Your primary Auth0 tenant is **identity.example.com**
 * Your current certificate is **identity.example.com** (or similar)
 
+You plan to implement the following change:
 
-* You want your Webtask dedicated domain to be **wt.example.com**
-*
+* You want a Webtask dedicated domain configured to be **wt.example.com**
+
+To implement your change, you'll need:
+
+* A DNS zone for **wt.example.com*
+* A certificate with the names of all your tenants *or* a wildcard certificate for `*.wt.example.com`
+
+Once complete, you'll be able to use the following for all containers under your primary tenant:
+
+```text
+identity.wt.example.com/your-container-name
+```
