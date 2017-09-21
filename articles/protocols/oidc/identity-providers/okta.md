@@ -17,7 +17,7 @@ First, [log in](https://login.okta.com) to your Okta account and head to your Ok
 
 On the **Create New Application** page, select the **Platform** for your application.
 
-![Okta Create Application, Select Platform](/media/articles/oidc/identity-providers/okta/okta-create-app-platform.png)
+![Okta Create Application Select Platform](/media/articles/oidc/identity-providers/okta/okta-create-app-platform.png)
 
 Next, provide the following information for your application settings:
 
@@ -103,7 +103,7 @@ The **Issuer URI** will be used in the next step.
 
 ### 4.2 Update Your Custom Okta Connection
 
-Visit to the [Extensions](${manage_url/#/extensions}) page on the Auth0 dashboard and click **Custom Social Connections**.
+Visit to the [Extensions](${manage_url}/#/extensions) page on the Auth0 dashboard and click **Custom Social Connections**.
 
 ![Manage Auth0 Extensions](/media/articles/oidc/identity-providers/okta/extensions.png)
 
