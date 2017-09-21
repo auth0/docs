@@ -46,6 +46,20 @@ A new client will be created and you will be redirected to this client's view th
 
 - [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different clients. For more details refer to: [Connections](/clients/connections). For a detailed list on the supported Identity Providers refer to: [Identity Providers Supported by Auth0](/identityproviders).
 
+### Assign an Environment Tag
+
+After creating a client, make sure to assign environment tags to your tenants to differentiate between development, staging, and production environments.
+
+To assign an environment tag to a tenant, go to the [Tenants](https://support.auth0.com/tenants/public) page on the [Auth0 Support Center](https://support.auth0.com/). Locate your tenant and click the gear icon to bring up the **Settings** section.
+
+![Support Center Tenants](/media/articles/clients/support-tenants.png)
+
+Next, select the **Assign Environment Tag** option. Use the form to identify your tenant's environment as either **Development**, **Staging**, or **Production**. If your tenant is mixed use, choose the higher environment. For example, a tenant used for both development and production should be set to **Production**
+
+After selecting the environment, click on **Save Changes**.
+
+![Support Center Tenants Settings](/media/articles/clients/support-tenants-settings.png)
+
 ## How to Delete a Client
 
 Navigate to the [Client Settings](${manage_url}/#/clients/${account.clientId}/settings) and scroll to the end of the page. Under the *Danger Zone* section you can find the **Delete Client** button. This operation cannot be undone.
