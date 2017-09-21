@@ -13,7 +13,7 @@ title: Analytics Integrations
   </p>
 </div>
 
-It is likely that you already use some sort of analytics tool to track who is using your site or application. The Auth0 Analytics integrations enable you to capture and measure identity specific events. You can use this data to create funnels, measure user retention, and improve your sign up flow.
+Analytics tools help you track users on your site or application.  The Auth0 Analytics integrations enable you to capture and measure identity specific events. You can use this data to create funnels, measure user retention, and improve your sign up flow.
 
 <ul class="topic-links">
   <li>
