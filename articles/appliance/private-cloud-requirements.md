@@ -41,7 +41,7 @@ You will then need to chose DNS names for the Management Dashboard, Webtask endp
 | - | ----------- |
 | Management Dashboard | The Management Dashboard is your web client's management interface. You'll typically choose the name **manage**, but you can use something else if needed |
 | Webtask Endpoints | The Webtask DNS is used for web extensions and external use of Webtasks. You'll typically use the name **webtask**, but you can use something else if needed |
-| Webtask Dedicated Domain | Beginning with Appliance version 13451, Webtask may now be configured on a dedicated domain. This mirrors how the cloud handles webtask domains and enables safely using extensions in multi-tenant environments. Auth0 will set up a DNS zone to host the name entries for each tenant. Auth0 recommends *.wt.<customer_env>.auth0.com. |
+| Webtask Dedicated Domain | Beginning with Appliance version 13451, Webtask may now be configured on a dedicated domain. This enables safely using extensions in multi-tenant environments in the same manner as in our multi-tenant cloud offering. Auth0 will set up a DNS zone to host the name entries for each tenant. Auth0 recommends *.wt.<customer_env>.auth0.com. |
 | App Tenant | The App Tenant is the initial tenant where your applications reside. The is the tenant your users will interact with primarily, and you'll manage this using the Management Dashboard and API.
 
 ### Sample Domain Name Sets
