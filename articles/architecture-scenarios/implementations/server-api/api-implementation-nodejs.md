@@ -9,7 +9,7 @@ url: /architecture-scenarios/application/server-api/api-implementation-nodejs
 This document is part of the [Server + API Architecture Scenario](/architecture-scenarios/application/server-api) and it explains how to implement the API in Node.js. Please refer to the scenario for information on the implemented solution.
 :::
 
-Full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-api/node).
+Full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node).
 
 ## 1. Define the API endpoint
 

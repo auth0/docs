@@ -8,7 +8,7 @@ toc: true
 This document is part of the [SPA + API Architecture Scenario](/architecture-scenarios/application/spa-api) and it explains how to implement the API in Node.js. Please refer to the scenario for information on the implemented solution.
 
 ::: note
-The full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-api/node).
+The full source code for the Node.js API implementation can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-api/node).
 :::
 
 ## 1. Define the API endpoints

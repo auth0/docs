@@ -12,7 +12,7 @@ This document is part of the [Mobile + API Architecture Scenario](/architecture-
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
-  repo: 'auth0-pnp-abc-timesheets',
+  repo: 'auth0-pnp-exampleco-timesheets',
   path: 'timesheets-mobile/android',
   requirements: [
     'Android Studio 2.3',

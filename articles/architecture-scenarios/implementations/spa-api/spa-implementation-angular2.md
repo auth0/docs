@@ -8,7 +8,7 @@ url: /architecture-scenarios/application/spa-api/spa-implementation-angular2
 This document is part of the [SPA + API Architecture Scenario](/architecture-scenarios/application/spa-api) and it explains how to implement the SPA in Angular 2. Please refer to the scenario for information on the implemented solution.
 
 ::: note
-The full source code for the Angular 2 implementation of the SPA can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-abc-timesheets/tree/master/timesheets-spa/angular).
+The full source code for the Angular 2 implementation of the SPA can be found in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-exampleco-timesheets/tree/master/timesheets-spa/angular).
 :::
 
 ## 1. Configuration
