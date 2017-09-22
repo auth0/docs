@@ -38,7 +38,7 @@ Your Development and/or Production environments must meet the following requirem
     * Please note that version 8293 required outbound access to `docker.it.auth0.com` (or `52.9.124.234`) on Port **5000**.
   * `cdn.auth0.com`
 * All nodes are able to communicate with other nodes in the same cluster using ports **8721** and **8701**.
-* All SSL certificates (issued by a **public** certificate authority) have the appropriate Webtask DNS entry. Examples:
+* All [SSL certificates](/appliance/infrastructure/security#ssl-certificates) have the appropriate Webtask DNS entry. Examples:
   * `webtask.<yourdomain>.com`
   * `webtask-dev.<yourdomain>.com`
 
