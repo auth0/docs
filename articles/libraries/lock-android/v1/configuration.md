@@ -1,15 +1,17 @@
 ---
+toc: true
+title: Lock for Android v1 Configuration
 description: Configuration options and methods for Lock for Android v1
 ---
-## Lock v1 Configuration
+# Lock Android: Configuration
 
 <%= include('../_includes/_lock-version') %>
 
 These are options that can be used to configure Lock for Android v1 to your project's needs.
 
-### Lock
+## Lock
 
-#### Lock Constants
+### Lock Constants
 
 ```java
 public static final String AUTHENTICATION_ACTION;
@@ -41,7 +43,7 @@ public static final String CANCEL_ACTION;
 
 Action sent when the user change its password
 
-#### Lock Properties
+### Lock Properties
 
 ```java
 public boolean shouldUseWebView();
@@ -99,7 +101,7 @@ public boolean isFullscreen();
 
 If Lock's activities should be displayed in Fullscreen. Default is `false`
 
-#### Lock Methods
+### Lock Methods
 
 ```java
 public void setProvider(String serviceName, IdentityProvider provider);
@@ -113,11 +115,11 @@ public void resetAllProviders();
 
 Removes all session information the Identity Provider handlers might have.
 
-### Lock.Builder
+## Lock.Builder
 
 A simple builder to help you create and configure Lock in your application.
 
-#### Lock.Builder Constants
+### Lock.Builder Constants
 
 ```java
 public static final String CLIENT_ID_KEY = "com.auth0.lock.client-id";
@@ -143,7 +145,7 @@ public static final String CONFIGURATION_URL_KEY = "com.auth0.lock.configuration
 
 Key value used by Lock to search in your application's meta-data for configuration Url.
 
-#### Lock.Builder Methods
+### Lock.Builder Methods
 
 ```java
 public Builder clientId(String clientId);
