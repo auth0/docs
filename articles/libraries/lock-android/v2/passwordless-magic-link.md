@@ -72,7 +72,7 @@ Your verification code is: {{ code }}
 
 ## Application Configuration
 
-Now that we have the Auth0 client configured, before we start with the android configuration we must follow the instructions and set up PasswordlessLock with `Lock.Android` as seen in the [passwordless docs](/libraries/lock-android/passwordless). The only difference is that we'll add **Intent-Filters** that will capture the link click and redirect the user back to our app.
+Now that we have the Auth0 client configured, before we start with the android configuration we must follow the instructions and set up PasswordlessLock with `Lock.Android` as seen in the [passwordless docs](/libraries/lock-android/v2/passwordless). The only difference is that we'll add **Intent-Filters** that will capture the link click and redirect the user back to our app.
 
 In the `AndroidManifest.xml` file add the intent-filters inside the `PasswordlessLockActivity` activity tag. Depending on the chosen passwordless connection, the `pathPrefix` of the filter changes.
 

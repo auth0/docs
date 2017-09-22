@@ -5,7 +5,7 @@ description: Customizing the Lock for Android UI
 ---
 # Lock Android: Custom Theming
 
-The **Lock.Android** UI is very customizable.
+The **Lock.Android** UI is very customizable. Various items such as the header logo and title, some colors, buttons, and other items can be altered.
 
 ## Supported attributes list
 
@@ -18,7 +18,7 @@ The **Lock.Android** UI is very customizable.
 |Auth0.PrimaryColor | color - reference | Used as _normal_ state in widgets like the Submit button. Also used as _accent_ color. |
 |Auth0.DarkPrimaryColor | color - reference | Used as _pressed_ state in widgets like the Submit button. |
 
-## A New Resource File
+## Create a New Resource File
 
 First you need to create a new `Theme` that extends from `Lock.Theme`, and override the attributes you want to customize.
 
@@ -66,3 +66,32 @@ Then, you need to tell the Manifest that you want to use the new `MyTheme` in th
 ## Pay Attention to the Manifest
 
 Please note that if you define your own Theme in a style resource file and forget to specify that the Theme's parent is `Lock.Theme`, or you forget to tell the Manifest which will be the Theme for the Activity, you will end up with a really bad looking UI. This may also happen if the values you specify in your custom Theme are invalid.
+
+## Custom OAuth Connection Buttons
+
+::: note
+In order to customize OAuth connection styles, first you must create a new connection by using the `Custom Social Connections` [extension](${manage_url}/#/extensions), filling in every required field before saving the changes.
+:::
+
+To customize OAuth connection styles in Lock you can call the builder passing both the `connectionName` and the `style` to use.
+
+First create a custom style extending `Lock.Theme.AuthStyle` and define the logo, background color and name of the connection.
+
+```xml
+<style name="Style.Facebook" parent="Lock.Theme.AuthStyle">
+    <item name="Auth0.BackgroundColor">@color/facebook_color</item>
+    <item name="Auth0.Name">@string/facebook_name</item>
+    <item name="Auth0.Logo">@drawable/facebook_logo</item>
+</style>
+```
+
+Now in the builder's setup add the `AuthStyle` for the connection name that you want to override.
+
+```java
+builder.withAuthStyle("facebook", R.style.Style_Facebook)
+        .build(...);
+```
+
+When **Lock** needs to display that connection in a **SocialButton**, it will first search for user-overridden styles, and if none are found, it will default to the Lock social defaults. This means that for `facebook` in particular it would use Facebook background color, Facebook logo and `FACEBOOK` as name.
+
+As the builder method receives the `connectionName` you can then customize `oauth2` strategy type connections. The default values for this strategy (if none are provided) are the Auth0 logo, Auth0 background color, and `OAUTH2` as the name.

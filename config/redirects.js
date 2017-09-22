@@ -982,10 +982,6 @@ module.exports = [
     to: '/protocols/saml/saml-apps/sprout-video'
   },
   {
-    from: '/libraries/lock-android/use-your-own-ui',
-    to: '/libraries/lock-android/custom-theming'
-  },
-  {
     from: '/onboarding/appliance-outage',
     to: '/appliance/critical-issue'
   },

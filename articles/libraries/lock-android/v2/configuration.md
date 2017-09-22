@@ -50,7 +50,7 @@ Configurations options are added to the Lock Builder using the following format:
 
 ## OAuth options
 
-- **withAuthStyle(String, int)**: Customize the look and feel of a given connection (name) with a specific style. See [this document on custom oauth connections](/libraries/lock-android/custom-oauth-connections) for more information.
+- **withAuthStyle(String, int)**: Customize the look and feel of a given connection (name) with a specific style. See [this document on custom oauth connections](/libraries/lock-android/v2/custom-theming#custom-oauth-connection-buttons) for more information.
 - **withAuthHandlers(AuthHandler...)**: Customize the authentication process by passing an array of AuthHandlers. See [this document on custom authentication parameters](/libraries/lock-android/custom-authentication-providers) for more information.
 - **withAuthButtonSize(int)**: Allows to customize the Style of the Auth buttons. Possible values are `SMALL` and `BIG`. If this is not specified, it will default to `SMALL` when using **ClassicLock** with at least 2 Enterprise or Database connections, or when using **PasswordlessLock** with a Passwordless connection and less than 3 Social connections. On the rest of the cases, it will use `BIG`.
 - **withConnectionScope(String, String...)**: Allows to specify additional scopes for a given Connection name, which will be request along with the ones defined in the connection settings in the [Auth0 Dashboard](${manage_url}). The scopes are not validated in any way and need to be recognized by the given authentication provider. For a list, check in the [Auth0 Dashboard](${manage_url}) under the settings for the connection in question.

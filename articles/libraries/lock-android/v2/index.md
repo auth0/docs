@@ -49,13 +49,13 @@ Replace `{YOUR_APP_PACKAGE_NAME}` with your actual application's package name, a
 
 You will need a [Keystore](https://developer.android.com/studio/publish/app-signing.html) for signing your Android app. If you already have one, you can continue and skip the instructions about acquiring one.
 
-During development, you can use the default "android debug keystore" to sign your application. For instructions on how to generate the key hashes using this keystore, use our [Android Keystores and Key Hashes Guide](/libraries/lock-android/keystore).
+During development, you can use the default "android debug keystore" to sign your application. For instructions on how to generate the key hashes using this keystore, use our [Android Keystores and Key Hashes Guide](/libraries/lock-android/v2/keystore).
 
 For a release keystore, replace the file, alias, store password and key password with your own values.
 
 ## Implementing Lock (Social, Database, Enterprise)
 
-The following instructions discuss implementing Lock for Android. If you specifically are looking to implement Passwordless Lock for Android, read the [Passwordless Authentication with Lock for Android](/libraries/lock-android/passwordless) page.
+The following instructions discuss implementing Lock for Android. If you specifically are looking to implement Passwordless Lock for Android, read the [Passwordless Authentication with Lock for Android](/libraries/lock-android/v2/passwordless) page.
 
 ### Configuring the SDK
 
@@ -148,7 +148,7 @@ account.setOIDCConformant(true);
 //Use the account to launch Lock
 ```
 
-For more information, please see the [OIDC adoption guide](https://auth0.com/docs/api-auth/tutorials/adoption).
+For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption).
 
 ### Authentication callback
 
@@ -181,7 +181,7 @@ The results of the AuthenticationCallback are in a `credentials` object. This ob
 
 To create a new `Lock` instance and configure it, use the `Lock.Builder` class. Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options as you need. After you're done, build the Lock instance and use it to start the `LockActivity`.
 
-To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](https://auth0.com/docs/api-auth/intro#how-to-use-the-new-flows).
+To ensure an Open ID Connect compliant responses you must either request an `audience` or enable the **OIDC Conformant** switch in your Auth0 dashboard under `Client / Settings / Advanced OAuth`. You can read more about this [here](/api-auth/intro#how-to-use-the-new-flows).
 
 This is an example of what your `Activity` should look:
 
@@ -245,7 +245,7 @@ Do so by updating the `app/build.gradle` file and changing the `auth0Scheme` val
 
 ## Implementing Passwordless authentication with Lock for Android
 
-For instructions on how to implement Passwordless authentication with Lock for Android, please see the [Passwordless Guide](/libraries/lock-android/passwordless).
+For instructions on how to implement Passwordless authentication with Lock for Android, please see the [Passwordless Guide](/libraries/lock-android/v2/passwordless).
 
 ## Proguard
 
@@ -261,7 +261,7 @@ As this library depends on `Auth0.Android`, you should keep the files up to date
 
 ## Lock configuration
 
-For a full list of Lock's configuration options, check out the [Lock for Android Configuration Reference](/libraries/lock-android/configuration). Also, for users of v1 migrating to v2, read the [Migration Guide](/libraries/lock-android/migration-guide) to see what options have changed.
+For a full list of Lock's configuration options, check out the [Lock for Android Configuration Reference](/libraries/lock-android/v2/configuration). Also, for users of v1 migrating to v2, read the [Migration Guide](/libraries/lock-android/v2/migration-guide) to see what options have changed.
 
 ## Error messages
 
