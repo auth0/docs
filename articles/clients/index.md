@@ -54,7 +54,9 @@ To assign an environment tag to a tenant, go to the [Tenants](https://support.au
 
 ![Support Center Tenants](/media/articles/clients/support-tenants.png)
 
-Next, select the **Assign Environment Tag** option. Use the form to identify your tenant's environment as either **Development**, **Staging**, or **Production**. If your tenant is mixed use, choose the higher environment. For example, a tenant used for both development and production should be set to **Production**
+Next, select the **Assign Environment Tag** option. Use the form to identify your tenant's environment as either **Development**, **Staging**, or **Production**.
+
+If your tenant is mixed use, choose the higher environment. For example, a tenant used for both development and production should be set to **Production**.
 
 After selecting the environment, click on **Save Changes**.
 
