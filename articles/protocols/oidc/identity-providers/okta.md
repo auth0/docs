@@ -1,17 +1,16 @@
 ---
-title: Okta
 description: How to configure Okta for use as an OpenID Connect identity provider.
 toc: true
 ---
-
-
-## Configure Okta as an OpenID Connect Identity Provider
+# Configure Okta as an OpenID Connect Identity Provider
 
 This article walks you through configuring Okta for use as an OpenID Connect identity provider.
 
 ## 1. Create an Okta Application
 
-First, [log in](https://login.okta.com) to your Okta account and head to your Okta dashboard. From your Okta dashboard, select **Applications** on the top menu to navigate to the Applications page. On the Applications page, click the **Add Application** button to create a new app.
+First, [log in to your Okta account](https://login.okta.com) and head to your Okta dashboard. 
+
+Select **Applications** on the top menu. On the Applications page, click the **Add Application** button to create a new app.
 
 ![Okta Applications Dashboard](/media/articles/oidc/identity-providers/okta/okta-app-dashboard.png)
 
@@ -21,10 +20,6 @@ On the **Create New Application** page, select the **Platform** for your applica
 
 Next, provide the following information for your application settings:
 
-::: note
-The application settings fields may differ depending on the platform your choose.
-:::
-
 Field | Description
 ------|------------
 Name | The name of your application.
@@ -33,11 +28,15 @@ Login redirect URIs | This should be set to `https://${account.namespace}/login/
 Group assignments (optional) | The user groups that can sign in to this application.
 Grant type allowed | The grant types to enable for your application.
 
+::: note
+The application settings fields may differ depending on the platform your choose.
+:::
+
 ![Okta Create Application Settings](/media/articles/oidc/identity-providers/okta/okta-create-app-settings.png)
 
 Click **Done** to proceed. You'll be taken to the **General** page of your app.
 
-## 2. Get Your **Client ID** and **Client Secret**
+## 2. Get Your Client ID and Client Secret
 
 Go to the **General** page of your app and scroll down to the **Client Credentials** section. This section contains the **Client ID** and **Client Secret** to be used in the next step.
 
@@ -45,7 +44,7 @@ Go to the **General** page of your app and scroll down to the **Client Credentia
 
 At this point, you will configure the integration from the Auth0 side.
 
-Auth0 supports creating custom OpenID Connections by using the [Custom Social Connections Extension](/extensions/custom-social-extensions). Follow the guide to [Setup a New Social Connection](https://auth0.com/docs/extensions/custom-social-extensions#set-up-a-new-social-connection) and use the following values for the connection settings:
+Auth0 supports creating custom OpenID Connections by using the [Custom Social Connections Extension](/extensions/custom-social-extensions). Follow the guide to [Setup a New Social Connection](/extensions/custom-social-extensions#set-up-a-new-social-connection) and use the following values for the connection settings:
 
 - __Name__: The name of the connection. Use a name that clearly identify the okta account, you are free to name the connection whatever you would like;
 - __Client ID__: Use the **Client ID** you obtained in the *General* page of your application in Okta;
@@ -77,7 +76,7 @@ Auth0 supports creating custom OpenID Connections by using the [Custom Social Co
     ```
 - __Custom Headers__: Leave it empty
 
-Click **Save** to proceed and then continue following the instructions to enable the [connection in your applications](https://auth0.com/docs/extensions/custom-social-extensions#new-connection-apps).
+Click **Save** to proceed and then continue following the instructions to enable the [connection in your applications](/extensions/custom-social-extensions#new-connection-apps).
 
 ## 4. Create an Okta Authorization Server
 
