@@ -21,12 +21,12 @@ This will give to each container a URL of the form:
 tenant-name.webtask-dedicated-domain/container-name
 ```
 
-```panel PSaaS Appliance Hosted Using the Auth0 Dedicated Service
+:::panel PSaaS Appliance Hosted Using the Auth0 Dedicated Service
 If your PSaaS Appliance is hosted in the Auth0 Dedicated Service, we recommend setting up a DNS zone and issuing certificates using the following recommended nomenclature:
 
 For Development environments: `*.wt.<customer>-dev.auth0.com`
 For Production environments: `*.wt.<customer>.auth0.com`
-```
+:::
 
 For example, let's say that your tenant name is **acme** and your Webtask dedicated domain is **wt.example.com**. If you create a container named **hello**, your Webtask URL will be **acme.wt.example.com/hello**.
 
