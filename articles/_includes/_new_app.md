@@ -15,7 +15,11 @@
   * **Domain**
 
   ::: note
+<% if (account.userName) { %>
   If you download the sample from the top of this page, these details are filled out for you. If you have more than one client in your account, the sample comes with the values for your **Default App**.
+<% } else { %>
+  You are not logged in into Auth0. If you log in, these details will be filled out for you. If not, you will need to fill them after downloading the sample, following the instructions in the sample's README.MD file.
+<% } %>
   :::
 
   ![App Dashboard](/media/articles/dashboard/client_settings.png)
