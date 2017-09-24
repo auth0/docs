@@ -8,7 +8,7 @@ window.auth0AnalyticsOptions = {
   // Options
 }
 </script>
-<script src="https://cdn.auth0.com/js/lock/10.x/lock.min.js"></script>
+<script src="${lock_url}"></script>
 <script src="https://cdn.auth0.com/js/analytics/X.Y.Z/analytics.min.js"></script>
 ```
 
