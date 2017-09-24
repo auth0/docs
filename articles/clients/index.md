@@ -46,21 +46,13 @@ A new client will be created and you will be redirected to this client's view th
 
 - [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different clients. For more details refer to: [Connections](/clients/connections). For a detailed list on the supported Identity Providers refer to: [Identity Providers Supported by Auth0](/identityproviders).
 
-### Assign an Environment Tag
+### Check the Tenant Environment
 
-After creating a client, make sure to assign environment tags to your tenants to differentiate between development, staging, and production environments.
+After creating a client, make sure your tenant is set to the proper environment. You can specify tenants as development, staging, or production environments by [setting environment tags](/dev-lifecycle/setting-up-env#environment-tags).
 
-To assign an environment tag to a tenant, go to the [Tenants](https://support.auth0.com/tenants/public) page on the [Auth0 Support Center](https://support.auth0.com/). Locate your tenant and click the gear icon to bring up the **Settings** section.
-
-![Support Center Tenants](/media/articles/clients/support-tenants.png)
-
-Next, select the **Assign Environment Tag** option. Use the form to identify your tenant's environment as either **Development**, **Staging**, or **Production**.
-
-If your tenant is mixed use, choose the higher environment. For example, a tenant used for both development and production should be set to **Production**.
-
-After selecting the environment, click on **Save Changes**.
-
-![Support Center Tenants Settings](/media/articles/clients/support-tenants-settings.png)
+::: note
+For information on setting up multiple environments with Auth0, check out [Set Up Multiple Environments](/dev-lifecycle/setting-up-env).
+:::
 
 ## How to Delete a Client
 

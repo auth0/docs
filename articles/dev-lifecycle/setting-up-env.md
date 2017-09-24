@@ -13,6 +13,22 @@ The example above uses a simple naming convention to distinguish each environmen
 You can request a [child account](/dev-lifecycle/child-tenants) for use in a development/staging/testing environment. Note that free accounts do not include a child account.
 :::
 
+## Environment Tags
+
+For each new tenant created, you should specify its environment. You can assign environment tags to your tenants to differentiate between development, staging, and production environments.
+
+To assign an environment tag to a tenant, go to the [Tenants](${env.DOMAIN_URL_SUPPORT}tenants/public) page on the [Auth0 Support Center](${env.DOMAIN_URL_SUPPORT}). Locate your tenant and click the gear icon to bring up the **Settings** section.
+
+![Support Center Tenants](/media/articles/clients/support-tenants.png)
+
+Next, select the **Assign Environment Tag** option. Use the form to identify your tenant's environment as either **Development**, **Staging**, or **Production**.
+
+If your tenant is mixed use, choose the higher environment. For example, a tenant used for both development and production should be set to **Production**.
+
+After selecting the environment, click on **Save Changes**.
+
+![Support Center Tenants Settings](/media/articles/clients/support-tenants-settings.png)
+
 ## Migration
 
 Through the [Management API v2](/api/management/v2), you can automate the migration of assets (rules, database connections, and so forth) between tenants.
