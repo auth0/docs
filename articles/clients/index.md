@@ -46,12 +46,8 @@ A new client will be created and you will be redirected to this client's view th
 
 - [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. They are categorized into Database, Social and Enterprise and can be shared among different clients. For more details refer to: [Connections](/clients/connections). For a detailed list on the supported Identity Providers refer to: [Identity Providers Supported by Auth0](/identityproviders).
 
-### Check the Tenant Environment
-
-After creating a client, make sure your tenant is set to the proper environment. You can specify tenants as development, staging, or production environments by [setting environment tags](/dev-lifecycle/setting-up-env#environment-tags).
-
 ::: note
-For information on setting up multiple environments with Auth0, check out [Set Up Multiple Environments](/dev-lifecycle/setting-up-env).
+After creating your first client, set the environment for your tenant to: development, staging, or production. For more information refer to [Set Up Multiple Environments](/dev-lifecycle/setting-up-env#set-the-environment).
 :::
 
 ## How to Delete a Client
