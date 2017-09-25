@@ -13,9 +13,9 @@ The following document details the requirements of DNS records used for PSaaS Ap
 DNS records must be finalized for all of the tenants prior to PSaaS Appliance deployment. They cannot be changed afterwards.
 :::
 
-You'll need one certificate for each additional DNS zone you'd like for your PSaaS Appliance. If each DNS zone has multiple environments, you'll need one certificate for each zone.
+You’ll need one certificate per environment (e.g. if you have a Dev/Test environment and a Prod environment, you’ll need two certs).
 
-For example, if you create one new DNS zone with a Development/Test environment *and* a Production environment, you will need two additional certificates.
+If you’d like to use a [Webtask Dedicated Domain](/appliance/webtask/dedicated-domains), you’ll need an additional DNS zone and certificate for each environment. If you have a Dev/Test environment and a Prod environment, you’ll need a two total of two certificates per environment.
 
 ## Sample DNS Naming Scheme
 
