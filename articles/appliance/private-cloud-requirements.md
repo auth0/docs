@@ -28,7 +28,7 @@ You'll be asked for your preferred AWS regions, such as `AWS US-WEST-2`, `AWS US
 Please finalize  DNS names prior to PSaaS Appliance deployment.
 :::
 
-You'll need to choose the domain names for your environments. If you have Development and Production environments, your domain names will typically be formatted as follows:
+Auth0 provides the domain names needed for your DNS zones/certificates. If you have Development and Production environments, your domain names will typically be formatted as follows:
 
 | Environment | Sample Domain Name          |
 | ----------- | --------------------------- |
