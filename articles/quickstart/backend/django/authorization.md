@@ -8,7 +8,7 @@ description: This tutorial will show you how to use the Auth0 to add authorizati
   repo: 'auth0-django-api',
   path: '01-Authorization',
   requirements: [
-    'python 2.7, 3.3 and up'
+    'python 2.7, 3.3 and up',
     'django 1.8 and up',
     'djangorestframework 3.0 and up',
     'djangorestframework-jwt 1.11.0',
