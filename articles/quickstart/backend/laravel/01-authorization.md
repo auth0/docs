@@ -64,8 +64,9 @@ public function register()
 {
 
     $this->app->bind(
-        '\Auth0\Login\Contract\Auth0UserRepository',
-        '\Auth0\Login\Repository\Auth0UserRepository');
+        \Auth0\Login\Contract\Auth0UserRepository::class, 
+        \Auth0\Login\Repository\Auth0UserRepository::class
+    );
 
 }
 ```
@@ -151,6 +152,8 @@ Send a request to your protected endpoint which includes an `access_token`.
 There may be situations where you need to customize the `Auth0UserRepository` class. For example, you may want to use the default `User` model and store the user profile in your database. If you need a more advanced custom solution such as this, you can extend the `Auth0UserRepository` class with your own custom class.
 
 ```php
+// app/Repository/MyCustomUserRepository.php
+
 namespace App\Repository;
 
 use Auth0\Login\Contract\Auth0UserRepository;
@@ -216,8 +219,9 @@ public function register()
 {
 
     $this->app->bind(
-        '\Auth0\Login\Contract\Auth0UserRepository',
-        '\App\Repository\MyCustomUserRepository');
+        \Auth0\Login\Contract\Auth0UserRepository::class, 
+        \App\Repository\MyCustomUserRepository::class 
+    );
 
 }
 ```
