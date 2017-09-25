@@ -1,6 +1,7 @@
 ---
 title: Installing the Authorization Extension
 description: How to install the Authorization Extension
+toc: true
 ---
 
 # Authorization Extension: Installation
@@ -23,7 +24,7 @@ Installing this extension creates an `auth0-authz` client for your account. **Do
 
 To install the Authorization Extension, click on the "Auth0 Authorization" box located on the [Extensions](${manage_url}/#/extensions) page of the Management Dashboard. 
 
-You'll be prompted to install the extension and to choose [where you'd like your data stored]. You can choose between Webtask Storage and an Amazon S3 bucket.
+You'll be prompted to install the extension and to choose where you'd like your data stored. You can choose between Webtask Storage and an Amazon S3 bucket.
 
 ### Webtask Storage
 

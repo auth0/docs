@@ -8,6 +8,33 @@ toc: true
 
 Once you've configured the extension, you can manage your users, as well as the groups, roles and permissions for your users in the Authorization Extension dashboard.
 
+## Entities Available for Management
+
+In this paragraph, we'll briefly cover the basics of users, groups, roles, and permissions.
+
+Let's say that you have an application that is accessible to everyone within your corporation. The **users** are the individuals to whom you'd like to grant access to your application.
+
+If you have a large number of users, managing the access rights and permissions each one individually can become unwieldy. The **groups** functionality helps make this process easier. For example, you might have your groups reflect the various departments of your organization: accounting, information technology, engineering, support, and so on. You might also create nested groups, such as dividing the engineering group into two nested groups: internal tools and client-facing applications. Your organization hierarchy therefore looks like this:
+
+* Corporation
+  * Accounting
+  * Information Technology
+  * Engineering
+    * Internal Tools
+    * Client-Facing Applications
+  * Support
+
+You can add users to your groups manually or dynamically based on the Connection(s) they're using to access your app. For example, if someone logs in using the Active Directory Connection and their AD profile indicates that they're in the Marketing group, the Authorization Extension can also add them to the Marketing group you're managing with the extension.
+
+Finally, we have permissions and roles, while are groups of permissions. The purpose of the latter is to make it easier to assign several permissions simultaneously to either a user or a group.
+
+For example, let's say that you want to grant permissions to:
+
+* Approve requests for travel
+* Approve travel expenses
+
+Rather than assigning both permissions to groups/users, you can roll the two (along with many others) into a role called **Travel Administrator**. You can then assign Travel Administrator to individual users or to one or more groups.
+
 ## Users
 
 The **Users** section lists all the current users of your applications. You can use this to search for and select a specific user to see their profile, view or edit their group affiliations, and view or edit their roles.
@@ -60,7 +87,7 @@ To prevent confusion, you will be shown both the explicit members AND the "calcu
 
 ### Group Mappings
 
-Group Mappings allow you to dynamically "add" users to different Groups based on the users' Connections. Essentially, using the Connection and the groups information provided by the IdP, you can dynamically make the user a member of the group in which you've created the appropriate mapping.
+Group Mappings allow you to dynamically add users to different Groups based on the users' Connections. Essentially, using the Connection and the groups information provided by the IdP, you can dynamically make the user a member of the group in which you've created the appropriate mapping.
 
 For example, suppose your users are logging in using their Active Directory (AD) credentials. As part of their identity, AD allows users to have group information associated (such as "Administrative" and "Marketing").
 
@@ -111,6 +138,13 @@ Then click the **CREATE PERMISSION** button. Then enter the name of the permissi
 ![Create Permission](/media/articles/extensions/authorization/create-permission.png)
 
 Once you have your permissions created, you can associate them with [Roles](#roles).
+
+::: next-steps
+* [Import and Exporting Data](/extensions/authorization-extension/v2/import-export-data)
+* [Enable API Access to the Extension](/extensions/authorization-extension/v2/api-access)
+* [Use the Authorization Extension's Data in Rules](/extensions/authorization-extension/v2/rules)
+* [Troubleshoot Errors](/extensions/authorization-extension/v2/troubleshooting)
+:::
 
 <%= include('./_stepnav', {
  prev: ["Configure the Extension", "/extensions/authorization-extension/v2/implementation/configuration"]

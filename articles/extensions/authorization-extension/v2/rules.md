@@ -7,11 +7,43 @@ description: How to use information from the extension in rules
 
 With [rules](/rules) that execute during the login process, you can grant them permissions to reach out to the Authorization Extension to do things like:
 
+1. Add custom claims to the issued token
 1. Determining the user's group membership, roles and permissions
-2. Storing the user's groups, roles and permissions info as [part of the `app_metadata`](/extensions/authorization-extension/v2/configuration#persistence)
-3. Adding the user's groups, roles and permissions to the [outgoing token]((/extensions/authorization-extension/v2/configuration#token-contents)) (which can be requested via the `openid groups permissions roles` scope)
+1. Storing the user's groups, roles and permissions info as [part of the `app_metadata`](/extensions/authorization-extension/v2/configuration#persistence)
+1. Adding the user's groups, roles and permissions to the [outgoing token]((/extensions/authorization-extension/v2/configuration#token-contents)) (which can be requested via the `openid groups permissions roles` scope)
 
 Because the above logic is part of a rule, it will only be executed in the context of a login. If users are added to or removed from a group, this change will only be reflected in Auth0 after the user's next login.
+
+## Add Custom Claims to the Issued Token
+
+If you'd like to add custom claims to your tokens, you can do so by creating additional [rule](/rules) that allows the Authorization Extension to do so.
+
+:::
+You should [limit the number of claims](/extensions/authorization-extension/v2/configuration#data-limitations) you add to the token.
+:::
+
+::: warning
+If you're using [OIDC-Conformant Authentication](/api-auth/intro), the custom attributes added to the token by the Authorization Extension won't be added to the user's `id_token`.
+:::
+
+```js
+function (user, context, callback) {
+  var namespace = 'http://yourdomain/claims/'; // You can set your own namespace, but do not use an Auth0 domain
+
+  // Add the namespaced tokens. Remove any which is not necessary for your scenario
+  context.idToken[namespace + "permissions"] = user.permissions;
+  context.idToken[namespace + "groups"] = user.groups;
+  context.idToken[namespace + "roles"] = user.roles;
+  
+  callback(null, user, context);
+}
+```
+
+This rule must run **after** the Authorization Extension rule. To make sure this happens, make sure that you place it below the Authorization Extension rule.
+
+::: note
+When calling the `/authorize` endpoint or configuring Lock, you'll need to specify the information you want in the `scope` by indicating `groups`, `permissions` and/or `roles`.
+:::
 
 ## Control App Access
 

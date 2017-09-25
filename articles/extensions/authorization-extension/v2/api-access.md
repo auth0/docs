@@ -14,7 +14,15 @@ To get to **API** section, click on your Auth0 tenant name on the top right of t
 
 ![Click API](/media/articles/extensions/authorization/click-api.png)
 
-On the **Settings** page, use the toggle to enable API Access. Click over to the **Explorer** page for API documentation.
+On the **Settings** page, use the toggle to enable API Access. 
+
+
+
+
+
+
+
+Click over to the **Explorer** page for API documentation.
 
 ![Explorer](/media/articles/extensions/authorization/api-explorer.png)
 
