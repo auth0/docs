@@ -38,6 +38,16 @@ Auth0
 }
 ```
 
+### Credentials Check
+
+It can be useful to perform a quick check for valid credentials as the user can then be directed to authenticate.
+
+```swift
+guard self.credentialsManager.hasValid() else {
+    // Present Login Screen
+}
+```
+
 ### Renewing User Credentials
 
 You can retrieve the user's credentials as follows:
@@ -47,7 +57,7 @@ self.credentialsManager.credentials { error, credentials in
     guard error == nil, let credentials = credentials else {
         // Handle Error, Route to Login
     }
-    // We have valid credentials, you can access the token properties e.g. `idToken`, `accessToken`.
+    // Valid credentials, you can access the token properties e.g. `idToken`, `accessToken`.
 }
 ```
 
@@ -57,7 +67,7 @@ Renewing a user's credentials works exactly the same way, if the token has expir
 
 If you are migrating from v1, you may already be familiar with using [SimpleKeychain](https://github.com/auth0/SimpleKeychain) to handle iOS Keychain access.
 
-First thing we need to do is store any tokens we need, in this case we will store the `access_token` and `refresh_token` in the Keychain after a successful authentication.
+First thing you need to do is store the tokens you need, in this case you will store the `access_token` and `refresh_token` in the Keychain after a successful authentication.
 
 ```swift
 let keychain = A0SimpleKeychain(service: "Auth0")

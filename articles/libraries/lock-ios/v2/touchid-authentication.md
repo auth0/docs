@@ -5,9 +5,9 @@ description: How to implement Touch ID authentication with Lock iOS.
 ---
 # Lock iOS: Touch ID Authentication
 
-Here's the scenario: You are using `webAuth` to present the HLP (Hosted Login page) for the user to Login. After user authentication you want to store the user's credentials and use the `refreshToken` to renew the user's credentials without having to present the HLP. Instead you want to use Touch ID to authenticate and renew the user's credentials.
+Here's the scenario: After user authentication, you want to store the user's credentials and use them as long as they are valid. Once they expire, you would want to renew them using the `refreshToken` in order to avoid presenting the Hosted Login Page (HLP) again. Rather than doing this automatically you require the uer to validate with their finger print.
 
-You will to be using the [Credentials Manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in [Auth0.swift](https://github.com/auth0/Auth0.swift/) to streamline the management of user credentials and perform the Touch ID authentication.
+You will be using the [Credentials Manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in [Auth0.swift](https://github.com/auth0/Auth0.swift/) to streamline the management of user credentials and perform the Touch ID authentication.
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ import Auth0
 
 ### Credentials Manager
 
-Setup the Credentials Manager and enable Touch ID authentication:
+Setup the Credentials Manager and enable Touch ID authentication, you can pass the title to show in the Touch ID prompt:
 
 ```swift
 let credentialsManager = CredentialsManager(authentication: Auth0.authentication())
@@ -61,7 +61,7 @@ credentialsManager.credentials { error, credentials in
 }
 ```
 
-There is no need to store the credentials again as you did with the Login as this is done by the Credentials Manager for you during renewal.
+There is no need manually *store the new credentials* as this is handled by the Credentials Manager during the renewal.
 
 ## Next Steps
 
