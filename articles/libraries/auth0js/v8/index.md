@@ -178,7 +178,7 @@ The `client.login` method allows for non-redirect auth using database connection
 | **Parameter** | **Required** | **Description** |
 | --- | --- | --- |
 | `username` | required | (String) The username to present for authentication |
-| `password` | required | (String) The password to prevent for authentication |
+| `password` | required | (String) The password to present for authentication |
 | `realm` | required | (String) The name of the database connection against which to authenticate. See [realm documentation](/api-auth/tutorials/password-grant#realm-support) for more information |
 | `scope` | optional | (String) The scopes which you want to request authorization for. These must be separated by a space. You can request any of the standard OIDC scopes about users, such as `profile` and `email`, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, `read:contacts`). Include `offline_access` to get a refresh token. |
 | `audience` | optional | (String)  The default audience to be used for requesting API access. |
