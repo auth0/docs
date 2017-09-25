@@ -41,6 +41,19 @@ public void Configuration(IAppBuilder app)
         Domain = auth0Domain,
         ClientId = auth0ClientId,
         ClientSecret = auth0ClientSecret,
+
+        // If you want to request an access_token to pass to an API, then replace the audience below to 
+        // pass your API Identifier instead of the /userinfo endpoint
+        Provider = new Auth0AuthenticationProvider()
+        {
+            OnApplyRedirect = context =>
+            {
+                string userInfoAudience = $"https://{auth0Domain}/userinfo";
+                string redirectUri = context.RedirectUri + "&audience=" + WebUtility.UrlEncode(userInfoAudience);
+
+                context.Response.Redirect(redirectUri);
+            }
+        }
     };
     app.UseAuth0Authentication(options);
 }
@@ -48,13 +61,17 @@ public void Configuration(IAppBuilder app)
 
 It is important that you register the cookie mmiddeware as well as the Auth0 middleware as all of them are required for the authentication to work. The Auth0 middleware will handle the authentication with Auth0. Once the user has authenticated, their identity will be stored in the cookie middleware.
 
+::: note
+We are passing the Auth0 tenant's user info endpont as the `audience` parameter to the `/authorize` endpoint. This is to ensure that all authentication reponses are [OIDC Conformant](/api-auth/intro).
+:::
+
 ## Add Login and Logout Methods
 
 Next, you will need to add `Login` and `Logout` actions to the `AccountController`.
 
 The `Login` action will return a `ChallengeResult` which will instruct the OWIN middleware to challenge the particular piece of Authentication middleware (in the case the "Auth0" middleware) to authenticate. 
 
-For the `Logout` action you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as Auth0. For more information you can refer to the Auth0 [Logout](https://auth0.com/docs/logout) documentation.
+For the `Logout` action you will need to sign the user out of the cookie middleware (which will clear the local application session), as well as Auth0. For more information you can refer to the Auth0 [Logout](/logout) documentation.
 
 ```cs
 // Controllers/AccountController.cs

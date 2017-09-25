@@ -45,7 +45,20 @@ public void Configuration(IAppBuilder app)
         // Save the tokens to claims
         SaveIdToken = true,
         SaveAccessToken = true,
-        SaveRefreshToken = true
+        SaveRefreshToken = true,
+        
+        // If you want to request an access_token to pass to an API, then replace the audience below to 
+        // pass your API Identifier instead of the /userinfo endpoint
+        Provider = new Auth0AuthenticationProvider()
+        {
+            OnApplyRedirect = context =>
+            {
+                string userInfoAudience = $"https://{auth0Domain}/userinfo";
+                string redirectUri = context.RedirectUri + "&audience=" + WebUtility.UrlEncode(userInfoAudience);
+
+                context.Response.Redirect(redirectUri);
+            }
+        }
     };
     options.Scope.Add("offline_access"); // Request a refresh_token
     app.UseAuth0Authentication(options);
