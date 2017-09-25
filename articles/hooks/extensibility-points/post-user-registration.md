@@ -97,7 +97,7 @@ Once you've modified the sample code with the specific scopes of additional clai
 ```js
 module.exports = function (user, context, cb) {
 
-  // Get your Slack's hook URL from https://slack.com/services/10525858050
+  // Read more about incoming webhooks at https://api.slack.com/incoming-webhooks
   var SLACK_HOOK = 'YOUR SLACK HOOK URL';
 
   // Post the new user's name and email address to the selected channel
@@ -111,6 +111,6 @@ module.exports = function (user, context, cb) {
   });
 
   // Return immediately; the request to the Slack API will continue on the sandbox
-  cb(null, user, context);
+  cb();
 };
 ```
