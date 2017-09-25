@@ -53,9 +53,13 @@ Copy the **Client ID** value.
 
 Navigate to **Settings > Show Advanced Settings > OAuth** and paste the **Client ID** value to the **Allowed APPs / APIs** field.
 
-Set the **JsonWebToken Signature Algorithm** to `RS256`.
+Next, set the **JsonWebToken Signature Algorithm** to `RS256`, and turn off the **OIDC Conformant** flag.
 
-![Change JsonWebToken Signature Algorithm](/media/articles/extensions/delegated-admin/set-rs256.png)
+::: note
+The **Delegated Administration** extension requires clients to set the **OIDC Conformant** flag to `false`. After turning off **OIDC Conformant** on the dashboard, ensure your client's authentication code is updated as well.
+:::
+
+![Change Advanced OAuth Settings](/media/articles/extensions/delegated-admin/oauth-settings.png)
 
 Click **Save Changes** to proceed.
 
