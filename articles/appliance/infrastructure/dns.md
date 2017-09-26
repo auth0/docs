@@ -74,9 +74,9 @@ The Auth0 PSaaS Appliance is capable of supporting multi-tenancy (that is, each 
 
 ## DNS Configuration Requirements
 
-### IP Addresses and DNS Records
-
 In a standard multi-node cluster deployment, the DNS records will point to the IP address of the [load balancer in front of the cluster](/appliance/infrastructure/infrastructure-overview).
+
+### IP Addresses and DNS Records
 
 For a single-node PSaaS Appliance instance, the DNS record(s) will point to the IP address of the virtual machine itself (this is often the case for the development/test node).
 

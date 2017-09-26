@@ -35,7 +35,7 @@ You'll need to choose the domain names for your environments. If you have Develo
 | Development | **company**-dev.auth0.com |
 | Production  | **company**.auth0.com     |
 
-You will then need to chose DNS names for the Management Dashboard, Webtask endpoints, Webtask dedicated domain, and App Tenant.
+You will also need names for the Management Dashboard, Webtask endpoints, Webtask dedicated domain, and App Tenant.
 
 |   | Description |
 | - | ----------- |
