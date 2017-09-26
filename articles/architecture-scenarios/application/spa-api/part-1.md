@@ -72,9 +72,14 @@ Once the user authenticates, the client app receives the `id_token` and `access_
 
 ## Authorization Extension
 
-The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to provide authorization support in your application, by assigning Roles, Groups and Permissions to Users. 
+The [Auth0 Authorization Extension](/extensions/authorization-extension) allows you to configure Roles, Groups and Permissions, and assign them to Users.
 
-The Authorization Extension creates a [Rule](/rules) which will augment the [User profile](/rules/current#rule-syntax) during the authentication flow with the Roles, Groups and Permissions assigned to the user. You can then use this information to ensure that the `access_token` issued to a user only contains scopes which are allowed according to the permissions defined in the Authorization Extension.
+- The Permissions are actions that someone can do. For ExampleCo's business needs, we will configure four Permissions: read, create, delete and approve timesheets.
+- The Roles are collections of Permissions. ExampleCo's timesheets app, will be used by two kind of users (employees and managers), with different permissions each, so we will configure two Roles: employee and manager.
+
+Since this covers our business case we will not create any Groups.
+
+The Authorization Extension will create a [Rule](/rules) which will read the Roles, Groups and Permissions assigned to a user and add this information to the [User profile](/rules/current#rule-syntax) during the authentication flow. We can use this information to ensure that the `access_token` issued to a user only contains scopes which are allowed. We can later on proceed to customizing our app, like disabling the Approve Timesheets functionality if the user does not have the required permission to do so.
 
 <%= include('./_stepnav', {
  prev: ["Introduction", "/architecture-scenarios/application/spa-api"], next: ["2. Auth0 Configuration", "/architecture-scenarios/application/spa-api/part-2"]
