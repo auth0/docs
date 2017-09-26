@@ -5,7 +5,7 @@ description: How to implement Touch ID authentication with Lock iOS.
 ---
 # Lock iOS: Touch ID Authentication
 
-Here's the scenario: After user authentication, you want to store the user's credentials and use them as long as they are valid. Once they expire, you would want to renew them using the `refreshToken` in order to avoid presenting the Hosted Login Page (HLP) again. Rather than doing this automatically you require the uer to validate with their finger print.
+Here's the scenario: After user authentication, you want to store the user's credentials and use them as long as they are valid. Once they expire, you would want to renew them using the `refreshToken` in order to avoid presenting the Hosted Login Page (HLP) again. Rather than doing this automatically you require the user to validate with their fingerprint.
 
 You will be using the [Credentials Manager](https://github.com/auth0/Auth0.swift/blob/master/Auth0/CredentialsManager.swift) utility in [Auth0.swift](https://github.com/auth0/Auth0.swift/) to streamline the management of user credentials and perform the Touch ID authentication.
 
@@ -61,7 +61,7 @@ credentialsManager.credentials { error, credentials in
 }
 ```
 
-There is no need manually *store the new credentials* as this is handled by the Credentials Manager during the renewal.
+There is no need manually store the new credentials as this is handled by the Credentials Manager during the renewal.
 
 ## Next Steps
 
