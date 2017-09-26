@@ -7,7 +7,7 @@ budicon: 500
 
 <%= include('../../../../_includes/_package', {
   org: 'auth0-samples',
-  branch: 'v2',
+  branch: 'master',
   repo: 'auth0-aspnetcore-webapi-samples',
   path: 'Quickstart/01-Authorization',
   requirements: [

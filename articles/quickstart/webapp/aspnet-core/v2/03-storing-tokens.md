@@ -8,7 +8,7 @@ budicon: 280
   org: 'auth0-samples',
   repo: 'auth0-aspnetcore-mvc-samples',
   path: 'Quickstart/03-Storing-Tokens',
-  branch: 'v2',
+  branch: 'master',
   requirements: [
     '.NET Core SDK 2.0',
     '.NET Core 2.0',
