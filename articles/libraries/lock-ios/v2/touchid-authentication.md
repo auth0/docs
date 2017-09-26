@@ -1,6 +1,5 @@
 ---
 section: libraries
-toc_title: Touch ID Authentication
 description: How to implement Touch ID authentication with Lock iOS.
 ---
 # Lock iOS: Touch ID Authentication
