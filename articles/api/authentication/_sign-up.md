@@ -10,7 +10,7 @@ Content-Type: 'application/json'
   "email": "EMAIL",
   "password": "PASSWORD",
   "connection": "CONNECTION",
-  "user_metadata": "{ plan: 'silver', team_id: 111 }"
+  "user_metadata": { plan: 'silver', team_id: `a111` }
 }
 ```
 
@@ -35,7 +35,7 @@ curl --request POST \
     connection: 'CONNECTION', 
     email: 'EMAIL', 
     password: 'PASSWORD',
-    user_metadata: '{ plan: 'silver', team_id: 111 }'
+    user_metadata: '{ plan: 'silver', team_id: 'a111' }'
   }, function (err) { 
     if (err) return alert('Something went wrong: ' + err.message); 
       return alert('success signup without login!') 
