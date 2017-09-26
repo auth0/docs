@@ -37,6 +37,8 @@ ExampleCo wants to build a flexible solution. At the moment only a SPA is requir
 
 It is required that only authorized users and applications are allowed access to the Timesheets API.
 
+Two kind of users will use this SPA: employees and managers. The employees should be able to read, create and delete their own timesheet entries, while the managers should be able to approve timesheets as well.
+
 <%= include('./_stepnav', {
  next: ["1. Solution Overview", "/architecture-scenarios/application/spa-api/part-1"]
 }) %>
