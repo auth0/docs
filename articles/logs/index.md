@@ -23,7 +23,7 @@ Please note that administrative actions will show up in the logs as `API Operati
 
 ### How long is log file data available?
 
-The length of time log file data is stored varies depending on your plan.
+The length of time log data is stored varies depending on your plan.
 
 Plan | Log Retention
 -----|--------------
