@@ -143,7 +143,7 @@ If you have found a bug or if you have a feature request, please report them at 
 
 ## Resources
 
-* [Complete API][lock-customization]
+* [Complete API][lock-configuration]
 * [UI customization][ui-customization]
 * [Single Page Applications][spa-notes] implementation notes.
 * [Regular Web Applications][webapps-notes] implementing notes.
@@ -178,7 +178,7 @@ If you have found a bug or if you have a feature request, please report them at 
 [downloads-url]: https://npmjs.org/package/auth0-lock
 
 [lock-initialization]: /libraries/lock/v9/initialization
-[lock-customization]: /libraries/lock/v9/customization
+[lock-configuration]: /libraries/lock/v9/configuration
 [application-types]: /libraries/lock/v9/types-of-applications
 [display-modes]: /libraries/lock/v9/display-modes
 [spa-notes]: /libraries/lock/v9/types-of-applications#single-page-app

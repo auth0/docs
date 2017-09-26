@@ -2,23 +2,23 @@
 section: libraries
 description: Details about Popup Mode with Lock V10.
 ---
-# Popup Mode
+# Authentication Modes
 
-## The Default: Redirect Mode
+## Redirect Mode
 
-If after you click on the IdP button (Facebook for example), the web app you built gets redirected to Facebook, it means you're using Redirect Mode. Redirect Mode is the default with Lock 10, and is the recommended mode for almost all use cases. Once you successfully login to Facebook, Facebook will redirect you back to your app (through Auth0).
+If after you click on the IdP button (Facebook for example), the web app you built gets redirected to Facebook, it means you're using redirect mode. Redirect Mode is the default with Lock 10, and is the recommended mode for almost all use cases. Once you successfully login to Facebook, Facebook will redirect you back to your app (through Auth0). The majority of examples or samples in the reference documentation employ redirect mode, as it is the default mode for Lock 10.
 
-## Using Popup Mode
+## Popup Mode
 
-If after you click on the IdP button (Facebook for example), a popup (new tab or window) is opened, it means you're using Popup Mode. In that popup, you'll see that Facebook page is displayed. Once you successfully login to Facebook, the popup will be closed and your WebApp will recognize that the user has been authenticated. The WebApp has **never been redirected to any other page**.
+If after you click on the IdP button (Facebook for example), a popup (new tab or window) is opened, it means you are using popup mode. In that popup, you'll see that Facebook page is displayed. Once you successfully login to Facebook, the popup will be closed and your web app will recognize that the user has been authenticated. The web app has **never been redirected to any other page**.
 
 ::: warning
-There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. See more info [here](https://ask.auth0.com/t/popup-login-window-is-not-closed-after-authentication/2843).
+There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode.
 :::
 
 ![Widget Popup](/media/articles/libraries/lock/v10/widget-popup.gif)
 
-Implementing Lock with Popup Mode is again a simple change of an option from its default.
+Implementing Lock with Popup Mode is again a simple change of the `redirect` option from its default.
 
 ```js
 var lock = new Auth0Lock(

@@ -107,7 +107,7 @@ lock.show({
 
 ### container {String}
 
-The `id` of the html element where the widget will be shown. This makes the widget appear inline instead of in a popup.
+The Lock widget defaults to showing in a modal, but you can set the `container` option to the `id` of the HTML element where you wish the widget to be shown. This makes the widget appear inline, inside the element, instead of as a popup.
 
 ````html
 <div id="hiw-login-container"></div>
