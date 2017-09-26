@@ -51,7 +51,9 @@ You can also write rules that are executed after the Authorization Extension rul
 
 ### Step 1: Set the Client Metadata's `required_roles`
 
-⁠⁠⁠⁠1. To set the `context.clientMetadata` field with `required_roles`, begin by selecting the client you want to work with [in the dashboard](${manage_url}/#/clients). 
+In this step, you'll set the Client's metadata with it's roles, which are groups of permissions that you've grouped together to create a specific set of functionality. You can think of this step as "tagging" the Client so that the rules you'll set up in the next step know which Client to act on.
+
+⁠⁠⁠⁠1. To set the `context.clientMetadata` field with `required_roles`, begin by selecting the client you want to work with [in the dashboard](${manage_url}/#/clients).
 
 This brings you to the client's **Settings**. Scroll down and click **Show Advanced Settings** at the bottom of the page.
 
@@ -65,8 +67,10 @@ This brings you to the client's **Settings**. Scroll down and click **Show Advan
 
 ### Step 2: Create the Rule Enforcing Client Roles
 
+Now that each Client has a role associated with it, you can create the rule executes with this piece of client information in context.
+
 ::: warning
-Before creating this rule, enable **Roles** under the [Token Contents](/extensions/authorization-extension/v2/configuration#token-contents) and [publish the Authorization Extension rule](/extensions/authorization-extension/v2/configuration#publish-the-authorization-extension-rule. Then, add this rule and make sure it is listed *after* the generated "auth0-authorization-extension" rule.
+Before creating this rule, enable **Roles** under the [Token Contents](/extensions/authorization-extension/v2/configuration#token-contents) and [publish the Authorization Extension rule](/extensions/authorization-extension/v2/configuration#publish-the-authorization-extension-rule). Then, add this rule and make sure it is listed *after* the generated "auth0-authorization-extension" rule.
 :::
 
 After setting `required_roles`, create a new [rule](${manage_url}/#/rules) with the following body:

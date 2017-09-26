@@ -65,3 +65,8 @@ You can also refer to the **API Explorer**, which documents everything you can d
 Click over to the **Explorer** page for the API documentation.
 
 ![Explorer](/media/articles/extensions/authorization/api-explorer.png)
+
+::: next-steps
+* [Use the Authorization Extension's Data in Rules](/extensions/authorization-extension/v2/rules)
+* [Troubleshoot Errors](/extensions/authorization-extension/v2/troubleshooting)
+:::
