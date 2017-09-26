@@ -1,6 +1,5 @@
 ---
 section: libraries
-toc_title: Saving and Renewing Tokens
 description: Keeping your user logged in
 ---
 
