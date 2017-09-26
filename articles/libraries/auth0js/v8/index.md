@@ -56,7 +56,6 @@ If you are using a bundler, you will want to install with `npm i auth0-js --prod
 Initialize a new instance of the Auth0 client as follows:
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
     domain:       '${account.namespace}',

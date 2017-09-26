@@ -42,7 +42,7 @@ You can find detailed information about supported methods in the [Auth0.js v8](/
 Initialization of auth0.js in your application will now use `auth0.WebAuth` instead of `Auth0`
 
 ```html
-<script src="https://cdn.auth0.com/js/auth0/8.1.0/auth0.min.js"></script>
+<script src="${auth0js_urlv8}"></script>
 <script type="text/javascript">
   var webAuth = new auth0.WebAuth({
     domain:       'YOUR_AUTH0_DOMAIN',
