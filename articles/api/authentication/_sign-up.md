@@ -73,8 +73,7 @@ This endpoint only works for database connections.
 | `email` <br/><span class="label label-danger">Required</span> | The user's email address. |
 | `password` <br/><span class="label label-danger">Required</span> | The user's desired password. |
 | `connection` <br/><span class="label label-danger">Required</span> | The name of the database configured to your client. |
-| `user_metadata`        | The [user metadata](/metadata) to be associated with the user. Optional field, when set is must be a string containing no more than 10 fields and less than 500 characters. |
-
+| `user_metadata` | The [user metadata](/metadata) to be associated with the user. If set, the field must be an object containing no more than ten properties. Property names can have a maximum of 100 characters, and property values must be strings of no more than 500 characters. |
 
 ### Test with Postman
 
