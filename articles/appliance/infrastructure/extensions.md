@@ -55,6 +55,6 @@ Once you have met the requirements for enabling Webtasks, submit a Support ticke
 * [IP Address and Port Requirements](/appliance/infrastructure/ip-domain-port-list)
 * [Web Extensions](/extensions)
 * [Delegated Admininstration extension](/extensions/delegated-admin)
-* [Webtasks](appliance/webtasks)
+* [Webtasks](appliance/webtask)
 * [Version Change Logs](https://auth0.com/changelog/appliance)
 :::
