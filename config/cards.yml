@@ -18,9 +18,6 @@
     - title: Developer Videos
       url: /videos
 
-    - title: Architecture Scenarios
-      url: /architecture-scenarios
-
 - id: "ui-components"
   title: "UI Components"
   icon: "icon-budicon-342"
@@ -64,14 +61,15 @@
   url: "/topics/guides"
   articles:
 
+    - title: "Architecture Scenarios"
+      url: /architecture-scenarios
+      
     - title: "Tokens"
       url: "/tokens"
 
     - title: "JWT"
       url: "/jwt"
 
-    - title: "Import and Migrate"
-      url: "/connections/database/migrating"
 
 - id: "apis"
   title: "APIs"
