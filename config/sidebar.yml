@@ -25,36 +25,36 @@ articles:
         - title: Session & Cookies
           url: /videos/session-and-cookies
 
-      - title: Architecture Scenarios
-        url: /architecture-scenarios
+  - title: Architecture Scenarios
+    url: /architecture-scenarios
 
-        children:
-          - title: SSO for Regular Web Apps
-            url: /architecture-scenarios/application/web-app-sso
-          
-          - title: Server Client + API
-            url: /architecture-scenarios/application/server-api
+    children:
+      - title: SSO for Regular Web Apps
+        url: /architecture-scenarios/application/web-app-sso
 
-          - title: SPA + API
-            url: /architecture-scenarios/application/spa-api
+      - title: Server Client + API
+        url: /architecture-scenarios/application/server-api
 
-          - title: Mobile + API
-            url: /architecture-scenarios/application/mobile-api
+      - title: SPA + API
+        url: /architecture-scenarios/application/spa-api
 
-          # - title: SAML for Regular Web Apps
-          #   url: /architecture-scenarios/application/web-saml
+      - title: Mobile + API
+        url: /architecture-scenarios/application/mobile-api
 
-          # - title: B2B + B2E
-          #   url: /architecture-scenarios/business/b2b-b2e
+      # - title: SAML for Regular Web Apps
+      #   url: /architecture-scenarios/application/web-saml
 
-          # - title: B2B
-          #   url: /architecture-scenarios/business/b2b
+      # - title: B2B + B2E
+      #   url: /architecture-scenarios/business/b2b-b2e
 
-          # - title: B2C
-          #   url: /architecture-scenarios/business/b2c
-          
-          # - title: B2E
-          #   url: /architecture-scenarios/business/b2e 
+      # - title: B2B
+      #   url: /architecture-scenarios/business/b2b
+
+      # - title: B2C
+      #   url: /architecture-scenarios/business/b2c
+
+      # - title: B2E
+      #   url: /architecture-scenarios/business/b2e 
 
   - title: "Clients"
     url: "/clients"

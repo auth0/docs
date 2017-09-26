@@ -14,6 +14,12 @@ description: Helpful docs for implementing Auth0
 
 <ul class="topic-links">
   <li>
+    <i class="icon icon-budicon-715"></i><a href="/architecture-scenarios">Architecture Scenarios</a>
+    <p>
+      Describes several architecture scenarios and how you can implement them using Auth0.
+    </p>
+  </li>
+  <li>
     <i class="icon icon-budicon-715"></i><a href="/tokens">Tokens</a>
     <p>
       Tokens are commonly used in Auth0, so learn what they are and how they're used
