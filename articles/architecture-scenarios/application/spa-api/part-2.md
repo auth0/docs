@@ -26,7 +26,7 @@ Fill in the required information and click the **Create** button.
 When you create an API you have to select the algorithm your tokens will be signed with. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 
 ::: note
-The signature is part of a JWT. If you are not familiar with the JWT structure please refer to: [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
+The signature is part of a JWT. If you are not familiar with the JWT structure please refer to [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
 :::
 
 To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. That algorithm, which is part of the JWT header, is the one you select for your API: `HS256` or `RS256`.
@@ -42,20 +42,26 @@ The most secure practice, and our recommendation, is to use __RS256__. Some of t
 - With RS256 you can implement key rotation without having to re-deploy the API with the new secret.
 
 ::: note
-For a more detailed overview of the JWT signing algorithms refer to: [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
+For a more detailed overview of the JWT signing algorithms refer to [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
 :::
 
 ## Configure the Scopes
 
 Once the client has been created you will need to configure the Scopes which clients can request during authorization.
 
-In the settings for your API, go to the **Scopes** tab. In this section you can add all four of the scopes which was discussed before, namely `read:timesheets`, `create:timesheets`, `delete:timesheets`, `approve:timesheets`.
+In the settings for your API, go to the **Scopes** tab. In this section you can add the scopes for our business case: `read:timesheets`, `create:timesheets`, `delete:timesheets`, and `approve:timesheets`.
 
 ![Add Scopes](/media/articles/architecture-scenarios/spa-api/add-scopes.png)
 
 ## Create the Client
 
-There are four client types in Auth0: __Native__ (used by mobile or desktop apps), __Single Page Web Applications__, __Regular Web Applications__ and __Non Interactive Clients__ (used by CLIs, Daemons, or services running on your backend). For this scenario we want to create a new Client for our SPA, hence we will use Single Page Application as the client type.
+There are four client types in Auth0: 
+- __Native__ (used by mobile or desktop apps), 
+- __Single Page Web Applications__, 
+- __Regular Web Applications__ and 
+- __Non Interactive Clients__ (used by CLIs, Daemons, or services running on your backend). 
+
+For this scenario we want to create a new Client for our SPA, hence we will use Single Page Application as the client type.
 
 To create a new Client, navigate to the [dashboard](${manage_url}) and click on the [Clients](${manage_url}/#/clients}) menu option on the left. Click the __+ Create Client__ button.
 
@@ -73,7 +79,13 @@ You will need to ensure that the Authorization Extension is installed for your t
 
 ### Define Permissions 
 
-You will need to define Permissions which correlates with the scopes you have already defined. In the Authorization Extension, click the _Permissions_ tab, and then click on the **Create Permission** button. In the dialog, capture the details for each permission. Ensure that the name of the permission is exactly the same as the corresponding scope:
+You will now define the required Permissions, according to the scopes you have already defined: `read:timesheets`, `create:timesheets`, `delete:timesheets`, and `approve:timesheets`.
+
+In the Authorization Extension, click the **Permissions** tab, and then click on the **Create Permission** button. 
+
+In the dialog, capture the details for each permission. 
+
+Ensure that the name of the permission is exactly the same as the corresponding scope:
 
 ![Create Permission](/media/articles/architecture-scenarios/spa-api/create-permission.png)
 
@@ -83,27 +95,37 @@ Proceed to create the permissions for all the remaining scopes:
 
 ### Define Roles
 
-Head over to the _Roles_ tab and create 2 Roles. Click the **Create Role** button and select the **Timesheets SPA** application. Give the Role a name and description of Employee, and select the `delete:timesheets`, `create:timesheets` and `read:timesheets` permissons. Click on **Save**.
+Next let's configure the two Roles: employee and manager.
+
+Head over to the **Roles** tab, click the **Create Role** button, and select the **Timesheets SPA** application. 
+
+Set the **Name** and **Description** to `Employee`, and select the `delete:timesheets`, `create:timesheets` and `read:timesheets` permissons. Click on **Save**.
 
 ![Create Employee Role](/media/articles/architecture-scenarios/spa-api/create-employee-role.png)
 
-Next, follow the same process to create a **Manager** role, and ensure that you have selected all the permissions:
+Next, follow the same process to create a `Manager` role, and ensure that you have selected all the permissions.
 
 ![Create Manager Role](/media/articles/architecture-scenarios/spa-api/create-manager-role.png)
 
 ### Assign Users to Roles
 
-You will need to assign all users to either the Manager or the User role. You can do this by going to the _Users_ tab in the Authorization Extension and selecting a user. On the user information screen, go to the _Roles_ tab. You can add a role to the user by clicking the **Add Role to User** button, and selecting the approproate role for the user.
+You need to assign all users to either the `Manager` or the `Employee` role. 
+
+You can do this by going to the **Users** tab in the Authorization Extension and selecting a user. 
+
+On the user information screen, go to the **Roles** tab. Click **Add Role to User**, and select the appropriate role.
 
 ![Add User to Role](/media/articles/architecture-scenarios/spa-api/add-user-role.png)
 
 ### Configuring the Authorization Extension
 
-You will also need to ensure that the Rule for the Authorization Extension is published. You can do this by clicking on your user avatar in to top right of the Authorization Extension, and selecting the **Configuration** option:
+You will also need to ensure that the Rule for the Authorization Extension is published. 
 
-![Navigate to COnfiguration](/media/articles/architecture-scenarios/spa-api/select-configuration.png)
+To do so, click on your user avatar in the top right of the Authorization Extension, and select **Configuration**.
 
-Ensure that you have enabled **Permissions** and then click the **Publish Rule** button:
+![Navigate to Configuration](/media/articles/architecture-scenarios/spa-api/select-configuration.png)
+
+Make sure that **Permissions** are enabled and then click **Publish Rule**.
 
 ![Pulish Rule](/media/articles/architecture-scenarios/spa-api/publish-rule.png)
 
@@ -111,7 +133,7 @@ Ensure that you have enabled **Permissions** and then click the **Publish Rule**
 
 The final step in this process is to create a Rule which will validate that the scopes contained in an `access_token` is valid based on the permissions assigned to the user. Any scopes which are not valid for a user should be removed from the `access_token`.
 
-In your Auth0 Dashboard, go to the _Rules_ tab. You should see the Rule created by the Authorization Extension:
+In your Auth0 Dashboard, go to the **Rules** tab. You should see the Rule created by the Authorization Extension:
 
 ![Rules](/media/articles/architecture-scenarios/spa-api/rules-1.png)
 
