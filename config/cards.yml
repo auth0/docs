@@ -17,6 +17,9 @@
 
     - title: Developer Videos
       url: /videos
+    
+    - title: Clients
+      url: /clients
 
 - id: "ui-components"
   title: "UI Components"
