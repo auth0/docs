@@ -24,8 +24,8 @@ Using a [Rule](/rules), you can call your API when a user logs in for the first 
 
 ```js
 function (user, context, callback) {
-  user.app_metadata = user.app_metadata || {};
-  if (user.email_verified || user.app_metadata.verification_email_sent) {
+  user.user_metadata = user.user_metadata || {};
+  if (user.email_verified || user.user_metadata.verification_email_sent) {
     return callback(null, user, context);
   }
 
@@ -42,8 +42,8 @@ function (user, context, callback) {
       return callback(new Error(err));
 
     // Email sent flag persisted in the user's profile.
-    user.app_metadata.verification_email_sent = true;
-    auth0.users.updateUserMetadata(user.user_id, user.app_metadata)
+    user.user_metadata.verification_email_sent = true;
+    auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
       .then(function() {
         callback(null, user, context);
       })
