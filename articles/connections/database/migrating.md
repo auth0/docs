@@ -59,7 +59,7 @@ You can enable these validations for a connection using the [Update a connection
   "queryString": [],
   "postData": {
     "mimeType": "application/json",
-    "text": "{ \"options\": { \"strategy_version\": 2 } }"
+    "text": "{ \"options\": { \"strategy_version\": 2, \"nextOptionParam\": \"...\" } }"
   },
   "headersSize": -1,
   "bodySize": -1,
@@ -68,7 +68,7 @@ You can enable these validations for a connection using the [Update a connection
 ```
 
 - You should replace `{connection-id}` with the Id of the custom database connection you want to update. If you don't know it, you can use the [Get all connections endpoint](/api/management/v2#!/Connections/get_connections) to find it.
-- The parameter that enables the validations is the `"strategy_version": 2`. However, when you update `options`, the whole object is overridden, so all the parameters should be present. You can use the [Get a connection endpoint](/api/management/v2#!/Connections/get_connections_by_id) to get the whole object.
+- The parameter that enables the validations is the `"strategy_version": 2`. However, when you update `options`, the whole object is overridden, so all the parameters should be present. You can use the [Get a connection endpoint](/api/management/v2#!/Connections/get_connections_by_id) to get the whole object. Replace the `"nextOptionParam": "..."` placeholder with the list of parameters you get.
 - To access any Management APIv2 endpoint you need an Access Token (which you should set at the `{access-token}` placeholder of the `Authorization` header). For information on how to get one refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 
 ## Enable Automatic Migration
