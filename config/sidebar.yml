@@ -481,7 +481,7 @@ libraries:
         url: "/libraries/lock/v10"
 
       - title: "Configuration Options"
-        url: "/libraries/lock/v10/customization"
+        url: "/libraries/lock/v10/configuration"
 
       - title: "API Reference"
         url: "/libraries/lock/v10/api"
@@ -489,7 +489,7 @@ libraries:
       - title: "UI Customization"
         url: "/libraries/lock/v10/ui-customization"
 
-      - title: "v10 Migration Guide"
+      - title: "Migration Guide"
         url: "/libraries/lock/v10/migration-guide"
 
       - title: "Internationalization"
@@ -502,7 +502,7 @@ libraries:
         url: "/libraries/lock/v10/auth0js"
 
       - title: "Popup Mode"
-        url: "/libraries/lock/v10/popup-mode"
+        url: "/libraries/lock/v10/authentication-modes"
 
   - title: "Lock for iOS"
     url: "/libraries/lock-ios/v2"
