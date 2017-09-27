@@ -61,15 +61,14 @@ You can enable these validations for a connection using the [Update a connection
   "queryString": [],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"email\": \"jane.doe@example.com\", \"user_metadata\": {\"hobby\": \"surfing\"}, \"app_metadata\": {\"plan\": \"full\"}}"
     "text": "\"options\": {
-    \"strategy_version\": 2,
-    \"validation\": "object",
-    \"passwordPolicy\": "",
-    \"password_history\": "object",
-    \"password_no_personal_info\": "object",
-    \"password_dictionary\": "object"
-  }"
+      \"strategy_version\": 2,
+      \"validation\": \"object\",
+      \"passwordPolicy\": \"\",
+      \"password_history\": \"object\",
+      \"password_no_personal_info\": \"object\",
+      \"password_dictionary\": \"object\"
+    }"
   },
   "headersSize": -1,
   "bodySize": -1,
