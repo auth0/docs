@@ -14,8 +14,6 @@ If after you click on the IdP button (Facebook for example), the Webapp you buil
 
 ![Widget redirect](/media/articles/libraries/lock/v9/WidgetRedirect.gif)
 
-You can [click here](/libraries/lock/v9/types-of-applications#redirect-mode) to learn how to implement Redirect mode with Single Page Apps, or you can [click here](/libraries/lock/v9/types-of-applications#redirect-mode-1) to learn how to implement it with Regular WebApps.
-
 ### Redirect Mode Implementation Examples
 
 #### Redirect Mode in SPA
@@ -24,8 +22,8 @@ In this first example you'll see that a `callbackURL` isn't set. That's because 
 
 Optionally, [you can set the callbackURL to whatever you need](/libraries/lock/v9/configuration#callbackurl-string). Please bear in mind that if you do, you'll also need to specify `responseType: token` as part of the options.
 
-````js
-var lock = new Auth0Lock(${account.clientId}, ${account.namespace');
+```js
+var lock = new Auth0Lock(${account.clientId}, ${account.namespace});
 
 var hash = lock.parseHash();
 
@@ -45,16 +43,16 @@ if (hash) {
 }
 
 lock.show();
-````
+```
 
 ### Redirect Mode in Regular Web Apps
 
-When you're doing a Regular web app, you need that after a successful login through Auth0, your app is redirected to a callback endpoint that you've created in your server. That callback endpoint will receive the `code` from Auth0 which must then [be exchanged for an `access_token` to get the user information](/protocols#3-getting-the-access-token).
+When you're doing a Regular web app, you need that after a successful login through Auth0, your app is redirected to a callback endpoint that you've created in your server. That callback endpoint will receive the `code` from Auth0 which must then [be exchanged for an access_token to get the user information](/protocols#3-getting-the-access-token).
 
 This means that in this case, only redirect mode makes sense.
 
 ```js
-var lock = new Auth0Lock(${account.clientId}, ${account.namespace);
+var lock = new Auth0Lock(${account.clientId}, ${account.namespace});
 
 lock.show({
   callbackURL: 'http://myUrl.com/auth/callback'
@@ -93,8 +91,8 @@ auth.signin({
 
 Below is an example of an implementation of popup mode in a Single Page Application:
 
-````js
-var lock = new Auth0Lock(${account.clientId}, ${account.namespace);
+```js
+var lock = new Auth0Lock(${account.clientId}, ${account.namespace});
 
 lock.show(function(err, profile, id_token) {
   if (err) {
@@ -104,7 +102,7 @@ lock.show(function(err, profile, id_token) {
 
   console.log("Hey dude", profile);
 })
-````
+```
 
 ::: note
 Redirect mode is recommended whenever possible to avoid potential browser compatibility issues.
