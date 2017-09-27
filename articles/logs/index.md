@@ -23,11 +23,13 @@ Please note that administrative actions will show up in the logs as `API Operati
 
 ### How long is log file data available?
 
-The length of time for which your data is stored varies depending on your plan.
+The length of time log data is stored varies depending on your plan.
 
-You can see how long data is kept for your existing plan using the **Learn More** banner.
-
-![](/media/articles/logs/log-storage-period.png)
+Plan | Log Retention
+-----|--------------
+Developer | 2 Days
+Developer Pro | 10 Days
+Enterprise | 30 Days
 
 ### How do I view or export log file data?
 
