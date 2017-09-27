@@ -2,6 +2,7 @@
 title: Migrate Users to Auth0
 description: Auth0 supports automatic migration of users to Auth0 from a custom database connection. This feature adds your users to the Auth0 database as each person logs in and avoids asking your users to reset their passwords due to migration.
 crews: crew-2
+toc: true
 ---
 # Migrate Users to Auth0
 
@@ -58,14 +59,7 @@ You can enable these validations for a connection using the [Update a connection
   "queryString": [],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"options\": {
-      \"strategy_version\": 2,
-      \"validation\": \"object\",
-      \"passwordPolicy\": \"\",
-      \"password_history\": \"object\",
-      \"password_no_personal_info\": \"object\",
-      \"password_dictionary\": \"object\"
-    }}"
+    "text": "{ \"options\": { \"strategy_version\": 2 } }"
   },
   "headersSize": -1,
   "bodySize": -1,
