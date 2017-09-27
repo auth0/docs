@@ -1,22 +1,19 @@
 ---
-title: Migrating Users to Auth0
+title: Migrate Users to Auth0
 description: Auth0 supports automatic migration of users to Auth0 from a custom database connection. This feature adds your users to the Auth0 database as each person logs in and avoids asking your users to reset their passwords due to migration.
 crews: crew-2
+toc: true
 ---
 # Migrate Users to Auth0
 
-Auth0 supports automatic migration of users from a Custom Database Connection to Auth0. By activating this feature, your users are moved to Auth0 the first time they log in after you set up the integration. Your users are not asked to reset their password as a result of the migration.
+Auth0 supports automatic migration of users from a [custom database connection](/connections/database/custom-db) to Auth0. By activating this feature, your users are moved to Auth0 the first time they log in after you set up the integration. Your users are not asked to reset their password as a result of the migration.
 
 ::: panel Feature availability
+- Only **Developer**, **Developer Pro**, and **Enterprise** subscription plans include the database migration feature.
+- Only **Enterprise** subscription plans include the ability to connect to an existing store or database via JavaScript running on Auth0's servers for every authentication request.
 
-Only **Developer**, **Developer Pro**, and **Enterprise** subscription plans include the database migration feature.
-
-Only **Enterprise** subscription plans include the ability to connect to an existing store or database via JavaScript running on Auth0's servers for every authentication request.
-
-[Click here](https://auth0.com/pricing) to learn more about Auth0 pricing plans.
+For more information refer to [Auth0 pricing plans](https://auth0.com/pricing).
 :::
-
-You can read more about database connections and the the options for using several user stores at [Database Identity Providers](/connections/database).
 
 ## The Migration Process
 
@@ -24,13 +21,55 @@ When a user authenticates via a custom database connection marked for import to 
 
 ![Migration Diagram](/media/articles/connections/database/migrating-diagram.png)
 
-Auth0 authenticates migrated users against the Auth0 database. If the user has not been migrated, Auth0 executes your custom login script and, upon successfully log in, adds the user to the Auth0 database. Subsequent logins results in the user's credentials retrieved from Auth0, *not* your custom database.
+Auth0 authenticates migrated users against the Auth0 database.
 
-New users are automatically added to the Auth0 database..
+If the user has not been migrated, Auth0 executes your custom login script and, upon successfully log in, adds the user to the Auth0 database.
+
+Subsequent logins result in the user's credentials retrieved from Auth0, **NOT** your custom database.
+
+New users are automatically added to the Auth0 database.
 
 ::: note
 Auth0 can only assist users in the Auth0 database with password reset.
 :::
+
+## Enable Data Validation
+
+There are certain validations that Auth0 can run before adding the user to the Auth0 database:
+
+- The email must be set and unique
+- If the connection requires a username (i.e. the **Requires Username** toggle is enabled at the connection's settings), then one must be set
+- If a username is set, then it must be unique
+- The email format must be valid
+
+Additionally, both the email and the username will be converted to lowercase before they are stored.
+
+You can enable these validations for a connection using the [Update a connection endpoint](/api/management/v2#!/Connections/patch_connections_by_id) of the Management APIv2.
+
+```har
+{
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/connections/{connection-id}",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [
+    { "name": "Authorization", "value": "Bearer {access-token}" }, 
+    { "name": "Content-Type", "value": "application/json"}
+  ],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{ \"options\": { \"strategy_version\": 2, \"nextOptionParam\": \"...\" } }"
+  },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
+}
+```
+
+- The parameter that enables the validations is the `"strategy_version": 2`. However, when you update `options`, the whole object is overridden, so all the parameters should be present. You can use the [Get a connection endpoint](/api/management/v2#!/Connections/get_connections_by_id) to get the whole object. Replace the `"nextOptionParam": "..."` placeholder with the list of parameters you get.
+- You should replace `{connection-id}` with the Id of the custom database connection you want to update. If you don't know it, you can use the [Get all connections endpoint](/api/management/v2#!/Connections/get_connections) to find it.
+- To access any Management APIv2 endpoint you need an Access Token (which you should set at the `{access-token}` placeholder of the `Authorization` header). For information on how to get one refer to [The Auth0 Management APIv2 Token](/api/management/v2/tokens).
 
 ## Enable Automatic Migration
 
