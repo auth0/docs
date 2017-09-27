@@ -69,16 +69,6 @@ var lock = new Auth0Lock(
   '${account.clientId}',
   '${account.namespace}'
 );
-
-// Initializing Auth0LockPasswordless
-var passwordlessOptions = {
-  oidcConformant: true
-};
-var lockPasswordless = new Auth0LockPasswordless(
-  '${account.clientId}',
-  '${account.namespace}',
-  passwordlessOptions
-);
 ```
 
 ### 2. Authenticating and Getting User Info
