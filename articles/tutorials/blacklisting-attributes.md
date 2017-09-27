@@ -3,7 +3,7 @@ description: How to blacklist user attributes that you do not want persisting in
 crews: crew-2
 ---
 
-# Blacklisting Attributes
+# Blacklisting User Attributes
 
 In the event that there are user fields that should not be stored by Auth0 due to privacy reasons, you can blacklist the attributes you do not want persisting in Auth0 databases.
 
