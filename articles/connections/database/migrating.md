@@ -51,24 +51,21 @@ You can enable these validations for a connection using the [Update a connection
   "url": "https://${account.namespace}/api/v2/connections/{connection-id}",
   "httpVersion": "HTTP/1.1",
   "cookies": [],
-  "headers": [{
-    "name": "Authorization",
-    "value": "Bearer {access-token}"
-  }, {
-    "name": "Content-Type",
-    "value": "application/json"
-  }],
+  "headers": [
+    { "name": "Authorization", "value": "Bearer {access-token}" }, 
+    { "name": "Content-Type", "value": "application/json"}
+  ],
   "queryString": [],
   "postData": {
     "mimeType": "application/json",
-    "text": "\"options\": {
+    "text": "{\"options\": {
       \"strategy_version\": 2,
       \"validation\": \"object\",
       \"passwordPolicy\": \"\",
       \"password_history\": \"object\",
       \"password_no_personal_info\": \"object\",
       \"password_dictionary\": \"object\"
-    }"
+    }}"
   },
   "headersSize": -1,
   "bodySize": -1,
