@@ -75,3 +75,23 @@ Data processors must:
 * Appoint a data protection officer or establish a privacy office  (GDPR Article 37)
 * Comply with rules on international data transfers
 * Agree to and sign a written data processing agreement that meets GDPR requirements  (GDPR Article 28)
+
+### Applicability
+
+GDPR applies to a wide scope of territory -- it includes non-EU based services/companies that possess data on EU residents.
+
+### Enforcement
+
+* GDPR mandates that notifications regarding data breaches must be issued within 72 hours of the incident.
+* Fines for non-compliance are much higher and are determined using a tiered system.
+* Supervisory authorities have greater investigative powers.
+* Organizations processing data must appoint a Data Protection Officer and/or have a Data Privacy Office
+
+::: Keep Reading
+* [Auth0 as a Data Processor](#)
+* [Auth0 Features Aiding Customer Compliance](#)
+* [Security Advice for Customers](#)
+* [Auth0 Subprocessors](#)
+* [Auth0 Certifications and Compliance](#)
+* [Auth0 Security Practices](#)
+:::
