@@ -523,11 +523,11 @@ libraries:
       - title: "Internationalization"
         url: "/libraries/lock-ios/v2/internationalization"
 
-      - title: "Version 2 Migration Guide"
-        url: "/libraries/lock-ios/v2/migration"
+      - title: "Passwordless"
+        url: "/libraries/lock-ios/v2/passwordless"
 
-      - title: "Version 1 Documentation"
-        url: "/libraries/lock-ios/v1"
+      - title: "Migration Guide"
+        url: "/libraries/lock-ios/v2/migration"
 
   - title: "Lock for Android"
     url: "/libraries/lock-android/v2"
@@ -578,6 +578,16 @@ libraries:
 
   - title: "Auth0 SDK for iOS"
     url: "/libraries/auth0-swift"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/auth0-swift"
+
+      - title: "Refresh Tokens"
+        url: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
+
+      - title: "TouchID"
+        url: "/libraries/auth0-swift/touchid-authentication"
 
   - title: "Auth0 SDK for Android"
     url: "/libraries/auth0-android"

@@ -1,6 +1,6 @@
 ---
 section: libraries
-toc_title: Lock for Android v2 Configuration
+title: Lock for Android v2 Configuration
 description: Altering the appearance and behavior of Lock for Android
 ---
 # Lock Android: Configuration

@@ -406,18 +406,13 @@ For more information on how to use Lock with Swift, see: [Lock iOS: Using Swift]
 
 For more information on Lock for CocoaPods, see the [Lock documentation in CocoaDocs](http://cocoadocs.org/docsets/Lock).
 
-### Related Documentation
+### Further Reading
 
-<ul>
-<% cache.find('articles/libraries/lock-ios/v1', {sort: 'toc_title'}).forEach(article => { %>
-  <% if (article.toc_title) { %>
-  <li>
-    <span><a href="<%- article.url %>"><%- article.toc_title %></a>
-    <% if (article.description) { %>
-      - <%- article.description %>
-    <% } %>
-    </span>
-  </li>
-  <% } %>
-<% }); %>
-</ul>
+::: next-steps
+- [Customization of the Look and Feel of Lock iOS](/libraries/lock-ios/v1/customization)
+- [Lock iOS API](/libraries/lock-ios/v1/lock-ios-api)
+- [Native Social Authentication](/libraries/lock-ios/v1/native-social-authentication)
+- [Passwordless](/libraries/lock-ios/v1/passwordless)
+- [Sending Authentication Parameters](/libraries/lock-ios/v1/sending-authentication-parameters)
+- [Using Swift with Lock iOS v1](/libraries/lock-ios/v1/swift)
+:::
