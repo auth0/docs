@@ -50,7 +50,8 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 | Option | Description |
 | --- | --- |
 | [auth](#auth-object-) | The auth object contains the below auth options |
-| [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue
+| [audience](#audience-string-) | The API which will be consuming your `access_token` |
+| [autoParseHash](#autoparsehash-boolean-) | Whether or not to automatically parse hash and continue |
 | [connectionScopes](#connectionscopes-object-) | Specify connection scopes |
 | [params](#params-object-) | Option to send parameters at login |
 | [redirect](#redirect-boolean-) | Whether or not to use redirect mode |
@@ -432,6 +433,18 @@ var options = {
    sso: true
   }
 };
+```
+
+### audience {String}
+
+The `audience` option indicates the API which will be consuming the `access_token` that is received after authentication.
+
+```js
+var options = {
+  auth: {
+    audience: 'https://${account.namespace}/userinfo',
+  }
+}
 ```
 
 #### autoParseHash {Boolean}
