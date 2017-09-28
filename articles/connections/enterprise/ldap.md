@@ -36,7 +36,7 @@ After creating the connection, you'll be prompted to set up the [Active Director
 
 Make note of the provided **Ticket URL** to use during the AD/LDAP Connector setup process, it should look something like this:
 
-```
+```text
 https://${account.tenant}.auth0.com/p/ad/aBCdEfGh
 ```
 
