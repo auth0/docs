@@ -1,7 +1,7 @@
 ---
 description: The Auth0 APIs provide endpoints that allow you to completely manage email flow, and control when and how emails are sent.
+toc: true
 ---
-
 # Custom Email Handling
 
 The default email flow in Auth0 can address the requirements of most applications, but there may be instances where more flexibility is required. For example:
@@ -14,7 +14,7 @@ The Auth0 Management API provides endpoints that allow you to completely manage 
 
 To begin, you will need to disable automatic emails by deselecting **Status** under the **Verification Email** and **Welcome Email** tabs on the [Email Templates](${manage_url}/#/emails) page of the Auth0 dashboard.
 
-![](/media/articles/email/custom/email-custom.png)
+![Disable Verification Email](/media/articles/email/custom/email-custom.png)
 
 ## Verification Email
 
@@ -98,10 +98,12 @@ You can now send an email to the user containing this link. Only when the user c
 
 Alternatively, if you invoke the [change password ticket](/api/management/v2#!/Tickets/post_password_change) endpoint without specifying the `new_password` parameter, the link at the email will redirect the user to a page prompting to set a new password.
 
-![](/media/articles/email/custom/change-password.png)
+![Change Password](/media/articles/email/custom/change-password.png)
 
-## Additional Information
+## Keep Reading
 
+::: next-steps
  * [Emails in Auth0](/email)
  * [Customizing Your Emails](/email/templates)
  * [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](/email/providers)
+ :::
