@@ -1,6 +1,6 @@
 ---
 section: libraries
-toc_title: Delegation API
+title: Delegation API
 description: Integrate with third-party apps with the delegation API.
 ---
 

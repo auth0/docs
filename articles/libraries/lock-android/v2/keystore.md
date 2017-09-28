@@ -1,6 +1,5 @@
 ---
 section: libraries
-toc_title: Android Development Keystores and Key Hashes
 title: Android Development Keystores and Key Hashes
 description: Instructions on acquiring development keystores/key hashes during Android app development.
 ---

@@ -1,5 +1,5 @@
 ---
-toc_title: Getting Started with Guardian for iOS
+title: Getting Started with Guardian for iOS
 url: /multifactor-authentication/developer/libraries/ios
 description: Installation, usage, and configuration options guide for Guardian for iOS
 ---

@@ -1,6 +1,6 @@
 ---
 section: libraries
-toc_title: Passwordless in Lock iOS v1
+title: Passwordless in Lock iOS v1
 description: How to implement Passwordless authentication in Lock v1
 ---
 # Passwordless in Lock iOS v1
