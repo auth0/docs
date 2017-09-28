@@ -30,23 +30,23 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
   </div>
   <div class="tab-content">
     <div id="cdn-before" class="tab-pane active">
-      <pre class="hljs html"><code>
-        &lt;script src=&quot;http://cdn.auth0.com/js/lock-passwordless-2.2.3.min.js&quot;&gt;&lt;/script&gt;
-        &lt;script&gt;
-          var lock = new Auth0LockPasswordless(clientID, domain);
-        &lt;/script&gt;
-      </code></pre>
+    <pre class="hljs html"><code>
+    &lt;script src=&quot;http://cdn.auth0.com/js/lock-passwordless-2.2.3.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      var lock = new Auth0LockPasswordless(clientID, domain);
+    &lt;/script&gt;
+    </code></pre>
     </div>
     <div id="cdn-after" class="tab-pane">
-      <pre class="hljs html"><code>
-        &lt;script src=&quot;https://cdn.auth0.com/js/lock/10.x.y/lock.min.js&quot;&gt;&lt;/script&gt;
-        &lt;script&gt;
-          var options = {
-            oidcConformant: true
-          }
-          var lock = new Auth0LockPasswordless(clientID, domain, options);
-        &lt;/script&gt;
-      </code></pre>
+    <pre class="hljs html"><code>
+    &lt;script src=&quot;https://cdn.auth0.com/js/lock/10.x.y/lock.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      var options = {
+        oidcConformant: true
+      }
+      var lock = new Auth0LockPasswordless(clientID, domain, options);
+    &lt;/script&gt;
+    </code></pre>
     </div>
   </div>
 </div>
@@ -62,19 +62,19 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
   </div>
   <div class="tab-content">
     <div id="npm-before" class="tab-pane active">
-      <pre class="hljs js"><code>
-        import Auth0LockPasswordless from 'auth0-lock-passwordless';
-        var lock = new Auth0LockPasswordless(clientID, domain);
-      </code></pre>
+    <pre class="hljs js"><code>
+    import Auth0LockPasswordless from 'auth0-lock-passwordless';
+    var lock = new Auth0LockPasswordless(clientID, domain);
+    </code></pre>
     </div>
     <div id="npm-after" class="tab-pane">
-      <pre class="hljs js"><code>
-        import Auth0LockPasswordless from 'auth0-lock/passwordless';
-        var options = {
-          oidcConformant: true
-        };
-        var lock = new Auth0LockPasswordless(clientID, domain, options);
-      </code></pre>
+    <pre class="hljs js"><code>
+    import Auth0LockPasswordless from 'auth0-lock/passwordless';
+    var options = {
+      oidcConformant: true
+    };
+    var lock = new Auth0LockPasswordless(clientID, domain, options);
+    </code></pre>
     </div>
   </div>
 </div>
@@ -86,38 +86,69 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
 - `code` if you want to use an Email Code
 - `link` if you want to use a Magic Link
 
-```js
-var options = {
-  oidcConformant: true,
-  passwordlessMethod: 'code' //or link
-};
-var lock = new Auth0LockPasswordless(clientID, domain, options);
-```
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li><a href="#method-code" data-toggle="tab">PasswordlessMethod: Code</a></li>
+      <li><a href="#method-link" data-toggle="tab">PasswordlessMethod: Link</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="method-code" class="tab-pane active">
+    <pre class="hljs js"><code>
+    var options = {
+      oidcConformant: true,
+      passwordlessMethod: 'code'
+    };
+    var lock = new Auth0LockPasswordless(clientID, domain, options);
+    </code></pre>
+    </div>
+    <div id="method-link" class="tab-pane">
+    <pre class="hljs js"><code>
+    var options = {
+      oidcConformant: true,
+      passwordlessMethod: 'link'
+    };
+    var lock = new Auth0LockPasswordless(clientID, domain, options);
+    </code></pre>
+    </div>
+  </div>
+</div>
 
-### Choose between sms or email
+### Choose between SMS or email
 
 We recommend that you setup which passwordless connections you want enabled in [the dashboard](${manage_url}/#/connections/passwordless), but if you want to have more than one passwordless connection enabled in the dashboard, you can restrict `Auth0LockPasswordless` to use only one of them using the [allowedConnections](/libraries/lock/v10/customization#allowedconnections-array-) option.
 If you have both `sms` and `email` passwordless connections enabled in the dashboard, `Auth0LockPasswordless` will use `email` by default.
 
-#### Example with only sms enabled
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li><a href="#sms-enabled" data-toggle="tab">SMS Enabled</a></li>
+      <li><a href="#email-enabled" data-toggle="tab">Email Enabled</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="sms-enabled" class="tab-pane active">
+    <pre class="hljs js"><code>
+    var options = {
+      oidcConformant: true,
+      allowedConnections: ['sms']
+    };
+    var lock = new Auth0LockPasswordless(clientID, domain, options);
+    </code></pre>
+    </div>
+    <div id="email-enabled" class="tab-pane">
+    <pre class="hljs js"><code>
+    var options = {
+      oidcConformant: true,
+      allowedConnections: ['email']
+    };
+    var lock = new Auth0LockPasswordless(clientID, domain, options);
+    </code></pre>
+    </div>
+  </div>
+</div>
 
-```js
-var options = {
-  oidcConformant: true,
-  allowedConnections: ['sms']
-};
-var lock = new Auth0LockPasswordless(clientID, domain, options);
-```
-
-#### Example with only email enabled
-
-```js
-var options = {
-  oidcConformant: true,
-  allowedConnections: ['email']
-};
-var lock = new Auth0LockPasswordless(clientID, domain, options);
-```
 
 ### Show the widget
 
@@ -157,6 +188,6 @@ Some options have to be renamed.
 ## Further Reading
 
 ::: next-steps
-- Take a look at [Lock 10's docs page](/libraries/lock/v10) for more details on how Lock works.
-- Check out the [configuration page](/libraries/lock/v10/customization) for more details the available options.
+- [Lock 10 Reference - an overview on how Lock works](/libraries/lock/v10)
+- [Lock 10 Configuration - details on the available configuration options for Lock](/libraries/lock/v10/customization)
 :::
