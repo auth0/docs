@@ -14,5 +14,5 @@ description:
 | Auth0 Subprocessors | Third party systems to which Auth0 provides personal data |
 
 <%= include('./_stepnav', {
- prev: ["GDPR Home", "/compliance"]
+ prev: ["Go back", "/compliance"]
 }) %>
