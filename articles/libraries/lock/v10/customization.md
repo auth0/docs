@@ -835,7 +835,7 @@ Using OIDC Conformant mode in Lock necessitates a cross-origin authentication fl
 For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption) and the [cross-origin authentication documentation](/cross-origin-authentication).
 
 ::: note
-Although this flag was present before in previous versions, official support was added only in version 10.22.0
+Although this flag was present in previous versions, official support was added only in version 10.22.0.
 :::
 
 ### clientBaseUrl {String}
