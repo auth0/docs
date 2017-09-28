@@ -523,11 +523,11 @@ libraries:
       - title: "Internationalization"
         url: "/libraries/lock-ios/v2/internationalization"
 
-      - title: "Version 2 Migration Guide"
-        url: "/libraries/lock-ios/v2/migration"
+      - title: "Passwordless"
+        url: "/libraries/lock-ios/v2/passwordless"
 
-      - title: "Version 1 Documentation"
-        url: "/libraries/lock-ios/v1"
+      - title: "Migration Guide"
+        url: "/libraries/lock-ios/v2/migration"
 
   - title: "Lock for Android"
     url: "/libraries/lock-android/v2"
