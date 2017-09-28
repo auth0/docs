@@ -1,12 +1,11 @@
 ---
 description: A guide on installing the AD/LDAP Connector on different platforms.
 ---
-
 # Install the AD/LDAP Connector on Non-Microsoft Platforms
 
 This document covers how to install the AD/LDAP Connector on non-Microsoft Platforms.
 
-:::panel Prerequisites
+::: warning
 Prior to installing the AD/LDAP Connector, please ensure that you have already installed [Git](https://git-scm.com/download/linux), [Node.js](https://nodejs.org), and [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm).
 :::
 
@@ -69,6 +68,6 @@ For most platforms, you will need to run the required commands with root privile
 
 7. Run `node admin/server.js` to access the admin UI -- the admin UI will be running and available on `http://localhost:8357`.
 
-#### Notes
-
-* If you get an `Invalid Ticket` message when configuring the Connector for the first time, the most likely cause is a network issue (for example, you have the Connector running behind a proxy). Try troubleshooting by connecting to `https://your_tenant.auth0.com/testall` with a browser other than Internet Explorer.
+::: note
+If you get an `Invalid Ticket` message when configuring the Connector for the first time, the most likely cause is a network issue (for example, you have the Connector running behind a proxy). Try troubleshooting by connecting to `https://YOUR_TENANT.auth0.com/testall` with a browser other than Internet Explorer.
+:::
