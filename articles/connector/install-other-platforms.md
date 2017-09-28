@@ -19,17 +19,17 @@ For most platforms, you will need to run the required commands with root privile
 
 2. Expand the <a class="download-github" href=""></a> package and install its dependencies:
 
-    ```text
-    > mkdir /opt/auth0-adldap
-    > tar -xzf /tmp/adldap.tar.gz -C /opt/auth0-adldap --strip-components=1
-    > cd /opt/auth0-adldap
-    > npm install
+    ```bash
+    mkdir /opt/auth0-adldap
+    tar -xzf /tmp/adldap.tar.gz -C /opt/auth0-adldap --strip-components=1
+    cd /opt/auth0-adldap
+    npm install
     ```
 
 3. Start your server.
 
-    ```text
-    > node server.js
+    ```bash
+    node server.js
     ```
 
     When prompted for the ticket number, enter the full ticket URL from the **Settings** tab of the **Setup AD/LDAP connector** screen in the Auth0 Management Dashboard:
