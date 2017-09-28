@@ -578,6 +578,16 @@ libraries:
 
   - title: "Auth0 SDK for iOS"
     url: "/libraries/auth0-swift"
+    children:
+
+      - title: "Overview"
+        url: "/libraries/auth0-swift"
+
+      - title: "Refresh Tokens"
+        url: "/libraries/auth0-swift/save-and-refresh-jwt-tokens"
+
+      - title: "TouchID"
+        url: "/libraries/auth0-swift/touchid-authentication"
 
   - title: "Auth0 SDK for Android"
     url: "/libraries/auth0-android"

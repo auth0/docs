@@ -44,6 +44,7 @@ myAwesomeTheme.registerColorForKey(UIColor.redColor(), "A0ThemePrimaryButtonNorm
 This is the list of properties that can be customized:
 
 ### Primary Button
+
 * A0ThemePrimaryButtonNormalColor
 * A0ThemePrimaryButtonHighlightedColor
 * A0ThemePrimaryButtonNormalImageName
@@ -52,6 +53,7 @@ This is the list of properties that can be customized:
 * A0ThemePrimaryButtonTextColor
 
 ### Secondary Button
+
 * A0ThemeSecondaryButtonBackgroundColor
 * A0ThemeSecondaryButtonNormalImageName
 * A0ThemeSecondaryButtonHighlightedImageName
@@ -59,33 +61,40 @@ This is the list of properties that can be customized:
 * A0ThemeSecondaryButtonTextColor
 
 ### TextField
+
 * A0ThemeTextFieldFont
 * A0ThemeTextFieldTextColor
 * A0ThemeTextFieldPlaceholderTextColor
 * A0ThemeTextFieldIconColor
 
 ### Title
+
 * A0ThemeTitleFont
 * A0ThemeTitleTextColor
 
 ### Icon
+
 * A0ThemeIconBackgroundColor
 * A0ThemeIconImageName
 
 ### Background
+
 * A0ThemeScreenBackgroundColor
 * A0ThemeScreenBackgroundImageName
 
 ### Message & Description
+
 * A0ThemeDescriptionFont
 * A0ThemeDescriptionTextColor
 * A0ThemeSeparatorTextFont
 * A0ThemeSeparatorTextColor
 
 ### CredentialBox
+
 * A0ThemeCredentialBoxBorderColor
 * A0ThemeCredentialBoxSeparatorColor
 * A0ThemeCredentialBoxBackgroundColor
 
 ### Close Button
+
 * A0ThemeCloseButtonTintColor
