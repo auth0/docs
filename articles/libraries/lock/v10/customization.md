@@ -847,6 +847,10 @@ Using OIDC Conformant mode in Lock necessitates a cross-origin authentication fl
 
 For more information, please see the [OIDC adoption guide](/api-auth/tutorials/adoption) and the [cross-origin authentication documentation](/cross-origin-authentication).
 
+::: note
+Although this flag was present in previous versions, official support was added only in version 10.22.0.
+:::
+
 ### clientBaseUrl {String}
 
 This option can provide a URL to override the client settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your client not use the default behavior.
