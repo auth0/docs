@@ -7,11 +7,9 @@ description: Migration Guide for lock-passwordless to Lock 10 with Passwordless 
 
 The following instructions assume you are migrating from **lock-passwordless** to the latest **Lock 10** using the **Passwordless** mode.
 
-The [lock-passwordless](https://github.com/auth0/lock-passwordless) widget was previously a standalone library, separate from [Lock 10](https://auth0.com/docs/libraries/lock/v10). Now, you can migrate your apps to use the newest Lock Passwordless, which is integrated directly into Lock 10. Lock 10 with Passwordless Mode is the latest method by which to quickly and simply deploy a login widget for passwordless authentication in your apps.
+The [lock-passwordless](https://github.com/auth0/lock-passwordless) widget was previously a standalone library, separate from [Lock 10](/libraries/lock/v10). Now, you can migrate your apps to use the newest Lock Passwordless, which is integrated directly into Lock 10. Lock 10 with Passwordless Mode is the latest method by which to quickly and simply deploy a login widget for passwordless authentication in your apps.
 
-The goal of this migration guide is to provide you with all of the information that you will need to update your **lock-paswordless** installation to **Lock 10** (using Lock 10's **Passwordless Mode**). 
-
-First, you will need to remove **lock-passwordless** from your project, and instead include the [latest release version of Lock 10](https://github.com/auth0/lock/releases). Beyond that, you will then need to take a careful look at each of the sections in this migration guide in order to find out which changes you will need to make to your implementation.
+To get started, you will need to remove **lock-passwordless** from your project, and instead include the [latest release version of Lock 10](https://github.com/auth0/lock/releases). Beyond that, you will then need to take a careful look at each of the sections in this migration guide in order to find out which changes you will need to make to your implementation.
 
 Of particular importance will be the initialization of `Auth0LockPasswordless`, your calls to Lock methods (now the same methods as used in Lock 10), and also your previously implemented customization options, which will need inspected and changed to use the corresponding options for Lock 10.
 
@@ -23,48 +21,63 @@ If you're loading from the CDN, you can still use `Auth0LockPasswordless`. The d
 
 #### Using the CDN
 
-##### Before
-
-```html
-<script src="http://cdn.auth0.com/js/lock-passwordless-2.2.3.min.js"></script>
-
-<script>
-  var lock = new Auth0LockPasswordless(clientID, domain);
-</script>
-
-```
-
-##### After
-
-```html
-<script src="https://cdn.auth0.com/js/lock/10.x.y/lock.min.js"></script>
-
-<script>
-  var options = {
-    oidcConformant: true
-  }
-  var lock = new Auth0LockPasswordless(clientID, domain, options);
-</script>
-```
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li><a href="#cdn-before" data-toggle="tab">Before</a></li>
+      <li><a href="#cdn-after" data-toggle="tab">After</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="cdn-before" class="tab-pane active">
+      <pre class="hljs html"><code>
+        &lt;script src=&quot;http://cdn.auth0.com/js/lock-passwordless-2.2.3.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+          var lock = new Auth0LockPasswordless(clientID, domain);
+        &lt;/script&gt;
+      </code></pre>
+    </div>
+    <div id="cdn-after" class="tab-pane">
+      <pre class="hljs html"><code>
+        &lt;script src=&quot;https://cdn.auth0.com/js/lock/10.x.y/lock.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+          var options = {
+            oidcConformant: true
+          }
+          var lock = new Auth0LockPasswordless(clientID, domain, options);
+        &lt;/script&gt;
+      </code></pre>
+    </div>
+  </div>
+</div>
 
 #### Using npm + module bundler
 
-##### Before
-
-```js
-import Auth0LockPasswordless from 'auth0-lock-passwordless';
-var lock = new Auth0LockPasswordless(clientID, domain);
-```
-
-##### After
-
-```js
-import Auth0LockPasswordless from 'auth0-lock/passwordless';
-var options = {
-  oidcConformant: true
-};
-var lock = new Auth0LockPasswordless(clientID, domain, options);
-```
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li><a href="#npm-before" data-toggle="tab">Before</a></li>
+      <li><a href="#npm-after" data-toggle="tab">After</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="npm-before" class="tab-pane active">
+      <pre class="hljs js"><code>
+        import Auth0LockPasswordless from 'auth0-lock-passwordless';
+        var lock = new Auth0LockPasswordless(clientID, domain);
+      </code></pre>
+    </div>
+    <div id="npm-after" class="tab-pane">
+      <pre class="hljs js"><code>
+        import Auth0LockPasswordless from 'auth0-lock/passwordless';
+        var options = {
+          oidcConformant: true
+        };
+        var lock = new Auth0LockPasswordless(clientID, domain, options);
+      </code></pre>
+    </div>
+  </div>
+</div>
 
 ### Initialization Options
 
@@ -83,7 +96,7 @@ var lock = new Auth0LockPasswordless(clientID, domain, options);
 
 ### Choose between sms or email
 
-We recommend that you setup which passwordless connections you want enabled in [the dashboard](https://manage.auth0.com/#/connections/passwordless), but if you want to have more than one passwordless connection enabled in the dashboard, you can restrict `Auth0LockPasswordless` to use only one of them using the [`allowedConnections`](/libraries/lock/v10/customization#allowedconnections-array-) option.
+We recommend that you setup which passwordless connections you want enabled in [the dashboard](${manage_url}/#/connections/passwordless), but if you want to have more than one passwordless connection enabled in the dashboard, you can restrict `Auth0LockPasswordless` to use only one of them using the [allowedConnections](/libraries/lock/v10/customization#allowedconnections-array-) option.
 If you have both `sms` and `email` passwordless connections enabled in the dashboard, `Auth0LockPasswordless` will use `email` by default.
 
 #### Example with only sms enabled
@@ -143,5 +156,7 @@ Some options have to be renamed.
 
 ## Further Reading
 
+::: next-steps
 - Take a look at [Lock 10's docs page](/libraries/lock/v10) for more details on how Lock works.
-- Check out the [customization page](/libraries/lock/v10/customization) for more details on all of the customization options that are available.
+- Check out the [configuration page](/libraries/lock/v10/customization) for more details the available options.
+:::
