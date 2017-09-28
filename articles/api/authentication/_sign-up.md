@@ -10,7 +10,7 @@ Content-Type: 'application/json'
   "email": "EMAIL",
   "password": "PASSWORD",
   "connection": "CONNECTION",
-  "user_metadata": { plan: 'silver', team_id: `a111` }
+  "user_metadata": { plan: 'silver', team_id: 'a111' }
 }
 ```
 
@@ -18,7 +18,7 @@ Content-Type: 'application/json'
 curl --request POST \
   --url 'https://${account.namespace}/dbconnections/signup' \
   --header 'content-type: application/json' \
-  --data '{"client_id":"${account.clientId}", "email":"EMAIL", "password":"PASSWORD", "connection":"CONNECTION", "user_metadata":"{ plan: 'silver', team_id: 111 }"}'
+  --data '{"client_id":"${account.clientId}", "email":"EMAIL", "password":"PASSWORD", "connection":"CONNECTION", "user_metadata":"{ plan: 'silver', team_id: 'a111' }"}'
 ```
 
 ```javascript
