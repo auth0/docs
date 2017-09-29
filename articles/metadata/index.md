@@ -79,6 +79,34 @@ However, the usage of the `.` delimiter is acceptable in the data **values** suc
 }
 ```
 
+Do not use dynamic field names. For example, instead of using the following structure...
+
+```json
+"participants": {
+    "Alice" : {
+        "role": "sender"
+    },
+    "Bob" : {
+        "role": "receiver"
+    }
+}
+```
+
+...use the following structure...
+
+```json
+"participants": [
+    {
+        "name": "Alice",
+        "role": "sender"
+    },
+    {
+        "name" : "Bob",
+        "role": "receiver"
+    }
+]
+```
+
 ## Searching Metadata
 
 New tenants, starting September 1st 2017, cannot search any of the `app_metadata` fields. 
