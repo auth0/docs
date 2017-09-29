@@ -501,7 +501,7 @@ libraries:
       - title: "Lock with auth0.js"
         url: "/libraries/lock/v10/auth0js"
 
-      - title: "Popup Mode"
+      - title: "Authentication Modes"
         url: "/libraries/lock/v10/authentication-modes"
 
   - title: "Lock for iOS"

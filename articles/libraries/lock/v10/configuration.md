@@ -100,7 +100,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 ### allowAutoComplete {Boolean}
 
-Determines whether or not the the email or username inputs will allow autocomplete (`<input autocomplete />`). Defaults to `false`.
+Determines whether or not the email or username inputs will allow autocomplete (`<input autocomplete />`). Defaults to `false`.
 
 ```js
 var options = {

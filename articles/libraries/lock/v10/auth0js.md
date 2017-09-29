@@ -46,7 +46,7 @@ If you included the Lock script from the Auth0 CDN, you will need to also includ
 
 ```html
 <script src="${auth0js_url}"></script>
-<script src="${auth0js_urlv8}"></script>
+<script src="${lock_url}"></script>
 ```
 
 If you installed Lock from npm, you must include `auth0-js` in your project dependencies and import it. Before instantiating the `Auth0` object, you will need to require `auth0-js`:
