@@ -1,12 +1,11 @@
 ---
 title: Login
 default: true
-description: This tutorial demonstrates how to use the Social Auth App Django to add authentication and authorization to your web app
+description: This tutorial demonstrates how integrate Auth0 with a Django Web Applcation.
 budicon: 448
 ---
 
-You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application
-you can follow the tutorial steps.
+You can get started by either downloading the complete project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 <%= include('../../../_includes/_package', {
   org: 'auth0-samples',
@@ -21,17 +20,7 @@ you can follow the tutorial steps.
   ]
 }) %>
 
-## Specify the Callback URLs
-
-${include('../_callbackRegularWebApp')}
-
-You must add `http://localhost:8000/complete/auth0` callback URL in the `Allowed Callback URLs`.
-
-In this case, the callbackURL should look something like:
-
-```text
-http://yourUrl/complete/auth0/
-```
+<%= include('../_includes/_getting_started', { library: 'Djangos', callback: 'http://localhost:8000/complete/auth0' }) %>
 
 ## Add the Dependencies
 
@@ -43,85 +32,68 @@ social-auth-app-django
 python-jose
 six
 ```
+
+## Creating a Django project
+
+This tutorial assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
+
+The sample project was created with the following command:
+
+```bash
+$ django-admin startproject webappexample
+```
+
+The sample application was created with the following command:
+
+```bash
+$ python manage.py startapp auth0login
+```
+
 ## Django User Authentication System
 
-The Django comes with a user authentication system that handles users accounts, groups, permissions and cookie-based 
-user sessions. The system ley you handle both authentication and authorization.
-
-You use the authentication framework and its default models to manage user storage.
-Also has middleware to manage session across requests and associate users with request.
-
-## Create Django project
-
-To create a Django project you’ll need to auto-generate some code that establishes a Django project.
-From the command line into a directory where you’d like to store your code, run the following command:
-
-```bash
-$ django-admin startproject mysite
-```
-
-Where `mysite` is the name of the project.
-
-Then to create your app, make sure you’re in the same directory as manage.py and type this command:
-
-```bash
-$ python manage.py startapp YOUR_DJANGO_APP_NAME
-```
-
-Where `YOUR_DJANGO_APP_NAME` is the name of your app.
+The Django Web Framework bundles a [user authentication & authorization system[(https://docs.djangoproject.com/en/1.11/topics/auth/)] that handles users accounts, groups, permissions and cookie-based user sessions. This tutorial will use it.
 
 ## Django Settings
 
-A Django settings file contains all the configuration of your Django installation.
-Add the following settings in `settings.py` file.
+The `settings.py` file contains the configuration of your Django project. 
 
-First add the applications `social_django` to add the default Django ORM and `YOUR_DJANGO_APP_NAME` 
-into `INSTALLED_APPS`:
+Add one entry for `social_django` and your application into the `INSTALLED_APPS` entry.
 
 ```python
+# webappexample\settings.py
+
 INSTALLED_APPS = [
     'social_django',
-    'YOUR_DJANGO_APP_NAME'
+    '<your application name>'  # e.g. 'webappexample'
 ]
 ```
 
-Add the client secret and client id, scope and and domain of the client application.
-You can get this information from your [client settings](/#/applications/${account.clientId}/settings).
+Add your Auth0 domain, the Client Id and the Client Secret. You can get this information the [client settings](/#/applications/${account.clientId}/settings) in the Auth0 Dashboard.
+
 
 ```python
-SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
+# webappexample\settings.py
+
+SOCIAL_AUTH_TRAILING_SLASH = False                    # Remove end slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = '${account.namespace}'
 SOCIAL_AUTH_AUTH0_KEY = '${account.clientId}'
 SOCIAL_AUTH_AUTH0_SECRET = '${account.clientSecret}'
+```
+
+Set the SOCIAL_AUTH_AUTH0_SCOPE variable with scopes the application will request when authenticating. Check the [Scopes documentation](scopes/current) for more information.
+
+```python
+# webappexample\settings.py
+
 SOCIAL_AUTH_AUTH0_SCOPE = [
     'openid',
     'profile'
 ]
-SOCIAL_AUTH_AUTH0_DOMAIN = '${account.namespace}'
-SOCIAL_AUTH_AUTH0_AUTH_EXTRA_ARGUMENTS = 'YOUR_API_AUIDIENCE'
 ```
 
-In `SOCIAL_AUTH_AUTH0_AUTH_EXTRA_ARGUMENTS` replace `YOUR_API_AUDIENCE` with your API identifier.
+## Initialize the Database
 
-Register the necessary authentication backend in the `AUTHENTICATION_BACKENDS`. You have to add the custom backend 
-for `Auth0` and `ModelBackend` to users be able to login with username/password method.
-
-```python
-AUTHENTICATION_BACKENDS = {
-    'YOUR_DJANGO_APP_NAME.auth0backend.Auth0',
-    'django.contrib.auth.backends.ModelBackend'
-}
-```
-
-Configure the login, redirect login and redirect logout URLs.
-
-```python
-LOGIN_URL = "/login/auth0"
-LOGIN_REDIRECT_URL = "/dashboard"
-LOGOUT_REDIRECT_URL = "/"
-```
-
-Some of the needed applications in `INSTALLED_APPS` makes use of database, so we need to create the tables in the 
-database before we can use them. To do that, run the following command:
+The `social_django` application defined in `INSTALLED_APPS` makes use of database. The following command will create the required databases for all the applications defined in  `INSTALLED_APPS`:
 
 ```bash
 $ python manage.py migrate
@@ -129,9 +101,13 @@ $ python manage.py migrate
 
 ## Create the Auth0 Authentication Backend
 
-Create a file to implement the custom `Auth0` authentication backend. To do that you have to extends BaseOAuth2 class.
+Up to now we configured `social_django`. The next step is to create an Authentication Backend that bridges `social_django' with Auth0.
+
+Create a file to implement the custom `Auth0` authentication backend.
 
 ```python
+# auth0login/auth0backend.py
+
 from six.moves.urllib import request
 from jose import jwt
 from social_core.backends.oauth import BaseOAuth2
@@ -174,11 +150,35 @@ class Auth0(BaseOAuth2):
                 'user_id': payload['user_id']}
 ```
 
-## Add the URLs
 
-In the file `urls.py` add the following URLs:
+Register the authentication backends in `settings.py` . You have to add the custom backend for `Auth0` and `ModelBackend` to users be able to login with username/password method.
 
 ```python
+# webappexample\settings.py
+
+AUTHENTICATION_BACKENDS = {
+    'YOUR_DJANGO_APP_NAME.auth0backend.Auth0',
+    'django.contrib.auth.backends.ModelBackend'
+}
+```
+
+Configure the login, redirect login and redirect logout URLs. The 'auth0' part of the LOGIN_URL needs to match the 'name' of the custom backend defined above.
+
+```python
+# webappexample\settings.py
+
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/dashboard"
+LOGOUT_REDIRECT_URL = "/"
+```
+
+## Define Django Routes
+
+In `urls.py` add the following URLs:
+
+```python
+# auth0login\urls.py
+
 urlpatterns = [
     url('^$', views.index),
     url(r'^dashboard', views.dashboard),
@@ -189,16 +189,20 @@ urlpatterns = [
 
 ## Trigger Login with Social-Auth-App-Django
 
-First add `index` in your `views.py` to render the `index.html`:
+Add a handler for the Index view in your `views.py` to render the `index.html`:
 
 ```python
+# auth0login/views.py
+
 def index(request):
     return render(request, 'index.html')
 ```
 
-Now, add a link to Log In in the `index.html` template:
+Add a link to Log In in the `index.html` template.
 
 ```html
+<!-- auth0login/templates/index.html -->
+
 <div class="login-box auth0-box before">
     <img src="https://i.cloudup.com/StzWWrY34s.png" />
     <h3>Auth0 Example</h3>
@@ -207,11 +211,13 @@ Now, add a link to Log In in the `index.html` template:
 </div>
 ```
 
-## Access user information
+## Access User Information
 
-Django user authentication system attach the user in the request so we can get the user information from the request.
+After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the /dashboard route in the `views.py` file.
 
 ```python
+# auth0login/views.py
+
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 import json
@@ -232,9 +238,10 @@ def dashboard(request):
     })
 ```
 
-Then display the user information in the `dashboard.htm` template.
+Add the following snippet to `dashboard.html` to display the [user information](https://auth0.com/docs/user-profile/normalized/oidc).
 
 ```html
+<!-- auth0login/templates/dashboard.html -->
 <div class="logged-in-box auth0-box logged-in">
     <h1 id="logo"><img src="//cdn.auth0.com/samples/auth0_logo_final_blue_RGB.png" /></h1>
     <img class="avatar" src="{{ auth0User.extra_data.picture }}"/>
@@ -243,13 +250,13 @@ Then display the user information in the `dashboard.htm` template.
 </div>
 ```
 
-[Click here](/user-profile) to check all the information that the userinfo hash has.
-
 ## Logout
 
-To logout a user, just simply add a link to `/logout` URL in the `dashboard.html` template:
+To logout a user, add a link to `/logout` URL in `dashboard.html`:
 
 ```html
+<!-- auth0login/templates/dashboard.html -->
+
 <div class="logged-in-box auth0-box logged-in">
     <h1 id="logo"><img src="//cdn.auth0.com/samples/auth0_logo_final_blue_RGB.png" /></h1>
     <img class="avatar" src="{{ auth0User.extra_data.picture }}"/>
