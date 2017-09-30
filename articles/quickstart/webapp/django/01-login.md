@@ -155,7 +155,7 @@ class Auth0(BaseOAuth2):
 The callback URL will be calculated by `social-auth` by concatenating `/callback` with the backend `name` property, so it will be `/callback/auth0`.
 :::
 
-Register the authentication backends in `settings.py` . Add the custom backend for `Auth0` and `ModelBackend` to users be able to login with username/password method.
+Register the authentication backends in `settings.py`. Add the custom backend for `Auth0` and `ModelBackend` to users be able to login with username/password method.
 
 ```python
 # webappexample\settings.py
@@ -166,7 +166,7 @@ AUTHENTICATION_BACKENDS = {
 }
 ```
 
-Configure the login, redirect login and redirect logout URLs. The LOGIN_URL ends with `auth0` as it needs to match the `name` property of the custom backend defined above.
+Configure the login, redirect login and redirect logout URLs as set below. The LOGIN_URL ends with `auth0` as it needs to match the `name` property of the custom backend defined above.
 
 ```python
 # webappexample\settings.py
@@ -202,7 +202,7 @@ def index(request):
     return render(request, 'index.html')
 ```
 
-Add a link to Log In in the `index.html` template.
+Add a link to `/login/auth0` in the `index.html` template.
 
 ```html
 <!-- auth0login/templates/index.html -->
