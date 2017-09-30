@@ -49,9 +49,9 @@ The sample application was created with the following command:
 $ python manage.py startapp auth0login
 ```
 
-## Django User Authentication System
+## Social-Django & the Django User Authentication System
 
-This guide will use `social_django` which is the Django implementation of [Python Social Auth](http://python-social-auth.readthedocs.io/en/latest/). It adds an OpenID Connect client to the [user authentication & authorization system](https://docs.djangoproject.com/en/1.11/topics/auth/) bundled by the Django Web Framework.
+This guide will use [`social_django`](https://github.com/python-social-auth/social-app-django) which is the Django implementation of [Python Social Auth](http://python-social-auth.readthedocs.io/en/latest/). It adds an OpenID Connect client to the [user authentication & authorization system](https://docs.djangoproject.com/en/1.11/topics/auth/) bundled by the Django Web Framework.
 
 ## Django Settings
 
@@ -101,9 +101,9 @@ $ python manage.py migrate
 
 ## Create the Auth0 Authentication Backend
 
-Up to now we configured `social_django`. The next step is to create an Authentication Backend that bridges `social_django' with Auth0.
+Up to now we configured `social_django`. The next step is to create an Authentication Backend that bridges `social_django` with Auth0.
 
-Create a file to implement the custom `Auth0` authentication backend.
+Create a file to implement the custom `Auth0` authentication backend. 
 
 ```python
 # auth0login/auth0backend.py
@@ -135,11 +135,12 @@ class Auth0(BaseOAuth2):
         return details['user_id']
     
     def get_user_details(self, response):
-        # Obtain JWT and the keys to validate the signature
+        # Obtain JWT and the JWKS keys to validate the signature
         idToken = response.get('id_token')
         jwks = request.urlopen("https://" + self.setting('DOMAIN') + "/.well-known/jwks.json")
         issuer = "https://" + self.setting('DOMAIN') + "/"
         audience = self.setting('KEY') #CLIENT_ID
+
         # Decode the jwt to get the user information
         payload = jwt.decode(idToken, jwks.read(), algorithms=['RS256'], audience=audience, issuer=issuer)
         
@@ -150,11 +151,11 @@ class Auth0(BaseOAuth2):
                 'user_id': payload['user_id']}
 ```
 
-:::
+::: note
 The callback URL will be calculated by `social-auth` by concatenating `/callback` with the backend `name` property, so it will be `/callback/auth0`.
 :::
 
-Register the authentication backends in `settings.py` . You have to add the custom backend for `Auth0` and `ModelBackend` to users be able to login with username/password method.
+Register the authentication backends in `settings.py` . Add the custom backend for `Auth0` and `ModelBackend` to users be able to login with username/password method.
 
 ```python
 # webappexample\settings.py
@@ -165,7 +166,7 @@ AUTHENTICATION_BACKENDS = {
 }
 ```
 
-Configure the login, redirect login and redirect logout URLs. The 'auth0' part of the LOGIN_URL needs to match the 'name' of the custom backend defined above.
+Configure the login, redirect login and redirect logout URLs. The LOGIN_URL ends with `auth0` as it needs to match the `name` property of the custom backend defined above.
 
 ```python
 # webappexample\settings.py
@@ -175,10 +176,9 @@ LOGIN_REDIRECT_URL = "/dashboard"
 LOGOUT_REDIRECT_URL = "/"
 ```
 
-
 ## Define Django Routes
 
-In `urls.py` add the following URLs:
+Add routes for the root folder, the dashboard folder and the authentication applications in `urls.py`.
 
 ```python
 # auth0login\urls.py
@@ -191,9 +191,9 @@ urlpatterns = [
 ]
 ```
 
-## Trigger Login with Social-Auth-App-Django
+## Trigger Login with Social-Django
 
-Add a handler for the Index view in your `views.py` to render the `index.html`:
+Add a handler for the `index` view in your `views.py` to render the `index.html`
 
 ```python
 # auth0login/views.py
@@ -217,7 +217,7 @@ Add a link to Log In in the `index.html` template.
 
 ## Access User Information
 
-After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the /dashboard route in the `views.py` file.
+After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the `/dashboard` route in the `views.py` file.
 
 ```python
 # auth0login/views.py
@@ -256,7 +256,7 @@ Add the following snippet to `dashboard.html` to display the [user information](
 
 ## Logout
 
-To logout a user, add a link to `/logout` URL in `dashboard.html`:
+To logout a user, add a link to `/logout` URL in `dashboard.html`.
 
 ```html
 <!-- auth0login/templates/dashboard.html -->
