@@ -20,7 +20,7 @@ You can get started by either downloading the complete project or if you would l
   ]
 }) %>
 
-<%= include('../_includes/_getting_started', { library: 'Djangos', callback: 'http://localhost:8000/complete/auth0' }) %>
+<%= include('../_includes/_getting_started', { library: 'Django', callback: 'http://localhost:8000/complete/auth0' }) %>
 
 ## Add the Dependencies
 
@@ -35,7 +35,7 @@ six
 
 ## Creating a Django project
 
-This tutorial assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
+This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
 
 The sample project was created with the following command:
 
@@ -51,13 +51,13 @@ $ python manage.py startapp auth0login
 
 ## Django User Authentication System
 
-The Django Web Framework bundles a [user authentication & authorization system[(https://docs.djangoproject.com/en/1.11/topics/auth/)] that handles users accounts, groups, permissions and cookie-based user sessions. This tutorial will use it.
+This guide will use `social_django` which is the Django implementation of [Python Social Auth](http://python-social-auth.readthedocs.io/en/latest/). It adds an OpenID Connect client to the [user authentication & authorization system](https://docs.djangoproject.com/en/1.11/topics/auth/) bundled by the Django Web Framework.
 
 ## Django Settings
 
 The `settings.py` file contains the configuration of your Django project. 
 
-Add one entry for `social_django` and your application into the `INSTALLED_APPS` entry.
+Add one entry for `social_django` and for your application into the `INSTALLED_APPS` entry.
 
 ```python
 # webappexample\settings.py
@@ -80,7 +80,7 @@ SOCIAL_AUTH_AUTH0_KEY = '${account.clientId}'
 SOCIAL_AUTH_AUTH0_SECRET = '${account.clientSecret}'
 ```
 
-Set the SOCIAL_AUTH_AUTH0_SCOPE variable with scopes the application will request when authenticating. Check the [Scopes documentation](scopes/current) for more information.
+Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will request when authenticating. Check the [Scopes documentation](scopes/current) for more information.
 
 ```python
 # webappexample\settings.py
@@ -93,7 +93,7 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
 
 ## Initialize the Database
 
-The `social_django` application defined in `INSTALLED_APPS` makes use of database. The following command will create the required databases for all the applications defined in  `INSTALLED_APPS`:
+The `social_django` application defined in `INSTALLED_APPS` requires a database. Run the following command to create all the required databases for the applications defined in  `INSTALLED_APPS`:
 
 ```bash
 $ python manage.py migrate
@@ -150,6 +150,9 @@ class Auth0(BaseOAuth2):
                 'user_id': payload['user_id']}
 ```
 
+:::
+The callback URL will be calculated by `social-auth` by concatenating `/callback` with the backend `name` property, so it will be `/callback/auth0`.
+:::
 
 Register the authentication backends in `settings.py` . You have to add the custom backend for `Auth0` and `ModelBackend` to users be able to login with username/password method.
 
@@ -171,6 +174,7 @@ LOGIN_URL = "/login/auth0"
 LOGIN_REDIRECT_URL = "/dashboard"
 LOGOUT_REDIRECT_URL = "/"
 ```
+
 
 ## Define Django Routes
 
