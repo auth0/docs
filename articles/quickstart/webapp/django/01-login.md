@@ -22,7 +22,9 @@ You can get started by either downloading the complete project or if you would l
 
 <%= include('../_includes/_getting_started', { library: 'Django', callback: 'http://localhost:8000/complete/auth0' }) %>
 
-## Add the Dependencies
+This guide will use [`social_django`](https://github.com/python-social-auth/social-app-django) which is the Django implementation of [Python Social Auth](http://python-social-auth.readthedocs.io/en/latest/). It adds an OAuth stack to the [user authentication & authorization system](https://docs.djangoproject.com/en/1.11/topics/auth/) bundled by the Django Web Framework.
+
+## Install the Dependencies
 
 Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`
 
@@ -33,25 +35,17 @@ python-jose
 six
 ```
 
-## Creating a Django project
+## Create a Django project
 
 This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
 
-The sample project was created with the following command:
+The sample project was created with the following commands:
 
 ```bash
 $ django-admin startproject webappexample
-```
-
-The sample application was created with the following command:
-
-```bash
+$ cd webappexample
 $ python manage.py startapp auth0login
 ```
-
-## Social-Django & the Django User Authentication System
-
-This guide will use [`social_django`](https://github.com/python-social-auth/social-app-django) which is the Django implementation of [Python Social Auth](http://python-social-auth.readthedocs.io/en/latest/). It adds an OpenID Connect client to the [user authentication & authorization system](https://docs.djangoproject.com/en/1.11/topics/auth/) bundled by the Django Web Framework.
 
 ## Django Settings
 
@@ -175,21 +169,6 @@ LOGIN_REDIRECT_URL = "/dashboard"
 LOGOUT_REDIRECT_URL = "/"
 ```
 
-## Define Django Routes
-
-Add routes for the root folder, the dashboard folder and the authentication applications in `urls.py`.
-
-```python
-# auth0login\urls.py
-
-urlpatterns = [
-    url('^$', views.index),
-    url(r'^dashboard', views.dashboard),
-    url(r'^', include('django.contrib.auth.urls', namespace='auth')),
-    url(r'^', include('social_django.urls', namespace='social')),
-]
-```
-
 ## Trigger Login with Social-Django
 
 Add a handler for the `index` view in your `views.py` to render the `index.html`
@@ -216,7 +195,7 @@ Add a link to `/login/auth0` in the `index.html` template.
 
 ## Access User Information
 
-After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the `/dashboard` route in the `views.py` file.
+After the user is logged in, you can access the user information from the `request.user` property. Add a handler for the `/dashboard` endpoint in the `views.py` file.
 
 ```python
 # auth0login/views.py
@@ -267,4 +246,23 @@ To logout a user, add a link to `/logout` URL in `dashboard.html`.
     <pre>{{ userdata }}</pre>
     <a class="btn btn-primary btn-lg btn-logout btn-block" href="/logout">Logout</a>
 </div>
+```
+
+## Add URL Mappings
+
+In previous steps we added methods to the `views.py` file. We need to map those methods to URLs.
+
+Django has a [URL dispatcher](https://docs.djangoproject.com/en/1.11/topics/http/urls/) that lets you map URL patterns to views.
+
+Add mappins for the root folder, the dashboard folder and the authentication applications in `urls.py`.
+
+```python
+# auth0login\urls.py
+
+urlpatterns = [
+    url('^$', views.index),
+    url(r'^dashboard', views.dashboard),
+    url(r'^', include('django.contrib.auth.urls', namespace='auth')),
+    url(r'^', include('social_django.urls', namespace='social')),
+]
 ```
