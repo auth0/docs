@@ -145,10 +145,9 @@ class Auth0(BaseOAuth2):
         payload = jwt.decode(idToken, jwks.read(), algorithms=['RS256'], audience=audience, issuer=issuer)
         
         return {'username': payload['nickname'],
-                'email': payload['email'],
                 'first_name': payload['name'],
                 'picture': payload['picture'],
-                'user_id': payload['user_id']}
+                'user_id': payload['sub']}
 ```
 
 ::: note
