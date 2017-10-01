@@ -19,11 +19,11 @@ description: This tutorial dmonstrates how to use Auth0 to add authorization to 
 
 <%= include('../../../_includes/_api_auth_intro') %>
 
+This guide demonstrates how to add authorization to your Python API using [Django REST Framework](http://www.django-rest-framework.org/).
+
 <%= include('../_includes/_api_create_new') %>
 
 <%= include('../_includes/_api_auth_preamble') %>
-
-This guide demonstrates how to add authorization to your Python API using [Django REST Framework](http://www.django-rest-framework.org/).
 
 ## Install the Dependencies
 
@@ -39,7 +39,7 @@ python-jose
 
 ## Create a Django Project
 
-This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/)
+This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
 
 The sample project was created with the following commands:
 
@@ -97,7 +97,8 @@ By default, your API will be set up to use RS256 as the algorithm for signing to
 
 Obtain the public key from your [JWKS](/jwks). Then set the settings for [REST Framework JWK](http://getblimp.github.io/django-rest-framework-jwt/).
 
-Set the 'JWT_
+Set the `JWT_AUDIENCE` to your API identifier and the `JWT_ISSUER` to your Auth0 domain. By default those values will be retrieved from the `.env` file.
+
 ```python
 # apiexample\settings.py
 
@@ -233,7 +234,7 @@ urlpatterns = [
 ]
 ```
 
-The Django project also has a `urls.py` file. Add a reference to your applications `urls.py` file.
+The Django project also has a `urls.py` file. Add a reference to your application's `urls.py` file.
 
 ```python
 // apiexample/urls.py
