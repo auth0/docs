@@ -15,5 +15,3 @@ articles:
   - 01-authorization
 seo_alias: django
 default_article: 01-authorization
-articles:
-  - 01-authorization
