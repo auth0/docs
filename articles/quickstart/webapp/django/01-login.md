@@ -26,7 +26,7 @@ This guide will use [`social_django`](https://github.com/python-social-auth/soci
 
 ## Install the Dependencies
 
-Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`
+Add the following dependencies to your `requirements.txt`:
 
 ```text
 django
@@ -35,7 +35,13 @@ python-jose
 six
 ```
 
-## Create a Django project
+Once the dependencies are listed in requirements.txt, run the following command:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Create a Django Project
 
 This guide assumes you already have a Django application set up. If that is not the case, follow the steps in the [Django Tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
 
@@ -74,7 +80,7 @@ SOCIAL_AUTH_AUTH0_KEY = '${account.clientId}'
 SOCIAL_AUTH_AUTH0_SECRET = '${account.clientSecret}'
 ```
 
-Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will request when authenticating. Check the [Scopes documentation](scopes/current) for more information.
+Set the `SOCIAL_AUTH_AUTH0_SCOPE` variable with the scopes the application will request when authenticating. Check the [Scopes documentation](/scopes/current) for more information.
 
 ```python
 # webappexample\settings.py
@@ -87,7 +93,7 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
 
 ## Initialize the Database
 
-The `social_django` application defined in `INSTALLED_APPS` requires a database. Run the following command to create all the required databases for the applications defined in  `INSTALLED_APPS`:
+The `social_django` application defined in `INSTALLED_APPS` requires a database. Run the following command to create all the required databases for the applications defined in `INSTALLED_APPS`:
 
 ```bash
 $ python manage.py migrate
@@ -95,7 +101,7 @@ $ python manage.py migrate
 
 ## Create the Auth0 Authentication Backend
 
-Up to now we configured `social_django`. The next step is to create an Authentication Backend that bridges `social_django` with Auth0.
+The `social_django` application is now configured. The next step is to create an authentication backend that bridges `social_django` with Auth0.
 
 Create a file to implement the custom `Auth0` authentication backend. 
 
@@ -148,7 +154,7 @@ class Auth0(BaseOAuth2):
 The callback URL will be calculated by `social-auth` by concatenating `/callback` with the backend `name` property, so it will be `/callback/auth0`.
 :::
 
-Register the authentication backends in `settings.py`. Add the custom backend for `Auth0` and `ModelBackend` to users be able to login with username/password method.
+Register the authentication backends in `settings.py`. Add the custom backend for `Auth0` and `ModelBackend` for users to be able to login with username/password method.
 
 ```python
 # webappexample\settings.py
@@ -220,7 +226,7 @@ def dashboard(request):
     })
 ```
 
-Add the following snippet to `dashboard.html` to display the [user information](https://auth0.com/docs/user-profile/normalized/oidc).
+Add the following snippet to `dashboard.html` to display the [user information](/user-profile/normalized/oidc).
 
 ```html
 <!-- auth0login/templates/dashboard.html -->
@@ -234,7 +240,7 @@ Add the following snippet to `dashboard.html` to display the [user information](
 
 ## Logout
 
-To logout a user, add a link to `/logout` URL in `dashboard.html`.
+To log a user out, add a link to `/logout` in `dashboard.html`.
 
 ```html
 <!-- auth0login/templates/dashboard.html -->
@@ -254,7 +260,7 @@ In previous steps we added methods to the `views.py` file. We need to map those 
 
 Django has a [URL dispatcher](https://docs.djangoproject.com/en/1.11/topics/http/urls/) that lets you map URL patterns to views.
 
-Add mappins for the root folder, the dashboard folder and the authentication applications in `urls.py`.
+Add mappings for the root folder, the dashboard folder, and the authentication applications in `urls.py`.
 
 ```python
 # auth0login\urls.py
