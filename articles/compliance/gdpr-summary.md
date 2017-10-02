@@ -1,8 +1,8 @@
 ---
-title:
-description:
+title: General Data Protection Regulation (GDPR) - A Summary
+description: A summary of how GDPR affects Auth0, its customers, and the end users
 ---
-# General Data Protection Regulation (GDPR): A Summary
+# General Data Protection Regulation (GDPR) - A Summary
 
 The following is a summary of the rights and responsibilities of those affected by GDPR. This article also includes enforcement information.
 

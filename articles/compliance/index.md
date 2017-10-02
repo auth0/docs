@@ -13,9 +13,10 @@ The content of these documents are is intended to be legal advice, nor should th
 :::
 
 ::: Keep Reading
-* [Definitions](definitions)
+* [Definitions](/compliance/definitions)
 * [GDPR Summary](/compliance/gdpr-summary)
 * [Auth0 as a Data Processor](/compliance/auth0-as-data-processor)
+* [Auth0 Data Processing](/compliance/data-processing)
 * [Auth0 Features Aiding Customer Compliance](/compliance/features-aiding-compliance)
 * [Security Advice for Customers](/compliance/security-advice-for-customers)
 * [Auth0 Subprocessors](/compliance/subprocessors)
