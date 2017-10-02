@@ -91,7 +91,7 @@ function (user, context, callback) {
 
 ## Use a Custom MFA Service
 
-If you are using an MFA provider that does not have Auth0 built-in support or if you are using a service you have created, you can use the [redirect](/protocols#redirect-protocol-in-rules) protocol for the integration.
+If you are using an MFA provider that does not have Auth0 built-in support or if you are using a service you have created, you can use the [redirect](/rules/current/redirect) protocol for the integration.
 
 By using the redirect protocol, you interrupt the authentication transaction and redirect the user to a specified URL where they are asked for MFA. If authentication is successful, Auth0 will continue processing the request.
 
@@ -122,8 +122,6 @@ function (user, context, callback) {
 
 ## Additional Notes
 
-MFA does not work with the [Resource Owner](/protocols#oauth-resource-owner-password-credentials-grant) endpoint.
-
-If you are using MFA for database connections that use [Popup Mode](https://github.com/auth0/auth0.js#popup-mode), set `sso` to `true` when defining the options in [auth0.js](https://github.com/auth0/auth0.js#sso) or [Lock](/libraries/lock). If you fail to do this, users will be able to log in without MFA.
-
-If you are using MFA after an authentication with one or more social providers, you may need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, select your particular from the list at: [Identity Providers](/identityproviders).
+* A tutorial is available on using MFA with the [Resource Owner](/api-auth/tutorials/multifactor-resource-owner-password) endpoint.
+* If you are using MFA for database connections that use Popup Mode, set `sso` to `true` when defining the options in [auth0.js](/libraries/auth0js) or [Lock](/libraries/lock). If you fail to do this, users will be able to log in without MFA.
+* If you are using MFA after an authentication with one or more social providers, you may need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, select your particular from the list at: [Identity Providers](/identityproviders).
