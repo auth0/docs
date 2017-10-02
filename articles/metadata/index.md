@@ -49,7 +49,9 @@ console.log(user.app_metadata.plan); // "full"
 With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
 :::
 
-### Naming Metadata Fields
+### Rules on Naming Metadata Fields
+
+#### Don't Use Dots
 
 Metadata field **names** must not contain a dot. For example, use of the following field name would return a Bad Request (400) error:
 
@@ -79,7 +81,9 @@ However, the usage of the `.` delimiter is acceptable in the data **values** suc
 }
 ```
 
-Do not use dynamic field names. For example, instead of using the following structure...
+#### Don't Use Dynamic Field Names
+
+Do not use dynamic field names. For example, instead of using the following structure:
 
 ```json
 "participants": {
@@ -92,7 +96,7 @@ Do not use dynamic field names. For example, instead of using the following stru
 }
 ```
 
-...use the following structure...
+Use this:
 
 ```json
 "participants": [
