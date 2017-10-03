@@ -19,7 +19,7 @@ The content of these documents are is intended to be legal advice, nor should th
 * [Auth0 Data Processing](/compliance/data-processing)
 * [Auth0 Features Aiding Customer Compliance](/compliance/features-aiding-compliance)
 * [Security Advice for Customers](/compliance/security-advice-for-customers)
-* [Auth0 Subprocessors](/compliance/subprocessors)
+* [Auth0 Sub-Processors](/compliance/subprocessors)
 * [Auth0 Certifications and Compliance](/compliance/certifications-and-complaince)
 * [Auth0 Security Practices](/compliance/security-practices)
 :::

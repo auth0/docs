@@ -49,7 +49,7 @@ Auth0 is responsible for:
 * Notifying the customer if it receives requests from the customer's end users exercising their GDPR rights as subjects for data access, erasure, and so on
 * Notifying the customer if it receives requests from EU Data Privacy Authorities (unless prohibited by law enforcement)
 * Notifying the customer if it becomes aware of a confirmed security breach
-* Notifying the customer if any of its subprocessors notify Auth0 about a confirmed data breach that impacts Auth0 customer data (unless prohibited by law enforcement)
+* Notifying the customer if any of its sub-processors notify Auth0 about a confirmed data breach that impacts Auth0 customer data (unless prohibited by law enforcement)
 * Providing a privacy policy, terms of service, security statement, data protection agreement, and so on, to provide info on its policies and practices
 
 * Providing information about its data processing, so that customer has info it needs to process data lawfully
