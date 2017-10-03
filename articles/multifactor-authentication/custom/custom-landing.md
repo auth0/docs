@@ -91,7 +91,7 @@ function (user, context, callback) {
 
 ## Use a Custom MFA Service
 
-If you are using an MFA provider that does not have Auth0 built-in support or if you are using a service you have created, you can use the [redirect](/rules/current/redirect) protocol for the integration.
+If you are using an MFA provider that does not have Auth0 built-in support or if you are using a service you have created, you can use the [redirect](/rules/redirect) protocol for the integration.
 
 By using the redirect protocol, you interrupt the authentication transaction and redirect the user to a specified URL where they are asked for MFA. If authentication is successful, Auth0 will continue processing the request.
 
