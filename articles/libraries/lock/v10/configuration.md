@@ -17,6 +17,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 | Option | Description |
 | --- | --- |
+| [allowAutoComplete](#allowautocomplete-boolean-) | Whether or not to allow autocomplete in the widget |
 | [allowedConnections](#allowedconnections-array-) | limit the client connections shown in Lock to a particular set |
 | [allowShowPassword](#allowshowpassword-boolean-) | Whether to allow the user to show password as typing |
 | [autoclose](#autoclose-boolean-) | Whether or not Lock auto closes after a login |
@@ -96,6 +97,16 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 ---
 
 ## Display Options
+
+### allowAutoComplete {Boolean}
+
+Determines whether or not the email or username inputs will allow autocomplete (`<input autocomplete />`). Defaults to `false`.
+
+```js
+var options = {
+  allowAutoComplete: true
+};
+```
 
 ### allowedConnections {Array}
 
@@ -831,7 +842,7 @@ var options = {
 
 ## Other Options
 
-#### oidcConformant {Boolean}
+### oidcConformant {Boolean}
 
 Lock should be used in OIDC Conformant mode when embedding it directly in your application. When this mode is enabled, it will force Lock to use Auth0's current authentication pipeline and will prevent it from reaching legacy endpoints. This mode is **not** required when using Lock at Auth0's [hosted login page](/hosted-pages/login).
 

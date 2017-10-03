@@ -728,7 +728,7 @@ module.exports = [
   },
   {
     from: '/libraries/lock/customization',
-    to: '/libraries/lock/v10/customization',
+    to: '/libraries/lock/v10/configuration',
     status: 302
   },
   {
@@ -1352,5 +1352,25 @@ module.exports = [
   {
     from: '/metadata/lock',
     to: '/metadata#using-lock-to-manage-metadata'
+  },
+  {
+    from: '/libraries/lock/v10/customization',
+    to: '/libraries/lock/v10/configuration',
+  },
+  {
+    from: '/libraries/lock/v9/customization',
+    to: '/libraries/lock/v9/configuration',
+  },
+  {
+    from: '/libraries/lock/v10/popup-mode',
+    to: '/libraries/lock/v10/authentication-modes',
+  },
+  {
+    from: '/libraries/lock/v9/display-modes',
+    to: '/libraries/lock/v9/configuration#container-string-',
+  },
+  {
+    from: '/libraries/lock/v9/types-of-applications',
+    to: '/libraries/lock/v9/display-modes',
   }
 ];
